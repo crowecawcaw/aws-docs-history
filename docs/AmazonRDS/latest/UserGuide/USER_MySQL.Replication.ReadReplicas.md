@@ -1,23 +1,14 @@
-# Starting and stopping replication with MySQL read replicas
+# Working with Multi-AZ read replica deployments with MySQL
 
-You can stop and restart the replication process on an Amazon RDS DB instance by calling the
-system stored procedures
-[mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") and
-[mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication").
-You can do this when replicating between two Amazon RDS instances for long-running operations
-such as creating large indexes. You also need to stop and start replication when
-importing or exporting databases.
-For more information, see
-[Importing data to an Amazon RDS for MySQL
-database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md")
-and
-[Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
+You can create a read replica from either single-AZ or Multi-AZ DB instance deployments.
+You use Multi-AZ deployments to improve the durability and availability of critical
+data, but you can't use the Multi-AZ secondary to serve read-only queries. Instead,
+you can create read replicas from high-traffic Multi-AZ DB instances to offload
+read-only queries. If the source instance of a Multi-AZ deployment fails over to the
+secondary, any associated read replicas automatically switch to use the secondary
+(now primary) as their replication source. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
 
-If replication is stopped for more than 30 consecutive days, either manually or due to
-a replication error, Amazon RDS terminates replication between the source DB instance and
-all read replicas. It does so to prevent increased storage requirements on the
-source DB instance and long failover times. The read replica DB instance is still
-available. However, replication can't be resumed because the binary logs required by
-the read replica are deleted from the source DB instance after replication is
-terminated. You can create a new read replica for the source DB instance to
-reestablish replication.
+You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your
+replica in another Availability Zone for failover support for the replica. Creating
+your read replica as a Multi-AZ DB instance is independent of whether the source
+database is a Multi-AZ DB instance.

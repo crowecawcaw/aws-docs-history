@@ -18,16 +18,11 @@ AWS CLI or the RDS API.
 
 ###### Topics
 
-- [RDS Extended Support
-  behavior](#extended-support-restoring-db-instance-behavior "#extended-support-restoring-db-instance-behavior")
-- [Considerations
-  for RDS Extended Support](#extended-support-restoring-db-instance-considerations "#extended-support-restoring-db-instance-considerations")
-- [Restore a DB instance or a Multi-AZ DB cluster with
-  RDS Extended Support](#extended-support-restoring-db-instance-restore "#extended-support-restoring-db-instance-restore")
+- [RDS Extended Support behavior](#extended-support-restoring-db-instance-behavior "#extended-support-restoring-db-instance-behavior")
+- [Considerations for RDS Extended Support](#extended-support-restoring-db-instance-considerations "#extended-support-restoring-db-instance-considerations")
+- [Restore a DB instance or a Multi-AZ DB cluster with RDS Extended Support](#extended-support-restoring-db-instance-restore "#extended-support-restoring-db-instance-restore")
 
-## RDS Extended Support
-
-behavior
+## RDS Extended Support behavior
 
 The following table summarizes what happens when a major engine version of a DB instance or a Multi-AZ DB cluster that you are restoring has reached the RDS end of
 standard support.
@@ -44,9 +39,7 @@ or `open-source-rds-extended-support-disabled`.
 \*\* This option is only available when restoring a DB instance or a Multi-AZ DB cluster running PostgreSQL 12 and higher or MySQL 8 and
 higher.
 
-## Considerations
-
-for RDS Extended Support
+## Considerations for RDS Extended Support
 
 Before restoring a DB instance or a
 Multi-AZ DB cluster,
@@ -86,9 +79,7 @@ won't attempt to upgrade it again.
 
 For more information, see [MySQL versions](MySQL.Concepts.md "MySQL.Concepts.md") and [Release calendars for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md").
 
-## Restore a DB instance or a Multi-AZ DB cluster with
-
-RDS Extended Support
+## Restore a DB instance or a Multi-AZ DB cluster with RDS Extended Support
 
 You can restore a DB instance or a Multi-AZ DB cluster with an RDS Extended Support version
 using the AWS Management Console, the AWS CLI, or the RDS API.

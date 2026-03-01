@@ -1,6 +1,4 @@
-# Modifying the RDS for Db2 replica
-
-mode
+# Modifying the RDS for Db2 replica mode
 
 You can change the replica mode of an existing Db2 replica between read-only and standby
 modes. This flexibility allows you to adapt your replica configuration based on changing
@@ -19,7 +17,7 @@ You might want to change replica modes in the following scenarios:
 - You have the necessary permissions to modify the DB instance.
   The change operation can take a few minutes. During the operation, the DB instance status
   changes to **modifying**. For more information about status changes, see
-  [Viewing Amazon RDS DB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+  [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
   When you change from read-only to standby mode, the replica disconnects all active
   connections.
 
@@ -121,5 +119,4 @@ read-only:
 ```
 
 For information about the differences between replica modes, see [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md"). For troubleshooting replica
-issues, see [Troubleshooting RDS for Db2 replication
-issues](db2-troubleshooting-replicas.md "db2-troubleshooting-replicas.md").
+issues, see [Troubleshooting RDS for Db2 replication issues](db2-troubleshooting-replicas.md "db2-troubleshooting-replicas.md").

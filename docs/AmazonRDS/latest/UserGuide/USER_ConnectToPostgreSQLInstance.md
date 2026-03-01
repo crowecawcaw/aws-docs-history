@@ -1,6 +1,4 @@
-# Connecting to a DB instance running the
-
-PostgreSQL database engine
+# Connecting to a DB instance running the PostgreSQL database engine
 
 After Amazon RDS provisions your DB instance, you can use any standard SQL client application
 to connect to the instance. Before you can connect, the DB instance must be available and
@@ -22,22 +20,14 @@ accessibility, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.md 
 ###### Contents
 
 - [Installing the psql client](USER_ConnectToPostgreSQLInstance.md#install-psql "USER_ConnectToPostgreSQLInstance.md#install-psql")
-- [Finding the connection information for an
-  RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md#postgresql-endpoint "USER_ConnectToPostgreSQLInstance.md#postgresql-endpoint")
-- [Using pgAdmin to connect to a
-  RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
-- [Using psql to connect to your
-  RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
-- [Connecting to RDS for PostgreSQL with the
-  Amazon Web Services (AWS) JDBC Driver](PostgreSQL.Connecting.md "PostgreSQL.Connecting.md")
-- [Connecting to RDS for PostgreSQL with
-  the Amazon Web Services (AWS) Python Driver](PostgreSQL.Connecting.md "PostgreSQL.Connecting.md")
-- [Troubleshooting
-  connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
-  - [Error
-    – FATAL: database name does not exist](USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname "USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname")
-  - [Error
-    – Could not connect to server: Connection timed out](USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout "USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout")
+- [Finding the connection information for an RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md#postgresql-endpoint "USER_ConnectToPostgreSQLInstance.md#postgresql-endpoint")
+- [Using pgAdmin to connect to a RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+- [Using psql to connect to your RDS for PostgreSQL DB instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+- [Connecting to RDS for PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](PostgreSQL.Connecting.md "PostgreSQL.Connecting.md")
+- [Connecting to RDS for PostgreSQL with the Amazon Web Services (AWS) Python Driver](PostgreSQL.Connecting.md "PostgreSQL.Connecting.md")
+- [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+  - [Error – FATAL: database name does not exist](USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname "USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname")
+  - [Error – Could not connect to server: Connection timed out](USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout "USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout")
   - [Errors with security group access rules](USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "USER_ConnectToPostgreSQLInstance.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules")
 
 ## Installing the psql client
@@ -61,9 +51,7 @@ To install the latest version of the psql client on Ubuntu, run the following co
 sudo apt install -y postgresql-client
 ```
 
-## Finding the connection information for an
-
-RDS for PostgreSQL DB instance
+## Finding the connection information for an RDS for PostgreSQL DB instance
 
 If the DB instance is available and accessible, you can connect by providing the
 following information to the SQL client application:

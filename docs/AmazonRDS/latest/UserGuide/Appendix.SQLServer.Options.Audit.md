@@ -1,76 +1,133 @@
-# Adding SQL Server Audit to the DB instance options
+# Manually creating an IAM role for SQL Server Audit
 
-Enabling SQL Server Audit requires two steps: enabling the option on the DB instance, and
-enabling the feature inside SQL Server. The process for adding the SQL Server Audit
-option to a DB instance is as follows:
+Typically, when you create a new option, the AWS Management Console creates the IAM role and the IAM
+trust policy for you. However, you can manually create a new IAM role to use with
+SQL Server Audits, so that you can customize it with any additional requirements you
+might have. To do this, you create an IAM role and delegate permissions so that
+the Amazon RDS service can use your Amazon S3 bucket. When you create this IAM role, you
+attach trust and permissions policies. The trust policy allows Amazon RDS to assume this
+role. The permission policy defines the actions that this role can do. For more
+information, see [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the
+_AWS Identity and Access Management User
+Guide_.
 
-1. Create a new option group, or copy or modify an existing option group.
-2. Add and configure all required options.
-3. Associate the option group with the DB instance.
-   After you add the SQL Server Audit option, you don't need to restart your DB instance. As
-   soon as the option group is active, you can create audits and store audit logs in your
-   S3 bucket.
+You can use the examples in this section to create the trust relationships and permissions policies you need.
 
-###### To add and configure SQL Server Audit on a DB instance's option group
+The following example shows a trust relationship for SQL Server Audit. It uses the _service
+principal_
+`rds.amazonaws.com` to allow RDS to write to the S3 bucket. A _service
+principal_ is an identifier that is used to grant permissions to a service. Anytime you allow access to
+`rds.amazonaws.com` in this way, you are allowing RDS to perform an action on your behalf. For more
+information about service principals, see [AWS JSON policy elements:
+Principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md").
 
-1. Choose one of the following:
-   - Use an existing option group.
-   - Create a custom DB option group and use that option group. For more
-     information, see
-     [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
+###### Example trust relationship for SQL Server Audit
 
-2. Add the **SQLSERVER_AUDIT** option to the option
-   group, and configure the option settings. For more information about adding options,
-   see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-   - For **IAM role**, if you already have an IAM role with
-     the required policies, you can choose that role. To create a new IAM
-     role, choose **Create a New Role**. For
-     information about the required policies, see
-     [Manually creating an IAM role for SQL Server Audit](Appendix.SQLServer.Options.Audit.md "Appendix.SQLServer.Options.Audit.md").
-   - For **Select S3 destination**, if you already have an S3 bucket that you want to use, choose it. To create an
-     S3 bucket, choose **Create a New S3 Bucket**.
-   - For **Enable Compression**, leave this option chosen to
-     compress audit files. Compression is enabled by default. To disable
-     compression, clear **Enable Compression**.
-   - For **Audit log retention**, to keep audit records on the
-     DB instance, choose this option. Specify a retention time in hours. The
-     maximum retention time is 35 days.
+JSON
 
-3. Apply the option group to a new or existing DB instance. Choose one of the
-   following:
-   - If you are creating a new DB instance, apply the option group when you launch the
-     instance.
-   - On an existing DB instance, apply the option group by modifying the instance and then
-     attaching the new option group. For more information, see
-     [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "`rds.amazonaws.com`"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+ }`
 
-## Modifying the SQL Server Audit option
+```
 
-After you enable the SQL Server Audit option, you can modify the settings. For information
-about how to modify option settings, see [Modifying an option setting](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption").
+We recommend using the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context keys in resource-based trust relationships to limit
+the service's permissions to a specific resource. This is the most effective way to protect against the [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
 
-## Removing SQL Server Audit from the DB instance options
+You might use both global condition context keys and have the `aws:SourceArn` value contain the account ID. In
+this case, the `aws:SourceAccount` value and the account in the `aws:SourceArn` value must use the
+same account ID when used in the same statement.
 
-You can turn off the SQL Server Audit feature by disabling audits and then
-deleting the option.
+- Use `aws:SourceArn` if you want cross-service access for a single resource.
+- Use `aws:SourceAccount` if you want to allow any resource in that account to be associated with the
+  cross-service use.
+  In the trust relationship, make sure to use the `aws:SourceArn` global condition context key with the full
+  Amazon Resource Name (ARN) of the resources accessing the role. For SQL Server Audit, make sure to include both the DB
+  option group and the DB instances, as shown in the following example.
 
-###### To remove auditing
+###### Example trust relationship with global condition context key for SQL Server Audit
 
-1. Disable all of the audit settings inside SQL Server. To learn where
-   audits are running, query the SQL Server security catalog views. For
-   more information, see [Security catalog views](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql "https://docs.microsoft.com/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql") in the Microsoft SQL Server
-   documentation.
-2. Delete the SQL Server Audit option from the DB instance. Choose one of
-   the following:
-   - Delete the SQL Server Audit option from the option group that
-     the DB instance uses. This change affects all DB instances that
-     use the same option group. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
-   - Modify the DB instance, and then choose an option group
-     without the SQL Server Audit option. This change affects only
-     the DB instance that you modify. You can specify the default
-     (empty) option group, or a different custom option group. For
-     more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+JSON
 
-3. After you delete the SQL Server Audit option from the DB instance, you
-   don't need to restart the instance. Remove unneeded audit files from
-   your S3 bucket.
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "rds.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceArn": [
+ "arn:aws:rds:`Region`:`my_account_ID`:db:`db_instance_identifier`",
+ "arn:aws:rds:`Region`:`my_account_ID`:og:`option_group_name`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+In the following example of a permissions policy for SQL Server Audit, we specify an ARN for the Amazon S3 bucket. You can use ARNs
+to identify a specific account, user, or role that you want grant access to. For more information about using ARNs, see
+[Amazon resource names
+(ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+
+###### Example permissions policy for SQL Server Audit
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "s3:ListAllMyBuckets",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:ListBucket",
+ "s3:GetBucketACL",
+ "s3:GetBucketLocation"
+ ],
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject",
+ "s3:ListMultipartUploadParts",
+ "s3:AbortMultipartUpload"
+ ],
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/`key_prefix`/*"
+ }
+ ]
+ }`
+
+```
+
+###### Note
+
+The `s3:ListAllMyBuckets` action is required for verifying that the same AWS account owns both the S3
+bucket and the SQL Server DB instance. The action lists the names of the buckets in the account.
+
+S3 bucket namespaces are global. If you accidentally delete your bucket, another user can create a bucket with the
+same name in a different account. Then the SQL Server Audit data is written to the new bucket.

@@ -1,6 +1,4 @@
-# Importing data considerations
-
-for MariaDB
+# Importing data considerations for MariaDB
 
 The following content contains technical information related to loading data into
 MariaDB. This content is aimed at users who are familiar with the MariaDB server
@@ -13,9 +11,7 @@ times additional disk space compared to disabled logging. The transaction size u
 to load the data directly affects system performance and disk space
 needs—larger transactions require more resources.
 
-## Transaction
-
-size
+## Transaction size
 
 Transaction size influences the following aspects of MariaDB data loads:
 
@@ -34,9 +30,7 @@ see [Backup retention period](USER_WorkingWithAutomatedBackups.md "USER_WorkingW
 This section also describes the impact of large transactions on InnoDB and why
 it's important to keep transaction sizes small.
 
-### Small
-
-transactions
+### Small transactions
 
 For small transactions, binary logging doubles the number of disk writes
 required to load the data. This effect can severely degrade performance for
@@ -51,9 +45,7 @@ The binary logs also consume disk space roughly equal to the amount of data
 loaded until the logs are backed up and removed. Amazon RDS minimizes this by
 frequently backing up and removing binary logs.
 
-### Large
-
-transactions
+### Large transactions
 
 For large transactions, binary logging triples IOPS and disk usage for the
 following reasons:
@@ -142,17 +134,13 @@ transaction—changes. In effect, transactions must scan through undo logs that
 long-running load transactions prevented from being purged during an undo log
 cleanup. This affects performance for any operation accessing modified rows.
 
-### InnoDB
-
-transaction recovery options
+### InnoDB transaction recovery options
 
 Although InnoDB optimizes commit operations, large transaction rollbacks are
 slow. For faster recovery, perform a point-in-time recovery or restore a DB
 snapshot. For more information, see [Point-in-time recovery](USER_PIT.md "USER_PIT.md") and [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
 
-## Data import
-
-formats
+## Data import formats
 
 MariaDB supports two data import formats: flat files and SQL. Review the
 information about each format to determine the best option for your needs.
@@ -199,9 +187,7 @@ alternatively, after you correct the cause of the failure, you can restore to
 the point in time before the load and resend the file. For more information, see
 [Point-in-time recovery](USER_PIT.md "USER_PIT.md").
 
-## Using Amazon RDS DB
-
-snapshots for database checkpoints
+## Using Amazon RDS DB snapshots for database checkpoints
 
 If you load data over long durations—such as hours or days—without
 binary logging, use DB snapshots to provide periodic checkpoints for data safety.
@@ -211,9 +197,7 @@ snapshots are fast, frequent checkpointing has minimal impact on load performanc
 You can delete previous DB snapshots without impacting database durability or
 recovery capabilities. For more information about DB snapshots, see [Managing manual backups](USER_ManagingManualBackups.md "USER_ManagingManualBackups.md").
 
-## Reducing database
-
-load times
+## Reducing database load times
 
 The following items are additional tips to reduce load times:
 

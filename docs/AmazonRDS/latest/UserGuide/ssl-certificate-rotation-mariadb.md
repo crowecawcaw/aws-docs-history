@@ -1,6 +1,4 @@
-# Updating applications to connect to
-
-MariaDB instances using new SSL/TLS certificates
+# Updating applications to connect to MariaDB instances using new SSL/TLS certificates
 
 As of January 13, 2023, Amazon RDS has published new Certificate Authority (CA) certificates
 for connecting to your RDS DB instances using Secure Socket Layer or Transport Layer
@@ -31,12 +29,9 @@ in a development or staging environment before implementing them in your product
 environments.
 
 For more information about certificate rotation, see
-[Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md").
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about
-using SSL/TLS with MariaDB DB instances, see [SSL/TLS support for MariaDB DB instances
-on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md").
+[Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For information about
+using SSL/TLS with MariaDB DB instances, see [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md").
 
 ###### Topics
 
@@ -107,11 +102,9 @@ mysql -h mysql-database.rds.amazonaws.com -uadmin -ppassword --ssl-ca=/tmp/`ssl-
 For information about updating the trust store for MySQL applications, see
 [Using TLS/SSL with MariaDB Connector/J](https://mariadb.com/kb/en/library/using-tls-ssl-with-mariadb-java-connector/ "https://mariadb.com/kb/en/library/using-tls-ssl-with-mariadb-java-connector/") in the MariaDB documentation.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
 
-For sample scripts that import certificates, see [Sample
-script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ###### Note
 
@@ -177,7 +170,6 @@ private static final String DB_USER = "admin";
 
 After you have determined that your database connections use SSL/TLS and have
 updated your application trust store, you can update your database to use the
-rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating
-your CA certificate by modifying your DB instance or cluster](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating").
+rds-ca-rsa2048-g1 certificates. For instructions, see step 3 in [Updating your CA certificate by modifying your DB instance or cluster](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-updating").
 
 Specify a password other than the prompt shown here as a security best practice.

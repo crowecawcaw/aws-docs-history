@@ -1,6 +1,4 @@
-# Creating a custom IAM
-
-policy for Performance Insights
+# Creating a custom IAM policy for Performance Insights
 
 For users who don't have either the `AmazonRDSPerformanceInsightsReadOnly` or
 `AmazonRDSPerformanceInsightsFullAccess` policy, you can grant access to Performance Insights

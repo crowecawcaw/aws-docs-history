@@ -1,6 +1,4 @@
-# Using SCRAM for PostgreSQL
-
-password encryption
+# Using SCRAM for PostgreSQL password encryption
 
 The _Salted Challenge Response Authentication Mechanism
 (SCRAM)_ is an alternative to PostgreSQL's default message digest (MD5)
@@ -71,9 +69,7 @@ follows:
 After you change `rds.accepted_password_auth_method` to scram-sha-256 alone,
 any users (roles) with `md5`–encrypted passwords can't connect.
 
-### Getting ready
-
-to require SCRAM for your RDS for PostgreSQL DB instance
+### Getting ready to require SCRAM for your RDS for PostgreSQL DB instance
 
 Before making any changes to your
 RDS for PostgreSQL DB instance, check all existing
@@ -131,8 +127,7 @@ If your
 RDS for PostgreSQL DB instance already uses a custom
 parameter group, you don't need to create a new one.
 
-For an overview of parameter groups for Amazon RDS, see [Working with parameters on
-your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+For an overview of parameter groups for Amazon RDS, see [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 The password encryption type used for passwords is set in one parameter,
 `password_encryption`. The encryption that the
@@ -229,9 +224,7 @@ aws rds modify-db-parameter-group --db-parameter-group-name ^
   "docs-lab-scram-passwords" --parameters "ParameterName=password_encryption,ParameterValue=scram-sha-256,ApplyMethod=immediate"
 ```
 
-### Migrating
-
-passwords for user roles to SCRAM
+### Migrating passwords for user roles to SCRAM
 
 You can migrate passwords for user roles to SCRAM as described following.
 
@@ -281,9 +274,7 @@ psql --host=`db-name.111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --
 6. Repeat the process for all databases on your
    RDS for PostgreSQL DB instance.
 
-### Changing
-
-parameter to require SCRAM
+### Changing parameter to require SCRAM
 
 This is the final step in the process. After you make the change in the following
 procedure, any user accounts (roles) that still use `md5` encryption for

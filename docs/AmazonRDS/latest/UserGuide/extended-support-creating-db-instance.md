@@ -18,16 +18,11 @@ a DB instance or a Multi-AZ DB cluster.
 
 ###### Topics
 
-- [RDS Extended Support
-  behavior](#extended-support-creating-db-instance-behavior "#extended-support-creating-db-instance-behavior")
-- [Considerations
-  for RDS Extended Support](#extended-support-creating-db-instance-considerations "#extended-support-creating-db-instance-considerations")
-- [Create a DB instance or a Multi-AZ DB cluster with
-  RDS Extended Support](#extended-support-creating-db-instance-create "#extended-support-creating-db-instance-create")
+- [RDS Extended Support behavior](#extended-support-creating-db-instance-behavior "#extended-support-creating-db-instance-behavior")
+- [Considerations for RDS Extended Support](#extended-support-creating-db-instance-considerations "#extended-support-creating-db-instance-considerations")
+- [Create a DB instance or a Multi-AZ DB cluster with RDS Extended Support](#extended-support-creating-db-instance-create "#extended-support-creating-db-instance-create")
 
-## RDS Extended Support
-
-behavior
+## RDS Extended Support behavior
 
 The following table summarizes what happens when a major engine version reaches the
 RDS
@@ -42,9 +37,7 @@ end of standard support.
 RDS API, the RDS Extended Support status appears as `open-source-rds-extended-support`
 or `open-source-rds-extended-support-disabled`.
 
-## Considerations
-
-for RDS Extended Support
+## Considerations for RDS Extended Support
 
 Before creating a DB instance or a Multi-AZ DB cluster, consider the following
 items:
@@ -65,9 +58,7 @@ items:
 
 For more information, see [MySQL versions](MySQL.Concepts.md "MySQL.Concepts.md") and [Release calendars for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md").
 
-## Create a DB instance or a Multi-AZ DB cluster with
-
-RDS Extended Support
+## Create a DB instance or a Multi-AZ DB cluster with RDS Extended Support
 
 You can create a DB instance or a Multi-AZ DB cluster with an RDS Extended Support version
 using the AWS Management Console, the AWS CLI, or the RDS API.

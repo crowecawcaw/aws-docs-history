@@ -11,15 +11,11 @@ Db2 replica in read-only mode is called a _read replica_. A Db2 replica
 in standby mode is called a _standby replica_. Db2 doesn't permit writes
 in a replica, but you can promote a replica to make it writable. The promoted replica has
 the replicated data to the point when the request was made to promote it. For more
-information, see [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 
-For a summary of the features and behaviors of RDS for Db2 replicas, see [Differences between read replicas for
-DB engines](USER_ReadRepl.Overview.md "USER_ReadRepl.Overview.md").
+For a summary of the features and behaviors of RDS for Db2 replicas, see [Differences between read replicas for DB engines](USER_ReadRepl.Overview.md "USER_ReadRepl.Overview.md").
 
-## Read-only and standby
-
-replicas
+## Read-only and standby replicas
 
 When creating or modifying a Db2 replica, you can place it in either of the following
 modes:
@@ -50,16 +46,12 @@ doesn't have any archive logs.
 
 You can create up to three replicas from one source DB instance. You can create a
 combination of read-only and standby DB replicas for the same source DB instance. After
-you create a replica, you can change the replica mode. for more information, see [Modifying the RDS for Db2 replica
-mode](db2-replicas-changing-replica-mode.md "db2-replicas-changing-replica-mode.md").
+you create a replica, you can change the replica mode. for more information, see [Modifying the RDS for Db2 replica mode](db2-replicas-changing-replica-mode.md "db2-replicas-changing-replica-mode.md").
 
 Before creating replicas, make sure that you meet all requirements. For more
-information, see [Requirements and considerations for RDS for Db2
-replicas](db2-read-replicas.md "db2-read-replicas.md").
+information, see [Requirements and considerations for RDS for Db2 replicas](db2-read-replicas.md "db2-read-replicas.md").
 
-## Database
-
-activations
+## Database activations
 
 Db2 HADR is configured at the database level. After you create replicas, HADR is set
 for all Db2 databases, including `rdsadmin`, which RDS fully manages. Before
@@ -67,12 +59,9 @@ you create Db2 replicas, you must explicitly activate all databases. Otherwise, 
 of replicas fails and Amazon RDS emits an event. After a DB instance has one or more
 replicas, you can't activate or deactivate any databases on the DB instance by using the
 `rdsadmin.activate_database` or `rdsadmin.deactivate_database`
-stored procedures. For more information, see [Stored procedures for databases for
-RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
+stored procedures. For more information, see [Stored procedures for databases for RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
 
-## HADR
-
-configurations
+## HADR configurations
 
 You can see all HADR configurations for a database by connecting to the database and
 then running `db2 get db cfg`.

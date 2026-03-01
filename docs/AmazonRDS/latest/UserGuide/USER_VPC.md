@@ -11,9 +11,7 @@ in a VPC:
   internet](#USER_VPC.Scenario4 "#USER_VPC.Scenario4")
 - [A private network](#USER_VPC.NotPublic "#USER_VPC.NotPublic")
 
-## A DB instance in a VPC
-
-accessed by an Amazon EC2 instance in the same VPC
+## A DB instance in a VPC accessed by an Amazon EC2 instance in the same VPC
 
 A common use of a DB instance in a VPC is to share data with an
 application server that is running in an Amazon EC2 instance in the same VPC.
@@ -45,18 +43,14 @@ additional subnet makes it easy to switch to a Multi-AZ DB instance deployment i
 the future.
 
 For a tutorial that shows you how to create a VPC with both public and private
-subnets for this scenario, see [Tutorial: Create a VPC for use with a
-DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+subnets for this scenario, see [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
 
 ###### Tip
 
 You can set up network connectivity between an Amazon EC2 instance and a DB instance automatically when you create the DB instance. For more information, see
-[Configure
-automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+[Configure automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
 
-###### To create a rule in a VPC security group that allows connections from another
-
-security group, do the following:
+###### To create a rule in a VPC security group that allows connections from another security group, do the following:
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
 2. In the navigation pane, choose **Security
@@ -93,9 +87,7 @@ For more information about connecting to the DB instance from your EC2
 instance, see [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.md "CHAP_CommonTasks.md")
 .
 
-## A DB instance in a VPC
-
-accessed by an EC2 instance in a different VPC
+## A DB instance in a VPC accessed by an EC2 instance in a different VPC
 
 When your DB instances is in a different VPC from the EC2 instance
 you are using to access it, you can use VPC peering to access the DB instance.
@@ -112,9 +104,7 @@ account, or with a VPC in a different AWS Region. To learn more about VPC peerin
 see [VPC peering](../../../vpc/latest/userguide/vpc-peering.md "../../../vpc/latest/userguide/vpc-peering.md") in the
 _Amazon Virtual Private Cloud User Guide_.
 
-## A DB instance in a VPC
-
-accessed by a client application through the internet
+## A DB instance in a VPC accessed by a client application through the internet
 
 To access a DB instances in a VPC from a client application through
 the internet, you configure a VPC with a single public subnet, and an internet
@@ -140,12 +130,9 @@ We recommend the following configuration:
   your DB instance.
 
 For information about creating a DB instances in a VPC, see
-[Creating a DB instance in a
-VPC](USER_VPC.md#USER_VPC.InstanceInVPC "USER_VPC.md#USER_VPC.InstanceInVPC").
+[Creating a DB instance in a VPC](USER_VPC.md#USER_VPC.InstanceInVPC "USER_VPC.md#USER_VPC.InstanceInVPC").
 
-## A DB instance in a VPC
-
-accessed by a private network
+## A DB instance in a VPC accessed by a private network
 
 If your DB instance isn't publicly accessible, you have the
 following options for accessing it from a private network:

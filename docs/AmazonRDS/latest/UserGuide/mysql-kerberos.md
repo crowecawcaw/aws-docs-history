@@ -13,8 +13,7 @@ also improve your overall security profile.
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability of Amazon RDS with Kerberos authentication, see
-[Supported
-Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
 ## Overview of Setting up Kerberos authentication for MySQL DB instances
 
@@ -335,8 +334,7 @@ user name:
 ALTER USER '`testuser`'@'%' REQUIRE SSL;
 ```
 
-For more information, see [SSL/TLS support for MySQL DB instances on
-Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
+For more information, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md").
 
 ## Managing a DB instance in a domain
 

@@ -1,6 +1,4 @@
-# Turning on query
-
-logging for your RDS for PostgreSQL DB instance
+# Turning on query logging for your RDS for PostgreSQL DB instance
 
 You can collect more detailed information about your database activities, including
 queries, queries waiting for locks, checkpoints, and many other details by setting some
@@ -19,9 +17,7 @@ queries.
 | log_statement_sample_rate  | –       | The percentage of statements exceeding the time specified in<br>`log_min_duration_sample` to be logged, expressed as<br>a floating point value between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | log_statement_stats        | –       | Writes cumulative performance statistics to the server<br>log.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-## Using
-
-logging to find slow performing queries
+## Using logging to find slow performing queries
 
 You can log SQL statements and queries to help find slow performing queries. You
 turn on this capability by modifying the settings in the `log_statement`

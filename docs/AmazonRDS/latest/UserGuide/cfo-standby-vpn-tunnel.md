@@ -1,6 +1,4 @@
-# Configuring a VPN tunnel between RDS Custom for Oracle
-
-primary and replica instances
+# Configuring a VPN tunnel between RDS Custom for Oracle primary and replica instances
 
 A VPN tunnel is an encrypted connection between two or more devices over a network. To
 ensure the highest level of security for your Oracle Data Guard instances in RDS Custom for Oracle,

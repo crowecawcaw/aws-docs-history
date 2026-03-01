@@ -1,22 +1,17 @@
 # Upgrading a DB instance for Amazon RDS Custom for Oracle
 
 You can upgrade an Amazon RDS Custom DB instance by modifying it to use a new custom engine version (CEV). For general information about upgrades,
-see [Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
 ###### Topics
 
 - [Overview of upgrades in RDS Custom for Oracle](#custom-upgrading.overview "#custom-upgrading.overview")
 - [Requirements for RDS Custom for Oracle upgrades](#custom-upgrading-reqs "#custom-upgrading-reqs")
-- [Considerations for RDS Custom for Oracle database
-  upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md")
-- [Considerations for RDS Custom for Oracle OS
-  upgrades](custom-upgrading-considerations-os.md "custom-upgrading-considerations-os.md")
-- [Viewing valid CEV upgrade targets for RDS Custom for Oracle
-  DB instances](custom-upgrading-target.md "custom-upgrading-target.md")
+- [Considerations for RDS Custom for Oracle database upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md")
+- [Considerations for RDS Custom for Oracle OS upgrades](custom-upgrading-considerations-os.md "custom-upgrading-considerations-os.md")
+- [Viewing valid CEV upgrade targets for RDS Custom for Oracle DB instances](custom-upgrading-target.md "custom-upgrading-target.md")
 - [Upgrading an RDS Custom for Oracle DB instance](custom-upgrading-modify.md "custom-upgrading-modify.md")
-- [Viewing pending database upgrades for RDS Custom DB
-  instances](custom-upgrading-pending.md "custom-upgrading-pending.md")
+- [Viewing pending database upgrades for RDS Custom DB instances](custom-upgrading-pending.md "custom-upgrading-pending.md")
 - [Troubleshooting an upgrade failure for an RDS Custom for Oracle DB instance](custom-upgrading-failure.md "custom-upgrading-failure.md")
 
 ## Overview of upgrades in RDS Custom for Oracle
@@ -29,8 +24,7 @@ CEV.
 
 - [CEV upgrade options](#custom-upgrading.overview.cev-options "#custom-upgrading.overview.cev-options")
 - [Patching without CEVs](#custom-upgrading.overview.no-cevs "#custom-upgrading.overview.no-cevs")
-- [General steps for patching
-  your DB instance with a CEV](#custom-upgrading.overview.general-steps "#custom-upgrading.overview.general-steps")
+- [General steps for patching your DB instance with a CEV](#custom-upgrading.overview.general-steps "#custom-upgrading.overview.general-steps")
 
 ### CEV upgrade options
 
@@ -83,9 +77,7 @@ patch manually to every instance that you want to upgrade. In contrast, when you
 create a new CEV, you can create or upgrade multiple DB instances using the same
 CEV.
 
-### General steps for patching
-
-your DB instance with a CEV
+### General steps for patching your DB instance with a CEV
 
 Whether you patch the OS or your database, perform the following basic
 steps:

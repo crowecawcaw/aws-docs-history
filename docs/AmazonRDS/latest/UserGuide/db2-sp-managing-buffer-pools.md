@@ -1,6 +1,4 @@
-# Stored procedures for buffer pools for
-
-RDS for Db2
+# Stored procedures for buffer pools for RDS for Db2
 
 The built-in stored procedures described in this topic manage buffer pools for
 Amazon RDS for Db2 databases. To run these procedures, the master user must first connect to the
@@ -9,8 +7,7 @@ Amazon RDS for Db2 databases. To run these procedures, the master user must firs
 These stored procedures are used in a variety of tasks. This list isn't exhaustive.
 
 - [Common tasks for buffer pools](db2-managing-buffer-pools.md "db2-managing-buffer-pools.md")
-- [Generating performance
-  reports](db2-managing-databases.md#db2-generating-performance-reports "db2-managing-databases.md#db2-generating-performance-reports")
+- [Generating performance reports](db2-managing-databases.md#db2-generating-performance-reports "db2-managing-databases.md#db2-generating-performance-reports")
 - [Copying database metadata with
   db2look](db2-native-db2-tools-db2look.md "db2-native-db2-tools-db2look.md")
 - [Creating a repository database

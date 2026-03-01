@@ -1,7 +1,4 @@
-# Connecting to
-
-your DB instance using IAM authentication from the command line: AWS CLI and psql
-client
+# Connecting to your DB instance using IAM authentication from the command line: AWS CLI and psql client
 
 You can connect from the command line to an Amazon RDS for PostgreSQL DB
 instance with the
@@ -11,12 +8,9 @@ AWS CLI and psql command line tool as described following.
 
 The following are prerequisites for connecting to your DB instance using IAM authentication:
 
-- [Enabling and disabling IAM database
-  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using
-  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+- [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
 
 ###### Note
 
@@ -86,12 +80,10 @@ the SSL certificate.
 - `sslrootcert` – The full path to the SSL certificate file that
   contains the public key
 
-For more information, see [Using SSL with a PostgreSQL DB
-instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
+For more information, see [Using SSL with a PostgreSQL DB instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md").
 
 To download an SSL certificate, see
-[Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+[Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
 
 - `dbname` – The database that you want to
   access

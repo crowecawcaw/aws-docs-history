@@ -27,8 +27,7 @@ The parameters are the following:
 - `''` – An optional list of columns in the database table.
   You can use this parameter to indicate which columns of the S3 data go in which
   table columns. If no columns are specified, all the columns are copied to the
-  table. For an example of using a column list, see [Importing an
-  Amazon S3 file that uses a custom delimiter](#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter "#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter").
+  table. For an example of using a column list, see [Importing an Amazon S3 file that uses a custom delimiter](#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter "#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter").
 - `(format csv)` – PostgreSQL COPY arguments. The copy process
   uses the arguments and format of the [PostgreSQL
   COPY](https://www.postgresql.org/docs/current/sql-copy.html "https://www.postgresql.org/docs/current/sql-copy.html") command to import the data. Choices for format
@@ -36,8 +35,7 @@ The parameters are the following:
   The default is text.
 - `s3_uri` – A structure that contains the information
   identifying the Amazon S3 file. For an example of using the [aws_commons.create_s3_uri](USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri") function to
-  create an `s3_uri` structure, see [Overview of importing data from Amazon S3
-  data](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
+  create an `s3_uri` structure, see [Overview of importing data from Amazon S3 data](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md").
   For more information about this function, see [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.md#aws_s3.table_import_from_s3").
 
 The `aws_s3.table_import_from_s3` function returns text. To specify other kinds of files for import
@@ -49,16 +47,11 @@ Importing 0 bytes file will cause an error.
 
 ###### Topics
 
-- [Importing an
-  Amazon S3 file that uses a custom delimiter](#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter "#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter")
-- [Importing an Amazon S3
-  compressed (gzip) file](#USER_PostgreSQL.S3Import.FileFormats.gzip "#USER_PostgreSQL.S3Import.FileFormats.gzip")
-- [Importing an encoded
-  Amazon S3 file](#USER_PostgreSQL.S3Import.FileFormats.Encoded "#USER_PostgreSQL.S3Import.FileFormats.Encoded")
+- [Importing an Amazon S3 file that uses a custom delimiter](#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter "#USER_PostgreSQL.S3Import.FileFormats.CustomDelimiter")
+- [Importing an Amazon S3 compressed (gzip) file](#USER_PostgreSQL.S3Import.FileFormats.gzip "#USER_PostgreSQL.S3Import.FileFormats.gzip")
+- [Importing an encoded Amazon S3 file](#USER_PostgreSQL.S3Import.FileFormats.Encoded "#USER_PostgreSQL.S3Import.FileFormats.Encoded")
 
-## Importing an
-
-Amazon S3 file that uses a custom delimiter
+## Importing an Amazon S3 file that uses a custom delimiter
 
 The following example shows how to import a file that uses a custom delimiter. It
 also shows how to control where to put the data in the database table using the
@@ -111,9 +104,7 @@ The data is now in the table in the following columns.
 4 | foo4 | | bar4 | elephant4`
 ```
 
-## Importing an Amazon S3
-
-compressed (gzip) file
+## Importing an Amazon S3 compressed (gzip) file
 
 The following example shows how to import a file from Amazon S3 that is compressed with
 gzip. The file that you import needs to have the following Amazon S3 metadata:
@@ -140,9 +131,7 @@ instance as shown following.
 );
 ```
 
-## Importing an encoded
-
-Amazon S3 file
+## Importing an encoded Amazon S3 file
 
 The following example shows how to import a file from Amazon S3 that has Windows-1252
 encoding.

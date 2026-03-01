@@ -1,6 +1,4 @@
-# Using Kerberos authentication for
-
-Amazon RDS for Db2
+# Using Kerberos authentication for Amazon RDS for Db2
 
 You can use Kerberos authentication to authenticate users when they connect
 to your Amazon RDS for Db2 DB instance. In this configuration, your DB instance works with
@@ -28,26 +26,21 @@ topics:
 
 ###### Topics
 
-- [Setting up Kerberos authentication
-  for Amazon RDS for Db2 DB instances](db2-kerberos-setting-up.md "db2-kerberos-setting-up.md")
-- [Connecting to Amazon RDS for Db2 with
-  Kerberos authentication](db2-kerberos-connecting.md "db2-kerberos-connecting.md")
+- [Setting up Kerberos authentication for Amazon RDS for Db2 DB instances](db2-kerberos-setting-up.md "db2-kerberos-setting-up.md")
+- [Connecting to Amazon RDS for Db2 with Kerberos authentication](db2-kerberos-connecting.md "db2-kerberos-connecting.md")
 
 ## Region and version availability
 
 Feature availability and support varies across specific versions of each database
 engine, and across AWS Regions. For more information about version and Region
-availability of RDS for Db2 with Kerberos authentication, see [Supported
-Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+availability of RDS for Db2 with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
 ###### Note
 
 Kerberos authentication isn't supported for DB instance classes
 that are deprecated for RDS for Db2 DB instances. For more information, see [Amazon RDS for Db2 instance classes](Db2.Concepts.General.md "Db2.Concepts.General.md").
 
-## Overview of Kerberos
-
-authentication for RDS for Db2 DB instances
+## Overview of Kerberos authentication for RDS for Db2 DB instances
 
 To set up Kerberos authentication for an RDS for Db2 DB instance, complete
 the following general steps, which are described in more detail later:
@@ -116,9 +109,7 @@ actions:
 - Move a DB instance from one domain to another by specifying the domain identifier
   of the new domain for the `--domain` option.
 
-### Understanding domain
-
-membership
+### Understanding domain membership
 
 After you create or modify your DB instance, it becomes a member of the domain. You
 can view the status of the domain membership in the console or by running the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. The status of the DB

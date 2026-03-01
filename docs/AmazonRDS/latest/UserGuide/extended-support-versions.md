@@ -8,14 +8,12 @@ For more information, see [Major versions](MySQL.Concepts.md#MySQL.Concepts.Vers
 Release Notes_.
 
 You can also view information about support dates for engine versions by using
-the AWS CLI or the RDS API. For more information, see [Viewing support dates for engine
-versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md").
+the AWS CLI or the RDS API. For more information, see [Viewing support dates for engine versions in Amazon RDS Extended Support](extended-support-viewing-support-dates.md "extended-support-viewing-support-dates.md").
 
 ## Amazon RDS Extended Support version naming
 
 Amazon RDS will release new minor versions with fixes and CVE patches
-for engines on RDS Extended Support. For more information, see [Amazon RDS Extended Support versions for
-RDS for MySQL](MySQL.Concepts.md#mysql-extended-support-releases "MySQL.Concepts.md#mysql-extended-support-releases") and [Amazon RDS Extended Support updates for RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extendedsupport.md "../PostgreSQLReleaseNotes/postgresql-extendedsupport.md") in the _Amazon RDS for PostgreSQL
+for engines on RDS Extended Support. For more information, see [Amazon RDS Extended Support versions for RDS for MySQL](MySQL.Concepts.md#mysql-extended-support-releases "MySQL.Concepts.md#mysql-extended-support-releases") and [Amazon RDS Extended Support updates for RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-extendedsupport.md "../PostgreSQLReleaseNotes/postgresql-extendedsupport.md") in the _Amazon RDS for PostgreSQL
 Release Notes_.
 
 The names of these minor releases will be in the form _major.minor-RDS.YYYYMMDD.patch.YYYYMMDD_, for

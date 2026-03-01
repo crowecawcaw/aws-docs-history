@@ -8,8 +8,7 @@ write transaction throughput.
 
 - [Overview of RDS Optimized Writes](#rds-optimized-writes-overview "#rds-optimized-writes-overview")
 - [Using RDS Optimized Writes](#rds-optimized-writes-using "#rds-optimized-writes-using")
-- [Enabling RDS Optimized Writes on an
-  existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable")
+- [Enabling RDS Optimized Writes on an existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable")
 - [Limitations for RDS Optimized Writes](#rds-optimized-writes-limitations "#rds-optimized-writes-limitations")
 
 ## Overview of RDS Optimized Writes
@@ -51,8 +50,7 @@ following values:
 
 If you have an existing database with an engine version, DB instance class, and/or
 file system format that doesn't support RDS Optimized Writes, you can enable the feature
-by creating a blue/green deployment. For more information, see [Enabling RDS Optimized Writes on an
-existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable").
+by creating a blue/green deployment. For more information, see [Enabling RDS Optimized Writes on an existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable").
 
 If you migrate an RDS for MySQL database that is configured to use RDS Optimized Writes to
 a DB instance class that doesn't support the feature, RDS automatically turns off RDS
@@ -98,13 +96,11 @@ during database creation:
     For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
   DB instance class availability differs for AWS Regions. To determine whether a
-  DB instance class is supported in a specific AWS Region, see [Determining DB instance class
-  support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+  DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
   To upgrade your database to a DB instance class that supports RDS
   Optimized Writes, you can create a blue/green deployment. For more
-  information, see [Enabling RDS Optimized Writes on an
-  existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable").
+  information, see [Enabling RDS Optimized Writes on an existing database](#rds-optimized-writes-modify-enable "#rds-optimized-writes-modify-enable").
 
 - In the parameter group associated with the database, the `rds.optimized_writes`
   parameter is set to `AUTO`. In default parameter groups, this parameter is always set to
@@ -177,9 +173,7 @@ and `DBInstanceClass` values support RDS Optimized Writes. In
 addition, make sure the parameter group associated with the DB instance has the
 `rds.optimized_writes` parameter set to `AUTO`.
 
-## Enabling RDS Optimized Writes on an
-
-existing database
+## Enabling RDS Optimized Writes on an existing database
 
 In order to modify an existing RDS for MySQL database to turn on RDS Optimized Writes, the database must
 have been created with a supported DB engine version and DB instance class. In addition,

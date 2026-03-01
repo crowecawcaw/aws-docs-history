@@ -13,8 +13,7 @@ It supports selects, inserts, updates, and deletes from an RDS for PostgreSQL DB
 ###### Topics
 
 - [Setting up your RDS for PostgreSQL DB to use the mysql_fdw extension](#postgresql-mysql-fdw.setting-up "#postgresql-mysql-fdw.setting-up")
-- [Example: Working with an RDS for MySQL
-  database from RDS for PostgreSQL](#postgresql-mysql-fdw.using-mysql_fdw "#postgresql-mysql-fdw.using-mysql_fdw")
+- [Example: Working with an RDS for MySQL database from RDS for PostgreSQL](#postgresql-mysql-fdw.using-mysql_fdw "#postgresql-mysql-fdw.using-mysql_fdw")
 - [Using encryption in transit with the extension](#postgresql-mysql-fdw.encryption-in-transit "#postgresql-mysql-fdw.encryption-in-transit")
 
 ## Setting up your RDS for PostgreSQL DB to use the mysql_fdw extension
@@ -87,9 +86,7 @@ user with `rds_superuser` privileges, such as `postgres`.
 
 PostgreSQL users create and manage their own connections to the MySQL database through the foreign server.
 
-## Example: Working with an RDS for MySQL
-
-database from RDS for PostgreSQL
+## Example: Working with an RDS for MySQL database from RDS for PostgreSQL
 
 Suppose that you have a simple table on an RDS for PostgreSQL DB instance
 . Your RDS for PostgreSQL

@@ -2,9 +2,7 @@
 
 Following are examples of how you can use condition keys in Amazon RDS IAM permissions policies.
 
-## Example 1: Grant permission to create a DB instance that uses a
-
-specific DB engine and isn't MultiAZ
+## Example 1: Grant permission to create a DB instance that uses a specific DB engine and isn't MultiAZ
 
 The following policy uses an RDS condition key and allows a user to
 create only DB instances that use the MySQL database engine and don't use
@@ -36,9 +34,7 @@ JSON
 
 ```
 
-## Example 2: Explicitly deny permission to create DB instances for certain DB instance classes and create DB instances
-
-that use Provisioned IOPS
+## Example 2: Explicitly deny permission to create DB instances for certain DB instance classes and create DB instances that use Provisioned IOPS
 
 The following policy explicitly denies permission to create DB instances that use the DB
 instance classes `r3.8xlarge` and `m4.10xlarge`, which are the largest and most expensive

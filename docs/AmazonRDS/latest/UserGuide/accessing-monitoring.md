@@ -4,9 +4,9 @@ Using the Amazon RDS console, you can quickly access the status of your DB insta
 
 ###### Topics
 
-- [Viewing Amazon RDS DB instance status](#Overview.DBInstance.Status "#Overview.DBInstance.Status")
+- [Viewing Amazon RDSDB instance status](#Overview.DBInstance.Status "#Overview.DBInstance.Status")
 
-## Viewing Amazon RDS DB instance status
+## Viewing Amazon RDSDB instance status
 
 The status of a DB instance indicates its current operational state. You can use the following procedures to view the DB instance status in the
 Amazon RDS console, the AWS CLI command, or the API operation.
@@ -17,7 +17,7 @@ Amazon RDS also uses another status called _maintenance status_, which is
 shown in the **Maintenance** column of the Amazon RDS console. This value
 indicates the status of any maintenance patches that need to be applied to a DB
 instance. Maintenance status is independent of DB instance status. For more information
-about maintenance status, see [Applying updates to a DB instance](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.OSUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.OSUpgrades").
+about maintenance status, see [Applying updates to a DB instance](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.OSUpgrades "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.OSUpgrades") .
 
 Find the possible status values for DB instances in the following table. This table also
 shows whether you will be billed for the DB instance and storage, billed only for storage,
@@ -36,7 +36,7 @@ or not billed. For all DB instance statuses, you are always billed for backup us
 | **deleting**                                        | Not billed                                  | The DB instance is being deleted.                                                                                                                                                                                                                                                                                                                                                                         |
 | **failed**                                          | Not billed                                  | The DB instance has failed and Amazon RDS can't recover it. Perform a<br>point-in-time restore to the latest restorable time of the DB instance to<br>recover the data.                                                                                                                                                                                                                                   |
 | **inaccessible-encryption-credentials**             | Not billed                                  | The AWS KMS key used to encrypt or decrypt the DB instance can't be<br>accessed or recovered.                                                                                                                                                                                                                                                                                                             |
-| **inaccessible-encryption-credentials-recoverable** | Billed for storage                          | The KMS key used to encrypt or decrypt the DB instance can't be<br>accessed. However, if the KMS key is active, restarting the DB<br>instance can recover it.<br>For more information, see [Encrypting a DB<br>instance](Overview.md#Overview.Encryption.Enabling "Overview.md#Overview.Encryption.Enabling").                                                                                            |
+| **inaccessible-encryption-credentials-recoverable** | Billed for storage                          | The KMS key used to encrypt or decrypt the DB instance can't be<br>accessed. However, if the KMS key is active, restarting the DB<br>instance can recover it.<br>For more information, see [Encrypting a DB instance](Overview.md#Overview.Encryption.Enabling "Overview.md#Overview.Encryption.Enabling").                                                                                               |
 | **incompatible-create**                             | Not billed                                  | Amazon RDS is attempting to create a DB instance but can't do so because<br>resources are incompatible with your DB instance. This status can occur if,<br>for example, the instance profile for your DB instance doesn't have the<br>correct permissions.                                                                                                                                                |
 | **incompatible-network**                            | Not billed                                  | Amazon RDS is attempting to perform a recovery action on a DB instance but<br>can't do so because the VPC is in a state that prevents the action<br>from being completed. This status can occur if, for example, all<br>available IP addresses in a subnet are in use and Amazon RDS can't get<br>an IP address for the DB instance.                                                                      |
 | **incompatible-option-group**                       | Billed                                      | Amazon RDS attempted to apply an option group change but can't do so, and<br>Amazon RDS can't roll back to the previous option group state. For more<br>information, check the \*_Recent Events_<br>• list for the<br>DB instance. This status can occur if, for example, the option group contains<br>an option such as TDE and the DB instance doesn't contain encrypted<br>information.                |

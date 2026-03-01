@@ -44,8 +44,7 @@ required to apply transactions on the new DB instance. 2. Add the DB instance to
 associated with a DB instance in the active-active cluster, including the DB parameter group that you
 associated with the new DB instance.
 
-For more information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. In a SQL client, connect to the new DB instance, and call the [mysql.rds_group_replication_set_recovery_channel](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel") stored procedure. Replace
+For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. In a SQL client, connect to the new DB instance, and call the [mysql.rds_group_replication_set_recovery_channel](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel") stored procedure. Replace
 `group_replication_user_password` with the password for the `rdsgrprepladmin` user.
 
 ```
@@ -80,8 +79,7 @@ For information about restoring a DB instance from a DB snapshot, see [Restoring
 associated with a DB instance in the active-active cluster, including the DB parameter group that you
 associated with the new DB instance.
 
-For more information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. In a SQL client, connect to the new DB instance, and call the [mysql.rds_group_replication_set_recovery_channel](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel") stored procedure. Replace
+For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. In a SQL client, connect to the new DB instance, and call the [mysql.rds_group_replication_set_recovery_channel](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_set_recovery_channel") stored procedure. Replace
 `group_replication_user_password` with the password for the `rdsgrprepladmin` user.
 
 ```

@@ -15,19 +15,12 @@ We recommend that you automate monitoring tasks as much as possible.
 
 ###### Topics
 
-- [Amazon RDS
-  instance status and
-  recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
+- [Amazon RDS instance status and recommendations](#MonitoringOverview.tools.automated.rds "#MonitoringOverview.tools.automated.rds")
 - [Amazon CloudWatch metrics for Amazon RDS](#MonitoringOverview.tools.automated.integrated "#MonitoringOverview.tools.automated.integrated")
-- [Amazon RDS Performance
-  Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
-- [Integrated
-  services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
+- [Amazon RDS Performance Insights and operating-system monitoring](#MonitoringOverview.tools.automated.metrics.rds "#MonitoringOverview.tools.automated.metrics.rds")
+- [Integrated services](#MonitoringOverview.tools.automated.integrated.events-logs-streams "#MonitoringOverview.tools.automated.integrated.events-logs-streams")
 
-### Amazon RDS
-
-instance status and
-recommendations
+### Amazon RDS instance status and recommendations
 
 You can use the following automated tools to watch
 Amazon RDS and report when something is wrong:
@@ -58,9 +51,7 @@ Amazon CloudWatch for additional monitoring capabilities.
     more actions based on the value of the metric relative to a threshold that you set.
     For more information, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-### Amazon RDS Performance
-
-Insights and operating-system monitoring
+### Amazon RDS Performance Insights and operating-system monitoring
 
 You can use the following automated tools to monitor Amazon RDS performance:
 
@@ -69,9 +60,7 @@ You can use the following automated tools to monitor Amazon RDS performance:
 - **Amazon RDS Enhanced Monitoring** – Look at metrics in real time
   for the operating system. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").
 
-### Integrated
-
-services
+### Integrated services
 
 The following AWS services are integrated with Amazon RDS:
 
@@ -85,8 +74,7 @@ The following AWS services are integrated with Amazon RDS:
 - _Database Activity Streams_ is an Amazon RDS
   feature that provides a near-real-time
   stream of the activity in your Oracle DB instance. For more
-  information, see [Monitoring Amazon RDS with Database Activity
-  Streams](DBActivityStreams.md "DBActivityStreams.md").
+  information, see [Monitoring Amazon RDS with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 
 ## Manual monitoring tools
 

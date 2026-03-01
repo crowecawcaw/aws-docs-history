@@ -17,8 +17,7 @@ call mysql.rds_group_replication_stop();
    a DB instance in the active-active cluster.
 
 In the parameter setting, replace the old DB instance endpoint with the new DB instance endpoint.
-For more information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. Connect to the DB instance in a SQL client, and call the [mysql.rds_group_replication_start](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start") stored procedure:
+For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. Connect to the DB instance in a SQL client, and call the [mysql.rds_group_replication_start](mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start "mysql-stored-proc-active-active-clusters.md#mysql_rds_group_replication_start") stored procedure:
 
 ```
 call mysql.rds_group_replication_start(0);

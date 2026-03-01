@@ -1,6 +1,4 @@
-# Choosing the new monitoring
-
-view from the Performance Insights page
+# Choosing the preconfigured dashboard with Performance Insights
 
 ###### Important
 
@@ -21,16 +19,24 @@ With CloudWatch Database Insights, you can monitor database load for your fleet 
 For more information about Database Insights, see [Monitoring Amazon RDS databases with CloudWatch Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md").
 For pricing information, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-From the Amazon RDS console, you can choose the new monitoring view to view Performance Insights and CloudWatch metrics for your DB instance.
+You can view the most commonly used metrics with the preconfigured dashboard. This
+dashboard helps diagnose performance issues with a database engine and reduce the
+average recovery time from hours to minutes.
 
-###### To choose the new monitoring view with Performance Insights in the
+###### Note
 
-navigation pane
+This dashboard can't be edited.
+
+###### To choose the preconfigured dashboard with Performance Insights in the navigation pane
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance to view the Performance Insights dashboard that shows both Performance Insights and CloudWatch metrics for
-   your DB instance.
+3. Choose a DB instance.
+4. Scroll down to the **Metrics tab** in the window
+5. Select a preconfigured dashboard from the drop down list.
 
-![Consolidated Performance Insights and CloudWatch metrics dashboard.](images/Monitoring_UnifiedDashboard.png)
+You can view the metrics for the DB instance in the dashboard. The following example
+shows a preconfigured metrics dashboard.
+
+![Preconfigured metrics dashboard.](images/Monitoring_preconfigDashboard.png)

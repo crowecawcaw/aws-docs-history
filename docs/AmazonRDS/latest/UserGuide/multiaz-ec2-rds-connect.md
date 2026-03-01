@@ -46,9 +46,7 @@ security groups associated with the Multi-AZ DB cluster and EC2 instance, as des
 | There are one or more security groups associated with the Multi-AZ DB cluster with a<br>name that matches the pattern<br>`rds-ec2-`n``. A<br>security group that matches the pattern hasn't been modified. This<br>security group has only one inbound rule with the VPC security group<br>of the EC2 instance as the source.                                                                                                                                                                                                                                                                                                                                                                                                       | A valid EC2 security group for the connection exists, but it is not associated with the<br>EC2 instance. This security group has a name that matches the<br>pattern `rds-ec2-`n``. It hasn't<br>been modified. It has only one outbound rule with the VPC security<br>group of the Multi-AZ DB cluster as the source.                                                                                                                                                                                                                                                                                                                | [RDS action: associate EC2 security group](ec2-rds-connect.md#rds-action-associate-ec2-security-group "ec2-rds-connect.md#rds-action-associate-ec2-security-group")                                                                                                 |
 | Either of the following conditions apply:<br>• There is no security group associated with the Multi-AZ DB cluster with a name that<br>matches the pattern<br>`rds-ec2-`n``.<br>• There are one or more security groups associated with the Multi-AZ DB cluster with a<br>name that matches the pattern<br>`rds-ec2-`n``.<br>However, none of these security groups can be used for the<br>connection with the EC2 instance. A security group can't be<br>used if it doesn't have one inbound rule with the VPC<br>security group of the EC2 instance as the source. A security<br>group also can't be used if it has been modified.                                                                                                 | There are one or more security groups associated with the EC2 instance with a name that<br>matches the pattern<br>`rds-ec2-`n``. A security<br>group that matches the pattern hasn't been modified. This security<br>group has only one outbound rule with the VPC security group of the<br>Multi-AZ DB cluster as the source.                                                                                                                                                                                                                                                                                                       | [RDS action: create new security groups](ec2-rds-connect.md#rds-action-create-new-security-groups "ec2-rds-connect.md#rds-action-create-new-security-groups")                                                                                                       |
 
-######
-
-RDS action: create new security groups
+###### RDS action: create new security groups
 
 Amazon RDS takes the following actions:
 
@@ -63,9 +61,7 @@ Amazon RDS takes the following actions:
   the source. This security group is associated with the EC2 instance and allows
   the EC2 instance to send traffic to the Multi-AZ DB cluster.
 
-######
-
-RDS action: associate EC2 security group
+###### RDS action: associate EC2 security group
 
 Amazon RDS associates the valid, existing EC2 security group with the EC2 instance. This security group allows the
 EC2 instance to send traffic to the Multi-AZ DB cluster.
@@ -86,9 +82,7 @@ You can only set up a connection between an EC2 instance and an RDS
 database automatically by using the
 AWS Management Console. You can't set up a connection automatically with the AWS CLI or RDS API.
 
-###### To connect an EC2 instance and an RDS
-
-database automatically
+###### To connect an EC2 instance and an RDS database automatically
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -127,8 +121,7 @@ For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInst
 
 - You can set up connectivity between an existing database and a compute resource.
 
-For more information, see [Automatically connecting
-an EC2 instance and an RDS database](ec2-rds-connect.md#ec2-rds-connect-connecting "ec2-rds-connect.md#ec2-rds-connect-connecting").
+For more information, see [Automatically connecting an EC2 instance and an RDS database](ec2-rds-connect.md#ec2-rds-connect-connecting "ec2-rds-connect.md#ec2-rds-connect-connecting").
 
 The listed compute resources don't include ones that were connected to the database manually. For example,
 you can allow a compute resource to access a database manually by adding a rule to the VPC security group
@@ -155,9 +148,7 @@ For a compute resource to be listed, the following conditions must apply:
   RDS database
   has an inbound rule with the source set to a security group associated with the compute resource.
 
-###### To view compute resources connected to an RDS
-
-database
+###### To view compute resources connected to an RDS database
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -166,4 +157,4 @@ database
 3. On the **Connectivity & security** tab, view the compute resources in the
    **Connected compute resources**.
 
-![Connected compute resources.](images/ec2-connected-compute-resources.png)
+![Connected compute resources.](/images/AmazonRDS/latest/UserGuide/images/ec2-connected-compute-resources.png)

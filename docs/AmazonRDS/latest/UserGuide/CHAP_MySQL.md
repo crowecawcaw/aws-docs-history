@@ -57,17 +57,14 @@ Telnet or Secure Shell (SSH).
 - [Improving query performance for RDS for MySQL with Amazon RDS Optimized Reads](rds-optimized-reads.md "rds-optimized-reads.md")
 - [Improving write performance with RDS Optimized Writes for MySQL](rds-optimized-writes.md "rds-optimized-writes.md")
 - [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
-- [Upgrading a MySQL DB snapshot engine
-  version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md")
-- [Importing data into an Amazon RDS for MySQL DB
-  instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md")
+- [Upgrading a MySQL DB snapshot engine version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md")
+- [Importing data into an Amazon RDS for MySQL DB instance](MySQL.Procedural.Importing.md "MySQL.Procedural.Importing.md")
 - [Working with MySQL replication in Amazon RDS](USER_MySQL.md "USER_MySQL.md")
 - [Configuring active-active clusters for RDS for MySQL](mysql-active-active-clusters.md "mysql-active-active-clusters.md")
 - [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md")
 - [Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")
 - [Parameters for MySQL](Appendix.MySQL.md "Appendix.MySQL.md")
-- [Common DBA tasks for MySQL DB
-  instances](Appendix.MySQL.md "Appendix.MySQL.md")
+- [Common DBA tasks for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")
 - [Local time zone for MySQL DB instances](MySQL.Concepts.md "MySQL.Concepts.md")
 - [Known issues and limitations for Amazon RDS for MySQL](MySQL.md "MySQL.md")
 - [RDS for MySQL stored procedure reference](Appendix.MySQL.md "Appendix.MySQL.md")

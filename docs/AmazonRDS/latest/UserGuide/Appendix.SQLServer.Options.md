@@ -1,206 +1,145 @@
-# Support for Microsoft Distributed Transaction Coordinator in RDS for SQL Server
+# Microsoft SQL Server resource governor with RDS for SQL Server
 
-A _distributed transaction_ is a database transaction in
-which two or more network hosts are involved. RDS for SQL Server supports distributed
-transactions among hosts, where a single host can be one of the following:
+Resource governor is a SQL Server Enterprise Edition feature that gives you precise control over
+your instance resources. It enables you to set specific limits on how workloads use CPU,
+memory, and physical I/O resources. With resource governor, you can:
 
-- RDS for SQL Server DB instance
-- On-premises SQL Server host
-- Amazon EC2 host with SQL Server installed
-- Any other EC2 host or RDS DB instance with a database engine that supports distributed
-  transactions
-  In RDS, starting with SQL Server 2012 (version 11.00.5058.0.v1 and later), all editions of RDS for SQL Server support distributed transactions.
-  The support is provided using Microsoft Distributed Transaction Coordinator (MSDTC). For in-depth information about MSDTC, see
-  [Distributed Transaction Coordinator](<https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms684146(v=vs.85)> "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms684146(v=vs.85)") in the Microsoft documentation.
+- Prevent resource monopolization in multi-tenant environments by managing how different workloads share instance resources
+- Deliver predictable performance by setting specific resource limits and priorities for different users and applications
+  You can enable resource governor on either an existing or new RDS for SQL Server DB instance.
+
+Resource governor uses three fundamental concepts:
+
+- **Resource pool** - A container that manages your instance physical resources (CPU, memory, and I/O).
+  You get two built-in pools (internal and default) and you can create additional custom pools.
+- **Workload group** - A container for database sessions with similar characteristics.
+  Every workload group belongs to a resource pool. You get two built-in workload groups
+  (internal and default) and you can create additional custom workload groups.
+- **Classification** - The process that determines which workload
+  group handles incoming sessions based on user name, application name, database name or host name.
+  For additional details about resource governor functionality in SQL Server,
+  see [Resource Governor](https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/relational-databases/resource-governor/resource-governor?view=sql-server-ver16")
+  in the Microsoft documentation.
 
 ###### Contents
 
-- [Limitations](Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.Limitations "Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.Limitations")
-- [Enabling MSDTC](Appendix.SQLServer.Options.MSDTC.md "Appendix.SQLServer.Options.MSDTC.md")
-  - [Creating the option group for MSDTC](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.OptionGroup "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.OptionGroup")
-  - [Adding the MSDTC option to the option group](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Add "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Add")
-  - [Creating the parameter group for MSDTC](Appendix.SQLServer.Options.MSDTC.md#MSDTC.CreateParamGroup "Appendix.SQLServer.Options.MSDTC.md#MSDTC.CreateParamGroup")
-  - [Modifying the parameter for MSDTC](Appendix.SQLServer.Options.MSDTC.md#ModifyParam.MSDTC "Appendix.SQLServer.Options.MSDTC.md#ModifyParam.MSDTC")
-  - [Associating the option group and parameter group with the DB instance](Appendix.SQLServer.Options.MSDTC.md#MSDTC.Apply "Appendix.SQLServer.Options.MSDTC.md#MSDTC.Apply")
-  - [Modifying the MSDTC option](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Modify "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Modify")
+- [Supported versions and Regions](Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions "Appendix.SQLServer.Options.md#ResourceGovernor.SupportedVersions")
+- [Limitations and recommendations](Appendix.SQLServer.Options.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.md#ResourceGovernor.Limitations")
+- [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.md#ResourceGovernor.OptionGroup "ResourceGovernor.md#ResourceGovernor.OptionGroup")
+  - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.md#ResourceGovernor.Add "ResourceGovernor.md#ResourceGovernor.Add")
+  - [Associating the option group with your DB instance](ResourceGovernor.md#ResourceGovernor.Apply "ResourceGovernor.md#ResourceGovernor.Apply")
 
-- [Using transactions](Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.Using "Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.Using")
-  - [Using distributed transactions](Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.UsingXA "Appendix.SQLServer.Options.md#Appendix.SQLServer.Options.MSDTC.UsingXA")
-  - [Using XA transactions](Appendix.SQLServer.Options.md#MSDTC.XA "Appendix.SQLServer.Options.md#MSDTC.XA")
-  - [Using transaction tracing](Appendix.SQLServer.Options.md#MSDTC.Tracing "Appendix.SQLServer.Options.md#MSDTC.Tracing")
+- [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Manage resource pool](ResourceGovernor.md#ResourceGovernor.ManageResourcePool "ResourceGovernor.md#ResourceGovernor.ManageResourcePool")
+    - [Create resource Pool](ResourceGovernor.md#ResourceGovernor.CreateResourcePool "ResourceGovernor.md#ResourceGovernor.CreateResourcePool")
+    - [Alter resource pool](ResourceGovernor.md#ResourceGovernor.AlterResourcePool "ResourceGovernor.md#ResourceGovernor.AlterResourcePool")
+    - [Drop resource pool](ResourceGovernor.md#ResourceGovernor.DropResourcePool "ResourceGovernor.md#ResourceGovernor.DropResourcePool")
 
-- [Disabling MSDTC](Appendix.SQLServer.Options.MSDTC.md "Appendix.SQLServer.Options.MSDTC.md")
-- [Troubleshooting MSDTC for RDS for SQL Server](Appendix.SQLServer.Options.MSDTC.md "Appendix.SQLServer.Options.MSDTC.md")
+  - [Manage workload groups](ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups "ResourceGovernor.md#ResourceGovernor.ManageWorkloadGroups")
+    - [Create workload group](ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup "ResourceGovernor.md#ResourceGovernor.CreateWorkloadGroup")
+    - [Alter workload group](ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup "ResourceGovernor.md#ResourceGovernor.AlterWorkloadGroup")
+    - [Drop workload group](ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup "ResourceGovernor.md#ResourceGovernor.DropWorkloadGroup")
 
-## Limitations
+  - [Create and register classifier function](ResourceGovernor.md#ResourceGovernor.ClassifierFunction "ResourceGovernor.md#ResourceGovernor.ClassifierFunction")
+  - [Drop classifier function](ResourceGovernor.md#ResourceGovernor.DropClassifier "ResourceGovernor.md#ResourceGovernor.DropClassifier")
+  - [De-register classifier function](ResourceGovernor.md#ResourceGovernor.DeregisterClassifier "ResourceGovernor.md#ResourceGovernor.DeregisterClassifier")
+  - [Reset statistics](ResourceGovernor.md#ResourceGovernor.ResetStats "ResourceGovernor.md#ResourceGovernor.ResetStats")
+  - [Resource governor configuration changes](ResourceGovernor.md#ResourceGovernor.ConfigChanges "ResourceGovernor.md#ResourceGovernor.ConfigChanges")
+  - [Bind TempDB to a resource pool](ResourceGovernor.md#ResourceGovernor.BindTempDB "ResourceGovernor.md#ResourceGovernor.BindTempDB")
+  - [Unbind TempDB from a resource pool](ResourceGovernor.md#ResourceGovernor.UnbindTempDB "ResourceGovernor.md#ResourceGovernor.UnbindTempDB")
+  - [Cleanup resource governor](ResourceGovernor.md#ResourceGovernor.Cleanup "ResourceGovernor.md#ResourceGovernor.Cleanup")
 
-The following limitations apply to using MSDTC on RDS for SQL Server:
+- [Considerations for Multi-AZ deployment](Appendix.SQLServer.Options.md#ResourceGovernor.Considerations "Appendix.SQLServer.Options.md#ResourceGovernor.Considerations")
+- [Considerations for read replicas](Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica "Appendix.SQLServer.Options.md#ResourceGovernor.ReadReplica")
+- [Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+  - [Resource pool runtime statistics](ResourceGovernor.md#ResourceGovernor.ResourcePoolStats "ResourceGovernor.md#ResourceGovernor.ResourcePoolStats")
 
-- MSDTC isn't supported on instances using SQL Server Database Mirroring. For more
-  information, see [Transactions - availability groups and database
-  mirroring](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring?view=sql-server-ver15#non-support-for-distributed-transactions "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring?view=sql-server-ver15#non-support-for-distributed-transactions").
-- The `in-doubt xact resolution` parameter must be set to 1 or 2. For more information, see [Modifying the parameter for MSDTC](Appendix.SQLServer.Options.MSDTC.md#ModifyParam.MSDTC "Appendix.SQLServer.Options.MSDTC.md#ModifyParam.MSDTC").
-- MSDTC requires all hosts participating in distributed transactions to be resolvable using their host names. RDS automatically
-  maintains this functionality for domain-joined instances. However, for standalone instances make sure to configure the
-  DNS server manually.
-- Java Database Connectivity (JDBC) XA transactions are supported for SQL Server 2017 version 14.00.3223.3 and
-  higher, and SQL Server 2019.
-- Distributed transactions that depend on client dynamic link libraries (DLLs) on RDS
-  instances aren't supported.
-- Using custom XA dynamic link libraries isn't supported.
+- [Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.md "ResourceGovernor.md")
+- [Best practices for configuring resource governor on RDS for SQL Server](ResourceGovernor.md "ResourceGovernor.md")
 
-## Using transactions
+## Supported versions and Regions
 
-### Using distributed transactions
+Resource governor is available in all AWS Regions where RDS for SQL Server is available.
+It is only supported for SQL Server Enterprise Edition for SQL Server 2016, SQL Server 2017,
+SQL Server 2019, and SQL Server 2022.
 
-In Amazon RDS for SQL Server, you run distributed transactions in the same way as distributed
-transactions running on-premises:
+## Limitations and recommendations
 
-- Using .NET framework `System.Transactions` promotable transactions, which
-  optimizes distributed transactions by deferring their creation until
-  they're needed.
+The following limitations and recommendations apply to resource governor:
 
-In this case, promotion is automatic and doesn't require you to make any
-intervention. If there's only one resource manager within the
-transaction, no promotion is performed. For more information about implicit
-transaction scopes, see [Implementing an implicit transaction using transaction scope](https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/implementing-an-implicit-transaction-using-transaction-scope "https://docs.microsoft.com/en-us/dotnet/framework/data/transactions/implementing-an-implicit-transaction-using-transaction-scope") in
-the Microsoft documentation.
+- Edition and service restrictions:
+  - Available only in SQL Server Enterprise Edition.
+  - Resource management is limited to the SQL Server Database Engine.
+    Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
 
-Promotable transactions are supported with these .NET implementations:
+- Configuration restrictions:
+  - Must use Amazon RDS stored procedures for all configurations.
+  - Native DDL statements and SQL Server Management Studio GUI configurations aren't supported.
 
-    + Starting with ADO.NET 2.0, `System.Data.SqlClient` supports promotable
-     transactions with SQL Server. For more information, see [System.Transactions integration with SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/system-transactions-integration-with-sql-server "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/system-transactions-integration-with-sql-server") in the
-     Microsoft documentation.
-    + ODP.NET supports `System.Transactions`. A local transaction is created for
-     the first connection opened in the `TransactionsScope`
-     scope to Oracle Database 11g release 1 (version 11.1) and later.
-     When a second connection is opened, this transaction is
-     automatically promoted to a distributed transaction. For more
-     information about distributed transaction support in ODP.NET, see
-     [Microsoft Distributed Transaction Coordinator
-     integration](https://docs.oracle.com/en/database/oracle/oracle-data-access-components/18.3/ntmts/using-mts-with-oracledb.html "https://docs.oracle.com/en/database/oracle/oracle-data-access-components/18.3/ntmts/using-mts-with-oracledb.html") in the Microsoft documentation.
+- Resource pool parameters:
+  - Pool names starting with `rds_` aren't supported.
+  - Internal and default resource pool modifications aren't permitted.
+  - For the user-defined resource pools the following resource pool parameters aren't supported:
+    - `MIN_MEMORY_PERCENT`
+    - `MIN_CPU_PERCENT`
+    - `MIN_IOPS_PER_VOLUME`
+    - `AFFINITY`
 
-- Using the `BEGIN DISTRIBUTED TRANSACTION` statement. For more information, see
-  [BEGIN DISTRIBUTED TRANSACTION (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql") in the Microsoft
-  documentation.
+- Workload group parameters:
+  - Workload group names starting with `rds_` aren't supported.
+  - Internal workload group modification isn't permitted.
+  - For the default workload group:
+    - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.
+    - For the default workload group, `REQUEST_MAX_MEMORY_GRANT_PERCENT` must be between 1 and 70.
+    - All other parameters are locked and can't be changed.
 
-### Using XA transactions
+  - User-defined workload groups allow modification of all parameters.
 
-Starting from RDS for SQL Server 2017 version14.00.3223.3, you can control distributed transactions using JDBC. When you set the
-`Enable XA` option setting to `true` in the `MSDTC` option, RDS automatically enables JDBC
-transactions and grants the `SqlJDBCXAUser` role to the `guest` user. This allows executing distributed
-transactions through JDBC. For more information, including a code example, see [Understanding XA transactions](https://docs.microsoft.com/en-us/sql/connect/jdbc/understanding-xa-transactions "https://docs.microsoft.com/en-us/sql/connect/jdbc/understanding-xa-transactions")
-in the Microsoft documentation.
+- Classifier function limitations:
+  - Classifier function routes connections to custom workload groups
+    based on specified criteria (user name, database, host, or application name).
+  - Supports up to two user-defined workload groups with their
+    respective routing conditions.
+  - Combines criterion with `AND` conditions within each group.
+  - Requires at least one routing criterion per workload group.
+  - Only the classification methods listed above are supported.
+  - Function name must start with `rg_classifier_`.
+  - Default group assignment if no conditions match.
 
-### Using transaction tracing
+## Considerations for Multi-AZ deployment
 
-RDS supports controlling MSDTC transaction traces and downloading them from the RDS DB
-instance for troubleshooting. You can control transaction tracing sessions by
-running the following RDS stored procedure.
+RDS for SQL Server replicates resource governor to secondary instance in a Multi-AZ deployment.
+You can verify when modified and new resource governor last synchronized with the secondary instance.
 
-```
-exec msdb.dbo.rds_msdtc_transaction_tracing '`trace_action`',
-[@traceall='`0|1`'],
-[@traceaborted='`0|1`'],
-[@tracelong='`0|1`'];
-```
-
-The following parameter is required:
-
-- `trace_action` – The tracing action. It can be
-  `START`, `STOP`, or `STATUS`.
-
-The following parameters are optional:
-
-- `@traceall` – Set to 1 to trace all distributed transactions. The
-  default is 0.
-- `@traceaborted` – Set to 1 to trace canceled distributed transactions.
-  The default is 0.
-- `@tracelong` – Set to 1 to trace long-running distributed transactions.
-  The default is 0.
-
-###### Example of START tracing action
-
-To start a new transaction tracing session, run the following example statement.
+Use the following query to check the `last_sync_time` of the replication:
 
 ```
-exec msdb.dbo.rds_msdtc_transaction_tracing 'START',
-@traceall='`0`',
-@traceaborted='`1`',
-@tracelong='`1`';
+SELECT * from msdb.dbo.rds_fn_server_object_last_sync_time();
 ```
+
+In the query results, if the sync time is past the resource governor updated or creation time, then the resource governor syncs with the secondary.
+
+To perform a manual DB failover to confirm that the resource governor replicate,
+wait for the `last_sync_time` to update first. Then, proceed with the Multi-AZ failover.
+
+## Considerations for read replicas
+
+- For SQL Server replicas in the same Region as the source DB instance,
+  use the same option group as the source. Changes to the option group propagate
+  to replicas immediately, regardless of their maintenance windows.
+- When you create a SQL Server cross-Region replica, RDS creates a dedicated option group for it.
+- You can't remove an SQL Server cross-Region replica from its dedicated option group.
+  No other DB instances can use the dedicated option group for a SQL Server cross-Region replica.
+- Resource governor option is non-replicated options.
+  You can add or remove non-replicated options from a dedicated option group.
+- When you promote a SQL Server cross-Region read replica, the promoted replica
+  behaves the same as other SQL Server DB instances, including the management of its options.
 
 ###### Note
 
-Only one transaction tracing session can be active at one time. If a new tracing session
-`START` command is issued while a tracing session is active,
-an error is returned and the active tracing session remains
-unchanged.
-
-###### Example of STOP tracing action
-
-To stop a transaction tracing session, run the following statement.
-
-```
-exec msdb.dbo.rds_msdtc_transaction_tracing 'STOP'
-```
-
-This statement stops the active transaction tracing session and saves the transaction
-trace data into the log directory on the RDS DB instance. The first row of the
-output contains the overall result, and the following lines indicate details of
-the operation.
-
-The following is an example of a successful tracing session stop.
-
-```
-**OK: Trace session has been successfully stopped.**
-Setting log file to: D:\rdsdbdata\MSDTC\Trace\dtctrace.log
-Examining D:\rdsdbdata\MSDTC\Trace\msdtctr.mof for message formats,  8 found.
-Searching for TMF files on path: (null)
-Logfile D:\rdsdbdata\MSDTC\Trace\dtctrace.log:
- OS version    10.0.14393  (Currently running on 6.2.9200)
- Start Time    <timestamp>
- End Time      <timestamp>
- Timezone is   @tzres.dll,-932 (Bias is 0mins)
- BufferSize            16384 B
- Maximum File Size     10 MB
- Buffers  Written      Not set (Logger may not have been stopped).
- Logger Mode Settings (11000002) ( circular paged
- ProcessorCount         1
-Processing completed   Buffers: 1, Events: 3, EventsLost: 0 :: Format Errors: 0, Unknowns: 3
-Event traces dumped to **d:\rdsdbdata\Log\msdtc\_<`timestamp`>.log**
-```
-
-You can use the detailed information to query the name of the generated log file. For more
-information about downloading log files from the RDS DB instance, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
-
-The trace session logs remain on the instance for 35 days. Any older trace session logs are automatically deleted.
-
-###### Example of STATUS tracing action
-
-To trace the status of a transaction tracing session, run the following statement.
-
-```
-exec msdb.dbo.rds_msdtc_transaction_tracing 'STATUS'
-```
-
-This statement outputs the following as separate rows of the result set.
-
-```
-OK
-SessionStatus: <`Started|Stopped`>
-TraceAll: <`True|False`>
-TraceAborted: <`True|False`>
-TraceLongLived: <`True|False`>
-```
-
-The first line indicates the overall result of the operation: `OK` or
-`ERROR` with details, if applicable. The subsequent lines
-indicate details about the tracing session status:
-
-- `SessionStatus` can be one of the following:
-  - `Started` if a tracing session is running.
-  - `Stopped` if no tracing session is running.
-
-- The tracing session flags can be `True` or `False` depending on
-  how they were set in the `START` command.
+When using Resource governor on a read replica, you must manually ensure that resource governor has been configured on your read replica
+using Amazon RDS stored procedures after the option is added to the option group. Resource governor configurations do not automatically replicate to
+the read replica. Also, the workload on read replica is typically different than the primary instance.
+Hence, it's recommended to apply the resource configuration on the replica based on your workload and instance type.
+You can run these Amazon RDS stored procedures on read replica independently to configure resource governor on read replica.

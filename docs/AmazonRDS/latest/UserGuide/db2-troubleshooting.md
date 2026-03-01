@@ -3,15 +3,13 @@
 The following content can help you troubleshoot issues that you encounter with
 RDS for Db2.
 
-For more information about general Amazon RDS troubleshooting issues, see [Troubleshooting for
-Amazon RDS](CHAP_Troubleshooting.md "CHAP_Troubleshooting.md").
+For more information about general Amazon RDS troubleshooting issues, see [Troubleshooting for Amazon RDS](CHAP_Troubleshooting.md "CHAP_Troubleshooting.md").
 
 ###### Topics
 
 - [Database connection error](#db2-database-connection-error "#db2-database-connection-error")
 - [File I/O error](#db2-file-input-output-error "#db2-file-input-output-error")
-- [Stored
-  procedure errors](#db2-troubleshooting-stored-procedures "#db2-troubleshooting-stored-procedures")
+- [Stored procedure errors](#db2-troubleshooting-stored-procedures "#db2-troubleshooting-stored-procedures")
 
 ## Database connection error
 
@@ -24,8 +22,7 @@ database manager instance memory limit has been reached.
 ```
 
 Increase the memory for your DB instance and then try to connect to your database
-again. For information about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB
-instance](db2-multiple-databases.md "db2-multiple-databases.md"). For information about how to update the memory
+again. For information about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md"). For information about how to update the memory
 for an RDS for Db2 database, see [rdsadmin.update_db_param](db2-sp-managing-databases.md#db2-sp-update-db-param "db2-sp-managing-databases.md#db2-sp-update-db-param").
 
 ## File I/O error
@@ -107,14 +104,10 @@ subnets by configuring Amazon RDS subnet groups. For more information, see [Work
 
 ###### Topics
 
-- [Step 1: Create a VPC gateway endpoint for
-  Amazon S3](#db2-creating-endpoint "#db2-creating-endpoint")
-- [Step 2: Confirm that your VPC gateway
-  endpoint for Amazon S3 exists](#db2-confirming-endpoint "#db2-confirming-endpoint")
+- [Step 1: Create a VPC gateway endpoint for Amazon S3](#db2-creating-endpoint "#db2-creating-endpoint")
+- [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](#db2-confirming-endpoint "#db2-confirming-endpoint")
 
-### Step 1: Create a VPC gateway endpoint for
-
-Amazon S3
+### Step 1: Create a VPC gateway endpoint for Amazon S3
 
 For your RDS for Db2 DB instance to interact with Amazon S3, create a VPC and then an Amazon S3
 gateway endpoint for private subnets to use.
@@ -128,9 +121,7 @@ gateway endpoint for private subnets to use.
    endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md "../../../vpc/latest/privatelink/gateway-endpoints.md") in the
    _AWS PrivateLink Guide_.
 
-### Step 2: Confirm that your VPC gateway
-
-endpoint for Amazon S3 exists
+### Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists
 
 Confirm that you successfully created an Amazon S3 gateway endpoint by using the
 AWS Management Console or the AWS CLI.
@@ -187,12 +178,9 @@ gateway endpoint doesn't exist.
 []
 ```
 
-If you don't see an Amazon S3 gateway endpoint listed, then [Step 1: Create a VPC gateway endpoint for
-Amazon S3](#db2-creating-endpoint "#db2-creating-endpoint").
+If you don't see an Amazon S3 gateway endpoint listed, then [Step 1: Create a VPC gateway endpoint for Amazon S3](#db2-creating-endpoint "#db2-creating-endpoint").
 
-## Stored
-
-procedure errors
+## Stored procedure errors
 
 This section describes various errors returned when calling stored procedures and how
 to resolve them.
@@ -230,8 +218,7 @@ SQL1643C The database manager failed to allocate shared memory because the datab
 
 Increase the memory for your DB instance and then call the
 `rdsadmin.activate_database` stored procedure again. For information
-about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB
-instance](db2-multiple-databases.md "db2-multiple-databases.md").
+about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 
 **Unable to
 activate because of running processes**
@@ -405,8 +392,7 @@ SQL1643C The database manager failed to allocate shared memory because the datab
 
 Increase the memory for your DB instance and then call the
 `rdsadmin.create_database` stored procedure again. For information
-about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB
-instance](db2-multiple-databases.md "db2-multiple-databases.md").
+about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 
 To confirm that the database was created, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the new
 database is listed.
@@ -433,9 +419,7 @@ The database can’t be deactivated because it's in the process of being created
 Wait a few minutes, and then call the `rdsadmin.deactivate_database`
 stored procedure again.
 
-### rdsadmin.drop_database
-
-errors
+### rdsadmin.drop_database errors
 
 The following errors can occur when you call the [rdsadmin.drop_database](db2-sp-managing-databases.md#db2-sp-drop-database "db2-sp-managing-databases.md#db2-sp-drop-database") stored procedure.
 
@@ -512,8 +496,7 @@ SQL1643C The database manager failed to allocate shared memory because the datab
 
 Increase the memory for your DB instance and then call the
 `rdsadmin.activate_database` stored procedure again. For information
-about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB
-instance](db2-multiple-databases.md "db2-multiple-databases.md").
+about memory usage and recommendations for databases, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 
 **Unable to
 reactivate because of running processes**
@@ -584,8 +567,7 @@ Caught exception during executing task id 2, Aborting task. Reason Non fenced ro
 RDS for Db2 doesn't support non-fenced routines. Remove the non-fenced routines from
 the source database, and then call `rdsadmin.restore_database` again. To
 confirm that the database was restored, call the [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases") user-defined function and check that the
-restored database is listed. For more information, see [Non-fenced
-routines](db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines "db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines").
+restored database is listed. For more information, see [Non-fenced routines](db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines "db2-known-issues-limitations.md#db2-known-issues-limitations-non-fenced-routines").
 
 **Tablespaces not
 restored**
@@ -628,5 +610,4 @@ is either not supported or not modifiable to customers". SQLSTATE=99993
 ```
 
 You can see which parameters are modifiable by viewing your parameter groups. For
-more information, see [Viewing parameter values for a
-DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+more information, see [Viewing parameter values for a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

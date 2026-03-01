@@ -1,6 +1,4 @@
-# Using Amazon RDS Blue/Green Deployments
-
-for database updates
+# Using Amazon RDS Blue/Green Deployments for database updates
 
 A blue/green deployment copies a production database environment to a separate,
 synchronized staging environment. By using Amazon RDS Blue/Green Deployments, you
@@ -22,6 +20,5 @@ User Guide_.
 - [Overview of Amazon RDS Blue/Green Deployments](blue-green-deployments-overview.md "blue-green-deployments-overview.md")
 - [Creating a blue/green deployment in Amazon RDS](blue-green-deployments-creating.md "blue-green-deployments-creating.md")
 - [Viewing a blue/green deployment in Amazon RDS](blue-green-deployments-viewing.md "blue-green-deployments-viewing.md")
-- [Switching a blue/green deployment in
-  Amazon RDS](blue-green-deployments-switching.md "blue-green-deployments-switching.md")
+- [Switching a blue/green deployment in Amazon RDS](blue-green-deployments-switching.md "blue-green-deployments-switching.md")
 - [Deleting a blue/green deployment in Amazon RDS](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md")

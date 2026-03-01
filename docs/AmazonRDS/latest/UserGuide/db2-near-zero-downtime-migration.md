@@ -13,16 +13,12 @@ transaction logs to bring the database up to date.
 
 ###### Topics
 
-- [Limitations and
-  recommendations for near-zero downtime migration](#db2-near-zero-downtime-migration-limitations "#db2-near-zero-downtime-migration-limitations")
+- [Limitations and recommendations for near-zero downtime migration](#db2-near-zero-downtime-migration-limitations "#db2-near-zero-downtime-migration-limitations")
 - [Backing up your database to Amazon S3](#db2-near-zero-downtime-backing-up-database "#db2-near-zero-downtime-backing-up-database")
-- [Creating a default automatic
-  storage group](#db2-near-zero-migration-creating-auto-storage-group "#db2-near-zero-migration-creating-auto-storage-group")
+- [Creating a default automatic storage group](#db2-near-zero-migration-creating-auto-storage-group "#db2-near-zero-migration-creating-auto-storage-group")
 - [Migrating your Db2 database](#db2-migrating-db2-database "#db2-migrating-db2-database")
 
-## Limitations and
-
-recommendations for near-zero downtime migration
+## Limitations and recommendations for near-zero downtime migration
 
 The following limitations and recommendations apply to using near-zero downtime
 migration:
@@ -77,18 +73,14 @@ bucket. For more information, see the [AWS Snow Family documentation](../../../s
 
 - _An IAM role to access the S3 bucket_: If
   you already have an AWS Identity and Access Management (IAM) role, you can use that role. If you don't
-  have a role, see [Step 2: Create an IAM role and attach your
-  IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
+  have a role, see [Step 2: Create an IAM role and attach your IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
 - _An IAM policy with trust relationships and
   permissions attached to your IAM role_: For more information,
   see [Step 1: Create an IAM policy](db2-s3-integration.md#db2-creating-iam-policy "db2-s3-integration.md#db2-creating-iam-policy").
 - _The IAM role added to your RDS for Db2 DB
-  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB
-  instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
+  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
 
-## Creating a default automatic
-
-storage group
+## Creating a default automatic storage group
 
 Your source database must have a default automatic storage group. If your database
 doesn't have a default automatic storage group, you must create one.
@@ -122,9 +114,7 @@ db2 terminate
 After you set up for near-zero downtime migration, you are ready to migrate your Db2
 database from your Amazon S3 bucket to your RDS for Db2 DB instance.
 
-###### To perform a near-zero downtime migration of backup files from your Amazon S3 bucket
-
-to your RDS for Db2 DB instance
+###### To perform a near-zero downtime migration of backup files from your Amazon S3 bucket to your RDS for Db2 DB instance
 
 1. Perform an online backup of your source database. For more information, see
    [BACKUP DATABASE command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-backup-database "https://www.ibm.com/docs/en/db2/11.5?topic=commands-backup-database") in the IBM Db2

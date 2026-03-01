@@ -3,9 +3,7 @@
 Using the Amazon RDS console, you can view Amazon RDS recommendations for your database
 resources.
 
-###### To view the Amazon RDS
-
-recommendations
+###### To view the Amazon RDS recommendations
 
 1.  Sign in to the AWS Management Console and open the Amazon RDS console at
     [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").

@@ -6,9 +6,7 @@ in an Oracle database. For more information, see [Introduction to Java in
 Oracle database](https://docs.oracle.com/database/121/JJDEV/chone.htm "https://docs.oracle.com/database/121/JJDEV/chone.htm") in the Oracle documentation. You can use Oracle JVM with all
 versions of Oracle Database 21c (21.0.0) and Oracle Database 19c (19.0.0).
 
-## Considerations for Oracle
-
-JVM
+## Considerations for Oracle JVM
 
 Java implementation in Amazon RDS has a limited set of permissions. The master user is
 granted the `RDS_JAVA_ADMIN` role, which grants a subset of the privileges

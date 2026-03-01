@@ -1,6 +1,4 @@
-# PostgreSQL replication methods for
-
-blue/green deployments
+# PostgreSQL replication methods for blue/green deployments
 
 Amazon RDS for PostgreSQL primarily uses physical replication for blue/green deployments. However,
 if you request a major version upgrade when you create the blue/green deployment, and your
@@ -24,8 +22,5 @@ RDS for PostgreSQL versions 15.3 and lower, 14.8 and lower, 13.11 and lower, 12.
 For information about the limitations of blue/green deployments that use physical and
 logical replication, see the following sections:
 
-- [RDS for PostgreSQL limitations for
-  blue/green deployments with physical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical")
-- [RDS for PostgreSQL
-  limitations for blue/green deployments with logical
-  replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-logical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-logical")
+- [RDS for PostgreSQL limitations for blue/green deployments with physical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical")
+- [RDS for PostgreSQL limitations for blue/green deployments with logical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-logical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-logical")

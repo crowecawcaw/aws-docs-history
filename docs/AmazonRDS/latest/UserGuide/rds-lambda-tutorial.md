@@ -1,6 +1,4 @@
-# Tutorial: Using a Lambda function to access an Amazon RDS
-
-database
+# Tutorial: Using a Lambda function to access an Amazon RDS database
 
 In this tutorial, you use a Lambda function to write data to an [Amazon Relational Database Service](Welcome.md "Welcome.md") (Amazon RDS) database through
 RDS Proxy. Your Lambda function reads records from an Amazon Simple Queue Service (Amazon SQS) queue and writes a new item

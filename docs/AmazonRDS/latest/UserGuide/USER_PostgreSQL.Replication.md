@@ -1,6 +1,4 @@
-# Working with read replicas for
-
-Amazon RDS for PostgreSQL
+# Working with read replicas for Amazon RDS for PostgreSQL
 
 You can scale reads for your Amazon RDS for PostgreSQL DB instances by adding read replicas to the
 instances. As with other Amazon RDS database engines, RDS for PostgreSQL uses native replication
@@ -10,9 +8,7 @@ general information about read replicas and Amazon RDS, see [Working with DB ins
 Following, you can find information specific to working with read replicas with
 RDS for PostgreSQL.
 
-## Read replica
-
-limitations with PostgreSQL
+## Read replica limitations with PostgreSQL
 
 The following are limitations for PostgreSQL read replicas:
 
@@ -22,19 +18,16 @@ The following are limitations for PostgreSQL read replicas:
 - You can't create a read replica from another read replica if your
   RDS for PostgreSQL DB instance is running a PostgreSQL version earlier than 14.1.
   RDS for PostgreSQL supports cascading read replicas on RDS for PostgreSQL version 14.1 and
-  higher releases only. For more information, see [Using cascading
-  read replicas with RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
+  higher releases only. For more information, see [Using cascading read replicas with RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
 - If you promote a PostgreSQL read replica, it becomes a writable DB instance.
   It stops receiving write-ahead log (WAL) files from a source DB instance, and
   it's no longer a read-only instance. You can create new read replicas from
   the promoted DB instance as you do for any RDS for PostgreSQL DB instance. For more
-  information, see [Promoting a read replica to be a standalone
-  DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+  information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 - If you promote a PostgreSQL read replica from within a replication chain (a
   series of cascading read replicas), any existing downstream read replicas
   continue receiving WAL files from the promoted instance automatically. For more
-  information, see [Using cascading
-  read replicas with RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
+  information, see [Using cascading read replicas with RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
 - If no user transactions are running on the source DB instance, the associated
   PostgreSQL read replica reports a replication lag of up to five minutes. The
   replica lag is calculated as `currentTime -

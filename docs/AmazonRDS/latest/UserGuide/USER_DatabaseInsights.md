@@ -1,22 +1,53 @@
-# Monitoring Amazon RDS databases with CloudWatch Database Insights
+# Configuring your database to monitor slow SQL queries with Database Insights for Amazon RDS
 
-Monitor the database load (DB Load) for your fleet of Amazon RDS DB instances with Database Insights. DB Load measures the level of session activity in your database. You can use Database Insights to analyze and troubleshoot the performance of your Amazon RDS databases at scale.
+To monitor slow SQL queries for your database, you can use the **Slow SQL Queries** section in the Database Insights dashboard. Before configuring your database to monitor slow SQL queries, the **Slow SQL Queries** section is blank.
 
-With Database Insights, you can visualize the DB Load on your fleet of databases and filter the load by waits, SQL statements, hosts, or users.
+For more information about monitoring slow SQL queries in the Database Insights dashboard, see [Viewing the Database Instance Dashboard for CloudWatch Database Insights](../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md "../../../AmazonCloudWatch/latest/monitoring/Database-Insights-Database-Instance-Dashboard.md") in the _Amazon CloudWatch User Guide_.
 
-By default, RDS enables the Standard mode of Database Insights for your Amazon RDS databases.
+To configure your database to monitor slow SQL queries with Database Insights, complete the following steps:
 
-For information about using Database Insights in the Amazon CloudWatch console, see [CloudWatch Database Insights](../../../AmazonCloudWatch/latest/monitoring/Database-Insights.md "../../../AmazonCloudWatch/latest/monitoring/Database-Insights.md") in the _Amazon CloudWatch User Guide_.
+1. Enable log exports to CloudWatch Logs.
+2. Create or modify the DB parameter group for your DB instance.
+   For information about configuring log exports, see [Publishing database logs to Amazon CloudWatch Logs](USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch "USER_LogAccess.md#USER_LogAccess.Procedural.UploadtoCloudWatch") in the _Amazon RDS User Guide_.
 
-## Pricing
+To create or modify your DB parameter group, see the following topics.
 
-For information about pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+- [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
+- [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")
 
-###### Topics
+RDS for MariaDB
+To configure your RDS for MariaDB DB instance to monitor slow SQL queries, you can use the following parameter combination as an example:
 
-- [Amazon RDS DB engine, Region, and instance class support
-  for Database Insights](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
-- [Turning on the Advanced mode of Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
-- [Turning on the Standard mode of Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
-- [Configuring your database to monitor slow SQL queries with Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
-- [Considerations for Database Insights for Amazon RDS](USER_DatabaseInsights.md "USER_DatabaseInsights.md")
+- `log_slow_query` – set to `1`
+- `log_slow_query_time` – set to `1.0`
+- `log_output` – set to `FILE`
+
+This is one possible configuration. For a comprehensive guide to MariaDB slow query log parameters and additional configuration options, see the [MariaDB documentation for the slow query log](https://mariadb.com/kb/en/slow-query-log-overview/ "https://mariadb.com/kb/en/slow-query-log-overview/").
+
+RDS for MySQL
+To configure your RDS for MySQL DB instance to monitor slow SQL queries, you can use the following parameter combination as an example:
+
+- `slow_query_log` – set to `1`
+- `long_query_time` – set to `1.0`
+- `log_output` – set to `FILE`
+
+This is one possible configuration. For a comprehensive guide to MySQL slow query log parameters and additional configuration options, see the [MySQL documentation for the slow query log](https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html "https://dev.mysql.com/doc/refman/8.0/en/slow-query-log.html").
+
+RDS for PostgreSQL
+To configure your RDS for PostgreSQL DB instance to monitor slow SQL queries, you can use the following parameter combination as an example. Note that setting these parameters might reduce the performance of your DB instance.
+
+- `log_min_duration_statement` – set to `1000`
+- `log_statement` – set to `none`
+- `log_destination` – set to `stderr`
+
+This is one possible configuration. For a comprehensive guide to PostgreSQL logging parameters and additional configuration options, see the [PostgreSQL documentation for logging configuration](https://www.postgresql.org/docs/current/runtime-config-logging.html "https://www.postgresql.org/docs/current/runtime-config-logging.html").
+
+###### Note
+
+For RDS for MySQL, you can configure the parameter `long_query_time` with 1‐microsecond granularity. For example, you can set this parameter to `0.000001`. Depending on the amount of queries on the DB instance, the value of the parameter `long_query_time` can reduce performance. Start with the value `1.0`, and adjust it based on your workload. When you set this parameter to `0`, Database Insights logs all queries.
+
+For information about RDS for MariaDB, RDS for MySQL, and RDS for PostgreSQL logs, see the following.
+
+- [MariaDB database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- [MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")

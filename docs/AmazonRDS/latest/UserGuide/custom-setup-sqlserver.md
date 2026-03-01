@@ -18,13 +18,10 @@ perform the following tasks.
   - [Configuring manually](custom-setup-sqlserver.md#custom-setup-sqlserver.manual "custom-setup-sqlserver.md#custom-setup-sqlserver.manual")
     - [Make sure that you have a symmetric encryption AWS KMS key](custom-setup-sqlserver.md#custom-setup-sqlserver.cmk "custom-setup-sqlserver.md#custom-setup-sqlserver.cmk")
     - [Creating your IAM role and instance profile manually](custom-setup-sqlserver.md#custom-setup-sqlserver.iam "custom-setup-sqlserver.md#custom-setup-sqlserver.iam")
-      - [Create the AWSRDSCustomSQLServerInstanceRole IAM
-        role](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role")
-      - [Add an access policy to
-        AWSRDSCustomSQLServerInstanceRole](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy")
+      - [Create the AWSRDSCustomSQLServerInstanceRole IAM role](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role")
+      - [Add an access policy to AWSRDSCustomSQLServerInstanceRole](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy")
       - [Create your RDS Custom for SQL Server instance profile](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-profile "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-profile")
-      - [Add AWSRDSCustomSQLServerInstanceRole to your RDS Custom for SQL Server
-        instance profile](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile")
+      - [Add AWSRDSCustomSQLServerInstanceRole to your RDS Custom for SQL Server instance profile](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile")
 
     - [Configuring your VPC manually](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc")
       - [Configure your VPC security group](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.sg "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.sg")
@@ -85,8 +82,7 @@ of an AWS Organization.
 For more information about AWS Organizations,
 see [What is AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") in the _AWS Organizations User Guide_.
 
-For general requirements that apply to RDS Custom for SQL Server, see [General requirements for
-RDS Custom for SQL Server](custom-reqs-limits-MS.md#custom-reqs-limits.reqsMS "custom-reqs-limits-MS.md#custom-reqs-limits.reqsMS").
+For general requirements that apply to RDS Custom for SQL Server, see [General requirements for RDS Custom for SQL Server](custom-reqs-limits-MS.md#custom-reqs-limits.reqsMS "custom-reqs-limits-MS.md#custom-reqs-limits.reqsMS").
 
 ### Automated instance profile creation using the AWS Management Console
 
@@ -462,8 +458,7 @@ You can also use the AWS CLI to complete this section. If so, download and insta
 #### Make sure that you have a symmetric encryption AWS KMS key
 
 A symmetric encryption AWS KMS key is required for RDS Custom. When you create an RDS Custom for SQL Server DB instance, make sure to supply
-the KMS key identifier as parameter `kms-key-id`. For more information, see [Creating and connecting to a DB instance for
-Amazon RDS Custom for SQL Server](custom-creating-sqlserver.md "custom-creating-sqlserver.md").
+the KMS key identifier as parameter `kms-key-id`. For more information, see [Creating and connecting to a DB instance for Amazon RDS Custom for SQL Server](custom-creating-sqlserver.md "custom-creating-sqlserver.md").
 
 You have the following options:
 
@@ -489,8 +484,7 @@ instance profile. If you have a new symmetric encryption key in your account, no
 required. Otherwise, make sure that your symmetric encryption key's policy grants access to
 these operations.
 
-For more information, see [Step 4: Configure IAM for
-RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
+For more information, see [Step 4: Configure IAM for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
 
 #### Creating your IAM role and instance profile manually
 
@@ -511,9 +505,7 @@ RDS Custom uses the role associated with this instance profile to run automation
    `AWSRDSCustomSQLServerInstanceProfile`.
 4. Add `AWSRDSCustomSQLServerInstanceRole` to the instance profile.
 
-##### Create the AWSRDSCustomSQLServerInstanceRole IAM
-
-role
+##### Create the AWSRDSCustomSQLServerInstanceRole IAM role
 
 The following example creates the `AWSRDSCustomSQLServerInstanceRole` role. The trust policy lets Amazon EC2
 assume the role.
@@ -535,9 +527,7 @@ aws iam create-role \
         }'
 ```
 
-##### Add an access policy to
-
-AWSRDSCustomSQLServerInstanceRole
+##### Add an access policy to AWSRDSCustomSQLServerInstanceRole
 
 To provide the required permissions, attach the AWS managed policy `AmazonRDSCustomInstanceProfileRolePolicy`
 to `AWSRDSCustomSQLServerInstanceRole`.
@@ -571,9 +561,7 @@ aws iam create-instance-profile \
     --instance-profile-name AWSRDSCustomSQLServerInstanceProfile
 ```
 
-##### Add AWSRDSCustomSQLServerInstanceRole to your RDS Custom for SQL Server
-
-instance profile
+##### Add AWSRDSCustomSQLServerInstanceRole to your RDS Custom for SQL Server instance profile
 
 Add the `AWSRDSCustomInstanceRoleForRdsCustomInstance` role to the previously created
 `AWSRDSCustomSQLServerInstanceProfile` profile.
@@ -656,8 +644,7 @@ AWS services through HTTPS. You pass this security group as the
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
 2. Allow RDS Custom to use the default security group, or create your own security group.
 
-For detailed instructions, see [Provide access to your DB instance in your VPC by
-creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup"). 3. Make sure that your security group permits outbound connections on port 443. RDS Custom needs this port to communicate with
+For detailed instructions, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup"). 3. Make sure that your security group permits outbound connections on port 443. RDS Custom needs this port to communicate with
 dependent AWS services. 4. If you have a private VPC and use VPC endpoints, make sure that the security group associated with the DB instance allows
 outbound connections on port 443 to VPC endpoints. Also make sure that the security group associated with the VPC endpoint
 allows inbound connections on port 443 from the DB instance.

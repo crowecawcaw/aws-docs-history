@@ -38,9 +38,7 @@ CALL mysql.rds_skip_transaction_with_gtid (
 
 The GTID of the replication transaction to skip.
 
-### Usage
-
-notes
+### Usage notes
 
 The master user must run the `mysql.rds_skip_transaction_with_gtid`
 procedure.
@@ -76,9 +74,7 @@ CALL mysql.rds_start_replication_until_gtid(`gtid`);
 
 The GTID after which replication is to stop.
 
-### Usage
-
-notes
+### Usage notes
 
 The master user must run the `mysql.rds_start_replication_until_gtid`
 procedure.
@@ -90,17 +86,14 @@ You can use this procedure with delayed replication for
 disaster recovery. If you have delayed replication configured, you can use this
 procedure to roll forward changes to a delayed read replica to the time just before
 a disaster. After this procedure stops replication, you can promote the read replica
-to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 
 You can configure delayed replication using the following
 stored procedures:
 
 - [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration")
-- [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions
-  8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay")
-- [mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and
-  higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay")
+- [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay")
+- [mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay")
 - [mysql.rds_set_source_delay](mysql-stored-proc-replicating.md#mysql_rds_set_source_delay "mysql-stored-proc-replicating.md#mysql_rds_set_source_delay")
 
 When the `gtid` parameter specifies a transaction that has already been

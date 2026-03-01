@@ -1,6 +1,4 @@
-# Viewing tenant database
-
-details
+# Viewing tenant database details
 
 You can view details about a tenant database in the same way that you can for a
 non-CDB or CDB.

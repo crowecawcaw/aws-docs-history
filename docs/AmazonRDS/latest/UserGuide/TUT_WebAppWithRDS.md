@@ -1,6 +1,4 @@
-# Tutorial: Create a web server and an
-
-Amazon RDS DB instance
+# Tutorial: Create a web server and an Amazon RDS DB instance
 
 This tutorial shows you how to install an Apache web server with PHP and create a MariaDB, MySQL,
 or PostgreSQL database. The web server runs on an Amazon EC2 instance using Amazon Linux 2023, and you
@@ -26,8 +24,7 @@ The tutorial then shows you how to install the web server on the EC2 instance. Y
 web server to your DB instance
 in the VPC using the DB instance endpoint.
 
-1. [Launch an EC2 instance to connect with your
-   DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
+1. [Launch an EC2 instance to connect with your DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
 2. [Create an Amazon RDS DB instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
 3. [Install a web server on your EC2 instance](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md")
    The following diagram shows the configuration when the tutorial is complete.
@@ -40,5 +37,4 @@ After you complete the tutorial, there is a public and private subnet in each Av
 your VPC. This tutorial uses the default VPC for your AWS account and automatically sets up connectivity between your
 EC2 instance and DB instance.
 If you would rather configure a new VPC for this scenario instead, complete the tasks in
-[Tutorial: Create a VPC for use with a
-DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").
+[Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.md "CHAP_Tutorials.WebServerDB.md").

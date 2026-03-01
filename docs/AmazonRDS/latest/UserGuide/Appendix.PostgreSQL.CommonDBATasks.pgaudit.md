@@ -1,39 +1,146 @@
-# Reference for the pgAudit
+# Excluding users or databases from audit logging
 
-extension
+As discussed in [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md"), PostgreSQL logs consume
+storage space. Using the pgAudit extension adds to the volume of data
+gathered in your logs to varying degrees, depending on the changes that you track. You might not
+need to audit every user or database in your
+RDS for PostgreSQL DB instance.
 
-You can specify the level of detail that you want for your audit log by changing one or more of the
-parameters listed in this section.
+To minimize impacts to your storage and to avoid needlessly capturing audit records, you
+can exclude users and databases from being audited. You can also
+change logging within a given session. The following examples show you how.
 
-## Controlling pgAudit behavior
+###### Note
 
-You can control the audit logging by changing one or more of the parameters listed in the following table.
+Parameter settings at the session level take precedence over the settings
+in the custom DB parameter group for the RDS for PostgreSQL
+DB instance. If you don't want database users to bypass your audit logging configuration
+settings, be sure to change their permissions.
 
-| Parameter                    | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pgaudit.log`                | Specifies the statement classes that will be logged by session audit logging. Allowable<br>values include ddl, function, misc, read, role, write, none, all. For more information, see [List of allowable settings for the pgaudit.log parameter](#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings "#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings"). |
-| `pgaudit.log_catalog`        | When turned on (set to 1), adds statements to audit trail if all relations in a statement are in pg_catalog.                                                                                                                                                                                                                                                                                                |
-| `pgaudit.log_level`          | Specifies the log level to use for log entries. Allowed values: debug5, debug4, debug3, debug2, debug1, info, notice, warning, log                                                                                                                                                                                                                                                                          |
-| `pgaudit.log_parameter`      | When turned on (set to 1), parameters passed with the statement are captured in the audit log.                                                                                                                                                                                                                                                                                                              |
-| `pgaudit.log_relation`       | When turned on (set to 1), the audit log for the session creates a separate log entry for each relation (TABLE, VIEW, and so on) referenced in a SELECT or DML statement.                                                                                                                                                                                                                                   |
-| `pgaudit.log_statement_once` | Specifies whether logging will include the statement text and parameters with the first log entry for a statement/substatement combination or with every entry.                                                                                                                                                                                                                                             |
-| `pgaudit.role`               | Specifies the master role to use for object audit logging. The only allowable entry is `rds_pgaudit`.                                                                                                                                                                                                                                                                                                       |
+Suppose that your
+RDS for PostgreSQL DB instance is configured
+to audit the same level of activity for all users and databases.
+You then decide that you don't want to audit the user
+`myuser`. You can turn off auditing for `myuser` with the following
+SQL command.
 
-## List of allowable settings for the `pgaudit.log` parameter
+```
+ALTER USER myuser SET pgaudit.log TO 'NONE';
+```
 
-| Value    | Description                                                                                                                  |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| none     | This is the default. No database changes are logged.                                                                         |
-| all      | Logs everything (read, write, function, role, ddl, misc).                                                                    |
-| ddl      | Logs all data definition language (DDL) statements that<br>aren't included in the `ROLE` class.                              |
-| function | Logs function calls and `DO` blocks.                                                                                         |
-| misc     | Logs miscellaneous commands, such as `DISCARD`, `FETCH`,<br>`CHECKPOINT`, `VACUUM`, and `SET`.                               |
-| read     | Logs `SELECT` and `COPY` when the source is a relation (such<br>as a table) or a query.                                      |
-| role     | Logs statements related to roles and privileges, such as<br>`GRANT`, `REVOKE`, `CREATE ROLE`, `ALTER ROLE`, and `DROP ROLE`. |
-| write    | Logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`,<br>and `COPY` when the destination is a relation (table).                     |
+Then, you can use the following query to check the `user_specific_settings`
+column for `pgaudit.log` to confirm that the parameter is set to `NONE`.
 
-To log multiple event types with session auditing, use a comma-separated list. To log all event types,
-set `pgaudit.log` to `ALL`. Reboot your DB instance to apply the changes.
+```
+SELECT
+    usename AS user_name,
+    useconfig AS user_specific_settings
+FROM
+    pg_user
+WHERE
+    usename = 'myuser';
+```
 
-With object auditing, you can refine audit logging to work with specific relations. For
-example, you can specify that you want audit logging for `READ` operations on one or more tables.
+You see output such as the following.
+
+```
+ user_name | user_specific_settings
+-----------+------------------------
+ myuser    | {pgaudit.log=NONE}
+(1 row)
+```
+
+You can turn off logging for a given user in the midst of their session with the database with
+the following command.
+
+```
+ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'none';
+```
+
+Use the following query to check the settings column for pgaudit.log for a specific user and database combination.
+
+```
+SELECT
+    usename AS "user_name",
+    datname AS "database_name",
+    pg_catalog.array_to_string(setconfig, E'\n') AS "settings"
+FROM
+    pg_catalog.pg_db_role_setting s
+    LEFT JOIN pg_catalog.pg_database d ON d.oid = setdatabase
+    LEFT JOIN pg_catalog.pg_user r ON r.usesysid = setrole
+WHERE
+    usename = 'myuser'
+    AND datname = 'mydatabase'
+ORDER BY
+    1,
+    2;
+```
+
+You see output similar to the following.
+
+```
+  user_name | database_name |     settings
+-----------+---------------+------------------
+ myuser    | mydatabase    | pgaudit.log=none
+(1 row)
+```
+
+After turning off auditing for `myuser`, you decide that
+you don't want to track changes to `mydatabase`. You turn off auditing
+for that specific database by using the following command.
+
+```
+ALTER DATABASE mydatabase SET pgaudit.log to 'NONE';
+```
+
+Then, use the following query to check the database_specific_settings column
+to confirm that pgaudit.log is set to NONE.
+
+```
+SELECT
+a.datname AS database_name,
+b.setconfig AS database_specific_settings
+FROM
+pg_database a
+FULL JOIN pg_db_role_setting b ON a.oid = b.setdatabase
+WHERE
+a.datname = 'mydatabase';
+```
+
+You see output such as the following.
+
+```
+ database_name | database_specific_settings
+---------------+----------------------------
+ mydatabase    | {pgaudit.log=NONE}
+(1 row)
+```
+
+To return settings to the default setting for myuser, use the following command:
+
+```
+ALTER USER myuser RESET pgaudit.log;
+```
+
+To return settings to their default setting for a database, use the following command.
+
+```
+ALTER DATABASE mydatabase RESET pgaudit.log;
+```
+
+To reset user and database to the default setting,
+use the following command.
+
+```
+ALTER USER myuser IN DATABASE mydatabase RESET pgaudit.log;
+```
+
+You can also capture specific events to the log by setting the `pgaudit.log` to one of the other
+allowed values for the `pgaudit.log` parameter. For more information, see
+[List of allowable settings for the pgaudit.log parameter](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit.reference.pgaudit-log-settings").
+
+```
+ALTER USER myuser SET pgaudit.log TO 'read';
+ALTER DATABASE mydatabase SET pgaudit.log TO 'function';
+ALTER USER myuser IN DATABASE mydatabase SET pgaudit.log TO 'read,function'
+```

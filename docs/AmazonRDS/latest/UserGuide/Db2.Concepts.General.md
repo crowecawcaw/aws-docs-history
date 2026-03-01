@@ -4,23 +4,17 @@ The computation and memory capacity of a DB instance is determined by its instan
 The DB instance class you need depends on your processing power and memory
 requirements.
 
-## Supported RDS for Db2 instance
-
-classes
+## Supported RDS for Db2 instance classes
 
 The supported Amazon RDS for Db2 instance classes are a subset of the Amazon RDS DB instance
 classes. For the complete list of Amazon RDS instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
 ###### Topics
 
-- [Supported RDS for Db2
-  instance classes for Db2 Standard Edition](#Db2.Concepts.InstanceClasses.Supported.SE "#Db2.Concepts.InstanceClasses.Supported.SE")
-- [Supported RDS for Db2
-  instance classes for Db2 Advanced Edition](#Db2.Concepts.InstanceClasses.Supported.AE "#Db2.Concepts.InstanceClasses.Supported.AE")
+- [Supported RDS for Db2 instance classes for Db2 Standard Edition](#Db2.Concepts.InstanceClasses.Supported.SE "#Db2.Concepts.InstanceClasses.Supported.SE")
+- [Supported RDS for Db2 instance classes for Db2 Advanced Edition](#Db2.Concepts.InstanceClasses.Supported.AE "#Db2.Concepts.InstanceClasses.Supported.AE")
 
-### Supported RDS for Db2
-
-instance classes for Db2 Standard Edition
+### Supported RDS for Db2 instance classes for Db2 Standard Edition
 
 The following table lists all instance classes supported for the Db2
 Standard Edition of Db2 database version 11.5.9.0. These instance
@@ -37,9 +31,7 @@ AWS Marketplace.
 | Memory optimized instance classes                                                                                                | db.r7i.large–db.r7i.8xlarge<br>db.r6i.large–db.r6i.4xlarge       |
 | Burstable performance instance classes                                                                                           | db.t3.small–db.t3.2xlarge                                        |
 
-### Supported RDS for Db2
-
-instance classes for Db2 Advanced Edition
+### Supported RDS for Db2 instance classes for Db2 Advanced Edition
 
 The following table lists all instance classes supported for the Db2
 Advanced Edition of Db2 database version 11.5.9.0. These instance

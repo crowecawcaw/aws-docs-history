@@ -10,42 +10,35 @@ other settings. To change settings for the parameters that are modifiable, use a
 DB parameter group for your
 RDS for PostgreSQL instance. For more information, see
 
-[DB parameter groups for
-Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+[DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 
-| Parameter                | Default                    | Description                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| log_destination          | stderr                     | Sets the output format for the log. The default is<br>`stderr` but you can also specify comma-separated<br>value (CSV) by adding `csvlog` to the setting. For more<br>information, see [Setting the log<br>destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format").     |
-| log_filename             | postgresql.log.%Y-%m-%d-%H | Specifies the pattern for the log file name.<br>In addition to the default, this<br>parameter supports `postgresql.log.%Y-%m-%d` and<br>`postgresql.log.%Y-%m-%d-%H%M` for the filename<br>pattern.                                                                                                                                            |
-| log_line_prefix          | %t:%r:%u@%d:[%p]:          | Defines the prefix for each log line that gets written to<br>`stderr`, to note the time (%t), remote host (%r),<br>user (%u), database (%d), and process ID (%p).                                                                                                                                                                              |
-| log_rotation_age         | 60                         | Minutes after which log file is automatically rotated. You can<br>change this value within the range of 1 and 1440 minutes. For more<br>information, see [Setting log file<br>rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                                  |
-| log_rotation_size        | –                          | The size (kB) at which the log is automatically rotated.<br>By default, this parameter<br>isn't used because logs are rotated based on the<br>`log_rotation_age` parameter.<br>To learn more,<br>see [Setting log file<br>rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").      |
-| rds.log_retention_period | 4320                       | PostgreSQL logs that are older than the specified number of<br>minutes are deleted. The default value of 4320 minutes deletes log<br>files after 3 days. For more information, see [Setting<br>the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period"). |
+| Parameter                | Default                    | Description                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| log_destination          | stderr                     | Sets the output format for the log. The default is<br>`stderr` but you can also specify comma-separated<br>value (CSV) by adding `csvlog` to the setting. For more<br>information, see [Setting the log destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format").     |
+| log_filename             | postgresql.log.%Y-%m-%d-%H | Specifies the pattern for the log file name.<br>In addition to the default, this<br>parameter supports `postgresql.log.%Y-%m-%d` and<br>`postgresql.log.%Y-%m-%d-%H%M` for the filename<br>pattern.                                                                                                                                         |
+| log_line_prefix          | %t:%r:%u@%d:[%p]:          | Defines the prefix for each log line that gets written to<br>`stderr`, to note the time (%t), remote host (%r),<br>user (%u), database (%d), and process ID (%p).                                                                                                                                                                           |
+| log_rotation_age         | 60                         | Minutes after which log file is automatically rotated. You can<br>change this value within the range of 1 and 1440 minutes. For more<br>information, see [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").                                                  |
+| log_rotation_size        | –                          | The size (kB) at which the log is automatically rotated.<br>By default, this parameter<br>isn't used because logs are rotated based on the<br>`log_rotation_age` parameter.<br>To learn more,<br>see [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation").      |
+| rds.log_retention_period | 4320                       | PostgreSQL logs that are older than the specified number of<br>minutes are deleted. The default value of 4320 minutes deletes log<br>files after 3 days. For more information, see [Setting the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period"). |
 
 To identify application issues, you can look for query failures, login failures,
 deadlocks, and fatal server errors in the log. For example, suppose that you converted a
 legacy application from Oracle to Amazon RDS PostgreSQL, but not all queries converted
 correctly. These incorrectly formatted queries generate error messages that you can find
 in the logs to help identify problems. For more information about logging queries, see
-[Turning on query
-logging for your RDS for PostgreSQL DB instance](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md").
+[Turning on query logging for your RDS for PostgreSQL DB instance](USER_LogAccess.Concepts.PostgreSQL.md "USER_LogAccess.Concepts.PostgreSQL.md").
 
 In the following topics, you can find information about how to set various parameters
 that control the basic details for your PostgreSQL logs.
 
 ###### Topics
 
-- [Setting
-  the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period")
-- [Setting log file
-  rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation")
-- [Setting the log
-  destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format")
+- [Setting the log retention period](#USER_LogAccess.Concepts.PostgreSQL.log_retention_period "#USER_LogAccess.Concepts.PostgreSQL.log_retention_period")
+- [Setting log file rotation](#USER_LogAccess.Concepts.PostgreSQL.log_rotation "#USER_LogAccess.Concepts.PostgreSQL.log_rotation")
+- [Setting the log destination (stderr, csvlog)](#USER_LogAccess.Concepts.PostgreSQL.Log_Format "#USER_LogAccess.Concepts.PostgreSQL.Log_Format")
 - [Understanding the log_line_prefix parameter](#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix "#USER_LogAccess.Concepts.PostgreSQL.Log_Format.log-line-prefix")
 
-## Setting
-
-the log retention period
+## Setting the log retention period
 
 The `rds.log_retention_period` parameter specifies how long your
 
@@ -59,12 +52,9 @@ We recommend that you have your logs routinely published to Amazon CloudWatch Lo
 can view and analyze system data long after the logs have been removed from your
 
 RDS for PostgreSQL DB instance. For more
-information, see [Publishing
-PostgreSQL logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs").
+information, see [Publishing PostgreSQL logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs").
 
-## Setting log file
-
-rotation
+## Setting log file rotation
 
 Amazon RDS creates new log files every hour by default. The timing is
 controlled by the `log_rotation_age` parameter. This parameter has a
@@ -92,9 +82,7 @@ are as follows:
 
 For more information, see [`log_rotation_age`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-AGE "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-AGE") and [`log_rotation_size`](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE "https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ROTATION-SIZE") in the PostgreSQL documentation.
 
-## Setting the log
-
-destination (`stderr`, `csvlog`)
+## Setting the log destination (`stderr`, `csvlog`)
 
 By default, Amazon RDS PostgreSQL generates logs in standard error (stderr) format.
 This format is the default setting for the `log_destination` parameter.
@@ -110,8 +98,7 @@ log event data. By adding `csvlog` to the `log_destination`
 parameter, you get the log file in the CSV format with demarcations for the multiple
 columns of the foreign table. You can now sort and analyze your logs more easily.
 To learn how to use the `log_fdw` with
-`csvlog`, see [Using the log_fdw
-extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md").
+`csvlog`, see [Using the log_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md").
 
 If you specify `csvlog` for this parameter, be aware that both
 `stderr` and `csvlog` files are generated. Be sure to

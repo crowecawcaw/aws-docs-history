@@ -30,5 +30,4 @@ RDS Extended Support enrollment will be effective the day that you complete an u
 engine version that's still under RDS standard support.
 
 For more information about the RDS end of standard support dates and
-the RDS end of Extended Support dates, see [Supported MySQL major
-versions on Amazon RDS](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar "../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar").
+the RDS end of Extended Support dates, see [Supported MySQL major versions on Amazon RDS](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar "../PostgreSQLReleaseNotes/postgresql-release-calendar.md#Release.Calendar").

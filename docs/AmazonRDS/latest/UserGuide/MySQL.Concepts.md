@@ -1,6 +1,4 @@
-# SSL/TLS support for MySQL DB instances on
-
-Amazon RDS
+# SSL/TLS support for MySQL DB instances on Amazon RDS
 
 Amazon RDS creates an SSL/TLS certificate and installs the certificate on the DB instance
 when Amazon RDS provisions the instance. These certificates are signed by a certificate
@@ -13,10 +11,8 @@ certificate chains. If your application doesn't accept certificate chains, try u
 intermediate certificate to connect to your AWS Region. For example, you must use an
 intermediate certificate to connect to the AWS GovCloud (US) Regions with SSL/TLS.
 
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). For more information about using SSL/TLS with
-MySQL, see [Updating applications to connect to MySQL
-DB instances using new SSL/TLS certificates](ssl-certificate-rotation-mysql.md "ssl-certificate-rotation-mysql.md").
+For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For more information about using SSL/TLS with
+MySQL, see [Updating applications to connect to MySQL DB instances using new SSL/TLS certificates](ssl-certificate-rotation-mysql.md "ssl-certificate-rotation-mysql.md").
 
 For MySQL version 8.0 and lower, Amazon RDS for MySQL uses OpenSSL for secure connections.
 For MySQL version 8.4 and higher, Amazon RDS for MySQL uses AWS-LC. TLS support depends on

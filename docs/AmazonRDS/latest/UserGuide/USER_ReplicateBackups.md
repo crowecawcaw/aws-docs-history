@@ -45,9 +45,7 @@ Cross-Region automated backup replication isn't supported for Multi-AZ DB cluste
 
 Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
 For more information on version and Region availability with cross-Region automated backups, see
-[Supported
-Regions and DB engines for cross-Region automated backups in
-Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+[Supported Regions and DB engines for cross-Region automated backups in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
 ## Source and destination AWS Region support
 

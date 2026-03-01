@@ -42,21 +42,15 @@ RDS for Db2 homogeneous federation has the following requirements:
 - You must create the DRDA wrapper in `UNFENCED` mode. If you don't,
   then federation won't work in RDS for Db2.
 - You must allow incoming and outgoing traffic from your RDS for Db2 host database
-  to your remote host databases. For more information, see [Provide access to your DB instance in your VPC by
-  creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
+  to your remote host databases. For more information, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
 
 ###### Topics
 
-- [Step 1: Create a DRDA wrapper
-  and a federated server](#db2-federation-homogeneous-create "#db2-federation-homogeneous-create")
-- [Step 2: Create a user
-  mapping](#db2-federation-homogeneous-map "#db2-federation-homogeneous-map")
-- [Step 3: Check the
-  connection](#db2-federation-homogeneous-check "#db2-federation-homogeneous-check")
+- [Step 1: Create a DRDA wrapper and a federated server](#db2-federation-homogeneous-create "#db2-federation-homogeneous-create")
+- [Step 2: Create a user mapping](#db2-federation-homogeneous-map "#db2-federation-homogeneous-map")
+- [Step 3: Check the connection](#db2-federation-homogeneous-check "#db2-federation-homogeneous-check")
 
-### Step 1: Create a DRDA wrapper
-
-and a federated server
+### Step 1: Create a DRDA wrapper and a federated server
 
 For homogeneous federation, create a DRDA wrapper and a federated server. The
 connection to the remote host uses `HOST`, `PORT`, and
@@ -143,9 +137,7 @@ create wrapper WRAPPER1 library 'libdb2drda.so' OPTIONS(DB2_FENCED 'N');
 create server SERVER1 type db2/mvs version 11 wrapper WRAPPER1 authorization "sysuser" password "******" options (HOST 'test1.123.com', PORT '446', DBNAME 'STLEC1');
 ```
 
-### Step 2: Create a user
-
-mapping
+### Step 2: Create a user mapping
 
 Create a user mapping to associate your federated server with your data source
 server by running the following SQL command. In the following example, replace
@@ -161,9 +153,7 @@ create user mapping for user server `server_name` options (REMOTE_AUTHID '`usern
 For more information, see [User
 mappings](https://www.ibm.com/docs/en/db2/11.5?topic=systems-user-mappings "https://www.ibm.com/docs/en/db2/11.5?topic=systems-user-mappings") in the IBM Db2 documentation.
 
-### Step 3: Check the
-
-connection
+### Step 3: Check the connection
 
 Confirm that setting up your federation was successful by checking the connection.
 Open a session to send native SQL commands to your remote data source using the SET
@@ -282,8 +272,7 @@ RDS for Db2 heterogeneous federation has the following requirements:
   options for ODBC, see [ODBC
   options](https://www.ibm.com/docs/en/db2/11.5?topic=options-odbc "https://www.ibm.com/docs/en/db2/11.5?topic=options-odbc") in the IBM Db2 documentation.
 - You must allow incoming and outgoing traffic from your RDS for Db2 host database
-  to your remote host database. For more information, see [Provide access to your DB instance in your VPC by
-  creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
+  to your remote host database. For more information, see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
 
 For information about federation to Oracle, see [How to query Oracle by using
 Db2 Federation and the ODBC driver?](https://www.ibm.com/support/pages/node/6431133 "https://www.ibm.com/support/pages/node/6431133") on the IBM Support site.
@@ -293,18 +282,12 @@ Federation Bundled in Db2 LUW V11.5](https://www.ibm.com/support/pages/node/9572
 
 ###### Topics
 
-- [Step 1: Create an ODBC
-  wrapper](#db2-federation-heteogenous-define-wrapper "#db2-federation-heteogenous-define-wrapper")
-- [Step 2: Create a federated
-  server](#db2-federation-heterogeneous-create "#db2-federation-heterogeneous-create")
-- [Step 3: Create a user
-  mapping](#db2-federation-heterogeneous-map "#db2-federation-heterogeneous-map")
-- [Step 4: Check the
-  connection](#db2-federation-heterogeneous-check "#db2-federation-heterogeneous-check")
+- [Step 1: Create an ODBC wrapper](#db2-federation-heteogenous-define-wrapper "#db2-federation-heteogenous-define-wrapper")
+- [Step 2: Create a federated server](#db2-federation-heterogeneous-create "#db2-federation-heterogeneous-create")
+- [Step 3: Create a user mapping](#db2-federation-heterogeneous-map "#db2-federation-heterogeneous-map")
+- [Step 4: Check the connection](#db2-federation-heterogeneous-check "#db2-federation-heterogeneous-check")
 
-### Step 1: Create an ODBC
-
-wrapper
+### Step 1: Create an ODBC wrapper
 
 Create a wrapper by running the following command:
 
@@ -312,9 +295,7 @@ Create a wrapper by running the following command:
 db2 "create wrapper odbc options( module '/home/rdsdb/sqllib/federation/odbc/lib/libodbc.so')"
 ```
 
-### Step 2: Create a federated
-
-server
+### Step 2: Create a federated server
 
 Create a federated server by running the following command. In the following
 example, replace `server_name` with the name of the server
@@ -340,9 +321,7 @@ database.
 db2 "create server server1 type oracle_odbc version 12.1 options (HOST 'test1.amazon.com', PORT '1521', SERVICE_NAME 'pdborcl.amazon.com')“
 ```
 
-### Step 3: Create a user
-
-mapping
+### Step 3: Create a user mapping
 
 Create a user mapping to associate your federated server with your data source
 server by running the following SQL command. In the following example, replace
@@ -358,9 +337,7 @@ create user mapping for user server `server_name` options (REMOTE_AUTHID '`usern
 For more information, see [User
 mappings](https://www.ibm.com/docs/en/db2/11.5?topic=systems-user-mappings "https://www.ibm.com/docs/en/db2/11.5?topic=systems-user-mappings") in the IBM Db2 documentation.
 
-### Step 4: Check the
-
-connection
+### Step 4: Check the connection
 
 Confirm that setting up your federation was successful by checking the connection.
 Open a session to send native SQL commands to your remote data source using the SET

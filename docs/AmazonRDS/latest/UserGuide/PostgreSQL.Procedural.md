@@ -1,6 +1,4 @@
-# Importing data into PostgreSQL on
-
-Amazon RDS
+# Importing data into PostgreSQL on Amazon RDS
 
 Suppose that you have an existing PostgreSQL deployment that you want to move to
 Amazon RDS. The complexity of your task depends on the size of your database and the types of
@@ -60,10 +58,7 @@ importing data.
 
 ###### Topics
 
-- [Importing a PostgreSQL
-  database from an Amazon EC2 instance](PostgreSQL.Procedural.Importing.md "PostgreSQL.Procedural.Importing.md")
-- [Using the \copy command to
-  import data to a table on a PostgreSQL DB instance](PostgreSQL.Procedural.Importing.md "PostgreSQL.Procedural.Importing.md")
+- [Importing a PostgreSQL database from an Amazon EC2 instance](PostgreSQL.Procedural.Importing.md "PostgreSQL.Procedural.Importing.md")
+- [Using the \copy command to import data to a table on a PostgreSQL DB instance](PostgreSQL.Procedural.Importing.md "PostgreSQL.Procedural.Importing.md")
 - [Importing data from Amazon S3 into an RDS for PostgreSQL DB instance](USER_PostgreSQL.md "USER_PostgreSQL.md")
-- [Transporting PostgreSQL databases between
-  DB instances](PostgreSQL.md "PostgreSQL.md")
+- [Transporting PostgreSQL databases between DB instances](PostgreSQL.md "PostgreSQL.md")

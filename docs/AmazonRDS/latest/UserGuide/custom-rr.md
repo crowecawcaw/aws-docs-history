@@ -1,23 +1,15 @@
-# Guidelines and limitations for RDS Custom for Oracle
-
-replication
+# Guidelines and limitations for RDS Custom for Oracle replication
 
 When you create RDS Custom for Oracle replicas, not all RDS Oracle replica options are supported.
 
 ###### Topics
 
-- [General guidelines for RDS Custom for Oracle
-  replication](#custom-rr.guidelines "#custom-rr.guidelines")
-- [General limitations for RDS Custom for Oracle
-  replication](#custom-rr.limitations "#custom-rr.limitations")
-- [Networking requirements and limitations for
-  RDS Custom for Oracle replication](#custom-rr.network "#custom-rr.network")
-- [External replica limitations for
-  RDS Custom for Oracle](#custom-rr.external-replica-reqs "#custom-rr.external-replica-reqs")
+- [General guidelines for RDS Custom for Oracle replication](#custom-rr.guidelines "#custom-rr.guidelines")
+- [General limitations for RDS Custom for Oracle replication](#custom-rr.limitations "#custom-rr.limitations")
+- [Networking requirements and limitations for RDS Custom for Oracle replication](#custom-rr.network "#custom-rr.network")
+- [External replica limitations for RDS Custom for Oracle](#custom-rr.external-replica-reqs "#custom-rr.external-replica-reqs")
 
-## General guidelines for RDS Custom for Oracle
-
-replication
+## General guidelines for RDS Custom for Oracle replication
 
 When working with RDS Custom for Oracle, follow these guidelines:
 
@@ -25,8 +17,7 @@ When working with RDS Custom for Oracle, follow these guidelines:
   Standard Edition 2 isn't supported.
 - We strongly recommend that you implement a VPN tunnel to encrypt
   communication between your primary and standby instances. For more
-  information, see [Configuring a VPN tunnel between RDS Custom for Oracle
-  primary and replica instances](cfo-standby-vpn-tunnel.md "cfo-standby-vpn-tunnel.md").
+  information, see [Configuring a VPN tunnel between RDS Custom for Oracle primary and replica instances](cfo-standby-vpn-tunnel.md "cfo-standby-vpn-tunnel.md").
 - Don't modify the `RDS_DATAGUARD` user. This user is reserved
   for RDS Custom for Oracle automation. Modifying this user can result in undesired
   outcomes, such as an inability to create Oracle replicas for your RDS Custom for Oracle
@@ -34,8 +25,7 @@ When working with RDS Custom for Oracle, follow these guidelines:
 - Don't change the replication user password. It is required to administer
   the Oracle Data Guard configuration on the RDS Custom host. If you change the
   password, RDS Custom for Oracle might put your Oracle replica outside the support
-  perimeter. For more information, see [RDS Custom support
-  perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
+  perimeter. For more information, see [RDS Custom support perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
 
 The password is stored in AWS Secrets Manager, tagged with the DB resource ID. Each
 Oracle replica has its own secret in Secrets Manager. The secret uses either of
@@ -52,9 +42,7 @@ rds-custom!oracle-do-not-delete-`DB_resource_id`-`uuid`-dg
 PLUGGABLE DATABASE` command in an RDS Custom CDB. This way, if a
   failover occurs, your standby CDB contains all PDBs.
 
-## General limitations for RDS Custom for Oracle
-
-replication
+## General limitations for RDS Custom for Oracle replication
 
 RDS Custom for Oracle replicas have the following limitations:
 
@@ -66,9 +54,7 @@ RDS Custom for Oracle replicas have the following limitations:
 - You can't change the value of the Oracle Data Guard `CommunicationTimeout` parameter. This parameter is set to 15
   seconds for RDS Custom for Oracle DB instances.
 
-## Networking requirements and limitations for
-
-RDS Custom for Oracle replication
+## Networking requirements and limitations for RDS Custom for Oracle replication
 
 Make sure that your network configuration supports RDS Custom for Oracle replicas. Consider
 the following:
@@ -98,9 +84,7 @@ the following:
   If you don't synchronize the `tnsnames.ora` files and switch over or fail over manually,
   Oracle Data Guard on the primary DB instance might not be able to communicate with the Oracle replicas.
 
-## External replica limitations for
-
-RDS Custom for Oracle
+## External replica limitations for RDS Custom for Oracle
 
 RDS Custom for Oracle external replicas, which include on-premises replicas, have the following limitations:
 

@@ -1,6 +1,4 @@
-# Considerations for RDS Custom for Oracle database
-
-upgrades
+# Considerations for RDS Custom for Oracle database upgrades
 
 If you plan to upgrade your database, consider the following:
 

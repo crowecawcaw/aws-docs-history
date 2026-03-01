@@ -15,15 +15,11 @@ You need specific Oracle installation files before you can create the CloudForma
 4. Download the remaining patches, selecting **Platform or Language** as
    `Linux x86-64`
 
-### Latest OPatch
-
-utility
+### Latest OPatch utility
 
 [Patch 6880880](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=6880880 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=6880880")
 
-### January 2023 PSU
-
-Patches
+### January 2023 PSU Patches
 
 **Database PSU & RU Patches**
 
@@ -38,9 +34,7 @@ Patches
 - [Patch 29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893")
 - [Patch 35012866](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35012866 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35012866")
 
-### April 2023 PSU
-
-Patches
+### April 2023 PSU Patches
 
 **Database PSU & RU Patches**
 
@@ -119,9 +113,7 @@ aws cloudformation create-stack \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
-### Step 2: Create the Custom Engine Versions
-
-(CEVs) and Amazon RDS instances
+### Step 2: Create the Custom Engine Versions (CEVs) and Amazon RDS instances
 
 **Copy and save the template**
 
@@ -167,9 +159,7 @@ aws cloudformation create-stack \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
-## Deployment resources
-
-created
+## Deployment resources created
 
 The template creates the following resources:
 

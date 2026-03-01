@@ -1,6 +1,4 @@
-# Viewing temporary file usage with
-
-Performance Insights
+# Viewing temporary file usage with Performance Insights
 
 You can use Performance Insights to view temporary file usage by turning on the metrics
 **temp_bytes** and **temp_files**. The view in

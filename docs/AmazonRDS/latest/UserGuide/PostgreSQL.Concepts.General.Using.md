@@ -1,6 +1,4 @@
-# Using PL/Rust to write PostgreSQL
-
-functions in the Rust language
+# Using PL/Rust to write PostgreSQL functions in the Rust language
 
 PL/Rust is a trusted Rust language extension for PostgreSQL. You can use it for stored
 procedures, functions, and other procedural code that's callable from SQL. The PL/Rust
@@ -35,9 +33,7 @@ You can install the plrust extension using the AWS Management Console or the AWS
 The following steps assume that your DB instance is associated with a custom DB
 parameter group.
 
-###### Install the plrust extension in the `shared_preload_libraries`
-
-parameter
+###### Install the plrust extension in the `shared_preload_libraries` parameter
 
 Complete the following steps using an account that is a member of the
 `rds_superuser` group (role).

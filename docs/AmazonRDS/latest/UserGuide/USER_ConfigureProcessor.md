@@ -1,6 +1,4 @@
-# Configuring the processor for a DB instance
-
-class in RDS for Oracle
+# Configuring the processor for a DB instance class in RDS for Oracle
 
 Amazon RDS DB instance classes support Intel Hyper-Threading Technology, which enables multiple threads to run
 concurrently on a single Intel Xeon CPU core. Each thread is represented as a virtual CPU (vCPU) on the DB instance.
@@ -15,10 +13,8 @@ Each vCPU is a hyperthread of an Intel Xeon CPU core.
 ###### Topics
 
 - [Overview of processor configuration for RDS for Oracle](#USER_ConfigureProcessor.Overview "#USER_ConfigureProcessor.Overview")
-- [DB instance classes that support
-  processor configuration](#USER_ConfigureProcessor.CPUOptionsDBInstanceClass "#USER_ConfigureProcessor.CPUOptionsDBInstanceClass")
-- [Setting the CPU cores and
-  threads per CPU core for a DB instance class](#USER_ConfigureProcessor.SettingCPUOptions "#USER_ConfigureProcessor.SettingCPUOptions")
+- [DB instance classes that support processor configuration](#USER_ConfigureProcessor.CPUOptionsDBInstanceClass "#USER_ConfigureProcessor.CPUOptionsDBInstanceClass")
+- [Setting the CPU cores and threads per CPU core for a DB instance class](#USER_ConfigureProcessor.SettingCPUOptions "#USER_ConfigureProcessor.SettingCPUOptions")
 
 ## Overview of processor configuration for RDS for Oracle
 
@@ -52,9 +48,7 @@ There is no additional or reduced charge for specifying processor features on an
 You're charged the same as for DB instances that are launched with default
 CPU configurations.
 
-## DB instance classes that support
-
-processor configuration
+## DB instance classes that support processor configuration
 
 You can configure the number of CPU cores and threads per core only when the following
 conditions are met:
@@ -72,8 +66,7 @@ conditions are met:
   For example, db.r5b.xlarge.tpc2.mem4x is preconfigured with 2 threads per core
   (tpc2) and 4x as much memory as the standard db.r5b.xlarge instance class. You
   can't configure the processor features of these optimized instance classes. For
-  more information, see [Supported RDS for Oracle DB instance
-  classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported").
+  more information, see [Supported RDS for Oracle DB instance classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported").
 
 You can use the following AWS CLI command to show the default vCPUs, cores, threads per
 core, and valid numbers of cores for an instance class. Replace
@@ -222,9 +215,7 @@ instance class.
 You can use AWS CloudTrail to monitor and audit changes to the process configuration of Amazon RDS for Oracle DB instances. For more information about using
 CloudTrail, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-## Setting the CPU cores and
-
-threads per CPU core for a DB instance class
+## Setting the CPU cores and threads per CPU core for a DB instance class
 
 You can configure the number of CPU cores and threads per core for the DB instance class when you perform the following operations:
 
@@ -288,8 +279,7 @@ The following are examples that configure the processor:
 ###### Examples
 
 - [Setting the number of CPU cores for a DB instance](#USER_ConfigureProcessor.CLI.Example1 "#USER_ConfigureProcessor.CLI.Example1")
-- [Setting the number of CPU cores and disabling multiple threads for a DB
-  instance](#USER_ConfigureProcessor.CLI.Example2 "#USER_ConfigureProcessor.CLI.Example2")
+- [Setting the number of CPU cores and disabling multiple threads for a DB instance](#USER_ConfigureProcessor.CLI.Example2 "#USER_ConfigureProcessor.CLI.Example2")
 - [Viewing the valid processor values for a DB instance class](#USER_ConfigureProcessor.CLI.Example3 "#USER_ConfigureProcessor.CLI.Example3")
 - [Returning to default processor settings for a DB instance](#USER_ConfigureProcessor.CLI.Example4 "#USER_ConfigureProcessor.CLI.Example4")
 - [Returning to the default number of CPU cores for a DB instance](#USER_ConfigureProcessor.CLI.Example5 "#USER_ConfigureProcessor.CLI.Example5")
@@ -323,9 +313,7 @@ aws rds modify-db-instance ^
     `--apply-immediately`
 ```
 
-#### Setting the number of CPU cores and disabling multiple threads for a DB
-
-instance
+#### Setting the number of CPU cores and disabling multiple threads for a DB instance
 
 ###### Example
 

@@ -8,13 +8,11 @@ database.
 
 These procedures use IBM Db2 CLP running on a local machine to connect to an RDS for Db2 DB
 instance. Be sure to catalog the TCPIP node and the database to connect to your RDS for Db2 DB
-instance running on your local machine. For more information, see [Connecting to your Amazon RDS for Db2 DB instance
-with IBM Db2 CLP](db2-connecting-with-clp-client.md "db2-connecting-with-clp-client.md").
+instance running on your local machine. For more information, see [Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 CLP](db2-connecting-with-clp-client.md "db2-connecting-with-clp-client.md").
 
 ###### Topics
 
-- [Granting a user access to your
-  database](#db2-granting-user-access "#db2-granting-user-access")
+- [Granting a user access to your database](#db2-granting-user-access "#db2-granting-user-access")
 - [Changing a user's password](#db2-changing-user-password "#db2-changing-user-password")
 - [Adding groups to a user](#db2-adding-group-to-user "#db2-adding-group-to-user")
 - [Removing groups from a user](#db2-removing-groups-from-user "#db2-removing-groups-from-user")
@@ -27,9 +25,7 @@ with IBM Db2 CLP](db2-connecting-with-clp-client.md "db2-connecting-with-clp-cli
 - [Granting database authorization](#db2-granting-dbadmin-auth "#db2-granting-dbadmin-auth")
 - [Revoking database authorization](#db2-revoking-dbadmin-auth "#db2-revoking-dbadmin-auth")
 
-## Granting a user access to your
-
-database
+## Granting a user access to your database
 
 ###### To grant a user access to your database
 

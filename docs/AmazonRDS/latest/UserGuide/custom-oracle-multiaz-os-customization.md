@@ -1,6 +1,4 @@
-# Customizing the OS in an
-
-RDS Custom for Oracle Multi-AZ deployment
+# Customizing the OS in an RDS Custom for Oracle Multi-AZ deployment
 
 With RDS Custom for Oracle Multi-AZ deployments, you can customize the operating system and install
 third-party software on both primary and standby EC2 instances. Unlike Amazon RDS, RDS Custom for Oracle
@@ -13,9 +11,7 @@ customizations exist on both primary and standby instances. This approach ensure
 application continuity during Multi-AZ failover and maintains consistent functionality
 across both instances.
 
-## Requirements for customizing the OS in an RDS Custom for Oracle
-
-Multi-AZ deployment
+## Requirements for customizing the OS in an RDS Custom for Oracle Multi-AZ deployment
 
 Before you customize the OS in a Multi-AZ deployment, be aware of the following
 requirements:
@@ -31,9 +27,7 @@ requirements:
 - Before you convert from Single-AZ to Multi-AZ, make sure the HugePages
   settings in `/etc/sysctl.conf` work correctly.
 
-## Identifying EC2 instances in an
-
-RDS Custom for Oracle Multi-AZ deployment
+## Identifying EC2 instances in an RDS Custom for Oracle Multi-AZ deployment
 
 When customizing your Multi-AZ instances, identify which Amazon EC2 instances serve as
 the primary and standby for your RDS Custom for Oracle deployment.
@@ -52,9 +46,7 @@ the primary and standby for your RDS Custom for Oracle deployment.
 8. The search results show two instances: your primary and secondary. The
    instance with the active RDS Custom for Oracle database is the primary.
 
-## Customizing the OS before creating an RDS Custom for Oracle
-
-Multi-AZ deployment
+## Customizing the OS before creating an RDS Custom for Oracle Multi-AZ deployment
 
 In this scenario, your current deployment is a Single-AZ DB instance. You can customize the
 OS and then convert your DB instance to a Multi-AZ deployment. If you're installing third-party
@@ -73,22 +65,16 @@ recommended.
 3. Test your software or root volume customizations to ensure they work
    correctly.
 4. Convert the Single-AZ DB instance to a Multi-AZ deployment by following the instructions in
-   [Converting a Single-AZ
-   deployment to a Multi-AZ deployment in RDS Custom for Oracle](custom-oracle-multiaz-modify-single-to-multi.md "custom-oracle-multiaz-modify-single-to-multi.md").
+   [Converting a Single-AZ deployment to a Multi-AZ deployment in RDS Custom for Oracle](custom-oracle-multiaz-modify-single-to-multi.md "custom-oracle-multiaz-modify-single-to-multi.md").
 5. Verify that your customizations exist on both instances in the Multi-AZ deployment. For
-   more information, see [Identifying EC2 instances in an
-   RDS Custom for Oracle Multi-AZ deployment](#cfo-os-maz-identify-instances "#cfo-os-maz-identify-instances").
+   more information, see [Identifying EC2 instances in an RDS Custom for Oracle Multi-AZ deployment](#cfo-os-maz-identify-instances "#cfo-os-maz-identify-instances").
 
-## Customizing the OS after creating an RDS Custom for Oracle
-
-Multi-AZ deployment
+## Customizing the OS after creating an RDS Custom for Oracle Multi-AZ deployment
 
 If you have an exiting Multi-AZ deployment, you can deploy your customizations using AWS Systems Manager
 or using manual techniques.
 
-### Customizing the OS in a Multi-AZ deployment using
-
-AWS Systems Manager
+### Customizing the OS in a Multi-AZ deployment using AWS Systems Manager
 
 For existing Multi-AZ DB instances, we recommend Systems Manager as the most reliable way to apply
 customizations simultaneously to both primary and standby instances. This approach
@@ -96,9 +82,7 @@ ensures consistency. For a general introduction to this service, see [What is
 AWS Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md"). To learn how to install software on both DB instances
 simultaneously, see [Install or update Distributor packages](../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md "../../../systems-manager/latest/userguide/distributor-working-with-packages-deploy.md").
 
-### Customizing the OS in a Multi-AZ deployment
-
-manually
+### Customizing the OS in a Multi-AZ deployment manually
 
 In this scenario, your Multi-AZ deployment already exists, but you don't use AWS Systems Manager to
 deploy the customizations. You can customize your OS manually in either of the
@@ -120,12 +104,9 @@ You can customize the OS in the following ways:
 In this approach, you customize the OS on the primary instance. Then
 you perform the same customizations on the standby instance.
 
-###### To customize the OS on the primary instance so that they are replicated
+###### To customize the OS on the primary instance so that they are replicated automatically
 
-automatically
-
-1. Identify the primary and standby DB instances using the procedure in [Identifying EC2 instances in an
-   RDS Custom for Oracle Multi-AZ deployment](#cfo-os-maz-identify-instances "#cfo-os-maz-identify-instances").
+1. Identify the primary and standby DB instances using the procedure in [Identifying EC2 instances in an RDS Custom for Oracle Multi-AZ deployment](#cfo-os-maz-identify-instances "#cfo-os-maz-identify-instances").
 2. Connect to the primary EC2 instance using Session Manager or SSH.
 3. Use either of the following techniques, depending on your business
    requirements:
@@ -162,9 +143,7 @@ sudo ln -sf /rdsdbdata/customizations/sysctl.conf /etc/sysctl.conf
    replication has copied your software or root volume customizations to
    the `/rdsdbdata` directory.
 
-## Customizing the binary volume in an RDS Custom for Oracle
-
-Multi-AZ deployment
+## Customizing the binary volume in an RDS Custom for Oracle Multi-AZ deployment
 
 You can apply a database patch to the binary volume (`/rdsdbbin`) in an
 RDS Custom for Oracle Multi-AZ deployment. You must apply the patch to the primary and standby instances.

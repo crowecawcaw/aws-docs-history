@@ -1,6 +1,4 @@
-# Importing data from an external
-
-MariaDB database to an Amazon RDS for MariaDB DB instance
+# Importing data from an external MariaDB database to an Amazon RDS for MariaDB DB instance
 
 You can import data from an existing MariaDB database to an RDS for MariaDB DB instance. You do
 so by copying the database with [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html "https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html") or [mariadb-dump](https://mariadb.com/kb/en/mariadb-dump/ "https://mariadb.com/kb/en/mariadb-dump/"), and piping the
@@ -54,8 +52,7 @@ Make sure that you're aware of the following recommendations and considerations:
 - If you need to migrate users and privileges, consider using a tool that generates
   the data control language (DCL) for recreating them, such as the [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
 - To perform the import, make sure the user doing so has access to the DB instance.
-  For more information, see [Controlling access with security
-  groups](Overview.md "Overview.md").
+  For more information, see [Controlling access with security groups](Overview.md "Overview.md").
   The parameters used are as follows:
 
 - `-u `local_user``– Use to specify a

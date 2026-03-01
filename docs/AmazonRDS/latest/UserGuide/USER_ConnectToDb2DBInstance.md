@@ -15,15 +15,9 @@ sufficient memory. For more information, see [Database connection error](db2-tro
 
 ###### Topics
 
-- [Finding the endpoint of your Amazon RDS for Db2 DB
-  instance](db2-finding-instance-endpoint.md "db2-finding-instance-endpoint.md")
-- [Connecting to your Amazon RDS for Db2 DB instance
-  with IBM Db2 CLP](db2-connecting-with-clp-client.md "db2-connecting-with-clp-client.md")
-- [Connecting to your Amazon RDS for Db2 DB
-  instance with IBM CLPPlus](db2-connecting-with-ibm-clpplus-client.md "db2-connecting-with-ibm-clpplus-client.md")
-- [Connecting to your Amazon RDS for Db2 DB instance
-  with DBeaver](db2-connecting-with-dbeaver.md "db2-connecting-with-dbeaver.md")
-- [Connecting to your
-  Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console](db2-connecting-with-ibm-data-management-console.md "db2-connecting-with-ibm-data-management-console.md")
-- [Considerations for security groups with
-  Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md")
+- [Finding the endpoint of your Amazon RDS for Db2 DB instance](db2-finding-instance-endpoint.md "db2-finding-instance-endpoint.md")
+- [Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 CLP](db2-connecting-with-clp-client.md "db2-connecting-with-clp-client.md")
+- [Connecting to your Amazon RDS for Db2 DB instance with IBM CLPPlus](db2-connecting-with-ibm-clpplus-client.md "db2-connecting-with-ibm-clpplus-client.md")
+- [Connecting to your Amazon RDS for Db2 DB instance with DBeaver](db2-connecting-with-dbeaver.md "db2-connecting-with-dbeaver.md")
+- [Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console](db2-connecting-with-ibm-data-management-console.md "db2-connecting-with-ibm-data-management-console.md")
+- [Considerations for security groups with Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md")

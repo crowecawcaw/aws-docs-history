@@ -1,6 +1,4 @@
-# Stored procedures for tablespaces for
-
-RDS for Db2
+# Stored procedures for tablespaces for RDS for Db2
 
 The built-in stored procedures described in this topic manage tablespaces for Amazon RDS for Db2
 databases. To run these procedures, the master user must first connect to the
@@ -9,8 +7,7 @@ databases. To run these procedures, the master user must first connect to the
 These stored procedures are used in a variety of tasks. This list isn't exhaustive.
 
 - [Common tasks for tablespaces](db2-managing-tablespaces.md "db2-managing-tablespaces.md")
-- [Generating performance
-  reports](db2-managing-databases.md#db2-generating-performance-reports "db2-managing-databases.md#db2-generating-performance-reports")
+- [Generating performance reports](db2-managing-databases.md#db2-generating-performance-reports "db2-managing-databases.md#db2-generating-performance-reports")
 - [Copying database metadata with db2look](db2-native-db2-tools-db2look.md "db2-native-db2-tools-db2look.md")
 - [Creating a repository database for
   IBM Db2 Data Management Console](db2-connecting-with-ibm-data-management-console.md#db2-creating-repo-db-monitoring-dmc "db2-connecting-with-ibm-data-management-console.md#db2-creating-repo-db-monitoring-dmc")
@@ -335,8 +332,7 @@ Before calling the stored procedure, review the following considerations:
 
 For information about checking the status of altering a tablespace, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-For error messages returned when calling stored procedures, see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+For error messages returned when calling stored procedures, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 

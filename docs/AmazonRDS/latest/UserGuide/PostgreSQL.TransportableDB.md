@@ -1,9 +1,6 @@
-#
+# Transporting a PostgreSQL database to the destination from the source
 
-Transporting a PostgreSQL database to the destination from the source
-
-After you complete the process described in [Setting up to transport a PostgreSQL
-database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md"), you can start the transport. To
+After you complete the process described in [Setting up to transport a PostgreSQL database](PostgreSQL.TransportableDB.md "PostgreSQL.TransportableDB.md"), you can start the transport. To
 do so, run the `transport.import_from_server` function on the destination
 DB instance. In the syntax following you can find the function parameters.
 

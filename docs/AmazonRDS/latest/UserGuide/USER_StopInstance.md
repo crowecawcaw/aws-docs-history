@@ -17,10 +17,8 @@ information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootIn
 ###### Topics
 
 - [Use cases for stopping your DB instance](#USER_StopInstance.Benefits "#USER_StopInstance.Benefits")
-- [Time considerations when stopping your
-  DB instance](#USER_StopInstance.Time "#USER_StopInstance.Time")
-- [Supported DB engines, instance classes, and
-  Regions](#USER_StopInstance.Supported "#USER_StopInstance.Supported")
+- [Time considerations when stopping your DB instance](#USER_StopInstance.Time "#USER_StopInstance.Time")
+- [Supported DB engines, instance classes, and Regions](#USER_StopInstance.Supported "#USER_StopInstance.Supported")
 - [Stopping a DB instance in a Multi-AZ deployment](#USER_StopInstance.MAZ "#USER_StopInstance.MAZ")
 - [How stopping a DB instance works](#USER_StopInstance.Operation "#USER_StopInstance.Operation")
 - [Limitations of stopping your DB instance](#USER_StopInstance.Limitations "#USER_StopInstance.Limitations")
@@ -57,9 +55,7 @@ more information, see [Billing FAQs](http://aws.amazon.com/rds/faqs/#billing "ht
   you might need to start DB instances during the training session and shut them down
   afterward.
 
-## Time considerations when stopping your
-
-DB instance
+## Time considerations when stopping your DB instance
 
 The time to stop your DB instance varies depending on factors such as the instance class,
 network state, DB engine type, database state, and workload. The process can take several
@@ -80,9 +76,7 @@ To minimize delays, consider taking the following actions:
 - Stop the DB instance during periods of low activity.
 - Maintain recent automated backups.
 
-## Supported DB engines, instance classes, and
-
-Regions
+## Supported DB engines, instance classes, and Regions
 
 You can stop and start Amazon RDS DB instances that are running the following DB engines:
 
@@ -101,11 +95,9 @@ Regions.
 You can stop and start a DB instance in a Multi-AZ deployment. Note the following limitations:
 
 - You can only create a Multi-AZ deployment if your database engine supports it. For more
-  information about engine support, see [Supported
-  Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+  information about engine support, see [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 - RDS for SQL Server doesn't support stopping a DB instance in a Multi-AZ deployment. For more information,
-  see [Microsoft SQL Server Multi-AZ deployment limitations, notes, and
-  recommendations](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
+  see [Microsoft SQL Server Multi-AZ deployment limitations, notes, and recommendations](USER_SQLServerMultiAZ.md "USER_SQLServerMultiAZ.md").
 - A long time might be required to stop a DB instance.
 
 ## How stopping a DB instance works
@@ -118,9 +110,7 @@ The status of the DB instance changes to `stopping`. 2. The instance stops runni
 
 The status of the DB instance changes to `stopped`.
 
-### Characteristics of a
-
-stopped DB instance
+### Characteristics of a stopped DB instance
 
 When in a stopped state, your DB instance has the following characteristics:
 
@@ -157,9 +147,7 @@ protect database integrity. Some memory-based statistics and counters don't
 retain history and are re-initialized after restart, to capture the operational
 workload moving forward.
 
-### Automatic restart of a stopped
-
-DB instance
+### Automatic restart of a stopped DB instance
 
 If you don't manually start your DB instance after it is stopped for seven
 consecutive days, RDS automatically starts your DB instance for you. This way, your

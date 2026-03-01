@@ -5,14 +5,11 @@ through AWS Marketplace.
 
 ###### Topics
 
-- [Bring your own license (BYOL) for
-  Db2](#db2-licensing-options-byol "#db2-licensing-options-byol")
+- [Bring your own license (BYOL) for Db2](#db2-licensing-options-byol "#db2-licensing-options-byol")
 - [Db2 license through AWS Marketplace](#db2-licensing-options-marketplace "#db2-licensing-options-marketplace")
 - [Switching between Db2 licenses](#db2-edition-license-switching "#db2-edition-license-switching")
 
-## Bring your own license (BYOL) for
-
-Db2
+## Bring your own license (BYOL) for Db2
 
 In the BYOL model, you use your existing Db2 database licenses to deploy databases on
 Amazon RDS. Verify that you have the appropriate Db2 database license for the DB instance
@@ -37,21 +34,16 @@ Advanced Edition.
 
 ###### Topics
 
-- [IBM IDs for bring your own
-  license (BYOL) for Db2](#db2-prereqs-ibm-info "#db2-prereqs-ibm-info")
-- [Adding IBM
-  IDs to a parameter group for RDS for Db2 DB instances](#db2-licensing-options-byol-adding-ids "#db2-licensing-options-byol-adding-ids")
+- [IBM IDs for bring your own license (BYOL) for Db2](#db2-prereqs-ibm-info "#db2-prereqs-ibm-info")
+- [Adding IBM IDs to a parameter group for RDS for Db2 DB instances](#db2-licensing-options-byol-adding-ids "#db2-licensing-options-byol-adding-ids")
 - [Integrating with AWS License Manager](#db2-lms-integration "#db2-lms-integration")
 
-### IBM IDs for bring your own
-
-license (BYOL) for Db2
+### IBM IDs for bring your own license (BYOL) for Db2
 
 In the BYOL model, you need your IBM Customer ID and your IBM Site ID to create, modify, or
 restore RDS for Db2 DB instances. You must create a custom parameter group with your
 IBM Customer ID and your IBM Site ID _before_ you create an
-RDS for Db2 DB instance. For more information, see [Adding IBM
-IDs to a parameter group for RDS for Db2 DB instances](#db2-licensing-options-byol-adding-ids "#db2-licensing-options-byol-adding-ids"). You can run multiple
+RDS for Db2 DB instance. For more information, see [Adding IBM IDs to a parameter group for RDS for Db2 DB instances](#db2-licensing-options-byol-adding-ids "#db2-licensing-options-byol-adding-ids"). You can run multiple
 RDS for Db2 DB instances with different IBM Customer IDs and IBM Site IDs in the same
 AWS account or AWS Region.
 
@@ -72,14 +64,11 @@ You can also find your IBM Customer ID and your IBM Site ID in your [IBM
 Passport Advantage Online](https://www.ibm.com/software/passportadvantage/pao_customer.html "https://www.ibm.com/software/passportadvantage/pao_customer.html") account. After your log in, you can view both
 IDs on either the main page or the Software downloads page.
 
-### Adding IBM
-
-IDs to a parameter group for RDS for Db2 DB instances
+### Adding IBM IDs to a parameter group for RDS for Db2 DB instances
 
 Because you can't modify default parameter groups, you must create a custom
 parameter group and then modify it to include the values for your IBM Customer ID and your
-IBM Site ID. For information about parameter groups, see [DB parameter groups for
-Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+IBM Site ID. For information about parameter groups, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 
 ###### Important
 
@@ -109,8 +98,7 @@ AWS CLI, or the Amazon RDS API.
 1. Create a new DB parameter group. For more information about
    creating a DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 2. Modify the parameter group that you created. For more information
-   about modifying a parameter group, see [Modifying parameters in a DB parameter group
-   in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ###### To add your IBM Customer ID and your IBM Site ID to a parameter group
 
@@ -139,8 +127,7 @@ Include the following required options:
      names, values, and the application methods for the parameter
      update.
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ###### To add your IBM Customer ID and your IBM Site ID to a parameter group
 
@@ -163,12 +150,10 @@ Include the following required parameters:
     * `DBParameterGroupName`
     * `Parameters`
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 Now you are ready to create a DB instance and attach the custom parameter group to
-the DB instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Associating a DB parameter group with a
-DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+the DB instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Integrating with AWS License Manager
 
@@ -197,12 +182,9 @@ information filter for RDS for Db2.
 ###### Topics
 
 - [Terminology](#db2-lms-integration-terms "#db2-lms-integration-terms")
-- [Creating a self-managed license
-  in AWS License Manager](#db2-lms-integration-tracking "#db2-lms-integration-tracking")
-- [Automating the creation of
-  self-managed licenses in AWS License Manager with templates](#db2-lms-integration-templates "#db2-lms-integration-templates")
-- [Settings for creating self-managed
-  licenses](#db2-settings-lms "#db2-settings-lms")
+- [Creating a self-managed license in AWS License Manager](#db2-lms-integration-tracking "#db2-lms-integration-tracking")
+- [Automating the creation of self-managed licenses in AWS License Manager with templates](#db2-lms-integration-templates "#db2-lms-integration-templates")
+- [Settings for creating self-managed licenses](#db2-settings-lms "#db2-settings-lms")
 
 #### Terminology
 
@@ -220,9 +202,7 @@ self-managed license, work closely with your organization's
 compliance team to review your enterprise agreements. For more
 information, see [Self-managed licenses in License Manager](../../../license-manager/latest/userguide/license-configurations.md "../../../license-manager/latest/userguide/license-configurations.md").
 
-#### Creating a self-managed license
-
-in AWS License Manager
+#### Creating a self-managed license in AWS License Manager
 
 You can create a self-managed license by using the AWS Management Console, the AWS License Manager
 CLI, and the AWS License Manager API.
@@ -238,9 +218,7 @@ must first create a self-managed license with the following steps. The same
 situation applies to restoring an RDS for Db2 DB instance to a point in time or
 from a snapshot.
 
-###### To create a self-managed license to track the license usage of
-
-your RDS for Db2 DB instances
+###### To create a self-managed license to track the license usage of your RDS for Db2 DB instances
 
 1. Go to [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/ "https://console.aws.amazon.com/license-manager/").
 2. Create a self-managed license.
@@ -264,8 +242,7 @@ To create a self-managed license by using the AWS CLI, run the AWS License Manag
 `--cli-input-json` or `--cli-input-yaml`
 options to pass the options to the command.
 
-For more information, see [Settings for creating self-managed
-licenses](#db2-settings-lms "#db2-settings-lms").
+For more information, see [Settings for creating self-managed licenses](#db2-settings-lms "#db2-settings-lms").
 
 The following command creates a self-managed license for Db2 Standard
 Edition.
@@ -322,12 +299,9 @@ operation with the following required parameters:
 - `ProductInformationFilterName`
 - `ProductInformationFilterValue`
 - `ProductInformationFilterComparator`
-  For more information about the parameters, see [Settings for creating self-managed
-  licenses](#db2-settings-lms "#db2-settings-lms").
+  For more information about the parameters, see [Settings for creating self-managed licenses](#db2-settings-lms "#db2-settings-lms").
 
-#### Automating the creation of
-
-self-managed licenses in AWS License Manager with templates
+#### Automating the creation of self-managed licenses in AWS License Manager with templates
 
 You can automate the creation of self-managed licenses by using CloudFormation and
 Terraform templates.
@@ -358,8 +332,7 @@ Resources:
               ProductInformationFilterComparator: "EQUALS"
 ```
 
-For more information about using CloudFormation with Amazon RDS, see [Creating Amazon RDS
-resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+For more information about using CloudFormation with Amazon RDS, see [Creating Amazon RDS resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 The following example Terraform template creates self-managed
 licenses for Db2 Standard Edition on RDS for Db2. Replace
@@ -396,9 +369,7 @@ For more information about using Terraform and Amazon RDS, see
 Terraform as an IaC tool for the AWS Cloud](../../../prescriptive-guidance/latest/choose-iac-tool/terraform.md "../../../prescriptive-guidance/latest/choose-iac-tool/terraform.md") and
 [Best practices for using the Terraform AWS Provider](../../../prescriptive-guidance/latest/terraform-aws-provider-best-practices/introduction.md "../../../prescriptive-guidance/latest/terraform-aws-provider-best-practices/introduction.md") in _AWS Prescriptive Guidance_.
 
-#### Settings for creating self-managed
-
-licenses
+#### Settings for creating self-managed licenses
 
 In the following table, you can find details about the settings for creating
 self-managed licenses by using the AWS License Manager CLI, the AWS License Manager API, an CloudFormation
@@ -436,8 +407,7 @@ and IBM Db2 Advanced Edition.
 
 - [Terminology](#db2-marketplace-terminology "#db2-marketplace-terminology")
 - [Payments and billing](#db2-marketplace-billing "#db2-marketplace-billing")
-- [Subscribing to Db2
-  Marketplace listings and registering with IBM](#db2-marketplace-subscribing-registering "#db2-marketplace-subscribing-registering")
+- [Subscribing to Db2 Marketplace listings and registering with IBM](#db2-marketplace-subscribing-registering "#db2-marketplace-subscribing-registering")
 - [Obtaining a private offer](#db2-marketplace-private-offer "#db2-marketplace-private-offer")
 
 ### Terminology
@@ -494,9 +464,7 @@ bills includes two charges: one for your usage of Db2 license through AWS Market
 for your usage of Amazon RDS. For more information about billing, see [Viewing your
 bill](../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md "../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md") in the _AWS Billing and Cost Management User Guide_.
 
-### Subscribing to Db2
-
-Marketplace listings and registering with IBM
+### Subscribing to Db2 Marketplace listings and registering with IBM
 
 To use Db2 license through AWS Marketplace, you must use the AWS Management Console to complete the
 following two tasks. You can't complete these tasks through the AWS CLI or the RDS
@@ -509,14 +477,10 @@ must complete these two tasks first.
 
 ###### Topics
 
-- [Task 1: Subscribe to Db2 in
-  AWS Marketplace](#db2-marketplace-subscribing "#db2-marketplace-subscribing")
-- [Task 2: Register your subscription
-  with IBM](#db2-marketplace-registering "#db2-marketplace-registering")
+- [Task 1: Subscribe to Db2 in AWS Marketplace](#db2-marketplace-subscribing "#db2-marketplace-subscribing")
+- [Task 2: Register your subscription with IBM](#db2-marketplace-registering "#db2-marketplace-registering")
 
-#### Task 1: Subscribe to Db2 in
-
-AWS Marketplace
+#### Task 1: Subscribe to Db2 in AWS Marketplace
 
 To use Db2 license with AWS Marketplace, you need to have an active AWS Marketplace subscription
 for Db2. Because subscriptions are associated with a specific IBM Db2 edition, you
@@ -528,9 +492,7 @@ Guide_.
 
 We recommend that you subscribe to Db2 in AWS Marketplace _before_ you start to [create a DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
-#### Task 2: Register your subscription
-
-with IBM
+#### Task 2: Register your subscription with IBM
 
 After you subscribe to Db2 in AWS Marketplace, complete the registration of your IBM
 order from the AWS Marketplace page for the type of Db2 subscription that you chose. On

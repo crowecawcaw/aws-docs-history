@@ -1,6 +1,4 @@
-# Configuring GTID-based replication
-
-with an external source instance
+# Configuring GTID-based replication with an external source instance
 
 You can set up replication based on global transaction identifiers (GTIDs) from an
 external MariaDB instance of version 10.0.24 or higher into an RDS for MariaDB DB instance.
@@ -49,8 +47,7 @@ typical GTID looks something like `0-1234510749-1728`. For
 more information about GTIDs and their component parts, see [Global
 transaction ID](http://mariadb.com/kb/en/mariadb/global-transaction-id/ "http://mariadb.com/kb/en/mariadb/global-transaction-id/") in the MariaDB documentation. 3. Copy the database from the external MariaDB instance to the MariaDB DB
 instance using `mysqldump`. For very large databases, you might want
-to use the procedure in [Importing data to an
-Amazon RDS for MariaDB DB instance with reduced downtime](mariadb-importing-data-reduced-downtime.md "mariadb-importing-data-reduced-downtime.md").
+to use the procedure in [Importing data to an Amazon RDS for MariaDB DB instance with reduced downtime](mariadb-importing-data-reduced-downtime.md "mariadb-importing-data-reduced-downtime.md").
 
 For Linux, macOS, or Unix:
 

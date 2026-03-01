@@ -11,8 +11,7 @@ If you upgrade the database, RDS Custom automatically upgrades read replicas aft
 upgrades the primary DB instance. If you upgrade the OS, you must upgrade the replicas
 manually.
 
-Before you begin, review [Requirements for RDS Custom for Oracle upgrades](custom-upgrading.md#custom-upgrading-reqs "custom-upgrading.md#custom-upgrading-reqs") and [Considerations for RDS Custom for Oracle database
-upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md").
+Before you begin, review [Requirements for RDS Custom for Oracle upgrades](custom-upgrading.md#custom-upgrading-reqs "custom-upgrading.md#custom-upgrading-reqs") and [Considerations for RDS Custom for Oracle database upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md").
 
 ###### To upgrade an RDS Custom for Oracle DB instance
 

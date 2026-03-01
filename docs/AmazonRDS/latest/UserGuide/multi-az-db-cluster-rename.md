@@ -8,8 +8,7 @@ list of considerations before you rename a Multi-AZ DB cluster.
 - When you rename a Multi-AZ DB cluster, the cluster endpoints for the Multi-AZ DB cluster
   change. These endpoints change because they include the name you assigned to the
   Multi-AZ DB cluster. You can redirect traffic from an old endpoint to a new one. For
-  more information about Multi-AZ DB cluster endpoints, see [Connecting to a
-  Multi-AZ DB cluster for Amazon RDS](multi-az-db-clusters-concepts-connection-management.md "multi-az-db-clusters-concepts-connection-management.md").
+  more information about Multi-AZ DB cluster endpoints, see [Connecting to a Multi-AZ DB cluster for Amazon RDS](multi-az-db-clusters-concepts-connection-management.md "multi-az-db-clusters-concepts-connection-management.md").
 - When you rename a Multi-AZ DB cluster, the old DNS name that was used by the Multi-AZ DB cluster
   is deleted, although it could remain cached for a few minutes. The new DNS name for the renamed
   Multi-AZ DB cluster becomes effective in about two minutes. The renamed Multi-AZ DB cluster isn't
@@ -58,8 +57,7 @@ cluster snapshots of the old Multi-AZ DB cluster.
 6. Choose **Continue**.
 7. To apply the changes immediately, choose **Apply immediately**. Choosing
    this option can cause an outage in some cases. For more information, see
-   [Applying changes
-   immediately](modify-multi-az-db-cluster.md#modify-multi-az-db-cluster-apply-immediately "modify-multi-az-db-cluster.md#modify-multi-az-db-cluster-apply-immediately").
+   [Applying changes immediately](modify-multi-az-db-cluster.md#modify-multi-az-db-cluster-apply-immediately "modify-multi-az-db-cluster.md#modify-multi-az-db-cluster-apply-immediately").
 8. On the confirmation page, review your changes. If they are correct, choose
    **Modify cluster** to save your changes.
 

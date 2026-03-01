@@ -7,8 +7,7 @@ Amazon RDS.
 
 - [Quotas in Amazon RDS](#RDS_Limits.Limits "#RDS_Limits.Limits")
 - [Naming constraints in Amazon RDS](#RDS_Limits.Constraints "#RDS_Limits.Constraints")
-- [Maximum number of database
-  connections](#RDS_Limits.MaxConnections "#RDS_Limits.MaxConnections")
+- [Maximum number of database connections](#RDS_Limits.MaxConnections "#RDS_Limits.MaxConnections")
 - [File size limits in Amazon RDS](#RDS_Limits.FileSize "#RDS_Limits.FileSize")
 
 ## Quotas in Amazon RDS
@@ -150,9 +149,7 @@ The naming constraints in Amazon RDS are as follows:
   - Alphanumeric characters, spaces, hyphens, underscores, and periods are
     allowed.
 
-## Maximum number of database
-
-connections
+## Maximum number of database connections
 
 The maximum number of simultaneous database connections varies by the DB engine type
 and the memory allocation for the DB instance class. The maximum number of connections
@@ -162,8 +159,7 @@ SQL Server Management Studio (SSMS).
 
 Database connections consume memory. Setting one of these parameters too high can
 cause a low memory condition that might cause a DB instance to be placed in the
-**incompatible-parameters** status. For more information, see [Diagnosing and
-resolving incompatible parameters status for a memory limit](CHAP_Troubleshooting.md#CHAP_Troubleshooting.incompatible-parameters-memory "CHAP_Troubleshooting.md#CHAP_Troubleshooting.incompatible-parameters-memory").
+**incompatible-parameters** status. For more information, see [Diagnosing and resolving incompatible parameters status for a memory limit](CHAP_Troubleshooting.md#CHAP_Troubleshooting.incompatible-parameters-memory "CHAP_Troubleshooting.md#CHAP_Troubleshooting.incompatible-parameters-memory").
 
 If your applications frequently open and close connections, or keep a large number of
 long-lived connections open, we recommend that you use Amazon RDS Proxy. RDS Proxy is a fully
@@ -192,8 +188,7 @@ different DB engines.
 
 `DBInstanceClassMemory` is in bytes. For details about how this value is
 calculated, see [Specifying DB parameters](USER_ParamValuesRef.md "USER_ParamValuesRef.md"). Because of memory reserved for the operating system and RDS management processes,
-this memory size is smaller than the value in gibibytes (GiB) shown in [Hardware specifications for DB instance
-classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+this memory size is smaller than the value in gibibytes (GiB) shown in [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 For example, some DB instance classes have 8 GiB of memory, which is 8,589,934,592
 bytes. For a MySQL DB instance running on a DB instance class with 8 GiB of memory, such

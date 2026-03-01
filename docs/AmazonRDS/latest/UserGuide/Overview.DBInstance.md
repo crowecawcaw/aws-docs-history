@@ -30,8 +30,7 @@ impact to your database and applications before modifying your DB instance setti
 5. When all the changes are as you want them,
    choose **Continue** and check the summary of modifications.
 6. (Optional) Choose **Apply immediately** to apply the changes immediately. Choosing this option
-   can cause downtime in some cases. For more information, see [Using the schedule modifications
-   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+   can cause downtime in some cases. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 7. On the confirmation page, review your changes. If they are correct, choose **Modify DB instance**
    to save your changes.
 
@@ -50,8 +49,7 @@ To disable deletion protection, use `--no-deletion-protection`.
 The changes are applied during the next maintenance window
 by using `--no-apply-immediately`. Use `--apply-immediately`
 to apply the changes immediately. For more information, see
-[Using the schedule modifications
-setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+[Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 
 For Linux, macOS, or Unix:
 

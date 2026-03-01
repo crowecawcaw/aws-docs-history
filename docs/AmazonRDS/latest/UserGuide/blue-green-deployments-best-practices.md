@@ -1,21 +1,15 @@
-# Best practices for Amazon RDS
-
-blue/green deployments
+# Best practices for Amazon RDS blue/green deployments
 
 The following are best practices for blue/green deployments.
 
 ###### Topics
 
-- [General best practices for
-  blue/green deployments](#blue-green-deployments-best-practices-general "#blue-green-deployments-best-practices-general")
+- [General best practices for blue/green deployments](#blue-green-deployments-best-practices-general "#blue-green-deployments-best-practices-general")
 - [RDS for MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-mysql "#blue-green-deployments-best-practices-mysql")
 - [RDS for MySQL best practices for blue/green deployments](#blue-green-deployments-best-practices-agd "#blue-green-deployments-best-practices-agd")
-- [PostgreSQL replication methods for
-  blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md")
+- [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md")
 
-## General best practices for
-
-blue/green deployments
+## General best practices for blue/green deployments
 
 Consider the following general best practices when you create a blue/green
 deployment.
@@ -40,13 +34,11 @@ MySQL documentation and [Restrictions](https://www.postgresql.org/docs/current/l
 ###### Note
 
 This limitation doesn't apply to RDS for PostgreSQL blue/green deployments that use
-physical replication. For more information, see [RDS for PostgreSQL limitations for
-blue/green deployments with physical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical").
+physical replication. For more information, see [RDS for PostgreSQL limitations for blue/green deployments with physical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical").
 
 - After you create the blue/green deployment, handle lazy loading if necessary. Make sure
   data loading is complete before switching over. For more information, see
-  [Lazy loading and storage
-  initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").
+  [Lazy loading and storage initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").
 - When you switch over a blue/green deployment, follow the switchover best practices.
   For more information, see [Switchover best practices](blue-green-deployments-switching.md#blue-green-deployments-switching-best-practices "blue-green-deployments-switching.md#blue-green-deployments-switching-best-practices").
 
@@ -86,25 +78,18 @@ RDS for MySQL DB instance
 - Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.
 - If you intend to use a DB parameter or DB Cluster parameter group other than the default one for your green environment, create the desired parameter group with the same name in all secondary regions before initiating the blue/green deployment.
 
-### RDS for PostgreSQL best
-
-practices for blue/green deployments
+### RDS for PostgreSQL best practices for blue/green deployments
 
 Consider the following best practices when you create a blue/green deployment from an
 RDS for PostgreSQL DB instance.
 
 ###### Topics
 
-- [RDS for PostgreSQL
-  general best practices for blue/green deployments](#blue-green-deployments-best-practices-postgres-general "#blue-green-deployments-best-practices-postgres-general")
-- [RDS for PostgreSQL
-  best practices for blue/green deployments with physical replication](#blue-green-deployments-best-practices-postgres-physical "#blue-green-deployments-best-practices-postgres-physical")
-- [RDS for PostgreSQL
-  best practices for blue/green deployments with logical replication](#blue-green-deployments-best-practices-postgres-logical "#blue-green-deployments-best-practices-postgres-logical")
+- [RDS for PostgreSQL general best practices for blue/green deployments](#blue-green-deployments-best-practices-postgres-general "#blue-green-deployments-best-practices-postgres-general")
+- [RDS for PostgreSQL best practices for blue/green deployments with physical replication](#blue-green-deployments-best-practices-postgres-physical "#blue-green-deployments-best-practices-postgres-physical")
+- [RDS for PostgreSQL best practices for blue/green deployments with logical replication](#blue-green-deployments-best-practices-postgres-logical "#blue-green-deployments-best-practices-postgres-logical")
 
-#### RDS for PostgreSQL
-
-general best practices for blue/green deployments
+#### RDS for PostgreSQL general best practices for blue/green deployments
 
 Consider the following general best practices when you create a blue/green deployment
 from an RDS for PostgreSQL DB instance.
@@ -140,26 +125,19 @@ from an RDS for PostgreSQL DB instance.
   version 13 and lower. For version 14 and higher, set the `wal_keep_size`
   parameter too 1 TiB, if there's enough free storage space.
 
-#### RDS for PostgreSQL
-
-best practices for blue/green deployments with physical replication
+#### RDS for PostgreSQL best practices for blue/green deployments with physical replication
 
 With physical replication, Amazon RDS creates a read replica of the source DB instance. For
-related parameters, monitoring, tuning, and troubleshooting, see [Working with read replicas for
-Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md").
+related parameters, monitoring, tuning, and troubleshooting, see [Working with read replicas for Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md").
 
 For an explanation of when blue/green deployments use physical replication instead of
-logical replication, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+logical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
-#### RDS for PostgreSQL
-
-best practices for blue/green deployments with logical replication
+#### RDS for PostgreSQL best practices for blue/green deployments with logical replication
 
 Consider the following best practices when you create a blue/green deployment that
 uses logical replication. For an explanation of when blue/green deployments use logical
-replication instead of physical replication, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+replication instead of physical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
 - If your database has sufficient freeable memory, increase the value of the
   `logical_decoding_work_mem` DB parameter in the blue environment. Doing so
@@ -176,8 +154,7 @@ blue/green deployments](blue-green-deployments-replication-type.md "blue-green-d
 - If you’re using the `aws_s3` extension, give the green DB instance access to
   Amazon S3 through an IAM role after the green environment is created. This allows the
   import and export commands to continue functioning after switchover. For instructions,
-  see [Setting up access to an Amazon S3
-  bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
+  see [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md").
 - Review the performance of your UPDATE and DELETE statements and evaluate whether
   creating an index on the column used in the WHERE clause can optimize these queries.
   This can enhance performance when the operations are replayed in the green
@@ -191,8 +168,7 @@ blue/green deployments](blue-green-deployments-replication-type.md "blue-green-d
   `ANALYZE` operation on all databases to refresh the
   `pg_statistic` table. Optimizer statistics aren't transferred during a
   major version upgrade, so you must regenerate all statistics to avoid performance
-  issues. For additional best practices during major version upgrades, see [How
-  to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
+  issues. For additional best practices during major version upgrades, see [How to perform a major version upgrade for RDS for PostgreSQL](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
 ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to

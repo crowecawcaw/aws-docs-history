@@ -8,13 +8,10 @@ metrics available using Amazon CloudWatch Logs.
 
 ###### Topics
 
-- [OS metrics
-  for Db2, MariaDB, MySQL, Oracle, and PostgreSQL](#USER_Monitoring-Available-OS-Metrics-RDS "#USER_Monitoring-Available-OS-Metrics-RDS")
+- [OS metrics for Db2, MariaDB, MySQL, Oracle, and PostgreSQL](#USER_Monitoring-Available-OS-Metrics-RDS "#USER_Monitoring-Available-OS-Metrics-RDS")
 - [OS metrics for Microsoft SQL Server](#USER_Monitoring-Available-OS-Metrics-RDS.SQLServer "#USER_Monitoring-Available-OS-Metrics-RDS.SQLServer")
 
-## OS metrics
-
-for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
+## OS metrics for Db2, MariaDB, MySQL, Oracle, and PostgreSQL
 
 RDS collects disk metrics for `rdsdbdata` as well as
 additional storage volumes present in the OS. To view OS metrics in CloudWatch Logs, see [Viewing OS metrics using CloudWatch Logs](USER_Monitoring.OS.md "USER_Monitoring.OS.md").

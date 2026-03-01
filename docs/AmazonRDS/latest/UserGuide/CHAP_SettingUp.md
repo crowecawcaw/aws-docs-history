@@ -12,8 +12,7 @@ optimized and compliant with best practices.
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Grant programmatic access](#getting-started-iam-user-access-keys "#getting-started-iam-user-access-keys")
 - [Determine requirements](#CHAP_SettingUp.Requirements "#CHAP_SettingUp.Requirements")
-- [Provide access to your DB instance in your VPC by
-  creating a security group](#CHAP_SettingUp.SecurityGroup "#CHAP_SettingUp.SecurityGroup")
+- [Provide access to your DB instance in your VPC by creating a security group](#CHAP_SettingUp.SecurityGroup "#CHAP_SettingUp.SecurityGroup")
   If you already have an AWS account, know your Amazon RDS requirements, and prefer to use the defaults for IAM
   and VPC security groups, skip ahead to [Getting started with Amazon RDS](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
 
@@ -123,8 +122,7 @@ The following list describes the rules for each VPC option:
     	 connections from the application or service to the Amazon RDS DB
     	 instance. Use the **Security Group** option on the VPC
     	 console or the AWS CLI to create VPC security groups. For
-    	 information, see [Step 3: Create a VPC security
-    	 group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+    	 information, see [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
     	- Specify the default DB subnet group. If this is the first DB instance you have created
     	 in this AWS Region, Amazon RDS creates the default DB subnet group
     	 when it creates the DB instance.
@@ -139,8 +137,7 @@ The following list describes the rules for each VPC option:
     	 connections from the application or service to the Amazon RDS DB
     	 instance. Use the **Security Group** option on the VPC
     	 console or the AWS CLI to create VPC security groups. For information, see
-    	 [Step 3: Create a VPC security
-    	 group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
+    	 [Step 3: Create a VPC security group](USER_VPC.md#USER_VPC.CreateVPCSecurityGroup "USER_VPC.md#USER_VPC.CreateVPCSecurityGroup").
     	- The VPC must meet certain requirements in order to host DB instances, such
     	 as having at least two subnets, each in a separate Availability
     	 Zone. For information, see [Amazon VPC and Amazon RDS](USER_VPC.md "USER_VPC.md").
@@ -180,9 +177,7 @@ The following list describes the rules for each VPC option:
 When you have the information you need to create the security group and the DB instance,
 continue to the next step.
 
-## Provide access to your DB instance in your VPC by
-
-creating a security group
+## Provide access to your DB instance in your VPC by creating a security group
 
 VPC security groups provide access to DB instances in a VPC.
 They act as a firewall for the associated DB instance,
@@ -201,15 +196,13 @@ application on an Amazon EC2 instance, you can use the security group that you s
 up for the Amazon EC2 instance.
 
 You can configure connectivity between an Amazon EC2 instance a DB instance when you create the
-DB instance. For more information, see [Configure
-automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+DB instance. For more information, see [Configure automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
 
 ###### Tip
 
 You can set up network connectivity between an Amazon EC2 instance and a DB
 instance automatically when you create the DB instance. For more information, see
-[Configure
-automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
+[Configure automatic network connectivity with an EC2 instance](USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic").
 
 For information about how to connect resources in Amazon Lightsail to your DB instances, see [Connect Lightsail resources to AWS services using VPC peering](../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md "../../../lightsail/latest/userguide/using-lightsail-with-other-aws-services.md").
 

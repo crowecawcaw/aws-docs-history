@@ -1,6 +1,4 @@
-# Setting
-
-table-level autovacuum parameters
+# Setting table-level autovacuum parameters
 
 You can set autovacuum-related [storage parameters](https://www.postgresql.org/docs/current/static/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS "https://www.postgresql.org/docs/current/static/sql-createtable.html#SQL-CREATETABLE-STORAGE-PARAMETERS") at a table level, which can be better than altering the behavior
 of the entire database. For large tables, you might need to set aggressive settings and you

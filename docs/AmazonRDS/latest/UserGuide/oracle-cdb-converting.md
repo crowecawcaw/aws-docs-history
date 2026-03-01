@@ -24,8 +24,7 @@ The non-CDB conversion operation has the following requirements:
   `modify-db-instance` call. After you convert a non-CDB to a CDB, your
   CDB is in the single-tenant configuration. To convert the single-tenant
   configuration to the multi-tenant configuration, run `modify-db-instance`
-  again. For more information, see [Converting the single-tenant configuration
-  to multi-tenant](oracle-single-tenant-converting.md "oracle-single-tenant-converting.md").
+  again. For more information, see [Converting the single-tenant configuration to multi-tenant](oracle-single-tenant-converting.md "oracle-single-tenant-converting.md").
 - You can't convert a primary or replica database that has Oracle Data Guard
   enabled. To convert a non-CDB that has read replicas, first delete all read
   replicas.
@@ -34,15 +33,13 @@ The non-CDB conversion operation has the following requirements:
   Before converting your non-CDB, consider the following:
 
 - The considerations for option and parameter groups are the same as for upgrading
-  the DB engine. For more information, see [Considerations for Oracle database
-  upgrades](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
+  the DB engine. For more information, see [Considerations for Oracle database upgrades](USER_UpgradeDBInstance.Oracle.md "USER_UpgradeDBInstance.Oracle.md").
 - You can convert existing non-CDB instances that uses managed master passwords to
   single-tenant instances in a single operation. The single-tenant instances inherit
   the managed passwords.
 - If your DB instance has the `OEMAGENT` option installed, a best practice is
   to remove this option before you convert your non-CDB. After your non-CDB is
-  converted to a CDB, reinstall the option. For more information, see [Oracle Management Agent for Enterprise Manager
-  Cloud Control](Oracle.Options.md "Oracle.Options.md").
+  converted to a CDB, reinstall the option. For more information, see [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.md "Oracle.Options.md").
 - During the conversion process, RDS resets the online redo log size to the default
   128M.
 
@@ -61,8 +58,7 @@ The non-CDB conversion operation has the following requirements:
 6. (Optional) For **DB parameter group**, choose a new
    parameter group for your CDB instance. The same parameter group
    considerations apply when converting a DB instance as when upgrading a DB instance. For
-   more information, see [Parameter group
-   considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG").
+   more information, see [Parameter group considerations](USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG "USER_UpgradeDBInstance.Oracle.md#USER_UpgradeDBInstance.Oracle.OGPG.PG").
 7. (Optional) For **Option group**, choose a new option
    group for your CDB instance. The same option group considerations apply when
    converting a DB instance as when upgrading a DB instance. For more information, see
@@ -74,8 +70,7 @@ The non-CDB conversion operation has the following requirements:
    **Continue** and check the summary of modifications.
 10. (Optional) Choose **Apply immediately** to apply the
     changes immediately. Choosing this option can cause downtime in some cases.
-    For more information, see [Using the schedule modifications
-    setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+    For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 11. On the confirmation page, review your changes. If they are correct, choose
     **Modify DB instance**.
 

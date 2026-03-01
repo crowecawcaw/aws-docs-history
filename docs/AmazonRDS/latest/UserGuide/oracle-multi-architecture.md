@@ -38,8 +38,7 @@ non-CDB.
 
 You can convert a CDB that uses the single-tenant configuration to the
 multi-tenant configuration, thus allowing you to add PDBs to your CDB.
-This architecture change is permanent and irreversible. For more information, see [Converting the single-tenant configuration
-to multi-tenant](oracle-single-tenant-converting.md "oracle-single-tenant-converting.md").
+This architecture change is permanent and irreversible. For more information, see [Converting the single-tenant configuration to multi-tenant](oracle-single-tenant-converting.md "oracle-single-tenant-converting.md").
 
 ###### Note
 
@@ -52,6 +51,5 @@ CDB to a non-CDB.
 For more information, see the following resources:
 
 - [Working with CDBs in RDS for Oracle](oracle-multitenant.md "oracle-multitenant.md")
-- [Limitations of RDS for Oracle
-  CDBs](Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations "Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations")
+- [Limitations of RDS for Oracle CDBs](Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations "Oracle.Concepts.md#Oracle.Concepts.single-tenant-limitations")
 - [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")

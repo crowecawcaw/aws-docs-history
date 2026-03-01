@@ -9,8 +9,7 @@ while interacting with the Amazon RDS API.
 - [Troubleshooting tips](#TroubleshootingTipss "#TroubleshootingTipss")
 
 For information about troubleshooting for Amazon RDS DB instances, see
-[Troubleshooting for
-Amazon RDS](CHAP_Troubleshooting.md "CHAP_Troubleshooting.md").
+[Troubleshooting for Amazon RDS](CHAP_Troubleshooting.md "CHAP_Troubleshooting.md").
 
 ## Retrieving errors
 

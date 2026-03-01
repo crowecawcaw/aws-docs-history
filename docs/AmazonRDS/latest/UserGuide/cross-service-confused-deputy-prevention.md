@@ -69,12 +69,9 @@ the following sections:
 
 - [Granting permissions to publish notifications to an Amazon SNS topic](USER_Events.md "USER_Events.md")
 - [Manually creating an IAM role for native backup and restore](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM")
-- [Setting up Windows Authentication for
-  SQL Server DB instances](USER_SQLServerWinAuth.md "USER_SQLServerWinAuth.md")
+- [Setting up Windows Authentication for SQL Server DB instances](USER_SQLServerWinAuth.md "USER_SQLServerWinAuth.md")
 - [Prerequisites for integrating RDS for SQL Server with S3](Appendix.SQLServer.Options.S3-integration.md "Appendix.SQLServer.Options.S3-integration.md")
 - [Manually creating an IAM role for SQL Server Audit](Appendix.SQLServer.Options.Audit.md "Appendix.SQLServer.Options.Audit.md")
 - [Configuring IAM permissions for RDS for Oracle integration with Amazon S3](oracle-s3-integration.md "oracle-s3-integration.md")
-- [Setting up access to an Amazon S3
-  bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") (PostgreSQL import)
-- [Setting up access to an Amazon S3
-  bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md") (PostgreSQL export)
+- [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.md "USER_PostgreSQL.S3Import.md") (PostgreSQL import)
+- [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md") (PostgreSQL export)

@@ -1,85 +1,269 @@
-# Creating a database account using
+# Creating and using an IAM policy for IAM database access
 
-IAM authentication
-
-With IAM database authentication, you don't need to assign database passwords to the
-user accounts you create. If you remove a user that is mapped to a database
-account, you should also remove the database account with the `DROP USER`
-statement.
+To allow a user or role to connect to your DB instance,
+you must create an IAM policy. After that, you attach the policy to a permissions set or role.
 
 ###### Note
 
-The user name used for IAM authentication must match the case of the user name in the database.
+To learn more about IAM policies, see [Identity and access management for Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
 
-###### Topics
+The following example policy allows a user to connect to a DB instance
+using IAM database authentication.
 
-- [Using IAM authentication
-  with MariaDB and MySQL](#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL "#UsingWithRDS.IAMDBAuth.DBAccounts.MySQL")
-- [Using IAM
-  authentication with PostgreSQL](#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL "#UsingWithRDS.IAMDBAuth.DBAccounts.PostgreSQL")
-
-## Using IAM authentication
-
-with MariaDB and MySQL
-
-With MariaDB and MySQL, authentication is handled by
-`AWSAuthenticationPlugin`—an AWS-provided plugin that works
-seamlessly with IAM to authenticate your users. Connect to the DB instance as the master user or a different user who can create users
-and grant privileges. After connecting, issue the `CREATE USER`
-statement, as shown in the following example.
+JSON
 
 ```
-CREATE USER 'jane_doe' IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS';
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:db-ABCDEFGHIJKL01234/db_user"
+ ]
+ }
+ ]
+}`
 
 ```
 
-The `IDENTIFIED WITH` clause allows MariaDB and
-MySQL to use the `AWSAuthenticationPlugin` to authenticate the database account
-(`jane_doe`). The `AS 'RDS'` clause refers to the authentication method.
-Make sure the specified database user name is the same as a resource in the IAM policy for IAM
-database access. For more information, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:cluster-ABCDEFGHIJKL01234/db_user"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Important
+
+A user with administrator permissions can access DB instances without explicit
+permissions in an IAM policy. If you want to restrict administrator access to DB
+instances, you can create an IAM role with the appropriate, lesser
+privileged permissions and assign it to the administrator.
 
 ###### Note
 
-If you see the following message, it means that the AWS-provided plugin is not
-available for the current DB instance.
+Don't confuse the `rds-db:` prefix with other RDS API operation prefixes that begin with
+`rds:`. You use the `rds-db:` prefix and the
+`rds-db:connect` action only for IAM database authentication. They
+aren't valid in any other context.
 
-`ERROR 1524 (HY000): Plugin 'AWSAuthenticationPlugin' is not
- loaded`
+The example policy includes a single statement with the following elements:
 
-To troubleshoot this error, verify that you are using a supported configuration
-and that you have enabled IAM database authentication on your DB instance. For more information, see [Region and version availability](UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability "UsingWithRDS.md#UsingWithRDS.IAMDBAuth.Availability") and [Enabling and disabling IAM database
-authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
-
-After you create an account using `AWSAuthenticationPlugin`, you manage it
-in the same way as other database accounts. For example, you can modify account
-privileges with `GRANT` and `REVOKE` statements, or modify
-various account attributes with the `ALTER USER` statement.
-
-Database network traffic is encrypted using SSL/TLS when using IAM. To allow SSL
-connections, modify the user account with the following command.
+- `Effect` – Specify `Allow` to grant access
+  to the DB instance.
+  If you don't explicitly allow access, then access is denied by default.
+- `Action` – Specify `rds-db:connect` to allow
+  connections to the DB instance.
+- `Resource` – Specify an Amazon Resource Name (ARN) that
+  describes one database account in one DB instance.
+  The ARN format is as follows.
 
 ```
-ALTER USER 'jane_doe'@'%' REQUIRE SSL;
-```
 
-## Using IAM
-
-authentication with PostgreSQL
-
-To use IAM authentication with PostgreSQL, connect to the DB
-instance as the master user or a different user who can create users
-and grant privileges. After connecting, create database users and then grant them the
-`rds_iam` role as shown in the following example.
+arn:aws:rds-db:`region`:`account-id`:dbuser:`DbiResourceId`/`db-user-name`
 
 ```
-CREATE USER db_userx;
-GRANT rds_iam TO db_userx;
+
+In this format, replace the following:
+
+    + ``region`` is the AWS Region for the DB instance. In
+     the example policy, the AWS Region is `us-east-2`.
+    + ``account-id`` is the AWS account number for the DB
+     instance. In the example policy, the account number is
+     `1234567890`. The user must be in the same account as the
+     account for the DB instance.
+
+
+    To perform cross-account access, create an IAM role with the policy shown above in the account for
+     the DB instance
+     and allow your other account to assume the role.
+    + ``DbiResourceId``
+     is the identifier for the DB instance.
+     This identifier is unique to an AWS Region and never changes. In the
+     example policy, the identifier is
+     `db-ABCDEFGHIJKL01234`.
+
+
+    To find a DB instance resource ID in the AWS Management Console for Amazon RDS, choose
+     the DB instance to see its details.
+     Then choose the **Configuration** tab. The **Resource
+     ID** is shown in the **Configuration** section.
+
+
+    Alternatively, you can use the AWS CLI command to list the identifiers
+     and resource IDs for all of your DB instance
+     in the current AWS Region, as shown following.
+
+
+
+    ```
+
+    aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier,DbiResourceId]"
+
+    ```
+
+    If you are using Amazon Aurora, specify a `DbClusterResourceId` instead of a `DbiResourceId`.
+     For more information, see [Creating and using an IAM policy for IAM database access](../AuroraUserGuide/UsingWithRDS.IAMDBAuth.md "../AuroraUserGuide/UsingWithRDS.IAMDBAuth.md") in the *Amazon Aurora User Guide*.
+
+
+    ###### Note
+
+    If you are connecting to a database through RDS Proxy, specify the proxy resource ID, such as
+     `prx-ABCDEFGHIJKL01234`. For information about using IAM database authentication with RDS Proxy, see
+     [Connecting to a database using IAM authentication](rds-proxy-connecting.md#rds-proxy-connecting-iam "rds-proxy-connecting.md#rds-proxy-connecting-iam").
+    + ``db-user-name`` is the name of
+     the database account to associate with IAM authentication. In the
+     example policy, the database account is `db_user`.
+
+You can construct other ARNs to support various access patterns. The following policy
+allows access to two different database accounts in a DB instance.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/jane_doe",
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/mary_roe"
+ ]
+ }
+ ]
+}`
+
 ```
 
-Make sure the specified database user name is the same as a resource in the IAM
-policy for IAM database access. For more information, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). You must grant the
-`rds_iam` role to use IAM authentication. You can use nested
-memberships or indirect grants of the role as well.
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:cluster-ABCDEFGHIJKL01234/jane_doe",
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:cluster-ABCDEFGHIJKL01234/mary_roe"
+ ]
+ }
+ ]
+}`
+
+```
+
+The following policy uses the "\*" character to match all DB
+instances
+and database accounts for a particular AWS account and AWS Region.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:`111122223333`:dbuser:*/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+The following policy matches all of the DB instances
+for a particular AWS account and AWS Region. However, the policy only grants access to
+DB instances
+that have a `jane_doe` database
+account.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "rds-db:connect"
+ ],
+ "Resource": [
+ "arn:aws:rds-db:us-east-2:123456789012:dbuser:*/jane_doe"
+ ]
+ }
+ ]
+}`
+
+```
+
+The user or role has access to only those databases that the database user
+does. For example, suppose that your DB instance has a database named
+_dev_, and another database named _test_. If
+the database user `jane_doe` has access only to _dev_, any
+users or roles that access that DB instance with the `jane_doe` user also
+have access only to _dev_. This access restriction is also true for
+other database objects, such as tables, views, and so on.
+
+An administrator must create IAM policies that grant entities permission to perform
+specific API operations on the specified resources they need. The administrator must then attach
+those policies to the permission sets or roles that require those permissions. For examples of policies, see
+[Identity-based policy examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## Attaching an IAM policy to a permission set or role
+
+After you create an IAM policy to allow database authentication, you need to
+attach the policy to a permission set or role. For a tutorial on this topic, see [Create and attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
+_IAM User Guide_.
+
+As you work through the tutorial, you can use one of the policy examples shown in
+this section as a starting point and tailor it to your needs. At the end of the
+tutorial, you have a permission set with an attached policy that can make use of the
+`rds-db:connect` action.
+
+###### Note
+
+You can map multiple permission sets or roles to the same database user account. For
+example, suppose that your IAM policy specified the following resource
+ARN.
+
+```
+
+arn:aws:rds-db:us-east-2:123456789012:dbuser:db-12ABC34DEFG5HIJ6KLMNOP78QR/jane_doe
+
+```
+
+If you attach the policy to _Jane_,
+_Bob_, and _Diego_, then each of those
+users can connect to the specified DB instance
+using the `jane_doe` database account.

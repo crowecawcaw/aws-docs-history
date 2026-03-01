@@ -24,27 +24,17 @@ The delegated extension support is available in the following versions:
 
 ###### Topics
 
-- [Turning on delegate extension support
-  to a user](#RDSPostgreSQL.delegated_ext_mgmt "#RDSPostgreSQL.delegated_ext_mgmt")
-- [Configuration used in RDS delegated
-  extension support for PostgreSQL](#RDSPostgreSQL.delegated_ext_config "#RDSPostgreSQL.delegated_ext_config")
-- [Turning off the support for the
-  delegated extension](#RDSPostgreSQL.delegated_ext_disable "#RDSPostgreSQL.delegated_ext_disable")
-- [Benefits of using Amazon RDS delegated
-  extension support](#RDSPostgreSQL.delegated_ext_benefits "#RDSPostgreSQL.delegated_ext_benefits")
-- [Limitation of Amazon RDS delegated
-  extension support for PostgreSQL](#RDSPostgreSQL.delegated_ext_limit "#RDSPostgreSQL.delegated_ext_limit")
-- [Permissions required for certain
-  extensions](#RDSPostgreSQL.delegated_ext_perm "#RDSPostgreSQL.delegated_ext_perm")
+- [Turning on delegate extension support to a user](#RDSPostgreSQL.delegated_ext_mgmt "#RDSPostgreSQL.delegated_ext_mgmt")
+- [Configuration used in RDS delegated extension support for PostgreSQL](#RDSPostgreSQL.delegated_ext_config "#RDSPostgreSQL.delegated_ext_config")
+- [Turning off the support for the delegated extension](#RDSPostgreSQL.delegated_ext_disable "#RDSPostgreSQL.delegated_ext_disable")
+- [Benefits of using Amazon RDS delegated extension support](#RDSPostgreSQL.delegated_ext_benefits "#RDSPostgreSQL.delegated_ext_benefits")
+- [Limitation of Amazon RDS delegated extension support for PostgreSQL](#RDSPostgreSQL.delegated_ext_limit "#RDSPostgreSQL.delegated_ext_limit")
+- [Permissions required for certain extensions](#RDSPostgreSQL.delegated_ext_perm "#RDSPostgreSQL.delegated_ext_perm")
 - [Security Considerations](#RDSPostgreSQL.delegated_ext_sec "#RDSPostgreSQL.delegated_ext_sec")
-- [Drop extension cascade
-  disabled](#RDSPostgreSQL.delegated_ext_drop "#RDSPostgreSQL.delegated_ext_drop")
-- [Example extensions that can be
-  added using delegated extension support](#RDSPostgreSQL.delegated_ext_support "#RDSPostgreSQL.delegated_ext_support")
+- [Drop extension cascade disabled](#RDSPostgreSQL.delegated_ext_drop "#RDSPostgreSQL.delegated_ext_drop")
+- [Example extensions that can be added using delegated extension support](#RDSPostgreSQL.delegated_ext_support "#RDSPostgreSQL.delegated_ext_support")
 
-## Turning on delegate extension support
-
-to a user
+## Turning on delegate extension support to a user
 
 You must perform the following to enable delegate extension support to a user:
 
@@ -160,19 +150,15 @@ CREATE EVENT TRIGGER log_create_ext ON ddl_command_end EXECUTE PROCEDURE create_
 
 ```
 
-## Configuration used in RDS delegated
+## Configuration used in RDS delegated extension support for PostgreSQL
 
-extension support for PostgreSQL
+| Configuration Name                           | Description                                                                                                                                                                                                                                                                                                                                                       | Default Value | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Who can modify or grant permission |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `rds.allowed_delegated_extensions`           | This parameter limits the extensions a rds_extension role can<br>manage in a database. It must be a subset of<br>rds.allowed_extensions.                                                                                                                                                                                                                          | empty string  | • By default, this parameter is empty string, which means<br>that no extensions have been delegated to users with<br>`rds_extension`.<br>• Any supported extension can be added if the user has<br>permission to do so. To do this, set the<br>`rds.allowed_delegated_extensions` parameter<br>to a string of comma-separated extension names. By adding a<br>list of extensions to this parameter, you explicitly<br>identify the extensions that the user with the<br>`rds_extension` role can install.<br>• When set to `*`, it means that all extensions<br>listed in `rds_allowed_extensions` are delegated<br>to users with `rds_extension` role.<br>To learn more about setting up this parameter, see [Turning on delegate extension support to a user](#RDSPostgreSQL.delegated_ext_mgmt "#RDSPostgreSQL.delegated_ext_mgmt"). | rds_superuser                      |
+| `rds.allowed_extensions`                     | This parameter lets the customer limit the extensions that can<br>be installed in the RDS DB instance. For more information, see [Restricting installation of PostgreSQL extensions](CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction "CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction") | "\*"          | By default, this parameter is set to "\*", which means that all<br>extensions supported on RDS for PostgreSQL and Aurora PostgreSQL are allowed<br>to be created by users with necessary privileges.<br>Empty means no extensions can be installed in the<br>RDS DB instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | administrator                      |
+| `rds-delegated_extension_allow_drop_cascade` | This parameter controls the ability for user with<br>`rds_extension` to drop the extension using a cascade<br>option.                                                                                                                                                                                                                                             | off           | By default,<br>`rds-delegated_extension_allow_drop_cascade` is set<br>to `off`. This means that users with<br>`rds_extension` are not allowed to drop an extension<br>using the cascade option.<br>To grant that ability, the<br>`rds.delegated_extension_allow_drop_cascade`<br>parameter should be set to `on`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | rds_superuser                      |
 
-| Configuration Name                           | Description                                                                                                                                                                                                                                                                                                                                                       | Default Value | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Who can modify or grant permission |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
-| `rds.allowed_delegated_extensions`           | This parameter limits the extensions a rds_extension role can<br>manage in a database. It must be a subset of<br>rds.allowed_extensions.                                                                                                                                                                                                                          | empty string  | • By default, this parameter is empty string, which means<br>that no extensions have been delegated to users with<br>`rds_extension`.<br>• Any supported extension can be added if the user has<br>permission to do so. To do this, set the<br>`rds.allowed_delegated_extensions` parameter<br>to a string of comma-separated extension names. By adding a<br>list of extensions to this parameter, you explicitly<br>identify the extensions that the user with the<br>`rds_extension` role can install.<br>• When set to `*`, it means that all extensions<br>listed in `rds_allowed_extensions` are delegated<br>to users with `rds_extension` role.<br>To learn more about setting up this parameter, see [Turning on delegate extension support<br>to a user](#RDSPostgreSQL.delegated_ext_mgmt "#RDSPostgreSQL.delegated_ext_mgmt"). | rds_superuser                      |
-| `rds.allowed_extensions`                     | This parameter lets the customer limit the extensions that can<br>be installed in the RDS DB instance. For more information, see [Restricting installation of PostgreSQL extensions](CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction "CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.Extensions.Restriction") | "\*"          | By default, this parameter is set to "\*", which means that all<br>extensions supported on RDS for PostgreSQL and Aurora PostgreSQL are allowed<br>to be created by users with necessary privileges.<br>Empty means no extensions can be installed in the<br>RDS DB instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | administrator                      |
-| `rds-delegated_extension_allow_drop_cascade` | This parameter controls the ability for user with<br>`rds_extension` to drop the extension using a cascade<br>option.                                                                                                                                                                                                                                             | off           | By default,<br>`rds-delegated_extension_allow_drop_cascade` is set<br>to `off`. This means that users with<br>`rds_extension` are not allowed to drop an extension<br>using the cascade option.<br>To grant that ability, the<br>`rds.delegated_extension_allow_drop_cascade`<br>parameter should be set to `on`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | rds_superuser                      |
-
-## Turning off the support for the
-
-delegated extension
+## Turning off the support for the delegated extension
 
 ###### Turning off partially
 
@@ -202,9 +188,7 @@ standard permissions. The user can no longer create, update, or drop extensions.
 postgres => revoke rds_extension from `user_name`;
 ```
 
-## Benefits of using Amazon RDS delegated
-
-extension support
+## Benefits of using Amazon RDS delegated extension support
 
 By using Amazon RDS delegated extension support for PostgreSQL, you securely delegate the
 extension management to users who do not have the `rds_superuser` role. This
@@ -215,9 +199,7 @@ feature provides the following benefits:
 - Provides ability to support different set of extensions for different
   databases in the same DB cluster.
 
-## Limitation of Amazon RDS delegated
-
-extension support for PostgreSQL
+## Limitation of Amazon RDS delegated extension support for PostgreSQL
 
 - Objects created during the extension creation process may require additional
   privileges for the extension to function properly.
@@ -225,9 +207,7 @@ extension support for PostgreSQL
   default, including the following: `log_fdw`, `pg_cron`, `pg_tle`, `pgactive`, `pglogical`,
   `postgis_raster`, `postgis_tiger_geocoder`, `postgis_topology`.
 
-## Permissions required for certain
-
-extensions
+## Permissions required for certain extensions
 
 In order to create, use, or update the following extensions, the delegated user should
 have the necessary privileges on the following functions, tables, and schema.
@@ -267,9 +247,7 @@ containing slow queries or error messages from multiple databases. `pg_cron`
 enables running scheduled background jobs on the DB instance and can configure jobs to run in
 a different database.
 
-## Drop extension cascade
-
-disabled
+## Drop extension cascade disabled
 
 The ability to drop the extension with cascade option by a user with the
 `rds_extension` role is controlled by
@@ -307,9 +285,7 @@ alter database `database_name` set rds.delegated_extension_allow_drop_cascade = 
 alter role tenant_user set rds.delegated_extension_allow_drop_cascade = 'on';
 ```
 
-## Example extensions that can be
-
-added using delegated extension support
+## Example extensions that can be added using delegated extension support
 
 - `rds_tools`
 

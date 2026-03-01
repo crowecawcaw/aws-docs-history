@@ -1,6 +1,4 @@
-# Performing common system
-
-tasks for Amazon RDS for Db2 DB instances
+# Performing common system tasks for Amazon RDS for Db2 DB instances
 
 You can perform certain common database administrator tasks related to the system on your
 Amazon RDS DB instances running Db2. To deliver a managed service experience, Amazon RDS doesn't
@@ -12,12 +10,9 @@ For information about granting and revoking privileges and attaching to the remo
 ###### Topics
 
 - [Granting and revoking privileges for RDS for Db2](db2-granting-revoking-privileges.md "db2-granting-revoking-privileges.md")
-- [Attaching to the remote RDS for Db2
-  DB instance](db2-attaching-to-remote.md "db2-attaching-to-remote.md")
+- [Attaching to the remote RDS for Db2 DB instance](db2-attaching-to-remote.md "db2-attaching-to-remote.md")
 
-## Creating a custom database
-
-endpoint
+## Creating a custom database endpoint
 
 When you migrate to Amazon RDS for Db2, you can use custom database endpoint URLs to minimize
 changes to your application. For example, if you use `db2.example.com` as your

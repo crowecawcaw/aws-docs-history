@@ -20,8 +20,7 @@ statement-based, or mixed. For information about setting the binary log format, 
 ###### Note
 
 You can configure replication to import databases from a MariaDB or MySQL instance that is external to Amazon RDS, or to export
-databases to such instances. For more information, see [Importing data to an Amazon RDS for MySQL
-database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md")
+databases to such instances. For more information, see [Importing data to an Amazon RDS for MySQL database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md")
 and [Exporting data from a MySQL DB instance by using replication](MySQL.Procedural.Exporting.md "MySQL.Procedural.Exporting.md").
 
 After you restore your DB instance from a snapshot or perform a point-in-time recovery,

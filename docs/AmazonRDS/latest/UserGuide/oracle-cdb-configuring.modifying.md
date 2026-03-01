@@ -1,6 +1,4 @@
-# Modifying an RDS for Oracle tenant
-
-database
+# Modifying an RDS for Oracle tenant database
 
 You can modify only the PDB name and the master user password of a tenant database in
 your CDB. Note the following requirements and limitations:

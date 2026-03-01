@@ -1,6 +1,4 @@
-# Considerations for Amazon RDS for Db2
-
-stored procedures
+# Considerations for Amazon RDS for Db2 stored procedures
 
 Before using the Amazon RDS system stored procedures for RDS for Db2 DB instances running the Db2
 engine, review the following information:
@@ -37,6 +35,5 @@ Parameter Value : Invalid S3 bucket name
 Return Status = -1006
 ```
 
-For error messages returned when calling stored procedures, see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+For error messages returned when calling stored procedures, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 For information about checking the status of a stored procedure, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").

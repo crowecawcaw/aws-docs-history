@@ -1,6 +1,4 @@
-# Rebooting a Multi-AZ DB cluster and
-
-reader DB instances for Amazon RDS
+# Rebooting a Multi-AZ DB cluster and reader DB instances for Amazon RDS
 
 You might need to reboot your Multi-AZ DB cluster, usually for maintenance reasons. For
 example, if you make certain modifications or change the DB cluster parameter group
@@ -11,8 +9,7 @@ If a DB cluster isn't using the latest changes to its associated DB cluster para
 cluster parameter group with a status of **pending-reboot**. The **pending-reboot** parameter
 groups status doesn't result in an automatic reboot during the next maintenance window. To apply the latest parameter
 changes to that DB cluster, manually reboot the DB cluster. For more information about parameter groups, see
-[Parameter groups for
-Multi-AZ DB clusters](multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-parameter-groups "multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-parameter-groups").
+[Parameter groups for Multi-AZ DB clusters](multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-parameter-groups "multi-az-db-clusters-concepts.md#multi-az-db-clusters-concepts-parameter-groups").
 
 Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster results in a momentary outage, during which
 the DB cluster status is set to **rebooting**.

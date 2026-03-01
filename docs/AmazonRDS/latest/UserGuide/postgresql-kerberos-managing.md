@@ -1,6 +1,4 @@
-# Managing an RDS for PostgreSQL DB instance in an Active Directory
-
-domain
+# Managing an RDS for PostgreSQL DB instance in an Active Directory domain
 
 You can use the console, the CLI, or the RDS API to manage your DB instance and
 its relationship with your Microsoft Active Directory. For example, you can associate an
@@ -23,9 +21,7 @@ For example, using the CLI, you can do the following:
   CLI command. Specify the domain identifier of the
   new domain for the `--domain` option.
 
-## Understanding Domain
-
-membership
+## Understanding Domain membership
 
 After you create or modify your DB instance, it becomes a member of the domain. You can view
 the status of the domain membership in the console or by running the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")
@@ -62,5 +58,4 @@ then modify the DB instance to join the domain.
 Only Kerberos authentication with RDS for PostgreSQL sends traffic to the
 domain's DNS servers. All other DNS requests are treated as outbound
 network access on your DB instances running PostgreSQL. For more information
-about outbound network access with RDS for PostgreSQL, see [Using a custom DNS server
-for outbound network access](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+about outbound network access with RDS for PostgreSQL, see [Using a custom DNS server for outbound network access](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").

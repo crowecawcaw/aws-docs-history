@@ -1,6 +1,4 @@
-# Connecting to your Amazon RDS for Db2 DB instance
-
-with IBM Db2 CLP
+# Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 CLP
 
 You can use a command line utility such as IBM Db2 CLP to connect to Amazon RDS for Db2 DB
 instances. This utility is part of IBM Data Server Runtime Client. To
@@ -14,8 +12,7 @@ Support.
 - [Terminology](#db2-connecting-ibm-clp-terms "#db2-connecting-ibm-clp-terms")
 - [Installing the client](#db2-connecting-ibm-clp-install-client "#db2-connecting-ibm-clp-install-client")
 - [Connecting to a DB instance](#db2-connecting-ibm-clp-connect-db-instance "#db2-connecting-ibm-clp-connect-db-instance")
-- [Troubleshooting connections to
-  your RDS for Db2 DB instance](#db2-troubleshooting-connections-clp "#db2-troubleshooting-connections-clp")
+- [Troubleshooting connections to your RDS for Db2 DB instance](#db2-troubleshooting-connections-clp "#db2-troubleshooting-connections-clp")
 
 ## Terminology
 
@@ -159,9 +156,7 @@ This command produces output similar to the following example:
     1 record(s) selected.
 ```
 
-## Troubleshooting connections to
-
-your RDS for Db2 DB instance
+## Troubleshooting connections to your RDS for Db2 DB instance
 
 If you receive the following `NULLID` error, it usually indicates that your
 client and RDS for Db2 server versions don't match. For supported Db2 client versions, see

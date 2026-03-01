@@ -36,26 +36,18 @@ can't access the host directly by using Telnet or Secure Shell (SSH).
 ###### Topics
 
 - [Overview of Db2 on Amazon RDS](db2-overview.md "db2-overview.md")
-- [Prerequisites for creating an Amazon RDS for Db2 DB
-  instance](db2-db-instance-prereqs.md "db2-db-instance-prereqs.md")
-- [Multiple databases on an Amazon RDS for Db2 DB
-  instance](db2-multiple-databases.md "db2-multiple-databases.md")
+- [Prerequisites for creating an Amazon RDS for Db2 DB instance](db2-db-instance-prereqs.md "db2-db-instance-prereqs.md")
+- [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md")
 - [Connecting to your Db2 DB instance](USER_ConnectToDb2DBInstance.md "USER_ConnectToDb2DBInstance.md")
-- [Securing Amazon RDS for Db2 DB instance
-  connections](Db2.Concepts.md "Db2.Concepts.md")
-- [Administering your Amazon RDS for Db2 DB
-  instance](db2-administering-db-instance.md "db2-administering-db-instance.md")
-- [Integrating an Amazon RDS for Db2 DB instance with
-  Amazon S3](db2-s3-integration.md "db2-s3-integration.md")
+- [Securing Amazon RDS for Db2 DB instance connections](Db2.Concepts.md "Db2.Concepts.md")
+- [Administering your Amazon RDS for Db2 DB instance](db2-administering-db-instance.md "db2-administering-db-instance.md")
+- [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md")
 - [Migrating data to Amazon RDS for Db2](db2-migrating-data-to-rds.md "db2-migrating-data-to-rds.md")
 - [Amazon RDS for Db2 federation](db2-federation.md "db2-federation.md")
 - [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md")
 - [Options for Amazon RDS for Db2 DB instances](Db2.md "Db2.md")
-- [External stored procedures for
-  Amazon RDS for Db2](db2-external-stored-procedures.md "db2-external-stored-procedures.md")
-- [Known issues and limitations for
-  Amazon RDS for Db2](db2-known-issues-limitations.md "db2-known-issues-limitations.md")
+- [External stored procedures for Amazon RDS for Db2](db2-external-stored-procedures.md "db2-external-stored-procedures.md")
+- [Known issues and limitations for Amazon RDS for Db2](db2-known-issues-limitations.md "db2-known-issues-limitations.md")
 - [Amazon RDS for Db2 stored procedure reference](db2-stored-procedures.md "db2-stored-procedures.md")
-- [Amazon RDS for Db2 user-defined function
-  reference](db2-user-defined-functions.md "db2-user-defined-functions.md")
+- [Amazon RDS for Db2 user-defined function reference](db2-user-defined-functions.md "db2-user-defined-functions.md")
 - [Troubleshooting for Amazon RDS for Db2](db2-troubleshooting.md "db2-troubleshooting.md")

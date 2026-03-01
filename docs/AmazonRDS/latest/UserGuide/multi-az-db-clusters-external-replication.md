@@ -1,6 +1,4 @@
-# Setting up external replication from
-
-Multi-AZ DB clusters for Amazon RDS
+# Setting up external replication from Multi-AZ DB clusters for Amazon RDS
 
 You can set up replication between a Multi-AZ DB cluster and a database that is external to Amazon RDS.
 
@@ -35,5 +33,4 @@ with Global Transaction Identifiers](https://dev.mysql.com/doc/refman/8.0/en/rep
 ## RDS for PostgreSQL
 
 To set up external replication for an RDS for PostgreSQL Multi-AZ DB cluster, you must enable logical
-replication. For instructions, see [Setting up PostgreSQL logical replication with
-Multi-AZ DB clusters for Amazon RDS](USER_MultiAZDBCluster_LogicalRepl.md "USER_MultiAZDBCluster_LogicalRepl.md").
+replication. For instructions, see [Setting up PostgreSQL logical replication with Multi-AZ DB clusters for Amazon RDS](USER_MultiAZDBCluster_LogicalRepl.md "USER_MultiAZDBCluster_LogicalRepl.md").

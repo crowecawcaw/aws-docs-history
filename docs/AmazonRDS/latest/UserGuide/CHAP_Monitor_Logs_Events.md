@@ -39,6 +39,5 @@ databases and your other AWS solutions, your goal is to maintain the following:
 - [Monitoring Amazon RDS events](working-with-events.md "working-with-events.md")
 - [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md")
 - [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Monitoring Amazon RDS with Database Activity
-  Streams](DBActivityStreams.md "DBActivityStreams.md")
+- [Monitoring Amazon RDS with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md")
 - [Monitoring threats with Amazon GuardDuty RDS Protection](guard-duty-rds-protection.md "guard-duty-rds-protection.md")

@@ -26,9 +26,7 @@ When you set `rds.force_ssl` to `1` and use SSMS version
   For information about Transport Layer Security (TLS) support for SQL Server, see
   [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/en-ca/help/3135244/tls-1-2-support-for-microsoft-sql-server "https://support.microsoft.com/en-ca/help/3135244/tls-1-2-support-for-microsoft-sql-server").
 
-## Forcing connections to your DB
-
-instance to use SSL
+## Forcing connections to your DB instance to use SSL
 
 You can force all connections to your DB instance to use SSL. If you force connections
 to use SSL, it happens transparently to the client, and the client doesn't have to do
@@ -60,15 +58,12 @@ value, you must reboot your DB instance for the change to take effect.
 
 To create a new parameter group, follow the instructions in [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Edit your new or existing parameter group to set the
 `rds.force_ssl` parameter to `true`. To edit the parameter
-group, follow the instructions in [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. If you created a new parameter group, modify your DB instance to attach the
+group, follow the instructions in [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. If you created a new parameter group, modify your DB instance to attach the
 new parameter group. Modify the **DB Parameter Group** setting
 of the DB instance. For more information, see
 [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 5. Reboot your DB instance. For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
 
-## Encrypting specific
-
-connections
+## Encrypting specific connections
 
 You can force all connections to your DB instance to use SSL, or you can encrypt
 connections from specific client computers only. To use SSL from a specific client, you
@@ -86,9 +81,7 @@ instance endpoint is included as the CN for the SSL certificate for that DB
 instance, then rename the instance. When you rename a DB instance, a new certificate
 is deployed and the instance is rebooted to enable the new certificate.
 
-### Obtaining certificates
-
-for client computers
+### Obtaining certificates for client computers
 
 To encrypt connections from a client computer to an Amazon RDS DB instance running
 Microsoft SQL Server, you need a certificate on your client computer.
@@ -97,16 +90,13 @@ To obtain that certificate, download the certificate to your
 client computer. You can download a root certificate that works for all regions.
 You can also download a certificate bundle that contains both the old and new root
 certificate. In addition, you can download region-specific intermediate certificates.
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
 
 After you have downloaded the appropriate certificate, import the certificate into
 your Microsoft Windows operating system by following the procedure in the section
 following.
 
-### Importing certificates on
-
-client computers
+### Importing certificates on client computers
 
 You can use the following procedure to import your certificate into the Microsoft
 Windows operating system on your client computer.
@@ -154,9 +144,7 @@ Windows operating system on your client computer.
 
 ![In the MMC console, in the navigation pane, the Certificates folder is selected drilled down from Console Root, Certificates (Local Computer), and Trusted Root Certification Authority. In the main page, select the required CA certificate.](images/rds_sql_ssl_cert.png)
 
-### Encrypting connections
-
-to an Amazon RDS DB instance running Microsoft SQL Server
+### Encrypting connections to an Amazon RDS DB instance running Microsoft SQL Server
 
 After you have imported a certificate into your client computer, you can encrypt
 connections from the client computer to an Amazon RDS DB instance running Microsoft SQL

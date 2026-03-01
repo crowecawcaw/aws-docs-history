@@ -73,7 +73,7 @@ need to use a password when you connect to a DB instance
 an authentication token.
 
 For more information about IAM database authentication, including information
-about availability for specific DB engines, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md")
+about availability for specific DB engines, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md")
 .
 
 ## Kerberos authentication
@@ -116,10 +116,8 @@ specific DB engine, see the following:
 - [Working with AWS Managed Active Directory with RDS for SQL Server](USER_SQLServerWinAuth.md "USER_SQLServerWinAuth.md")
 - [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md "mysql-kerberos.md")
 - [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md "oracle-kerberos.md")
-- [Using Kerberos authentication with Amazon RDS for
-  PostgreSQL](postgresql-kerberos.md "postgresql-kerberos.md")
-- [Using Kerberos authentication for
-  Amazon RDS for Db2](db2-kerberos.md "db2-kerberos.md")
+- [Using Kerberos authentication with Amazon RDS for PostgreSQL](postgresql-kerberos.md "postgresql-kerberos.md")
+- [Using Kerberos authentication for Amazon RDS for Db2](db2-kerberos.md "db2-kerberos.md")
   .
 
 ###### Note

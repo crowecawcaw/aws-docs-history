@@ -1,6 +1,4 @@
-# Creating Amazon RDS
-
-resources with AWS CloudFormation
+# Creating Amazon RDS resources with AWS CloudFormation
 
 Amazon RDS is integrated
 with AWS CloudFormation, a service that helps you to model and set up your
@@ -16,9 +14,7 @@ RDS resources
 consistently and repeatedly. Describe your resources once, and then provision the same
 resources over and over in multiple AWS accounts and Regions.
 
-## RDS
-
-and CloudFormation templates
+## RDS and CloudFormation templates
 
 [CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") are formatted text files in JSON or YAML. These templates describe the
 resources that you want to provision in your CloudFormation stacks. If you're unfamiliar with JSON or

@@ -11,8 +11,7 @@ How you import data into an Amazon RDS for Oracle DB instance depends on the fol
 - Oracle Data Pump – Import complex databases, or databases that are several hundred
   megabytes or several terabytes in size. For example, you can transport tablespaces
   from an on-premises database to your RDS for Oracle DB instance. You can use Amazon S3 or Amazon EFS to
-  transfer the data files and metadata. For more information, see [Migrating using Oracle transportable
-  tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md"), [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md"), and
+  transfer the data files and metadata. For more information, see [Migrating using Oracle transportable tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md"), [Amazon EFS integration](oracle-efs-integration.md "oracle-efs-integration.md"), and
   [Amazon S3 integration](oracle-s3-integration.md "oracle-s3-integration.md").
 - AWS Database Migration Service (AWS DMS) – Migrate databases without downtime. For more information about AWS DMS, see [What is AWS Database Migration Service](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md") and the blog post [Migrating
   Oracle databases with near-zero downtime using AWS DMS](https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/ "https://aws.amazon.com/blogs/database/migrating-oracle-databases-with-near-zero-downtime-using-aws-dms/").
@@ -30,8 +29,7 @@ can use the AWS Schema Conversion Tool to migrate schema objects that AWS DMS do
 ###### Topics
 
 - [Importing using Oracle SQL Developer](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md")
-- [Migrating using Oracle transportable
-  tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md")
+- [Migrating using Oracle transportable tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md")
 - [Importing using Oracle Data Pump](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md")
 - [Importing using Oracle Export/Import](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md")
 - [Importing using Oracle SQL\*Loader](Oracle.Procedural.Importing.md "Oracle.Procedural.Importing.md")

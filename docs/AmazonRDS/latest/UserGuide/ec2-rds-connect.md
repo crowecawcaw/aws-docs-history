@@ -1,6 +1,4 @@
-# Automatically connecting an EC2 instance and a
-
-DB instance
+# Automatically connecting an EC2 instance and a DB instance
 
 You can use the Amazon RDS console to simplify setting up a connection between an Amazon Elastic Compute Cloud (Amazon EC2) instance and
 a DB instance. Often, your
@@ -16,8 +14,7 @@ If you want to connect to an EC2 instance that isn't in the same VPC as the DB i
 ###### Topics
 
 - [Overview of automatic connectivity with an EC2 instance](#ec2-rds-connect-overview "#ec2-rds-connect-overview")
-- [Automatically connecting
-  an EC2 instance and an RDS database](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting")
+- [Automatically connecting an EC2 instance and an RDS database](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting")
 - [Viewing connected compute resources](#ec2-rds-connect-viewing "#ec2-rds-connect-viewing")
 - [Connecting to a DB instance that is running a specific DB engine](#ec2-rds-Connect-DBEngine "#ec2-rds-Connect-DBEngine")
 
@@ -62,9 +59,7 @@ described in the following table.
 | There are one or more security groups associated with the RDS<br>database with a name that matches the pattern<br>`rds-ec2-`n``. A security group that matches the pattern hasn't<br>been modified. This security group has only one inbound rule with the VPC security group of the EC2<br>instance as the source.                                                                                                                                                                                                                                                                                                                                                                                                                 | A valid EC2 security group for the connection exists, but it is not associated<br>with the EC2 instance. This security group has a name that matches the pattern<br>`ec2-rds-`n``. It hasn't been modified. It has<br>only one outbound rule with the VPC security group of the RDS database as the source.                                                                                                                                                                                                                                                                                                                          | [RDS action: associate EC2 security group](#rds-action-associate-ec2-security-group "#rds-action-associate-ec2-security-group")                                                                                                                    |
 | Either of the following conditions apply:<br>• There is no security group associated with the RDS<br>database with a name that matches the pattern<br>`rds-ec2-`n``.<br>• There are one or more security groups associated with the RDS<br>database with a name that matches the pattern<br>`rds-ec2-`n``. However,<br>Amazon RDS can't use any of these security groups for the<br>connection with the EC2 instance.<br>Amazon RDS can't use a security group that<br>doesn't have one inbound rule with the VPC security group of the EC2 instance as the source.<br>Amazon RDS also can't use security group that has been modified.                                                                                             | There are one or more security groups associated with the EC2 instance with a name<br>that matches the pattern `ec2-rds-`n``. A security<br>group that matches the pattern hasn't been modified. This security group has only one<br>outbound rule with the VPC security group of the RDS<br>database as the<br>source.                                                                                                                                                                                                                                                                                                              | [RDS action: create new security groups](#rds-action-create-new-security-groups "#rds-action-create-new-security-groups")                                                                                                                          |
 
-###### RDS
-
-action: create new security groups
+###### RDS action: create new security groups
 
 Amazon RDS takes the following actions:
 
@@ -78,17 +73,13 @@ Amazon RDS takes the following actions:
   security group is associated with the EC2 instance and allows the EC2 instance to send
   traffic to the RDS database.
 
-######
-
-RDS action: associate EC2 security group
+###### RDS action: associate EC2 security group
 
 Amazon RDS
 associates the valid, existing EC2 security group with the EC2 instance. This security group allows the EC2
 instance to send traffic to the RDS database.
 
-## Automatically connecting
-
-an EC2 instance and an RDS database
+## Automatically connecting an EC2 instance and an RDS database
 
 Before setting up a connection between an EC2 instance and an RDS
 database, make sure you meet the
@@ -104,9 +95,7 @@ You can only set up a connection between an EC2 instance and an RDS
 database automatically by using the
 AWS Management Console. You can't set up a connection automatically with the AWS CLI or RDS API.
 
-###### To connect an EC2 instance and an RDS
-
-database automatically
+###### To connect an EC2 instance and an RDS database automatically
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -125,7 +114,7 @@ RDS database. 5. Choose **Continue**.
 
 The **Review and confirm** page appears.
 
-![EC2 connection review and confirmation page.](images/auto-connect-rds-ec2-confirm.png) 6. On the **Review and confirm** page, review the changes that RDS will make to
+![EC2 connection review and confirmation page.](/images/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-confirm.png) 6. On the **Review and confirm** page, review the changes that RDS will make to
 set up connectivity with the EC2 instance.
 
 If the changes are correct, choose **Confirm and set up**.
@@ -145,8 +134,7 @@ For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInst
 
 - You can set up connectivity between an existing database and a compute resource.
 
-For more information, see [Automatically connecting
-an EC2 instance and an RDS database](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting").
+For more information, see [Automatically connecting an EC2 instance and an RDS database](#ec2-rds-connect-connecting "#ec2-rds-connect-connecting").
 
 The listed compute resources don't include ones that were connected to the database manually. For example,
 you can allow a compute resource to access a database manually by adding a rule to the VPC security group
@@ -173,9 +161,7 @@ For a compute resource to be listed, the following conditions must apply:
   RDS database
   has an inbound rule with the source set to a security group associated with the compute resource.
 
-###### To view compute resources connected to an RDS
-
-database
+###### To view compute resources connected to an RDS database
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -192,9 +178,7 @@ For information about connecting to a DB instance that is running a specific DB
 engine, follow the instructions for your DB engine:
 
 - [Connecting to your MariaDB DB instance](USER_ConnectToMariaDBInstance.md "USER_ConnectToMariaDBInstance.md")
-- [Connecting to your Microsoft SQL Server
-  DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
+- [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
 - [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md")
 - [Connecting to your Oracle DB instance](USER_ConnectToOracleInstance.md "USER_ConnectToOracleInstance.md")
-- [Connecting to a DB instance running the
-  PostgreSQL database engine](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+- [Connecting to a DB instance running the PostgreSQL database engine](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")

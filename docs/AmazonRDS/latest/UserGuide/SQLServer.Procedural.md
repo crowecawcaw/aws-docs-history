@@ -1,6 +1,4 @@
-# Importing and exporting SQL Server databases using native
-
-backup and restore
+# Importing and exporting SQL Server databases using native backup and restore
 
 Amazon RDS supports native backup and restore for Microsoft SQL Server databases using full backup files (.bak files). When you use RDS,
 you access files stored in Amazon S3 rather than using the local file system on the database server.
@@ -38,8 +36,7 @@ additional advantages to using native backup and restore. For example, you can d
   - [Manually creating an IAM role for native backup and restore](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Enabling.IAM")
 
 - [Using native backup and restore](SQLServer.Procedural.Importing.Native.md "SQLServer.Procedural.Importing.Native.md")
-  - [Backing up a
-    database](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Backup "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Backup")
+  - [Backing up a database](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Backup "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Backup")
     - [Usage](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Backup.Syntax "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Backup.Syntax")
     - [Examples](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Backup.Examples "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Backup.Examples")
 
@@ -55,10 +52,8 @@ additional advantages to using native backup and restore. For example, you can d
     - [Usage](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Finish.Restore.Syntax "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Finish.Restore.Syntax")
 
   - [Working with partially restored databases](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Partially.Restored "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Partially.Restored")
-    - [Dropping a
-      partially restored database](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored")
-    - [Snapshot restore and
-      point-in-time recovery behavior for partially restored databases](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore")
+    - [Dropping a partially restored database](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored")
+    - [Snapshot restore and point-in-time recovery behavior for partially restored databases](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore")
 
   - [Canceling a task](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Cancel "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Using.Cancel")
     - [Usage](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Cancel.Syntax "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Cancel.Syntax")
@@ -68,8 +63,7 @@ additional advantages to using native backup and restore. For example, you can d
     - [Examples](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Tracking.Examples "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Tracking.Examples")
     - [Response](SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Tracking.Response "SQLServer.Procedural.Importing.Native.md#SQLServer.Procedural.Importing.Native.Tracking.Response")
 
-- [Compressing backup
-  files](SQLServer.Procedural.Importing.Native.md "SQLServer.Procedural.Importing.Native.md")
+- [Compressing backup files](SQLServer.Procedural.Importing.Native.md "SQLServer.Procedural.Importing.Native.md")
 - [Troubleshooting](SQLServer.Procedural.Importing.Native.md "SQLServer.Procedural.Importing.Native.md")
 - [Importing and exporting SQL Server data using other methods](SQLServer.Procedural.Importing.md "SQLServer.Procedural.Importing.md")
   - [Importing data into RDS for SQL Server by using a snapshot](SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Procedure "SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Procedure")
@@ -151,6 +145,8 @@ configured default encryption key when
 
 - When using S3 Access Points, the access point cannot be configured to use an RDS internal
   VPC.
+- For highest performance, we recommend using directory buckets or access points for directory
+  buckets if they are available in your region.
 
 If your database can be offline while the backup file is created, copied, and restored, we
 recommend that you use native backup and restore to migrate it to RDS. If your

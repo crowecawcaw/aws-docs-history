@@ -1,6 +1,4 @@
-# Common DBA tasks for
-
-Amazon RDS for PostgreSQL
+# Common DBA tasks for Amazon RDS for PostgreSQL
 
 Database administrators (DBAs) perform a variety of tasks when administering an
 Amazon RDS for PostgreSQL DB instance. If you're a DBA already familiar with PostgreSQL, you need
@@ -20,38 +18,25 @@ account. On RDS for PostgreSQL, the `rds_superuser` role is the most highly priv
 role, and it's granted to `postgres` at set up time. Whether you're
 familiar with using PostgreSQL on-premises or completely new to RDS for PostgreSQL, we recommend that
 you understand the `rds_superuser` role, and how to work with roles, users, groups,
-and permissions. For more information, see [Understanding PostgreSQL roles and
-permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+and permissions. For more information, see [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 Following are some common DBA tasks for RDS for PostgreSQL.
 
 ###### Topics
 
-- [Collations supported in
-  RDS for PostgreSQL](PostgreSQL-Collations.md "PostgreSQL-Collations.md")
-- [Understanding PostgreSQL roles and
-  permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Dead connection
-  handling in PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Working with PostgreSQL
-  autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Managing TOAST OID contention in
-  Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
-- [Working with logging mechanisms
-  supported by RDS for PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Auditing "#Appendix.PostgreSQL.CommonDBATasks.Auditing")
-- [Managing temporary files with
-  PostgreSQL](PostgreSQL.md "PostgreSQL.md")
-- [Using pgBadger for log analysis
-  with PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Badger "#Appendix.PostgreSQL.CommonDBATasks.Badger")
-- [Using PGSnapper for monitoring
-  PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Snapper "#Appendix.PostgreSQL.CommonDBATasks.Snapper")
+- [Collations supported in RDS for PostgreSQL](PostgreSQL-Collations.md "PostgreSQL-Collations.md")
+- [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Dead connection handling in PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Working with PostgreSQL autovacuum on Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Managing TOAST OID contention in Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Working with logging mechanisms supported by RDS for PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Auditing "#Appendix.PostgreSQL.CommonDBATasks.Auditing")
+- [Managing temporary files with PostgreSQL](PostgreSQL.md "PostgreSQL.md")
+- [Using pgBadger for log analysis with PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Badger "#Appendix.PostgreSQL.CommonDBATasks.Badger")
+- [Using PGSnapper for monitoring PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.Snapper "#Appendix.PostgreSQL.CommonDBATasks.Snapper")
 - [Managing custom casts in RDS for PostgreSQL](PostgreSQL.md "PostgreSQL.md")
-- [Working with parameters on
-  your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
+- [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md")
 
-## Working with logging mechanisms
-
-supported by RDS for PostgreSQL
+## Working with logging mechanisms supported by RDS for PostgreSQL
 
 There are several parameters, extensions, and other configurable items that you can set to
 log activities that occur on your PostgreSQL DB instance. These include the following:
@@ -67,13 +52,11 @@ log activities that occur on your PostgreSQL DB instance. These include the foll
   `fatal`, and `panic`. The default value is
   `disabled`.
 - The `rds.force_autovacuum_logging_level` parameter can be set to capture
-  various autovacuum operations in the PostgreSQL error log. For more information, see [Logging autovacuum and
-  vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
+  various autovacuum operations in the PostgreSQL error log. For more information, see [Logging autovacuum and vacuum activities](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md").
 - The PostgreSQL Audit (pgAudit) extension can be installed and configured to capture
   activities at the session level or at the object level. For more information, see [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 - The `log_fdw` extension makes it possible for you to access the database
-  engine log using SQL. For more information, see [Using the log_fdw
-  extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md").
+  engine log using SQL. For more information, see [Using the log_fdw extension to access the DB log using SQL](CHAP_PostgreSQL.Extensions.md "CHAP_PostgreSQL.Extensions.md").
 - The `pg_stat_statements` library is specified as the default for the
   `shared_preload_libraries` parameter in RDS for PostgreSQL version 10 and higher.
   It's this library that you can use to analyze running queries. Be sure that
@@ -93,9 +76,7 @@ and troubleshoot. Many of the logs are uploaded automatically to Amazon CloudWat
 Insights. Here, they're sorted and grouped to provide complete metrics for your DB instance.
 To learn more about Amazon RDS monitoring and metrics, see [Monitoring metrics in an Amazon RDS instance](CHAP_Monitoring.md "CHAP_Monitoring.md").
 
-## Using pgBadger for log analysis
-
-with PostgreSQL
+## Using pgBadger for log analysis with PostgreSQL
 
 You can use a log analyzer such as [pgBadger](http://dalibo.github.io/pgbadger/ "http://dalibo.github.io/pgbadger/") to analyze PostgreSQL logs. The pgBadger documentation states that the %l
 pattern (the log line for the session or process) should be a part of the prefix. However, if
@@ -109,9 +90,7 @@ For example, the following command correctly formats an Amazon RDS for PostgreSQ
 ./pgbadger -f stderr -p '%t:%r:%u@%d:[%p]:' postgresql.log.2014-02-04-00
 ```
 
-## Using PGSnapper for monitoring
-
-PostgreSQL
+## Using PGSnapper for monitoring PostgreSQL
 
 You can use PGSnapper to assist with periodic collection of Amazon RDS for PostgreSQL
 performance-related statistics and metrics. For more information, see [Monitor Amazon RDS for PostgreSQL performance using PGSnapper](https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-postgresql-performance-using-pgsnapper/ "https://aws.amazon.com/blogs/database/monitor-amazon-rds-for-postgresql-and-amazon-aurora-postgresql-performance-using-pgsnapper/").

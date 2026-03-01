@@ -1,6 +1,4 @@
-# Viewing and downloading SQL text in the Performance Insights
-
-dashboard
+# Viewing and downloading SQL text in the Performance Insights dashboard
 
 In the Performance Insights dashboard, you can view or download SQL text.
 

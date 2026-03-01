@@ -8,8 +8,7 @@ aws rds describe-db-engine-versions --engine `db2-ae`
 ```
 
 Amazon RDS also supports upgrade rollout policy to manage automatic minor version upgrades across multiple database resources and AWS accounts. For more information,
-see [Using AWS Organizations upgrade rollout policy
-for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
+see [Using AWS Organizations upgrade rollout policy for automatic minor version upgrades](RDS.Maintenance.AMVU.md "RDS.Maintenance.AMVU.md").
 
 You can specify any currently supported Db2 version when creating a new DB instance.
 You can specify the major version (such as Db2 11.5) and any supported minor version for
@@ -109,5 +108,4 @@ version includes automatic upgrades to new builds and revisions. For 11.5.9.1 an
 
 If you opt out of automatically scheduled upgrades, you can manually upgrade to a
 supported minor version release by following the same procedure as you would for a major
-version update. For information, see [Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+version update. For information, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").

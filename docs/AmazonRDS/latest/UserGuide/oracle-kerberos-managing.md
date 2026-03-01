@@ -39,8 +39,7 @@ modify the DB instance to join the domain.
 
 Only Kerberos authentication with Amazon RDS for Oracle sends traffic to the domain's DNS servers. All other DNS requests are treated as
 outbound network access on your DB instances running Oracle. For more information about outbound network access with Amazon RDS for Oracle,
-see [Setting up a custom DNS
-server](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS").
+see [Setting up a custom DNS server](Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS "Appendix.Oracle.CommonDBATasks.md#Appendix.Oracle.CommonDBATasks.CustomDNS").
 
 ## Force-rotating Kerberos keys
 

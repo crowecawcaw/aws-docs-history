@@ -27,14 +27,10 @@ steps.
 
 - [Step 1: Create an Amazon S3 bucket](#db2-audit-create-s3-bucket "#db2-audit-create-s3-bucket")
 - [Step 2: Create an IAM policy](#db2-audit-create-iam-policy "#db2-audit-create-iam-policy")
-- [Step 3: Create an IAM role and attach
-  your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role")
-- [Step 4: Configure an option
-  group for Db2 audit logging](#db2-audit-configure-options-group "#db2-audit-configure-options-group")
-- [Step 5: Configure the audit
-  policy](#db2-audit-configure-audit-policy "#db2-audit-configure-audit-policy")
-- [Step 6: Check the audit
-  configuration](#db2-audit-check-config-status "#db2-audit-check-config-status")
+- [Step 3: Create an IAM role and attach your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role")
+- [Step 4: Configure an option group for Db2 audit logging](#db2-audit-configure-options-group "#db2-audit-configure-options-group")
+- [Step 5: Configure the audit policy](#db2-audit-configure-audit-policy "#db2-audit-configure-audit-policy")
+- [Step 6: Check the audit configuration](#db2-audit-check-config-status "#db2-audit-check-config-status")
 
 ### Step 1: Create an Amazon S3 bucket
 
@@ -123,9 +119,7 @@ Include the following permissions to the key policy for your AWS KMS key. Replac
 You can create an IAM policy by using the AWS Management Console or the AWS Command Line Interface
 (AWS CLI).
 
-###### To create an IAM policy to allow Amazon RDS to access your Amazon S3
-
-bucket
+###### To create an IAM policy to allow Amazon RDS to access your Amazon S3 bucket
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose
@@ -179,9 +173,7 @@ bucket
     description for this policy.
 16. Choose **Create policy**.
 
-###### To create an IAM policy to allow Amazon RDS to access your Amazon S3
-
-bucket
+###### To create an IAM policy to allow Amazon RDS to access your Amazon S3 bucket
 
 1. Run the [create-policy](../../../cli/latest/reference/iam/create-policy.md "../../../cli/latest/reference/iam/create-policy.md") command. In the
    following example, replace
@@ -304,15 +296,12 @@ aws iam create-policy ^
 ```
 
 2. After the policy is created, note the ARN of the policy. You need
-   the ARN for [Step 3: Create an IAM role and attach
-   your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
+   the ARN for [Step 3: Create an IAM role and attach your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
 
 For information about creating an IAM policy, see [Creating IAM
 policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the IAM User Guide.
 
-### Step 3: Create an IAM role and attach
-
-your IAM policy
+### Step 3: Create an IAM role and attach your IAM policy
 
 This step assumes that you created the IAM policy in [Step 2: Create an IAM policy](#db2-audit-create-iam-policy "#db2-audit-create-iam-policy"). In this step, you create an IAM
 role for your RDS for Db2 DB instance and then attach your IAM policy to the
@@ -385,8 +374,7 @@ aws iam create-role ^
 ```
 
 2. After the role is created, note the ARN of this role. You need
-   this ARN for the next step, [Step 4: Configure an option
-   group for Db2 audit logging](#db2-audit-configure-options-group "#db2-audit-configure-options-group").
+   this ARN for the next step, [Step 4: Configure an option group for Db2 audit logging](#db2-audit-configure-options-group "#db2-audit-configure-options-group").
 3. Run the [attach-role-policy](../../../cli/latest/reference/iam/attach-role-policy.md "../../../cli/latest/reference/iam/attach-role-policy.md") command. In the
    following example, replace `iam_policy_arn`
    with the ARN of the IAM policy that you created in [Step 2: Create an IAM policy](#db2-audit-create-iam-policy "#db2-audit-create-iam-policy"). Replace
@@ -412,9 +400,7 @@ aws iam attach-role-policy ^
 For more information, see [Creating a role to
 delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
 
-### Step 4: Configure an option
-
-group for Db2 audit logging
+### Step 4: Configure an option group for Db2 audit logging
 
 The process for adding the Db2 audit logging option to an RDS for Db2 DB instance is
 as follows:
@@ -428,9 +414,7 @@ After you add the Db2 audit logging option, you don't need to restart your DB
 instance. As soon as the option group is active, you can create audits and store
 audit logs in your S3 bucket.
 
-###### To add and configure Db2 audit logging on a DB instance's option
-
-group
+###### To add and configure Db2 audit logging on a DB instance's option group
 
 1. Choose one of the following:
    - Use an existing option group.
@@ -441,8 +425,7 @@ group
    configure the option settings. For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
    - For **IAM_ROLE_ARN**, enter the ARN of the IAM
-     role that you created in [Step 3: Create an IAM role and attach
-     your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
+     role that you created in [Step 3: Create an IAM role and attach your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
    - For **S3_BUCKET_ARN**, enter the ARN of the S3
      bucket to use for your Db2 audit logs. The bucket must be in the
      same Region as your RDS for Db2 DB instance. The policy
@@ -457,9 +440,7 @@ group
      the instance and then attaching the new option group. For more
      information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-### Step 5: Configure the audit
-
-policy
+### Step 5: Configure the audit policy
 
 To configure the audit policy for your RDS for Db2 database, connect to the
 `rdsadmin` database using the master username and master password for
@@ -478,9 +459,7 @@ db2 "connect to rdsadmin user `master_user` using `master_password`"
 db2 "call rdsadmin.configure_db_audit('`testdb`', 'ALL', 'BOTH', ?)"
 ```
 
-### Step 6: Check the audit
-
-configuration
+### Step 6: Check the audit configuration
 
 To make sure that your audit policy is set up correctly, check the status of your
 audit configuration.
@@ -525,8 +504,7 @@ You can also change the Amazon S3 bucket where your log files are uploaded to.
 ###### Topics
 
 - [Modifying a Db2 audit policy](#db2-audit-modifying-policy "#db2-audit-modifying-policy")
-- [Modifying the location of your log
-  files](#db2-audit-modifying-location "#db2-audit-modifying-location")
+- [Modifying the location of your log files](#db2-audit-modifying-location "#db2-audit-modifying-location")
 - [Disabling Db2 audit logging](#db2-audit-disabling "#db2-audit-disabling")
 
 ### Modifying a Db2 audit policy
@@ -536,9 +514,7 @@ To modify the audit policy for a specific RDS for Db2 database, run the
 procedure, you can change the categories, category settings, and error type
 configuration of the audit policy. For more information, see [rdsadmin.configure_db_audit](db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit "db2-sp-managing-audit-policies.md#db2-sp-configure-db-audit").
 
-### Modifying the location of your log
-
-files
+### Modifying the location of your log files
 
 To change the Amazon S3 bucket where your log files are uploaded to, do one of the
 following:
@@ -608,9 +584,7 @@ for the RDS for Db2 DB instance.
 Use the following information to troubleshoot common issues with Db2 audit
 logging.
 
-### Can't configure the audit
-
-policy
+### Can't configure the audit policy
 
 If calling the stored procedure `rdsadmin.configure_db_audit` returns
 an error, it could be that the option group with the `DB2_AUDIT` option
@@ -618,9 +592,7 @@ isn't associated with the RDS for Db2 DB instance. Modify the DB instance to add
 option group, and then try calling the stored procedure again. For more information,
 see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-### No data in the Amazon S3
-
-bucket
+### No data in the Amazon S3 bucket
 
 If logging data is missing from the Amazon S3 bucket, check the following:
 

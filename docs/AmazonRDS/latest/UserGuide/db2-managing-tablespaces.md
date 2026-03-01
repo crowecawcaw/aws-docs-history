@@ -11,14 +11,10 @@ available to the master user. Instead, use Amazon RDS stored procedures.
 - [Renaming a tablespace](#db2-renaming-tablespace "#db2-renaming-tablespace")
 - [Dropping a tablespace](#db2-dropping-tablespace "#db2-dropping-tablespace")
 - [Checking the status of a tablespace](#db2-checking-tablespaces-procedure "#db2-checking-tablespaces-procedure")
-- [Returning detailed information about
-  tablespaces](#db2-tablespaces-info-db2pd "#db2-tablespaces-info-db2pd")
-- [Listing the state and storage
-  group for a tablespace](#db2-state-storage-group-tablespace-sql "#db2-state-storage-group-tablespace-sql")
-- [Listing the tablespaces of a
-  table](#db2-return-tablespaces-sql "#db2-return-tablespaces-sql")
-- [Listing tablespace
-  containers](#db2-listing-tablespace-containers "#db2-listing-tablespace-containers")
+- [Returning detailed information about tablespaces](#db2-tablespaces-info-db2pd "#db2-tablespaces-info-db2pd")
+- [Listing the state and storage group for a tablespace](#db2-state-storage-group-tablespace-sql "#db2-state-storage-group-tablespace-sql")
+- [Listing the tablespaces of a table](#db2-return-tablespaces-sql "#db2-return-tablespaces-sql")
+- [Listing tablespace containers](#db2-listing-tablespace-containers "#db2-listing-tablespace-containers")
 
 ## Creating a tablespace
 
@@ -179,9 +175,7 @@ cast(tbsp_state as varchar(10)) as state,
 cast(tbsp_content_type as varchar(8)) as contents from table(mon_get_tablespace(null,-1)) order by tbsp_id"
 ```
 
-## Returning detailed information about
-
-tablespaces
+## Returning detailed information about tablespaces
 
 You can return information about a tablespace for one member or all members by using
 the `cast` function.
@@ -243,9 +237,7 @@ cast(tbsp_increase_size_percent as smallint) as increase_pct,
 cast(storage_group_name as varchar(12)) as stogroup from table(mon_get_tablespace(null,-2)) order by member, tbsp_id "
 ```
 
-## Listing the state and storage
-
-group for a tablespace
+## Listing the state and storage group for a tablespace
 
 You can list the state and storage group for a tablespace by running a SQL
 statement.
@@ -261,9 +253,7 @@ db2 "SELECT varchar(tbsp_name, 30) as tbsp_name,
 FROM TABLE(MON_GET_TABLESPACE('',-2)) AS t"
 ```
 
-## Listing the tablespaces of a
-
-table
+## Listing the tablespaces of a table
 
 You can list the tablespaces for a table by running a SQL statement.
 
@@ -287,9 +277,7 @@ db2 "SELECT
  AND TABNAME   = '`TABLE_NAME`'"
 ```
 
-## Listing tablespace
-
-containers
+## Listing tablespace containers
 
 You can list all tablespace containers or specific tablespace containers by using the
 `cast` command.

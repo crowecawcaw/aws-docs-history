@@ -40,9 +40,7 @@ fully managed:
   AWS Identity and Access Management (IAM) to define users and permissions. You can also help protect
   your databases by putting them in a virtual private cloud (VPC).
 
-## Comparison of responsibilities with Amazon EC2
-
-and on-premises deployments
+## Comparison of responsibilities with Amazon EC2 and on-premises deployments
 
 We recommend Amazon RDS as your default choice for most relational database deployments.
 The following alternatives have the disadvantage of making you spend more time managing
@@ -84,9 +82,7 @@ and Amazon RDS.
 | Hardware lifecycle             | Customer               | AWS                   | AWS                   |
 | Power, network, and cooling    | Customer               | AWS                   | AWS                   |
 
-## Amazon RDS shared responsibility
-
-model
+## Amazon RDS shared responsibility model
 
 Amazon RDS is responsible for hosting the software components and infrastructure of DB instances and
 DB clusters. You are responsible for query tuning, which is the process of adjusting SQL queries
@@ -111,16 +107,13 @@ standalone database instance. You can create and modify a DB instance by using t
 
 ###### Topics
 
-- [Amazon RDS application
-  architecture: example](#Welcome.Concepts.DBInstance.architecture "#Welcome.Concepts.DBInstance.architecture")
+- [Amazon RDS application architecture: example](#Welcome.Concepts.DBInstance.architecture "#Welcome.Concepts.DBInstance.architecture")
 - [DB engines](#Welcome.Concepts.DBInstance.engine "#Welcome.Concepts.DBInstance.engine")
 - [DB instance classes](#Welcome.Concepts.DBInstance.instance-class "#Welcome.Concepts.DBInstance.instance-class")
 - [DB instance storage](#Welcome.Concepts.DBInstance.storage "#Welcome.Concepts.DBInstance.storage")
 - [DB instances in an Amazon Virtual Private Cloud (Amazon VPC)](#Welcome.Concepts.DBInstance.VPC "#Welcome.Concepts.DBInstance.VPC")
 
-### Amazon RDS application
-
-architecture: example
+### Amazon RDS application architecture: example
 
 The following image shows a typical use case of a dynamic website that uses Amazon RDS
 DB instances for database storage:
@@ -207,8 +200,7 @@ Each instance class offers different compute, memory, and storage capabilities. 
 db.m7g is a 7th-generation, general-purpose DB instance class type powered by AWS Graviton3
 processors. When you create a DB instance, you specify a DB instance class such as
 db.m7g.2xlarge, where 2xlarge is the size. For more information about the hardware
-specifications for the different instance classes, see [Hardware specifications for DB instance
-classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+specifications for the different instance classes, see [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 You can select the DB instance class that best meets your requirements. If your requirements
 change over time, you can change your DB instance class. For example, you might scale up your
@@ -331,7 +323,7 @@ access the DB instance, but the EC2 instance can access the DB instance.
 
 ![DB instance and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
 
-For more information about security groups, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+For more information about security groups, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") .
 
 ## Amazon RDS monitoring
 
@@ -417,7 +409,7 @@ started more easily. For more information, see [Sample code & libraries](https:/
 ## How you are charged for Amazon RDS
 
 When you use Amazon RDS, you can choose to use on-demand DB instances or reserved DB instances.
-For more information, see [DB instance billing for Amazon RDS](User_DBInstanceBilling.md "User_DBInstanceBilling.md").
+For more information, see [DB instance billing for Amazon RDS](User_DBInstanceBilling.md "User_DBInstanceBilling.md") .
 
 For Amazon RDS pricing information, see the [Amazon RDS product page](https://aws.amazon.com/rds/pricing "https://aws.amazon.com/rds/pricing").
 
@@ -468,9 +460,7 @@ What should you do next?
 
 Create a DB instance using instructions in [Getting started with Amazon RDS](CHAP_GettingStarted.md "CHAP_GettingStarted.md").
 
-### Topics specific to database
-
-engines
+### Topics specific to database engines
 
 You can review information specific to a particular DB engine in the following sections:
 

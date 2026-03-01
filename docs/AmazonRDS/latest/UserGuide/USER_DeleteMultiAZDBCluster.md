@@ -8,8 +8,7 @@ The time required to delete a Multi-AZ DB cluster can vary depending on the foll
 - How much data is deleted.
 - Whether a final snapshot is taken.
   Deletion protection must be disabled on the Multi-AZ DB cluster before you can delete it. For more
-  information, see [Prerequisites for deleting a
-  DB instance](USER_DeleteInstance.md#USER_DeleteInstance.DeletionProtection "USER_DeleteInstance.md#USER_DeleteInstance.DeletionProtection"). You can disable deletion
+  information, see [Prerequisites for deleting a DB instance](USER_DeleteInstance.md#USER_DeleteInstance.DeletionProtection "USER_DeleteInstance.md#USER_DeleteInstance.DeletionProtection"). You can disable deletion
   protection by modifying the Multi-AZ DB cluster. For more information, see [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md").
 
 ###### To delete a Multi-AZ DB cluster

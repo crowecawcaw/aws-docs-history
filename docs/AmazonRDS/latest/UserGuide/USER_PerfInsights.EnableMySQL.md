@@ -23,8 +23,7 @@ complete the following steps.
 
 Whenever you turn the Performance Schema on or off, make sure to reboot the DB instance or Multi-AZ DB
 cluster.
-For more information about modifying instance parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For more information about
+For more information about modifying instance parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). For more information about
 the dashboard, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.md "USER_PerfInsights.md"). For more information about the
 MySQL performance schema, see [MySQL
 Performance Schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html") (for 8.0) and [MySQL

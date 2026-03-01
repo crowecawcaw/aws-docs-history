@@ -1,7 +1,4 @@
-# Connecting to your MariaDB DB
-
-instance on Amazon RDS with SSL/TLS from the MySQL command-line client
-(encrypted)
+# Connecting to your MariaDB DB instance on Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)
 
 The `mysql` client program parameters are slightly different if you are
 using the MySQL 5.7 version, the MySQL 8.0 version, or the MariaDB version.
@@ -20,14 +17,11 @@ MySQL with MariaDB, and the `mysql` version in them is from MariaDB.
 
 To connect to your DB instance using SSL/TLS, follow these steps:
 
-###### To connect to a DB instance with SSL/TLS using the MySQL command-line
-
-client
+###### To connect to a DB instance with SSL/TLS using the MySQL command-line client
 
 1. Download a root certificate that works for all AWS Regions.
 
-For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). 2. Use a MySQL command-line client to connect to a DB instance with SSL/TLS
+For information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . 2. Use a MySQL command-line client to connect to a DB instance with SSL/TLS
 encryption. For the `-h` parameter, substitute the DNS name
 (endpoint) for your DB instance. For the `--ssl-ca` parameter,
 substitute the SSL/TLS certificate file name. For the `-P` parameter,

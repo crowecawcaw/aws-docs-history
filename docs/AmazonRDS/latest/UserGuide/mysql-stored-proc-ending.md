@@ -30,8 +30,7 @@ connection, use the `mysql.rds_kill` procedure and pass in the thread ID
 of that connection. To obtain the thread ID, use the MySQL [SHOW
 PROCESSLIST](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html "https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html") command.
 
-For information about limitations, see [MySQL stored
-procedure limitations](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures").
+For information about limitations, see [MySQL stored procedure limitations](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures").
 
 ### Examples
 
@@ -70,8 +69,7 @@ PROCESSLIST](https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html "http
  PROCESSLIST` or `SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST`
 is the `processID`.
 
-For information about limitations, see [MySQL stored
-procedure limitations](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures").
+For information about limitations, see [MySQL stored procedure limitations](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures").
 
 ### Examples
 

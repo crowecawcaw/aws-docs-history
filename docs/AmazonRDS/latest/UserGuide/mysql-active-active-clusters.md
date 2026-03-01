@@ -22,9 +22,7 @@ running the following versions:
 For the sake of brevity, all mentions of "active-active" cluster in this topic refer to
 active-active clusters using the MySQL Group Replication plugin.
 
-## Use cases for active-active
-
-clusters
+## Use cases for active-active clusters
 
 The following cases are good candidates for using active-active clusters:
 
@@ -44,17 +42,13 @@ The following cases are good candidates for using active-active clusters:
 
 ###### Topics
 
-- [Limitations
-  and considerations for active-active clusters](mysql-active-active-clusters-considerations-limitations.md "mysql-active-active-clusters-considerations-limitations.md")
-- [Preparing for a
-  cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md "mysql-active-active-clusters-cross-vpc-prerequisites.md")
+- [Limitations and considerations for active-active clusters](mysql-active-active-clusters-considerations-limitations.md "mysql-active-active-clusters-considerations-limitations.md")
+- [Preparing for a cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md "mysql-active-active-clusters-cross-vpc-prerequisites.md")
 - [Required parameter settings for active-active clusters](mysql-active-active-clusters-parameters.md "mysql-active-active-clusters-parameters.md")
 - [Converting an existing DB instance to an active-active cluster](mysql-active-active-clusters-converting.md "mysql-active-active-clusters-converting.md")
 - [Setting up an active-active cluster with new DB instances](mysql-active-active-clusters-setting-up.md "mysql-active-active-clusters-setting-up.md")
 - [Adding a DB instance to an active-active cluster](mysql-active-active-clusters-adding.md "mysql-active-active-clusters-adding.md")
 - [Monitoring active-active clusters](mysql-active-active-clusters-monitoring.md "mysql-active-active-clusters-monitoring.md")
-- [Stopping Group Replication on a
-  DB instance in an active-active cluster](mysql-active-active-clusters-stopping.md "mysql-active-active-clusters-stopping.md")
+- [Stopping Group Replication on a DB instance in an active-active cluster](mysql-active-active-clusters-stopping.md "mysql-active-active-clusters-stopping.md")
 - [Renaming a DB instance in an active-active cluster](mysql-active-active-clusters-renaming.md "mysql-active-active-clusters-renaming.md")
-- [Removing a DB instance from an
-  active-active cluster](mysql-active-active-clusters-remove.md "mysql-active-active-clusters-remove.md")
+- [Removing a DB instance from an active-active cluster](mysql-active-active-clusters-remove.md "mysql-active-active-clusters-remove.md")

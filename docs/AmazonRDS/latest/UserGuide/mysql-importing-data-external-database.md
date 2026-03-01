@@ -1,6 +1,4 @@
-# Importing data from an external
-
-MySQL database to an Amazon RDS for MySQL DB instance
+# Importing data from an external MySQL database to an Amazon RDS for MySQL DB instance
 
 You can import data from an existing MySQL database to an RDS for MySQL DB instance. You do
 so by copying the database with [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html "https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html") and
@@ -12,8 +10,7 @@ It's included with MySQL client software.
 
 If you are importing or exporting large amounts of data with a MySQL DB instance, it's
 more reliable and faster to move data in and out of Amazon RDS by using
-`xtrabackup` backup files and Amazon S3. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB
-instance](MySQL.Procedural.md "MySQL.Procedural.md").
+`xtrabackup` backup files and Amazon S3. For more information, see [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md").
 
 A typical `mysqldump` command to move data from an external database to an
 Amazon RDS DB instance looks similar to the following example. Replace values with your own
@@ -55,8 +52,7 @@ Make sure that you're aware of the following recommendations and considerations:
 - If you need to migrate users and privileges, consider using a tool that generates
   the data control language (DCL) for recreating them, such as the [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
 - To perform the import, make sure the user doing so has access to the DB instance.
-  For more information, see [Controlling access with security
-  groups](Overview.md "Overview.md").
+  For more information, see [Controlling access with security groups](Overview.md "Overview.md").
   The parameters used are as follows:
 
 - `-u `local_user``– Use to specify a

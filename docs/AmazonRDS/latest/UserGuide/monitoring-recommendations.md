@@ -56,5 +56,4 @@ Recommendations are supported in the following AWS Regions:
 - [Applying Amazon RDS recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
 - [Dismissing Amazon RDS recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
 - [Modifying dismissed Amazon RDS recommendations to active recommendations](USERRecommendationsManage.md "USERRecommendationsManage.md")
-- [Recommendations from
-  Amazon RDS reference](USERRecommendationsManage.md "USERRecommendationsManage.md")
+- [Recommendations from Amazon RDS reference](USERRecommendationsManage.md "USERRecommendationsManage.md")

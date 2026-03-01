@@ -5,32 +5,25 @@ Known issues and limitations for working with Amazon RDS for MySQL are as follow
 ###### Topics
 
 - [InnoDB reserved word](#MySQL.Concepts.KnownIssuesAndLimitations.InnodbDatabaseName "#MySQL.Concepts.KnownIssuesAndLimitations.InnodbDatabaseName")
-- [Storage-full behavior for
-  Amazon RDS for MySQL](#MySQL.Concepts.StorageFullBehavior "#MySQL.Concepts.StorageFullBehavior")
+- [Storage-full behavior for Amazon RDS for MySQL](#MySQL.Concepts.StorageFullBehavior "#MySQL.Concepts.StorageFullBehavior")
 - [Inconsistent InnoDB buffer pool size](#MySQL.Concepts.KnownIssuesAndLimitations.InnodbBufferPoolSize "#MySQL.Concepts.KnownIssuesAndLimitations.InnodbBufferPoolSize")
 - [Index merge optimization returns incorrect results](#MySQL.Concepts.KnownIssuesAndLimitations.IndexMergeOptimization "#MySQL.Concepts.KnownIssuesAndLimitations.IndexMergeOptimization")
 - [MySQL parameter exceptions for Amazon RDS DB instances](#MySQL.Concepts.ParameterNotes "#MySQL.Concepts.ParameterNotes")
 - [MySQL file size limits in Amazon RDS](#MySQL.Concepts.Limits.FileSize "#MySQL.Concepts.Limits.FileSize")
 - [MySQL Keyring Plugin not supported](#MySQL.Concepts.Limits.KeyRing "#MySQL.Concepts.Limits.KeyRing")
 - [Custom ports](#MySQL.Concepts.KnownIssuesAndLimitations.CustomPorts "#MySQL.Concepts.KnownIssuesAndLimitations.CustomPorts")
-- [MySQL stored
-  procedure limitations](#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures")
+- [MySQL stored procedure limitations](#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures "#MySQL.Concepts.KnownIssuesAndLimitations.KillProcedures")
 - [GTID-based replication with an external source instance](#MySQL.Concepts.KnownIssuesAndLimitations.GTID "#MySQL.Concepts.KnownIssuesAndLimitations.GTID")
-- [MySQL
-  default authentication plugin](#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin "#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin")
-- [Overriding
-  innodb_buffer_pool_size](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size")
-- [Upgrading from
-  MySQL 5.7 to MySQL 8.4](#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4 "#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4")
+- [MySQL default authentication plugin](#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin "#MySQL.Concepts.KnownIssuesAndLimitations.authentication-plugin")
+- [Overriding innodb_buffer_pool_size](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size")
+- [Upgrading from MySQL 5.7 to MySQL 8.4](#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4 "#MySQL.Concepts.KnownIssuesAndLimitations.upgrade-8-4")
 - [InnoDB page compression](#MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression "#MySQL.Concepts.KnownIssuesAndLimitations.innodb-page-compression")
 
 ## InnoDB reserved word
 
 `InnoDB` is a reserved word for RDS for MySQL. You can't use this name for a MySQL database.
 
-## Storage-full behavior for
-
-Amazon RDS for MySQL
+## Storage-full behavior for Amazon RDS for MySQL
 
 When storage becomes full for a MySQL DB instance, there can be metadata
 inconsistencies, dictionary mismatches, and orphan tables. To prevent these issues,
@@ -202,9 +195,7 @@ Because there is no single system table or view that provides the size of all th
 tables and the InnoDB system tablespace, you must query multiple tables to determine the
 size of the tablespaces.
 
-###### To determine the size of the InnoDB system tablespace and the data dictionary
-
-tablespace
+###### To determine the size of the InnoDB system tablespace and the data dictionary tablespace
 
 - Use the following SQL command to determine if any of your tablespaces are too
   large and are candidates for partitioning.
@@ -220,9 +211,7 @@ select FILE_NAME,TABLESPACE_NAME, ROUND(((TOTAL_EXTENTS*EXTENT_SIZE)
 where tablespace_name in ('mysql','innodb_system');
 ```
 
-###### To determine the size of InnoDB user tables outside of the InnoDB system
-
-tablespace (for MySQL 5.7 versions)
+###### To determine the size of InnoDB user tables outside of the InnoDB system tablespace (for MySQL 5.7 versions)
 
 - Use the following SQL command to determine if any of your tables are too
   large and are candidates for partitioning.
@@ -233,9 +222,7 @@ as "Tablespace Size (GB)"
 FROM information_schema.INNODB_SYS_TABLESPACES ORDER BY 3 DESC;
 ```
 
-###### To determine the size of InnoDB user tables outside of the InnoDB system
-
-tablespace (for MySQL 8.0 and higher versions)
+###### To determine the size of InnoDB user tables outside of the InnoDB system tablespace (for MySQL 8.0 and higher versions)
 
 - Use the following SQL command to determine if any of your tables are too
   large and are candidates for partitioning.
@@ -289,9 +276,7 @@ Amazon Web Services Keyring Plugin.
 
 Amazon RDS blocks connections to custom port 33060 for the MySQL engine. Choose a different port for your MySQL engine.
 
-## MySQL stored
-
-procedure limitations
+## MySQL stored procedure limitations
 
 The [mysql.rds_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill") and [mysql.rds_kill_query](mysql-stored-proc-ending.md#mysql_rds_kill_query "mysql-stored-proc-ending.md#mysql_rds_kill_query") stored
 procedures can't terminate sessions or queries owned by MySQL users with usernames
@@ -307,9 +292,7 @@ external MySQL instance into an Amazon RDS for MySQL DB instance that requires s
 GTID_PURGED during configuration. However, only RDS for MySQL 8.0.37 and higher versions
 support this functionality.
 
-## MySQL
-
-default authentication plugin
+## MySQL default authentication plugin
 
 RDS for MySQL version 8.0.34 and higher 8.0 versions use the
 `mysql_native_password` plugin. You can't change the
@@ -320,12 +303,9 @@ plugin as the default authentication plugin. You can change the default authenti
 plugin for MySQL 8.4. The `mysql_native_password` plugin still works with
 MySQL 8.4, but support of this plugin ends with MySQL 8.4. To change the default
 authentication plugin, create a custom parameter group and modify the value of the
-`authentication_policy` parameter. For more information, see [Default and custom parameter
-groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
+`authentication_policy` parameter. For more information, see [Default and custom parameter groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
 
-## Overriding
-
-innodb_buffer_pool_size
+## Overriding innodb_buffer_pool_size
 
 With micro or small DB instance classes, the default value for the
 `innodb_buffer_pool_size` parameter might differ from the value returned
@@ -352,9 +332,7 @@ following limits:
 - Micro DB instance classes: 256 MB
 - db.t4g.micro DB instance classes: 128 MB
 
-## Upgrading from
-
-MySQL 5.7 to MySQL 8.4
+## Upgrading from MySQL 5.7 to MySQL 8.4
 
 You can't upgrade directly from MySQL 5.7 to MySQL 8.4. You must first upgrade from
 MySQL 5.7 to MySQL 8.0, and then upgrade from MySQL 8.0 to MySQL 8.4. For more

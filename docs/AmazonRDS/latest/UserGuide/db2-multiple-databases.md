@@ -1,6 +1,4 @@
-# Multiple databases on an Amazon RDS for Db2 DB
-
-instance
+# Multiple databases on an Amazon RDS for Db2 DB instance
 
 You can create multiple databases on a single RDS for Db2 DB instance by calling the [rdsadmin.create_database](db2-sp-managing-databases.md#db2-sp-create-database "db2-sp-managing-databases.md#db2-sp-create-database") stored procedure. A
 single RDS for Db2 DB instance is limited to 50 databases. This number includes databases in

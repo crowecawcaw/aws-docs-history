@@ -2,8 +2,7 @@
 
 Amazon RDS provides a set of procedures that take snapshots of the values of status variables over time and write them to a table,
 along with any changes since the last snapshot. This infrastructure is called Global Status History. For more information, see
-[Managing the Global Status
-History for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md").
+[Managing the Global Status History for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md").
 
 The following stored procedures manage how the Global Status History is collected and maintained.
 

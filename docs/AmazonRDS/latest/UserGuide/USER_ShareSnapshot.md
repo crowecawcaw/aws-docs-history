@@ -67,8 +67,7 @@ The RDS for Oracle and RDS for PostgreSQL DB engines support upgrading DB snapsh
 snapshots, then re-share them publicly. For more information, see the following:
 
 - [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
-- [Upgrading a PostgreSQL DB snapshot
-  engine version](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
+- [Upgrading a PostgreSQL DB snapshot engine version](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md")
 
 For other DB engines, perform the following steps to make your existing unsupported public snapshot available to restore
 or copy:

@@ -1,6 +1,4 @@
-# Viewing pending database upgrades for RDS Custom DB
-
-instances
+# Viewing pending database upgrades for RDS Custom DB instances
 
 You can see pending database upgrades for your Amazon RDS Custom DB instances by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") or
 [describe-pending-maintenance-actions](../../../cli/latest/reference/rds/describe-pending-maintenance-actions.md "../../../cli/latest/reference/rds/describe-pending-maintenance-actions.md") AWS CLI command.

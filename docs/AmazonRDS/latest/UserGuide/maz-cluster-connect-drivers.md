@@ -1,6 +1,4 @@
-# Connecting to Multi-AZ DB clusters with the AWS
-
-drivers for Amazon RDS
+# Connecting to Multi-AZ DB clusters with the AWS drivers for Amazon RDS
 
 The AWS suite of drivers has been designed to provide support for faster switchover
 and failover times, and authentication with AWS Secrets Manager, AWS Identity and Access Management (IAM), and Federated
@@ -12,9 +10,7 @@ drivers.
 As new service features are introduced, the goal of the AWS suite of drivers is to
 have built-in support for these service features.
 
-## Connecting to Multi-AZ DB clusters with the
-
-Amazon Web Services (AWS) JDBC Driver
+## Connecting to Multi-AZ DB clusters with the Amazon Web Services (AWS) JDBC Driver
 
 The Amazon Web Services (AWS) JDBC Driver is designed as an advanced JDBC wrapper to help applications
 take advantage of the features of clustered databases. This wrapper is complementary
@@ -39,9 +35,7 @@ driver. Update the respective connection URL prefix as follows:
 For more information about the AWS JDBC Driver and complete instructions for using
 it, see the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/awslabs/aws-advanced-jdbc-wrapper "https://github.com/awslabs/aws-advanced-jdbc-wrapper").
 
-## Connecting to Multi-AZ DB clusters with the
-
-Amazon Web Services (AWS) Python Driver
+## Connecting to Multi-AZ DB clusters with the Amazon Web Services (AWS) Python Driver
 
 The Amazon Web Services (AWS) Python Driver is designed as an advanced Python wrapper. This wrapper is
 complementary to and extends the functionality of the open-source Psycopg driver.

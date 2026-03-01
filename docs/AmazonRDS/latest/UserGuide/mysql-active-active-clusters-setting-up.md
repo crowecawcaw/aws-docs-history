@@ -4,27 +4,19 @@ Complete the following steps to set up an active-active cluster using new
 Amazon RDS for MySQL DB instances.
 
 If you are setting up an active-active cluster with DB instances in more than one VPC, make sure you complete the
-prerequisites in [Preparing for a
-cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md "mysql-active-active-clusters-cross-vpc-prerequisites.md").
+prerequisites in [Preparing for a cross-VPC active-active cluster](mysql-active-active-clusters-cross-vpc-prerequisites.md "mysql-active-active-clusters-cross-vpc-prerequisites.md").
 
 ###### Topics
 
-- [Step 1: Set the active-active cluster parameters
-  in one or more custom parameter groups](#mysql-active-active-clusters-setting-up-parameter-group "#mysql-active-active-clusters-setting-up-parameter-group")
-- [Step 2: Create new RDS for MySQL DB instances
-  for the active-active cluster](#mysql-active-active-clusters-setting-up-db-instances "#mysql-active-active-clusters-setting-up-db-instances")
+- [Step 1: Set the active-active cluster parameters in one or more custom parameter groups](#mysql-active-active-clusters-setting-up-parameter-group "#mysql-active-active-clusters-setting-up-parameter-group")
+- [Step 2: Create new RDS for MySQL DB instances for the active-active cluster](#mysql-active-active-clusters-setting-up-db-instances "#mysql-active-active-clusters-setting-up-db-instances")
 - [Step 3: Specify the DB instances in the active-active cluster](#mysql-active-active-clusters-setting-up-associate-parameter-groups "#mysql-active-active-clusters-setting-up-associate-parameter-groups")
 - [Step 4: Initialize the group on a DB instance and start replication](#mysql-active-active-clusters-setting-up-start-replication-first "#mysql-active-active-clusters-setting-up-start-replication-first")
-- [Step 5: Start replication on the other DB instances in the active-active
-  cluster](#mysql-active-active-clusters-setting-up-start-replication-other "#mysql-active-active-clusters-setting-up-start-replication-other")
-- [Step 6: (Recommended)
-  Check the status of the active-active cluster](#mysql-active-active-clusters-setting-up-view "#mysql-active-active-clusters-setting-up-view")
-- [Step 7: (Optional) Import data
-  into a DB instance in the active-active cluster](#mysql-active-active-clusters-import "#mysql-active-active-clusters-import")
+- [Step 5: Start replication on the other DB instances in the active-active cluster](#mysql-active-active-clusters-setting-up-start-replication-other "#mysql-active-active-clusters-setting-up-start-replication-other")
+- [Step 6: (Recommended) Check the status of the active-active cluster](#mysql-active-active-clusters-setting-up-view "#mysql-active-active-clusters-setting-up-view")
+- [Step 7: (Optional) Import data into a DB instance in the active-active cluster](#mysql-active-active-clusters-import "#mysql-active-active-clusters-import")
 
-## Step 1: Set the active-active cluster parameters
-
-in one or more custom parameter groups
+## Step 1: Set the active-active cluster parameters in one or more custom parameter groups
 
 The RDS for MySQL DB instances in an active-active cluster must be associated with a custom parameter group that has the
 correct setting for required parameters. For information about the parameters and the required setting for each one,
@@ -60,8 +52,7 @@ aws rds create-db-parameter-group ^
 ```
 
 You can also use the AWS Management Console or the AWS CLI to set the parameters in the custom
-parameter group. For more information, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") AWS CLI command to set the parameters for
 RDS for MySQL 8.0. To use this example with RDS for MySQL 8.4, change
@@ -96,9 +87,7 @@ aws rds modify-db-parameter-group ^
                "ParameterName='group_replication_group_name',ParameterValue='`11111111-2222-3333-4444-555555555555`',ApplyMethod=pending-reboot"
 ```
 
-## Step 2: Create new RDS for MySQL DB instances
-
-for the active-active cluster
+## Step 2: Create new RDS for MySQL DB instances for the active-active cluster
 
 Active-active clusters are supported for the following versions of RDS for MySQL DB
 instances:
@@ -118,8 +107,7 @@ In the DB parameter group associated with each DB instance, set the `group_repli
 to the endpoints of the DB instances you want to include in the cluster.
 
 You can use the AWS Management Console or the AWS CLI to set the parameter. You don't need to reboot the DB instance after setting this
-parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+parameter. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 The following example runs the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md")
 AWS CLI command to set the parameters:
@@ -173,9 +161,7 @@ initialize a new group with the current DB instance.
 
 For more information about the stored procedures called in the example, see [Managing active-active clusters](mysql-stored-proc-active-active-clusters.md "mysql-stored-proc-active-active-clusters.md").
 
-## Step 5: Start replication on the other DB instances in the active-active
-
-cluster
+## Step 5: Start replication on the other DB instances in the active-active cluster
 
 For each of the DB instances in the active-active cluster, use a SQL client to
 connect to the instance, and run the following stored procedures. Replace
@@ -199,9 +185,7 @@ join the current DB instance to an existing group.
 
 Make sure you run these stored procedures on all of the other DB instances in the active-active cluster.
 
-## Step 6: (Recommended)
-
-Check the status of the active-active cluster
+## Step 6: (Recommended) Check the status of the active-active cluster
 
 To make sure each member of the cluster is configured correctly, check the status
 of the cluster by connecting to a DB instance in the active-active cluster, and
@@ -227,13 +211,10 @@ following sample output:
 
 For information about the possible `MEMBER_STATE` values, see [Group Replication Server States](https://dev.mysql.com/doc/refman/8.0/en/group-replication-server-states.html "https://dev.mysql.com/doc/refman/8.0/en/group-replication-server-states.html") in the MySQL documentation.
 
-## Step 7: (Optional) Import data
-
-into a DB instance in the active-active cluster
+## Step 7: (Optional) Import data into a DB instance in the active-active cluster
 
 You can import data from a MySQL database into a DB instance in the active-active
 cluster. After the data is imported, Group Replication replicates it to the other DB
 instances in the cluster.
 
-For information about importing data, see [Importing data to an Amazon RDS for MySQL
-database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md").
+For information about importing data, see [Importing data to an Amazon RDS for MySQL database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md").

@@ -14,8 +14,7 @@ collection of information about your databases.
 - [Modifying database parameters](#db2-modifying-db-parameters "#db2-modifying-db-parameters")
 - [Configuring log retention](#db2-configuring-log-retention "#db2-configuring-log-retention")
 - [Listing log information](#db2-listing-log-information "#db2-listing-log-information")
-- [Using fine-grained access
-  control (FGAC)](#db2-using-fine-grained-access-control "#db2-using-fine-grained-access-control")
+- [Using fine-grained access control (FGAC)](#db2-using-fine-grained-access-control "#db2-using-fine-grained-access-control")
 - [Deactivating a database](#db2-deactivating-database "#db2-deactivating-database")
 - [Activating a database](#db2-activating-database "#db2-activating-database")
 - [Reactivating a database](#db2-reactivating-database "#db2-reactivating-database")
@@ -25,10 +24,8 @@ collection of information about your databases.
 - [Restoring a database](#db2-restoring-database "#db2-restoring-database")
 - [Listing databases](#db2-listing-databases "#db2-listing-databases")
 - [Collecting information about databases](#db2-collecting-info-db "#db2-collecting-info-db")
-- [Forcing applications off of
-  databases](#db2-forcing-application-off-db "#db2-forcing-application-off-db")
-- [Generating performance
-  reports](#db2-generating-performance-reports "#db2-generating-performance-reports")
+- [Forcing applications off of databases](#db2-forcing-application-off-db "#db2-forcing-application-off-db")
+- [Generating performance reports](#db2-generating-performance-reports "#db2-generating-performance-reports")
 
 ## Creating a database
 
@@ -40,8 +37,7 @@ documentation.
 ###### Note
 
 If you plan on modifying the `db2_compatibility_vector` parameter,
-modify the parameter before creating a database. For more information, see [Setting the
-db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+modify the parameter before creating a database. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 ###### To create a database
 
@@ -204,9 +200,7 @@ db2 "call rdsadmin.list_archive_log_information(
     '`database_name`')"
 ```
 
-## Using fine-grained access
-
-control (FGAC)
+## Using fine-grained access control (FGAC)
 
 To use fine-grained access control commands to control access to table data in a
 database on an RDS for Db2 DB instance, call the `rdsadmin.fgac_command` stored
@@ -214,9 +208,7 @@ procedure. You might want to use FGAC to limit access to data based on user role
 data attributes. For example, you could limit access to patient health care data based
 on the type of data or to certain medical care providers.
 
-###### To use fine-grained access control to control access to table data in a
-
-database
+###### To use fine-grained access control to control access to table data in a database
 
 1. Connect to the `rdsadmin` database using the master username and
    master password for your RDS for Db2 DB instance. In the following example, replace
@@ -369,8 +361,7 @@ To back up a database in your RDS for Db2 DB instance to Amazon S3, call the
 ###### Note
 
 This stored procedure uses the integration with Amazon S3. Make sure that you have
-configured the integration before proceeding. For more information, see [Integrating an Amazon RDS for Db2 DB instance with
-Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+configured the integration before proceeding. For more information, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 
 ###### To back up a database
 
@@ -388,9 +379,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 
 For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must have a
 VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
-information, see [Step 1: Create a VPC gateway endpoint for
-Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint"). 3. Confirm the VPC gateway endpoint for S3. For more information, see [Step 2: Confirm that your VPC gateway
-endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint"). 4. Back up a database by calling `rdsadmin.backup_database`. For more
+information, see [Step 1: Create a VPC gateway endpoint for Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint"). 3. Confirm the VPC gateway endpoint for S3. For more information, see [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint"). 4. Back up a database by calling `rdsadmin.backup_database`. For more
 information, see [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database").
 
 ```
@@ -620,9 +609,7 @@ db2 "connect to rdsadmin user `master_username` using `master_password`"
 db2 "call rdsadmin.db2pd_command('`db2pd_cmd`')"
 ```
 
-## Forcing applications off of
-
-databases
+## Forcing applications off of databases
 
 To force applications off of a database on your RDS for Db2 DB instance, call the
 `rdsadmin.force_application` stored procedure. Before you perform
@@ -648,9 +635,7 @@ db2 "call rdsadmin.force_application(
     '`applications`')"
 ```
 
-## Generating performance
-
-reports
+## Generating performance reports
 
 You can generate performance reports with a procedure or a script. For information about
 using a procedure, see [DBSUMMARY procedure ‐ Generate a summary report of system and

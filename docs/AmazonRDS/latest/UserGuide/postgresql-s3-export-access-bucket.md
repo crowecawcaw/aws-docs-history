@@ -1,6 +1,4 @@
-# Setting up access to an Amazon S3
-
-bucket
+# Setting up access to an Amazon S3 bucket
 
 To export data to Amazon S3, give your PostgreSQL DB
 instance
@@ -8,9 +6,7 @@ permission to access the Amazon S3 bucket that the files are to go in.
 
 To do this, use the following procedure.
 
-###### To give a PostgreSQL DB instance
-
-access to Amazon S3 through an IAM role
+###### To give a PostgreSQL DB instance access to Amazon S3 through an IAM role
 
 1. Create an IAM policy.
 
@@ -32,8 +28,7 @@ As part of creating this policy, take the following steps:
     2. Include the Amazon Resource Name (ARN) that identifies the Amazon S3 bucket and objects in the bucket. The ARN
      format for accessing Amazon S3 is: `arn:aws:s3:::`amzn-s3-demo-bucket`/*`For more information on creating an IAM policy for Amazon RDS for
 
-PostgreSQL, see [Creating and using an IAM policy for
-IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial: Create and
+PostgreSQL, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md"). See also [Tutorial: Create and
 attach your first customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the
 _IAM User Guide_.
 
@@ -176,9 +171,7 @@ aws iam attach-role-policy  --policy-arn `your-policy-arn`  --role-name rds-s3-e
 4. Add the IAM role to the DB instance. You do so by using the AWS Management Console or
    AWS CLI, as described following.
 
-###### To add an IAM role for a PostgreSQL DB instance using
-
-the console
+###### To add an IAM role for a PostgreSQL DB instance using the console
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").

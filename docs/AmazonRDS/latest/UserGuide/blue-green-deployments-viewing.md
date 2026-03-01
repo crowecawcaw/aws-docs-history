@@ -35,8 +35,7 @@ successfully.
 For RDS for PostgreSQL blue/green deployments that use logical
 replication, the replication state can change to `Replication
  degraded` if you make unsupported DDL or large object changes in the blue
-environment. For more information, see [Logical replication-specific
-limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
+environment. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
 
 The following image shows an example of the **Configuration**
 tab:

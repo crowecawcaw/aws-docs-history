@@ -1,12 +1,9 @@
-# Importing transportable
-
-tablespace metadata into your DB instance
+# Importing transportable tablespace metadata into your DB instance
 
 Use the procedure `rdsadmin.rdsadmin_transport_util.import_xtts_metadata` to
 import transportable tablespace metadata into your RDS for Oracle DB instance. During the operation, the
 status of the metadata import is shown in the table
-`rdsadmin.rds_xtts_operation_info`. For more information, see [Step 5: Import
-tablespace metadata on your target DB instance](oracle-migrating-tts.md#oracle-migrating-tts.transport.import-dmp "oracle-migrating-tts.md#oracle-migrating-tts.transport.import-dmp").
+`rdsadmin.rds_xtts_operation_info`. For more information, see [Step 5: Import tablespace metadata on your target DB instance](oracle-migrating-tts.md#oracle-migrating-tts.transport.import-dmp "oracle-migrating-tts.md#oracle-migrating-tts.transport.import-dmp").
 
 ## Syntax
 

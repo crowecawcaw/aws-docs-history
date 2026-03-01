@@ -1,13 +1,14 @@
-# Additional features for Microsoft SQL Server on Amazon RDS
+# Working with Active Directory with RDS for SQL Server
 
-In the following sections, you can find information about augmenting Amazon RDS instances running the Microsoft SQL Server DB engine.
+You can join an RDS for SQL Server DB instance to a Microsoft Active Directory (AD) domain. Your AD domain can be hosted on
+AWS Managed AD within AWS, or on a self-managed AD in a location of your choice, including your corporate data centers, on AWS EC2,
+or with other cloud providers.
+
+You can authenticate domain users using NTLM authentication and Kerberos authentication with self-managed Active Directory and AWS Managed Microsoft AD.
+
+In the following sections, you can find information about working with self-managed Active Directory and AWS Managed Active Directory for Microsoft SQL Server on Amazon RDS.
 
 ###### Topics
 
-- [Using Password Policy for SQL Server logins on RDS for SQL Server](SQLServer.Concepts.General.PasswordPolicy.md "SQLServer.Concepts.General.PasswordPolicy.md")
-- [Integrating an Amazon RDS for SQL Server
-  DB instance with Amazon S3](User.SQLServer.Options.md "User.SQLServer.Options.md")
-- [Using Database Mail on Amazon RDS for SQL Server](SQLServer.md "SQLServer.md")
-- [Instance store support for the tempdb database on Amazon RDS for SQL Server](SQLServer.md "SQLServer.md")
-- [Using extended events with Amazon RDS for Microsoft SQL Server](SQLServer.md "SQLServer.md")
-- [Access to transaction log backups with RDS for SQL Server](USER.SQLServer.AddlFeat.md "USER.SQLServer.AddlFeat.md")
+- [Working with self-managed Active Directory with an Amazon RDS for SQL Server DB instance](USER_SQLServer_SelfManagedActiveDirectory.md "USER_SQLServer_SelfManagedActiveDirectory.md")
+- [Working with AWS Managed Active Directory with RDS for SQL Server](USER_SQLServerWinAuth.md "USER_SQLServerWinAuth.md")

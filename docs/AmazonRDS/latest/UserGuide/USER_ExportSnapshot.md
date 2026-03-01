@@ -1,6 +1,4 @@
-# Data conversion when exporting to an Amazon S3
-
-bucket for Amazon RDS
+# Data conversion when exporting to an Amazon S3 bucket for Amazon RDS
 
 When you export a DB snapshot to an Amazon S3 bucket, Amazon RDS converts data to,
 exports data in, and stores data in the Parquet format. For more information about
@@ -100,9 +98,7 @@ exported to Amazon S3.
 | **JSON data type**           |
 | JSON                         | BYTE_ARRAY              | STRING                                                                                                                                                 |                                                                                                                                    |
 
-##
-
-PostgreSQL data type mapping to Parquet
+## PostgreSQL data type mapping to Parquet
 
 The following table shows the mapping from PostgreSQL data types to Parquet data types when
 data is converted and exported to Amazon S3.

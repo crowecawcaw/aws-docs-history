@@ -24,9 +24,7 @@ March 1, 2025.
 For more information, see [Amazon RDS for MySQL pricing](https://aws.amazon.com/rds/mysql/pricing/ "https://aws.amazon.com/rds/mysql/pricing/") and [Amazon RDS for PostgreSQL
 pricing](https://aws.amazon.com/rds/postgresql/pricing/ "https://aws.amazon.com/rds/postgresql/pricing/").
 
-## Avoiding charges for
-
-Amazon RDS Extended Support
+## Avoiding charges for Amazon RDS Extended Support
 
 You can avoid being charged for RDS Extended Support by preventing RDS from
 creating or restoring a DB instance or a

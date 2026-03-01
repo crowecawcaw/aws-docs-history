@@ -1,8 +1,7 @@
 # Sharing encrypted snapshots for Amazon RDS
 
 You can share DB snapshots that have been encrypted "at rest" using the AES-256 encryption algorithm, as described in
-[Encrypting Amazon RDS
-resources](Overview.md "Overview.md").
+[Encrypting Amazon RDS resources](Overview.md "Overview.md").
 
 The following restrictions apply to sharing encrypted snapshots:
 

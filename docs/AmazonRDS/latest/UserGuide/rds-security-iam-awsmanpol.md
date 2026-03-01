@@ -33,8 +33,7 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 - [AWS managed policy: AmazonRDSDirectoryServiceAccess](#rds-security-iam-awsmanpol-AmazonRDSDirectoryServiceAccess "#rds-security-iam-awsmanpol-AmazonRDSDirectoryServiceAccess")
 - [AWS managed policy: AmazonRDSServiceRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSServiceRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSServiceRolePolicy")
 - [AWS managed policy: AmazonRDSCustomServiceRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSCustomServiceRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSCustomServiceRolePolicy")
-- [AWS managed policy:
-  AmazonRDSCustomInstanceProfileRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSCustomInstanceProfileRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSCustomInstanceProfileRolePolicy")
+- [AWS managed policy: AmazonRDSCustomInstanceProfileRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSCustomInstanceProfileRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSCustomInstanceProfileRolePolicy")
 - [AWS managed policy: AmazonRDSPreviewServiceRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSPreviewServiceRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSPreviewServiceRolePolicy")
 - [AWS managed policy: AmazonRDSBetaServiceRolePolicy](#rds-security-iam-awsmanpol-AmazonRDSBetaServiceRolePolicy "#rds-security-iam-awsmanpol-AmazonRDSBetaServiceRolePolicy")
 
@@ -179,8 +178,7 @@ in the _AWS Managed Policy Reference Guide_.
 
 You can't attach the `AmazonRDSServiceRolePolicy` policy to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon RDS to perform
-actions on your behalf. For more information, see [Service-linked role permissions for
-Amazon RDS](UsingWithRDS.IAM.md#service-linked-role-permissions "UsingWithRDS.IAM.md#service-linked-role-permissions").
+actions on your behalf. For more information, see [Service-linked role permissions for Amazon RDS](UsingWithRDS.IAM.md#service-linked-role-permissions "UsingWithRDS.IAM.md#service-linked-role-permissions").
 
 ## AWS managed policy: AmazonRDSCustomServiceRolePolicy
 
@@ -209,9 +207,7 @@ For more information about this policy, including the JSON policy document, see
 [AmazonRDSCustomServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonRDSCustomServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonRDSCustomServiceRolePolicy.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-AmazonRDSCustomInstanceProfileRolePolicy
+## AWS managed policy: AmazonRDSCustomInstanceProfileRolePolicy
 
 You shouldn't attach
 `AmazonRDSCustomInstanceProfileRolePolicy` to your IAM

@@ -4,14 +4,10 @@ Configuring a CDB is similar to configuring a non-CDB.
 
 ###### Topics
 
-- [Creating an RDS for Oracle CDB
-  instance](#Oracle.Concepts.single-tenant.creation "#Oracle.Concepts.single-tenant.creation")
-- [Connecting to a PDB in your RDS for Oracle
-  CDB](#Oracle.Concepts.connecting.pdb "#Oracle.Concepts.connecting.pdb")
+- [Creating an RDS for Oracle CDB instance](#Oracle.Concepts.single-tenant.creation "#Oracle.Concepts.single-tenant.creation")
+- [Connecting to a PDB in your RDS for Oracle CDB](#Oracle.Concepts.connecting.pdb "#Oracle.Concepts.connecting.pdb")
 
-## Creating an RDS for Oracle CDB
-
-instance
+## Creating an RDS for Oracle CDB instance
 
 In RDS for Oracle, creating a CDB instance is almost identical to creating a non-CDB instance.
 The difference is that you choose the Oracle multitenant architecture when creating your
@@ -63,9 +59,7 @@ API.
 
       We recommend AWS Secrets Manager as the most secure technique
       for managing credentials. Additional charges apply. For
-      more information, see [Password management with
-      Amazon RDS
-      and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
+      more information, see [Password management with Amazon RDS and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
       - **Self managed**
 
       To specify a password, clear the **Auto generate a
@@ -115,9 +109,7 @@ the options listed in [Settings for DB instances](USER_CreateDBInstance.md "USER
 
     		We recommend AWS Secrets Manager as the most secure
     		 technique for managing credentials. Additional
-    		 charges apply. For more information, see [Password management with
-    		 Amazon RDS
-    		 and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
+    		 charges apply. For more information, see [Password management with Amazon RDS and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
     		* **Self managed**
 
 
@@ -234,9 +226,7 @@ operation.
 
 For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 
-## Connecting to a PDB in your RDS for Oracle
-
-CDB
+## Connecting to a PDB in your RDS for Oracle CDB
 
 You can use a utility like SQL\*Plus to connect to a PDB. To download Oracle Instant
 Client, which includes a standalone version of SQL\*Plus, see [Oracle

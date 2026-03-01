@@ -1,6 +1,4 @@
-# Troubleshooting for
-
-Amazon RDS
+# Troubleshooting for Amazon RDS
 
 Use the following sections to help troubleshoot problems you have with DB instances in
 Amazon RDS and Amazon Aurora.
@@ -9,21 +7,15 @@ Amazon RDS and Amazon Aurora.
 
 - [Can't connect to Amazon RDS DB instance](#CHAP_Troubleshooting.Connecting "#CHAP_Troubleshooting.Connecting")
 - [Amazon RDS security issues](#CHAP_Troubleshooting.Security "#CHAP_Troubleshooting.Security")
-- [Troubleshooting
-  incompatible-network state](#CHAP_Troubleshooting.IncompatibleNetworkMode "#CHAP_Troubleshooting.IncompatibleNetworkMode")
-- [Resetting the DB instance owner
-  password](#CHAP_Troubleshooting.ResetPassword "#CHAP_Troubleshooting.ResetPassword")
-- [Amazon RDS DB instance outage or
-  reboot](#CHAP_Troubleshooting.Reboots "#CHAP_Troubleshooting.Reboots")
-- [Amazon RDS DB parameter changes not taking
-  effect](#CHAP_Troubleshooting.Parameters "#CHAP_Troubleshooting.Parameters")
-- [Amazon RDS DB instance running out of
-  storage](#CHAP_Troubleshooting.Storage "#CHAP_Troubleshooting.Storage")
+- [Troubleshooting incompatible-network state](#CHAP_Troubleshooting.IncompatibleNetworkMode "#CHAP_Troubleshooting.IncompatibleNetworkMode")
+- [Resetting the DB instance owner password](#CHAP_Troubleshooting.ResetPassword "#CHAP_Troubleshooting.ResetPassword")
+- [Amazon RDS DB instance outage or reboot](#CHAP_Troubleshooting.Reboots "#CHAP_Troubleshooting.Reboots")
+- [Amazon RDS DB parameter changes not taking effect](#CHAP_Troubleshooting.Parameters "#CHAP_Troubleshooting.Parameters")
+- [Amazon RDS DB instance running out of storage](#CHAP_Troubleshooting.Storage "#CHAP_Troubleshooting.Storage")
 - [Amazon RDS insufficient DB instances available](#CHAP_Troubleshooting.Capacity "#CHAP_Troubleshooting.Capacity")
 - [Freeable memory issues in Amazon RDS](#Troubleshooting.FreeableMemory "#Troubleshooting.FreeableMemory")
 - [MySQL and MariaDB issues](#CHAP_Troubleshooting.MySQL "#CHAP_Troubleshooting.MySQL")
-- [Can't set backup retention
-  period to 0](#CHAP_Troubleshooting.Backup.Retention "#CHAP_Troubleshooting.Backup.Retention")
+- [Can't set backup retention period to 0](#CHAP_Troubleshooting.Backup.Retention "#CHAP_Troubleshooting.Backup.Retention")
   For information about debugging problems using the Amazon RDS API, see [Troubleshooting applications on Amazon RDS](APITroubleshooting.md "APITroubleshooting.md").
 
 ## Can't connect to Amazon RDS DB instance
@@ -48,8 +40,7 @@ for **Source** to allow access to the DB instance from the
 IP address detected in your browser.
 
 For more information about setting up security groups,
-see [Provide access to your DB instance in your VPC by
-creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
+see [Provide access to your DB instance in your VPC by creating a security group](CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup "CHAP_SettingUp.md#CHAP_SettingUp.SecurityGroup").
 
 ###### Note
 
@@ -63,8 +54,7 @@ aren't permitted. This is the Automatic Private IP Addressing Range
 
 To make the instance publicly accessible, modify it and choose
 **Yes** under **Public accessibility**.
-For more information, see [Hiding a DB instance in a VPC from
-the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
+For more information, see [Hiding a DB instance in a VPC from the internet](USER_VPC.md#USER_VPC.Hiding "USER_VPC.md#USER_VPC.Hiding").
 
 - **Port** – The port that you specified when you
   created the DB instance can't be used to send or receive communications
@@ -131,16 +121,11 @@ For engine-specific connection issues, see the following
 topics:
 
 - [Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
-- [Troubleshooting connections to your Oracle DB
-  instance](USER_ConnectToOracleInstance.md "USER_ConnectToOracleInstance.md")
-- [Troubleshooting
-  connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
-- [Maximum MySQL and MariaDB
-  connections](#USER_ConnectToInstance.max_connections "#USER_ConnectToInstance.max_connections")
+- [Troubleshooting connections to your Oracle DB instance](USER_ConnectToOracleInstance.md "USER_ConnectToOracleInstance.md")
+- [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md")
+- [Maximum MySQL and MariaDB connections](#USER_ConnectToInstance.max_connections "#USER_ConnectToInstance.max_connections")
 
-### Testing a connection to a DB
-
-instance
+### Testing a connection to a DB instance
 
 You can test your connection to a DB instance using common Linux or Microsoft
 Windows tools.
@@ -182,9 +167,7 @@ configured.
 Amazon RDS doesn't accept internet control message protocol (ICMP) traffic,
 including ping.
 
-### Troubleshooting
-
-connection authentication
+### Troubleshooting connection authentication
 
 In some cases, you can connect to your DB instance but you get authentication
 errors. In these cases, you might want to reset the master user password for the DB
@@ -204,10 +187,7 @@ For information about creating users, see [Creating an IAM user in your
 AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md"). For information about creating users in AWS IAM Identity Center, see [Manage
 identities in IAM Identity Center](../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md "../../../singlesignon/latest/userguide/manage-your-identity-source-sso.md").
 
-### Error message
-
-"failed to retrieve account attributes, certain console functions may be
-impaired."
+### Error message "failed to retrieve account attributes, certain console functions may be impaired."
 
 You can get this error for several reasons. It might be because your account is
 missing permissions, or your account hasn't been properly set up. If your
@@ -218,9 +198,7 @@ needs to provide the necessary roles to your account. For more information, see
 [the IAM
 documentation](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-## Troubleshooting
-
-incompatible-network state
+## Troubleshooting incompatible-network state
 
 The incompatible-network state means that the database might still be accessible at
 the database level but you can't modify or reboot it.
@@ -239,9 +217,7 @@ following actions:
 
 ### Resolution
 
-#### Use
-
-start-db-instance command
+#### Use start-db-instance command
 
 To fix a database that is in an incompatible-network state, follow these
 instructions:
@@ -313,9 +289,7 @@ using a backup and restore tool.
 If this does not resolve the issue, contact Support for further
 assistance.
 
-## Resetting the DB instance owner
-
-password
+## Resetting the DB instance owner password
 
 If you get locked out of your DB instance, you can log in as the
 master user. Then you can reset the credentials for other administrative users or roles.
@@ -327,9 +301,7 @@ You can change the DB instance password by using the Amazon RDS
 console, the AWS CLI command [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md"), or by using the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API operation.
 For more information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-## Amazon RDS DB instance outage or
-
-reboot
+## Amazon RDS DB instance outage or reboot
 
 A DB instance outage can occur when a DB instance is rebooted. It can also occur when
 the DB instance is put into a state that prevents access to it, and when the database is
@@ -372,9 +344,7 @@ during the maintenance window.
 To see a table that shows DB instance actions and the effect
 that setting the **Apply Immediately** value has, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-## Amazon RDS DB parameter changes not taking
-
-effect
+## Amazon RDS DB parameter changes not taking effect
 
 In some cases, you might change a parameter in a DB parameter group but don't see the
 changes take effect. If so, you likely need to reboot the DB instance associated with
@@ -388,12 +358,9 @@ failover if the DB instance is in a Multi-AZ deployment. The requirement to rebo
 DB instance after a static parameter change helps mitigate the risk of a parameter
 misconfiguration affecting an API call. An example of this is calling
 `ModifyDBInstance` to change the DB instance class. For more information,
-see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-## Amazon RDS DB instance running out of
-
-storage
+## Amazon RDS DB instance running out of storage
 
 If your DB instance runs out of storage space, it might no longer be available. We
 highly recommend that you constantly monitor the `FreeStorageSpace` metric
@@ -537,29 +504,17 @@ instances.
 
 ###### Topics
 
-- [Maximum MySQL and MariaDB
-  connections](#USER_ConnectToInstance.max_connections "#USER_ConnectToInstance.max_connections")
-- [Diagnosing and
-  resolving incompatible parameters status for a memory limit](#CHAP_Troubleshooting.incompatible-parameters-memory "#CHAP_Troubleshooting.incompatible-parameters-memory")
-- [Diagnosing and resolving lag
-  between read replicas](#CHAP_Troubleshooting.MySQL.ReplicaLag "#CHAP_Troubleshooting.MySQL.ReplicaLag")
-- [Diagnosing and resolving a
-  MySQL or MariaDB read replication
-  failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR")
-- [Creating triggers with
-  binary logging enabled requires SUPER privilege](#CHAP_Troubleshooting.MySQL.CreatingTriggers "#CHAP_Troubleshooting.MySQL.CreatingTriggers")
-- [Diagnosing and resolving
-  point-in-time restore failures](#CHAP_Troubleshooting.MySQL.PITR "#CHAP_Troubleshooting.MySQL.PITR")
-- [Replication stopped
-  error](#CHAP_Troubleshooting.MySQL.ReplicationStopped "#CHAP_Troubleshooting.MySQL.ReplicationStopped")
-- [Read replica create fails
-  or replication breaks with fatal error 1236](#CHAP_Troubleshooting.MySQL.ReadReplicas "#CHAP_Troubleshooting.MySQL.ReadReplicas")
-- [Read replica
-  replication fails to initialize metadata structure](#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata "#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata")
+- [Maximum MySQL and MariaDB connections](#USER_ConnectToInstance.max_connections "#USER_ConnectToInstance.max_connections")
+- [Diagnosing and resolving incompatible parameters status for a memory limit](#CHAP_Troubleshooting.incompatible-parameters-memory "#CHAP_Troubleshooting.incompatible-parameters-memory")
+- [Diagnosing and resolving lag between read replicas](#CHAP_Troubleshooting.MySQL.ReplicaLag "#CHAP_Troubleshooting.MySQL.ReplicaLag")
+- [Diagnosing and resolving a MySQLor MariaDB read replication failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR")
+- [Creating triggers with binary logging enabled requires SUPER privilege](#CHAP_Troubleshooting.MySQL.CreatingTriggers "#CHAP_Troubleshooting.MySQL.CreatingTriggers")
+- [Diagnosing and resolving point-in-time restore failures](#CHAP_Troubleshooting.MySQL.PITR "#CHAP_Troubleshooting.MySQL.PITR")
+- [Replication stopped error](#CHAP_Troubleshooting.MySQL.ReplicationStopped "#CHAP_Troubleshooting.MySQL.ReplicationStopped")
+- [Read replica create fails or replication breaks with fatal error 1236](#CHAP_Troubleshooting.MySQL.ReadReplicas "#CHAP_Troubleshooting.MySQL.ReadReplicas")
+- [Read replica replication fails to initialize metadata structure](#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata "#CHAP_Troubleshooting.MySQL.ReadReplicas.ReplicationErrorMetadata")
 
-### Maximum MySQL and MariaDB
-
-connections
+### Maximum MySQL and MariaDB connections
 
 The maximum number of connections allowed to an RDS for MySQL or RDS for MariaDB DB instance is based on the amount
 of memory available for its DB instance class. A DB instance class with more memory
@@ -570,8 +525,7 @@ The connection limit for a DB instance is set by default to the maximum for the 
 instance class. You can limit the number of concurrent connections to any value up
 to the maximum number of connections allowed. Use the `max_connections`
 parameter in the parameter group for the DB instance. For more information, see
-[Maximum number of database
-connections](CHAP_Limits.md#RDS_Limits.MaxConnections "CHAP_Limits.md#RDS_Limits.MaxConnections") and [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+[Maximum number of database connections](CHAP_Limits.md#RDS_Limits.MaxConnections "CHAP_Limits.md#RDS_Limits.MaxConnections") and [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 You can retrieve the maximum number of connections allowed for a MySQL or MariaDB DB instance by running the following
 query.
@@ -587,9 +541,7 @@ query.
 SHOW STATUS WHERE `variable_name` = 'Threads_connected';
 ```
 
-### Diagnosing and
-
-resolving incompatible parameters status for a memory limit
+### Diagnosing and resolving incompatible parameters status for a memory limit
 
 A MariaDB or MySQL DB instance can be placed in
 **incompatible-parameters** status for a memory limit when the
@@ -616,8 +568,7 @@ calculation is the sum of the following values:
   However, the value won't always match what you input. This mismatch
   occurs for several reasons. First, if the DB instance is a micro DB
   instance, then we override the default value and set it to 256 MB.
-  For more information, see [Overriding
-  innodb_buffer_pool_size](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
+  For more information, see [Overriding innodb_buffer_pool_size](MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size "MySQL.md#MySQL.Concepts.KnownIssuesAndLimitations.innodb-bp-size").
 
   Second, we make sure that 500 MB of memory is reserved on the DB
   instance for the host manager, the engine, the operating system, and
@@ -665,8 +616,7 @@ So, the value returned by the calculation is the following:
 When this value exceeds 1.2 times the memory allocated to the DB instance class
 used by the DB instance, the DB instance is placed in
 **incompatible-parameters** status. For information about the
-memory allocated to DB instance classes, see [Hardware specifications for DB instance
-classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+memory allocated to DB instance classes, see [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 The calculation multiplies the value of the `max_connections` parameter
 by the sum of several parameters. If the `max_connections` parameter is
@@ -680,14 +630,11 @@ To resolve the problem, complete the following steps:
    DB instance. Do so such that the potential memory usage is lower than 1.2
    times the memory allocated to its DB instance class.
 
-For information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Restart the DB instance.
+For information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Restart the DB instance.
 
 For information about setting parameters, see [Starting an Amazon RDS DB instance that was previously stopped](USER_StartInstance.md "USER_StartInstance.md").
 
-### Diagnosing and resolving lag
-
-between read replicas
+### Diagnosing and resolving lag between read replicas
 
 After you create a MySQL or MariaDB read
 replica and the replica is available, Amazon RDS first replicates the changes made to the
@@ -705,9 +652,7 @@ REPLICA STATUS Statement](https://dev.mysql.com/doc/refman/8.0/en/show-replica-s
 When the `ReplicaLag` metric reaches 0, the
 replica has caught up to the source DB instance. If the `ReplicaLag`
 metric returns -1, replication might not be active. To troubleshoot a replication
-error, see [Diagnosing and resolving a
-MySQL or MariaDB read replication
-failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR"). A `ReplicaLag` value
+error, see [Diagnosing and resolving a MySQLor MariaDB read replication failure](#CHAP_Troubleshooting.MySQL.RR "#CHAP_Troubleshooting.MySQL.RR"). A `ReplicaLag` value
 of -1 can also mean that the `Seconds_Behind_Master` value can't be
 determined or is `NULL`.
 
@@ -782,10 +727,7 @@ PROMPT> mysqldump ^
     database_name `table1 table2` > /dev/null
 ```
 
-### Diagnosing and resolving a
-
-MySQL or MariaDB read replication
-failure
+### Diagnosing and resolving a MySQLor MariaDB read replication failure
 
 Amazon RDS monitors the replication status of your read replicas. RDS updates the
 **Replication State** field of the read replica instance to
@@ -839,14 +781,12 @@ command:
 The following steps can help resolve your replication error:
 
 - If you encounter a logical error and you can safely skip the error, follow
-  the steps described in [Skipping the current
-  replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md"). Your MySQL or
+  the steps described in [Skipping the current replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md"). Your MySQL or
   MariaDB DB instance must be running a version that includes the
   `mysql_rds_skip_repl_error` procedure. For more information,
   see [mysql.rds_skip_repl_error](mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error "mysql-stored-proc-replicating.md#mysql_rds_skip_repl_error").
 - If you encounter a binary log (binlog) position issue, you can change the
-  replica replay position with the [mysql.rds_next_source_log (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_next_source_log "mysql-stored-proc-replicating.md#mysql_rds_next_source_log") or [mysql.rds_next_master_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and
-  lower)](mysql-stored-proc-replicating.md#mysql_rds_next_master_log "mysql-stored-proc-replicating.md#mysql_rds_next_master_log") command.
+  replica replay position with the [mysql.rds_next_source_log (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_next_source_log "mysql-stored-proc-replicating.md#mysql_rds_next_source_log") or [mysql.rds_next_master_log (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_next_master_log "mysql-stored-proc-replicating.md#mysql_rds_next_master_log") command.
 - You might encounter a temporary performance issue because of high DML
   load. If so, you can set the `innodb_flush_log_at_trx_commit`
   parameter to 2 in the DB parameter group on the read replica. Doing this can
@@ -860,9 +800,7 @@ If a replication error is fixed, the **Replication
 State** changes to **replicating**. For more
 information, see [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md").
 
-### Creating triggers with
-
-binary logging enabled requires SUPER privilege
+### Creating triggers with binary logging enabled requires SUPER privilege
 
 When trying to create triggers in an RDS for MySQL or RDS for MariaDB DB instance, you
 might receive the following error.
@@ -882,9 +820,7 @@ You can create a new DB parameter group so you can create triggers in your
 RDS for MySQL or RDS for MariaDB DB instance with binary logging enabled. To do so, use the
 following CLI commands. To modify an existing parameter group, start with step 2.
 
-###### To create a new parameter group to allow triggers with binary logging enabled
-
-using the CLI
+###### To create a new parameter group to allow triggers with binary logging enabled using the CLI
 
 1. Create a new parameter group.
 
@@ -950,9 +886,7 @@ aws rds modify-db-instance ^
 aws rds reboot-db-instance --db-instance-identifier `mydbinstance`
 ```
 
-### Diagnosing and resolving
-
-point-in-time restore failures
+### Diagnosing and resolving point-in-time restore failures
 
 **Restoring a DB instance that includes temporary
 tables**
@@ -987,9 +921,7 @@ can't restore data from an empty in-memory table.
 
 For more information about backups and PITR, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md") and [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md").
 
-### Replication stopped
-
-error
+### Replication stopped error
 
 When you call the `mysql.rds_skip_repl_error` command, you might
 receive an error message stating that replication is down or disabled.
@@ -1018,9 +950,7 @@ retention period for binlog files to 48 hours.
 CALL mysql.rds_set_configuration('binlog retention hours', 48);
 ```
 
-### Read replica create fails
-
-or replication breaks with fatal error 1236
+### Read replica create fails or replication breaks with fatal error 1236
 
 After changing default parameter values for a MySQL or MariaDB DB instance, you
 might encounter one of the following problems:
@@ -1041,9 +971,7 @@ To resolve this issue, set the following parameter values:
 - `innodb_support_xa = 1`
 - `innodb_flush_log_at_trx_commit = 1`
 
-### Read replica
-
-replication fails to initialize metadata structure
+### Read replica replication fails to initialize metadata structure
 
 When you attempted to start replication, you received the following error message:
 
@@ -1061,9 +989,7 @@ To prevent this from happening in the future, perform one of the following actio
 - If you need to use multi-threading on your replicas, then we recommend that you use
   GTID-based replication. For more information, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 
-## Can't set backup retention
-
-period to 0
+## Can't set backup retention period to 0
 
 There are several reasons why you might need to set the backup retention period to 0.
 For example, you can disable automatic backups immediately by setting the retention

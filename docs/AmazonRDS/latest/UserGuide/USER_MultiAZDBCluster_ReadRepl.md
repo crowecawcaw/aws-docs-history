@@ -38,5 +38,4 @@ characteristics and operational requirements to make an informed decision.
 ###### Topics
 
 - [Migrating to a Multi-AZ DB cluster using a read replica](multi-az-db-clusters-migrating-to-with-read-replica.md "multi-az-db-clusters-migrating-to-with-read-replica.md")
-- [Creating a DB instance read
-  replica from a Multi-AZ DB cluster](multi-az-db-clusters-create-instance-read-replica.md "multi-az-db-clusters-create-instance-read-replica.md")
+- [Creating a DB instance read replica from a Multi-AZ DB cluster](multi-az-db-clusters-create-instance-read-replica.md "multi-az-db-clusters-create-instance-read-replica.md")

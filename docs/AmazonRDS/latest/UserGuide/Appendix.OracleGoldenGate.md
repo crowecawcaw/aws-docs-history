@@ -7,10 +7,8 @@ for use with Amazon RDS for Oracle.
 ###### Topics
 
 - [Setting up an Oracle GoldenGate hub on Amazon EC2](#Appendix.OracleGoldenGate.Hub "#Appendix.OracleGoldenGate.Hub")
-- [Setting up a source database for use with Oracle GoldenGate on
-  Amazon RDS](#Appendix.OracleGoldenGate.Source "#Appendix.OracleGoldenGate.Source")
-- [Setting up a target database for use with
-  Oracle GoldenGate on Amazon RDS](#Appendix.OracleGoldenGate.Target "#Appendix.OracleGoldenGate.Target")
+- [Setting up a source database for use with Oracle GoldenGate on Amazon RDS](#Appendix.OracleGoldenGate.Source "#Appendix.OracleGoldenGate.Source")
+- [Setting up a target database for use with Oracle GoldenGate on Amazon RDS](#Appendix.OracleGoldenGate.Target "#Appendix.OracleGoldenGate.Target")
 
 ## Setting up an Oracle GoldenGate hub on Amazon EC2
 
@@ -66,30 +64,20 @@ GGSCI> start mgr
 
 The Oracle GoldenGate hub is now ready for use.
 
-## Setting up a source database for use with Oracle GoldenGate on
-
-Amazon RDS
+## Setting up a source database for use with Oracle GoldenGate on Amazon RDS
 
 Complete the following tasks to set up a source database for use with Oracle GoldenGate.
 
 ###### Setup steps
 
-- [Step 1: Turn on supplemental logging
-  on the source database](#Appendix.OracleGoldenGate.Source.Logging "#Appendix.OracleGoldenGate.Source.Logging")
-- [Step 2: Set the
-  ENABLE_GOLDENGATE_REPLICATION initialization parameter to true](#Appendix.OracleGoldenGate.Source.enable-gg-rep "#Appendix.OracleGoldenGate.Source.enable-gg-rep")
-- [Step 3: Set the log retention
-  period on the source database](#Appendix.OracleGoldenGate.Source.Retention "#Appendix.OracleGoldenGate.Source.Retention")
-- [Step 4: Create an Oracle GoldenGate user account
-  on the source database](#Appendix.OracleGoldenGate.Source.Account "#Appendix.OracleGoldenGate.Source.Account")
-- [Step 5: Grant user account
-  privileges on the source database](#Appendix.OracleGoldenGate.Source.Privileges "#Appendix.OracleGoldenGate.Source.Privileges")
-- [Step 6: Add a TNS alias for the source
-  database](#Appendix.OracleGoldenGate.Source.TNS "#Appendix.OracleGoldenGate.Source.TNS")
+- [Step 1: Turn on supplemental logging on the source database](#Appendix.OracleGoldenGate.Source.Logging "#Appendix.OracleGoldenGate.Source.Logging")
+- [Step 2: Set the ENABLE_GOLDENGATE_REPLICATION initialization parameter to true](#Appendix.OracleGoldenGate.Source.enable-gg-rep "#Appendix.OracleGoldenGate.Source.enable-gg-rep")
+- [Step 3: Set the log retention period on the source database](#Appendix.OracleGoldenGate.Source.Retention "#Appendix.OracleGoldenGate.Source.Retention")
+- [Step 4: Create an Oracle GoldenGate user account on the source database](#Appendix.OracleGoldenGate.Source.Account "#Appendix.OracleGoldenGate.Source.Account")
+- [Step 5: Grant user account privileges on the source database](#Appendix.OracleGoldenGate.Source.Privileges "#Appendix.OracleGoldenGate.Source.Privileges")
+- [Step 6: Add a TNS alias for the source database](#Appendix.OracleGoldenGate.Source.TNS "#Appendix.OracleGoldenGate.Source.TNS")
 
-### Step 1: Turn on supplemental logging
-
-on the source database
+### Step 1: Turn on supplemental logging on the source database
 
 To turn on the minimum database-level supplemental logging, run the following PL/SQL
 procedure:
@@ -98,9 +86,7 @@ procedure:
 EXEC rdsadmin.rdsadmin_util.alter_supplemental_logging(p_action => 'ADD')
 ```
 
-### Step 2: Set the
-
-ENABLE_GOLDENGATE_REPLICATION initialization parameter to true
+### Step 2: Set the ENABLE_GOLDENGATE_REPLICATION initialization parameter to true
 
 When you set the `ENABLE_GOLDENGATE_REPLICATION` initialization parameter to
 `true`, it allows database services to support logical replication.
@@ -110,9 +96,7 @@ initialization parameter set to `true`. For more information about the
 `ENABLE_GOLDENGATE_REPLICATION` initialization parameter, see the
 [Oracle Database documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html").
 
-### Step 3: Set the log retention
-
-period on the source database
+### Step 3: Set the log retention period on the source database
 
 Make sure that you configure the source database to retain archived redo logs. Consider
 the following guidelines:
@@ -151,9 +135,7 @@ SELECT SUM(BLOCKS * BLOCK_SIZE) BYTES FROM V$ARCHIVED_LOG
    WHERE NEXT_TIME>=SYSDATE-`num_hours`/24 AND DEST_ID=1;
 ```
 
-### Step 4: Create an Oracle GoldenGate user account
-
-on the source database
+### Step 4: Create an Oracle GoldenGate user account on the source database
 
 Oracle GoldenGate runs as a database user and requires the appropriate database privileges to access
 the redo and archived redo logs for the source database. To provide these, create a
@@ -173,9 +155,7 @@ ALTER USER oggadm1 QUOTA UNLIMITED ON administrator;
 
 Specify a password other than the prompt shown here as a security best practice.
 
-### Step 5: Grant user account
-
-privileges on the source database
+### Step 5: Grant user account privileges on the source database
 
 In this task, you grant necessary account privileges for database users on your
 source database.
@@ -214,9 +194,7 @@ EXEC rdsadmin.rdsadmin_dbms_goldengate_auth.grant_admin_privilege (
 To revoke privileges, use the procedure
 `revoke_admin_privilege` in the same package.
 
-### Step 6: Add a TNS alias for the source
-
-database
+### Step 6: Add a TNS alias for the source database
 
 Add the following entry to `$ORACLE_HOME/network/admin/tnsnames.ora` in the
 Oracle home to be used by the `EXTRACT` process. For more information on
@@ -232,26 +210,18 @@ OGGSOURCE=
     )
 ```
 
-## Setting up a target database for use with
-
-Oracle GoldenGate on Amazon RDS
+## Setting up a target database for use with Oracle GoldenGate on Amazon RDS
 
 In this task, you set up a target DB instance for use with Oracle GoldenGate.
 
 ###### Setup steps
 
-- [Step 1: Set the
-  ENABLE_GOLDENGATE_REPLICATION initialization parameter to true](#Appendix.OracleGoldenGate.Target.enable-gg-rep "#Appendix.OracleGoldenGate.Target.enable-gg-rep")
-- [Step 2: Create an Oracle GoldenGate user account on
-  the target database](#Appendix.OracleGoldenGate.Target.User "#Appendix.OracleGoldenGate.Target.User")
-- [Step 3: Grant account privileges
-  on the target database](#Appendix.OracleGoldenGate.Target.Privileges "#Appendix.OracleGoldenGate.Target.Privileges")
-- [Step 4: Add a TNS alias for the target
-  database](#Appendix.OracleGoldenGate.Target.TNS "#Appendix.OracleGoldenGate.Target.TNS")
+- [Step 1: Set the ENABLE_GOLDENGATE_REPLICATION initialization parameter to true](#Appendix.OracleGoldenGate.Target.enable-gg-rep "#Appendix.OracleGoldenGate.Target.enable-gg-rep")
+- [Step 2: Create an Oracle GoldenGate user account on the target database](#Appendix.OracleGoldenGate.Target.User "#Appendix.OracleGoldenGate.Target.User")
+- [Step 3: Grant account privileges on the target database](#Appendix.OracleGoldenGate.Target.Privileges "#Appendix.OracleGoldenGate.Target.Privileges")
+- [Step 4: Add a TNS alias for the target database](#Appendix.OracleGoldenGate.Target.TNS "#Appendix.OracleGoldenGate.Target.TNS")
 
-### Step 1: Set the
-
-ENABLE_GOLDENGATE_REPLICATION initialization parameter to true
+### Step 1: Set the ENABLE_GOLDENGATE_REPLICATION initialization parameter to true
 
 When you set the `ENABLE_GOLDENGATE_REPLICATION` initialization
 parameter is to `true`, it allows database services to support logical
@@ -262,9 +232,7 @@ parameter group assigned to the DB instance with the
 `ENABLE_GOLDENGATE_REPLICATION` initialization parameter, see the
 [Oracle Database documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/ENABLE_GOLDENGATE_REPLICATION.html").
 
-### Step 2: Create an Oracle GoldenGate user account on
-
-the target database
+### Step 2: Create an Oracle GoldenGate user account on the target database
 
 Oracle GoldenGate runs as a database user and requires the appropriate database privileges. To make
 sure it has these privileges, create a user account on the target database.
@@ -283,9 +251,7 @@ ALTER USER oggadm1 QUOTA UNLIMITED ON administrator;
 
 Specify a password other than the prompt shown here as a security best practice.
 
-### Step 3: Grant account privileges
-
-on the target database
+### Step 3: Grant account privileges on the target database
 
 In this task, you grant necessary account privileges for database users on your target
 database.
@@ -331,9 +297,7 @@ EXEC rdsadmin.rdsadmin_dbms_goldengate_auth.grant_admin_privilege (
 To revoke privileges, use the procedure
 `revoke_admin_privilege` in the same package.
 
-### Step 4: Add a TNS alias for the target
-
-database
+### Step 4: Add a TNS alias for the target database
 
 Add the following entry to `$ORACLE_HOME/network/admin/tnsnames.ora` in the
 Oracle home to be used by the `REPLICAT` process. For Oracle Multitenant

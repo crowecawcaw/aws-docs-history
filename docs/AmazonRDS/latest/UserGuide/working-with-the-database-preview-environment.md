@@ -1,6 +1,4 @@
-# Working with the
-
-Database Preview environment
+# Working with the Database Preview environment
 
 The PostgreSQL community continuously releases new PostgreSQL
 version and extensions, including beta versions. This gives PostgreSQL users the
@@ -35,16 +33,11 @@ Keep in mind the following important limitations:
 
 ###### Topics
 
-- [Features not supported in the
-  Database Preview environment](#preview-environment-exclusions "#preview-environment-exclusions")
-- [PostgreSQL version 17 in the
-  Database Preview environment](#PostgreSQL.Concepts.General.version17 "#PostgreSQL.Concepts.General.version17")
-- [Creating a new DB
-  instance in the Database Preview environment](create-db-instance-in-preview-environment.md "create-db-instance-in-preview-environment.md")
+- [Features not supported in the Database Preview environment](#preview-environment-exclusions "#preview-environment-exclusions")
+- [PostgreSQL version 17 in the Database Preview environment](#PostgreSQL.Concepts.General.version17 "#PostgreSQL.Concepts.General.version17")
+- [Creating a new DB instance in the Database Preview environment](create-db-instance-in-preview-environment.md "create-db-instance-in-preview-environment.md")
 
-## Features not supported in the
-
-Database Preview environment
+## Features not supported in the Database Preview environment
 
 The following features aren't available in the Database Preview
 environment:
@@ -52,9 +45,7 @@ environment:
 - Cross-Region snapshot copy
 - Cross-Region read replicas
 
-## PostgreSQL version 17 in the
-
-Database Preview environment
+## PostgreSQL version 17 in the Database Preview environment
 
 ###### Note
 
@@ -66,6 +57,5 @@ environment. PostgreSQL version 17.0 contains several improvements that are
 described in the following PostgreSQL documentation, [PostgreSQL 17
 Released!](https://www.postgresql.org/docs/17/release-17.html "https://www.postgresql.org/docs/17/release-17.html")
 
-For information on the Database Preview Environment, see [Working with the
-Database Preview environment](working-with-the-database-preview-environment.md "working-with-the-database-preview-environment.md"). To access the Preview
+For information on the Database Preview Environment, see [Working with the Database Preview environment](working-with-the-database-preview-environment.md "working-with-the-database-preview-environment.md"). To access the Preview
 Environment from the console, select [https://console.aws.amazon.com/rds-preview/](https://console.aws.amazon.com/rds-preview/ "https://console.aws.amazon.com/rds-preview/").

@@ -1,6 +1,4 @@
-# Creating a DB instance read
-
-replica from a Multi-AZ DB cluster
+# Creating a DB instance read replica from a Multi-AZ DB cluster
 
 You can create a DB instance read replica from a Multi-AZ DB cluster in order to scale beyond the compute
 or I/O capacity of the cluster for read-heavy database workloads. You can direct this
@@ -16,12 +14,9 @@ in cases of failover.
 
 - [Comparing reader DB instances and DB instance read replicas](#multi-az-db-clusters-readerdb-vs-dbrr "#multi-az-db-clusters-readerdb-vs-dbrr")
 - [Considerations](#multi-az-db-clusters-instance-read-replica-considerations "#multi-az-db-clusters-instance-read-replica-considerations")
-- [Creating a DB
-  instance read replica](#multi-az-db-clusters-instance-read-replica-create "#multi-az-db-clusters-instance-read-replica-create")
-- [Promoting the DB instance
-  read replica](#multi-az-db-clusters-promote-instance-read-replica "#multi-az-db-clusters-promote-instance-read-replica")
-- [Limitations for
-  creating a DB instance read replica from a Multi-AZ DB cluster](#multi-az-db-clusters-create-instance-read-replica-limitations "#multi-az-db-clusters-create-instance-read-replica-limitations")
+- [Creating a DB instance read replica](#multi-az-db-clusters-instance-read-replica-create "#multi-az-db-clusters-instance-read-replica-create")
+- [Promoting the DB instance read replica](#multi-az-db-clusters-promote-instance-read-replica "#multi-az-db-clusters-promote-instance-read-replica")
+- [Limitations for creating a DB instance read replica from a Multi-AZ DB cluster](#multi-az-db-clusters-create-instance-read-replica-limitations "#multi-az-db-clusters-create-instance-read-replica-limitations")
 
 ## Comparing reader DB instances and DB instance read replicas
 
@@ -64,9 +59,7 @@ Consider the following before you create a DB instance read replica from a Multi
 - If you delete the source Multi-AZ DB cluster for a DB instance read replica, any read
   replicas that it's writing to are promoted to standalone DB instances.
 
-## Creating a DB
-
-instance read replica
+## Creating a DB instance read replica
 
 You can create a DB instance read replica from a Multi-AZ DB cluster using the AWS Management Console, AWS CLI, or RDS
 API.
@@ -127,14 +120,11 @@ aws rds create-db-instance-read-replica ^
 
 To create a DB instance read replica from a Multi-AZ DB cluster, use the [`CreateDBInstanceReadReplica`](../APIReference/API_CreateDBInstanceReadReplica.md "../APIReference/API_CreateDBInstanceReadReplica.md") operation.
 
-## Promoting the DB instance
-
-read replica
+## Promoting the DB instance read replica
 
 If you no longer need the DB instance read replica, you can promote it into a standalone DB
 instance. When you promote a read replica, the DB instance is rebooted before it
-becomes available. For instructions, see [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+becomes available. For instructions, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 
 If you're using the read replica to migrate a Multi-AZ DB cluster deployment to a Single-AZ or Multi-AZ
 DB instance deployment, make sure to stop any transactions that are being written to
@@ -149,9 +139,7 @@ instance to be `Available` before you direct your applications to use the
 promoted DB instance. Optionally, delete the Multi-AZ DB cluster deployment if you
 no longer need it. For instructions, see [Deleting a Multi-AZ DB cluster for Amazon RDS](USER_DeleteMultiAZDBCluster.md "USER_DeleteMultiAZDBCluster.md").
 
-## Limitations for
-
-creating a DB instance read replica from a Multi-AZ DB cluster
+## Limitations for creating a DB instance read replica from a Multi-AZ DB cluster
 
 The following limitations apply to creating a DB instance read replica from a Multi-AZ DB cluster
 deployment.

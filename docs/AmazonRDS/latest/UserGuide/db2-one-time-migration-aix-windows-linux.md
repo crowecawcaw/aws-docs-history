@@ -6,8 +6,7 @@ database to an Amazon S3 bucket. Native Db2 tools include the `export` utility, 
 Db2 database can either be self-managed or in Amazon Elastic Compute Cloud (Amazon EC2). You can move data from your
 AIX or Windows system to your Amazon S3 bucket. Then, use a Db2
 client to load data directly from the S3 bucket to your Amazon RDS for Db2 database. Downtime
-depends on the size of your database. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with
-Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+depends on the size of your database. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 
 ###### To migrate your Db2 database to RDS for Db2
 
@@ -19,8 +18,7 @@ Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
    2. Run either the [Db2 export utility](https://www.ibm.com/docs/en/db2/11.5?topic=utility-exporting-data "https://www.ibm.com/docs/en/db2/11.5?topic=utility-exporting-data"), the [db2move system command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2move-database-movement-tool "https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2move-database-movement-tool"), or a [CREATE EXTERNAL TABLE statement](https://www.ibm.com/docs/en/db2/11.5?topic=statements-create-table-external "https://www.ibm.com/docs/en/db2/11.5?topic=statements-create-table-external") to unload
       the Db2 table data to storage on your Db2 system.
 
-3. Move your backup to an Amazon S3 bucket. For more information, see [Integrating an Amazon RDS for Db2 DB instance with
-   Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+3. Move your backup to an Amazon S3 bucket. For more information, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 
 ###### Note
 

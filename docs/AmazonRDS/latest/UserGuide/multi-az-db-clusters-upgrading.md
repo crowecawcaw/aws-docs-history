@@ -15,8 +15,7 @@ environments, and verifying application compatibility with the new version.
 - [Minor version upgrades](#multi-az-db-clusters-upgrade-minor "#multi-az-db-clusters-upgrade-minor")
 - [Major version upgrades](#multi-az-db-clusters-upgrade-major "#multi-az-db-clusters-upgrade-major")
 - [Upgrading a Multi-AZ DB cluster](#multi-az-db-clusters-upgrade-process "#multi-az-db-clusters-upgrade-process")
-- [Upgrading Multi-AZ DB cluster read
-  replicas](#multi-az-db-clusters-upgrade-replicas "#multi-az-db-clusters-upgrade-replicas")
+- [Upgrading Multi-AZ DB cluster read replicas](#multi-az-db-clusters-upgrade-replicas "#multi-az-db-clusters-upgrade-replicas")
 - [Monitoring Multi-AZ DB cluster upgrades with events](#multi-az-db-clusters-upgrade-monitoring "#multi-az-db-clusters-upgrade-monitoring")
 
 ## Minor version upgrades
@@ -69,8 +68,7 @@ one second or less. For more information, see [Amazon RDS Proxy](rds-proxy.md "r
 ## Upgrading a Multi-AZ DB cluster
 
 The process for upgrading the engine version of a Multi-AZ DB cluster is the same as the process for
-upgrading a DB instance engine version. For instructions, see [Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md"). The only difference is that when using
+upgrading a DB instance engine version. For instructions, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md"). The only difference is that when using
 the AWS Command Line Interface (AWS CLI), you use the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command and specify the
 `--db-cluster-identifier` parameter (along with the
 `--allow-major-version-upgrade` parameter).
@@ -78,13 +76,10 @@ the AWS Command Line Interface (AWS CLI), you use the [modify-db-cluster](../../
 For more information about major and minor version upgrades, see the following
 documentation for your DB engine:
 
-- [Upgrades of the RDS for PostgreSQL DB
-  engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
+- [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
 - [Upgrades of the RDS for MySQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md")
 
-## Upgrading Multi-AZ DB cluster read
-
-replicas
+## Upgrading Multi-AZ DB cluster read replicas
 
 Amazon RDS doesn't automatically upgrade Multi-AZ DB cluster read replicas. For
 _minor_ version upgrades, you must first manually upgrade all

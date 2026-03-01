@@ -1,95 +1,154 @@
-# Options for MariaDB database engine
+# Parameters for MariaDB
 
-Following, you can find descriptions for options, or additional features, that are available for Amazon RDS
-instances running the MariaDB DB engine. To turn on these options, you add them to a custom
-option group, and then associate the option group with your DB instance. For more
-information about working with option groups, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
+By default, a MariaDB DB instance uses a DB parameter group that is specific to a MariaDB database.
+This parameter group contains some but not all of the parameters contained in the Amazon RDS DB parameter
+groups for the MySQL database engine. It also contains a number of new, MariaDB-specific parameters.
+For information about working with parameter groups and setting parameters, see
+[Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-Amazon RDS supports the following options for MariaDB:
+## Viewing MariaDB parameters
 
-| Option ID              | Engine versions         |
-| ---------------------- | ----------------------- |
-| `MARIADB_AUDIT_PLUGIN` | MariaDB 10.3 and higher |
+RDS for MariaDB parameters are set to the default values of the storage engine that you
+have selected. For more information about MariaDB parameters, see the [MariaDB documentation](http://mariadb.com/kb/en/mariadb/documentation/ "http://mariadb.com/kb/en/mariadb/documentation/").
+For more information about MariaDB storage engines, see [Supported storage engines for MariaDB on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md").
 
-## MariaDB Audit Plugin support
+You can view the parameters available for a specific RDS for MariaDB version using the RDS console
+or the AWS CLI. For information about viewing the parameters in a MariaDB parameter group in the
+RDS console, see [Viewing parameter values for a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-Amazon RDS supports using the MariaDB Audit Plugin on MariaDB database instances. The
-MariaDB Audit Plugin records database activity such as users logging on to the database,
-queries run against the database, and more. The record of database activity is stored in
-a log file.
+Using the AWS CLI, you can view the parameters for an RDS for MariaDB version by running the
+[`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md") command. Specify one of the
+following values for the `--db-parameter-group-family` option:
 
-### Audit Plugin option settings
+- `mariadb11.8`
+- `mariadb11.4`
+- `mariadb10.11`
+- `mariadb10.6`
+- `mariadb10.5`
+- `mariadb10.4`
+- `mariadb10.3`
 
-Amazon RDS supports the following settings for the MariaDB Audit Plugin option.
+For example, to view the parameters for RDS for MariaDB version 10.6, run the following
+command.
 
-###### Note
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mariadb10.6
+```
 
-If you don't configure an option setting in the RDS console, RDS uses the
-default setting.
+Your output looks similar to the following.
 
-| Option setting                  | Valid values                                                                                    | Default value           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SERVER_AUDIT_FILE_PATH`        | `/rdsdbdata/log/audit/`                                                                         | `/rdsdbdata/log/audit/` | The location of the log file. The log file contains the record of the activity specified in `SERVER_AUDIT_EVENTS`.<br>For more information, see<br>[Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md")<br>and<br>[MariaDB database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `SERVER_AUDIT_FILE_ROTATE_SIZE` | 1–1000000000                                                                                    | 1000000                 | The size in bytes that when reached, causes the file to rotate.<br>For more information, see<br>[Log rotation and retention for MariaDB](USER_LogAccess.MariaDB.md "USER_LogAccess.MariaDB.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `SERVER_AUDIT_FILE_ROTATIONS`   | 0–100                                                                                           | 9                       | The number of log rotations to save when<br>`server_audit_output_type=file`. If set to 0,<br>then the log file never rotates. For more information, see [Log rotation and retention for MariaDB](USER_LogAccess.MariaDB.md "USER_LogAccess.MariaDB.md") and<br>[Downloading a database log file](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `SERVER_AUDIT_EVENTS`           | `CONNECT`, `QUERY`, `TABLE`,<br>`QUERY_DDL`, `QUERY_DML`, `QUERY_DML_NO_SELECT`,<br>`QUERY_DCL` | `CONNECT`, `QUERY`      | The types of activity to record in the log. Installing the MariaDB Audit Plugin is itself logged.<br>• `CONNECT`:<br>Log successful and unsuccessful connections to the database,<br>and disconnections from the database.<br>• `QUERY`:<br>Log the text of all queries run against the database.<br>• `TABLE`:<br>Log tables affected by queries when the queries are run against the database.<br>• `QUERY_DDL`:<br>Similar to the `QUERY` event, but returns only data definition language<br>(DDL) queries (`CREATE`, `ALTER`, and so on).<br>• `QUERY_DML`:<br>Similar to the `QUERY` event, but returns only data manipulation language<br>(DML) queries (`INSERT`, `UPDATE`, and so on, and also `SELECT`).<br>• `QUERY_DML_NO_SELECT`:<br>Similar to the `QUERY_DML` event, but doesn't log `SELECT` queries.<br>• `QUERY_DCL`:<br>Similar to the `QUERY` event, but returns only data control language (DCL)<br>queries (`GRANT`, `REVOKE`, and so on). |
-| `SERVER_AUDIT_INCL_USERS`       | Multiple comma-separated values                                                                 | None                    | Include only activity from the specified users. By default, activity is recorded for all users.<br>`SERVER_AUDIT_INCL_USERS` and `SERVER_AUDIT_EXCL_USERS` are mutually exclusive.<br>If you add values to `SERVER_AUDIT_INCL_USERS`, make sure no values are added to<br>`SERVER_AUDIT_EXCL_USERS`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `SERVER_AUDIT_EXCL_USERS`       | Multiple comma-separated values                                                                 | None                    | Exclude activity from the specified users. By default, activity is recorded for all users.<br>`SERVER_AUDIT_INCL_USERS` and `SERVER_AUDIT_EXCL_USERS` are mutually exclusive.<br>If you add values to `SERVER_AUDIT_EXCL_USERS`, make sure no values are added to<br>`SERVER_AUDIT_INCL_USERS`.<br>The `rdsadmin` user queries the database every second to check the health of the database.<br>Depending on your other settings, this activity can possibly cause the size of your log file to grow very large, very quickly.<br>If you don't need to record this activity,<br>add the `rdsadmin` user to the `SERVER_AUDIT_EXCL_USERS` list.<br>Note<br>`CONNECT` activity is always recorded for all users, even if the user is specified for this option setting.                                                                                                                                                                                           |
-| `SERVER_AUDIT_LOGGING`          | `ON`                                                                                            | `ON`                    | Logging is active.<br>The only valid value is `ON`.<br>Amazon RDS does not support deactivating logging. If you want to deactivate logging, remove the MariaDB Audit Plugin.<br>For more information, see [Removing the MariaDB Audit Plugin](#Appendix.MariaDB.Options.AuditPlugin.Remove "#Appendix.MariaDB.Options.AuditPlugin.Remove").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `SERVER_AUDIT_QUERY_LOG_LIMIT`  | 0–2147483647                                                                                    | 1024                    | The limit on the length of the query string in a record.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+```
+{
+    "EngineDefaults": {
+        "Parameters": [
+            {
+                "ParameterName": "alter_algorithm",
+                "Description": "Specify the alter table algorithm.",
+                "Source": "engine-default",
+                "ApplyType": "dynamic",
+                "DataType": "string",
+                "AllowedValues": "DEFAULT,COPY,INPLACE,NOCOPY,INSTANT",
+                "IsModifiable": true
+            },
+            {
+                "ParameterName": "analyze_sample_percentage",
+                "Description": "Percentage of rows from the table ANALYZE TABLE will sample to collect table statistics.",
+                "Source": "engine-default",
+                "ApplyType": "dynamic",
+                "DataType": "float",
+                "AllowedValues": "0-100",
+                "IsModifiable": true
+            },
+            {
+                "ParameterName": "aria_block_size",
+                "Description": "Block size to be used for Aria index pages.",
+                "Source": "engine-default",
+                "ApplyType": "static",
+                "DataType": "integer",
+                "AllowedValues": "1024-32768",
+                "IsModifiable": false
+            },
+            {
+                "ParameterName": "aria_checkpoint_interval",
+                "Description": "Interval in seconds between automatic checkpoints.",
+                "Source": "engine-default",
+                "ApplyType": "dynamic",
+                "DataType": "integer",
+                "AllowedValues": "0-4294967295",
+                "IsModifiable": true
+            },
+        ...
+```
 
-### Adding the MariaDB Audit Plugin
+To list only the modifiable parameters for RDS for MariaDB version 10.6, run the following
+command.
 
-The general process for adding the MariaDB Audit Plugin to a DB instance is the following:
+For Linux, macOS, or Unix:
 
-1. Create a new option group, or copy or modify an existing option group.
-2. Add the option to the option group.
-3. Associate the option group with the DB instance.
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mariadb10.6 \
+   --query 'EngineDefaults.Parameters[?IsModifiable==`true`]'
+```
 
-After you add the MariaDB Audit Plugin, you don't need to restart your DB instance.
-As soon as the option group is active, auditing begins immediately.
+For Windows:
 
-###### To add the MariaDB Audit Plugin
+```
+aws rds describe-engine-default-parameters --db-parameter-group-family mariadb10.6 ^
+   --query "EngineDefaults.Parameters[?IsModifiable==`true`]"
+```
 
-1. Determine the option group you want to use. You can create a new option
-   group or use an existing option group. If you want to use an existing option
-   group, skip to the next step. Otherwise, create a custom DB option group.
-   Choose **mariadb** for **Engine**, and
-   choose **10.3** or higher for **Major engine
-   version**. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
-2. Add the **MARIADB_AUDIT_PLUGIN** option to the option group, and configure the option settings.
-   For more information about adding options,
-   see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
-   For more information about each setting,
-   see [Audit Plugin option settings](#Appendix.MariaDB.Options.AuditPlugin.Options "#Appendix.MariaDB.Options.AuditPlugin.Options").
-3. Apply the option group to a new or existing DB instance.
-   - For a new DB instance, you apply the option group when you launch the instance.
-     For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-   - For an existing DB instance, you apply the option group by modifying the DB instance and attaching the new option group.
-     For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+## MySQL parameters that aren't available
 
-### Viewing and downloading the MariaDB Audit Plugin log
+The following MySQL parameters are not available in MariaDB-specific DB parameter groups:
 
-After you enable the MariaDB Audit Plugin, you access the results in the log files
-the same way you access any other text-based log files. The audit log files are located at `/rdsdbdata/log/audit/`.
-For information about viewing the log file in the console, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
-For information about downloading the log file, see [Downloading a database log file](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
+- bind_address
+- binlog_error_action
+- binlog_gtid_simple_recovery
+- binlog_max_flush_queue_time
+- binlog_order_commits
+- binlog_row_image
+- binlog_rows_query_log_events
+- binlogging_impossible_mode
+- block_encryption_mode
+- core_file
+- default_tmp_storage_engine
+- div_precision_increment
+- end_markers_in_json
+- enforce_gtid_consistency
+- eq_range_index_dive_limit
+- explicit_defaults_for_timestamp
+- gtid_executed
+- gtid-mode
+- gtid_next
+- gtid_owned
+- gtid_purged
+- log_bin_basename
+- log_bin_index
+- log_bin_use_v1_row_events
+- log_slow_admin_statements
+- log_slow_slave_statements
+- log_throttle_queries_not_using_indexes
+- master-info-repository
+- optimizer_trace
+- optimizer_trace_features
+- optimizer_trace_limit
+- optimizer_trace_max_mem_size
+- optimizer_trace_offset
+- relay_log_info_repository
+- rpl_stop_slave_timeout
+- slave_parallel_workers
+- slave_pending_jobs_size_max
+- slave_rows_search_algorithms
+- storage_engine
+- table_open_cache_instances
+- timed_mutexes
+- transaction_allow_batching
+- validate-password
+- validate_password_dictionary_file
+- validate_password_length
+- validate_password_mixed_case_count
+- validate_password_number_count
+- validate_password_policy
+- validate_password_special_char_count
 
-### Modifying MariaDB Audit Plugin settings
-
-After you enable the MariaDB Audit Plugin, you can modify settings for the plugin. For more
-information about how to modify option settings, see [Modifying an option setting](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption"). For more
-information about each setting, see [Audit Plugin option settings](#Appendix.MariaDB.Options.AuditPlugin.Options "#Appendix.MariaDB.Options.AuditPlugin.Options").
-
-### Removing the MariaDB Audit Plugin
-
-Amazon RDS doesn't support turning off logging in the MariaDB Audit Plugin.
-However, you can remove the plugin from a DB instance. When you remove the MariaDB Audit Plugin, the DB instance is restarted automatically to stop auditing.
-
-To remove the MariaDB Audit Plugin from a DB instance, do one of the following:
-
-- Remove the MariaDB Audit Plugin option from the option group it belongs to. This change affects all DB
-  instances that use the option group. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption")
-- Modify the DB instance and specify a different option group that doesn't include the plugin. This change affects a single DB
-  instance. You can specify the default (empty) option group, or a
-  different custom option group. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+For more information on MySQL parameters, see the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/ "https://dev.mysql.com/doc/refman/8.0/en/").

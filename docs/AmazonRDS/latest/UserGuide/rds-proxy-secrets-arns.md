@@ -9,8 +9,7 @@ Alternatively, you can configure RDS Proxy to use end-to-end IAM authentication,
 which eliminates the need to store database credentials in Secrets Manager. RDS Proxy uses IAM authentication
 for both client-to-proxy and proxy-to-database connections. This provides a fully integrated
 IAM-based authentication solution that doesn't require managing secrets or passwords.
-For information about adding a new IAM DB user, see [Creating a database account using
-IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+For information about adding a new IAM DB user, see [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 ###### Topics
 

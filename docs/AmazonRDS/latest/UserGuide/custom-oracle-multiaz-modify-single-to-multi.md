@@ -1,6 +1,4 @@
-# Converting a Single-AZ
-
-deployment to a Multi-AZ deployment in RDS Custom for Oracle
+# Converting a Single-AZ deployment to a Multi-AZ deployment in RDS Custom for Oracle
 
 You can convert an existing multi-AZ compatible RDS Custom for Oracle instance from a Single-AZ
 deployment to a Multi-AZ deployment. When you modify the DB instance, Amazon RDS performs several
@@ -26,17 +24,12 @@ to write latency. While this capability allows large volumes to quickly be resto
 snapshots, it can cause increase in the latency of I/O operations because of the
 synchronous replication. This latency can impact your database performance.
 
-## Configuring prerequisites
+## Configuring prerequisites to modify a Single-AZ to a Multi-AZ deployment using CloudFormation
 
-to modify a Single-AZ to a Multi-AZ deployment using CloudFormation
-
-Follow [Step 3: Extract the CloudFormation
-templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading "custom-setup-orcl.md#custom-setup-orcl.cf.downloading") to setup your VPC and
+Follow [Step 3: Extract the CloudFormation templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading "custom-setup-orcl.md#custom-setup-orcl.cf.downloading") to setup your VPC and
 IAM profile again to add SQS VPC endpoint and SQS permission in IAM profile.
 
-## Configuring
-
-prerequisites to modify a Single-AZ to a Multi-AZ deployment manually
+## Configuring prerequisites to modify a Single-AZ to a Multi-AZ deployment manually
 
 If you choose to configure the prerequisites manually, perform the following
 tasks.
@@ -126,9 +119,7 @@ Update the Amazon RDS security group inbound and outbound rules to allow port 11
   TCP** rule to allow port `1120` to the destination
   group.
 
-## Modify using the RDS
-
-console, AWS CLI, or RDS API
+## Modify using the RDS console, AWS CLI, or RDS API
 
 After you've completed the prerequisites, you can modify an RDS Custom for Oracle DB instance
 from a Single-AZ to Multi-AZ deployment using the Amazon RDS console, AWS CLI, or Amazon RDS
@@ -149,8 +140,7 @@ API.
    immediately** to apply the changes immediately. Choosing this
    option doesn't cause downtime, but there is a possible performance
    impact. Alternatively, you can choose to apply the update during the
-   next maintenance window. For more information, see [Using the schedule modifications
-   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+   next maintenance window. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 6. On the **Confirmation** page, choose
    **Convert to Multi-AZ**.
 
@@ -167,8 +157,7 @@ The following code modifies `mycustomdbinstance` by including
 the `--multi-az` option. The changes are applied during the next
 maintenance window by using `--no-apply-immediately`. Use
 `--apply-immediately` to apply the changes immediately. For more
-information, see [Using the schedule modifications
-setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 
 For Linux, macOS, or Unix:
 

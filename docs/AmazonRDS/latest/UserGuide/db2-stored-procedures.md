@@ -56,16 +56,10 @@ stored procedures.
 
 ###### Topics
 
-- [Considerations for Amazon RDS for Db2
-  stored procedures](db2-stored-procedures-considerations.md "db2-stored-procedures-considerations.md")
-- [Stored procedures for granting and
-  revoking privileges for RDS for Db2](db2-sp-granting-revoking-privileges.md "db2-sp-granting-revoking-privileges.md")
-- [Stored procedures for audit policies for
-  RDS for Db2](db2-sp-managing-audit-policies.md "db2-sp-managing-audit-policies.md")
-- [Stored procedures for buffer pools for
-  RDS for Db2](db2-sp-managing-buffer-pools.md "db2-sp-managing-buffer-pools.md")
-- [Stored procedures for databases for
-  RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md")
+- [Considerations for Amazon RDS for Db2 stored procedures](db2-stored-procedures-considerations.md "db2-stored-procedures-considerations.md")
+- [Stored procedures for granting and revoking privileges for RDS for Db2](db2-sp-granting-revoking-privileges.md "db2-sp-granting-revoking-privileges.md")
+- [Stored procedures for audit policies for RDS for Db2](db2-sp-managing-audit-policies.md "db2-sp-managing-audit-policies.md")
+- [Stored procedures for buffer pools for RDS for Db2](db2-sp-managing-buffer-pools.md "db2-sp-managing-buffer-pools.md")
+- [Stored procedures for databases for RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md")
 - [Stored procedures for storage access for RDS for Db2](db2-sp-managing-storage-access.md "db2-sp-managing-storage-access.md")
-- [Stored procedures for tablespaces for
-  RDS for Db2](db2-sp-managing-tablespaces.md "db2-sp-managing-tablespaces.md")
+- [Stored procedures for tablespaces for RDS for Db2](db2-sp-managing-tablespaces.md "db2-sp-managing-tablespaces.md")

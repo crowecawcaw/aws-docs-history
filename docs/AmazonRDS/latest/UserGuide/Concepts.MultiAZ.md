@@ -1,6 +1,4 @@
-# Converting a DB instance to a Multi-AZ
-
-deployment for Amazon RDS
+# Converting a DB instance to a Multi-AZ deployment for Amazon RDS
 
 Modifying a DB instance to a Multi-AZ deployment improves availability by adding a
 standby instance in another Availability Zone. The process involves minimal downtime and
@@ -32,20 +30,15 @@ There are two ways to modify a DB instance to be a Multi-AZ DB instance deployme
 
 ###### Topics
 
-- [Convert to a Multi-AZ DB instance deployment
-  with the RDS console](#Concepts.MultiAZ.Migrating.Convert "#Concepts.MultiAZ.Migrating.Convert")
-- [Modifying a DB instance to be a Multi-AZ
-  DB instance deployment](#Concepts.MultiAZ.Migrating.Modify "#Concepts.MultiAZ.Migrating.Modify")
+- [Convert to a Multi-AZ DB instance deployment with the RDS console](#Concepts.MultiAZ.Migrating.Convert "#Concepts.MultiAZ.Migrating.Convert")
+- [Modifying a DB instance to be a Multi-AZ DB instance deployment](#Concepts.MultiAZ.Migrating.Modify "#Concepts.MultiAZ.Migrating.Modify")
 
-## Convert to a Multi-AZ DB instance deployment
-
-with the RDS console
+## Convert to a Multi-AZ DB instance deployment with the RDS console
 
 You can use the RDS console to convert a DB instance to a Multi-AZ DB instance deployment.
 
 You can only use the console to complete the conversion. To use the AWS CLI or RDS API, follow the
-instructions in [Modifying a DB instance to be a Multi-AZ
-DB instance deployment](#Concepts.MultiAZ.Migrating.Modify "#Concepts.MultiAZ.Migrating.Modify").
+instructions in [Modifying a DB instance to be a Multi-AZ DB instance deployment](#Concepts.MultiAZ.Migrating.Modify "#Concepts.MultiAZ.Migrating.Modify").
 
 ###### To convert to a Multi-AZ DB instance deployment with the RDS console
 
@@ -57,13 +50,10 @@ DB instance deployment](#Concepts.MultiAZ.Migrating.Modify "#Concepts.MultiAZ.Mi
 4. On the confirmation page, choose **Apply immediately** to apply the changes immediately.
    Choosing this option doesn't cause downtime, but there is a possible performance impact. Alternatively,
    you can choose to apply the update during the next maintenance window. For more
-   information, see [Using the schedule modifications
-   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+   information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 5. Choose **Convert to Multi-AZ**.
 
-## Modifying a DB instance to be a Multi-AZ
-
-DB instance deployment
+## Modifying a DB instance to be a Multi-AZ DB instance deployment
 
 You can modify a DB instance to be a Multi-AZ DB instance deployment in the following
 ways:

@@ -1,6 +1,4 @@
-# Enabling
-
-GTID-based replication for existing read replicas for RDS for MySQL
+# Enabling GTID-based replication for existing read replicas for RDS for MySQL
 
 For an existing MySQL DB instance with read replicas that doesn't use GTID-based replication, you can configure GTID-based
 replication between the DB instance and the read replicas.

@@ -1,6 +1,4 @@
-# Modifying connection properties using sqlnet.ora
-
-parameters
+# Modifying connection properties using sqlnet.ora parameters
 
 The sqlnet.ora file includes parameters that configure Oracle Net features on Oracle database servers and clients.
 Using the parameters in the sqlnet.ora file, you can modify properties for connections in and out of the database.
@@ -45,18 +43,14 @@ default for the release.
 
 You can view sqlnet.ora parameters and their settings using the AWS Management Console, the AWS CLI, or a SQL client.
 
-### Viewing sqlnet.ora parameters using the
-
-console
+### Viewing sqlnet.ora parameters using the console
 
 For information about viewing parameters in a parameter group, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 In Oracle parameter groups, the `sqlnetora.` prefix identifies which parameters are sqlnet.ora
 parameters.
 
-### Viewing sqlnet.ora parameters using the
-
-AWS CLI
+### Viewing sqlnet.ora parameters using the AWS CLI
 
 To view the sqlnet.ora parameters that were configured in an Oracle parameter group, use the AWS CLI [describe-db-parameters](../../../cli/latest/reference/rds/describe-db-parameters.md "../../../cli/latest/reference/rds/describe-db-parameters.md") command.
 
@@ -85,9 +79,7 @@ aws rds download-db-log-file-portion ^
     --output text
 ```
 
-### Viewing sqlnet.ora parameters using a SQL
-
-client
+### Viewing sqlnet.ora parameters using a SQL client
 
 After you connect to the Oracle DB instance in a SQL client, the following query lists the sqlnet.ora
 parameters.

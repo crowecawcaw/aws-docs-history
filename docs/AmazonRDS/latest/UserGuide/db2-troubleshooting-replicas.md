@@ -1,23 +1,18 @@
-# Troubleshooting RDS for Db2 replication
-
-issues
+# Troubleshooting RDS for Db2 replication issues
 
 This topic describes common RDS for Db2 replication issues and provides troubleshooting
 guidance for both read-only and standby replicas. In addition to reviewing the following
 troubleshooting information, make sure that you followed the [requirements and considerations](db2-read-replicas.md "db2-read-replicas.md"), and completed the [preparation steps](db2-read-replicas.md "db2-read-replicas.md") before creating
 Db2 replicas.
 
-## Replica creation
-
-failures
+## Replica creation failures
 
 Replica creation can fail for several reasons:
 
 - **Inactive databases** – All databases on
   the source DB instance must be active before creating replicas.
 
-For information about activating databases, see [Stored procedures for databases for
-RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
+For information about activating databases, see [Stored procedures for databases for RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
 
 - **Missing automatic backups** – The source
   DB instance must have automatic backups enabled.
@@ -28,12 +23,9 @@ For information about enabling backups, see [Enabling automatic backups for RDS 
   parameter groups are required for replicas. For BYOL licensing, the parameter
   group must include the IBM Site ID and IBM Customer ID.
 
-For more information, see [IBM IDs for bring your own
-license (BYOL) for Db2](db2-licensing.md#db2-prereqs-ibm-info "db2-licensing.md#db2-prereqs-ibm-info").
+For more information, see [IBM IDs for bring your own license (BYOL) for Db2](db2-licensing.md#db2-prereqs-ibm-info "db2-licensing.md#db2-prereqs-ibm-info").
 
-## Monitoring Db2 replication
-
-lag
+## Monitoring Db2 replication lag
 
 To monitor replication lag in Amazon CloudWatch, view the Amazon RDS `ReplicaLag` metric.
 For more information about replication lag time, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md") and

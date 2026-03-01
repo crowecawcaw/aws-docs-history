@@ -3,18 +3,14 @@
 With this migration approach, you first save data from a single table into a data file
 that you place in an Amazon S3 bucket. Then, you use the [LOAD command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-load "https://www.ibm.com/docs/en/db2/11.5?topic=commands-load")
 to load the data from that data file into a table in your Amazon RDS for Db2 database. For more
-information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with
-Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 
 ###### Topics
 
-- [Saving your data to
-  Amazon S3](#db2-migration-load-from-s3-saving-data-file "#db2-migration-load-from-s3-saving-data-file")
+- [Saving your data to Amazon S3](#db2-migration-load-from-s3-saving-data-file "#db2-migration-load-from-s3-saving-data-file")
 - [Loading your data into RDS for Db2 tables](#db2-migration-load-from-s3-into-db-table "#db2-migration-load-from-s3-into-db-table")
 
-## Saving your data to
-
-Amazon S3
+## Saving your data to Amazon S3
 
 To save data from a single table to Amazon S3, use a database utility to extract the data
 from your database management system (DBMS) into a CSV file. Then, upload the data file
@@ -28,14 +24,12 @@ For storing data files on Amazon S3, you need the following AWS components:
   bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
 - _An IAM role to access the S3 bucket_: If
   you already have an IAM role, you can use that role. If you don't have a role,
-  see [Step 2: Create an IAM role and attach your
-  IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
+  see [Step 2: Create an IAM role and attach your IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
 - _An IAM policy with trust relationships and
   permissions attached to your IAM role_: For more information,
   see [Step 1: Create an IAM policy](db2-s3-integration.md#db2-creating-iam-policy "db2-s3-integration.md#db2-creating-iam-policy").
 - _The IAM role added to your RDS for Db2 DB
-  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB
-  instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
+  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
 
 ## Loading your data into RDS for Db2 tables
 

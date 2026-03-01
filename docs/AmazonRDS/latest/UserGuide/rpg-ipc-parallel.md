@@ -131,21 +131,14 @@ query execution and resource allocation.
 
 ###### Topics
 
-- [Analyze query plans for inefficient
-  parallelism](#rpg-ipc-parallel-analyze-plans "#rpg-ipc-parallel-analyze-plans")
+- [Analyze query plans for inefficient parallelism](#rpg-ipc-parallel-analyze-plans "#rpg-ipc-parallel-analyze-plans")
 - [Monitor parallel query usage](#rpg-ipc-parallel-monitor "#rpg-ipc-parallel-monitor")
-- [Review and adjust parallel query
-  settings](#rpg-ipc-parallel-adjust-settings "#rpg-ipc-parallel-adjust-settings")
-- [Optimize resource
-  allocation](#rpg-ipc-parallel-optimize-resources "#rpg-ipc-parallel-optimize-resources")
-- [Investigate connection
-  management](#rpg-ipc-parallel-connection-management "#rpg-ipc-parallel-connection-management")
-- [Review and optimize maintenance
-  operations](#rpg-ipc-parallel-maintenance "#rpg-ipc-parallel-maintenance")
+- [Review and adjust parallel query settings](#rpg-ipc-parallel-adjust-settings "#rpg-ipc-parallel-adjust-settings")
+- [Optimize resource allocation](#rpg-ipc-parallel-optimize-resources "#rpg-ipc-parallel-optimize-resources")
+- [Investigate connection management](#rpg-ipc-parallel-connection-management "#rpg-ipc-parallel-connection-management")
+- [Review and optimize maintenance operations](#rpg-ipc-parallel-maintenance "#rpg-ipc-parallel-maintenance")
 
-### Analyze query plans for inefficient
-
-parallelism
+### Analyze query plans for inefficient parallelism
 
 Parallel query execution can often lead to system instability, CPU spikes, and
 unpredictable query performance variance. It's crucial to thoroughly analyze whether
@@ -175,8 +168,7 @@ If disabling parallelism yields better or more consistent results, consider
 disabling it for specific queries at the session level using SET commands. For a
 broader impact, you might want to disable parallelism at the instance level by
 adjusting the relevant parameters in your DB parameter group.
-For more information, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ### Monitor parallel query usage
 
@@ -217,9 +209,7 @@ This query returns the number of distinct leader processes that have launched
 parallel queries. A high number here indicates that multiple sessions are running
 parallel queries concurrently, which can increase demand on CPU and memory.
 
-### Review and adjust parallel query
-
-settings
+### Review and adjust parallel query settings
 
 Review the following parameters to ensure they align with your workload:
 
@@ -238,9 +228,7 @@ SHOW max_parallel_workers_per_gather;
 
 ```
 
-### Optimize resource
-
-allocation
+### Optimize resource allocation
 
 Monitor CPU utilization and consider adjusting the number of vCPUs if consistently
 high and if your application benefits from parallel queries. Ensure adequate memory
@@ -264,17 +252,13 @@ process.
 Consider increasing vCPUs or tuning memory parameters if your workload is heavily
 parallelized.
 
-### Investigate connection
-
-management
+### Investigate connection management
 
 If experiencing connection exhaustion, review application connection pooling
 strategies. Consider implementing connection pooling at the application level if not
 already in use.
 
-### Review and optimize maintenance
-
-operations
+### Review and optimize maintenance operations
 
 Coordinate index creation and other maintenance tasks to prevent resource
 contention. Consider scheduling these operations during off-peak hours. Avoid

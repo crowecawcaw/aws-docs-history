@@ -1,6 +1,4 @@
-# Viewing valid CEV upgrade targets for RDS Custom for Oracle
-
-DB instances
+# Viewing valid CEV upgrade targets for RDS Custom for Oracle DB instances
 
 You can see existing CEVs on the **Custom engine versions** page in the AWS Management Console.
 

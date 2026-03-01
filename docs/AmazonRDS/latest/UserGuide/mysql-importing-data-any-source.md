@@ -1,6 +1,4 @@
-# Importing data from any source to an
-
-Amazon RDS for MySQL DB instance
+# Importing data from any source to an Amazon RDS for MySQL DB instance
 
 With Amazon RDS, you can migrate existing MySQL data from any source to an RDS for MySQL DB
 instance. You can transfer data from on-premises databases, other cloud providers, or
@@ -12,9 +10,7 @@ into a single DB instance, or creating test environments with production data. T
 sections provide step-by-step instructions for importing your MySQL data using methods such
 as `mysqldump`, backup files, or replication.
 
-## Step 1: Create flat
-
-files containing the data to be loaded
+## Step 1: Create flat files containing the data to be loaded
 
 Use a common format, such as comma-separated values (CSV), to store the data to be
 loaded. Each table must have its own file—you can't combine data for multiple
@@ -46,9 +42,7 @@ You can store the flat files anywhere. However, when you load the data in [Step 
 the `mysql` shell from the same location where the files exist, or use the
 absolute path for the files when you run `LOAD DATA LOCAL INFILE`.
 
-## Step 2: Stop any
-
-applications from accessing the target DB instance
+## Step 2: Stop any applications from accessing the target DB instance
 
 Before starting a large load, stop all application activity from accessing the target
 DB instance that you plan to load to. We recommend this particularly if other sessions
@@ -62,9 +56,7 @@ from accessing the DB instance before the load, take steps to ensure the availab
 and integrity of your data. The specific steps required vary greatly depending upon
 specific use cases and site requirements.
 
-## Step 3: Create a DB
-
-snapshot
+## Step 3: Create a DB snapshot
 
 If you plan to load data into a new DB instance that contains no data, you can skip
 this step. Otherwise, we recommend that you create DB snapshots of the target Amazon RDS DB
@@ -158,9 +150,7 @@ aws rds restore-db-instance-from-db-snapshot ^
     --db-snapshot-identifier `preload`
 ```
 
-## Step 4
-
-(Optional): Turn off Amazon RDS automated backups
+## Step 4 (Optional): Turn off Amazon RDS automated backups
 
 ###### Warning
 
@@ -220,9 +210,7 @@ aws rds describe-db-instances --db-instance-identifier `AcmeRDS` --query "*[].{D
 When the DB instance status is `available`, you're ready to proceed to
 the next step.
 
-## Step 5: Load the
-
-data
+## Step 5: Load the data
 
 To read rows from your flat files into the database tables, use the MySQL `LOAD
  DATA LOCAL INFILE` statement.
@@ -245,9 +233,7 @@ Records: 1  Deleted: 0  Skipped: 0  Warnings: 0
 For more information about the `LOAD DATA` statement, see [LOAD DATA
 Statement](https://dev.mysql.com/doc/refman/8.4/en/load-data.html "https://dev.mysql.com/doc/refman/8.4/en/load-data.html") in the MySQL documentation.
 
-## Step 6: Turn
-
-back on Amazon RDS automated backups
+## Step 6: Turn back on Amazon RDS automated backups
 
 If you turned off Amazon RDS automated backups in [Step 4](#mysql-importing-data-any-source-turn-off-automated-backups "#mysql-importing-data-any-source-turn-off-automated-backups"),
 after the load is finished, turn automated backups on by setting the backup retention

@@ -10,15 +10,13 @@ function to the metric to get the metric values. For example, the supported func
 The counter metrics are collected one time each minute. The OS metrics collection depends on whether
 Enhanced Monitoring is turned on or off. If Enhanced Monitoring is turned off, the OS metrics are collected one time each minute. If Enhanced Monitoring is turned on, the OS metrics
 are collected for the selected time period. For more information about turning Enhanced Monitoring on or off, see
-[Turning Enhanced Monitoring on and
-off](USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure "USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure").
+[Turning Enhanced Monitoring on and off](USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure "USER_Monitoring.OS.md#USER_Monitoring.OS.Enabling.Procedure").
 
 ###### Topics
 
 - [Performance Insights operating system counters](#USER_PerfInsights_Counters.OS "#USER_PerfInsights_Counters.OS")
 - [Performance Insights counters for Amazon RDS for MariaDB and MySQL](#USER_PerfInsights_Counters.MySQL "#USER_PerfInsights_Counters.MySQL")
-- [Performance Insights counters for Amazon RDS for Microsoft SQL
-  Server](#USER_PerfInsights_Counters.SQLServer "#USER_PerfInsights_Counters.SQLServer")
+- [Performance Insights counters for Amazon RDS for Microsoft SQL Server](#USER_PerfInsights_Counters.SQLServer "#USER_PerfInsights_Counters.SQLServer")
 - [Performance Insights counters for Amazon RDS for Oracle](#USER_PerfInsights_Counters.Oracle "#USER_PerfInsights_Counters.Oracle")
 - [Performance Insights counters for Amazon RDS for PostgreSQL](#USER_PerfInsights_Counters.PostgreSQL "#USER_PerfInsights_Counters.PostgreSQL")
 
@@ -192,9 +190,7 @@ for ratios, hit rates, or latencies.
 | innodb_lock_timeouts           | Locks        | Locks        | db.Locks.innodb_lock_timeouts        | The total number of locks that timed out.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `SELECT COUNT AS innodb_lock_timeouts FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_timeouts'`        |
 | innodb_row_lock_waits          | Locks        | Locks        | db.Locks.innodb_row_lock_waits       | The total number of row locks that resulted in a wait.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `SELECT COUNT AS innodb_row_lock_waits FROM INFORMATION_SCHEMA.INNODB_METRICS WHERE<br>NAME='lock_row_lock_waits'` |
 
-## Performance Insights counters for Amazon RDS for Microsoft SQL
-
-Server
+## Performance Insights counters for Amazon RDS for Microsoft SQL Server
 
 The following database counters are available with Performance Insights for RDS
 for Microsoft SQL Server.

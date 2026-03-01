@@ -1,6 +1,4 @@
-# Switching a blue/green deployment in
-
-Amazon RDS
+# Switching a blue/green deployment in Amazon RDS
 
 A _switchover_ transitions the green environment
 to be the new production environment. When the green DB instance has read replicas, they are also
@@ -22,10 +20,8 @@ and the blue/green deployment enters a state of **Invalid configuration**.
 - [Switchover guardrails](#blue-green-deployments-switching-guardrails "#blue-green-deployments-switching-guardrails")
 - [Switchover actions](#blue-green-deployments-switching-actions "#blue-green-deployments-switching-actions")
 - [Switchover best practices](#blue-green-deployments-switching-best-practices "#blue-green-deployments-switching-best-practices")
-- [Verifying CloudWatch metrics
-  before switchover](#blue-green-deployments-switching-over-cloudwatch "#blue-green-deployments-switching-over-cloudwatch")
-- [Monitoring replica lag prior to
-  switchover](#blue-green-deployments-monitor-replica-lag "#blue-green-deployments-monitor-replica-lag")
+- [Verifying CloudWatch metrics before switchover](#blue-green-deployments-switching-over-cloudwatch "#blue-green-deployments-switching-over-cloudwatch")
+- [Monitoring replica lag prior to switchover](#blue-green-deployments-monitor-replica-lag "#blue-green-deployments-monitor-replica-lag")
 - [Switching over a blue/green deployment](#blue-green-deployments-switching-over "#blue-green-deployments-switching-over")
 - [After switchover](#blue-green-deployments-switching-after "#blue-green-deployments-switching-after")
 
@@ -54,8 +50,7 @@ Amazon RDS runs the following guardrail checks on the green environment:
   is within allowable limits for switchover. The
   allowable limits are based on the specified timeout period. Replica lag indicates how far
   the green primary DB instance is lagging behind its blue primary
-  DB instance. For more information, see [Monitoring replica lag prior to
-  switchover](#blue-green-deployments-monitor-replica-lag "#blue-green-deployments-monitor-replica-lag").
+  DB instance. For more information, see [Monitoring replica lag prior to switchover](#blue-green-deployments-monitor-replica-lag "#blue-green-deployments-monitor-replica-lag").
 - **Active writes** – Makes sure there are no
   active writes on the green primary DB instance.
 
@@ -79,8 +74,7 @@ Amazon RDS runs the following guardrail checks on the blue environment:
 - **Unsupported PostgreSQL changes** – For RDS for PostgreSQL
   blue/green deployments that use logical replication, makes sure that no DDL
   changes and no additions or modifications of large objects have been performed on the blue
-  environment. For more information, see [Logical replication-specific
-  limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
+  environment. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
 
 If Amazon RDS detects unsupported PostgreSQL changes, it changes the replication state to
 `Replication degraded` and notifies you that switchover is not available for
@@ -142,8 +136,7 @@ completing the following tasks:
 
 - Thoroughly test the resources in the green environment. Make sure they function properly
   and efficiently.
-- Monitor relevant Amazon CloudWatch metrics. For more information, see [Verifying CloudWatch metrics
-  before switchover](#blue-green-deployments-switching-over-cloudwatch "#blue-green-deployments-switching-over-cloudwatch").
+- Monitor relevant Amazon CloudWatch metrics. For more information, see [Verifying CloudWatch metrics before switchover](#blue-green-deployments-switching-over-cloudwatch "#blue-green-deployments-switching-over-cloudwatch").
 - Identify the best time for the switchover.
 
 During the switchover, writes are cut off from databases in both environments.
@@ -166,13 +159,11 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
   Otherwise, applications will continue to send write traffic to the blue environment after 
   switchover.
 - Make sure data loading is complete before switching over. For more information, see
-  [Lazy loading and storage
-  initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").
+  [Lazy loading and storage initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").
 - For RDS for PostgreSQL blue/green deployments that use logical
   replication, do the following:
   - Review the logical replication limitations and take any required actions prior to
-    switchover. For more information, see [Logical replication-specific
-    limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
+    switchover. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
   - Run the `ANALYZE` operation to refresh the `pg_statistics`
     table. This reduces the risk of performance issues after switchover.
 
@@ -181,9 +172,7 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
 During a switchover, you can't modify any DB instances
 included in the switchover.
 
-## Verifying CloudWatch metrics
-
-before switchover
+## Verifying CloudWatch metrics before switchover
 
 Before you switch over a blue/green deployment, we recommend that you check the
 value of the following metric within
@@ -196,27 +185,21 @@ Amazon CloudWatch.
 
 For more information, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
 
-## Monitoring replica lag prior to
-
-switchover
+## Monitoring replica lag prior to switchover
 
 Before you switch over a blue/green deployment, make sure that replica lag is close to
 zero in order to reduce downtime.
 
-### RDS for MySQL and
-
-RDS for MariaDB
+### RDS for MySQL and RDS for MariaDB
 
 For MySQL and MariaDB blue/green deployments,
 check the `ReplicaLag` CloudWatch metric in the green
-environment to identify the current replica lag. For more information, see [Diagnosing and resolving lag
-between read replicas](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicaLag "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicaLag").
+environment to identify the current replica lag. For more information, see [Diagnosing and resolving lag between read replicas](CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicaLag "CHAP_Troubleshooting.md#CHAP_Troubleshooting.MySQL.ReplicaLag").
 
 ### RDS for PostgreSQL
 
 For PostgreSQL blue/green deployments that use physical
-replication, see [Monitoring and tuning
-the replication process](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md") for
+replication, see [Monitoring and tuning the replication process](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md") for
 instructions to identify the current replica lag.
 
 For PostgreSQL blue/green deployments that use logical
@@ -244,8 +227,7 @@ was sent to the replica. The `pg_current_wal_lsn` represents where the database
 is now. An `lsn_distance` of 0 means that the replica is caught up.
 
 For an explanation of when blue/green deployments use physical
-replication versus logical replication, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+replication versus logical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
 ## Switching over a blue/green deployment
 
@@ -266,8 +248,7 @@ the resources in both environments match what you expect. If they don't, choose
 **Cancel**. 5. For **Timeout settings**, enter the time limit for
 switchover. 6. If your instance is running
 RDS for PostgreSQL, review and acknowledge the pre-switchover recommendations.
-For more information, see [Logical replication-specific
-limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres"). 7. Choose **Switch over**.
+For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres"). 7. Choose **Switch over**.
 To switch over a blue/green deployment by using the AWS CLI, use the [switchover-blue-green-deployment](../../../cli/latest/reference/rds/switchover-blue-green-deployment.md "../../../cli/latest/reference/rds/switchover-blue-green-deployment.md") command with the following options:
 
 - `--blue-green-deployment-identifier` – Specify the resource ID
@@ -322,9 +303,7 @@ If you delete the blue/green deployment resource, RDS retains the
 
 ![After switching over a blue/green deployment](images/blue-green-deployment-after-switchover.png)
 
-### Updating the parent node for
-
-consumers
+### Updating the parent node for consumers
 
 RDS offers fully managed read replicas. However, it also provides the option to set up
 self-managed replicas, also known as _external replicas._ External

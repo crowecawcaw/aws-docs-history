@@ -1,6 +1,4 @@
-# Prerequisites for a Multi-AZ
-
-deployment in RDS Custom for Oracle
+# Prerequisites for a Multi-AZ deployment in RDS Custom for Oracle
 
 A Multi-AZ deployment for RDS Custom for Oracle is different from Multi-AZ for RDS for Oracle. Unlike Multi-AZ for
 RDS for Oracle, you must meet the prerequisites for RDS Custom for Oracle before you create your Multi-AZ
@@ -10,17 +8,14 @@ service-provided AMI, which supports the Multi-AZ deployments.
 
 If you don't complete the prerequisites, your Multi-AZ DB instance might fail to run, or
 automatically revert to a Single-AZ DB instance. For more information about prerequisites, see
-Prerequisites for a Multi-AZ
-deployment in RDS Custom for Oracle.
+Prerequisites for a Multi-AZ deployment in RDS Custom for Oracle.
 
 RDS Custom for Oracle requires specific prerequisites when converting from Single-AZ to Multi-AZ
 deployment. Incomplete prerequisites cause Multi-AZ setup to fail. Use either manual
 setup or the latest CloudFormation template file provided in the network setup instructions. For
-more information, see [Step 3: Extract the CloudFormation
-templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading "custom-setup-orcl.md#custom-setup-orcl.cf.downloading").
+more information, see [Step 3: Extract the CloudFormation templates for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.cf.downloading "custom-setup-orcl.md#custom-setup-orcl.cf.downloading").
 
-To complete the prerequisites manually, follow the steps in [Converting a Single-AZ
-deployment to a Multi-AZ deployment in RDS Custom for Oracle](custom-oracle-multiaz-modify-single-to-multi.md "custom-oracle-multiaz-modify-single-to-multi.md") and note the
+To complete the prerequisites manually, follow the steps in [Converting a Single-AZ deployment to a Multi-AZ deployment in RDS Custom for Oracle](custom-oracle-multiaz-modify-single-to-multi.md "custom-oracle-multiaz-modify-single-to-multi.md") and note the
 following:
 
 - Make sure your RDS Custom for Oracle DB instance uses a CEV created after June 30, 2025 with the

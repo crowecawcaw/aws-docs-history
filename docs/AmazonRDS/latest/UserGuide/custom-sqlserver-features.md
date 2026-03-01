@@ -1,66 +1,64 @@
-# Using a Service Master Key with RDS Custom for SQL Server
+# Change data capture (CDC) support with RDS Custom for SQL Server
 
-RDS Custom for SQL Server supports using a Service Master Key (SMK). RDS Custom retains the same SMK throughout the lifespan of your RDS Custom for SQL Server DB instance.
-By retaining the same SMK, your DB instance can use objects that are encrypted with the SMK, such as linked server passwords and credentials.
-If you use a Multi-AZ deployment, RDS Custom also synchronizes and maintains the SMK between primary and secondary DB instances.
+## Overview
 
-###### Topics
+RDS Custom for SQL Server provides native support for Change data capture (CDC), enabling you to track and capture data
+modifications in your SQL Server tables. CDC stores detailed metadata about these changes for subsequent retrieval and analysis.
+For detailed information about CDC functionality, see
+[Change data capture](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture") in the Microsoft documentation.
 
-- [Region and version availability](#custom-sqlserver-features.smk.list "#custom-sqlserver-features.smk.list")
-- [Supported features](#custom-sqlserver-features.smk.supportedfeatures "#custom-sqlserver-features.smk.supportedfeatures")
-- [Using TDE](#custom-sqlserver-features.smk.tde "#custom-sqlserver-features.smk.tde")
-- [Configuring features](#custom-sqlserver-features.smk.configuringfeatures "#custom-sqlserver-features.smk.configuringfeatures")
-- [Requirements and limitations](#custom-sqlserver-features.smk.reqlimits "#custom-sqlserver-features.smk.reqlimits")
+CDC operation in SQL Server requires matching values between the _local server_
+(that has `server_id` = 0) in `sys.servers` and
+`SERVERPROPERTY('ServerName')` identifiers. RDS Custom for SQL Server automatically maintains this
+synchronization throughout the instance's lifecycle to ensuring continuous CDC functioning even if
+hosts are replaced during maintenance or recovery operations.
+
+###### Important
+
+Following a Multi-AZ instance failover, the `SERVERPROPERTY('Servername')` function
+automatically reflects changes in the network/computer name. However, the `@@SERVERNAME` function
+retains the old server name until the `MSSQLSERVER` service is restarted.
+Querying @@SERVERNAME returns the previous server name after a failover.
+To obtain the accurate server name after a failover, use the following SQL query:
+
+```
+SELECT name FROM sys.servers WHERE server_id=0
+```
+
+This query provides the most up-to-date server name information without requiring a service restart.
 
 ## Region and version availability
 
-Using an SMK is supported in all Regions where RDS Custom for SQL Server is available, for all SQL Server versions available on RDS Custom.
-For more information on version and Region availability of Amazon RDS with RDS Custom for SQL Server, see
-[Supported
-Regions and DB engines for RDS Custom for SQL Server](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq").
-
-## Supported features
-
-When using a SMK with RDS Custom for SQL Server, the following features are supported:
-
-- Transparent Data Encryption (TDE)
-- Column-level encryption
-- Database Mail
-- Linked Servers
-- SQL Server Integration Services (SSIS)
-
-## Using TDE
-
-An SMK enables the ability to configure Transparent Data Encryption (TDE), which encrypts data before it is written to storage, and automatically decrypts data when the data is read from storage.
-Unlike RDS for SQL Server, configuring TDE on an RDS Custom for SQL Server DB instance doesn't require using option groups. Instead, once you've created a certificate and database encryption key, you can run the following command
-to turn on TDE at the database level:
-
-```
-ALTER DATABASE [myDatabase] SET ENCRYPTION ON;
-```
-
-For more information on using TDE with RDS for SQL Server, see [Support for Transparent Data Encryption in SQL Server](Appendix.SQLServer.Options.md "Appendix.SQLServer.Options.md").
-
-For detailed information on TDE in Microsoft SQL Server, see
-[Transparent data encryption](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15") in the Microsoft documentation.
-
-## Configuring features
-
-For detailed steps on configuring features that use a SMK with RDS Custom for SQL Server, you can use the following posts in the Amazon RDS database blog:
-
-- Linked servers: [Configuring linked servers on RDS Custom for SQL Server](https://aws.amazon.com/blogs/database/configure-linked-servers-on-amazon-rds-custom-for-sql-server/ "https://aws.amazon.com/blogs/database/configure-linked-servers-on-amazon-rds-custom-for-sql-server/").
-- SSIS: [Migrate SSIS packages to RDS Custom for SQL Server](https://aws.amazon.com/blogs/database/migrate-microsoft-sql-server-ssis-packages-to-amazon-rds-custom-for-sql-server/ "https://aws.amazon.com/blogs/database/migrate-microsoft-sql-server-ssis-packages-to-amazon-rds-custom-for-sql-server/").
-- TDE: [Secure your data using TDE on RDS Custom for SQL Server](https://aws.amazon.com/blogs/database/secure-your-data-at-rest-on-amazon-rds-custom-for-sql-server-using-transparent-data-encryption-tde-or-column-level-encryption-cle/ "https://aws.amazon.com/blogs/database/secure-your-data-at-rest-on-amazon-rds-custom-for-sql-server-using-transparent-data-encryption-tde-or-column-level-encryption-cle/").
+CDC functionality is supported in all AWS Regions where RDS Custom for SQL Server is available, for all SQL Server versions supported by RDS Custom.
+For more information about supported versions and Region availability of RDS Custom for SQL Server,
+see [Supported Regions and DB engines for RDS Custom for SQL Server](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.sq").
 
 ## Requirements and limitations
 
-When using an SMK with an RDS Custom for SQL Server DB instance, keep in mind the following requirements and limitations:
+When implementing CDC on RDS Custom for SQL Server, be aware the following key considerations:
 
-- If you re-generate the SMK on your DB instance, you should immediately perform a manual DB snapshot. We recommend avoiding re-generating the SMK if possible.
-- You must maintain backups of the server certificates and database master key passwords. If you don't maintain backups of these, it may result in data loss.
-- If you configure SSIS, you should use an SSM document to join the RDS Custom for SQL Server DB instance to the domain in case of a scale compute or host replacement.
-- When TDE or column-encryption is enabled, database backups are automatically encrypted. When you perform a snapshot restore or point in time recovery, the SMK from the
-  source DB instance will be restored to decrypt data for the restore, and a new SMK will be generated to re-encrypt data on the restored instance.
+- If you manually set `@@SERVERNAME` and/or _local server_ in `sys.servers`
+  to use features like MS Replication, if the value of the local server (that has `server_id = 0`) in `sys.servers`
+  is set to a format that matches `*.rds.amazonaws.com` or `*.awsrds.*.com`, RDS Custom for SQL Server does not attempt to modify it to match `SERVERPROPERTY('ServerName')`.
+- RDS cannot modify the local server (that has `server_id = 0`) in `sys.servers` to a new
+  hostname while remote logins or linked servers are actively using the old hostname. This limitation applies in two scenarios:
+  - When a linked server establishes a connection to the local server using a remote login associated with the old hostname
+  - When an RDS Custom for SQL Server instance acts as a publisher or distributor and has linked logins associated with the old hostname to its subscriber instances.
 
-For more information on Service Master Keys in Microsoft SQL Server, see
-[SQL Server and Database Encryption Keys](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine?view=sql-server-ver15") in the Microsoft documentation.
+## Troubleshooting
+
+To identify remote logins or linked logins associated with the old server name, use the following queries.
+Validate the results and remove these logins to ensure proper CDC functionality.
+
+```
+SELECT * FROM sys.remote_logins WHERE server_id=0
+```
+
+or
+
+```
+select sss.srvname,ssp.name,srl.remote_name  from sys.server_principals ssp
+inner join sys.remote_logins srl on srl.local_principal_id=ssp.principal_id
+inner join sys.sysservers sss  on srl.server_id = sss.srvid
+where sss.srvname = @@SERVERNAME
+```

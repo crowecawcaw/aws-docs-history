@@ -1,82 +1,65 @@
-# Preparing to update the time
+# Adding the time zone file autoupgrade option
 
-zone file
+When you add the option to an option group, the option group is in one of the
+following states:
 
-A time zone file upgrade has two separate phases: prepare and upgrade. While not required, we strongly
-recommend that you perform the prepare step. In this step, you find out which data will be affected by
-running the PL/SQL procedure `DBMS_DST.FIND_AFFECTED_TABLES`. For more information about the
-prepare window, see [Upgrading the Time Zone File and Timestamp with Time Zone Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/datetime-data-types-and-time-zone-support.html#GUID-B0ACDB2E-4B49-4EB4-B4CC-9260DAE1567A "https://docs.oracle.com/en/database/oracle/oracle-database/19/nlspg/datetime-data-types-and-time-zone-support.html#GUID-B0ACDB2E-4B49-4EB4-B4CC-9260DAE1567A") in the Oracle Database
-documentation.
+- An existing option group is currently attached to at least one DB instance. When you
+  add the option, all DB instances that use this option group automatically restart.
+  This causes a brief outage.
+- An existing option group is not attached to any DB instance. You plan to add the
+  option and then associate the existing option group with existing DB instances or with
+  a new DB instance.
+- You create a new option group and add the option. You plan to associate the
+  new option group with existing DB instances or with a new DB instance.
 
-###### To prepare to update the time zone file
+## Console
 
-1. Connect to your Oracle database using a SQL client.
-2. Determine the current timezone file version used.
+###### To add the time zone file autoupgrade option to a DB instance
 
-```
-SELECT * FROM V$TIMEZONE_FILE;
-```
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Option groups**.
+3. Determine the option group you want to use. You can create a new option
+   group or use an existing option group. If you want to use an existing option
+   group, skip to the next step. Otherwise, create a custom DB option group
+   with the following settings:
+   1. For **Engine** choose the Oracle Database edition
+      for your DB instance.
+   2. For **Major engine version** choose the version
+      of your DB instance.For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 
-3. Determine the latest timezone file version available on your DB instance.
+4. Choose the option group that you want to modify, and then choose
+   **Add option**.
+5. In the **Add option** window, do the following:
+   1. Choose **TIMEZONE_FILE_AUTOUPGRADE**.
+   2. To enable the option on all associated DB instances as soon as
+      you add it, for **Apply Immediately**, choose
+      **Yes**. If you choose **No**
+      (the default), the option is enabled for each associated DB instance
+      during its next maintenance window.
 
-```
-SELECT DBMS_DST.GET_LATEST_TIMEZONE_VERSION FROM DUAL;
-```
+6. When the settings are as you want them, choose **Add
+   option**.
 
-4. Determine the total size of tables that have columns of type `TIMESTAMP WITH LOCAL TIME
-ZONE` or `TIMESTAMP WITH TIME ZONE`.
+## AWS CLI
 
-```
-SELECT SUM(BYTES)/1024/1024/1024 "Total_size_w_TSTZ_columns_GB"
-FROM   DBA_SEGMENTS
-WHERE  SEGMENT_TYPE LIKE 'TABLE%'
-AND    (OWNER, SEGMENT_NAME) IN
-         (SELECT OWNER, TABLE_NAME
-          FROM   DBA_TAB_COLUMNS
-          WHERE  DATA_TYPE LIKE 'TIMESTAMP%TIME ZONE');
-```
+The following example uses the AWS CLI [add-option-to-option-group](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md") command to add the `TIMEZONE_FILE_AUTOUPGRADE` option
+to an option group called `myoptiongroup`.
 
-5. Determine the names and sizes of segments that have columns of type `TIMESTAMP WITH LOCAL TIME
-ZONE` or `TIMESTAMP WITH TIME ZONE`.
-
-```
-SELECT OWNER, SEGMENT_NAME, SUM(BYTES)/1024/1024/1024 "SEGMENT_SIZE_W_TSTZ_COLUMNS_GB"
-FROM   DBA_SEGMENTS
-WHERE  SEGMENT_TYPE LIKE 'TABLE%'
-AND    (OWNER, SEGMENT_NAME) IN
-         (SELECT OWNER, TABLE_NAME
-          FROM   DBA_TAB_COLUMNS
-          WHERE  DATA_TYPE LIKE 'TIMESTAMP%TIME ZONE')
-GROUP BY OWNER, SEGMENT_NAME;
-```
-
-6.  Run the prepare step.
-
-        * The procedure `DBMS_DST.CREATE_AFFECTED_TABLE` creates a table to store any
-         affected data. You pass the name of this table to the
-         `DBMS_DST.FIND_AFFECTED_TABLES` procedure. For more information, see [CREATE\_AFFECTED\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-C53BAABA-914A-404C-9CD5-823257BE0B00") in the Oracle Database documentation.
-        * This procedure `CREATE_ERROR_TABLE` creates a table to
-         log errors. For more information, see [CREATE\_ERROR\_TABLE Procedure](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_DST.html#GUID-6A7EA024-B02D-4486-B1D6-EF6ABF5DE507") in the Oracle Database
-         documentation.
-
-    The following example creates the affected data and error tables, and finds all affected
-    tables.
+For Linux, macOS, or Unix:
 
 ```
-EXEC DBMS_DST.CREATE_ERROR_TABLE('`my_error_table`')
-EXEC DBMS_DST.CREATE_AFFECTED_TABLE('`my_affected_table`')
-
-EXEC DBMS_DST.BEGIN_PREPARE(`new_version`);
-EXEC DBMS_DST.FIND_AFFECTED_TABLES('`my_affected_table`', TRUE, '`my_error_table`');
-EXEC DBMS_DST.END_PREPARE;
-
-SELECT * FROM `my_affected_table`;
-SELECT * FROM `my_error_table`;
+aws rds add-option-to-option-group \
+    --option-group-name "`myoptiongroup`" \
+    --options "`OptionName=TIMEZONE_FILE_AUTOUPGRADE`" \
+    --apply-immediately
 ```
 
-7. Query the affected and error tables.
+For Windows:
 
 ```
-SELECT * FROM `my_affected_table`;
-SELECT * FROM `my_error_table`;
+aws rds add-option-to-option-group ^
+    --option-group-name "`myoptiongroup`" ^
+    --options "`OptionName=TIMEZONE_FILE_AUTOUPGRADE`" ^
+    --apply-immediately
 ```

@@ -1,6 +1,4 @@
-# Differences between read replicas for
-
-DB engines
+# Differences between read replicas for DB engines
 
 Because Amazon RDS DB engines implement replication differently, there are several significant
 differences that you should know about.
@@ -35,9 +33,7 @@ Replicas for RDS for Db2 have the following features and behaviors:
 - **Standby state** – The primary use for
   standby replicas is cross-Region disaster recovery. For information, see [Working with replicas for Amazon RDS for Db2](db2-replication.md "db2-replication.md").
 
-## MariaDB and
-
-MySQL
+## MariaDB and MySQL
 
 Read replicas for RDS for MariaDB and RDS for MySQL have the following features and
 behaviors:
@@ -73,8 +69,7 @@ replicas. If so, Amazon RDS for Oracle keeps the transaction logs on the source 
 until they have been transmitted and applied to all cross-Region read
 replicas.
 
-For information about setting archive log retention hours, see [Retaining archived
-redo logs](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md").
+For information about setting archive log retention hours, see [Retaining archived redo logs](Appendix.Oracle.CommonDBATasks.md "Appendix.Oracle.CommonDBATasks.md").
 
 - **Writable replicas** – An Oracle read
   replica is a physical copy, and Oracle doesn't allow for writes in a read

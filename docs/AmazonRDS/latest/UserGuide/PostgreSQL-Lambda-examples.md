@@ -1,8 +1,7 @@
 # Examples: Invoking Lambda functions from your RDS for PostgreSQL DB instance
 
 Following, you can find several examples of calling the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function. Most of the examples
-use the composite structure `aws_lambda_arn_1` that you create in [Step 4: Use Lambda helper functions with your
-RDS for PostgreSQL DB instance (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function "PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function") to simplify passing the function details.
+use the composite structure `aws_lambda_arn_1` that you create in [Step 4: Use Lambda helper functions with your RDS for PostgreSQL DB instance (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function "PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function") to simplify passing the function details.
 For an example of asynchronous invocation, see [Example: Asynchronous (Event) invocation of Lambda functions](#PostgreSQL-Lambda-Event "#PostgreSQL-Lambda-Event"). All the other examples listed use synchronous invocation.
 
 To learn more about Lambda invocation types, see [Invoking Lambda functions](../../../lambda/latest/dg/lambda-invocation.md "../../../lambda/latest/dg/lambda-invocation.md")
@@ -16,8 +15,7 @@ see [aws_commons.create_lambda_function_arn](PostgreSQL-Lambda-functions.md#aws_
 - [Example: Asynchronous (Event) invocation of Lambda functions](#PostgreSQL-Lambda-Event "#PostgreSQL-Lambda-Event")
 - [Example: Capturing the Lambda execution log in a function response](#PostgreSQL-Lambda-log-response "#PostgreSQL-Lambda-log-response")
 - [Example: Including client context in a Lambda function](#PostgreSQL-Lambda-client-context "#PostgreSQL-Lambda-client-context")
-- [Example: Invoking a specific
-  version of a Lambda function](#PostgreSQL-Lambda-function-version "#PostgreSQL-Lambda-function-version")
+- [Example: Invoking a specific version of a Lambda function](#PostgreSQL-Lambda-function-version "#PostgreSQL-Lambda-function-version")
 
 ## Example: Synchronous (RequestResponse) invocation of Lambda functions
 
@@ -35,8 +33,7 @@ SELECT * FROM aws_lambda.invoke('aws_lambda_arn_1', '{"body": "Hello from Postgr
 The parameters are described as follows:
 
 - `:'aws_lambda_arn_1'` – This parameter identifies the composite structure
-  created in [Step 4: Use Lambda helper functions with your
-  RDS for PostgreSQL DB instance (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function "PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function"), with the `aws_commons.create_lambda_function_arn` helper
+  created in [Step 4: Use Lambda helper functions with your RDS for PostgreSQL DB instance (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function "PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function"), with the `aws_commons.create_lambda_function_arn` helper
   function. You can also create this structure
   inline within your `aws_lambda.invoke` call as follows.
 
@@ -99,9 +96,7 @@ To include client context, use a JSON object for the [aws_lambda.invoke](Postgre
 
 For more information about the `context` parameter, see the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") reference.
 
-## Example: Invoking a specific
-
-version of a Lambda function
+## Example: Invoking a specific version of a Lambda function
 
 You can specify a particular version of a Lambda function by including the `qualifier`
 parameter with the `aws_lambda.invoke` call. Following, you can find an

@@ -1,89 +1,74 @@
-# Dead connection
+# Using a custom DNS server for outbound network access
 
-handling in PostgreSQL
-
-Dead connections occur when a database session remains active on the server despite the
-client application having abandoned or terminated abnormally. This situation typically arises
-when client processes crash or terminate unexpectedly without properly closing their database
-connections or canceling ongoing requests.
-
-PostgreSQL efficiently identifies and cleans up dead connections when server processes are
-idle or attempt to send data to clients. However, detection is challenging for sessions that are
-idle, waiting for client input, or actively running queries. To handle these scenarios,
-PostgreSQL provides `tcp_keepalives_*`, `tcp_user_timeout`, and
-`client_connection_check_interval` parameters.
+RDS for PostgreSQL supports outbound network access on your DB instances and allows Domain
+Name Service (DNS) resolution from a custom DNS server owned by the customer. You can
+resolve only fully qualified domain names from your RDS for PostgreSQL DB instance through
+your custom DNS server.
 
 ###### Topics
 
-- [Understanding TCP keepalive](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Understanding")
-- [Key TCP
-  keepalive parameters in RDS for PostgreSQL](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.Parameters")
-- [Use cases
-  for TCP keepalive settings](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.UseCases")
-- [Best
-  practices](#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices "#Appendix.PostgreSQL.CommonDBATasks.DeadConnectionHandling.BestPractices")
+- [Turning on custom DNS resolution](#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Enable "#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Enable")
+- [Turning off custom DNS resolution](#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Disable "#Appendix.PostgreSQL.CommonDBATasks.CustomDNS.Disable")
+- [Setting up a custom DNS server](#Appendix.Oracle.CommonDBATasks.CustomDNS.Setup "#Appendix.Oracle.CommonDBATasks.CustomDNS.Setup")
 
-## Understanding TCP keepalive
+## Turning on custom DNS resolution
 
-TCP Keepalive is a protocol-level mechanism that helps maintain and verify connection
-integrity. Each TCP connection maintains kernel-level settings that govern keepalive behavior.
-When the keepalive timer expires, the system does the following:
+To turn on DNS resolution in your customer VPC, first associate a custom DB
+parameter group to your RDS for PostgreSQL instance. Then turn on the `rds.custom_dns_resolution` parameter by setting it to 1, and then restart
+the DB instance for the changes to take place.
 
-- Sends a probe packet with no data and the ACK flag set.
-- Expects a response from the remote endpoint according to TCP/IP specifications.
-- Manages connection state based on the response or lack thereof.
+## Turning off custom DNS resolution
 
-## Key TCP
+To turn off DNS resolution in your customer VPC, first turn off the `rds.custom_dns_resolution` parameter of your custom DB
+parameter group by setting it to 0. Then restart the DB instance for the changes to
+take place.
 
-keepalive parameters in RDS for PostgreSQL
+## Setting up a custom DNS server
 
-| Parameter                          | Description                                                                                                                                                     | Default values |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `tcp_keepalives_idle`              | Specifies number of seconds of inactivity before sending keepalive message.                                                                                     | 300            |
-| `tcp_keepalives_interval`          | Specifies number of seconds between retransmissions of unacknowledged keepalive<br>messages.                                                                    | 30             |
-| `tcp_keepalives_count`             | Maximum lost keepalive messages before declaring connection dead                                                                                                | 2              |
-| `tcp_user_timeout`                 | Specifies how long (in Milliseconds) unacknowledged data can remain before forcibly<br>closing the connection.                                                  | 0              |
-| `client_connection_check_interval` | Sets the interval (in Milliseconds) for checking client connection status during<br>long-running queries. This ensures quicker detection of closed connections. | 0              |
+After you set up your custom DNS name server, it takes up to 30 minutes to
+propagate the changes to your DB instance. After the changes are propagated to your
+DB instance, all outbound network traffic requiring a DNS lookup queries your DNS
+server over port 53.
 
-## Use cases
+###### Note
 
-for TCP keepalive settings
+If you don't set up a custom DNS server and `rds.custom_dns_resolution` is set to 1, hosts are resolved using an
+Amazon Route 53 private zone. For more information, see [Working with
+private hosted zones](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md").
 
-### Keeping idle sessions alive
+###### To set up a custom DNS server for your RDS for PostgreSQL DB instance
 
-To prevent idle connections from being terminated by firewalls or routers due to
-inactivity:
+1. From the Dynamic Host Configuration Protocol (DHCP) options set attached
+   to your VPC, set the `domain-name-servers` option to the IP
+   address of your DNS name server. For more information, see [DHCP options sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md").
 
-- Configure `tcp_keepalives_idle` to send keepalive packets at regular
-  intervals.
+###### Note
 
-### Detecting dead connections
+The `domain-name-servers` option accepts up to four values,
+but your Amazon RDS DB instance uses only the first value. 2. Ensure that your DNS server can resolve all lookup queries, including
+public DNS names, Amazon EC2 private DNS names, and customer-specific DNS names.
+If the outbound network traffic contains any DNS lookups that your DNS
+server can't handle, your DNS server must have appropriate upstream DNS
+providers configured. 3. Configure your DNS server to produce User Datagram Protocol (UDP)
+responses of 512 bytes or less. 4. Configure your DNS server to produce Transmission Control Protocol (TCP)
+responses of 1,024 bytes or less. 5. Configure your DNS server to allow inbound traffic from your Amazon RDS DB
+instances over port 53. If your DNS server is in an Amazon VPC, the VPC must have
+a security group that contains inbound rules that allow UDP and TCP traffic
+on port 53. If your DNS server is not in an Amazon VPC, it must have appropriate
+firewall settings to allow UDP and TCP inbound traffic on port 53.
 
-To detect dead connections promptly:
+For more information, see [Security groups for your
+VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") and [Adding and
+removing rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules"). 6. Configure the VPC of your Amazon RDS DB instance to allow outbound traffic over
+port 53. Your VPC must have a security group that contains outbound rules
+that allow UDP and TCP traffic on port 53.
 
-- Adjust `tcp_keepalives_idle`, `tcp_keepalives_interval`, and
-  `tcp_keepalives_count`. For example, with Aurora PostgreSQL defaults, it
-  takes about a minute (2 probes × 30 seconds) to detect a dead connection. Lowering these
-  values can speed up detection.
-- Use `tcp_user_timeout` to specify the maximum wait time for an
-  acknowledgment.
+For more information, see [Security groups for your
+VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") and [Adding and
+removing rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRules") in the _Amazon VPC User Guide_. 7. Make sure that the routing path between the Amazon RDS DB instance and the DNS
+server is configured correctly to allow DNS traffic.
 
-TCP keepalive settings help the kernel detect dead connections, but PostgreSQL may not
-act until the socket is used. If a session is running a long query, dead connections might
-only be detected after query completion. In PostgreSQL 14 and higher versions,
-`client_connection_check_interval` can expedite dead connection detection by
-periodically polling the socket during query execution.
-
-## Best
-
-practices
-
-- **Set reasonable keepalive intervals:** Tune
-  `tcp_user_timeout`, `tcp_keepalives_idle`,
-  `tcp_keepalives_count` and `tcp_keepalives_interval` to balance
-  detection speed and resource use.
-- **Optimize for your environment:** Align settings with
-  network behavior, firewall policies, and session needs.
-- **Leverage PostgreSQL features:** Use
-  `client_connection_check_interval` in PostgreSQL 14 and higher versions for efficient
-  connection checks.
+Also, if the Amazon RDS DB instance and the DNS server are not in the same VPC,
+make sure that a peering connection is set up between them. For more
+information, see [What is VPC
+peering?](../../../vpc/latest/peering/Welcome.md "../../../vpc/latest/peering/Welcome.md") in _Amazon VPC Peering Guide_.

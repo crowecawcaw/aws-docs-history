@@ -32,8 +32,7 @@ The value of the configuration parameter.
 The `mysql.rds_set_configuration` procedure supports the following configuration parameters:
 
 - [binlog retention hours](#mysql_rds_set_configuration-usage-notes.binlog-retention-hours "#mysql_rds_set_configuration-usage-notes.binlog-retention-hours")
-- [source
-  delay](#mysql_rds_set_configuration-usage-notes.source-delay "#mysql_rds_set_configuration-usage-notes.source-delay")
+- [source delay](#mysql_rds_set_configuration-usage-notes.source-delay "#mysql_rds_set_configuration-usage-notes.source-delay")
 - [target delay](#mysql_rds_set_configuration-usage-notes.target-delay "#mysql_rds_set_configuration-usage-notes.target-delay")
 
 The configuration parameters are stored permanently and survive any DB instance reboot or failover.
@@ -69,9 +68,7 @@ However, the newest logs remain in local storage, so they're subject to be lost
 if there's a failure that requires a host replacement, or if you scale the
 database up or down.
 
-#### source
-
-delay
+#### source delay
 
 Use the `source delay` parameter in a read replica to specify the
 number of seconds to delay replication from the read replica to its source DB
@@ -113,8 +110,7 @@ the [mysql.rds_start_replication_until_gtid](mysql-stored-proc-gtid.md#mysql_rds
 stored procedure. To roll forward changes to a delayed read replica to the time just before a disaster, you can run the
 `mysql.rds_set_configuration` procedure with this parameter set. After the
 `mysql.rds_start_replication_until` or `mysql.rds_start_replication_until_gtid` procedure
-stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+stops replication, you can promote the read replica to be the new primary DB instance by using the instructions in [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 
 To use the `mysql.rds_rds_start_replication_until_gtid` procedure, GTID-based replication must be enabled.
 To skip a specific GTID-based transaction that is known to cause disaster, you can use the [mysql.rds_skip_transaction_with_gtid](mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid "mysql-stored-proc-gtid.md#mysql_rds_skip_transaction_with_gtid") stored

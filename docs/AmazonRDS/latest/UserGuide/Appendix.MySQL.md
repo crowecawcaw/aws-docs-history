@@ -10,8 +10,7 @@ documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.h
 
 You can view the parameters available for a specific RDS for MySQL version using the RDS console
 or the AWS CLI. For information about viewing the parameters in a MySQL parameter group in the
-RDS console, see [Viewing parameter values for a
-DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+RDS console, see [Viewing parameter values for a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 Using the AWS CLI, you can view the parameters for an RDS for MySQL version by running the
 [`describe-engine-default-parameters`](../../../cli/latest/reference/rds/describe-engine-default-parameters.md "../../../cli/latest/reference/rds/describe-engine-default-parameters.md") command. Specify one of the following

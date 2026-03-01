@@ -8,8 +8,7 @@ during the migration to a Multi-AZ DB cluster.
 Consider the following before you create a Multi-AZ DB cluster read replica:
 
 - The source DB instance must be on a version that supports Multi-AZ DB clusters. For more information, see
-  [Supported
-  Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+  [Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 - The Multi-AZ DB cluster read replica must be on the same major version as its source,
   and the same or higher minor version.
 - You must turn on automatic backups on the source DB instance by setting the backup
@@ -18,8 +17,7 @@ Consider the following before you create a Multi-AZ DB cluster read replica:
 - For RDS for MySQL, both the `gtid-mode` and `enforce_gtid_consistency`
   parameters must be set to `ON` for the source DB instance. You must
   use a custom parameter group, not the default parameter group. For more
-  information, see [DB parameter groups for
-  Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+  information, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 - An active, long-running transaction can slow the process of creating the read replica. We
   recommend that you wait for long-running transactions to complete before creating a read replica.
 - If you delete the source DB instance for a Multi-AZ DB cluster read replica, the read replica is promoted to

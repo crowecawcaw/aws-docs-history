@@ -20,9 +20,7 @@ because RDS for MySQL 8.0 hadn't reached RDS end of standard support yet. Amazon
 charge you for RDS Extended Support for this database until August 1, 2026, which is when RDS
 standard support ends for RDS for MySQL 8.0.
 
-###### To view the enrollment of your DB instances or
-
-Multi-AZ DB clusters in RDS Extended Support
+###### To view the enrollment of your DB instances or Multi-AZ DB clusters in RDS Extended Support
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").

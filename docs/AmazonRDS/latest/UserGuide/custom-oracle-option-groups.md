@@ -1,6 +1,4 @@
-# Working with option groups in
-
-RDS Custom for Oracle
+# Working with option groups in RDS Custom for Oracle
 
 RDS Custom uses option groups to enable and configure additional features. An
 _option group_ specifies features, called options, that are available
@@ -11,31 +9,22 @@ Amazon RDS, see [Working with option groups](USER_WorkingWithOptionGroups.md "US
 
 ###### Topics
 
-- [Overview of option groups in
-  RDS Custom for Oracle](#custom-oracle-option-groups.overview "#custom-oracle-option-groups.overview")
+- [Overview of option groups in RDS Custom for Oracle](#custom-oracle-option-groups.overview "#custom-oracle-option-groups.overview")
 - [Oracle time zone](custom-managing.md "custom-managing.md")
 
-## Overview of option groups in
-
-RDS Custom for Oracle
+## Overview of option groups in RDS Custom for Oracle
 
 To enable options for your Oracle database, add them to an option group, and then
 associate the option group with your DB instance. For more information, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md").
 
 ###### Topics
 
-- [Summary of RDS Custom for Oracle
-  options](#custom-oracle-option-groups.summary "#custom-oracle-option-groups.summary")
-- [Basic steps for adding an
-  option to an RDS Custom for Oracle DB instance](#custom-oracle-timezone.overview.steps "#custom-oracle-timezone.overview.steps")
-- [Creating an option group for in
-  RDS Custom for Oracle](#custom-oracle-timezone.creating "#custom-oracle-timezone.creating")
-- [Associating an option group
-  with an RDS Custom for Oracle DB instance](#custom-oracle-timezone.associating "#custom-oracle-timezone.associating")
+- [Summary of RDS Custom for Oracle options](#custom-oracle-option-groups.summary "#custom-oracle-option-groups.summary")
+- [Basic steps for adding an option to an RDS Custom for Oracle DB instance](#custom-oracle-timezone.overview.steps "#custom-oracle-timezone.overview.steps")
+- [Creating an option group for in RDS Custom for Oracle](#custom-oracle-timezone.creating "#custom-oracle-timezone.creating")
+- [Associating an option group with an RDS Custom for Oracle DB instance](#custom-oracle-timezone.associating "#custom-oracle-timezone.associating")
 
-### Summary of RDS Custom for Oracle
-
-options
+### Summary of RDS Custom for Oracle options
 
 RDS Custom for Oracle supports the following options for a DB instance.
 
@@ -43,9 +32,7 @@ RDS Custom for Oracle supports the following options for a DB instance.
 | ---------------- | ---------- | ------------------------------------------------------------- |
 | Oracle time zone | `Timezone` | The time zone used by your RDS Custom for Oracle DB instance. |
 
-### Basic steps for adding an
-
-option to an RDS Custom for Oracle DB instance
+### Basic steps for adding an option to an RDS Custom for Oracle DB instance
 
 The general procedure for adding an option to your RDS Custom for Oracle DB instance is the
 following:
@@ -56,9 +43,7 @@ following:
 3. Associate the option group with your DB instance when you create or modify
    it.
 
-### Creating an option group for in
-
-RDS Custom for Oracle
+### Creating an option group for in RDS Custom for Oracle
 
 You can create a new option group that derives its settings from the default
 option group. You then add one or more options to the new option group. Or, if you
@@ -102,8 +87,7 @@ One way of creating an option group is by using the AWS Management Console.
 
    4. For **Major engine version**, choose a
       major engine version supported by RDS Custom for Oracle. For more
-      information, see [Supported
-      Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
+      information, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
 
 5. To continue, choose **Create**. To cancel the
    operation instead, choose **Cancel**.
@@ -144,9 +128,7 @@ aws rds create-option-group ^
 
 To create an option group, call the Amazon RDS API [`CreateOptionGroup`](../APIReference/API_CreateOptionGroup.md "../APIReference/API_CreateOptionGroup.md") operation.
 
-### Associating an option group
-
-with an RDS Custom for Oracle DB instance
+### Associating an option group with an RDS Custom for Oracle DB instance
 
 You can associate your option group with a new or existing DB instance:
 

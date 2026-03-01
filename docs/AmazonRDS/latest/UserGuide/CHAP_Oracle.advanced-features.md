@@ -9,8 +9,7 @@ Use an instance store for the temporary tablespaces and the Database Smart Flash
 - [Turning on an RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.Enable "#CHAP_Oracle.advanced-features.instance-store.Enable")
 - [Configuring an RDS for Oracle instance store](CHAP_Oracle.advanced-features.instance-store.md "CHAP_Oracle.advanced-features.instance-store.md")
 - [Working with an instance store on an Oracle read replica](CHAP_Oracle.advanced-features.instance-store.md "CHAP_Oracle.advanced-features.instance-store.md")
-- [Configuring a temporary tablespace group on an instance store and
-  Amazon EBS](CHAP_Oracle.advanced-features.instance-store.md "CHAP_Oracle.advanced-features.instance-store.md")
+- [Configuring a temporary tablespace group on an instance store and Amazon EBS](CHAP_Oracle.advanced-features.instance-store.md "CHAP_Oracle.advanced-features.instance-store.md")
 - [Removing an RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.Disable "#CHAP_Oracle.advanced-features.instance-store.Disable")
 
 ## Overview of the RDS for Oracle instance store
@@ -28,12 +27,9 @@ Compute Cloud User Guide for Linux Instances_.
 
 - [Types of data in the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.uses "#CHAP_Oracle.advanced-features.instance-store.overview.uses")
 - [Benefits of the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.benefits "#CHAP_Oracle.advanced-features.instance-store.overview.benefits")
-- [Supported instance classes for the RDS for Oracle
-  instance store](#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes "#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes")
-- [Supported engine versions for the RDS for Oracle
-  instance store](#CHAP_Oracle.advanced-features.instance-store.overview.db-versions "#CHAP_Oracle.advanced-features.instance-store.overview.db-versions")
-- [Supported AWS Regions for the RDS for Oracle instance
-  store](#CHAP_Oracle.advanced-features.instance-store.overview.regions "#CHAP_Oracle.advanced-features.instance-store.overview.regions")
+- [Supported instance classes for the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes "#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes")
+- [Supported engine versions for the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.db-versions "#CHAP_Oracle.advanced-features.instance-store.overview.db-versions")
+- [Supported AWS Regions for the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.regions "#CHAP_Oracle.advanced-features.instance-store.overview.regions")
 - [Cost of the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.cost "#CHAP_Oracle.advanced-features.instance-store.overview.cost")
 
 ### Types of data in the RDS for Oracle instance store
@@ -80,9 +76,7 @@ database writes blocks to the flash cache as they age out of the database buffer
 In some cases, the flash cache causes performance overhead because of cache management. Before you turn on the flash cache in a
 production environment, we recommend that you analyze your workload and test the cache in a test environment.
 
-### Supported instance classes for the RDS for Oracle
-
-instance store
+### Supported instance classes for the RDS for Oracle instance store
 
 Amazon RDS supports the instance store for the following DB instance classes:
 
@@ -94,9 +88,7 @@ Amazon RDS supports the instance store for the following DB instance classes:
 - db.x2iedn
 
 RDS for Oracle supports the preceding DB instance classes for the BYOL licensing model only.
-For more information, see [Supported RDS for Oracle DB instance
-classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported") and [Bring Your Own License (BYOL) for EE
-and SE2](Oracle.Concepts.md#Oracle.Concepts.Licensing.BYOL "Oracle.Concepts.md#Oracle.Concepts.Licensing.BYOL").
+For more information, see [Supported RDS for Oracle DB instance classes](Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported "Oracle.Concepts.md#Oracle.Concepts.InstanceClasses.Supported") and [Bring Your Own License (BYOL) for EE and SE2](Oracle.Concepts.md#Oracle.Concepts.Licensing.BYOL "Oracle.Concepts.md#Oracle.Concepts.Licensing.BYOL").
 
 To see the total instance storage for the supported DB instance types, run the following
 command in the AWS CLI.
@@ -114,18 +106,14 @@ The preceding command returns the raw device size for the instance store. RDS fo
 configuration. The space in the instance store that is available for temporary tablespaces or the flash cache is slightly
 smaller.
 
-### Supported engine versions for the RDS for Oracle
-
-instance store
+### Supported engine versions for the RDS for Oracle instance store
 
 The instance store is supported for the following RDS for Oracle engine versions:
 
 - 21.0.0.0.ru-2022-01.rur-2022-01.r1 or higher Oracle Database 21c versions
 - 19.0.0.0.ru-2021-10.rur-2021-10.r1 or higher Oracle Database 19c versions
 
-### Supported AWS Regions for the RDS for Oracle instance
-
-store
+### Supported AWS Regions for the RDS for Oracle instance store
 
 The instance store is available in all AWS Regions where one or more of these instance types are supported. For more information
 on the db.m5d and db.r5d instance classes, see [DB instance classes](Concepts.md "Concepts.md").
@@ -134,8 +122,7 @@ For more information on the instance classes supported by Amazon RDS for Oracle,
 ### Cost of the RDS for Oracle instance store
 
 The cost of the instance store is built into the cost of the instance-store turned on instances. You don't incur additional costs by
-enabling an instance store on an RDS for Oracle DB instance. For more information about instance-store turned on instances, see [Supported instance classes for the RDS for Oracle
-instance store](#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes "#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes").
+enabling an instance store on an RDS for Oracle DB instance. For more information about instance-store turned on instances, see [Supported instance classes for the RDS for Oracle instance store](#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes "#CHAP_Oracle.advanced-features.instance-store.overview.instance-classes").
 
 ## Turning on an RDS for Oracle instance store
 

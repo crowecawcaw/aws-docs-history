@@ -1,72 +1,40 @@
-# Disabling and deleting SSRS databases
+# Monitoring the status of a task
 
-Use the following procedures to disable SSRS and delete SSRS databases:
+To track the status of your granting or revoking task, call the
+`rds_fn_task_status` function. It takes two parameters. The first
+parameter should always be `NULL` because it doesn't apply to SSRS. The
+second parameter accepts a task ID.
 
-###### Topics
-
-- [Turning off SSRS](#SSRS.Disable "#SSRS.Disable")
-- [Deleting the SSRS databases](#SSRS.Drop "#SSRS.Drop")
-
-## Turning off SSRS
-
-To turn off SSRS, remove the `SSRS` option from its option group. Removing the option doesn't delete the SSRS
-databases. For more information, see [Deleting the SSRS databases](#SSRS.Drop "#SSRS.Drop").
-
-You can turn SSRS on again by adding back the `SSRS` option. If you have also
-deleted the SSRS databases, readding the option on the same DB instance creates new
-report server databases.
-
-###### To remove the SSRS option from its option group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Option groups**.
-3. Choose the option group with the `SSRS` option (`ssrs-se-2017` in
-   the previous examples).
-4. Choose **Delete option**.
-5. Under **Deletion options**, choose **SSRS** for
-   **Options to delete**.
-6. Under **Apply immediately**, choose **Yes** to delete
-   the option immediately, or **No** to delete it at
-   the next maintenance window.
-7. Choose **Delete**.
-
-###### To remove the SSRS option from its option group
-
-- Run one of the following commands.
-
-###### Example
-
-For Linux, macOS, or Unix:
+To see a list of all tasks, set the first parameter to `NULL` and the second
+parameter to `0`, as shown in the following example.
 
 ```
-aws rds remove-option-from-option-group \
-    --option-group-name `ssrs-se-2017` \
-    --options SSRS \
-    --apply-immediately
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`0`);
 ```
 
-For Windows:
+To get a specific task, set the first parameter to `NULL` and the second
+parameter to the task ID, as shown in the following example.
 
 ```
-aws rds remove-option-from-option-group ^
-    --option-group-name `ssrs-se-2017` ^
-    --options SSRS ^
-    --apply-immediately
+SELECT * FROM msdb.dbo.rds_fn_task_status(NULL,`42`);
 ```
 
-## Deleting the SSRS databases
+The `rds_fn_task_status` function returns the following information.
 
-Removing the `SSRS` option doesn't delete the report server databases. To
-delete them, use the following stored procedure.
-
-To delete the report server databases, be sure to remove the `SSRS` option
-first.
-
-###### To delete the SSRS databases
-
-- Use the following stored procedure.
-
-```
-exec msdb.dbo.rds_drop_ssrs_databases
-```
+| Output parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `task_id`                  | The ID of the task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `task_type`                | For SSRS, tasks can have the following task types:<br>• `SSRS_GRANT_PORTAL_PERMISSION`<br>• `SSRS_REVOKE_PORTAL_PERMISSION`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `database_name`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `% complete`               | The progress of the task as a percentage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `duration (mins)`          | The amount of time spent on the task, in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `lifecycle`                | The status of the task. Possible statuses are the following:<br>• `CREATED` – After you call one of the SSRS stored procedures, a task is<br>created and the status is set to<br>`CREATED`.<br>• `IN_PROGRESS` – After a task starts, the status is set to<br>`IN_PROGRESS`. It can take up to five<br>minutes for the status to change from<br>`CREATED` to<br>`IN_PROGRESS`.<br>• `SUCCESS` – After a task completes, the status is set<br>to `SUCCESS`.<br>• `ERROR` – If a task fails, the status is set to<br>`ERROR`. For more information about the error, see the<br>`task_info` column.<br>• `CANCEL_REQUESTED` – After you call the<br>`rds_cancel_task` stored procedure, the<br>status of the task is set to<br>`CANCEL_REQUESTED`.<br>• `CANCELLED` – After a task is successfully canceled,<br>the status of the task is set to `CANCELLED`. |
+| `task_info`                | Additional information about the task. If an error occurs during processing, this column<br>contains information about the error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `last_updated`             | The date and time that the task status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `created_at`               | The date and time that the task was created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `S3_object_arn`            | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `overwrite_S3_backup_file` | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `KMS_master_key_arn`       | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `filepath`                 | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `overwrite_file`           | Not applicable to SSRS tasks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `task_metadata`            | Metadata associated with the SSRS task.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |

@@ -65,9 +65,7 @@ For more information on modifying the storage capacity of your DB instance, see
 The storage capacity of your DB instance is now increased. This enables it to effectively handle larger
 data volumes and ensures continued performance and stability as your application's data needs grow.
 
-## Create read replicas to enhance the resilience
-
-and availability of a DB instance
+## Create read replicas to enhance the resilience and availability of a DB instance
 
 Create a read replica of the MySQL DB instance. Read replicas enhance the resilience and availability of your DB instance.
 To reduce the read traffic on your primary DB instance, create a read replica of your DB instance. This routes queries to the read replica,
@@ -91,9 +89,7 @@ see [Working with MySQL read replicas](USER_MySQL.Replication.md "USER_MySQL.Rep
 The read replica appears underneath your source DB instance on the **Databases** page in the RDS console.
 It shows **Replica** in the Role column.
 
-## Update tags to categorize a DB instance
-
-as a production environment
+## Update tags to categorize a DB instance as a production environment
 
 When your DB instance is ready to move from the development phase to production, it is important to update
 its tags to reflect its transition. To align your DB instance with your operational and monitoring
@@ -113,9 +109,7 @@ environment. This ensures better visibility and management of the database.
 
 The tag on your DB instance is updated to signify the database’s transition to a production environment.
 
-### Delete a DB instance when it is no longer needed to avoid
-
-incurring additional costs
+### Delete a DB instance when it is no longer needed to avoid incurring additional costs
 
 Before the end of this tutorial, it is crucial to address the management of your resources. If you have any resources that are no longer required,
 you should proceed to delete them to prevent incurring additional costs and optimize your cloud environment.
@@ -129,12 +123,9 @@ you should proceed to delete them to prevent incurring additional costs and opti
 Alternatively, if you choose to maintain your DB instance for future use, you can continue to manage
 it as part of your production environment. This involves maintaining a synchronized development environment
 to facilitate comprehensive testing and validation. For more information, see
-[Next steps: Synchronize your development
-instance with production for consistency across environments](#tutorial-managing-MySQL-DB.next-steps-synch-env "#tutorial-managing-MySQL-DB.next-steps-synch-env").
+[Next steps: Synchronize your development instance with production for consistency across environments](#tutorial-managing-MySQL-DB.next-steps-synch-env "#tutorial-managing-MySQL-DB.next-steps-synch-env").
 
-### Next steps: Synchronize your development
-
-instance with production for consistency across environments
+### Next steps: Synchronize your development instance with production for consistency across environments
 
 #### Create a development environment
 
@@ -152,8 +143,7 @@ specifying them during a restore. For instructions on restoring a DB snapshot, s
 
 Finally, designate the new DB instance as your new development environment by updating its Amazon RDS tags.
 For guidance on updating Amazon RDS tags to reflect this change, see the previous section
-[Update tags to categorize a DB instance
-as a production environment](#tutorial-managing-MySQL-DB.update-tags "#tutorial-managing-MySQL-DB.update-tags").
+[Update tags to categorize a DB instance as a production environment](#tutorial-managing-MySQL-DB.update-tags "#tutorial-managing-MySQL-DB.update-tags").
 
 You now have a new development environment that mirrors the database configuration of your
 production environment.

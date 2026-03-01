@@ -1,6 +1,4 @@
-# RDS version
-
-numbers in RDS for PostgreSQL
+# RDS version numbers in RDS for PostgreSQL
 
 RDS version numbers use the
 ``major`.`minor`.`patch``

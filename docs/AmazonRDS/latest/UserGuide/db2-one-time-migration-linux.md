@@ -2,8 +2,7 @@
 
 With this migration approach, you back up your self-managed Db2 database to an Amazon S3
 bucket. Then, you use Amazon RDS stored procedures to restore your Db2 database to an
-Amazon RDS for Db2 DB instance. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with
-Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+Amazon RDS for Db2 DB instance. For more information about using Amazon S3, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 
 Backup and restore for RDS for Db2 follows the IBM Db2 supported upgrade paths and
 restrictions. For more information, see [Supported upgrade paths for Db2 servers](https://www.ibm.com/docs/en/db2/11.5?topic=servers-supported-upgrade-paths-db2 "https://www.ibm.com/docs/en/db2/11.5?topic=servers-supported-upgrade-paths-db2") and [Upgrade
@@ -11,16 +10,12 @@ restrictions for Db2 servers](https://www.ibm.com/docs/en/db2/11.5?topic=servers
 
 ###### Topics
 
-- [Limitations and recommendations for
-  using native restore](#db2-linux-migration-limitations "#db2-linux-migration-limitations")
+- [Limitations and recommendations for using native restore](#db2-linux-migration-limitations "#db2-linux-migration-limitations")
 - [Backing up your database to Amazon S3](#db2-linux-backing-up-database "#db2-linux-backing-up-database")
-- [Creating a default automatic
-  storage group](#db2-linux-creating-auto-storage-group "#db2-linux-creating-auto-storage-group")
+- [Creating a default automatic storage group](#db2-linux-creating-auto-storage-group "#db2-linux-creating-auto-storage-group")
 - [Restoring your Db2 database](#db2-linux-restoring-db2-database "#db2-linux-restoring-db2-database")
 
-## Limitations and recommendations for
-
-using native restore
+## Limitations and recommendations for using native restore
 
 The following limitations and recommendations apply to using native restore:
 
@@ -76,18 +71,14 @@ bucket. For more information, see the [AWS Snow Family documentation](../../../s
 
 - _An IAM role to access the S3 bucket_: If
   you already have an IAM role, you can use that role. If you don't have a role,
-  see [Step 2: Create an IAM role and attach your
-  IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
+  see [Step 2: Create an IAM role and attach your IAM policy](db2-s3-integration.md#db2-creating-iam-role "db2-s3-integration.md#db2-creating-iam-role").
 - _An IAM policy with trust relationships and
   permissions attached to your IAM role_: For more information,
   see [Step 1: Create an IAM policy](db2-s3-integration.md#db2-creating-iam-policy "db2-s3-integration.md#db2-creating-iam-policy").
 - _The IAM role added to your RDS for Db2 DB
-  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB
-  instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
+  instance_: For more information, see [Step 3: Add your IAM role to your RDS for Db2 DB instance](db2-s3-integration.md#db2-adding-iam-role "db2-s3-integration.md#db2-adding-iam-role").
 
-## Creating a default automatic
-
-storage group
+## Creating a default automatic storage group
 
 Your source database must have a default automatic storage group. If your database
 doesn't have a default automatic storage group, you must create one.
@@ -139,9 +130,7 @@ db2 backup database `source_database` to `file_system_path`
 After you back up your database on Amazon S3 and create an automatic storage group, you are
 ready to restore your Db2 database to your RDS for Db2 DB instance.
 
-###### To restore your Db2 database from your Amazon S3 bucket to your RDS for Db2 DB
-
-instance
+###### To restore your Db2 database from your Amazon S3 bucket to your RDS for Db2 DB instance
 
 1.  Connect to your RDS for Db2 DB instance. For more information, see [Connecting to your Db2 DB instance](USER_ConnectToDb2DBInstance.md "USER_ConnectToDb2DBInstance.md").
 2.  (Optional) To ensure that your database is configured with the optimal

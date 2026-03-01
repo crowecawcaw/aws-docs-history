@@ -28,30 +28,21 @@ Deployments](../AuroraUserGuide/blue-green-deployments-overview.md "../AuroraUse
 
 Under certain conditions, RDS for PostgreSQL uses logical replication instead of physical
 replication to keep the green environment in sync with the blue environment. For more
-information, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+information, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
 ###### Topics
 
-- [Region
-  and version availability](#blue-green-deployments-region-version-availability "#blue-green-deployments-region-version-availability")
+- [Region and version availability](#blue-green-deployments-region-version-availability "#blue-green-deployments-region-version-availability")
 - [Benefits of using Amazon RDS Blue/Green Deployments](#blue-green-deployments-benefits "#blue-green-deployments-benefits")
 - [Workflow of a blue/green deployment](#blue-green-deployments-major-steps "#blue-green-deployments-major-steps")
-- [Authorizing access to Amazon RDS
-  blue/green deployment operations](blue-green-deployments-authorizing-access.md "blue-green-deployments-authorizing-access.md")
-- [Limitations and considerations for
-  Amazon RDS
-  blue/green deployments](blue-green-deployments-considerations.md "blue-green-deployments-considerations.md")
-- [Best practices for Amazon RDS
-  blue/green deployments](blue-green-deployments-best-practices.md "blue-green-deployments-best-practices.md")
+- [Authorizing access to Amazon RDS blue/green deployment operations](blue-green-deployments-authorizing-access.md "blue-green-deployments-authorizing-access.md")
+- [Limitations and considerations for Amazon RDS blue/green deployments](blue-green-deployments-considerations.md "blue-green-deployments-considerations.md")
+- [Best practices for Amazon RDS blue/green deployments](blue-green-deployments-best-practices.md "blue-green-deployments-best-practices.md")
 
-## Region
-
-and version availability
+## Region and version availability
 
 Feature availability and support varies across specific versions of each database engine,
-and across AWS Regions. For more information, see [Supported
-Regions and DB engines for Amazon RDS Blue/Green Deployments](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+and across AWS Regions. For more information, see [Supported Regions and DB engines for Amazon RDS Blue/Green Deployments](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
 ## Benefits of using Amazon RDS Blue/Green Deployments
 
@@ -113,8 +104,7 @@ For RDS for PostgreSQL deployments that use logical replication, set the
 `default_transaction_read_only` parameter to `off` at the session
 level. For those that use physical replication, you can't enable write operations on the
 green environment. 5. When ready, switch over to transition the staging environment to be the new
-production environment. For instructions, see [Switching a blue/green deployment in
-Amazon RDS](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
+production environment. For instructions, see [Switching a blue/green deployment in Amazon RDS](blue-green-deployments-switching.md "blue-green-deployments-switching.md").
 
 The switchover results in downtime. The downtime is usually under one minute, but it can be longer depending
 on your workload.

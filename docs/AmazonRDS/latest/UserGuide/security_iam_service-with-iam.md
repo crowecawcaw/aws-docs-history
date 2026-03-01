@@ -25,24 +25,16 @@ _IAM User Guide_.
 ###### Topics
 
 - [Amazon RDS identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Resource-based
-  policies within Amazon RDS](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Resource-based policies within Amazon RDS](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Policy actions for Amazon RDS](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
-- [Policy
-  resources for Amazon RDS](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
+- [Policy resources for Amazon RDS](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
 - [Policy condition keys for Amazon RDS](#UsingWithRDS.IAM.Conditions "#UsingWithRDS.IAM.Conditions")
-- [Access control lists (ACLs) in
-  Amazon RDS](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
-- [Attribute-based access control
-  (ABAC) in policies with Amazon RDS tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Using temporary
-  credentials with Amazon RDS](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
-- [Forward access sessions
-  for Amazon RDS](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
-- [Service roles for
-  Amazon RDS](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
-- [Service-linked
-  roles for Amazon RDS](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
+- [Access control lists (ACLs) in Amazon RDS](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
+- [Attribute-based access control (ABAC) in policies with Amazon RDS tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Using temporary credentials with Amazon RDS](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
+- [Forward access sessions for Amazon RDS](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
+- [Service roles for Amazon RDS](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
+- [Service-linked roles for Amazon RDS](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
 
 ## Amazon RDS identity-based policies
 
@@ -59,17 +51,12 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for Amazon RDS
+### Identity-based policy examples for Amazon RDS
 
 To view examples of Amazon RDS identity-based policies,
-see [Identity-based policy
-examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+see [Identity-based policy examples for Amazon RDS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Amazon RDS
+## Resource-based policies within Amazon RDS
 
 **Supports resource-based policies:** No.
 
@@ -121,9 +108,7 @@ action.
 To see a list of Amazon RDS actions, see [Actions Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Policy
-
-resources for Amazon RDS
+## Policy resources for Amazon RDS
 
 **Supports policy resources:** Yes.
 
@@ -202,18 +187,14 @@ To see a list of Amazon RDS condition keys, see [Condition Keys for Amazon RDS](
 in the _Service Authorization Reference_. To learn with which actions and
 resources you can use a condition key, see [Actions Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
 
-## Access control lists (ACLs) in
-
-Amazon RDS
+## Access control lists (ACLs) in Amazon RDS
 
 **Supports access control lists (ACLs):** No
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) in policies with Amazon RDS tags
+## Attribute-based access control (ABAC) in policies with Amazon RDS tags
 
 **Supports attribute-based access control (ABAC) tags in policies:** Yes
 
@@ -232,12 +213,9 @@ For more information about tagging
 Amazon RDS resources, see
 [Specifying conditions: Using custom tags](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Grant permission for actions on a resource with a specific tag with two
-different values](security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags "security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags").
+the tags on that resource, see [Grant permission for actions on a resource with a specific tag with two different values](security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags "security_iam_id-based-policy-examples-create-and-modify-examples.md#security_iam_id-based-policy-examples-grant-permissions-tags").
 
-## Using temporary
-
-credentials with Amazon RDS
+## Using temporary credentials with Amazon RDS
 
 **Supports temporary credentials:** Yes.
 
@@ -247,18 +225,14 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access sessions
-
-for Amazon RDS
+## Forward access sessions for Amazon RDS
 
 **Supports forward access sessions:** Yes.
 
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon RDS
+## Service roles for Amazon RDS
 
 **Supports service roles:** Yes.
 
@@ -273,9 +247,7 @@ Amazon RDS functionality.
 Edit service roles only when Amazon RDS
 provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon RDS
+## Service-linked roles for Amazon RDS
 
 **Supports service-linked roles:** Yes.
 
@@ -284,5 +256,4 @@ Service-linked roles appear in your AWS account and are owned by the service. An
 but not edit the permissions for service-linked roles.
 
 For details about using Amazon RDS service-linked roles,
-see [Using service-linked roles for
-Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").
+see [Using service-linked roles for Amazon RDS](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md").

@@ -15,8 +15,7 @@ logs.
 - [Reading log file contents using REST](DownloadCompleteDBLogFile.md "DownloadCompleteDBLogFile.md")
 - [Amazon RDS for Db2 database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
 - [MariaDB database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
-- [Amazon RDS for Microsoft SQL Server database log
-  files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
+- [Amazon RDS for Microsoft SQL Server database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
 - [MySQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
 - [Amazon RDS for Oracle database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")
 - [RDS for PostgreSQL database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md")

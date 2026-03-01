@@ -1,6 +1,4 @@
-# Amazon RDS and customer
-
-responsibilities with Amazon RDS Extended Support
+# Amazon RDS and customer responsibilities with Amazon RDS Extended Support
 
 The following content describes the responsibilities of Amazon RDS and your
 responsibilities with RDS Extended Support.
@@ -8,8 +6,7 @@ responsibilities with RDS Extended Support.
 ###### Topics
 
 - [Amazon RDS responsibilities](#extended-support-rds-responsibilities "#extended-support-rds-responsibilities")
-- [Your
-  responsibilities](#extended-support-customer-responsibilities "#extended-support-customer-responsibilities")
+- [Your responsibilities](#extended-support-customer-responsibilities "#extended-support-customer-responsibilities")
 
 ## Amazon RDS responsibilities
 
@@ -21,9 +18,7 @@ first.
 The patches will be for Critical and High CVEs as defined by the National
 Vulnerability Database (NVD) CVSS severity ratings. For more information, see [Vulnerability Metrics](https://nvd.nist.gov/vuln-metrics/cvss# "https://nvd.nist.gov/vuln-metrics/cvss#").
 
-## Your
-
-responsibilities
+## Your responsibilities
 
 You're responsible for applying the patches, bug fixes, and upgrades given for
 DB instances or Multi-AZ DB clusters enrolled in RDS Extended Support.

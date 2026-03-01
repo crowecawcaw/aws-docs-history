@@ -6,8 +6,7 @@ MySQL or MariaDB instance that is external to Amazon RDS using binary log file r
 ###### Topics
 
 - [Before you begin](#MySQL.Procedural.Importing.External.Repl.BeforeYouBegin "#MySQL.Procedural.Importing.External.Repl.BeforeYouBegin")
-- [Configuring binary log file position replication
-  with an external source instance](#MySQL.Procedural.Importing.External.Repl.Procedure "#MySQL.Procedural.Importing.External.Repl.Procedure")
+- [Configuring binary log file position replication with an external source instance](#MySQL.Procedural.Importing.External.Repl.Procedure "#MySQL.Procedural.Importing.External.Repl.Procedure")
 
 ## Before you begin
 
@@ -15,8 +14,7 @@ You can configure replication using the binary log file position of replicated t
 
 The permissions required to start replication on an Amazon RDS DB instance are
 restricted and not available to your Amazon RDS master user. Because of this, make sure that
-you use the Amazon RDS [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and
-lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source"), and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication")
+you use the Amazon RDS [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source"), and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication")
 commands to set up replication between your live database and your Amazon RDS
 database.
 
@@ -36,9 +34,7 @@ For information about the implications of different MySQL replication types, see
 [Advantages
 and disadvantages of statement-based and row-based replication](https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html "https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html") in the MySQL documentation.
 
-## Configuring binary log file position replication
-
-with an external source instance
+## Configuring binary log file position replication with an external source instance
 
 Follow these guidelines when you set up an external source instance and a replica on Amazon RDS:
 
@@ -77,8 +73,7 @@ File                        Position
 
 3. Copy the database from the external instance to the Amazon RDS DB instance using
    `mysqldump`. For very large databases, you might want to use the
-   procedure in [Importing data to an Amazon RDS for MySQL
-   database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md").
+   procedure in [Importing data to an Amazon RDS for MySQL database with reduced downtime](mysql-importing-data-reduced-downtime.md "mysql-importing-data-reduced-downtime.md").
 
 For Linux, macOS, or Unix:
 
@@ -173,8 +168,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '`repl_user'@'mydomain.com
 
 8. Make the Amazon RDS DB instance the replica. To do so, first connect to the Amazon RDS
    DB instance as the master user. Then identify the external MySQL or MariaDB
-   database as the source instance by using the [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") or [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and
-   lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") command. Use the master log
+   database as the source instance by using the [mysql.rds_set_external_source (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") or [mysql.rds_set_external_master (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") command. Use the master log
    file name and master log position that you determined in step 2. The following
    commands are examples.
 
@@ -193,9 +187,7 @@ CALL mysql.rds_set_external_master ('`mymasterserver.mydomain.com`', 3306, '`rep
 ###### Note
 
 On RDS for MySQL, you can choose to use delayed replication by running the
-[mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and
-higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay") or [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions
-8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay") stored
+[mysql.rds_set_external_source_with_delay (RDS for MySQL major versions 8.4 and higher)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_source_with_delay") or [mysql.rds_set_external_master_with_delay (RDS for MariaDB and RDS for MySQL major versions 8.0 and lower)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay "mysql-stored-proc-replicating.md#mysql_rds_set_external_master_with_delay") stored
 procedure instead. On RDS for MySQL, one reason to use delayed replication is
 to turn on disaster recovery with the [mysql.rds_start_replication_until](mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "mysql-stored-proc-replicating.md#mysql_rds_start_replication_until") stored procedure.
 Currently, RDS for MariaDB supports delayed replication but doesn't support the

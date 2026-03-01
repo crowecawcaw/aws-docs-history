@@ -1,6 +1,4 @@
-# Creating a new DB
-
-instance in the Database Preview environment
+# Creating a new DB instance in the Database Preview environment
 
 Use the following procedure to create a DB instance in the preview
 environment.

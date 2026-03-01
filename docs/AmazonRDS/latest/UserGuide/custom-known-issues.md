@@ -45,9 +45,7 @@ EFFECT [Allow] on ACTION(S) [ssm:DescribeAssociation, ssm:DescribeDocument, ssm:
 
 To resolve this issue, create a ticket with Support.
 
-## Known issues with database user
-
-accounts
+## Known issues with database user accounts
 
 Note the following issues:
 
@@ -59,8 +57,7 @@ Note the following issues:
 - You can't change the master username for your RDS Custom for Oracle DB instance using the
   `ModifyDBInstance` API.
 - RDS Custom for Oracle rotates user account credentials on all DB instances. For more
-  information, see [Rotating RDS Custom for Oracle credentials for compliance
-  programs](custom-security.md "custom-security.md"). If you use an on-premises
+  information, see [Rotating RDS Custom for Oracle credentials for compliance programs](custom-security.md "custom-security.md"). If you use an on-premises
   primary/standby configuration, credential rotation might affect the following
   resources:
   - Manually created standby RDS Custom for Oracle instances
@@ -74,9 +71,7 @@ Note the following issues:
   To resolve this issue, manually keep the secrets so that they match
   the primary DB instance.
 
-## Known issues with parameter and
-
-configuration files
+## Known issues with parameter and configuration files
 
 - You must configure the `crontab` file after scale compute, OS
   upgrades, and other operations where RDS Custom replaces the root volume. We highly

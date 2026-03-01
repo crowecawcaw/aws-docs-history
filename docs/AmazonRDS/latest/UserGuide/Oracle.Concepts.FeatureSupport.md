@@ -1,15 +1,11 @@
-# RDS for Oracle initialization
-
-parameters
+# RDS for Oracle initialization parameters
 
 In Amazon RDS, you manage parameters using a DB parameter group. Using this group, you can
 customize initialization parameters. For example, you can configure the sort area size with
 `sort_area_size`. All RDS for Oracle DB instances associated with a specific DB parameter
 group use the same parameter settings. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-## Supported
-
-initialization parameters in RDS for Oracle
+## Supported initialization parameters in RDS for Oracle
 
 Supported parameters for your DB instance depend on your Oracle Database edition and
 version. To view the supported initialization parameters for a specific Oracle Database
@@ -86,9 +82,7 @@ throughput. Alternatively, if you use RDS Custom for Oracle or deploy an Oracle 
 you can adjust the setting of the `ARCHIVE_LAG_TARGET` initialization
 parameter.
 
-## Valid parameter values in
-
-RDS for Oracle
+## Valid parameter values in RDS for Oracle
 
 In RDS for Oracle, only the following characters are valid for parameter values:
 

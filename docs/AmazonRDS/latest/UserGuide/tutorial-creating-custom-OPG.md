@@ -1,4 +1,4 @@
-# Tutorial: Creating a MySQL DB instance with a custom parameter and new option group
+# Tutorial: Creating a MySQL DB instance with a custom parameterand new option group
 
 In this tutorial, you create a MySQL DB instance
 with a custom
@@ -45,12 +45,10 @@ By completing these steps, you learn:
 
 - [Prerequisites](#tutorial-creating-custom-OPG.Prerequisites "#tutorial-creating-custom-OPG.Prerequisites")
 - [Create an Amazon RDS parameter group](#tutorial-creating-custom-OPG.create-parameter-group "#tutorial-creating-custom-OPG.create-parameter-group")
-- [Modify parameter values
-  in your custom parameter group](#tutorial-creating-custom-OPG.add-parameters "#tutorial-creating-custom-OPG.add-parameters")
+- [Modify parameter values in your custom parameter group](#tutorial-creating-custom-OPG.add-parameters "#tutorial-creating-custom-OPG.add-parameters")
 - [Create a new Amazon RDS option group](#tutorial-creating-custom-OPG.create-option-group "#tutorial-creating-custom-OPG.create-option-group")
 - [Add a option to your new option group](#tutorial-creating-custom-OPG.add-options "#tutorial-creating-custom-OPG.add-options")
-- [Create MySQL DB instance
-  with a custom parameter and a new option group](#tutorial-creating-custom-OPG.create-OPG "#tutorial-creating-custom-OPG.create-OPG")
+- [Create MySQL DB instance with a custom parameter and a new option group](#tutorial-creating-custom-OPG.create-OPG "#tutorial-creating-custom-OPG.create-OPG")
 
 ## Prerequisites
 
@@ -95,9 +93,7 @@ The new parameter group appears on the
 **Parameter groups** page in the Amazon RDS console. The following steps illustrate how to modify parameter values
 to customize your parameter group.
 
-## Modify parameter values
-
-in your custom parameter group
+## Modify parameter values in your custom parameter group
 
 Use the following steps to modify the parameter values
 in the parameter group that you created in
@@ -175,9 +171,7 @@ Use the following steps to add a option to the new option group that you created
 
 The new option group should now be available for all associated DB instances. Next, create a MySQL DB instance with the custom parameter and new option group.
 
-## Create MySQL DB instance
-
-with a custom parameter and a new option group
+## Create MySQL DB instance with a custom parameter and a new option group
 
 Finally, create a MySQL DB instance with the
 custom parameter

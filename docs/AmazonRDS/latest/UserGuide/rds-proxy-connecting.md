@@ -63,10 +63,9 @@ When you use IAM authentication with RDS Proxy, you have two options for authent
 To connect to RDS Proxy using IAM authentication, use the same general connection
 procedure as for IAM authentication with an
 RDS DB instance.
-For general information about using IAM, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md").
+For general information about using IAM, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") .
 If you are using end-to-end IAM authentication, provide the IAM authentication plugin to your DB user.
-See [Creating a database account using
-IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+See [Creating a database account using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 
 The major differences in IAM usage for RDS Proxy include the following:
 

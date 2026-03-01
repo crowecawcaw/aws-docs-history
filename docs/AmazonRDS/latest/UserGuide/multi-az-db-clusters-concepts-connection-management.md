@@ -1,6 +1,4 @@
-# Connecting to a
-
-Multi-AZ DB cluster for Amazon RDS
+# Connecting to a Multi-AZ DB cluster for Amazon RDS
 
 A Multi-AZ DB cluster has three DB instances instead of a single DB instance. Each
 connection is handled by a specific DB instance. When you connect to a Multi-AZ DB cluster,
@@ -31,8 +29,7 @@ For more information about connecting to Multi-AZ DB clusters, see the following
 - [Reader endpoints](#multi-az-db-clusters-concepts-connection-management-endpoints-reader "#multi-az-db-clusters-concepts-connection-management-endpoints-reader")
 - [Instance endpoints](#multi-az-db-clusters-concepts-connection-management-endpoints-instance "#multi-az-db-clusters-concepts-connection-management-endpoints-instance")
 - [High availability connections](#multi-az-db-clusters-concepts-connection-management-endpoints-ha "#multi-az-db-clusters-concepts-connection-management-endpoints-ha")
-- [Connecting to Multi-AZ DB clusters with the AWS
-  drivers for Amazon RDS](maz-cluster-connect-drivers.md "maz-cluster-connect-drivers.md")
+- [Connecting to Multi-AZ DB clusters with the AWS drivers for Amazon RDS](maz-cluster-connect-drivers.md "maz-cluster-connect-drivers.md")
 
 ## Types of Multi-AZ DB cluster endpoints
 

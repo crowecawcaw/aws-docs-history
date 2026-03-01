@@ -6,8 +6,7 @@ This section shows how to manage automated backups for DB instances and Multi-AZ
 
 - [Backup window](#USER_WorkingWithAutomatedBackups.BackupWindow "#USER_WorkingWithAutomatedBackups.BackupWindow")
 - [Backup retention period](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
-- [Enabling automated
-  backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
+- [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
 - [Retaining automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md")
 - [Deleting retained automated backups](USER_WorkingWithAutomatedBackups-Deleting.md "USER_WorkingWithAutomatedBackups-Deleting.md")
 - [Automated backups with unsupported MySQL storage engines](Overview.md "Overview.md")

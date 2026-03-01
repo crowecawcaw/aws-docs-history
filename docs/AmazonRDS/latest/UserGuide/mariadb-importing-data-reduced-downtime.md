@@ -1,6 +1,4 @@
-# Importing data to an
-
-Amazon RDS for MariaDB DB instance with reduced downtime
+# Importing data to an Amazon RDS for MariaDB DB instance with reduced downtime
 
 In some cases, you might need to import data from an external MariaDB database that
 supports a live application to an RDS for MariaDB DB instance. Use the following procedure to minimize the impact on availability of
@@ -23,9 +21,7 @@ on Amazon RDS.
 
 ![Workflow that shows importing an external MariaDB database into a MariaDB database on Amazon RDS.](images/MigrateMariaDBToRDS_1.png)
 
-## Task 1: Create a
-
-copy of your existing database
+## Task 1: Create a copy of your existing database
 
 The first step in the process of migrating a large amount of data to an RDS for MariaDB
 database with minimal downtime is to create a copy of the source data.
@@ -47,8 +43,7 @@ performance against the benefit offered by using the delimited-text format for l
 A backup using delimited-text format creates a tab-separated text file for each table
 being dumped. To reduce the amount of time required to import your database, you can
 load these files in parallel using the `LOAD DATA LOCAL INFILE` command. For
-more information, see [Step 5: Load the
-data](mariadb-importing-data-any-source.md#mariadb-importing-data-any-source-load-data "mariadb-importing-data-any-source.md#mariadb-importing-data-any-source-load-data") in the Importing data
+more information, see [Step 5: Load the data](mariadb-importing-data-any-source.md#mariadb-importing-data-any-source-load-data "mariadb-importing-data-any-source.md#mariadb-importing-data-any-source-load-data") in the Importing data
 from any source procedure.
 
 Before you start the backup operation, make sure to set the replication options on the
@@ -78,9 +73,7 @@ considerations:
   generates the data control language (DCL) for recreating them, such as the
   [pt-show-grants](https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html "https://www.percona.com/doc/percona-toolkit/LATEST/pt-show-grants.html") utility.
 
-### To
-
-set replication options
+### To set replication options
 
 1. Edit the `my.cnf` file. This file is usually located under
    `/etc`.
@@ -117,9 +110,7 @@ a DB instance. 3. Restart the `mariadb` service.
 sudo service mariadb restart
 ```
 
-### To create a
-
-backup copy of your existing database
+### To create a backup copy of your existing database
 
 1. Create a backup of your data using the `mysqldump` or
    `mariadb-dump` utility, specifying either SQL or
@@ -294,9 +285,7 @@ preferred compression utility.
     tar -zcvf backup.tar.gz `target_directory`
     ```
 
-## Task 2: Create an Amazon EC2
-
-instance and copy the compressed database
+## Task 2: Create an Amazon EC2 instance and copy the compressed database
 
 Copying your compressed database backup file to an Amazon EC2 instance takes fewer network
 resources than doing a direct copy of uncompressed data between database instances.
@@ -310,9 +299,7 @@ The following diagram shows copying the database backup to an Amazon EC2 instanc
 
 ![Workflow that shows copying the database backup to an Amazon EC2 instance.](images/MigrateMariaDBToRDS_3.png)
 
-### To create an Amazon EC2 instance
-
-and copy your data
+### To create an Amazon EC2 instance and copy your data
 
 1. In the AWS Region where you plan to create the Amazon RDS database, create a
    virtual private cloud (VPC), a VPC security group, and a VPC subnet. Ensure
@@ -382,9 +369,7 @@ file. The following commands are examples.
     tar xzvf backup.tar.gz
     ```
 
-## Task 3: Create a
-
-MariaDB database and import data from your Amazon EC2 instance
+## Task 3: Create a MariaDB database and import data from your Amazon EC2 instance
 
 By creating an RDS for MariaDB DB instance in the same AWS Region as your Amazon EC2 instance,
 you can import the database backup file from Amazon EC2 faster than over the internet.
@@ -394,9 +379,7 @@ database.
 
 ![Workflow that shows importing the backup from the EC2 instance into the MariaDB database.](images/MigrateMariaDBToRDS_4.png)
 
-### To create
-
-a MariaDB database and import your data
+### To create a MariaDB database and import your data
 
 1. Determine which DB instance class and what amount of storage space is
    required to support the expected workload for this Amazon RDS database. As part
@@ -507,9 +490,7 @@ instance to reduce your AWS resource usage. To terminate an EC2 instance, see
 [Terminate an instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console "../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console") in the _Amazon Elastic Compute Cloud User
 Guide_.
 
-## Task 4: Replicate data from your
-
-external database to your new Amazon RDS database
+## Task 4: Replicate data from your external database to your new Amazon RDS database
 
 Your source database was likely updated during the time that it took to copy and
 transfer the data to the MariaDB database. You can use replication to bring the copied
@@ -525,9 +506,7 @@ stored procedure:
 - [mysql.rds_set_external_master_gtid](mysql_rds_set_external_master_gtid.md "mysql_rds_set_external_master_gtid.md") to configure
   replication and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") to start replication
 
-### To start
-
-replication
+### To start replication
 
 In Task 1, [when
 you set replication options](#mariadb-importing-data-reduced-downtime-set-replication-options "#mariadb-importing-data-reduced-downtime-set-replication-options"), you turned on binary logging and set a
@@ -663,18 +642,14 @@ running the MySQL command. 8. After the Amazon RDS database is up-to-date, turn 
 can restore that database if needed. You can turn on or modify automated
 backups for your Amazon RDS database by using the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). For more information, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 
-## Task 5: Redirect your live
-
-application to your Amazon RDS instance
+## Task 5: Redirect your live application to your Amazon RDS instance
 
 After the MariaDB database is up-to-date with the source replication instance, you can
 now update your live application to use the Amazon RDS instance.
 
 ![Workflow that shows stopping replication and directing the live application to the database on Amazon RDS.](images/MigrateMariaDBToRDS_6.png)
 
-### To redirect your
-
-live application to your MariaDB database and stop replication
+### To redirect your live application to your MariaDB database and stop replication
 
 1. To add the VPC security group for the Amazon RDS database, add the IP address
    of the server that hosts the application. For more information on modifying

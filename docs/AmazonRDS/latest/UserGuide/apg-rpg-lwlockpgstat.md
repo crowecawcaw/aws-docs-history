@@ -90,16 +90,11 @@ statements wait events.
 
 ###### Topics
 
-- [Disable
-  pg_stat_statements.track parameter](#apg-rpg-lwlockpgstat.actions.disabletrack "#apg-rpg-lwlockpgstat.actions.disabletrack")
-- [Increase
-  pg_stat_statements.max parameter](#apg-rpg-lwlockpgstat.actions.increasemax "#apg-rpg-lwlockpgstat.actions.increasemax")
-- [Disable
-  pg_stat_statements.track_utility parameter](#apg-rpg-lwlockpgstat.actions.disableutility "#apg-rpg-lwlockpgstat.actions.disableutility")
+- [Disable pg_stat_statements.track parameter](#apg-rpg-lwlockpgstat.actions.disabletrack "#apg-rpg-lwlockpgstat.actions.disabletrack")
+- [Increase pg_stat_statements.max parameter](#apg-rpg-lwlockpgstat.actions.increasemax "#apg-rpg-lwlockpgstat.actions.increasemax")
+- [Disable pg_stat_statements.track_utility parameter](#apg-rpg-lwlockpgstat.actions.disableutility "#apg-rpg-lwlockpgstat.actions.disableutility")
 
-### Disable
-
-pg_stat_statements.track parameter
+### Disable pg_stat_statements.track parameter
 
 If the LWLock:pg_stat_statements wait event is adversely impacting database
 performance, and a rapid solution is required before further analysis of the
@@ -108,9 +103,7 @@ performance, and a rapid solution is required before further analysis of the
 `none`. This will disable the collection of statement
 statistics.
 
-### Increase
-
-pg_stat_statements.max parameter
+### Increase pg_stat_statements.max parameter
 
 To reduce deallocation and minimize garbage collection of the
 `pgss_query_texts.stat` file on disk, increase the value of the
@@ -122,9 +115,7 @@ To reduce deallocation and minimize garbage collection of the
 The `pg_stat_statements.max` parameter is static. You must restart
 your DB instance to apply any changes to this parameter.
 
-### Disable
-
-pg_stat_statements.track_utility parameter
+### Disable pg_stat_statements.track_utility parameter
 
 You can analyze the pg_stat_statements view to determine which utility commands
 are consuming the most resources tracked by `pg_stat_statements`.

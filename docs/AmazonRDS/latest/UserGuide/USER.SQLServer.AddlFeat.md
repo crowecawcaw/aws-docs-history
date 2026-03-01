@@ -24,8 +24,7 @@ The following requirements must be met before enabling access to transaction log
 
 - Automated backups must be enabled on the DB instance and the backup retention must be set to a value of one or more days.
   For more information on enabling automated backups and configuring a retention policy, see
-  [Enabling automated
-  backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
+  [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 - An Amazon S3 bucket must exist in the same account and Region as the source DB instance. Before enabling access to transaction log backups, choose an existing
   Amazon S3 bucket or [create a new bucket](../../../AmazonS3/latest/userguide/CreatingaBucket.md "../../../AmazonS3/latest/userguide/CreatingaBucket.md") to use for your transaction log backup files.
 - An Amazon S3 bucket permissions policy must be configured as follows to allow Amazon RDS to copy transaction log files into it:

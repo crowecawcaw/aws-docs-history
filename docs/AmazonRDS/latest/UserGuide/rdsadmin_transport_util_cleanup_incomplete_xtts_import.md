@@ -1,6 +1,4 @@
-# Deleting orphaned
-
-data files after a tablespace import
+# Deleting orphaned data files after a tablespace import
 
 Use the `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
 delete data files that were orphaned after a tablespace import. Running this command

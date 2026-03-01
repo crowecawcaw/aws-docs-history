@@ -1,6 +1,4 @@
-# Setting up Kerberos authentication
-
-for Amazon RDS for Db2 DB instances
+# Setting up Kerberos authentication for Amazon RDS for Db2 DB instances
 
 You use AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to set up Kerberos authentication
 for an RDS for Db2 DB instance. To set up Kerberos authentication, follow these
@@ -8,30 +6,18 @@ steps:
 
 ###### Topics
 
-- [Step 1: Create a directory
-  using AWS Managed Microsoft AD](#db2-kerberos-setting-up.create-directory "#db2-kerberos-setting-up.create-directory")
-- [Step 2: Create a
-  trust](#db2-kerberos-setting-up-create-forest-trust "#db2-kerberos-setting-up-create-forest-trust")
-- [Step 3: Create an IAM role for
-  Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role")
-- [Step 4: Create and configure
-  users](#db2-kerberos-setting-up.create-users "#db2-kerberos-setting-up.create-users")
-- [Step 5: Create an RDS for Db2 admin
-  group in AWS Managed Microsoft AD](#db2-kerberos-setting-up-vpc-peering "#db2-kerberos-setting-up-vpc-peering")
-- [Step 6: Modify DB
-  parameter](#db2-kerberos-setting-up-modify-db-parameter "#db2-kerberos-setting-up-modify-db-parameter")
-- [Step 7: Create or modify an
-  RDS for Db2 DB instance](#db2-kerberos-setting-up-create-modify "#db2-kerberos-setting-up-create-modify")
-- [Step 8: Retrieve the
-  Active Directory group SID in PowerShell](#db2-kerberos-setting-up-retrieve-ad-group-sid "#db2-kerberos-setting-up-retrieve-ad-group-sid")
-- [Step 9: Add SID to
-  GroupName mappings to your RDS for Db2 DB instance](#db2-kerberos-setting-up-add-sid-group-mapping "#db2-kerberos-setting-up-add-sid-group-mapping")
-- [Step 10: Configure a Db2
-  client](#db2-kerberos-setting-up-create-logins "#db2-kerberos-setting-up-create-logins")
+- [Step 1: Create a directory using AWS Managed Microsoft AD](#db2-kerberos-setting-up.create-directory "#db2-kerberos-setting-up.create-directory")
+- [Step 2: Create a trust](#db2-kerberos-setting-up-create-forest-trust "#db2-kerberos-setting-up-create-forest-trust")
+- [Step 3: Create an IAM role for Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role")
+- [Step 4: Create and configure users](#db2-kerberos-setting-up.create-users "#db2-kerberos-setting-up.create-users")
+- [Step 5: Create an RDS for Db2 admin group in AWS Managed Microsoft AD](#db2-kerberos-setting-up-vpc-peering "#db2-kerberos-setting-up-vpc-peering")
+- [Step 6: Modify DB parameter](#db2-kerberos-setting-up-modify-db-parameter "#db2-kerberos-setting-up-modify-db-parameter")
+- [Step 7: Create or modify an RDS for Db2 DB instance](#db2-kerberos-setting-up-create-modify "#db2-kerberos-setting-up-create-modify")
+- [Step 8: Retrieve the Active Directory group SID in PowerShell](#db2-kerberos-setting-up-retrieve-ad-group-sid "#db2-kerberos-setting-up-retrieve-ad-group-sid")
+- [Step 9: Add SID to GroupName mappings to your RDS for Db2 DB instance](#db2-kerberos-setting-up-add-sid-group-mapping "#db2-kerberos-setting-up-add-sid-group-mapping")
+- [Step 10: Configure a Db2 client](#db2-kerberos-setting-up-create-logins "#db2-kerberos-setting-up-create-logins")
 
-## Step 1: Create a directory
-
-using AWS Managed Microsoft AD
+## Step 1: Create a directory using AWS Managed Microsoft AD
 
 Directory Service creates a fully managed Active Directory in the AWS Cloud. When
 you create an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and DNS
@@ -148,12 +134,9 @@ instance.
 
 ![The Directory details section with Directory ID in the Directory Service console.](images/db2-ADS-directory-details.png)
 
-## Step 2: Create a
+## Step 2: Create a trust
 
-trust
-
-If you plan to use AWS Managed Microsoft AD only, skip to [Step 3: Create an IAM role for
-Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role").
+If you plan to use AWS Managed Microsoft AD only, skip to [Step 3: Create an IAM role for Amazon RDS to access Directory Service](#db2-kerberos-setting-up-create-iam-role "#db2-kerberos-setting-up-create-iam-role").
 
 To enable Kerberos authentication using your self-managed Active Directory, you must
 create a forest trust relationship between your self-managed Active Directory and the .
@@ -163,9 +146,7 @@ two-way, where both Active Directories trust each other. For more information ab
 setting up forest trusts using Directory Service, see [When to create a trust relationship](../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md "../../../directoryservice/latest/admin-guide/ms_ad_tutorial_setup_trust.md") in the _AWS Directory
 Service Administration Guide_.
 
-## Step 3: Create an IAM role for
-
-Amazon RDS to access Directory Service
+## Step 3: Create an IAM role for Amazon RDS to access Directory Service
 
 For Amazon RDS to call Directory Service for you, your AWS account needs an IAM role that uses the
 managed IAM policy `AmazonRDSDirectoryServiceAccess`. This role allows
@@ -236,9 +217,7 @@ JSON
 
 ```
 
-## Step 4: Create and configure
-
-users
+## Step 4: Create and configure users
 
 You can create users by using the Active Directory Users and Computers
 tool. This is one of the Active Directory Domain Services and
@@ -253,9 +232,7 @@ Windows-based Amazon EC2 instance that's a member of the Directory Service direc
 At the same time, you must be signed in as a user that has privileges to create users.
 For more information, see [Create a user](../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md "../../../directoryservice/latest/admin-guide/ms_ad_manage_users_groups_create_user.md") in the _AWS Directory Service Administration Guide_.
 
-## Step 5: Create an RDS for Db2 admin
-
-group in AWS Managed Microsoft AD
+## Step 5: Create an RDS for Db2 admin group in AWS Managed Microsoft AD
 
 RDS for Db2 doesn't support Kerberos authentication for the master user or
 the two Amazon RDS reserved users `rdsdb` and `rdsadmin`. Instead, you
@@ -271,12 +248,9 @@ authentication. To continue to use the master user with password login, create a
 AWS Managed Microsoft AD with the same name as the master user. Then, add that user to the group
 `masterdba`.
 
-## Step 6: Modify DB
+## Step 6: Modify DB parameter
 
-parameter
-
-If you plan to use AWS Managed Microsoft AD only, skip to [Step 7: Create or modify an
-RDS for Db2 DB instance](#db2-kerberos-setting-up-create-modify "#db2-kerberos-setting-up-create-modify").
+If you plan to use AWS Managed Microsoft AD only, skip to [Step 7: Create or modify an RDS for Db2 DB instance](#db2-kerberos-setting-up-create-modify "#db2-kerberos-setting-up-create-modify").
 
 To enable Kerberos authentication using your self-managed Active Directory, you must
 set the parameter `rds.active_directory_configuration` to
@@ -284,12 +258,9 @@ set the parameter `rds.active_directory_configuration` to
 parameter is set to `AWS_MANAGED_AD` for using AWS Managed Microsoft AD
 only.
 
-For information about modifying DB parameters, see [Modifying the parameters in
-parameter groups](db2-supported-parameters.md#db2-modifying-parameter-group-parameters "db2-supported-parameters.md#db2-modifying-parameter-group-parameters").
+For information about modifying DB parameters, see [Modifying the parameters in parameter groups](db2-supported-parameters.md#db2-modifying-parameter-group-parameters "db2-supported-parameters.md#db2-modifying-parameter-group-parameters").
 
-## Step 7: Create or modify an
-
-RDS for Db2 DB instance
+## Step 7: Create or modify an RDS for Db2 DB instance
 
 Create or modify an RDS for Db2 DB instance for use with your directory. You can use the
 AWS Management Console, the AWS CLI, or the RDS API to associate a DB instance with a directory. You
@@ -347,9 +318,7 @@ aws rds modify-db-instance --db-instance-identifier `db_instance_name` --domain 
 If you modify a DB instance to enable Kerberos authentication,
 reboot the DB instance after making the change.
 
-## Step 8: Retrieve the
-
-Active Directory group SID in PowerShell
+## Step 8: Retrieve the Active Directory group SID in PowerShell
 
 A security ID (SID) uniquely identifies a security principal or security group. When a
 security group or account is created in Active Directory, Active Directory assigns a SID
@@ -372,9 +341,7 @@ S-1-5-21-3168537779-1985441202-1799118680-1612
 You must generate this mapping for all the groups that are relevant to the
 database.
 
-## Step 9: Add SID to
-
-GroupName mappings to your RDS for Db2 DB instance
+## Step 9: Add SID to GroupName mappings to your RDS for Db2 DB instance
 
 You need to add the SID to GroupName mappings created in the previous step to your
 RDS for Db2 DB instance. For each mapping, call the following stored procedure. Replace the
@@ -390,9 +357,7 @@ For more information, see [rdsadmin.set_sid_group_mapping](db2-sp-granting-revok
 
 For information about checking the task status, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
-## Step 10: Configure a Db2
-
-client
+## Step 10: Configure a Db2 client
 
 ###### To configure a Db2 client
 

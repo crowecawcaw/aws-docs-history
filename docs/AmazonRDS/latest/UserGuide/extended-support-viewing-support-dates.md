@@ -1,6 +1,4 @@
-# Viewing support dates for engine
-
-versions in Amazon RDS Extended Support
+# Viewing support dates for engine versions in Amazon RDS Extended Support
 
 You can view information about support dates for engine versions for your DB instances or Multi-AZ DB clusters in Amazon RDS Extended Support by using
 the AWS CLI or the RDS API. This
@@ -9,8 +7,7 @@ information can help you plan for upgrades.
 AWS CLI commands and RDS API operations return start and end dates for
 RDS
 standard support and RDS Extended Support. These dates can also be found in the major engine version
-tables. For more information, see [Supported MySQL major
-versions on Amazon RDS](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md") in the _Amazon RDS for PostgreSQL
+tables. For more information, see [Supported MySQL major versions on Amazon RDS](MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar "MySQL.Concepts.md#MySQL.Concepts.VersionMgmt.ReleaseCalendar") and [Release calendar for Amazon RDS for PostgreSQL](../PostgreSQLReleaseNotes/postgresql-release-calendar.md "../PostgreSQLReleaseNotes/postgresql-release-calendar.md") in the _Amazon RDS for PostgreSQL
 Release Notes_.
 
 To view the start and end dates for RDS standard support and

@@ -197,8 +197,7 @@ With the BYOL model, your Amazon RDS for Db2 DB instances must be associated wit
 parameter group that contains your IBM Site ID and your IBM Customer ID. Otherwise, attempts to
 restore a DB instance from a snapshot will fail. Your Amazon RDS for Db2 DB instances must
 also be associated with an AWS License Manager self-managed license. For more information, see
-[Bring your own license (BYOL) for
-Db2](db2-licensing.md#db2-licensing-options-byol "db2-licensing.md#db2-licensing-options-byol").
+[Bring your own license (BYOL) for Db2](db2-licensing.md#db2-licensing-options-byol "db2-licensing.md#db2-licensing-options-byol").
 
 With the Db2 license through AWS Marketplace model, you need an active AWS Marketplace subscription
 for the particular IBM Db2 edition that you want to use. If you don't already have one,
@@ -220,16 +219,13 @@ If you want to change from one edition to a new edition that isn't supported by
 restoring a snapshot, you can try using the native backup and restore feature. SQL
 Server verifies whether your database is compatible with the new edition based on what
 SQL Server features you have enabled on the database. For more information, see
-[Importing and exporting SQL Server databases using native
-backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
+[Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
 
 ### MySQL considerations
 
-To restore from a RDS for MySQL DB snapshot with an unsupported engine version, you might have to upgrade your DB snapshot more than once. For more information about upgrade options, see [Upgrade options for DB snapshots with
-unsupported engine versions for RDS for MySQL](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
+To restore from a RDS for MySQL DB snapshot with an unsupported engine version, you might have to upgrade your DB snapshot more than once. For more information about upgrade options, see [Upgrade options for DB snapshots with unsupported engine versions for RDS for MySQL](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
 
-For more information about upgrading the engine version of a RDS for MySQL DB snapshot, [Upgrading a MySQL DB snapshot engine
-version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
+For more information about upgrading the engine version of a RDS for MySQL DB snapshot, [Upgrading a MySQL DB snapshot engine version](mysql-upgrade-snapshot.md "mysql-upgrade-snapshot.md").
 
 ### Oracle Database considerations
 
@@ -239,8 +235,7 @@ When you restore an Oracle database from a DB snapshot, consider the following:
   database release. For more information, see [Upgrading an Oracle DB snapshot](USER_UpgradeDBSnapshot.md "USER_UpgradeDBSnapshot.md").
 - If you restore a snapshot of a CDB instance that uses the single-tenant configuration, you
   can change the PDB name. You can't change the PDB names when your CDB instance
-  uses the multi-tenant configuration. For more information, see [Backing up and restoring a
-  CDB](Oracle.Concepts.single-tenant.md "Oracle.Concepts.single-tenant.md").
+  uses the multi-tenant configuration. For more information, see [Backing up and restoring a CDB](Oracle.Concepts.single-tenant.md "Oracle.Concepts.single-tenant.md").
 - You can't change the CDB name, which is always `RDSCDB`. This CDB
   name is the same for all CDB instances.
 - You can't directly interact with the tenant databases in a DB snapshot. If you restore a

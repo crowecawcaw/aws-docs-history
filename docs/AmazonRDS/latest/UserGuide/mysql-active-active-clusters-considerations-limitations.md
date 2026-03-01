@@ -1,6 +1,4 @@
-# Limitations
-
-and considerations for active-active clusters
+# Limitations and considerations for active-active clusters
 
 Active-active clusters in Amazon RDS offer enhanced availability and scalability by
 distributing workloads across multiple instances. However, there are important
@@ -14,8 +12,7 @@ cluster deployments.
 ###### Topics
 
 - [Limitations for RDS for MySQL active-active clusters](#mysql-active-active-clusters-limitations "#mysql-active-active-clusters-limitations")
-- [Considerations and
-  best practices for RDS for MySQL active-active clusters](#mysql-active-active-clusters-considerations "#mysql-active-active-clusters-considerations")
+- [Considerations and best practices for RDS for MySQL active-active clusters](#mysql-active-active-clusters-considerations "#mysql-active-active-clusters-considerations")
 
 ## Limitations for RDS for MySQL active-active clusters
 
@@ -28,8 +25,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
   `Replicating` can cause log files to exceed storage limits. For information about the status
   of read replicas, see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md").
 - Blue/green deployments aren't supported for DB instances in an active-active cluster. For more information, see
-  [Using Amazon RDS Blue/Green Deployments
-  for database updates](blue-green-deployments.md "blue-green-deployments.md").
+  [Using Amazon RDS Blue/Green Deployments for database updates](blue-green-deployments.md "blue-green-deployments.md").
 - Kerberos authentication isn't supported for DB instances in an active-active cluster. For more information, see
   [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md "mysql-kerberos.md").
 - The DB instances in a Multi-AZ DB cluster can't be added to an
@@ -48,9 +44,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
 - A cross-Region active-active cluster can't enforce certificate authority (CA)
   verification for Group Replication connections.
 
-## Considerations and
-
-best practices for RDS for MySQL active-active clusters
+## Considerations and best practices for RDS for MySQL active-active clusters
 
 Before you use RDS for MySQL active-active clusters, review the following considerations
 and best practices:

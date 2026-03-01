@@ -14,8 +14,7 @@ the primary role.
 ###### Topics
 
 - [Overview of Oracle Data Guard switchover](#oracle-replication-switchover.overview "#oracle-replication-switchover.overview")
-- [Requirements for the Oracle Data Guard
-  switchover](oracle-switchover.md "oracle-switchover.md")
+- [Requirements for the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
 - [Initiating the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
 - [Monitoring the Oracle Data Guard switchover](oracle-switchover.md "oracle-switchover.md")
 
@@ -32,14 +31,12 @@ of a single Region. All AWS Regions are supported.
 
 A switchover differs from a read replica promotion. In a switchover, the source and
 replica DB instances change roles. In a promotion, a read replica becomes a source DB instance, but the
-source DB instance doesn't become a replica. For more information, see [Promoting a read replica to be a standalone
-DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
+source DB instance doesn't become a replica. For more information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md").
 
 ###### Topics
 
 - [Benefits of Oracle Data Guard switchover](#oracle-replication-switchover.overview.benefits "#oracle-replication-switchover.overview.benefits")
-- [Supported Oracle Database
-  versions](#oracle-replication-switchover.overview.engine-support "#oracle-replication-switchover.overview.engine-support")
+- [Supported Oracle Database versions](#oracle-replication-switchover.overview.engine-support "#oracle-replication-switchover.overview.engine-support")
 - [Cost of Oracle Data Guard switchover](#oracle-replication-switchover.overview.cost "#oracle-replication-switchover.overview.cost")
 - [How Oracle Data Guard switchover works](#oracle-replication-switchover.overview.how-it-works "#oracle-replication-switchover.overview.how-it-works")
 
@@ -55,9 +52,7 @@ is designed to have zero data loss. Amazon RDS automates the following aspects o
 - Supports repeated reversals, allowing your new standby database to return to its original primary
   role
 
-### Supported Oracle Database
-
-versions
+### Supported Oracle Database versions
 
 Oracle Data Guard switchover is supported for Oracle Database 19c and higher
 releases.
@@ -80,13 +75,10 @@ but is not switching roles.
 
 ###### Topics
 
-- [Stages of the Oracle Data Guard
-  switchover](#oracle-replication-switchover.overview.how-it-works.during-switchover "#oracle-replication-switchover.overview.how-it-works.during-switchover")
+- [Stages of the Oracle Data Guard switchover](#oracle-replication-switchover.overview.how-it-works.during-switchover "#oracle-replication-switchover.overview.how-it-works.during-switchover")
 - [After the Oracle Data Guard switchover](#oracle-replication-switchover.overview.how-it-works.after-switchover "#oracle-replication-switchover.overview.how-it-works.after-switchover")
 
-#### Stages of the Oracle Data Guard
-
-switchover
+#### Stages of the Oracle Data Guard switchover
 
 To perform the switchover, Amazon RDS must take the following steps:
 
@@ -106,10 +98,8 @@ any other desired configuration.
 ###### Topics
 
 - [Success criteria](#oracle-replication-switchover.overview.how-it-works.after-switchover.success "#oracle-replication-switchover.overview.how-it-works.after-switchover.success")
-- [Connection to the new
-  primary database](#oracle-replication-switchover.overview.how-it-works.after-switchover.connection "#oracle-replication-switchover.overview.how-it-works.after-switchover.connection")
-- [Configuration of the
-  new primary database](#oracle-replication-switchover.overview.how-it-works.after-switchover.success.configuration "#oracle-replication-switchover.overview.how-it-works.after-switchover.success.configuration")
+- [Connection to the new primary database](#oracle-replication-switchover.overview.how-it-works.after-switchover.connection "#oracle-replication-switchover.overview.how-it-works.after-switchover.connection")
+- [Configuration of the new primary database](#oracle-replication-switchover.overview.how-it-works.after-switchover.success.configuration "#oracle-replication-switchover.overview.how-it-works.after-switchover.success.configuration")
 
 ##### Success criteria
 
@@ -121,16 +111,12 @@ The Oracle Data Guard switchover is successful when the original standby databas
 To limit downtime, your new primary database becomes active as soon as possible. Because Amazon RDS configures bystander replicas
 asynchronously, these replicas might become active after the original primary database.
 
-##### Connection to the new
-
-primary database
+##### Connection to the new primary database
 
 Amazon RDS won't propagate your current database connections to the new primary database after the switchover. After the Oracle Data
 Guard switchover completes, reconnect your application to the new primary database.
 
-##### Configuration of the
-
-new primary database
+##### Configuration of the new primary database
 
 To perform a switchover to the new primary database, Amazon RDS changes the mode of the original standby database to open. The change
 in role is the only change to the database. Amazon RDS doesn't set up features such as Multi-AZ replication.

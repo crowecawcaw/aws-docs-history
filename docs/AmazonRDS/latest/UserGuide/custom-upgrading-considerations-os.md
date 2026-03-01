@@ -1,6 +1,4 @@
-# Considerations for RDS Custom for Oracle OS
-
-upgrades
+# Considerations for RDS Custom for Oracle OS upgrades
 
 When you plan an OS upgrade, consider the following:
 

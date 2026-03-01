@@ -8,18 +8,14 @@ For more information about MySQL read replicas, see the following topics.
 
 - [Configuring replication filters with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
 - [Configuring delayed replication with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
-- [Updating read replicas
-  with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
-- [Working with Multi-AZ
-  read replica deployments with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
+- [Updating read replicas with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
+- [Working with Multi-AZ read replica deployments with MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
 - [Using cascading read replicas with RDS for MySQL](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
 - [Monitoring replication lag for MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
 - [Starting and stopping replication with MySQL read replicas](USER_MySQL.Replication.ReadReplicas.md "USER_MySQL.Replication.ReadReplicas.md")
 - [Troubleshooting a MySQL read replica problem](USER_ReadRepl.md "USER_ReadRepl.md")
 
-## Configuring read
-
-replicas with MySQL
+## Configuring read replicas with MySQL
 
 Before a MySQL DB instance can serve as a replication source, make sure to enable
 automatic backups on the source DB instance. To do this, set the backup retention

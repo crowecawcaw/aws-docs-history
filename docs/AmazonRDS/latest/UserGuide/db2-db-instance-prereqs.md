@@ -1,6 +1,4 @@
-# Prerequisites for creating an Amazon RDS for Db2 DB
-
-instance
+# Prerequisites for creating an Amazon RDS for Db2 DB instance
 
 The following items are prerequisites before creating a DB instance.
 
@@ -43,21 +41,18 @@ The administrator account can perform the following tasks:
 Before creating a DB instance, consider the following items:
 
 - Each Amazon RDS for Db2 DB instance can host up to 50 Db2 databases. For more
-  information, see [Multiple databases on an Amazon RDS for Db2 DB
-  instance](db2-multiple-databases.md "db2-multiple-databases.md").
+  information, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 - Initial database name
   - If you don't provide a database name when you create a DB instance,
     Amazon RDS doesn't create a database.
   - Don't provide a database name under the following
     circumstances:
     - You want to modify the `db2_compatibility_vector`
-      parameter. For more information, see [Setting the
-      db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+      parameter. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 - In the bring your own license (BYOL) model, you must first create a custom
   parameter group that contains your IBM Customer ID and your IBM Site ID. For more
-  information, see [Bring your own license (BYOL) for
-  Db2](db2-licensing.md#db2-licensing-options-byol "db2-licensing.md#db2-licensing-options-byol").
+  information, see [Bring your own license (BYOL) for Db2](db2-licensing.md#db2-licensing-options-byol "db2-licensing.md#db2-licensing-options-byol").
 - In the Db2 license through AWS Marketplace model, you need an active AWS Marketplace subscription
   for the particular IBM Db2 edition that you want to use. If you don't already have
   one, [subscribe to Db2 in

@@ -1,7 +1,4 @@
-# Limitations and considerations for
-
-Amazon RDS
-blue/green deployments
+# Limitations and considerations for Amazon RDS blue/green deployments
 
 Blue/green deployments in Amazon RDS require careful consideration of factors such as
 replication slots, resource management, instance sizing, and potential impacts on database
@@ -20,19 +17,12 @@ The following limitations apply to blue/green deployments.
 
 ###### Topics
 
-- [General limitations for blue/green
-  deployments](#blue-green-deployments-limitations-general "#blue-green-deployments-limitations-general")
-- [RDS for MySQL limitations for
-  blue/green deployments](#blue-green-deployments-limitations-mysql "#blue-green-deployments-limitations-mysql")
-- [RDS for PostgreSQL limitations for
-  blue/green deployments with physical replication](#blue-green-deployments-limitations-postgres-physical "#blue-green-deployments-limitations-postgres-physical")
-- [RDS for PostgreSQL
-  limitations for blue/green deployments with logical
-  replication](#blue-green-deployments-limitations-postgres-logical "#blue-green-deployments-limitations-postgres-logical")
+- [General limitations for blue/green deployments](#blue-green-deployments-limitations-general "#blue-green-deployments-limitations-general")
+- [RDS for MySQL limitations for blue/green deployments](#blue-green-deployments-limitations-mysql "#blue-green-deployments-limitations-mysql")
+- [RDS for PostgreSQL limitations for blue/green deployments with physical replication](#blue-green-deployments-limitations-postgres-physical "#blue-green-deployments-limitations-postgres-physical")
+- [RDS for PostgreSQL limitations for blue/green deployments with logical replication](#blue-green-deployments-limitations-postgres-logical "#blue-green-deployments-limitations-postgres-logical")
 
-### General limitations for blue/green
-
-deployments
+### General limitations for blue/green deployments
 
 The following general limitations apply to blue/green deployments:
 
@@ -64,9 +54,7 @@ The following general limitations apply to blue/green deployments:
   Blue/green deployments are supported for Multi-AZ DB instance deployments. For
   more information about Multi-AZ deployments, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
 
-### RDS for MySQL limitations for
-
-blue/green deployments
+### RDS for MySQL limitations for blue/green deployments
 
 The following limitations apply to RDS for MySQL blue/green deployments:
 
@@ -76,20 +64,16 @@ The following limitations apply to RDS for MySQL blue/green deployments:
 
 In this case, you can create a blue/green deployment without specifying a major
 version upgrade. Then, you can upgrade the database in the green environment. For more
-information, see [Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+information, see [Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
 - Blue/green deployments don't support the AWS JDBC Driver for MySQL. For more information,
   see [Known Limitations](https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations "https://github.com/awslabs/aws-mysql-jdbc?tab=readme-ov-file#known-limitations") on GitHub.
 
-### RDS for PostgreSQL limitations for
-
-blue/green deployments with physical replication
+### RDS for PostgreSQL limitations for blue/green deployments with physical replication
 
 The following limitations apply to RDS for PostgreSQL blue/green deployments that use
 physical replication. For an explanation of when blue/green deployments use physical
-replication instead of logical replication, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+replication instead of logical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
 - After the green environment is created, you can't perform a manual major version
   upgrade.
@@ -109,15 +93,11 @@ blue/green deployments](blue-green-deployments-replication-type.md "blue-green-d
     function as expected during the switchover workflow.
   - Delayed replication isn't compatible with RDS Blue/Green deployments for major version upgrades.
 
-### RDS for PostgreSQL
-
-limitations for blue/green deployments with logical
-replication
+### RDS for PostgreSQL limitations for blue/green deployments with logical replication
 
 The following limitations apply to RDS for PostgreSQL blue/green
 deployments that use logical replication. For an explanation of when blue/green deployments use logical
-replication instead of physical replication, see [PostgreSQL replication methods for
-blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
+replication instead of physical replication, see [PostgreSQL replication methods for blue/green deployments](blue-green-deployments-replication-type.md "blue-green-deployments-replication-type.md").
 
 - [Unlogged](https://www.postgresql.org/docs/16/sql-createtable.html#SQL-CREATETABLE-UNLOGGED "https://www.postgresql.org/docs/16/sql-createtable.html#SQL-CREATETABLE-UNLOGGED") tables aren't replicated to the green environment.
 - The blue DB instance can't be a logical source (publisher) or replica
@@ -174,9 +154,7 @@ blue/green deployments](blue-green-deployments-replication-type.md "blue-green-d
     parameter groups for both the blue and the green DB instances. For more information, see
     [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.md").
 
-#### Logical replication-specific
-
-limitations for blue/green deployments
+#### Logical replication-specific limitations for blue/green deployments
 
 PostgreSQL has certain restrictions related to logical replication, which translate to
 limitations when creating blue/green deployments for RDS for PostgreSQL
@@ -234,8 +212,7 @@ contain the data from before the switchover.
 - If you authenticate to your DB instance using [IAM database authentication](UsingWithRDS.md "UsingWithRDS.md"), make sure that
   the IAM policy used for database access has both the blue and the green databases
   listed under the `Resource` element of the policy. This is required in order
-  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
+  to connect to the green database after switchover. For more information, see [Creating and using an IAM policy for IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md").
 - If you use AWS Backup to manage automated backups of resources in a blue/green
   deployment, adjust the resource IDs used by AWS Backup after switchover. For more
   information, see [Using AWS Backup to manage automated backups for Amazon RDS](AutomatedBackups.md "AutomatedBackups.md").

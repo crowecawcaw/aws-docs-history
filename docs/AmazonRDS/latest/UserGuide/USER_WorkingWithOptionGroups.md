@@ -9,14 +9,14 @@ specified options and option settings are enabled for that DB instance.
 
 Amazon RDS supports options for the following database engines:
 
-| Database engine        | Relevant documentation                                                                                                                                                                                                                                                                                 |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Db2`                  | [Options for RDS for Db2 DB instances](Db2.md "Db2.md")                                                                                                                                                                                                                                                |
-| `MariaDB`              | [Options for MariaDB database engine](Appendix.MariaDB.md "Appendix.MariaDB.md")                                                                                                                                                                                                                       |
-| `Microsoft SQL Server` | [Options for the Microsoft SQL Server database engine](Appendix.SQLServer.md "Appendix.SQLServer.md")                                                                                                                                                                                                  |
-| `MySQL`                | [Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")                                                                                                                                                                                                                                |
-| `Oracle`               | [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md")                                                                                                                                                                                                                       |
-| `PostgreSQL`           | PostgreSQL does not use options and option groups. PostgreSQL uses<br>extensions and modules to provide additional features. For more information, see<br>[Supported<br>PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md"). |
+| Database engine        | Relevant documentation                                                                                                                                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Db2`                  | [Options for RDS for Db2 DB instances](Db2.md "Db2.md")                                                                                                                                                                                                                                             |
+| `MariaDB`              | [Options for MariaDB database engine](Appendix.MariaDB.md "Appendix.MariaDB.md")                                                                                                                                                                                                                    |
+| `Microsoft SQL Server` | [Options for the Microsoft SQL Server database engine](Appendix.SQLServer.md "Appendix.SQLServer.md")                                                                                                                                                                                               |
+| `MySQL`                | [Options for MySQL DB instances](Appendix.MySQL.md "Appendix.MySQL.md")                                                                                                                                                                                                                             |
+| `Oracle`               | [Adding options to Oracle DB instances](Appendix.Oracle.md "Appendix.Oracle.md")                                                                                                                                                                                                                    |
+| `PostgreSQL`           | PostgreSQL does not use options and option groups. PostgreSQL uses<br>extensions and modules to provide additional features. For more information, see<br>[Supported PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md"). |
 
 ## Option groups overview
 
@@ -105,8 +105,7 @@ The following options are mutually exclusive:
 
 - [Oracle Enterprise Manager Database Express](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")
   and
-  [Oracle Management Agent for Enterprise Manager
-  Cloud Control](Oracle.Options.md "Oracle.Options.md").
+  [Oracle Management Agent for Enterprise Manager Cloud Control](Oracle.Options.md "Oracle.Options.md").
 - [Oracle native network encryption](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md")
   and
   [Oracle Secure Sockets Layer](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md").

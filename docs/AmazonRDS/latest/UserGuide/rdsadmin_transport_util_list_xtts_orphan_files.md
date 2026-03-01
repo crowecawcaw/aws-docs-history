@@ -1,6 +1,4 @@
-# Listing orphaned files after
-
-a tablespace import
+# Listing orphaned files after a tablespace import
 
 Use the `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
 list data files that were orphaned after a tablespace import. After you identify the data

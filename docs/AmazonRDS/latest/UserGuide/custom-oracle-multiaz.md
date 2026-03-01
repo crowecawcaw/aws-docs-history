@@ -19,9 +19,7 @@ The Amazon RDS console shows the Availability Zone of the standby replica (the s
 You can also use the `describe-db-instances` CLI command or the
 `DescribeDBInstances` API operation to find the secondary AZ.
 
-## Region and version availability for
-
-a Multi-AZ deployment for RDS Custom for Oracle
+## Region and version availability for a Multi-AZ deployment for RDS Custom for Oracle
 
 Multi-AZ deployments for RDS Custom for Oracle are supported for the following releases for both Enterprise
 Edition (EE) and Standard Edition 2 (SE2):
@@ -36,12 +34,9 @@ Multi-AZ deployments for RDS Custom for Oracle aren't supported on Oracle Databa
 
 Multi-AZ deployments for RDS Custom for Oracle are available in all Regions where RDS Custom for Oracle is
 available. For more information on Region availability of Multi-AZ deployments for
-RDS Custom for Oracle, see [Supported
-Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
+RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom for Oracle](Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora "Concepts.RDS_Fea_Regions_DB-eng.Feature.md#Concepts.RDS_Fea_Regions_DB-eng.Feature.RDSCustom.ora").
 
-## Limitations for a Multi-AZ
-
-deployment in RDS Custom for Oracle
+## Limitations for a Multi-AZ deployment in RDS Custom for Oracle
 
 Multi-AZ deployments with RDS Custom for Oracle have the following limitations:
 
@@ -65,9 +60,7 @@ Multi-AZ deployments with RDS Custom for Oracle have the following limitations:
   engineered with low-latency network connectivity between Availability
   Zones.
 
-## Creating a Multi-AZ deployment in
-
-RDS Custom for Oracle
+## Creating a Multi-AZ deployment in RDS Custom for Oracle
 
 To create an RDS Custom for Oracle DB instance with a Multi-AZ deployment, follow the steps in [Setting up your environment for Amazon RDS Custom for Oracle](custom-setup-orcl.md "custom-setup-orcl.md") to set up your environment with the
 prerequisites.

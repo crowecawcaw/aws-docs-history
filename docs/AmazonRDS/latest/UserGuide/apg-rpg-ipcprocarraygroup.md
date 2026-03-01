@@ -9,8 +9,7 @@ wait event is not specific to parallel queries.
 
 - [Supported engine versions](#apg-rpg-ipcprocarraygroup.supported "#apg-rpg-ipcprocarraygroup.supported")
 - [Context](#apg-rpg-ipcprocarraygroup.context "#apg-rpg-ipcprocarraygroup.context")
-- [Likely causes of increased
-  waits](#apg-rpg-ipcprocarraygroup.causes "#apg-rpg-ipcprocarraygroup.causes")
+- [Likely causes of increased waits](#apg-rpg-ipcprocarraygroup.causes "#apg-rpg-ipcprocarraygroup.causes")
 - [Actions](#apg-rpg-ipcprocarraygroup.actions "#apg-rpg-ipcprocarraygroup.actions")
 
 ## Supported engine versions
@@ -38,9 +37,7 @@ group transactionID clearing. Once this completes, the leader releases the ProcA
 and then wakes up all processes in this list, notifying them that their transaction is
 completed.
 
-## Likely causes of increased
-
-waits
+## Likely causes of increased waits
 
 The more processes that are running, the longer a leader will hold on to a
 procArrayLock in exclusive mode. Consequently, the more write transactions end up in a
@@ -58,18 +55,12 @@ by querying the PostgreSQL system view `pg_stat_activity`.
 
 ###### Topics
 
-- [Monitoring transaction
-  commit and rollback operations](#apg-rpg-ipcprocarraygroup.actions.monitor "#apg-rpg-ipcprocarraygroup.actions.monitor")
-- [Reducing
-  concurrency](#apg-rpg-ipcprocarraygroup.actions.concurrency "#apg-rpg-ipcprocarraygroup.actions.concurrency")
-- [Implementing connection
-  pooling](#apg-rpg-ipcprocarraygroup.actions.pooling "#apg-rpg-ipcprocarraygroup.actions.pooling")
-- [Using faster
-  storage](#apg-rpg-ipcprocarraygroup.actions.storage "#apg-rpg-ipcprocarraygroup.actions.storage")
+- [Monitoring transaction commit and rollback operations](#apg-rpg-ipcprocarraygroup.actions.monitor "#apg-rpg-ipcprocarraygroup.actions.monitor")
+- [Reducing concurrency](#apg-rpg-ipcprocarraygroup.actions.concurrency "#apg-rpg-ipcprocarraygroup.actions.concurrency")
+- [Implementing connection pooling](#apg-rpg-ipcprocarraygroup.actions.pooling "#apg-rpg-ipcprocarraygroup.actions.pooling")
+- [Using faster storage](#apg-rpg-ipcprocarraygroup.actions.storage "#apg-rpg-ipcprocarraygroup.actions.storage")
 
-### Monitoring transaction
-
-commit and rollback operations
+### Monitoring transaction commit and rollback operations
 
 Monitor commits and rollbacks – An increased
 number of commits and rollbacks can lead to increased pressure on the ProcArray. For
@@ -81,9 +72,7 @@ Amazon RDS Database Insights provides the PostgreSQL metrics `xact_commit`
 and `xact_rollback` to report the number of commits and rollbacks per
 second.
 
-### Reducing
-
-concurrency
+### Reducing concurrency
 
 Batching transactions – Where possible,
 batch operations in single transactions to reduce commit/rollback operations.
@@ -93,9 +82,7 @@ concurrently active transactions to alleviate lock contention on the ProcArray.
 While it will require some testing, reducing the total number of concurrent
 connections can reduce contention and maintain throughput.
 
-### Implementing connection
-
-pooling
+### Implementing connection pooling
 
 Connection pooling solutions – Use
 connection pooling to manage database connections efficiently, reducing the total
@@ -108,9 +95,7 @@ pattern of frequently creating and terminating connections causes additional
 pressure on the ProcArray. By reducing this pattern, overall contention is
 reduced.
 
-### Using faster
-
-storage
+### Using faster storage
 
 Dedicated log volume – If the
 `IPC:ProcArrayGroupUpdate` wait event is accompanied with high

@@ -1,6 +1,4 @@
-# Using the log_fdw
-
-extension to access the DB log using SQL
+# Using the log_fdw extension to access the DB log using SQL
 
 RDS for PostgreSQL DB instance
 supports the `log_fdw` extension, which you can use to access
@@ -23,15 +21,13 @@ parameter. There are only two options for this parameter, `stderr` and `csvlog`
 Amazon RDS generates both `stderr` and `csvlog` logs.
 This can affect the storage capacity on your DB cluster, so you need to be aware
 of the other parameters that affect log handling. For more information, see
-[Setting the log
-destination (stderr, csvlog)](USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format "USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format").
+[Setting the log destination (stderr, csvlog)](USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format "USER_LogAccess.Concepts.PostgreSQL.overview.md#USER_LogAccess.Concepts.PostgreSQL.Log_Format").
 
 One benefit of generating `csvlog` logs is that the `log_fdw`
 extension lets you build foreign tables with the data neatly split into
 several columns. To do this, your instance needs to be associated with a custom DB parameter group so
 that you can change the setting for `log_destination`. For more information about how
-to do so, see [Working with parameters on
-your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+to do so, see [Working with parameters on your RDS for PostgreSQL DB instance](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 
 The following example assumes that the `log_destination` parameter
 includes `cvslog`.

@@ -24,8 +24,7 @@ with memcached](https://dev.mysql.com/doc/refman/8.0/en/innodb-memcached.html "h
    same set that will access the `memcached` interface, you can use the existing VPC
    security group used by the SQL interface. If a different set of
    applications will access the `memcached` interface, define a new VPC or DB
-   security group. For more information about managing security groups, see [Controlling access with security
-   groups](Overview.md "Overview.md")
+   security group. For more information about managing security groups, see [Controlling access with security groups](Overview.md "Overview.md")
 2. Create a custom DB option group, selecting MySQL as the engine type and version. For more information about
    creating an option group, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
 3. Add the `MEMCACHED` option to the option group. Specify the port that
@@ -56,8 +55,7 @@ with memcached](https://dev.mysql.com/doc/refman/8.0/en/innodb-memcached.html "h
 7. If the applications accessing the `memcached` interface are on different computers or EC2
    instances than the applications using the SQL interface, add the connection information for those computers to
    the VPC security group associated with the MySQL instance. For more
-   information about managing security groups, see [Controlling access with security
-   groups](Overview.md "Overview.md").
+   information about managing security groups, see [Controlling access with security groups](Overview.md "Overview.md").
    You turn off the `memcached` support for an instance by modifying the instance and
    specifying the default option group for your MySQL version. For more information about modifying a
    DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
@@ -73,8 +71,7 @@ You can take the following actions to help increase the security of the `memcach
   `MEMCACHED` option to the option group.
 - Ensure that you associate the `memcached` interface with a VPC security group that
   limits access to known, trusted client addresses and EC2 instances. For more
-  information about managing security groups, see [Controlling access with security
-  groups](Overview.md "Overview.md").
+  information about managing security groups, see [Controlling access with security groups](Overview.md "Overview.md").
 
 ## MySQL memcached connection information
 

@@ -1,6 +1,4 @@
-# Using the schedule modifications
-
-setting
+# Using the schedule modifications setting
 
 When you modify your DB instance, you decide when you want the modifications to
 occur.

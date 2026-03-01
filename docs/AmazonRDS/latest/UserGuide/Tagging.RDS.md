@@ -1,6 +1,4 @@
-# Tutorial: Specify which DB instances to stop by using
-
-tags
+# Tutorial: Specify which DB instances to stop by using tags
 
 This tutorial assumes that you have several DB instances in a development or test environment.
 You need to keep these DB instances for several days. Some DB instances run tests overnight, whereas

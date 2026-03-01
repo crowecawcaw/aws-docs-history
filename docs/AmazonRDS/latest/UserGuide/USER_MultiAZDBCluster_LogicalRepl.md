@@ -1,13 +1,10 @@
-# Setting up PostgreSQL logical replication with
-
-Multi-AZ DB clusters for Amazon RDS
+# Setting up PostgreSQL logical replication with Multi-AZ DB clusters for Amazon RDS
 
 By using PostgreSQL logical replication with your Multi-AZ DB cluster, you can replicate
 and synchronize individual tables rather than the entire database instance. Logical
 replication uses a publish and subscribe model to replicate changes from a source to one or
 more recipients. It works by using change records from the PostgreSQL write-ahead log (WAL).
-For more information, see [Performing
-logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
+For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
 
 When you create a new logical replication slot on the writer DB instance of a Multi-AZ DB cluster, the slot is
 asynchronously copied to each reader DB instance in the cluster. The slots on the reader DB instances
@@ -27,8 +24,7 @@ replication](https://www.postgresql.org/docs/current/logical-replication.html "h
 ###### Topics
 
 - [Prerequisites](#multi-az-db-clusters-logical-replication-prereqs "#multi-az-db-clusters-logical-replication-prereqs")
-- [Setting up logical
-  replication](#multi-az-db-clusters-logical-replication "#multi-az-db-clusters-logical-replication")
+- [Setting up logical replication](#multi-az-db-clusters-logical-replication "#multi-az-db-clusters-logical-replication")
 - [Limitations and recommendations](#multi-az-db-clusters-logical-replication-limitations "#multi-az-db-clusters-logical-replication-limitations")
 
 ## Prerequisites
@@ -37,15 +33,12 @@ To configure PostgreSQL logical replication for Multi-AZ DB clusters, you must m
 prerequisites.
 
 - Your user account must be a member of the `rds_superuser` group and have
-  `rds_superuser` privileges. For more information, see [Understanding PostgreSQL roles and
-  permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
+  `rds_superuser` privileges. For more information, see [Understanding PostgreSQL roles and permissions](Appendix.PostgreSQL.CommonDBATasks.md "Appendix.PostgreSQL.CommonDBATasks.md").
 - Your Multi-AZ DB cluster must be associated with a custom DB cluster parameter
   group so that you can configure the parameter values described in the following
   procedure. For more information, see [Working with DB cluster parameter groups for Multi-AZ DB clusters](USER_WorkingWithDBClusterParamGroups.md "USER_WorkingWithDBClusterParamGroups.md").
 
-## Setting up logical
-
-replication
+## Setting up logical replication
 
 To set up logical replication for a Multi-AZ DB cluster, you enable specific
 parameters within the associated DB cluster parameter group, then create logical
@@ -77,8 +70,7 @@ replication.
         * `max_sync_workers_per_subscription`
 
 4.  Reboot the Multi-AZ DB cluster for the parameter values to take effect. For
-    instructions, see [Rebooting a Multi-AZ DB cluster and
-    reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
+    instructions, see [Rebooting a Multi-AZ DB cluster and reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
 5.  Create a logical replication slot on the writer DB instance of the Multi-AZ DB cluster as explained in [Working with logical replication slots](PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots "PostgreSQL.Concepts.General.FeatureSupport.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplicationSlots"). This process requires that you specify a decoding plugin. Currently,
     RDS for PostgreSQL supports the `test_decoding`, `wal2json`,
     and `pgoutput` plugins that ship with PostgreSQL.

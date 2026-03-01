@@ -1,6 +1,4 @@
-# Configuring buffer pool
-
-size and redo log capacity in MySQL 8.4
+# Configuring buffer pool size and redo log capacity in MySQL 8.4
 
 In MySQL 8.4, Amazon RDS enables the `innodb_dedicated_server` parameter by
 default. With the `innodb_dedicated_server` parameter, the database engine
@@ -35,8 +33,7 @@ values for the `innodb_buffer_pool_size` and
 setting specific values for them in a custom parameter group. Alternatively, you can
 disable the `innodb_dedicated_server` parameter and set values for the
 `innodb_buffer_pool_size` and `innodb_redo_log_capacity`
-parameters in a custom parameter group. For more information, see [Default and custom parameter
-groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
+parameters in a custom parameter group. For more information, see [Default and custom parameter groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
 
 If you disable the `innodb_dedicated_server` parameter by setting it to
 `0` and don't set values for the `innodb_buffer_pool_size` and

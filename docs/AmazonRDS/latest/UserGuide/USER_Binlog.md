@@ -10,14 +10,10 @@ reduces the storage requirements for binary logs and improves replication effici
 
 ###### Topics
 
-- [Binary log transaction compression for
-  Multi-AZ DB clusters](#USER_Binlog.MultiAZ.compression "#USER_Binlog.MultiAZ.compression")
-- [Configuring binary log transaction
-  compression for Multi-AZ DB clusters](#USER_Binlog.MultiAZ.configuring "#USER_Binlog.MultiAZ.configuring")
+- [Binary log transaction compression for Multi-AZ DB clusters](#USER_Binlog.MultiAZ.compression "#USER_Binlog.MultiAZ.compression")
+- [Configuring binary log transaction compression for Multi-AZ DB clusters](#USER_Binlog.MultiAZ.configuring "#USER_Binlog.MultiAZ.configuring")
 
-## Binary log transaction compression for
-
-Multi-AZ DB clusters
+## Binary log transaction compression for Multi-AZ DB clusters
 
 Binary log transaction compression uses the zstd algorithm to reduce the size of
 transaction data stored in binary logs. When enabled, the MySQL database engine
@@ -51,9 +47,7 @@ Binary log transaction compression has the following main benefits:
   control over the trade-off between compression ratio and resource
   consumption.
 
-## Configuring binary log transaction
-
-compression for Multi-AZ DB clusters
+## Configuring binary log transaction compression for Multi-AZ DB clusters
 
 To configure binary log transaction compression for an RDS for MySQL Multi-AZ DB cluster, modify the relevant cluster parameter settings to match your workload
 requirements.

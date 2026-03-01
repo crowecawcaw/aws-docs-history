@@ -1,6 +1,4 @@
-# Integrating an Amazon RDS for Db2 DB instance with
-
-Amazon S3
+# Integrating an Amazon RDS for Db2 DB instance with Amazon S3
 
 You can transfer files between your Amazon RDS for Db2 DB instance and an Amazon Simple Storage Service (Amazon S3) bucket
 with Amazon RDS stored procedures. For more information, see [Amazon RDS for Db2 stored procedure reference](db2-stored-procedures.md "db2-stored-procedures.md").
@@ -15,10 +13,8 @@ where your RDS for Db2 resides. If you don't currently have an S3 bucket, [creat
 ###### Topics
 
 - [Step 1: Create an IAM policy](#db2-creating-iam-policy "#db2-creating-iam-policy")
-- [Step 2: Create an IAM role and attach your
-  IAM policy](#db2-creating-iam-role "#db2-creating-iam-role")
-- [Step 3: Add your IAM role to your RDS for Db2 DB
-  instance](#db2-adding-iam-role "#db2-adding-iam-role")
+- [Step 2: Create an IAM role and attach your IAM policy](#db2-creating-iam-role "#db2-creating-iam-role")
+- [Step 3: Add your IAM role to your RDS for Db2 DB instance](#db2-adding-iam-role "#db2-adding-iam-role")
 
 ## Step 1: Create an IAM policy
 
@@ -79,9 +75,7 @@ JSON
 
 You can create an IAM policy by using the AWS Management Console or the AWS Command Line Interface (AWS CLI).
 
-###### To create an IAM policy to allow Amazon RDS to access your Amazon S3
-
-bucket
+###### To create an IAM policy to allow Amazon RDS to access your Amazon S3 bucket
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**.
@@ -97,9 +91,7 @@ bucket
    for this policy.
 9. Choose **Create policy**.
 
-###### To create an IAM policy to allow Amazon RDS to access your Amazon S3
-
-bucket
+###### To create an IAM policy to allow Amazon RDS to access your Amazon S3 bucket
 
 1. Create a JSON file that contains the following JSON policy document.
    Replace `{amzn-s3-demo-bucket}` with the name
@@ -209,15 +201,12 @@ aws iam create-policy ^
 ```
 
 3. After the policy is created, note the ARN of the policy. You need the
-   ARN for [Step 2: Create an IAM role and attach your
-   IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
+   ARN for [Step 2: Create an IAM role and attach your IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
 
 For information about creating an IAM policy, see [Creating IAM
 policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the IAM User Guide.
 
-## Step 2: Create an IAM role and attach your
-
-IAM policy
+## Step 2: Create an IAM role and attach your IAM policy
 
 This step assumes that you have created the IAM policy in [Step 1: Create an IAM policy](#db2-creating-iam-policy "#db2-creating-iam-policy"). In this
 step, you create a IAM role for your RDS for Db2 DB instance and then attach your IAM
@@ -312,8 +301,7 @@ aws iam create-role ^
 ```
 
 3. After the role is created, note the ARN of the role. You need the ARN
-   for [Step 3: Add your IAM role to your RDS for Db2 DB
-   instance](#db2-adding-iam-role "#db2-adding-iam-role").
+   for [Step 3: Add your IAM role to your RDS for Db2 DB instance](#db2-adding-iam-role "#db2-adding-iam-role").
 4. Run the [attach-role-policy](../../../cli/latest/reference/iam/attach-role-policy.md "../../../cli/latest/reference/iam/attach-role-policy.md") command. In the
    following example, replace `iam_policy_arn`
    with the ARN of the IAM policy that you created in [Step 1: Create an IAM policy](#db2-creating-iam-policy "#db2-creating-iam-policy"). Replace
@@ -339,9 +327,7 @@ aws iam attach-role-policy ^
 For more information, see [Creating a role to delegate
 permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
 
-## Step 3: Add your IAM role to your RDS for Db2 DB
-
-instance
+## Step 3: Add your IAM role to your RDS for Db2 DB instance
 
 In this step, you add your IAM role to your RDS for Db2 DB instance. Note the following
 requirements:
@@ -365,8 +351,7 @@ You can add an IAM role to your DB instance by using the AWS Management Console 
    down to the **Manage IAM roles** section at the
    bottom of the page.
 5. For **Add IAM roles to this instance**, choose the
-   role that you created in [Step 2: Create an IAM role and attach your
-   IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
+   role that you created in [Step 2: Create an IAM role and attach your IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
 6. For **Feature**, choose
    **S3_INTEGRATION**.
 7. Choose **Add role**.
@@ -377,8 +362,7 @@ following example, replace `region`,
 `db_instance_name`, and
 `iam_role_arn` with the name of the AWS Region
 where your DB instance exists, the name of your DB instance, and the ARN of the
-IAM role that you created in [Step 2: Create an IAM role and attach your
-IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
+IAM role that you created in [Step 2: Create an IAM role and attach your IAM policy](#db2-creating-iam-role "#db2-creating-iam-role").
 
 For Linux, macOS, or Unix:
 

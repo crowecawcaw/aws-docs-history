@@ -1,6 +1,4 @@
-# Viewing DB instance
-
-metrics in the CloudWatch console and AWS CLI
+# Viewing DB instance metrics in the CloudWatch console and AWS CLI
 
 Following, you can find details about how to view metrics for your DB instance using CloudWatch. For information on
 monitoring metrics for your DB instance's operating system in real time using CloudWatch Logs, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md").

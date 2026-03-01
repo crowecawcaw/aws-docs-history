@@ -1,13 +1,9 @@
-# Setting up Windows Authentication for
-
-SQL Server DB instances
+# Setting up Windows Authentication for SQL Server DB instances
 
 You use AWS Directory Service for Microsoft Active Directory, also called AWS Managed Microsoft AD, to set up Windows Authentication for a
 SQL Server DB instance. To set up Windows Authentication, take the following steps.
 
-## Step 1: Create a
-
-directory using the AWS Directory Service for Microsoft Active Directory
+## Step 1: Create a directory using the AWS Directory Service for Microsoft Active Directory
 
 Directory Service creates a fully managed, Microsoft Active Directory in the AWS Cloud. When you create
 an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and Domain Name
@@ -104,8 +100,7 @@ Choose the VPC for the directory.
 
 You can locate the directory and the DB instance in different VPCs, but if you do so,
 make sure to enable cross-VPC traffic. For more information,
-see [Step 4: Enable cross-VPC traffic
-between the directory and the DB instance](#USER_SQLServerWinAuth.SettingUp.VPC-Peering "#USER_SQLServerWinAuth.SettingUp.VPC-Peering").
+see [Step 4: Enable cross-VPC traffic between the directory and the DB instance](#USER_SQLServerWinAuth.SettingUp.VPC-Peering "#USER_SQLServerWinAuth.SettingUp.VPC-Peering").
 
 **Subnets**
 
@@ -125,9 +120,7 @@ create or modify your SQL Server DB instance.
 
 ![Directory details page](images/WinAuth3.png)
 
-## Step 2: Create the IAM role for
-
-use by Amazon RDS
+## Step 2: Create the IAM role for use by Amazon RDS
 
 If you use the console to create your SQL Server DB instance, you can skip this step. If
 you use the CLI or RDS API to create your SQL Server DB instance, you must create an
@@ -210,9 +203,7 @@ JSON
 Create an IAM role using this IAM policy and trust relationship. For more information about creating IAM roles, see [Creating customer managed
 policies](../../../IAM/latest/UserGuide/access_policies_managed-using.md#create-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_managed-using.md#create-managed-policy-console") in the _IAM User Guide_.
 
-## Step 3: Create and
-
-configure users and groups
+## Step 3: Create and configure users and groups
 
 You can create users and groups with the Active Directory Users and Computers tool. This
 tool is one of the Active Directory Domain Services and Active Directory Lightweight
@@ -228,9 +219,7 @@ information, see [Add
 users and groups (Simple AD and AWS Managed Microsoft AD)](../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md "../../../directoryservice/latest/admin-guide/creating_ad_users_and_groups.md") in the
 _AWS Directory Service Administration Guide_.
 
-## Step 4: Enable cross-VPC traffic
-
-between the directory and the DB instance
+## Step 4: Enable cross-VPC traffic between the directory and the DB instance
 
 If you plan to locate the directory and the DB instance in the same VPC, skip this step and
 move on to [Step 5: Create or modify a SQL Server DB instance](#USER_SQLServerWinAuth.SettingUp.CreateModify "#USER_SQLServerWinAuth.SettingUp.CreateModify").

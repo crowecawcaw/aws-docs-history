@@ -1,7 +1,7 @@
-# Creating and connecting to a MySQL DB instance
+# Creating and connecting to a PostgreSQL DB instance
 
-This tutorial creates an EC2 instance and an RDS for MySQL DB instance. The tutorial shows you how to access the DB
-instance from the EC2 instance using a standard MySQL client. As a best practice, this
+This tutorial creates an EC2 instance and an RDS for PostgreSQL DB instance. The tutorial shows you how to access the DB
+instance from the EC2 instance using a standard PostgreSQL client. As a best practice, this
 tutorial creates a private DB instance in a virtual private cloud (VPC). In most cases,
 other resources in the same VPC, such as EC2 instances, can access the DB instance, but resources
 outside of the VPC can't access it.
@@ -18,16 +18,15 @@ if they are no longer needed.
 
 The following diagram shows the configuration when the tutorial is complete.
 
-![EC2 instance and MySQL DB instance.](images/getting-started-mysql.png)
+![EC2 instance and PostgreSQL DB instance.](images/getting-started-postgresql.png)
 This tutorial allows you to create your resources by using one of the following methods:
 
 1. Use the AWS Management Console ‐
-   [Create a MySQL DB instance](#CHAP_GettingStarted.Creating.MySQL "#CHAP_GettingStarted.Creating.MySQL") and
-   [Create an EC2
-   instance](#CHAP_GettingStarted.Creating.MySQL.EC2 "#CHAP_GettingStarted.Creating.MySQL.EC2")
+   [Create an EC2 instance](#CHAP_GettingStarted.Creating.RDSPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.RDSPostgreSQL.EC2") and
+   [Create a PostgreSQL DB instance](#CHAP_GettingStarted.Creating.PostgreSQL "#CHAP_GettingStarted.Creating.PostgreSQL")
 2. Use CloudFormation to create the database instance and EC2 instance ‐
-   [(Optional) Create VPC, EC2 instance, and MySQL instance using CloudFormation](#CHAP_GettingStarted.CFN.MySQL "#CHAP_GettingStarted.CFN.MySQL")
-   The first method uses **Easy create** to create a private MySQL DB instance with the AWS Management Console.
+   [(Optional) Create VPC, EC2 instance, and PostgreSQL instance using CloudFormation](#CHAP_GettingStarted.CFN.PostgreSQL "#CHAP_GettingStarted.CFN.PostgreSQL")
+   The first method uses **Easy create** to create a private PostgreSQL DB instance with the AWS Management Console.
    Here, you specify only the DB engine type, DB instance size, and DB instance identifier.
    **Easy create** uses the default settings for the other configuration options.
 
@@ -37,18 +36,14 @@ To create a public DB instance, you must use **Standard create**. For informatio
 
 ###### Topics
 
-- [Prerequisites](#CHAP_GettingStarted.Prerequisites.MySQL "#CHAP_GettingStarted.Prerequisites.MySQL")
-- [Create an EC2
-  instance](#CHAP_GettingStarted.Creating.MySQL.EC2 "#CHAP_GettingStarted.Creating.MySQL.EC2")
-- [Create a MySQL DB instance](#CHAP_GettingStarted.Creating.MySQL "#CHAP_GettingStarted.Creating.MySQL")
-- [(Optional) Create VPC, EC2 instance, and MySQL instance using CloudFormation](#CHAP_GettingStarted.CFN.MySQL "#CHAP_GettingStarted.CFN.MySQL")
-- [Connect to a MySQL DB
-  instance](#CHAP_GettingStarted.Connecting.MySQL "#CHAP_GettingStarted.Connecting.MySQL")
-- [Delete the EC2 instance and DB
-  instance](#CHAP_GettingStarted.Deleting.MySQL "#CHAP_GettingStarted.Deleting.MySQL")
-- [(Optional) Delete the EC2 instance and DB
-  instance created with CloudFormation](#CHAP_GettingStarted.DeletingCFN.MySQL "#CHAP_GettingStarted.DeletingCFN.MySQL")
-- [(Optional) Connect your DB instance to a Lambda function](#CHAP_GettingStarted.ComputeConnect.MySQL "#CHAP_GettingStarted.ComputeConnect.MySQL")
+- [Prerequisites](#CHAP_GettingStarted.Prerequisites.RDSPostgreSQL "#CHAP_GettingStarted.Prerequisites.RDSPostgreSQL")
+- [Create an EC2 instance](#CHAP_GettingStarted.Creating.RDSPostgreSQL.EC2 "#CHAP_GettingStarted.Creating.RDSPostgreSQL.EC2")
+- [Create a PostgreSQL DB instance](#CHAP_GettingStarted.Creating.PostgreSQL "#CHAP_GettingStarted.Creating.PostgreSQL")
+- [(Optional) Create VPC, EC2 instance, and PostgreSQL instance using CloudFormation](#CHAP_GettingStarted.CFN.PostgreSQL "#CHAP_GettingStarted.CFN.PostgreSQL")
+- [Connect to a PostgreSQL DB instance](#CHAP_GettingStarted.Connecting.PostgreSQL "#CHAP_GettingStarted.Connecting.PostgreSQL")
+- [Delete the EC2 instance and DB instance](#CHAP_GettingStarted.Deleting.PostgreSQL "#CHAP_GettingStarted.Deleting.PostgreSQL")
+- [(Optional) Delete the EC2 instance and DB instance created with CloudFormation](#CHAP_GettingStarted.DeletingCFN.PostgreSQL "#CHAP_GettingStarted.DeletingCFN.PostgreSQL")
+- [(Optional) Connect your DB instance to a Lambda function](#CHAP_GettingStarted.ComputeConnect.PostreSQL "#CHAP_GettingStarted.ComputeConnect.PostreSQL")
 
 ## Prerequisites
 
@@ -57,9 +52,7 @@ Before you begin, complete the steps in the following sections:
 - [Sign up for an AWS account](CHAP_SettingUp.md#sign-up-for-aws "CHAP_SettingUp.md#sign-up-for-aws")
 - [Create a user with administrative access](CHAP_SettingUp.md#create-an-admin "CHAP_SettingUp.md#create-an-admin")
 
-## Create an EC2
-
-instance
+## Create an EC2 instance
 
 Create an Amazon EC2 instance that you will use to connect to your database.
 
@@ -154,35 +147,33 @@ need when you connect using SSH:
 8. Wait until the **Instance state** for your EC2 instance has a status
    of **Running** before continuing.
 
-## Create a MySQL DB instance
+## Create a PostgreSQL DB instance
 
-The basic building block of Amazon RDS is the DB instance. This environment is where you run your
-MySQL databases.
+The basic building block of Amazon RDS is the DB instance. This environment is where you run
+your PostgreSQL databases.
 
-In this example, you use **Easy create** to create a DB instance running the MySQL database
+In this example, you use **Easy create** to create a DB instance running the PostgreSQL database
 engine with a db.t3.micro DB instance class.
 
-###### To create a MySQL DB instance with Easy create
+###### To create a PostgreSQL DB instance with Easy create
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the upper-right corner of the Amazon RDS console, choose the AWS Region you used for the EC2
-   instance previously.
+2. In the upper-right corner of the Amazon RDS console, choose the AWS Region in which you want to
+   create the DB instance.
 3. In the navigation pane, choose **Databases**.
-4. Choose **Create database** and make sure that **Easy
-   create** is chosen.
+4. Choose **Create database** and make sure that **Easy create** is chosen.
 
-![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **MySQL**. 6. For **DB instance size**, choose **Free tier**.
+![Easy create option.](images/easy-create-option.png) 5. In **Configuration**, choose **PostgreSQL**. 6. For **DB instance size**, choose **Free tier**.
 **Free tier** appears for free plan accounts.
 **Sandbox** appears for paid plan
-accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep the
-default name.
+accounts. 7. For **DB instance identifier**, enter `database-test1`. 8. For **Master username**, enter a name for the master user, or keep
+the default name (`postgres`).
 
-The **Create database** page should look similar to the following image.
-For free plan accounts, **Free tier** appears. For
-paid plan accounts, **Sandbox** appears.
+The **Create database** page should look similar to the following
+image. For free plan accounts, **Free tier** appears. For paid plan accounts, **Sandbox** appears.
 
-![Create database page.](images/easy-create-mysql.png) 9. To use an automatically generated master password for the DB instance, select
+![Create database page.](images/easy-create-postgresql.png) 9. To use an automatically generated master password for the DB instance, select
 **Auto generate a password**.
 
 To enter your master password, make sure **Auto generate a
@@ -192,12 +183,12 @@ password**. 10. To set up a connection with the EC2 instance you created previou
 **Set up EC2 connection -
 _optional_**.
 
-Select **Connect to an EC2 compute resource**. Choose the EC2 instance
-you created previously.
+Select **Connect to an EC2 compute resource**. Choose the EC2
+instance you created previously.
 
-![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. (Optional) Open **View default settings for Easy create**.
+![Set up EC2 connection option.](images/EC2_RDS_Setup_Conn-EasyCreate.png) 11. Open **View default settings for Easy create**.
 
-![Easy create default settings.](images/easy-create-view-default-mysql.png)
+![Easy create default settings for RDS for PostgreSQL.](images/easy-create-view-default-postgres.png)
 
 You can examine the default settings used with **Easy create**. The
 **Editable after database is created** column shows which
@@ -213,43 +204,45 @@ options you can change after you create the database.
 
 12. Choose **Create database**.
 
-To view the master username and password for the DB instance, choose
-**View credential details**.
+To view the master username and password for the DB instance, choose **View
+credential details**.
 
 You can use the username and password that appears to connect to the DB
 instance as the master user.
 
 ###### Important
 
-You can't view the master user password again. If you don't
-record it, you might have to change it.
+You can't view the master user password again. If you don't record it, you
+might have to change it.
 
 If you need to change the master user password after the DB instance
 is available, you can modify the DB instance to do so. For more
-information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 13. In the **Databases** list, choose the name of the new MySQL
-DB instance to show its details.
+information about modifying a DB instance, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md"). 13. In the **Databases** list, choose the name of the new PostgreSQL DB
+instance to show its details.
 
 The DB instance has a status of **Creating** until it is ready to use.
 
-![DB instance details.](images/MySQL-Launch06.png)
+![DB instance details.](images/Postgres-Launch06.png)
 
-When the status changes to **Available**, you can connect to the
-DB instance. Depending on the DB instance class and the amount of storage,
-it can take up to 20 minutes before the new instance is available.
+When the status changes to **Available**, you can connect to the DB
+instance. Depending on the DB instance class and the amount of storage, it can
+take up to 20 minutes before the new instance is available.
 
-## (Optional) Create VPC, EC2 instance, and MySQL instance using CloudFormation
+## (Optional) Create VPC, EC2 instance, and PostgreSQL instance using CloudFormation
 
-Instead of using the console to create your VPC, EC2 instance, and MySQL instance, you can use CloudFormation to provision AWS resources by treating infrastructure as code.
-To help you organize your AWS resources into smaller and more manageable units, you can use the CloudFormation nested stack functionality.
-For more information, see [Creating a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") and
-[Working with nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
+Instead of using the console to create your VPC, EC2 instance, and PostgreSQL
+instance, you can use CloudFormation to provision AWS resources by treating infrastructure as
+code. To help you organize your AWS resources into smaller and more manageable units,
+you can use the CloudFormation nested stack functionality. For more information, see [Creating a
+stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") and [Working with
+nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
 
 ###### Important
 
 CloudFormation is free, but the resources that CloudFormation creates are live. You incur the standard
 usage fees for these resources until you terminate them. For more information, see
-[RDS for MySQL
-pricing](https://aws.amazon.com//rds/mysql/pricing "https://aws.amazon.com//rds/mysql/pricing").
+[RDS for PostgreSQL
+pricing](https://aws.amazon.com//rds/postgresql/pricing "https://aws.amazon.com//rds/postgresql/pricing").
 
 To create your resources using the CloudFormation console, complete the following steps:
 
@@ -258,36 +251,46 @@ To create your resources using the CloudFormation console, complete the followin
 
 ### Download the CloudFormation template
 
-A CloudFormation template is a JSON or YAML text file that contains the configuration information about the resources you want to create in the stack.
-This template also creates a VPC and a bastion host for you along with the RDS instance.
+A CloudFormation template is a JSON or YAML text file that contains the configuration
+information about the resources you want to create in the stack. This template also
+creates a VPC and a bastion host for you along with the RDS instance.
 
-To download the template file, open the following link, [MySQL CloudFormation template](https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mysql-main.template.yaml "https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-mysql-main.template.yaml").
+To download the template file, open the following link, [PostgreSQL CloudFormation template](https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-postgres-main.template.yaml "https://github.com/aws-ia/cfn-ps-amazon-rds/blob/main/templates/rds-postgres-main.template.yaml").
 
-In the Github page, click the _Download raw file_ button to save the template YAML file.
+In the Github page, click the _Download raw file_ button to
+save the template YAML file.
 
 ### Configure your resources using CloudFormation
 
 ###### Note
 
-Before starting this process, make sure you have a Key pair for an EC2 instance in your AWS account. For more information,
-see [Amazon EC2 key pairs and Linux instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md").
+Before starting this process, make sure you have a Key pair for an EC2
+instance in your AWS account. For more information, see [Amazon EC2
+key pairs and Linux instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md").
 
-When you use the CloudFormation template, you must select the correct parameters to make sure your resources are created properly.
-Follow the steps below:
+When you use the CloudFormation template, you must select the correct parameters to make
+sure your resources are created properly. Follow the steps below:
 
-1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. Choose **Create Stack**.
-3. In the Specify template section, select **Upload a template file from your computer**, and then choose **Next**.
-4. In the **Specify stack details** page, set the following parameters:
-   1. Set **Stack name** to **MySQLTestStack**.
-   2. Under **Parameters**, set **Availability Zones** by selecting three availability zones.
-   3. Under **Linux Bastion Host configuration**, for **Key Name**, select a key pair to login to your EC2 instance.
+3. In the Specify template section, select **Upload a template file
+   from your computer**, and then choose
+   **Next**.
+4. In the **Specify stack details** page, set the following
+   parameters:
+   1. Set **Stack name** to
+      **PostgreSQLTestStack**.
+   2. Under **Parameters**, set **Availability
+      Zones** by selecting three availability zones.
+   3. Under **Linux Bastion Host configuration**, for
+      **Key Name**, select a key pair to login to
+      your EC2 instance.
    4. In **Linux Bastion Host configuration** settings,
       set the **Permitted IP range** to your IP address.
-      To connect to EC2 instances in your VPC using Secure Shell (SSH), determine your
-      public IP address using the service at
-      [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
-      An example of an IP address is 192.0.2.1/32.
+      To connect to EC2 instances in your VPC using Secure Shell (SSH),
+      determine your public IP address using the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com"). An example of an IP
+      address is 192.0.2.1/32.
 
    ###### Warning
 
@@ -297,138 +300,159 @@ Follow the steps below:
    time in a test environment, but it's unsafe for production
    environments. In production, authorize only a specific IP
    address or range of addresses to access your EC2 instances using
-   SSH. 5. Under **Database General configuration**, set **Database instance class** to **db.t3.micro**. 6. Set **Database name** to `database-test1`. 7. For **Database master username**, enter a name for the master user. 8. Set **Manage DB master user password with Secrets Manager** to
-   `false` for this tutorial. 9. For **Database password**, set a password of your choice. Remember this password for further steps in the tutorial. 10. Under **Database Storage configuration**, set **Database storage
-   type** to **gp2**. 11. Under **Database Monitoring configuration**, set **Enable RDS Performance Insights** to false. 12. Leave all other settings as the default values. Click **Next** to continue.
+   SSH. 5. Under **Database General configuration**, set
+   **Database instance class** to
+   **db.t3.micro**. 6. Set **Database name** to
+   `database-test1`. 7. For **Database master username**, enter a name
+   for the master user. 8. Set **Manage DB master user password with Secrets Manager**
+   to `false` for this tutorial. 9. For **Database password**, set a password of your
+   choice. Remember this password for further steps in the
+   tutorial. 10. Under **Database Storage configuration**, set
+   **Database storage type** to
+   **gp2**. 11. Under **Database Monitoring configuration**, set
+   **Enable RDS Performance Insights** to false. 12. Leave all other settings as the default values. Click
+   **Next** to continue.
 
-5. In the **Configure stack options** page, leave all the default options. Click **Next** to continue.
-6. In the **Review stack** page, select **Submit** after checking the database and Linux bastion host options.
+5. In the **Configure stack options** page, leave all the
+   default options. Click **Next** to continue.
+6. In the **Review stack** page, select
+   **Submit** after checking the database and Linux
+   bastion host options.
 
-After the stack creation process completes, view the stacks with names _BastionStack_ and _RDSNS_
-to note the information you need to connect to the database. For more information, see
-[Viewing CloudFormation stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
+After the stack creation process completes, view the stacks with names
+_BastionStack_ and _RDSNS_ to note the
+information you need to connect to the database. For more information, see [Viewing CloudFormation
+stack data and resources on the AWS Management Console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md").
 
-## Connect to a MySQL DB
+## Connect to a PostgreSQL DB instance
 
-instance
+You can connect to the DB instance using pgadmin or psql. This example explains
+how to connect to a PostgreSQL DB instance using the psql command-line
+client.
 
-You can use any standard SQL client application to connect to the DB instance. In this example, you
-connect to a MySQL DB instance using the mysql command-line client.
-
-###### To connect to a MySQL DB instance
+###### To connect to a PostgreSQL DB instance using psql
 
 1. Find the endpoint (DNS name) and port number for your DB instance.
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-   2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.
-   3. In the navigation pane, choose **Databases**.
-   4. Choose the MySQL DB instance name to display its details.
-   5. On the **Connectivity & security** tab, copy the endpoint.
-      Also, note the port number. You need both the endpoint and the port number
-      to connect to the DB instance.
+   2. In the upper-right corner of the Amazon RDS console, choose the
+      AWS Region for the DB instance.
+   3. In the navigation pane, choose
+      **Databases**.
+   4. Choose the PostgreSQL DB instance name to display its details.
+   5. On the **Connectivity & security** tab, copy
+      the endpoint. Also note the port number. You need both the endpoint
+      and the port number to connect to the DB instance.
 
-   ![Connect to a MySQL DB instance.](images/MySQLConnect1.png)
+   ![Connect to a PostgreSQL DB instance.](images/PostgreSQL-endpoint.png)
 
-2. Connect to the EC2 instance that you created earlier by following the steps in
-   [Connect to your Linux
-   instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the _Amazon EC2 User Guide_.
+2. Connect to the EC2 instance that you created earlier by following the
+   steps in [Connect to your
+   Linux instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the
+   _Amazon EC2 User Guide_.
 
-We recommend that you connect to your EC2 instance using SSH. If the SSH client utility is
-installed on Windows, Linux, or Mac, you can connect to the instance using the
-following command format:
+We recommend that you connect to your EC2 instance using SSH. If the SSH
+client utility is installed on Windows, Linux, or Mac, you can connect to
+the instance using the following command format:
 
 ```
 ssh -i `location_of_pem_file` ec2-user@`ec2-instance-public-dns-name`
 ```
 
-For example, assume that `ec2-database-connect-key-pair.pem` is stored
-in `/dir1` on Linux, and the public IPv4 DNS for your EC2 instance is
-`ec2-12-345-678-90.compute-1.amazonaws.com`. Your SSH command would
-look as follows:
+For example, assume that
+`ec2-database-connect-key-pair.pem` is stored in
+`/dir1` on Linux, and the public IPv4 DNS for your EC2
+instance is `ec2-12-345-678-90.compute-1.amazonaws.com`. Your SSH
+command would look as follows:
 
 ```
 ssh -i /dir1/ec2-database-connect-key-pair.pem ec2-user@ec2-12-345-678-90.compute-1.amazonaws.com
 ```
 
-3. Get the latest bug fixes and security updates by updating the software on your EC2 instance.
-   To do this, use the following command.
+3. Get the latest bug fixes and security updates by updating the software on
+   your EC2 instance. To do this, use the following command.
 
 ###### Note
 
-The `-y` option installs the updates without asking for confirmation. To
-examine updates before installing, omit this option.
+The `-y` option installs the updates without asking for
+confirmation. To examine updates before installing, omit this
+option.
 
 ```
 sudo dnf update -y
 ```
 
-4. To install the mysql command-line client from MariaDB on Amazon Linux 2023, run the
-   following command:
+4. To install the psql command-line client from PostgreSQL on Amazon Linux 2023, run
+   the following command:
 
 ```
-sudo dnf install mariadb105
+sudo dnf install postgresql15
 ```
 
-5. Connect to the MySQL DB instance. For example, enter the following
-   command. This action lets you connect to the MySQL DB instance using the MySQL client.
+5. Connect to the PostgreSQL DB instance. For example, enter the following
+   command at a command prompt on a client computer. This action lets you
+   connect to the PostgreSQL DB instance using the psql client.
 
-Substitute the DB instance endpoint (DNS name) for `endpoint`,
-and substitute the master username that you used for `admin`. Provide
-the master password that you used when prompted for a password.
+Substitute the DB instance endpoint (DNS name) for
+`endpoint`, substitute the
+database name `--dbname` that you want to connect to for
+`postgres`, and substitute the
+master username that you used for
+`postgres`. Provide the master
+password that you used when prompted for a password.
 
 ```
-mysql -h `endpoint` -P 3306 -u `admin` -p
+psql --host=`endpoint` --port=5432 --dbname=`postgres` --username=`postgres`
 ```
 
-After you enter the password for the user, you should see output similar to the following.
+After you enter the password for the user, you should see output similar
+to the following:
 
 ```
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3082
-Server version: 8.0.28 Source distribution
+psql (14.3, server 14.6)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
 
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-MySQL [(none)]>
+postgres=>
 ```
 
-For more information about connecting to a MySQL DB instance, see [Connecting to your MySQL DB instance](USER_ConnectToInstance.md "USER_ConnectToInstance.md"). If you can't connect to your DB instance, see
-[Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting "CHAP_Troubleshooting.md#CHAP_Troubleshooting.Connecting").
+For more information on connecting to a PostgreSQL DB instance, see [Connecting to a DB instance running the PostgreSQL database engine](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md"). If you can't
+connect to your DB instance, see [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.md "USER_ConnectToPostgreSQLInstance.md").
 
-For security, it is a best practice to use encrypted connections. Only use an unencrypted MySQL
-connection when the client and server are in the same VPC and the network is trusted. For information about
-using encrypted connections, see [Connecting to your MySQL DB instance on
-Amazon RDS with SSL/TLS from the MySQL command-line client (encrypted)](USER_ConnectToInstanceSSL.md "USER_ConnectToInstanceSSL.md"). 6. Run SQL commands.
+For security, it is a best practice to use encrypted connections. Only use
+an unencrypted PostgreSQL connection when the client and server are in the
+same VPC and the network is trusted. For information about using encrypted
+connections, see [Connecting to a PostgreSQL DB instance over SSL](PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Connecting "PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Connecting"). 6. Run SQL commands.
 
-For example, the following SQL command shows the current date and time:
+For example, the following SQL command shows the current date and
+time:
 
 ```
 SELECT CURRENT_TIMESTAMP;
 ```
 
-## Delete the EC2 instance and DB
+## Delete the EC2 instance and DB instance
 
-instance
+After you connect to and explore the sample EC2 instance and DB instance that you
+created, delete them so you're no longer charged for them.
 
-After you connect to and explore the sample EC2 instance and DB instance that you created, delete them so
-you're no longer charged for them.
-
-If you used CloudFormation to create resources, skip this step and go to the next step.
+If you used CloudFormation to create resources, skip this step and go to the next
+step.
 
 ###### To delete the EC2 instance
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Instances**.
-3. Select the EC2 instance, and choose **Instance state, Terminate instance**.
-4. Choose **Terminate** when prompted for confirmation.
+3. Select the EC2 instance, and choose **Instance state, Terminate
+   instance**.
+4. Choose **Terminate** when prompted for
+   confirmation.
 
-For more information about deleting an EC2 instance, see [Terminate your instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md")
-in the _Amazon EC2 User Guide_.
+For more information about deleting an EC2 instance, see [Terminate your instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the
+_Amazon EC2 User Guide_.
 
-###### To delete the DB instance with no final DB snapshot
+###### To delete a DB instance with no final DB snapshot
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -436,31 +460,34 @@ in the _Amazon EC2 User Guide_.
 3. Choose the DB instance that you want to delete.
 4. For **Actions**, choose
    **Delete**.
-5. Clear **Create final snapshot?** and **Retain automated backups**.
+5. Clear **Create final snapshot?** and **Retain
+   automated backups**.
 6. Complete the acknowledgement and choose **Delete**.
 
-## (Optional) Delete the EC2 instance and DB
-
-instance created with CloudFormation
+## (Optional) Delete the EC2 instance and DB instance created with CloudFormation
 
 If you used CloudFormation to create resources, delete the CloudFormation stack after you
-connect to and explore the sample EC2 instance and DB instance, so you're no longer charged for them.
+connect to and explore the sample EC2 instance and DB instance, so you're no longer
+charged for them.
 
 ###### To delete the CloudFormation resources
 
 1. Open the CloudFormation console.
-2. On the **Stacks** page in the CloudFormationconsole,
-   select the root stack (the stack without the name VPCStack, BastionStack or RDSNS).
+2. On the **Stacks** page in the CloudFormationconsole, select
+   the root stack (the stack without the name VPCStack, BastionStack or
+   RDSNS).
 3. Choose **Delete**.
-4. Select **Delete stack** when prompted for confirmation.
+4. Select **Delete stack** when prompted for
+   confirmation.
 
-For more information about deleting a stack in CloudFormation, see [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md")
-in the _AWS CloudFormation User Guide_.
+For more information about deleting a stack in CloudFormation, see [Deleting
+a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md") in the
+_AWS CloudFormation User Guide_.
 
 ## (Optional) Connect your DB instance to a Lambda function
 
-You can also connect your RDS for MySQL DB instance to a Lambda serverless compute resource.
-Lambda functions allow you to run code without provisioning or managing infrastructure. A Lambda function
-also allows you to automatically respond to code execution requests at any scale, from a dozen events
-a day to hundreds of per second. For more information, see [Automatically connecting a Lambda function and a
-DB instance](lambda-rds-connect.md "lambda-rds-connect.md").
+You can also connect your RDS for PostgreSQL DB instance to a Lambda serverless compute
+resource. Lambda functions allow you to run code without provisioning or managing
+infrastructure. A Lambda function also allows you to automatically respond to code
+execution requests at any scale, from a dozen events a day to hundreds of per
+second. For more information, see [Automatically connecting a Lambda function and a DB instance](lambda-rds-connect.md "lambda-rds-connect.md").

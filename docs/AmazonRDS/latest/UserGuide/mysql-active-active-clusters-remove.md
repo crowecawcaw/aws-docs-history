@@ -1,6 +1,4 @@
-# Removing a DB instance from an
-
-active-active cluster
+# Removing a DB instance from an active-active cluster
 
 When you remove a DB instance from an active-active cluster, it reverts to a standalone DB instance.
 
@@ -16,8 +14,7 @@ call mysql.rds_group_replication_stop();
    active-active cluster.
 
 In the `group_replication_group_seeds` parameter, delete the DB instance that you are removing from the
-active-active cluster. For more information about setting parameters, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Modify the parameters of the DB instance you are removing from the active-active cluster so that it is no longer
+active-active cluster. For more information about setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 3. Modify the parameters of the DB instance you are removing from the active-active cluster so that it is no longer
 part of the cluster.
 
 You can either associate the DB instance with a different parameter group, or

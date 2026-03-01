@@ -17,8 +17,7 @@ SELECT * FROM emp WHERE lname = 'Wu'
 All engines support SQL statistics for digest queries.
 
 For the region, DB engine, and instance class support information for this feature, see
-[Amazon RDS DB engine, Region, and instance class support
-for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
+[Amazon RDS DB engine, Region, and instance class support for Performance Insights features](USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport "USER_PerfInsights.Overview.md#USER_PerfInsights.Overview.PIfeatureEngnRegSupport")
 
 ###### Topics
 

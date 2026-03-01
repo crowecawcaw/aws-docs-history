@@ -6,8 +6,7 @@ availability issues or resource changes.
 ###### Topics
 
 - [Creating rules to send Amazon RDS events to Amazon EventBridge](#rds-cloudwatch-events.sending-to-cloudwatch-events "#rds-cloudwatch-events.sending-to-cloudwatch-events")
-- [Tutorial: Log DB instance state changes using
-  Amazon EventBridge](#log-rds-instance-state "#log-rds-instance-state")
+- [Tutorial: Log DB instance state changes using Amazon EventBridge](#log-rds-instance-state "#log-rds-instance-state")
 
 ## Creating rules to send Amazon RDS events to Amazon EventBridge
 
@@ -43,9 +42,7 @@ The rule name must be unique within this Region. 10. Choose **Create rule**.
 For more information, see [Creating an
 EventBridge Rule That Triggers on an Event](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md") in the _Amazon CloudWatch User Guide_.
 
-## Tutorial: Log DB instance state changes using
-
-Amazon EventBridge
+## Tutorial: Log DB instance state changes using Amazon EventBridge
 
 In this tutorial, you create an AWS Lambda function that logs the state changes for an Amazon RDS instance.
 You then create a rule that runs the function whenever there is a state change of an existing RDS DB instance. The tutorial assumes that you

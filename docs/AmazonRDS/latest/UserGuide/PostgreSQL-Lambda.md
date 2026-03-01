@@ -1,6 +1,4 @@
-# Invoking an AWS Lambda function from an
-
-RDS for PostgreSQL DB instance
+# Invoking an AWS Lambda function from an RDS for PostgreSQL DB instance
 
 AWS Lambda is an event-driven compute service that lets you run code without provisioning or managing servers. It's available for use
 with many AWS services, including RDS for PostgreSQL.
@@ -33,8 +31,7 @@ the _AWS Lambda Developer Guide_.
 - [Step 1: Configure your RDS for PostgreSQL DB instance for outbound connections to AWS Lambda](#PostgreSQL-Lambda-network "#PostgreSQL-Lambda-network")
 - [Step 2: Configure IAM for your RDS for PostgreSQL DB instance and AWS Lambda](#PostgreSQL-Lambda-access "#PostgreSQL-Lambda-access")
 - [Step 3: Install the aws_lambda extension for an RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-install-extension "#PostgreSQL-Lambda-install-extension")
-- [Step 4: Use Lambda helper functions with your
-  RDS for PostgreSQL DB instance (Optional)](#PostgreSQL-Lambda-specify-function "#PostgreSQL-Lambda-specify-function")
+- [Step 4: Use Lambda helper functions with your RDS for PostgreSQL DB instance (Optional)](#PostgreSQL-Lambda-specify-function "#PostgreSQL-Lambda-specify-function")
 - [Step 5: Invoke a Lambda function from your RDS for PostgreSQL DB instance](#PostgreSQL-Lambda-invoke "#PostgreSQL-Lambda-invoke")
 - [Step 6: Grant other users permission to invoke Lambda functions](#PostgreSQL-Lambda-grant-users-permissions "#PostgreSQL-Lambda-grant-users-permissions")
 - [Examples: Invoking Lambda functions from your RDS for PostgreSQL DB instance](PostgreSQL-Lambda-examples.md "PostgreSQL-Lambda-examples.md")
@@ -171,9 +168,7 @@ add the `aws_lambda` PostgreSQL extension to your RDS for PostgreSQL DB instance
 provides your RDS for PostgreSQL DB instance with the ability to call
 Lambda functions from PostgreSQL.
 
-###### To install the `aws_lambda` extension in your
-
-RDS for PostgreSQL DB instance
+###### To install the `aws_lambda` extension in your RDS for PostgreSQL DB instance
 
 Use the PostgreSQL `psql` command-line or the pgAdmin tool to connect to your
 RDS for PostgreSQL DB instance.
@@ -201,9 +196,7 @@ CREATE EXTENSION`
 The `aws_lambda` extension is installed in your
 DB instance. You can now create convenience structures for invoking your Lambda functions.
 
-## Step 4: Use Lambda helper functions with your
-
-RDS for PostgreSQL DB instance (Optional)
+## Step 4: Use Lambda helper functions with your RDS for PostgreSQL DB instance (Optional)
 
 You can use the helper functions in the `aws_commons` extension to prepare entities that you can more easily invoke from PostgreSQL. To do this,
 you need to have the following information about your Lambda functions:
@@ -288,7 +281,7 @@ The response looks as follows.
 (1 row)`
 ```
 
-If your invocation attempt doesn't succeed, see [Lambda function error messages](PostgreSQL-Lambda-errors.md "PostgreSQL-Lambda-errors.md") .
+If your invocation attempt doesn't succeed, see [Lambda function error messages](PostgreSQL-Lambda-errors.md "PostgreSQL-Lambda-errors.md").
 
 ## Step 6: Grant other users permission to invoke Lambda functions
 

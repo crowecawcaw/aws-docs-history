@@ -9,14 +9,11 @@ a DB instance in an Aurora DB cluster, see [Deleting Aurora DB clusters and DB i
 
 ###### Topics
 
-- [Prerequisites for deleting a
-  DB instance](#USER_DeleteInstance.DeletionProtection "#USER_DeleteInstance.DeletionProtection")
+- [Prerequisites for deleting a DB instance](#USER_DeleteInstance.DeletionProtection "#USER_DeleteInstance.DeletionProtection")
 - [Considerations when deleting a DB instance](#USER_DeleteInstance.Snapshot "#USER_DeleteInstance.Snapshot")
 - [Deleting a DB instance](#USER_DeleteInstance.Deleting "#USER_DeleteInstance.Deleting")
 
-## Prerequisites for deleting a
-
-DB instance
+## Prerequisites for deleting a DB instance
 
 Before you try to delete your DB instance, make sure that deletion protection is turned off. By
 default, deletion protection is turned on for a DB instance that was created with the console.
@@ -36,7 +33,7 @@ replica status. Consider the following issues:
   - If you take a final snapshot, you can use it to restore your deleted DB instance. RDS retains
     both the final snapshot and any manual snapshots that you took
     previously. You can't create a final DB snapshot of your DB instance if it isn't in the
-    `Available` state. For more information, see [Viewing Amazon RDS DB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+    `Available` state. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
   - If you don't take a final snapshot, then no final snapshot exists that you can restore
     later. If you decide to restore your deleted DB instance, either retain
     automated backups or use an earlier manual snapshot to restore your
@@ -67,21 +64,18 @@ replica status. Consider the following issues:
       + DB clusters
 
   If you purchased reserved instances, then they are billed according to contract that you
-  agreed to when you purchased the instance. For more information, see [Reserved DB instances for Amazon RDS](USER_WorkingWithReservedDBInstances.md "USER_WorkingWithReservedDBInstances.md"). You can get billing
+  agreed to when you purchased the instance. For more information, see [Reserved DB instances for Amazon RDS](USER_WorkingWithReservedDBInstances.md "USER_WorkingWithReservedDBInstances.md") . You can get billing
   information for all your AWS resources by using the AWS Cost Explorer. For more
   information, see [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md").
 
 - If you delete a DB instance that has read replicas in the same AWS Region, each
   read replica is automatically promoted to a standalone DB instance. For more
-  information, see [Promoting a read replica to be a standalone
-  DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). If your DB instance has read replicas in
-  different AWS Regions, see [Cross-Region replication
-  considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr") for information related to
+  information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). If your DB instance has read replicas in
+  different AWS Regions, see [Cross-Region replication considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr") for information related to
   deleting the source DB instance for a cross-Region read replica.
 - When the status for a DB instance is `deleting`, its CA certificate value
   doesn't appear in the RDS console or in output for AWS CLI commands or RDS
-  API operations. For more information about CA certificates, see [Using SSL/TLS to encrypt a connection to a DB
-  instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+  API operations. For more information about CA certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
 - The time required to delete a DB instance varies depending on the backup retention period, how
   much data is deleted, whether a final snapshot is taken, and whether the final
   snapshot is incremental or full. Even if you don't take a final snapshot, the
@@ -104,8 +98,7 @@ following:
 ###### Note
 
 You can't delete a DB instance when deletion protection is turned on. For more information,
-see [Prerequisites for deleting a
-DB instance](#USER_DeleteInstance.DeletionProtection "#USER_DeleteInstance.DeletionProtection").
+see [Prerequisites for deleting a DB instance](#USER_DeleteInstance.DeletionProtection "#USER_DeleteInstance.DeletionProtection").
 
 ###### To delete a DB instance
 

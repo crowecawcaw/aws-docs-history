@@ -126,8 +126,7 @@ instance classes with local NVMe SSD storage are supported. For information abou
 instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
 DB instance class availability differs for AWS Regions. To determine whether a DB instance class is supported
-in a specific AWS Region, see [Determining DB instance class
-support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 If you don't want to use RDS Optimized Reads, modify your DB instance or Multi-AZ DB cluster so that
 it doesn't use a DB instance class that supports the feature.

@@ -56,8 +56,7 @@ following:
 - Using unsafe nondeterministic queries such as `SYSDATE()`. For
   more information, see [Determination of safe and unsafe statements in binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-safe-unsafe.html "https://dev.mysql.com/doc/refman/8.0/en/replication-rbr-safe-unsafe.html").
   If you decide that you can safely skip an error, you can follow the steps described in
-  [Skipping the current
-  replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md"). Otherwise, you can
+  [Skipping the current replication error for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md"). Otherwise, you can
   delete the read replica and create an instance using the same DB instance identifier
   so that the endpoint remains the same as that of your old read replica. If a
   replication error is fixed, the `Replication State` changes to

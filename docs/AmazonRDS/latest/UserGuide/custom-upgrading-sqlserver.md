@@ -2,8 +2,7 @@
 
 You can upgrade an Amazon RDS Custom for SQL Server DB instance by modifying it to use a new DB engine version.
 For general information about upgrading DB instances, see
-[Upgrading
-a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+[Upgrading a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
 ###### Topics
 

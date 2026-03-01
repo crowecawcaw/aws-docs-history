@@ -8,17 +8,14 @@ restart or migration of your database.
 ###### Note
 
 This topic applies only to rebooting a Single-AZ or Multi-AZ DB
-_instance_. For instructions to reboot a Multi-AZ DB cluster, see [Rebooting a Multi-AZ DB cluster and
-reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
+_instance_. For instructions to reboot a Multi-AZ DB cluster, see [Rebooting a Multi-AZ DB cluster and reader DB instances for Amazon RDS](multi-az-db-clusters-concepts-rebooting.md "multi-az-db-clusters-concepts-rebooting.md").
 
 ###### Topics
 
 - [Use cases for rebooting a DB instance](#USER_RebootInstance.use-cases "#USER_RebootInstance.use-cases")
 - [How rebooting a DB instance works](#USER_RebootInstance.how-it-works "#USER_RebootInstance.how-it-works")
-- [How rebooting a DB instance in a Multi-AZ deployment
-  works](#USER_RebootInstance.MAZ "#USER_RebootInstance.MAZ")
-- [Considerations when rebooting a
-  DB instance](#USER_RebootInstance.considerations "#USER_RebootInstance.considerations")
+- [How rebooting a DB instance in a Multi-AZ deployment works](#USER_RebootInstance.MAZ "#USER_RebootInstance.MAZ")
+- [Considerations when rebooting a DB instance](#USER_RebootInstance.considerations "#USER_RebootInstance.considerations")
 - [Prerequisites for rebooting a DB instance](#USER_RebootInstance.prereqs "#USER_RebootInstance.prereqs")
 - [Rebooting a DB instance: basic steps](#USER_RebootInstance.steps "#USER_RebootInstance.steps")
 
@@ -63,9 +60,7 @@ _rebooting_. An outage occurs for
 both a Single-AZ deployment and a Multi-AZ DB instance deployment, even when you reboot
 with a failover.
 
-## How rebooting a DB instance in a Multi-AZ deployment
-
-works
+## How rebooting a DB instance in a Multi-AZ deployment works
 
 If the Amazon RDS DB instance is in a Multi-AZ deployment, you can reboot with a
 failover. This operation is useful to simulate a failure of a DB instance or restore
@@ -96,9 +91,7 @@ Multi-AZ instances. For reboot without failover, both the primary and secondary 
 reboot, and parameters are updated after the reboot. If the DB instance is unresponsive, we
 recommend reboot without failover.
 
-## Considerations when rebooting a
-
-DB instance
+## Considerations when rebooting a DB instance
 
 Before you reboot your instance, consider the following:
 

@@ -1,6 +1,4 @@
-# Migrating using Oracle transportable
-
-tablespaces
+# Migrating using Oracle transportable tablespaces
 
 You can use the Oracle transportable tablespaces feature to copy a set of tablespaces from
 an on-premises Oracle database to an RDS for Oracle DB instance. At the physical level, you transfer
@@ -15,16 +13,11 @@ Transportable Tablespaces using RMAN](https://aws.amazon.com/blogs/database/amaz
 ###### Topics
 
 - [Overview of Oracle transportable tablespaces](#oracle-migrating-tts.overview "#oracle-migrating-tts.overview")
-- [Phase 1: Set up your source
-  host](#oracle-migrating-tts.setup-phase "#oracle-migrating-tts.setup-phase")
-- [Phase 2: Prepare the full
-  tablespace backup](#oracle-migrating-tts.initial-br-phase "#oracle-migrating-tts.initial-br-phase")
-- [Phase 3: Make and transfer
-  incremental backups](#oracle-migrating-tts.roll-forward-phase "#oracle-migrating-tts.roll-forward-phase")
-- [Phase 4: Transport the
-  tablespaces](#oracle-migrating-tts.final-br-phase "#oracle-migrating-tts.final-br-phase")
-- [Phase 5: Validate the transported
-  tablespaces](#oracle-migrating-tts.validate "#oracle-migrating-tts.validate")
+- [Phase 1: Set up your source host](#oracle-migrating-tts.setup-phase "#oracle-migrating-tts.setup-phase")
+- [Phase 2: Prepare the full tablespace backup](#oracle-migrating-tts.initial-br-phase "#oracle-migrating-tts.initial-br-phase")
+- [Phase 3: Make and transfer incremental backups](#oracle-migrating-tts.roll-forward-phase "#oracle-migrating-tts.roll-forward-phase")
+- [Phase 4: Transport the tablespaces](#oracle-migrating-tts.final-br-phase "#oracle-migrating-tts.final-br-phase")
+- [Phase 5: Validate the transported tablespaces](#oracle-migrating-tts.validate "#oracle-migrating-tts.validate")
 - [Phase 6: Clean up leftover files](#oracle-migrating-tts.cleanup "#oracle-migrating-tts.cleanup")
 
 ## Overview of Oracle transportable tablespaces
@@ -37,10 +30,8 @@ files, configuration files, and Data Pump dump files.
 ###### Topics
 
 - [Advantages and disadvantages of transportable tablespaces](#oracle-migrating-tts.overview.benefits "#oracle-migrating-tts.overview.benefits")
-- [Limitations for transportable
-  tablespaces](#oracle-migrating-tts.limitations "#oracle-migrating-tts.limitations")
-- [Prerequisites for transportable
-  tablespaces](#oracle-migrating-tts.requirements "#oracle-migrating-tts.requirements")
+- [Limitations for transportable tablespaces](#oracle-migrating-tts.limitations "#oracle-migrating-tts.limitations")
+- [Prerequisites for transportable tablespaces](#oracle-migrating-tts.requirements "#oracle-migrating-tts.requirements")
 
 ### Advantages and disadvantages of transportable tablespaces
 
@@ -80,9 +71,7 @@ The primary disadvantage of transportable tablespaces is that you need relativel
 advanced knowledge of Oracle Database. For more information, see [Transporting Tablespaces Between Databases](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-F7B2B591-AA88-4D16-8DCF-712763923FFB "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-F7B2B591-AA88-4D16-8DCF-712763923FFB") in the _Oracle
 Database Administrator’s Guide_.
 
-### Limitations for transportable
-
-tablespaces
+### Limitations for transportable tablespaces
 
 Oracle Database limitations for transportable tablespaces apply when you use this
 feature in RDS for Oracle. For more information, see [Limitations on Transportable Tablespaces](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-DAB51E42-9BBC-4001-B5CB-0ECDBE128787 " https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-DAB51E42-9BBC-4001-B5CB-0ECDBE128787") and [General Limitations on Transporting Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-28800719-6CB9-4A71-95DD-4B61AA603173 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-28800719-6CB9-4A71-95DD-4B61AA603173") in the _Oracle
@@ -119,9 +108,7 @@ limitations for transportable tablespaces in RDS for Oracle:
   replica configuration. As a workaround, you can delete all replicas,
   transport the tablespaces, and then recreate the replicas.
 
-### Prerequisites for transportable
-
-tablespaces
+### Prerequisites for transportable tablespaces
 
 Before you begin, complete the following tasks:
 
@@ -175,9 +162,7 @@ For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER
   the necessity to back up, transfer, and import your tablespaces
   again.
 
-## Phase 1: Set up your source
-
-host
+## Phase 1: Set up your source host
 
 In this step, you copy the transport tablespaces scripts provided by My Oracle Support
 and set up necessary configuration files. In the following steps, the _source
@@ -224,9 +209,7 @@ src_scratch_location=`/dsk1/backups`
 usermantransport=`1`
 ```
 
-## Phase 2: Prepare the full
-
-tablespace backup
+## Phase 2: Prepare the full tablespace backup
 
 In this phase, you back up your tablespaces for the first time, transfer the backups
 to your target host, and then restore them using the procedure
@@ -236,16 +219,11 @@ updated with incremental backups.
 
 ###### Topics
 
-- [Step 1: Back up the tablespaces
-  on your source host](#oracle-migrating-tts.backup-full "#oracle-migrating-tts.backup-full")
-- [Step 2: Transfer the backup
-  files to your target DB instance](#oracle-migrating-tts.transfer-full "#oracle-migrating-tts.transfer-full")
-- [Step 3: Import the
-  tablespaces on your target DB instance](#oracle-migrating-tts.initial-tts-import "#oracle-migrating-tts.initial-tts-import")
+- [Step 1: Back up the tablespaces on your source host](#oracle-migrating-tts.backup-full "#oracle-migrating-tts.backup-full")
+- [Step 2: Transfer the backup files to your target DB instance](#oracle-migrating-tts.transfer-full "#oracle-migrating-tts.transfer-full")
+- [Step 3: Import the tablespaces on your target DB instance](#oracle-migrating-tts.initial-tts-import "#oracle-migrating-tts.initial-tts-import")
 
-### Step 1: Back up the tablespaces
-
-on your source host
+### Step 1: Back up the tablespaces on your source host
 
 In this step, you use the `xttdriver.pl` script to make a full
 backup of your tablespaces. The output of `xttdriver.pl` is
@@ -276,9 +254,7 @@ cd `location_of_xttdriver.pl`
 $ORACLE_HOME/perl/bin/perl xttdriver.pl --backup
 ```
 
-### Step 2: Transfer the backup
-
-files to your target DB instance
+### Step 2: Transfer the backup files to your target DB instance
 
 In this step, copy the backup and configuration files from your scratch location
 to your target DB instance. Choose one of the following options:
@@ -286,24 +262,19 @@ to your target DB instance. Choose one of the following options:
 - If the source and target hosts share an Amazon EFS file system, use an
   operating system utility such as `cp` to copy your backup files
   and the `res.txt` file from your scratch location to a
-  shared directory. Then skip to [Step 3: Import the
-  tablespaces on your target DB instance](#oracle-migrating-tts.initial-tts-import "#oracle-migrating-tts.initial-tts-import").
+  shared directory. Then skip to [Step 3: Import the tablespaces on your target DB instance](#oracle-migrating-tts.initial-tts-import "#oracle-migrating-tts.initial-tts-import").
 - If you need to stage your backups to an Amazon S3 bucket, complete the
   following steps.
 
 ![Transfer files using either Amazon S3 or Amazon EFS.](images/oracle-tts.png)
 
-#### Step 2.2: Upload the backups
-
-to your Amazon S3 bucket
+#### Step 2.2: Upload the backups to your Amazon S3 bucket
 
 Upload your backups and the `res.txt` file from your
 scratch directory to your Amazon S3 bucket. For more information, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the _Amazon Simple Storage Service User
 Guide_.
 
-#### Step 2.3: Download the
-
-backups from your Amazon S3 bucket to your target DB instance
+#### Step 2.3: Download the backups from your Amazon S3 bucket to your target DB instance
 
 In this step, you use the procedure
 `rdsadmin.rdsadmin_s3_tasks.download_from_s3` to download your
@@ -332,9 +303,7 @@ AS TASK_ID FROM DUAL;
 The `SELECT` statement returns the ID of the task in a
 `VARCHAR2` data type. For more information, see [Downloading files from an Amazon S3 bucket to an Oracle DB instance](oracle-s3-integration.md#oracle-s3-integration.using.download "oracle-s3-integration.md#oracle-s3-integration.using.download").
 
-### Step 3: Import the
-
-tablespaces on your target DB instance
+### Step 3: Import the tablespaces on your target DB instance
 
 To restore your tablespaces to your target DB instance, use the procedure
 `rdsadmin.rdsadmin_transport_util.import_xtts_tablespaces`. This
@@ -344,8 +313,7 @@ If you import from a platform other than Linux, specify the source platform usin
 the parameter `p_platform_id` when you call
 `import_xtts_tablespaces`. Make sure that the platform ID that you
 specify matches the one specified in the `xtt.properties` file in
-[Step 2: Export tablespace
-metadata on your source host](#oracle-migrating-tts.transport.export "#oracle-migrating-tts.transport.export").
+[Step 2: Export tablespace metadata on your source host](#oracle-migrating-tts.transport.export "#oracle-migrating-tts.transport.export").
 
 ###### Import the tablespaces on your target DB instance
 
@@ -400,9 +368,7 @@ SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||'&
 Make sure that the import succeeded before continuing to the next
 step.
 
-## Phase 3: Make and transfer
-
-incremental backups
+## Phase 3: Make and transfer incremental backups
 
 In this phase, you make and transfer incremental backups periodically while the source
 database is active. This technique reduces the size of your final tablespace backup. If
@@ -410,13 +376,10 @@ you take multiple incremental backups, you must copy the `res.txt`
 file after the last incremental backup before you can apply it on the target
 instance.
 
-The steps are the same as in [Phase 2: Prepare the full
-tablespace backup](#oracle-migrating-tts.initial-br-phase "#oracle-migrating-tts.initial-br-phase"), except that the import step
+The steps are the same as in [Phase 2: Prepare the full tablespace backup](#oracle-migrating-tts.initial-br-phase "#oracle-migrating-tts.initial-br-phase"), except that the import step
 is optional.
 
-## Phase 4: Transport the
-
-tablespaces
+## Phase 4: Transport the tablespaces
 
 In this phase, you back up your read-only tablespaces and export Data Pump metadata,
 transfer these files to your target host, and import both the tablespaces and the
@@ -424,23 +387,15 @@ metadata.
 
 ###### Topics
 
-- [Step 1: Back up your read-only
-  tablespaces](#oracle-migrating-tts.final-backup "#oracle-migrating-tts.final-backup")
-- [Step 2: Export tablespace
-  metadata on your source host](#oracle-migrating-tts.transport.export "#oracle-migrating-tts.transport.export")
-- [Step 3: (Amazon S3 only) Transfer the
-  backup and export files to your target DB instance](#oracle-migrating-tts.transport "#oracle-migrating-tts.transport")
-- [Step 4: Import the tablespaces
-  on your target DB instance](#oracle-migrating-tts.restore-full "#oracle-migrating-tts.restore-full")
-- [Step 5: Import
-  tablespace metadata on your target DB instance](#oracle-migrating-tts.transport.import-dmp "#oracle-migrating-tts.transport.import-dmp")
+- [Step 1: Back up your read-only tablespaces](#oracle-migrating-tts.final-backup "#oracle-migrating-tts.final-backup")
+- [Step 2: Export tablespace metadata on your source host](#oracle-migrating-tts.transport.export "#oracle-migrating-tts.transport.export")
+- [Step 3: (Amazon S3 only) Transfer the backup and export files to your target DB instance](#oracle-migrating-tts.transport "#oracle-migrating-tts.transport")
+- [Step 4: Import the tablespaces on your target DB instance](#oracle-migrating-tts.restore-full "#oracle-migrating-tts.restore-full")
+- [Step 5: Import tablespace metadata on your target DB instance](#oracle-migrating-tts.transport.import-dmp "#oracle-migrating-tts.transport.import-dmp")
 
-### Step 1: Back up your read-only
+### Step 1: Back up your read-only tablespaces
 
-tablespaces
-
-This step is identical to [Step 1: Back up the tablespaces
-on your source host](#oracle-migrating-tts.backup-full "#oracle-migrating-tts.backup-full"), with one key difference: you
+This step is identical to [Step 1: Back up the tablespaces on your source host](#oracle-migrating-tts.backup-full "#oracle-migrating-tts.backup-full"), with one key difference: you
 place your tablespaces in read-only mode before backing up your tablespaces for the
 last time.
 
@@ -453,9 +408,7 @@ ALTER TABLESPACE tbs2 READ ONLY;
 ALTER TABLESPACE tbs3 READ ONLY;
 ```
 
-### Step 2: Export tablespace
-
-metadata on your source host
+### Step 2: Export tablespace metadata on your source host
 
 Export your tablespace metadata by running the `expdb` utility
 on your source host. The following example exports tablespaces
@@ -475,41 +428,30 @@ logfile=`tts_export.log`
 ```
 
 If `DATA_PUMP_DIR` is a shared directory in Amazon EFS, skip
-to [Step 4: Import the tablespaces
-on your target DB instance](#oracle-migrating-tts.restore-full "#oracle-migrating-tts.restore-full").
+to [Step 4: Import the tablespaces on your target DB instance](#oracle-migrating-tts.restore-full "#oracle-migrating-tts.restore-full").
 
-### Step 3: (Amazon S3 only) Transfer the
-
-backup and export files to your target DB instance
+### Step 3: (Amazon S3 only) Transfer the backup and export files to your target DB instance
 
 If you are using Amazon S3 to stage your tablespace backups and Data Pump export file,
 complete the following steps.
 
-#### Step 3.1: Upload the
-
-backups and dump file from your source host to your Amazon S3 bucket
+#### Step 3.1: Upload the backups and dump file from your source host to your Amazon S3 bucket
 
 Upload your backup and dump files from your source host to your Amazon S3 bucket.
 For more information, see [Uploading
 objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md") in the _Amazon Simple Storage Service User Guide_.
 
-#### Step 3.2: Download
-
-the backups and dump file from your Amazon S3 bucket to your target DB instance
+#### Step 3.2: Download the backups and dump file from your Amazon S3 bucket to your target DB instance
 
 In this step, you use the procedure
 `rdsadmin.rdsadmin_s3_tasks.download_from_s3` to download your
-backups and dump file to your RDS for Oracle DB instance. Follow the steps in [Step 2.3: Download the
-backups from your Amazon S3 bucket to your target DB instance](#oracle-migrating-tts.download-full "#oracle-migrating-tts.download-full").
+backups and dump file to your RDS for Oracle DB instance. Follow the steps in [Step 2.3: Download the backups from your Amazon S3 bucket to your target DB instance](#oracle-migrating-tts.download-full "#oracle-migrating-tts.download-full").
 
-### Step 4: Import the tablespaces
-
-on your target DB instance
+### Step 4: Import the tablespaces on your target DB instance
 
 Use the procedure
 `rdsadmin.rdsadmin_transport_util.import_xtts_tablespaces` to restore
-the tablespaces. For syntax and semantics of this procedure, see [Importing transported
-tablespaces to your DB instance](rdsadmin_transport_util_import_xtts_tablespaces.md "rdsadmin_transport_util_import_xtts_tablespaces.md")
+the tablespaces. For syntax and semantics of this procedure, see [Importing transported tablespaces to your DB instance](rdsadmin_transport_util_import_xtts_tablespaces.md "rdsadmin_transport_util_import_xtts_tablespaces.md")
 
 ###### Important
 
@@ -572,15 +514,12 @@ SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file('BDUMP', 'dbtask-'||'&
 Make sure that the import succeeded before continuing to the next
 step. 5. Take a manual DB snapshot by following the instructions in [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md").
 
-### Step 5: Import
-
-tablespace metadata on your target DB instance
+### Step 5: Import tablespace metadata on your target DB instance
 
 In this step, you import the transportable tablespace metadata into your RDS for Oracle
 DB instance using the procedure
 `rdsadmin.rdsadmin_transport_util.import_xtts_metadata`. For syntax
-and semantics of this procedure, see [Importing transportable
-tablespace metadata into your DB instance](rdsadmin_transport_util_import_xtts_metadata.md "rdsadmin_transport_util_import_xtts_metadata.md"). During the
+and semantics of this procedure, see [Importing transportable tablespace metadata into your DB instance](rdsadmin_transport_util_import_xtts_metadata.md "rdsadmin_transport_util_import_xtts_metadata.md"). During the
 operation, the status of the import is shown in the table
 `rdsadmin.rds_xtts_operation_info`.
 
@@ -633,9 +572,7 @@ SELECT * FROM TABLE(rdsadmin.rds_file_util.read_text_file(
   p_filename => 'rds-xtts-import_xtts_metadata-2023-05-22.01-52-35.560858000.log'));
 ```
 
-## Phase 5: Validate the transported
-
-tablespaces
+## Phase 5: Validate the transported tablespaces
 
 In this optional step, you validate your transported tablespaces using the procedure
 `rdsadmin.rdsadmin_rman_util.validate_tablespace`, and then place your
@@ -681,9 +618,7 @@ In this optional step, you remove any unneeded files. Use the
 `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
 list data files that were orphaned after a tablespace import, and then use
 `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files` procedure to
-delete them. For syntax and semantics of these procedures, see [Listing orphaned files after
-a tablespace import](rdsadmin_transport_util_list_xtts_orphan_files.md "rdsadmin_transport_util_list_xtts_orphan_files.md") and [Deleting orphaned
-data files after a tablespace import](rdsadmin_transport_util_cleanup_incomplete_xtts_import.md "rdsadmin_transport_util_cleanup_incomplete_xtts_import.md").
+delete them. For syntax and semantics of these procedures, see [Listing orphaned files after a tablespace import](rdsadmin_transport_util_list_xtts_orphan_files.md "rdsadmin_transport_util_list_xtts_orphan_files.md") and [Deleting orphaned data files after a tablespace import](rdsadmin_transport_util_cleanup_incomplete_xtts_import.md "rdsadmin_transport_util_cleanup_incomplete_xtts_import.md").
 
 ###### To clean up leftover files
 

@@ -1,99 +1,120 @@
-# Read replica
+# Monitoring and tuning the replication process
 
-configuration with PostgreSQL
+We strongly recommend that you routinely monitor your RDS for PostgreSQL DB instance and
+read replicas. You need to ensure that your read replicas are keeping up with changes on
+the source DB instance. Amazon RDS transparently recovers your read replicas when
+interruptions to the replication process occur. However, it's best to avoid needing
+to recover at all. Recovering using replication slots is faster than using the Amazon S3
+archive, but any recovery process can affect read performance.
 
-RDS for PostgreSQL uses PostgreSQL native streaming replication to create a read-only copy
-of a source DB instance. This read replica DB instance is an asynchronously created
-physical replica of the source DB instance. It's created by a special connection
-that transmits write ahead log (WAL) data from the source DB instance to the read
-replica. For more information, see [Streaming Replication](https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION "https://www.postgresql.org/docs/14/warm-standby.html#STREAMING-REPLICATION") in the PostgreSQL documentation.
+To determine how well your read replicas are keeping up with the source DB instance,
+you can do the following:
 
-PostgreSQL asynchronously streams database changes to this secure connection as
-they're made on the source DB instance. You can encrypt communications from your client
-applications to the source DB instance or any read replicas by setting the
-`ssl` parameter to `1`. For more information, see [Using SSL with a PostgreSQL DB
-instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md") .
+- Check the amount of `ReplicaLag` between
+  source DB instance and replicas.
+  _Replica lag_ is the amount of time, in seconds, that a read
+  replica lags behind its source DB instance. This metric reports the result of
+  the following query.
 
-PostgreSQL uses a _replication_ role to perform streaming
-replication. The role is privileged, but you can't use it to modify any data. PostgreSQL
-uses a single process for handling replication.
+```
+SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS "ReplicaLag";
 
-You can create a PostgreSQL read replica without affecting operations or users of the
-source DB instance. Amazon RDS sets the necessary parameters and permissions for you, on the
-source DB instance and the read replica, without affecting the service. A snapshot is
-taken of the source DB instance, and this snapshot is used to create the read replica.
-If you delete the read replica at some point in the future, no outage occurs.
+```
 
-You can create up to 15 read replicas from one source DB instance within the same
-Region. As of RDS for PostgreSQL 14.1, you can also create up to three levels of read replica
-in a chain (cascade) from a source DB instance. For more information, see [Using cascading
-read replicas with RDS for PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md"). In all cases,
-the source DB instance needs to have automated backups configured. You do this by
-setting the backup retention period on your DB instance to any value other than 0. For
-more information, see [Creating a read replica](USER_ReadRepl.md "USER_ReadRepl.md").
+Replica lag is an indication of how well a read replica is keeping up with the
+source DB instance. It's the amount of latency between the source DB
+instance and a specific read instance. A high value for replica lag can indicate
+a mismatch between the DB instance classes or storage types (or both) used by
+the source DB instance and its read replicas. The DB instance class and storage
+types for DB source instance and all read replicas should be the same.
 
-You can create read replicas for your RDS for PostgreSQL DB instance in the same
-AWS Region as your source DB instance. This is known as _in-Region_
-replication. You can also create read replicas in different AWS Regions than the
-source DB instance. This is known as _cross-Region_ replication. For
-more information about setting up cross-Region read replicas, see [Creating a read replica in a different
-AWS Region](USER_ReadRepl.md "USER_ReadRepl.md"). The various
-mechanisms supporting the replication process for in-Region and cross-Region differ
-slightly depending on the RDS for PostgreSQL version as explained in [How
-streaming replication works for different RDS for PostgreSQL versions](USER_PostgreSQL.Replication.ReadReplicas.md "USER_PostgreSQL.Replication.ReadReplicas.md").
+Replica lag can also be the result of intermittent connection issues. You can
+monitor replication lag in Amazon CloudWatch by viewing the Amazon RDS `ReplicaLag`
+metric. To learn more about `ReplicaLag` and other metrics for Amazon RDS,
+see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
 
-For replication to operate effectively, each read replica should have the same amount
-of compute and storage resources as the source DB instance. If you scale the source DB
-instance, be sure to also scale the read replicas.
+- Check the PostgreSQL log for information you can use to
+  adjust your settings. At every checkpoint, the PostgreSQL log
+  captures the number of recycled transaction log files, as shown in the following
+  example.
 
-Amazon RDS overrides any incompatible parameters on a read replica if they prevent the read
-replica from starting. For example, suppose that the `max_connections`
-parameter value is higher on the source DB instance than on the read replica. In that
-case, Amazon RDS updates the parameter on the read replica to be the same value as that on
-the source DB instance.
+```
+2014-11-07 19:59:35 UTC::@:[26820]:LOG:  checkpoint complete: wrote 376 buffers (0.2%);
+0 transaction log file(s) added, 0 removed, **1 recycled**; write=35.681 s, sync=0.013 s, total=35.703 s;
+sync files=10, longest=0.013 s, average=0.001 s
+```
 
-RDS for PostgreSQL read replicas have access to external databases that are available
-through foreign data wrappers (FDWs) on the source DB instance. For example, suppose
-that your RDS for PostgreSQL DB instance is using the `mysql_fdw` wrapper to
-access data from RDS for MySQL. If so, your read replicas can also access that data. Other
-supported FDWs include `oracle_fdw`, `postgres_fdw`, and
-`tds_fdw`. For more information, see [Working
-with the supported foreign data wrappers for Amazon RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Extensions.md "Appendix.PostgreSQL.CommonDBATasks.Extensions.md").
+You can use this information to figure out how many transaction files are
+being recycled in a given time period. You can then change the setting for
+`wal_keep_segments` if necessary. For example, suppose that the
+PostgreSQL log at `checkpoint complete` shows `35
+ recycled` for a 5-minute interval. In this case, the
+`wal_keep_segments` default value of 32 isn't sufficient to
+keep pace with the streaming activity, so you should increase the value of this
+parameter.
 
-## Using RDS for PostgreSQL read replicas with Multi-AZ configurations
+- Use Amazon CloudWatch to monitor metrics that can predict
+  replication issues. Rather than analyzing the PostgreSQL log
+  directly, you can use Amazon CloudWatch to check metrics that have been collected. For
+  example, you can check the value of the `TransactionLogsGeneration`
+  metric to see how much WAL data is being generated by the source DB instance. In
+  some cases, the workload on your DB instance might generate a large amount of
+  WAL data. If so, you might need to change the DB instance class for your source
+  DB instance and read replicas. Using an instance class with high (10 Gbps)
+  network performance can reduce replica lag.
 
-You can create a read replica from a single-AZ or Multi-AZ DB instance. You can
-use Multi-AZ deployments to improve the durability and availability of critical
-data, with a standby replica. A _standby replica_
-is a dedicated read replica that can assume the workload if the source DB fails
-over. You can't use your standby replica to serve read traffic. However, you
-can create read replicas from high-traffic Multi-AZ DB instances to offload
-read-only queries. To learn more about Multi-AZ deployments, see [Multi-AZ DB instance deployments for Amazon RDS](Concepts.md "Concepts.md").
+## Monitoring replication slots for your RDS for PostgreSQL DB instance
 
-If the source DB instance of a Multi-AZ deployment fails over to a standby, the
-associated read replicas switch to using the standby (now primary) as their
-replication source. The read replicas might need to restart, depending on the
-RDS for PostgreSQL version, as follows:
+All versions of RDS for PostgreSQL use replication slots for cross-Region read
+replicas. RDS for PostgreSQL 14.1 and higher versions use replication slots for in-Region
+read replicas. In-region read replicas also use Amazon S3 to archive WAL data. In other
+words, if your DB instance and read replicas are running PostgreSQL 14.1 or higher,
+replication slots and Amazon S3 archives are both available for recovering the read
+replica. Recovering a read replica using its replication slot is faster than
+recovering from Amazon S3 archive. So, we recommend that you monitor the replication
+slots and related metrics.
 
-- PostgreSQL 13 and higher versions –
-  Restarting isn't required. The read replicas are automatically
-  synchronized with the new primary. However, in some cases your client
-  application might cache Domain Name Service (DNS) details for your read
-  replicas. If so, set the time-to-live (TTL) value to less than 30 seconds.
-  Doing this prevents the read replica from holding on to a stale IP address
-  (and thus, prevents it from synchronizing with the new primary). To learn
-  more about this and other best practices, see [Amazon RDS basic operational
-  guidelines](CHAP_BestPractices.md#CHAP_BestPractices.DiskPerformance "CHAP_BestPractices.md#CHAP_BestPractices.DiskPerformance").
-- PostgreSQL 12 and all earlier versions
-  – The read replicas restart automatically after a fail over to the
-  standby replica because the standby (now primary) has a different IP address
-  and a different instance name. Restarting synchronizes the read replica with
-  the new primary.
+You can view the replication slots on your RDS for PostgreSQL DB instances by querying
+the `pg_replication_slots` view, as follows.
 
-To learn more about failover, see [Failing over a Multi-AZ DB instance for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md"). To learn more about how read
-replicas work in a Multi-AZ deployment, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
+```
+`postgres=>` `SELECT * FROM pg_replication_slots;`
+`slot_name | plugin | slot_type | datoid | database | temporary | active | active_pid | xmin | catalog_xmin | restart_lsn | confirmed_flush_lsn | wal_status | safe_wal_size | two_phase
+---------------------------+--------+-----------+--------+----------+-----------+--------+------------+------+--------------+-------------+---------------------+------------+---------------+-----------
+rds_us_west_1_db_555555555 | | physical | | | f | t | 13194 | | | 23/D8000060 | | reserved | | f
+(1 row)`
+```
 
-To provide failover support for a read replica, you can create the read replica as
-a Multi-AZ DB instance so that Amazon RDS creates a standby of your replica in another
-Availability Zone (AZ). Creating your read replica as a Multi-AZ DB instance is
-independent of whether the source database is a Multi-AZ DB instance.
+The `wal_status` of `reserved` value means that the amount
+of WAL data held by the slot is within the bounds of the `max_wal_size`
+parameter. In other words, the replication slot is properly sized. Other possible
+status values are as follows:
+
+- `extended` – The slot exceeds the
+  `max_wal_size` setting, but the WAL data is retained.
+- `unreserved` – The slot no longer has the all required
+  WAL data. Some of it will be removed at the next checkpoint.
+- `lost` – Some required WAL data has been removed. The
+  slot is no longer usable.
+
+The `unreserved` and `lost` states of the
+`wal_status` are seen only when `max_slot_wal_keep_size`
+is non-negative.
+
+The `pg_replication_slots` view shows you the current state of your
+replication slots. To assess the performance of your replication slots, you can use
+Amazon CloudWatch and monitor the following metrics:
+
+- `OldestReplicationSlotLag`
+  – Shows the amount of Write-Ahead Log (WAL) data on the source that
+  hasn't been consumed by the most lagging replica.
+- `TransactionLogsDiskUsage`
+  – Shows how much storage is being used for WAL data. When a read
+  replica lags significantly, the value of this metric can increase
+  substantially.
+
+To learn more about using Amazon CloudWatch and its metrics for RDS for PostgreSQL, see [Monitoring Amazon RDS metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). For
+more information about monitoring streaming replication on your RDS for PostgreSQL DB
+instances, see [Best
+practices for Amazon RDS PostgreSQL replication](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/ "https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/") on the _AWS
+Database Blog_.

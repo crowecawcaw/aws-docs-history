@@ -1,6 +1,4 @@
-# Connecting to your
-
-Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console
+# Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console
 
 You can connect to your Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console. IBM Db2 Data Management Console can administer and
 monitor several RDS for Db2 DB instances.
@@ -18,16 +16,12 @@ install IBM Db2 Data Management Console and connect to your RDS for Db2 DB insta
 
 ###### Topics
 
-- [Step 1: Creating a repository
-  database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc")
+- [Step 1: Creating a repository database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc")
 - [Step 2: Installing and setting up IBM Db2 Data Management Console](#db2-install-setup-dmc "#db2-install-setup-dmc")
-- [Step 3: Configuring the
-  repository database and connecting to RDS for Db2 DB instances](#db2-connecting-db-instances-with-dmc "#db2-connecting-db-instances-with-dmc")
+- [Step 3: Configuring the repository database and connecting to RDS for Db2 DB instances](#db2-connecting-db-instances-with-dmc "#db2-connecting-db-instances-with-dmc")
 - [Using IBM Db2 Data Management Console](#db2-using-dmc "#db2-using-dmc")
 
-## Step 1: Creating a repository
-
-database to monitor DB instances
+## Step 1: Creating a repository database to monitor DB instances
 
 You can use an existing properly sized RDS for Db2 DB instance as a repository for IBM Db2 Data Management Console
 to monitor other RDS for Db2 DB instances. However, because the admin user doesn't have
@@ -42,18 +36,12 @@ repository database.
 
 ###### Topics
 
-- [Manually creating a buffer pool, a user
-  tablespace, and a system temporary tablespace](#db2-manually-creating-dmc "#db2-manually-creating-dmc")
-- [Creating an Amazon EC2 instance to host an IBM Db2 Data Management Console
-  repository](#db2-creating-ec2-dmc "#db2-creating-ec2-dmc")
+- [Manually creating a buffer pool, a user tablespace, and a system temporary tablespace](#db2-manually-creating-dmc "#db2-manually-creating-dmc")
+- [Creating an Amazon EC2 instance to host an IBM Db2 Data Management Console repository](#db2-creating-ec2-dmc "#db2-creating-ec2-dmc")
 
-### Manually creating a buffer pool, a user
+### Manually creating a buffer pool, a user tablespace, and a system temporary tablespace
 
-tablespace, and a system temporary tablespace
-
-###### To create a buffer pool, a user tablespace, and a system temporary
-
-tablespace
+###### To create a buffer pool, a user tablespace, and a system temporary tablespace
 
 1. Connect to the `rdsadmin` database. In the following example,
    replace `master_username` and
@@ -94,9 +82,7 @@ db2 "call rdsadmin.create_tablespace('`database_name`',
 You are now ready to install IBM Db2 Data Management Console. For more information about installation and
 setup, see [Step 2: Installing and setting up IBM Db2 Data Management Console](#db2-install-setup-dmc "#db2-install-setup-dmc").
 
-### Creating an Amazon EC2 instance to host an IBM Db2 Data Management Console
-
-repository
+### Creating an Amazon EC2 instance to host an IBM Db2 Data Management Console repository
 
 You can create a separate Amazon Elastic Compute Cloud (Amazon EC2) instance to host an IBM Db2 Data Management Console repository.
 For information about creating an Amazon EC2 instance, see [Tutorial: Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the
@@ -139,9 +125,7 @@ You are now ready to log in to IBM Db2 Data Management Console to configure the 
 connect to your RDS for Db2 DB instances. For more information, see [Configuring the
 repository database and connecting to DB instances](#db2-connecting-db-instances-with-dmc "#db2-connecting-db-instances-with-dmc").
 
-## Step 3: Configuring the
-
-repository database and connecting to RDS for Db2 DB instances
+## Step 3: Configuring the repository database and connecting to RDS for Db2 DB instances
 
 When you connect to the repository database for the first time, IBM Db2 Data Management Console automatically
 configures the repository. After the repository database is configured, you can add
@@ -182,8 +166,7 @@ internet, allow traffic to the database port. For more information, see [Creatin
 
     If the connection is unsuccessful, confirm that the database port
     is open through the inbound rules in your security group. For more
-    information, see [Considerations for security groups with
-    Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md").
+    information, see [Considerations for security groups with Amazon RDS for Db2](db2-security-groups-considerations.md "db2-security-groups-considerations.md").
 
     If you didn't [manually
     create a buffer pool, a user tablespace, and a system temporary
@@ -195,8 +178,7 @@ internet, allow traffic to the database port. For more information, see [Creatin
     Make sure that you created a buffer table, a tablespace, and objects
     for an IBM Db2 Data Management Console repository to monitor your RDS for Db2 DB instance. Or, you
     can use an Amazon EC2 Db2 DB instance to host an IBM Db2 Data Management Console repository to monitor
-    your RDS for Db2 DB instance. For more information, see [Step 1: Creating a repository
-    database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc"). 4. After you successfully test your connection, choose
+    your RDS for Db2 DB instance. For more information, see [Step 1: Creating a repository database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc "#db2-creating-repo-db-monitoring-dmc"). 4. After you successfully test your connection, choose
     **Next**.
 
     ![The Security and credential section in IBM Db2 Data Management Console.](images/ibm-dmc-security-credential.png)If IBM Db2 Data Management Console finds the buffer pool, the user tablespace, and the system temporary

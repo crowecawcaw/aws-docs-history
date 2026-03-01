@@ -35,7 +35,7 @@ Security for MySQL DB instances is managed at three levels:
     authentication token. An _authentication token_ is a unique value
     that is generated using the Signature Version 4 signing process. By using IAM
     database authentication, you can use the same credentials to control access to your
-    AWS resources and your databases. For more information, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
+    AWS resources and your databases. For more information, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
   - Another option is Kerberos authentication for RDS for MySQL. The DB instance works
     with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to enable Kerberos authentication. When users
     authenticate with a MySQL DB instance joined to the trusting domain, authentication

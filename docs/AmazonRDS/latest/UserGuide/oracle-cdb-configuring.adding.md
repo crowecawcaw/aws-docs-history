@@ -1,13 +1,10 @@
-# Adding an RDS for Oracle tenant database
-
-to your CDB instance
+# Adding an RDS for Oracle tenant database to your CDB instance
 
 In the RDS for Oracle multi-tenant configuration, a tenant database is a PDB. To add a
 tenant database, make sure you meet the following prerequisites:
 
 - Your CDB has the multi-tenant configuration enabled. For more information, see
-  [Multi-tenant configuration of
-  the CDB architecture](Oracle.Concepts.md#multi-tenant-configuration "Oracle.Concepts.md#multi-tenant-configuration").
+  [Multi-tenant configuration of the CDB architecture](Oracle.Concepts.md#multi-tenant-configuration "Oracle.Concepts.md#multi-tenant-configuration").
 - You have the necessary IAM permissions to create the tenant database.
   You can add a tenant database using the AWS Management Console, the AWS CLI, or the RDS API. You
   can't add multiple tenant databases in a single operation: you must add them one at a
@@ -54,9 +51,7 @@ tenant database, make sure you meet the following prerequisites:
         	We recommend AWS Secrets Manager as the most secure
         	 technique for managing credentials. Additional charges apply.
         	 AWS Secrets Manager is not supported for instances using read replicas.
-        	 For more information, see [Password management with
-        	 Amazon RDS
-        	 and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
+        	 For more information, see [Password management with Amazon RDS and AWS Secrets Manager](rds-secrets-manager.md "rds-secrets-manager.md").
         	+ **Self managed**
 
 

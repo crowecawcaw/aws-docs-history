@@ -16,8 +16,7 @@ Reference_.
 With this AWS Infrastructure as Code (IaC) tool, you can create templates
 that describe all of the Amazon RDS resources that you want, and AWS CloudFormation
 provisions and configures those resources for you. For more information, see
-[Creating Amazon RDS
-resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+[Creating Amazon RDS resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 **AWS software development kits (SDKs)**
 

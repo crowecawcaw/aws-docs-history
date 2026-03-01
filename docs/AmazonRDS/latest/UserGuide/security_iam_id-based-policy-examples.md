@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Amazon RDS
+# Identity-based policy examples for Amazon RDS
 
 By default, permission sets and roles don't have permission to create or modify
 Amazon RDS resources. They also can't perform tasks using the
@@ -14,16 +12,12 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the Amazon RDS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Permissions
-  required to use the console](#UsingWithRDS.IAM.RequiredPermissions.Console "#UsingWithRDS.IAM.RequiredPermissions.Console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Permission policies to create,
-  modify and, delete resources in Amazon RDS](security_iam_id-based-policy-examples-create-and-modify-examples.md "security_iam_id-based-policy-examples-create-and-modify-examples.md")
+- [Permissions required to use the console](#UsingWithRDS.IAM.RequiredPermissions.Console "#UsingWithRDS.IAM.RequiredPermissions.Console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Permission policies to create, modify and, delete resources in Amazon RDS](security_iam_id-based-policy-examples-create-and-modify-examples.md "security_iam_id-based-policy-examples-create-and-modify-examples.md")
 - [Example policies: Using condition keys](UsingWithRDS.IAM.Conditions.md "UsingWithRDS.IAM.Conditions.md")
 - [Specifying conditions: Using custom tags](UsingWithRDS.IAM.md "UsingWithRDS.IAM.md")
-- [Grant permission to tag Amazon RDS
-  resources during creation](security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md "security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md")
+- [Grant permission to tag Amazon RDS resources during creation](security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md "security_iam_id-based-policy-examples-grant-permissions-tags-on-create.md")
 
 ## Policy best practices
 
@@ -80,9 +74,7 @@ AmazonRDSReadOnlyAccess
 
 For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Permissions
-
-required to use the console
+## Permissions required to use the console
 
 For a user to work with the console, that user must have a minimum set
 of permissions. These permissions allow the user to describe the Amazon RDS resources
@@ -106,9 +98,7 @@ AmazonRDSFullAccess
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

@@ -1,6 +1,4 @@
-# How
-
-to perform a major version upgrade for RDS for PostgreSQL
+# How to perform a major version upgrade for RDS for PostgreSQL
 
 We recommend the following process when performing a major version upgrade on
 an Amazon RDS for PostgreSQL database:
@@ -122,8 +120,7 @@ Logical replication setups that use the `pglogical`
 extension also need to have slots dropped for a successful
 major version upgrade. For information about how to identify
 and drop slots created using the `pglogical`
-extension, see [Managing logical
-replication slots for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
+extension, see [Managing logical replication slots for RDS for PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.pglogical.md "Appendix.PostgreSQL.CommonDBATasks.pglogical.md").
 
 On source version 17 and later, logical replication slots on non-read-replicas can be retained through upgrades. Logical replication slots created on read replicas are not retained through upgrades.
 
@@ -148,8 +145,7 @@ parameter group based on the read replica's current
 parameter group. You can apply a custom parameter group to a
 read replica only after the upgrade completes by modifying
 the read replica. For more information about read replicas,
-see [Working with read replicas for
-Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md"). 7. **Handle large objects** – In PostgreSQL, large objects (also known as BLOBs) are used to store and manage large binary objects (like files, images, videos, etc.) that are larger than the maximum size allowed for regular column data types. For more information see [PostgreSQL Large Objects documentation](https://www.postgresql.org/docs/current/largeobjects.html "https://www.postgresql.org/docs/current/largeobjects.html").
+see [Working with read replicas for Amazon RDS for PostgreSQL](USER_PostgreSQL.Replication.md "USER_PostgreSQL.Replication.md"). 7. **Handle large objects** – In PostgreSQL, large objects (also known as BLOBs) are used to store and manage large binary objects (like files, images, videos, etc.) that are larger than the maximum size allowed for regular column data types. For more information see [PostgreSQL Large Objects documentation](https://www.postgresql.org/docs/current/largeobjects.html "https://www.postgresql.org/docs/current/largeobjects.html").
 
 An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg_dump and restoring it through pg_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg_dump and pg_restore during an upgrade and scale it to a larger instance type.
 
@@ -214,8 +210,7 @@ using:
 ALTER EXTENSION `PostgreSQL-extension` UPDATE TO '`new-version`';
 ```
 
-For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md"). To learn more about upgrading PostGIS, see [Step 6: Upgrade the
-PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update"). 11. **Drop certain extensions before the major
+For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md"). To learn more about upgrading PostGIS, see [Step 6: Upgrade the PostGIS extension](Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update "Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.PostGIS.Update"). 11. **Drop certain extensions before the major
 version upgrade** – Extensions that are not supported on the target version must be dropped, or else the upgrade will fail.
 
 The `plrust` extension is removed starting in RDS PostgreSQL 18. The `postgis_topology` extension is unavailable on RDS PostgreSQL versions 18.1 and 18.2 due to known issues [[1](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")], [[2](https://trac.osgeo.org/postgis/ticket/6016 "https://trac.osgeo.org/postgis/ticket/6016")]. These extensions must be removed prior to upgrading.
@@ -227,8 +222,7 @@ from versions 9.4.x, 9.5.x, or 9.6.x to versions 11.x skips
 a major version. It's safe to drop the
 `pgRouting` extension and then reinstall
 it to a compatible version after the upgrade. For the
-extension versions you can update to, see [Supported
-PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
+extension versions you can update to, see [Supported PostgreSQL extension versions](PostgreSQL.Concepts.General.FeatureSupport.md "PostgreSQL.Concepts.General.FeatureSupport.md").
 
 The `tsearch2` and `chkpass` extensions
 are no longer supported for PostgreSQL versions 11 or later.
@@ -275,8 +269,7 @@ SELECT DISTINCT data_type FROM information_schema.columns WHERE data_type ILIKE 
     restorable time.
 
 For more information, see [Restoring from a snapshot](USER_RestoreFromSnapshot.md#USER_RestoreFromSnapshot.Restoring "USER_RestoreFromSnapshot.md#USER_RestoreFromSnapshot.Restoring") or
-[Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md"). For Multi-AZ DB clusters, see [Restoring from a
-snapshot to a Multi-AZ DB cluster](USER_RestoreFromMultiAZDBClusterSnapshot.md "USER_RestoreFromMultiAZDBClusterSnapshot.md") or [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.md "USER_PIT.md").
+[Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md"). For Multi-AZ DB clusters, see [Restoring from a snapshot to a Multi-AZ DB cluster](USER_RestoreFromMultiAZDBClusterSnapshot.md "USER_RestoreFromMultiAZDBClusterSnapshot.md") or [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.md "USER_PIT.md").
 
 For details on performing the upgrade, see [Manually upgrading the engine version](USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.Manual").
 
@@ -455,8 +448,7 @@ following:
   see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
 
 You can also upload the upgrade logs to Amazon CloudWatch Logs. For more
-information, see [Publishing
-PostgreSQL logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs").
+information, see [Publishing PostgreSQL logs to Amazon CloudWatch Logs](USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs "USER_LogAccess.Concepts.md#USER_LogAccess.Concepts.PostgreSQL.PublishtoCloudWatchLogs").
 
 - To verify that everything works as expected, test your
   application on the upgraded database with a similar

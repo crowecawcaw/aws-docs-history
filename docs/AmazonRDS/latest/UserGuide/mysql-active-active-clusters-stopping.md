@@ -1,6 +1,4 @@
-# Stopping Group Replication on a
-
-DB instance in an active-active cluster
+# Stopping Group Replication on a DB instance in an active-active cluster
 
 You can stop Group Replication on a DB instance in an active-active
 cluster. When you stop Group Replication, the DB instance is placed in super-read-only

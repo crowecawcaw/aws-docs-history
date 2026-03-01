@@ -1,37 +1,26 @@
-# Password management with
-
-Amazon RDS
-and AWS Secrets Manager
+# Password management with Amazon RDS and AWS Secrets Manager
 
 Amazon RDS
 integrates with Secrets Manager to manage master user passwords for your DB instances and Multi-AZ DB clusters.
 
 ###### Topics
 
-- [Limitations for Secrets Manager integration with
-  Amazon RDS](#rds-secrets-manager-limitations "#rds-secrets-manager-limitations")
+- [Limitations for Secrets Manager integration with Amazon RDS](#rds-secrets-manager-limitations "#rds-secrets-manager-limitations")
 - [Overview of managing master user passwords with AWS Secrets Manager](#rds-secrets-manager-overview "#rds-secrets-manager-overview")
 - [Benefits of managing master user passwords with Secrets Manager](#rds-secrets-manager-benefits "#rds-secrets-manager-benefits")
 - [Permissions required for Secrets Manager integration](#rds-secrets-manager-permissions "#rds-secrets-manager-permissions")
-- [Enforcing RDS
-  management of the master user password in AWS Secrets Manager](#rds-secrets-manager-auth "#rds-secrets-manager-auth")
+- [Enforcing RDS management of the master user password in AWS Secrets Manager](#rds-secrets-manager-auth "#rds-secrets-manager-auth")
 - [Managing the master user password for a DB instance with Secrets Manager](#rds-secrets-manager-db-instance "#rds-secrets-manager-db-instance")
-- [Managing the master user password for an
-  RDS for Oracle tenant database with Secrets Manager](#rds-secrets-manager-tenant "#rds-secrets-manager-tenant")
-- [Managing the master user password for a
-  Multi-AZ DB cluster with Secrets Manager](#rds-secrets-manager-db-cluster "#rds-secrets-manager-db-cluster")
+- [Managing the master user password for an RDS for Oracle tenant database with Secrets Manager](#rds-secrets-manager-tenant "#rds-secrets-manager-tenant")
+- [Managing the master user password for a Multi-AZDB cluster with Secrets Manager](#rds-secrets-manager-db-cluster "#rds-secrets-manager-db-cluster")
 - [Rotating the master user password secret for a DB instance](#rds-secrets-manager-rotate-db-instance "#rds-secrets-manager-rotate-db-instance")
-- [Rotating the master user password secret for
-  a Multi-AZ DB cluster](#rds-secrets-manager-rotate-db-cluster "#rds-secrets-manager-rotate-db-cluster")
+- [Rotating the master user password secret for a Multi-AZDB cluster](#rds-secrets-manager-rotate-db-cluster "#rds-secrets-manager-rotate-db-cluster")
 - [Viewing the details about a secret for a DB instance](#rds-secrets-manager-view-db-instance "#rds-secrets-manager-view-db-instance")
-- [Viewing the details about a secret for
-  a Multi-AZ DB cluster](#rds-secrets-manager-view-db-cluster "#rds-secrets-manager-view-db-cluster")
+- [Viewing the details about a secret for a Multi-AZDB cluster](#rds-secrets-manager-view-db-cluster "#rds-secrets-manager-view-db-cluster")
 - [Viewing the details about a secret for a tenant database](#rds-secrets-manager-view-tenant "#rds-secrets-manager-view-tenant")
 - [Region and version availability](#rds-secrets-manager-availability "#rds-secrets-manager-availability")
 
-## Limitations for Secrets Manager integration with
-
-Amazon RDS
+## Limitations for Secrets Manager integration with Amazon RDS
 
 Managing master user passwords with Secrets Manager isn't supported for the following features:
 
@@ -135,9 +124,7 @@ in Secrets Manager must have permissions to perform the following operation:
 
 - `secretsmanager:RotateSecret`
 
-## Enforcing RDS
-
-management of the master user password in AWS Secrets Manager
+## Enforcing RDS management of the master user password in AWS Secrets Manager
 
 You can use IAM condition keys to enforce RDS management of the master user
 password in AWS Secrets Manager. The following policy doesn't allow users to create or restore DB
@@ -186,8 +173,7 @@ You can configure RDS management of the master user password in Secrets Manager 
 
 - [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
 - [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
-- [Restoring a backup into an Amazon RDS for MySQL DB
-  instance](MySQL.Procedural.md "MySQL.Procedural.md")
+- [Restoring a backup into an Amazon RDS for MySQL DB instance](MySQL.Procedural.md "MySQL.Procedural.md")
 - [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md")
   (RDS for Oracle only)
 - [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md "USER_PIT.md") (RDS for Oracle only)
@@ -300,17 +286,13 @@ AWS account, specify the key ARN or alias ARN. After RDS is managing the databas
 credentials for a DB instance, you can't change the KMS key that is used to encrypt
 the secret.
 
-## Managing the master user password for an
-
-RDS for Oracle tenant database with Secrets Manager
+## Managing the master user password for an RDS for Oracle tenant database with Secrets Manager
 
 You can configure RDS management of the master user password in Secrets Manager when you perform the
 following actions:
 
-- [Adding an RDS for Oracle tenant database
-  to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
-- [Modifying an RDS for Oracle tenant
-  database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
+- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
+- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
 
 You can use the RDS console, the AWS CLI, or the RDS API to perform the preceding
 actions.
@@ -318,10 +300,8 @@ actions.
 Follow the instructions for creating or modifying an RDS for Oracle tenant database with the RDS
 console:
 
-- [Adding an RDS for Oracle tenant database
-  to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
-- [Modifying an RDS for Oracle tenant
-  database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
+- [Adding an RDS for Oracle tenant database to your CDB instance](oracle-cdb-configuring.adding.md "oracle-cdb-configuring.adding.md")
+- [Modifying an RDS for Oracle tenant database](oracle-cdb-configuring.modifying.md "oracle-cdb-configuring.modifying.md")
   When you use the RDS console to perform one of the preceding operations, you can specify
   that RDS manage the master password in Secrets Manager. When you create a tenant database, select
   **Manage master credentials in AWS Secrets Manager** in
@@ -414,9 +394,7 @@ ARN or alias ARN. After RDS is managing the database credentials for a tenant
 database, you can't change the KMS key that is used to encrypt the
 secret.
 
-## Managing the master user password for a
-
-Multi-AZ DB cluster with Secrets Manager
+## Managing the master user password for a Multi-AZDB cluster with Secrets Manager
 
 You can configure RDS
 management of the master user password in Secrets Manager when you perform the following actions:
@@ -595,9 +573,7 @@ operation and setting the `RotateMasterUserPassword`
 parameter to `true`. You must set the `ApplyImmediately`
 parameter to `true` when you rotate the master password.
 
-## Rotating the master user password secret for
-
-a Multi-AZ DB cluster
+## Rotating the master user password secret for a Multi-AZDB cluster
 
 When RDS
 rotates a master user password secret, Secrets Manager generates a new secret version for the
@@ -753,9 +729,7 @@ When you have the secret ARN, you can view details about the secret using the
 [GetSecretValue](../../../secretsmanager/latest/apireference/API_GetSecretValue.md "../../../secretsmanager/latest/apireference/API_GetSecretValue.md")
 Secrets Manager operation.
 
-## Viewing the details about a secret for
-
-a Multi-AZ DB cluster
+## Viewing the details about a secret for a Multi-AZDB cluster
 
 You can retrieve your secrets using the console ([https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")) or the AWS CLI ([get-secret-value](../../../cli/latest/reference/secretsmanager/get-secret-value.md "../../../cli/latest/reference/secretsmanager/get-secret-value.md") Secrets Manager command).
 
@@ -956,5 +930,4 @@ Secrets Manager operation.
 
 Feature availability and support varies across specific versions of each database engine and
 across AWS Regions. For more information about version and Region availability with
-Secrets Manager integration with Amazon RDS, see [Supported
-Regions and DB engines for the Secrets Manager integration with Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+Secrets Manager integration with Amazon RDS, see [Supported Regions and DB engines for the Secrets Manager integration with Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").

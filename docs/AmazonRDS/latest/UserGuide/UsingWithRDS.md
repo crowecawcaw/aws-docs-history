@@ -1,145 +1,263 @@
-# IAM database authentication for MariaDB, MySQL, and PostgreSQL
+# Using SSL/TLS to encrypt a connection to a DB instance or cluster
 
-You can authenticate to your DB
-instance
-using AWS Identity and Access Management (IAM) database authentication. IAM database authentication works with
-MariaDB, MySQL,
-and PostgreSQL. With this authentication method, you don't
-need to use a password when you connect to a DB instance.
-Instead, you use an authentication token.
+You can use Secure Socket Layer (SSL) or Transport Layer
+Security (TLS) from your application to encrypt a connection to a database
+running Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
 
-An _authentication token_ is a unique string of characters that
-Amazon RDS
-generates on request. Authentication tokens are generated using AWS Signature Version 4.
-Each token has a lifetime of 15 minutes. You don't need to store user credentials in
-the database, because authentication is managed externally using IAM. You can also still
-use standard database authentication. The token is only used for authentication and doesn't
-affect the session after it is established.
+SSL/TLS connections provide a layer of security by
+encrypting data that moves between your client and DB instance or cluster
+. Optionally, your SSL/TLS connection can perform server
+identity verification by validating the server certificate installed on your
+database. To require server identity verification, follow this general
+process:
 
-IAM database authentication provides the following benefits:
+1. Choose the **certificate authority (CA)**
+   that signs the **DB server certificate,**
+   for your database. For more information about certificate
+   authorities, see [Certificate authorities](#UsingWithRDS.SSL.RegionCertificateAuthorities "#UsingWithRDS.SSL.RegionCertificateAuthorities")
+   .
+2. Download a certificate bundle to use when you are connecting to the
+   database. To download a certificate bundle, see
 
-- Network traffic to and from the database is encrypted using Secure Socket Layer (SSL)
-  or Transport Layer Security (TLS). For more information about using SSL/TLS with
-  Amazon RDS,
-  see [Using SSL/TLS to encrypt a connection to a DB
-  instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
-- You can use IAM to centrally manage access to your database resources, instead of
-  managing access individually on each DB instance.
-- For applications running on Amazon EC2, you can use profile credentials specific to
-  your EC2 instance to access your database instead of a password, for greater
-  security.
-  In general, consider using IAM database authentication when your applications create fewer than 200 connections
-  per second, and you don't want to manage usernames and passwords directly in your application code.
+[Certificate bundles by AWS Region](#UsingWithRDS.SSL.CertificatesAllRegions "#UsingWithRDS.SSL.CertificatesAllRegions")
+.
 
-The Amazon Web Services (AWS) JDBC Driver supports IAM database authentication. For more information, see
-[AWS
-IAM Authentication Plugin](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper "https://github.com/aws/aws-advanced-jdbc-wrapper").
+###### Note
 
-The Amazon Web Services (AWS) Python Driver supports IAM database authentication. For more information, see
-[AWS IAM Authentication Plugin](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md "https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md") in the [Amazon Web Services (AWS) Python Driver GitHub
-repository](https://github.com/aws/aws-advanced-python-wrapper "https://github.com/aws/aws-advanced-python-wrapper").
+All certificates are only available for download using SSL/TLS
+connections. 3. Connect to the database using your DB engine's process for
+implementing SSL/TLS connections. Each DB engine has its own process for
+implementing SSL/TLS. To learn how to implement SSL/TLS for your
+database, follow the link that corresponds to your DB engine:
 
-Navigate through the following topics to learn the process to set IAM for DB authentication:
+    * [Using SSL/TLS with an Amazon RDS for Db2 DB instance](Db2.Concepts.md "Db2.Concepts.md")
+    * [SSL/TLS support for MariaDB DB instances on Amazon RDS](MariaDB.Concepts.md "MariaDB.Concepts.md")
+    * [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md")
+    * [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.md "MySQL.Concepts.md")
+    * [Using SSL with an RDS for Oracle DB instance](Oracle.Concepts.md "Oracle.Concepts.md")
+    * [Using SSL with a PostgreSQL DB instance](PostgreSQL.Concepts.General.md "PostgreSQL.Concepts.General.md")
 
-- [Enabling and disabling IAM database
-  authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating and using an IAM policy for
-  IAM database access](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Creating a database account using
-  IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
-- [Connecting to your DB instance using IAM authentication](UsingWithRDS.IAMDBAuth.md "UsingWithRDS.IAMDBAuth.md")
+## Certificate authorities
 
-## Region and version availability
+The **certificate authority (CA)** is the
+certificate that identifies the root CA at the top of the certificate chain.
+The CA signs the **DB server certificate,**
+which is installed on each DB instance. The DB server certificate identifies
+the DB instance as a trusted server.
 
-Feature availability and support varies across specific versions of each database engine.
-For more information on engine, version, and Region availability with Amazon RDS and IAM database authentication, see
-[Supported
-Regions and DB engines for IAM database authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+![Certificate authority overview](images/certificate-authority-overview.png)
 
-## CLI and SDK support
+Amazon RDS provides the following CAs to sign the DB server certificate for a
+database.
 
-IAM database authentication is available for the [AWS CLI](../../../cli/latest/reference/rds/generate-db-auth-token.md "../../../cli/latest/reference/rds/generate-db-auth-token.md")
-and for the following language-specific AWS SDKs:
+| Certificate authority (CA) | Description                                                                                                                                                                                                                                                                                                                              | Common name (CN)                                  |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| rds-ca-rsa2048-g1          | Uses a certificate authority with RSA 2048 private key<br>algorithm and SHA256 signing algorithm in most<br>AWS Regions.<br>In the AWS GovCloud (US) Regions, this CA uses a<br>certificate authority with RSA 2048 private key<br>algorithm and SHA384 signing algorithm.<br>This CA supports automatic server certificate<br>rotation. | Amazon RDS `region-identifier` Root CA RSA2048 G1 |
+| rds-ca-rsa4096-g1          | Uses a certificate authority with RSA 4096 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                             | Amazon RDS `region-identifier` Root CA RSA4096 G1 |
+| rds-ca-ecc384-g1           | Uses a certificate authority with ECC 384 private key<br>algorithm and SHA384 signing algorithm. This CA supports<br>automatic server certificate rotation.                                                                                                                                                                              | Amazon RDS `region-identifier` Root CA ECC384 G1  |
 
-- [AWS SDK for .NET](../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md "../../../sdkfornet/v3/apidocs/items/RDS/TRDSAuthTokenGenerator.md")
-- [AWS SDK for C++](../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392 "../../../sdk-for-cpp/latest/api/class_aws_1_1_r_d_s_1_1_r_d_s_client.md#ae134ffffed5d7672f6156d324e7bd392")
-- [AWS SDK for Go](../../../sdk-for-go/api/service/rds.md#pkg-overview "../../../sdk-for-go/api/service/rds.md#pkg-overview")
-- [AWS SDK for Java](../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md "../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md")
-- [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md "../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md")
-- [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Rds.md "../../../aws-sdk-php/v3/api/class-Aws.Rds.md")
-- [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token")
-- [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md "../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md")
+###### Note
 
-## Limitations for IAM database authentication
+If you are using the AWS CLI, you can see the validities of the
+certificate authorities listed above by using [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md").
 
-When using IAM database authentication, the following limitations apply:
+These CA certificates are included in the regional and global certificate
+bundle. When you use the rds-ca-rsa2048-g1,
+rds-ca-rsa4096-g1, or rds-ca-ecc384-g1 CA with a database, RDS
+manages the DB server certificate on the database. RDS rotates the DB server
+certificate automatically before it expires.
 
-- Currently, IAM database authentication doesn't support all global condition context keys.
+### Setting the CA for your database
 
-For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+You can set the CA for a database when you perform the following
+tasks:
 
-- For PostgreSQL, if the IAM role (`rds_iam`) is added to a user (including
-  the RDS master user), IAM authentication takes precedence over password authentication,
-  so the user must log in as an IAM user.
-- For PostgreSQL, Amazon RDS does not support enabling both IAM
-  and Kerberos authentication methods at the same time.
-- For PostgreSQL, you can't use IAM authentication to establish a replication connection.
-- You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
-- CloudWatch and CloudTrail don't log IAM authentication. These services do not track `generate-db-auth-token`
-  API calls that authorize the IAM role to enable database connection.
-- IAM DB authentication requires compute resources on the database instance. You must have between 300 and 1000 MiB
-  extra memory on your database for reliable connectivity.
-  To see the memory needed for your workload, compare the RES column for RDS processes in the Enhanced Monitoring processlist
-  before and after enabling IAM DB authentication.
-  See [Viewing OS metrics in the RDS console](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
+- Create a DB instance or Multi-AZ DB cluster – You can set the CA when you
+  create a DB instance or cluster. For instructions, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md")
+  or [Creating a Multi-AZ DB cluster for Amazon RDS](create-multi-az-db-cluster.md "create-multi-az-db-cluster.md")
+  .
+- Modify a DB instance or Multi-AZ DB cluster – You can set the CA for a
+  DB instance or cluster by modifying it. For instructions, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md")
+  or [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md")
+  .
 
-If you are using a burstable class instance, avoid running out of memory by reducing
-the memory used by other parameters like buffers and cache by the same amount.
+###### Note
 
--
-- IAM DB authentication is not supported for RDS on Outposts for any engine.
+The default CA is set to
+rds-ca-rsa2048-g1.
+You can override the default CA for your AWS account by
+using the [modify-certificates](../../../cli/latest/reference/rds/modify-certificates.md "../../../cli/latest/reference/rds/modify-certificates.md") command.
 
-## Recommendations for IAM database authentication
+The available CAs depend on the DB engine and DB engine version. When
+you use the AWS Management Console, you can choose the CA using the
+**Certificate authority** setting, as shown in the
+following image.
 
-We recommend the following when using IAM database authentication:
+![Certificate authority option](images/certificate-authority.png)
 
-- Use IAM database authentication when your application requires fewer than
-  200 new IAM database authentication connections per second.
+The console only shows the CAs that are available for the DB engine
+and DB engine version. If you're using the AWS CLI, you can set the CA for
+a DB instance using the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") or [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command. You can set the CA for a Multi-AZ DB cluster using the [create-db-cluster](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") or [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") command.
 
-The database engines that work with Amazon RDS
-don't impose any limits on authentication attempts per second. However, when you use IAM database authentication,
-your application must generate an authentication token. Your application then uses that
-token to connect to the DB instance. If you exceed the limit of maximum new
-connections per second, then the extra overhead of IAM database authentication can cause
-connection throttling.
+If you're using the AWS CLI, you can see the available CAs for your
+account by using the [describe-certificates](../../../cli/latest/reference/rds/describe-certificates.md "../../../cli/latest/reference/rds/describe-certificates.md") command. This command also shows the
+expiration date for each CA in `ValidTill` in the output. You
+can find the CAs that are available for a specific DB engine and DB
+engine version using the [describe-db-engine-versions](../../../cli/latest/reference/rds/describe-db-engine-versions.md "../../../cli/latest/reference/rds/describe-db-engine-versions.md") command.
 
-Consider using connection pooling in your applications to mitigate constant
-connection creation. This can reduce the overhead from IAM DB authentication
-and allow your applications to reuse existing connections. Alternatively,
-consider using RDS Proxy for these use cases. RDS Proxy has additional costs. See
-[RDS Proxy
-pricing](https://aws.amazon.com/rds/proxy/pricing/ "https://aws.amazon.com/rds/proxy/pricing/").
+The following example shows the CAs available for the default
+RDS for PostgreSQL DB engine version.
 
-- The size of an IAM database authentication token depends on many things including the number of IAM tags,
-  IAM service policies, ARN lengths, as well as other IAM and database properties. The minimum size of this token is
-  generally about 1 KB but can be larger. Since this token is used as the password in the connection string to the database
-  using IAM authentication, you should ensure that your database driver (e.g., ODBC) and/or any tools do not limit or otherwise
-  truncate this token due to its size. A truncated token will cause the authentication validation done by the database and IAM to fail.
-- If you are using temporary credentials when creating an IAM database
-  authentication token, the temporary credentials must still be valid when using
-  the IAM database authentication token to make a connection request.
+```
+aws rds describe-db-engine-versions --default-only --engine postgres
+```
 
-## Unsupported AWS global condition context keys
+Your output is similar to the following. The available CAs are listed
+in `SupportedCACertificateIdentifiers`. The output also shows
+whether the DB engine version supports rotating the certificate without
+restart in
+`SupportsCertificateRotationWithoutRestart`.
 
-IAM database authentication does not support the following subset of AWS global condition context keys.
+```
+{
+    "DBEngineVersions": [
+        {
+            "Engine": "postgres",
+            "MajorEngineVersion": "13",
+            "EngineVersion": "13.4",
+            "DBParameterGroupFamily": "postgres13",
+            "DBEngineDescription": "PostgreSQL",
+            "DBEngineVersionDescription": "PostgreSQL 13.4-R1",
+            "ValidUpgradeTarget": [],
+            "SupportsLogExportsToCloudwatchLogs": false,
+            "SupportsReadReplica": true,
+            "SupportedFeatureNames": [
+                "Lambda"
+            ],
+            "Status": "available",
+            "SupportsParallelQuery": false,
+            "SupportsGlobalDatabases": false,
+            "SupportsBabelfish": false,
+            "SupportsCertificateRotationWithoutRestart": true,
+            "SupportedCACertificateIdentifiers": [
+                "rds-ca-rsa2048-g1",
+                "rds-ca-ecc384-g1",
+                "rds-ca-rsa4096-g1"
+            ]
+        }
+    ]
+}
+```
 
-- `aws:Referer`
-- `aws:SourceIp`
-- `aws:SourceVpc`
-- `aws:SourceVpce`
-- `aws:UserAgent`
-- `aws:VpcSourceIp`
+### DB server certificate validities
 
-For more information, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+The validity of DB server certificate depends on the DB engine and DB
+engine version. If the DB engine version supports rotating the
+certificate without restart, the validity of the DB server certificate
+is 1 year. Otherwise the validity is 3 years.
+
+For more information about DB server certificate rotation, see [Automatic server certificate rotation](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-server-cert-rotation")
+.
+
+### Viewing the CA for your DB instance
+
+You can view the details about the CA for a database by viewing the
+**Connectivity & security** tab in the console,
+as in the following image.
+
+![Certificate authority details](images/certificate-authority-details.png)
+
+If you're using the AWS CLI, you can view the details about the CA for a
+DB instance by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. You can view the details about the CA for a
+Multi-AZ DB cluster by using the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command.
+
+## Download certificate bundles for Amazon RDS
+
+When you connect to your database with SSL or TLS, the database instance
+requires a trust certificate from Amazon RDS. Select the appropriate link in the
+following table to download the bundle that corresponds with the
+AWS Region where you host your database.
+
+### Certificate bundles by AWS Region
+
+The certificate bundles for all AWS Regions and GovCloud (US)
+Regions contain the following root CA certificates:
+
+- `rds-ca-rsa2048-g1`
+- `rds-ca-rsa4096-g1`
+- `rds-ca-ecc384-g1`
+
+The `rds-ca-rsa4096-g1` and `rds-ca-ecc384-g1`
+certificates are not available in the following Regions:
+
+- Asia Pacific (Mumbai)
+- Asia Pacific (Melbourne)
+- Canada West (Calgary)
+- Europe (Zurich)
+- Europe (Spain)
+- Israel (Tel Aviv)
+
+Your application trust store needs to only register the root CA certificate. Do not register the intermediate
+CA certificates to your trust store as this might cause connection issues when RDS automatically rotates your DB server certificate.
+
+###### Note
+
+Amazon RDS Proxy
+uses
+certificates from the AWS Certificate Manager (ACM). If you're using RDS Proxy, you
+don't need to download Amazon RDS certificates or update
+applications that use RDS Proxy connections. For more information, see
+[Using TLS/SSL with RDS Proxy](rds-proxy.md#rds-proxy-security.tls "rds-proxy.md#rds-proxy-security.tls")
+.
+
+To download a certificate bundle for an AWS Region, select the link
+for the AWS Region that hosts your database in the following
+table.
+
+| **AWS Region**                | **Certificate bundle<br>(PEM)**                                                                                                                                                                                           | **Certificate bundle<br>(PKCS7)**                                                                                                                                                                                         |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Any commercial AWS Region     | [global-bundle.pem](https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem")                                                                | [global-bundle.p7b](https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.rds.amazonaws.com/global/global-bundle.p7b")                                                                |
+| US East (N. Virginia)         | [us-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.pem")                                                 | [us-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-1/us-east-1-bundle.p7b")                                                 |
+| US East (Ohio)                | [us-east-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.pem")                                                 | [us-east-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-east-2/us-east-2-bundle.p7b")                                                 |
+| US West (N. California)       | [us-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.pem")                                                 | [us-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-1/us-west-1-bundle.p7b")                                                 |
+| US West (Oregon)              | [us-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.pem")                                                 | [us-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/us-west-2/us-west-2-bundle.p7b")                                                 |
+| Africa (Cape Town)            | [af-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.pem")                                            | [af-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/af-south-1/af-south-1-bundle.p7b")                                            |
+| Asia Pacific (Hong Kong)      | [ap-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.pem")                                                 | [ap-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-east-1/ap-east-1-bundle.p7b")                                                 |
+| Asia Pacific (Hyderabad)      | [ap-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.pem")                                            | [ap-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-2/ap-south-2-bundle.p7b")                                            |
+| Asia Pacific (Jakarta)        | [ap-southeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.pem")                        | [ap-southeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-3/ap-southeast-3-bundle.p7b")                        |
+| Asia Pacific (Malaysia)       | [ap-southeast-5-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.pem")                        | [ap-southeast-5-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-5/ap-southeast-5-bundle.p7b")                        |
+| Asia Pacific (Melbourne)      | [ap-southeast-4-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.pem")                        | [ap-southeast-4-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-4/ap-southeast-4-bundle.p7b")                        |
+| Asia Pacific (Mumbai)         | [ap-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.pem")                                            | [ap-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-south-1/ap-south-1-bundle.p7b")                                            |
+| Asia Pacific (Osaka)          | [ap-northeast-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.pem")                        | [ap-northeast-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-3/ap-northeast-3-bundle.p7b")                        |
+| Asia Pacific (Thailand)       | [ap-southeast-7-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.pem")                        | [ap-southeast-7-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-7/ap-southeast-7-bundle.p7b")                        |
+| Asia Pacific (Tokyo)          | [ap-northeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.pem")                        | [ap-northeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-1/ap-northeast-1-bundle.p7b")                        |
+| Asia Pacific (Seoul)          | [ap-northeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.pem")                        | [ap-northeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-northeast-2/ap-northeast-2-bundle.p7b")                        |
+| Asia Pacific (Singapore)      | [ap-southeast-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.pem")                        | [ap-southeast-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-1/ap-southeast-1-bundle.p7b")                        |
+| Asia Pacific (Sydney)         | [ap-southeast-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.pem")                        | [ap-southeast-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ap-southeast-2/ap-southeast-2-bundle.p7b")                        |
+| Canada (Central)              | [ca-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.pem")                                  | [ca-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-central-1/ca-central-1-bundle.p7b")                                  |
+| Canada West (Calgary)         | [ca-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.pem")                                                 | [ca-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/ca-west-1/ca-west-1-bundle.p7b")                                                 |
+| Europe (Frankfurt)            | [eu-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.pem")                                  | [eu-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-1/eu-central-1-bundle.p7b")                                  |
+| Europe (Ireland)              | [eu-west-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.pem")                                                 | [eu-west-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-1/eu-west-1-bundle.p7b")                                                 |
+| Europe (London)               | [eu-west-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.pem")                                                 | [eu-west-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-2/eu-west-2-bundle.p7b")                                                 |
+| Europe (Milan)                | [eu-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.pem")                                            | [eu-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-1/eu-south-1-bundle.p7b")                                            |
+| Europe (Paris)                | [eu-west-3-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.pem")                                                 | [eu-west-3-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-west-3/eu-west-3-bundle.p7b")                                                 |
+| Europe (Spain)                | [eu-south-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.pem")                                            | [eu-south-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-south-2/eu-south-2-bundle.p7b")                                            |
+| Europe (Stockholm)            | [eu-north-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.pem")                                            | [eu-north-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-north-1/eu-north-1-bundle.p7b")                                            |
+| Europe (Zurich)               | [eu-central-2-bundle.pem](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.pem")                                  | [eu-central-2-bundle.p7b](https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b "https://truststore.pki.rds.amazonaws.com/eu-central-2/eu-central-2-bundle.p7b")                                  |
+| Israel (Tel Aviv)             | [il-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.pem")                                  | [il-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/il-central-1/il-central-1-bundle.p7b")                                  |
+| Mexico (Central)              | [mx-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.pem")                                  | [mx-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/mx-central-1/mx-central-1-bundle.p7b")                                  |
+| Middle East (Bahrain)         | [me-south-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.pem")                                            | [me-south-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-south-1/me-south-1-bundle.p7b")                                            |
+| Middle East (UAE)             | [me-central-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.pem")                                  | [me-central-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/me-central-1/me-central-1-bundle.p7b")                                  |
+| South America (São Paulo)     | [sa-east-1-bundle.pem](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.pem")                                                 | [sa-east-1-bundle.p7b](https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b "https://truststore.pki.rds.amazonaws.com/sa-east-1/sa-east-1-bundle.p7b")                                                 |
+| Any AWS GovCloud (US) Regions | [global-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.pem")                                    | [global-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/global/global-bundle.p7b")                                    |
+| AWS GovCloud (US-East)        | [us-gov-east-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.pem") | [us-gov-east-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-east-1/us-gov-east-1-bundle.p7b") |
+| AWS GovCloud (US-West)        | [us-gov-west-1-bundle.pem](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.pem") | [us-gov-west-1-bundle.p7b](https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b "https://truststore.pki.us-gov-west-1.rds.amazonaws.com/us-gov-west-1/us-gov-west-1-bundle.p7b") |
+
+### Viewing the contents of your CA certificate
+
+To check the contents of your CA certificate bundle, use the following
+command:
+
+```
+keytool -printcert -v -file global-bundle.pem
+```

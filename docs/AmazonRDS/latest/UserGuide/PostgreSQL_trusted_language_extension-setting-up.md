@@ -73,8 +73,7 @@ You can verify that the grant has occurred by using the `psql` metacommand as sh
 example. Only the `pgtle_admin` and `postgres` roles are shown
 in the output. For more information, see
 
-[Understanding the
-rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
+[Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
 
 ```
 `labdb=>` `\du`

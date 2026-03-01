@@ -7,8 +7,7 @@ The following are requirements for setting up and using the TLE development kit.
   RDS for PostgreSQL versions 13.12 and higher 13 versions, 14.5 and higher 14 versions, and 15.2 and higher versions only.
   - If you need to upgrade your RDS for PostgreSQL instance,
     see
-    [Upgrades of the RDS for PostgreSQL DB
-    engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
+    [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
   - If you don't yet have an
     Amazon RDS DB instance running
     PostgreSQL, you can create one. For more information, see
@@ -68,16 +67,13 @@ instance to use it.
 
 For more information working with
 DB parameter groups, see
-[DB parameter groups for
-Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+[DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 
 You can avoid specifying the `--region` argument when you use CLI commands by configuring your AWS CLI
 with your default AWS Region. For more information, see [Configuration
 basics](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") in the _AWS Command Line Interface User Guide_.
 
-###### To create a custom DB parameter group and use it with your
-
-RDS for PostgreSQL DB instance
+###### To create a custom DB parameter group and use it with your RDS for PostgreSQL DB instance
 
 1. Use the [create-db-parameter-group](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") AWS CLI
    command to create a custom DB parameter group based on

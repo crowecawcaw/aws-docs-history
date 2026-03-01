@@ -16,18 +16,12 @@ database configuration parameters](https://www.ibm.com/docs/en/db2/11.5?topic=pa
 
 ###### Topics
 
-- [Viewing the parameters in
-  parameter groups](#db2-viewing-parameter-group-parameters "#db2-viewing-parameter-group-parameters")
-- [Viewing all parameters with Db2
-  commands](#db2-viewing-parameters-db2-commands "#db2-viewing-parameters-db2-commands")
-- [Modifying the parameters in
-  parameter groups](#db2-modifying-parameter-group-parameters "#db2-modifying-parameter-group-parameters")
-- [Modifying the database
-  configuration parameters with Db2 commands](#db2-modifying-parameters-db2-commands "#db2-modifying-parameters-db2-commands")
+- [Viewing the parameters in parameter groups](#db2-viewing-parameter-group-parameters "#db2-viewing-parameter-group-parameters")
+- [Viewing all parameters with Db2 commands](#db2-viewing-parameters-db2-commands "#db2-viewing-parameters-db2-commands")
+- [Modifying the parameters in parameter groups](#db2-modifying-parameter-group-parameters "#db2-modifying-parameter-group-parameters")
+- [Modifying the database configuration parameters with Db2 commands](#db2-modifying-parameters-db2-commands "#db2-modifying-parameters-db2-commands")
 
-## Viewing the parameters in
-
-parameter groups
+## Viewing the parameters in parameter groups
 
 The database manager configuration parameters and the registry variables are set in
 parameter groups. You can view the database manager configuration parameters and the
@@ -113,9 +107,7 @@ required parameter.
 
 - `DBParameterGroupName`
 
-## Viewing all parameters with Db2
-
-commands
+## Viewing all parameters with Db2 commands
 
 You can view the settings for database manager configuration parameters, database
 configuration parameters, and registry variables by using Db2 commands.
@@ -169,28 +161,20 @@ db2 "select service_level, fixpack_num from table(sysproc.env_get_inst_info()) a
        order by reg_var_name,member with UR"
    ```
 
-## Modifying the parameters in
-
-parameter groups
+## Modifying the parameters in parameter groups
 
 You can modify the database manager configuration parameters and the registry
 variables in custom parameter groups by using the AWS Management Console, the AWS CLI, or the RDS API.
-For more information, see [DB parameter groups for
-Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+For more information, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 
-###### To modify database manager configuration parameters and registry
-
-variables
+###### To modify database manager configuration parameters and registry variables
 
 1. Create a custom parameter group. For more information about creating a
    DB parameter group, see [Creating a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 2. Modify the parameters in that custom parameter group. For more
-   information about modifying a parameter group, see [Modifying parameters in a DB parameter group
-   in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+   information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-###### To modify database manager configuration parameters and registry
-
-variables
+###### To modify database manager configuration parameters and registry variables
 
 1. Create a custom parameter group by running the [create-db-parameter-group](../../../cli/latest/reference/rds/create-db-parameter-group.md "../../../cli/latest/reference/rds/create-db-parameter-group.md") command.
 
@@ -216,12 +200,9 @@ Include the following required options:
      names, values, and the application methods for the parameter
      update.
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-###### To modify database manager configuration parameters and registry
-
-variables
+###### To modify database manager configuration parameters and registry variables
 
 1. Create a custom DB parameter group by using the [CreateDBParameterGroup](../APIReference/API_CreateDBParameterGroup.md "../APIReference/API_CreateDBParameterGroup.md") operation.
 
@@ -239,12 +220,9 @@ Include the following required parameters:
     * `DBParameterGroupName`
     * `Parameters`
 
-For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+For more information about modifying a parameter group, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-## Modifying the database
-
-configuration parameters with Db2 commands
+## Modifying the database configuration parameters with Db2 commands
 
 You can modify the database configuration parameters with Db2 commands.
 

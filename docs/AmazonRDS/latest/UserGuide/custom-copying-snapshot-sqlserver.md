@@ -1,6 +1,4 @@
-# Copying an Amazon RDS Custom for SQL Server DB
-
-snapshot
+# Copying an Amazon RDS Custom for SQL Server DB snapshot
 
 With RDS Custom for SQL Server, you can copy automated backups and manual DB snapshots. After copying a
 snapshot, the copy you create is a manual snapshot. You can make multiple copies of an
@@ -16,15 +14,11 @@ where RDS Custom for SQL Server is available. The following operations are curre
 ###### Topics
 
 - [Limitations](#custom-copying-snapshot-sqlserver.Limitations "#custom-copying-snapshot-sqlserver.Limitations")
-- [Handling
-  encryption](#custom-copying-snapshot-sqlserver.Encryption "#custom-copying-snapshot-sqlserver.Encryption")
+- [Handling encryption](#custom-copying-snapshot-sqlserver.Encryption "#custom-copying-snapshot-sqlserver.Encryption")
 - [Cross-Region copying](#custom-copying-snapshot-sqlserver.XRCopy "#custom-copying-snapshot-sqlserver.XRCopy")
-- [Snapshots of DB instances
-  created with Custom Engine Versions (CEV)](#custom-copying-snapshot-sqlserver.CEVSnap "#custom-copying-snapshot-sqlserver.CEVSnap")
-- [Grant required
-  permissions to your IAM principal](#custom-copying-snapshot-sqlserver.GrantPermIAM "#custom-copying-snapshot-sqlserver.GrantPermIAM")
-- [Copying a DB
-  snapshot](#custom-copying-snapshot-sqlserver.CopyingDBSnapshot "#custom-copying-snapshot-sqlserver.CopyingDBSnapshot")
+- [Snapshots of DB instances created with Custom Engine Versions (CEV)](#custom-copying-snapshot-sqlserver.CEVSnap "#custom-copying-snapshot-sqlserver.CEVSnap")
+- [Grant required permissions to your IAM principal](#custom-copying-snapshot-sqlserver.GrantPermIAM "#custom-copying-snapshot-sqlserver.GrantPermIAM")
+- [Copying a DB snapshot](#custom-copying-snapshot-sqlserver.CopyingDBSnapshot "#custom-copying-snapshot-sqlserver.CopyingDBSnapshot")
 
 ## Limitations
 
@@ -51,9 +45,7 @@ The following limitations apply to copying a DB snapshot for RDS Custom for SQL 
 The limitations of copying a DB snapshot for Amazon RDS also apply to RDS Custom for SQL Server. For more
 information, see [Limitations](USER_CopySnapshot.md#USER_CopySnapshot.Limitations "USER_CopySnapshot.md#USER_CopySnapshot.Limitations").
 
-## Handling
-
-encryption
+## Handling encryption
 
 All RDS Custom for SQL Server DB instances and DB snapshots are encrypted with KMS keys. You can only copy an
 encrypted snapshot to an encrypted snapshot, therefore you must specify a KMS key valid
@@ -69,9 +61,7 @@ in the _AWS Key Management Service Developer Guide_.
 You can copy DB snapshots across AWS Regions. However, there are certain constraints
 and considerations for cross-Region snapshot copying.
 
-### Authorizing RDS
-
-to communicate across AWS Regions for snapshot copying
+### Authorizing RDS to communicate across AWS Regions for snapshot copying
 
 After a cross-Region DB snapshot copy request is processed successfully, RDS
 starts the copy. An authorization request for RDS to access the source snapshot is
@@ -93,9 +83,7 @@ The copy fails if you delete the service-linked role during the copy process.
 For more information, see [Using service-linked
 roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _AWS Identity and Access Management User Guide_.
 
-### Using AWS Security Token Service
-
-credentials
+### Using AWS Security Token Service credentials
 
 Session tokens from the global AWS Security Token Service (AWS STS) endpoint are valid only in
 AWS Regions that are enabled by default (commercial Regions). If you use
@@ -112,9 +100,7 @@ For more information, see [Managing
 AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md") in the _AWS Identity and Access Management User
 Guide_.
 
-## Snapshots of DB instances
-
-created with Custom Engine Versions (CEV)
+## Snapshots of DB instances created with Custom Engine Versions (CEV)
 
 For a DB snapshot of a DB instance using a [Custom Engine Version
 (CEV)](custom-cev-sqlserver.md "custom-cev-sqlserver.md"), RDS associates the CEV with the DB snapshot. To copy a source DB
@@ -143,12 +129,9 @@ allow the associated CEV copying:
   your requester IAM principal has the permission to create the tag against the
   AMI underlying the source CEV in the source region.
 
-For more information about CEV copying permissions, see [Grant required
-permissions to your IAM principal](#custom-copying-snapshot-sqlserver.GrantPermIAM "#custom-copying-snapshot-sqlserver.GrantPermIAM").
+For more information about CEV copying permissions, see [Grant required permissions to your IAM principal](#custom-copying-snapshot-sqlserver.GrantPermIAM "#custom-copying-snapshot-sqlserver.GrantPermIAM").
 
-## Grant required
-
-permissions to your IAM principal
+## Grant required permissions to your IAM principal
 
 Make sure that you have sufficient access to copy a RDS Custom for SQL Server DB snapshot. The IAM
 role or user (referred to as the IAM principal) for copying a DB snapshot using the
@@ -223,9 +206,7 @@ If you use conditions with context keys in the requester's IAM policy, certain
 conditions can cause the request to fail. For more information about common pitfalls due
 to IAM policy conditions, see [Requesting a cross-Region DB snapshot copy](USER_CopySnapshot.md#USER_CopySnapshot.AcrossRegions.Policy "USER_CopySnapshot.md#USER_CopySnapshot.AcrossRegions.Policy").
 
-## Copying a DB
-
-snapshot
+## Copying a DB snapshot
 
 Use the following procedures to copy a DB snapshot. For each AWS account, you can
 copy up to 20 DB snapshots at a time from one AWS Region to another. If you copy a DB

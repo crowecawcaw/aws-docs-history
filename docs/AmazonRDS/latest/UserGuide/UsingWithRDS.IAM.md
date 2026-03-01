@@ -70,9 +70,7 @@ JSON
 To see a list of Amazon RDS actions, see [Actions Defined by Amazon RDS](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Example policies:
-
-Using custom tags
+## Example policies: Using custom tags
 
 Following are examples of how you can use custom tags in Amazon RDS IAM permissions policies.
 For more information about adding tags to an Amazon RDS resource, see [Amazon Resource Names (ARNs) in Amazon RDS](USER_Tagging.md "USER_Tagging.md").
@@ -81,9 +79,7 @@ For more information about adding tags to an Amazon RDS resource, see [Amazon Re
 
 All examples use the us-west-2 region and contain fictitious account IDs.
 
-### Example 1: Grant permission for actions on a resource with a specific tag with two
-
-different values
+### Example 1: Grant permission for actions on a resource with a specific tag with two different values
 
 The following policy allows permission to perform the
 `CreateDBSnapshot` API operation on DB instances with either the `stage`
@@ -201,9 +197,7 @@ JSON
 
 ```
 
-### Example 3: Grant permission for actions on a DB instance with an instance name that is prefixed with a
-
-user name
+### Example 3: Grant permission for actions on a DB instance with an instance name that is prefixed with a user name
 
 The following policy allows permission to call any API (except to `AddTagsToResource` or
 `RemoveTagsFromResource`) on a DB instance that has a DB instance name that is prefixed with the

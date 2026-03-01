@@ -10,17 +10,13 @@ To analyze and troubleshoot the performance of your databases at scale, use [Clo
 
 ###### Topics
 
-- [Overview of Amazon RDS
-  and Amazon CloudWatch](#cw-metrics-overview "#cw-metrics-overview")
-- [Viewing DB instance
-  metrics in the CloudWatch console and AWS CLI](metrics_dimensions.md "metrics_dimensions.md")
+- [Overview of Amazon RDS and Amazon CloudWatch](#cw-metrics-overview "#cw-metrics-overview")
+- [Viewing DB instance metrics in the CloudWatch console and AWS CLI](metrics_dimensions.md "metrics_dimensions.md")
 - [Exporting Performance Insights metrics to CloudWatch](PI_metrics_export_CW.md "PI_metrics_export_CW.md")
 - [Creating CloudWatch alarms to monitor Amazon RDS](creating_alarms.md "creating_alarms.md")
 - [Tutorial: Creating an Amazon CloudWatch alarm for Multi-AZ DB cluster replica lag for Amazon RDS](multi-az-db-cluster-cloudwatch-alarm.md "multi-az-db-cluster-cloudwatch-alarm.md")
 
-## Overview of Amazon RDS
-
-and Amazon CloudWatch
+## Overview of Amazon RDS and Amazon CloudWatch
 
 By default, Amazon RDS automatically sends metric data to
 CloudWatch in 1-minute periods. For example, the `CPUUtilization` metric records the percentage of CPU utilization for a DB instance over

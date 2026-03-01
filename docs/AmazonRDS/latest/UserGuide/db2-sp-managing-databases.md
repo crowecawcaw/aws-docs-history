@@ -1,6 +1,4 @@
-# Stored procedures for databases for
-
-RDS for Db2
+# Stored procedures for databases for RDS for Db2
 
 The built-in stored procedures described in this topic manage databases for Amazon RDS for Db2.
 To run these procedures, the master user must first connect to the `rdsadmin`
@@ -183,8 +181,7 @@ Valid values:
 ### Usage notes
 
 If you plan on modifying the `db2_compatibility_vector` parameter,
-modify the parameter before creating a database. For more information, see [Setting the
-db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
+modify the parameter before creating a database. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 
 Special considerations:
 
@@ -212,8 +209,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 For information about checking the status of creating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.create_database`,
-see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -266,8 +262,7 @@ by calling the `rdsadmin.deactivate_database` stored procedure.
 For information about checking the status of deactivating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling
-`rdsadmin.deactivate_database`, see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+`rdsadmin.deactivate_database`, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -322,8 +317,7 @@ must call the [rdsadmin.reactivate_database](#db2-sp-reactivate-database "#db2-s
 For information about checking the status of activating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.activate_database`,
-see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -386,8 +380,7 @@ database.
 For information about checking the status of reactivating a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling
-`rdsadmin.reactivate_database`, see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+`rdsadmin.reactivate_database`, see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -441,8 +434,7 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 For information about checking the status of dropping a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.drop_database`, see
-[Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+[Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -499,8 +491,7 @@ For information about checking the status of updating database parameters, see
 [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.update_db_param`,
-see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -846,13 +837,10 @@ Before calling the stored procedure, review the following considerations:
   the S3 bucket is set to SSE-KMS, the files uploaded to the S3 bucket won't
   use SSE-KMS encryption.
 - To stream the backup files to Amazon S3, you must have already configured the
-  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with
-  Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 - For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must
   have a VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
-  information, see [Step 1: Create a VPC gateway endpoint for
-  Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway
-  endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
+  information, see [Step 1: Create a VPC gateway endpoint for Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
 
 Before calling `rdsadmin.backup_database`, you must connect to the
 `rdsadmin` database. In the following example, replace
@@ -873,8 +861,7 @@ terminate
 For information about checking the status of backing up a database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.backup_database`,
-see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -1088,8 +1075,7 @@ the database, see [rdsadmin.rollforward_database](#db2-sp-rollforward-database "
 For information about checking the status of restoring your database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
 
 For error messages returned when calling `rdsadmin.restore_database`,
-see [Stored
-procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
+see [Stored procedure errors](db2-troubleshooting.md#db2-troubleshooting-stored-procedures "db2-troubleshooting.md#db2-troubleshooting-stored-procedures").
 
 ### Examples
 
@@ -1988,13 +1974,10 @@ in the IBM Db2 documentation.
 Before calling the stored procedure, review the following considerations:
 
 - To upload the diagnostic files to Amazon S3, you must have already configured the
-  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with
-  Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
 - For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must
   have a VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
-  information, see [Step 1: Create a VPC gateway endpoint for
-  Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway
-  endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
+  information, see [Step 1: Create a VPC gateway endpoint for Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
 
 Before calling `rdsadmin.db2support_command`, you must connect to the
 `rdsadmin` database. In the following example, replace

@@ -1,84 +1,89 @@
-# Enabling MariaDB binary log annotation
+# Configuring MariaDB binary logging
 
-In a MariaDB DB instance, you can use the `Annotate_rows` event to annotate a
-row event with a copy of the SQL query that caused the row event. This approach
-provides similar functionality to enabling the
-`binlog_rows_query_log_events` parameter on an RDS for MySQL DB instance.
+The _binary log_ is a set of log files that contain information
+about data modifications made to a MariaDB server instance. The binary log contains
+information such as the following:
 
-You can enable binary log annotations globally by creating a custom parameter group and
-setting the `binlog_annotate_row_events` parameter to
-`1`. You can also enable annotations at the session level,
-by calling `SET SESSION binlog_annotate_row_events = 1`. Use the
-`replicate_annotate_row_events` to replicate binary log annotations
-to the replica instance if binary logging is enabled on it. No special privileges are
-required to use these settings.
+- Events that describe database changes such as table creation or row
+  modifications
+- Information about the duration of each statement that updated data
+- Events for statements that could have updated data but didn't
+  The binary log records statements that are sent during replication. It is also
+  required for some recovery operations. For more information, see [Binary Log](https://mariadb.com/kb/en/binary-log/ "https://mariadb.com/kb/en/binary-log/") in the MariaDB
+  documentation.
 
-The following is an example of a row-based transaction in MariaDB. The use of row-based
-logging is triggered by setting the transaction isolation level to
-read-committed.
+The automated backups feature determines whether binary logging is turned on or off
+for MariaDB. You have the following options:
 
-```
-CREATE DATABASE IF NOT EXISTS test;
-USE test;
-CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;
-SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
-BEGIN
-INSERT INTO square(x, y) VALUES(5, 5 * 5);
-COMMIT;
-```
+Turn binary logging on
 
-Without annotations, the binary log entries for the transaction look like the
-following:
+Set the backup retention period to a positive nonzero value.
 
-```
-BEGIN
-/*!*/;
-# at 1163
-# at 1209
-#150922  7:55:57 server id 1855786460  end_log_pos 1209         Table_map: `test`.`square` mapped to number 76
-#150922  7:55:57 server id 1855786460  end_log_pos 1247         Write_rows: table id 76 flags: STMT_END_F
-### INSERT INTO `test`.`square`
-### SET
-###   @1=5
-###   @2=25
-# at 1247
-#150922  7:56:01 server id 1855786460  end_log_pos 1274         Xid = 62
-COMMIT/*!*/;
-```
+Turn binary logging off
 
-The following statement enables session-level annotations for this same transaction, and
-disables them after committing the transaction:
+Set the backup retention period to zero.
 
-```
-CREATE DATABASE IF NOT EXISTS test;
-USE test;
-CREATE TABLE square(x INT PRIMARY KEY, y INT NOT NULL) ENGINE = InnoDB;
-SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SET SESSION binlog_annotate_row_events = 1;
-BEGIN;
-INSERT INTO square(x, y) VALUES(5, 5 * 5);
-COMMIT;
-SET SESSION binlog_annotate_row_events = 0;
-```
+For more information, see [Enabling automated backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md").
 
-With annotations, the binary log entries for the transaction look like the
-following:
+MariaDB on Amazon RDS supports the _row-based_,
+_statement-based_, and _mixed_ binary logging
+formats. The default binary logging format is _mixed_. For details on
+the different MariaDB binary log formats, see [Binary Log
+Formats](http://mariadb.com/kb/en/mariadb/binary-log-formats/ "http://mariadb.com/kb/en/mariadb/binary-log-formats/") in the MariaDB documentation.
 
-```
-BEGIN
-/*!*/;
-# at 423
-# at 483
-# at 529
-#150922  8:04:24 server id 1855786460  end_log_pos 483  Annotate_rows:
-#Q> INSERT INTO square(x, y) VALUES(5, 5 * 5)
-#150922  8:04:24 server id 1855786460  end_log_pos 529  Table_map: `test`.`square` mapped to number 76
-#150922  8:04:24 server id 1855786460  end_log_pos 567  Write_rows: table id 76 flags: STMT_END_F
-### INSERT INTO `test`.`square`
-### SET
-###   @1=5
-###   @2=25
-# at 567
-#150922  8:04:26 server id 1855786460  end_log_pos 594  Xid = 88
-COMMIT/*!*/;
-```
+If you plan to use replication, the binary logging format is important. This is
+because it determines the record of data changes that is recorded in the source and sent
+to the replication targets. For information about the advantages and disadvantages of
+different binary logging formats for replication, see [Advantages
+and Disadvantages of Statement-Based and Row-Based Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-sbr-rbr.html "https://dev.mysql.com/doc/refman/5.7/en/replication-sbr-rbr.html") in the MySQL
+documentation.
+
+###### Important
+
+Setting the binary logging format to row-based can result in very large binary log
+files. Large binary log files reduce the amount of storage available for a DB
+instance. They also can increase the amount of time to perform a restore operation
+of a DB instance.
+
+Statement-based replication can cause inconsistencies between the source DB
+instance and a read replica. For more information, see [Unsafe Statements for Statement-based Replication](https://mariadb.com/kb/en/library/unsafe-statements-for-statement-based-replication/ "https://mariadb.com/kb/en/library/unsafe-statements-for-statement-based-replication/") in the MariaDB
+documentation.
+
+Enabling binary logging increases the number of write disk I/O operations to the DB
+instance. You can monitor IOPS usage with the `WriteIOPS` CloudWatch
+metric.
+
+###### To set the MariaDB binary logging format
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Parameter groups**.
+3. Choose the parameter group that is used by the DB instance that you want to
+   modify.
+
+You can't modify a default parameter group. If the DB instance is using a
+default parameter group, create a new parameter group and associate it with the
+DB instance.
+
+For more information on DB parameter groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 4. For **Parameter group actions**, choose
+**Edit**. 5. Set the `binlog_format` parameter to the binary logging format of
+your choice (**ROW**, **STATEMENT**, or **MIXED**).
+
+You can turn off binary logging by setting the backup retention period of a DB instance to
+zero, but this disables daily automated backups. Disabling automated backups
+turns off or disables the `log_bin` session variable. This disables
+binary logging on the RDS for MariaDB DB instance, which in turn resets the
+`binlog_format` session variable to the default value of
+`ROW` in the database. We recommend that you don't disable
+backups. For more information about the **Backup retention
+period** setting, see [Settings for DB instances](USER_ModifyInstance.md "USER_ModifyInstance.md"). 6. Choose **Save changes** to save the updates to the DB
+parameter group.
+Because the `binlog_format` parameter is dynamic in RDS for MariaDB, you don't need to reboot the DB
+instance for the changes to apply.
+
+###### Important
+
+Changing a DB parameter group affects all DB instances that use that parameter group. If you want to specify
+different binary logging formats for different MariaDB DB instances in an AWS Region, the DB instances must use
+different DB parameter groups. These parameter groups identify different logging formats. Assign the appropriate
+DB parameter group to the each DB instance.

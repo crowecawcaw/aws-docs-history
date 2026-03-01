@@ -1,34 +1,23 @@
-# Feature availability and support for
-
-RDS Custom for Oracle
+# Feature availability and support for RDS Custom for Oracle
 
 In this topic, you can find a summary of the RDS Custom for Oracle feature availability and support
 for quick reference.
 
 ###### Topics
 
-- [AWS Region and database
-  version support for RDS Custom for Oracle](#custom-reqs-limits.RegionVersionAvailability "#custom-reqs-limits.RegionVersionAvailability")
-- [Database version support for
-  RDS Custom for Oracle](#custom-reqs-limits.db-version "#custom-reqs-limits.db-version")
-- [Edition and licensing support for
-  RDS Custom for Oracle](#custom-oracle-feature-support.editions "#custom-oracle-feature-support.editions")
+- [AWS Region and database version support for RDS Custom for Oracle](#custom-reqs-limits.RegionVersionAvailability "#custom-reqs-limits.RegionVersionAvailability")
+- [Database version support for RDS Custom for Oracle](#custom-reqs-limits.db-version "#custom-reqs-limits.db-version")
+- [Edition and licensing support for RDS Custom for Oracle](#custom-oracle-feature-support.editions "#custom-oracle-feature-support.editions")
 - [DB instance class support for RDS Custom for Oracle](#custom-reqs-limits.instances "#custom-reqs-limits.instances")
-- [Option group support for
-  RDS Custom for Oracle](#custom-oracle-feature-support.option-groups "#custom-oracle-feature-support.option-groups")
+- [Option group support for RDS Custom for Oracle](#custom-oracle-feature-support.option-groups "#custom-oracle-feature-support.option-groups")
 
-## AWS Region and database
-
-version support for RDS Custom for Oracle
+## AWS Region and database version support for RDS Custom for Oracle
 
 Feature availability and support vary across specific versions of each database
 engine, and across AWS Regions. For more information on version and Region
-availability of RDS Custom for Oracle, see [Supported
-Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+availability of RDS Custom for Oracle, see [Supported Regions and DB engines for RDS Custom](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
-## Database version support for
-
-RDS Custom for Oracle
+## Database version support for RDS Custom for Oracle
 
 RDS Custom for Oracle supports the following Oracle database versions:
 
@@ -37,9 +26,7 @@ RDS Custom for Oracle supports the following Oracle database versions:
 - Oracle Database 12c Release 2 (12.2)
 - Oracle Database 12c Release 1 (12.1)
 
-## Edition and licensing support for
-
-RDS Custom for Oracle
+## Edition and licensing support for RDS Custom for Oracle
 
 RDS Custom for Oracle supports Enterprise Edition (EE) and Standard Edition 2 (SE2) on the BYOL
 model.
@@ -77,10 +64,7 @@ large).
 | db.x2iezn | `db.x2iezn.2xlarge` | `db.x2iezn.4xlarge` | <br>`db.x2iezn.6xlarge` | `db.x2iezn.8xlarge` | <br>`db.x2iezn.12xlarge` | `db.x2iezn.metal`    |
 | db.t3     | `db.t3.medium`      | `db.t3.large`       | <br>`db.t3.xlarge`      | `db.t3.2xlarge`     |
 
-## Option group support for
-
-RDS Custom for Oracle
+## Option group support for RDS Custom for Oracle
 
 You can specify an option group when you create or modify an RDS Custom for Oracle DB instance. For more
-information, see [Working with option groups in
-RDS Custom for Oracle](custom-oracle-option-groups.md "custom-oracle-option-groups.md").
+information, see [Working with option groups in RDS Custom for Oracle](custom-oracle-option-groups.md "custom-oracle-option-groups.md").

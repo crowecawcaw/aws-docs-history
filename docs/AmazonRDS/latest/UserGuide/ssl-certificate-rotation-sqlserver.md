@@ -23,10 +23,8 @@ in a development or staging environment before implementing them in your product
 environments.
 
 For more information about certificate rotation, see
-[Rotating your SSL/TLS
-certificate](UsingWithRDS.md "UsingWithRDS.md").
-For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md"). For information about
+[Rotating your SSL/TLS certificate](UsingWithRDS.md "UsingWithRDS.md").
+For more information about downloading certificates, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") . For information about
 using SSL/TLS with Microsoft SQL Server DB instances, see [Using SSL with a Microsoft SQL Server DB instance](SQLServer.Concepts.General.SSL.md "SQLServer.Concepts.General.SSL.md").
 
 ###### Topics
@@ -158,8 +156,7 @@ validation and is a best practice.
 ## Updating your application trust store
 
 You can update the trust store for applications that use Microsoft SQL Server. For
-instructions, see [Encrypting specific
-connections](SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Client "SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Client"). Also, see [Configuring the client for encryption](https://docs.microsoft.com/en-us/SQL/connect/jdbc/configuring-the-client-for-ssl-encryption?view=sql-server-2017 "https://docs.microsoft.com/en-us/SQL/connect/jdbc/configuring-the-client-for-ssl-encryption?view=sql-server-2017") in the Microsoft SQL Server
+instructions, see [Encrypting specific connections](SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Client "SQLServer.Concepts.General.SSL.md#SQLServer.Concepts.General.SSL.Client"). Also, see [Configuring the client for encryption](https://docs.microsoft.com/en-us/SQL/connect/jdbc/configuring-the-client-for-ssl-encryption?view=sql-server-2017 "https://docs.microsoft.com/en-us/SQL/connect/jdbc/configuring-the-client-for-ssl-encryption?view=sql-server-2017") in the Microsoft SQL Server
 documentation.
 
 If you are using an operating system other than Microsoft Windows, see the software
@@ -168,11 +165,9 @@ root CA certificate. For example, OpenSSL and GnuTLS are popular options. Use th
 implementation method to add trust to the RDS root CA certificate. Microsoft provides
 instructions for configuring certificates on some systems.
 
-For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB
-instance or cluster](UsingWithRDS.md "UsingWithRDS.md").
+For information about downloading the root certificate, see [Using SSL/TLS to encrypt a connection to a DB instance or cluster](UsingWithRDS.md "UsingWithRDS.md") .
 
-For sample scripts that import certificates, see [Sample
-script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
+For sample scripts that import certificates, see [Sample script for importing certificates into your trust store](UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script "UsingWithRDS.md#UsingWithRDS.SSL-certificate-rotation-sample-script").
 
 ###### Note
 

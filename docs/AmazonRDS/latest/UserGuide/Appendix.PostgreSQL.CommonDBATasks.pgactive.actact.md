@@ -1,6 +1,4 @@
-# Understanding
-
-active-active conflicts
+# Understanding active-active conflicts
 
 When you use pgactive in active-active mode, writing to the same tables from multiple
 nodes can create data conflicts. While some clustering systems use distributed locks to
@@ -18,9 +16,7 @@ extension uses an optimistic approach. This means it:
 - Provides conflict resolution when conflicts happen.
   This approach gives you more flexibility when building distributed applications.
 
-## How
-
-conflicts happen
+## How conflicts happen
 
 Inter-node conflicts arise from sequences of events that could not happen if all the
 involved transactions occurred concurrently on the same node. Because the nodes only
@@ -48,41 +44,28 @@ different nodes run in complete isolation from each other. While isolation typic
 improves database consistency, in this case, you need to reduce isolation to prevent
 conflicts.
 
-## Types of
-
-conflicts
+## Types of conflicts
 
 Conflicts that can occur include:
 
 ###### Topics
 
-- [PRIMARY KEY
-  or UNIQUE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict1 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict1")
+- [PRIMARY KEY or UNIQUE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict1 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict1")
 - [INSERT/INSERT conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict2 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict2")
-- [INSERTs
-  that violate multiple UNIQUE constraints](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict3 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict3")
+- [INSERTs that violate multiple UNIQUE constraints](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict3 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict3")
 - [UPDATE/UPDATE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict4 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict4")
-- [UPDATE
-  conflicts on the PRIMARY KEY](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5")
-- [UPDATEs
-  that violate multiple UNIQUE constraints](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict6 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict6")
+- [UPDATE conflicts on the PRIMARY KEY](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5")
+- [UPDATEs that violate multiple UNIQUE constraints](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict6 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict6")
 - [UPDATE/DELETE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict7 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict7")
 - [INSERT/UPDATE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict8 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict8")
 - [DELETE/DELETE conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict9 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict9")
-- [Foreign
-  Key Constraint conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict10 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict10")
-- [Exclusion
-  constraint conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict11 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict11")
-- [Global
-  data conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict12 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict12")
-- [Lock
-  conflicts and deadlock aborts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict13 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict13")
-- [Divergent
-  conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14")
+- [Foreign Key Constraint conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict10 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict10")
+- [Exclusion constraint conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict11 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict11")
+- [Global data conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict12 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict12")
+- [Lock conflicts and deadlock aborts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict13 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict13")
+- [Divergent conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14")
 
-### PRIMARY KEY
-
-or UNIQUE conflicts
+### PRIMARY KEY or UNIQUE conflicts
 
 Row conflicts occur when multiple operations attempt to modify the same row key in
 ways not possible on a single node. These conflicts represent the most common type of data
@@ -116,9 +99,7 @@ The pgactivelink can only resolve conflicts involving a single constraint violat
 If an INSERT violates multiple UNIQUE constraints, you must implement additional conflict
 resolution strategies.
 
-### INSERTs
-
-that violate multiple UNIQUE constraints
+### INSERTs that violate multiple UNIQUE constraints
 
 An INSERT/INSERT conflict can violate multiple UNIQUE constraints, including the
 PRIMARY KEY. pgactivelink can only handle conflicts that involve a single UNIQUE
@@ -151,27 +132,21 @@ UPDATE operations with the following error:
 `Cannot run UPDATE or DELETE on table (tablename) because it does not have a
  primary key.`
 
-### UPDATE
-
-conflicts on the PRIMARY KEY
+### UPDATE conflicts on the PRIMARY KEY
 
 pgactive has limitations when handling PRIMARY KEY updates. While you can perform
 UPDATE operation on a PRIMARY KEY, pgactive can't automatically resolve conflicts using
 last-update-wins logic for these operations. You must ensure that your PRIMARY KEY updates
 don't conflict with existing values. If conflicts occur during PRIMARY KEY updates, they
 become divergent conflicts that require your manual intervention. For more information
-about handling these situations, see [Divergent
-conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14").
+about handling these situations, see [Divergent conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14").
 
-### UPDATEs
-
-that violate multiple UNIQUE constraints
+### UPDATEs that violate multiple UNIQUE constraints
 
 pgactivelink cannot apply last-update-wins conflict resolution when an incoming UPDATE
 violates multiple UNIQUE constraints or PRIMARY KEY values. This behavior is similar to
 INSERT operations with multiple constraint violations. These situations create divergent
-conflicts that require your manual intervention. For more information, see [Divergent
-conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14").
+conflicts that require your manual intervention. For more information, see [Divergent conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict14").
 
 ### UPDATE/DELETE conflicts
 
@@ -210,9 +185,7 @@ pgactivelink considers these conflicts harmless because both DELETE operations h
 same end result. In this scenario, pgactivelink safely ignores one of the DELETE
 operations without affecting data consistency.
 
-### Foreign
-
-Key Constraint conflicts
+### Foreign Key Constraint conflicts
 
 FOREIGN KEY constraints can cause conflicts when applying remote transactions to
 existing local data. These conflicts typically occur when transactions are applied in a
@@ -236,9 +209,7 @@ To minimize foreign key conflicts, we recommend the following:
 - Choose entities that rarely require modification.
 - Implement application-level concurrency control for modifications.
 
-### Exclusion
-
-constraint conflicts
+### Exclusion constraint conflicts
 
 pgactive link doesn’t support exclusion constraints and restricts their
 creation.
@@ -259,9 +230,7 @@ likely to break. To restore replication progress, remove or alter the local tupl
 conflict with an incoming remote tuple so that the remote transaction can be
 applied.
 
-### Global
-
-data conflicts
+### Global data conflicts
 
 When using pgactivelink, conflicts can occur when nodes have different global
 PostgreSQL system-wide data, such as roles. These conflicts can cause operations—primarily
@@ -296,9 +265,7 @@ Node2 with the same structure.
 pgactivelink doesn't currently replicate CREATE USER commands or DDL operations. DDL
 replication is planned for a future release.
 
-### Lock
-
-conflicts and deadlock aborts
+### Lock conflicts and deadlock aborts
 
 Because pgactive apply processes operate like normal user sessions, they follow
 standard row and table locking rules. This can result in pgactivelink apply processes
@@ -332,17 +299,14 @@ retries and typically succeeds.
 - To identify locking-related replay delays, enable the
   `log_lock_waits` facility in PostgreSQL.
 
-### Divergent
-
-conflicts
+### Divergent conflicts
 
 Divergent conflicts occur when data that should be identical across nodes differs unexpectedly. While these conflicts shouldn't happen, not all can be reliably prevented in the current implementation.
 
 ###### Note
 
 Modifying a row's PRIMARY KEY can cause divergent conflicts if another node changes the same row's key before all nodes process the change. Avoid changing primary keys, or restrict changes to one designated node.
-For more information, see [UPDATE
-conflicts on the PRIMARY KEY](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5") .
+For more information, see [UPDATE conflicts on the PRIMARY KEY](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5 "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflict5").
 
 Divergent conflicts involving row data typically require administrator intervention. To resolve these conflicts, you must manually adjust data on one node to match another while temporarily disabling replication
 using `pgactive.pgactive_do_not_replicate`. These conflicts shouldn't occur when you use pgactive as documented and avoid settings or functions marked as unsafe.
@@ -354,9 +318,7 @@ Divergent conflicts occur when data that should be identical across different no
 unexpectedly differs. While these conflicts shouldn't happen, not all such conflicts can
 be reliably prevented in the current implementation.
 
-## Avoiding
-
-or tolerating conflicts
+## Avoiding or tolerating conflicts
 
 In most cases, you can use appropriate application design to avoid conflicts or make
 your application tolerant of conflicts.
@@ -374,8 +336,7 @@ entirely.
 If conflicts are not acceptable for your use case, consider implementing distributed
 locking at the application level. Often, the best approach is to design your application to
 work with pgactive's conflict resolution mechanisms rather than trying to prevent all
-conflicts. For more information, see [Types of
-conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflicttypes "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflicttypes").
+conflicts. For more information, see [Types of conflicts](#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflicttypes "#Appendix.PostgreSQL.CommonDBATasks.pgactive.actact.conflicttypes").
 
 ## Conflict logging
 

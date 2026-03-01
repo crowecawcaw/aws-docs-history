@@ -5,8 +5,7 @@ data to Amazon RDS. You can also find information about using snapshots to expor
 an RDS DB instance running SQL Server.
 
 If your scenario supports it, it's easier to move data in and out of Amazon RDS by using the
-native backup and restore functionality. For more information, see [Importing and exporting SQL Server databases using native
-backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
+native backup and restore functionality. For more information, see [Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
 
 ###### Note
 
@@ -26,8 +25,7 @@ time. If something goes wrong and you have to roll back to an earlier database
 snapshot, the only changes that you lose are the imported data. You can import
 this data again after you resolve the issue.
 
-For information about controlling access to your DB instance, see [Controlling access with security
-groups](Overview.md "Overview.md"). 3. Create a snapshot of the target database.
+For information about controlling access to your DB instance, see [Controlling access with security groups](Overview.md "Overview.md"). 3. Create a snapshot of the target database.
 
 If the target database is already populated with data, we recommend that you
 take a snapshot of the database before you import the data. If something goes
@@ -153,8 +151,7 @@ p.type = 'S'
 
 When your data import is complete, you can grant access to the DB instance to
 those applications that you blocked during the import. For information about
-controlling access to your DB instance, see [Controlling access with security
-groups](Overview.md "Overview.md"). 11. Enable automated backups on the target DB instance.
+controlling access to your DB instance, see [Controlling access with security groups](Overview.md "Overview.md"). 11. Enable automated backups on the target DB instance.
 
 For information about automated backups, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md "USER_WorkingWithAutomatedBackups.md"). 12. Enable foreign key constraints.
 
@@ -369,8 +366,7 @@ You can choose one of the following options to export data from an RDS for SQL S
 - **Native database backup using a full backup file
   (.bak)** – Using .bak files to backup databases is heavily
   optimized, and is usually the fastest way to export data. For more information,
-  see [Importing and exporting SQL Server databases using native
-  backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
+  see [Importing and exporting SQL Server databases using native backup and restore](SQLServer.Procedural.md "SQLServer.Procedural.md").
 - **SQL Server Import and Export Wizard** – For more information, see [SQL Server Import and Export Wizard](#SQLServer.Procedural.Exporting.SSIEW "#SQLServer.Procedural.Exporting.SSIEW").
 - **SQL Server Generate and Publish Scripts Wizard and bcp utility** – For more information, see
   [SQL Server Generate and Publish Scripts Wizard and bcp utility](#SQLServer.Procedural.Exporting.SSGPSW "#SQLServer.Procedural.Exporting.SSGPSW").
@@ -391,8 +387,7 @@ website](http://www.microsoft.com/en-us/search/Results.aspx?q=sql%20server%20man
 ###### To use the SQL Server Import and Export Wizard to export data
 
 1. In SQL Server Management Studio, connect to your RDS for SQL Server DB instance. For details
-   on how to do this, see [Connecting to your Microsoft SQL Server
-   DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
+   on how to do this, see [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
 2. In **Object Explorer**, expand
    **Databases**, open the context (right-click) menu for the
    source database, choose **Tasks**, and then choose
@@ -475,8 +470,7 @@ download](http://www.microsoft.com/en-us/search/Results.aspx?q=sql%20server%20ma
 ###### To use the SQL Server Generate and Publish Scripts Wizard and the bcp utility to export data
 
 1. In SQL Server Management Studio, connect to your RDS for SQL Server DB instance. For details
-   on how to do this, see [Connecting to your Microsoft SQL Server
-   DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
+   on how to do this, see [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md").
 2. In **Object Explorer**, expand the
    **Databases** node and select the database you want to
    script.

@@ -1,83 +1,205 @@
-# Amazon EFS integration
+# Configuring IAM permissions for RDS for Oracle integration with Amazon EFS
 
-Amazon Elastic File System (Amazon EFS) provides serverless, fully elastic file storage so that you can share
-file data without provisioning or managing storage capacity and performance. With Amazon EFS, you
-can create a file system and then mount it in your VPC through the NFS versions 4.0 and 4.1
-(NFSv4) protocol. Then you can use the EFS file system like any other POSIX-compliant file
-system. For general information, see [What is Amazon Elastic File System?](../../../efs/latest/ug/whatisefs.md "../../../efs/latest/ug/whatisefs.md") and the AWS
-blog [Integrate Amazon RDS for Oracle with Amazon EFS](https://aws.amazon.com//blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/ "https://aws.amazon.com//blogs/database/integrate-amazon-rds-for-oracle-with-amazon-efs/").
+By default, Amazon EFS integration feature doesn't use an IAM role: the
+`USE_IAM_ROLE` option setting is `FALSE`. To integrate RDS for Oracle
+with Amazon EFS and an IAM role, your DB instance must have IAM permissions to access an Amazon EFS file
+system.
 
 ###### Topics
 
-- [Overview of Amazon EFS integration](#oracle-efs-integration.overview "#oracle-efs-integration.overview")
-- [Configuring network permissions for
-  RDS for Oracle integration with Amazon EFS](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Configuring IAM permissions for RDS for Oracle integration with Amazon EFS](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Adding the EFS_INTEGRATION option](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Configuring Amazon EFS file system
-  permissions](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Transferring files between RDS for Oracle
-  and an Amazon EFS file system](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Removing the EFS_INTEGRATION option](oracle-efs-integration.md "oracle-efs-integration.md")
-- [Troubleshooting Amazon EFS
-  integration](oracle-efs-integration.md "oracle-efs-integration.md")
+- [Step 1: Create an IAM role for your DB instance and attach your policy](#oracle-efs-integration.iam.role "#oracle-efs-integration.iam.role")
+- [Step 2: Create a file system policy for your Amazon EFS file system](#oracle-efs-integration.iam.policy "#oracle-efs-integration.iam.policy")
+- [Step 3: Associate your IAM role with your RDS for Oracle DB instance](#oracle-efs-integration.iam.instance "#oracle-efs-integration.iam.instance")
 
-## Overview of Amazon EFS integration
+## Step 1: Create an IAM role for your DB instance and attach your policy
 
-With Amazon EFS, you can transfer files between your RDS for Oracle DB instance and an EFS file system. For
-example, you can use EFS to support the following use cases:
+In this step, you create a role for your RDS for Oracle DB instance to allow Amazon RDS to access
+your EFS file system.
 
-- Share a file system between applications and multiple database servers.
-- Create a shared directory for migration-related files, including transportable
-  tablespace data files. For more information, see [Migrating using Oracle transportable
-  tablespaces](oracle-migrating-tts.md "oracle-migrating-tts.md").
-- Store and share archived redo log files without allocating additional storage
-  space on the server.
-- Use Oracle Database utilities such as `UTL_FILE` to read and write
-  files.
+###### To create an IAM role to allow Amazon RDS access to an EFS file system
 
-### Advantages to Amazon EFS
+1. Open the [IAM Management Console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
+2. In the navigation pane, choose **Roles**.
+3. Choose **Create role**.
+4. For **AWS service**, choose **RDS**.
+5. For **Select your use case**, choose **RDS – Add Role to Database**.
+6. Choose **Next**.
+7. Don't add any permissions policies. Choose
+   **Next**.
+8. Set **Role name** to a name for your IAM role, for example `rds-efs-integration-role`. You can
+   also add an optional **Description** value.
+9. Choose **Create role**.
+   To limit the service's permissions to a specific resource, we recommend using the
+   [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition
+   context keys in resource-based trust relationships. This is the most effective way
+   to protect against the [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
 
-integration
+You might use both global condition context keys and have the
+`aws:SourceArn` value contain the account ID. In this case, the
+`aws:SourceAccount` value and the account in the
+`aws:SourceArn` value must use the same account ID when used in the
+same statement.
 
-When you choose an EFS file system over alternative data transfer solutions, you get
-the following benefits:
+- Use `aws:SourceArn` if you want cross-service access for a
+  single resource.
+- Use `aws:SourceAccount` if you want to allow any resource in
+  that account to be associated with the cross-service use.
+  In the trust relationship, make sure to use the `aws:SourceArn` global
+  condition context key with the full Amazon Resource Name (ARN) of the resources
+  accessing the role.
 
-- You can transfer Oracle Data Pump files between Amazon EFS and your RDS for Oracle DB instance.
-  You don’t need to copy these files locally because Data Pump imports directly
-  from the EFS file system. For more information, see [Importing data into Oracle on Amazon RDS](Oracle.Procedural.md "Oracle.Procedural.md").
-- Data migration is faster than using a database link.
-- You avoid allocating storage space on your RDS for Oracle DB instance to hold the
-  files.
-- An EFS file systems can automatically scale storage without requiring you to
-  provision it.
-- Amazon EFS integration has no minimum fees or setup costs. You pay only for what
-  you use.
-- Amazon EFS integration supports two forms of encryption: encryption of data in
-  transit and encryption at rest. Encryption of data in transit is enabled by
-  default using TLS version 1.2. You can enable encryption of data at rest when
-  creating an Amazon EFS file system. For more information, see [Encrypting
-  data at rest](../../../efs/latest/ug/encryption-at-rest.md "../../../efs/latest/ug/encryption-at-rest.md") in the _Amazon Elastic File System User
-  Guide_.
+The following AWS CLI command creates the role named
+`rds-efs-integration-role` for this
+purpose.
 
-### Requirements for Amazon EFS
+###### Example
 
-integration
+For Linux, macOS, or Unix:
 
-Make sure that you meet the following requirements:
+```
+aws iam create-role \
+   --role-name `rds-efs-integration-role` \
+   --assume-role-policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+             "StringEquals": {
+                 "aws:SourceAccount": `my_account_ID`,
+                 "aws:SourceArn": "arn:aws:rds:`Region`:`my_account_ID`:db:`dbname`"
+             }
+         }
+       }
+     ]
+   }'
+```
 
-- Your database must run database version 19.0.0.0.ru-2022-07.rur-2022-07.r1 or
-  higher.
-- Your DB instance and your EFS file system must be in the same AWS Region, VPC, and
-  AWS account. RDS for Oracle doesn't support cross-account and cross-Region access
-  for EFS.
-- Your VPC must have both **DNS Resolution** and **DNS
-  Hostnames** enabled. For more information, see [DNS attributes in your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the _Amazon Virtual Private Cloud User
-  Guide_.
-- If you use a DNS name in the `mount` command, make sure your VPC
-  configured to use the DNS server provided by Amazon. Custom DNS servers aren't
-  supported.
-- You must use non-RDS solutions to back up your EFS file system. RDS for Oracle
-  doesn't support automated backups or manual DB snapshots of an EFS file system.
-  For more information, see [Backing up your Amazon EFS file
-  systems](../../../efs/latest/ug/efs-backup-solutions.md "../../../efs/latest/ug/efs-backup-solutions.md").
+For Windows:
+
+```
+aws iam create-role ^
+   --role-name `rds-efs-integration-role` ^
+   --assume-role-policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+             "StringEquals": {
+                 "aws:SourceAccount": `my_account_ID`,
+                 "aws:SourceArn": "arn:aws:rds:`Region`:`my_account_ID`:db:`dbname`"
+             }
+         }
+       }
+     ]
+   }'
+```
+
+For more information, see [Creating a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+
+## Step 2: Create a file system policy for your Amazon EFS file system
+
+In this step, you create a file system policy for your EFS file system.
+
+###### To create or edit an EFS file system policy
+
+1. Open the [EFS Management
+   Console](https://console.aws.amazon.com/efs/home?#home "https://console.aws.amazon.com/efs/home?#home").
+2. Choose **File Systems**.
+3. On the **File systems** page, choose the file system that you
+   want to edit or create a file system policy for. The details page for that file
+   system is displayed.
+4. Choose the **File system policy** tab.
+
+If the policy is empty, then the default EFS file system policy is in use. For
+more information, see [Default EFS file system policy](../../../efs/latest/ug/iam-access-control-nfs-efs.md#default-filesystempolicy "../../../efs/latest/ug/iam-access-control-nfs-efs.md#default-filesystempolicy") in the _Amazon Elastic File System User
+Guide_. 5. Choose **Edit**. The **File system policy** page
+appears. 6. In **Policy editor**, enter a policy such as the following, and
+then choose **Save**.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "ExamplePolicy01",
+ "Statement": [
+ {
+ "Sid": "ExampleStatement01",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`123456789012`:role/rds-efs-integration-role"
+ },
+ "Action": [
+ "elasticfilesystem:ClientMount",
+ "elasticfilesystem:ClientWrite",
+ "elasticfilesystem:ClientRootAccess"
+ ],
+ "Resource": "arn:aws:elasticfilesystem:`us-east-1`:`123456789012`:file-system/`fs-1234567890abcdef0`"
+ }
+ ]
+}`
+
+```
+
+## Step 3: Associate your IAM role with your RDS for Oracle DB instance
+
+In this step, you associate your IAM role with your DB instance. Be aware of the
+following requirements:
+
+- You must have access to an IAM role with the required Amazon EFS permissions policy attached to it.
+- You can associate only one IAM role with your RDS for Oracle DB instance at a
+  time.
+- The status of your instance must be **Available**.
+
+For more information, see [Identity and access management for Amazon EFS](../../../efs/latest/ug/auth-and-access-control.md "../../../efs/latest/ug/auth-and-access-control.md") in the
+_Amazon Elastic File System User Guide_.
+
+###### To associate your IAM role with your RDS for Oracle DB instance
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. Choose **Databases**.
+3. If your database instance is unavailable, choose **Actions** and then **Start**. When the
+   instance status shows **Started**, go to the next step.
+4. Choose the Oracle DB instance name to display its details.
+5. On the **Connectivity & security** tab, scroll down to the **Manage IAM roles**
+   section at the bottom of the page.
+6. Choose the role to add in the **Add IAM roles to this instance** section.
+7. For **Feature**, choose **EFS_INTEGRATION**.
+8. Choose **Add role**.
+   The following AWS CLI command adds the role to an Oracle DB instance named
+   `mydbinstance`.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws rds add-role-to-db-instance \
+   --db-instance-identifier `mydbinstance` \
+   --feature-name EFS_INTEGRATION \
+   --role-arn `your-role-arn`
+```
+
+For Windows:
+
+```
+aws rds add-role-to-db-instance ^
+   --db-instance-identifier `mydbinstance` ^
+   --feature-name EFS_INTEGRATION ^
+   --role-arn `your-role-arn`
+```
+
+Replace `your-role-arn` with the role ARN
+that you noted in a previous step. `EFS_INTEGRATION` must be specified
+for the `--feature-name` option.

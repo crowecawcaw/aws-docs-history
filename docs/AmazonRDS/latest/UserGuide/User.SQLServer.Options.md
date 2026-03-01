@@ -1,6 +1,4 @@
-# Integrating an Amazon RDS for SQL Server
-
-DB instance with Amazon S3
+# Integrating an Amazon RDS for SQL Server DB instance with Amazon S3
 
 You can transfer files between a DB instance running Amazon RDS for SQL Server and an Amazon S3
 bucket. By doing this, you can use Amazon S3 with SQL Server features such as BULK INSERT. For
@@ -41,8 +39,7 @@ Therefore, two running native backup and restore tasks will block any S3 integra
 - [Transferring files between RDS for SQL Server and Amazon S3](Appendix.SQLServer.Options.S3-integration.md "Appendix.SQLServer.Options.S3-integration.md")
 - [Listing files on the RDS DB instance](Appendix.SQLServer.Options.S3-integration.using.md "Appendix.SQLServer.Options.S3-integration.using.md")
 - [Deleting files on the RDS DB instance](Appendix.SQLServer.Options.S3-integration.using.md "Appendix.SQLServer.Options.S3-integration.using.md")
-- [Monitoring the status of a file transfer
-  task](Appendix.SQLServer.Options.S3-integration.using.md "Appendix.SQLServer.Options.S3-integration.using.md")
+- [Monitoring the status of a file transfer task](Appendix.SQLServer.Options.S3-integration.using.md "Appendix.SQLServer.Options.S3-integration.using.md")
 - [Canceling a task](Appendix.SQLServer.Options.S3-integration.md "Appendix.SQLServer.Options.S3-integration.md")
 - [Multi-AZ limitations for S3 integration](#S3-MAZ "#S3-MAZ")
 - [Disabling RDS for SQL Server integration with S3](Appendix.SQLServer.Options.S3-integration.md "Appendix.SQLServer.Options.S3-integration.md")

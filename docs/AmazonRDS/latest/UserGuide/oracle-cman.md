@@ -41,22 +41,15 @@ When you configure CMAN, you perform most of the work outside of your RDS for Or
 
 ###### Topics
 
-- [Step 1: Configure CMAN on an Amazon EC2 instance in the same
-  VPC as the RDS for Oracle instance](#oracle-cman.configuring-cman.vpc "#oracle-cman.configuring-cman.vpc")
-- [Step 2: Configure database parameters for
-  CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters")
-- [Step 3: Associate your DB instance with the
-  parameter group](#oracle-cman.configuring-cman.parameter-group "#oracle-cman.configuring-cman.parameter-group")
+- [Step 1: Configure CMAN on an Amazon EC2 instance in the same VPC as the RDS for Oracle instance](#oracle-cman.configuring-cman.vpc "#oracle-cman.configuring-cman.vpc")
+- [Step 2: Configure database parameters for CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters")
+- [Step 3: Associate your DB instance with the parameter group](#oracle-cman.configuring-cman.parameter-group "#oracle-cman.configuring-cman.parameter-group")
 
-### Step 1: Configure CMAN on an Amazon EC2 instance in the same
-
-VPC as the RDS for Oracle instance
+### Step 1: Configure CMAN on an Amazon EC2 instance in the same VPC as the RDS for Oracle instance
 
 To learn how to set up CMAN, follow the detailed instructions in the blog post [Configuring and using Oracle Connection Manager on Amazon EC2 for Amazon RDS for Oracle](https://aws.amazon.com/blogs/database/configuring-and-using-oracle-connection-manager-on-amazon-ec2-for-amazon-rds-for-oracle/ "https://aws.amazon.com/blogs/database/configuring-and-using-oracle-connection-manager-on-amazon-ec2-for-amazon-rds-for-oracle/").
 
-### Step 2: Configure database parameters for
-
-CMAN
+### Step 2: Configure database parameters for CMAN
 
 For CMAN features such as Traffic Director Mode and session multiplexing, set `REMOTE_LISTENER`
 parameter to the address of CMAN instance in a DB parameter group. Consider the following scenario:
@@ -75,10 +68,6 @@ value is set automatically by Amazon RDS.
 | `orclb`          | `10.0.159.300` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.300)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
 | `orclc`          | `10.0.159.400` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.400)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
 
-### Step 3: Associate your DB instance with the
+### Step 3: Associate your DB instance with the parameter group
 
-parameter group
-
-Create or modify your DB instance to use the parameter group that you configured in [Step 2: Configure database parameters for
-CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters"). For more information, see [Associating a DB parameter group with a
-DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+Create or modify your DB instance to use the parameter group that you configured in [Step 2: Configure database parameters for CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters"). For more information, see [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

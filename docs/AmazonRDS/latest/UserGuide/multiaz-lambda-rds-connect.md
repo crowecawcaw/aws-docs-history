@@ -27,10 +27,8 @@ database.
 ###### Topics
 
 - [Overview of automatic connectivity with a Lambda function](#multiaz-lambda-rds-connect-overview "#multiaz-lambda-rds-connect-overview")
-- [Automatically connecting a Lambda function and a
-  Multi-AZ DB cluster](#multiaz-lambda-rds-connect-connecting "#multiaz-lambda-rds-connect-connecting")
-- [Viewing connected compute
-  resources](#multiaz-lambda-rds-connect-viewing "#multiaz-lambda-rds-connect-viewing")
+- [Automatically connecting a Lambda function and a Multi-AZ DB cluster](#multiaz-lambda-rds-connect-connecting "#multiaz-lambda-rds-connect-connecting")
+- [Viewing connected compute resources](#multiaz-lambda-rds-connect-viewing "#multiaz-lambda-rds-connect-viewing")
 
 ## Overview of automatic connectivity with a Lambda function
 
@@ -94,9 +92,7 @@ function, and proxy, as described in the following table.
 | Either of the following conditions apply:<br>• There is no security group associated with the Multi-AZ DB cluster<br>with a name that matches the pattern<br>`rds-lambda-`n``<br>or if the `TargetHealth` of an associated<br>proxy is `AVAILABLE`.<br>• There are one or more security groups associated with the Multi-AZ DB cluster with a name that<br>matches the pattern<br>`rds-lambda-`n``<br>or if the `TargetHealth` of an associated<br>proxy is `AVAILABLE`. However, Amazon RDS<br>can'can't use any of these security groups for<br>the connection with the Lambda function or proxy.<br>Amazon RDS can't use a security group that doesn't have one inbound rule with the<br>VPC security group of the Lambda function or proxy as the<br>source. Amazon RDS also can't use a security group that<br>has been modified.                                                                                 | There are one or more security groups associated with the<br>Lambda function with a name that matches the pattern<br>`lambda-rds-`n`` or<br>`lambda-rdsproxy-`n``.<br>A security group that matches the pattern hasn't been<br>modified. This security group has only one outbound rule with<br>the VPC security group of the Multi-AZ DB cluster or proxy as the<br>destination.                                                                                                                                                                                                                                                                                                                                                                   | There are one or more security groups associated with the<br>proxy with a name that matches the pattern<br>`rdsproxy-lambda-`n``.<br>A security group that matches the pattern hasn't been<br>modified. This security group has inbound and outbound rules<br>with the VPC security group of the Multi-AZ DB cluster and the Lambda<br>function.                                                                                                                                                                                                                                                                                                                                           | [RDS action: create new security groups](#maz-lam-action-create-new-security-groups "#maz-lam-action-create-new-security-groups")                                                                                                                                                                                                                                               |
 | There are one or more security groups associated with the<br>Multi-AZ DB cluster with a name that matches the pattern<br>`rds-rdsproxy-`n`<br>(where `n`` is a number).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Either of the following conditions apply:<br>• There is no security group associated with the Lambda<br>function with a name that matches the pattern<br>`lambda-rds-`n``<br>or<br>`lambda-rdsproxy-`n``.<br>• There are one or more security groups associated with the Lambda function with a name<br>that matches the pattern<br>`lambda-rds-`n``<br>or<br>`lambda-rdsproxy-`n``.<br>However, Amazon RDS can't use any of these security<br>groups for the connection with the Multi-AZ DB cluster.<br>Amazon RDS can't use a security group that doesn't have one outbound rule with the VPC<br>security group of the Multi-AZ DB cluster or proxy as the destination. Amazon RDS<br>also can't use a security group that has been<br>modified. | Either of the following conditions apply:<br>• There is no security group associated with the proxy<br>with a name that matches the pattern<br>`rdsproxy-lambda-`n``.<br>• There are one or more security groups associated with<br>the proxy with a name that matches<br>`rdsproxy-lambda-`n``.<br>However, Amazon RDS can't use any of these security<br>groups for the connection with the Multi-AZ DB cluster or Lambda<br>function.<br>Amazon RDS can't use a security group that doesn't<br>have inbound and outbound rules with the VPC security group of the<br>Multi-AZ DB cluster and the Lambda function. Amazon RDS also can't use a security<br>group that has been modified. | [RDS action: create new security groups](#maz-lam-action-create-new-security-groups "#maz-lam-action-create-new-security-groups")                                                                                                                                                                                                                                               |
 
-###### RDS action: create new
-
-security groups
+###### RDS action: create new security groups
 
 Amazon RDS takes the following actions:
 
@@ -112,16 +108,12 @@ Amazon RDS takes the following actions:
   `rdsproxy-lambda-`n``. This security group has inbound and outbound
   rules with the VPC security group of the Multi-AZ DB cluster and the Lambda function.
 
-###### RDS action: associate
-
-Lambda security group
+###### RDS action: associate Lambda security group
 
 Amazon RDS associates the valid, existing Lambda security group with the Lambda function. This security group allows
 the function to send traffic to the Multi-AZ DB cluster or send traffic through a proxy.
 
-## Automatically connecting a Lambda function and a
-
-Multi-AZ DB cluster
+## Automatically connecting a Lambda function and a Multi-AZ DB cluster
 
 You can use the Amazon RDS console to automatically connect a Lambda function to your Multi-AZ DB cluster. This simplifies the
 process of setting up a connection between these resources.
@@ -185,9 +177,7 @@ state.
    resources.
 7. Choose **Set up**.
 
-## Viewing connected compute
-
-resources
+## Viewing connected compute resources
 
 You can use the AWS Management Console to view the compute resources that are connected to your Multi-AZ DB cluster. The resources shown
 include compute resource connections that Amazon RDS set up automatically.

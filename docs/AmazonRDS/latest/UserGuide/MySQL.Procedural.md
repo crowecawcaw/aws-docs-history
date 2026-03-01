@@ -1,6 +1,4 @@
-# Restoring a backup into an Amazon RDS for MySQL DB
-
-instance
+# Restoring a backup into an Amazon RDS for MySQL DB instance
 
 Amazon RDS supports importing MySQL databases with backup files. You can create a backup of
 your database, store the backup file on Amazon S3, and then restore the backup file to a new
@@ -24,9 +22,7 @@ database can't be offline, then you can use one of the following methods:
 - **AWS Database Migration Service** – Use AWS Database Migration Service to migrate your
   database to Amazon RDS. For more information, see [What is AWS Database Migration Service?](../../../dms/latest/userguide/Welcome.md "../../../dms/latest/userguide/Welcome.md")
 
-## Overview of setup to import backup
-
-files from Amazon S3 to Amazon RDS
+## Overview of setup to import backup files from Amazon S3 to Amazon RDS
 
 To import backup files from Amazon S3 to Amazon RDS, you need the following components:
 
@@ -435,9 +431,7 @@ aws rds restore-db-instance-from-s3 ^
 
 To import data from Amazon S3 to a new MySQL DB instance by using the Amazon RDS API, call the [RestoreDBInstanceFromS3](../APIReference/API_RestoreDBInstanceFromS3.md "../APIReference/API_RestoreDBInstanceFromS3.md") operation.
 
-## Limitations and considerations
-
-for importing backup files from Amazon S3 to Amazon RDS
+## Limitations and considerations for importing backup files from Amazon S3 to Amazon RDS
 
 The following limitations and considerations apply to importing backup files from Amazon S3
 to an RDS for MySQL DB instance:
@@ -466,8 +460,7 @@ to an RDS for MySQL DB instance:
 - Amazon RDS doesn't support importing on the db.t2.micro DB instance class from
   Amazon S3. However, you can restore to a different DB instance class, and then change
   the DB instance class later. For more information about instance classes, see
-  [Hardware specifications for DB instance
-  classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+  [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 - Amazon S3 limits the size of a file uploaded to an Amazon S3 bucket to 5 TB. If a backup
   file exceeds 5 TB, then you must split the backup file into smaller
   files.
@@ -482,15 +475,13 @@ to an RDS for MySQL DB instance:
   apply:
   - Amazon RDS doesn't import functions, procedures, views, events, and
     triggers with the `'rdsadmin'@'localhost'` definer. For more
-    information, see [Stored objects with
-    'rdsamin'@'localhost' as the definer](#MySQL.Procedural.Importing.StoredObjects "#MySQL.Procedural.Importing.StoredObjects") and [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
+    information, see [Stored objects with 'rdsamin'@'localhost' as the definer](#MySQL.Procedural.Importing.StoredObjects "#MySQL.Procedural.Importing.StoredObjects") and [Master user account privileges](UsingWithRDS.md "UsingWithRDS.md").
   - When creating the DB instance, Amazon RDS creates a master user with the
     maximum supported privileges. When restoring from backup, Amazon RDS
     automatically removes any unsupported privileges assigned to users being
     imported.
 
-  To identify users that might be affected by this, see [User accounts with
-  unsupported privileges](#MySQL.Migrating.ExtMySQL.Prechecks.Users "#MySQL.Migrating.ExtMySQL.Prechecks.Users"). For more
+  To identify users that might be affected by this, see [User accounts with unsupported privileges](#MySQL.Migrating.ExtMySQL.Prechecks.Users "#MySQL.Migrating.ExtMySQL.Prechecks.Users"). For more
   information on supported privileges in RDS for MySQL, see [Role-based privilege model for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md").
 
 - Amazon RDS doesn't migrate user-created tables in the `mysql`
@@ -529,9 +520,7 @@ supports, see [General Purpose SSD storage](CHAP_Storage.md#Concepts.Storage.Gen
     operating system of your RDS for MySQL DB instance. For more information,
     see [Local time zone for MySQL DB instances](MySQL.Concepts.md "MySQL.Concepts.md").
 
-### Stored objects with
-
-'rdsamin'@'localhost' as the definer
+### Stored objects with 'rdsamin'@'localhost' as the definer
 
 Amazon RDS doesn't import functions, procedures, views, events, and triggers with
 `'rdsadmin'@'localhost'` as the definer.
@@ -581,9 +570,7 @@ WHERE
     DEFINER = 'rdsadmin@localhost';
 ```
 
-### User accounts with
-
-unsupported privileges
+### User accounts with unsupported privileges
 
 User accounts with privileges that RDS for MySQL doesn't supported are imported
 without the unsupported privileges. For the list of supported privileges, see [Role-based privilege model for RDS for MySQL](Appendix.MySQL.CommonDBATasks.md "Appendix.MySQL.CommonDBATasks.md").

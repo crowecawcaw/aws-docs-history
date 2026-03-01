@@ -89,9 +89,7 @@ with the VPC endpoint using `rds-api.cn-north-1.amazonaws.com.cn` and
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon RDS API
+## Creating a VPC endpoint policy for Amazon RDS API
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Amazon RDS API. The policy specifies the following information:

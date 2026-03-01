@@ -14,8 +14,7 @@ The two required parameters are `query` and `s3_info`. These
 define the query to be exported and identify the Amazon S3 bucket to export to. An
 optional parameter called `options` provides for defining various export
 parameters. For examples of using the `aws_s3.query_export_to_s3`
-function, see [Exporting query data using the
-aws_s3.query_export_to_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
+function, see [Exporting query data using the aws_s3.query_export_to_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
 
 **Syntax**
 
@@ -68,9 +67,7 @@ _kms_key text_
 
 An optional text string containing the customer managed KMS key of the S3 bucket to export the data to.
 
-### Alternate input
-
-parameters
+### Alternate input parameters
 
 To help with testing, you can use an expanded set of parameters instead of the
 `s3_info` parameter. Following are additional syntax variations
@@ -129,9 +126,7 @@ _kms_key text_
 
 An optional text string containing the customer managed KMS key of the S3 bucket to export the data to.
 
-### Output
-
-parameters
+### Output parameters
 
 ```
 aws_s3.query_export_to_s3(
@@ -171,8 +166,7 @@ psql=> SELECT * from aws_s3.query_export_to_s3('select * from sample_table', '`a
 Creates an `aws_commons._s3_uri_1` structure to hold Amazon S3 file
 information. You use the results of the `aws_commons.create_s3_uri`
 function in the `s3_info` parameter of the [aws_s3.query_export_to_s3](#aws_s3.export_query_to_s3 "#aws_s3.export_query_to_s3") function. For an example of
-using the `aws_commons.create_s3_uri` function, see [Specifying the Amazon S3 file path to export
-to](postgresql-s3-export.md#postgresql-s3-export-file "postgresql-s3-export.md#postgresql-s3-export-file").
+using the `aws_commons.create_s3_uri` function, see [Specifying the Amazon S3 file path to export to](postgresql-s3-export.md#postgresql-s3-export-file "postgresql-s3-export.md#postgresql-s3-export-file").
 
 **Syntax**
 

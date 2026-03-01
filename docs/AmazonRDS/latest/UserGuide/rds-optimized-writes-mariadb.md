@@ -1,6 +1,4 @@
-# Improving write performance with Amazon RDS
-
-Optimized Writes for MariaDB
+# Improving write performance with Amazon RDS Optimized Writes for MariaDB
 
 You can improve the performance of write transactions with RDS Optimized Writes for
 MariaDB. When your RDS for MariaDB database uses RDS Optimized Writes, it can achieve up to two
@@ -10,8 +8,7 @@ times higher write transaction throughput.
 
 - [Overview of RDS Optimized Writes](#rds-optimized-writes-overview "#rds-optimized-writes-overview")
 - [Using RDS Optimized Writes](#rds-optimized-writes-using-mariadb "#rds-optimized-writes-using-mariadb")
-- [Enabling RDS Optimized Writes on an
-  existing database](#rds-optimized-writes-modify-enable-mariadb "#rds-optimized-writes-modify-enable-mariadb")
+- [Enabling RDS Optimized Writes on an existing database](#rds-optimized-writes-modify-enable-mariadb "#rds-optimized-writes-modify-enable-mariadb")
 - [Limitations for RDS Optimized Writes](#rds-optimized-writes-limitations-mariadb "#rds-optimized-writes-limitations-mariadb")
 
 ## Overview of RDS Optimized Writes
@@ -109,8 +106,7 @@ when both of the following conditions apply during database creation:
     For information about DB instance classes, see [DB instance classes](Concepts.md "Concepts.md").
 
   DB instance class availability differs for AWS Regions. To determine whether a
-  DB instance class is supported in a specific AWS Region, see [Determining DB instance class
-  support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
+  DB instance class is supported in a specific AWS Region, see [Determining DB instance class support in AWS Regions](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md").
 
 - In the parameter group associated with the database, the `rds.optimized_writes`
   parameter is set to `AUTO`. In default parameter groups, this parameter is always set to
@@ -183,9 +179,7 @@ and `DBInstanceClass` values support RDS Optimized Writes. In
 addition, make sure the parameter group associated with the DB instance has the
 `rds.optimized_writes` parameter set to `AUTO`.
 
-## Enabling RDS Optimized Writes on an
-
-existing database
+## Enabling RDS Optimized Writes on an existing database
 
 In order to modify an existing RDS for MariaDB database to turn on RDS Optimized Writes, the database must
 have been created with a supported DB engine version and DB instance class. In addition,

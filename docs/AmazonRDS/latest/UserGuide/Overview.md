@@ -1,113 +1,47 @@
-# Logging and monitoring in Amazon RDS
+# Automated backups with unsupported MySQL storage engines
 
-Monitoring is an important part of maintaining the reliability, availability, and
-performance of Amazon RDS
-and your AWS solutions. You should collect monitoring data
-from all of the parts of your AWS solution so that you can more easily debug a
-multi-point failure if one occurs. AWS provides several tools for monitoring your
-Amazon RDS
-resources and responding to potential incidents:
+For the MySQL DB engine, automated backups are only supported for the InnoDB storage
+engine. Using these features with other MySQL storage engines, including MyISAM, can
+lead to unreliable behavior when you're restoring from backups. Specifically, since
+storage engines like MyISAM don't support reliable crash recovery, your tables can
+be corrupted in the event of a crash. For this reason, we encourage you to use the
+InnoDB storage engine.
 
-**Amazon CloudWatch Alarms**
+- To convert existing MyISAM tables to InnoDB tables, you can use the `ALTER TABLE` command, for example: `ALTER TABLE
+`table_name` ENGINE=innodb, ALGORITHM=COPY;`
+- If you choose to use MyISAM, you can attempt to manually repair tables that become damaged
+  after a crash by using the `REPAIR` command. For more information,
+  see [REPAIR
+  TABLE statement](https://dev.mysql.com/doc/refman/8.0/en/repair-table.html "https://dev.mysql.com/doc/refman/8.0/en/repair-table.html") in the MySQL documentation. However, as noted in the
+  MySQL documentation, there is a good chance that you might not be able to
+  recover all your data.
+- If you want to take a snapshot of your MyISAM tables before restoring, follow these steps:
 
-Using Amazon CloudWatch alarms, you watch a single metric over a time period that
-you specify. If the metric exceeds a given threshold, a notification is sent
-to an Amazon SNS topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions
-because they are in a particular state. Rather the state must have changed
-and been maintained for a specified number of periods.
+      1. Stop all activity to your MyISAM tables (that is, close all sessions).
 
-**AWS CloudTrail Logs**
 
-CloudTrail provides a record of actions taken by a user, role, or an AWS
-service in Amazon RDS
-. CloudTrail captures all API calls for
-Amazon RDS
-as events, including calls from the console and from
-code calls to Amazon RDS API operations. Using the information collected by CloudTrail,
-you can determine the request that was made to Amazon RDS
-, the IP
-address from which the request was made, who made the request, when it was
-made, and additional details. For more information, see [Monitoring Amazon RDS API calls in AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-.
 
-**Enhanced Monitoring**
+      You can close all sessions by calling the [mysql.rds\_kill](Appendix.MySQL.md "Appendix.MySQL.md") command for each
+       process that is returned from the `SHOW FULL PROCESSLIST` command.
+      2. Lock and flush each of your MyISAM tables. For example, the following commands lock and
+       flush two tables named `myisam_table1` and `myisam_table2`:
 
-Amazon RDS
-provides metrics in real time for the operating
-system (OS) that your DB instance
-runs on.
-You can view the metrics for your DB instance
-using the
-console, or consume the Enhanced Monitoring JSON output from Amazon CloudWatch Logs in a
-monitoring system of your choice. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md")
-.
 
-**Amazon RDS Performance Insights**
 
-Performance Insights expands on existing Amazon RDS
-monitoring
-features to illustrate your database's performance and help you analyze
-any issues that affect it. With the Performance Insights dashboard, you can
-visualize the database load and filter the load by waits, SQL statements,
-hosts, or users. For more information, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md")
-.
 
-**Database Logs**
+      ```
+      mysql> FLUSH TABLES myisam_table, myisam_table2 WITH READ LOCK;
+      ```
+      3. Create a snapshot of your DB instance or Multi-AZ DB cluster. When the snapshot has
+       completed, release the locks and resume activity on the MyISAM tables.
+       You can release the locks on your tables using the following command:
 
-You can view, download, and watch database logs using the AWS Management Console,
-AWS CLI, or RDS API. For more information, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md")
-.
 
-**Amazon RDS
-Recommendations**
 
-Amazon RDS
-provides automated recommendations for database
-resources. These recommendations provide best practice guidance by analyzing
-DB instance
-configuration, usage, and performance data. For more
-information, see [Recommendations from Amazon RDS](monitoring-recommendations.md "monitoring-recommendations.md")
-.
+      ```
+      mysql> UNLOCK TABLES;
+      ```
 
-**Amazon RDS
-Event Notification**
-
-Amazon RDS
-uses the Amazon Simple Notification Service (Amazon SNS) to provide notification
-when an Amazon RDS
-event occurs. These notifications
-can be in any notification form supported by Amazon SNS for an AWS Region, such
-as an email, a text message, or a call to an HTTP endpoint. For more
-information, see [Working with Amazon RDS event notification](USER_Events.md "USER_Events.md")
-.
-
-**AWS Trusted Advisor**
-
-Trusted Advisor draws upon best practices learned from serving hundreds of
-thousands of AWS customers. Trusted Advisor inspects your AWS environment and
-then makes recommendations when opportunities exist to save money, improve
-system availability and performance, or help close security gaps. All AWS
-customers have access to five Trusted Advisor checks. Customers with a Business or
-Enterprise support plan can view all Trusted Advisor checks.
-
-Trusted Advisor has the following Amazon RDS
--related
-checks:
-
-- Amazon RDS
-  Idle DB Instances
-- Amazon RDS
-  Security Group Access
-  Risk
-- Amazon RDS
-  Backups
-- Amazon RDS
-  Multi-AZ
-
-For more information on these checks, see [Trusted Advisor best
-practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
-
-For more information about monitoring Amazon RDS
-,
-see [Monitoring metrics in an Amazon RDS instance](CHAP_Monitoring.md "CHAP_Monitoring.md")
-.
+  These steps force MyISAM to flush data stored in memory to disk, which ensures a clean
+  start when you restore from a DB snapshot. For more information on creating a DB
+  snapshot, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md").

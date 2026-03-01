@@ -1,34 +1,23 @@
-# Known issues and limitations for
-
-Amazon RDS for Db2
+# Known issues and limitations for Amazon RDS for Db2
 
 The following items are known issues and limitations for working with Amazon RDS for Db2:
 
 ###### Topics
 
-- [Authentication
-  limitation](#db2-known-issues-limitations-authentication-limit "#db2-known-issues-limitations-authentication-limit")
-- [Non-fenced
-  routines](#db2-known-issues-limitations-non-fenced-routines "#db2-known-issues-limitations-non-fenced-routines")
+- [Authentication limitation](#db2-known-issues-limitations-authentication-limit "#db2-known-issues-limitations-authentication-limit")
+- [Non-fenced routines](#db2-known-issues-limitations-non-fenced-routines "#db2-known-issues-limitations-non-fenced-routines")
 - [Non-automatic storage tablespaces during migration](#db2-known-issues-limitations-non-automatic-storage-tablespaces "#db2-known-issues-limitations-non-automatic-storage-tablespaces")
-- [Setting the
-  db2_compatibility_vector parameter](#db2-known-issues-limitations-db2-compatibility-vector "#db2-known-issues-limitations-db2-compatibility-vector")
-- [Migrating databases that
-  contain INVALID packages](#db2-known-issues-limitations-invalid-packages-migrating "#db2-known-issues-limitations-invalid-packages-migrating")
+- [Setting the db2_compatibility_vector parameter](#db2-known-issues-limitations-db2-compatibility-vector "#db2-known-issues-limitations-db2-compatibility-vector")
+- [Migrating databases that contain INVALID packages](#db2-known-issues-limitations-invalid-packages-migrating "#db2-known-issues-limitations-invalid-packages-migrating")
 
-## Authentication
-
-limitation
+## Authentication limitation
 
 Amazon RDS sets `db2auth` to `JCC_ENFORCE_SECMEC` by default.
 However, if you don't want to enforce userid and password encryption over the wire, you
 can override this setting by changing the `db2auth` parameter to
-`CLEAR_TEXT` in the parameter group. For more information, see [Modifying parameters in a DB parameter group
-in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+`CLEAR_TEXT` in the parameter group. For more information, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
-## Non-fenced
-
-routines
+## Non-fenced routines
 
 RDS for Db2 doesn't support the creation of non-fenced routines and the migration of
 these routines by backing up and restoring data. To check if your database contains any
@@ -45,9 +34,7 @@ you use native restore for a one-time migration of your database, RDS for Db2 au
 converts your non-automatic storage tablespaces to automatic ones, and then restores
 your database to RDS for Db2. For information about one-time migrations, see [Migrating from Linux to Linux for Amazon RDS for Db2](db2-one-time-migration-linux.md "db2-one-time-migration-linux.md") and [Migrating from AIX or Windows to Linux for Amazon RDS for Db2](db2-one-time-migration-aix-windows-linux.md "db2-one-time-migration-aix-windows-linux.md").
 
-## Setting the
-
-db2_compatibility_vector parameter
+## Setting the db2_compatibility_vector parameter
 
 With Amazon RDS, you can create an initial database when you create the DB instance and
 then modify parameters in an associated parameter group. However, for Db2, if you want
@@ -69,9 +56,7 @@ without a database, and then create a database using the
 5. [Associate the
    parameter group](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md") with the DB instance that contains the database.
 
-## Migrating databases that
-
-contain INVALID packages
+## Migrating databases that contain INVALID packages
 
 If you migrate Db2 databases that contain `INVALID` packages to RDS for Db2 by
 using the `RESTORE` command, you could encounter issues when you start to use

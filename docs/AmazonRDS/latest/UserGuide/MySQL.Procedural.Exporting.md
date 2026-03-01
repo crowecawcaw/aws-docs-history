@@ -24,9 +24,7 @@ later sections.
 4. Start replication to the external MySQL database.
 5. After the export completes, stop replication.
 
-## Prepare an external
-
-MySQL database
+## Prepare an external MySQL database
 
 Perform the following steps to prepare the external MySQL database.
 
@@ -49,8 +47,7 @@ Specify the appropriate egress rules for your environment:
 
     * If the external MySQL database is running in an Amazon EC2 instance in a
      virtual private cloud (VPC) based on the Amazon VPC service, specify the
-     egress rules in a VPC security group. For more information, see [Controlling access with security
-     groups](Overview.md "Overview.md").
+     egress rules in a VPC security group. For more information, see [Controlling access with security groups](Overview.md "Overview.md").
     * If the external MySQL database is installed on-premises, specify the egress rules in a firewall.
 
 5.  If the external MySQL database is running in a VPC, configure rules for the
@@ -85,8 +82,7 @@ Perform the following steps to prepare the source MySQL DB instance as the repli
     instance from the IP address of the external MySQL database.
 4.  Specify the egress rules:
     - If the source MySQL DB instance is running in a VPC, specify the ingress rules in a VPC
-      security group. For more information, see [Controlling access with security
-      groups](Overview.md "Overview.md").
+      security group. For more information, see [Controlling access with security groups](Overview.md "Overview.md").
 
 5.  If source MySQL DB instance is running in a VPC, configure VPC ACL rules in
     addition to the security group ingress rule:
@@ -116,8 +112,7 @@ Perform the following steps to prepare the source MySQL DB instance as the repli
     log files, so they are available for the replication process.
 10. (Optional) Set both the `max_allowed_packet` parameter and the `slave_max_allowed_packet` parameter to the maximum size
     to avoid replication errors. The maximum size for both parameters is 1 GB. We recommend this setting for both parameters. For information about
-    setting parameters, see [Modifying parameters in a DB parameter group
-    in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
+    setting parameters, see [Modifying parameters in a DB parameter group in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 
 ## Copy the database
 

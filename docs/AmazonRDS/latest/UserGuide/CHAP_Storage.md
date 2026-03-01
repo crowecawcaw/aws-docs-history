@@ -4,8 +4,7 @@ DB instances for Amazon RDS for Db2, MariaDB, MySQL, PostgreSQL, Oracle, and Mic
 Server use Amazon Elastic Block Store (Amazon EBS) volumes for database and log storage.
 
 In some cases, your database workload might not be able to achieve 100 percent of the IOPS
-that you have provisioned. For more information, see [Factors that affect database
-performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
+that you have provisioned. For more information, see [Factors that affect database performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
 
 For more information about instance storage pricing, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
 
@@ -14,15 +13,12 @@ For more information about instance storage pricing, see [Amazon RDS pricing](ht
 - [Amazon RDS storage types](#Concepts.Storage "#Concepts.Storage")
 - [Provisioned IOPS SSD storage](#USER_PIOPS "#USER_PIOPS")
 - [General Purpose SSD storage](#Concepts.Storage.GeneralSSD "#Concepts.Storage.GeneralSSD")
-- [Performance characteristics of solid-state drive
-  (SSD) storage types](#storage-comparison "#storage-comparison")
-- [Magnetic storage (legacy, not
-  recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic")
+- [Performance characteristics of solid-state drive (SSD) storage types](#storage-comparison "#storage-comparison")
+- [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic")
 - [Additional storage volumes](#Welcome.AdditionalStorageVolumes "#Welcome.AdditionalStorageVolumes")
 - [Dedicated log volume (DLV)](#CHAP_Storage.dlv "#CHAP_Storage.dlv")
 - [Monitoring database performance](#Concepts.Storage.Metrics "#Concepts.Storage.Metrics")
-- [Factors that affect database
-  performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors")
+- [Factors that affect database performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors")
 
 ## Amazon RDS storage types
 
@@ -58,8 +54,7 @@ size ranges, see [General Purpose SSD storage](#Concepts.Storage.GeneralSSD "#Co
   storage for backward compatibility. We recommend that you use General Purpose
   SSD or Provisioned IOPS SSD for any new storage needs. The maximum amount of
   storage allowed for DB instances on magnetic storage is 3 TiB. For more
-  information, see [Magnetic storage (legacy, not
-  recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic").
+  information, see [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic").
 
 ## Provisioned IOPS SSD storage
 
@@ -77,12 +72,9 @@ IOPS rate for the DB instance until you change it.
 
 - [io2 Block Express storage (recommended)](#USER_PIOPS.io2 "#USER_PIOPS.io2")
 - [io1 storage (previous generation)](#USER_PIOPS.io1 "#USER_PIOPS.io1")
-- [Combining Provisioned IOPS
-  storage with Multi-AZ deployments or read replicas](#Overview.ProvisionedIOPS-support "#Overview.ProvisionedIOPS-support")
-- [Provisioned IOPS storage
-  costs](#Overview.ProvisionedIOPS-cost "#Overview.ProvisionedIOPS-cost")
-- [Getting the best
-  performance from Amazon RDS Provisioned IOPS storage](#Overview.ProvisionedIOPS.gettingthemostoutofpiops "#Overview.ProvisionedIOPS.gettingthemostoutofpiops")
+- [Combining Provisioned IOPS storage with Multi-AZ deployments or read replicas](#Overview.ProvisionedIOPS-support "#Overview.ProvisionedIOPS-support")
+- [Provisioned IOPS storage costs](#Overview.ProvisionedIOPS-cost "#Overview.ProvisionedIOPS-cost")
+- [Getting the best performance from Amazon RDS Provisioned IOPS storage](#Overview.ProvisionedIOPS.gettingthemostoutofpiops "#Overview.ProvisionedIOPS.gettingthemostoutofpiops")
 
 ### io2 Block Express storage (recommended)
 
@@ -103,8 +95,7 @@ to provision up to 256 TiB storage size in total. With additional storage volume
 can have higher provisioned IOPS and maximum throughput for your DB instance. However, your DB instance
 might not be able to fully utilize the provisioned IOPS and maximum throughput if your instance class
 has lower limits than the values you've provisioned for your storage volumes. For more information, see
-[Factors that affect database
-performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
+[Factors that affect database performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
 
 | Database engine                     | Range of storage size | Range of Provisioned IOPS | Maximum throughput |
 | ----------------------------------- | --------------------- | ------------------------- | ------------------ |
@@ -171,9 +162,7 @@ The IOPS and storage size ranges have the following constraints:
 
 For more information on storage autoscaling, see [Managing capacity automatically with Amazon RDS storage autoscaling](USER_PIOPS.md "USER_PIOPS.md").
 
-### Combining Provisioned IOPS
-
-storage with Multi-AZ deployments or read replicas
+### Combining Provisioned IOPS storage with Multi-AZ deployments or read replicas
 
 For production OLTP use cases, we recommend that you use Multi-AZ deployments for
 enhanced fault tolerance with Provisioned IOPS storage for fast and predictable
@@ -187,18 +176,14 @@ costs. However, your read replica's performance in this case might differ from t
 of a configuration where both the primary DB instance and the read replicas use
 Provisioned IOPS storage.
 
-### Provisioned IOPS storage
-
-costs
+### Provisioned IOPS storage costs
 
 With Provisioned IOPS storage, you are charged for the provisioned resources
 whether or not you use them in a given month.
 
 For more information about pricing, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/ "https://aws.amazon.com/rds/pricing/").
 
-### Getting the best
-
-performance from Amazon RDS Provisioned IOPS storage
+### Getting the best performance from Amazon RDS Provisioned IOPS storage
 
 If your workload is I/O constrained, using Provisioned IOPS storage can increase
 the number of I/O requests that the system can process concurrently. Increased
@@ -250,8 +235,7 @@ each gp3 storage volume can be sized up to 16 TiB. With additional storage volum
 can have higher provisioned IOPS and maximum throughput for your DB instance. However, your DB instance
 might not be able to fully utilize the provisioned IOPS and maximum throughput if your
 instance class has lower limits than the values you've provisioned for your storage volumes.
-For more information, see [Factors that affect database
-performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
+For more information, see [Factors that affect database performance](#CHAP_Storage.Other.Factors "#CHAP_Storage.Other.Factors").
 
 | DB engine                           | Storage size   | Baseline storage performance | Range of Provisioned IOPS | Range of provisioned storage throughput |
 | ----------------------------------- | -------------- | ---------------------------- | ------------------------- | --------------------------------------- |
@@ -337,9 +321,7 @@ is shown in the following table.
 ¹ The baseline performance of the volume exceeds the maximum burst
 performance.
 
-## Performance characteristics of solid-state drive
-
-(SSD) storage types
+## Performance characteristics of solid-state drive (SSD) storage types
 
 The following table describes use cases and per-volume performance characteristics for
 the SSD storage volumes used by Amazon RDS.
@@ -371,9 +353,7 @@ table.
 | Oracle                         | 200–65,536 GiB          | 4                             |
 | SQL Server                     | Any                     | 1                             |
 
-### Performance impact when you modify an SSD
-
-volume
+### Performance impact when you modify an SSD volume
 
 When you modify a General Purpose SSD or Provisioned IOPS SSD volume, it goes
 through a sequence of states. While the volume is in the `optimizing`
@@ -391,9 +371,7 @@ modification, this operation can consume a high amount of IOPS, significantly
 increase I/O latency, and take several hours to complete, while the RDS instance
 remains in the `Modifying` state.
 
-### Baseline and maximum IOPS rates for
-
-EBS-optimized instances
+### Baseline and maximum IOPS rates for EBS-optimized instances
 
 EBS-optimized instances have a baseline and maximum IOPS rate. The maximum IOPS rate is
 enforced at the DB instance level. A set of EBS volumes that combine to have an IOPS rate that is
@@ -403,9 +381,7 @@ maximum IOPS is 40,000 rather than 256,000. For the IOPS maximum specific to eac
 type, see [Supported instance
 types](../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-support "../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-support") in the _Amazon EC2 User Guide for Linux Instances_.
 
-## Magnetic storage (legacy, not
-
-recommended)
+## Magnetic storage (legacy, not recommended)
 
 Amazon RDS also supports magnetic storage for backward compatibility. We recommend that you
 use General Purpose SSD or Provisioned IOPS SSD for any new storage needs. The following
@@ -458,8 +434,7 @@ sections:
 
 - [Working with storage for Amazon RDS DB instances](USER_PIOPS.md "USER_PIOPS.md")
 - [Working with storage in RDS for Oracle](User_Oracle_AdditionalStorage.md "User_Oracle_AdditionalStorage.md")
-- [Working with storage in
-  RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md")
+- [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md")
 
 ## Dedicated log volume (DLV)
 
@@ -561,9 +536,7 @@ If your throughput values regularly approach the maximum throughput for your
 DB instance, then consider provisioning more storage throughput if you're using
 the gp3 storage type.
 
-## Factors that affect database
-
-performance
+## Factors that affect database performance
 
 System activities, database workload, and DB instance class can affect database
 performance.

@@ -6,12 +6,9 @@ requirements for quick reference.
 ###### Topics
 
 - [General requirements for RDS Custom for Oracle](#custom-reqs-limits.reqs "#custom-reqs-limits.reqs")
-- [General limitations for
-  RDS Custom for Oracle](#custom-reqs-limits.limits "#custom-reqs-limits.limits")
-- [CEV and AMI limitations for
-  RDS Custom for Oracle](#custom-reqs-limits.cev-limits "#custom-reqs-limits.cev-limits")
-- [Unsupported settings for
-  create and modify workflows](#custom-reqs-limits.unsupported-settings "#custom-reqs-limits.unsupported-settings")
+- [General limitations for RDS Custom for Oracle](#custom-reqs-limits.limits "#custom-reqs-limits.limits")
+- [CEV and AMI limitations for RDS Custom for Oracle](#custom-reqs-limits.cev-limits "#custom-reqs-limits.cev-limits")
+- [Unsupported settings for create and modify workflows](#custom-reqs-limits.unsupported-settings "#custom-reqs-limits.unsupported-settings")
 - [DB instance quotas for your AWS account](#custom-reqs-limits.quotas "#custom-reqs-limits.quotas")
 
 ## General requirements for RDS Custom for Oracle
@@ -23,8 +20,7 @@ Make sure to meet the following requirements for Amazon RDS Custom for Oracle:
   Delivery Cloud](https://edelivery.oracle.com/osdc/faces/Home.jspx "https://edelivery.oracle.com/osdc/faces/Home.jspx") to download the supported list of installation files
   and patches for RDS Custom for Oracle. If you use an unknown patch, custom engine version
   (CEV) creation fails. In this case, contact the RDS Custom support team and ask it
-  to add the missing patch. For more information, see [Step 2: Download your database
-  installation files and patches from Oracle Software Delivery Cloud](custom-cev.md#custom-cev.preparing.download "custom-cev.md#custom-cev.preparing.download").
+  to add the missing patch. For more information, see [Step 2: Download your database installation files and patches from Oracle Software Delivery Cloud](custom-cev.md#custom-cev.preparing.download "custom-cev.md#custom-cev.preparing.download").
 - You have access to Amazon S3. You need this service for the following
   reasons:
 
@@ -43,32 +39,24 @@ Make sure to meet the following requirements for Amazon RDS Custom for Oracle:
 
 - You use the DB instance classes listed in [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances") to create your RDS Custom for Oracle DB instances.
 - Your RDS Custom for Oracle DB instances run Oracle Linux 8 (recommended) or Oracle Linux 7. If
-  you require Oracle Linux 7, contact Support. For more information, see [Considerations for RDS Custom for Oracle database
-  upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md").
+  you require Oracle Linux 7, contact Support. For more information, see [Considerations for RDS Custom for Oracle database upgrades](custom-upgrading-considerations.md "custom-upgrading-considerations.md").
 - You specify the gp2, gp3, or io1 solid state drives for Amazon EBS storage. The
   maximum storage size is 64 TiB.
 - You have an AWS KMS key to create an RDS Custom for Oracle DB instance. For more information, see
-  [Step 1: Create or reuse a symmetric encryption
-  AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk").
+  [Step 1: Create or reuse a symmetric encryption AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk").
 - You have the AWS Identity and Access Management (IAM) role and instance profile required for creating
-  RDS Custom for Oracle DB instances. For more information, see [Step 4: Configure IAM for
-  RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
+  RDS Custom for Oracle DB instances. For more information, see [Step 4: Configure IAM for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
 - The AWS Identity and Access Management (IAM) user that creates a CEV or RDS Custom DB instance has the required
   permissions for IAM, CloudTrail, and Amazon S3.
 
-For more information, see [Step 5: Grant required permissions to your
-IAM user or role](custom-setup-orcl.md#custom-setup-orcl.iam-user "custom-setup-orcl.md#custom-setup-orcl.iam-user").
+For more information, see [Step 5: Grant required permissions to your IAM user or role](custom-setup-orcl.md#custom-setup-orcl.iam-user "custom-setup-orcl.md#custom-setup-orcl.iam-user").
 
 - You supply your own virtual private cloud (VPC) and security group
-  configuration. For more information, see [Step 6: Configure your VPC for
-  RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orc.vpc-config "custom-setup-orcl.md#custom-setup-orc.vpc-config").
+  configuration. For more information, see [Step 6: Configure your VPC for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orc.vpc-config "custom-setup-orcl.md#custom-setup-orc.vpc-config").
 - You supply a networking configuration that RDS Custom for Oracle can use to access other
-  AWS services. For specific requirements, see [Step 4: Configure IAM for
-  RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
+  AWS services. For specific requirements, see [Step 4: Configure IAM for RDS Custom for Oracle](custom-setup-orcl.md#custom-setup-orcl.iam-vpc "custom-setup-orcl.md#custom-setup-orcl.iam-vpc").
 
-## General limitations for
-
-RDS Custom for Oracle
+## General limitations for RDS Custom for Oracle
 
 The following limitations apply to RDS Custom for Oracle:
 
@@ -90,12 +78,9 @@ The following limitations apply to RDS Custom for Oracle:
   RDS Custom for Oracle DB instances.
 
 For limitations specific to modifying an RDS Custom for Oracle DB instance, see [Modifying your RDS Custom for Oracle DB instance](custom-managing.md "custom-managing.md"). For
-replication limitations, see [General limitations for RDS Custom for Oracle
-replication](custom-rr.md#custom-rr.limitations "custom-rr.md#custom-rr.limitations").
+replication limitations, see [General limitations for RDS Custom for Oracle replication](custom-rr.md#custom-rr.limitations "custom-rr.md#custom-rr.limitations").
 
-## CEV and AMI limitations for
-
-RDS Custom for Oracle
+## CEV and AMI limitations for RDS Custom for Oracle
 
 The following limitations apply to RDS Custom for Oracle CEVs and AMIs:
 
@@ -118,9 +103,7 @@ new default AMI every 30 days.
   with RDS API calls. As a workaround, you can update your OS manually with the following command:
   `sudo yum update --security`.
 
-## Unsupported settings for
-
-create and modify workflows
+## Unsupported settings for create and modify workflows
 
 When you create or modify an RDS Custom for Oracle DB instance, you can't do the following:
 

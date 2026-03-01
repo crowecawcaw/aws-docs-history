@@ -1,6 +1,4 @@
-# Amazon RDS for Db2 user-defined function
-
-reference
+# Amazon RDS for Db2 user-defined function reference
 
 The following user-defined functions are available for Amazon RDS DB instances
 running the Db2 engine.
@@ -328,9 +326,7 @@ CONFIGURATION_ERROR : indicates that there is a configuration issue requiring yo
 
 To view detailed error look at RDS Event Messages for you Db Instance. The Event Messages can be viewed at [Viewing Amazon RDS events.](USER_ListEvents.md "USER_ListEvents.md")
 
-### Response
-
-examples
+### Response examples
 
 The following response example shows a list of databases and the times when they
 were created. `rdsadmin` is a database that Amazon RDS manages and always
@@ -382,9 +378,7 @@ Y = Yes, Database restart is required.
 
 N = No, Database restart is not required.
 
-### Response
-
-examples
+### Response examples
 
 The following is a sample (truncated) list of expected output.
 

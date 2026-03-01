@@ -1,6 +1,4 @@
-# Permission policies to create,
-
-modify and, delete resources in Amazon RDS
+# Permission policies to create, modify and, delete resources in Amazon RDS
 
 The following sections present examples of permission policies that grant and restrict access to resources:
 
@@ -110,9 +108,7 @@ JSON
 
 ```
 
-## Allow a user to create a DB instance that
-
-uses the specified DB parameter group and subnet group
+## Allow a user to create a DB instance that uses the specified DB parameter group and subnet group
 
 The following permissions policy grants permissions to allow a user to only create a DB instance that must use
 the `mydbpg` DB parameter group and the `mydbsubnetgroup` DB subnet group.
@@ -137,9 +133,7 @@ JSON
 
 ```
 
-## Grant permission for actions on a resource with a specific tag with two
-
-different values
+## Grant permission for actions on a resource with a specific tag with two different values
 
 You can use conditions in your identity-based policy to control access to Amazon RDS
 resources based on tags. The following policy allows permission to perform the

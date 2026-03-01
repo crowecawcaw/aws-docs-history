@@ -1,6 +1,4 @@
-# Configuring delayed replication with
-
-RDS for PostgreSQL
+# Configuring delayed replication with RDS for PostgreSQL
 
 ## Overview and Benefits
 
@@ -30,9 +28,7 @@ Key benefits of delayed replication include the following:
 - Allows you to configure the delay period based on your organization's specific
   needs and risk tolerance.
 
-## Enabling and Configuring Delayed
-
-Replication
+## Enabling and Configuring Delayed Replication
 
 To enable delayed replication on an RDS for PostgreSQL read replica, follow these
 steps:
@@ -45,8 +41,7 @@ parameter and steps described below.
 ###### To enable delayed replication
 
 1. Create a new custom parameter group or modify an existing one. For more
-   information, see [DB parameter groups for
-   Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
+   information, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 2. In the parameter group, configure the `recovery_min_apply_delay`
    parameter:
    - Set the value to the desired delay in milliseconds. For example,
@@ -66,9 +61,7 @@ the changes take effect immediately without requiring a reboot. However,
 when applying a new parameter group to the instance, you must reboot for the
 changes to take effect.
 
-## Managing Delayed Replication
-
-Recovery
+## Managing Delayed Replication Recovery
 
 Delayed replication is particularly useful in scenarios where traditional
 point-in-time recovery methods may be insufficient or too time-consuming.
@@ -89,8 +82,7 @@ Users with the `rds_superuser` role have EXECUTE privileges on
 `pg_wal_replay_pause()` and `pg_wal_replay_resume()`. If other
 database users need access to these functions, you must grant them the
 `rds_superuser` role. For more information about the
-`rds_superuser` role, see [Understanding the
-rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
+`rds_superuser` role, see [Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.md "Appendix.PostgreSQL.CommonDBATasks.Roles.md").
 
 Access to other functions like `pg_is_wal_replay_paused()` and
 `pg_get_wal_replay_pause_state()` doesn't require the

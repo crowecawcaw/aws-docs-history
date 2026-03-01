@@ -10,17 +10,14 @@ resources](https://aws.amazon.com/rds/custom/resources/ "https://aws.amazon.com/
 
 ###### Topics
 
-- [Addressing the challenge of database
-  customization](#custom-intro.challenge "#custom-intro.challenge")
+- [Addressing the challenge of database customization](#custom-intro.challenge "#custom-intro.challenge")
 - [Management model and benefits for Amazon RDS Custom](#custom-intro.solution "#custom-intro.solution")
 - [Amazon RDS Custom architecture](custom-concept.md "custom-concept.md")
 - [Security in Amazon RDS Custom](custom-security.md "custom-security.md")
 - [Working with RDS Custom for Oracle](working-with-custom-oracle.md "working-with-custom-oracle.md")
 - [Working with RDS Custom for SQL Server](working-with-custom-sqlserver.md "working-with-custom-sqlserver.md")
 
-## Addressing the challenge of database
-
-customization
+## Addressing the challenge of database customization
 
 Amazon RDS Custom brings the benefits of Amazon RDS to a market that can't easily move to a fully
 managed service because of customizations that are required with third-party
@@ -82,15 +79,11 @@ RDS Custom supports only the Oracle Database and Microsoft SQL Server DB engines
 
 ###### Topics
 
-- [Shared responsibility model in
-  RDS Custom](#custom-intro.solution.shared "#custom-intro.solution.shared")
-- [Support perimeter and
-  unsupported configurations in RDS Custom](#custom-intro.solution.support-perimeter "#custom-intro.solution.support-perimeter")
+- [Shared responsibility model in RDS Custom](#custom-intro.solution.shared "#custom-intro.solution.shared")
+- [Support perimeter and unsupported configurations in RDS Custom](#custom-intro.solution.support-perimeter "#custom-intro.solution.support-perimeter")
 - [Key benefits of RDS Custom](#custom-intro.solution.benefits "#custom-intro.solution.benefits")
 
-### Shared responsibility model in
-
-RDS Custom
+### Shared responsibility model in RDS Custom
 
 With RDS Custom, you use the managed features of Amazon RDS, but you manage the host and
 customize the OS as you do in Amazon EC2. You take on additional database management
@@ -155,17 +148,14 @@ create an RDS Custom DB instance by using this CEV.
 You bring your own Oracle Database licenses and manage licenses by
 yourself.
 
-### Support perimeter and
-
-unsupported configurations in RDS Custom
+### Support perimeter and unsupported configurations in RDS Custom
 
 RDS Custom provides a monitoring capability called the _support
 perimeter_. This feature ensures that your host and database environment
 are configured correctly. If you make a change that causes your DB instance to go outside the
 support perimeter, RDS Custom changes the instance status to
 `unsupported-configuration` until you manually fix the configuration
-problems. For more information, see [RDS Custom support
-perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
+problems. For more information, see [RDS Custom support perimeter](custom-concept.md#custom-troubleshooting.support-perimeter "custom-concept.md#custom-troubleshooting.support-perimeter").
 
 ### Key benefits of RDS Custom
 

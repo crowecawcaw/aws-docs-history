@@ -1,6 +1,4 @@
-# Using Kerberos authentication with Amazon RDS for
-
-PostgreSQL
+# Using Kerberos authentication with Amazon RDS for PostgreSQL
 
 You can use Kerberos to authenticate users when they connect to your DB
 instance running PostgreSQL. To do so, configure your
@@ -26,7 +24,7 @@ experience as when they access workloads in your on-premises network.
 
 A database can use password authentication or password
 authentication with either Kerberos or AWS Identity and Access Management (IAM) authentication. For more
-information about IAM authentication, see [IAM database authentication for MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
+information about IAM authentication, see [IAM database authenticationfor MariaDB, MySQL, and PostgreSQL](UsingWithRDS.md "UsingWithRDS.md").
 
 ###### Note
 
@@ -34,29 +32,19 @@ RDS for PostgreSQL doesn't support Kerberos authentication for Active Directory 
 
 ###### Topics
 
-- [Region and version
-  availability](#postgresql-kerberos.RegionVersionAvailability "#postgresql-kerberos.RegionVersionAvailability")
-- [Overview of Kerberos authentication for
-  PostgreSQL DB instances](#postgresql-kerberos-overview "#postgresql-kerberos-overview")
-- [Setting up Kerberos authentication for
-  PostgreSQL DB instances](postgresql-kerberos-setting-up.md "postgresql-kerberos-setting-up.md")
-- [Managing an RDS for PostgreSQL DB instance in an Active Directory
-  domain](postgresql-kerberos-managing.md "postgresql-kerberos-managing.md")
-- [Connecting to PostgreSQL with Kerberos
-  authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md")
+- [Region and version availability](#postgresql-kerberos.RegionVersionAvailability "#postgresql-kerberos.RegionVersionAvailability")
+- [Overview of Kerberos authentication for PostgreSQL DB instances](#postgresql-kerberos-overview "#postgresql-kerberos-overview")
+- [Setting up Kerberos authentication for PostgreSQL DB instances](postgresql-kerberos-setting-up.md "postgresql-kerberos-setting-up.md")
+- [Managing an RDS for PostgreSQL DB instance in an Active Directory domain](postgresql-kerberos-managing.md "postgresql-kerberos-managing.md")
+- [Connecting to PostgreSQL with Kerberos authentication](postgresql-kerberos-connecting.md "postgresql-kerberos-connecting.md")
 
-## Region and version
-
-availability
+## Region and version availability
 
 Feature availability and support varies across specific versions
 of each database engine, and across AWS Regions. For more information on version and
-Region availability of RDS for PostgreSQL with Kerberos authentication, see [Supported
-Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+Region availability of RDS for PostgreSQL with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
 
-## Overview of Kerberos authentication for
-
-PostgreSQL DB instances
+## Overview of Kerberos authentication for PostgreSQL DB instances
 
 To set up Kerberos authentication for a PostgreSQL DB instance, take the following
 steps, described in more detail later:

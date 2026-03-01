@@ -1,15 +1,11 @@
-# Converting a Multi-AZ deployment to
-
-a Single-AZ deployment in RDS Custom for Oracle
+# Converting a Multi-AZ deployment to a Single-AZ deployment in RDS Custom for Oracle
 
 You can modify an existing RDS Custom for Oracle DB instance from a Multi-AZ to a Single-AZ
 deployment.
 
 ## Console
 
-###### To modify an RDS Custom for Oracle DB instance from a Multi-AZ to Single-AZ
-
-deployment
+###### To modify an RDS Custom for Oracle DB instance from a Multi-AZ to Single-AZ deployment
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -22,8 +18,7 @@ deployment
    immediately** to apply the changes immediately. Choosing this
    option doesn't cause downtime, but there is a possible performance impact.
    Alternatively, you can choose to apply the update during the next
-   maintenance window. For more information, see [Using the schedule modifications
-   setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+   maintenance window. For more information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 6. On the **Confirmation** page, choose **Modify DB
    Instance**.
 
@@ -40,8 +35,7 @@ The following code modifies `mycustomdbinstance` by including the
 `--no-multi-az` option. The changes are applied during the next
 maintenance window by using `--no-apply-immediately`. Use
 `--apply-immediately` to apply the changes immediately. For more
-information, see [Using the schedule modifications
-setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
+information, see [Using the schedule modifications setting](USER_ModifyInstance.md "USER_ModifyInstance.md").
 
 For Linux, macOS, or Unix:
 

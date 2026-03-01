@@ -6,18 +6,14 @@ them, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRe
 
 - [Configuring replication filters with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
 - [Configuring delayed replication with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Updating read
-  replicas with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
-- [Working with
-  Multi-AZ read replica deployments with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
+- [Updating read replicas with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
+- [Working with Multi-AZ read replica deployments with MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
 - [Using cascading read replicas with RDS for MariaDB](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
 - [Monitoring MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
 - [Starting and stopping replication with MariaDB read replicas](USER_MariaDB.Replication.ReadReplicas.md "USER_MariaDB.Replication.ReadReplicas.md")
 - [Troubleshooting a MariaDB read replica problem](USER_ReadRepl.Troubleshooting.md "USER_ReadRepl.Troubleshooting.md")
 
-## Configuring read
-
-replicas with MariaDB
+## Configuring read replicas with MariaDB
 
 Before a MariaDB DB instance can serve as a replication source, make sure to turn on
 automatic backups on the source DB instance by setting the backup retention period

@@ -6,9 +6,7 @@ applications and between Amazon RDS
 and other AWS resources within the same
 AWS Region.
 
-## Traffic between service
-
-and on-premises clients and applications
+## Traffic between service and on-premises clients and applications
 
 You have two connectivity options between your private network and AWS:
 
