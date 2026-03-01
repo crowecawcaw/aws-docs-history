@@ -24,7 +24,7 @@ Content-type: application/json
 
 **Request elements**
 
-**`dashboardName`**: The name of the Quick Suite
+**`dashboardName`**: The name of the Quick
 dashboard that the URL is being requested for. The dashboard name is returned in
 ListReportsV2.
 
@@ -44,7 +44,7 @@ Content-type: application/json
 
 If the action is successful, the service sends back an HTTP 200 response. The following data is returned in JSON format by the service.
 
-**`url`**: Returns the Quick Suite URL for the requested `dashboardName`.
+**`url`**: Returns the Quick URL for the requested `dashboardName`.
 
 Type: String
 

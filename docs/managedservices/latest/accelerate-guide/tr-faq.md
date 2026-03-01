@@ -19,7 +19,7 @@ Security Hub CSPM to leverage existing AMS automation capabilities. Specifically
 AWS Systems Manager automation documents (runbooks) for automated remediations. AWS AppConfig is used to
 configure the remediation workflows. You can view all the current and past remediations
 through the Systems Manager OpsCenter. The remediation logs are stored in an Amazon S3 bucket. You can
-use the logs to import and build custom reporting dashboards in Quick Suite.
+use the logs to import and build custom reporting dashboards in Quick.
 
 You own the configurations in your account. Managing your configurations is your responsibility. You can reach out to your CA or CDSM for
 help managing your configurations. You can also reach out to AMS through a service request for configuration support, manual remediations, and troubleshooting

@@ -1,6 +1,4 @@
-# Managing service requests with the support
-
-API for Accelerate
+# Managing service requests with the support API for Accelerate
 
 You can use the [AWS
 Support API](../../../awssupport/latest/user/Welcome.md "../../../awssupport/latest/user/Welcome.md") to create service requests and add correspondence to them throughout investigations of

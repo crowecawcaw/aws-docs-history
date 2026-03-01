@@ -6,8 +6,7 @@
 - [How service request management works in Accelerate](how-sr-management-work.md "how-sr-management-work.md")
 - [Creating a service request in Accelerate](creating-a-sr.md "creating-a-sr.md")
 - [Monitoring and updating a service request for Accelerate](mon-and-update-a-sr.md "mon-and-update-a-sr.md")
-- [Managing service requests with the support
-  API for Accelerate](managing-service-requests-with-the-support-api.md "managing-service-requests-with-the-support-api.md")
+- [Managing service requests with the support API for Accelerate](managing-service-requests-with-the-support-api.md "managing-service-requests-with-the-support-api.md")
 - [Responding to an AMS Accelerate-generated service request](respond-ams-gen-sr.md "respond-ams-gen-sr.md")
   AMS Accelerate uses service request management to record, act on, communicate progress of, and
   provide notification of active service requests.

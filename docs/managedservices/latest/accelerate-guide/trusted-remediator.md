@@ -42,7 +42,7 @@ automatically or manually. The following are details for each type of remediatio
   resolves the Opsitem.
 - **Manual remediation:** Trusted Remediator creates the OpsItem for you to review. After you review, you start the automation document.
 
-Remediation logs are stored in an Amazon S3 bucket. You can use the data in the S3 bucket to build custom Quick Suite dashboards for reporting. AMS also provides
+Remediation logs are stored in an Amazon S3 bucket. You can use the data in the S3 bucket to build custom Quick dashboards for reporting. AMS also provides
 on-request reports for Trusted Remediator. To receive these reports, contact your CSDM. For more information, see
 [Trusted Remediator reports](trusted-remediator-reports.md "trusted-remediator-reports.md").
 
