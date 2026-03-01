@@ -128,5 +128,4 @@ of threads and heartbeat delay.
 For a more detailed look at creating state machines that use an activity workers,
 see:
 
-- [Creating an Activity state
-  machine using Step Functions](tutorial-creating-activity-state-machine.md "tutorial-creating-activity-state-machine.md")
+- [Creating an Activity state machine using Step Functions](tutorial-creating-activity-state-machine.md "tutorial-creating-activity-state-machine.md")

@@ -146,5 +146,4 @@ For more information on `Map` states, see the following:
 - [Map state](state-map.md "state-map.md")
 - [Map state processing modes](state-map.md#concepts-map-process-modes "state-map.md#concepts-map-process-modes")
 - [Repeat actions with Inline Map](tutorial-map-inline.md "tutorial-map-inline.md")
-- [Inline Map state
-  input and output processing](state-map-inline.md#inline-map-state-output "state-map-inline.md#inline-map-state-output")
+- [Inline Map state input and output processing](state-map-inline.md#inline-map-state-output "state-map-inline.md#inline-map-state-output")

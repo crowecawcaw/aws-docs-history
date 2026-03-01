@@ -27,9 +27,7 @@ The following state types can generate a result and can include
 `ResultPath` is limited to using [reference paths](amazon-states-language-paths.md#amazon-states-language-reference-paths "amazon-states-language-paths.md#amazon-states-language-reference-paths"), which limit
 scope so the path must identify only a single node in JSON. See [Reference Paths](amazon-states-language-paths.md#amazon-states-language-reference-paths "amazon-states-language-paths.md#amazon-states-language-reference-paths") in the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md").
 
-## Use ResultPath to replace input with the
-
-task result
+## Use ResultPath to replace input with the task result
 
 If you do not specify a `ResultPath`, the default behavior is the same as
 `"ResultPath": "$"`. The state will replace the entire state input with the
@@ -86,9 +84,7 @@ copied directly to the output, with no regard for the task result.
 }
 ```
 
-## Use ResultPath to include the result with the
-
-input
+## Use ResultPath to include the result with the input
 
 If you specify a path for ResultPath, the state output will combine the state input
 and task result:
@@ -156,9 +152,7 @@ input.
 The state output now includes the original input JSON with the result as a child
 node.
 
-## Use ResultPath to update a node in the input
-
-with the result
+## Use ResultPath to update a node in the input with the result
 
 If you specify an existing node for ResultPath, the task result will replace that
 existing node:
@@ -185,9 +179,7 @@ existing node:
 }
 ```
 
-## Use ResultPath to include both error and input
-
-in a `Catch`
+## Use ResultPath to include both error and input in a `Catch`
 
 In some cases, you might want to preserve the original input with the error. Use
 `ResultPath` in a `Catch` to include the error with the original
@@ -223,5 +215,4 @@ The state output when catching an error is the following.
 For more information about error handling, see the following:
 
 - [Handling errors in Step Functions workflows](concepts-error-handling.md "concepts-error-handling.md")
-- [Handling error conditions in a Step Functions
-  state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
+- [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")

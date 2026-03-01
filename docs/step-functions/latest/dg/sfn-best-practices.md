@@ -356,8 +356,7 @@ For more information about Lambda `Handled` and `Unhandled` errors, see `Functio
 For more information, see the following:
 
 - [Retrying after an error](concepts-error-handling.md#error-handling-retrying-after-an-error "concepts-error-handling.md#error-handling-retrying-after-an-error")
-- [Handling error conditions in a Step Functions
-  state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
+- [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
 - [Lambda Invoke
   Errors](../../../lambda/latest/dg/API_Invoke.md#API_Invoke_Errors "../../../lambda/latest/dg/API_Invoke.md#API_Invoke_Errors")
 

@@ -27,9 +27,7 @@ AWS CloudFormation supports [`DefinitionSubstitutions`](../../../AWSCloudFormati
 - Initiate state machine executions with API Gateway, EventBridge events, or on a schedule within
   your AWS SAM template.
 
-## Step Functions integration with the AWS SAM
-
-specification
+## Step Functions integration with the AWS SAM specification
 
 You can use the [AWS SAM Policy
 Templates](../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md "../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md") to add permissions to your state machine. With these permissions, you
@@ -41,8 +39,7 @@ workflows.
 Step Functions is integrated with the AWS SAM CLI. Use this to quickly develop a state machine
 into your serverless application.
 
-Try the [Create a Step Functions state machine using
-AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to learn how to use AWS SAM to
+Try the [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to learn how to use AWS SAM to
 create state machines.
 
 Supported AWS SAM CLI functions include:
@@ -122,8 +119,7 @@ Resources:
           AttributeType: S
 ```
 
-The following code is the state machine definition in the file `stock_trader.asl.json` which is used in the [Create a Step Functions state machine using
-AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial.This state machine definition contains several `DefinitionSubstitutions` denoted by the `${dollar_sign_brace}` notation. For example, instead of specifying a static Lambda function ARN for the `Check Stock Value` task, the substitution `${StockCheckerFunctionArn}` is used. This substitution is defined in the [DefinitionSubstitutions](#sam-template-def-substitution "#sam-template-def-substitution") property of the template. `DefinitionSubstitutions` is a map of key-value pairs for the state machine resource. In `DefinitionSubstitutions`, ${StockCheckerFunctionArn} maps to the ARN of the `StockCheckerFunction` resource using the CloudFormation intrinsic function [`!GetAtt`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md"). When you deploy the AWS SAM template, the `DefinitionSubstitutions` in the template are replaced with the actual values.
+The following code is the state machine definition in the file `stock_trader.asl.json` which is used in the [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial.This state machine definition contains several `DefinitionSubstitutions` denoted by the `${dollar_sign_brace}` notation. For example, instead of specifying a static Lambda function ARN for the `Check Stock Value` task, the substitution `${StockCheckerFunctionArn}` is used. This substitution is defined in the [DefinitionSubstitutions](#sam-template-def-substitution "#sam-template-def-substitution") property of the template. `DefinitionSubstitutions` is a map of key-value pairs for the state machine resource. In `DefinitionSubstitutions`, ${StockCheckerFunctionArn} maps to the ARN of the `StockCheckerFunction` resource using the CloudFormation intrinsic function [`!GetAtt`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md"). When you deploy the AWS SAM template, the `DefinitionSubstitutions` in the template are replaced with the actual values.
 
 ```
 {
@@ -217,8 +213,7 @@ AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.m
 
 You can learn more about using Step Functions with AWS SAM with the following resources:
 
-- Complete the [Create a Step Functions state machine using
-  AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to create a state machine
+- Complete the [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to create a state machine
   with AWS SAM.
 - Specify a [AWS::Serverless::StateMachine](../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md "../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md") resource.
 - Find [AWS SAM Policy

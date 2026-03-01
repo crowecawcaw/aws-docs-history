@@ -36,9 +36,7 @@ You can attach the
 
 This policy grants `full` permissions to a user or role to use the Step Functions API. For full access, a user must have `iam:PassRole` permission on at least one IAM role that can be assumed by the service.
 
-## Step Functions updates to AWS managed
-
-policies
+## Step Functions updates to AWS managed policies
 
 View details about updates to AWS managed policies for Step Functions since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

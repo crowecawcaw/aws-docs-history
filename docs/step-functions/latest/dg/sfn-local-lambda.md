@@ -137,8 +137,7 @@ command:
 docker run -p 8083:8083 amazon/aws-stepfunctions-local
 ```
 
-For information about installing the Docker version of Step Functions, see [Setting Up Step Functions Local (Downloadable Version) in
-Docker](sfn-local.md#sfn-local-docker "sfn-local.md#sfn-local-docker").
+For information about installing the Docker version of Step Functions, see [Setting Up Step Functions Local (Downloadable Version) in Docker](sfn-local.md#sfn-local-docker "sfn-local.md#sfn-local-docker").
 
 ###### Note
 
@@ -146,9 +145,7 @@ You can specify the endpoint through the command line or by setting environment 
 if you launch Step Functions from the `.jar` file. For the Docker version, you must specify
 the endpoints and credentials in a text file. See [Setting Configuration Options for Step Functions Local](sfn-local.md#sfn-local-config-options "sfn-local.md#sfn-local-config-options").
 
-## Step 5: Create a State Machine That References
-
-Your AWS SAM CLI Local Function
+## Step 5: Create a State Machine That References Your AWS SAM CLI Local Function
 
 After Step Functions Local is running, create a state machine that references the
 `HelloWorldFunction`
@@ -178,9 +175,7 @@ an execution.
 }
 ```
 
-## Step 6: Start an Execution of Your Local State
-
-Machine
+## Step 6: Start an Execution of Your Local State Machine
 
 Once you have created a state machine, start an
 execution.

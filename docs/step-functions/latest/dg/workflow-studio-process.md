@@ -7,8 +7,7 @@ Learn about [Passing data between states with variables](workflow-variables.md "
 Each state makes a decision or performs an action based on input that it receives. In most
 cases, it then passes output to other states. In Workflow Studio, you can configure how a state filters
 and manipulates its input and output data in the **Input** and
-**Output** tabs of the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel.
+**Output** tabs of the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel.
 Use the **Info** links to access contextual help when configuring inputs and
 outputs.
 
@@ -20,8 +19,7 @@ detailed information about how Step Functions processes input and output, see [P
 
 Each state receives input from the previous state as JSON. If you want to filter the
 input, you can use the `InputPath` filter under the **Input** tab
-in the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel. The `InputPath` is a
+in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel. The `InputPath` is a
 string, beginning with `$`, that identifies a specific JSON node. These are
 called [reference paths](amazon-states-language-paths.md "amazon-states-language-paths.md"), and they follow
 JsonPath syntax.
@@ -74,8 +72,7 @@ additional input filtering option called `Parameters` under their
 **Input** tab. This filter takes effect after the InputPath filter and
 can be used to construct a custom JSON object consisting of one or more key-value pairs. The
 values of each pair can either be static values, can be selected from the input, or can be
-selected from the [Accessing execution data from the Context object
-in Step Functions](input-output-contextobject.md "input-output-contextobject.md") with a path.
+selected from the [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md") with a path.
 
 ###### Note
 

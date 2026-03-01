@@ -54,8 +54,7 @@ To deploy an example of a state machine that integrates with EMR Serverless for 
 - [Start a job in an application](#connect-emr-serverless-task-state-startjobrun "#connect-emr-serverless-task-state-startjobrun")
 - [Cancel a job in an application](#connect-emr-serverless-task-state-canceljobrun "#connect-emr-serverless-task-state-canceljobrun")
 
-To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md").
+To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md").
 
 In the examples shown in the following use cases, replace the `italicized` text with your resource-specific information. For example, replace `yourApplicationId` with the ID of your EMR Serverless application, such as `00yv7iv71inak893`.
 
@@ -164,8 +163,7 @@ The following Task state example cancels a job in an application using the _canc
 
 When you create a state machine using the console, Step Functions automatically creates an execution role for your state machine with the least privileges required. These automatically generated IAM roles are valid for the AWS Region in which you create the state machine.
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
 
 We recommend that when you create IAM policies, do not include wildcards in the policies. As a security best practice, you should scope your policies down as much as possible. You should use dynamic policies only when certain input parameters are not known during runtime.
 

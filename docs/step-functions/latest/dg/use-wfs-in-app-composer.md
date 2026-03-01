@@ -41,9 +41,7 @@ The integration with Workflow Studio to edit state machines resources created in
 This integration is not available for templates that use the [`AWS::StepFunctions::StateMachine`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md")
 resource.
 
-## Dynamically reference resources using CloudFormation definition substitutions in
-
-Workflow Studio
+## Dynamically reference resources using CloudFormation definition substitutions in Workflow Studio
 
 In Workflow Studio, you can use CloudFormation definition substitutions in your workflow definition to dynamically reference resources that you've
 defined in your IaC template. You can add placeholder substitutions to your workflow definition using the `${dollar_sign_brace}` notation and they are
@@ -97,8 +95,7 @@ Infrastructure Composer. This feature creates an IaC template as an AWS SAM sche
 ## Unavailable Workflow Studio features in AWS Infrastructure Composer
 
 When you use Workflow Studio in Infrastructure Composer, some of the Workflow Studio features are unavailable. In addition, the **API Parameters** section available
-in the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel supports
+in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel supports
 CloudFormation definition substitutions. You can add the substitutions in the [Code mode](workflow-studio.md#wfs-interface-code-mode "workflow-studio.md#wfs-interface-code-mode") using the `${dollar_sign_brace}` notation. For more information about this notation, see [DefinitionSubstitutions in AWS SAM templates](concepts-sam-sfn.md#sam-definition-substitution-eg "concepts-sam-sfn.md#sam-definition-substitution-eg").
 
 The following list describes the Workflow Studio features that are unavailable when you use Workflow Studio in Infrastructure Composer:

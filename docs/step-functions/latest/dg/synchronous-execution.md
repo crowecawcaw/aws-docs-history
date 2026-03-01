@@ -7,8 +7,7 @@ In this project, Step Functions uses API Gateway endpoints to start Step Functio
 These then use DynamoDB to search for, add, and remove employees in an employee
 database.
 
-For more information about Step Functions Synchronous Express Workflows, see [Synchronous and Asynchronous Express
-Workflows in Step Functions](choosing-workflow-type.md#concepts-express-synchronous "choosing-workflow-type.md#concepts-express-synchronous").
+For more information about Step Functions Synchronous Express Workflows, see [Synchronous and Asynchronous Express Workflows in Step Functions](choosing-workflow-type.md#concepts-express-synchronous "choosing-workflow-type.md#concepts-express-synchronous").
 
 ###### Note
 

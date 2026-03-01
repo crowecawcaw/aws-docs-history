@@ -44,9 +44,7 @@ arn:aws:lambda:us-east-2:`account-id`:function:`functionName`
 
 - Make sure you've created the target IAM role that the state machine needs to assume.
 
-## Step 1: Update
-
-the Task state definition to specify the target role
+## Step 1: Update the Task state definition to specify the target role
 
 In the `Task` state of your workflow, add a `Credentials` field containing the identity the state machine must assume before invoking the
 cross-account Lambda function.
@@ -148,9 +146,7 @@ target account.
 
 5. Keep this window open and proceed to the next step for further actions.
 
-## Step 3: Add the
-
-required permission in the target role
+## Step 3: Add the required permission in the target role
 
 Permissions in the IAM policies determine whether a specific request is allowed or
 denied. The target IAM role must have the correct permission to invoke the Lambda
@@ -176,9 +172,7 @@ function.
 4. Choose **Review policy**.
 5. On the **Review policy** page, enter a name for the permission, and then choose **Create policy**.
 
-## Step 4: Add
-
-permission in execution role to assume the target role
+## Step 4: Add permission in execution role to assume the target role
 
 Step Functions doesn’t automatically generate the [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md")
 policy for all cross-account service integrations. You must add the required permission

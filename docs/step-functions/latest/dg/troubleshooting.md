@@ -17,17 +17,13 @@ For more troubleshooting advice and answers to common support questions, visit t
 
 ## General troubleshooting
 
-### I'm unable to create a state
-
-machine.
+### I'm unable to create a state machine.
 
 The IAM role associated with the state machine might not have [sufficient permissions](auth-and-access-control-sfn.md#auth-and-access-control-sfn.title "auth-and-access-control-sfn.md#auth-and-access-control-sfn.title"). Check the IAM role's permissions, including for AWS service
 integration tasks, X-Ray, and CloudWatch logging. Additional permissions are required for
 `.sync` task states.
 
-### I'm unable to use a
-
-JsonPath to reference the previous task’s output.
+### I'm unable to use a JsonPath to reference the previous task’s output.
 
 For a JsonPath, a JSON key must end with `.$`. This means a JsonPath can
 only be used in a key-value pair. If you want to use a JsonPath other places, such as an
@@ -52,9 +48,7 @@ following:
 }
 ```
 
-### There was a delay in
-
-state transitions.
+### There was a delay in state transitions.
 
 For standard workflows, there is a limit on the number of state transitions. When you
 exceed the state transition limit, Step Functions delays state transitions until the bucket for
@@ -62,10 +56,7 @@ the quota is filled. State transition limit throttling can be monitored by revie
 `ExecutionThrottled` metric in the [Execution Metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics") section of
 the CloudWatch Metrics page.
 
-### When I
-
-start new Standard Workflow executions, they fail with the
-`ExecutionLimitExceeded` error.
+### When I start new Standard Workflow executions, they fail with the `ExecutionLimitExceeded` error.
 
 Step Functions has a limit of 1,000,000 open executions for each AWS account in each AWS Region. If you exceed
 this limit, Step Functions throws an `ExecutionLimitExceeded` error. This limit does
@@ -73,10 +64,7 @@ not apply to Express Workflows. You can use the `OpenExecutionCount` to track wh
 `OpenExecutionCount` is an approximate number of open workflows.
 For more information, see [Execution Metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics").
 
-### A
-
-failure on one branch in a parallel state causes the whole execution to
-fail.
+### A failure on one branch in a parallel state causes the whole execution to fail.
 
 This is an expected behavior. To avoid encountering failures when using a parallel
 state, configure Step Functions to [catch errors](concepts-error-handling.md#error-handling-fallback-states.title "concepts-error-handling.md#error-handling-fallback-states.title") thrown from each
@@ -84,10 +72,7 @@ branch.
 
 ## Troubleshooting service integrations
 
-### My job is complete in
-
-the downstream service, but in Step Functions the task state remains "In progress" or its
-completion is delayed.
+### My job is complete in the downstream service, but in Step Functions the task state remains "In progress" or its completion is delayed.
 
 For `.sync` service integration patterns, Step Functions uses EventBridge rules, downstream
 APIs, or a combination of both to detect the downstream job status. For some services,
@@ -99,9 +84,7 @@ permissions to manage the EventBridge rules and to make calls to the downstream 
 more details about how insufficient permissions on your execution role can affect the
 completion of tasks, see [Additional permissions for tasks using .sync](service-integration-iam-templates.md#connect-iam-sync-async "service-integration-iam-templates.md#connect-iam-sync-async").
 
-### I want to return
-
-a JSON output from a nested state machine execution.
+### I want to return a JSON output from a nested state machine execution.
 
 There are two Step Functions synchronous service integrations for Step Functions:
 `startExecution.sync` and `startExecution.sync:2`. Both wait
@@ -109,9 +92,7 @@ for the nested state machine to complete, but they return different `Output`
 formats. You can use `startExecution.sync:2` to return a JSON output under
 `Output`.
 
-### I
-
-can't invoke a Lambda function from another account.
+### I can't invoke a Lambda function from another account.
 
 ###### Accessing the Lambda function with cross-account support
 
@@ -167,9 +148,7 @@ permissions to invoke cross-account Lambda functions: `lambda:invokeFunction`.
 }
 ```
 
-### I'm unable to
-
-see task tokens passed from `.waitForTaskToken` states.
+### I'm unable to see task tokens passed from `.waitForTaskToken` states.
 
 In the `Task` state’s `Parameters` field, you must pass a task
 token. For example, you could use something similar to the following code.
@@ -220,9 +199,7 @@ seconds in the AWS SDK or in the client you are using to make the API call.
 
 ## Troubleshooting express workflows
 
-### My application times out
-
-before receiving a response from a `StartSyncExecution` API call.
+### My application times out before receiving a response from a `StartSyncExecution` API call.
 
 Configure a client side socket timeout in the AWS SDK or client
 you
@@ -231,10 +208,7 @@ a value higher than the duration of
 the
 Express Workflow executions.
 
-### I'm unable to
-
-see the execution history in order to troubleshoot Express Workflow
-failures.
+### I'm unable to see the execution history in order to troubleshoot Express Workflow failures.
 
 Express Workflows don't record execution history in AWS Step Functions. Instead, you must
 turn

@@ -12,8 +12,7 @@ the related resources referenced by the state machine.
 ###### List of starter templates
 
 - [Manage a container task with Amazon ECS and Amazon SNS](sample-project-container-task-notification.md "sample-project-container-task-notification.md")
-- [Transfer data records with Lambda, DynamoDB,
-  and Amazon SQS](sample-project-transfer-data-sqs.md "sample-project-transfer-data-sqs.md")
+- [Transfer data records with Lambda, DynamoDB, and Amazon SQS](sample-project-transfer-data-sqs.md "sample-project-transfer-data-sqs.md")
 - [Poll for job status with Lambda and AWS Batch](sample-project-job-poller.md "sample-project-job-poller.md")
 - [Create a task timer with Lambda and Amazon SNS](task-timer-sample.md "task-timer-sample.md")
 - [Create a callback pattern example with Amazon SQS, Amazon SNS, and Lambda](callback-task-sample-sqs.md "callback-task-sample-sqs.md")
@@ -26,8 +25,7 @@ the related resources referenced by the state machine.
 - [Train a machine learning model using Amazon SageMaker AI](sample-train-model.md "sample-train-model.md")
 - [Tune the hyperparameters of a machine learning model in SageMaker AI](sample-hyper-tuning.md "sample-hyper-tuning.md")
 - [Perform AI prompt-chaining with Amazon Bedrock](sample-bedrock-prompt-chaining.md "sample-bedrock-prompt-chaining.md")
-- [Process high-volume messages from Amazon SQS
-  with Step Functions Express workflows](sample-project-express-high-volume-sqs.md "sample-project-express-high-volume-sqs.md")
+- [Process high-volume messages from Amazon SQS with Step Functions Express workflows](sample-project-express-high-volume-sqs.md "sample-project-express-high-volume-sqs.md")
 - [Perform selective checkpointing using Standard and Express workflows](sample-project-express-selective-checkpointing.md "sample-project-express-selective-checkpointing.md")
 - [Build an AWS CodeBuild project using Step Functions](sample-project-codebuild.md "sample-project-codebuild.md")
 - [Preprocess data and train a machine learning model with Amazon SageMaker AI](sample-preprocess-feature-transform.md "sample-preprocess-feature-transform.md")

@@ -21,10 +21,8 @@ For an introduction to using the _Inline Map state_, see the tutorial [Repeat ac
 - [Inline Map state fields](#map-state-inline-additional-fields "#map-state-inline-additional-fields")
 - [Deprecated fields](#map-state-inline-deprecated-fields "#map-state-inline-deprecated-fields")
 - [Inline Map state example (JSONPath)](#inline-map-state-examples "#inline-map-state-examples")
-- [Inline Map state example with
-  ItemSelector](#inline-map-state-example-params "#inline-map-state-example-params")
-- [Inline Map state
-  input and output processing](#inline-map-state-output "#inline-map-state-output")
+- [Inline Map state example with ItemSelector](#inline-map-state-example-params "#inline-map-state-example-params")
+- [Inline Map state input and output processing](#inline-map-state-output "#inline-map-state-output")
 
 ## Key concepts in this topic
 
@@ -303,9 +301,7 @@ When complete, the output of the `Map` state is a JSON array, where each
 item is the output of an iteration. In this case, this array contains the output of the
 `ship-val` Lambda function.
 
-## Inline Map state example with
-
-`ItemSelector`
+## Inline Map state example with `ItemSelector`
 
 Suppose that the `ship-val` Lambda function in the previous example also
 needs information about the shipment's courier. This information is in addition to the
@@ -369,9 +365,7 @@ its fields, see the following.
 - [ItemsPath (Map, JSONPath only)](input-output-itemspath.md "input-output-itemspath.md")
 - [Context object data for Map states](input-output-contextobject.md#contextobject-map "input-output-contextobject.md#contextobject-map")
 
-## Inline `Map` state
-
-input and output processing
+## Inline `Map` state input and output processing
 
 For a given `Map` state, [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath") selects a subset of the state's input.
 
@@ -397,8 +391,7 @@ For more information about Inline Map state inputs and outputs, see the
 following:
 
 - [Repeat actions with Inline Map](tutorial-map-inline.md "tutorial-map-inline.md")
-- [Inline Map state example with
-  ItemSelector](#inline-map-state-example-params "#inline-map-state-example-params")
+- [Inline Map state example with ItemSelector](#inline-map-state-example-params "#inline-map-state-example-params")
 - [Processing input and output in Step Functions](concepts-input-output-filtering.md "concepts-input-output-filtering.md")
 - [Context object data for Map states](input-output-contextobject.md#contextobject-map "input-output-contextobject.md#contextobject-map")
 - [Process data from a queue with a Map state in Step Functions](sample-map-state.md "sample-map-state.md")

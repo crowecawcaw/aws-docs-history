@@ -87,9 +87,7 @@ and returns these values, and the Boolean value of `continue`. The value of `con
 To see your `Iterate` function working, run it with numeric values. You can provide input values for your Lambda function that mimic an iteration to see what output
 you get with specific input values.
 
-#### To test your Lambda
-
-function
+#### To test your Lambda function
 
 1. In the **Configure test event** dialog box, choose **Create new test event**, and then type `TestIterator` for
    **Event name**.

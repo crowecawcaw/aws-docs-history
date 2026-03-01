@@ -11,19 +11,15 @@ a user, you can control access by using permissions in these categories.
 
 Apply to components of the API that do **not** act on a specific resource.
 
-[State
-Machine-Level
-Permissions](#concept-create-iam-advanced-state "#concept-create-iam-advanced-state")
+[State Machine-Level Permissions](#concept-create-iam-advanced-state "#concept-create-iam-advanced-state")
 
 Apply to all API components that act on a specific state machine.
 
-[Execution-Level
-Permissions](#concept-create-iam-advanced-execution "#concept-create-iam-advanced-execution")
+[Execution-Level Permissions](#concept-create-iam-advanced-execution "#concept-create-iam-advanced-execution")
 
 Apply to all API components that act on a specific execution.
 
-[Activity-Level
-Permissions](#concept-create-iam-advanced-activity "#concept-create-iam-advanced-activity")
+[Activity-Level Permissions](#concept-create-iam-advanced-activity "#concept-create-iam-advanced-activity")
 
 Apply to all API components that act on a specific activity or on a particular
 instance of an activity.
@@ -68,10 +64,7 @@ and `ValidateStateMachineDefinition`.
 
 ```
 
-## State
-
-Machine-Level
-Permissions
+## State Machine-Level Permissions
 
 This permission level applies to all API actions that act on a specific state machine. These API operations require the Amazon Resource Name (ARN) of the
 state machine as part of the request, such as `DeleteStateMachine`, `DescribeStateMachine`, `StartExecution`, and `ListExecutions`.
@@ -100,9 +93,7 @@ state machine as part of the request, such as `DeleteStateMachine`, `DescribeSta
 
 ```
 
-## Execution-Level
-
-Permissions
+## Execution-Level Permissions
 
 This permission level applies to all the API actions that act on a specific execution.
 These API operations require the ARN of the execution as part of the request, such as
@@ -129,9 +120,7 @@ These API operations require the ARN of the execution as part of the request, su
 
 ```
 
-## Activity-Level
-
-Permissions
+## Activity-Level Permissions
 
 This permission level applies to all the API actions that act on a specific activity
 or on a particular instance of it. These API operations require the ARN of the activity or the

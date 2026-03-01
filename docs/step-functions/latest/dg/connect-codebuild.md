@@ -73,8 +73,7 @@ the `Arn` field from `StartBuild` into a plural
 
 ## IAM policies for calling AWS CodeBuild
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
 
 _Resources_:
 
@@ -87,7 +86,7 @@ _Resources_:
  "sns:Publish"
  ],
  "Resource": [
- "arn:aws:sns:sa-east-1:`123456789012`:StepFunctionsSample-CodeBuildExecution1111-2222-3333-wJalrXUtnFEMI-SNSTopic-bPxRfiCYEXAMPLEKEY"
+ "arn:aws:sns:us-east-1:`123456789012`:StepFunctionsSample-CodeBuildExecution1111-2222-3333-wJalrXUtnFEMI-SNSTopic-bPxRfiCYEXAMPLEKEY"
  ],
  "Effect": "Allow"
  },
@@ -108,7 +107,7 @@ _Resources_:
  "events:DescribeRule"
  ],
  "Resource": [
- "arn:aws:events:sa-east-1:`123456789012`:rule/StepFunctionsGetEventForCodeBuildStartBuildRule"
+ "arn:aws:events:us-east-1:`123456789012`:rule/StepFunctionsGetEventForCodeBuildStartBuildRule"
  ],
  "Effect": "Allow"
  }

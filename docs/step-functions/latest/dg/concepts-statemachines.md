@@ -100,10 +100,8 @@ This section describes how state machine data is formatted and used in AWS Step 
 ###### Topics
 
 - [Data Format](#concepts-state-machine-data-format "#concepts-state-machine-data-format")
-- [State Machine
-  Input/Output](#concepts-state-machine-data-state-machine-input-output "#concepts-state-machine-data-state-machine-input-output")
-- [State
-  Input/Output](#concepts-state-machine-data-state-input-output "#concepts-state-machine-data-state-input-output")
+- [State Machine Input/Output](#concepts-state-machine-data-state-machine-input-output "#concepts-state-machine-data-state-machine-input-output")
+- [State Input/Output](#concepts-state-machine-data-state-input-output "#concepts-state-machine-data-state-input-output")
 
 ### Data Format
 
@@ -132,9 +130,7 @@ using any data type supported by JSON.
   on a subset of the input data by using [Input and Output
   Processing](concepts-input-output-filtering.md "concepts-input-output-filtering.md").
 
-### State Machine
-
-Input/Output
+### State Machine Input/Output
 
 You
 can give your initial input data to an AWS Step Functions state machine in one of two ways. You
@@ -165,9 +161,7 @@ or view and debug the executions in the Step Functions console. For more informa
 You should also consider quotas related to your state machine. For more information, see
 [Step Functions service quotas](service-quotas.md "service-quotas.md")
 
-### State
-
-Input/Output
+### State Input/Output
 
 Each state's input consists of JSON text from the preceding state or, for the
 `StartAt` state, the input into the execution. Certain flow-control

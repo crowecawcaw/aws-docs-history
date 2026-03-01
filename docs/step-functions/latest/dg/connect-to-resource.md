@@ -151,8 +151,7 @@ To see a list of what integrated services support waiting for a job to complete
 
 Service integrations that use the `.sync` or
 `.waitForTaskToken` patterns require additional IAM permissions.
-For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md").
+For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md").
 
 In some cases, you may want Step Functions to continue your workflow before the job is fully complete. You can achieve this in the same way as when using the [Wait for a Callback with Task Token](#connect-wait-token "#connect-wait-token") service integration pattern. To do this, pass a task token to your job, then return it using a
 [`SendTaskSuccess`](../apireference/API_SendTaskSuccess.md "../apireference/API_SendTaskSuccess.md") or
@@ -162,8 +161,7 @@ In some cases, you may want Step Functions to continue your workflow before the 
 
 Callback tasks provide a way to pause a workflow until a task token is returned. A task
 might need to wait for a human approval, integrate with a third party, or call legacy
-systems. For tasks like these, you can pause Step Functions until the workflow execution reaches the one year service quota (see, [Quotas related to state
-throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling")), and wait for an external
+systems. For tasks like these, you can pause Step Functions until the workflow execution reaches the one year service quota (see, [Quotas related to state throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling")), and wait for an external
 process or workflow to complete. For these situations Step Functions allows you to pass a task token
 to the AWS SDK service integrations, and also to some Optimized service integrations. The
 task will pause until it receives that task token back with a [`SendTaskSuccess`](../apireference/API_SendTaskSuccess.md "../apireference/API_SendTaskSuccess.md") or [`SendTaskFailure`](../apireference/API_SendTaskFailure.md "../apireference/API_SendTaskFailure.md")
@@ -194,8 +192,7 @@ To see a list of what integrated services support waiting for a task token
 
 - [Task Token Example](#connect-wait-example "#connect-wait-example")
 - [Get a Token from the Context object](#wait-token-contextobject "#wait-token-contextobject")
-- [Configure a Heartbeat Timeout for a Waiting
-  Task](#wait-token-hearbeat "#wait-token-hearbeat")
+- [Configure a Heartbeat Timeout for a Waiting Task](#wait-token-hearbeat "#wait-token-hearbeat")
 
 ### Task Token Example
 
@@ -240,8 +237,7 @@ state.
 ###### Note
 
 To avoid waiting indefinitely if a process fails to send the task token with
-`SendTaskSuccess` or `SendTaskFailure`, see [Configure a Heartbeat Timeout for a Waiting
-Task](#wait-token-hearbeat "#wait-token-hearbeat").
+`SendTaskSuccess` or `SendTaskFailure`, see [Configure a Heartbeat Timeout for a Waiting Task](#wait-token-hearbeat "#wait-token-hearbeat").
 
 ### Get a Token from the Context object
 
@@ -316,17 +312,13 @@ a part of the Amazon SQS message.
 }
 ```
 
-For more information about the Context object, see [Accessing execution data from the Context object
-in Step Functions](input-output-contextobject.md "input-output-contextobject.md") in the
+For more information about the Context object, see [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md") in the
 [Processing input and output](concepts-input-output-filtering.md "concepts-input-output-filtering.md") section in this guide.
 
-### Configure a Heartbeat Timeout for a Waiting
-
-Task
+### Configure a Heartbeat Timeout for a Waiting Task
 
 A task that is waiting for a task token will wait until the execution reaches the one
-year service quota (see, [Quotas related to state
-throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling")). To avoid stuck executions you
+year service quota (see, [Quotas related to state throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling")). To avoid stuck executions you
 can configure a heartbeat timeout interval in your state machine definition. Use the [HeartbeatSeconds](state-task.md "state-task.md") field
 to specify the timeout interval.
 

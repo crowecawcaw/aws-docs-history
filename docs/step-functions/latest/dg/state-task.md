@@ -62,8 +62,7 @@ Step Functions supports the following task types that you can specify in a Task 
 - [A supported AWS service](#state-task-connector "#state-task-connector")
 - [An HTTP Task](call-https-apis.md "call-https-apis.md")
 
-You specify a task type by providing its ARN in the `Resource` field of a Task state definition. The following example shows the syntax of the `Resource` field. All Task types except the one that invokes an HTTPS API, use the following syntax. For information about syntax of the HTTP Task, see [Call HTTPS APIs in Step Functions
-workflows](call-https-apis.md "call-https-apis.md").
+You specify a task type by providing its ARN in the `Resource` field of a Task state definition. The following example shows the syntax of the `Resource` field. All Task types except the one that invokes an HTTPS API, use the following syntax. For information about syntax of the HTTP Task, see [Call HTTPS APIs in Step Functions workflows](call-https-apis.md "call-https-apis.md").
 
 In your Task state definition, replace the italicized text in the following syntax with the AWS resource-specific information.
 
@@ -321,10 +320,8 @@ is run when the `Task` state is complete.
 The following examples show how you can specify the Task state definition based on your requirement.
 
 - [Specifying Task state timeouts and heartbeat intervals](#task-state-example-timeouts "#task-state-example-timeouts")
-  - [Static timeout and heartbeat
-    notification example](#task-state-example-static "#task-state-example-static")
-  - [Dynamic task timeout and heartbeat
-    notification example](#task-state-example-dynamic "#task-state-example-dynamic")
+  - [Static timeout and heartbeat notification example](#task-state-example-static "#task-state-example-static")
+  - [Dynamic task timeout and heartbeat notification example](#task-state-example-dynamic "#task-state-example-dynamic")
 
 - [Using Credentials field](#task-state-example-credentials "#task-state-example-credentials")
   - [Specifying hard-coded IAM role ARN](#example-credentials-specify-role-arn "#example-credentials-specify-role-arn")
@@ -337,9 +334,7 @@ It's a good practice to set a timeout value and a heartbeat interval for long-ru
 activities. This can be done by specifying the timeout and heartbeat values, or by
 setting them dynamically.
 
-#### Static timeout and heartbeat
-
-notification example
+#### Static timeout and heartbeat notification example
 
 When `HelloWorld` completes, the next state (here called
 `NextState`) will be run.
@@ -357,9 +352,7 @@ notifications in intervals of 60 seconds, the task is marked as `failed`.
 }
 ```
 
-#### Dynamic task timeout and heartbeat
-
-notification example
+#### Dynamic task timeout and heartbeat notification example
 
 In this example, when the AWS Glue job completes, the next state will be run.
 

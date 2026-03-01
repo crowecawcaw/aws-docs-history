@@ -32,9 +32,7 @@ The following properties are the same for all versions of a state machine:
   can
   differ between two given versions or revisions. These properties include [State machine definition](../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-definition "../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-definition"), [IAM role](../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-roleArn "../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-roleArn"), [tracing configuration](../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-tracingConfiguration "../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-tracingConfiguration"), and [logging configuration](../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-loggingConfiguration "../apireference/API_UpdateStateMachine.md#StepFunctions-UpdateStateMachine-request-loggingConfiguration").
 
-## Publishing a state machine version
-
-(Console)
+## Publishing a state machine version (Console)
 
 You can publish up to 1000 versions of a state machine. To request an increase
 to this soft limit, use the **Support Center** page in the [AWS Management Console](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). You can manually delete unused versions from the console or by invoking
@@ -61,9 +59,7 @@ the [DeleteStateMachineVersion](../apireference/API_DeleteStateMachineVersion.md
 
 When you publish a new version of your state machine, Step Functions assigns it a version number. Version numbers start at 1 and increase monotonically for each new version. Version numbers aren't reused for a given state machine. If you delete version 10 of your state machine and then publish a new version, Step Functions publishes it as version 11.
 
-## Managing versions with Step Functions API
-
-operations
+## Managing versions with Step Functions API operations
 
 Step Functions provides the following API operations to publish and manage state machine
 versions:
@@ -98,9 +94,7 @@ of`arn:aws:states:`region`:`account-id`:stateMachine:`myStateMachine`:1`.
 
 When you publish a new version of your state machine, Step Functions assigns it a version number. Version numbers start at 1 and increase monotonically for each new version. Version numbers aren't reused for a given state machine. If you delete version 10 of your state machine and then publish a new version, Step Functions publishes it as version 11.
 
-## Running a state machine version from the
-
-console
+## Running a state machine version from the console
 
 To start using state machine versions, you must first publish a version from the current
 state machine [revision](concepts-cd-aliasing-versioning.md#statemachinerev "concepts-cd-aliasing-versioning.md#statemachinerev"). To publish a version, use the Step Functions console or invoke the [PublishStateMachineVersion](../apireference/API_PublishStateMachineVersion.md "../apireference/API_PublishStateMachineVersion.md") API action. You can also invoke
@@ -121,8 +115,7 @@ state machine for the execution. For information about how Step Functions associ
    console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/"), and then choose an existing state machine
    that
    you've published one or more versions for. To learn how to
-   publish a version, see [Publishing a state machine version
-   (Console)](#procedure-create-versions "#procedure-create-versions").
+   publish a version, see [Publishing a state machine version (Console)](#procedure-create-versions "#procedure-create-versions").
 2. On the **State machine detail** page, choose the
    **Versions** tab.
 3. In the **Versions** section, do the following:

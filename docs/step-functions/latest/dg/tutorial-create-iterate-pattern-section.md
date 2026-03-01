@@ -12,9 +12,7 @@ exceeding service quotas for AWS Step Functions, AWS Lambda, or other AWS servic
 Before you begin, go through the [Creating a Step Functions state machine that uses Lambda](tutorial-creating-lambda-state-machine.md "tutorial-creating-lambda-state-machine.md") tutorial to ensure
 you are familiar with using Lambda and Step Functions together.
 
-## Step 1: Create a Lambda function to
-
-iterate a count
+## Step 1: Create a Lambda function to iterate a count
 
 By using a Lambda function you can track the number of iterations of a loop in your
 state machine. The following Lambda function receives input values for
@@ -27,9 +25,7 @@ Your state machine then implements a `Choice` state that executes some
 application logic if `continue` is `true`, or exits if it is
 `false`.
 
-### To create the Lambda
-
-function
+### To create the Lambda function
 
 1. Sign in to the [Lambda
    console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home"), and then choose **Create

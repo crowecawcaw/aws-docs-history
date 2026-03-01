@@ -1,6 +1,4 @@
-# Restarting state machine executions with redrive in
-
-Step Functions
+# Restarting state machine executions with redrive in Step Functions
 
 You can use redrive to restart executions of Standard Workflows that didn't complete successfully in the last 14 days. These include failed, aborted, or timed out executions.
 
@@ -27,9 +25,7 @@ is reset to 0. For more information about state machine level timeout, see `Time
 Execution redrives are considered as state transitions. For information
 about how state transitions affect billing, see [Step Functions Pricing](https://aws.amazon.com/step-functions/pricing/ "https://aws.amazon.com/step-functions/pricing/").
 
-## Redrive eligibility for
-
-unsuccessful executions
+## Redrive eligibility for unsuccessful executions
 
 You can redrive executions if your original execution attempt meets the
 following conditions:
@@ -42,17 +38,14 @@ following conditions:
   can redrive a given execution. This period starts from the day a
   state machine completes its execution.
 - The workflow execution hasn't exceeded the maximum open time of one year. For
-  information about state machine execution quotas, see [Quotas related to state
-  machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
+  information about state machine execution quotas, see [Quotas related to state machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
 - The execution event history count is less than 24,999. Redriven
   executions append their event history to the existing event history. Make sure
   your workflow execution contains less than 24,999 events to accommodate the
   `ExecutionRedriven` history event and at least one other history
   event.
 
-## Redrive behavior of individual
-
-states
+## Redrive behavior of individual states
 
 Depending on the state that failed in your workflow, the redrive
 behavior for all unsuccessful states varies. The following table describes the
@@ -70,9 +63,7 @@ redrive behavior for all the states.
 | [Inline Map state](state-map-inline.md "state-map-inline.md")                   | Reschedules and redrives only those iterations that<br>failed or aborted.<br>If the state failed because of a `States.DataLimitExceeded` error, the Inline Map state is rerun, including the<br>iterations that were successful in the original execution<br>attempt.                                                                                                                                                                                                |
 | [Distributed Map<br>state](state-map-distributed.md "state-map-distributed.md") | redrives the unsuccessful child workflow executions<br>in a [Map Run](concepts-examine-map-run.md "concepts-examine-map-run.md"). For<br>more information, see [Redriving Map Runs in Step Functions executions](redrive-map-run.md "redrive-map-run.md").<br>If the state failed because of a `States.DataLimitExceeded` error, the Distributed Map state is rerun. This includes the<br>child workflows that were successful in the original execution<br>attempt. |
 
-## IAM permission to redrive an
-
-execution
+## IAM permission to redrive an execution
 
 Step Functions needs appropriate permission to redrive an execution. The
 following IAM policy example grants the least privilege required to your state machine
@@ -97,9 +88,7 @@ for redriving an execution. Remember to replace the `italicized` text with your 
 For an example of the permission you need to redrive a Map Run, see
 [Example of IAM policy for redriving a Distributed Map](iam-policies-eg-dist-map.md#iam-policy-redrive-dist-map "iam-policies-eg-dist-map.md#iam-policy-redrive-dist-map").
 
-## Redriving executions in
-
-console
+## Redriving executions in console
 
 You can redrive eligible
 executions from the Step Functions console.
@@ -148,9 +137,7 @@ page.
 
 On this page, you can view the results of the redriven execution. For example, in the [Execution summary](concepts-view-execution-details.md#exec-details-intf-exec-summ "concepts-view-execution-details.md#exec-details-intf-exec-summ") section, you can see **Redrive count**, which represents the number of times an execution has been redriven. In the **Events** section, you can see the redrive related execution events appended to the events of the original execution attempt. For example, the `ExecutionRedriven` event.
 
-## Redriving executions using
-
-API
+## Redriving executions using API
 
 You can redrive [eligible](#redrive-eligibility "#redrive-eligibility")
 executions using the [RedriveExecution](../apireference/API_RedriveExecution.md "../apireference/API_RedriveExecution.md") API. This API restarts unsuccessful executions of Standard
@@ -163,9 +150,7 @@ unsuccessful state machine execution. Remember to replace the `italicized` text 
 aws stepfunctions redrive-execution --execution-arn arn:aws:states:us-east-2:`account-id`:execution:`myStateMachine`:`foo`
 ```
 
-## Examining redriven
-
-executions
+## Examining redriven executions
 
 You can examine a redriven execution in the console or using the APIs:
 [GetExecutionHistory](../apireference/API_GetExecutionHistory.md "../apireference/API_GetExecutionHistory.md") and [DescribeExecution](../apireference/API_DescribeExecution.md "../apireference/API_DescribeExecution.md").
@@ -206,9 +191,7 @@ In the AWS CLI, run the following command.
 aws stepfunctions describe-execution --execution-arn arn:aws:states:us-east-2:`account-id`:execution:`myStateMachine`:`foo`
 ```
 
-## Retry behavior of redriven
-
-executions
+## Retry behavior of redriven executions
 
 If your redriven execution reruns a [Task workflow state](state-task.md "state-task.md"), [Parallel workflow state](state-parallel.md "state-parallel.md"), or [Inline Map state](state-map-inline.md "state-map-inline.md"), for which you have defined [retries](concepts-error-handling.md#error-handling-retrying-after-an-error "concepts-error-handling.md#error-handling-retrying-after-an-error"), the retry attempt count for these states is reset to 0 to allow for the maximum number of attempts on redrive. For a redriven execution, you can track individual retry attempts of these states using the console.
 

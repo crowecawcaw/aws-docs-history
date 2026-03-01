@@ -54,9 +54,7 @@ After you have a state machine, and have created the Amazon S3 bucket and config
 
 You must configure EventBridge rule in the same AWS Region as the Amazon S3 bucket.
 
-### To create the
-
-rule
+### To create the rule
 
 1. Navigate to the [Amazon EventBridge console](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/"), choose **Create rule**.
 

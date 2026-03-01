@@ -23,8 +23,7 @@ Standard and Express workflow types, see [Standard and Express console experienc
 ## Step 1: Create and test the required Lambda functions
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home")
-   and then perform steps 1 through 4 in the [Step 1: Create a Lambda
-   function](tutorial-creating-lambda-state-machine.md#create-lambda-function "tutorial-creating-lambda-state-machine.md#create-lambda-function") section. Make sure to name the Lambda
+   and then perform steps 1 through 4 in the [Step 1: Create a Lambda function](tutorial-creating-lambda-state-machine.md#create-lambda-function "tutorial-creating-lambda-state-machine.md#create-lambda-function") section. Make sure to name the Lambda
    function `GetListOfFruits`.
 2. After you create your Lambda function, copy the function's Amazon Resource Name (ARN)
    displayed in the upper-right corner of the page. To copy the ARN, click the copy icon to copy the Lambda function's Amazon Resource Name. The following is an example ARN, where

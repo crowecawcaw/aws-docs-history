@@ -294,9 +294,7 @@ service calls using Step Functions or view the documentation
 for
 those services.
 
-## Step 2: Provide the Mock Configuration File to Step Functions
-
-Local
+## Step 2: Provide the Mock Configuration File to Step Functions Local
 
 You can provide the mock configuration file to Step Functions Local
 in

@@ -1,14 +1,10 @@
-# Handling error conditions in a Step Functions
-
-state machine
+# Handling error conditions in a Step Functions state machine
 
 In this tutorial, you create an AWS Step Functions state machine with a **Task** state that invokes an example Lambda function built to throw a custom error.
 
 Tasks are one of the [Fallback states](concepts-error-handling.md#error-handling-fallback-states "concepts-error-handling.md#error-handling-fallback-states"), for which you can configure a `Catch` field. When errors are received by the integration, next steps are chosen by the catch field based on the error name.
 
-## Step 1: Create a Lambda
-
-function that throws an error
+## Step 1: Create a Lambda function that throws an error
 
 Use a Lambda function to simulate an error condition.
 
@@ -36,9 +32,7 @@ export const handler = async () => {
 
 ```
 
-## Step 2: Test your Lambda
-
-function
+## Step 2: Test your Lambda function
 
 Before creating a state machine, verify your Lambda function throws your `CustomError` when invoked.
 
@@ -51,9 +45,7 @@ You now have a Lambda function ready to throw a custom error.
 
 In the next step, you will set up a state machine to catch and retry on that error.
 
-## Step 3: Create your state machine
-
-machine
+## Step 3: Create your state machine machine
 
 Use the Step Functions console to create a state machine that uses a [Task workflow state](state-task.md "state-task.md")
 with a `Catch` configuration. The state machine will invoke the Lambda function, which you've built to simulate throwing an error when the function is invoked. Step Functions retries the function using exponential backoff between retries.

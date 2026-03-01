@@ -1,6 +1,4 @@
-# Call HTTPS APIs in Step Functions
-
-workflows
+# Call HTTPS APIs in Step Functions workflows
 
 An HTTP Task is a type of [Task workflow state](state-task.md "state-task.md") state that you can use to call HTTPS APIs in your workflows. The API can be
 public, such as third-party SaaS applications like Stripe or Salesforce. You can also call
@@ -25,15 +23,12 @@ HTTP Task currently only supports public domain names with publicly trusted cert
 - [Connectivity for an HTTP Task](#http-task-authentication "#http-task-authentication")
 - [HTTP Task definition](#connect-http-task-definition "#connect-http-task-definition")
 - [HTTP Task fields](#connect-http-task-fields "#connect-http-task-fields")
-- [Merging EventBridge connection and
-  HTTP Task definition data](#http-task-data-merge "#http-task-data-merge")
+- [Merging EventBridge connection and HTTP Task definition data](#http-task-data-merge "#http-task-data-merge")
 - [Applying URL-encoding on request body](#url-encode-request-body "#url-encode-request-body")
-- [IAM permissions to run an
-  HTTP Task](#connect-http-task-permissions "#connect-http-task-permissions")
+- [IAM permissions to run an HTTP Task](#connect-http-task-permissions "#connect-http-task-permissions")
 - [HTTP Task example](#connect-http-task-example "#connect-http-task-example")
 - [Testing an HTTP Task](#http-task-test "#http-task-test")
-- [Unsupported HTTP Task
-  responses](#unsupported-http-task-responses "#unsupported-http-task-responses")
+- [Unsupported HTTP Task responses](#unsupported-http-task-responses "#unsupported-http-task-responses")
 - [Connection errors](#connect-http-task-errors "#connect-http-task-errors")
 
 ## Connectivity for an HTTP Task
@@ -57,8 +52,7 @@ When you create a connection, EventBridge creates a [_secret_](../../../secretsm
 the connection and authorization parameters in an encrypted form. To successfully create
 or update a connection, you must use an AWS account that has permission to use
 Secrets Manager. For more information about the IAM permissions your state
-machine needs to access an EventBridge connection, see [IAM permissions to run an
-HTTP Task](#connect-http-task-permissions "#connect-http-task-permissions").
+machine needs to access an EventBridge connection, see [IAM permissions to run an HTTP Task](#connect-http-task-permissions "#connect-http-task-permissions").
 
 The following image shows how Step Functions handles authorization for
 HTTPS API calls using an EventBridge connection. The
@@ -258,8 +252,7 @@ are present in the definition and connection,
 Step Functions uses the corresponding values specified
 in the EventBridge connection for those headers. For
 more information about how Step Functions performs data
-merging, see [Merging EventBridge connection and
-HTTP Task definition data](#http-task-data-merge "#http-task-data-merge").
+merging, see [Merging EventBridge connection and HTTP Task definition data](#http-task-data-merge "#http-task-data-merge").
 
 The following example specifies a header that will be included
 in an HTTPS API call:
@@ -367,8 +360,7 @@ are present in the definition and connection,
 Step Functions uses the corresponding values specified
 in the EventBridge connection for those headers. For
 more information about how Step Functions performs data
-merging, see [Merging EventBridge connection and
-HTTP Task definition data](#http-task-data-merge "#http-task-data-merge").
+merging, see [Merging EventBridge connection and HTTP Task definition data](#http-task-data-merge "#http-task-data-merge").
 
 `Transform` (Optional)
 
@@ -471,9 +463,7 @@ requires `form-urlencoded` request bodies, you must
 specify URL-encoding for your request body data. For more
 information, see [Applying URL-encoding on request body](#url-encode-request-body "#url-encode-request-body").
 
-## Merging EventBridge connection and
-
-HTTP Task definition data
+## Merging EventBridge connection and HTTP Task definition data
 
 When you invoke an HTTP Task, you can specify data in your EventBridge
 connection and your HTTP Task definition. This data includes `Headers`, `QueryParameters`, and `RequestBody` parameters. Before
@@ -699,9 +689,7 @@ Step Functions encodes this array to the following string.
 array[]=a&array[]=b&array[]=c&array[]=d
 ```
 
-## IAM permissions to run an
-
-HTTP Task
+## IAM permissions to run an HTTP Task
 
 Your state machine execution role must have the following permissions for an HTTP Task to call an
 HTTPS API:
@@ -886,8 +874,7 @@ expected.
 
 Refer Step 4 if you're testing the task in an existing state machine. 3. In the [Design mode](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode") of Workflow Studio, configure an
 HTTP Task visually. Or choose the Code mode to copy-paste the state machine
-definition from your local development environment. 4. In Design mode, choose **Test state** in the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel of
+definition from your local development environment. 4. In Design mode, choose **Test state** in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel of
 Workflow Studio. 5. In the **Test state** dialog box, do the following:
 
     1. For **Execution role**, choose an execution role to
@@ -936,9 +923,7 @@ Workflow Studio. 5. In the **Test state** dialog box, do the following:
     9. If the test succeeds, you can see your HTTP details under the
      **HTTP request & response** tab.
 
-## Unsupported HTTP Task
-
-responses
+## Unsupported HTTP Task responses
 
 An HTTP Task fails with the `States.Runtime` error if one of the following conditions is
 true for the response returned:

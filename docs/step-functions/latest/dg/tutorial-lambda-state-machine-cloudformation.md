@@ -15,9 +15,7 @@ Before you use the [example
 templates](#lambda-state-machine-cfn-step-2 "#lambda-state-machine-cfn-step-2"), you should understand how to declare the different parts of an CloudFormation
 template.
 
-### To create an IAM
-
-role for Lambda
+### To create an IAM role for Lambda
 
 Define the trust policy associated with the IAM role for the Lambda function. The
 following examples define a trust policy using either YAML or JSON.
@@ -58,9 +56,7 @@ JSON
               }
 ```
 
-### To create a Lambda
-
-function
+### To create a Lambda function
 
 Define the following properties for a Lambda function that will print the message
 `Hello World`.
@@ -108,9 +104,7 @@ JSON
           },
 ```
 
-### To create an IAM role for the
-
-state machine execution
+### To create an IAM role for the state machine execution
 
 Define the trust policy associated with the IAM role for the state machine
 execution.
@@ -242,16 +236,12 @@ JSON
           }
 ```
 
-## Step 2: Use the CloudFormation template to create a
-
-Lambda State Machine
+## Step 2: Use the CloudFormation template to create a Lambda State Machine
 
 Once you understand the components of the CloudFormation template, you can put them together
 and use the template to create an CloudFormation stack.
 
-### To create the Lambda state
-
-machine
+### To create the Lambda state machine
 
 1. Copy the following example data to a file named `MyStateMachine.yaml`
    for the YAML example, or `MyStateMachine.json` for JSON.
@@ -455,15 +445,11 @@ CloudFormation begins to create the `MyStateMachine` stack and displays the
 displays the **CREATE_COMPLETE** status. 7. (Optional) To display the resources in your stack, select the stack and choose the
 **Resources** tab.
 
-## Step 3: Start a State Machine
-
-execution
+## Step 3: Start a State Machine execution
 
 After you create your Lambda state machine, you can start its execution.
 
-### To start the state machine
-
-execution
+### To start the state machine execution
 
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home") and
    choose the name of the state machine that you created using CloudFormation.

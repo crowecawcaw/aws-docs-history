@@ -13,9 +13,7 @@ For more information, see:
   Lambda is well-suited for `Task` states, because Lambda functions are _serverless_ and easy to write. You can write code in the
   AWS Management Console or your favorite editor. AWS handles the details of providing a computing environment for your function and running it.
 
-## Step 1: Create a Lambda
-
-function
+## Step 1: Create a Lambda function
 
 Your Lambda function receives event data and returns a greeting message.
 
@@ -51,9 +49,7 @@ your function. You add input data for this function later, when you [start a new
 execution](#start-lambda-function "#start-lambda-function"). The `callback` method returns the assembled
 greeting from your function. 7. Choose **Deploy**.
 
-## Step 2: Test the Lambda
-
-function
+## Step 2: Test the Lambda function
 
 Test your Lambda function to see it in operation.
 
@@ -71,9 +67,7 @@ The `"who"` entry corresponds to the `event.who`
 field in your Lambda function, completing the greeting. You will input the same
 input data when you run your state machine. 4. Choose **Save** and then choose **Test**. 5. To review the test results, under **Execution result**, expand **Details**.
 
-## Step 3: Create a state
-
-machine
+## Step 3: Create a state machine
 
 Use the Step Functions console to create a state machine that invokes
 the Lambda function that you created in [Step 1](#create-lambda-function "#create-lambda-function").

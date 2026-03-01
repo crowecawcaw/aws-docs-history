@@ -186,8 +186,7 @@ As you drag and drop states from the **Action** and **Flow** tabs onto the canva
 the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") definition of your workflow in real-time. You can edit
 this definition as required.
 
-1. (Optional) Choose **Definition** on the [Inspector
-   panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition")
+1. (Optional) Choose **Definition** on the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition")
    panel and view the state machine definition.
 
 ###### Tip

@@ -32,9 +32,7 @@ To deploy a sample serverless application that starts a Step Functions workflow
 using AWS CDK with TypeScript, see [Deploy with AWS CDK](https://catalog.workshops.aws/stepfunctions/iac/deploy-with-cdk "https://catalog.workshops.aws/stepfunctions/iac/deploy-with-cdk")
 in _The AWS Step Functions Workshop_.
 
-## Step 1: Set up your
-
-AWS CDK project
+## Step 1: Set up your AWS CDK project
 
 1. In your home directory, or another directory if you prefer, run the following
    command to create a directory for your new AWS CDK app.
@@ -120,18 +118,14 @@ C#
 cdk init --language csharp
 ```
 
-## Step 2: Use AWS CDK to
-
-create a state machine
+## Step 2: Use AWS CDK to create a state machine
 
 First, we'll present the individual pieces of code that define the
 Lambda function and the Step Functions state machine. Then, we'll
 explain how to put them together in your AWS CDK app. Finally, you'll see
 how to synthesize and deploy these resources.
 
-### To create a
-
-Lambda function
+### To create a Lambda function
 
 The following AWS CDK code defines the Lambda function,
 providing its source code inline.
@@ -280,9 +274,7 @@ var stateMachine = new StateMachine(this, "MyStateMachine", new StateMachineProp
 });
 ```
 
-### To build and deploy the
-
-AWS CDK app
+### To build and deploy the AWS CDK app
 
 In your newly created AWS CDK project, edit the file that contains
 the stack's definition to look like the following example code. You'll recognize the
@@ -514,15 +506,11 @@ app.synth();
    account, issue `cdk deploy`. You'll be asked to approve the IAM
    policies the AWS CDK has generated.
 
-## Step 3: Start a state machine
-
-execution
+## Step 3: Start a state machine execution
 
 After you create your state machine, you can start its execution.
 
-### To start the state machine
-
-execution
+### To start the state machine execution
 
 1. Open the [Step Functions
    console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home") and choose the name of the state machine that you created

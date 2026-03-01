@@ -25,9 +25,7 @@ With the AWS CDK - Prerequisites](../../../cdk/latest/guide/getting_started.md#g
 npm install -g aws-cdk
 ```
 
-## Step 1: Set Up Your
-
-AWS CDK Project
+## Step 1: Set Up Your AWS CDK Project
 
 First, create a directory for your new AWS CDK app and initialize the project.
 
@@ -198,10 +196,7 @@ Add the following to `import` inside
 "github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 ```
 
-## Step 2: Use the AWS CDK
-
-to create an API Gateway REST API with Synchronous Express State Machine backend
-integration
+## Step 2: Use the AWS CDK to create an API Gateway REST API with Synchronous Express State Machine backend integration
 
 First, we'll present the individual pieces of code that define the Synchronous Express
 State Machine and the API Gateway REST API, then explain how to put them together into your
@@ -212,9 +207,7 @@ AWS CDK app. Then you'll see how to synthesize and deploy these resources.
 The State Machine that we will show here will be a simple State Machine with a
 `Pass` state.
 
-### To
-
-create an Express State Machine
+### To create an Express State Machine
 
 This is the AWS CDK code that defines a simple state machine with a
 `Pass` state.
@@ -309,9 +302,7 @@ You can see in this short snippet:
   `StepFunctionsRestApi` will only allow a Synchronous Express
   state machine.
 
-### To create
-
-the API Gateway REST API using `StepFunctionsRestApi` construct
+### To create the API Gateway REST API using `StepFunctionsRestApi` construct
 
 We will use `StepFunctionsRestApi` construct to create the API Gateway REST
 API with required permissions and default input/output mapping.
@@ -363,9 +354,7 @@ awsapigateway.NewStepFunctionsRestApi(stack, jsii.String("StepFunctionsRestApi")
 })
 ```
 
-### To build and deploy
-
-the AWS CDK app
+### To build and deploy the AWS CDK app
 
 In the AWS CDK project you created, edit the file containing the definition of the
 stack to look like the code below. You'll recognize the definitions of the Step Functions
@@ -630,16 +619,12 @@ To actually deploy the Amazon API Gateway and the AWS Step Functions state machi
 account, issue `cdk deploy`. You'll be asked to approve the IAM
 policies the AWS CDK has generated.
 
-## Step 3: Test the
-
-API Gateway
+## Step 3: Test the API Gateway
 
 After you create your API Gateway REST API with Synchronous Express State Machine as the
 backend integration, you can test the API Gateway.
 
-### To test the
-
-deployed API Gateway using API Gateway console
+### To test the deployed API Gateway using API Gateway console
 
 1. Open the [Amazon API Gateway
    console](https://console.aws.amazon.com/apigateway/ "https://console.aws.amazon.com/apigateway/") and sign in.
@@ -694,9 +679,7 @@ key and during testing provide the wrong key to fail the State Machine execution
 and generate an error message in the **Response body**
 output.
 
-### To test the deployed
-
-API using cURL
+### To test the deployed API using cURL
 
 1. Open a terminal window.
 2. Copy the following cURL command and paste it into the terminal window,
@@ -726,9 +709,7 @@ key and during testing provide the wrong key to fail the State Machine execution
 and generate an error message in the **Response Body**
 output.
 
-## Step 4: Clean
-
-Up
+## Step 4: Clean Up
 
 When you're done trying out your API Gateway, you can tear down both the state machine and
 the API Gateway using the AWS CDK. Issue `cdk destroy` in your app's main

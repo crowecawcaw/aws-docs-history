@@ -50,8 +50,7 @@ Make sure to copy the name and Amazon Resource Name of this state machine in a t
         }
       ```
 
-6. (Optional) Choose **Definition** on the [Inspector
-   panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel to view the automatically-generated [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) definition of your workflow.
+6. (Optional) Choose **Definition** on the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel to view the automatically-generated [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) definition of your workflow.
 
 ###### Tip
 

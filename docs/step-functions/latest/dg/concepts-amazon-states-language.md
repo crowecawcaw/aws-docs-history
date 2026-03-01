@@ -15,9 +15,7 @@ using Amazon States Language, see [Getting Started](getting-started.md "getting-
 
 If you define your state machines outside the Step Functions' console, such as in an editor of your choice, you must save your state machine definitions with the extension _.asl.json_.
 
-## Example Amazon States Language
-
-Specification (JSONata)
+## Example Amazon States Language Specification (JSONata)
 
 ```
 {

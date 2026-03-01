@@ -1,6 +1,4 @@
-# Accessing execution data from the Context object
-
-in Step Functions
+# Accessing execution data from the Context object in Step Functions
 
 ###### Managing state and transforming data
 

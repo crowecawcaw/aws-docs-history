@@ -16,8 +16,7 @@ handle the failed execution.
 
 ###### Practical examples for handling errors
 
-To deploy an example of a workflow that includes error handling, see [Handling error conditions in a Step Functions
-state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md") tutorial in this guide, and [Error Handling](https://catalog.workshops.aws/stepfunctions/handling-errors "https://catalog.workshops.aws/stepfunctions/handling-errors") in _The AWS Step Functions Workshop_.
+To deploy an example of a workflow that includes error handling, see [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md") tutorial in this guide, and [Error Handling](https://catalog.workshops.aws/stepfunctions/handling-errors "https://catalog.workshops.aws/stepfunctions/handling-errors") in _The AWS Step Functions Workshop_.
 
 ## Error names
 
@@ -122,9 +121,7 @@ must be an array of objects known as _retriers_. An individual retrier represent
 
 When one of these states reports an error and there's a `Retry` field, Step Functions scans through the retriers in the order listed in the array. When the error name appears in the value of a retrier's `ErrorEquals` field, the state machine makes retry attempts as defined in the `Retry` field.
 
-If your redriven execution reruns a [Task workflow state](state-task.md "state-task.md"), [Parallel workflow state](state-parallel.md "state-parallel.md"), or [Inline Map state](state-map-inline.md "state-map-inline.md"), for which you have defined retries, the retry attempt count for these states is reset to 0 to allow for the maximum number of attempts on redrive. For a redriven execution, you can track individual retry attempts of these states using the console. For more information, see [Retry behavior of redriven
-executions](redrive-executions.md#redrive-retry-behavior "redrive-executions.md#redrive-retry-behavior") in [Restarting state machine executions with redrive in
-Step Functions](redrive-executions.md "redrive-executions.md").
+If your redriven execution reruns a [Task workflow state](state-task.md "state-task.md"), [Parallel workflow state](state-parallel.md "state-parallel.md"), or [Inline Map state](state-map-inline.md "state-map-inline.md"), for which you have defined retries, the retry attempt count for these states is reset to 0 to allow for the maximum number of attempts on redrive. For a redriven execution, you can track individual retry attempts of these states using the console. For more information, see [Retry behavior of redriven executions](redrive-executions.md#redrive-retry-behavior "redrive-executions.md#redrive-retry-behavior") in [Restarting state machine executions with redrive in Step Functions](redrive-executions.md "redrive-executions.md").
 
 A retrier contains the following
 fields:
@@ -372,9 +369,7 @@ the retry policy fails to resolve the error, Step Functions applies the
 matching catcher
 transition.
 
-### Cause payloads and service
-
-integrations
+### Cause payloads and service integrations
 
 A catcher returns a string payload as an output. When working with service
 integrations such as Amazon Athena or AWS CodeBuild, you may want to convert the
@@ -403,8 +398,7 @@ defined in the state machine to occur.
 This is a definition of a Node.js Lambda function that always fails, returning the
 message `error`. In the state machine examples that follow, this Lambda
 function is named `FailFunction`. For information about creating a Lambda
-function, see [Step 1: Create a Lambda
-function](tutorial-creating-lambda-state-machine.md#create-lambda-function "tutorial-creating-lambda-state-machine.md#create-lambda-function") section.
+function, see [Step 1: Create a Lambda function](tutorial-creating-lambda-state-machine.md#create-lambda-function "tutorial-creating-lambda-state-machine.md#create-lambda-function") section.
 
 ```
 exports.handler = (event, context, callback) => {
@@ -425,9 +419,7 @@ exports.handler = (event, context, callback) => {
 
 When you create the Lambda function for the examples, remember to set the `Timeout` value in the advanced settings to 11 seconds.
 
-### Handling a failure
-
-using Retry
+### Handling a failure using Retry
 
 This state machine uses a `Retry` field to retry a function that fails
 and outputs the error name `HandledError`.
@@ -485,9 +477,7 @@ matches any error that a Lambda function outputs.
 Tasks that reference a Lambda function should handle Lambda
 service exceptions. For more information, see [Handle transient Lambda service exceptions](sfn-best-practices.md#bp-lambda-serviceexception "sfn-best-practices.md#bp-lambda-serviceexception") in Best Practices.
 
-### Handling a failure
-
-using Catch
+### Handling a failure using Catch
 
 This example uses a `Catch` field. When a Lambda function outputs an
 error, it
@@ -544,9 +534,7 @@ matches any error that a Lambda function outputs.
 }
 ```
 
-### Handling a timeout
-
-using Retry
+### Handling a timeout using Retry
 
 This state machine uses a `Retry` field to retry a `Task`
 state that times
@@ -579,9 +567,7 @@ with an exponential backoff between retries.
 }
 ```
 
-### Handling a timeout
-
-using Catch
+### Handling a timeout using Catch
 
 This example uses a `Catch` field. When a timeout occurs, the state
 machine transitions to the `fallback` state.
@@ -613,5 +599,4 @@ machine transitions to the `fallback` state.
 ###### Preserving state input and error in JSONPath
 
 In JSONPath, you can preserve the state input and the error by using
-`ResultPath`. See [Use ResultPath to include both error and input
-in a Catch](input-output-resultpath.md#input-output-resultpath-catch "input-output-resultpath.md#input-output-resultpath-catch").
+`ResultPath`. See [Use ResultPath to include both error and input in a Catch](input-output-resultpath.md#input-output-resultpath-catch "input-output-resultpath.md#input-output-resultpath-catch").

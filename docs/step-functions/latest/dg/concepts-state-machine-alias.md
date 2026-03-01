@@ -22,17 +22,13 @@ machine.
 
 ###### Contents
 
-- [Creating a state machine alias
-  (Console)](#procedure-create-aliases "#procedure-create-aliases")
+- [Creating a state machine alias (Console)](#procedure-create-aliases "#procedure-create-aliases")
 - [Managing aliases with
   APIs](#manage-aliases-with-api "#manage-aliases-with-api")
 - [Alias routing configuration](#alias-routing-config "#alias-routing-config")
-- [Running a state machine using an alias
-  (Console)](#procedure-run-exec-with-alias "#procedure-run-exec-with-alias")
+- [Running a state machine using an alias (Console)](#procedure-run-exec-with-alias "#procedure-run-exec-with-alias")
 
-## Creating a state machine alias
-
-(Console)
+## Creating a state machine alias (Console)
 
 You can create up to 100 aliases for each state machine by using the Step Functions console or
 by invoking the [CreateStateMachineAlias](../apireference/API_CreateStateMachineAlias.md "../apireference/API_CreateStateMachineAlias.md") API action. To request an increase
@@ -54,9 +50,7 @@ to this soft limit, use the **Support Center** page in the
 5. To configure routing on the alias, see [Alias routing configuration](#alias-routing-config "#alias-routing-config").
 6. Choose **Create alias**.
 
-## Managing aliases with Step Functions API
-
-operations
+## Managing aliases with Step Functions API operations
 
 Step Functions provides the following API operations that you can use to create and manage
 state machine aliases or get information about the aliases:
@@ -123,9 +117,7 @@ each version in the alias routing configuration.
 
   The combined traffic percentages must equal to 100 percent.
 
-## Running a state machine using an alias
-
-(Console)
+## Running a state machine using an alias (Console)
 
 You can start state machine executions with an alias from either the console or by
 invoking the [StartExecution](../apireference/API_StartExecution.md "../apireference/API_StartExecution.md") API action with the alias' ARN. Step Functions then
@@ -137,8 +129,7 @@ revision.
 
 1. Open the [Step Functions
    console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/"), then choose an existing state machine that you've created
-   an alias for. For information about creating an alias, see [Creating a state machine alias
-   (Console)](#procedure-create-aliases "#procedure-create-aliases").
+   an alias for. For information about creating an alias, see [Creating a state machine alias (Console)](#procedure-create-aliases "#procedure-create-aliases").
 2. On the **State machine detail** page, choose the
    **Aliases** tab.
 3. In the **Aliases** section, do the following:

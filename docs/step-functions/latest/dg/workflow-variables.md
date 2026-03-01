@@ -74,8 +74,7 @@ validation of the state machine.
 
 The `$states.context` object provides your workflows information about
 their specific execution, such as `StartTime`, task token, and initial
-workflow input. To learn more, see [Accessing execution data from the Context object
-in Step Functions](input-output-contextobject.md "input-output-contextobject.md") .
+workflow input. To learn more, see [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md").
 
 ## Variable name syntax
 

@@ -113,8 +113,7 @@ The console TestState feature does not yet support some of the enhancements desc
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/").
 2. Choose **Create state machine** to start creating a state machine or choose an existing state machine.
 3. In the [Design mode](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode") of Workflow Studio, choose a state that you want to test.
-4. Choose **Test state** in the [Inspector
-   panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") of Workflow Studio.
+4. Choose **Test state** in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") of Workflow Studio.
 5. In the **Test state** dialog box, do the following:
    1. For **Execution role**, choose an execution role to test the state. Make sure that you have the required [IAM permissions](#test-state-permissions "#test-state-permissions") for the state that you want to test.
    2. (Optional) Provide any JSON input that your selected state needs for the test.

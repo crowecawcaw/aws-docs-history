@@ -42,8 +42,7 @@ Learn how serverless technologies such as Step Functions and Lambda can simplify
 - [Distributed Map state
   definition](#use-map-state-dist-mode "#use-map-state-dist-mode")
 - [Permissions to run Distributed Map](#dist-map-permissions "#dist-map-permissions")
-- [Distributed Map state
-  fields](#map-state-distributed-additional-fields "#map-state-distributed-additional-fields")
+- [Distributed Map state fields](#map-state-distributed-additional-fields "#map-state-distributed-additional-fields")
 - [Distributed Map failure thresholds](#maprun-fail-threshold "#maprun-fail-threshold")
 - [Learn more about distributed maps](#dist-map-next-steps "#dist-map-next-steps")
 
@@ -85,9 +84,7 @@ Child workflow executions of a Map Run emit metrics to CloudWatch;. These metric
 
 For more information, see [Viewing Map Runs](concepts-examine-map-run.md "concepts-examine-map-run.md").
 
-## Distributed Map state definition
-
-example (JSONPath)
+## Distributed Map state definition example (JSONPath)
 
 Use the `Map` state in Distributed mode when you need to orchestrate large-scale parallel workloads that meet any combination of the following conditions:
 
@@ -187,9 +184,7 @@ In addition, you need to make sure that you have the least privileges necessary 
 access the AWS resources used in the _Distributed Map state_, such as Amazon S3 buckets. For
 information, see [IAM policies for using Distributed Map states](iam-policies-eg-dist-map.md "iam-policies-eg-dist-map.md").
 
-## Distributed Map state
-
-fields
+## Distributed Map state fields
 
 To use the _Distributed Map state_ in your workflows, specify one or more of these fields. You
 specify these fields in addition to the [common state fields](statemachine-structure.md#amazon-states-language-common-fields "statemachine-structure.md#amazon-states-language-common-fields").

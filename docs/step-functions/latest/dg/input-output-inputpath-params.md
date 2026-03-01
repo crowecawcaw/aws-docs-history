@@ -127,8 +127,7 @@ is passed.
 ```
 
 In addition to the input, you can access a special JSON object, known as the Context object. The Context object includes information about your state machine execution. See
-[Accessing execution data from the Context object
-in Step Functions](input-output-contextobject.md "input-output-contextobject.md") .
+[Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md").
 
 ### Connected resources
 

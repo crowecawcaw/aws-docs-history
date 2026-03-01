@@ -27,8 +27,7 @@ To learn about integrating with AWS services in Step Functions, see [Integrating
     }
 ```
 
-To see this state in a working example, see the [Transfer data records with Lambda, DynamoDB,
-and Amazon SQS](sample-project-transfer-data-sqs.md "sample-project-transfer-data-sqs.md") starter template.
+To see this state in a working example, see the [Transfer data records with Lambda, DynamoDB, and Amazon SQS](sample-project-transfer-data-sqs.md "sample-project-transfer-data-sqs.md") starter template.
 
 ###### Exception prefix differences
 
@@ -38,8 +37,7 @@ For optimized integrations, the exception prefix will be `DynamoDB` (uppercase `
 
 ###### Quota for input or result data
 
-When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state
-machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
+When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
 
 ## Optimized DynamoDB APIs
 
@@ -54,8 +52,7 @@ Even if the native service API is in camelCase, for example the API action `star
 
 ## IAM policies for calling DynamoDB
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
 
 _Static resources_
 

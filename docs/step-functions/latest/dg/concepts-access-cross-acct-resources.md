@@ -129,8 +129,7 @@ supports. For more information, see [AssumeRole](../../../STS/latest/APIReferenc
 ### Permissions required for .sync calls
 
 To grant the permissions required for your state machine, update the required permissions
-for the target IAM role. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md"). For example, to start a state machine, add the following
+for the target IAM role. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md"). For example, to start a state machine, add the following
 permissions.
 
 ```

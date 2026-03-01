@@ -31,8 +31,7 @@ alias named `PROD` that points to version
 aws stepfunctions create-state-machine-alias --name PROD --routing-configuration "[{\"stateMachineVersionArn\":\"arn:aws:states:`region`:`account-id`:stateMachine:`myStateMachine`:`1`\",\"weight\":100}]"
 ```
 
-3. ###### Verify that executions started by the alias use correct published
-   version.
+3. ###### Verify that executions started by the alias use correct published version.
 
 Start a new execution of
 `myStateMachine` by providing the ARN

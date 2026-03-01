@@ -47,9 +47,7 @@ parameters, builds the necessary URL to perform the call, then calls the API. Th
 response includes the HTTP status code, headers and response body. The request format
 has both required and optional parameters.
 
-### Required request
-
-parameters
+### Required request parameters
 
 - `ApiEndpoint`
   - Type: `String`
@@ -72,9 +70,7 @@ ID>`.execute-api.`region`.amazonaws.com`.
     - `HEAD`
     - `OPTIONS`
 
-### Optional request
-
-parameters
+### Optional request parameters
 
 - `Headers`
   - Type: `JSON`
@@ -317,8 +313,7 @@ error.
 
 ## IAM policies for calls to Amazon API Gateway
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
 
 _Resources_:
 

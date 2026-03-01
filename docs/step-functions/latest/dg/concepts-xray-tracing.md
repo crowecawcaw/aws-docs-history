@@ -40,21 +40,17 @@ Step Functions doesn't support X-Ray tracing for the child workflow executions s
 - [Concepts](#xray-concepts "#xray-concepts")
 - [Service integrations](#xray-concept-integrations "#xray-concept-integrations")
 - [Viewing the X-Ray console](#xray-concept-tracing-details "#xray-concept-tracing-details")
-- [Viewing X-Ray tracing information for
-  Step Functions](#concepts-xray-tracing-events "#concepts-xray-tracing-events")
+- [Viewing X-Ray tracing information for Step Functions](#concepts-xray-tracing-events "#concepts-xray-tracing-events")
 - [Traces](#concepts-xray-traces "#concepts-xray-traces")
 - [Service map](#concepts-xray-tracing-overview "#concepts-xray-tracing-overview")
 - [Segments and subsegments](#concepts-xray-tracing-segments "#concepts-xray-tracing-segments")
 - [Analytics](#concepts-xray-tracing-analytics "#concepts-xray-tracing-analytics")
 - [Configuration](#concepts-xray-tracing-config "#concepts-xray-tracing-config")
-- [What if there is no data in the trace map or
-  service map?](#concepts-xray-troubleshooting "#concepts-xray-troubleshooting")
+- [What if there is no data in the trace map or service map?](#concepts-xray-troubleshooting "#concepts-xray-troubleshooting")
 
 ## Setup and configuration
 
-### Enable X-Ray tracing when creating a state
-
-machine
+### Enable X-Ray tracing when creating a state machine
 
 You can enable X-Ray tracing when creating a new state machine by selecting
 **Enable X-Ray tracing** on the **Specify details**
@@ -66,8 +62,7 @@ page.
    machine. If you choose **Run a sample project**, you cannot enable X-Ray tracing during the
    state machine creation, and you will need to enable X-Ray tracing after your state machine has been created.
    For more information about enabling X-Ray in an existing state machine, see
-   [Enable X-Ray in an existing state
-   machine](#xray-concept-enable-existing "#xray-concept-enable-existing").
+   [Enable X-Ray in an existing state machine](#xray-concept-enable-existing "#xray-concept-enable-existing").
 
 Choose **Next**. 3. On the **Specify details** page, configure your state
 machine. 4. Choose **Enable X-Ray tracing**.
@@ -110,9 +105,7 @@ you add a policy with sufficient permissions to enable X-Ray traces.
 
 ```
 
-### Enable X-Ray in an existing state
-
-machine
+### Enable X-Ray in an existing state machine
 
 To enable X-Ray in an existing state machine:
 
@@ -307,9 +300,7 @@ section.
 After you have enabled X-Ray for your state machine, you can view tracing information for
 its executions in the X-Ray console.
 
-## Viewing X-Ray tracing information for
-
-Step Functions
+## Viewing X-Ray tracing information for Step Functions
 
 The following steps illustrate what kind of information you can see in the console after
 you enable X-Ray and run an execution. X-Ray traces for the [Create a callback pattern example with Amazon SQS, Amazon SNS, and Lambda](callback-task-sample-sqs.md "callback-task-sample-sqs.md") sample project
@@ -393,9 +384,7 @@ You can use the default setting, where X-Ray encrypts traces and
 data at rest, or, if needed, you can choose a KMS key. Standard [AWS KMS](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md") charges
 apply in the latter case.
 
-## What if there is no data in the trace map or
-
-service map?
+## What if there is no data in the trace map or service map?
 
 If you have enabled X-Ray, but can't see any data in the X-Ray console, check
 that:

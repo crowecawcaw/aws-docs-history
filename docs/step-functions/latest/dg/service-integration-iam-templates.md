@@ -1,6 +1,4 @@
-# How Step Functions generates IAM policies for integrated
-
-services
+# How Step Functions generates IAM policies for integrated services
 
 When you create a state machine in the AWS Step Functions console, Step Functions produces an AWS Identity and Access Management
 (IAM) policy based on the resources used in your state machine definition, as follows:

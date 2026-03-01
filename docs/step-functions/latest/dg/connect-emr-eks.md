@@ -7,9 +7,7 @@ table.
 
 To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md "integrate-services.md") and [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md").
 
-###### How the Optimized Amazon EMR on EKS integration is different than the Amazon EMR on EKS AWS SDK
-
-integration
+###### How the Optimized Amazon EMR on EKS integration is different than the Amazon EMR on EKS AWS SDK integration
 
 - The [Run a Job (.sync)](connect-to-resource.md#connect-sync "connect-to-resource.md#connect-sync") integration
   pattern is supported.
@@ -31,8 +29,7 @@ Supported Amazon EMR on EKS APIs:
 
 ###### Quota for input or result data
 
-When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state
-machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
+When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
 
 - [`CreateVirtualCluster`](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md")
   - [Request syntax](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestSyntax "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestSyntax")
@@ -136,5 +133,4 @@ for the deletion to complete.
 }
 ```
 
-To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md").
+To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md").

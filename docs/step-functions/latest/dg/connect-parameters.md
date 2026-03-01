@@ -89,7 +89,6 @@ field of a state definition.
 For more information about the Context object and how to access that data from a
 `"Parameters"` field, see the following:
 
-- [Accessing execution data from the Context object
-  in Step Functions](input-output-contextobject.md "input-output-contextobject.md")
+- [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md")
 - [Accessing the Context object](input-output-contextobject.md#contextobject-access "input-output-contextobject.md#contextobject-access")
 - [Get a Token from the Context object](connect-to-resource.md#wait-token-contextobject "connect-to-resource.md#wait-token-contextobject")

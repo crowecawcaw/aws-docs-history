@@ -47,12 +47,10 @@ Workflow Studio.
      variety of use cases. For example, you can use these patterns to
      iteratively process data in an Amazon S3 bucket.
 
-3. The [Canvas and workflow
-   graph](#workflow-studio-components-grapheditor "#workflow-studio-components-grapheditor") is where you drag
+3. The [Canvas and workflow graph](#workflow-studio-components-grapheditor "#workflow-studio-components-grapheditor") is where you drag
    and drop states into your workflow graph, change the order of states, and
    select states to configure or view.
-4. The [Inspector
-   panel](#workflow-studio-components-formdefinition "#workflow-studio-components-formdefinition") panel is where
+4. The [Inspector panel](#workflow-studio-components-formdefinition "#workflow-studio-components-formdefinition") panel is where
    you can view and edit the properties of any state you've selected on the
    canvas. Turn on the **Definition** toggle to view the Amazon States Language
    code for your workflow, with the currently selected state highlighted.
@@ -76,18 +74,14 @@ search box at the top of the panel.
 
 ![Illustrative collection of screen shots showing Actions, Flow, Patterns, and search.](images/wfe-states-browser-01.png)
 
-### Canvas and workflow
-
-graph
+### Canvas and workflow graph
 
 After you choose a state to add to your workflow, you can drag it to the
 canvas and drop it into your workflow graph. You can also drag and drop states to
 move them within your workflow. If your workflow is large, you can zoom in or out to
 view different parts of your workflow graph in the canvas.
 
-### Inspector
-
-panel
+### Inspector panel
 
 You can configure any states that you add to your workflow from the
 **Inspector** panel on the right. Choose the state you want to

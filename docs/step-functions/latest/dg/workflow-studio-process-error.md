@@ -10,8 +10,7 @@ some flow states, you can configure how Step Functions handles errors.
 
 Even if you have configured error handling, some errors may still cause a workflow
 execution to fail. For more information, see [Handling errors in Step Functions workflows](concepts-error-handling.md "concepts-error-handling.md"). In Workflow Studio, configure error handling in the
-**Error handling** tab of the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition").
+**Error handling** tab of the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition").
 
 ## Retry on errors
 

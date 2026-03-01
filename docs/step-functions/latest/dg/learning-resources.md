@@ -10,10 +10,8 @@ For a quick introduction, see: [Getting started tutorial](getting-started.md "ge
 
 For specific scenarios, see the following tutorials:
 
-- [Handling error conditions in a Step Functions
-  state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
-- [Create a Step Functions state machine using
-  AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md")
+- [Handling error conditions in a Step Functions state machine](tutorial-handling-error-conditions.md "tutorial-handling-error-conditions.md")
+- [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md")
 - [Using CloudFormation to create a workflow in Step Functions](tutorial-lambda-state-machine-cloudformation.md "tutorial-lambda-state-machine-cloudformation.md")
 - [Using AWS CDK to create an Express workflow in Step Functions](tutorial-step-functions-rest-api-integration-cdk.md "tutorial-step-functions-rest-api-integration-cdk.md")
 - [Using AWS CDK to create a Standard workflow in Step Functions](tutorial-lambda-state-machine-cdk.md "tutorial-lambda-state-machine-cdk.md")
@@ -27,8 +25,7 @@ For specific scenarios, see the following tutorials:
 - [Processing individual items with a Lambda function in Step Functions](tutorial-itembatcher-single-item-process.md "tutorial-itembatcher-single-item-process.md")
 - [Starting a Step Functions workflow in response to events](tutorial-cloudwatch-events-s3.md "tutorial-cloudwatch-events-s3.md")
 - [Creating a Step Functions API using API Gateway](tutorial-api-gateway.md "tutorial-api-gateway.md")
-- [Creating an Activity state
-  machine using Step Functions](tutorial-creating-activity-state-machine.md "tutorial-creating-activity-state-machine.md")
+- [Creating an Activity state machine using Step Functions](tutorial-creating-activity-state-machine.md "tutorial-creating-activity-state-machine.md")
 - [View X-Ray traces in Step Functions](tutorial-xray-traces.md "tutorial-xray-traces.md")
 - [Gather Amazon S3 bucket info using AWS SDK service integrations](tutorial-gather-s3-info.md "tutorial-gather-s3-info.md")
 - [Continue long-running workflows using Step Functions API (recommended)](tutorial-continue-new.md "tutorial-continue-new.md")

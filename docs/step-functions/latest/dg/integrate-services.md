@@ -45,5 +45,4 @@ An HTTP Task is a type of [Task workflow state](state-task.md "state-task.md") s
 public, such as third-party SaaS applications like Stripe or Salesforce. You can also call
 private API, such as HTTPS-based applications in an Amazon Virtual Private Cloud.
 
-For more information, see [Call HTTPS APIs in Step Functions
-workflows](call-https-apis.md "call-https-apis.md").
+For more information, see [Call HTTPS APIs in Step Functions workflows](call-https-apis.md "call-https-apis.md").

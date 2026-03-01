@@ -37,8 +37,7 @@ Amazon EKS cluster you create is terminated properly. For more information, see:
 
 ###### Quota for input or result data
 
-When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state
-machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
+When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
 
 ## Kubernetes API integrations
 
@@ -641,8 +640,7 @@ Cause:
 
 ## IAM policies for calling Amazon EKS
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
 
 ### `CreateCluster`
 
@@ -665,7 +663,7 @@ _Resources_
  "eks:DescribeCluster",
  "eks:DeleteCluster"
  ],
- "Resource": "arn:aws:eks:sa-east-1:444455556666:cluster/*"
+ "Resource": "arn:aws:eks:us-east-1:444455556666:cluster/*"
  },
  {
  "Effect": "Allow",
@@ -711,7 +709,7 @@ _Resources_
  "eks:DescribeNodegroup",
  "eks:DeleteNodegroup"
  ],
- "Resource": "arn:aws:eks:sa-east-1:444455556666:nodegroup/*"
+ "Resource": "arn:aws:eks:us-east-1:444455556666:nodegroup/*"
  },
  {
  "Effect": "Allow",
@@ -753,7 +751,7 @@ _Resources_
  "eks:DescribeCluster"
  ],
  "Resource": [
- "arn:aws:eks:sa-east-1:444455556666:cluster/ExampleCluster"
+ "arn:aws:eks:us-east-1:444455556666:cluster/ExampleCluster"
  ]
  }
  ]
@@ -776,7 +774,7 @@ _Resources_
  "eks:DescribeNodegroup"
  ],
  "Resource": [
- "arn:aws:eks:sa-east-1:444455556666:nodegroup/ExampleCluster/ExampleNodegroup/*"
+ "arn:aws:eks:us-east-1:444455556666:nodegroup/ExampleCluster/ExampleNodegroup/*"
  ]
  }
  ]

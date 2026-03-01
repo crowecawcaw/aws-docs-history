@@ -1,6 +1,4 @@
-# Creating an Activity state
-
-machine using Step Functions
+# Creating an Activity state machine using Step Functions
 
 This tutorial shows you how to create an activity-based state machine using Java and
 AWS Step Functions. Activities allow you to control worker code that runs somewhere else from your state machine. For an overview, see [Learn about Activities in Step Functions](concepts-activities.md "concepts-activities.md") in [Learn about state machines in Step Functions](concepts-statemachines.md "concepts-statemachines.md").
@@ -14,9 +12,7 @@ To complete this tutorial, you need the following:
   Up Your AWS Credentials](../../../AWSSdkDocsJava/latest/DeveloperGuide/set-up-creds.md "../../../AWSSdkDocsJava/latest/DeveloperGuide/set-up-creds.md") in the
   _AWS SDK for Java Developer Guide_.
 
-## Step 1: Create an
-
-Activity
+## Step 1: Create an Activity
 
 You must make Step Functions aware of the _activity_ whose
 _worker_ (a program) you want to create. Step Functions responds with an
@@ -41,9 +37,7 @@ Ensure that your activity task is under the same AWS account as your state machi
 arn:aws:states:`region`:123456789012:activity:get-greeting
 ```
 
-## Step 2: Create a state
-
-machine
+## Step 2: Create a state machine
 
 Create a state machine that determines when your activity is invoked and when your
 worker should perform its primary work, collect its results, and return them. To create the state machine, you'll use the [Code editor](workflow-studio.md#wfs-interface-code-editor "workflow-studio.md#wfs-interface-code-editor") of Workflow Studio.
@@ -57,8 +51,7 @@ worker should perform its primary work, collect its results, and return them. To
 4. Name your state machine, then choose **Continue** to edit your state machine in Workflow Studio.
 5. For this tutorial, you'll write the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) definition of your state machine in the code editor. To do this, choose **Code**.
 6. Remove the existing boilerplate code and paste the following code. Remember to replace the example ARN in the `Resource`
-   field with the ARN of the activity task that you created earlier in [Step 1: Create an
-   Activity](#create-activity-state-machine-step-1 "#create-activity-state-machine-step-1").
+   field with the ARN of the activity task that you created earlier in [Step 1: Create an Activity](#create-activity-state-machine-step-1 "#create-activity-state-machine-step-1").
 
 ```
 {
@@ -99,9 +92,7 @@ recreate it later. Similarly, if you modify the role (for example, by
 removing Step Functions from the principals in the IAM policy), Step Functions can't
 restore its original settings later.
 
-## Step 3: Implement a
-
-Worker
+## Step 3: Implement a Worker
 
 Create
 a _worker_. A worker is a program that is responsible for:
@@ -121,9 +112,7 @@ implementation based on best practices, which you can use as a reference for you
 activity worker. The code implements a consumer-producer pattern with a configurable
 number of threads for pollers and activity workers.
 
-### To implement the
-
-worker
+### To implement the worker
 
 1. Create a file named `GreeterActivities.java`.
 2. Add the following code to it.
@@ -204,8 +193,7 @@ available task. To prevent receiving a
 seconds. 3. In the parameter list of the
 `GetActivityTaskRequest().withActivityArn()` constructor,
 replace the `ACTIVITY_ARN` value with the ARN of the activity task that you created earlier in
-[Step 1: Create an
-Activity](#create-activity-state-machine-step-1 "#create-activity-state-machine-step-1").
+[Step 1: Create an Activity](#create-activity-state-machine-step-1 "#create-activity-state-machine-step-1").
 
 ## Step 4: Run the state machine
 
@@ -239,9 +227,7 @@ The **Start execution** dialog box is displayed. 2. In the **Start execution** d
 
     To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details "concepts-view-execution-details.md#exec-details-intf-step-details") pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview "concepts-view-execution-details.md#exec-details-interface-overview").
 
-## Step 5: Run and Stop the
-
-Worker
+## Step 5: Run and Stop the Worker
 
 To have the worker poll your state machine for activities, you must run the
 worker.

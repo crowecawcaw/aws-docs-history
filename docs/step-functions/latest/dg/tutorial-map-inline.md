@@ -89,8 +89,7 @@ As you drag and drop states from the **Flow** panel onto the canvas,
 Workflow Studio automatically composes the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) definition of your workflow in real-time. You can edit this definition
 as required.
 
-1. (Optional) Choose **Definition** on the [Inspector
-   panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel to view the automatically-generated Amazon States Language definition of your workflow.
+1. (Optional) Choose **Definition** on the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel to view the automatically-generated Amazon States Language definition of your workflow.
 
 ###### Tip
 

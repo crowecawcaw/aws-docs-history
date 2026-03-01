@@ -22,9 +22,7 @@ A starter template is a ready-to-run sample project that automatically creates t
 With a blank template, you use the [Design](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode") or [Code](workflow-studio.md#wfs-interface-code-mode "workflow-studio.md#wfs-interface-code-mode") mode to create
 your custom workflow.
 
-### Create a state machine using a starter
-
-template
+### Create a state machine using a starter template
 
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/") and choose **Create state machine**.
 2. In the **Choose a template** dialog box, do one of the following
@@ -41,9 +39,7 @@ template
 6. **Run a demo** – creates a read-only state machine. After review, you can create the workflow and all related resources.
 7. **Build on it** – provides an editable workflow definition that you can review, customize, and deploy with your own resources. (Related resources, such as functions or queues, will **not** be created automatically.)
 
-### Create a workflow using a blank
-
-template
+### Create a workflow using a blank template
 
 When you want to start from a clean canvas, create a workflow from the
 blank template.
@@ -74,8 +70,7 @@ inside the workflow definition. To see the definition, turn on the
 choose [Code mode](workflow-studio.md#wfs-interface-code-mode "workflow-studio.md#wfs-interface-code-mode") to edit the definition with the built-in
 code editor.
 
-After you drop a state onto the canvas, you can configure it in the [Inspector
-panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel on the right. This
+After you drop a state onto the canvas, you can configure it in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") panel on the right. This
 panel contains the **Configuration**, **Input**,
 **Output**, and **Error Handling** tabs for each
 of the state or API action that you place on the canvas. You configure the states

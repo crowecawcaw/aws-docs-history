@@ -56,8 +56,7 @@ information that's passed to the output.
 
 - [Passing data between states with variables](workflow-variables.md "workflow-variables.md")
 - [Transforming data with JSONata in Step Functions](transforming-data.md "transforming-data.md")
-- [Accessing execution data from the Context object
-  in Step Functions](input-output-contextobject.md "input-output-contextobject.md")
+- [Accessing execution data from the Context object in Step Functions](input-output-contextobject.md "input-output-contextobject.md")
 - [Using JSONPath paths](amazon-states-language-paths.md "amazon-states-language-paths.md")
 - [Manipulate parameters in Step Functions workflows](input-output-inputpath-params.md "input-output-inputpath-params.md")
 - [Example: Manipulating state data with paths in Step Functions workflows](input-output-example.md "input-output-example.md")

@@ -1,6 +1,4 @@
-# Viewing a Distributed Map Run execution in
-
-Step Functions
+# Viewing a Distributed Map Run execution in Step Functions
 
 The Step Functions console provides a _Map Run Details_ page which displays
 all the information related to a _Distributed Map state_ execution. For example, you can view the status

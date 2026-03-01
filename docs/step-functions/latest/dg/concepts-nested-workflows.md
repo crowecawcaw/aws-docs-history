@@ -49,8 +49,7 @@ The `StartExecution` API action quotas can limit the number of executions that
 you can start. Use the `Retry` on `StepFunctions.ExecutionLimitExceeded` to
 ensure your execution is started. See the following.
 
-- [Quotas related to API
-  action throttling](service-quotas.md#service-limits-api-action-throttling-general "service-quotas.md#service-limits-api-action-throttling-general")
+- [Quotas related to API action throttling](service-quotas.md#service-limits-api-action-throttling-general "service-quotas.md#service-limits-api-action-throttling-general")
 - [Handling errors in Step Functions workflows](concepts-error-handling.md "concepts-error-handling.md")
 
 ## Associate Workflow Executions

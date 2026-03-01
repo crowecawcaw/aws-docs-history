@@ -122,9 +122,7 @@ Each branch must be self-contained. A state in one branch of a `Parallel` state
 must not have a `Next` field that targets a field outside of that branch, nor can
 any other state outside the branch transition into that branch.
 
-## Parallel State
-
-Input and Output Processing
+## Parallel State Input and Output Processing
 
 A `Parallel` state provides each branch with a copy of its own input data
 (subject to modification by the `InputPath` field). It generates output that is an

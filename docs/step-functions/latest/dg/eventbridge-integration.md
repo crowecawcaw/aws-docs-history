@@ -38,9 +38,7 @@ For more information, see [EventBridge events](../../../eventbridge/latest/userg
 | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | [Execution Status Change](#event-detail-execution-status-change "#event-detail-execution-status-change") | Represents a change in the status of a state machine execution. |
 
-## Delivering Step Functions events using
-
-EventBridge
+## Delivering Step Functions events using EventBridge
 
 To have the EventBridge default event bus send Step Functions events to a target, you must create
 a rule. Each rule contains an event pattern, which EventBridge matches against each event received on the event bus. If the event data matches the specified event pattern, EventBridge delivers that event to the rule's target(s).
@@ -257,9 +255,7 @@ the full input/output, you can:
 }
 ```
 
-###### Example Execution Status Change:
-
-execution failed
+###### Example Execution Status Change: execution failed
 
 ```
 {
@@ -320,9 +316,7 @@ execution failed
 
 ```
 
-###### Example Execution Status Change:
-
-aborted
+###### Example Execution Status Change: aborted
 
 ```
 {

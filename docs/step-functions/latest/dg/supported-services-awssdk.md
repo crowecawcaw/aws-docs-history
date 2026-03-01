@@ -1,6 +1,4 @@
-# Learning to use AWS service SDK integrations in
-
-Step Functions
+# Learning to use AWS service SDK integrations in Step Functions
 
 With Step Functions' AWS SDK integration, your workflows can call almost any AWS service's API actions. The services or SDKs that are not available might be recently released, require customized configuration, or are not suitable for use in a workflow, such as SDKs for streaming audio or video.
 
@@ -70,8 +68,7 @@ For more information about error handling, see [Handling errors in Step Function
 
 Step Functions cannot autogenerate IAM policies for AWS SDK integrations. After you create your
 state machine, you will need to navigate to the IAM console and configure your role
-policies. See [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md") for more information.
+policies. See [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") for more information.
 
 See the [Gather Amazon S3 bucket info using AWS SDK service integrations](tutorial-gather-s3-info.md "tutorial-gather-s3-info.md")
 tutorial for an example of how to use AWS SDK integrations.

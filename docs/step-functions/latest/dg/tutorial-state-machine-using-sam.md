@@ -1,6 +1,4 @@
-# Create a Step Functions state machine using
-
-AWS SAM
+# Create a Step Functions state machine using AWS SAM
 
 In this guide, you download, build, and deploy a sample AWS SAM application that contains an
 AWS Step Functions state machine. This application creates a mock stock trading workflow which runs
@@ -40,9 +38,7 @@ for your OS. It assumes that you've done the following:
    can check which version you have by executing the command `sam
 --version`.
 
-## Step 1: Download a Sample
-
-AWS SAM Application
+## Step 1: Download a Sample AWS SAM Application
 
 **Command to run:**
 
@@ -116,9 +112,7 @@ from the console directly to the Amazon States Language specification file witho
 For more information about the sample application, see the `README.md` file
 in the project directory.
 
-## Step 2: Build Your
-
-Application
+## Step 2: Build Your Application
 
 **Command to run:**
 
@@ -154,9 +148,7 @@ ready to be packaged and deployed. The `sam build` command builds any
 dependencies that your application has, and copies the build artifacts to folders under
 `.aws-sam/build`.
 
-## Step 3: Deploy Your
-
-Application to the AWS Cloud
+## Step 3: Deploy Your Application to the AWS Cloud
 
 **Command to run:**
 
@@ -192,9 +184,7 @@ directory.
 
 ## Troubleshooting
 
-### SAM CLI
-
-error: "no such option: --guided"
+### SAM CLI error: "no such option: --guided"
 
 When executing `sam deploy`, you see the following error:
 
@@ -209,10 +199,7 @@ support the `--guided` parameter. To fix this, you can either update your
 version of AWS SAM CLI to 0.33.0 or later, or omit the `--guided` parameter
 from the `sam deploy` command.
 
-### SAM
-
-CLI error: "Failed to create managed resources: Unable to locate
-credentials"
+### SAM CLI error: "Failed to create managed resources: Unable to locate credentials"
 
 When executing `sam deploy`, you see the following error:
 
@@ -252,9 +239,7 @@ command:
 `aws cloudformation delete-stack --stack-name `sam-app` --region `region``
 ```
 
-### Verify Deleted
-
-Stack
+### Verify Deleted Stack
 
 For both methods of deleting the CloudFormation stack, you can verify it was deleted by
 going to the [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), choosing **Stacks** in the left

@@ -58,9 +58,7 @@ at the [Billing & Cost
 Management Dashboard](https://console.aws.amazon.com/billing/home?#/ "https://console.aws.amazon.com/billing/home?#/") might include one or more access requests that do
 not appear in the execution metrics.
 
-### Metrics that report
-
-a time interval
+### Metrics that report a time interval
 
 Some of the Step Functions CloudWatch metrics are _time intervals_, always
 measured in milliseconds. These metrics generally correspond to stages of your execution
@@ -75,9 +73,7 @@ In the CloudWatch console, you can get the best results if you choose
 **average** as the display statistic for time interval
 metrics.
 
-### Metrics that report a
-
-count
+### Metrics that report a count
 
 Some of the Step Functions CloudWatch metrics report results as a _count_. For
 example, `ExecutionsFailed` records the number of failed state machine
@@ -128,9 +124,7 @@ metrics:
 For more information about working with CloudWatch metrics, see [Using Amazon CloudWatch Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md "../../../AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.md") in the
 _Amazon CloudWatch User Guide_.
 
-## Setting alarms for
-
-Step Functions metrics in CloudWatch
+## Setting alarms for Step Functions metrics in CloudWatch
 
 You can use Amazon CloudWatch alarms to perform actions. For example, if you want to know when
 an alarm threshold is reached, you can set an alarm to send a notification to an Amazon SNS
@@ -151,9 +145,7 @@ certain threshold.
 For more information about setting and using CloudWatch alarms, see [Creating Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md") in the
 _Amazon CloudWatch User Guide_.
 
-## Account-level Usage
-
-Metrics
+## Account-level Usage Metrics
 
 The `AWS/Usage` namespace includes the following Step Functions metrics.
 
@@ -190,15 +182,15 @@ identify a specific state machine.
 
 Without a state machine ARN, the following metrics report at the **account level**. Provide a state machine ARN to report at the state machine level.
 
-| Metric                | Description                                                                                                                                                                                                                                                                                                    |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ExecutionsAborted`   | Number of aborted or terminated executions.                                                                                                                                                                                                                                                                    |
-| `ExecutionsFailed`    | Number of failed executions.                                                                                                                                                                                                                                                                                   |
-| `ExecutionsStarted`   | Number of started executions.                                                                                                                                                                                                                                                                                  |
-| `ExecutionsSucceeded` | Number of successfully completed executions.                                                                                                                                                                                                                                                                   |
-| `ExecutionsTimedOut`  | Number of executions that time out for any reason.                                                                                                                                                                                                                                                             |
-| `ExecutionThrottled`  | Number of `StateEntered` events and retries that<br>have been throttled. This is related to `StateTransition`<br>throttling. For more information, see [Quotas related to state<br>throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling"). |
-| `ExecutionTime`       | Interval, in milliseconds, between the time the execution<br>starts and the time it closes.                                                                                                                                                                                                                    |
+| Metric                | Description                                                                                                                                                                                                                                                                                                 |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ExecutionsAborted`   | Number of aborted or terminated executions.                                                                                                                                                                                                                                                                 |
+| `ExecutionsFailed`    | Number of failed executions.                                                                                                                                                                                                                                                                                |
+| `ExecutionsStarted`   | Number of started executions.                                                                                                                                                                                                                                                                               |
+| `ExecutionsSucceeded` | Number of successfully completed executions.                                                                                                                                                                                                                                                                |
+| `ExecutionsTimedOut`  | Number of executions that time out for any reason.                                                                                                                                                                                                                                                          |
+| `ExecutionThrottled`  | Number of `StateEntered` events and retries that<br>have been throttled. This is related to `StateTransition`<br>throttling. For more information, see [Quotas related to state throttling](service-quotas.md#service-limits-api-state-throttling "service-quotas.md#service-limits-api-state-throttling"). |
+| `ExecutionTime`       | Interval, in milliseconds, between the time the execution<br>starts and the time it closes.                                                                                                                                                                                                                 |
 
 ### Execution metrics for Express Workflows
 
@@ -329,9 +321,7 @@ Lambda functions which are referred to **directly** in the Resource field of a T
 Lambda Function Metrics are emitted for Task states that specify the Lambda function ARN in the `Resource` field. Task states that use `"Resource": "arn:aws:states:::lambda:invoke"`
 emit Service Integration Metrics instead. For more information, see [Invoke an AWS Lambda function with Step Functions](connect-lambda.md "connect-lambda.md").
 
-## Service
-
-Integration Metrics
+## Service Integration Metrics
 
 The `AWS/States` namespace includes the following metrics for Step Functions
 service integrations. For more information, see [Integrating services with Step Functions](integrate-services.md "integrate-services.md").
@@ -369,9 +359,7 @@ Without a state machine ARN, the following metrics report at the **account level
 | `ProvisionedRefillRate` | Count of requests per second that are allowed into the<br>bucket. |
 | `ThrottledEvents`       | Count of requests that have been<br>throttled.                    |
 
-### Dimension
-
-for Step Functions Service Metrics
+### Dimension for Step Functions Service Metrics
 
 | Dimension         | Description                                                    |
 | ----------------- | -------------------------------------------------------------- |
@@ -390,9 +378,7 @@ API.
 | `ProvisionedRefillRate` | Count of requests per second that are allowed into the<br>bucket. |
 | `ConsumedCapacity`      | Count of requests per second.                                     |
 
-### Dimension for
-
-Step Functions API Metrics
+### Dimension for Step Functions API Metrics
 
 | Dimension | Description                                       |
 | --------- | ------------------------------------------------- |

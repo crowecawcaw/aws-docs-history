@@ -102,5 +102,4 @@ For more information about how AWS Step Functions can control other AWS services
 
 ###### Note
 
-For examples of IAM policies created by the Step Functions console, see [How Step Functions generates IAM policies for integrated
-services](service-integration-iam-templates.md "service-integration-iam-templates.md").
+For examples of IAM policies created by the Step Functions console, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md").

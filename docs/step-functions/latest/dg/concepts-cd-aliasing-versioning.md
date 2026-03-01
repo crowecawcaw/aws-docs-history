@@ -1,6 +1,4 @@
-#
-
-Manage continuous deployments with versions and aliases in Step Functions
+# Manage continuous deployments with versions and aliases in Step Functions
 
 You
 can use

@@ -33,9 +33,7 @@ information.
 - [Tutorial: Testing using Step Functions and AWS SAM CLI Local](sfn-local-lambda.md "sfn-local-lambda.md")
 - [Testing with mocked service integrations](sfn-local-test-sm-exec.md "sfn-local-test-sm-exec.md")
 
-## Setting Up Step Functions Local (Downloadable Version) in
-
-Docker
+## Setting Up Step Functions Local (Downloadable Version) in Docker
 
 The Step Functions Local Docker image enables you to get started with Step Functions Local quickly by
 using a Docker image with all the needed dependencies. The Docker image enables you to
