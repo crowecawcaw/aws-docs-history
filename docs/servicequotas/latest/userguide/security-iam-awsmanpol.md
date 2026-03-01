@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-ServiceQuotasFullAccess
+## AWS managed policy: ServiceQuotasFullAccess
 
 You can attach `ServiceQuotasFullAccess` to your users, groups, and roles.
 
@@ -95,9 +93,7 @@ _not_ part of Service Quotas:
 To see the latest version of this AWS managed policy, see [`ServiceQuotasFullAccess`](../../../aws-managed-policy/latest/reference/ServiceQuotasFullAccess.md "../../../aws-managed-policy/latest/reference/ServiceQuotasFullAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-ServiceQuotasReadOnlyAccess
+## AWS managed policy: ServiceQuotasReadOnlyAccess
 
 You can attach `ServiceQuotasReadOnlyAccess` to your users, groups, and roles.
 
@@ -186,9 +182,7 @@ _not_ part of Service Quotas:
 To see the latest version of this AWS managed policy, see [`ServiceQuotasReadOnlyAccess`](../../../aws-managed-policy/latest/reference/ServiceQuotasReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ServiceQuotasReadOnlyAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-ServiceQuotasServiceRolePolicy
+## AWS managed policy: ServiceQuotasServiceRolePolicy
 
 This policy is attached to a service-linked role that allows the service to perform
 actions on your behalf. You cannot attach this policy to your users, groups, or
@@ -210,9 +204,7 @@ This policy includes the following operations:
 To see the latest version of this AWS managed policy, see [`ServiceQuotasServiceRolePolicy`](../../../aws-managed-policy/latest/reference/ServiceQuotasServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/ServiceQuotasServiceRolePolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## Service Quotas updates to AWS managed
-
-policies
+## Service Quotas updates to AWS managed policies
 
 View details about updates to AWS managed policies for Service Quotas since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

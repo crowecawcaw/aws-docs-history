@@ -28,8 +28,7 @@ parts:
 
 - [Service Quotas resources that support tagging](#sq-supported-resources "#sq-supported-resources")
 - [Tag restrictions](#sq-tagging-restrictions "#sq-tagging-restrictions")
-- [Enabling the required permissions for tagging Service Quotas
-  resources](sq_tags_permissions.md "sq_tags_permissions.md")
+- [Enabling the required permissions for tagging Service Quotas resources](sq_tags_permissions.md "sq_tags_permissions.md")
 - [Managing Service Quotas tags](sq_tags_managing-console.md "sq_tags_managing-console.md")
 - [Controlling access using Service Quotas tags](sq_tags_access.md "sq_tags_access.md")
 

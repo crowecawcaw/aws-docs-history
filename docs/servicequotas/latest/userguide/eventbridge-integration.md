@@ -1,6 +1,4 @@
-# Integrating event-driven applications with Service Quotas
-
-using Amazon EventBridge
+# Integrating event-driven applications with Service Quotas using Amazon EventBridge
 
 With Amazon EventBridge rules, you can monitor Service Quotas events and AWS Health notifications to automate
 responses when quotas change or approach their limits. To monitor these Service Quotas events, you'll
@@ -14,16 +12,12 @@ event-driven architectures without additional code and operations.
 
 ###### Topics
 
-- [How EventBridge routes Service Quotas
-  events](#eventbridge-routes-service-events "#eventbridge-routes-service-events")
+- [How EventBridge routes Service Quotas events](#eventbridge-routes-service-events "#eventbridge-routes-service-events")
 - [Service Quotas events](#eventbridge-service-events "#eventbridge-service-events")
-- [Creating event patterns that match
-  Service Quotas events](#eventbridge-event-delivery-filter "#eventbridge-event-delivery-filter")
+- [Creating event patterns that match Service Quotas events](#eventbridge-event-delivery-filter "#eventbridge-event-delivery-filter")
 - [Receiving events from EventBridge](#eventbridge-service-as-target "#eventbridge-service-as-target")
 
-## How EventBridge routes Service Quotas
-
-events
+## How EventBridge routes Service Quotas events
 
 Here's how EventBridge works with Service Quotas events:
 
@@ -60,9 +54,7 @@ All events from AWS services contain two types of data:
 - A `detail` field that contains data specific to that particular
   service event.
 
-### Service Quotas event delivery via
-
-AWS CloudTrail
+### Service Quotas event delivery via AWS CloudTrail
 
 AWS services can send events directly to the EventBridge default event bus. In
 addition, AWS CloudTrail sends events originating from numerous AWS services to EventBridge as
@@ -71,9 +63,7 @@ events, and CloudTrail Insights. For more information, see [AWS
 service events delivered via AWS CloudTrail](../../../eventbridge/latest/userguide/eb-service-event-cloudtrail.md "../../../eventbridge/latest/userguide/eb-service-event-cloudtrail.md") in the _EventBridge User
 Guide_.
 
-## Creating event patterns that match
-
-Service Quotas events
+## Creating event patterns that match Service Quotas events
 
 Event patterns are filters that specify the data to match the events you want to
 select.

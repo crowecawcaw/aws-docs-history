@@ -29,8 +29,7 @@ cloud and security _in_ the cloud:
 - [Data protection in Service Quotas](data-protection.md "data-protection.md")
 - [Logging and monitoring Service Quotas](monitoring-overview.md "monitoring-overview.md")
 - [Identity and access management in Service Quotas](identity-access-management.md "identity-access-management.md")
-- [Integrating event-driven applications with Service Quotas
-  using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")
+- [Integrating event-driven applications with Service Quotas using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")
 - [Compliance validation for Service Quotas](SERVICE-compliance.md "SERVICE-compliance.md")
 - [Resilience in Service Quotas](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Service Quotas](infrastructure-security.md "infrastructure-security.md")

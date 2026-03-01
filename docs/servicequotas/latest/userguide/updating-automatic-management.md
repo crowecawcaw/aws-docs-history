@@ -1,6 +1,4 @@
-# Updating Service Quotas Automatic Management
-
-configuration
+# Updating Service Quotas Automatic Management configuration
 
 You can update your Service Quotas Automatic Management by adding service quotas to the exclusion list or changing
 your Automatic Management notification configuration. Use the following procedure to update

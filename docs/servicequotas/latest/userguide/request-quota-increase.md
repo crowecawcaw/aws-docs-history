@@ -11,9 +11,7 @@ Quota increase requests don't receive priority support. Support can approve, den
 or partially approve your requests. If you have an urgent quota request, or if your quota
 increase request is denied, contact Support for assistance.
 
-## Using the AWS Management Console to request
-
-an increase
+## Using the AWS Management Console to request an increase
 
 Increase your quotas at the account or resource level in the [Getting Started with the AWS Management Console](../../../awsconsolehelpdocs/latest/gsg/getting-started.md "../../../awsconsolehelpdocs/latest/gsg/getting-started.md").
 
@@ -50,9 +48,7 @@ Increase your quotas at the account or resource level in the [Getting Started wi
    changes to **Quota requested**, you'll see the case number with
    Support. Choose the case number to open the ticket for your request.
 
-## Using the AWS CLI to request a quota
-
-increase
+## Using the AWS CLI to request a quota increase
 
 Requesting a quota increase using the AWS CLI requires you to provide
 Service Quotas with the necessary permission to create a support case on your behalf. You can provide this permission by
