@@ -38,9 +38,7 @@ minutes. After Amazon GameLift Servers deploys the new script, all new game sess
 point will use the new script version. (Existing game sessions will continue to use the
 original version.)
 
-## How Realtime clients and servers
-
-interact
+## How Realtime clients and servers interact
 
 During a game session, game clients interact by sending messages to the Realtime
 server through a backend service. The backend service then relays the messages among

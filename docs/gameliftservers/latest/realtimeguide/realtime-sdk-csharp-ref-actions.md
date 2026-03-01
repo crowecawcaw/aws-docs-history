@@ -1,6 +1,4 @@
-# Amazon GameLift Servers Realtime client API (C#) reference:
-
-Actions
+# Amazon GameLift Servers Realtime client API (C#) reference: Actions
 
 This C# Realtime Client API reference can help you prepare your multiplayer game for use
 with Amazon GameLift Servers Realtime deployed on Amazon GameLift Servers fleets.
@@ -99,9 +97,7 @@ Type: [ConnectionToken](realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a [ConnectionStatus](realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp-ref-datatypes-enums "realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp-ref-datatypes-enums") enum value indicating the client's connection status.
 
@@ -119,9 +115,7 @@ public void Disconnect()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -149,9 +143,7 @@ Type: Integer
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns an [RTMessage](realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp-ref-datatypes-rtmessage "realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp-ref-datatypes-rtmessage") object containing
 the specified operation code and default delivery method. The delivery intent
@@ -178,9 +170,7 @@ Type: [RTMessage](realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-csharp-ref-d
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -207,9 +197,7 @@ Type: Integer
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 This method does not return anything. Because this request is sent using the
 reliable (TCP) delivery method, a failed request triggers the callback [OnError()](realtime-sdk-csharp-ref-callbacks.md#realtime-sdk-csharp-ref-callbacks-onerror "realtime-sdk-csharp-ref-callbacks.md#realtime-sdk-csharp-ref-callbacks-onerror").
@@ -237,9 +225,7 @@ Type: Integer
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 This method does not return anything. Because this request is sent using the
 reliable (TCP) delivery method, a failed request triggers the callback [OnError()](realtime-sdk-csharp-ref-callbacks.md#realtime-sdk-csharp-ref-callbacks-onerror "realtime-sdk-csharp-ref-callbacks.md#realtime-sdk-csharp-ref-callbacks-onerror").

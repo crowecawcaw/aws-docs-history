@@ -15,9 +15,7 @@ logs to Amazon Simple Storage Service (Amazon S3). Amazon GameLift Servers will 
 quickly and exceed the size limit. You should monitor your logs and limit the log output to
 necessary messages only.
 
-## Logging messages in your server
-
-script
+## Logging messages in your server script
 
 You can output custom messages in the [script for
 your Amazon GameLift Servers Realtime](realtime-script.md "realtime-script.md"). Use the following steps to send server messages to a log

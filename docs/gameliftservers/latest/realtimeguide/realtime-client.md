@@ -11,9 +11,7 @@ There are two sets of tasks needed to prepare your game client:
 - Enable your game client to join a game session hosted on a Realtime server and
   exchange messages.
 
-## Find or create game sessions and
-
-player sessions
+## Find or create game sessions and player sessions
 
 Set up your game client to find or start game sessions, request FlexMatch matchmaking,
 and reserve space for players in a game by creating player sessions.
@@ -94,8 +92,7 @@ for more information.
     	+ [RequestGroupMembership()](realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-requestgroupmembership "realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-requestgroupmembership")
     	+ [LeaveGroup()](realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-leavegroup "realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-leavegroup")
 
-4. Set up event handlers for the client callbacks as needed. See [Amazon GameLift Servers Realtime client API (C#) reference:
-   Asynchronous callbacks](realtime-sdk-csharp-ref-callbacks.md "realtime-sdk-csharp-ref-callbacks.md").
+4. Set up event handlers for the client callbacks as needed. See [Amazon GameLift Servers Realtime client API (C#) reference: Asynchronous callbacks](realtime-sdk-csharp-ref-callbacks.md "realtime-sdk-csharp-ref-callbacks.md").
 
 When working with Realtime fleets that have TLS certificate
 generation enabled, the server is automatically authenticated using the TLS certificate.

@@ -1,6 +1,4 @@
-# Amazon GameLift Servers Realtime client API (C#) reference:
-
-Asynchronous callbacks
+# Amazon GameLift Servers Realtime client API (C#) reference: Asynchronous callbacks
 
 Use this C# Realtime Client API reference to help you prepare your multiplayer game for
 use with Amazon GameLift Servers Realtime deployed on Amazon GameLift Servers fleets.
@@ -30,9 +28,7 @@ public void OnOpen()
 
 This method takes no parameters.
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -51,9 +47,7 @@ public void OnClose()
 
 This method takes no parameters.
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -72,9 +66,7 @@ private void OnError(byte[] args)
 
 This method takes no parameters.
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -100,9 +92,7 @@ Type: [DataReceivedEventArgs](realtime-sdk-csharp-ref-datatypes.md#realtime-sdk-
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.
 
@@ -128,8 +118,6 @@ Type: [GroupMembershipEventArgs](realtime-sdk-csharp-ref-datatypes.md#realtime-s
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 This method does not return anything.

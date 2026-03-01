@@ -1,6 +1,4 @@
-# Amazon GameLift Servers Realtime client API (C#) reference: Data
-
-types
+# Amazon GameLift Servers Realtime client API (C#) reference: Data types
 
 This C# Realtime Client API reference can help you prepare your multiplayer game for use
 with Amazon GameLift Servers Realtime deployed on Amazon GameLift Servers fleets.
