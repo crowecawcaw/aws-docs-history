@@ -17,7 +17,7 @@ Below listed are the differences between the AWS GovCloud (US) and the standard 
 - Amazon Quick Suite and interface VPC endpoints (AWS PrivateLink) are not supported in AWS GovCloud (US).
 - The mobile app is not supported for AWS GovCloud (US-East).
 
-Amazon Quick Suite in AWS GovCloud (US) supports user authorization for federated users only. Quick Suite directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/").
+Amazon Quick Suite in AWS GovCloud (US) supports user authorization for federated users only. Quick directly supports authentication through AWS Identity and Access Management (IAM), AWS IAM Identity Center (IAM Identity Center), and AWS Directory Service for Microsoft Active Directory. For more information, see [Identity federation in AWS](https://aws.amazon.com/identity/federation/ "https://aws.amazon.com/identity/federation/").
 
 If you’re a Amazon Quick Suite administrator, make sure to allow-list the following domains within your organization’s network.
 
@@ -30,7 +30,7 @@ Specialized configurations that allow users to authenticate with a different ide
 
 ###### Note
 
-If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"), you can point to AWS GovCloud (US) ARNs and URLs for your resources, but in the step for the static website that uses Amazon CloudFront and Amazon S3, you need to point to a classic AWS Region, for example US East (N. Virginia), for the tutorial to work. This is not necessary outside the tutorial. For more information and additional examples, see [Developing with Amazon Quick Suite](../../../quicksight/latest/user/quicksight_dev.md "../../../quicksight/latest/user/quicksight_dev.md") in the Amazon Quick Suite User Guide.
+If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/ "https://aws.amazon.com/getting-started/hands-on/embedded-analytics-tutorial-introduction/"), you can point to AWS GovCloud (US) ARNs and URLs for your resources, but in the step for the static website that uses Amazon CloudFront and Amazon S3, you need to point to a classic AWS Region, for example US East (N. Virginia), for the tutorial to work. This is not necessary outside the tutorial. For more information and additional examples, see [Developing with Amazon Quick](../../../quicksight/latest/user/quicksight_dev.md "../../../quicksight/latest/user/quicksight_dev.md") in the Amazon Quick Suite User Guide.
 
 ## Documentation for Amazon Quick Suite
 

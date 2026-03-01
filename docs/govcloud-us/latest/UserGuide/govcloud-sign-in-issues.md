@@ -42,13 +42,13 @@ If you are an IAM user and you are not signed in, you must ask your administrato
 
 Support can’t help you recover this information.
 
-## I lost or forgot my AWS GovCloud (US)IAM user name or password
+## I lost or forgot my AWS GovCloud (US) IAM user name or password
 
 If you are an IAM user, your administrator provides your credentials. If you forget your password, you must ask your administrator to reset your password. To learn how an administrator can manage your password, see [Managing passwords for IAM users](../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md "../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md").
 
 If you are an administrator of the AWS GovCloud (US) account and have forgot your password to the AWS Management Console for AWS GovCloud (US), please contact another administrator in the account to assist with restoring your access. If there are no other users with administrative access to your account, you will need root credentials for your AWS GovCloud (US) account to restore console access. To learn how to restore administrative console access with the root user, see [AWS GovCloud (US) account root user](govcloud-account-root-user.md "govcloud-account-root-user.md") in the _AWS GovCloud (US) User Guide_.
 
-## I lost or forgot the access keys for my AWS GovCloud (US)IAM user name
+## I lost or forgot the access keys for my AWS GovCloud (US) IAM user name
 
 If you are an IAM user and you forget your access keys, you will need new access keys. If you have permission to create your own access keys, you can find instructions for creating a new one at [Managing access keys (console)](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey"). If you do not have the required permissions, you must ask your administrator to create new access keys. If you are still using your old keys, ask your administrator not to delete the old keys. To learn how an administrator can manage your access keys, see [Managing access keys for IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md").
 

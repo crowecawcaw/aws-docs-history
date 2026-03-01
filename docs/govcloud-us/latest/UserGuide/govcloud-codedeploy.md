@@ -15,7 +15,7 @@ AWS CodeDeploy is a deployment service that enables developers to automate the d
 
 Use the values presented here to complete CodeDeploy procedures in the AWS GovCloud (US).
 
-### CodeDeployAmazon S3 resources bucket
+### CodeDeploy Amazon S3 resources bucket
 
 Name of the Amazon S3 bucket containing CodeDeploy files:
 
@@ -23,7 +23,7 @@ Name of the Amazon S3 bucket containing CodeDeploy files:
 aws-codedeploy-us-gov-west-1
 ```
 
-### CodeDeployAmazon S3 bucket ARN
+### CodeDeploy Amazon S3 bucket ARN
 
 ARN of the Amazon S3 bucket containing CodeDeploy files:
 

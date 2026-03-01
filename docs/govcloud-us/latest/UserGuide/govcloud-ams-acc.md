@@ -8,7 +8,7 @@ Some services available in other AWS Regions are not available or have limitatio
 
 - Not supported in AWS GovCloud (US) Regions:
   - [Amazon Macie](../../../macie/latest/user/what-is-macie.md "../../../macie/latest/user/what-is-macie.md")
-  - [Self-service reporting](../../../managedservices/latest/accelerate-guide/self-service-reporting.md "../../../managedservices/latest/accelerate-guide/self-service-reporting.md")
+  - [Self-service reporting](../../../managedservices/latest/accelerate-guide/self-service-reporting.md "../../../managedservices/latest/accelerate-guide/self-service-reporting.md") - Patch and Backup daily reports are available. All other self-service reports are not available.
   - [Enable AMS to use your own CloudTrail trail](../../../managedservices/latest/accelerate-guide/acc-onb-trail-choices.md "../../../managedservices/latest/accelerate-guide/acc-onb-trail-choices.md")
   - [Cost optimization with AMS Resource Scheduler](../../../managedservices/latest/accelerate-guide/acc-resource-scheduler.md "../../../managedservices/latest/accelerate-guide/acc-resource-scheduler.md")
   - [Customer-provided tags](../../../managedservices/latest/accelerate-guide/acc-tag-cust-provided.md "../../../managedservices/latest/accelerate-guide/acc-tag-cust-provided.md")
