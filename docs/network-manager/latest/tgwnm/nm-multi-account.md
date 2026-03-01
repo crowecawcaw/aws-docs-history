@@ -165,12 +165,9 @@ network topology. In addition CloudFormation StackSets is updated to include the
 administrator accounts in the trusted relationship of the deployed IAM roles in
 the member accounts.
 
-For information about registering a delegated administrator, see [Register an administrator for multi-account in an AWS global
-network](nm-delegate-admin.md "nm-delegate-admin.md").
+For information about registering a delegated administrator, see [Register an administrator for multi-account in an AWS global network](nm-delegate-admin.md "nm-delegate-admin.md").
 
-#### Deregister delegated
-
-administrators
+#### Deregister delegated administrators
 
 Deregistering a delegated administrator removes that account's permission to
 leverage SLRs and assume IAM roles in other member accounts that were set up using
@@ -190,8 +187,7 @@ permissions as the management account. The following occurs:
   administrator account. That account is no longer able to assume any IAM
   roles deployed in other member accounts.
 
-For information about deregistering a delegated administrator, see [Deregister an administrator from multi-account in an AWS
-global network](nm-deregister-admin.md "nm-deregister-admin.md").
+For information about deregistering a delegated administrator, see [Deregister an administrator from multi-account in an AWS global network](nm-deregister-admin.md "nm-deregister-admin.md").
 
 ###### Multi-account tasks
 

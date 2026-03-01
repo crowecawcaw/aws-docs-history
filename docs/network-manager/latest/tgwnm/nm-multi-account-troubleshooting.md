@@ -32,8 +32,7 @@ appear in the **IAM role deployments status** with a status of
 **Self-managed**. In order to change this to StackSets-managed,
 delete the IAM role from the member account with the duplicate role name. After
 deleting the IAM role, use the global networks console to retry the role deployment. For the
-steps to retry a role deployment, see [Manage IAM multi-account role deployments in an AWS global
-network](nm-multi-manage-iam.md "nm-multi-manage-iam.md") to retry the role deployment.
+steps to retry a role deployment, see [Manage IAM multi-account role deployments in an AWS global network](nm-multi-manage-iam.md "nm-multi-manage-iam.md") to retry the role deployment.
 
 ###### To change a role from self-managed to StackSets-managed
 

@@ -17,8 +17,7 @@ work with transit gateways, use the Amazon VPC console and the Amazon EC2 APIs.
 ###### Contents
 
 - [Register transit gateways](#nm-how-it-works-tgws "#nm-how-it-works-tgws")
-- [Define and associate your on-premises
-  network](#nm-how-it-works-on-premises "#nm-how-it-works-on-premises")
+- [Define and associate your on-premises network](#nm-how-it-works-on-premises "#nm-how-it-works-on-premises")
 - [Supported resource types](#nm-supported-resource-type "#nm-supported-resource-type")
 
 ## Register transit gateways
@@ -53,9 +52,7 @@ transit gateways and their attachments.
 
 ![Multi-Region global network](images/nm-multi-region-tgw.png)
 
-## Define and associate your on-premises
-
-network
+## Define and associate your on-premises network
 
 To represent your on-premises network, you add _devices_,
 _links_, and _sites_ to your global network.
@@ -80,7 +77,7 @@ with the device to connect your virtual appliance network to your AWS resources.
 the following diagram, the on-premises network is connected to a transit gateway through
 a Site-to-Site VPN connection.
 
-![On-premises network](/images/network-manager/latest/tgwnm/images/nm-single-device-single-vpn.png)
+![On-premises network](images/nm-single-device-single-vpn.png)
 
 You can have multiple devices in a site, which you can associate a device with
 multiple links. For examples, see [AWS Global Networks for Transit Gateways scenarios](gnw-scenarios.md "gnw-scenarios.md").

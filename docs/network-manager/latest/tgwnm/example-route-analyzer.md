@@ -1,6 +1,4 @@
-# Example: Route analysis for peered transit
-
-gateways
+# Example: Route analysis for peered transit gateways
 
 In the following example, transit gateway 1 has two VPC attachments, and a peering
 attachment to transit gateway 2. Transit gateway 2 has a Site-to-Site VPN attachment to your

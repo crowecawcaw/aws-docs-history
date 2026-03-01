@@ -8,9 +8,7 @@ ways:
 
 Transit gateways page
 
-###### To disassociate a Connect peer using the Transit gateways
-
-page
+###### To disassociate a Connect peer using the Transit gateways page
 
 1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
 2. Under **Connectivity**, choose **Global Networks**.

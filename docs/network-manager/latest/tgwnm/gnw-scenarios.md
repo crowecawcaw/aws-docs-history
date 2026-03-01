@@ -5,17 +5,14 @@ transit gateways.
 
 ###### Contents
 
-- [AWS-only
-  multi-Region and multi-account global network](#scenario-aws-only-global-network "#scenario-aws-only-global-network")
+- [AWS-only multi-Region and multi-account global network](#scenario-aws-only-global-network "#scenario-aws-only-global-network")
 - [Single device with a single VPN connection](#scenario-one-device-one-vpn "#scenario-one-device-one-vpn")
 - [Device with multiple VPN connections](#scenario-device-multiple-vpns "#scenario-device-multiple-vpns")
 - [Multi-device and multi-link site](#scenario-multi-device-site "#scenario-multi-device-site")
 - [SD-WAN connecting to AWS](#scenario-wan-to-aws "#scenario-wan-to-aws")
 - [Connection between devices](#scenario-tgw-connect "#scenario-tgw-connect")
 
-## AWS-only
-
-multi-Region and multi-account global network
+## AWS-only multi-Region and multi-account global network
 
 In this scenario, your AWS network consists of three transit gateways. You own
 transit gateways `tgw-1` and `tgw-3`. Transit gateway
@@ -56,8 +53,7 @@ For this scenario, do the following in Network Manager:
 - Register the transit gateway. For more information, see [Register a transit gateway using AWS Network Manager](register-tgw.md "register-tgw.md").
 - Create a site, device, and link. For more information, see [Sites and links in AWS Global Networks for Transit Gateways](nm-sites.md "nm-sites.md") and [Devices in AWS Global Networks for Transit Gateways](nm-devices.md "nm-devices.md").
 - Associate the device with the site and with the link. For more information,
-  see [Associate or disassociate a device
-  link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
+  see [Associate or disassociate a device link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
 - Associate the customer gateway (for the transit gateway Site-to-Site VPN attachment) with
   the device, and optionally, the link. For more information, see [Customer gateway associations](gw-association.md#cgw-associations "gw-association.md#cgw-associations").
 
@@ -78,8 +74,7 @@ For this scenario, do the following in global networks:
 - Create a site, device, and link. For more information, see [Sites and links in AWS Global Networks for Transit Gateways](nm-sites.md "nm-sites.md") and [Devices in AWS Global Networks for Transit Gateways](nm-devices.md "nm-devices.md").
   />.
 - Associate the device with the site and both links. For more information, see
-  [Associate or disassociate a device
-  link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
+  [Associate or disassociate a device link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
 - Associate each customer gateway with the device and the corresponding link.
   For more information, see [Customer gateway associations](gw-association.md#cgw-associations "gw-association.md#cgw-associations").
 
@@ -101,8 +96,7 @@ For this scenario, do the following in global networks:
 - Register the transit gateway. For more information, see [Register a transit gateway using AWS Network Manager](register-tgw.md "register-tgw.md").
 - Create one site, two devices, and two links. For more information, see [Sites and links in AWS Global Networks for Transit Gateways](nm-sites.md "nm-sites.md") and [Devices in AWS Global Networks for Transit Gateways](nm-devices.md "nm-devices.md").
 - Associate each device with the corresponding link. For more information, see
-  [Associate or disassociate a device
-  link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
+  [Associate or disassociate a device link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
 - Associate each customer gateway with the corresponding device and link. For
   more information, see [Customer gateway associations](gw-association.md#cgw-associations "gw-association.md#cgw-associations").
 
@@ -139,13 +133,11 @@ For this scenario, do the following in global networks:
 - Register the transit gateway. For more information, see [Register a transit gateway using AWS Network Manager](register-tgw.md "register-tgw.md").
 - Create a site, device, and link for your on-premises network. For more information, see [Sites and links in AWS Global Networks for Transit Gateways](nm-sites.md "nm-sites.md") and [Devices in AWS Global Networks for Transit Gateways](nm-devices.md "nm-devices.md").
 - Associate the device with the site and with the link. For more information,
-  see [Associate or disassociate a device
-  link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
+  see [Associate or disassociate a device link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
 - Create a device for the EC2 virtual device. For visualization in the global networks
   console, specify the AWS location of the device (for example, the Availability
   Zone). For more information, see [Devices in AWS Global Networks for Transit Gateways](nm-devices.md "nm-devices.md").
 - Create a connection between the on-premises device and the virtual device. For
-  more information, see [Associate or disassociate an on-premises
-  link using AWS Network Manager](nm-devices-onprem.md "nm-devices-onprem.md").
+  more information, see [Associate or disassociate an on-premises link using AWS Network Manager](nm-devices-onprem.md "nm-devices-onprem.md").
 - Associate the Connect peer with the on-premises device. For more information,
   see [Associate or disassociate a Connect peer using AWS Network Manager](nm-devices-connect-peer.md "nm-devices-connect-peer.md").

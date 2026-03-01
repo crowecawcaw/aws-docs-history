@@ -1,12 +1,9 @@
-# Deregister an administrator from multi-account in an AWS
-
-global network
+# Deregister an administrator from multi-account in an AWS global network
 
 Deregistering delegated administrators removes that account's permission to manage global
 networks for your organization. All registered transit gateways from other member accounts are
 deregistered from the specific delegated administrator's global networks. For more information
-about how deregistering delegated administrators works, see [Deregister delegated
-administrators](nm-multi-account.md#nm-how-it-works-deregister "nm-multi-account.md#nm-how-it-works-deregister").
+about how deregistering delegated administrators works, see [Deregister delegated administrators](nm-multi-account.md#nm-how-it-works-deregister "nm-multi-account.md#nm-how-it-works-deregister").
 
 ###### To deregister a delegated administrator
 

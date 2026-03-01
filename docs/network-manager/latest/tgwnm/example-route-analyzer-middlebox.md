@@ -1,6 +1,4 @@
-# Example: Route analysis with a
-
-middlebox configuration
+# Example: Route analysis with a middlebox configuration
 
 If you've configured a VPC to act as a middlebox appliance for inspecting traffic that
 flows to other parts of your network, you can indicate the location of the appliance in

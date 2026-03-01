@@ -1,6 +1,4 @@
-# Manage IAM multi-account role deployments in an AWS global
-
-network
+# Manage IAM multi-account role deployments in an AWS global network
 
 The **IAM role deployments status** section displays the current role
 deployments status for all member accounts set up in your account.

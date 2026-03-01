@@ -1,6 +1,4 @@
-# Associate or disassociate a device
-
-link using AWS Network Manager
+# Associate or disassociate a device link using AWS Network Manager
 
 Associate a link with a device in your AWS global network. In order to associate a
 link with a device, you must first create the link. For more information on creating links,

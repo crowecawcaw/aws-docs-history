@@ -1,6 +1,4 @@
-# Monitor your global network with
-
-Amazon CloudWatch metrics
+# Monitor your global network with Amazon CloudWatch metrics
 
 You can monitor AWS Global Networks for Transit Gateways using Amazon CloudWatch, which collects raw data and processes it into
 readable, near-real-time metrics. These statistics are kept for 15 months, so that you

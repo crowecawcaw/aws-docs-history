@@ -10,16 +10,11 @@ global network.
 ###### Tasks
 
 - [Prerequisites](#network-manager-prerequisites "#network-manager-prerequisites")
-- [Step 1: Create a global
-  network](#getting-started-create-global-network "#getting-started-create-global-network")
-- [Step 2: Register your transit
-  gateway](#getting-started-register-tgw "#getting-started-register-tgw")
-- [Step 3: (Optional) Define and associate your
-  on-premises network resources](#getting-started-define-wan "#getting-started-define-wan")
-- [Step 4: (Optional) Enable multi-account
-  access](#getting-started-multi-account "#getting-started-multi-account")
-- [Step 5: View and monitor your global
-  network](#getting-started-view-global-network "#getting-started-view-global-network")
+- [Step 1: Create a global network](#getting-started-create-global-network "#getting-started-create-global-network")
+- [Step 2: Register your transit gateway](#getting-started-register-tgw "#getting-started-register-tgw")
+- [Step 3: (Optional) Define and associate your on-premises network resources](#getting-started-define-wan "#getting-started-define-wan")
+- [Step 4: (Optional) Enable multi-account access](#getting-started-multi-account "#getting-started-multi-account")
+- [Step 5: View and monitor your global network](#getting-started-view-global-network "#getting-started-view-global-network")
 
 ## Prerequisites
 
@@ -30,9 +25,7 @@ Gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tg
 The transit gateway can be in the same AWS account as the global network or in a different
 AWS account within the organization.
 
-## Step 1: Create a global
-
-network
+## Step 1: Create a global network
 
 Create a global network as a container for your transit gateway.
 
@@ -45,9 +38,7 @@ Create a global network as a container for your transit gateway.
 4. Enter a name and description for the global network, and choose
    **Create global network**.
 
-## Step 2: Register your transit
-
-gateway
+## Step 2: Register your transit gateway
 
 Register a transit gateway in your global network.
 
@@ -65,9 +56,7 @@ A list of transit gateways from that account appear in the **Select transit
 gateway to register** section. 6. Select one or more transit gateways from the list, and then choose **Register
 transit gateway**.
 
-## Step 3: (Optional) Define and associate your
-
-on-premises network resources
+## Step 3: (Optional) Define and associate your on-premises network resources
 
 You can define your on-premises network by creating sites, links, and devices to
 represent objects in your network. For more information, see the following
@@ -78,8 +67,7 @@ procedures:
 - [Add a device using AWS Network Manager](nm-devices-add.md "nm-devices-add.md")
 
 You associate the device with a specific site, and with one or more links. For
-more information, see [Associate or disassociate a device
-link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
+more information, see [Associate or disassociate a device link using AWS Network Manager](nm-device-link-associate.md "nm-device-link-associate.md").
 
 On your transit gateway you can
 
@@ -91,9 +79,7 @@ You can also work with one of our Partners in the AWS Partner Network (APN) to
 provision and connect your on-premises network. For more information, see
 [AWS Network Manager](https://aws.amazon.com/transit-gateway/network-manager "https://aws.amazon.com/transit-gateway/network-manager").
 
-## Step 4: (Optional) Enable multi-account
-
-access
+## Step 4: (Optional) Enable multi-account access
 
 Enable multi-account access to register transit gateways from multiple accounts, allowing you to
 view and manage transit gateways and associated resources from those registered accounts in your
@@ -116,9 +102,7 @@ For more information on creating a global network, see [Create a global network 
 With multi-account enabled, you can register transit gateways from multiple accounts to
 your global network. For more information about registering transit gateways, see [Transit gateway registrations in AWS Global Networks for Transit Gateways](tgw-registrations.md "tgw-registrations.md").
 
-## Step 5: View and monitor your global
-
-network
+## Step 5: View and monitor your global network
 
 The Network Manager console provides a dashboard for you to view and monitor both your transit gateway
 network objects in your global network.

@@ -65,9 +65,7 @@ When you onboard to CloudWatch Logs Insights, the following occurs:
   following AWS CLI command: `aws logs describe-resource-policies --region
 us-west-2`
 
-### View transit gateway events using the AWS Transit Gateway
-
-console
+### View transit gateway events using the AWS Transit Gateway console
 
 You can view events for your global network or view a specific transit gateway using the
 global networks console.
@@ -102,44 +100,25 @@ global network. These include the following:
 
 ###### Events
 
-- [A transit gateway in the global network was
-  deleted (TGW-DELETED)](#tgw-delete "#tgw-delete")
-- [A VPN connection was created for a transit
-  gateway (VPN-CONNECTION-CREATED)](#vpn-tgw-create "#vpn-tgw-create")
-- [A VPN connection was deleted on a transit
-  gateway (VPN-CONNECTION-DELETED)](#vpn-tgw-delete "#vpn-tgw-delete")
-- [The customer gateway for a VPN connection
-  was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)](#vpn-gateway-changed "#vpn-gateway-changed")
-- [The target gateway for a VPN
-  connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)](#vpn-target-gateway-changed "#vpn-target-gateway-changed")
-- [A VPC was attached to a transit gateway
-  (VPC-ATTACHMENT-CREATED)](#vpc-tgw-attach "#vpc-tgw-attach")
-- [A VPC attachment was deleted from a
-  transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete "#vpc-attach-tgw-delete")
-- [An Direct Connect gateway was attached to a
-  transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach "#dx-gateway-attach")
-- [An Direct Connect gateway was detached from a
-  transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach "#dx-gateway-detach")
-- [A transit gateway peering connection
-  attachment was created (TGW_PEERING_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
-- [A transit gateway peering connection was deleted
-  (TGW-PEERING-DELETED)](#tgw-peering-delete "#tgw-peering-delete")
-- [A transit gateway
-  Connect attachment was created for a transit gateway
-  (CONNECT_ATTACHMENT_CREATED)](#connect-attachment-create "#connect-attachment-create")
-- [A transit gateway
-  Connect attachment was deleted for a transit gateway
-  (CONNECT_ATTACHMENT_DELETED)](#connect-attachment-delete "#connect-attachment-delete")
-- [A transit gateway Connect peer was created in
-  a Connect attachment (TGW-CONNECT-PEER-CREATED)](#tgw-connect-peer-created "#tgw-connect-peer-created")
-- [A transit gateway Connect peer was deleted in
-  a Connect attachment (CONNECT_PEER_DELETED)](#tgw-connect-peer-deleted "#tgw-connect-peer-deleted")
+- [A transit gateway in the global network was deleted (TGW-DELETED)](#tgw-delete "#tgw-delete")
+- [A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)](#vpn-tgw-create "#vpn-tgw-create")
+- [A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)](#vpn-tgw-delete "#vpn-tgw-delete")
+- [The customer gateway for a VPN connection was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)](#vpn-gateway-changed "#vpn-gateway-changed")
+- [The target gateway for a VPN connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)](#vpn-target-gateway-changed "#vpn-target-gateway-changed")
+- [A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)](#vpc-tgw-attach "#vpc-tgw-attach")
+- [A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)](#vpc-attach-tgw-delete "#vpc-attach-tgw-delete")
+- [An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)](#dx-gateway-attach "#dx-gateway-attach")
+- [An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)](#dx-gateway-detach "#dx-gateway-detach")
+- [A transit gateway peering connection attachment was created (TGW_PEERING_CREATED)](#tgw-peering-attach "#tgw-peering-attach")
+- [A transit gateway peering connection was deleted (TGW-PEERING-DELETED)](#tgw-peering-delete "#tgw-peering-delete")
+- [A transit gateway Connect attachment was created for a transit gateway (CONNECT_ATTACHMENT_CREATED)](#connect-attachment-create "#connect-attachment-create")
+- [A transit gateway Connect attachment was deleted for a transit gateway (CONNECT_ATTACHMENT_DELETED)](#connect-attachment-delete "#connect-attachment-delete")
+- [A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)](#tgw-connect-peer-created "#tgw-connect-peer-created")
+- [A transit gateway Connect peer was deleted in a Connect attachment (CONNECT_PEER_DELETED)](#tgw-connect-peer-deleted "#tgw-connect-peer-deleted")
 - [A Network Firewall attachment was created (NETWORK-FIREWALL-ATTACHMENT-CREATED)](#vpc-firewall-attach "#vpc-firewall-attach")
 - [A Network Firewall attachment was deleted (NETWORK-FIREWALL-ATTACHMENT-DELETED)](#vpc-firewall-delete "#vpc-firewall-delete")
 
-### A transit gateway in the global network was
-
-deleted (TGW-DELETED)
+### A transit gateway in the global network was deleted (TGW-DELETED)
 
 ```
 {"version":"0",
@@ -161,9 +140,7 @@ deleted (TGW-DELETED)
 
 ```
 
-### A VPN connection was created for a transit
-
-gateway (VPN-CONNECTION-CREATED)
+### A VPN connection was created for a transit gateway (VPN-CONNECTION-CREATED)
 
 ```
 {
@@ -194,9 +171,7 @@ gateway (VPN-CONNECTION-CREATED)
 }
 ```
 
-### A VPN connection was deleted on a transit
-
-gateway (VPN-CONNECTION-DELETED)
+### A VPN connection was deleted on a transit gateway (VPN-CONNECTION-DELETED)
 
 ```
 {
@@ -224,9 +199,7 @@ gateway (VPN-CONNECTION-DELETED)
 }
 ```
 
-### The customer gateway for a VPN connection
-
-was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)
+### The customer gateway for a VPN connection was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)
 
 ```
 {"version":"0",
@@ -251,9 +224,7 @@ was changed (VPN-CONNECTION-CUSTOMER-GATEWAY-MODIFIED)
 }
 ```
 
-### The target gateway for a VPN
-
-connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)
+### The target gateway for a VPN connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)
 
 ```
 
@@ -280,9 +251,7 @@ connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)
 }
 ```
 
-### A VPC was attached to a transit gateway
-
-(VPC-ATTACHMENT-CREATED)
+### A VPC was attached to a transit gateway (VPC-ATTACHMENT-CREATED)
 
 ```
 {
@@ -308,9 +277,7 @@ connection was changed (VPN-CONNECTION-TARGET-GATEWAY-MODIFIED)
 }
 ```
 
-### A VPC attachment was deleted from a
-
-transit gateway (VPC-ATTACHMENT-DELETED)
+### A VPC attachment was deleted from a transit gateway (VPC-ATTACHMENT-DELETED)
 
 ```
 {
@@ -336,9 +303,7 @@ transit gateway (VPC-ATTACHMENT-DELETED)
 }
 ```
 
-### An Direct Connect gateway was attached to a
-
-transit gateway (DXGW-ATTACHMENT-CREATED)
+### An Direct Connect gateway was attached to a transit gateway (DXGW-ATTACHMENT-CREATED)
 
 ```
 {
@@ -363,9 +328,7 @@ transit gateway (DXGW-ATTACHMENT-CREATED)
 }
 ```
 
-### An Direct Connect gateway was detached from a
-
-transit gateway (DXGW-ATTACHMENT-DELETED)
+### An Direct Connect gateway was detached from a transit gateway (DXGW-ATTACHMENT-DELETED)
 
 ```
 {
@@ -391,9 +354,7 @@ transit gateway (DXGW-ATTACHMENT-DELETED)
 }
 ```
 
-### A transit gateway peering connection
-
-attachment was created (TGW_PEERING_CREATED)
+### A transit gateway peering connection attachment was created (TGW_PEERING_CREATED)
 
 ```
 {
@@ -419,9 +380,7 @@ attachment was created (TGW_PEERING_CREATED)
 }
 ```
 
-### A transit gateway peering connection was deleted
-
-(TGW-PEERING-DELETED)
+### A transit gateway peering connection was deleted (TGW-PEERING-DELETED)
 
 ```
 {
@@ -447,10 +406,7 @@ attachment was created (TGW_PEERING_CREATED)
 }
 ```
 
-### A transit gateway
-
-Connect attachment was created for a transit gateway
-(CONNECT_ATTACHMENT_CREATED)
+### A transit gateway Connect attachment was created for a transit gateway (CONNECT_ATTACHMENT_CREATED)
 
 ```
 {
@@ -477,10 +433,7 @@ Connect attachment was created for a transit gateway
 }
 ```
 
-### A transit gateway
-
-Connect attachment was deleted for a transit gateway
-(CONNECT_ATTACHMENT_DELETED)
+### A transit gateway Connect attachment was deleted for a transit gateway (CONNECT_ATTACHMENT_DELETED)
 
 ```
 {
@@ -505,9 +458,7 @@ Connect attachment was deleted for a transit gateway
 }
 ```
 
-### A transit gateway Connect peer was created in
-
-a Connect attachment (TGW-CONNECT-PEER-CREATED)
+### A transit gateway Connect peer was created in a Connect attachment (TGW-CONNECT-PEER-CREATED)
 
 ```
 {
@@ -535,9 +486,7 @@ a Connect attachment (TGW-CONNECT-PEER-CREATED)
 }
 ```
 
-### A transit gateway Connect peer was deleted in
-
-a Connect attachment (CONNECT_PEER_DELETED)
+### A transit gateway Connect peer was deleted in a Connect attachment (CONNECT_PEER_DELETED)
 
 ```
 {
@@ -626,16 +575,11 @@ tables in your global network. These include the following:
 
 ###### Events
 
-- [A transit gateway attachment's route
-  table changed (CONNECT_PEER_DELETED)](#tgw-route-changed "#tgw-route-changed")
-- [A route was created in a transit gateway
-  route table (TGW-ROUTE-INSTALLED)](#tgw-route-created "#tgw-route-created")
-- [A route was deleted in a
-  transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)](#tgw-route-uninstall "#tgw-route-uninstall")
+- [A transit gateway attachment's route table changed (CONNECT_PEER_DELETED)](#tgw-route-changed "#tgw-route-changed")
+- [A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)](#tgw-route-created "#tgw-route-created")
+- [A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)](#tgw-route-uninstall "#tgw-route-uninstall")
 
-### A transit gateway attachment's route
-
-table changed (CONNECT_PEER_DELETED)
+### A transit gateway attachment's route table changed (CONNECT_PEER_DELETED)
 
 ```
 {
@@ -661,9 +605,7 @@ table changed (CONNECT_PEER_DELETED)
 }
 ```
 
-### A route was created in a transit gateway
-
-route table (TGW-ROUTE-INSTALLED)
+### A route was created in a transit gateway route table (TGW-ROUTE-INSTALLED)
 
 ```
 {
@@ -704,9 +646,7 @@ route table (TGW-ROUTE-INSTALLED)
 }
 ```
 
-### A route was deleted in a
-
-transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)
+### A route was deleted in a transit gateway route table gateway (TGW-ROUTE-UNINSTALLED)
 
 ```
 {
@@ -749,22 +689,14 @@ following:
 
 ###### Events
 
-- [A VPN tunnel's IPsec session
-  went down (VPN-CONNECTION-IPSEC-DOWN)](#vpn-connection-ipsec-down "#vpn-connection-ipsec-down")
-- [A VPN tunnel's IPsec session went up
-  (after being down) (VPN-CONNECTION-IPSEC-UP)](#vpn-connection-ipsec-up "#vpn-connection-ipsec-up")
-- [A VPN tunnel's BGP session went down
-  (VPN-CONNECTION-BGP-DOWN)](#vpn-connection-bgp-down "#vpn-connection-bgp-down")
-- [A VPN tunnel's BGP session went
-  up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)](#vpn-connection-bgp-establish "#vpn-connection-bgp-establish")
-- [A Connect peer (GRE tunnel) BGP
-  session went down (CONNECT_PEER_BGP_DOWN)](#tgw-connect-peer-bgp-down "#tgw-connect-peer-bgp-down")
-- [A Connect peer (GRE tunnel) BGP
-  session went up after being down) (CONNECT_PEER_BGP_UP)](#tgw-connect-peer-bgp-up "#tgw-connect-peer-bgp-up")
+- [A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)](#vpn-connection-ipsec-down "#vpn-connection-ipsec-down")
+- [A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)](#vpn-connection-ipsec-up "#vpn-connection-ipsec-up")
+- [A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)](#vpn-connection-bgp-down "#vpn-connection-bgp-down")
+- [A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)](#vpn-connection-bgp-establish "#vpn-connection-bgp-establish")
+- [A Connect peer (GRE tunnel) BGP session went down (CONNECT_PEER_BGP_DOWN)](#tgw-connect-peer-bgp-down "#tgw-connect-peer-bgp-down")
+- [A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT_PEER_BGP_UP)](#tgw-connect-peer-bgp-up "#tgw-connect-peer-bgp-up")
 
-### A VPN tunnel's IPsec session
-
-went down (VPN-CONNECTION-IPSEC-DOWN)
+### A VPN tunnel's IPsec session went down (VPN-CONNECTION-IPSEC-DOWN)
 
 ```
 {
@@ -791,9 +723,7 @@ went down (VPN-CONNECTION-IPSEC-DOWN)
 }
 ```
 
-### A VPN tunnel's IPsec session went up
-
-(after being down) (VPN-CONNECTION-IPSEC-UP)
+### A VPN tunnel's IPsec session went up (after being down) (VPN-CONNECTION-IPSEC-UP)
 
 ```
 {
@@ -820,9 +750,7 @@ went down (VPN-CONNECTION-IPSEC-DOWN)
 }
 ```
 
-### A VPN tunnel's BGP session went down
-
-(VPN-CONNECTION-BGP-DOWN)
+### A VPN tunnel's BGP session went down (VPN-CONNECTION-BGP-DOWN)
 
 ```
 {
@@ -850,9 +778,7 @@ went down (VPN-CONNECTION-IPSEC-DOWN)
 }
 ```
 
-### A VPN tunnel's BGP session went
-
-up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)
+### A VPN tunnel's BGP session went up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)
 
 ```
 {
@@ -880,9 +806,7 @@ up (after being down) (VPN-CONNECTION-BGP-ESTABLISH)
 }
 ```
 
-### A Connect peer (GRE tunnel) BGP
-
-session went down (CONNECT_PEER_BGP_DOWN)
+### A Connect peer (GRE tunnel) BGP session went down (CONNECT_PEER_BGP_DOWN)
 
 ```
 {
@@ -907,9 +831,7 @@ session went down (CONNECT_PEER_BGP_DOWN)
 }
 ```
 
-### A Connect peer (GRE tunnel) BGP
-
-session went up after being down) (CONNECT_PEER_BGP_UP)
+### A Connect peer (GRE tunnel) BGP session went up after being down) (CONNECT_PEER_BGP_UP)
 
 ```
 {

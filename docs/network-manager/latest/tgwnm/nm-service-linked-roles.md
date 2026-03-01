@@ -4,9 +4,7 @@ AWS Global Networks for Transit Gateways uses service-linked roles for the permi
 AWS services on your behalf. These service-linked roles are not propagated to your
 AWS Organizations management account.
 
-## Permissions granted by the service-linked
-
-role
+## Permissions granted by the service-linked role
 
 AWS Global Networks for Transit Gateways uses a Network Manager service-linked role named AWSServiceRoleForNetworkManager to call
 the actions on your behalf when you work with global networks.

@@ -20,10 +20,8 @@ Route Analyzer does not work with intra-Region peering.
 
 - [Route Analyzer basics](#route-analyzer-basics "#route-analyzer-basics")
 - [Perform a route analysis](working-with-route-analyzer.md "working-with-route-analyzer.md")
-- [Example: Route analysis for peered transit
-  gateways](example-route-analyzer.md "example-route-analyzer.md")
-- [Example: Route analysis with a
-  middlebox configuration](example-route-analyzer-middlebox.md "example-route-analyzer-middlebox.md")
+- [Example: Route analysis for peered transit gateways](example-route-analyzer.md "example-route-analyzer.md")
+- [Example: Route analysis with a middlebox configuration](example-route-analyzer-middlebox.md "example-route-analyzer-middlebox.md")
 
 ## Route Analyzer basics
 

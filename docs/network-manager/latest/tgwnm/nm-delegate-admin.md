@@ -1,6 +1,4 @@
-# Register an administrator for multi-account in an AWS global
-
-network
+# Register an administrator for multi-account in an AWS global network
 
 Use the AWS Global Networks for Transit Gateways console to register delegated administrators. You can register up to ten
 delegated administrators. Delegated administrators can assume the SLR and IAM roles deployed
