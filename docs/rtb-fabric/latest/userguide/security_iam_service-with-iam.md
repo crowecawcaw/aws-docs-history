@@ -21,9 +21,7 @@ To get a high-level view of how RTB Fabric and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for RTB Fabric
+## Identity-based policies for RTB Fabric
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for RTB Fabric
 
-Identity-based policy examples for RTB Fabric
+To view examples of RTB Fabric identity-based policies, see [Identity-based policy examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of RTB Fabric identity-based policies, see [Identity-based policy
-examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within RTB Fabric
+## Resource-based policies within RTB Fabric
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for RTB Fabric
+## Policy actions for RTB Fabric
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of RTB Fabric identity-based policies, see [Identity-based policy
-examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of RTB Fabric identity-based policies, see [Identity-based policy examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for RTB Fabric
+## Policy resources for RTB Fabric
 
 **Supports policy resources:**
 
@@ -122,12 +110,9 @@ Actions, resources, and condition keys for RTB Fabric in the _Service Authorizat
 which actions you can specify the ARN of each resource, see
 Actions, resources, and condition keys for RTB Fabric.
 
-To view examples of RTB Fabric identity-based policies, see [Identity-based policy
-examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of RTB Fabric identity-based policies, see [Identity-based policy examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for RTB Fabric
+## Policy condition keys for RTB Fabric
 
 **Supports service-specific policy condition keys:**
 
@@ -146,8 +131,7 @@ To see a list of RTB Fabric condition keys, see Actions, resources, and conditio
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see Actions, resources, and condition keys for RTB Fabric.
 
-To view examples of RTB Fabric identity-based policies, see [Identity-based policy
-examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of RTB Fabric identity-based policies, see [Identity-based policy examples for RTB Fabric](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in RTB Fabric
 
@@ -175,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with RTB Fabric
+## Using temporary credentials with RTB Fabric
 
 **Supports temporary credentials:**
 
@@ -189,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for RTB Fabric
+## Cross-service principal permissions for RTB Fabric
 
 **Supports forward access sessions (FAS):**
 
@@ -200,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-RTB Fabric
+## Service roles for RTB Fabric
 
 **Supports service roles:**
 
@@ -217,9 +195,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break RTB Fabric functionality.
 Edit service roles only when RTB Fabric provides guidance to do so.
 
-## Service-linked
-
-roles for RTB Fabric
+## Service-linked roles for RTB Fabric
 
 **Supports service-linked roles:**
 

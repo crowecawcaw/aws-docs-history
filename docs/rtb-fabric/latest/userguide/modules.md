@@ -38,9 +38,11 @@ modules on a single link, and they will be applied in the order you specify duri
 
 ## Configuring modules
 
-Module configuration is only available through the RTB Fabric API. You cannot configure
-modules using the RTB Fabric console. Use the [UpdateLinkModuleFlow API operation](../api/API_UpdateLinkModuleFlow.md "../api/API_UpdateLinkModuleFlow.md")
-to add, modify, or remove modules from your links.
+You can configure modules using the RTB Fabric API, the AWS Command Line Interface (AWS CLI), or
+CloudFormation. The RTB Fabric console does not support module configuration. To add, modify,
+or remove modules from your links, use the
+[UpdateLinkModuleFlow](../api/API_UpdateLinkModuleFlow.md "../api/API_UpdateLinkModuleFlow.md")
+API operation or its equivalent in the AWS CLI or CloudFormation.
 
 ### Rate Limiter Module
 
@@ -70,9 +72,209 @@ The following example shows how to add a QPS rate limiter module to a link using
 
 ### OpenRTB Attribute Module
 
-The following example shows how to add an OpenRTB attribute module to a link using the AWS Command Line Interface (AWS CLI).
+The OpenRTB Attribute Module filters bid requests based on attributes in the
+OpenRTB request payload. You define a set of filters to divide incoming bid requests
+into two groups: requests that match your filters and requests that do not. You then
+choose which group to apply an action to, such as returning a no-bid response or
+adding a custom HTTP header. This lets you intelligently shed traffic before it
+reaches your DSP, reducing compute and networking costs.
 
-**Add an OpenRTB attribute module to a link**
+###### Warning
+
+A misconfigured OpenRTB Attribute Module can unintentionally block desirable traffic. If you are
+unsure of the impact of a new filter configuration, we recommend starting with a
+high `holdbackPercentage` (for example, 90.0) and gradually decreasing
+it as you verify that only the intended traffic is being filtered.
+
+The module configuration is specified inside the `openRtbAttribute`
+object within `moduleParameters`. It contains the following fields:
+
+- `filterConfiguration` – An array of filters that define which bid requests to match.
+- `filterType` – Determines which group of requests the action applies to.
+- `action` – The action to perform on the selected group of requests.
+- `holdbackPercentage` – A percentage of requests that pass through regardless of filter results.
+
+#### Filter criteria
+
+A _filter criterion_ is the smallest unit of a filter. Each
+criterion is a predicate on a single field in the OpenRTB bid request. A criterion
+contains two fields:
+
+- `key` – A JSON path expression that identifies a field in the bid request body. Use
+  standard JSON path syntax starting with `$.` to navigate the OpenRTB request structure
+  (for example, `$.device.geo.country`).
+- `values` – An array of strings representing the desired values. A criterion matches
+  when the value retrieved from the bid request field is contained in this array.
+
+The following example criterion matches bid requests where the COPPA (Children's Online Privacy Protection Act)
+flag is set to `1` (true):
+
+```
+{
+    "key": "$.regs.coppa",
+    "values": ["1"]
+}
+```
+
+The following example criterion matches bid requests originating from the United States or Canada:
+
+```
+{
+    "key": "$.device.geo.country",
+    "values": ["USA", "CAN"]
+}
+```
+
+###### Note
+
+The `values` field uses string matching. Numeric fields in the
+OpenRTB specification (such as `regs.coppa`) must be represented as
+strings in the `values` array (for example, `"1"` instead of
+`1`).
+
+#### Filters
+
+A _filter_ groups one or more filter criteria together using
+**AND** logic. All criteria within a filter must match
+for the filter to match a bid request. A filter contains a single field:
+
+- `criteria` – An array of filter criterion objects.
+
+The following example filter matches bid requests that have the COPPA flag set to
+true **AND** originate from the United States or Canada.
+Both criteria must be satisfied:
+
+```
+{
+    "criteria": [
+        {
+            "key": "$.regs.coppa",
+            "values": ["1"]
+        },
+        {
+            "key": "$.device.geo.country",
+            "values": ["USA", "CAN"]
+        }
+    ]
+}
+```
+
+#### Filter configuration
+
+The `filterConfiguration` field is an array of filters combined using
+**OR** logic. A bid request matches the filter
+configuration if it matches _any one_ of the filters in the array.
+
+By combining AND logic within each filter and OR logic across filters, you can
+express complex filtering rules. The following example matches two types of requests:
+
+- Type A: Requests with COPPA flag set to true **AND** originating from the United States or Canada
+- **OR**
+- Type B: Requests from the domain `example.com`
+
+```
+"filterConfiguration": [
+    {
+        "criteria": [
+            {
+                "key": "$.regs.coppa",
+                "values": ["1"]
+            },
+            {
+                "key": "$.device.geo.country",
+                "values": ["USA", "CAN"]
+            }
+        ]
+    },
+    {
+        "criteria": [
+            {
+                "key": "$.site.domain",
+                "values": ["example.com"]
+            }
+        ]
+    }
+]
+```
+
+#### Filter type
+
+The `filterType` field determines which group of bid requests the action
+applies to. After the filter configuration divides requests into two groups (matched
+and unmatched), the filter type selects which group receives the action.
+
+- `INCLUDE` – The action is performed on requests
+  that _match_ the filter configuration. Use this when you want
+  to target specific types of traffic (for example, block requests from certain
+  regions).
+- `EXCLUDE` – The action is performed on requests
+  that _do not match_ the filter configuration. Use this when
+  you want to define the traffic you want to keep and apply the action to
+  everything else.
+
+#### Actions
+
+The `action` field specifies what to do with the selected group of bid
+requests. The following actions are available:
+
+- **No bid** (`noBid`) –
+  Short-circuits the request and returns a no-bid response without forwarding it
+  to the DSP.
+
+If you omit the `noBidReasonCode` field, the module returns
+an HTTP `204 No Content` response with no response body:
+
+```
+"action": {
+    "noBid": {}
+}
+```
+
+If you specify a `noBidReasonCode`, the module returns an
+HTTP `200 OK` response with a JSON body containing the
+request ID (if present in the original bid request) and an
+`nbr` field set to the reason code you provided:
+
+```
+"action": {
+    "noBid": {
+        "noBidReasonCode": 1
+    }
+}
+
+// Example response body:
+// { "id": "request-123", "nbr": 1 }
+```
+
+- **Header tag** (`headerTag`) –
+  Adds a custom HTTP header to the request before forwarding it to the DSP. The
+  request is not blocked; instead it is tagged with additional metadata. You
+  specify a header `name` and `value`.
+
+```
+"action": {
+    "headerTag": {
+        "name": "X-Custom-Filter",
+        "value": "coppa-flagged"
+    }
+}
+```
+
+#### Holdback percentage
+
+The `holdbackPercentage` field specifies a percentage of requests
+(from 0.0 to 100.0) that pass through the module without any action being applied,
+regardless of whether they match the filter configuration. This is useful for A/B
+testing or for gradually rolling out filtering rules. For example, setting
+`holdbackPercentage` to `10.0` means 10% of requests bypass
+the module entirely.
+
+#### Examples
+
+**Example 1: Block COPPA-flagged traffic from specific countries**
+
+The following example returns an HTTP `204 No Content` for bid requests
+that have the COPPA flag set to true and originate from the United States or Canada:
 
 ```
 `$` `aws rtbfabric update-link-module-flow \
@@ -86,13 +288,163 @@ The following example shows how to add an OpenRTB attribute module to a link usi
  "moduleParameters": {
  "openRtbAttribute": {
  "filterType": "INCLUDE",
- "filterConfiguration": [],
+ "filterConfiguration": [
+ {
+ "criteria": [
+ {
+ "key": "$.regs.coppa",
+ "values": ["1"]
+ },
+ {
+ "key": "$.device.geo.country",
+ "values": ["USA", "CAN"]
+ }
+ ]
+ }
+ ],
+ "action": {
+ "noBid": {}
+ },
+ "holdbackPercentage": 0.0
+ }
+ }
+ }
+]'` \
+--region `us-east-1``
+```
+
+**Example 2: Block traffic from multiple sources using OR logic**
+
+The following example returns a no-bid response for bid requests that match
+_either_ of the following conditions:
+
+- COPPA flag is true AND the request originates from the United States or Canada
+- The request is from the domain `example.com`
+
+```
+`$` `aws rtbfabric update-link-module-flow \
+--gateway-id `rtb-gw-abc123` \
+--link-id `link-xyz789` \
+--modules `'[
+ {
+ "name": "openRtbAttributeModule",
+ "version": "20251204-105817",
+ "dependsOn": [],
+ "moduleParameters": {
+ "openRtbAttribute": {
+ "filterType": "INCLUDE",
+ "filterConfiguration": [
+ {
+ "criteria": [
+ {
+ "key": "$.regs.coppa",
+ "values": ["1"]
+ },
+ {
+ "key": "$.device.geo.country",
+ "values": ["USA", "CAN"]
+ }
+ ]
+ },
+ {
+ "criteria": [
+ {
+ "key": "$.site.domain",
+ "values": ["example.com"]
+ }
+ ]
+ }
+ ],
  "action": {
  "noBid": {
  "noBidReasonCode": 1
  }
  },
- "holdbackPercentage": 10.0
+ "holdbackPercentage": 0.0
+ }
+ }
+ }
+]'` \
+--region `us-east-1``
+```
+
+**Example 3: Tag requests with a custom header**
+
+The following example adds a custom HTTP header to bid requests from mobile devices
+instead of blocking them. The requests are still forwarded to the DSP with the
+additional header attached:
+
+```
+`$` `aws rtbfabric update-link-module-flow \
+--gateway-id `rtb-gw-abc123` \
+--link-id `link-xyz789` \
+--modules `'[
+ {
+ "name": "openRtbAttributeModule",
+ "version": "20251204-105817",
+ "dependsOn": [],
+ "moduleParameters": {
+ "openRtbAttribute": {
+ "filterType": "INCLUDE",
+ "filterConfiguration": [
+ {
+ "criteria": [
+ {
+ "key": "$.device.devicetype",
+ "values": ["1", "4"]
+ }
+ ]
+ }
+ ],
+ "action": {
+ "headerTag": {
+ "name": "X-Device-Category",
+ "value": "mobile"
+ }
+ },
+ "holdbackPercentage": 0.0
+ }
+ }
+ }
+]'` \
+--region `us-east-1``
+```
+
+**Example 4: Block all traffic except from specific domains with holdback**
+
+The following example uses `EXCLUDE` filter type to keep only traffic
+from `trusted-publisher.com` or `premium-ads.com`, and returns
+a no-bid response for all other requests. A 5% holdback ensures that a small sample
+of excluded traffic still passes through for monitoring purposes:
+
+```
+`$` `aws rtbfabric update-link-module-flow \
+--gateway-id `rtb-gw-abc123` \
+--link-id `link-xyz789` \
+--modules `'[
+ {
+ "name": "openRtbAttributeModule",
+ "version": "20251204-105817",
+ "dependsOn": [],
+ "moduleParameters": {
+ "openRtbAttribute": {
+ "filterType": "EXCLUDE",
+ "filterConfiguration": [
+ {
+ "criteria": [
+ {
+ "key": "$.site.domain",
+ "values": ["trusted-publisher.com", "premium-ads.com"]
+ }
+ ]
+ }
+ ],
+ "action": {
+ "noBid": {
+ "noBidReasonCode": 1
+ }
+ },
+ "holdbackPercentage": 5.0
  }
  }
  }
@@ -103,6 +455,8 @@ The following example shows how to add an OpenRTB attribute module to a link usi
 ### Configuring Multiple Modules
 
 The following example shows how to configure multiple modules on a single link using the AWS Command Line Interface (AWS CLI).
+In this example, the rate limiter module runs first to cap traffic at 1000 TPS, and then the OpenRTB attribute
+module filters COPPA-flagged requests from the remaining traffic:
 
 **Configure multiple modules on a link**
 
@@ -128,13 +482,22 @@ The following example shows how to configure multiple modules on a single link u
  "moduleParameters": {
  "openRtbAttribute": {
  "filterType": "INCLUDE",
- "filterConfiguration": [],
+ "filterConfiguration": [
+ {
+ "criteria": [
+ {
+ "key": "$.regs.coppa",
+ "values": ["1"]
+ }
+ ]
+ }
+ ],
  "action": {
  "noBid": {
  "noBidReasonCode": 1
  }
  },
- "holdbackPercentage": 10.0
+ "holdbackPercentage": 0.0
  }
  }
  }

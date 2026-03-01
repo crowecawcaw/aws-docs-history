@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-RTB Fabric
+# Using service-linked roles for RTB Fabric
 
 AWS RTB Fabric uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to RTB Fabric. Service-linked roles are predefined by RTB Fabric and

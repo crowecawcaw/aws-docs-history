@@ -20,9 +20,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [RTBFabricServiceRolePolicy](../../../aws-managed-policy/latest/reference/RTBFabricServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/RTBFabricServiceRolePolicy.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## RTB Fabric updates to AWS managed
-
-policies
+## RTB Fabric updates to AWS managed policies
 
 View details about updates to AWS managed policies for RTB Fabric since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
