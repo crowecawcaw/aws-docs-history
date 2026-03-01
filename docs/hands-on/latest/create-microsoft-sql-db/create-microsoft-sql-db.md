@@ -1,6 +1,4 @@
-# Create and Connect to a Microsoft SQL Server Database with
-
-Amazon RDS
+# Create and Connect to a Microsoft SQL Server Database with Amazon RDS
 
 |                      |                                                                                                                                                                                                           |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
