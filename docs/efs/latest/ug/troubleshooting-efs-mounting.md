@@ -3,9 +3,7 @@
 Following, you can find information about troubleshooting EFS file
 system mounting issues.
 
-## File system mount on Windows instance
-
-fails
+## File system mount on Windows instance fails
 
 A file system mount on an Amazon EC2 instance on Microsoft Windows fails.
 
@@ -31,12 +29,9 @@ mount helper to pass your credentials to the EFS mount target. If you still
 don't have access, check your file system policy and your identity policy
 to ensure there are no DENY clauses that apply to your connection, and that
 there is at least one ALLOW clause that applies to the connection. For more
-information, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md") and [Creating file system policies](create-file-system-policy.md "create-file-system-policy.md").
+information, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md") and [Creating file system policies](create-file-system-policy.md "create-file-system-policy.md").
 
-## Automatic mounting fails and the instance is
-
-unresponsive
+## Automatic mounting fails and the instance is unresponsive
 
 This issue can occur if the file system was mounted automatically on an instance
 and the `_netdev` option wasn't declared. If `_netdev` is
@@ -48,9 +43,7 @@ networking.
 
 If this issue occurs, contact AWS Support.
 
-## Mounting multiple Amazon EFS file systems in
-
-/etc/fstab fails
+## Mounting multiple Amazon EFS file systems in /etc/fstab fails
 
 For instances that use the systemd init system with two or more Amazon EFS entries at
 `/etc/fstab`, there might be times where some or all of these
@@ -112,9 +105,7 @@ After you create the file, run the following two commands:
 Then restart your Amazon EC2 instance. The file systems are mounted on demand,
 generally within a second.
 
-## Mount command fails with "wrong fs type"
-
-error message
+## Mount command fails with "wrong fs type" error message
 
 The mount command fails with the following error message.
 
@@ -131,9 +122,7 @@ In some cases useful info is found in syslog - try dmesg | tail or so.
 If you receive this message, install the `nfs-utils` (or
 `nfs-common` on Ubuntu) package. For more information, see [Installing the NFS client](mounting-fs-install-nfsclient.md "mounting-fs-install-nfsclient.md").
 
-## Mount command fails with "incorrect
-
-mount option" error message
+## Mount command fails with "incorrect mount option" error message
 
 The mount command fails with the following error message.
 
@@ -173,9 +162,7 @@ If you don't specify any root directory ownership and permissions, and the root
 directory does not already exist, EFS will not create the root directory. When this happens,
 any attempts to mount the file system using the access point will fail.
 
-## File system mount fails immediately after
-
-file system creation
+## File system mount fails immediately after file system creation
 
 It can take up to 90 seconds after creating a mount target for the Domain Name
 Service (DNS) records to propagate fully in an AWS Region.
@@ -185,9 +172,7 @@ Service (DNS) records to propagate fully in an AWS Region.
 If you're programmatically creating and mounting file systems, for example
 with an CloudFormation template, we recommend that you implement a wait condition.
 
-## File system mount hangs and then fails
-
-with timeout error
+## File system mount hangs and then fails with timeout error
 
 The file system mount command hangs for a minute or two, and then fails with a
 timeout error. The following code shows an example.
@@ -238,8 +223,7 @@ following:
   the Amazon EC2 instance.
 - Ensure that there's a mount target in the same VPC as the Amazon EC2 instance.
   Otherwise, you can't use DNS name resolution for EFS mount targets that are in another VPC. For more information, see
-  [Mounting EFS file systems from
-  another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
+  [Mounting EFS file systems from another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
 - Connect your Amazon EC2 instance inside an Amazon VPC configured to use the DNS
   server provided by Amazon. For more information, see
   [DHCP option sets in Amazon VPC](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md") in
@@ -249,9 +233,7 @@ following:
   [DNS attributes in your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the
   _Amazon VPC User Guide_.
 
-## File system mount fails with "nfs
-
-not responding"
+## File system mount fails with "nfs not responding"
 
 An Amazon EFS file system mount fails on a Transmission Control Protocol (TCP)
 reconnection event with `"nfs: server_name still not responding"`.
@@ -262,9 +244,7 @@ Use the `noresvport` mount option to make sure that the NFS client uses
 a new TCP source port when a network connection is reestablished. Doing this helps
 ensure uninterrupted availability after a network recovery event.
 
-## Mount target lifecycle state is
-
-stuck
+## Mount target lifecycle state is stuck
 
 The mount target lifecycle state is stuck in the **creating** or
 **deleting** state.
@@ -274,9 +254,7 @@ The mount target lifecycle state is stuck in the **creating** or
 Retry the `CreateMountTarget` or `DeleteMountTarget`
 call.
 
-## Mount target lifecycle state shows
-
-error
+## Mount target lifecycle state shows error
 
 The mount target lifecycle state shows as **error**.
 
@@ -351,9 +329,7 @@ If you can't use the EFS mount helper, we strongly recommend using the `noresvpo
 which instructs NFS clients to re-establish connections using new TCP source ports to avoid this issue.
 For more information, see [Recommended NFS mount settings](mounting-fs-nfs-mount-settings.md "mounting-fs-nfs-mount-settings.md").
 
-## Operations on newly mounted file
-
-system return "bad file handle" Error
+## Operations on newly mounted file system return "bad file handle" Error
 
 Operations performed on a newly mounted file system return a `bad file
  handle` error.

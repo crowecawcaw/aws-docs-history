@@ -22,9 +22,6 @@ an EFS file system.
 
 ###### Topics
 
-- [Enabling automatic mounting on new
-  EC2 Linux instances](mount-fs-auto-mount-on-creation.md "mount-fs-auto-mount-on-creation.md")
-- [Enabling automatic
-  mounting on existing EC2 Linux instances](mount-fs-auto-mount-update-fstab.md "mount-fs-auto-mount-update-fstab.md")
-- [Enabling automatic mounting
-  on EC2 Linux or Mac instances using NFS](nfs-automount-efs.md "nfs-automount-efs.md")
+- [Enabling automatic mounting on new EC2 Linux instances](mount-fs-auto-mount-on-creation.md "mount-fs-auto-mount-on-creation.md")
+- [Enabling automatic mounting on existing EC2 Linux instances](mount-fs-auto-mount-update-fstab.md "mount-fs-auto-mount-update-fstab.md")
+- [Enabling automatic mounting on EC2 Linux or Mac instances using NFS](nfs-automount-efs.md "nfs-automount-efs.md")

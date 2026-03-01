@@ -1,6 +1,4 @@
-# Blocking public access to EFS
-
-file systems
+# Blocking public access to EFS file systems
 
 The Amazon EFS block public access feature provides settings to help you manage public access to
 EFS file systems. By default, new EFS file systems don't allow public
@@ -20,13 +18,10 @@ policies to confirm that they do not grant public access:
 
 ###### Topics
 
-- [Blocking public access with
-  AWS Transfer Family](#block-efs-public-access-with-transferfamily "#block-efs-public-access-with-transferfamily")
+- [Blocking public access with AWS Transfer Family](#block-efs-public-access-with-transferfamily "#block-efs-public-access-with-transferfamily")
 - [The meaning of "public"](#what-is-a-public-policy "#what-is-a-public-policy")
 
-## Blocking public access with
-
-AWS Transfer Family
+## Blocking public access with AWS Transfer Family
 
 When you use Amazon EFS with AWS Transfer Family, file system access requests received from a Transfer Family server
 that is owned by a different account than the file system are blocked if the file system

@@ -1,6 +1,4 @@
-# Troubleshooting file operation
-
-errors related to quotas
+# Troubleshooting file operation errors related to quotas
 
 When you access EFS file systems, certain limits on the files in the file system
 apply. Exceeding these limits causes file operation errors. For more information about file-based
@@ -12,11 +10,9 @@ operation errors and the limits associated with each error.
 ###### Topics
 
 - [Checking for open files and file locks](#check-open-files-locks "#check-open-files-locks")
-- [Command fails with “Disk quota exceeded”
-  error](#diskquotaerror "#diskquotaerror")
+- [Command fails with “Disk quota exceeded” error](#diskquotaerror "#diskquotaerror")
 - [Command fails with "I/O error"](#ioerror "#ioerror")
-- [Command fails with "File name is too long"
-  error](#filenametoolong "#filenametoolong")
+- [Command fails with "File name is too long" error](#filenametoolong "#filenametoolong")
 - [Command fails with "File not found" error](#filenotfound "#filenotfound")
 - [Command fails with "Too many links" error](#hardlinkerror "#hardlinkerror")
 - [Command fails with "File too large" error](#filesizeerror "#filesizeerror")
@@ -39,9 +35,7 @@ lslocks | grep <efs-mount-path>
 
 These commands will show you the current usage against EFS limits, helping you determine if file operation errors are related to reaching system or service limits.
 
-## Command fails with “Disk quota exceeded”
-
-error
+## Command fails with “Disk quota exceeded” error
 
 Amazon EFS doesn't currently support user disk quotas. This error can occur if any of
 the following limits have been exceeded:
@@ -81,9 +75,7 @@ If you encounter this issue, you can no longer decrypt the data that
 was encrypted under that key, which means that data becomes
 unrecoverable.
 
-## Command fails with "File name is too long"
-
-error
+## Command fails with "File name is too long" error
 
 This error occurs when the size of a file name or its symbolic link (symlink) is
 too long. File names have the following limits:

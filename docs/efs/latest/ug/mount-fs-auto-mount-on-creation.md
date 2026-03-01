@@ -1,6 +1,4 @@
-# Enabling automatic mounting on new
-
-EC2 Linux instances
+# Enabling automatic mounting on new EC2 Linux instances
 
 When you create a new EC2 Linux instance using the Amazon EC2 launch instance wizard,
 you can configure it to mount your Amazon EFS file system automatically. The EC2 instance
@@ -25,9 +23,7 @@ Before you can launch and connect to an EC2 instance, you need to create a key
 pair. For more information, see [Amazon EC2 key pairs and Amazon EC2
 instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the _Amazon EC2 User Guide_ to create a key pair.
 
-###### To configure your EC2 instance to mount an EFS file system
-
-automatically at launch
+###### To configure your EC2 instance to mount an EFS file system automatically at launch
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

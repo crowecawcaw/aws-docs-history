@@ -38,8 +38,7 @@ you must perform to use Amazon EFS file systems in the VPC:
 - [Creating access points](create-access-point.md "create-access-point.md")
 - [Deleting access points](delete-access-point.md "delete-access-point.md")
 - [Tagging EFS resources](manage-fs-tags.md "manage-fs-tags.md")
-- [Tutorial: Creating writable
-  per-user subdirectories](accessing-fs-nfs-permissions-per-user-subdirs.md "accessing-fs-nfs-permissions-per-user-subdirs.md")
+- [Tutorial: Creating writable per-user subdirectories](accessing-fs-nfs-permissions-per-user-subdirs.md "accessing-fs-nfs-permissions-per-user-subdirs.md")
 
 ## Resource IDs
 

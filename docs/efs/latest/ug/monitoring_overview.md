@@ -34,8 +34,7 @@ To establish a baseline, you should, at a minimum, monitor the following items:
 ###### Topics
 
 - [Monitoring tools](monitoring_automated_manual.md "monitoring_automated_manual.md")
-- [How Amazon EFS reports file system and object
-  sizes](metered-sizes.md "metered-sizes.md")
+- [How Amazon EFS reports file system and object sizes](metered-sizes.md "metered-sizes.md")
 - [Viewing storage class size](view-storage-class-size.md "view-storage-class-size.md")
 - [Monitoring metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Logging Amazon EFS API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

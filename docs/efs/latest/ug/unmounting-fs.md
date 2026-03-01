@@ -20,9 +20,7 @@ systems currently mounted on your Linux-based Amazon EC2 instance. If the EFS fi
 system that you want to unmount isn’t listed in the `df` command output, this means
 that the file system is unmounted.
 
-###### Example – Identify the mount status of an EFS file system and unmount
-
-it
+###### Example– Identify the mount status of an EFS file system and unmount it
 
 ```
 $ df -T

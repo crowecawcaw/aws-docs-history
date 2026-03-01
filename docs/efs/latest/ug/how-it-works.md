@@ -53,8 +53,7 @@ Following, you can find a description about how Amazon EFS works with other serv
 ###### Topics
 
 - [How Amazon EFS works with Amazon EC2](#how-it-works-ec2 "#how-it-works-ec2")
-- [How Amazon EFS works with AWS Direct Connect and AWS
-  Managed VPN](#how-it-works-direct-connect "#how-it-works-direct-connect")
+- [How Amazon EFS works with AWS Direct Connect and AWS Managed VPN](#how-it-works-direct-connect "#how-it-works-direct-connect")
 - [How Amazon EFS works with AWS Backup](#how-it-works-backups "#how-it-works-backups")
 
 ## How Amazon EFS works with Amazon EC2
@@ -74,8 +73,7 @@ Availability Zones. Because the file system is Regional, a mount target was
 created in each Availability Zone. We recommend that you access the file system from a
 mount target within the same Availability Zone for performance and cost reasons. One of the
 Availability Zones has two subnets. However, a mount target is created in only one of the
-subnets. For more information, see [Mounting EFS file systems using the
-EFS mount helper](efs-mount-helper.md "efs-mount-helper.md").
+subnets. For more information, see [Mounting EFS file systems using the EFS mount helper](efs-mount-helper.md "efs-mount-helper.md").
 
 ### One Zone EFS file systems
 
@@ -93,9 +91,7 @@ In this example, the EC2 instance in the us-west-2c Availability Zone will pay E
 access charges for accessing a mount target in a different Availability Zone. For more information, see
 [Mounting One Zone file systems](mounting-one-zone.md "mounting-one-zone.md").
 
-## How Amazon EFS works with AWS Direct Connect and AWS
-
-Managed VPN
+## How Amazon EFS works with AWS Direct Connect and AWS Managed VPN
 
 By using an Amazon EFS file system mounted on an on-premises server, you can migrate
 on-premises data into the AWS Cloud hosted in an Amazon EFS file system. You can also take

@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon Elastic File System
+# Identity-based policy examples for Amazon Elastic File System
 
 By default, users and roles don't have permission to create or modify Amazon EFS
 resources. To grant users permission to perform actions on the
@@ -14,20 +12,13 @@ For details about actions and resource types defined by Amazon EFS, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon EFS
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Example:
-  Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example: Enforce the creation
-  of encrypted file systems](#using-iam-to-enforce-encryption-at-rest "#using-iam-to-enforce-encryption-at-rest")
-- [Example: Enforce the creation
-  of unencrypted file systems](#using-iam-to-enforce-unencrypted-file-systems "#using-iam-to-enforce-unencrypted-file-systems")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon EFS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Example: Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example: Enforce the creation of encrypted file systems](#using-iam-to-enforce-encryption-at-rest "#using-iam-to-enforce-encryption-at-rest")
+- [Example: Enforce the creation of unencrypted file systems](#using-iam-to-enforce-unencrypted-file-systems "#using-iam-to-enforce-unencrypted-file-systems")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon EFS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon EFS
-
-console
+## Using the Amazon EFS console
 
 To access the Amazon Elastic File System console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon EFS resources
@@ -82,9 +71,7 @@ _IAM User Guide_.
 You can see the `AmazonElasticFileSystemReadOnlyAccess` and other Amazon EFS
 managed service policies in [AWS managed policies for Amazon EFS](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Example:
-
-Allow users to view their own permissions
+## Example: Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -124,9 +111,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example: Enforce the creation
-
-of encrypted file systems
+## Example: Enforce the creation of encrypted file systems
 
 The following example illustrates an identity-based policy that authorizes principals
 to create only encrypted file systems.
@@ -157,9 +142,7 @@ User: arn:aws:iam::111122223333:user/`username` is not authorized to
       perform: elasticfilesystem:CreateFileSystem on the specified resource.
 ```
 
-## Example: Enforce the creation
-
-of unencrypted file systems
+## Example: Enforce the creation of unencrypted file systems
 
 The following example illustrates an identity-based policy that authorizes principals
 to create only unencrypted file systems.

@@ -48,8 +48,7 @@ systems: encryption in transit and encryption at rest. You can enable encryption
 creating an EFS file system. If you do, all of your data and metadata is encrypted.
 You can enable encryption in transit when you mount the file system. NFS client access to Amazon EFS
 is controlled by both AWS Identity and Access Management (IAM) policies and network security policies, such as security
-groups. For more information, see [Data encryption in Amazon EFS](encryption.md "encryption.md"), [Identity and access management for Amazon EFS](security-iam.md "security-iam.md"), and [Controlling network access to EFS file systems for
-NFS clients](NFS-access-control-efs.md "NFS-access-control-efs.md").
+groups. For more information, see [Data encryption in Amazon EFS](encryption.md "encryption.md"), [Identity and access management for Amazon EFS](security-iam.md "security-iam.md"), and [Controlling network access to EFS file systems for NFS clients](NFS-access-control-efs.md "NFS-access-control-efs.md").
 
 ###### Note
 

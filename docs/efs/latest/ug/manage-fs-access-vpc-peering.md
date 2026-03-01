@@ -1,6 +1,4 @@
-# Mounting EFS file systems from
-
-another AWS account or VPC
+# Mounting EFS file systems from another AWS account or VPC
 
 You can mount your EFS file system using IAM authorization for NFS clients
 and EFS access points using the EFS mount helper. By default, the
@@ -16,5 +14,4 @@ the client to mount the EFS file system using that IP address.
 ###### Topics
 
 - [Mounting EFS file systems from another AWS account](mount-fs-diff-account-same-vpc.md "mount-fs-diff-account-same-vpc.md")
-- [Mounting EFS file systems from another
-  VPC](mount-fs-different-vpc.md "mount-fs-different-vpc.md")
+- [Mounting EFS file systems from another VPC](mount-fs-different-vpc.md "mount-fs-different-vpc.md")

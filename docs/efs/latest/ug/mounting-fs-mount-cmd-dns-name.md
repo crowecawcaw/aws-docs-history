@@ -85,7 +85,7 @@ true:
 - The connecting EC2 instance must be inside the same VPC as the EFS file system. For
   more information on accessing and mounting a file system from another location or from a
   different VPC, see [Prerequisites](mounting-fs-mount-helper-direct.md#efs-onpremises "mounting-fs-mount-helper-direct.md#efs-onpremises") and
-  [Tutorial: Mount a file system from a different VPC](efs-different-vpc.md "efs-different-vpc.md") .
+  [Tutorial: Mount a file system from a different VPC](efs-different-vpc.md "efs-different-vpc.md").
 
 ###### Note
 

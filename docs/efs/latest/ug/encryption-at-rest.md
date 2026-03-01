@@ -72,14 +72,11 @@ at rest.
 
 For more information about KMS key policies for Amazon EFS, see [Using AWS KMS keys for Amazon EFS](EFSKMS.md "EFSKMS.md").
 
-## Enforcing encryption at rest for new file
-
-systems
+## Enforcing encryption at rest for new file systems
 
 You can use the `elasticfilesystem:Encrypted` IAM condition key in
 AWS Identity and Access Management (IAM) identity-based policies to enforce creation at rest when users create
-EFS file systems. For more information about using the condition key, see [Example: Enforce the creation
-of encrypted file systems](security_iam_id-based-policy-examples.md#using-iam-to-enforce-encryption-at-rest "security_iam_id-based-policy-examples.md#using-iam-to-enforce-encryption-at-rest").
+EFS file systems. For more information about using the condition key, see [Example: Enforce the creation of encrypted file systems](security_iam_id-based-policy-examples.md#using-iam-to-enforce-encryption-at-rest "security_iam_id-based-policy-examples.md#using-iam-to-enforce-encryption-at-rest").
 
 You can also define service control policies (SCPs) inside AWS Organizations to enforce Amazon EFS
 encryption for all AWS accounts in your organization. For more information about service

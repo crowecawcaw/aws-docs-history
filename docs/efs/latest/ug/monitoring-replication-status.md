@@ -100,9 +100,7 @@ The AWS CLI responds as follows.
 
 ```
 
-###### Example: View the replication configuration for all the replication configurations in an
-
-account
+###### Example: View the replication configuration for all the replication configurations in an account
 
 The following example describes the replication configuration for all the replication
 configurations for an account in an AWS Region the file system.

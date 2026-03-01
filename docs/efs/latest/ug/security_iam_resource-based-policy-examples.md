@@ -1,11 +1,8 @@
-# Resource-based policy
-
-examples for Amazon EFS
+# Resource-based policy examples for Amazon EFS
 
 In this section, you can find example file system policies that grant or deny
 permissions for various Amazon EFS actions. EFS file system policies have a 20,000
-character limit. For information about the elements of a resource-based policy, see [Resource-based
-policies within Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
+character limit. For information about the elements of a resource-based policy, see [Resource-based policies within Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
 
 ###### Important
 
@@ -18,15 +15,11 @@ For information about how to create a file system policy, see [Creating file sys
 
 ###### Topics
 
-- [Example: Grant read and write access to a
-  specific AWS role](#file-sys-policy-readonly "#file-sys-policy-readonly")
+- [Example: Grant read and write access to a specific AWS role](#file-sys-policy-readonly "#file-sys-policy-readonly")
 - [Example: Grant read-only access](#file-sys-policy-readonly "#file-sys-policy-readonly")
-- [Example: Grant access to an
-  EFS access point](#file-sys-policy-accessprofile-efs "#file-sys-policy-accessprofile-efs")
+- [Example: Grant access to an EFS access point](#file-sys-policy-accessprofile-efs "#file-sys-policy-accessprofile-efs")
 
-## Example: Grant read and write access to a
-
-specific AWS role
+## Example: Grant read and write access to a specific AWS role
 
 In this example, the EFS file system policy has the following
 characteristics:
@@ -88,9 +81,7 @@ permissions to the `EfsReadOnly` IAM role.
 To learn how to set additional file system policies, including denying root access to
 all IAM principals, except for a specific management workstation, see [Enable root squashing using IAM authorization for NFS clients](accessing-fs-nfs-permissions.md#enable-root-squashing "accessing-fs-nfs-permissions.md#enable-root-squashing").
 
-## Example: Grant access to an
-
-EFS access point
+## Example: Grant access to an EFS access point
 
 You use an EFS access policy to provide an NFS client with an
 application-specific view into shared file-based datasets on an EFS file

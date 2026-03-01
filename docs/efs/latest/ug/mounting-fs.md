@@ -17,15 +17,11 @@ to automatically mount an EFS file system when the instance starts.
 ###### Topics
 
 - [Mounting considerations for Linux](mounting-fs-mount-cmd-general.md "mounting-fs-mount-cmd-general.md")
-- [Mounting EFS file systems using the
-  EFS mount helper](efs-mount-helper.md "efs-mount-helper.md")
-- [Using Network File System to mount EFS file
-  systems](mounting-fs-old.md "mounting-fs-old.md")
+- [Mounting EFS file systems using the EFS mount helper](efs-mount-helper.md "efs-mount-helper.md")
+- [Using Network File System to mount EFS file systems](mounting-fs-old.md "mounting-fs-old.md")
 - [Automatically mounting EFS file systems](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md")
 - [Unmounting file systems](unmounting-fs.md "unmounting-fs.md")
-- [Tutorial: Create an EFS file system and mount it on an
-  EC2 instance using the AWS CLI](wt1-getting-started.md "wt1-getting-started.md")
-- [Tutorial: Mounting with on-premises Linux
-  clients](mounting-fs-mount-helper-direct.md "mounting-fs-mount-helper-direct.md")
+- [Tutorial: Create an EFS file system and mount it on an EC2 instance using the AWS CLI](wt1-getting-started.md "wt1-getting-started.md")
+- [Tutorial: Mounting with on-premises Linux clients](mounting-fs-mount-helper-direct.md "mounting-fs-mount-helper-direct.md")
 - [Tutorial: Mount a file system from a different VPC](efs-different-vpc.md "efs-different-vpc.md")
 - [Troubleshooting mount issues](troubleshooting-efs-mounting.md "troubleshooting-efs-mounting.md")

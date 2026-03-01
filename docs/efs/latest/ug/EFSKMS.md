@@ -32,8 +32,7 @@ Amazon EFS.
 
 Data encryption and decryption at rest are handled transparently. However, AWS account
 IDs specific to Amazon EFS appear in your AWS CloudTrail logs related to AWS KMS actions. For more
-information, see [Amazon EFS log file entries for encrypted-at-rest
-file systems](logging-using-cloudtrail.md#efs-encryption-cloudtrail "logging-using-cloudtrail.md#efs-encryption-cloudtrail").
+information, see [Amazon EFS log file entries for encrypted-at-rest file systems](logging-using-cloudtrail.md#efs-encryption-cloudtrail "logging-using-cloudtrail.md#efs-encryption-cloudtrail").
 
 ## Amazon EFS key policies for AWS KMS
 
@@ -70,9 +69,7 @@ encrypted at rest file systems:
   KMS key** list. We recommend using this permission to provide the best
   user experience. This permission is included in the default key policy.
 
-### AWS managed key for Amazon EFS KMS
-
-policy
+### AWS managed key for Amazon EFS KMS policy
 
 The KMS policy JSON for the AWS managed key for Amazon EFS,
 `aws/elasticfilesystem` is as follows:

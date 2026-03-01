@@ -1,6 +1,4 @@
-# Mounting EFS file systems from another
-
-VPC
+# Mounting EFS file systems from another VPC
 
 When you use a VPC peering connection or transit gateway to connect VPCs, Amazon EC2
 instances that are in one VPC can access EFS file systems in another VPC, even
@@ -46,8 +44,7 @@ Before using the following the procedure, take these steps:
 }
 ```
 
-For more information about EFS file system resource policies, see [Resource-based
-policies within Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
+For more information about EFS file system resource policies, see [Resource-based policies within Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies").
 
 - Install botocore. The EFS client uses botocore to retrieve the mount target IP address
   when the file system DNS name cannot be resolved when mounting a file system in another VPC.
@@ -81,9 +78,7 @@ account, ensure that the NFS client and EFS mount target are in the same
 Availability Zone ID. This requirement applies because AZ names can differ from one
 account to another.
 
-###### To mount an EFS file system in another VPC using IAM or an access
-
-point
+###### To mount an EFS file system in another VPC using IAM or an access point
 
 1. Connect to your EC2 instance. For more information, see [Connect to your
    EC2 instance](../../../AWSEC2/latest/UserGuide/connect.md "../../../AWSEC2/latest/UserGuide/connect.md") in the
@@ -100,8 +95,7 @@ point
 `$` sudo mount -t efs -o tls,iam `file-system-dns-name` /mnt/efs/
 ```
 
-For more information about using IAM authorization with EFS, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+For more information about using IAM authorization with EFS, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 To mount the file system using an EFS access point, use the following
 command:
@@ -112,9 +106,7 @@ command:
 
 For more information about EFS access points, see [Working with access points](efs-access-points.md "efs-access-points.md").
 
-## Mounting EFS file systems from a different
-
-AWS Region
+## Mounting EFS file systems from a different AWS Region
 
 If you are mounting your EFS file system from another VPC that is in a
 different AWS Region than the file system, you will need to edit the

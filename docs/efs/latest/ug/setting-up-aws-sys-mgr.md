@@ -1,6 +1,4 @@
-# Configuring AWS Systems Manager to install the EFS
-
-client
+# Configuring AWS Systems Manager to install the EFS client
 
 There are two one-time configurations required to set up Systems Manager to automatically install or
 update the `amazon-efs-utils` package.
@@ -9,9 +7,7 @@ update the `amazon-efs-utils` package.
 2. Configure an Association (including the schedule) used for installation or updates by the
    State Manager.
 
-## Step 1: Configure an IAM instance
-
-profile with the required permissions
+## Step 1: Configure an IAM instance profile with the required permissions
 
 By default, AWS Systems Manager doesn't have permission to manage your Amazon EFS clients and
 install or update the amazon-efs-utils package. You must grant access to Systems Manager by using an
@@ -25,9 +21,7 @@ role. You must then use this instance profile to launch your EC2 instances. For 
 information, see [Configure instance
 permissions required for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-permissions.md "../../../systems-manager/latest/userguide/setup-instance-permissions.md").
 
-## Step 2: Configure an association used by State
-
-Manager
+## Step 2: Configure an association used by State Manager
 
 The `amazon-efs-utils` package is included with Distributor and is
 ready for you to deploy to managed EC2 instances. To view the latest version of
@@ -66,5 +60,4 @@ instances. Use the following inputs when you create your association:
   or rate schedule for the association.
 
 To use AWS Systems Manager to mount EFS file systems to multiple EC2 instances,
-see [Mounting EFS to multiple
-EC2 instances](mount-multiple-ec2-instances.md "mount-multiple-ec2-instances.md") .
+see [Mounting EFS to multiple EC2 instances](mount-multiple-ec2-instances.md "mount-multiple-ec2-instances.md").

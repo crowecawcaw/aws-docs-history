@@ -1,6 +1,4 @@
-# Using IAM to control access to file
-
-systems
+# Using IAM to control access to file systems
 
 You can use both IAM identity policies and resource policies to control client access to
 Amazon EFS resources in a way that is scalable and optimized for cloud environments. Using IAM,
@@ -60,5 +58,4 @@ using IAM controls to secure access to EFS file systems.
 
 ## File system policy examples
 
-To view examples of Amazon EFS file system policies, see [Resource-based policy
-examples for Amazon EFS](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of Amazon EFS file system policies, see [Resource-based policy examples for Amazon EFS](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").

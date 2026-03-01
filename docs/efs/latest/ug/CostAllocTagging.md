@@ -8,8 +8,7 @@ cost allocation report.
 
 The _cost allocation report_ lists the AWS usage for your account by
 product category and linked account user. The report contains the same line items as the
-detailed billing report (see [Understanding billing and
-usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md")) and additional columns for your tag
+detailed billing report (see [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md")) and additional columns for your tag
 keys.
 
 AWS provides two types of cost allocation tags, _AWS-generated tags_ and _user-defined

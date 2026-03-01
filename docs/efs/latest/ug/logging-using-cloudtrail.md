@@ -52,9 +52,7 @@ information helps you determine the following:
 For more information, see [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide._
 
-## Understanding Amazon EFS log file
-
-entries
+## Understanding Amazon EFS log file entries
 
 A _trail_ is a configuration that enables delivery of
 events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log
@@ -293,8 +291,7 @@ is emitted when a connection is authorized immediately after an initial connecti
 immediately after a re-connection. An `UpdateClientConnection` is emitted when a
 connection is reauthorized and the list of permitted actions has changed. The event is also
 emitted when the new list of permitted actions doesn't include `ClientMount`. For
-more information about EFS authorization, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+more information about EFS authorization, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 The following example shows a CloudTrail log entry that demonstrates a
 `NewClientConnection` event.
@@ -359,9 +356,7 @@ The following example shows a CloudTrail log entry that demonstrates a
 }
 ```
 
-## Amazon EFS log file entries for encrypted-at-rest
-
-file systems
+## Amazon EFS log file entries for encrypted-at-rest file systems
 
 Amazon EFS gives you the option of using encryption at rest, encryption in transit, or both, for
 your file systems. For more information, see [Data encryption in Amazon EFS](encryption.md "encryption.md").

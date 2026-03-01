@@ -15,9 +15,7 @@ The procedures in this section require the following:
   instance. For more information, see [Installing the Amazon EFS client](using-amazon-efs-utils.md "using-amazon-efs-utils.md").
 - You have created a mount target for the file system. For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
 
-## Mounting One Zone file systems on
-
-EC2 in a different Availability Zone
+## Mounting One Zone file systems on EC2 in a different Availability Zone
 
 If you are mounting a One Zone file system on an Amazon EC2 instance that is
 located in a different Availability Zone, you have to specify the file system's Availability Zone
@@ -55,9 +53,7 @@ This is the command with an example mount target DNS name.
 sudo mount -t efs -o tls us-east-1a.fs-abcd1234567890ef9.efs.us-east-1.amazonaws.com efs/
 ```
 
-### Mounting One Zone file systems in a different
-
-Availability Zone automatically with EFS mount helper
+### Mounting One Zone file systems in a different Availability Zone automatically with EFS mount helper
 
 If you are using `/etc/fstab` to mount an EFS
 One Zone file system on an EC2 instance that is located in a
@@ -73,9 +69,7 @@ the DNS name of the file system's mount target in the
 us-east-1a.fs-abc123def456a7890.efs.us-east-1.amazonaws.com:/ efs-one-zone efs defaults,_netdev,noresvport,tls 0 0
 ```
 
-### Mounting One Zone file systems automatically with
-
-NFS
+### Mounting One Zone file systems automatically with NFS
 
 If you are using `/etc/fstab` to mount an EFS file
 system using One Zone storage on an EC2 instance that is located in a
@@ -93,9 +87,7 @@ us-east-1a.fs-abc123def456a7890.efs.us-east-1.amazonaws.com:/ efs-one-zone nfs4 
 For more information about how to edit the `/etc/fstab` file, and the values used in this command, see
 [Automatically mounting EFS file systems](nfs-automount-efs.md "nfs-automount-efs.md").
 
-## Mounting file systems with One Zone file
-
-system on other AWS compute instances
+## Mounting file systems with One Zone file system on other AWS compute instances
 
 When you use a One Zone file system with Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, or AWS Lambda, you need
 to configure the service to use the same Availability Zone that the EFS file

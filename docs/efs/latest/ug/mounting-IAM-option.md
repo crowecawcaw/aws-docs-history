@@ -2,8 +2,7 @@
 
 To mount your EFS file system on Linux instances using AWS Identity and Access Management (IAM)
 authorization, use the EFS mount helper. For more information about IAM
-authorization for NFS clients, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+authorization for NFS clients, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 You need to create a directory to use as the file system mount point in the following sections. You can use the following command
 to create a mount point directory `efs`:
@@ -14,9 +13,7 @@ sudo mkdir efs
 
 You can then replace instances of `efs-mount-point` with `efs`.
 
-## Mounting with IAM using an EC2 instance
-
-profile
+## Mounting with IAM using an EC2 instance profile
 
 If you are mounting with IAM authorization to an Amazon EC2 instance with an instance profile,
 use the `tls` and `iam` mount options, shown following.

@@ -24,8 +24,7 @@ in the _AWS Backup Developer Guide_.
 - [How AWS Backup works with Amazon EFS](#how-backup-works "#how-backup-works")
 - [Required IAM permissions](#backup-req-permissions "#backup-req-permissions")
 - [Backup performance](#backup-performance "#backup-performance")
-- [Managing automatic backups of EFS file
-  systems](automatic-backups.md "automatic-backups.md")
+- [Managing automatic backups of EFS file systems](automatic-backups.md "automatic-backups.md")
 
 ## How AWS Backup works with Amazon EFS
 
@@ -133,8 +132,7 @@ You can use the `elasticfilesystem:backup` and
 `elasticfilesystem:restore` actions to allow or deny an IAM entity (such as a
 user, group, or role) the ability to create or restore backups of an EFS file system. You can
 use these actions in a file system policy or in an identity-based IAM policy. For more
-information, see [Identity and access management for Amazon EFS](security-iam.md "security-iam.md") and [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+information, see [Identity and access management for Amazon EFS](security-iam.md "security-iam.md") and [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 ## Backup performance
 

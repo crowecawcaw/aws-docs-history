@@ -4,17 +4,12 @@
 
 issues for Amazon EFS.
 
-- [Mounting with encryption of data in transit
-  fails](#mounting-tls-fails "#mounting-tls-fails")
-- [Mounting with encryption of data in transit
-  is interrupted](#mounting-tls-interrupt "#mounting-tls-interrupt")
-- [Encrypted-at-rest file system can't be
-  created](#unable-to-encrypt "#unable-to-encrypt")
+- [Mounting with encryption of data in transit fails](#mounting-tls-fails "#mounting-tls-fails")
+- [Mounting with encryption of data in transit is interrupted](#mounting-tls-interrupt "#mounting-tls-interrupt")
+- [Encrypted-at-rest file system can't be created](#unable-to-encrypt "#unable-to-encrypt")
 - [Unusable encrypted file system](#unusable-encrypt "#unusable-encrypt")
 
-## Mounting with encryption of data in transit
-
-fails
+## Mounting with encryption of data in transit fails
 
 By default, when you use the Amazon EFS mount helper with Transport Layer Security
 (TLS), it enforces hostname checking. Some systems don't support this feature,
@@ -26,9 +21,7 @@ EFS file system using TLS fails.
 We recommend that you upgrade the version of stunnel on your client to
 support hostname checking. For more information, see [Upgrading stunnel](upgrading-stunnel.md "upgrading-stunnel.md").
 
-## Mounting with encryption of data in transit
-
-is interrupted
+## Mounting with encryption of data in transit is interrupted
 
 It's possible, however unlikely, that your encrypted connection to your Amazon EFS file
 system can hang or be interrupted by client-side events.
@@ -62,9 +55,7 @@ your file system.
 
 If the interruptions continue, contact AWS Support.
 
-## Encrypted-at-rest file system can't be
-
-created
+## Encrypted-at-rest file system can't be created
 
 You've tried to create a new encrypted-at-rest file system. However, you get an
 error message saying that AWS KMS is unavailable.

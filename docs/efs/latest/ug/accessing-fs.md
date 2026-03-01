@@ -19,8 +19,7 @@ you need to delete the mount target and create a new one with the new address.
 - [Creating mount targets](manage-fs-access-create-delete-mount-targets.md "manage-fs-access-create-delete-mount-targets.md")
 - [Deleting mount targets](mount-target-delete.md "mount-target-delete.md")
 - [Changing the mount target VPC](manage-fs-access-change-vpc.md "manage-fs-access-change-vpc.md")
-- [Changing mount target
-  security groups](manage-fs-access-update-mount-target-config-sg.md "manage-fs-access-update-mount-target-config-sg.md")
+- [Changing mount target security groups](manage-fs-access-update-mount-target-config-sg.md "manage-fs-access-update-mount-target-config-sg.md")
 
 ## Mount targets and Availability Zones
 

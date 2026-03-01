@@ -11,9 +11,7 @@ suggestions to get you started, not a comprehensive list.
 | How can I track the number of Amazon EC2 instances that are connected to a<br>file system? | You can monitor the `Sum` statistic of the `ClientConnections` metric.<br>To calculate the average `ClientConnections` for periods greater than<br>one minute, divide the sum by the number of minutes in the period.                |
 | How can I see my burst credit balance?                                                     | You can see your balance by monitoring the<br>`BurstCreditBalance` metric for your file system. For more<br>information on bursting and burst credits, see [Bursting throughput](performance.md#bursting "performance.md#bursting"). |
 
-## Monitoring throughput
-
-performance
+## Monitoring throughput performance
 
 The CloudWatch metrics for throughput monitoring—`TotalIOBytes`,
 `ReadIOBytes`, `WriteIOBytes`, and

@@ -2,9 +2,7 @@
 
 This topic describes how Amazon EFS secures connections from the service to other locations.
 
-##
-
-Traffic between service and on-premises clients and applications
+## Traffic between service and on-premises clients and applications
 
 You have two connectivity options between your private network and AWS:
 
@@ -24,11 +22,9 @@ To establish a private connection between your virtual private cloud (VPC) and t
 you can create an interface VPC endpoint. You can use this connection to call the Amazon EFS API from your VPC
 without sending traffic over the internet. The endpoint provides secure connectivity to the Amazon EFS API
 without requiring an internet gateway, NAT instance, or virtual private network (VPN) connection.
-For more information, see [Working with interface VPC endpoints in Amazon EFS](efs-vpc-endpoints.md "efs-vpc-endpoints.md") .
+For more information, see [Working with interface VPC endpoints in Amazon EFS](efs-vpc-endpoints.md "efs-vpc-endpoints.md").
 
-## Traffic between AWS resources in the same
-
-Region
+## Traffic between AWS resources in the same Region
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon EFS is a logical entity within a VPC that allows
 connectivity only to Amazon EFS. The Amazon VPC routes requests to Amazon EFS and routes responses back to the VPC.

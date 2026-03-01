@@ -11,8 +11,7 @@ the user and group ID.
 You can use AWS Identity and Access Management (IAM) resource-based policies and identity policies
 to authorize NFS clients and provide read-only, write, and root access permissions.
 You can use EFS access points to override the operating system user and group identity
-information provided by the NFS client. For more information, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md")
+information provided by the NFS client. For more information, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md")
 and [Creating access points](create-access-point.md "create-access-point.md").
 
 As an example of read, write, and execute permissions for files and directories, Alice

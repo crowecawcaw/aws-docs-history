@@ -19,8 +19,7 @@ The Amazon EFS usage report includes the following information:
       + A code that identifies the throughput mode
       + A code that identifies the backup usage
 
-  For a detailed explanation of Amazon EFS usage types, see [Understanding billing and
-  usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
+  For a detailed explanation of Amazon EFS usage types, see [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
 
 - Resource – The name of the resource
   associated with the listed usage.
@@ -39,5 +38,4 @@ The Amazon EFS usage report includes the following information:
 
   For information about understanding the codes and abbreviations used in the billing and usage reports for
   Amazon EFS, see
-  [Understanding billing and
-  usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
+  [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").

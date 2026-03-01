@@ -1,6 +1,4 @@
-# Controlling network access to EFS file systems for
-
-NFS clients
+# Controlling network access to EFS file systems for NFS clients
 
 You can control access by NFS clients to Amazon EFS file systems using network layer security and EFS file system policies.
 You can use the network layer security mechanisms available with Amazon EC2, such as VPC security group rules and network ACLs.

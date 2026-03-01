@@ -29,8 +29,7 @@ enable using Transfer Family to access your file system, contact Support.
 ###### Topics
 
 - [Prerequisites for using AWS Transfer Family with Amazon EFS](#prerequisites-aws-transfer "#prerequisites-aws-transfer")
-- [Configuring your EFS file system for
-  AWS Transfer Family](#config-efs-aws-transfer-int "#config-efs-aws-transfer-int")
+- [Configuring your EFS file system for AWS Transfer Family](#config-efs-aws-transfer-int "#config-efs-aws-transfer-int")
 
 ## Prerequisites for using AWS Transfer Family with Amazon EFS
 
@@ -43,13 +42,10 @@ following conditions:
   in the _AWS Transfer Family User Guide_.
 - (Optional) If the Transfer Family server is owned by a different account, enable cross-account access.
   - Ensure that your file system policy does not allow public access. For more information, see
-    [Blocking public access to EFS
-    file systems](access-control-block-public-access.md "access-control-block-public-access.md").
+    [Blocking public access to EFS file systems](access-control-block-public-access.md "access-control-block-public-access.md").
   - Modify the file system policy to enable cross-account access. For more information, see [Configuring cross-account access for Transfer Family](#efs-cross-acct-access-transfer "#efs-cross-acct-access-transfer").
 
-## Configuring your EFS file system for
-
-AWS Transfer Family
+## Configuring your EFS file system for AWS Transfer Family
 
 Configuring an Amazon EFS file system to work with Transfer Family requires the following steps:
 
@@ -142,16 +138,14 @@ JSON
 
 For more information about creating a file system policy, see [Creating file system policies](create-file-system-policy.md "create-file-system-policy.md").
 For more information about using identity-based IAM policies to manage access to
-EFS resources, see [Identity-based
-policies for Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+EFS resources, see [Identity-based policies for Amazon EFS](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 ### Configuring cross-account access for Transfer Family
 
 If the Transfer Family server used to access your file system belongs to a different AWS account,
 you must grant that account access to your file system. Also, your file system
 policy has to be non-public. For more information about blocking public access to
-your file system, see [Blocking public access to EFS
-file systems](access-control-block-public-access.md "access-control-block-public-access.md").
+your file system, see [Blocking public access to EFS file systems](access-control-block-public-access.md "access-control-block-public-access.md").
 
 You can grant a different AWS account access to your file system in the file
 system policy. In the Amazon EFS console, use the **Grant additional

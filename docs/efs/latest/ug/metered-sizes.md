@@ -1,13 +1,9 @@
-# How Amazon EFS reports file system and object
-
-sizes
+# How Amazon EFS reports file system and object sizes
 
 The following sections describe how Amazon EFS reports file system sizes, sizes of objects
 within a file system, and file system throughput.
 
-## Metering EFS file system
-
-objects
+## Metering EFS file system objects
 
 Objects that you can view in an EFS file system include regular files,
 directories, symbolic links, and special files (FIFOs and sockets). Each of these objects is
@@ -140,9 +136,7 @@ if you are driving 30 mebibytes per second (MiBps) of both read and write throug
 effective throughput, the write portion counts as 30 MiBps, and the combined metered throughput is 40 MiBps. This combined
 throughput adjusted for consumption rates is reflected in the `MeteredIOBytes` CloudWatch metric.
 
-### Metering Elastic
-
-throughput
+### Metering Elastic throughput
 
 When Elastic throughput mode is enabled for a file system, you pay only
 for the amount of metadata and data read from or written to the file system.
@@ -157,9 +151,7 @@ While Elastic throughput is designed to scale elastically with your throughput, 
 monitoring metrics with CloudWatch (MeteredIOBytes) and usage alerts as part of your operational best practices. This helps you maintain optimal
 resource utilization and stay within your planned operational parameters. For more information, see [Monitoring metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-### Metering Provisioned
-
-throughput
+### Metering Provisioned throughput
 
 For file systems that use Provisioned throughput mode, you pay only for the
 amount of time that throughput is enabled. Amazon EFS meters file systems with

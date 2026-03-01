@@ -5,12 +5,10 @@ started with your first EFS file system.
 
 1. [Review the prerequisites for getting
    started](#gs-assumptions "#gs-assumptions")
-2. [Create your EFS file system and
-   launch your EC2 instance](#gs-step-one-create-ec2-resources "#gs-step-one-create-ec2-resources")
+2. [Create your EFS file system and launch your EC2 instance](#gs-step-one-create-ec2-resources "#gs-step-one-create-ec2-resources")
 3. [Transfer files to your EFS file
    system using AWS DataSync](#gs-step-four-sync-files "#gs-step-four-sync-files")
-4. [Clean up resources and protect your AWS
-   account](#gs-step-five-cleanup "#gs-step-five-cleanup")
+4. [Clean up resources and protect your AWS account](#gs-step-five-cleanup "#gs-step-five-cleanup")
 
 ## Prerequisites
 
@@ -29,12 +27,9 @@ requirements:
   group.
 
 You can also perform a similar getting started exercise using AWS Command Line Interface (AWS CLI) commands
-to make the EFS API calls. For more information, see [Tutorial: Create an EFS file system and mount it on an
-EC2 instance using the AWS CLI](wt1-getting-started.md "wt1-getting-started.md").
+to make the EFS API calls. For more information, see [Tutorial: Create an EFS file system and mount it on an EC2 instance using the AWS CLI](wt1-getting-started.md "wt1-getting-started.md").
 
-## Create your EFS file system and
-
-launch your EC2 instance
+## Create your EFS file system and launch your EC2 instance
 
 After making sure that you have the prerequisites for this getting started exercise, you
 can create your EFS file system and launch your EC2 instance. The quickest
@@ -45,9 +40,7 @@ system is to use the EC2 new launch wizard during instance launch.
 
 You can't use Amazon EFS with Microsoft Windows–based EC2 instances.
 
-###### To create your EFS file system and launch your EC2 instance using the
-
-EC2 launch wizard
+###### To create your EFS file system and launch your EC2 instance using the EC2 launch wizard
 
 For instructions on creating and mounting your EFS file system when creating
 an EC2 instance launch, see [Use Amazon EFS with Amazon EC2](../../../AWSEC2/latest/UserGuide/AmazonEFS.md "../../../AWSEC2/latest/UserGuide/AmazonEFS.md") in the
@@ -67,9 +60,7 @@ Alternatively, in the Amazon EFS console, you can create file systems with recom
 AWS CLI and API to create file systems. For more information about all of your options for creating a file system,
 see [Creating EFS file systems](creating-using-create-fs.md "creating-using-create-fs.md").
 
-## Transfer files to your EFS file system
-
-using AWS DataSync
+## Transfer files to your EFS file system using AWS DataSync
 
 After creating an EFS file system, you can transfer files to it from an
 existing file system by using AWS DataSync. DataSync is a data transfer service that simplifies,
@@ -108,9 +99,7 @@ EFS file system using DataSync.
 4. Create and configure a task.
 5. Run the task to transfer files from the source to the destination.
 
-## Clean up resources and protect your AWS
-
-account
+## Clean up resources and protect your AWS account
 
 When you're finished with this getting started exercise, perform the following steps to
 clean up your resources and protect your AWS account.

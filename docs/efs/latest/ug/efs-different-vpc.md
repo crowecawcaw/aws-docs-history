@@ -18,16 +18,11 @@ Using Amazon EFS with Microsoft Windows–based clients isn't supported.
 ###### Topics
 
 - [Prerequisites](#wt6-prepare "#wt6-prepare")
-- [Step 1: Determine the ID of the mount target's
-  Availability Zone](#wt6-efs-utils-step1 "#wt6-efs-utils-step1")
-- [Step 2: Determine the mount target IP
-  address](#wt6-efs-utils-step2 "#wt6-efs-utils-step2")
-- [Step 3: Add a host entry for the mount
-  target](#wt6-efs-utils-step3 "#wt6-efs-utils-step3")
-- [Step 4: Mount your file system using the
-  EFS mount helper](#wt6-efs-utils-step4 "#wt6-efs-utils-step4")
-- [Step 5: Clean up resources and protect your
-  AWS account](#wt6-step5-cleanup "#wt6-step5-cleanup")
+- [Step 1: Determine the ID of the mount target's Availability Zone](#wt6-efs-utils-step1 "#wt6-efs-utils-step1")
+- [Step 2: Determine the mount target IP address](#wt6-efs-utils-step2 "#wt6-efs-utils-step2")
+- [Step 3: Add a host entry for the mount target](#wt6-efs-utils-step3 "#wt6-efs-utils-step3")
+- [Step 4: Mount your file system using the EFS mount helper](#wt6-efs-utils-step4 "#wt6-efs-utils-step4")
+- [Step 5: Clean up resources and protect your AWS account](#wt6-step5-cleanup "#wt6-step5-cleanup")
 
 ## Prerequisites
 
@@ -49,9 +44,7 @@ To complete this tutorial, you must have the following:
     with using Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tgw/tgw-getting-started.md") in the _Amazon VPC Transit Gateways
     Guide_.
 
-## Step 1: Determine the ID of the mount target's
-
-Availability Zone
+## Step 1: Determine the ID of the mount target's Availability Zone
 
 To ensure high availability of your file system, we recommend that you always use an
 EC2 mount target IP address that is in the same Availability Zone as your NFS client. If you
@@ -85,9 +78,7 @@ applies because Availability Zone names can differ between accounts.
 The Availability Zone ID is returned in the `ZoneId` property,
 `use2-az2`.
 
-## Step 2: Determine the mount target IP
-
-address
+## Step 2: Determine the mount target IP address
 
 Now that you know the Availability Zone ID of the EC2 instance, you can now retrieve
 the IP address of the mount target that is in the same Availability Zone ID.
@@ -133,9 +124,7 @@ the IP address of the mount target that is in the same Availability Zone ID.
 The mount target in the `use2-az2` Availability Zone ID has an IP address of
 10.0.2.153.
 
-## Step 3: Add a host entry for the mount
-
-target
+## Step 3: Add a host entry for the mount target
 
 You can now make an entry in the `/etc/hosts` file on the
 EC2 instance that maps the mount target IP address to your EFS file system's
@@ -157,15 +146,12 @@ echo "10.0.2.153 fs-01234567.efs.us-east-2.amazonaws.com" | sudo tee -a /etc/hos
    that allow access to the EFS file system, as needed. For more information, see
    [Using VPC security groups](network-access.md "network-access.md").
 
-## Step 4: Mount your file system using the
-
-EFS mount helper
+## Step 4: Mount your file system using the EFS mount helper
 
 To mount your EFS file system, you first create a mount directory on the
 EC2 instance. Then, using the EFS mount helper, you can mount the file
 system with either AWS Identity and Access Management (IAM) authorization or an EFS access point. For more
-information, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md") and [Working with access points](efs-access-points.md "efs-access-points.md").
+information, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md") and [Working with access points](efs-access-points.md "efs-access-points.md").
 
 ###### To create a mount directory
 
@@ -232,20 +218,16 @@ As a result, the following file is created.
 ```
 
 You can also mount your file system automatically by adding an entry to the
-`/etc/fstab` file. For more information, see [Enabling automatic
-mounting on existing EC2 Linux instances](mount-fs-auto-mount-update-fstab.md "mount-fs-auto-mount-update-fstab.md").
+`/etc/fstab` file. For more information, see [Enabling automatic mounting on existing EC2 Linux instances](mount-fs-auto-mount-update-fstab.md "mount-fs-auto-mount-update-fstab.md").
 
 ###### Warning
 
 Use the `_netdev` option, used to identify network file systems, when
 mounting your file system automatically. If `_netdev` is missing, your EC2
 instance might stop responding. This result is because network file systems need to be
-initialized after the compute instance starts its networking. For more information, see [Automatic mounting fails and the instance is
-unresponsive](troubleshooting-efs-mounting.md#automount-fails "troubleshooting-efs-mounting.md#automount-fails").
+initialized after the compute instance starts its networking. For more information, see [Automatic mounting fails and the instance is unresponsive](troubleshooting-efs-mounting.md#automount-fails "troubleshooting-efs-mounting.md#automount-fails").
 
-## Step 5: Clean up resources and protect your
-
-AWS account
+## Step 5: Clean up resources and protect your AWS account
 
 After you have finished this tutorial, perform the following steps to clean up your
 resources and protect your AWS account.

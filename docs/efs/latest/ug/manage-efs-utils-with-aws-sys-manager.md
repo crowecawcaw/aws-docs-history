@@ -1,6 +1,4 @@
-# Automatically installing or updating
-
-Amazon EFS client using AWS Systems Manager
+# Automatically installing or updating Amazon EFS client using AWS Systems Manager
 
 You can use AWS Systems Manager to simplify the management of the Amazon EFS client
 (`amazon-efs-utils`). AWS Systems Manager is an AWS service that you can use to view

@@ -11,8 +11,7 @@ recommendations for optimizing the performance of your file system.
 - [Performance modes](#performancemodes "#performancemodes")
 - [Throughput modes](#throughput-modes "#throughput-modes")
 - [Amazon EFS performance tips](performance-tips.md "performance-tips.md")
-- [Troubleshooting Amazon EFS performance
-  issues](troubleshooting-efs-general.md "troubleshooting-efs-general.md")
+- [Troubleshooting Amazon EFS performance issues](troubleshooting-efs-general.md "troubleshooting-efs-general.md")
 - [Troubleshooting AMI and kernel issues](troubleshooting-efs-ami-kernel.md "troubleshooting-efs-ami-kernel.md")
 
 ## Performance summary
@@ -58,8 +57,7 @@ performance mode| Storage and throughput<br>configuration | Latency1 | Maximum<b
    90,000 read IOPS for infrequently accessed data, 250,000 read IOPS for frequently accessed
    data, and 50,000 write IOPS. If your workload requires more IOPS, then you can request an
    increase of up to 10 times these numbers. For more information, see [Amazon EFS quotas that you can increase](limits.md#soft-limits "limits.md#soft-limits"). Additional recommendations apply to
-   achieve maximum IOPS. For more information, see [Optimizing workloads that demand high throughput and
-   IOPS](performance-tips.md#recs-intensive-workloads "performance-tips.md#recs-intensive-workloads").
+   achieve maximum IOPS. For more information, see [Optimizing workloads that demand high throughput and IOPS](performance-tips.md#recs-intensive-workloads "performance-tips.md#recs-intensive-workloads").
 4. The maximum combined read and write throughput is 1,500 MiBps for file systems using
    Elastic throughput and mounted using version 2.0 or later of the Amazon EFS client
    (amazon-efs-utils version) or the Amazon EFS CSI Driver (aws-efs-csi-driver). For all other
@@ -124,8 +122,7 @@ example, if your file system is using 33% of its read throughput limit, the file
 simultaneously achieve up to 67% of its write throughput limit. You can monitor your file
 system’s throughput usage in the **Throughput utilization (%)**
 graph on the on the **File System Detail** page of the console. For more
-information, see [Monitoring throughput
-performance](how_to_use_metrics.md#monitor-throughput-performance "how_to_use_metrics.md#monitor-throughput-performance").
+information, see [Monitoring throughput performance](how_to_use_metrics.md#monitor-throughput-performance "how_to_use_metrics.md#monitor-throughput-performance").
 
 ### Choosing the correct throughput mode for a file system
 
@@ -264,9 +261,7 @@ systems smaller than 1 TiB, or 2.1 TiB per TiB stored for file systems larger th
 TiB. This behavior means that file systems can accumulate enough credits to burst for
 up to 12 hours continuously.
 
-### Restrictions on switching throughput and changing
-
-provisioned amount
+### Restrictions on switching throughput and changing provisioned amount
 
 You can switch an existing file system's throughput mode and change the throughput
 amount. However, after switching the throughput mode to Provisioned

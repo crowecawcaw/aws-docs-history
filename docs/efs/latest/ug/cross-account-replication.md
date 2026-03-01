@@ -1,6 +1,4 @@
-# Replicating EFS file systems across AWS
-
-accounts
+# Replicating EFS file systems across AWS accounts
 
 You can replicate EFS file systems across AWS accounts. Replicating across
 accounts enhances the overall resilience and reliability of your disaster recovery (DR)
@@ -23,15 +21,11 @@ and file system policies are created, you create the replication configuration.
 
 ###### Topics
 
-- [Create an IAM role with a custom trust
-  policy](#replication-create-iam-role "#replication-create-iam-role")
-- [Create policies on the source and destination
-  file systems](#replication-assign-fs-policies "#replication-assign-fs-policies")
+- [Create an IAM role with a custom trust policy](#replication-create-iam-role "#replication-create-iam-role")
+- [Create policies on the source and destination file systems](#replication-assign-fs-policies "#replication-assign-fs-policies")
 - [Create the replication configuration](#xar-create-replication-configuration "#xar-create-replication-configuration")
 
-## Create an IAM role with a custom trust
-
-policy
+## Create an IAM role with a custom trust policy
 
 For Amazon EFS to perform cross-account replication on the source account’s behalf, an IAM
 role must be created on the source account. The role must have the
@@ -47,9 +41,7 @@ replication configuration before you can create the IAM role for the source acco
 cannot create the destination file system for you during replication. Additionally, you must
 know and provide the Amazon Resource Name (ARN) for each file system.
 
-###### To create the IAM role
-
-for cross-account replication
+###### To create the IAM role for cross-account replication
 
 The following are the general steps for creating an IAM role with custom trust
 policies for cross-account replication with Amazon EFS. For step-by-step instructions for
@@ -119,9 +111,7 @@ JSON
 3. Copy or write down the ARN for the IAM role. You need to provide the ARN
    when you create the replication configuration.
 
-## Create policies on the source and destination
-
-file systems
+## Create policies on the source and destination file systems
 
 To share file systems cross-account in Amazon EFS, you must assign policies to both the
 destination and source file systems. The policies grant or restrict access across accounts to
@@ -139,9 +129,7 @@ You cannot restrict access to resources over TLS connection. If you include the
 `"aws:SecureTransport": "false"` condition in your statement, the NFS client
 connection will fail.
 
-### Policy for the destination file
-
-system
+### Policy for the destination file system
 
 To allow the source account permission to replicate to the destination file system and
 to delete the replication configuration from the destination account, the following policy
@@ -188,9 +176,7 @@ JSON
 
 ```
 
-### Policy for the source file
-
-system
+### Policy for the source file system
 
 To allow the destination account permission to delete the replication configuration
 from the source account, you must assign the following policy to the source file system.
@@ -256,6 +242,5 @@ policies in the previous section.
 ## Create the replication configuration
 
 After you have created the IAM role and added the file system policies to the source
-and destination file systems, follow the instructions in [Configuring replication to an existing
-EFS file system](replicate-existing-destination.md "replicate-existing-destination.md") to
+and destination file systems, follow the instructions in [Configuring replication to an existing EFS file system](replicate-existing-destination.md "replicate-existing-destination.md") to
 create the replication configuration.

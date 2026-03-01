@@ -34,5 +34,4 @@ EFS file systems are billed based on the following categories of usage.
   For detailed information about Amazon EFS charges, see [Amazon EFS Pricing](https://aws.amazon.com/efs/pricing/ "https://aws.amazon.com/efs/pricing/").
 
 For information about understanding the codes and abbreviations used in the billing and
-usage reports for Amazon EFS, see [Understanding billing and
-usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
+usage reports for Amazon EFS, see [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").

@@ -1,6 +1,4 @@
-# Changing mount target
-
-security groups
+# Changing mount target security groups
 
 Security groups define inbound and outbound access. When you change security groups
 associated with a mount target, make sure that you authorize necessary inbound and outbound

@@ -23,8 +23,7 @@ IAM to simplify access management for Network File System (NFS) clients at scale
 authorization for NFS clients, you can use IAM to manage access to an EFS file
 system in an inherently scalable way. IAM authorization for NFS clients is also optimized
 for cloud environments. For more information on using IAM authorization for NFS clients, see
-[Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+[Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 ## Data consistency in Amazon EFS
 
@@ -89,8 +88,7 @@ Availability Zones and are designed for durability. For more information, see [R
 
 One Zone file systems are available to only certain Availability Zones. For a
 table that lists the Availability Zones in which you can use One Zone file
-systems, see [Supported Availability Zones for One Zone file
-systems](#OneZoneAZs "#OneZoneAZs").
+systems, see [Supported Availability Zones for One Zone file systems](#OneZoneAZs "#OneZoneAZs").
 
 The following table compares the file system types, including their availability,
 durability, and other considerations.
@@ -100,9 +98,7 @@ durability, and other considerations.
 | Regional         | Data requiring the highest durability and availability.            | 99.999999999% (11 9s)     | 99.99%       | >=3                | None                                               |
 | One Zone         | Data that doesn't require the highest durability and availability. | 99.999999999% (11 9s)     | 99.99%       | 1                  | Not resilient to the loss of the Availability Zone |
 
-### Supported Availability Zones for One Zone file
-
-systems
+### Supported Availability Zones for One Zone file systems
 
 One Zone file systems are available to only certain Availability Zones. The following
 table lists the AWS Region and the AZ IDs for each Availability Zone in which you can use
@@ -176,8 +172,7 @@ within the Availability Zone, or in the event of Availability Zone destruction.
 2Lifecycle policies updated on or
 after 12 PM PT, November 26, 2023 will tier files that are smaller than 128 KiB to the
 IA class. For more information about how Amazon EFS meters and bills for individual
-files and metadata, see [How Amazon EFS reports file system and object
-sizes](metered-sizes.md "metered-sizes.md").
+files and metadata, see [How Amazon EFS reports file system and object sizes](metered-sizes.md "metered-sizes.md").
 
 #### Storage class billing
 
@@ -192,8 +187,7 @@ Additionally, Infrequent Access (IA) and Archive storage
 classes have a minimum billing charge per file of 128 KiB. Support for files
 smaller than 128 KiB is only available for lifecycle policies updated on or after
 12:00 PM PT, November 26, 2023. For more information on how Amazon EFS meters and bills for
-individual files and metadata, see [How Amazon EFS reports file system and object
-sizes](metered-sizes.md "metered-sizes.md").
+individual files and metadata, see [How Amazon EFS reports file system and object sizes](metered-sizes.md "metered-sizes.md").
 
 Additional billing considerations apply depending on throughput mode.
 

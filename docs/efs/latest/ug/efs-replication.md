@@ -36,12 +36,9 @@ Replication does not support using tags for attribute-based access control (ABAC
 - [Costs](#efs-replication-costs "#efs-replication-costs")
 - [Replication performance](#efs-replication-performance "#efs-replication-performance")
 - [Required IAM permissions](#efs-replication-permissions "#efs-replication-permissions")
-- [Configuring replication to new EFS file
-  system](create-replication.md "create-replication.md")
-- [Configuring replication to an existing
-  EFS file system](replicate-existing-destination.md "replicate-existing-destination.md")
-- [Replicating EFS file systems across AWS
-  accounts](cross-account-replication.md "cross-account-replication.md")
+- [Configuring replication to new EFS file system](create-replication.md "create-replication.md")
+- [Configuring replication to an existing EFS file system](replicate-existing-destination.md "replicate-existing-destination.md")
+- [Replicating EFS file systems across AWS accounts](cross-account-replication.md "cross-account-replication.md")
 - [Viewing replication details](monitoring-replication-status.md "monitoring-replication-status.md")
 - [Deleting replication configurations](delete-replications.md "delete-replications.md")
 - [Using the replica](replication-fail-over.md "replication-fail-over.md")
@@ -50,8 +47,7 @@ Replication does not support using tags for attribute-based access control (ABAC
 
 To facilitate replication, Amazon EFS creates hidden directories and metadata on the destination
 file system. These equate to approximately 12 mebibytes (MiB) of metered data for which you are
-billed. For more information about metering file system storage, see [How Amazon EFS reports file system and object
-sizes](metered-sizes.md "metered-sizes.md").
+billed. For more information about metering file system storage, see [How Amazon EFS reports file system and object sizes](metered-sizes.md "metered-sizes.md").
 
 ## Replication performance
 
@@ -81,15 +77,13 @@ an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../..
 
 - For more information about the `iam:CreateServiceLinkedRole`, see the example
   in [Using service-linked roles for Amazon EFS](using-service-linked-roles.md "using-service-linked-roles.md").
-- For more information about a custom IAM role – see [Create an IAM role with a custom trust
-  policy](cross-account-replication.md#replication-create-iam-role "cross-account-replication.md#replication-create-iam-role").
+- For more information about a custom IAM role – see [Create an IAM role with a custom trust policy](cross-account-replication.md#replication-create-iam-role "cross-account-replication.md#replication-create-iam-role").
 
 ###### Note
 
 If you are performing cross-account replication, then you must provide an IAM role when
 you create the replication configuration. Using the service-linked role is not permitted. For
-more information, see [Replicating EFS file systems across AWS
-accounts](cross-account-replication.md "cross-account-replication.md").
+more information, see [Replicating EFS file systems across AWS accounts](cross-account-replication.md "cross-account-replication.md").
 
 The service-linked role or IAM role that you provide when creating the replication
 configuration must have the following permissions for replication.

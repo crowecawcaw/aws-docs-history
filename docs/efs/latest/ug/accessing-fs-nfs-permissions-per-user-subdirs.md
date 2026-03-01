@@ -1,6 +1,4 @@
-# Tutorial: Creating writable
-
-per-user subdirectories
+# Tutorial: Creating writable per-user subdirectories
 
 After you create an EFS file system and mount it locally on your Amazon EC2
 (EC2) instance, it exposes an empty directory called the `file system

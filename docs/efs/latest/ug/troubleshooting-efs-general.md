@@ -1,6 +1,4 @@
-# Troubleshooting Amazon EFS performance
-
-issues
+# Troubleshooting Amazon EFS performance issues
 
 In general, if you encounter issues with Amazon EFS that
 you have trouble resolving, confirm that you're using a recent Linux kernel. If you are
@@ -26,14 +24,10 @@ You may experience slower than normal read performance after renaming files on y
 - [Access denied to allowed files on NFS file system](#nfs-16-group-limit "#nfs-16-group-limit")
 - [Errors when accessing the Amazon EFS console](#efs-console-access-errors "#efs-console-access-errors")
 - [Amazon EC2 instance hangs](#ec2-instance-hangs "#ec2-instance-hangs")
-- [Application writing large amounts of
-  data hangs](#application-large-data-hangs "#application-large-data-hangs")
-- [Poor performance when opening
-  many files in parallel](#open-close-operations-serialized "#open-close-operations-serialized")
-- [Custom NFS settings causing write
-  delays](#custom-nfs-settings-write-delays "#custom-nfs-settings-write-delays")
-- [Creating backups with Oracle Recovery Manager
-  is slow](#oracle-backup-slow "#oracle-backup-slow")
+- [Application writing large amounts of data hangs](#application-large-data-hangs "#application-large-data-hangs")
+- [Poor performance when opening many files in parallel](#open-close-operations-serialized "#open-close-operations-serialized")
+- [Custom NFS settings causing write delays](#custom-nfs-settings-write-delays "#custom-nfs-settings-write-delays")
+- [Creating backups with Oracle Recovery Manager is slow](#oracle-backup-slow "#oracle-backup-slow")
 
 ## Slow reads after renaming files (NFSv4 attribute cache issue)
 
@@ -119,9 +113,7 @@ first unmounting the file system.
 Before you delete a file system mount target, unmount the file system. For
 more information about unmounting your Amazon EFS file system, see [Unmounting file systems](unmounting-fs.md "unmounting-fs.md").
 
-## Application writing large amounts of
-
-data hangs
+## Application writing large amounts of data hangs
 
 An application that writes a large amount of data to Amazon EFS hangs and causes the
 instance to reboot.
@@ -151,9 +143,7 @@ most Linux systems.
 $ sudo sysctl -w kernel.hung_task_panic=0
 ```
 
-## Poor performance when opening
-
-many files in parallel
+## Poor performance when opening many files in parallel
 
 Applications that open multiple files in parallel do not experience the expected
 increase in performance of I/O parallelization.
@@ -178,9 +168,7 @@ actions:
   the set of group IDs instead.
 - You can run each process from a separate Amazon EC2 instance.
 
-## Custom NFS settings causing write
-
-delays
+## Custom NFS settings causing write delays
 
 You have custom NFS client settings, and it takes up to three seconds for an Amazon EC2
 instance to see a write operation performed on a file system from another Amazon EC2
@@ -215,9 +203,7 @@ import os
 os.access(path, os.W_OK)
 ```
 
-## Creating backups with Oracle Recovery Manager
-
-is slow
+## Creating backups with Oracle Recovery Manager is slow
 
 Creating backups with Oracle Recovery Manager can be slow if Oracle Recovery
 Manager pauses for 120 seconds before starting a backup job.

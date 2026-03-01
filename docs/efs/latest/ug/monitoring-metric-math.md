@@ -14,13 +14,11 @@ Following, find some useful metric math expressions for Amazon EFS.
 
 - [Metric math: Throughput in MiBps](#metric-math-throughput-mib "#metric-math-throughput-mib")
 - [Metric math: Percent throughput](#metric-math-throughput-percent "#metric-math-throughput-percent")
-- [Metric math: Percentage of permitted
-  throughput utilization](#metric-math-throughput-utilization "#metric-math-throughput-utilization")
+- [Metric math: Percentage of permitted throughput utilization](#metric-math-throughput-utilization "#metric-math-throughput-utilization")
 - [Metric math: Throughput IOPS](#metric-math-throughput-iops "#metric-math-throughput-iops")
 - [Metric math: Percentage of IOPS](#metric-math-iops-percent "#metric-math-iops-percent")
 - [Metric math: Average I/O size in KiB](#metric-math-average-io "#metric-math-average-io")
-- [Using metric math through an CloudFormation
-  template for Amazon EFS](#metric-math-cloudformation-template "#metric-math-cloudformation-template")
+- [Using metric math through an CloudFormation template for Amazon EFS](#metric-math-cloudformation-template "#metric-math-cloudformation-template")
 
 ## Metric math: Throughput in MiBps
 
@@ -70,9 +68,7 @@ Your metric math ID and expression are the following.
 | --- | ------------- |
 | e1  | `(m2*100)/m1` |
 
-## Metric math: Percentage of permitted
-
-throughput utilization
+## Metric math: Percentage of permitted throughput utilization
 
 To calculate the percentage of permitted throughput utilization
 (`MeteredIOBytes`) for a time period, first multiply the throughput in MiBps
@@ -167,9 +163,7 @@ Your metric math ID and expression are the following.
 | --- | -------------- |
 | e1  | `(m1/1024)/m2` |
 
-## Using metric math through an CloudFormation
-
-template for Amazon EFS
+## Using metric math through an CloudFormation template for Amazon EFS
 
 You can also create metric math expressions through CloudFormation templates. One such template
 is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial "https://github.com/aws-samples/amazon-efs-tutorial") on

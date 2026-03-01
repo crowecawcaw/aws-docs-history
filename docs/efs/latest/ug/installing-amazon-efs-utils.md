@@ -9,16 +9,11 @@ sections.
 
 ###### Topics
 
-- [Installing the Amazon EFS client on Amazon EC2 Linux
-  instances](#installing-efs-utils-amzn-linux "#installing-efs-utils-amzn-linux")
-- [Installing the Amazon EFS client on other Linux
-  distributions](#installing-other-distro "#installing-other-distro")
-- [Installing the Amazon EFS client on EC2 Mac instances
-  running macOS Big Sur, macOS Monterey, or macOS Ventura](#install-efs-utils-macOS "#install-efs-utils-macOS")
+- [Installing the Amazon EFS client on Amazon EC2 Linux instances](#installing-efs-utils-amzn-linux "#installing-efs-utils-amzn-linux")
+- [Installing the Amazon EFS client on other Linux distributions](#installing-other-distro "#installing-other-distro")
+- [Installing the Amazon EFS client on EC2 Mac instances running macOS Big Sur, macOS Monterey, or macOS Ventura](#install-efs-utils-macOS "#install-efs-utils-macOS")
 
-## Installing the Amazon EFS client on Amazon EC2 Linux
-
-instances
+## Installing the Amazon EFS client on Amazon EC2 Linux instances
 
 The `amazon-efs-utils` package for installing on Amazon EC2 Linux instances
 from the following locations:
@@ -28,8 +23,7 @@ from the following locations:
   AMI package repositories.
 - The AWS [efs-utils](https://github.com/aws/efs-utils "https://github.com/aws/efs-utils") GitHub repository.
   For more information about installing the `amazon-efs-utils` package from
-  GitHub, see [Installing the Amazon EFS client on other Linux
-  distributions](#installing-other-distro "#installing-other-distro").
+  GitHub, see [Installing the Amazon EFS client on other Linux distributions](#installing-other-distro "#installing-other-distro").
 
 ###### Note
 
@@ -39,9 +33,7 @@ from the following locations:
   (version 2.0 and later). We recommend that you upgrade applications to Amazon Linux 2023
   (AL2023), which includes long-term support until 2028.
 
-###### To install the `amazon-efs-utils` package from the AMI package
-
-repository on EC2 Linux instances
+###### To install the `amazon-efs-utils` package from the AMI package repository on EC2 Linux instances
 
 1. Make sure that you've created an AL2023 or Amazon Linux 2 (AL2) EC2 instance. For
    information on how to do this, see [Step 1: Launch an
@@ -56,9 +48,7 @@ repository on EC2 Linux instances
 sudo yum install -y amazon-efs-utils
 ```
 
-## Installing the Amazon EFS client on other Linux
-
-distributions
+## Installing the Amazon EFS client on other Linux distributions
 
 If you don't want to get the `amazon-efs-utils` package from the Amazon Linux
 AMI package repositories, it is also available on GitHub.
@@ -76,9 +66,7 @@ Linux distributions, see [On other
 Linux distributions](https://github.com/aws/efs-utils?tab=readme-ov-file#on-other-linux-distributions "https://github.com/aws/efs-utils?tab=readme-ov-file#on-other-linux-distributions") in the `amazon-efs-utils` README on
 Github.
 
-## Installing the Amazon EFS client on EC2 Mac instances
-
-running macOS Big Sur, macOS Monterey, or macOS Ventura
+## Installing the Amazon EFS client on EC2 Mac instances running macOS Big Sur, macOS Monterey, or macOS Ventura
 
 The `amazon-efs-utils` package is available for installation on
 EC2 Mac instances running macOS Big Sur, macOS Monterey, or macOS Ventura.

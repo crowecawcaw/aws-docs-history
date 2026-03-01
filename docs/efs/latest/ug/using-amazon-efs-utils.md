@@ -22,8 +22,7 @@ versions.
 - [Dependencies for EFS tools](#utils-dependencies "#utils-dependencies")
 - [Supported distributions](#efs-utils-supported-distros "#efs-utils-supported-distros")
 - [Manually installing the Amazon EFS client](installing-amazon-efs-utils.md "installing-amazon-efs-utils.md")
-- [Automatically installing or updating
-  Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md")
+- [Automatically installing or updating Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md")
 - [Installing and upgrading botocore](install-botocore.md "install-botocore.md")
 - [Upgrading stunnel](upgrading-stunnel.md "upgrading-stunnel.md")
 - [Enabling FIPS mode](fips-enabling.md "fips-enabling.md")
@@ -54,8 +53,7 @@ After you've installed the `amazon-efs-utils` package, upgrade stunnel.
 See [Upgrading stunnel](upgrading-stunnel.md "upgrading-stunnel.md").
 
 You can use AWS Systems Manager to manage Amazon EFS clients and automate the tasks required to install or
-update the amazon-efs-utils package on your EC2 instances. For more information, see [Automatically installing or updating
-Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md").
+update the amazon-efs-utils package on your EC2 instances. For more information, see [Automatically installing or updating Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md").
 
 For issues with encryption, see [Troubleshooting encryption](troubleshooting-efs-encryption.md "troubleshooting-efs-encryption.md").
 

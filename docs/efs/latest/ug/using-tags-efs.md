@@ -16,9 +16,7 @@ Amazon EFS replication does not support using tags for attribute-based access co
 To apply tags to Amazon EFS resources during creation, users must have certain AWS Identity and Access Management
 (IAM) permissions.
 
-## Granting permissions to tag resources during
-
-creation
+## Granting permissions to tag resources during creation
 
 The following tag-on create Amazon EFS API actions allow you to specify tags when you
 create the resource.
@@ -71,9 +69,7 @@ call the `elasticfilesystem:TagResource` action directly).
 }
 ```
 
-## Using tags to control access to your Amazon EFS
-
-resources
+## Using tags to control access to your Amazon EFS resources
 
 To control access to Amazon EFS resources and actions, you can use IAM policies based on tags.
 You can provide this control in two ways:

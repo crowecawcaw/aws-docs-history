@@ -8,8 +8,7 @@ success or failure of its file system mount attempts.
 ###### To enable mount attempt success or failure notification in CloudWatch logs
 
 1. Install `amazon-efs-utils` on the EC2 instance mounting the file system. For more information, see
-   [Automatically installing or updating
-   Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md") or
+   [Automatically installing or updating Amazon EFS client using AWS Systems Manager](manage-efs-utils-with-aws-sys-manager.md "manage-efs-utils-with-aws-sys-manager.md") or
    [Manually installing the Amazon EFS client](installing-amazon-efs-utils.md "installing-amazon-efs-utils.md").
 2. Install `botocore` on the EC2 instance that will mount the file system. For more information, see
    [Installing and upgrading botocore](install-botocore.md "install-botocore.md").
@@ -52,8 +51,7 @@ log_group_name = /aws/efs/utils/{fs_id}
 
 5. Attach the `AmazonElasticFileSystemsUtils` AWS managed policy to the IAM role that you have attached to the EC2 instance,
    or to the AWS credentials configured on your instance. You can use Systems Manager to do this, for more information, see
-   [Step 1: Configure an IAM instance
-   profile with the required permissions](setting-up-aws-sys-mgr.md#configure-sys-mgr-iam-instance-profile "setting-up-aws-sys-mgr.md#configure-sys-mgr-iam-instance-profile").
+   [Step 1: Configure an IAM instance profile with the required permissions](setting-up-aws-sys-mgr.md#configure-sys-mgr-iam-instance-profile "setting-up-aws-sys-mgr.md#configure-sys-mgr-iam-instance-profile").
    The following are examples of mount attempt status log entries:
 
 ```

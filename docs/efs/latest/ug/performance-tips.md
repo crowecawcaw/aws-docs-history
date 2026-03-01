@@ -10,9 +10,7 @@ operation. Because of this per-operation latency, overall throughput generally i
 the average I/O size increases, because the overhead is amortized over a larger amount of
 data.
 
-## Optimizing workloads that demand high throughput and
-
-IOPS
+## Optimizing workloads that demand high throughput and IOPS
 
 For workloads that require high throughput and IOPS, use Regional file
 systems configured with the General Purpose performance mode and Elastic

@@ -157,8 +157,7 @@ a service-linked role](../../../IAM/latest/UserGuide/id_roles_update-service-lin
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don't have an unused entity that is not
 actively monitored or maintained. However, you must clean up the resources for your
-service-linked role before you can manually delete it. For more information, see [Clean up resources and protect your AWS
-account](getting-started.md#gs-step-five-cleanup "getting-started.md#gs-step-five-cleanup").
+service-linked role before you can manually delete it. For more information, see [Clean up resources and protect your AWS account](getting-started.md#gs-step-five-cleanup "getting-started.md#gs-step-five-cleanup").
 
 ###### Note
 

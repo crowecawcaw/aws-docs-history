@@ -23,14 +23,11 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in Amazon EFS](data-protection.md "data-protection.md")
 - [Identity and access management for Amazon EFS](security-iam.md "security-iam.md")
-- [Using IAM to control access to file
-  systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md")
+- [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md")
 - [Compliance validation for Amazon EFS](EFS-compliance.md "EFS-compliance.md")
 - [Resilience in Amazon EFS](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Controlling network access to EFS file systems for
-  NFS clients](NFS-access-control-efs.md "NFS-access-control-efs.md")
+- [Controlling network access to EFS file systems for NFS clients](NFS-access-control-efs.md "NFS-access-control-efs.md")
 - [Network File System (NFS) level users, groups, and permissions](accessing-fs-nfs-permissions.md "accessing-fs-nfs-permissions.md")
 - [Working with access points](efs-access-points.md "efs-access-points.md")
-- [Blocking public access to EFS
-  file systems](access-control-block-public-access.md "access-control-block-public-access.md")
+- [Blocking public access to EFS file systems](access-control-block-public-access.md "access-control-block-public-access.md")
 - [Network isolation for Amazon EFS](network-isolation.md "network-isolation.md")

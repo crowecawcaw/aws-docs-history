@@ -1,6 +1,4 @@
-# Configuring replication to an existing
-
-EFS file system
+# Configuring replication to an existing EFS file system
 
 Amazon EFS replicates the data and metadata on the source file system to the destination file
 system and AWS Region that you choose. During replication, Amazon EFS identifies data differences
@@ -10,8 +8,7 @@ To replicate to an existing file system, perform the following steps.
 
 ###### Topics
 
-- [Step 1: Disable the file system's replication overwrite
-  protection](#replication-overwrite "#replication-overwrite")
+- [Step 1: Disable the file system's replication overwrite protection](#replication-overwrite "#replication-overwrite")
 - [Step 2: Create the replication configuration](#replicate-existing-step "#replicate-existing-step")
 
 ###### Note
@@ -19,9 +16,7 @@ To replicate to an existing file system, perform the following steps.
 A file system can be part of only one replication configuration. You cannot use a
 destination file system as the source file system in another replication configuration.
 
-## Step 1: Disable the file system's replication overwrite
-
-protection
+## Step 1: Disable the file system's replication overwrite protection
 
 When you create an Amazon EFS file system, its replication overwrite protection is enabled by
 default. Replication overwrite protection prevents the file system from being used as the
@@ -89,8 +84,7 @@ requirements and considerations:
   to or removes existing data from the destination file system to match data in the source file system.
   If you don't want to change data in
   the destination file system, then you should replicate to a new file system instead. For more
-  information, see [Configuring replication to new EFS file
-  system](create-replication.md "create-replication.md").
+  information, see [Configuring replication to new EFS file system](create-replication.md "create-replication.md").
 - Data replicated to the destination file system is accessible only after the initial sync
   completes. The sync duration depends on factors such as the size of the source file system and
   the number of files in it. For more information about replication performance, see [Replication performance](efs-replication.md#efs-replication-performance "efs-replication.md#efs-replication-performance").
@@ -102,8 +96,7 @@ or the destination file system ARN (for cross-account replication) that you want
 
 If the destination file system is in a different AWS account than the source file
 system, create an IAM role that allows Amazon EFS to perform replication and assign resource
-policies to the file systems. For more information, see [Replicating EFS file systems across AWS
-accounts](cross-account-replication.md "cross-account-replication.md").
+policies to the file systems. For more information, see [Replicating EFS file systems across AWS accounts](cross-account-replication.md "cross-account-replication.md").
 
 1. Sign in to the AWS Management Console and open the Amazon EFS console at
    [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
@@ -141,8 +134,7 @@ tab and turn off its **Replication overwrite protection**. After disabling
 the protection, return to the **Create replication** tab and click the
 **Refresh** button to clear the message. 7. For **IAM role**, enter the ARN of the IAM role that allows Amazon EFS
 to replicate to the destination file system. This is optional for same-account replication,
-but required for cross-account replication. For more information, see [Replicating EFS file systems across AWS
-accounts](cross-account-replication.md "cross-account-replication.md"). 8. Choose **Create replication**, type **confirm** in
+but required for cross-account replication. For more information, see [Replicating EFS file systems across AWS accounts](cross-account-replication.md "cross-account-replication.md"). 8. Choose **Create replication**, type **confirm** in
 the confirmation message input box, and then choose **Create replication**.
 The **Replication** section shows the replication details.
 
@@ -150,9 +142,7 @@ This section provides examples for creating a replication configuration in the A
 using the `create-replication-configuration` command. The equivalent API command is
 [CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
 
-###### Example: Create a replication configuration to an existing destination file system in another
-
-Region
+###### Example: Create a replication configuration to an existing destination file system in another Region
 
 The following example creates a replication configuration where the file system ID
 `fs-0123456789abcdef1` is replicated to file system

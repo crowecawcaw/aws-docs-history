@@ -1,6 +1,4 @@
-# Tutorial: Mounting with on-premises Linux
-
-clients
+# Tutorial: Mounting with on-premises Linux clients
 
 You can mount your EFS file systems on your on-premises data center servers when
 connected to your Amazon VPC with Direct Connect or VPN. The following graphic shows a high-level
@@ -18,10 +16,8 @@ Using Amazon EFS with Microsoft Windows–based clients isn't supported.
 - [Prerequisites](#efs-onpremises "#efs-onpremises")
 - [Step 1: Create your EFS resources](#wt5-step1-efs "#wt5-step1-efs")
 - [Step 2: Install the NFS client](#wt5-step4-install-nfs "#wt5-step4-install-nfs")
-- [Step 3: Mount the EFS file system on your
-  on-premises client](#wt5-step3-connect "#wt5-step3-connect")
-- [Step 4: Clean up resources and protect your AWS
-  account](#wt5-step4-cleanup "#wt5-step4-cleanup")
+- [Step 3: Mount the EFS file system on your on-premises client](#wt5-step3-connect "#wt5-step3-connect")
+- [Step 4: Clean up resources and protect your AWS account](#wt5-step4-cleanup "#wt5-step4-cleanup")
 - [Optional: Encrypting data in transit](#wt5-step2-get-efs-utils "#wt5-step2-get-efs-utils")
 
 ## Prerequisites
@@ -151,9 +147,7 @@ If you're using Ubuntu, install NFS with the following command.
 $ sudo apt-get -y install nfs-common
 ```
 
-## Step 3: Mount the EFS file system on your
-
-on-premises client
+## Step 3: Mount the EFS file system on your on-premises client
 
 ###### To create a mount directory
 
@@ -222,12 +216,9 @@ Use the `_netdev` option, used to identify network file systems, when
 mounting your file system automatically. If `_netdev` is missing, your EC2
 instance might stop responding. This result is because network file systems need to be
 initialized after the compute instance starts its networking. For more information, see
-[Automatic mounting fails and the instance is
-unresponsive](troubleshooting-efs-mounting.md#automount-fails "troubleshooting-efs-mounting.md#automount-fails").
+[Automatic mounting fails and the instance is unresponsive](troubleshooting-efs-mounting.md#automount-fails "troubleshooting-efs-mounting.md#automount-fails").
 
-## Step 4: Clean up resources and protect your AWS
-
-account
+## Step 4: Clean up resources and protect your AWS account
 
 After you have finished this walkthrough, or if you don't want to explore the
 walkthroughs, you should follow these steps to clean up your resources and protect your AWS

@@ -1,6 +1,4 @@
-# Tutorial: Create an EFS file system and mount it on an
-
-EC2 instance using the AWS CLI
+# Tutorial: Create an EFS file system and mount it on an EC2 instance using the AWS CLI
 
 Create an encrypted EFS file system, mount it on an EC2 instance in your
 VPC, and test the setup using the AWS CLI.
@@ -46,8 +44,7 @@ resources—must be in the same AWS Region.
 - [Setting up the AWS CLI](#wt1-setup-awscli "#wt1-setup-awscli")
 - [Step 1: Create EC2 resources](#wt1-create-ec2-resources "#wt1-create-ec2-resources")
 - [Step 2: Create EFS resources](#wt1-create-efs-resources "#wt1-create-efs-resources")
-- [Step 3: Mount the file system on the EC2 instance and
-  test](#wt1-test "#wt1-test")
+- [Step 3: Mount the file system on the EC2 instance and test](#wt1-test "#wt1-test")
 - [Step 4: Clean up](#wt1-clean-up "#wt1-clean-up")
 
 ## Prerequisites
@@ -208,9 +205,7 @@ In the next section, you authorize additional access that enables the following:
     * Enable traffic between an EC2 instance and an EFS mount target
      (with which you associate these security groups later in this tutorial).
 
-### Step 1.2: Add rules to the security groups to authorize
-
-inbound/outbound access
+### Step 1.2: Add rules to the security groups to authorize inbound/outbound access
 
 In this step, you add rules to the security groups to authorize inbound/outbound
 access.
@@ -378,9 +373,7 @@ In this step, you do the following:
 - Create a mount target in the Availability Zone where you have your EFS instance
   launched.
 
-### Step 2.1: Create an EFS file
-
-system
+### Step 2.1: Create an EFS file system
 
 In this step, you create an EFS file system. Write down the
 `FileSystemId` to use later when you create mount targets for the file system
@@ -518,9 +511,7 @@ $ aws efs describe-mount-targets \
 --profile adminuser
 ```
 
-## Step 3: Mount the file system on the EC2 instance and
-
-test
+## Step 3: Mount the file system on the EC2 instance and test
 
 In this step, you do the following:
 
@@ -531,10 +522,8 @@ In this step, you do the following:
 ###### Topics
 
 - [Step 3.1: Gather Information](#wt1-connect-test-gather-info "#wt1-connect-test-gather-info")
-- [Step 3.2: Install the NFS client on your
-  EC2 instance](#wt1-connect-install-nfs-client "#wt1-connect-install-nfs-client")
-- [Step 3.3: Mount the file system on your EC2
-  instance and test](#wt1-mount-fs-and-test "#wt1-mount-fs-and-test")
+- [Step 3.2: Install the NFS client on your EC2 instance](#wt1-connect-install-nfs-client "#wt1-connect-install-nfs-client")
+- [Step 3.3: Mount the file system on your EC2 instance and test](#wt1-mount-fs-and-test "#wt1-mount-fs-and-test")
 
 ### Step 3.1: Gather Information
 
@@ -563,9 +552,7 @@ Amazon EFS doesn't require that your EC2 instance have either a public IP addres
 public DNS name. The requirements listed preceding are just for this walkthrough example
 to ensure that you can connect by using SSH into the instance from outside the VPC.
 
-### Step 3.2: Install the NFS client on your
-
-EC2 instance
+### Step 3.2: Install the NFS client on your EC2 instance
 
 You can connect to your EC2 instance from Windows or from a computer running
 Linux, or macOS X, or any other Unix variant.
@@ -597,9 +584,7 @@ Linux, or macOS X, or any other Unix variant.
    `nfs-utils` because it is already included in the AMI by
    default.
 
-### Step 3.3: Mount the file system on your EC2
-
-instance and test
+### Step 3.3: Mount the file system on your EC2 instance and test
 
 Now you mount the file system on your EC2 instance.
 

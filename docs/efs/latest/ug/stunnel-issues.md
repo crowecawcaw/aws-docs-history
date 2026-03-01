@@ -49,9 +49,7 @@ EFS mount helper that rejects the revoked certificate.
 3. Set the `stunnel_check_cert_validity` value to true.
 4. Save the changes to the file and close it.
 
-######
-
-To enable OCSP as part of the `mount` command
+###### To enable OCSP as part of the `mount` command
 
 - Use the following mount command to enable OCSP when mounting the file system.
 

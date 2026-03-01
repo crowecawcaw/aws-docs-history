@@ -66,5 +66,4 @@ entire file system, which is displayed in `Value`.
 
 ```
 
-For additional ways to view and measure disk usage, see [Metering EFS file system
-objects](metered-sizes.md#metered-sizes-fs-objects "metered-sizes.md#metered-sizes-fs-objects").
+For additional ways to view and measure disk usage, see [Metering EFS file system objects](metered-sizes.md#metered-sizes-fs-objects "metered-sizes.md#metered-sizes-fs-objects").

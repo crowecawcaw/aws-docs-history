@@ -1,6 +1,4 @@
-# Mounting on EC2 Linux instances
-
-using the EFS mount helper
+# Mounting on EC2 Linux instances using the EFS mount helper
 
 This procedure requires the following:
 
@@ -8,9 +6,7 @@ This procedure requires the following:
   instance. For more information, see [Manually installing the Amazon EFS client](installing-amazon-efs-utils.md "installing-amazon-efs-utils.md").
 - You have created mount targets for the file system. For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
 
-###### To mount your EFS file system using
-
-the mount helper on EC2 Linux instances
+###### To mount your EFS file system using the mount helper on EC2 Linux instances
 
 1. Open a terminal window on your EC2 instance through Secure Shell (SSH), and
    log in with the appropriate user name. For more information, see

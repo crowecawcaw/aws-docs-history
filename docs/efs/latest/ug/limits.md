@@ -5,14 +5,12 @@ Following, you can find out about quotas when working with Amazon EFS.
 ###### Topics
 
 - [Amazon EFS quotas that you can increase](#soft-limits "#soft-limits")
-- [Amazon EFS resource quotas that you
-  cannot change](#limits-efs-resources-per-account-per-region "#limits-efs-resources-per-account-per-region")
+- [Amazon EFS resource quotas that you cannot change](#limits-efs-resources-per-account-per-region "#limits-efs-resources-per-account-per-region")
 - [Quotas for NFS clients](#limits-client-specific "#limits-client-specific")
 - [Quotas for Amazon EFS file systems](#limits-fs-specific "#limits-fs-specific")
 - [Unsupported NFSv4.0 and 4.1 features](#nfs4-unsupported-features "#nfs4-unsupported-features")
 - [Additional considerations](#limits-additional-considerations "#limits-additional-considerations")
-- [Troubleshooting file operation
-  errors related to quotas](troubleshooting-efs-fileop-errors.md "troubleshooting-efs-fileop-errors.md")
+- [Troubleshooting file operation errors related to quotas](troubleshooting-efs-fileop-errors.md "troubleshooting-efs-fileop-errors.md")
 
 ## Amazon EFS quotas that you can increase
 
@@ -49,20 +47,18 @@ change.
 The following table lists Elastic throughput quotas per file system for all
 connected clients in each AWS Region.
 
-Regional file systems – Total default Elastic throughput
-per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
-| --- | --- | --- |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region<br>Europe (Ireland) Region<br>Europe (London) Region | 60 gibibytes per second (GiBps) | 5 GiBps |
-| All other AWS Regions | 20 GiBps | 1 GiBps |
+| Regional file systems – Total default Elastic throughput per file system for all connected clients in each AWS Region                                                                                                                                                                                                               | AWS Region                      | Maximum read throughput | Maximum write throughput (metered throughput) |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------- | --------------------------------------------- |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region<br>Europe (Ireland) Region<br>Europe (London) Region | 60 gibibytes per second (GiBps) | 5 GiBps                 |
+| All other AWS Regions                                                                                                                                                                                                                                                                                                               | 20 GiBps                        | 1 GiBps                 |
 
 The following table lists the Provisioned throughput quotas per file system
 for all connected clients in each AWS Region.
 
-Regional file systems – Total default Provisioned
-throughput per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
-| --- | --- | --- |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Europe (Ireland) Region | 10 GiBps | 3.33 GiBps |
-| All other AWS Regions | 3 GiBps | 1 GiBps |
+| Regional file systems – Total default Provisioned throughput per file system for all connected clients in each AWS Region | AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
+| ------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | --------------------------------------------- |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Europe (Ireland) Region               | 10 GiBps   | 3.33 GiBps              |
+| All other AWS Regions                                                                                                     | 3 GiBps    | 1 GiBps                 |
 
 ### Requesting a quota increase
 
@@ -78,9 +74,7 @@ The Amazon EFS team reviews each quota increase request.
 3. For **Limit Type**, choose the type of limit to increase. Fill in the
    necessary fields in the form, and then choose your preferred method of contact.
 
-## Amazon EFS resource quotas that you
-
-cannot change
+## Amazon EFS resource quotas that you cannot change
 
 Quotas for several Amazon EFS resources cannot be changed, including:
 
@@ -104,27 +98,22 @@ The following table lists the general resource quotas that cannot be changed.
 ###### Note
 
 Clients can also connect to mount targets that are in an account or VPC that is different from that of the file system. For more
-information, see [Mounting EFS file systems from
-another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
+information, see [Mounting EFS file systems from another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
 
 The following table lists the total default Elastic and Provisioned
 throughput limits per file system for all connected clients in each AWS Region.
 
-One Zone file systems – Total default Elastic and
-Provisioned throughput per file system for all connected clients in each
-AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
-| --- | --- | --- |
-| All AWS Regions | 3 GiBps | 1 GiBps |
+| One Zone file systems – Total default Elastic and Provisioned throughput per file system for all connected clients in each AWS Region | AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | --------------------------------------------- |
+| All AWS Regions                                                                                                                       | 3 GiBps    | 1 GiBps                 |
 
 The following table lists the total Bursting throughput limits per file
 system for all connected clients in each AWS Region.
 
-Regional and
-One Zone file systems – Total Bursting throughput per file system
-for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput |
-| --- | --- | --- |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Sydney) Region<br>Europe (Ireland) Region | 5 GiBps | 3 GiBps |
-| All other AWS Regions | 3 GiBps | 1 GiBps |
+| Regional and One Zone file systems – Total Bursting throughput per file system for all connected clients in each AWS Region                 | AWS Region | Maximum read throughput | Maximum write throughput |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | ------------------------ |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Sydney) Region<br>Europe (Ireland) Region | 5 GiBps    | 3 GiBps                 |
+| All other AWS Regions                                                                                                                       | 3 GiBps    | 1 GiBps                 |
 
 ## Quotas for NFS clients
 

@@ -101,9 +101,7 @@ systems.
 To view the permissions for this policy, see [AmazonElasticFileSystemClientReadWriteAccess](../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemClientReadWriteAccess.md "../../../aws-managed-policy/latest/reference/AmazonElasticFileSystemClientReadWriteAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## Amazon EFS updates to AWS managed
-
-policies
+## Amazon EFS updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon EFS since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

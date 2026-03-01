@@ -1,12 +1,9 @@
-# Mounting on EC2 Mac instances
-
-using the EFS mount helper
+# Mounting on EC2 Mac instances using the EFS mount helper
 
 This procedure requires the following:
 
 - You have installed the `amazon-efs-utils` package on the Amazon EC2 Mac
-  instance. For more information, see [Installing the Amazon EFS client on EC2 Mac instances
-  running macOS Big Sur, macOS Monterey, or macOS Ventura](installing-amazon-efs-utils.md#install-efs-utils-macOS "installing-amazon-efs-utils.md#install-efs-utils-macOS").
+  instance. For more information, see [Installing the Amazon EFS client on EC2 Mac instances running macOS Big Sur, macOS Monterey, or macOS Ventura](installing-amazon-efs-utils.md#install-efs-utils-macOS "installing-amazon-efs-utils.md#install-efs-utils-macOS").
 - You have created mount targets for the file system. You can create mount targets at file system creation and
   add them to existing file systems. For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
 - You are mounting the file system on an EC2 Mac instance running macOS Big Sur,
@@ -17,9 +14,7 @@ This procedure requires the following:
 Only EC2 Mac instances running macOS Big Sur, Monterey, and Ventura are supported. Other
 macOS versions are not supported for use with Amazon EFS.
 
-###### To mount your EFS file system using the EFS mount helper on
-
-EC2 Mac instances running macOS Big Sur, Monterey, or Ventura
+###### To mount your EFS file system using the EFS mount helper on EC2 Mac instances running macOS Big Sur, Monterey, or Ventura
 
 1. Open a terminal window on your EC2 Mac instance through Secure Shell (SSH),
    and log in with the appropriate user name. For more information, see [Connect to your

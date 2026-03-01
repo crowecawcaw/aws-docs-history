@@ -1,6 +1,4 @@
-# Using Network File System to mount EFS file
-
-systems
+# Using Network File System to mount EFS file systems
 
 Following, learn how to install the Network File System (NFS) client and how to
 mount your Amazon EFS file system on an Amazon EC2 instance. You also can find an explanation of the

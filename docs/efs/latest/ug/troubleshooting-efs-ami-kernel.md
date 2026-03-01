@@ -7,11 +7,9 @@ instance.
 ###### Topics
 
 - [Unable to chown](#chown-kernal "#chown-kernal")
-- [File system keeps performing
-  operations repeatedly due to client bug](#file-system-stuck-client-bug "#file-system-stuck-client-bug")
+- [File system keeps performing operations repeatedly due to client bug](#file-system-stuck-client-bug "#file-system-stuck-client-bug")
 - [Deadlocked client](#deadlocked-client "#deadlocked-client")
-- [Listing files in a large directory takes a long
-  time](#long-time-listing "#long-time-listing")
+- [Listing files in a large directory takes a long time](#long-time-listing "#long-time-listing")
 
 ## Unable to chown
 
@@ -33,9 +31,7 @@ You can resolve this error by doing the following:
 - If `chown` is part of your production work flow, you must update
   the kernel version to use `chown`.
 
-## File system keeps performing
-
-operations repeatedly due to client bug
+## File system keeps performing operations repeatedly due to client bug
 
 A file system gets stuck performing repeated operations due to a client
 bug.
@@ -61,9 +57,7 @@ Do one of the following:
   fix.
 - Downgrade to an older kernel version.
 
-## Listing files in a large directory takes a long
-
-time
+## Listing files in a large directory takes a long time
 
 This can happen if the directory is changing while your NFS client iterates
 through the directory to finish the list operation. Whenever the NFS client notices

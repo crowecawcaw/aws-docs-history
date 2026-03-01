@@ -12,6 +12,6 @@ Amazon EFS file systems are resilient to one or more Availability Zone failures 
 AWS Region. Mount targets themselves are designed to be highly available. As you design
 for high availability and failover to other AZs, keep in mind that while the
 IP addresses and DNS for your mount targets in each AZ are static, they are
-redundant components backed by multiple resources. For more information, see [How Amazon EFS works with Amazon EC2](how-it-works.md#how-it-works-ec2 "how-it-works.md#how-it-works-ec2") .
+redundant components backed by multiple resources. For more information, see [How Amazon EFS works with Amazon EC2](how-it-works.md#how-it-works-ec2 "how-it-works.md#how-it-works-ec2").
 
 For more information about AWS Regions and Availability Zones, see [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").

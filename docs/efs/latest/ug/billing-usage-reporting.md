@@ -21,5 +21,4 @@ The following topics provide information about billing and usage reporting for A
 - [Using cost allocation EFS file system tags](CostAllocTagging.md "CostAllocTagging.md")
 - [AWS Billing reports for Amazon EFS](aws-billing-report.md "aws-billing-report.md")
 - [AWS usage reports for Amazon EFS](aws-usage-report.md "aws-usage-report.md")
-- [Understanding billing and
-  usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md")
+- [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md")

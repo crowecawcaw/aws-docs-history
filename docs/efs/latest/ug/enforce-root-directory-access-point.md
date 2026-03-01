@@ -22,9 +22,7 @@ Specifically, make sure that the execute bit is set for the access point user or
 For example, a directory permission value of 755 allows the directory user owner to list files, create files,
 and mount, and all other users to list files and mount.
 
-## Creating the root directory for an access
-
-point
+## Creating the root directory for an access point
 
 If a root directory path for an access point doesn't exist on the file system, Amazon EFS
 automatically creates that root directory with the ownership and
@@ -64,9 +62,7 @@ If you do not specify the ownership and permissions for an access point root
 directory, Amazon EFS will not create the root directory. All attempts to mount the access point
 will fail.
 
-## Security model for access point root
-
-directories
+## Security model for access point root directories
 
 When a root directory override is in effect, Amazon EFS behaves like a Linux NFS server with the
 `no_subtree_check` option enabled.

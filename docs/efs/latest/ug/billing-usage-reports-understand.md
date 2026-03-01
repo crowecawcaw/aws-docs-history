@@ -1,6 +1,4 @@
-# Understanding billing and
-
-usage reports for Amazon EFS
+# Understanding billing and usage reports for Amazon EFS
 
 Amazon EFS billing and usage reports use codes and abbreviations. For usage types in the table
 that follows, replace `region` with abbreviations from
@@ -79,15 +77,12 @@ throughput amount, however, mebibytes per second (MiBps) is used instead.
 - For file systems using Elastic throughput, metadata operations are metered
   in 1 KiB increments after the first 4 KiB and data operations are metered in 1 KiB
   increments after the first 32 KiB.
-- Storage usage is calculated in binary gigabytes (GB), where 1 GB is 230 bytes. See [How Amazon EFS reports file system and object
-  sizes](metered-sizes.md "metered-sizes.md") for additional details on how storage and throughput usage are
+- Storage usage is calculated in binary gigabytes (GB), where 1 GB is 230 bytes. See [How Amazon EFS reports file system and object sizes](metered-sizes.md "metered-sizes.md") for additional details on how storage and throughput usage are
   metered to calculate your Amazon EFS bill.
 - GB-Month is derived by taking the total number of GB-hours, aggregating these over the
   course of a month, and then dividing by the number of hours in that month.
 
-## Tracking operations in your usage
-
-reports
+## Tracking operations in your usage reports
 
 Operations describe the action taken on your EFS file system by the
 specified usage type. Operations are indicated by self-explanatory codes, such as

@@ -1,6 +1,4 @@
-# Configuring replication to new EFS file
-
-system
+# Configuring replication to new EFS file system
 
 Amazon EFS automatically creates a new file system and copies the data and metadata on the source
 file system to a new read-only destination file system in the AWS Region that you choose. When
@@ -37,8 +35,7 @@ system. Additional settings can be changed after creation.
 
 - **Automatic backups** – For destination file systems
   using One Zone storage, automatic backups are enabled by default. After the file
-  system is created, you can change the automatic backup setting. For more information, see [Managing automatic backups of EFS file
-  systems](automatic-backups.md "automatic-backups.md").
+  system is created, you can change the automatic backup setting. For more information, see [Managing automatic backups of EFS file systems](automatic-backups.md "automatic-backups.md").
 - **Performance mode** – The destination file
   system's **Performance mode** matches that of the source file system,
   unless the destination file system uses One Zone storage. In that case, the
@@ -116,9 +113,7 @@ This section provides examples for creating a replication configuration in the A
 using the `create-replication-configuration` command. The equivalent API command is
 [CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
 
-###### Example: Create a replication configuration for a Regional destination file
-
-system
+###### Example: Create a replication configuration for a Regional destination file system
 
 The following example creates a replication configuration for the file system
 `fs-0123456789abcdef1`. The example uses the
@@ -154,9 +149,7 @@ The AWS CLI responds as follows:
 
 ```
 
-###### Example: Create a replication configuration for a One Zone destination file
-
-system
+###### Example: Create a replication configuration for a One Zone destination file system
 
 The following example creates a replication configuration for the file system
 `fs-0123456789abcdef1`. The example uses the
@@ -171,9 +164,7 @@ aws efs create-replication-configuration \
 --destinations AvailabilityZoneName=`us-west-2a`
 ```
 
-## Step 2: Mount the destination file
-
-system
+## Step 2: Mount the destination file system
 
 Amazon EFS does not create any mount targets when it creates the destination file system. To
 mount the destination file system, you must create one or more mount targets. For more

@@ -13,8 +13,7 @@ You can mount the EFS file system from these targets:
   A _VPC peering connection_ is a networking connection
   between two VPCs that enables you to route traffic between them. The connection can use
   private Internet Protocol version 4 (IPv4) or version 6 (IPv6).
-  For more information on how Amazon EFS works with VPC peering, see [Mounting EFS file systems from
-  another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
+  For more information on how Amazon EFS works with VPC peering, see [Mounting EFS file systems from another AWS account or VPC](manage-fs-access-vpc-peering.md "manage-fs-access-vpc-peering.md").
 
 ###### To change the VPC for a file system
 

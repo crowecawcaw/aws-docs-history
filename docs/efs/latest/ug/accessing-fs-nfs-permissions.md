@@ -25,19 +25,14 @@ considerations for Amazon EFS.
 ###### Topics
 
 - [File and directory permissions](user-and-group-permissions.md "user-and-group-permissions.md")
-- [Example EFS file system use cases
-  and permissions](#accessing-fs-nfs-permissions-ex-scenarios "#accessing-fs-nfs-permissions-ex-scenarios")
-- [User and group ID permissions for files
-  and directories within a file system](#accessing-fs-nfs-permissions-uid-gid "#accessing-fs-nfs-permissions-uid-gid")
+- [Example EFS file system use cases and permissions](#accessing-fs-nfs-permissions-ex-scenarios "#accessing-fs-nfs-permissions-ex-scenarios")
+- [User and group ID permissions for files and directories within a file system](#accessing-fs-nfs-permissions-uid-gid "#accessing-fs-nfs-permissions-uid-gid")
 - [No root squashing](#accessing-fs-nfs-permissions-root-user "#accessing-fs-nfs-permissions-root-user")
 - [Permissions caching](#accessing-fs-nfs-permissions-caching "#accessing-fs-nfs-permissions-caching")
-- [Changing file system object
-  ownership](#accessing-fs-nfs-permissions-chown-restricted "#accessing-fs-nfs-permissions-chown-restricted")
+- [Changing file system object ownership](#accessing-fs-nfs-permissions-chown-restricted "#accessing-fs-nfs-permissions-chown-restricted")
 - [EFS access points](#accessing-fs-nfs-permissions-access-points "#accessing-fs-nfs-permissions-access-points")
 
-## Example EFS file system use cases
-
-and permissions
+## Example EFS file system use cases and permissions
 
 After you create an EFS file system and mount targets for the file system in your VPC,
 you can mount the remote file system locally on your Amazon EC2 instance. The `mount`
@@ -63,8 +58,7 @@ The initial permissions mode allows:
 Only the root user can modify this directory. The root user can also grant other users
 permissions to write to this directory, for example:
 
-- Create writable per-user subdirectories. For step-by-step instructions, see [Tutorial: Creating writable
-  per-user subdirectories](accessing-fs-nfs-permissions-per-user-subdirs.md "accessing-fs-nfs-permissions-per-user-subdirs.md").
+- Create writable per-user subdirectories. For step-by-step instructions, see [Tutorial: Creating writable per-user subdirectories](accessing-fs-nfs-permissions-per-user-subdirs.md "accessing-fs-nfs-permissions-per-user-subdirs.md").
 - Allow users to write to the EFS file system root. A user with root privileges can
   grant other users access to the file system.
   - To change the EFS file system ownership to a non-_root_
@@ -84,9 +78,7 @@ permissions to write to this directory, for example:
   This command grants read-write-execute privileges to all users on all EC2
   instances that have the file system mounted.
 
-## User and group ID permissions for files
-
-and directories within a file system
+## User and group ID permissions for files and directories within a file system
 
 Files and directories in an EFS file system support standard Unix-style read, write,
 and execute permissions based on the user ID and group IDs. When an NFS client mounts an EFS
@@ -154,8 +146,7 @@ Root squashing can be enabled on a client connection when the AWS Identity and A
 identity or resource policy does not allow access to the `ClientRootAccess` action.
 When root squashing is enabled, the root user is converted to a user with limited permissions on the NFS server.
 
-For more information, see [Using IAM to control access to file
-systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
+For more information, see [Using IAM to control access to file systems](iam-access-control-nfs-efs.md "iam-access-control-nfs-efs.md").
 
 ### Enable root squashing using IAM authorization for NFS clients
 
@@ -257,9 +248,7 @@ authorization, see [Mounting with IAM authorization](mounting-IAM-option.md "mou
 Amazon EFS caches file permissions for a small time period. As a result, there might be a
 brief window where a user whose access was revoked recently can still access that object.
 
-## Changing file system object
-
-ownership
+## Changing file system object ownership
 
 Amazon EFS enforces the POSIX `chown_restricted` attribute. This means only the
 root user can change the owner of a file system object. The root or the owner user can
