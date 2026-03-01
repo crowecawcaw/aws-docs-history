@@ -28,15 +28,12 @@ Before you begin, make sure that:
   more information about IAM Identity Center, see [Organization instances of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md") in the
   _AWS IAM Identity Center User Guide_.
 
-## Step 1: Create the Amazon Q Developer
-
-profile
+## Step 1: Create the Amazon Q Developer profile
 
 1. Sign in to the AWS Management Console using your AWS management account.
 2. Switch to the **Amazon Q Developer** console.
 3. Make sure you're in the AWS Region where you want to create the [Amazon Q Developer profile](subscribe-understanding-profile.md "subscribe-understanding-profile.md") and where you want
-   to store user data. For supported Regions, see [Supported Regions for the Q Developer
-   console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+   to store user data. For supported Regions, see [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 4. Choose **Get started**.
 
 The **Create Amazon Q Developer profile** dialog box appears. 5. Review the contents of the dialog box and provide a name for your profile in

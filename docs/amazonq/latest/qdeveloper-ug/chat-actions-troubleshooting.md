@@ -1,6 +1,4 @@
-# Asking Amazon Q to troubleshoot your
-
-resources
+# Asking Amazon Q to troubleshoot your resources
 
 In the AWS Management Console, you can ask Amazon Q to troubleshoot issues you're having with your
 AWS resources. When you encounter a problem, open the chat panel and describe the situation to

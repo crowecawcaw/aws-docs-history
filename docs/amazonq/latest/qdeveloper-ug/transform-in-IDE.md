@@ -14,5 +14,4 @@ For more information on IDEs that support transformation and how to install Amaz
 ###### Topics
 
 - [Transforming Java applications with Amazon Q Developer](transform-java.md "transform-java.md")
-- [Transforming .NET applications with
-  Amazon Q Developer](transform-dotnet-IDE.md "transform-dotnet-IDE.md")
+- [Transforming .NET applications with Amazon Q Developer](transform-dotnet-IDE.md "transform-dotnet-IDE.md")

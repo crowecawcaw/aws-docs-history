@@ -33,8 +33,7 @@ retrievable by the plugin.
 
 You can configure IAM policies to restrict which plugins users have access to. For
 more information, see
-[Allow users to chat with
-plugins from one provider](id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type "id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type").
+[Allow users to chat with plugins from one provider](id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type "id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type").
 
 To get started, see the topic for the plugin you want to use with Amazon Q Developer.
 

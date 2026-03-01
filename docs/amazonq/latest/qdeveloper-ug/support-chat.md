@@ -18,8 +18,7 @@ AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssup
 ###### Tip
 
 Before you create a support ticket, try asking Amazon Q to resolve the issue. For more
-information, see [Asking Amazon Q to troubleshoot your
-resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md"). You can also try the **Diagnose
+information, see [Asking Amazon Q to troubleshoot your resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md"). You can also try the **Diagnose
 with Amazon Q** button, if it's available. For more information, see [Diagnosing console errors](diagnose-console-errors.md "diagnose-console-errors.md").
 
 ## Prerequisites
@@ -28,8 +27,7 @@ To create cases in Amazon Q, you must meet the following requirements:
 
 - You have a support plan higher than the Basic Support plan. Only users with
   support plans other than the Basic Support plan can contact Support with Amazon Q.
-- You have permissions to chat with Amazon Q. For more information, see [Allow users to chat with
-  Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
+- You have permissions to chat with Amazon Q. For more information, see [Allow users to chat with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
 - You have permissions to create Support cases. For more information, see [Manage
   access to Support Center](../../../awssupport/latest/user/accessing-support.md "../../../awssupport/latest/user/accessing-support.md").
 

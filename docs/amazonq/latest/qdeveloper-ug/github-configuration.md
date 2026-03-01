@@ -52,9 +52,7 @@ The Amazon Q Developer extension is available for the following browsers:
 You can also view the supported browsers on the registration installation details page
 in the [Amazon Q Developer console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github").
 
-## Deleting Amazon Q Developer GitHub app installation
-
-registration
+## Deleting Amazon Q Developer GitHub app installation registration
 
 You can delete a registration for one or more of your GitHub app installation through the
 Amazon Q Developer console. After permanently deleting your registration, all data associated with

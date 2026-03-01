@@ -38,8 +38,7 @@ Amazon Q Developer offers the following key capabilities in GitHub:
 - Iterative development by providing feedback on generated code and implementing
 - Browser extensions to quickly assign feature development tasks to Amazon Q Developer
 
-To get started, see [Quickstart: Installing, using features in GitHub, and
-increasing usage limits](github-quickstart.md "github-quickstart.md").
+To get started, see [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md "github-quickstart.md").
 
 ## Project rules for Amazon Q Developer
 
@@ -48,5 +47,4 @@ and best practices for your team (such as requiring type hints in Python code or
 stored as Markdown files in the ``project-root`/.amazonq/rules` directory,
 ensure consistency across all developers regardless of experience level, and are automatically incorporated into context
 for Amazon Q Developer when developers interact with Amazon Q Developer within your project, ensuring all generated responses adhere to your
-established guidelines. For more information, see [Creating project rules for Amazon Q Developer in third-party
-platforms](third-party-context-project-rules.md "third-party-context-project-rules.md").
+established guidelines. For more information, see [Creating project rules for Amazon Q Developer in third-party platforms](third-party-context-project-rules.md "third-party-context-project-rules.md").

@@ -15,11 +15,9 @@ commands to configure and start a transformation.
 
 - [Building code in your local environment](#local-builds "#local-builds")
 - [Commands](#commands "#commands")
-- [Running a transformation on the command line with
-  Amazon Q Developer](run-CLI-transformations.md "run-CLI-transformations.md")
+- [Running a transformation on the command line with Amazon Q Developer](run-CLI-transformations.md "run-CLI-transformations.md")
 - [Troubleshooting transformations on the command line](troubleshooting-CLI-transformations.md "troubleshooting-CLI-transformations.md")
-- [Amazon Q Developer command line transformation tool version
-  history](transform-CLI-versions.md "transform-CLI-versions.md")
+- [Amazon Q Developer command line transformation tool version history](transform-CLI-versions.md "transform-CLI-versions.md")
 
 ## Building code in your local environment
 
@@ -41,8 +39,7 @@ and always validate transformed code for both functionality and security.
 
 ## Commands
 
-For step-by-step instructions for running these commands, see [Running a transformation on the command line with
-Amazon Q Developer](run-CLI-transformations.md "run-CLI-transformations.md").
+For step-by-step instructions for running these commands, see [Running a transformation on the command line with Amazon Q Developer](run-CLI-transformations.md "run-CLI-transformations.md").
 
 To configure a transformation and authenticate to Amazon Q Developer Pro, run:
 

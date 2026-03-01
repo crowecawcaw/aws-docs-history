@@ -1,6 +1,4 @@
-# Accessing customization-related
-
-messages in Amazon CloudWatch Logs
+# Accessing customization-related messages in Amazon CloudWatch Logs
 
 You can store information about the creation of your customizations in [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md").
 

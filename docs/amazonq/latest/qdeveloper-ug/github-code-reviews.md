@@ -23,13 +23,11 @@ comments is not affected by this setting.
 You can also initiate code reviews within pull requests with the `/q review`
 slash command. The slash command can be added to a new pull request comment, which initiates a
 new code review of the pull request in its current state, including any comments and new
-commits. For more information, see [Initiating code reviews within GitHub pull
-requests](#github-code-reviews-in-pr "#github-code-reviews-in-pr").
+commits. For more information, see [Initiating code reviews within GitHub pull requests](#github-code-reviews-in-pr "#github-code-reviews-in-pr").
 
 You can have Amazon Q Developer perform a code review for a limited amount of lines per month. You
 can increase your free usage at any time by registering your Amazon Q Developer app installation with
-your AWS account. For more information, see [Increasing usage limits and configuring details
-in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
+your AWS account. For more information, see [Increasing usage limits and configuring details in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
 
 ###### Note
 
@@ -49,9 +47,7 @@ user, regardless of role, can review pull requests in public repositories.
 For more information, see [Repository roles for organizations](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#repository-roles-for-organizations "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#repository-roles-for-organizations") and [About pre-defined organization roles](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#about-pre-defined-organization-roles "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#about-pre-defined-organization-roles") in the _GitHub
 documentation_.
 
-## Initiating code reviews for GitHub pull
-
-requests
+## Initiating code reviews for GitHub pull requests
 
 When you open a new pull request or reopen a previously closed one, Amazon Q Developer
 automatically runs a code review and delivers feedback on code quality, possible problems,
@@ -62,8 +58,7 @@ and critical findings.
 Before you start a review, you can customize a code quality review by defining custom
 coding standards in simple Markdown files in the `project-root/.amazonq/rules`
 directory. Amazon Q automatically follows your guidelines, ensuring consistent code quality
-across your entire project. For more information, see [Creating project rules for Amazon Q Developer in third-party
-platforms](third-party-context-project-rules.md "third-party-context-project-rules.md").
+across your entire project. For more information, see [Creating project rules for Amazon Q Developer in third-party platforms](third-party-context-project-rules.md "third-party-context-project-rules.md").
 
 1. If necessary, sign in to your [GitHub](https://github.com/ "https://github.com/") account
    using your GitHub credentials.
@@ -87,9 +82,7 @@ suggestion**, and then choose **Commit changes** to update
 the pull request. 7. If you're satisfied with the suggested code fixes, you can merge the pull request to
 apply the code changes suggested by Amazon Q Developer. For more information, see [Merging a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request") in the _GitHub documentation_.
 
-## Initiating code reviews within GitHub pull
-
-requests
+## Initiating code reviews within GitHub pull requests
 
 After an automatic code review performed by Amazon Q Developer for a new or reopened GitHub pull
 request, you can initiate additional code reviews to iterate on your code using the `/q

@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon Q Developer
+# Using service-linked roles for Amazon Q Developer
 
 Amazon Q Developer uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon Q Developer. Service-linked roles are predefined by Amazon Q Developer and
@@ -87,9 +85,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Amazon Q Developer service-linked
-
-roles
+## Supported Regions for Amazon Q Developer service-linked roles
 
 Amazon Q Developer does not support using service-linked roles in every Region where the
 service is available. You can use the AWSServiceRoleForAmazonQDeveloper role in the following Regions. For more

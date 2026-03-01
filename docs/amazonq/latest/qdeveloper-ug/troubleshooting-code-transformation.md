@@ -9,8 +9,7 @@ applications with Amazon Q Developer.
 - [Why are my Maven commands failing?](#maven-commands-failing "#maven-commands-failing")
 - [How do I add Maven to my PATH?](#add-maven-to-path "#add-maven-to-path")
 - [Why can't Amazon Q build my code?](#build-fail "#build-fail")
-- [Why did my transformation fail after 55
-  minutes?](#build-time-limit "#build-time-limit")
+- [Why did my transformation fail after 55 minutes?](#build-time-limit "#build-time-limit")
 - [Why can’t I download my transformed code?](#download-code-fail "#download-code-fail")
 - [How do I access code transformation logs?](#logs "#logs")
 - [How do I find my transformation job ID?](#job-id "#job-id")
@@ -464,9 +463,7 @@ causing the build to fail. To prevent the build from failing, you must either re
 the database call from the unit test or remove the unit test before submitting the
 transformation.
 
-## Why did my transformation fail after 55
-
-minutes?
+## Why did my transformation fail after 55 minutes?
 
 If your code transformation job fails after 55 minutes, your code build time likely
 exceeds the build time limit. There is currently a time limit of 55 minutes for building
@@ -490,8 +487,7 @@ topic that corresponds to the error you see from Amazon Q.
 - [Reduce project size](#reduce-project-size-output "#reduce-project-size-output")
 - [Download code diff within 30 days](#download-30-hrs "#download-30-hrs")
 - [Configure proxy settings in your IDE](#configure-proxy-download "#configure-proxy-download")
-- [Remove wildcard characters in JetBrains proxy
-  settings](#remove-wildcard "#remove-wildcard")
+- [Remove wildcard characters in JetBrains proxy settings](#remove-wildcard "#remove-wildcard")
 
 ### Reduce project size
 
@@ -524,9 +520,7 @@ To download your code, you might need to configure your IDE to trust certificate
 update other proxy settings. For more information on updating your proxy settings,
 see [Configure proxy settings in your IDE](#configure-proxy "#configure-proxy").
 
-### Remove wildcard characters in JetBrains proxy
-
-settings
+### Remove wildcard characters in JetBrains proxy settings
 
 If you have configured proxy settings in your JetBrains IDE, you might see the
 following error when downloading your upgraded code:

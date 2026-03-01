@@ -12,8 +12,7 @@ on the previous solution. For more information, see [Amazon Q Developer agents](
 
 You can access the Amazon Q Developer integration through [GitHub](https://github.com/marketplace/amazon-q-developer "https://github.com/marketplace/amazon-q-developer")
 and authorize it to provide access to your organization's
-repositories. To get started with Amazon Q Developer for GitHub, see [Quickstart: Installing, using features in GitHub, and
-increasing usage limits](github-quickstart.md "github-quickstart.md").
+repositories. To get started with Amazon Q Developer for GitHub, see [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md "github-quickstart.md").
 
 ###### Important
 
@@ -33,27 +32,19 @@ opt out of such use.
 
 ###### Topics
 
-- [Installing Amazon Q Developer app and authorizing
-  access](#github-concepts-set-up "#github-concepts-set-up")
+- [Installing Amazon Q Developer app and authorizing access](#github-concepts-set-up "#github-concepts-set-up")
 - [Amazon Q Developer agents](#github-agents "#github-agents")
 - [Registering app installation](#github-concepts-register-app-install "#github-concepts-register-app-install")
 - [Using browser extensions in GitHub](#github-concepts-extensions "#github-concepts-extensions")
-- [Using slash commands in GitHub issues and pull
-  requests](#github-slash-commands "#github-slash-commands")
-- [Quickstart: Installing, using features in GitHub, and
-  increasing usage limits](github-quickstart.md "github-quickstart.md")
-- [Developing features and iterating with Amazon Q Developer
-  in GitHub](github-feature-development.md "github-feature-development.md")
+- [Using slash commands in GitHub issues and pull requests](#github-slash-commands "#github-slash-commands")
+- [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md "github-quickstart.md")
+- [Developing features and iterating with Amazon Q Developer in GitHub](github-feature-development.md "github-feature-development.md")
 - [Reviewing code with Amazon Q Developer in GitHub](github-code-reviews.md "github-code-reviews.md")
-- [Increasing usage limits and configuring details
-  in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md")
+- [Increasing usage limits and configuring details in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md")
 - [Configuring registered installation details](github-configuration.md "github-configuration.md")
-- [Troubleshooting issues for Amazon Q Developer for
-  GitHub](github-troubleshooting.md "github-troubleshooting.md")
+- [Troubleshooting issues for Amazon Q Developer for GitHub](github-troubleshooting.md "github-troubleshooting.md")
 
-## Installing Amazon Q Developer app and authorizing
-
-access
+## Installing Amazon Q Developer app and authorizing access
 
 As a GitHub organization administrator, you can install and configure the Amazon Q Developer app
 from [GitHub](https://github.com/apps/amazon-q-developer "https://github.com/apps/amazon-q-developer") for free without the need to set up an AWS account
@@ -61,8 +52,7 @@ to get started. During the installation process, you choose to provide access to
 selected repositories in your GitHub organization. After installing and authorizing, you have
 access to free usage for the Amazon Q Developer features in GitHub. You can increase
 free usage by registering the app installation in the [Amazon Q Developer
-console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github"). For more information, see [Quickstart: Installing, using features in GitHub, and
-increasing usage limits](github-quickstart.md "github-quickstart.md").
+console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github"). For more information, see [Quickstart: Installing, using features in GitHub, and increasing usage limits](github-quickstart.md "github-quickstart.md").
 
 ###### Important
 
@@ -94,8 +84,7 @@ testing, and deploying to troubleshooting.
   features and bug fixes. Amazon Q Developer creates a pull request with the changes and a summary
   of the changes. Instead of applying a label, you can also initiate feature development
   with the `/q dev` slash command in a comment of the issue. For more
-  information, see [Developing features and iterating with Amazon Q Developer
-  in GitHub](github-feature-development.md "github-feature-development.md").
+  information, see [Developing features and iterating with Amazon Q Developer in GitHub](github-feature-development.md "github-feature-development.md").
 - **Amazon Q code review agent** – When a new pull request is
   created or a closed pull request is reopened, Amazon Q Developer automatically performs a code
   review and provides feedback on code quality, potential issues, and security concerns.
@@ -123,8 +112,7 @@ The Amazon Q Developer integration for GitHub is available for free without the 
 AWS account to get started. You're provided with limited invocations per month for feature
 development, as well as limited number of lines for code reviews per
 month. You can increase free usage by registering your Amazon Q Developer app installation with your
-AWS account. For more information, see [Increasing usage limits and configuring details
-in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
+AWS account. For more information, see [Increasing usage limits and configuring details in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
 
 ###### Important
 
@@ -144,9 +132,7 @@ The Amazon Q Developer extension is available for the following browsers:
 - [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/amazon-q-github-issue-helper "https://addons.mozilla.org/en-US/firefox/addon/amazon-q-github-issue-helper")
 - [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/amazon-q-github-issue-helper/poghackjbfhejeppjaegbnblangjbmmc "https://microsoftedge.microsoft.com/addons/detail/amazon-q-github-issue-helper/poghackjbfhejeppjaegbnblangjbmmc")
 
-## Using slash commands in GitHub issues and pull
-
-requests
+## Using slash commands in GitHub issues and pull requests
 
 You can use slash commands in comments within GitHub issues or pull requests to invoke
 Amazon Q Developer to perform development tasks or provide support.

@@ -24,8 +24,7 @@ When you ask Amazon Q Developer about your costs, Q retrieves data from AWS Cost
 
 To chat about your AWS costs, you need:
 
-- **Appropriate IAM permissions** – Your IAM identity must have permissions to chat with Amazon Q and access your billing data. For an IAM policy that grants the required permissions, see [Allow Amazon Q
-  to access cost data and provide cost optimization recommendations](id-based-policy-examples-users.md#id-based-policy-examples-allow-cost-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-cost-chat").
+- **Appropriate IAM permissions** – Your IAM identity must have permissions to chat with Amazon Q and access your billing data. For an IAM policy that grants the required permissions, see [Allow Amazon Q to access cost data and provide cost optimization recommendations](id-based-policy-examples-users.md#id-based-policy-examples-allow-cost-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-cost-chat").
 - **Cost Explorer opt-in** – You must enable AWS Cost Explorer in your AWS account. To enable Cost Explorer, open the [Cost Explorer console](https://console.aws.amazon.com/costmanagement/home#/cost-explorer "https://console.aws.amazon.com/costmanagement/home#/cost-explorer"). For more information, see [Enabling Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") in the _AWS Cost Management User Guide_.
 
 To take advantage of the full range of Amazon Q Developer's cost management capabilities, you can also enable additional services such as AWS Cost Optimization Hub or AWS Budgets. To learn more, see [Overview of cost management capabilities in Amazon Q Developer](../../../cost-management/latest/userguide/ce-q-overview.md "../../../cost-management/latest/userguide/ce-q-overview.md") in the _AWS Cost Management User Guide_.

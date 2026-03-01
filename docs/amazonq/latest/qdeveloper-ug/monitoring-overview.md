@@ -8,8 +8,7 @@ monitoring tools and features to monitor and record Amazon Q Developer activity:
   of your AWS account and delivers the log files to an Amazon Simple Storage Service (Amazon S3) bucket that you
   specify. You can identify which users and accounts called AWS, the source IP address
   from which the calls were made, and when the calls occurred. For more information, see
-  [Logging Amazon Q Developer API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+  [Logging Amazon Q Developer API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - _Amazon CloudWatch_ monitors your AWS resources and the applications you
   run on AWS in real time. You can collect and track metrics, create customized
   dashboards, and set alarms that notify you or take actions when a specified metric

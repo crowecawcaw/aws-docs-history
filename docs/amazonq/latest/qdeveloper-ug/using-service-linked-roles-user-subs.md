@@ -20,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for User Subscriptions
+## Service-linked role permissions for User Subscriptions
 
 User Subscriptions uses the service-linked role named
 **AWSServiceRoleForUserSubscriptions**. This role provides access for User Subscriptions to
@@ -59,9 +57,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-User Subscriptions
+## Creating a service-linked role for User Subscriptions
 
 You don't need to manually create a service-linked role. When you
 create a User Subscription in the AWS Management Console, User Subscriptions creates the
@@ -84,9 +80,7 @@ various entities might reference the role. However, you can edit the description
 using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-User Subscriptions
+## Deleting a service-linked role for User Subscriptions
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -106,9 +100,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for User Subscriptions
-
-service-linked roles
+## Supported Regions for User Subscriptions service-linked roles
 
 Amazon Q Developer Subscriptions supports using service-linked roles in all of the Regions where
 the service is available. For more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

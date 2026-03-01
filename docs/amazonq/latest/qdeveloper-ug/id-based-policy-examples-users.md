@@ -10,9 +10,7 @@ For policies that enable administrative access to Amazon Q Developer, see [Admin
 Users accessing [Amazon Q in the IDE](q-in-IDE.md "q-in-IDE.md") or [Amazon Q on the command line](command-line.md "command-line.md") don't require IAM
 permissions.
 
-## Allow users to access Amazon Q
-
-with an Amazon Q Developer Pro subscription
+## Allow users to access Amazon Q with an Amazon Q Developer Pro subscription
 
 The following example policy grants permission to use Amazon Q with an Amazon Q Developer Pro
 subscription. Without these permissions, users can only access the Free tier of Amazon Q. To
@@ -46,9 +44,7 @@ JSON
 
 ```
 
-## Allow Amazon Q access to
-
-customer managed keys
+## Allow Amazon Q access to customer managed keys
 
 The following example policy grants users permissions to access features encrypted with a
 customer managed key by allowing Amazon Q access to the key. This policy is required to use
@@ -86,9 +82,7 @@ JSON
 
 ```
 
-## Allow users to chat with
-
-Amazon Q
+## Allow users to chat with Amazon Q
 
 The following example policy grants permissions to chat with Amazon Q in the
 console.
@@ -117,9 +111,7 @@ JSON
 
 ```
 
-## Allow users to use Amazon Q CLI with
-
-AWS CloudShell
+## Allow users to use Amazon Q CLI with AWS CloudShell
 
 The following example policy grants permissions to use Amazon Q CLI with AWS CloudShell.
 
@@ -156,9 +148,7 @@ JSON
 
 ```
 
-## Allow users to run
-
-transformations on the command line
+## Allow users to run transformations on the command line
 
 The following example policy grants permissions to transform code with the [Amazon Q command
 line tool for transformations](transform-CLI.md "transform-CLI.md"). This policy does not affect access to [Amazon Q on the command line](command-line.md "command-line.md").
@@ -184,9 +174,7 @@ JSON
 
 ```
 
-## Allow users to diagnose
-
-console errors with Amazon Q
+## Allow users to diagnose console errors with Amazon Q
 
 The following example policy grants permissions to diagnose console errors with
 Amazon Q.
@@ -215,9 +203,7 @@ JSON
 
 ```
 
-## Allow users to generate
-
-code from CLI commands with Amazon Q
+## Allow users to generate code from CLI commands with Amazon Q
 
 The following example policy grants permissions to generate code from recorded CLI
 commands with Amazon Q, which enables the use of the Console-to-Code feature.
@@ -239,9 +225,7 @@ JSON
 
 ```
 
-## Allow users to chat about
-
-resources with Amazon Q
+## Allow users to chat about resources with Amazon Q
 
 The following example policy grants permission to chat with Amazon Q about resources, and
 allows Amazon Q to retrieve resource information on your behalf. Amazon Q only has permission to
@@ -281,9 +265,7 @@ JSON
 
 ```
 
-## Allow Amazon Q to perform actions on
-
-your behalf in chat
+## Allow Amazon Q to perform actions on your behalf in chat
 
 The following example policy grants permission to chat with Amazon Q, and allows Amazon Q to
 perform actions on your behalf. Amazon Q only has permission to perform actions that your
@@ -314,9 +296,7 @@ JSON
 
 ```
 
-## Allow Amazon Q
-
-to access cost data and provide cost optimization recommendations
+## Allow Amazon Q to access cost data and provide cost optimization recommendations
 
 The following example policy grants permission to chat with Amazon Q about your costs and allows Amazon Q to access your cost data and provide cost analysis and optimization recommendations. This policy includes permissions for AWS Cost Explorer, AWS Cost Optimization Hub, AWS Compute Optimizer, AWS Budgets, AWS Free Tier, AWS Pricing, and Savings Plans and reservation recommendations.
 
@@ -425,9 +405,7 @@ JSON
 
 ```
 
-## Deny Amazon Q
-
-permission to perform specific actions on your behalf
+## Deny Amazon Q permission to perform specific actions on your behalf
 
 The following example policy grants permission to chat with Amazon Q, and allows
 Amazon Q to perform any action on your behalf that your IAM identity has permission
@@ -470,9 +448,7 @@ JSON
 
 ```
 
-## Allow Amazon Q permission to
-
-perform specific actions on your behalf
+## Allow Amazon Q permission to perform specific actions on your behalf
 
 The following example policy grants permission to chat with Amazon Q, and allows Amazon Q to
 perform any action on your behalf that your IAM identity has permission to perform, with
@@ -530,9 +506,7 @@ JSON
 
 ```
 
-## Allow Amazon Q
-
-permission to perform actions on your behalf in specific regions
+## Allow Amazon Q permission to perform actions on your behalf in specific regions
 
 The following example policy grants permission to chat with Amazon Q, and allows Amazon Q to
 make calls to only the `us-east-1` and `us-west-2` Regions when
@@ -571,9 +545,7 @@ JSON
 
 ```
 
-## Deny Amazon Q permission to perform
-
-actions on your behalf
+## Deny Amazon Q permission to perform actions on your behalf
 
 The following example policy prevents Amazon Q from performing actions on your
 behalf.
@@ -597,9 +569,7 @@ JSON
 
 ```
 
-## Allow users to chat with
-
-plugins from one provider
+## Allow users to chat with plugins from one provider
 
 The following example policy grants permission to chat with any plugin from a given
 provider that an administrator configures, specified by the plugin ARN with the name of the
@@ -649,9 +619,7 @@ JSON
 
 ```
 
-## Allow users to chat with a
-
-specific plugin
+## Allow users to chat with a specific plugin
 
 The following example policy grants permission to chat with a specific plugin, specified
 by the plugin ARN. If the plugin is deleted and re-configured, a user will not have access
@@ -697,9 +665,7 @@ JSON
 
 ```
 
-## Allow users to view their
-
-permissions
+## Allow users to view their permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

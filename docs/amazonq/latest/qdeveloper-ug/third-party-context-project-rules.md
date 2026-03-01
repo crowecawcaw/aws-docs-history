@@ -1,6 +1,4 @@
-# Creating project rules for Amazon Q Developer in third-party
-
-platforms
+# Creating project rules for Amazon Q Developer in third-party platforms
 
 You can build a library of project rules that you can use with Amazon Q Developer in GitLab
 or GitHub. These rules describe coding standards and best practices across your team. For example,

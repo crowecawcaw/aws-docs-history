@@ -34,8 +34,7 @@ To configure plugins, the following administrator level permissions are required
 - Permissions to access the Amazon Q Developer console. For an example IAM policy
   that grants needed permissions, see [Allow administrators to use the Amazon Q Developer console](id-based-policy-examples-admins.md#q-admin-setup-admin-users "id-based-policy-examples-admins.md#q-admin-setup-admin-users").
 - Permissions to configure plugins. For an example IAM policy that grants
-  the needed permissions, see [Allow administrators to configure
-  plugins](id-based-policy-examples-admins.md#id-based-policy-examples-admin-plugins "id-based-policy-examples-admins.md#id-based-policy-examples-admin-plugins").
+  the needed permissions, see [Allow administrators to configure plugins](id-based-policy-examples-admins.md#id-based-policy-examples-admin-plugins "id-based-policy-examples-admins.md#id-based-policy-examples-admin-plugins").
 
 ### Acquire credentials
 
@@ -216,7 +215,7 @@ secret\*\* dropdown menu. The secret should include the Datadog authentication
 credentials specified in the previous step.
 
 For more information about the required credentials, see
-[Acquire credentials](#acquire-datadog-credentials "#acquire-datadog-credentials") . 7. For **Configure AWS IAM service role**, choose either **Create new service role** or
+[Acquire credentials](#acquire-datadog-credentials "#acquire-datadog-credentials"). 7. For **Configure AWS IAM service role**, choose either **Create new service role** or
 **Use existing service role**.
 
 ###### Note
@@ -243,8 +242,7 @@ To use plugins, the following permissions are required:
 
 - Permissions to chat with Amazon Q in the console. For an example IAM
   policy that grants permissions needed to chat, see
-  [Allow users to chat with
-  Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
+  [Allow users to chat with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
 - The `q:UsePlugin` permission.
 
 When you grant an IAM identity access to a configured Datadog plugin, the identity
@@ -265,8 +263,7 @@ If you create a policy to control access to Datadog plugins, specify
 `Datadog` for the plugin provider in the policy.
 
 For examples of IAM policies that control plugin access, see
-[Allow users to chat with
-plugins from one provider](id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type "id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type").
+[Allow users to chat with plugins from one provider](id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type "id-based-policy-examples-users.md#id-based-policy-examples-allow-plugin-type").
 
 ## Chat with the Datadog plugin
 

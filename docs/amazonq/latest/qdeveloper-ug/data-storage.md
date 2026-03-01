@@ -18,8 +18,7 @@ profile was created only for the following features:
 When you use any other feature at the Amazon Q Developer Pro tier, your content may be stored and
 processed in a US Region. If you are using a Q Developer profile in a non-US Region, you
 can create a service control policy (SCP) to block access to features that store content
-and perform inference in the US. For an example SCP, see [Manage access to Amazon Q Developer with
-policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md").
+and perform inference in the US. For an example SCP, see [Manage access to Amazon Q Developer with policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md").
 
 For other Amazon Q features and integrations, and when using the Amazon Q Developer Free tier,
 your content is stored in a Region in the US. Data processed during diagnosing console

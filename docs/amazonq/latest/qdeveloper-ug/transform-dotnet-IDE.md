@@ -1,6 +1,4 @@
-# Transforming .NET applications with
-
-Amazon Q Developer
+# Transforming .NET applications with Amazon Q Developer
 
 Amazon Q Developer can port your Windows-based .NET applications to
 Linux-compatible cross-platform .NET applications through a generative AI-powered
@@ -39,8 +37,7 @@ Amazon Q performs four keys tasks to port .NET applications to Linux:
 - [Quotas](#quotas-dotnet-transformation "#quotas-dotnet-transformation")
 - [Porting a .NET application with Amazon Q Developer in Visual Studio](port-dotnet-application.md "port-dotnet-application.md")
 - [How Amazon Q Developer transforms .NET applications](how-dotnet-transformation-works.md "how-dotnet-transformation-works.md")
-- [Troubleshooting issues with
-  .NET transformations in the IDE](troubleshooting-dotnet-transformation-IDE.md "troubleshooting-dotnet-transformation-IDE.md")
+- [Troubleshooting issues with .NET transformations in the IDE](troubleshooting-dotnet-transformation-IDE.md "troubleshooting-dotnet-transformation-IDE.md")
 
 ## Quotas
 

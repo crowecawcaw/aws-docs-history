@@ -104,8 +104,7 @@ Notes about unsubscribing users:
   for unsubscription. Alternatively, if you have the appropriate permissions, you can
   sign in as a member account administrator and unsubscribe the user directly. For more
   information about viewing member account subscriptions as a management account
-  administrator, see [Viewing an aggregated list of Amazon Q Developer
-  subscriptions](subscribe-visibility.md "subscribe-visibility.md").
+  administrator, see [Viewing an aggregated list of Amazon Q Developer subscriptions](subscribe-visibility.md "subscribe-visibility.md").
 - After unsubscribing users or groups, their subscriptions are marked as
   **Canceled**, and they can no longer access Amazon Q Developer features.
   (They can still use the [Free tier](q-tiers.md "q-tiers.md") though, provided they

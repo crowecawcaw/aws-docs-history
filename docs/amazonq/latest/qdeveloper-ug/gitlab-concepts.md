@@ -6,8 +6,7 @@ Here are some concepts and terms to know when using
 ###### Topics
 
 - [Setting up GitLab Duo with Amazon Q](#gitlab-concepts-set-up "#gitlab-concepts-set-up")
-- [Onboarding with AWS resources and permission
-  policies](#gitlab-concepts-onboarding "#gitlab-concepts-onboarding")
+- [Onboarding with AWS resources and permission policies](#gitlab-concepts-onboarding "#gitlab-concepts-onboarding")
 - [GitLab quick actions](#gitlab-concepts-quick-actions "#gitlab-concepts-quick-actions")
 
 ## Setting up GitLab Duo with Amazon Q
@@ -17,9 +16,7 @@ to complete the prerequisites and create AWS resources. For more information, se
 [Set up GitLab Duo with
 Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html "https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html") in the _GitLab documentation_.
 
-## Onboarding with AWS resources and permission
-
-policies
+## Onboarding with AWS resources and permission policies
 
 As part of the GitLab Duo onboarding process, you need to create an Amazon Q Developer profile through the
 [Amazon Q Developer console](https://console.aws.amazon.com/amazonq/developer/home "https://console.aws.amazon.com/amazonq/developer/home"). The
@@ -120,8 +117,7 @@ JSON
 Optionally, you can also use customer managed keys (CMK) to encrypt your resources
 if you want full control over the lifecycle and usage of your key. The `kms:ViaService`
 condition key to limit who can use CMK for encrypting and decrypting content. For more
-information, see [Manage access to Amazon Q Developer for
-third-party integration](security_iam_manage-access-with-kms-policies.md "security_iam_manage-access-with-kms-policies.md").
+information, see [Manage access to Amazon Q Developer for third-party integration](security_iam_manage-access-with-kms-policies.md "security_iam_manage-access-with-kms-policies.md").
 
 ## GitLab quick actions
 

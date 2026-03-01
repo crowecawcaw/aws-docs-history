@@ -1,6 +1,4 @@
-# Developing features and iterating with Amazon Q Developer
-
-in GitHub
+# Developing features and iterating with Amazon Q Developer in GitHub
 
 ###### Note
 
@@ -15,8 +13,7 @@ feedback and Amazon Q Developer iterates on the suggested code.
 
 You can have Amazon Q Developer perform feature development a limited number of times per month.
 You can increase your free usage at any time by registering your Amazon Q Developer app installation
-with your AWS account. For more information, see [Increasing usage limits and configuring details
-in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
+with your AWS account. For more information, see [Increasing usage limits and configuring details in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
 
 ###### Important
 

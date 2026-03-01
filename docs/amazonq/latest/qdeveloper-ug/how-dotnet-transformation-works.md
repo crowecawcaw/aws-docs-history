@@ -43,9 +43,7 @@ The transformation includes the following updates to your application:
 - Rewriting code for Linux compatibility, including refactoring and rewriting
   deprecated and inefficient code to port existing code
 
-## Reviewing transformation
-
-summary and accepting changes
+## Reviewing transformation summary and accepting changes
 
 After the transformation is complete, Amazon Q provides a transformation summary with
 information about the proposed updates it made to your application, including the number

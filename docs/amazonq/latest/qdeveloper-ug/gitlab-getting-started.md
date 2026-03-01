@@ -8,8 +8,7 @@ a self-managed GitLab instance and an [GitLab
 Ultimate subscription](https://about.gitlab.com/pricing/ultimate/ "https://about.gitlab.com/pricing/ultimate/") that's synchronized with GitLab. You need to create an
 Amazon Q Developer profile, add a connection with an OpenID Connect (OIDC) identity provider, and
 create an IAM role to access Amazon Q from GitLab. For more information, see
-[Onboarding with AWS resources and permission
-policies](gitlab-concepts.md#gitlab-concepts-onboarding "gitlab-concepts.md#gitlab-concepts-onboarding").
+[Onboarding with AWS resources and permission policies](gitlab-concepts.md#gitlab-concepts-onboarding "gitlab-concepts.md#gitlab-concepts-onboarding").
 To learn how to create the required resources and set up GitLab Duo with Amazon Q, see
 [Set up GitLab Duo with
 Amazon Q](https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html "https://docs.gitlab.com/ee/user/duo_amazon_q/setup.html") in the _GitLab documentation_.

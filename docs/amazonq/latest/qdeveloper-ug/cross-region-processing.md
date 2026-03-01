@@ -68,5 +68,4 @@ won’t have access to features that require Amazon Q to make API calls on your 
 even if Amazon Q is making calls within your current Region. For an IAM policy that
 prevents Amazon Q from making API calls on your behalf, including cross-region calls,
 see
-[Deny Amazon Q permission to perform
-actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions").
+[Deny Amazon Q permission to perform actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions").

@@ -1,6 +1,4 @@
-# Logging Amazon Q Developer API calls using
-
-AWS CloudTrail
+# Logging Amazon Q Developer API calls using AWS CloudTrail
 
 Amazon Q Developer Pro is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or an AWS service in Amazon Q. CloudTrail captures all API calls for Amazon Q as events.
@@ -53,9 +51,7 @@ For more information, see [CloudTrail
 userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User
 Guide_.
 
-## Understanding Amazon Q Developer log file
-
-entries
+## Understanding Amazon Q Developer log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

@@ -30,16 +30,13 @@ Before you begin, make sure that:
 The instructions on this page assume you have not already installed an IAM Identity Center
 instance in your standalone account.
 
-## Step 1: Create the Amazon Q Developer Pro profile and subscribe
-
-yourself
+## Step 1: Create the Amazon Q Developer Pro profile and subscribe yourself
 
 1. Sign in to the AWS Management Console using your standalone AWS account. Sign in as the root user,
    or as an IAM user with the permissions described in [Prerequisites](#subscribe-standalone-prereqs "#subscribe-standalone-prereqs").
 2. Switch to the **Amazon Q Developer** console.
 3. Make sure you're in the AWS Region where you want to create the [Amazon Q Developer profile](subscribe-understanding-profile.md "subscribe-understanding-profile.md") and where you want
-   to store user data. For supported Regions, see [Supported Regions for the Q Developer
-   console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+   to store user data. For supported Regions, see [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 4. Choose the **Get started** button.
 
 ###### Note

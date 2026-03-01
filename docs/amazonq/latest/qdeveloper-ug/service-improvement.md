@@ -4,9 +4,7 @@ To help Amazon Q Developer provide the most relevant information, we may use cer
 from Amazon Q, such as questions that you ask Amazon Q and its responses, for service
 improvement. This page explains what content we use and how to opt out.
 
-## Amazon Q Developer Free tier content used for service
-
-improvement
+## Amazon Q Developer Free tier content used for service improvement
 
 We may use certain content from Amazon Q Developer Free tier for service improvement. Amazon Q
 may use this content, for example, to provide better responses to common questions, fix

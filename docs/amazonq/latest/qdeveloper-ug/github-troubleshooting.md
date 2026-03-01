@@ -1,13 +1,9 @@
-# Troubleshooting issues for Amazon Q Developer for
-
-GitHub
+# Troubleshooting issues for Amazon Q Developer for GitHub
 
 Consult the following section to troubleshoot common problems when using Amazon Q Developer for
 GitHub.
 
-## Amazon Q Developer not generating pull
-
-requests in repositories with branch protection rules
+## Amazon Q Developer not generating pull requests in repositories with branch protection rules
 
 **Problem**: Amazon Q Developer isn't able to create a pull request in my GitHub
 repository, which has branch protection rules.
@@ -34,9 +30,7 @@ list.
 
 To learn more about modifying branch protection rules in GitHub, see [Creating a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule").
 
-## Amazon Q Developer labels missing in GitHub
-
-issues
+## Amazon Q Developer labels missing in GitHub issues
 
 **Problem**: I don't see the **Amazon Q development
 agent** label in GitHub
@@ -48,9 +42,7 @@ create it in GitHub. The label must be named as **Amazon Q development
 agent** in order for it to be
 recognized and processed as a Amazon Q Developer label. For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
 
-## Amazon Q Developer not creating code for GitHub
-
-issues
+## Amazon Q Developer not creating code for GitHub issues
 
 **Problem**: I created a GitHub issue and invoked Amazon Q Developer to perform a
 task, but I got the following series of messages regarding technical difficulties:
@@ -70,5 +62,4 @@ for generative AI feature usage.
 generate code for it, create a new issue and apply the **Amazon Q development
 agent** label to the new
 issue. To learn more about creating an issue and applying an Amazon Q Developer agent label, see
-[Developing features and iterating with Amazon Q Developer
-in GitHub](github-feature-development.md "github-feature-development.md").
+[Developing features and iterating with Amazon Q Developer in GitHub](github-feature-development.md "github-feature-development.md").

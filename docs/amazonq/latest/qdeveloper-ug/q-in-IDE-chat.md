@@ -17,8 +17,7 @@ refactoring.
 - [Chatting inline with Amazon Q Developer](q-in-IDE-inline-chat.md "q-in-IDE-inline-chat.md")
 - [Adding context to Amazon Q Developer chat in the IDE](ide-chat-context.md "ide-chat-context.md")
 - [Chat history compaction in Amazon Q Developer](ide-chat-history-compaction.md "ide-chat-history-compaction.md")
-- [Viewing, deleting, and exporting the Amazon Q Developer conversation
-  history](ide-chat-conversation.md "ide-chat-conversation.md")
+- [Viewing, deleting, and exporting the Amazon Q Developer conversation history](ide-chat-conversation.md "ide-chat-conversation.md")
 - [Using shortcut keys in chat with Amazon Q Developer](q-in-ides-chat-shortcuts.md "q-in-ides-chat-shortcuts.md")
 - [Selecting a model for Amazon Q chat in IDEs](q-in-ides-chat-models.md "q-in-ides-chat-models.md")
 

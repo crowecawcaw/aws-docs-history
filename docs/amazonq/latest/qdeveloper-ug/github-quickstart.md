@@ -1,6 +1,4 @@
-# Quickstart: Installing, using features in GitHub, and
-
-increasing usage limits
+# Quickstart: Installing, using features in GitHub, and increasing usage limits
 
 ###### Note
 
@@ -18,9 +16,7 @@ This tutorial provides a walkthrough of the following tasks:
 3. (Optional) Register your Amazon Q Developer app installation with your AWS account to
    increase your usage limits.
 
-## Step 1: Install Amazon Q Developer in GitHub and authorize
-
-access
+## Step 1: Install Amazon Q Developer in GitHub and authorize access
 
 You can use Amazon Q Developer in GitHub free without the need to set up an AWS account to get
 started. The first step to using Amazon Q Developer in GitHub is to install the app from [GitHub](https://github.com/marketplace/amazon-q-developer "https://github.com/marketplace/amazon-q-developer")
@@ -84,21 +80,17 @@ it's unintentionally deleted, you can manually create it in GitHub. The label mu
 named as **Amazon Q development agent** in order for it to be recognized and processed as a Amazon Q Developer label.
 For more information, see [Creating a label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label "https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label") in the _GitHub documentation_.
 
-- [Developing features and iterating with Amazon Q Developer
-  in GitHub](github-feature-development.md "github-feature-development.md")
+- [Developing features and iterating with Amazon Q Developer in GitHub](github-feature-development.md "github-feature-development.md")
 - [Reviewing code with Amazon Q Developer in GitHub](github-code-reviews.md "github-code-reviews.md")
 
-## Step 3: Increase free usage limits and configure
-
-details
+## Step 3: Increase free usage limits and configure details
 
 You can use Amazon Q Developer agents in GitHub for free without the need to set up an AWS
 account to get started. You're provided with limited invocations per month for feature
 development and code review. You can increase your free usage at any time by registering your Amazon Q Developer app
 installation with your AWS account. Registering also provides with the ability to
 configure details such as disabling code reviews and adding tags for searching and
-filtering. For more information, see [Increasing usage limits and configuring details
-in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
+filtering. For more information, see [Increasing usage limits and configuring details in Amazon Q Developer console](github-register-app-install.md "github-register-app-install.md").
 
 ###### Important
 

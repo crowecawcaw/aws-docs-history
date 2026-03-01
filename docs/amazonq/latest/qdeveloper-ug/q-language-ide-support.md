@@ -11,9 +11,7 @@ language:
 For the remaining features of Amazon Q in the IDE, the supported languages are listed in
 the following sections.
 
-## Language support for inline
-
-suggestions
+## Language support for inline suggestions
 
 Amazon Q supports [inline code suggestions](inline-suggestions.md "inline-suggestions.md") for multiple programming languages. The
 accuracy and quality of the code generation for a programming language depends on the

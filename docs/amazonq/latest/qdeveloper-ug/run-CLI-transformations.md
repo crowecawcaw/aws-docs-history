@@ -1,6 +1,4 @@
-# Running a transformation on the command line with
-
-Amazon Q Developer
+# Running a transformation on the command line with Amazon Q Developer
 
 Complete these steps to transform your code on the command line with the Amazon Q Developer command line
 tool.
@@ -22,9 +20,7 @@ met:
 - If you have specific dependencies you want Amazon Q to upgrade, you have
   configured a [dependency upgrade file](#step-3-dependency-upgrade-file "#step-3-dependency-upgrade-file").
 
-## Step 1: Choose authentication method and add
-
-permissions
+## Step 1: Choose authentication method and add permissions
 
 You can authenticate IAM Identity Center to run transformations on the command
 line. Ensure you have the proper permissions.
@@ -39,12 +35,9 @@ line.
 The IAM identity associated with the Amazon Q Developer subscription you are using
 to authenticate must have permissions to perform transformations on the command
 line. Before you proceed, ensure your IAM identity has the permissions defined
-in [Allow users to run
-transformations on the command line](id-based-policy-examples-users.md#id-based-policy-examples-allow-cli-transformations "id-based-policy-examples-users.md#id-based-policy-examples-allow-cli-transformations").
+in [Allow users to run transformations on the command line](id-based-policy-examples-users.md#id-based-policy-examples-allow-cli-transformations "id-based-policy-examples-users.md#id-based-policy-examples-allow-cli-transformations").
 
-### Authenticate with IAM Identity Center through a Amazon Q Developer
-
-subscription
+### Authenticate with IAM Identity Center through a Amazon Q Developer subscription
 
 To authenticate with IAM Identity Center, you must be [subscribed to
 Amazon Q Developer Pro as a workforce user](subscribe-users.md "subscribe-users.md") by your administrator, and you must provide the Start URL to
@@ -58,7 +51,7 @@ You provide the Start URL in [Step 4: Configure and authenticate](#step-4-config
 ## Step 2: Install the tool
 
 1. [Download
-   the Amazon Q command line tool for transformations](https://desktop-release.codewhisperer.us-east-1.amazonaws.com/amzn_qct_cli/amzn_qct_cli-1.2.1.zip "https://desktop-release.codewhisperer.us-east-1.amazonaws.com/amzn_qct_cli/amzn_qct_cli-1.2.1.zip") and unzip
+   the Amazon Q command line tool for transformations](https://desktop-release.codewhisperer.us-east-1.amazonaws.com/amzn_qct_cli/amzn_qct_cli-1.2.2.zip "https://desktop-release.codewhisperer.us-east-1.amazonaws.com/amzn_qct_cli/amzn_qct_cli-1.2.2.zip") and unzip
    it.
 
 To download a previous version of the command line tool, see [Version history](transform-CLI-versions.md "transform-CLI-versions.md"). 2. We recommend that you set up a virtual environment in Python to install
@@ -82,19 +75,19 @@ source qct-cli/bin/activate
 Linux_aarch64
 
 ```
-pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.1-py3-none-any.whl
+pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl
 ```
 
 Linux_x86_64
 
 ```
-pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.1-py3-none-any.whl
+pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl
 ```
 
 ###### Note
 
 If you are using an older version of the command line tool for transformations,
-replace `1.2.1` with the [version](transform-CLI-versions.md "transform-CLI-versions.md") you downloaded. 5. To verify that the tool was installed, run:
+replace `1.2.2` with the [version](transform-CLI-versions.md "transform-CLI-versions.md") you downloaded. 5. To verify that the tool was installed, run:
 
 ```
 which qct

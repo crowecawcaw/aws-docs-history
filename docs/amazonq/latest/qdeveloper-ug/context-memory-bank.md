@@ -46,5 +46,4 @@ always generate content in Spanish and include detailed code examples.
 Save your memory bank rules in a file in your project's
 `project-root/.amazonq/rules` folder.
 
-For more information about creating custom project rules, see [Creating project rules for use with Amazon Q Developer
-chat](context-project-rules.md "context-project-rules.md").
+For more information about creating custom project rules, see [Creating project rules for use with Amazon Q Developer chat](context-project-rules.md "context-project-rules.md").

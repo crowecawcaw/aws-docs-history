@@ -24,8 +24,7 @@ code.
   generate code for the AWS CDK or CloudFormation.
 
 To access the Pro tier, you must be a user registered with IAM Identity Center, and your IAM Identity Center
-identity must be subscribed to Amazon Q Developer Pro. For more information, see [Authenticating to your Amazon Q Developer Pro
-subscription](q-on-aws.md#qdevpro-authentication "q-on-aws.md#qdevpro-authentication") or
+identity must be subscribed to Amazon Q Developer Pro. For more information, see [Authenticating to your Amazon Q Developer Pro subscription](q-on-aws.md#qdevpro-authentication "q-on-aws.md#qdevpro-authentication") or
 contact your AWS administrator.
 
 For more information on pricing tiers, visit the [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/").
@@ -49,9 +48,7 @@ Console-to-Code can currently generate infrastructure-as-code (IaC) in the follo
 
 ## Where can you use Console-to-Code?
 
-### Using Console-to-Code across multiple
-
-services
+### Using Console-to-Code across multiple services
 
 Console-to-Code works across multiple services, saving its own state for as long as your browser tab
 is open.
@@ -68,9 +65,7 @@ For example, you may record your actions during a complete setup of a web server
 Even if you perform your actions in different parts of the console and they use different
 AWS services, Console-to-Code can include them in a single recording.
 
-### AWS services that support
-
-Console-to-Code
+### AWS services that support Console-to-Code
 
 Currently, Console-to-Code is available to record your actions when using the AWS management
 console with the following services:
@@ -87,8 +82,7 @@ console with the following services:
 To use Console-to-Code, the following permissions are required:
 
 - `q:GenerateCodeFromCommands` to use Console-to-Code. For an example IAM policy that
-  grants the needed permission, see [Allow users to generate
-  code from CLI commands with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-console-to-code "id-based-policy-examples-users.md#id-based-policy-examples-allow-console-to-code").
+  grants the needed permission, see [Allow users to generate code from CLI commands with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-console-to-code "id-based-policy-examples-users.md#id-based-policy-examples-allow-console-to-code").
 - Permissions to take the actions that you're going to record.
 
 ## Using Console-to-Code
@@ -120,9 +114,7 @@ first.
 When you have finished taking actions that you want to convert to code, choose
 **Stop** from the top of the Console-to-Code panel.
 
-### Step 3: Gather CLI commands and generating
-
-code
+### Step 3: Gather CLI commands and generating code
 
 You can follow either Step 3a or Step 3b.
 

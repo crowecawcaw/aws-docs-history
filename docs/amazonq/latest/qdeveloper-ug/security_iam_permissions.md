@@ -109,16 +109,11 @@ Amazon Q can make calls to when performing actions on your behalf.
 For examples of IAM policies that control the use of `q:PassRequest`, see the
 following identity-based policy examples:
 
-- [Allow Amazon Q to perform actions on
-  your behalf in chat](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions")
-- [Deny Amazon Q
-  permission to perform specific actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-some-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-some-actions")
-- [Allow Amazon Q permission to
-  perform specific actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-allow-some-actions "id-based-policy-examples-users.md#id-based-policy-examples-allow-some-actions")
-- [Allow Amazon Q
-  permission to perform actions on your behalf in specific regions](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions")
-- [Deny Amazon Q permission to perform
-  actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions")
+- [Allow Amazon Q to perform actions on your behalf in chat](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions")
+- [Deny Amazon Q permission to perform specific actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-some-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-some-actions")
+- [Allow Amazon Q permission to perform specific actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-allow-some-actions "id-based-policy-examples-users.md#id-based-policy-examples-allow-some-actions")
+- [Allow Amazon Q permission to perform actions on your behalf in specific regions](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions")
+- [Deny Amazon Q permission to perform actions on your behalf](id-based-policy-examples-users.md#id-based-policy-examples-deny-actions "id-based-policy-examples-users.md#id-based-policy-examples-deny-actions")
 
 ## Amazon Q User Subscriptions permissions
 

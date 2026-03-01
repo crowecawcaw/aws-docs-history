@@ -14,18 +14,14 @@ features, see the topic for the feature you want to use.
 
 ###### Topics
 
-- [Authenticating to your Amazon Q Developer Pro
-  subscription](#qdevpro-authentication "#qdevpro-authentication")
+- [Authenticating to your Amazon Q Developer Pro subscription](#qdevpro-authentication "#qdevpro-authentication")
 - [Chatting with Amazon Q Developer about AWS](chat-with-q.md "chat-with-q.md")
 - [Using Amazon Q Developer plugins](plugins.md "plugins.md")
 - [Automating AWS services with Amazon Q Developer Console-to-Code](console-to-code.md "console-to-code.md")
-- [Diagnosing common errors in the console with
-  Amazon Q Developer](diagnose-console-errors.md "diagnose-console-errors.md")
+- [Diagnosing common errors in the console with Amazon Q Developer](diagnose-console-errors.md "diagnose-console-errors.md")
 - [Using Amazon Q Developer to chat with Support](support-chat.md "support-chat.md")
 
-## Authenticating to your Amazon Q Developer Pro
-
-subscription
+## Authenticating to your Amazon Q Developer Pro subscription
 
 To access Amazon Q at the Free tier, sign in to the AWS Management Console. Any Free tier features
 are available as long as you have the required permissions.
@@ -35,14 +31,12 @@ with IAM Identity Center, including authenticating through an external identity 
 connected to IAM Identity Center, you will automatically have access to the Pro tier if your IAM Identity Center
 identity is subscribed to Amazon Q Developer Pro.
 
-For more information on the Amazon Q Developer Pro tier, see [Tiers of service for Q Developer – Free and
-Pro](q-tiers.md "q-tiers.md").
+For more information on the Amazon Q Developer Pro tier, see [Tiers of service for Q Developer – Free and Pro](q-tiers.md "q-tiers.md").
 
 ###### Note
 
 If you see an error message that starts with, `Your account has not been
- configured to use an Amazon Q subscription`, see [Troubleshooting Amazon Q Developer Pro
-subscriptions](q-admin-setup-subscribe-troubleshooting.md "q-admin-setup-subscribe-troubleshooting.md") for troubleshooting
+ configured to use an Amazon Q subscription`, see [Troubleshooting Amazon Q Developer Pro subscriptions](q-admin-setup-subscribe-troubleshooting.md "q-admin-setup-subscribe-troubleshooting.md") for troubleshooting
 tips.
 
 If you sign in to the AWS console with IAM or federation with IAM, then you will

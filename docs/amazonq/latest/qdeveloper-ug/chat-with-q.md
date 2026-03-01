@@ -26,8 +26,7 @@ The following topics describe how to use Amazon Q chat and topics you can chat a
 - [Chat settings](#chat-settings "#chat-settings")
 - [Example prompts](#example-questions "#example-questions")
 - [Chatting about your resources with Amazon Q Developer](chat-actions.md "chat-actions.md")
-- [Asking Amazon Q to troubleshoot your
-  resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md")
+- [Asking Amazon Q to troubleshoot your resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md")
 - [Chatting about your costs](chat-costs.md "chat-costs.md")
 - [Chatting about your network security](chat-network-security.md "chat-network-security.md")
 - [Chatting about email sending](chat-email.md "chat-email.md")
@@ -36,8 +35,7 @@ The following topics describe how to use Amazon Q chat and topics you can chat a
 ## Add permissions
 
 For an IAM policy that grants permissions needed for chatting with Amazon Q, see
-[Allow users to chat with
-Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
+[Allow users to chat with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-chat").
 
 ## Start a conversation
 

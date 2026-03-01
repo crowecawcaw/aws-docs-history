@@ -1,6 +1,4 @@
-# Viewing an aggregated list of Amazon Q Developer
-
-subscriptions
+# Viewing an aggregated list of Amazon Q Developer subscriptions
 
 ###### Note
 

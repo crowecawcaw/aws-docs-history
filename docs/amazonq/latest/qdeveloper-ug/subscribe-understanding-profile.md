@@ -20,5 +20,4 @@ Other characteristics of the Amazon Q Developer profile are:
   workforce users without it. It must be created in the AWS account where you want to
   subscribe users to Amazon Q Developer Pro.
 - The profile can be created once per supported AWS Region, per AWS account. For a
-  list of AWS Regions supported by the Amazon Q Developer profile, see [Supported Regions for the Q Developer
-  console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+  list of AWS Regions supported by the Amazon Q Developer profile, see [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").

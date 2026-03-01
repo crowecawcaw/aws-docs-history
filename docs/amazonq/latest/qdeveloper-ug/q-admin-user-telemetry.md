@@ -23,8 +23,7 @@ The CSV file is laid out as follows:
 When you enable user activity reports, Amazon Q collects telemetry regardless of how a developer has
 set the **Enable Amazon Q to send usage data to AWS** setting in their IDE. That
 setting controls whether telemetry can be used by the _AWS corporation_, not
-your organization. For more information about this setting, see [Opting out of sharing your client-side
-telemetry](opt-out-IDE.md#opt-out-IDE-telemetry "opt-out-IDE.md#opt-out-IDE-telemetry").
+your organization. For more information about this setting, see [Opting out of sharing your client-side telemetry](opt-out-IDE.md#opt-out-IDE-telemetry "opt-out-IDE.md#opt-out-IDE-telemetry").
 
 Use the following instructions to enable user activity reports.
 
@@ -34,8 +33,7 @@ Create an Amazon S3 bucket to hold the user activity report CSV file. The bucket
 
 - Be in the AWS Region where the Amazon Q Developer profile was installed. This profile was
   installed when you subscribed IAM Identity Center workforce users to Amazon Q Developer Pro for the first time. For more
-  information about this profile and the Regions where it's supported, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md"), and [Supported Regions for the Q Developer
-  console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+  information about this profile and the Regions where it's supported, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md"), and [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 - Be in the AWS account where users are subscribed. If users are subscribed in multiple
   AWS accounts, then you must create buckets in each of those accounts. Cross-account buckets
   are not supported.

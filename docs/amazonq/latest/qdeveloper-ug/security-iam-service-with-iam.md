@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Q and other AWS services work with most I
 [AWS services that work
 with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based policies for
-
-Amazon Q
+## Identity-based policies for Amazon Q
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based
+### Identity-based policy examples for Amazon Q
 
-policy examples for Amazon Q
+To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for
-Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based policies
-
-within Amazon Q
+## Resource-based policies within Amazon Q
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for
-
-Amazon Q
+## Policy actions for Amazon Q
 
 **Supports policy actions:**
 
@@ -79,8 +70,7 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of Amazon Q actions, see [Manage access to Amazon Q Developer with
-policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md").
+To see a list of Amazon Q actions, see [Manage access to Amazon Q Developer with policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md").
 
 Policy actions in Amazon Q use the following prefix before the action:
 
@@ -104,12 +94,9 @@ begin with the word `Get`, include the following action:
 "Action": "q:Get*"
 ```
 
-To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for
-Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for
-
-Amazon Q
+## Policy resources for Amazon Q
 
 **Supports policy resources:**
 
@@ -124,12 +111,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for
-Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition
-
-keys for Amazon Q
+## Policy condition keys for Amazon Q
 
 **Supports service-specific policy condition keys:**
 
@@ -144,8 +128,7 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for
-Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q Developer identity-based policies, see [Identity-based policy examples for Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Q
 
@@ -173,9 +156,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials with
-
-Amazon Q
+## Using temporary credentials with Amazon Q
 
 **Supports temporary credentials:**
 
@@ -187,9 +168,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal
-
-permissions for Amazon Q
+## Cross-service principal permissions for Amazon Q
 
 **Supports forward access sessions (FAS):**
 
@@ -213,9 +192,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon Q functionality. Edit service
 roles only when Amazon Q provides guidance to do so.
 
-## Service-linked roles for
-
-Amazon Q
+## Service-linked roles for Amazon Q
 
 **Supports service-linked roles:**
 Yes
@@ -224,5 +201,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing Amazon Q service-linked roles, see [Using service-linked roles for Amazon Q Developer and User
-Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon Q service-linked roles, see [Using service-linked roles for Amazon Q Developer and User Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").

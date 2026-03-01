@@ -1,6 +1,4 @@
-# Amazon Q Developer and interface endpoints
-
-(AWS PrivateLink)
+# Amazon Q Developer and interface endpoints (AWS PrivateLink)
 
 ###### Note
 
@@ -22,9 +20,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Amazon Q VPC
-
-endpoints
+## Considerations for Amazon Q VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Q, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
@@ -54,8 +50,7 @@ Create the following VPC endpoints for Amazon Q using the following service name
 - com.amazonaws.us-east-1.codewhisperer
 
 Replace `region` with AWS Region where your Amazon Q Developer profile is
-installed. For more information, see [Supported Regions for the Q Developer
-console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+installed. For more information, see [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 
 ###### Note
 
@@ -69,9 +64,7 @@ For more information, see [Accessing a
 service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Using an on-premises computer to connect to a
-
-Amazon Q endpoint
+## Using an on-premises computer to connect to a Amazon Q endpoint
 
 This section describes the process of using an on-premises computer to connect to
 Amazon Q through a AWS PrivateLink endpoint in your AWS VPC.
@@ -83,9 +76,7 @@ Amazon Q through a AWS PrivateLink endpoint in your AWS VPC.
 3. [Set up an inbound Amazon Route 53 endpoint.](../../../Route53/latest/DeveloperGuide/routing-to-vpc-interface-endpoint.md "../../../Route53/latest/DeveloperGuide/routing-to-vpc-interface-endpoint.md") This will enable you to use
    the DNS name of your Amazon Q endpoint from your on-premises device.
 
-## Using an in-console coding environment to
-
-connect to a Amazon Q endpoint
+## Using an in-console coding environment to connect to a Amazon Q endpoint
 
 This section describes the process of using an in-console coding environment to
 connect to a Amazon Q endpoint.
@@ -104,9 +95,7 @@ Studio.
    - [SageMaker AI Studio](../../../sagemaker/latest/dg/host-vpc.md "../../../sagemaker/latest/dg/host-vpc.md")
    - [AWS Glue Studio](../../../glue/latest/dg/start-connecting.md "../../../glue/latest/dg/start-connecting.md")
 
-## Connecting to Amazon Q through AWS PrivateLink from a
-
-third-Party IDE on an Amazon EC2 instance
+## Connecting to Amazon Q through AWS PrivateLink from a third-Party IDE on an Amazon EC2 instance
 
 This section will walk you through the process of installing a third-party Integrated
 Development Environment (IDE) like Visual Studio Code or JetBrains on an Amazon EC2 instance,

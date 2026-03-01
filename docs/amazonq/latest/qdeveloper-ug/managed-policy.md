@@ -64,8 +64,7 @@ onboard to Amazon Q.
 
 You can't attach AWSServiceRoleForAmazonQDeveloper to your IAM entities. This policy is
 attached to [a service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") that allows
-Amazon Q to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon Q Developer and User
-Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").
+Amazon Q to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon Q Developer and User Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants `administrator` permissions that allows metrics to
 be published for Billing / Usage.
@@ -87,8 +86,7 @@ create Amazon Q subscriptions.
 
 You can't attach AWSServiceRoleForUserSubscriptions to your IAM entities. This policy is
 attached to [a service-linked role](using-service-linked-roles.md "using-service-linked-roles.md") that allows
-Amazon Q to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon Q Developer and User
-Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").
+Amazon Q to perform actions on your behalf. For more information, see [Using service-linked roles for Amazon Q Developer and User Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy provides access for Amazon Q Subscriptions to your Identity Center resources to
 automatically update your subscriptions.

@@ -1,6 +1,4 @@
-# Diagnosing common errors in the console with
-
-Amazon Q Developer
+# Diagnosing common errors in the console with Amazon Q Developer
 
 In the AWS Management Console, Amazon Q Developer diagnoses common errors you encounter while working with AWS
 services, such as insufficient permissions, incorrect configuration, and exceeding service
@@ -23,12 +21,9 @@ feature, you can use the thumbs-down icon to report an issue.
 ## Add permissions
 
 For an IAM policy that grants permissions needed for diagnosing console errors, see
-[Allow users to diagnose
-console errors with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-error-diagnosing "id-based-policy-examples-users.md#id-based-policy-examples-allow-error-diagnosing").
+[Allow users to diagnose console errors with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-error-diagnosing "id-based-policy-examples-users.md#id-based-policy-examples-allow-error-diagnosing").
 
-## Diagnose common errors in the
-
-console
+## Diagnose common errors in the console
 
 To use Amazon Q to diagnose an error in the AWS Management Console, use the following
 procedure.

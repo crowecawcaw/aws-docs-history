@@ -1,6 +1,4 @@
-# Configuring a firewall, proxy server, or data perimeter for
-
-Amazon Q Developer
+# Configuring a firewall, proxy server, or data perimeter for Amazon Q Developer
 
 If you're using a firewall, proxy server, or [data perimeter](https://aws.amazon.com/identity/data-perimeters-on-aws/ "https://aws.amazon.com/identity/data-perimeters-on-aws/"), make sure to
 allowlist traffic to the following URLs and Amazon Resource Names (ARNs) so that Amazon Q works as
@@ -16,8 +14,7 @@ In the following URLs, replace:
 - `sso-region` with the AWS Region where your IAM Identity Center instance is
   enabled. For more information, see [IAM Identity Center Regions supported by Amazon Q Developer](q-admin-setup-subscribe-regions.md#pro-subscription-regions "q-admin-setup-subscribe-regions.md#pro-subscription-regions").
 - `profile-region` with the AWS Region where your Amazon Q Developer
-  profile is installed. For more information about the Amazon Q Developer profile, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md") and [Supported Regions for the Q Developer
-  console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+  profile is installed. For more information about the Amazon Q Developer profile, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md") and [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 
 | URL                                                      | Purpose                                            |
 | -------------------------------------------------------- | -------------------------------------------------- |
@@ -126,9 +123,7 @@ Examples: `http://proxy.company.com:8080`,
 results. 5. Choose the **Add Item** button, then add domains that
 bypass the proxy, separated by commas.
 
-### Step 2: Configuring SSL certificate
-
-handling
+### Step 2: Configuring SSL certificate handling
 
 Amazon Q automatically detects and uses the trusted certificates installed on your system. If
 you are experiencing certificate errors, you must manually specify a certificate bundle by
@@ -231,12 +226,10 @@ Eclipse
 If you encounter the following error messages:
 
     * `unable to verify the first certificate`, make
-     sure you followed the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     sure you followed the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `self signed certificate`, make sure you followed
-     the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `ECONNREFUSED`, check your internet connection
      and proxy information.
@@ -255,12 +248,10 @@ JetBrains
 If you encounter the following error messages:
 
     * `unable to verify the first certificate`, make
-     sure you followed the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     sure you followed the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `self signed certificate`, make sure you followed
-     the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `ECONNREFUSED`, check your internet connection
      and proxy information.
@@ -287,12 +278,10 @@ Visual Studio
 If you encounter the following error messages:
 
     * `unable to verify the first certificate`, make
-     sure you followed the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     sure you followed the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `self signed certificate`, make sure you followed
-     the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `ECONNREFUSED`, check your internet connection
      and proxy information.
@@ -310,12 +299,10 @@ Visual Studio Code
 If you encounter the following error messages:
 
     * `unable to verify the first certificate`, make
-     sure you followed the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     sure you followed the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `self signed certificate`, make sure you followed
-     the instructions in [Step 2: Configuring SSL certificate
-     handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
+     the instructions in [Step 2: Configuring SSL certificate handling](#proxy-configure-ssl-cert "#proxy-configure-ssl-cert") to specify a
      certificate manually.
     * `ECONNREFUSED`, check your internet connection
      and proxy information.

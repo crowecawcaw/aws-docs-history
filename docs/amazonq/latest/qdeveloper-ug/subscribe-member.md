@@ -28,15 +28,12 @@ Before you begin, make sure that:
   account instances of IAM Identity Center](../../../singlesignon/latest/userguide/identity-center-instances.md "../../../singlesignon/latest/userguide/identity-center-instances.md") in the
   _AWS IAM Identity Center User Guide_.
 
-## Step 1: Create the Amazon Q Developer Pro profile and subscribe
-
-the first user
+## Step 1: Create the Amazon Q Developer Pro profile and subscribe the first user
 
 1. Sign in to the AWS Management Console using your member AWS account.
 2. Switch to the **Amazon Q Developer** console.
 3. Make sure you're in the AWS Region where you want to create the [Amazon Q Developer profile](subscribe-understanding-profile.md "subscribe-understanding-profile.md") and where you want
-   to store user data. For supported Regions, see [Supported Regions for the Q Developer
-   console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+   to store user data. For supported Regions, see [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 4. Choose the **Get started** button.
 
 ###### Note
@@ -97,9 +94,7 @@ console.
 For instructions on adding users to IAM Identity Center, see [Add users to your IAM Identity Center directory](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md") in
 the _AWS IAM Identity Center User Guide_.
 
-## Step 3: Enable identity-enhanced console
-
-sessions
+## Step 3: Enable identity-enhanced console sessions
 
 If you want to allow users to use their Amazon Q Developer Pro subscription [in the
 AWS Management Console, and on AWS apps and websites](q-on-aws.md "q-on-aws.md"), enable identity-enhanced console sessions.

@@ -1,6 +1,4 @@
-# Troubleshooting issues with
-
-.NET transformations in the IDE
+# Troubleshooting issues with .NET transformations in the IDE
 
 Use the following sections to troubleshoot common issues with .NET transformations in
 the IDE with Amazon Q Developer.
@@ -38,9 +36,7 @@ failed job. To find a transformation job ID, choose the **Output**
 tab in Visual Studio. In the **Show output from:** menu, choose
 **Amazon Q Language Client**.
 
-## How can I prevent my firewall from
-
-interfering with transformation jobs?
+## How can I prevent my firewall from interfering with transformation jobs?
 
 If your organization uses a firewall, it might interfere with transformations in
 Visual Studio. You can temporarily disable security checks in Node.js to troubleshoot or test
@@ -66,9 +62,7 @@ NODE_EXTRA_CA_CERTS = Path/To/Corporate/Certs
 Otherwise, you must specify the CA certs used by the proxy to disable
 `NODE_TLS_REJECT_UNAUTHORIZED`.
 
-######
-
-To disable NODE_TLS_REJECT_UNAUTHORIZED on Windows:
+###### To disable NODE_TLS_REJECT_UNAUTHORIZED on Windows:
 
 1. Open the Start menu and search for **Environment Variables**.
 2. Choose **Edit the system environment variables**.

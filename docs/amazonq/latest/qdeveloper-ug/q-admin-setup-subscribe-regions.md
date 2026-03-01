@@ -17,8 +17,7 @@ Read this section if you're an administrator of IAM Identity Center workforce us
 ###### Topics
 
 - [IAM Identity Center Regions supported by Amazon Q Developer](#pro-subscription-regions "#pro-subscription-regions")
-- [Supported Regions for the Q Developer
-  console and Q Developer profile](#qdev-console-and-profile-regions "#qdev-console-and-profile-regions")
+- [Supported Regions for the Q Developer console and Q Developer profile](#qdev-console-and-profile-regions "#qdev-console-and-profile-regions")
 - [Subscribing users to Amazon Q Developer Pro across AWS Regions](#subscribe-multi-region "#subscribe-multi-region")
 
 ### IAM Identity Center Regions supported by Amazon Q Developer
@@ -42,9 +41,7 @@ For more information about Amazon Q Developer profiles, see [What is the Amazon 
 
 For more information about data protection, see [Data protection in Amazon Q Developer](data-protection.md "data-protection.md").
 
-### Supported Regions for the Q Developer
-
-console and Q Developer profile
+### Supported Regions for the Q Developer console and Q Developer profile
 
 The **Amazon Q Developer console** and **Amazon Q Developer profile** are supported in the following Regions:
 
@@ -85,9 +82,7 @@ IAM Identity Center.
 In a scenario where your IAM Identity Center is in a different Region from your Amazon Q Developer console, use the
 guidance in the following example to subscribe users.
 
-#### Example subscription process in a multi-Region
-
-scenario
+#### Example subscription process in a multi-Region scenario
 
 Let's walk through subscribing a user where:
 

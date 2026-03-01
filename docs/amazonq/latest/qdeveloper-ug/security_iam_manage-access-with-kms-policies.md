@@ -1,13 +1,9 @@
-# Manage access to Amazon Q Developer for
-
-third-party integration
+# Manage access to Amazon Q Developer for third-party integration
 
 For third-party integrations, you must use the AWS Key Management Service (KMS) to manage access
 to Amazon Q Developer instead of IAM policies that are neither identity-based or resource-based.
 
-## Allow administrators to use customer managed
-
-keys to update role policies
+## Allow administrators to use customer managed keys to update role policies
 
 The following example key policy grants permission to use [customer managed keys
 (CMK)](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") when creating your key policy on a configured role in the KMS Console. When

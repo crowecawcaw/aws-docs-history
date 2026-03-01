@@ -65,8 +65,7 @@ policy, [Allow administrators to use the Amazon Q Developer console](id-based-po
 
 To use features that are encrypted with a customer managed key, users need
 permissions to allow Amazon Q to access the customer managed key. For a policy that grants
-the needed permissions, see [Allow Amazon Q access to
-customer managed keys](id-based-policy-examples-users.md#id-based-policy-examples-allow-q-access-encryption "id-based-policy-examples-users.md#id-based-policy-examples-allow-q-access-encryption").
+the needed permissions, see [Allow Amazon Q access to customer managed keys](id-based-policy-examples-users.md#id-based-policy-examples-allow-q-access-encryption "id-based-policy-examples-users.md#id-based-policy-examples-allow-q-access-encryption").
 
 If you see an error related to KMS grants while using Amazon Q Developer, you likely need to
 update your permissions to allow Amazon Q to create grants. To automatically configure the

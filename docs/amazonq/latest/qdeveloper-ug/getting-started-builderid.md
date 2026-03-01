@@ -1,6 +1,4 @@
-# Getting started with a personal account
-
-(Builder ID)
+# Getting started with a personal account (Builder ID)
 
 If you want to use Amazon Q Developer for personal projects, and you don't need to administer other
 users, you'll want to get started with a personal account, also known as a Builder ID. A
@@ -16,16 +14,12 @@ For a list of features available at the Pro tier, see the [Amazon Q Developer pr
 
 ###### To get started with a personal account (Builder ID) at the Free or Pro tier
 
-- [Before you begin: Understand the limitations of
-  personal accounts (Builder IDs)](#builder-id-limitations "#builder-id-limitations")
+- [Before you begin: Understand the limitations of personal accounts (Builder IDs)](#builder-id-limitations "#builder-id-limitations")
 - [Step 1: Sign up](#builder-id-signup "#builder-id-signup")
 - [Step 2: Install Amazon Q](#builder-id-install "#builder-id-install")
-- [Step 3: (Optional) Upgrade to the Pro
-  tier](#builder-id-upgrade-optional "#builder-id-upgrade-optional")
+- [Step 3: (Optional) Upgrade to the Pro tier](#builder-id-upgrade-optional "#builder-id-upgrade-optional")
 
-## Before you begin: Understand the limitations of
-
-personal accounts (Builder IDs)
+## Before you begin: Understand the limitations of personal accounts (Builder IDs)
 
 Before you create a personal account (Builder ID) for use with Amazon Q, understand its
 limitations.
@@ -58,8 +52,6 @@ information, see:
 - [Installing the Amazon Q Developer extension or plugin in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md")
 - [Install the Kiro CLI.](https://kiro.dev/docs/cli "https://kiro.dev/docs/cli")
 
-## Step 3: (Optional) Upgrade to the Pro
-
-tier
+## Step 3: (Optional) Upgrade to the Pro tier
 
 Upgrade to the Pro tier to take advantage of increased limits. See [Upgrading a personal account (Builder ID)](upgrade-to-pro.md#upgrade-builder-id "upgrade-to-pro.md#upgrade-builder-id").

@@ -16,8 +16,7 @@ The type of resource analysis Amazon Q can perform includes:
   AWS resources and services.
 - **Troubleshooting assistance** – Get help identifying
   and resolving issues with your resources. For more
-  information, see [Asking Amazon Q to troubleshoot your
-  resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md").
+  information, see [Asking Amazon Q to troubleshoot your resources](chat-actions-troubleshooting.md "chat-actions-troubleshooting.md").
   For examples of questions you can ask, see
   [Ask Amazon Q for resource information](#ask-resource-questions "#ask-resource-questions").
 
@@ -59,8 +58,7 @@ To chat about your resources, your IAM identity must have the following permissi
 
 - Permissions to chat with Amazon Q, to use Cloud Control API, and to allow Amazon Q to access your
   resources. For an IAM policy that grants the required permissions, see
-  [Allow users to chat about
-  resources with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-resource-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-resource-chat").
+  [Allow users to chat about resources with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-resource-chat "id-based-policy-examples-users.md#id-based-policy-examples-allow-resource-chat").
 - Permissions to access the resources you ask about. For example, if you ask
   Amazon Q to list your Amazon S3 buckets, you must have the
   `s3:ListAllMyBuckets` permission.

@@ -4,9 +4,7 @@ This page explains how to opt out of sharing your data in the IDE or command lin
 you use Amazon Q, including third-party IDEs and AWS coding environments. For information
 on how Amazon Q uses this data, see [Amazon Q Developer service improvement](service-improvement.md "service-improvement.md").
 
-## Opting out of sharing your client-side
-
-telemetry
+## Opting out of sharing your client-side telemetry
 
 Your client-side telemetry quantifies your usage of the service. For example, AWS
 may track whether you accept or reject a recommendation. Your client-side telemetry does

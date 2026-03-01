@@ -149,8 +149,7 @@ To create customizations or plugins, your Amazon Q Developer Pro administrator w
 permissions.
 
 - For permissions needed for customizations, see the Prerequisites for customizations section.
-- For permissions needed for plugins, see [Allow administrators to configure
-  plugins](#id-based-policy-examples-admin-plugins "#id-based-policy-examples-admin-plugins").
+- For permissions needed for plugins, see [Allow administrators to configure plugins](#id-based-policy-examples-admin-plugins "#id-based-policy-examples-admin-plugins").
 
 You will need one of two policies to use the Amazon Q Developer console. The policy you need depends on if
 you're setting up Amazon Q Developer for the first time or if you're configuring a legacy Amazon CodeWhisperer profile.
@@ -480,9 +479,7 @@ CodeWhisperer application.
 
 [Show moreShow less](# "#")
 
-## Allow administrators to
-
-create customizations
+## Allow administrators to create customizations
 
 The following policy grants administrators permission to create and manage customizations
 in Amazon Q Developer.
@@ -592,9 +589,7 @@ JSON
 
 ```
 
-## Allow administrators to configure
-
-plugins
+## Allow administrators to configure plugins
 
 The following example policy grants administrators permissions to view and configure
 third party plugins in the Amazon Q Developer console.
@@ -649,9 +644,7 @@ JSON
 
 ```
 
-## Allow administrators
-
-to configure plugins from one provider
+## Allow administrators to configure plugins from one provider
 
 The following example policy grants an administrator permission to configure plugins from
 one provider, specified by the plugin ARN with the name of the plugin provider and a
@@ -693,9 +686,7 @@ JSON
 
 ```
 
-## Allow migration of more than one network or
-
-more than one subnet
+## Allow migration of more than one network or more than one subnet
 
 JSON
 

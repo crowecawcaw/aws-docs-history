@@ -1,6 +1,4 @@
-# Adding workspace context to Amazon Q Developer chat in the
-
-IDE
+# Adding workspace context to Amazon Q Developer chat in the IDE
 
 When you chat with Amazon Q in the integrated development environment (IDE), you can add
 `@workspace` to your question to
@@ -14,8 +12,7 @@ files, including files that aren’t opened.
 ###### Topics
 
 - [Setup](#setup "#setup")
-- [Ask questions with workspace
-  context](#ask-questions-workspace-context "#ask-questions-workspace-context")
+- [Ask questions with workspace context](#ask-questions-workspace-context "#ask-questions-workspace-context")
 
 ## Setup
 
@@ -57,9 +54,7 @@ update the indexing configuration, specify the number of threads for the
 the maximum size of the files that can be indexed for workspace context, and enable
 the use of your graphics processing unit (GPU) for indexing.
 
-## Ask questions with workspace
-
-context
+## Ask questions with workspace context
 
 To add your workspace as context to your conversation with Amazon Q, open the workspace
 you want to ask questions about, and then add `@workspace` to your

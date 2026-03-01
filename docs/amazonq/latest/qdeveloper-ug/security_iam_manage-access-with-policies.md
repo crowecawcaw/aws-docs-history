@@ -1,6 +1,4 @@
-# Manage access to Amazon Q Developer with
-
-policies
+# Manage access to Amazon Q Developer with policies
 
 ###### Note
 
@@ -32,10 +30,8 @@ For a list of all Amazon Q permissions you can control with policies, see the se
 
 - [Policy best practices](#security_iam_policy-best-practices "#security_iam_policy-best-practices")
 - [Assign permissions](#setting-up-assign-permissions "#setting-up-assign-permissions")
-- [Manage access with service control policies
-  (SCPs)](#service-control-policies "#service-control-policies")
-- [Identity-based policy examples for
-  Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Manage access with service control policies (SCPs)](#service-control-policies "#service-control-policies")
+- [Identity-based policy examples for Amazon Q Developer](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 
 ## Policy best practices
 
@@ -87,9 +83,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Manage access with service control policies
-
-(SCPs)
+## Manage access with service control policies (SCPs)
 
 Service control policies (SCPs) are a type of organization policy that you can use to manage
 permissions in your organization. You can control what Amazon Q Developer features are available in your
@@ -98,9 +92,7 @@ organization by creating an SCP that specifies permissions for some or all Amazo
 For more information about using SCPs to control access in your organization, see [Creating, updating, and deleting service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_create.md") and [Attaching and detaching service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md") in the _AWS Organizations User
 Guide_.
 
-### Example SCP: Deny access to Amazon Q outside EU
-
-Regions
+### Example SCP: Deny access to Amazon Q outside EU Regions
 
 The following SCP denies access to any use of Amazon Q Developer outside of the Europe (Frankfurt) Region
 (eu-central-1).

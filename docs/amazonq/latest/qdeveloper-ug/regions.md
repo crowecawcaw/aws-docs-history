@@ -4,8 +4,7 @@
 
 If you make a request that requires Amazon Q Developer to retrieve information from an opt-in Region not
 listed on this page, Amazon Q can make calls to that Region. To manage access to Regions Amazon Q can
-make calls to, see [Allow Amazon Q
-permission to perform actions on your behalf in specific regions](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions").
+make calls to, see [Allow Amazon Q permission to perform actions on your behalf in specific regions](id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions "id-based-policy-examples-users.md#id-based-policy-examples-allow-actions-some-regions").
 
 This topic describes the AWS Regions where you can use Amazon Q Developer. For more information about
 AWS Regions, see [Specify which AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the _AWS Account Management Reference
@@ -24,8 +23,7 @@ enabled by default](../../../glossary/latest/reference/glos-chap.md#regionthat "
 
 ###### Note
 
-The Amazon Q Developer service within the AWS Management Console is only available in the Regions outlined in [Supported Regions for the Q Developer
-console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
+The Amazon Q Developer service within the AWS Management Console is only available in the Regions outlined in [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").
 To manage Amazon Q Developer settings as an administrator, you must go to the Amazon Q Developer service and then
 use the Region selector to switch to a supported Region.
 

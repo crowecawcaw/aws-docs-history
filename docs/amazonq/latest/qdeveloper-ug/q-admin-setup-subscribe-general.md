@@ -20,9 +20,7 @@ such as unsubscribing, and upgrading to the Pro tier.
 - [Finding the Start URL for use with Amazon Q Developer](manage-account-details.md "manage-account-details.md")
 - [Managing the encryption method in Amazon Q Developer](manage-encryption.md "manage-encryption.md")
 - [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md")
-- [Troubleshooting Amazon Q Developer Pro
-  subscriptions](q-admin-setup-subscribe-troubleshooting.md "q-admin-setup-subscribe-troubleshooting.md")
-- [Viewing an aggregated list of Amazon Q Developer
-  subscriptions](subscribe-visibility.md "subscribe-visibility.md")
+- [Troubleshooting Amazon Q Developer Pro subscriptions](q-admin-setup-subscribe-troubleshooting.md "q-admin-setup-subscribe-troubleshooting.md")
+- [Viewing an aggregated list of Amazon Q Developer subscriptions](subscribe-visibility.md "subscribe-visibility.md")
 - [Unsubscribing from Amazon Q Developer Pro](q-admin-setup-unsubscribe.md "q-admin-setup-unsubscribe.md")
 - [Upgrading to Amazon Q Developer Pro](upgrade-to-pro.md "upgrade-to-pro.md")

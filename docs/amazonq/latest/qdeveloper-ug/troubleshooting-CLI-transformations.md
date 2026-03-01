@@ -33,16 +33,16 @@ architecture:
 Linux_aarch64
 
 ```
-pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.1-py3-none-any.whl --force-reinstall
+pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall
 ```
 
 Linux_x86_64
 
 ```
-pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.1-py3-none-any.whl --force-reinstall
+pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall
 ```
 
 ###### Note
 
 If you're using an older version of the command line tool for transformations,
-replace `1.2.1` with the [version](transform-CLI-versions.md "transform-CLI-versions.md") you downloaded.
+replace `1.2.2` with the [version](transform-CLI-versions.md "transform-CLI-versions.md") you downloaded.

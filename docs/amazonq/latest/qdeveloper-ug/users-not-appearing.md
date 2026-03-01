@@ -19,5 +19,4 @@ console's **Subscriptions** page, you can't see them.
     Amazon Q Developer console and profile.
   - If you're using AWS Organizations, try enabling trusted access so that you can see
     subscriptions in both management and member accounts. For more information, see
-    [Viewing an aggregated list of Amazon Q Developer
-    subscriptions](subscribe-visibility.md "subscribe-visibility.md").
+    [Viewing an aggregated list of Amazon Q Developer subscriptions](subscribe-visibility.md "subscribe-visibility.md").

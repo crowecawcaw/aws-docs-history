@@ -12,14 +12,11 @@ can use with no additional charge.
 - [Authenticating with identities](#security-iam-authentication "#security-iam-authentication")
 - [Managing access using policies](#security-iam-access-manage "#security-iam-access-manage")
 - [How Amazon Q Developer works with IAM](security-iam-service-with-iam.md "security-iam-service-with-iam.md")
-- [Manage access to Amazon Q Developer with
-  policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md")
-- [Manage access to Amazon Q Developer for
-  third-party integration](security_iam_manage-access-with-kms-policies.md "security_iam_manage-access-with-kms-policies.md")
+- [Manage access to Amazon Q Developer with policies](security_iam_manage-access-with-policies.md "security_iam_manage-access-with-policies.md")
+- [Manage access to Amazon Q Developer for third-party integration](security_iam_manage-access-with-kms-policies.md "security_iam_manage-access-with-kms-policies.md")
 - [Amazon Q Developer permissions reference](security_iam_permissions.md "security_iam_permissions.md")
 - [AWS managed policies for Amazon Q Developer](managed-policy.md "managed-policy.md")
-- [Using service-linked roles for Amazon Q Developer and User
-  Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for Amazon Q Developer and User Subscriptions](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Audience
 
@@ -212,9 +209,7 @@ users, groups, and roles in your AWS account. Managed policies include AWS manag
 choose between a managed policy or an inline policy, see [Choosing between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#choosing-managed-or-inline") in the
 _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource such as an
 Amazon S3 bucket. Service administrators can use these policies to define what actions

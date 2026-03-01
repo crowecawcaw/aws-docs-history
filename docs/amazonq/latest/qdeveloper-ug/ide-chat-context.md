@@ -26,8 +26,7 @@ types:
 
 - **@workspace** – Amazon Q uses your project’s workspace as context
   for its answers. The **@workspace** option requires configuration. For
-  more information, see [Adding workspace context to Amazon Q Developer chat in the
-  IDE](workspace-context.md "workspace-context.md").
+  more information, see [Adding workspace context to Amazon Q Developer chat in the IDE](workspace-context.md "workspace-context.md").
 - **Folders** – Amazon Q shows you a list of folders in the current
   project, and uses the folder you select as context for its answers.
 - **Files** – Amazon Q shows you a list of files in the current
@@ -43,15 +42,13 @@ types:
 - **Prompts** – Amazon Q shows you a list of prompts that you have
   saved, and uses the prompt you select as context for its answers. The
   **Prompts** option requires some configuration. For more information,
-  see [Saving prompts to a library for use with Amazon Q Developer
-  chat](context-prompt-library.md "context-prompt-library.md").
+  see [Saving prompts to a library for use with Amazon Q Developer chat](context-prompt-library.md "context-prompt-library.md").
 
 ## Automatic context types
 
 The following types of contexts will be used automatically by Amazon Q, if you've set them up:
 
 - **Project rules** – Amazon Q will automatically use a set of project
-  rules that you define as context. For more information, see [Creating project rules for use with Amazon Q Developer
-  chat](context-project-rules.md "context-project-rules.md").
+  rules that you define as context. For more information, see [Creating project rules for use with Amazon Q Developer chat](context-project-rules.md "context-project-rules.md").
 - **Customizations** – Amazon Q will automatically use a repository of
   source code as context.
