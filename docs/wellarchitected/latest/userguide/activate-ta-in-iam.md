@@ -1,6 +1,4 @@
-# Activating Trusted Advisor for a workload in
-
-IAM
+# Activating Trusted Advisor for a workload in IAM
 
 ###### Note
 

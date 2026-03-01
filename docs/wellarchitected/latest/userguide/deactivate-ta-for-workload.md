@@ -1,6 +1,4 @@
-# Deactivating Trusted Advisor for a
-
-workload
+# Deactivating Trusted Advisor for a workload
 
 **To deactivate Trusted Advisor for a workload**
 

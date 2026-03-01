@@ -24,5 +24,4 @@ your own AWS account or terminate your AWS account.
 4. To confirm removal, enter the profile name in the text input field.
 5. Choose **Delete**.
    If you want to keep a profile in your **Profiles** list, but remove
-   it from a workload, see [Removing a profile from a
-   workload in AWS WA Tool](removing-profiles-from-workloads.md "removing-profiles-from-workloads.md").
+   it from a workload, see [Removing a profile from a workload in AWS WA Tool](removing-profiles-from-workloads.md "removing-profiles-from-workloads.md").

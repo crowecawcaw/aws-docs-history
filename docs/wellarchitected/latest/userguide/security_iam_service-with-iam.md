@@ -1,6 +1,4 @@
-# How AWS Well-Architected Tool works with
-
-IAM
+# How AWS Well-Architected Tool works with IAM
 
 Before you use IAM to manage access to AWS WA Tool, learn what IAM features are
 available to use with AWS WA Tool.
@@ -23,9 +21,7 @@ To get a high-level view of how AWS WA Tool and other AWS services work with mos
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## AWS WA Tool
-
-identity-based policies
+## AWS WA Tool identity-based policies
 
 **Supports policy actions:**
 
@@ -37,9 +33,7 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 The `Action` element of a JSON policy describes the
 actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-## Resource-based
-
-policies within AWS WA Tool
+## Resource-based policies within AWS WA Tool
 
 **Supports resource-based policies:**
 
@@ -172,9 +166,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Authorization based on
-
-AWS WA Tool tags
+## Authorization based on AWS WA Tool tags
 
 **Supports ABAC (tags in policies):**
 
@@ -191,9 +183,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS WA Tool
+## Using temporary credentials with AWS WA Tool
 
 **Supports temporary credentials:**
 
@@ -205,9 +195,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS WA Tool
+## Cross-service principal permissions for AWS WA Tool
 
 **Supports forward access sessions (FAS):**
 
@@ -216,9 +204,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS WA Tool
+## Service roles for AWS WA Tool
 
 **Supports service roles:**
 
@@ -228,9 +214,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for AWS WA Tool
+## Service-linked roles for AWS WA Tool
 
 **Supports service-linked roles:**
 

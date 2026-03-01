@@ -29,5 +29,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience in AWS Well-Architected Tool](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Well-Architected Tool](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in AWS Well-Architected Tool](vulnerability-analysis.md "vulnerability-analysis.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

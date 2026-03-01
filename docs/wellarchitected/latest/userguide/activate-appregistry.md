@@ -15,5 +15,4 @@ workload name, and the risks associated with the workload.
   If you want an AppRegistry application to drive the data fetched from Trusted Advisor, set
   your workload **Resource definition** as
   **AppRegistry** or **All**. Create roles for all
-  accounts that own resources in your application following the guidelines in [Activating Trusted Advisor for a workload in
-  IAM](activate-ta-in-iam.md "activate-ta-in-iam.md").
+  accounts that own resources in your application following the guidelines in [Activating Trusted Advisor for a workload in IAM](activate-ta-in-iam.md "activate-ta-in-iam.md").

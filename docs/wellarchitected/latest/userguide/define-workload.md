@@ -57,8 +57,7 @@ industry associated with your workload. 12. (Optional) In the **Industry** box, 
 best matches your workload. 13. (Optional) In the **Trusted Advisor** section, to turn on Trusted Advisor
 checks for your workload, select **Activate Trusted Advisor**.
 Additional setup might be needed for accounts associated with your workload. See
-[Activating AWS Trusted Advisor for a
-workload](activate-ta-for-workload.md "activate-ta-for-workload.md") to grant AWS WA Tool permissions to get
+[Activating AWS Trusted Advisor for a workload](activate-ta-for-workload.md "activate-ta-for-workload.md") to grant AWS WA Tool permissions to get
 Trusted Advisor data on your behalf. Select from **Workload
 Metadata**, **AppRegistry**, or **All**
 under **Resource definition** to define what resources AWS WA Tool

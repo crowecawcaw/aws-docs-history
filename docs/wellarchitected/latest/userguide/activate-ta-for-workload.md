@@ -1,6 +1,4 @@
-# Activating AWS Trusted Advisor for a
-
-workload
+# Activating AWS Trusted Advisor for a workload
 
 You can optionally integrate AWS Trusted Advisor and activate it on a per-workload basis
 for AWS Business and Enterprise Support customers. There is no cost to integrate
@@ -49,8 +47,7 @@ lenses.
 The AWS WA Tool periodically gets data from Trusted Advisor using the roles created in IAM. The
 IAM role is automatically created for the workload owner. However, to view Trusted Advisor
 information, the owners of any associated accounts on the workload must go to IAM and
-create a role, see [Activating Trusted Advisor for a workload in
-IAM](activate-ta-in-iam.md "activate-ta-in-iam.md") for more details. If this role
+create a role, see [Activating Trusted Advisor for a workload in IAM](activate-ta-in-iam.md "activate-ta-in-iam.md") for more details. If this role
 does not exist, AWS WA Tool cannot obtain Trusted Advisor information for that account and displays
 an error.
 

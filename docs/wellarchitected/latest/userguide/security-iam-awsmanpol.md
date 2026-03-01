@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-WellArchitectedConsoleFullAccess
+## AWS managed policy: WellArchitectedConsoleFullAccess
 
 You can attach the `WellArchitectedConsoleFullAccess` policy to your IAM
 identities.
@@ -44,9 +42,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-WellArchitectedConsoleReadOnlyAccess
+## AWS managed policy: WellArchitectedConsoleReadOnlyAccess
 
 You can attach the `WellArchitectedConsoleReadOnlyAccess` policy to your IAM
 identities.
@@ -75,9 +71,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AWSWellArchitectedOrganizationsServiceRolePolicy
+## AWS managed policy: AWSWellArchitectedOrganizationsServiceRolePolicy
 
 You can attach the `AWSWellArchitectedOrganizationsServiceRolePolicy` policy to your IAM
 identities.
@@ -227,9 +221,7 @@ JSON
 
 ```
 
-## AWS WA Tool updates to AWS managed
-
-policies
+## AWS WA Tool updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS WA Tool since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

@@ -83,9 +83,7 @@ The following basic restrictions apply to tags:
 Using the AWS WA Tool console, you can manage the tags associated with new or existing
 resources.
 
-### Adding tags on an individual resource on
-
-creation
+### Adding tags on an individual resource on creation
 
 You can add tags to AWS WA Tool resources when you create them.
 

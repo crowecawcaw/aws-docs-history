@@ -16,8 +16,7 @@ For a description of each of the fields, see [Defining a workload in AWS WA Tool
 When updating an existing workload, you can **Activate
 Trusted Advisor**, which automatically creates the IAM role for the
 workload owner. The owners of associated accounts for workloads with
-Trusted Advisor activated need to create a role in IAM. For details, see [Activating Trusted Advisor for a workload in
-IAM](activate-ta-in-iam.md "activate-ta-in-iam.md"). 5. Choose **Save** to save your changes to the workload.
+Trusted Advisor activated need to create a role in IAM. For details, see [Activating Trusted Advisor for a workload in IAM](activate-ta-in-iam.md "activate-ta-in-iam.md"). 5. Choose **Save** to save your changes to the workload.
 
 If a required field is blank or if a specified value is not valid, you must correct the
 issue before your updates to the workload are saved.

@@ -1,6 +1,4 @@
-# Accept and reject workload invitations in
-
-AWS Well-Architected Tool
+# Accept and reject workload invitations in AWS Well-Architected Tool
 
 A workload invitation is a request to share a workload that is owned by another
 AWS account. If you accept the workload invitation, the workload is added to your

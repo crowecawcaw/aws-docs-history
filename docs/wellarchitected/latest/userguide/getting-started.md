@@ -10,8 +10,7 @@ tutorial showing how to use AWS Well-Architected Tool, see [Tutorial: Document a
 ###### Topics
 
 - [Providing users, groups, or roles access to AWS WA Tool](iam-auth-access.md "iam-auth-access.md")
-- [Activating support in AWS WA Tool for other AWS
-  services](activate-integrations.md "activate-integrations.md")
+- [Activating support in AWS WA Tool for other AWS services](activate-integrations.md "activate-integrations.md")
 - [Defining a workload in AWS WA Tool](define-workload.md "define-workload.md")
 - [Documenting a workload in AWS WA Tool](start-workflow-review.md "start-workflow-review.md")
 - [Reviewing a workload with AWS Well-Architected Framework](continue-workflow-review.md "continue-workflow-review.md")

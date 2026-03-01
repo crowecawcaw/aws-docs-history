@@ -1,6 +1,4 @@
-# Modify shared access in
-
-AWS Well-Architected Tool
+# Modify shared access in AWS Well-Architected Tool
 
 You can modify a pending or accepted workload invitation.
 

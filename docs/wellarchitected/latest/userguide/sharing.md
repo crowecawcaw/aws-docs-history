@@ -2,8 +2,7 @@
 
 To share a resource that you own, do the following:
 
-- [Activate resource sharing within
-  AWS Organizations](#getting-started-sharing-orgs "#getting-started-sharing-orgs") (optional)
+- [Activate resource sharing within AWS Organizations](#getting-started-sharing-orgs "#getting-started-sharing-orgs") (optional)
 - [Share a workload](workloads-sharing.md "workloads-sharing.md")
 - [Share a custom lens](lenses-sharing.md "lenses-sharing.md")
 - [Share a profile](sharing-profiles.md "sharing-profiles.md")
@@ -21,9 +20,7 @@ To share a resource that you own, do the following:
   refer to [AWS Global
   Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-## Activate resource sharing within
-
-AWS Organizations
+## Activate resource sharing within AWS Organizations
 
 When your account is managed by AWS Organizations, you can take advantage of that to share
 resources more easily. With or without Organizations, a user can share with individual accounts.

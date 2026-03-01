@@ -1,18 +1,13 @@
-# Troubleshooting AWS Well-Architected Tool identity
-
-and access
+# Troubleshooting AWS Well-Architected Tool identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AWS WA Tool and IAM.
 
 ###### Topics
 
-- [I'm not authorized to perform
-  an action in AWS WA Tool](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I'm not authorized to perform an action in AWS WA Tool](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 
-## I'm not authorized to perform
-
-an action in AWS WA Tool
+## I'm not authorized to perform an action in AWS WA Tool
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
