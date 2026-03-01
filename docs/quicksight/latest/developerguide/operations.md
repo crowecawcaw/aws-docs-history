@@ -4,8 +4,7 @@ To find Quick Sight API operations by category, use the following list.
 
 ###### Topics
 
-- [Account customization
-  operations](account-customization-operations.md "account-customization-operations.md")
+- [Account customization operations](account-customization-operations.md "account-customization-operations.md")
 - [Analysis operations](analysis-operations.md "analysis-operations.md")
 - [Asset bundle operations](asset-bundle-ops.md "asset-bundle-ops.md")
 - [Dashboard operations](dashboard-operations.md "dashboard-operations.md")

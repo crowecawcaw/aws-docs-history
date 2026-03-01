@@ -1,6 +1,4 @@
-# Account customization
-
-operations
+# Account customization operations
 
 With account customization API operations, you can update and customize Amazon Quick Sight
 account settings. For more information, see the following API operations.
