@@ -1,7 +1,6 @@
 # Start an experiment
 
-You start an experiment from an experiment template. For more information, see [Start an experiment from a
-template](start-experiment-from-template.md "start-experiment-from-template.md").
+You start an experiment from an experiment template. For more information, see [Start an experiment from a template](start-experiment-from-template.md "start-experiment-from-template.md").
 
 You can schedule your experiments as a one-time task or recurring tasks using
 Amazon EventBridge. For more information, see [Tutorial: Schedule a recurring experiment](fis-tutorial-recurring-experiment.md "fis-tutorial-recurring-experiment.md").

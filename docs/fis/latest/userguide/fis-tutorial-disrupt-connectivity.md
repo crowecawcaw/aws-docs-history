@@ -1,6 +1,4 @@
-# Tutorial: Simulate a connectivity
-
-event
+# Tutorial: Simulate a connectivity event
 
 You can use AWS Fault Injection Service (AWS FIS) to simulate a variety of connectivity events. AWS FIS
 simulates connectivity events by blocking network connections in one of the following ways:
@@ -20,14 +18,11 @@ simulates connectivity events by blocking network connections in one of the foll
 ###### Topics
 
 - [Prerequisites](#disrupt-connectivity-prerequisites "#disrupt-connectivity-prerequisites")
-- [Step 1: Create an AWS FIS experiment
-  template](#disrupt-connectivity-step1 "#disrupt-connectivity-step1")
+- [Step 1: Create an AWS FIS experiment template](#disrupt-connectivity-step1 "#disrupt-connectivity-step1")
 - [Step 2: Ping an Amazon S3 endpoint](#disrupt-connectivity-step2 "#disrupt-connectivity-step2")
 - [Step 3: Start your AWS FIS experiment](#disrupt-connectivity-step3 "#disrupt-connectivity-step3")
-- [Step 4: Track your AWS FIS experiment
-  progress](#disrupt-connectivity-step4 "#disrupt-connectivity-step4")
-- [Step 5: Verify Amazon S3 network
-  disruption](#disrupt-connectivity-step5 "#disrupt-connectivity-step5")
+- [Step 4: Track your AWS FIS experiment progress](#disrupt-connectivity-step4 "#disrupt-connectivity-step4")
+- [Step 5: Verify Amazon S3 network disruption](#disrupt-connectivity-step5 "#disrupt-connectivity-step5")
 - [Step 5: Clean up](#disrupt-connectivity-step6 "#disrupt-connectivity-step6")
 
 ## Prerequisites
@@ -60,9 +55,7 @@ Launch and connect to a test Amazon EC2 instance. You can use the following tuto
 launch and connect to an Amazon EC2 instance: [Tutorial: Get started with Amazon EC2
 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the _Amazon EC2 User Guide_.
 
-## Step 1: Create an AWS FIS experiment
-
-template
+## Step 1: Create an AWS FIS experiment template
 
 Create the experiment template by using the AWS FIS AWS Management Console. An AWS FIS template is made
 up of actions, targets, stop conditions, and an experiment role. For more information
@@ -179,9 +172,7 @@ Start an experiment with the experiment template that you just created.
 5. (Optional) In the confirmation page, add tags for your experiment.
 6. In the confirmation page, choose **Start experiment**.
 
-## Step 4: Track your AWS FIS experiment
-
-progress
+## Step 4: Track your AWS FIS experiment progress
 
 You can track the progress of a running experiment until the experiment is completed,
 stopped, or has failed.
@@ -195,9 +186,7 @@ stopped, or has failed.
 3. When the state of the experiment is **Running**, move to the
    next step.
 
-## Step 5: Verify Amazon S3 network
-
-disruption
+## Step 5: Verify Amazon S3 network disruption
 
 You can validate the experiment progress by by pinging the Amazon S3 endpoint.
 

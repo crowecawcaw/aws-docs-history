@@ -27,9 +27,7 @@ the following:
   profile to an EC2 instance](../../../systems-manager/latest/userguide/setup-launch-managed-instance.md "../../../systems-manager/latest/userguide/setup-launch-managed-instance.md") in the
   _AWS Systems Manager User Guide_.
 
-## Use the aws:ssm:send-command
-
-action
+## Use the aws:ssm:send-command action
 
 An SSM document defines the actions that Systems Manager performs on your managed instances.
 Systems Manager includes a number of pre-configured documents, or you can create your own. For
@@ -110,9 +108,7 @@ action uses the AWSFIS-Run-CPU-Stress document.
 - [AWSFIS-Run-Network-Packet-Loss](#awsfis-run-network-packet-loss "#awsfis-run-network-packet-loss")
 - [AWSFIS-Run-Network-Packet-Loss-Sources](#awsfis-run-network-packet-loss-sources "#awsfis-run-network-packet-loss-sources")
 
-######
-
-Difference between action duration and DurationSeconds in AWS FIS SSM documents
+###### Difference between action duration and DurationSeconds in AWS FIS SSM documents
 
 Some SSM documents limit their own execution time, for example the DurationSeconds
 parameter is used by some of the pre-configured AWS FIS SSM documents. As a result you need to specify

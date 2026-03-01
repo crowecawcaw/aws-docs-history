@@ -7,9 +7,7 @@ Scheduler access to invoke FIS Experiment. The following steps describe how to
 create a new execution role and a policy to allow EventBridge to Start an
 Experiment.
 
-######
-
-Create scheduler role using the AWS CLI
+###### Create scheduler role using the AWS CLI
 
 This is IAM role that is needed for Event Bridge to be able to schedule
 experiment on behalf of the customer.

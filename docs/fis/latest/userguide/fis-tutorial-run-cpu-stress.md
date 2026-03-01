@@ -1,6 +1,4 @@
-# Tutorial: Run CPU stress on an instance using
-
-AWS FIS
+# Tutorial: Run CPU stress on an instance using AWS FIS
 
 You can use AWS Fault Injection Service (AWS FIS) to test how your applications handle CPU stress. Use this
 tutorial to create an experiment template that uses AWS FIS to run a pre-configured SSM
@@ -53,17 +51,13 @@ apt list amazon-ssm-agent
   **Actions**, **Monitor and troubleshoot**,
   **Manage detailed monitoring**.
 
-## Step 1: Create a CloudWatch alarm for a stop
-
-condition
+## Step 1: Create a CloudWatch alarm for a stop condition
 
 Configure a CloudWatch alarm so that you can stop the experiment if CPU utilization exceeds
 the threshold that you specify. The following procedure sets the threshold to 50% CPU
 utilization for the target instance. For more information, see [Stop conditions](stop-conditions.md "stop-conditions.md").
 
-###### To create an alarm that indicates when CPU utilization exceeds a
-
-threshold
+###### To create an alarm that indicates when CPU utilization exceeds a threshold
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -208,9 +202,7 @@ experiment.
    enter `start`. Choose **Start
    experiment**.
 
-## Step 4: Track the experiment
-
-progress
+## Step 4: Track the experiment progress
 
 You can track the progress of a running experiment until the experiment completes,
 stops, or fails.
@@ -225,9 +217,7 @@ stops, or fails.
 3. When the experiment state is **Running**, go to the next
    step.
 
-## Step 5: Verify the experiment
-
-results
+## Step 5: Verify the experiment results
 
 You can monitor the CPU utilization of your instance while the experiment is running.
 When the CPU utilization reaches the threshold, the alarm is triggered and the

@@ -95,8 +95,7 @@ document as a value. You specify values for parameters when you add the action t
 experiment template.
 
 For more information about specifying parameters for the
-`aws:ssm:send-command` action, see [Use the aws:ssm:send-command
-action](actions-ssm-agent.md#specifying-ssm-actions "actions-ssm-agent.md#specifying-ssm-actions").
+`aws:ssm:send-command` action, see [Use the aws:ssm:send-command action](actions-ssm-agent.md#specifying-ssm-actions "actions-ssm-agent.md#specifying-ssm-actions").
 
 Where possible, you can input a rollback configuration (also referred to as a
 _post action_) within the action parameters. A post action

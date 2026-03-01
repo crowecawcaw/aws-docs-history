@@ -37,15 +37,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for AWS FIS
+### Identity-based policy examples for AWS FIS
 
 To view examples of AWS FIS identity-based policies, see [AWS Fault Injection Service policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within AWS FIS
+## Resource-based policies within AWS FIS
 
 **Supports resource-based policies:**
 
@@ -179,9 +175,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 To view an example identity-based policy for limiting access to a resource based on
 the tags for that resource, see [Example: Use tags to control resource usage](security_iam_id-based-policy-examples.md#security-iam-policy-examples-tagging "security_iam_id-based-policy-examples.md#security-iam-policy-examples-tagging").
 
-## Using temporary
-
-credentials with AWS FIS
+## Using temporary credentials with AWS FIS
 
 **Supports temporary credentials:**
 
@@ -193,9 +187,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS FIS
+## Cross-service principal permissions for AWS FIS
 
 **Supports forward access sessions (FAS):**
 
@@ -204,9 +196,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS FIS
+## Service roles for AWS FIS
 
 **Supports service roles:**
 
@@ -216,9 +206,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for AWS FIS
+## Service-linked roles for AWS FIS
 
 **Supports service-linked roles:**
 

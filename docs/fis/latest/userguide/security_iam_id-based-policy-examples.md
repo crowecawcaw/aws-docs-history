@@ -12,25 +12,18 @@ For details about actions and resource types defined by AWS FIS, including the f
 
 ###### Contents
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Example: Use the AWS FIS
-  console](#security-iam-policy-examples-console "#security-iam-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Example: Use the AWS FIS console](#security-iam-policy-examples-console "#security-iam-policy-examples-console")
 - [Example: List available AWS FIS actions](#security-iam-policy-examples-list-actions "#security-iam-policy-examples-list-actions")
 - [Example: Create an experiment template for a specific action](#security-iam-policy-examples-create-template "#security-iam-policy-examples-create-template")
 - [Example: Start an experiment](#security-iam-policy-examples-start-experiment "#security-iam-policy-examples-start-experiment")
 - [Example: Use tags to control resource usage](#security-iam-policy-examples-tagging "#security-iam-policy-examples-tagging")
 - [Example: Delete an experiment template with a specific tag](#security-iam-policy-examples-delete-tagged-template "#security-iam-policy-examples-delete-tagged-template")
-- [Example: Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example: Use condition keys for
-  ec2:InjectApiError](#security-iam-policy-examples-ec2 "#security-iam-policy-examples-ec2")
-- [Example: Use condition keys for
-  aws:s3:bucket-pause-replication](#security-iam-policy-examples-s3 "#security-iam-policy-examples-s3")
+- [Example: Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example: Use condition keys for ec2:InjectApiError](#security-iam-policy-examples-ec2 "#security-iam-policy-examples-ec2")
+- [Example: Use condition keys for aws:s3:bucket-pause-replication](#security-iam-policy-examples-s3 "#security-iam-policy-examples-s3")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS FIS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -63,9 +56,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example: Use the AWS FIS
-
-console
+## Example: Use the AWS FIS console
 
 To access the AWS Fault Injection Service console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS FIS resources
@@ -284,9 +275,7 @@ JSON
 
 ```
 
-## Example: Allow
-
-users to view their own permissions
+## Example: Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -326,9 +315,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example: Use condition keys for
-
-`ec2:InjectApiError`
+## Example: Use condition keys for `ec2:InjectApiError`
 
 The following example policy uses the `ec2:FisTargetArns` condition key
 to scope target resources. This policy allows the AWS FIS actions `aws:ec2:api-insufficient-instance-capacity-error`
@@ -375,9 +362,7 @@ JSON
 
 ```
 
-## Example: Use condition keys for
-
-`aws:s3:bucket-pause-replication`
+## Example: Use condition keys for `aws:s3:bucket-pause-replication`
 
 The following example policy uses the `S3:IsReplicationPauseRequest` condition key
 to allow `PutReplicationConfiguration` and `GetReplicationConfiguration`

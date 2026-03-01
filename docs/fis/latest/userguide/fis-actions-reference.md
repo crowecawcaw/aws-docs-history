@@ -536,8 +536,7 @@ using this action together with [aws:ec2:asg-insufficient-instance-capacity-erro
   `aws:ec2:api-insufficient-instance-capacity-error` and `ec2:FisTargetArns` condition
   key set to target IAM roles.
 
-For an example policy, see [Example: Use condition keys for
-ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2").
+For an example policy, see [Example: Use condition keys for ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2").
 
 ### aws:ec2:asg-insufficient-instance-capacity-error
 
@@ -568,8 +567,7 @@ see the [Amazon EC2 user guide](../../../AWSEC2/latest/UserGuide/troubleshooting
   `ec2:FisTargetArns` condition key set to target Auto Scaling groups.
 - `autoscaling:DescribeAutoScalingGroups`
 
-For an example policy, see [Example: Use condition keys for
-ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2").
+For an example policy, see [Example: Use condition keys for ec2:InjectApiError](security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-ec2").
 
 ### aws:ec2:reboot-instances
 
@@ -1901,8 +1899,7 @@ Amazon S3 Replication, see the [Amazon S3 user guide](../../../AmazonS3/latest/u
 - `S3:ListAllMyBuckets`
 - `tag:GetResources`
 
-For an example policy, see [Example: Use condition keys for
-aws:s3:bucket-pause-replication](security_iam_id-based-policy-examples.md#security-iam-policy-examples-s3 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-s3").
+For an example policy, see [Example: Use condition keys for aws:s3:bucket-pause-replication](security_iam_id-based-policy-examples.md#security-iam-policy-examples-s3 "security_iam_id-based-policy-examples.md#security-iam-policy-examples-s3").
 
 ## Systems Manager actions
 
@@ -1917,8 +1914,7 @@ AWS FIS supports the following Systems Manager actions.
 
 Runs the Systems Manager API action [SendCommand](../../../systems-manager/latest/APIReference/API_SendCommand.md "../../../systems-manager/latest/APIReference/API_SendCommand.md") on the target EC2 instances. The Systems Manager document (SSM document)
 defines the actions that Systems Manager performs on your instances. For more information, see
-[Use the aws:ssm:send-command
-action](actions-ssm-agent.md#specifying-ssm-actions "actions-ssm-agent.md#specifying-ssm-actions").
+[Use the aws:ssm:send-command action](actions-ssm-agent.md#specifying-ssm-actions "actions-ssm-agent.md#specifying-ssm-actions").
 
 ###### Resource type
 

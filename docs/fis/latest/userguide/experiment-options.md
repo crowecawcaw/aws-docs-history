@@ -88,9 +88,7 @@ resolved.
 - skip – If no resources are resolved for the target, the experiment will continue and any actions with no resolved targets are skipped.
   Actions with targets that are defined using unique identifiers, such as ARNs, cannot be skipped. If a target defined using a unique identifier is not found the experiment is terminated immediately with a status of `failed`
 
-##
-
-Actions mode
+## Actions mode
 
 Actions mode is an optional parameter that you can specify when you start an experiment. You can set actions mode to `skip-all` to generate a target preview
 before injecting faults into your target resources. The target preview allows you to verify the following:
