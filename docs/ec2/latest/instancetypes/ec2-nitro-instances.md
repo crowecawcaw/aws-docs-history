@@ -151,7 +151,7 @@ The following bare metal instances are built on the Nitro System:
 
 Nitro v6
 
-- **General Purpose**: M8a | M8azn | M8i | M8id
+- **General Purpose**: M8a | M8azn | M8gb | M8gn | M8i | M8id
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id
 - **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | X8aedz | X8i
 - **Storage Optimized**: I8ge
