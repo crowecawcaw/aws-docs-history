@@ -1,6 +1,4 @@
-# Configure tensor collections
-
-using the `CollectionConfig` API
+# Configure tensor collections using the `CollectionConfig` API
 
 Use the `CollectionConfig` API operation to configure tensor
 collections. Debugger provides pre-built tensor collections that cover a variety of

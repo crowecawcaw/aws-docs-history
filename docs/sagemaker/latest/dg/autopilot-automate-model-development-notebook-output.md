@@ -1,6 +1,4 @@
-# Autopilot notebooks
-
-generated to manage AutoML tasks
+# Autopilot notebooks generated to manage AutoML tasks
 
 Amazon SageMaker Autopilot manages the key tasks in an automatic machine learning (AutoML) process using an AutoML
 job. The AutoML job creates three notebook-based reports that describe the plan that Autopilot
@@ -16,8 +14,7 @@ experiment.
 ###### Topics
 
 - [Autopilot data exploration report](autopilot-data-exploration-report.md "autopilot-data-exploration-report.md")
-- [Find and run the candidate definition
-  notebook](autopilot-candidate-generation-notebook.md "autopilot-candidate-generation-notebook.md")
+- [Find and run the candidate definition notebook](autopilot-candidate-generation-notebook.md "autopilot-candidate-generation-notebook.md")
   You can run these notebooks in Amazon SageMaker AI, or locally, if you have installed the
   [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). You can share the notebooks just like any other SageMaker Studio Classic
   notebook. The notebooks are created for you to conduct experiments. For example, you could edit

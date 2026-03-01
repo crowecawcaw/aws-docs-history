@@ -1,6 +1,4 @@
-# Clean up a conda
-
-environment
+# Clean up a conda environment
 
 Cleaning up conda environments that you’re not using can help free up disk space
 and improve performance. Use the following template to clean up a conda

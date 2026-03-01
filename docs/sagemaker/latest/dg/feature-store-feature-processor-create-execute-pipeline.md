@@ -1,6 +1,4 @@
-# Creating and
-
-running Feature Store Feature Processor pipelines
+# Creating and running Feature Store Feature Processor pipelines
 
 The Feature Processor SDK provides APIs to promote your Feature Processor Definitions into
 a fully managed SageMaker AI Pipeline. For more information on Pipelines, see [Pipelines overview](pipelines-overview.md "pipelines-overview.md"). To convert your Feature
@@ -8,11 +6,9 @@ Processor Definitions in to a SageMaker AI Pipeline, use the `to_pipeline` API w
 Feature Processor definition. You can schedule executions of your Feature Processor
 Definition can be scheduled, operationally monitor them with CloudWatch metrics, and integrate
 them with EventBridge to act as event sources or subscribers. For more information about monitoring
-pipelines created with Pipelines, see [Monitor Amazon SageMaker Feature Store Feature
-Processor pipelines](feature-store-feature-processor-monitor-pipeline.md "feature-store-feature-processor-monitor-pipeline.md").
+pipelines created with Pipelines, see [Monitor Amazon SageMaker Feature Store Feature Processor pipelines](feature-store-feature-processor-monitor-pipeline.md "feature-store-feature-processor-monitor-pipeline.md").
 
-To view your Feature Processor pipelines, see [View
-pipeline executions from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-executions-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-executions-studio").
+To view your Feature Processor pipelines, see [View pipeline executions from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-executions-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-executions-studio").
 
 If your function is also decorated with the `@remote` decorator, then its
 configurations is carried over to the Feature Processor pipeline. You can specify advanced

@@ -33,9 +33,7 @@ The ml instance types used by SageMaker training have the same number of GPUs as
 corresponding p3 instance types. For example, `ml.p3.8xlarge` has the same
 number of GPUs as `p3.8xlarge` - 4.
 
-## Scaling from a single instance to multiple
-
-instances
+## Scaling from a single instance to multiple instances
 
 If you want to scale your training even further, you can use more instances. However,
 you should choose a larger instance type before you add more instances. Review the previous

@@ -22,9 +22,7 @@ bias metrics to quantify various fairness criteria.
 For additional information about bias metrics, see [Learn
 How Amazon SageMaker Clarify Helps Detect Bias](https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias "https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias") and [Fairness Measures for Machine Learning in Finance](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf").
 
-## Amazon SageMaker Clarify Terms for Bias and
-
-Fairness
+## Amazon SageMaker Clarify Terms for Bias and Fairness
 
 SageMaker Clarify uses the following terminology to discuss bias and fairness.
 
@@ -119,5 +117,4 @@ prompted to choose a kernel, choose **Python 3 (Data Science)**.
 ###### Topics
 
 - [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md")
-- [Generate Reports for Bias in Pre-training
-  Data in SageMaker Studio](clarify-data-bias-reports-ui.md "clarify-data-bias-reports-ui.md")
+- [Generate Reports for Bias in Pre-training Data in SageMaker Studio](clarify-data-bias-reports-ui.md "clarify-data-bias-reports-ui.md")

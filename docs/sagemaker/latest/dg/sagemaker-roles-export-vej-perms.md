@@ -1,6 +1,4 @@
-# `ExportVectorEnrichmentJob`
-
-API: Execution Role Permissions
+# `ExportVectorEnrichmentJob` API: Execution Role Permissions
 
 For an execution role that you can pass in a `ExportVectorEnrichmentJob`
 API request, you can attach the following minimum permissions policy to the role:

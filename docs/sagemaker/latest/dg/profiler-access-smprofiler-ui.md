@@ -4,17 +4,11 @@ You can access the SageMaker Profiler UI application through the following optio
 
 ###### Topics
 
-- [Option 1: Launch
-  the SageMaker Profiler UI from the domain details page](#profiler-access-smprofiler-ui-console-smdomain "#profiler-access-smprofiler-ui-console-smdomain")
-- [Option
-  2: Launch the SageMaker Profiler UI application from the SageMaker Profiler landing page in the SageMaker AI
-  console](#profiler-access-smprofiler-ui-console-profiler-landing-page "#profiler-access-smprofiler-ui-console-profiler-landing-page")
-- [Option 3: Use the application launcher function in the SageMaker AI Python
-  SDK](#profiler-access-smprofiler-ui-app-launcher-function "#profiler-access-smprofiler-ui-app-launcher-function")
+- [Option 1: Launch the SageMaker Profiler UI from the domain details page](#profiler-access-smprofiler-ui-console-smdomain "#profiler-access-smprofiler-ui-console-smdomain")
+- [Option 2: Launch the SageMaker Profiler UI application from the SageMaker Profiler landing page in the SageMaker AI console](#profiler-access-smprofiler-ui-console-profiler-landing-page "#profiler-access-smprofiler-ui-console-profiler-landing-page")
+- [Option 3: Use the application launcher function in the SageMaker AI Python SDK](#profiler-access-smprofiler-ui-app-launcher-function "#profiler-access-smprofiler-ui-app-launcher-function")
 
-## Option 1: Launch
-
-the SageMaker Profiler UI from the domain details page
+## Option 1: Launch the SageMaker Profiler UI from the domain details page
 
 If you have access to the SageMaker AI console, you can take this option.
 
@@ -39,10 +33,7 @@ scoped to a user profile.
 3. Choose **Launch** for the selected user profile, and
    choose **Profiler**.
 
-## Option
-
-2: Launch the SageMaker Profiler UI application from the SageMaker Profiler landing page in the SageMaker AI
-console
+## Option 2: Launch the SageMaker Profiler UI application from the SageMaker Profiler landing page in the SageMaker AI console
 
 The following procedure describes how to launch the SageMaker Profiler UI application from
 the SageMaker Profiler landing page in the SageMaker AI console. If you have access to the SageMaker AI
@@ -61,9 +52,7 @@ console, you can take this option.
    creating a new user profile, see [Add user profiles](domain-user-profile-add.md "domain-user-profile-add.md").
 5. Choose **Open Profiler**.
 
-## Option 3: Use the application launcher function in the SageMaker AI Python
-
-SDK
+## Option 3: Use the application launcher function in the SageMaker AI Python SDK
 
 If you are a SageMaker AI domain user and have access only to SageMaker Studio, you
 can access the SageMaker Profiler UI application through SageMaker Studio Classic by running the [`sagemaker.interactive_apps.detail_profiler_app.DetailProfilerApp`](https://sagemaker.readthedocs.io/en/stable/api/utility/interactive_apps.html#module-sagemaker.interactive_apps.detail_profiler_app "https://sagemaker.readthedocs.io/en/stable/api/utility/interactive_apps.html#module-sagemaker.interactive_apps.detail_profiler_app")

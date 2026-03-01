@@ -1,6 +1,4 @@
-# Resources for using SageMaker AI Spark for
-
-Python (PySpark) examples
+# Resources for using SageMaker AI Spark for Python (PySpark) examples
 
 Amazon SageMaker AI provides an Apache Spark Python library ([SageMaker AI
 PySpark](https://github.com/aws/sagemaker-spark/tree/master/sagemaker-pyspark-sdk "https://github.com/aws/sagemaker-spark/tree/master/sagemaker-pyspark-sdk")) that you can use to integrate your Apache Spark applications with

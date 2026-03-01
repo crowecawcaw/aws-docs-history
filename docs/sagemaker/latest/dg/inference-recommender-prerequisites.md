@@ -1,6 +1,4 @@
-# Prerequisites for using
-
-Amazon SageMaker Inference Recommender
+# Prerequisites for using Amazon SageMaker Inference Recommender
 
 Before you can use Amazon SageMaker Inference Recommender, you must complete the prerequisite steps. As an
 example, we show how to use a PyTorch (v1.7.1) ResNet-18 pre-trained model for both

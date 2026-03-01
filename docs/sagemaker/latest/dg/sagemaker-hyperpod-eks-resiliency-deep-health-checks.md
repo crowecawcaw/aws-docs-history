@@ -1,6 +1,4 @@
-# Deep health
-
-checks
+# Deep health checks
 
 SageMaker HyperPod performs _deep health checks_ on cluster instances
 during the creation and update of HyperPod clusters. The deep health checks
@@ -9,9 +7,7 @@ the underlying hardware and infrastructure components before allowing the cluste
 used for training machine learning models. This proactive approach helps identify and
 mitigate potential issues early in the cluster lifecycle.
 
-## List of
-
-deep health checks done by SageMaker HyperPod
+## List of deep health checks done by SageMaker HyperPod
 
 SageMaker HyperPod runs the following deep health checks.
 
@@ -33,9 +29,7 @@ SageMaker HyperPod runs the following deep health checks.
 | Accelerator | NCCL test          | GPU                         | Verifies the performance of collective communication operations<br>on multiple NVIDIA GPUs    |
 | Accelerator | NCCOM cluster test | Trainium                    | Verifies the performance of collective communication operations<br>on multiple Trainium nodes |
 
-## Logs from
-
-the deep health checks
+## Logs from the deep health checks
 
 The following are example logs from the SageMaker HyperPod deep health checks.
 

@@ -1,6 +1,4 @@
-# Schedule
-
-Feature Attribute Drift Monitoring Jobs
+# Schedule Feature Attribute Drift Monitoring Jobs
 
 After you create your SHAP baseline, you can call the `create_monitoring_schedule()`
 method of your `ModelExplainabilityMonitor` class instance to schedule an hourly
@@ -22,9 +20,7 @@ for the same reason that it's required for the baselining job. Note that only fe
 are required for computing feature attribution, so you should exclude Ground Truth
 labeling.
 
-## Feature attribution drift monitoring for models
-
-deployed to real-time endpoint
+## Feature attribution drift monitoring for models deployed to real-time endpoint
 
 To schedule a model explainability monitor for a real-time endpoint, pass your `EndpointInput`
 instance to the `endpoint_input` argument of your `ModelExplainabilityMonitor` instance, as shown
@@ -53,9 +49,7 @@ schedule = model_exp_model_monitor.create_monitoring_schedule(
 )
 ```
 
-## Feature attribution drift
-
-monitoring for batch transform jobs
+## Feature attribution drift monitoring for batch transform jobs
 
 To schedule a model explainability monitor for a batch transform job, pass your `BatchTransformInput`
 instance to the `batch_transform_input` argument of your `ModelExplainabilityMonitor` instance, as shown

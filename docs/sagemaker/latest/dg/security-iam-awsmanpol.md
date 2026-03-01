@@ -55,31 +55,23 @@ groups that require them.
 
 ###### Topics
 
-- [AWS managed policy:
-  AmazonSageMakerFullAccess](#security-iam-awsmanpol-AmazonSageMakerFullAccess "#security-iam-awsmanpol-AmazonSageMakerFullAccess")
-- [AWS managed policy:
-  AmazonSageMakerReadOnly](#security-iam-awsmanpol-AmazonSageMakerReadOnly "#security-iam-awsmanpol-AmazonSageMakerReadOnly")
+- [AWS managed policy: AmazonSageMakerFullAccess](#security-iam-awsmanpol-AmazonSageMakerFullAccess "#security-iam-awsmanpol-AmazonSageMakerFullAccess")
+- [AWS managed policy: AmazonSageMakerReadOnly](#security-iam-awsmanpol-AmazonSageMakerReadOnly "#security-iam-awsmanpol-AmazonSageMakerReadOnly")
 - [AWS managed policies for Amazon SageMaker Canvas](security-iam-awsmanpol-canvas.md "security-iam-awsmanpol-canvas.md")
 - [AWS managed policies for Amazon SageMaker Feature Store](security-iam-awsmanpol-feature-store.md "security-iam-awsmanpol-feature-store.md")
 - [AWS managed policies for Amazon SageMaker geospatial](security-iam-awsmanpol-geospatial.md "security-iam-awsmanpol-geospatial.md")
 - [AWS Managed Policies for Amazon SageMaker Ground Truth](security-iam-awsmanpol-ground-truth.md "security-iam-awsmanpol-ground-truth.md")
-- [AWS managed policies for
-  Amazon SageMaker HyperPod](security-iam-awsmanpol-hyperpod.md "security-iam-awsmanpol-hyperpod.md")
+- [AWS managed policies for Amazon SageMaker HyperPod](security-iam-awsmanpol-hyperpod.md "security-iam-awsmanpol-hyperpod.md")
 - [AWS Managed Policies for SageMaker AI Model Governance](security-iam-awsmanpol-governance.md "security-iam-awsmanpol-governance.md")
 - [AWS Managed Policies for Model Registry](security-iam-awsmanpol-model-registry.md "security-iam-awsmanpol-model-registry.md")
 - [AWS Managed Policies for SageMaker Notebooks](security-iam-awsmanpol-notebooks.md "security-iam-awsmanpol-notebooks.md")
-- [AWS managed policies for
-  Amazon SageMaker Partner AI Apps](security-iam-awsmanpol-partner-apps.md "security-iam-awsmanpol-partner-apps.md")
+- [AWS managed policies for Amazon SageMaker Partner AI Apps](security-iam-awsmanpol-partner-apps.md "security-iam-awsmanpol-partner-apps.md")
 - [AWS Managed Policies for SageMaker Pipelines](security-iam-awsmanpol-pipelines.md "security-iam-awsmanpol-pipelines.md")
-- [AWS managed policies for
-  SageMaker training plans](security-iam-awsmanpol-training-plan.md "security-iam-awsmanpol-training-plan.md")
+- [AWS managed policies for SageMaker training plans](security-iam-awsmanpol-training-plan.md "security-iam-awsmanpol-training-plan.md")
 - [AWS Managed Policies for SageMaker Projects and JumpStart](security-iam-awsmanpol-sc.md "security-iam-awsmanpol-sc.md")
-- [SageMaker AI Updates to AWS Managed
-  Policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [SageMaker AI Updates to AWS Managed Policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-AmazonSageMakerFullAccess
+## AWS managed policy: AmazonSageMakerFullAccess
 
 This policy grants administrative permissions that allow a principal full access to all
 Amazon SageMaker AI and SageMaker AI geospatial resources and operations. The policy also provides select
@@ -889,9 +881,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## AWS managed policy:
-
-AmazonSageMakerReadOnly
+## AWS managed policy: AmazonSageMakerReadOnly
 
 This policy grants read-only access to Amazon SageMaker AI through the AWS Management Console and SDK.
 
@@ -960,9 +950,7 @@ JSON
 
 ```
 
-## SageMaker AI Updates to AWS Managed
-
-Policies
+## SageMaker AI Updates to AWS Managed Policies
 
 View details about updates to AWS managed policies for SageMaker AI since this service
 began tracking these changes.

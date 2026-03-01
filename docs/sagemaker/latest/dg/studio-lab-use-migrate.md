@@ -1,6 +1,4 @@
-# Export an Amazon SageMaker Studio Lab environment to
-
-Amazon SageMaker Studio Classic
+# Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic
 
 Amazon SageMaker Studio Classic offers many features for machine learning and deep learning work flows that
 are unavailable in Amazon SageMaker Studio Lab. This page shows how to migrate a Studio Lab environment to
@@ -13,17 +11,12 @@ following the steps in [Amazon SageMaker AI domain overview](gs-studio-onboard.
 
 ###### Topics
 
-- [Step 1: Export your Studio Lab conda
-  environment](#studio-lab-use-migrate-step1 "#studio-lab-use-migrate-step1")
+- [Step 1: Export your Studio Lab conda environment](#studio-lab-use-migrate-step1 "#studio-lab-use-migrate-step1")
 - [Step 2: Save your Studio Lab artifacts](#studio-lab-use-migrate-step2 "#studio-lab-use-migrate-step2")
-- [Step 3: Import your Studio Lab artifacts to
-  Studio Classic](#studio-lab-use-migrate-step3 "#studio-lab-use-migrate-step3")
-- [Step 4: Install your Studio Lab conda environments
-  in Studio Classic](#studio-lab-use-migrate-step4 "#studio-lab-use-migrate-step4")
+- [Step 3: Import your Studio Lab artifacts to Studio Classic](#studio-lab-use-migrate-step3 "#studio-lab-use-migrate-step3")
+- [Step 4: Install your Studio Lab conda environments in Studio Classic](#studio-lab-use-migrate-step4 "#studio-lab-use-migrate-step4")
 
-## Step 1: Export your Studio Lab conda
-
-environment
+## Step 1: Export your Studio Lab conda environment
 
 You can export a conda environment and add libraries or packages to the environment by
 following the steps in [Manage your environment](studio-lab-use-manage.md "studio-lab-use-manage.md"). The following example demonstrates using the
@@ -169,9 +162,7 @@ git remote add origin https://github.com/`<GITHUB_USERNAME>`/`<REPOSITORY_NAME>`
 git push -u origin `<BRANCH_NAME>`
 ```
 
-## Step 3: Import your Studio Lab artifacts to
-
-Studio Classic
+## Step 3: Import your Studio Lab artifacts to Studio Classic
 
 The following procedure shows how to import artifacts to Studio Classic. The instructions on
 using Feature Store through the console depends on if you have enabled Studio or Studio Classic as
@@ -237,9 +228,7 @@ your Studio Classic instance and clones your artifacts in that repository.
 git clone https://github.com/`<GITHUB_USERNAME>`/`<REPOSITORY_NAME>`.git
 ```
 
-## Step 4: Install your Studio Lab conda environments
-
-in Studio Classic
+## Step 4: Install your Studio Lab conda environments in Studio Classic
 
 You can now recreate your conda environment by using your YAML file in your Studio Classic
 instance. Open the Studio Classic **Launcher**. For more information on opening

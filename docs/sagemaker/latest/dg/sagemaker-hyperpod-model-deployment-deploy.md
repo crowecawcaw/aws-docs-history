@@ -1,6 +1,4 @@
-# Deploy foundation models
-
-and custom fine-tuned models
+# Deploy foundation models and custom fine-tuned models
 
 Whether you're deploying pre-trained foundation open-weights or gated models from
 Amazon SageMaker JumpStart or your own custom or fine-tuned models stored in Amazon S3 or Amazon FSx,
@@ -18,12 +16,9 @@ from Amazon S3 and Amazon FSx.
 
 ###### Topics
 
-- [Deploy models
-  from JumpStart using Amazon SageMaker Studio](sagemaker-hyperpod-model-deployment-deploy-js-ui.md "sagemaker-hyperpod-model-deployment-deploy-js-ui.md")
-- [Deploy
-  models from JumpStart using kubectl](sagemaker-hyperpod-model-deployment-deploy-js-kubectl.md "sagemaker-hyperpod-model-deployment-deploy-js-kubectl.md")
-- [Deploy custom
-  fine-tuned models from Amazon S3 and Amazon FSx using kubectl](sagemaker-hyperpod-model-deployment-deploy-ftm.md "sagemaker-hyperpod-model-deployment-deploy-ftm.md")
+- [Deploy models from JumpStart using Amazon SageMaker Studio](sagemaker-hyperpod-model-deployment-deploy-js-ui.md "sagemaker-hyperpod-model-deployment-deploy-js-ui.md")
+- [Deploy models from JumpStart using kubectl](sagemaker-hyperpod-model-deployment-deploy-js-kubectl.md "sagemaker-hyperpod-model-deployment-deploy-js-kubectl.md")
+- [Deploy custom fine-tuned models from Amazon S3 and Amazon FSx using kubectl](sagemaker-hyperpod-model-deployment-deploy-ftm.md "sagemaker-hyperpod-model-deployment-deploy-ftm.md")
 
 - [Deploy custom fine-tuned models using the
   Python SDK and HPCLI](deploy-trained-model.md "deploy-trained-model.md")

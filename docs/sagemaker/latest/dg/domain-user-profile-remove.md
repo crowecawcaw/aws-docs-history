@@ -4,9 +4,7 @@ All apps launched by a user profile and all spaces owned by the user profile mus
 following section shows how to remove user profiles from a domain using the SageMaker AI console or
 AWS CLI.
 
-## Remove user profiles from the
-
-console
+## Remove user profiles from the console
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. On the left navigation pane, choose **Admin configurations**.

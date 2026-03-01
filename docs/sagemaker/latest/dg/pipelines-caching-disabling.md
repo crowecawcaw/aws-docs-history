@@ -1,7 +1,6 @@
 # Turn off step caching
 
-A pipeline step does not rerun if you change any attributes that are not listed in [Default cache key attributes by pipeline step
-type](pipelines-default-keys.md "pipelines-default-keys.md") for its step type.
+A pipeline step does not rerun if you change any attributes that are not listed in [Default cache key attributes by pipeline step type](pipelines-default-keys.md "pipelines-default-keys.md") for its step type.
 However, you may decide that you want the pipeline step to rerun anyway. In this case, you
 need to turn off step caching.
 

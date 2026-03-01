@@ -1,6 +1,4 @@
-# Specify a deduplication key and ID in an Amazon SNS
-
-message
+# Specify a deduplication key and ID in an Amazon SNS message
 
 When you send a data object to your streaming labeling job using an Amazon SNS
 message, you have the option to specify your deduplication key and deduplication

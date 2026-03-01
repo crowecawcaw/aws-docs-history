@@ -42,8 +42,7 @@ machine learning applications.
 ###### Important
 
 Data Wrangler no longer supports Jupyter Lab Version 1 (JL1). To access the latest features and updates, update to Jupyter Lab Version 3.
-For more information about upgrading, see [View and update the JupyterLab version of an application from the
-console](studio-jl.md#studio-jl-view "studio-jl.md#studio-jl-view").
+For more information about upgrading, see [View and update the JupyterLab version of an application from the console](studio-jl.md#studio-jl-view "studio-jl.md#studio-jl-view").
 
 ###### Important
 
@@ -77,14 +76,12 @@ You can update Amazon SageMaker Studio Classic from within the AWS Management Co
 - [Import](data-wrangler-import.md "data-wrangler-import.md")
 - [Create and Use a Data Wrangler Flow](data-wrangler-data-flow.md "data-wrangler-data-flow.md")
 - [Get Insights On Data and Data Quality](data-wrangler-data-insights.md "data-wrangler-data-insights.md")
-- [Automatically Train Models on Your Data
-  Flow](data-wrangler-autopilot.md "data-wrangler-autopilot.md")
+- [Automatically Train Models on Your Data Flow](data-wrangler-autopilot.md "data-wrangler-autopilot.md")
 - [Transform Data](data-wrangler-transform.md "data-wrangler-transform.md")
 - [Analyze and Visualize](data-wrangler-analyses.md "data-wrangler-analyses.md")
 - [Reusing Data Flows for Different Datasets](data-wrangler-parameterize.md "data-wrangler-parameterize.md")
 - [Export](data-wrangler-data-export.md "data-wrangler-data-export.md")
-- [Use an Interactive Data
-  Preparation Widget in an Amazon SageMaker Studio Classic Notebook to Get Data Insights](data-wrangler-interactively-prepare-data-notebook.md "data-wrangler-interactively-prepare-data-notebook.md")
+- [Use an Interactive Data Preparation Widget in an Amazon SageMaker Studio Classic Notebook to Get Data Insights](data-wrangler-interactively-prepare-data-notebook.md "data-wrangler-interactively-prepare-data-notebook.md")
 - [Security and Permissions](data-wrangler-security.md "data-wrangler-security.md")
 - [Release Notes](data-wrangler-release-notes.md "data-wrangler-release-notes.md")
 - [Troubleshoot](data-wrangler-trouble-shooting.md "data-wrangler-trouble-shooting.md")

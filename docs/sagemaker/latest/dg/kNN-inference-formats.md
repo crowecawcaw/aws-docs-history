@@ -4,9 +4,7 @@ All Amazon SageMaker AI built-in algorithms adhere to the common input inference
 [Common Data Formats - Inference](cdf-inference.md "cdf-inference.md"). This topic contains a list of the
 available output formats for the SageMaker AI k-nearest-neighbor algorithm.
 
-## INPUT:
-
-CSV Request Format
+## INPUT: CSV Request Format
 
 content-type: text/csv
 
@@ -89,9 +87,7 @@ accept: application/jsonlines
 {"predicted_label": 2.0}
 ```
 
-## OUTPUT: VERBOSE JSON Response
-
-Format
+## OUTPUT: VERBOSE JSON Response Format
 
 In verbose mode, the API provides the search results with the distances vector
 sorted from smallest to largest, with corresponding elements in the labels vector.
@@ -116,9 +112,7 @@ accept: application/json; verbose=true
 }
 ```
 
-## OUTPUT: RECORDIO-PROTOBUF Response
-
-Format
+## OUTPUT: RECORDIO-PROTOBUF Response Format
 
 content-type: application/x-recordio-protobuf
 
@@ -143,9 +137,7 @@ content-type: application/x-recordio-protobuf
 ]
 ```
 
-## OUTPUT: VERBOSE RECORDIO-PROTOBUF Response
-
-Format
+## OUTPUT: VERBOSE RECORDIO-PROTOBUF Response Format
 
 In verbose mode, the API provides the search results with the distances vector
 sorted from smallest to largest, with corresponding elements in the labels vector.

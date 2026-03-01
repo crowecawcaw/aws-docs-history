@@ -10,11 +10,8 @@ a full list of available built-in rules, see [List of Debugger built-in rules](d
 
 ###### Topics
 
-- [Use Debugger built-in rules with
-  the default parameter settings](debugger-built-in-rules-configuration.md "debugger-built-in-rules-configuration.md")
-- [Use Debugger built-in
-  rules with custom parameter values](debugger-built-in-rules-configuration-param-change.md "debugger-built-in-rules-configuration-param-change.md")
-- [Example notebooks and code samples to
-  configure Debugger rules](debugger-built-in-rules-example.md "debugger-built-in-rules-example.md")
+- [Use Debugger built-in rules with the default parameter settings](debugger-built-in-rules-configuration.md "debugger-built-in-rules-configuration.md")
+- [Use Debugger built-in rules with custom parameter values](debugger-built-in-rules-configuration-param-change.md "debugger-built-in-rules-configuration-param-change.md")
+- [Example notebooks and code samples to configure Debugger rules](debugger-built-in-rules-example.md "debugger-built-in-rules-example.md")
   For an advanced configuration of the Debugger built-in rules using the `CreateTrainingJob` API,
   see [Configure Debugger using SageMaker API](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md").

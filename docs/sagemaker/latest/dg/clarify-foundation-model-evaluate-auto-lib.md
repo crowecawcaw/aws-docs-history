@@ -1,6 +1,4 @@
-# Use the
-
-`fmeval` library to run an automatic evaluation
+# Use the `fmeval` library to run an automatic evaluation
 
 Using the `fmeval` library in your own code gives you the most
 flexibility to customize your work flow. You can use the `fmeval`library
@@ -9,9 +7,7 @@ datasets. The following steps show you how to set up your environment and how to
 both a starting and a customized work flow using the `fmeval`
 library.
 
-## Get
-
-started using the `fmeval` library
+## Get started using the `fmeval` library
 
 You can configure your foundation model evaluation and customize it for your
 use case in a Studio notebook. Your configuration depends both on the kind
@@ -198,8 +194,7 @@ some JumpStart models, you must specify
 `accept_eula=true`, as shown in the previous call
 to `predict`. For more information about EULA, see
 the **Licenses and model sources**
-section in [Model sources and license
-agreements](jumpstart-foundation-models-choose.md "jumpstart-foundation-models-choose.md")
+section in [Model sources and license agreements](jumpstart-foundation-models-choose.md "jumpstart-foundation-models-choose.md")
 .
 
 You can find a list of available JumpStart models at
@@ -502,7 +497,7 @@ eval_output = eval_algo.evaluate(model=model_runner, dataset_config=config, prom
 
 The `SummarizationAccuracy` algorithm returns a list of
 `EvalOutput` objects that contain scores for [ROUGE-N](https://huggingface.co/spaces/evaluate-metric/rouge "https://huggingface.co/spaces/evaluate-metric/rouge"), [Meteor](https://huggingface.co/spaces/evaluate-metric/meteor "https://huggingface.co/spaces/evaluate-metric/meteor"), and [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore"). For more information about
-these scores, see the Text summarization section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md") . To run
+these scores, see the Text summarization section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md"). To run
 the text summarization accuracy algorithm, instantiate a
 `SummarizationAccuracyConfig` and pass in the
 following:
@@ -542,7 +537,7 @@ eval_output = eval_algo.evaluate(model=model_runner, dataset_config=config, prom
 The `ClassificationAccuracy` algorithm returns a list of
 `EvalOutput` objects that contain the classification
 accuracy, precision, recall, and balanced accuracy scores for each
-sample. For more information about these scores, see the **Classification** section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md") . To run
+sample. For more information about these scores, see the **Classification** section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md"). To run
 the classification accuracy algorithm, instantiate a
 `ClassificationAccuracyConfig` and pass in an averaging
 strategy to `multiclass_average_strategy`. You can choose
@@ -713,7 +708,7 @@ The `SummarizationAccuracySemanticRobustness` algorithm
 returns a list of `EvalScore` objects that contain the
 difference (or delta) between the [ROUGE-N](https://huggingface.co/spaces/evaluate-metric/rouge "https://huggingface.co/spaces/evaluate-metric/rouge"), [Meteor](https://huggingface.co/spaces/evaluate-metric/meteor "https://huggingface.co/spaces/evaluate-metric/meteor"), and [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore") values between the generated
 and reference summaries. For more information about these scores, see
-the **Text summarization** section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md") . To run
+the **Text summarization** section in [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md"). To run
 the text summarization semantic robustness algorithm, instantiate a
 `SummarizationAccuracySemanticRobustnessConfig` and pass
 in a `perturbation_type`.

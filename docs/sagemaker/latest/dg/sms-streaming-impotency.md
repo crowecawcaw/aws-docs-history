@@ -8,8 +8,7 @@ assigned a _deduplication ID_, which is
 identified with a _deduplication key_. If you
 send your requests to label data objects directly through your Amazon SNS input topic
 using Amazon SNS messages, you can optionally choose a custom deduplication key and
-deduplication IDs for your objects. For more information, see [Specify a deduplication key and ID in an Amazon SNS
-message](sms-streaming-impotency-create.md "sms-streaming-impotency-create.md").
+deduplication IDs for your objects. For more information, see [Specify a deduplication key and ID in an Amazon SNS message](sms-streaming-impotency-create.md "sms-streaming-impotency-create.md").
 
 If you do not provide your own deduplication key, or if you use the Amazon S3
 configuration to send data objects to your labeling job, Ground Truth uses one of the

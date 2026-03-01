@@ -1,6 +1,4 @@
-# Output data for a
-
-3D-2D object tracking labeling job
+# Output data for a 3D-2D object tracking labeling job
 
 When you create a 3D-2D object tracking labeling job, tasks are sent to workers. When
 these workers complete their tasks, their annotations are written to the Amazon S3 bucket you

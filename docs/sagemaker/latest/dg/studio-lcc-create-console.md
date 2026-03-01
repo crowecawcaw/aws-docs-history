@@ -1,6 +1,4 @@
-# Create a Lifecycle Configuration from the SageMaker AI
-
-Console for Amazon SageMaker Studio Classic
+# Create a Lifecycle Configuration from the SageMaker AI Console for Amazon SageMaker Studio Classic
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -35,9 +32,7 @@ Before you can begin this tutorial, complete the following prerequisite:
 
 - Onboard to Amazon SageMaker Studio Classic. For more information, see [Onboard to Amazon SageMaker Studio Classic](gs-studio-onboard.md "gs-studio-onboard.md").
 
-## Step 1: Create a new lifecycle
-
-configuration
+## Step 1: Create a new lifecycle configuration
 
 You can create a lifecycle configuration by entering a script from the Amazon SageMaker AI
 console.
@@ -74,9 +69,7 @@ echo 'Hello World!'
 10. (Optional) Create a tag for your lifecycle configuration.
 11. Choose **Submit**.
 
-## Step 2: Attach the lifecycle
-
-configuration to a domain or user profile
+## Step 2: Attach the lifecycle configuration to a domain or user profile
 
 Lifecycle configuration scripts associated at the domain level are inherited by all
 users. However, scripts that are associated at the user profile level are scoped to a
@@ -88,8 +81,7 @@ JupyterServer and KernelGateway applications.
 ###### Note
 
 To attach a lifecycle configuration to a shared space, you must use the AWS CLI. For
-more information, see [Create a Lifecycle Configuration from the
-AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md").
+more information, see [Create a Lifecycle Configuration from the AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md").
 
 The following sections show how to attach a lifecycle configuration to your domain or
 user profile.
@@ -114,9 +106,7 @@ domain from the SageMaker AI console.
    lifecycle configuration that you created in the previous step.
 9. Select **Attach to domain**.
 
-### Attach to your user
-
-profile
+### Attach to your user profile
 
 The following shows how to attach a lifecycle configuration to your existing user
 profile.
@@ -139,9 +129,7 @@ profile.
     lifecycle configuration that you created in the previous step.
 11. Choose **Attach to user profile**.
 
-## Step 3: Launch an application with the
-
-lifecycle configuration
+## Step 3: Launch an application with the lifecycle configuration
 
 After you attach a lifecycle configuration to a domain or user profile, you can launch
 an application with that attached lifecycle configuration. Choosing which lifecycle
@@ -155,8 +143,7 @@ configuration to launch with depends on the application type.
 
 To select a different attached lifecycle configuration, you must launch with
 the AWS CLI. For more information about launching a JupyterServer application with
-an attached lifecycle configuration from the AWS CLI, see [Create a Lifecycle Configuration from the
-AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md").
+an attached lifecycle configuration from the AWS CLI, see [Create a Lifecycle Configuration from the AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md").
 
 - KernelGateway: You can select any of the attached lifecycle configurations
   when launching a KernelGateway application using the Studio Classic Launcher.
@@ -184,9 +171,7 @@ script`. Otherwise, the **Start-up script** value is
    a new notebook kernel with your selected image and lifecycle
    configuration.
 
-## Step 4: View logs for a lifecycle
-
-configuration
+## Step 4: View logs for a lifecycle configuration
 
 You can view the logs for your lifecycle configuration after it has been attached to a
 domain or user profile.

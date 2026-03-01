@@ -11,9 +11,7 @@ Code Editor.
 ###### Topics
 
 - [Complete prerequisites](code-editor-admin-prerequisites.md "code-editor-admin-prerequisites.md")
-- [Give your users access to private
-  spaces](code-editor-admin-user-access.md "code-editor-admin-user-access.md")
+- [Give your users access to private spaces](code-editor-admin-user-access.md "code-editor-admin-user-access.md")
 - [Change the default storage size](code-editor-admin-storage-size.md "code-editor-admin-storage-size.md")
-- [Code Editor lifecycle
-  configurations](code-editor-use-lifecycle-configurations.md "code-editor-use-lifecycle-configurations.md")
+- [Code Editor lifecycle configurations](code-editor-use-lifecycle-configurations.md "code-editor-use-lifecycle-configurations.md")
 - [Custom images](code-editor-custom-images.md "code-editor-custom-images.md")

@@ -1,7 +1,4 @@
-# Granting SageMaker Studio Permissions
-
-Required to Use
-Projects
+# Granting SageMaker Studio Permissions Required to Use Projects
 
 The Amazon SageMaker Studio (or Studio Classic) administrator and Studio (or Studio Classic) users that you add to your domain can view
 project templates provided by SageMaker AI and create projects with those templates.

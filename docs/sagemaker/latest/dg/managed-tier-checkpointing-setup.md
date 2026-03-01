@@ -7,16 +7,11 @@ training code.
 ###### Topics
 
 - [Prerequisites](#managed-tier-checkpointing-setup-prerequisites "#managed-tier-checkpointing-setup-prerequisites")
-- [Step 1: Enable
-  managed tiered checkpointing for your cluster](#managed-tier-checkpointing-setup-step-enable-for-cluster "#managed-tier-checkpointing-setup-step-enable-for-cluster")
-- [Step 2: Install the
-  Python library in your training image](#managed-tier-checkpointing-setup-step-install-library "#managed-tier-checkpointing-setup-step-install-library")
-- [Step 3: Save
-  checkpoints in your training loop](#managed-tier-checkpointing-setup-step-save-checkpoint-in-loop "#managed-tier-checkpointing-setup-step-save-checkpoint-in-loop")
-- [Step 4: Load
-  checkpoints for recovery](#managed-tier-checkpointing-setup-step-load-checkpoint "#managed-tier-checkpointing-setup-step-load-checkpoint")
-- [Validate your managed tiered
-  checkpointing operations](#managed-tier-checkpointing-setup-validation "#managed-tier-checkpointing-setup-validation")
+- [Step 1: Enable managed tiered checkpointing for your cluster](#managed-tier-checkpointing-setup-step-enable-for-cluster "#managed-tier-checkpointing-setup-step-enable-for-cluster")
+- [Step 2: Install the Python library in your training image](#managed-tier-checkpointing-setup-step-install-library "#managed-tier-checkpointing-setup-step-install-library")
+- [Step 3: Save checkpoints in your training loop](#managed-tier-checkpointing-setup-step-save-checkpoint-in-loop "#managed-tier-checkpointing-setup-step-save-checkpoint-in-loop")
+- [Step 4: Load checkpoints for recovery](#managed-tier-checkpointing-setup-step-load-checkpoint "#managed-tier-checkpointing-setup-step-load-checkpoint")
+- [Validate your managed tiered checkpointing operations](#managed-tier-checkpointing-setup-validation "#managed-tier-checkpointing-setup-validation")
 
 ## Prerequisites
 
@@ -31,9 +26,7 @@ Before setting up managed tiered checkpointing, ensure you have:
   - These permissions can be configured via [EKS OIDC
     setup](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md")
 
-## Step 1: Enable
-
-managed tiered checkpointing for your cluster
+## Step 1: Enable managed tiered checkpointing for your cluster
 
 ###### Important
 
@@ -76,9 +69,7 @@ The `InstanceMemoryAllocationPercentage` parameter specifies the
 `percentage` (int) of cluster memory to allocate
 for checkpointing. The range is 20-100.
 
-## Step 2: Install the
-
-Python library in your training image
+## Step 2: Install the Python library in your training image
 
 Install the [Amazon SageMaker
 checkpointing library](https://pypi.org/project/amzn-sagemaker-checkpointing/ "https://pypi.org/project/amzn-sagemaker-checkpointing/") and its dependencies in your training image by adding it to
@@ -89,9 +80,7 @@ your Dockerfile:
 RUN pip install amzn-sagemaker-checkpointing s3torchconnector tenacity torch boto3 s3torchconnector
 ```
 
-## Step 3: Save
-
-checkpoints in your training loop
+## Step 3: Save checkpoints in your training loop
 
 In your training loop, you can asynchronously save checkpoints using PyTorch DCP. The
 following is an example on how to do so.
@@ -168,9 +157,7 @@ for training_step in range(1000):
         # Continue training while checkpoint saves in background
 ```
 
-## Step 4: Load
-
-checkpoints for recovery
+## Step 4: Load checkpoints for recovery
 
 The following is an example on loading a checkpoint.
 
@@ -199,9 +186,7 @@ except BaseException as e:
     # Add additional exception handling
 ```
 
-## Validate your managed tiered
-
-checkpointing operations
+## Validate your managed tiered checkpointing operations
 
 You can validate your managed tiered checkpointing operations with logs.
 

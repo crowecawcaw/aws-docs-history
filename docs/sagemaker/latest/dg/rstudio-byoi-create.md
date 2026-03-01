@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -28,15 +27,11 @@ For information about testing your image locally and resolving common issues, se
 
 ###### Topics
 
-- [Add a SageMaker AI-compatible RStudio
-  Docker container image to Amazon ECR](#rstudio-byoi-sdk-add-container-image "#rstudio-byoi-sdk-add-container-image")
-- [Create a SageMaker image from the
-  console](#rstudio-byoi-create-console "#rstudio-byoi-create-console")
+- [Add a SageMaker AI-compatible RStudio Docker container image to Amazon ECR](#rstudio-byoi-sdk-add-container-image "#rstudio-byoi-sdk-add-container-image")
+- [Create a SageMaker image from the console](#rstudio-byoi-create-console "#rstudio-byoi-create-console")
 - [Create an image from the AWS CLI](#rstudio-byoi-create-cli "#rstudio-byoi-create-cli")
 
-## Add a SageMaker AI-compatible RStudio
-
-Docker container image to Amazon ECR
+## Add a SageMaker AI-compatible RStudio Docker container image to Amazon ECR
 
 Use the following steps to add a Docker container image to Amazon ECR:
 
@@ -119,9 +114,7 @@ The push refers to repository [`<account-id>`.dkr.ecr.us-east-2.amazonaws.com/rs
 r: digest: `<digest>` size: 3066
 ```
 
-## Create a SageMaker image from the
-
-console
+## Create a SageMaker image from the console
 
 ###### To create an image
 

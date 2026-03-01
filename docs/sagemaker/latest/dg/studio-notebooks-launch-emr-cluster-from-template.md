@@ -1,13 +1,10 @@
-# Launch an Amazon EMR
-
-cluster from Studio or Studio Classic
+# Launch an Amazon EMR cluster from Studio or Studio Classic
 
 Data scientists and data engineers can self-provision Amazon EMR clusters from Studio
 or Studio Classic using CloudFormation templates set up by their administrators. Before users can
 launch a cluster, administrators must have configured the necessary settings in the
 Studio environment. For information on how administrators can configure a
-Studio environment to allow self-provisioning Amazon EMR clusters, see [Configure Amazon EMR CloudFormation
-templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md").
+Studio environment to allow self-provisioning Amazon EMR clusters, see [Configure Amazon EMR CloudFormation templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md").
 
 To provision a new Amazon EMR cluster from Studio or Studio Classic:
 
@@ -27,5 +24,4 @@ To provision a new Amazon EMR cluster from Studio or Studio Classic:
 ![Creation form of an Amazon EMR cluster from Studio or Studio Classic.](images/studio/emr/studio-notebooks-emr-cluster-creation.png)
 Once the cluster is provisioned, the Studio or Studio Classic UI displays a _The cluster has been successfully created_ message.
 
-To connect to your cluster, see [Connect to an Amazon EMR cluster from SageMaker Studio
-or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")
+To connect to your cluster, see [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")

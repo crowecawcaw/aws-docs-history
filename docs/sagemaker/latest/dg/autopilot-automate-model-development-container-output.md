@@ -1,6 +1,4 @@
-# Configure inference
-
-output in generated containers
+# Configure inference output in generated containers
 
 Autopilot generates an ordered [`ContainerDefinition`](../APIReference/API_ContainerDefinition.md "../APIReference/API_ContainerDefinition.md") list. This can be used to build a model to
 deploy in a machine learning pipeline. This model can be used for online hosting and
@@ -9,15 +7,11 @@ inference.
 Customers can list inference container definitions with the [`ListCandidateForAutoMLJob`](../APIReference/API_ListCandidateForAutoMLJob.md "../APIReference/API_ListCandidateForAutoMLJob.md") API. The list of inference container
 definitions that represent the best candidate is also available in the [`DescribeAutoMLJob`](../APIReference/API_DescribeAutoMLJob.md "../APIReference/API_DescribeAutoMLJob.md") response.
 
-## Inference container definitions
-
-for regression and classification problem types
+## Inference container definitions for regression and classification problem types
 
 Autopilot generates inference containers specific to the [training mode](autopilot-model-support-validation.md#autopilot-training-mode "autopilot-model-support-validation.md#autopilot-training-mode") and the [problem type](autopilot-datasets-problem-types.md#autopilot-problem-types "autopilot-datasets-problem-types.md#autopilot-problem-types") of the job.
 
-### Container definitions for
-
-hyperparameter optimization (HPO) mode
+### Container definitions for hyperparameter optimization (HPO) mode
 
 - **Regression**: HPO generates two containers:
   1.  A feature engineering container that transforms the original features into
@@ -36,21 +30,15 @@ hyperparameter optimization (HPO) mode
       prediction. For example, it can perform an inverse transform on the predicted
       label and change it to the original label.
 
-### Container definitions
-
-for ensembling mode
+### Container definitions for ensembling mode
 
 In ensembling mode, both regression and classification problem types have only one
 inference container. This inference container transforms the features and generates the
 predictions based on problem type.
 
-## Inference responses per problem
+## Inference responses per problem type
 
-type
-
-### Inference
-
-responses for classification models
+### Inference responses for classification models
 
 For classification inference containers, you can select the content of the inference
 response by using four predefined keys:
@@ -96,9 +84,7 @@ variables:
 - `SAGEMAKER_INFERENCE_OUTPUT`: This should be populated with the set of
   keys that the container outputs.
 
-### Inference
-
-responses for classification models in HPO mode
+### Inference responses for classification models in HPO mode
 
 This section shows how to configure the inference response from classification models
 using hyperparameter optimization (HPO) mode.

@@ -1,21 +1,14 @@
-# Example notebooks and code samples to
-
-configure Debugger rules
+# Example notebooks and code samples to configure Debugger rules
 
 In the following sections, notebooks and code samples of how to use Debugger rules to monitor SageMaker training jobs are provided.
 
 ###### Topics
 
-- [Debugger built-in rules
-  example notebooks](#debugger-built-in-rules-notebook-example "#debugger-built-in-rules-notebook-example")
-- [Debugger built-in rules example
-  code](#debugger-deploy-built-in-rules "#debugger-deploy-built-in-rules")
-- [Use Debugger built-in rules
-  with parameter modifications](#debugger-deploy-modified-built-in-rules "#debugger-deploy-modified-built-in-rules")
+- [Debugger built-in rules example notebooks](#debugger-built-in-rules-notebook-example "#debugger-built-in-rules-notebook-example")
+- [Debugger built-in rules example code](#debugger-deploy-built-in-rules "#debugger-deploy-built-in-rules")
+- [Use Debugger built-in rules with parameter modifications](#debugger-deploy-modified-built-in-rules "#debugger-deploy-modified-built-in-rules")
 
-## Debugger built-in rules
-
-example notebooks
+## Debugger built-in rules example notebooks
 
 The following example notebooks show how to use Debugger built-in rules when running
 training jobs with Amazon SageMaker AI:
@@ -40,9 +33,7 @@ There are two ways of using the Debugger built-in rules in the SageMaker AI envi
 deploy the built-in rules as it is prepared or adjust their parameters as you want. The
 following topics show you how to use the built-in rules with example codes.
 
-## Debugger built-in rules example
-
-code
+## Debugger built-in rules example code
 
 The following code sample shows how to set the Debugger built-in rules using the
 `Rule.sagemaker` method. To specify built-in rules that you want to run,
@@ -86,12 +77,9 @@ For more information about the Debugger rule class, methods, and parameters, see
 [SageMaker Debugger Rule class](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
 To find an example of how to adjust the Debugger rule parameters, see the following
-[Use Debugger built-in rules
-with parameter modifications](#debugger-deploy-modified-built-in-rules "#debugger-deploy-modified-built-in-rules") section.
+[Use Debugger built-in rules with parameter modifications](#debugger-deploy-modified-built-in-rules "#debugger-deploy-modified-built-in-rules") section.
 
-## Use Debugger built-in rules
-
-with parameter modifications
+## Use Debugger built-in rules with parameter modifications
 
 The following code example shows the structure of built-in rules to adjust parameters.
 In this example, the `stalled_training_rule` collects the `losses`

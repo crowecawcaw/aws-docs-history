@@ -29,7 +29,5 @@ Application types can be either `JupyterServer` or `KernelGateway`.
 
 ###### Topics
 
-- [Create a Lifecycle Configuration from the
-  AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md")
-- [Create a Lifecycle Configuration from the SageMaker AI
-  Console for Amazon SageMaker Studio Classic](studio-lcc-create-console.md "studio-lcc-create-console.md")
+- [Create a Lifecycle Configuration from the AWS CLI for Amazon SageMaker Studio Classic](studio-lcc-create-cli.md "studio-lcc-create-cli.md")
+- [Create a Lifecycle Configuration from the SageMaker AI Console for Amazon SageMaker Studio Classic](studio-lcc-create-console.md "studio-lcc-create-console.md")

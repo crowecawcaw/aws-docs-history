@@ -45,5 +45,4 @@ segmentation, and text classification. These are the functions:
   isn't clear. The label resolves to the most assigned entity label in the
   cluster, breaking ties by random selection.
   You can use other algorithms to consolidate annotations. For information, see
-  [Annotation consolidation function
-  creation](consolidation-lambda.md "consolidation-lambda.md").
+  [Annotation consolidation function creation](consolidation-lambda.md "consolidation-lambda.md").

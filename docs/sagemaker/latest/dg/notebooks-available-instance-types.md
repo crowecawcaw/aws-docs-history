@@ -1,6 +1,4 @@
-# Instance Types Available for Use With
-
-Amazon SageMaker Studio Classic Notebooks
+# Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks
 
 ###### Important
 

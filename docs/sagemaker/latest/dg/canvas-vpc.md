@@ -281,9 +281,7 @@ JSON
 
 The user’s IAM role should now have permissions to access the VPC endpoints configured in your VPC.
 
-### (Optional) Step 4: Override security group settings
-
-for specific users
+### (Optional) Step 4: Override security group settings for specific users
 
 If you are an administrator, you might want different users to have different VPC settings, or
 user-specific VPC settings. When you override the default VPC’s security group settings for a specific user,

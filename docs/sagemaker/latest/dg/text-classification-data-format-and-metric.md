@@ -1,6 +1,4 @@
-# Datasets format and objective
-
-metric for text classification
+# Datasets format and objective metric for text classification
 
 In this section we learn about the available formats for datasets used in text
 classification as well as the metric used to evaluate the predictive quality of machine

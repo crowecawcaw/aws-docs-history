@@ -27,10 +27,7 @@ control policies) that deny Amazon ECR permissions don't prevent the use of pre-
 ###### Topics
 
 - [Prebuilt SageMaker image support policy](pre-built-containers-support-policy.md "pre-built-containers-support-policy.md")
-- [Prebuilt SageMaker AI Docker images
-  for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md")
-- [Accessing Docker
-  Images for Scikit-learn and Spark ML](pre-built-docker-containers-scikit-learn-spark.md "pre-built-docker-containers-scikit-learn-spark.md")
+- [Prebuilt SageMaker AI Docker images for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md")
+- [Accessing Docker Images for Scikit-learn and Spark ML](pre-built-docker-containers-scikit-learn-spark.md "pre-built-docker-containers-scikit-learn-spark.md")
 - [Deep Graph Networks](deep-graph-library.md "deep-graph-library.md")
-- [Extend a Pre-built
-  Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md")
+- [Extend a Pre-built Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md")

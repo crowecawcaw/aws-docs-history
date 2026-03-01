@@ -4,8 +4,7 @@ This section details the various features of the JupyterLab SQL extension in Stu
 and provides instructions on how to use them. Before you can use the SQL extension to access
 and query data from your JupyterLab notebooks, an administrator must first configure the
 connection to your data sources. For information on how administrators can create connections to
-data sources, see [SQL extension data source
-connections](sagemaker-sql-extension-datasources-connection.md "sagemaker-sql-extension-datasources-connection.md").
+data sources, see [SQL extension data source connections](sagemaker-sql-extension-datasources-connection.md "sagemaker-sql-extension-datasources-connection.md").
 
 ###### Note
 
@@ -23,16 +22,13 @@ from pre-configured data sources.
     browse your data sources and explore their tables, columns, and metadata. For details on
     the data exploration features of the SQL extension, see [Browse data using SQL extension](sagemaker-sql-extension-features-data-discovery.md "sagemaker-sql-extension-features-data-discovery.md").
   - The **connection caching** element caches connections
-    for quick access. For details on connection caching in the SQL extension, see [SQL extension
-    connection caching](sagemaker-sql-extension-features-connection-caching.md "sagemaker-sql-extension-features-connection-caching.md").
+    for quick access. For details on connection caching in the SQL extension, see [SQL extension connection caching](sagemaker-sql-extension-features-connection-caching.md "sagemaker-sql-extension-features-connection-caching.md").
 
 - Use the _SQL Editor and Executor_ to write, edit, and
   run SQL queries against connected data sources.
   - With the **SQL editor** element, you can write,
     format, and validate SQL statements within the notebooks of your JupyterLab application
-    in Studio. For details on the SQL editor features, see [SQL editor features of the
-    JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md").
+    in Studio. For details on the SQL editor features, see [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md").
   - With the **SQL execution** element, you can run your
     SQL queries and visualize their results from the notebooks of your JupyterLab
-    application in Studio. For details on the SQL execution capabilities, see [SQL execution features of the
-    JupyterLab SQL extension](sagemaker-sql-extension-features-sql-execution.md "sagemaker-sql-extension-features-sql-execution.md").
+    application in Studio. For details on the SQL execution capabilities, see [SQL execution features of the JupyterLab SQL extension](sagemaker-sql-extension-features-sql-execution.md "sagemaker-sql-extension-features-sql-execution.md").

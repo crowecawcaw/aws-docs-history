@@ -50,9 +50,7 @@ to make decisions about whether to scale dynamically as workload changes occur.
 Scheduled scaling can be managed only from the AWS CLI or the Application Auto Scaling API. For
 more information, see [Scheduled scaling](../../../autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.md "../../../autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.md") in the _Application Auto Scaling User Guide_.
 
-## Minimum and maximum scaling
-
-limits
+## Minimum and maximum scaling limits
 
 When configuring auto scaling, you must specify your scaling limits before
 creating a scaling policy. You set limits separately for the minimum and maximum

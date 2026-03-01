@@ -9,7 +9,6 @@ There are two methods of installing and deploying the Edge Manager agent onto yo
 devices:
 
 1. Download the agent as a binary from the Amazon S3 release bucket. For more information,
-   see [Download and Set Up the Edge Manager Agent
-   Manually](edge-device-fleet-manual.md "edge-device-fleet-manual.md").
+   see [Download and Set Up the Edge Manager Agent Manually](edge-device-fleet-manual.md "edge-device-fleet-manual.md").
 2. Use the AWS IoT Greengrass V2 console or the AWS CLI to deploy
    `aws.greengrass.SageMakerEdgeManager`. See [Create the AWS IoT Greengrass V2 Components](edge-greengrass-custom-component.md "edge-greengrass-custom-component.md").

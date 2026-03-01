@@ -1,6 +1,4 @@
-# Use Human Loop
-
-Activation Conditions JSON Schema with Amazon Rekognition
+# Use Human Loop Activation Conditions JSON Schema with Amazon Rekognition
 
 When used with Amazon A2I, the Amazon Rekognition `DetectModerationLabels` operation
 supports the following inputs in the `ConditionType` parameters:
@@ -34,8 +32,7 @@ inferences sent for human review by these activation conditions are included in 
 worker UI when a worker opens your task. If you use a custom worker task template, you
 need to include the `<task.input.selectedAiServiceResponse.blocks>` custom
 HTML element to access these inferences. For an example of a custom template that uses
-this HTML element, see [Custom Template Example for
-Amazon Rekognition](a2i-custom-templates.md#a2i-custom-templates-rekognition-sample "a2i-custom-templates.md#a2i-custom-templates-rekognition-sample").
+this HTML element, see [Custom Template Example for Amazon Rekognition](a2i-custom-templates.md#a2i-custom-templates-rekognition-sample "a2i-custom-templates.md#a2i-custom-templates-rekognition-sample").
 
 ## `ModerationLabelConfidenceCheck` Inputs
 

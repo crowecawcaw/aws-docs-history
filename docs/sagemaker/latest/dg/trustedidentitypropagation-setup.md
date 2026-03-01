@@ -1,6 +1,4 @@
-# Setting up trusted identity propagation for
-
-Studio
+# Setting up trusted identity propagation for Studio
 
 Setting up trusted identity propagation for Amazon SageMaker Studio requires your Amazon SageMaker AI domain
 to have IAM Identity Center authentication method configured. This section guides you through the
@@ -10,10 +8,8 @@ Studio users.
 ###### Topics
 
 - [Prerequisites](#trustedidentitypropagation-setup-prerequisites "#trustedidentitypropagation-setup-prerequisites")
-- [Enable trusted identity
-  propagation for your Amazon SageMaker AI domain](#trustedidentitypropagation-setup-enable "#trustedidentitypropagation-setup-enable")
-- [Configure your SageMaker AI execution
-  role](#trustedidentitypropagation-setup-permissions "#trustedidentitypropagation-setup-permissions")
+- [Enable trusted identity propagation for your Amazon SageMaker AI domain](#trustedidentitypropagation-setup-enable "#trustedidentitypropagation-setup-enable")
+- [Configure your SageMaker AI execution role](#trustedidentitypropagation-setup-permissions "#trustedidentitypropagation-setup-permissions")
 
 ## Prerequisites
 
@@ -30,9 +26,7 @@ Ensure that your IAM Identity Center and domain are in the same region.
 - [Add users
   to your IAM Identity Center directory](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md")
 
-## Enable trusted identity
-
-propagation for your Amazon SageMaker AI domain
+## Enable trusted identity propagation for your Amazon SageMaker AI domain
 
 ###### Important
 
@@ -45,9 +39,7 @@ a new or existing domain.
 
 New domain - console
 
-###### Enable trusted identity propagation for a new domain using the SageMaker AI
-
-console
+###### Enable trusted identity propagation for a new domain using the SageMaker AI console
 
 1. Open the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
@@ -60,9 +52,7 @@ console
 
 Existing domain - console
 
-###### Enable trusted identity propagation for an existing domain using the SageMaker AI
-
-console
+###### Enable trusted identity propagation for an existing domain using the SageMaker AI console
 
 ###### Note
 
@@ -112,9 +102,7 @@ aws sagemaker update-domain \
 - `REGION` is the AWS Region of your Amazon SageMaker AI domain. You can find
   this at the top right of any AWS console page.
 
-## Configure your SageMaker AI execution
-
-role
+## Configure your SageMaker AI execution role
 
 To enable trusted identity propagation for your Studio users, all trusted identity
 propagation roles need the set the following context permissions. Update the trust policy

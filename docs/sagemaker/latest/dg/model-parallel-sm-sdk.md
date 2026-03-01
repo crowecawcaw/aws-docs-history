@@ -1,6 +1,4 @@
-# Step 2: Launch a Training Job Using the SageMaker
-
-Python SDK
+# Step 2: Launch a Training Job Using the SageMaker Python SDK
 
 The SageMaker Python SDK supports managed training of models with ML frameworks such as
 TensorFlow and PyTorch. To launch a training job using one of these frameworks, you define a
@@ -9,16 +7,11 @@ configuration.
 
 ###### Topics
 
-- [Using the SageMaker TensorFlow and
-  PyTorch Estimators](#model-parallel-using-sagemaker-pysdk "#model-parallel-using-sagemaker-pysdk")
-- [Extend a Pre-built Docker
-  Container that Contains SageMaker's Distributed Model Parallel Library](#model-parallel-customize-container "#model-parallel-customize-container")
-- [Create Your Own Docker
-  Container with the SageMaker Distributed Model Parallel Library](#model-parallel-bring-your-own-container "#model-parallel-bring-your-own-container")
+- [Using the SageMaker TensorFlow and PyTorch Estimators](#model-parallel-using-sagemaker-pysdk "#model-parallel-using-sagemaker-pysdk")
+- [Extend a Pre-built Docker Container that Contains SageMaker's Distributed Model Parallel Library](#model-parallel-customize-container "#model-parallel-customize-container")
+- [Create Your Own Docker Container with the SageMaker Distributed Model Parallel Library](#model-parallel-bring-your-own-container "#model-parallel-bring-your-own-container")
 
-## Using the SageMaker TensorFlow and
-
-PyTorch Estimators
+## Using the SageMaker TensorFlow and PyTorch Estimators
 
 The TensorFlow and PyTorch estimator classes contain the `distribution`
 parameter, which you can use to specify configuration parameters for using
@@ -176,8 +169,7 @@ one training job is not supported.
     single, separate GPU and no GPU contains more than one process. If
     you are using PyTorch, you must restrict each process to its own
     device through `torch.cuda.set_device(smp.local_rank())`.
-    To learn more, see [Automated splitting
-    with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16 "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16").
+    To learn more, see [Automated splitting with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16 "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16").
 
   ###### Important
 
@@ -230,15 +222,12 @@ in the SageMaker Python SDK:
 
 - We recommend you use a SageMaker notebook instance if you are new users. To see an
   example of how you can launch a training job using a SageMaker notebook instance, see
-  [Amazon SageMaker AI model parallelism library
-  v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md").
+  [Amazon SageMaker AI model parallelism library v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md").
 - You can also submit a distributed training job from your machine using AWS CLI.
   To set up AWS CLI on your machine, see [set up your
   AWS credentials and Region for development](../../../sdk-for-java/v1/developer-guide/setup-credentials.md "../../../sdk-for-java/v1/developer-guide/setup-credentials.md").
 
-## Extend a Pre-built Docker
-
-Container that Contains SageMaker's Distributed Model Parallel Library
+## Extend a Pre-built Docker Container that Contains SageMaker's Distributed Model Parallel Library
 
 To extend a pre-built container and use SageMaker's model parallelism library, you must
 use one of the available AWS Deep Learning Containers (DLC) images for PyTorch or
@@ -277,8 +266,7 @@ identified with `ENV SAGEMAKER_SUBMIT_DIRECTORY` in your Dockerfile.
 
 You must push this Docker container to Amazon Elastic Container Registry (Amazon ECR) and use the image URI
 (`image_uri`) to define a SageMaker estimator for training. For more
-information, see [Extend a Pre-built
-Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
+information, see [Extend a Pre-built Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
 
 After you finish hosting the Docker container and retrieving the image URI of the
 container, create a SageMaker `PyTorch` estimator object as follows. This
@@ -303,9 +291,7 @@ smd_mp_estimator = Estimator(
 smd_mp_estimator.fit('s3://my_bucket/my_training_data/')
 ```
 
-## Create Your Own Docker
-
-Container with the SageMaker Distributed Model Parallel Library
+## Create Your Own Docker Container with the SageMaker Distributed Model Parallel Library
 
 To build your own Docker container for training and use the SageMaker model parallel
 library, you must include the correct dependencies and the binary files of the SageMaker
@@ -318,9 +304,7 @@ and the model parallel library in your own Docker container.
 This custom Docker option with the SageMaker model parallel library as a binary is
 available only for PyTorch.
 
-###### To create a Dockerfile with the SageMaker training toolkit and the model parallel
-
-library
+###### To create a Dockerfile with the SageMaker training toolkit and the model parallel library
 
 1. Start with one of the [NVIDIA CUDA base images](https://hub.docker.com/r/nvidia/cuda "https://hub.docker.com/r/nvidia/cuda").
 
@@ -350,8 +334,7 @@ of the libraries.
 
 Because the SageMaker model parallel library requires the SageMaker data
 parallel library in the subsequent steps, we highly recommend that you
-follow the instructions at [Create your own Docker container with
-the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md") to properly
+follow the instructions at [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md") to properly
 set up a SageMaker training environment for distributed training.
 
 For more information about setting up EFA with NCCL and Open MPI, see

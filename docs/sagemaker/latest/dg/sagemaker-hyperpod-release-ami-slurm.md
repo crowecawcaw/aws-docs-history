@@ -1,12 +1,9 @@
-# SageMaker HyperPod AMI releases for
-
-Slurm
+# SageMaker HyperPod AMI releases for Slurm
 
 The following release notes track the latest updates for Amazon SageMaker HyperPod AMI releases
 for Slurm orchestration. These HyperPod AMIs are built upon [AWS Deep Learning Base GPU AMI (Ubuntu 22.04)](https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-22-04/ "https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-22-04/"). The HyperPod
 service team distributes software patches through [SageMaker HyperPod DLAMI](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami"). For HyperPod AMI releases
-for Amazon EKS orchestration, see [SageMaker HyperPod AMI releases for
-Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md"). For
+for Amazon EKS orchestration, see [SageMaker HyperPod AMI releases for Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md"). For
 information about Amazon SageMaker HyperPod feature releases, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md "sagemaker-hyperpod-release-notes.md").
 
 ###### Note
@@ -238,9 +235,7 @@ Slurm (x86_64)
 - ec2-instance-connect version: 1.1.14-0ubuntu1.1
 - rdma-core version: 59.amzn0-1
 
-## SageMaker HyperPod release
-
-notes: November 07, 2025
+## SageMaker HyperPod release notes: November 07, 2025
 
 **The AMI includes the following:**
 
@@ -251,9 +246,7 @@ notes: November 07, 2025
 - CUDA Versions: cuda-12.6, cuda-12.8, cuda-12.9, cuda-13.0
 - Security fixes: [Runc Security patch](https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/ "https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/")
 
-## SageMaker HyperPod release
-
-notes: September 29, 2025
+## SageMaker HyperPod release notes: September 29, 2025
 
 **The AMI includes the following:**
 
@@ -263,9 +256,7 @@ notes: September 29, 2025
 - Updated packages: NVIDIA Driver: 570.172.08
 - Security fixes
 
-## SageMaker HyperPod release
-
-notes: August 12, 2025
+## SageMaker HyperPod release notes: August 12, 2025
 
 **The AMI includes the following:**
 
@@ -328,12 +319,9 @@ notes: August 12, 2025
 - EBS volume type: gp3
 - Python: `/usr/bin/python3.10`
 
-## SageMaker HyperPod release
+## SageMaker HyperPod release notes: May 27, 2025
 
-notes: May 27, 2025
-
-SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with
-Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
+SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
 
 **New features and improvements**
 
@@ -366,9 +354,7 @@ Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
 
 - Kernel version is pinned for stability and driver compatibility.
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: May 13, 2025
+## SageMaker HyperPod AMI releases for Slurm: May 13, 2025
 
 Amazon SageMaker HyperPod released an updated AMI that supports Ubuntu 22.04 LTS for Slurm
 clusters. AWS regularly updates AMIs to ensure you have access to the most current
@@ -385,31 +371,26 @@ might affect compatibility with software and configurations designed for Ubuntu
 
 ###### In this release note, you will see:
 
-- [Key updates in
-  the Ubuntu 22.04 AMI](#sagemaker-hyperpod-ami-slurm-ubuntu22-updates "#sagemaker-hyperpod-ami-slurm-ubuntu22-updates")
-- [Upgrading to the
-  Ubuntu 22.04 AMI](#sagemaker-hyperpod-ami-slurm-ubuntu22-upgrade "#sagemaker-hyperpod-ami-slurm-ubuntu22-upgrade")
+- [Key updates in the Ubuntu 22.04 AMI](#sagemaker-hyperpod-ami-slurm-ubuntu22-updates "#sagemaker-hyperpod-ami-slurm-ubuntu22-updates")
+- [Upgrading to the Ubuntu 22.04 AMI](#sagemaker-hyperpod-ami-slurm-ubuntu22-upgrade "#sagemaker-hyperpod-ami-slurm-ubuntu22-upgrade")
 - [Troubleshooting upgrade failures](#sagemaker-hyperpod-ami-slurm-ubuntu22-troubleshoot "#sagemaker-hyperpod-ami-slurm-ubuntu22-troubleshoot")
 
-### Key updates in
-
-the Ubuntu 22.04 AMI
+### Key updates in the Ubuntu 22.04 AMI
 
 The following table lists the component versions of the Ubuntu 22.04 AMI
 compared to the previous AMI.
 
-Component versions of the Ubuntu 22.04 AMI compared to the previous
-AMI| Component | Previous version | Updated version |
-| --- | --- | --- |
-| **Ubuntu OS** | 20.04 LTS | 22.04 LTS |
-| **Slurm** | 24.11 | 24.11 (unchanged) |
-| **Python** | 3.8 (default) | 3.10 (default) |
-| **Elastic Fabric Adapter (EFA) on<br>Amazon FSx** | Not supported | Supported |
-| **Linux kernel** | 5.15 | 6.8 |
-| **GNU C Library<br>(glibc)** | 2.31 | 2.35 |
-| **GNU Compiler Collection<br>(GCC)** | 9.4.0 | 11.4.0 |
-| **libc6** | ≤ 2.31 | ≥ 2.35 supported |
-| **Network File System<br>(NFS)** | 1:1.3.4 | 1:2.6.1 |
+| Component versions of the Ubuntu 22.04 AMI compared to the previous AMI | Component     | Previous version  | Updated version |
+| ----------------------------------------------------------------------- | ------------- | ----------------- | --------------- |
+| **Ubuntu OS**                                                           | 20.04 LTS     | 22.04 LTS         |
+| **Slurm**                                                               | 24.11         | 24.11 (unchanged) |
+| **Python**                                                              | 3.8 (default) | 3.10 (default)    |
+| **Elastic Fabric Adapter (EFA) on<br>Amazon FSx**                       | Not supported | Supported         |
+| **Linux kernel**                                                        | 5.15          | 6.8               |
+| **GNU C Library<br>(glibc)**                                            | 2.31          | 2.35              |
+| **GNU Compiler Collection<br>(GCC)**                                    | 9.4.0         | 11.4.0            |
+| **libc6**                                                               | ≤ 2.31        | ≥ 2.35 supported  |
+| **Network File System<br>(NFS)**                                        | 1:1.3.4       | 1:2.6.1           |
 
 ###### Note
 
@@ -418,9 +399,7 @@ and library updates in this AMI may affect your system behavior and workload
 compatibility. You must test your workloads before upgrading production
 clusters.
 
-### Upgrading to the
-
-Ubuntu 22.04 AMI
+### Upgrading to the Ubuntu 22.04 AMI
 
 Before upgrading your cluster to the Ubuntu 22.04 AMI, complete these
 preparation steps and review the upgrade requirements. To troubleshoot upgrade
@@ -460,9 +439,7 @@ You can upgrade your Slurm cluster to use the new AMI in two ways:
 1. Create a new cluster using the [`CreateCluster`](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") API.
 2. Update an existing cluster's software using the [`UpdateClusterSoftware`](../APIReference/API_UpdateClusterSoftware.md "../APIReference/API_UpdateClusterSoftware.md") API.
 
-#### Validated
-
-configurations
+#### Validated configurations
 
 AWS has tested a wide range of distributed training workloads and
 infrastructure features on G5, G6, G6e, P4d, P5, and Trn1 instances,
@@ -502,9 +479,7 @@ information including the cluster ARN, error logs, and timestamps, then contact
 [AWS support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/")
 for further assistance.
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: May 07, 2025
+## SageMaker HyperPod AMI releases for Slurm: May 07, 2025
 
 Amazon SageMaker HyperPod for Slurm released a major OS version upgrade to Ubuntu 22.04
 (from the earlier Ubuntu 20.04). Check DLAMI Ubuntu 22.04 ([release notes](https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-22-04/ "https://aws.amazon.com/releasenotes/aws-deep-learning-base-gpu-ami-ubuntu-22-04/") ) for more information: `Deep Learning Base OSS
@@ -526,9 +501,7 @@ Key package upgrades:
 - Newer libc6 version support (from libc6 version <= 2.31)
 - NFS version: 1:2.6.1 (updated from 1:1.3.4)
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: April 28, 2025
+## SageMaker HyperPod AMI releases for Slurm: April 28, 2025
 
 **Improvements for Slurm**
 
@@ -549,9 +522,7 @@ Installed the latest version of AWS Neuron SDK
 - **aws-neuronx-tools/unknown:**
   2.22.61.0
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: February 18, 2025
+## SageMaker HyperPod AMI releases for Slurm: February 18, 2025
 
 **Improvements for Slurm**
 
@@ -580,9 +551,7 @@ Installed the latest version of AWS Neuron SDK 2.19
 - **aws-neuronx-tools/unknown:**
   2.20.204.0 amd64
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: December 21, 2024
+## SageMaker HyperPod AMI releases for Slurm: December 21, 2024
 
 **SageMaker HyperPod DLAMI for Slurm support**
 
@@ -603,9 +572,7 @@ Deep Learning Slurm AMI
   - **aws-neuronx-tools:**
     2.19.0.0
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: November 24, 2024
+## SageMaker HyperPod AMI releases for Slurm: November 24, 2024
 
 **AMI general updates**
 
@@ -613,9 +580,7 @@ releases for Slurm: November 24, 2024
 - Updated SageMaker HyperPod base DLAMI to the following versions:
   - Slurm: 2024-11-22.
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: November 15, 2024
+## SageMaker HyperPod AMI releases for Slurm: November 15, 2024
 
 **AMI general updates**
 
@@ -640,27 +605,21 @@ Deep Learning Slurm AMI
   - **aws-neuronx-tools:**
     v2.18.3.0
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: November 11, 2024
+## SageMaker HyperPod AMI releases for Slurm: November 11, 2024
 
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following version:
   - Slurm: 2024-10-23.
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: October 21, 2024
+## SageMaker HyperPod AMI releases for Slurm: October 21, 2024
 
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following versions:
   - Slurm: 2024-09-27.
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: September 10, 2024
+## SageMaker HyperPod AMI releases for Slurm: September 10, 2024
 
 **SageMaker HyperPod DLAMI for Slurm support**
 
@@ -680,9 +639,7 @@ Deep Learning Slurm AMI
   - **aws-neuronx-tools:**
     v2.18.3.0
 
-## SageMaker HyperPod AMI
-
-releases for Slurm: March 14, 2024
+## SageMaker HyperPod AMI releases for Slurm: March 14, 2024
 
 **HyperPod DLAMI for Slurm software
 patch**
@@ -729,9 +686,7 @@ Note that you should run the AWS CLI command to update your
 HyperPod cluster. Updating the HyperPod software
 through SageMaker HyperPod console UI is currently not available.
 
-## SageMaker HyperPod AMI
-
-release for Slurm: November 29, 2023
+## SageMaker HyperPod AMI release for Slurm: November 29, 2023
 
 **HyperPod DLAMI for Slurm software
 patch**

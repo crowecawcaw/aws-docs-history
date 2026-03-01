@@ -1,6 +1,4 @@
-# Adapting your training script to register a
-
-hook
+# Adapting your training script to register a hook
 
 Amazon SageMaker Debugger comes with a client library called the [`sagemaker-debugger` Python SDK](https://sagemaker-debugger.readthedocs.io/en/website "https://sagemaker-debugger.readthedocs.io/en/website"). The
 `sagemaker-debugger` Python SDK provides tools for adapting your training
@@ -19,7 +17,5 @@ references.
 
 ###### Topics
 
-- [Adapt your PyTorch training
-  script](debugger-modify-script-pytorch.md "debugger-modify-script-pytorch.md")
-- [Adapt your TensorFlow training
-  script](debugger-modify-script-tensorflow.md "debugger-modify-script-tensorflow.md")
+- [Adapt your PyTorch training script](debugger-modify-script-pytorch.md "debugger-modify-script-pytorch.md")
+- [Adapt your TensorFlow training script](debugger-modify-script-tensorflow.md "debugger-modify-script-tensorflow.md")

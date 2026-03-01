@@ -57,13 +57,9 @@ settings included are the following:
   outputs.
   For more information about endpoint configuration settings, see [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md").
 
-## View status and configuration for an
+## View status and configuration for an endpoint
 
-endpoint
-
-###### To view the status and configuration for a model’s endpoint, complete the following
-
-steps:
+###### To view the status and configuration for a model’s endpoint, complete the following steps:
 
 1. Open the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. Choose **Governance** in the left panel.

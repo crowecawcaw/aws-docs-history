@@ -1,6 +1,4 @@
-# Modify your
-
-training script to assign instance groups
+# Modify your training script to assign instance groups
 
 With the heterogeneous cluster configuration in the previous sections, you have
 prepared the SageMaker training environment and instances for your training job. To further

@@ -14,14 +14,11 @@ or below of [SageMaker Operators for Kubernetes](https://github.com/aws/amazon-s
 The ACK service controller is a new generation of SageMaker Operators for Kubernetes based on
 [AWS Controllers for Kubernetes (ACK)](https://aws-controllers-k8s.github.io/community/ "https://aws-controllers-k8s.github.io/community/").
 
-For information on the migration steps, see [Migrate resources to the latest
-Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
+For information on the migration steps, see [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
 
 For answers to frequently asked
 questions on the end of support of the original version of SageMaker Operators for
-Kubernetes, see [Announcing the End of Support
-of the Original Version of SageMaker AI
-Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+Kubernetes, see [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 To run an Amazon SageMaker AI job using the Operators for Kubernetes, you can either apply a YAML file or
 use the supplied Helm Charts.
@@ -33,13 +30,11 @@ can find the dataset in [Download the MNIST Dataset.](ex1-preprocess-data-pull-d
 ###### Contents
 
 - [The TrainingJob operator](#trainingjob-operator "#trainingjob-operator")
-- [The HyperParameterTuningJob
-  operator](#hyperparametertuningjobs-operator "#hyperparametertuningjobs-operator")
+- [The HyperParameterTuningJob operator](#hyperparametertuningjobs-operator "#hyperparametertuningjobs-operator")
 - [The BatchTransformJob operator](#batchtransformjobs-operator "#batchtransformjobs-operator")
 - [The HostingDeployment operator](#hosting-deployment-operator "#hosting-deployment-operator")
 - [The ProcessingJob operator](#kubernetes-processing-job-operator "#kubernetes-processing-job-operator")
-- [HostingAutoscalingPolicy (HAP)
-  Operator](#kubernetes-hap-operator "#kubernetes-hap-operator")
+- [HostingAutoscalingPolicy (HAP) Operator](#kubernetes-hap-operator "#kubernetes-hap-operator")
 
 ## The TrainingJob operator
 
@@ -48,17 +43,14 @@ for you in SageMaker AI. You can learn more about SageMaker training jobs in the
 
 ###### Topics
 
-- [Create a TrainingJob using a
-  YAML file](#create-a-trainingjob-using-a-simple-yaml-file "#create-a-trainingjob-using-a-simple-yaml-file")
+- [Create a TrainingJob using a YAML file](#create-a-trainingjob-using-a-simple-yaml-file "#create-a-trainingjob-using-a-simple-yaml-file")
 - [Create a TrainingJob Using a Helm Chart](#create-a-trainingjob-using-a-helm-chart "#create-a-trainingjob-using-a-helm-chart")
 - [List TrainingJobs](#list-training-jobs "#list-training-jobs")
 - [Describe a TrainingJob](#describe-a-training-job "#describe-a-training-job")
 - [View logs from TrainingJobs](#view-logs-from-training-jobs "#view-logs-from-training-jobs")
 - [Delete TrainingJobs](#delete-training-jobs "#delete-training-jobs")
 
-### Create a TrainingJob using a
-
-YAML file
+### Create a TrainingJob using a YAML file
 
 1. Download the sample YAML file for training using the following command:
 
@@ -315,9 +307,7 @@ SageMaker AI resources after your job stops or completes.
 jobs continue to show on the SageMaker AI console. The `delete` command takes about 2
 minutes to clean up the resources from SageMaker AI.
 
-## The HyperParameterTuningJob
-
-operator
+## The HyperParameterTuningJob operator
 
 Hyperparameter tuning job operators reconcile your specified hyperparameter tuning job
 spec to SageMaker AI by launching it in SageMaker AI. You can learn more about SageMaker AI hyperparameter tuning jobs
@@ -325,19 +315,14 @@ in the SageMaker AI [CreateHyperParameterTuningJob API documentation](API_Create
 
 ###### Topics
 
-- [Create a
-  HyperparameterTuningJob using a YAML file](#create-a-hyperparametertuningjob-using-a-simple-yaml-file "#create-a-hyperparametertuningjob-using-a-simple-yaml-file")
-- [Create a
-  HyperparameterTuningJob using a Helm Chart](#create-a-hyperparametertuningjob-using-a-helm-chart "#create-a-hyperparametertuningjob-using-a-helm-chart")
+- [Create a HyperparameterTuningJob using a YAML file](#create-a-hyperparametertuningjob-using-a-simple-yaml-file "#create-a-hyperparametertuningjob-using-a-simple-yaml-file")
+- [Create a HyperparameterTuningJob using a Helm Chart](#create-a-hyperparametertuningjob-using-a-helm-chart "#create-a-hyperparametertuningjob-using-a-helm-chart")
 - [List HyperparameterTuningJobs](#list-hyperparameter-tuning-jobs "#list-hyperparameter-tuning-jobs")
 - [Describe a HyperparameterTuningJob](#describe-a-hyperparameter-tuning-job "#describe-a-hyperparameter-tuning-job")
-- [View logs from
-  HyperparameterTuningJobs](#view-logs-from-hyperparametertuning-jobs "#view-logs-from-hyperparametertuning-jobs")
+- [View logs from HyperparameterTuningJobs](#view-logs-from-hyperparametertuning-jobs "#view-logs-from-hyperparametertuning-jobs")
 - [Delete a HyperparameterTuningJob](#delete-hyperparametertuning-jobs "#delete-hyperparametertuning-jobs")
 
-### Create a
-
-HyperparameterTuningJob using a YAML file
+### Create a HyperparameterTuningJob using a YAML file
 
 1. Download the sample YAML file for the hyperparameter tuning job using the following
    command:
@@ -356,9 +341,7 @@ wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/mas
 kubectl apply -f xgboost-mnist-hpo.yaml
 ```
 
-### Create a
-
-HyperparameterTuningJob using a Helm Chart
+### Create a HyperparameterTuningJob using a Helm Chart
 
 You can use Helm Charts to run hyperparameter tuning jobs.
 
@@ -448,9 +431,7 @@ failed. You can remove a `hyperparametertuningjob` from the list by following th
 steps in [Delete a HyperparameterTuningJob](#delete-hyperparametertuning-jobs "#delete-hyperparametertuning-jobs").
 Jobs that have completed or stopped do not incur any charges for SageMaker AI resources.
 
-#### Hyperparameter tuning job status
-
-values
+#### Hyperparameter tuning job status values
 
 The `STATUS` field can be one of the following values:
 
@@ -646,9 +627,7 @@ Status:
 Events:                   <none>
 ```
 
-### View logs from
-
-HyperparameterTuningJobs
+### View logs from HyperparameterTuningJobs
 
 Hyperparameter tuning jobs do not have logs, but all training jobs launched by them do
 have logs. These logs can be accessed as if they were a normal training job. For more
@@ -683,19 +662,14 @@ launching it in SageMaker AI. You can learn more about SageMaker AI batch transf
 
 ###### Topics
 
-- [Create a
-  BatchTransformJob using a YAML File](#create-a-batchtransformjob-using-a-simple-yaml-file "#create-a-batchtransformjob-using-a-simple-yaml-file")
-- [Create a BatchTransformJob
-  using a Helm Chart](#create-a-batchtransformjob-using-a-helm-chart "#create-a-batchtransformjob-using-a-helm-chart")
+- [Create a BatchTransformJob using a YAML File](#create-a-batchtransformjob-using-a-simple-yaml-file "#create-a-batchtransformjob-using-a-simple-yaml-file")
+- [Create a BatchTransformJob using a Helm Chart](#create-a-batchtransformjob-using-a-helm-chart "#create-a-batchtransformjob-using-a-helm-chart")
 - [List BatchTransformJobs](#list-batch-transform-jobs "#list-batch-transform-jobs")
 - [Describe a BatchTransformJob](#describe-a-batch-transform-job "#describe-a-batch-transform-job")
-- [View logs from
-  BatchTransformJobs](#view-logs-from-batch-transform-jobs "#view-logs-from-batch-transform-jobs")
+- [View logs from BatchTransformJobs](#view-logs-from-batch-transform-jobs "#view-logs-from-batch-transform-jobs")
 - [Delete a BatchTransformJob](#delete-a-batch-transform-job "#delete-a-batch-transform-job")
 
-### Create a
-
-BatchTransformJob using a YAML File
+### Create a BatchTransformJob using a YAML File
 
 1. Download the sample YAML file for the batch transform job using the following command:
 
@@ -713,9 +687,7 @@ wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/mas
 kubectl apply -f xgboost-mnist-batchtransform.yaml
 ```
 
-### Create a BatchTransformJob
-
-using a Helm Chart
+### Create a BatchTransformJob using a Helm Chart
 
 You can use Helm Charts to run batch transform jobs.
 
@@ -865,9 +837,7 @@ Status:
 Events:                           <none>
 ```
 
-### View logs from
-
-BatchTransformJobs
+### View logs from BatchTransformJobs
 
 Use the following command to see the logs from the `xgboost-mnist` batch
 transform job:
@@ -907,8 +877,7 @@ API documentation](API_CreateEndpoint.md "API_CreateEndpoint.md").
 
 ###### Topics
 
-- [Configure a HostingDeployment
-  resource](#configure-a-hostingdeployment-resource "#configure-a-hostingdeployment-resource")
+- [Configure a HostingDeployment resource](#configure-a-hostingdeployment-resource "#configure-a-hostingdeployment-resource")
 - [Create a HostingDeployment](#create-a-hostingdeployment "#create-a-hostingdeployment")
 - [List HostingDeployments](#list-hostingdeployments "#list-hostingdeployments")
 - [Describe a HostingDeployment](#describe-a-hostingdeployment "#describe-a-hostingdeployment")
@@ -916,9 +885,7 @@ API documentation](API_CreateEndpoint.md "API_CreateEndpoint.md").
 - [Update HostingDeployment](#update-hostingdeployment "#update-hostingdeployment")
 - [Delete the HostingDeployment](#delete-the-hostingdeployment "#delete-the-hostingdeployment")
 
-### Configure a HostingDeployment
-
-resource
+### Configure a HostingDeployment resource
 
 Download the sample YAML file for the hosting deployment job using the following
 command:
@@ -1208,15 +1175,12 @@ information on SageMaker Processing jobs, see
 
 ###### Topics
 
-- [Create a ProcessingJob using a YAML
-  file](#kubernetes-processing-job-yaml "#kubernetes-processing-job-yaml")
+- [Create a ProcessingJob using a YAML file](#kubernetes-processing-job-yaml "#kubernetes-processing-job-yaml")
 - [List ProcessingJobs](#kubernetes-processing-job-list "#kubernetes-processing-job-list")
 - [Describe a ProcessingJob](#kubernetes-processing-job-description "#kubernetes-processing-job-description")
 - [Delete a ProcessingJob](#kubernetes-processing-job-delete "#kubernetes-processing-job-delete")
 
-### Create a ProcessingJob using a YAML
-
-file
+### Create a ProcessingJob using a YAML file
 
 Follow these steps to create an Amazon SageMaker processing job by using a YAML file:
 
@@ -1449,9 +1413,7 @@ processingjob.sagemaker.aws.amazon.com "kmeans-mnist-processing" deleted
 SageMaker AI does not delete the processing job. Stopped jobs continue to show in the SageMaker AI console. The
 `delete` command takes a few minutes to clean up the resources from SageMaker AI.
 
-## HostingAutoscalingPolicy (HAP)
-
-Operator
+## HostingAutoscalingPolicy (HAP) Operator
 
 The HostingAutoscalingPolicy (HAP) operator takes a list of resource IDs as input and applies the
 same policy to each of them. Each resource ID is a combination of an endpoint name and a variant name.
@@ -1467,18 +1429,14 @@ In your `kubectl` commands, you can use the short form, `hap`, in place of
 
 ###### Topics
 
-- [Create a HostingAutoscalingPolicy using a YAML
-  file](#kubernetes-hap-job-yaml "#kubernetes-hap-job-yaml")
+- [Create a HostingAutoscalingPolicy using a YAML file](#kubernetes-hap-job-yaml "#kubernetes-hap-job-yaml")
 - [List HostingAutoscalingPolicies](#kubernetes-hap-list "#kubernetes-hap-list")
 - [Describe a HostingAutoscalingPolicy](#kubernetes-hap-describe "#kubernetes-hap-describe")
 - [Update a HostingAutoscalingPolicy](#kubernetes-hap-update "#kubernetes-hap-update")
 - [Delete a HostingAutoscalingPolicy](#kubernetes-hap-delete "#kubernetes-hap-delete")
-- [Update or delete an endpoint with a
-  HostingAutoscalingPolicy](#kubernetes-hap-update-delete-endpoint "#kubernetes-hap-update-delete-endpoint")
+- [Update or delete an endpoint with a HostingAutoscalingPolicy](#kubernetes-hap-update-delete-endpoint "#kubernetes-hap-update-delete-endpoint")
 
-### Create a HostingAutoscalingPolicy using a YAML
-
-file
+### Create a HostingAutoscalingPolicy using a YAML file
 
 Use a YAML file to create a HostingAutoscalingPolicy (HAP) that applies a predefined or custom metric to one or multiple SageMaker AI endpoints.
 
@@ -1498,9 +1456,7 @@ DefaultAutoscalingPolicyName = "SageMakerEndpointInvocationScalingPolicy"
 
 Use the following samples to create a HAP that applies a predefined or custom metric to one or multiple endpoints.
 
-#### Sample 1: Apply a predefined metric to a
-
-single endpoint variant
+#### Sample 1: Apply a predefined metric to a single endpoint variant
 
 1. Download the sample YAML file for a predefined metric using the following command:
 
@@ -1525,9 +1481,7 @@ For namespace-scoped installation:
 kubectl apply -f hap-predefined-metric.yaml -n `<NAMESPACE>`
 ```
 
-#### Sample 2: Apply a custom metric to a single
-
-endpoint variant
+#### Sample 2: Apply a custom metric to a single endpoint variant
 
 1. Download the sample YAML file for a custom metric using the following command:
 
@@ -1557,9 +1511,7 @@ For namespace-scoped installation:
 kubectl apply -f hap-custom-metric.yaml -n `<NAMESPACE>`
 ```
 
-#### Sample 3: Apply a scaling policy to multiple
-
-endpoints and variants
+#### Sample 3: Apply a scaling policy to multiple endpoints and variants
 
 You can use the HAP operator to apply the same scaling policy to multiple resource IDs.
 A separate `scaling_policy` request is created for each resource ID (endpoint name and variant name combination).
@@ -1587,9 +1539,7 @@ For namespace-scoped installation:
 kubectl apply -f hap-predefined-metric.yaml -n `<NAMESPACE>`
 ```
 
-#### Considerations for
-
-HostingAutoscalingPolicies for multiple endpoints and variants
+#### Considerations for HostingAutoscalingPolicies for multiple endpoints and variants
 
 The following considerations apply when you use multiple resource IDs:
 
@@ -1689,9 +1639,7 @@ This command deletes the scaling policy and deregisters the scaling target from 
 hostingautoscalingpolicies.sagemaker.aws.amazon.com "hap-predefined" deleted
 ```
 
-### Update or delete an endpoint with a
-
-HostingAutoscalingPolicy
+### Update or delete an endpoint with a HostingAutoscalingPolicy
 
 To update an endpoint that has a HostingAutoscalingPolicy (HAP), use the `kubectl`
 `delete` command to remove the HAP, update the endpoint, and then reapply the HAP.

@@ -1,6 +1,4 @@
-# Schedule data quality
-
-monitoring jobs
+# Schedule data quality monitoring jobs
 
 After you create your baseline, you can call the
 `create_monitoring_schedule()` method of your
@@ -14,9 +12,7 @@ transform job.
 You can specify either a batch transform input or an endpoint input,
 but not both, when you create your monitoring schedule.
 
-## Data quality monitoring for
-
-models deployed to real-time endpoints
+## Data quality monitoring for models deployed to real-time endpoints
 
 To schedule a data quality monitor for a real-time endpoint, pass your
 `EndpointInput` instance to the `endpoint_input`
@@ -47,9 +43,7 @@ schedule = data_quality_model_monitor.create_monitoring_schedule(
 )
 ```
 
-## Data quality monitoring for
-
-batch transform jobs
+## Data quality monitoring for batch transform jobs
 
 To schedule a data quality monitor for a batch transform job, pass your
 `BatchTransformInput` instance to the

@@ -1,6 +1,4 @@
-# Introduction to the SageMaker AI distributed data parallelism
-
-library
+# Introduction to the SageMaker AI distributed data parallelism library
 
 The SageMaker AI distributed data parallelism (SMDDP) library is a collective communication
 library that improves compute performance of distributed data parallel training. The SMDDP
@@ -28,9 +26,7 @@ libraries, you must use the SageMaker Python SDK or the SageMaker APIs through S
 Throughout the documentation, instructions and examples focus on how to use the distributed
 training libraries with the SageMaker Python SDK.
 
-## SMDDP collective communication
-
-operations optimized for AWS compute resources and network infrastructure
+## SMDDP collective communication operations optimized for AWS compute resources and network infrastructure
 
 The SMDDP library provides implementations of the `AllReduce` and
 `AllGather` collective operations that are optimized for AWS compute resources
@@ -72,9 +68,7 @@ parallelism for a cluster of 3 nodes.
 
 ![SMDDP AllReduce and data parallelism architecture diagram](images/distributed/data-parallel/sdp-architecture.png)
 
-### SMDDP `AllGather` collective
-
-operation
+### SMDDP `AllGather` collective operation
 
 `AllGather` is a collective operation where each worker starts with an input
 buffer, and then concatenates or _gathers_ the input buffers from all

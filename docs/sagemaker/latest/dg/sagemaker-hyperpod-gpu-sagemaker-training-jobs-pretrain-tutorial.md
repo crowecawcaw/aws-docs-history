@@ -1,6 +1,4 @@
-# SageMaker
-
-training jobs pre-training tutorial (GPU)
+# SageMaker training jobs pre-training tutorial (GPU)
 
 This tutorial guides you through the process of setting up and running a pre-training
 job using SageMaker training jobs with GPU instances.

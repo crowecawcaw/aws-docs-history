@@ -11,14 +11,11 @@ or below of [SageMaker Operators for Kubernetes](https://github.com/aws/amazon-s
 The ACK service controller is a new generation of SageMaker Operators for Kubernetes based on
 [AWS Controllers for Kubernetes (ACK)](https://aws-controllers-k8s.github.io/community/ "https://aws-controllers-k8s.github.io/community/").
 
-For information on the migration steps, see [Migrate resources to the latest
-Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
+For information on the migration steps, see [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
 
 For answers to frequently asked
 questions on the end of support of the original version of SageMaker Operators for
-Kubernetes, see [Announcing the End of Support
-of the Original Version of SageMaker AI
-Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+Kubernetes, see [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 The latest version of [SageMaker AI Operators
 for Kubernetes](https://github.com/aws-controllers-k8s/sagemaker-controller "https://github.com/aws-controllers-k8s/sagemaker-controller") is based on [AWS Controllers for Kubernetes
@@ -31,22 +28,16 @@ machine learning models with Amazon SageMaker AI.
 
 ###### Contents
 
-- [Install SageMaker AI Operators for
-  Kubernetes](#kubernetes-sagemaker-operators-ack-install "#kubernetes-sagemaker-operators-ack-install")
-- [Use SageMaker AI Operators for
-  Kubernetes](#kubernetes-sagemaker-operators-ack-use "#kubernetes-sagemaker-operators-ack-use")
+- [Install SageMaker AI Operators for Kubernetes](#kubernetes-sagemaker-operators-ack-install "#kubernetes-sagemaker-operators-ack-install")
+- [Use SageMaker AI Operators for Kubernetes](#kubernetes-sagemaker-operators-ack-use "#kubernetes-sagemaker-operators-ack-use")
 - [Reference](#kubernetes-sagemaker-operators-ack-reference "#kubernetes-sagemaker-operators-ack-reference")
 
-## Install SageMaker AI Operators for
-
-Kubernetes
+## Install SageMaker AI Operators for Kubernetes
 
 To set up the latest available version of SageMaker AI Operators for Kubernetes, see the
 _Setup_ section in [Machine Learning with the ACK SageMaker AI Controller](https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/#setup "https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/#setup").
 
-## Use SageMaker AI Operators for
-
-Kubernetes
+## Use SageMaker AI Operators for Kubernetes
 
 For a tutorial on how to train a machine learning model with the ACK service controller
 for Amazon SageMaker AI using Amazon EKS, see [Machine Learning with the ACK SageMaker AI Controller](https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/ "https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/").

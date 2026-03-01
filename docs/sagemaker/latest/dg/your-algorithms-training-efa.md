@@ -11,9 +11,7 @@ device for your distributed training jobs.
 Your container must satisfy the [SageMaker Training
 container specification](your-algorithms-training-algo-dockerfile.md "your-algorithms-training-algo-dockerfile.md"). 
 
-## Install EFA and required
-
-packages
+## Install EFA and required packages
 
 Your container must download and install the [EFA software](../../../AWSEC2/latest/UserGuide/efa-start.md "../../../AWSEC2/latest/UserGuide/efa-start.md"). This allows your
 container to recognize the EFA device, and provides compatible versions of Libfabric and Open
@@ -75,9 +73,7 @@ RUN cd $HOME \
   && make MPI=1 MPI_HOME=/opt/amazon/openmpi CUDA_HOME=/usr/local/cuda NCCL_HOME=/usr/local
 ```
 
-## Considerations when creating
-
-your container
+## Considerations when creating your container
 
 The EFA device is mounted to the container as `/dev/infiniband/uverbs0` under
 the list of devices accessible to the container. On P4d instances, the container has access to
@@ -94,9 +90,7 @@ the `resourceconfig.json` file provided to each container instances, see [Dis
 among peers through the default Elastic Network Interfaces (ENI), while handling OFI (kernel
 bypass) traffic through the EFA device.
 
-## Verify that your EFA device is
-
-recognized
+## Verify that your EFA device is recognized
 
  To verify that the EFA device is recognized, run the following command from within your
 container.

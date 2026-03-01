@@ -3,9 +3,7 @@
 You can access Jupyter AI capabilities through two distinct methods: using the chat UI or
 using magic commands within notebooks.
 
-## From the chat user interface AI
-
-assistant
+## From the chat user interface AI assistant
 
 The chat interface connects you with Jupyternaut, a conversational agent that uses the
 language model of your choice.
@@ -14,8 +12,7 @@ After launching a JupyterLab application installed with Jupyter AI, you can acce
 chat interface by choosing the chat icon (
 ![Icon of a rectangular shape with a curved arrow pointing to the upper right corner.](images/studio/icons/jupyterai/jupyterai-chat-ui.png)
 ) in the left navigation panel. First-time users are prompted to
-configure their model. See [Configure your model
-provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui") for configuration
+configure their model. See [Configure your model provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui") for configuration
 instructions.
 
 ###### Using the chat UI, you can:
@@ -47,8 +44,7 @@ Amazon Q developer doesn't have the capability to generate notebooks from
 scratch.
 
 For a complete list of features and detailed instructions on their usage, see the [Jupyter AI chat interface](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#the-chat-interface "https://jupyter-ai.readthedocs.io/en/latest/users/index.html#the-chat-interface") documentation. To learn about how to configure access
-to a model in Jupyternaut, see [Configure your model
-provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui").
+to a model in Jupyternaut, see [Configure your model provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui").
 
 ## From notebook cells
 
@@ -75,5 +71,4 @@ of your model using the `-f` or `--format` parameter, allow variable
 interpolation in prompts, including special `In` and `Out` variables,
 and more.
 
-To learn about how to configure the access to a model, see [Configure your
-model provider in a notebook](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-magic-commands "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-magic-commands").
+To learn about how to configure the access to a model, see [Configure your model provider in a notebook](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-magic-commands "sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-magic-commands").

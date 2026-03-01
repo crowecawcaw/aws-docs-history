@@ -5,14 +5,10 @@ configurations.
 
 ###### Topics
 
-- [Verify lifecycle
-  configuration process from CloudWatch Logs](#studio-lifecycle-configurations-debug-logs "#studio-lifecycle-configurations-debug-logs")
-- [Lifecycle
-  configuration timeout](studio-lifecycle-configurations-debug-timeout.md "studio-lifecycle-configurations-debug-timeout.md")
+- [Verify lifecycle configuration process from CloudWatch Logs](#studio-lifecycle-configurations-debug-logs "#studio-lifecycle-configurations-debug-logs")
+- [Lifecycle configuration timeout](studio-lifecycle-configurations-debug-timeout.md "studio-lifecycle-configurations-debug-timeout.md")
 
-## Verify lifecycle
-
-configuration process from CloudWatch Logs
+## Verify lifecycle configuration process from CloudWatch Logs
 
 Lifecycle configurations only log `STDOUT` and
 `STDERR`.

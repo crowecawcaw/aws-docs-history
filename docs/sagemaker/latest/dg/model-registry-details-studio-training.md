@@ -1,6 +1,4 @@
-# Add a training job
-
-(Studio)
+# Add a training job (Studio)
 
 ###### Important
 
@@ -13,9 +11,7 @@ If you add a SageMaker training job, SageMaker AI prepopulates the fields for al
 subpages in the **Train** tab. If you add an externally created
 training job, you need to add details related to your training job manually.
 
-###### To add a training job to your model package, complete the following
-
-steps.
+###### To add a training job to your model package, complete the following steps.
 
 1. Choose the **Train** tab.
 2. Choose **Add**. If you do not see this option, you

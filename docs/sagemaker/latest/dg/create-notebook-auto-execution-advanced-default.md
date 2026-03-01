@@ -1,6 +1,4 @@
-# Set up default options
-
-for local notebooks
+# Set up default options for local notebooks
 
 ###### Important
 
@@ -38,9 +36,7 @@ available for the following options:
 The following instructions show you how to preview the existing default values, set
 new default values, and reset your default values for your notebook jobs.
 
-###### To preview existing default values for your notebook jobs, complete the following
-
-steps:
+###### To preview existing default values for your notebook jobs, complete the following steps:
 
 1. Open the Amazon SageMaker Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. In the **File Browser** in the left panel, right-click on the
@@ -49,9 +45,7 @@ steps:
 4. Choose **Additional options** to expand the tab of notebook job
    settings. You can view the default settings here.
 
-###### To set new default values for your future notebook jobs, complete the following
-
-steps:
+###### To set new default values for your future notebook jobs, complete the following steps:
 
 1. Open the Amazon SageMaker Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. From the top menu in Studio Classic, choose **Settings**, then choose
@@ -86,9 +80,7 @@ steps:
      ) in the top right corner. Closing the editor does not
      save the changes.
 
-###### If you previously changed and now want to reset the user-defined default values,
-
-complete following steps:
+###### If you previously changed and now want to reset the user-defined default values, complete following steps:
 
 1. From the top menu in Studio Classic, choose **Settings**, then choose
    **Advanced Settings Editor**.

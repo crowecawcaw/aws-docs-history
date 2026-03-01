@@ -47,9 +47,7 @@ using it for model training. To preprocess data, you typically do the following:
 In SageMaker AI, you can preprocess example data using [SageMaker APIs](../APIReference/Welcome.md "../APIReference/Welcome.md") with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") in an
 integrated development environment (IDE). With SDK for Python (Boto3) you can fetch, explore, and
 prepare your data for model training. For information about data preparation,
-processing, and transforming your data, see [Recommendations for choosing the right data preparation tool in
-SageMaker AI](data-prep.md "data-prep.md"), [Data transformation
-workloads with SageMaker Processing](processing-job.md "processing-job.md"), and [Create, store, and share features with Feature Store](feature-store.md "feature-store.md"). 2. **Train a model** – Model training includes
+processing, and transforming your data, see [Recommendations for choosing the right data preparation tool in SageMaker AI](data-prep.md "data-prep.md"), [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md"), and [Create, store, and share features with Feature Store](feature-store.md "feature-store.md"). 2. **Train a model** – Model training includes
 both training and evaluating the model, as follows:
 
     * **Training the model** – To train a

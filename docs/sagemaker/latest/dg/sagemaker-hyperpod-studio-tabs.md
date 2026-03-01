@@ -31,8 +31,7 @@ or a Code Editor terminal. The `sacct` command is used to view _historical infor
 provides accounting information, including job resources usage like memory and exit status.
 
 By default, all Studio users can view, manage, and interact with all available
-Slurm tasks. To restrict the viewable tasks to Studio users, see [Restrict task view
-in Studio for Slurm clusters](sagemaker-hyperpod-studio-setup-slurm.md#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view "sagemaker-hyperpod-studio-setup-slurm.md#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view").
+Slurm tasks. To restrict the viewable tasks to Studio users, see [Restrict task view in Studio for Slurm clusters](sagemaker-hyperpod-studio-setup-slurm.md#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view "sagemaker-hyperpod-studio-setup-slurm.md#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view").
 
 For Amazon EKS clusters
 For Amazon EKS clusters, kubeflow (PyTorch, MPI, TensorFlow) tasks are shown in the table.
@@ -41,8 +40,7 @@ PyTorch tasks are shown by default. You can sort for PyTorch, MPI, and TensorFlo
 task name, status, namespace, priority class, and creation time.
 
 By default, all users can view jobs across all namespaces. To restrict the viewable
-Kubernetes namespaces available to Studio users, see [Restrict task view in
-Studio for EKS clusters](sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view"). If a user cannot
+Kubernetes namespaces available to Studio users, see [Restrict task view in Studio for EKS clusters](sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view"). If a user cannot
 view the tasks and is asked to provide a namespace, they need to get that information from
 the administrator.
 

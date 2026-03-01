@@ -13,9 +13,7 @@ following for users:
 - Other information that a container needs to manage deployments for training and
   inference.
 
-## SageMaker AI Toolkits Containers
-
-Structure
+## SageMaker AI Toolkits Containers Structure
 
 When SageMaker AI trains a model, it creates the following file folder structure in the
 container's `/opt/ml` directory.
@@ -64,9 +62,7 @@ folder to which they were written during training.
 
 For more information, see [Containers with custom inference code](your-algorithms-inference-main.md "your-algorithms-inference-main.md").
 
-## Single Versus Multiple
-
-Containers
+## Single Versus Multiple Containers
 
 You can either provide separate Docker images for the training algorithm and inference
 code or you can use a single Docker image for both. When creating Docker images for use

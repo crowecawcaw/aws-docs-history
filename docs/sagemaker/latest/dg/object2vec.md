@@ -17,24 +17,17 @@ Object2Vec](https://aws.amazon.com/blogs/machine-learning/introduction-to-amazon
 
 ###### Topics
 
-- [I/O Interface for the Object2Vec
-  Algorithm](#object2vec-inputoutput "#object2vec-inputoutput")
-- [EC2 Instance Recommendation for the Object2Vec
-  Algorithm](#object2vec--instances "#object2vec--instances")
+- [I/O Interface for the Object2Vec Algorithm](#object2vec-inputoutput "#object2vec-inputoutput")
+- [EC2 Instance Recommendation for the Object2Vec Algorithm](#object2vec--instances "#object2vec--instances")
 - [Object2Vec Sample Notebooks](#object2vec-sample-notebooks "#object2vec-sample-notebooks")
 - [How Object2Vec Works](object2vec-howitworks.md "object2vec-howitworks.md")
 - [Object2Vec Hyperparameters](object2vec-hyperparameters.md "object2vec-hyperparameters.md")
 - [Tune an Object2Vec Model](object2vec-tuning.md "object2vec-tuning.md")
-- [Data
-  Formats for Object2Vec
-  Training](object2vec-training-formats.md "object2vec-training-formats.md")
-- [Data Formats for Object2Vec
-  Inference](object2vec-inference-formats.md "object2vec-inference-formats.md")
+- [Data Formats for Object2Vec Training](object2vec-training-formats.md "object2vec-training-formats.md")
+- [Data Formats for Object2Vec Inference](object2vec-inference-formats.md "object2vec-inference-formats.md")
 - [Encoder Embeddings for Object2Vec](object2vec-encoder-embeddings.md "object2vec-encoder-embeddings.md")
 
-## I/O Interface for the Object2Vec
-
-Algorithm
+## I/O Interface for the Object2Vec Algorithm
 
 You can use Object2Vec on many input data types, including the following
 examples.
@@ -76,9 +69,7 @@ algorithm supports the mean squared error (MSE) loss function. Specify these los
 functions with the `output_layer` hyperparameter when you create the model
 training job.
 
-## EC2 Instance Recommendation for the Object2Vec
-
-Algorithm
+## EC2 Instance Recommendation for the Object2Vec Algorithm
 
 The type of Amazon Elastic Compute Cloud (Amazon EC2) instance that you use depends on whether you are
 training or running inference.
@@ -92,9 +83,7 @@ P3, G4dn, and G5 GPU instance families for training and inference.
 For inference with a trained Object2Vec model that has a deep neural network, we
 recommend using ml.p3.2xlarge GPU instance. Due to GPU memory scarcity, the
 `INFERENCE_PREFERRED_MODE` environment variable can be specified to
-optimize on whether the [GPU
-optimization: Classification or Regression](object2vec-inference-formats.md#object2vec-inference-gpu-optimize-classification "object2vec-inference-formats.md#object2vec-inference-gpu-optimize-classification") or [GPU
-optimization: Encoder Embeddings](object2vec-encoder-embeddings.md#object2vec-inference-gpu-optimize-encoder-embeddings "object2vec-encoder-embeddings.md#object2vec-inference-gpu-optimize-encoder-embeddings") inference network is loaded into
+optimize on whether the [GPU optimization: Classification or Regression](object2vec-inference-formats.md#object2vec-inference-gpu-optimize-classification "object2vec-inference-formats.md#object2vec-inference-gpu-optimize-classification") or [GPU optimization: Encoder Embeddings](object2vec-encoder-embeddings.md#object2vec-inference-gpu-optimize-encoder-embeddings "object2vec-encoder-embeddings.md#object2vec-inference-gpu-optimize-encoder-embeddings") inference network is loaded into
 GPU.
 
 ## Object2Vec Sample Notebooks

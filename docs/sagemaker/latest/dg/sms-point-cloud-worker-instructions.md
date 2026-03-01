@@ -14,9 +14,6 @@ browser.
 
 ###### Topics
 
-- [3D point
-  cloud semantic segmentation](sms-point-cloud-worker-instructions-semantic-segmentation.md "sms-point-cloud-worker-instructions-semantic-segmentation.md")
-- [3D point cloud object
-  detection](sms-point-cloud-worker-instructions-object-detection.md "sms-point-cloud-worker-instructions-object-detection.md")
-- [3D point cloud object
-  tracking](sms-point-cloud-worker-instructions-object-tracking.md "sms-point-cloud-worker-instructions-object-tracking.md")
+- [3D point cloud semantic segmentation](sms-point-cloud-worker-instructions-semantic-segmentation.md "sms-point-cloud-worker-instructions-semantic-segmentation.md")
+- [3D point cloud object detection](sms-point-cloud-worker-instructions-object-detection.md "sms-point-cloud-worker-instructions-object-detection.md")
+- [3D point cloud object tracking](sms-point-cloud-worker-instructions-object-tracking.md "sms-point-cloud-worker-instructions-object-tracking.md")

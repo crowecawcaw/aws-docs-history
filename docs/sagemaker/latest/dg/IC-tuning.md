@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the Image Classification
-
-Algorithm
+## Metrics Computed by the Image Classification Algorithm
 
 The image classification algorithm is a supervised algorithm. It reports an
 accuracy metric that is computed during training. When tuning the model, choose this
@@ -22,9 +20,7 @@ metric as the objective metric.
 | --------------------- | ------------------------------------------------------------------------------------------ | ---------------------- |
 | `validation:accuracy` | The ratio of the number of correct predictions to the total<br>number of predictions made. | Maximize               |
 
-## Tunable Image Classification
-
-Hyperparameters
+## Tunable Image Classification Hyperparameters
 
 Tune an image classification model with the following hyperparameters. The
 hyperparameters that have the greatest impact on image classification objective

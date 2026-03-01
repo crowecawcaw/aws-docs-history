@@ -1,6 +1,4 @@
-# Output
-
-data for a 3D point cloud semantic segmentation job
+# Output data for a 3D point cloud semantic segmentation job
 
 When you create a 3D point cloud semantic segmentation labeling job, tasks are sent to
 workers. When these workers complete their tasks, their annotations are written to the

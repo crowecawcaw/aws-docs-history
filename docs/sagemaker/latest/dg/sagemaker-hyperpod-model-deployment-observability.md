@@ -1,6 +1,4 @@
-# Implementing
-
-inference observability on HyperPod clusters
+# Implementing inference observability on HyperPod clusters
 
 Amazon SageMaker HyperPod provides comprehensive inference observability capabilities that
 enable data scientists and machine learning engineers to monitor and optimize their
@@ -17,8 +15,7 @@ implement custom observability solutions.
 ###### Note
 
 This topic contains a deep dive in to implementing inference observability on
-HyperPod clusters. For a more general reference, see [Cluster and task
-observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md").
+HyperPod clusters. For a more general reference, see [Cluster and task observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md").
 
 This guide provides step-by-step instructions for implementing and using inference
 observability on your HyperPod clusters. You'll learn how to configure metrics in your
@@ -97,9 +94,7 @@ and analysis across your deployments:
   - `task_type` - Workload classification
     (inference)
 
-## Configure
-
-metrics in deployment YAML
+## Configure metrics in deployment YAML
 
 Amazon SageMaker HyperPod enables inference metrics by default for all model deployments,
 providing immediate observability without additional configuration. You can
@@ -215,9 +210,7 @@ spec:
 To disable metrics for specific deployments, set `metrics.enabled:
  false` in your YAML configuration.
 
-## Monitor and
-
-troubleshoot inference workloads by role
+## Monitor and troubleshoot inference workloads by role
 
 Amazon SageMaker HyperPod provides comprehensive observability capabilities that support
 different user workflows, from initial cluster setup to advanced performance
@@ -349,9 +342,7 @@ You can systematically diagnose complex performance issues using comprehensive
 metrics, implement targeted fixes, and establish preventive measures to maintain
 consistent production model performance.
 
-## Implement
-
-your own observability integration
+## Implement your own observability integration
 
 Amazon SageMaker HyperPod exposes inference metrics through industry-standard Prometheus
 endpoints, enabling integration with your existing observability infrastructure. Use

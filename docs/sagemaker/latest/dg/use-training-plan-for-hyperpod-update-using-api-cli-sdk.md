@@ -1,6 +1,4 @@
-# Update a
-
-SageMaker HyperPod cluster on training plans using the SageMaker API, or AWS CLI
+# Update a SageMaker HyperPod cluster on training plans using the SageMaker API, or AWS CLI
 
 You can add, update, or remove a training plan by updating the instance group of an
 existing cluster using the `update-cluster` AWS CLI command. The following sample

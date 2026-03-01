@@ -1,6 +1,4 @@
-# Use the SageMaker model parallelism
-
-library v2
+# Use the SageMaker model parallelism library v2
 
 On this page, you'll learn how to use the SageMaker model parallelism library v2 APIs and get
 started with running a PyTorch Fully Sharded Data Parallel (FSDP) training job in the SageMaker
@@ -14,8 +12,7 @@ There are various scenarios for running a PyTorch training job with SMP v2.
    training workload on a SageMaker HyperPod cluster.
 3. Extend the pre-built SageMaker Framework Containers for PyTorch v2.0.1 and later
    to install any additional functional requirements for your use case. To learn how to
-   extend a pre-built container, see [Extend a Pre-built
-   Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
+   extend a pre-built container, see [Extend a Pre-built Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
 4. You can also bring your own Docker container and manually set up all SageMaker
    Training environment using the [SageMaker Training
    toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/aws/sagemaker-training-toolkit") and install the SMP v2 binary file. This is the least
@@ -27,26 +24,21 @@ There are various scenarios for running a PyTorch training job with SMP v2.
 ###### Topics
 
 - [Step 1: Adapt your PyTorch FSDP training script](#model-parallel-adapt-pytorch-script-v2 "#model-parallel-adapt-pytorch-script-v2")
-- [Step 2: Launch a training
-  job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2")
+- [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2")
 
 ## Step 1: Adapt your PyTorch FSDP training script
 
 To activate and configure the SMP v2 library, start with importing and adding the
 `torch.sagemaker.init()` module at the top of the script. This module
-takes in the SMP configuration dictionary of [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") that you'll prepare
-in [Step 2: Launch a training
-job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"). Also, for using the
+takes in the SMP configuration dictionary of [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") that you'll prepare
+in [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"). Also, for using the
 various core features offered by SMP v2, you might need to make few more changes to
 adapt your training script. More detailed instructions on adapting your training script
-for using the SMP v2 core features are provided at [Core features of the SageMaker model
-parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md").
+for using the SMP v2 core features are provided at [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md").
 
 SageMaker Training
 In your training script, add the following two lines of code, which is the
-minimal requirement to start training with SMP v2. In [Step 2: Launch a training
-job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"), you’ll set up an
+minimal requirement to start training with SMP v2. In [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"), you’ll set up an
 object of the SageMaker `PyTorch` estimator class with an SMP
 configuration dictionary through the `distribution` argument of
 the estimator class.
@@ -58,17 +50,14 @@ tsm.init()
 
 ###### Note
 
-You can also directly pass a configuration dictionary of the [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") to
+You can also directly pass a configuration dictionary of the [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") to
 the `torch.sagemaker.init()` module. However, the parameters
-passed to the PyTorch estimator in [Step 2: Launch a training
-job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2") take priority
+passed to the PyTorch estimator in [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2") take priority
 and override the ones specified to the
 `torch.sagemaker.init()` module.
 
 SageMaker HyperPod
-In your training script, add the following two lines of code. In [Step 2: Launch a training
-job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"), you’ll set up a
+In your training script, add the following two lines of code. In [Step 2: Launch a training job](#model-parallel-launch-a-training-job-v2 "#model-parallel-launch-a-training-job-v2"), you’ll set up a
 `smp_config.json` file for setting up SMP configurations in
 JSON format, and upload it to a storage or a file system mapped with your
 SageMaker HyperPod cluster. We recommend that you keep the configuration file
@@ -82,21 +71,17 @@ tsm.init("`/dir_to_training_files/smp_config.json`")
 ###### Note
 
 You can also directly pass a configuration dictionary of
-the [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") into the `torch.sagemaker.init()`
+the [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") into the `torch.sagemaker.init()`
 module.
 
-## Step 2: Launch a training
-
-job
+## Step 2: Launch a training job
 
 Learn how to configure SMP distribution options for launching a PyTorch FSDP training
 job with SMP core features.
 
 SageMaker Training
 When you set up a training job launcher object of the [PyTorch framework estimator](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html") class in the SageMaker Python SDK,
-configure [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") through
+configure [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config") through
 `distribution` argument as follows.
 
 ###### Note
@@ -159,8 +144,7 @@ estimator = PyTorch(
 )
 ```
 
-To find SMP Docker image URIs, see [Supported
-frameworks](distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2 "distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2").
+To find SMP Docker image URIs, see [Supported frameworks](distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2 "distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2").
 
 SageMaker HyperPod
 Before you start, make sure if the following prerequisites are
@@ -179,8 +163,7 @@ instructions on launching a workload with SMP v2 on a HyperPod
 cluster.
 
 1. Prepare an `smp_config.json` file that contains a
-   dictionary of [SMP v2 core
-   feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+   dictionary of [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
    Make sure that you upload this JSON file to where you store your
    training script, or the path you specified to the
    `torch.sagemaker.init()` module in [Step 1](#model-parallel-adapt-pytorch-script-v2 "#model-parallel-adapt-pytorch-script-v2").

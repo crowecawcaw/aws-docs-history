@@ -56,5 +56,4 @@ Debugger UI in SageMaker Studio Experiments](debugger-on-studio.md "debugger-on-
 
 - [Amazon SageMaker Profiler](train-use-sagemaker-profiler.md "train-use-sagemaker-profiler.md")
 - [Monitor AWS compute resource utilization in Amazon SageMaker Studio Classic](debugger-profile-training-jobs.md "debugger-profile-training-jobs.md")
-- [Release notes for profiling capabilities of
-  Amazon SageMaker AI](profiler-release-notes.md "profiler-release-notes.md")
+- [Release notes for profiling capabilities of Amazon SageMaker AI](profiler-release-notes.md "profiler-release-notes.md")

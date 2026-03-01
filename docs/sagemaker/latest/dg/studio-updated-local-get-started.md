@@ -32,17 +32,13 @@ EnableDockerAccess : ENABLED
 
 - Using `EnableDockerAccess`, you can also control whether users in the
   domain can use local mode. By default, local mode and Docker capabilities
-  aren't allowed in Studio applications. For more information, see [Setting
-  EnableDockerAccess](#studio-updated-local-enable "#studio-updated-local-enable").
+  aren't allowed in Studio applications. For more information, see [Setting EnableDockerAccess](#studio-updated-local-enable "#studio-updated-local-enable").
 - Install the Docker CLI in the Studio application by following
-  the steps in [Docker
-  installation](#studio-updated-local-docker-installation "#studio-updated-local-docker-installation").
+  the steps in [Docker installation](#studio-updated-local-docker-installation "#studio-updated-local-docker-installation").
 - For the [Rootless Docker configuration](#studio-updated-local-rootless "#studio-updated-local-rootless"), ensure your VPC has appropriate
   endpoints and routing configured for your desired Docker registries.
 
-## Setting
-
-`EnableDockerAccess`
+## Setting `EnableDockerAccess`
 
 The following sections show how to set `EnableDockerAccess` when the domain
 has public internet access or is in `VPC-only` mode.
@@ -125,25 +121,20 @@ are:
 
 To use rootless Docker, you will need to set both `EnableDockerAccess` and
 `RootlessDocker` to `ENABLED` for your `DockerSettings`.
-For example, in the [Setting
-EnableDockerAccess](#studio-updated-local-enable "#studio-updated-local-enable") examples above, you can modify your domain
+For example, in the [Setting EnableDockerAccess](#studio-updated-local-enable "#studio-updated-local-enable") examples above, you can modify your domain
 settings to include:
 
 ```
 '{"DockerSettings": {"EnableDockerAccess": "ENABLED", "RootlessDocker": "ENABLED"}}'
 ```
 
-## Docker
-
-installation
+## Docker installation
 
 To use Docker, you must manually install Docker from the
 terminal of your Studio application. The steps to install Docker are
 different if the domain has access to the internet or not.
 
-### Internet
-
-access
+### Internet access
 
 If the domain is created with public internet access or in `VPC-only` mode
 with limited internet access, use the following steps to install
@@ -201,9 +192,7 @@ The following Studio application environmental variable for the default
 DOCKER_HOST
 ```
 
-### No internet
-
-access
+### No internet access
 
 If the domain is created in `VPC-only` mode with no internet access, use
 the following steps to install Docker.

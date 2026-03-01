@@ -1,6 +1,4 @@
-# What particular configurations HyperPod manages in Slurm configuration
-
-files
+# What particular configurations HyperPod manages in Slurm configuration files
 
 When you create a Slurm cluster on HyperPod, the HyperPod agent sets
 up the [`slurm.conf`](https://slurm.schedmd.com/slurm.conf.html "https://slurm.schedmd.com/slurm.conf.html") and [`gres.conf`](https://slurm.schedmd.com/gres.conf.html "https://slurm.schedmd.com/gres.conf.html") files
@@ -18,8 +16,7 @@ these parameters managed by HyperPod.
   `SlurmctldHost`, `PartitionName`, and
   `NodeName`.
 
-Also, to enable the [Automatic node
-recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md") functionality, HyperPod requires the `TaskPlugin` and
+Also, to enable the [Automatic node recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md") functionality, HyperPod requires the `TaskPlugin` and
 `SchedulerParameters` parameters set as follows. The
 HyperPod agent sets up these two parameters with the required values by
 default.

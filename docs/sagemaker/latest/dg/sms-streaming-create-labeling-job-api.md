@@ -17,8 +17,7 @@ In this example, note the following parameters:
   you want labeled as soon as the labeling job starts.
 - [`StoppingConditions`](../APIReference/API_CreateLabelingJob.md#sagemaker-CreateLabelingJob-request-StoppingConditions "../APIReference/API_CreateLabelingJob.md#sagemaker-CreateLabelingJob-request-StoppingConditions") – This parameter is
   ignored when you create a streaming labeling job. To learn more about
-  stopping a streaming labeling job, see [Stop a Streaming Labeling
-  Job](sms-streaming-stop-labeling-job.md "sms-streaming-stop-labeling-job.md").
+  stopping a streaming labeling job, see [Stop a Streaming Labeling Job](sms-streaming-stop-labeling-job.md "sms-streaming-stop-labeling-job.md").
 - Streaming labeling jobs do not support automated data labeling. Do not include
   the `LabelingJobAlgorithmsConfig` parameter.
 

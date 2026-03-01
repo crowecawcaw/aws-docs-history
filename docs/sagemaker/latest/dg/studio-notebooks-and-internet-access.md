@@ -1,13 +1,9 @@
-# Connect Studio notebooks in
-
-a VPC to external resources
+# Connect Studio notebooks in a VPC to external resources
 
 The following topic gives information about how to connect Studio Notebooks in a
 VPC to external resources.
 
-## Default communication
-
-with the internet
+## Default communication with the internet
 
 By default, SageMaker Studio provides a network interface that allows
 communication with the internet through a VPC managed by SageMaker AI. Traffic to AWS
@@ -19,9 +15,7 @@ API. The following diagram shows the default configuration.
 
 ![SageMaker Studio VPC diagram depicting direct internet access usage.](images/studio/studio-vpc-internet.png)
 
-## `VPC only`
-
-communication with the internet
+## `VPC only` communication with the internet
 
 To stop SageMaker AI from providing internet access to your Studio notebooks, disable
 internet access by specifying the `VPC only` network access type. Specify

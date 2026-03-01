@@ -1,15 +1,10 @@
-# Create a
-
-Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom
-Resource
+# Create a Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom Resource
 
 If you are using a real-time endpoint, you can use a CloudFormation custom resource to
 create a monitoring schedule. The custom resource is in Python. To deploy it, see
 [Python Lambda deployment](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md").
 
-## Custom
-
-Resource
+## Custom Resource
 
 Start by adding a custom resource to your CloudFormation template. This points to a
 AWS Lambda function that you create in the next step.
@@ -45,9 +40,7 @@ and the Lambda function in the following example resource.
 }
 ```
 
-##
-
-Lambda Custom Resource Code
+## Lambda Custom Resource Code
 
 This CloudFormation custom resource uses the [Custom
 Resource Helper](https://github.com/aws-cloudformation/custom-resource-helper "https://github.com/aws-cloudformation/custom-resource-helper") AWS library, which you can install with pip using

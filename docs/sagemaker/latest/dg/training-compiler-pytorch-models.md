@@ -4,12 +4,9 @@ Bring your own PyTorch model to SageMaker AI, and run the training job with Sage
 
 ###### Topics
 
-- [PyTorch Models with
-  Hugging Face Transformers](#training-compiler-pytorch-models-transformers "#training-compiler-pytorch-models-transformers")
+- [PyTorch Models with Hugging Face Transformers](#training-compiler-pytorch-models-transformers "#training-compiler-pytorch-models-transformers")
 
-## PyTorch Models with
-
-Hugging Face Transformers
+## PyTorch Models with Hugging Face Transformers
 
 PyTorch models with [Hugging Face Transformers](https://huggingface.co/docs/transformers/index "https://huggingface.co/docs/transformers/index") are based on PyTorch's [torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module "https://pytorch.org/docs/stable/nn.html#torch.nn.Module") API. Hugging Face Transformers also provides [Trainer](https://huggingface.co/docs/transformers/main_classes/trainer "https://huggingface.co/docs/transformers/main_classes/trainer") and pretrained model classes for PyTorch to help reduce the effort
 for configuring natural language processing (NLP) models. After preparing your training
@@ -31,17 +28,10 @@ documentation_.
 
 ###### Topics
 
-- [Large
-  Language Models Using the Hugging Face Transformers Trainer
-  Class](#training-compiler-pytorch-models-transformers-trainer "#training-compiler-pytorch-models-transformers-trainer")
-- [Large Language Models
-  Using PyTorch Directly (without the Hugging Face Transformers Trainer
-  API)](#training-compiler-pytorch-models-non-trainer "#training-compiler-pytorch-models-non-trainer")
+- [Large Language Models Using the Hugging Face Transformers Trainer Class](#training-compiler-pytorch-models-transformers-trainer "#training-compiler-pytorch-models-transformers-trainer")
+- [Large Language Models Using PyTorch Directly (without the Hugging Face Transformers Trainer API)](#training-compiler-pytorch-models-non-trainer "#training-compiler-pytorch-models-non-trainer")
 
-### Large
-
-Language Models Using the Hugging Face Transformers `Trainer`
-Class
+### Large Language Models Using the Hugging Face Transformers `Trainer` Class
 
 If you use the transformers library’s Trainer class, you don’t need to make any
 additional changes to your training script. SageMaker Training Compiler automatically compiles your
@@ -110,10 +100,7 @@ estimator.
 
 After you have completed adapting your training script, proceed to [Run PyTorch Training Jobs with SageMaker Training Compiler](training-compiler-enable-pytorch.md "training-compiler-enable-pytorch.md").
 
-### Large Language Models
-
-Using PyTorch Directly (without the Hugging Face Transformers Trainer
-API)
+### Large Language Models Using PyTorch Directly (without the Hugging Face Transformers Trainer API)
 
 If you have a training script that uses PyTorch directly, you need to make
 additional changes to your PyTorch training script to implement PyTorch/XLA. Follow
@@ -122,16 +109,11 @@ primatives.
 
 ###### Topics
 
-- [For
-  single GPU training](#training-compiler-pytorch-models-non-trainer-single-gpu "#training-compiler-pytorch-models-non-trainer-single-gpu")
-- [For
-  distributed training](#training-compiler-pytorch-models-non-trainer-distributed "#training-compiler-pytorch-models-non-trainer-distributed")
-- [Best Practices
-  to Use SageMaker Training Compiler with PyTorch/XLA](#training-compiler-pytorch-models-best-practices "#training-compiler-pytorch-models-best-practices")
+- [For single GPU training](#training-compiler-pytorch-models-non-trainer-single-gpu "#training-compiler-pytorch-models-non-trainer-single-gpu")
+- [For distributed training](#training-compiler-pytorch-models-non-trainer-distributed "#training-compiler-pytorch-models-non-trainer-distributed")
+- [Best Practices to Use SageMaker Training Compiler with PyTorch/XLA](#training-compiler-pytorch-models-best-practices "#training-compiler-pytorch-models-best-practices")
 
-#### For
-
-single GPU training
+#### For single GPU training
 
 1. Import the optimization libraries.
 
@@ -201,12 +183,9 @@ xm.save(model.state_dict(), path_to_save)
 
 After you have completed adapting your training script, proceed to [Run PyTorch Training Jobs with SageMaker Training Compiler](training-compiler-enable-pytorch.md "training-compiler-enable-pytorch.md").
 
-#### For
+#### For distributed training
 
-distributed training
-
-In addition to the changes listed in the previous [For
-single GPU training](#training-compiler-pytorch-models-non-trainer-single-gpu "#training-compiler-pytorch-models-non-trainer-single-gpu")
+In addition to the changes listed in the previous [For single GPU training](#training-compiler-pytorch-models-non-trainer-single-gpu "#training-compiler-pytorch-models-non-trainer-single-gpu")
 section, add the following changes to properly distribute workload across
 GPUs.
 
@@ -305,9 +284,7 @@ Hugging Face estimator.
 
 After you have completed adapting your training script, proceed to [Run PyTorch Training Jobs with SageMaker Training Compiler](training-compiler-enable-pytorch.md "training-compiler-enable-pytorch.md").
 
-#### Best Practices
-
-to Use SageMaker Training Compiler with PyTorch/XLA
+#### Best Practices to Use SageMaker Training Compiler with PyTorch/XLA
 
 If you want to leverage the SageMaker Training Compiler on your native PyTorch training script, you
 may want to first get familiar with [PyTorch on XLA
@@ -338,10 +315,7 @@ is called explicitly or implicitly by
 request the value of a tensor such as by calling `loss.item()` or
 `print(loss)`.
 
-##### Minimize the number of _compilation-and-executions_ using
-
-`pl.MpDeviceLoader/pl.ParallelLoader` and
-`xm.step_closure`
+##### Minimize the number of _compilation-and-executions_ using `pl.MpDeviceLoader/pl.ParallelLoader` and `xm.step_closure`
 
 For best performance, you should keep in mind the possible ways to initiate
 _compilation-and-executions_ as described
@@ -355,9 +329,7 @@ some intermediate results such as loss values. In such case, the printing of
 lazy tensors should be wrapped using `xm.add_step_closure()` to avoid
 unnecessary compilation-and-executions.
 
-##### Use
-
-AMP and `syncfree` optimizers
+##### Use AMP and `syncfree` optimizers
 
 Training in Automatic Mixed Precision (AMP) mode significantly accelerates
 your training speed by leveraging the Tensor cores of NVIDIA GPUs. SageMaker Training Compiler

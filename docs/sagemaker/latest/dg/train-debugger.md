@@ -16,8 +16,7 @@ them by visualizing collected metrics and tensors.
 
 SageMaker Debugger supports the Apache MXNet, PyTorch, TensorFlow, and XGBoost frameworks.
 For more information about available frameworks and versions supported by SageMaker Debugger,
-see [Supported frameworks and
-algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md").
+see [Supported frameworks and algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md").
 
 ![Overview of how Amazon SageMaker Debugger works.](images/debugger/debugger-main.png)
 
@@ -37,8 +36,7 @@ The high-level Debugger workflow is as follows:
 
 4. Get alerts and take prompt actions against the training issues.
    - Receive texts and emails and stop training jobs when training issues
-     are found using [Use Debugger built-in actions for
-     rules](debugger-built-in-actions.md "debugger-built-in-actions.md").
+     are found using [Use Debugger built-in actions for rules](debugger-built-in-actions.md "debugger-built-in-actions.md").
    - Set up your own actions using [Amazon CloudWatch Events and
      AWS Lambda](debugger-cloudwatch-lambda.md "debugger-cloudwatch-lambda.md").
 
@@ -53,15 +51,12 @@ The SageMaker Debugger developer guide walks you through the following topics.
 
 ###### Topics
 
-- [Supported frameworks and
-  algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md")
+- [Supported frameworks and algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md")
 - [Amazon SageMaker Debugger architecture](debugger-how-it-works.md "debugger-how-it-works.md")
 - [Debugger tutorials](debugger-tutorial.md "debugger-tutorial.md")
 - [Debugging training jobs using Amazon SageMaker Debugger](debugger-debug-training-jobs.md "debugger-debug-training-jobs.md")
 - [List of Debugger built-in rules](debugger-built-in-rules.md "debugger-built-in-rules.md")
-- [Creating custom rules using the Debugger client
-  library](debugger-custom-rules.md "debugger-custom-rules.md")
-- [Use Debugger with custom training
-  containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md")
+- [Creating custom rules using the Debugger client library](debugger-custom-rules.md "debugger-custom-rules.md")
+- [Use Debugger with custom training containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md")
 - [Configure Debugger using SageMaker API](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md")
 - [Amazon SageMaker Debugger references](debugger-reference.md "debugger-reference.md")

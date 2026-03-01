@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -33,13 +32,10 @@ The following screenshot shows the menu from a Studio Classic notebook.
 
 ###### Topics
 
-- [Get the Difference Between the Last
-  Checkpoint](#notebooks-diff-checkpoint "#notebooks-diff-checkpoint")
+- [Get the Difference Between the Last Checkpoint](#notebooks-diff-checkpoint "#notebooks-diff-checkpoint")
 - [Get the Difference Between the Last Commit](#notebooks-diff-git "#notebooks-diff-git")
 
-## Get the Difference Between the Last
-
-Checkpoint
+## Get the Difference Between the Last Checkpoint
 
 When you create a notebook, a hidden checkpoint file that matches the notebook is
 created. You can view changes between the notebook and the checkpoint file or revert the

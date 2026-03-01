@@ -1,6 +1,4 @@
-# Difference in Rejection Rates
-
-(DRR)
+# Difference in Rejection Rates (DRR)
 
 The difference in rejection rates (DRR) metric is the difference in the ratios of the
 true negative (TN) predictions to the observed negatives (TN + FN) for facets _a_ and _d_. This metric

@@ -26,8 +26,7 @@ grant these permissions, see [Amazon Rekognition
 Identity-Based Policy Examples](../../../rekognition/latest/dg/security_iam_id-based-policy-examples.md "../../../rekognition/latest/dg/security_iam_id-based-policy-examples.md") and [Amazon Textract
 Identity-Based Policy Examples](../../../textract/latest/dg/security_iam_id-based-policy-examples.md "../../../textract/latest/dg/security_iam_id-based-policy-examples.md"). You can also use the more general policy
 `AmazonAugmentedAIIntegratedAPIAccess` to grant these permissions. For more
-information, see [Create a User With Permissions to Invoke
-Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](a2i-permissions-security.md#a2i-grant-general-permission "a2i-permissions-security.md#a2i-grant-general-permission").
+information, see [Create a User With Permissions to Invoke Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](a2i-permissions-security.md#a2i-grant-general-permission "a2i-permissions-security.md#a2i-grant-general-permission").
 
 To create and start a human loop, you need a flow definition ARN. To learn how to create a
 flow definition (or human review workflow), see [Create a Human Review Workflow](a2i-create-flow-definition.md "a2i-create-flow-definition.md").
@@ -37,9 +36,7 @@ flow definition (or human review workflow), see [Create a Human Review Workflow]
 Amazon A2I requires all S3 buckets that contain human loop input image data to have a CORS
 policy attached. To learn more about this change, see [CORS Permission Requirement](a2i-permissions-security.md#a2i-cors-update "a2i-permissions-security.md#a2i-cors-update").
 
-## Create and Start a Human Loop for a
-
-Built-in Task Type
+## Create and Start a Human Loop for a Built-in Task Type
 
 To start a human loop using a built-in task type, use the corresponding service's API to
 provide your input data and to configure the human loop. For Amazon Textract, you use the
@@ -191,9 +188,7 @@ for an image meets the conditions for review, Amazon A2I starts a human review l
 includes the response element `HumanLoopActivationOutput` in the
 `DetectModerationLabels` response.
 
-## Create and Start a Human Loop for a Custom
-
-Task Type
+## Create and Start a Human Loop for a Custom Task Type
 
 To configure a human loop for a custom human review task, use the
 `StartHumanLoop` operation within your application. This section provides an
@@ -227,8 +222,7 @@ task. 2. For `FlowDefinitionArn`, enter the Amazon Resource Name (ARN) of your f
 definition. 3. For `HumanLoopInput`, enter your input data as a string representation of a
 JSON-formatted file. Structure your input data and custom worker task template so that
 your input data is properly displayed to human workers when you start your human loop. See
-[Preview a Worker Task
-Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template") to learn how to preview your custom worker task template. 4. For `HumanLoopName`, enter a name for the human loop. The name must be
+[Preview a Worker Task Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template") to learn how to preview your custom worker task template. 4. For `HumanLoopName`, enter a name for the human loop. The name must be
 unique within the Region in your account and can have up to 63 characters. Valid
 characters are a-z, 0-9, and - (hyphen).
 

@@ -5,7 +5,5 @@ the IP Insights algorithm during training and inference.
 
 ###### Topics
 
-- [IP Insights Training Data
-  Formats](ip-insights-training-data-formats.md "ip-insights-training-data-formats.md")
-- [IP Insights Inference Data
-  Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md")
+- [IP Insights Training Data Formats](ip-insights-training-data-formats.md "ip-insights-training-data-formats.md")
+- [IP Insights Inference Data Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md")

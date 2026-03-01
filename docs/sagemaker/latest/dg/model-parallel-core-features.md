@@ -1,6 +1,4 @@
-# Core Features of the SageMaker Model Parallelism
-
-Library
+# Core Features of the SageMaker Model Parallelism Library
 
 Amazon SageMaker AI's model parallelism library offers distribution strategies and memory-saving
 techniques, such as sharded data parallelism, tensor parallelism, model partitioning by
@@ -44,12 +42,9 @@ supports pipeline parallelism for TensorFlow.
 
 - [Sharded Data Parallelism](model-parallel-extended-features-pytorch-sharded-data-parallelism.md "model-parallel-extended-features-pytorch-sharded-data-parallelism.md")
 - [Pipelining a Model](model-parallel-core-features-pipieline-parallelism.md "model-parallel-core-features-pipieline-parallelism.md")
-- [Tensor
-  Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md")
+- [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md")
 - [Optimizer State Sharding](model-parallel-extended-features-pytorch-optimizer-state-sharding.md "model-parallel-extended-features-pytorch-optimizer-state-sharding.md")
 - [Activation Checkpointing](model-parallel-extended-features-pytorch-activation-checkpointing.md "model-parallel-extended-features-pytorch-activation-checkpointing.md")
 - [Activation Offloading](model-parallel-extended-features-pytorch-activation-offloading.md "model-parallel-extended-features-pytorch-activation-offloading.md")
-- [FP16 Training with Model
-  Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md")
-- [Support for
-  FlashAttention](model-parallel-attention-head-size-for-flash-attention.md "model-parallel-attention-head-size-for-flash-attention.md")
+- [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md")
+- [Support for FlashAttention](model-parallel-attention-head-size-for-flash-attention.md "model-parallel-attention-head-size-for-flash-attention.md")

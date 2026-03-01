@@ -1,6 +1,4 @@
-# Clear cached
-
-connections
+# Clear cached connections
 
 To clear all cached connections, run the following command:
 

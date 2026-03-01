@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AmazonSageMakerHyperPodServiceRolePolicy
+# AWS managed policy: AmazonSageMakerHyperPodServiceRolePolicy
 
 SageMaker HyperPod creates and uses the service-linked role named
 `AWSServiceRoleForSageMakerHyperPod` with the
@@ -135,9 +133,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the
 see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for SageMaker HyperPod service-linked
-
-roles
+## Supported Regions for SageMaker HyperPod service-linked roles
 
 SageMaker HyperPod supports using service-linked roles in all of the Regions where the service
 is available. For more information, see [Prerequisites for SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md").

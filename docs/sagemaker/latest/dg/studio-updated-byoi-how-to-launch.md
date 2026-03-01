@@ -1,6 +1,4 @@
-# Launch a custom image in
-
-Studio
+# Launch a custom image in Studio
 
 After you have attached a custom image to your Amazon SageMaker AI domain, the image becomes available
 to the users in the domain. Use the following instructions to launch an application with

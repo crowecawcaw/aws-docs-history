@@ -1,6 +1,4 @@
-# SageMaker HyperPod CLI
-
-commands
+# SageMaker HyperPod CLI commands
 
 The following table summarizes the SageMaker HyperPod CLI commands.
 

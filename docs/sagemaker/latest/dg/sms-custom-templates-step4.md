@@ -1,6 +1,4 @@
-# Create a custom workflow using the
-
-API
+# Create a custom workflow using the API
 
 When you have created your custom UI template (Step 2) and processing Lambda functions
 (Step 3), you should place the template in an Amazon S3 bucket with a file name format of:

@@ -26,7 +26,7 @@ files, you can upload multiple files at the same time.
    ![Black square icon representing a placeholder or empty image.](images/studio/icons/folder.png)
    ).
 2. In the file browser, choose the **Upload Files** icon (
-   ![Black square icon representing a placeholder or empty image.](images/icons/File_upload_squid.png)
+   ![Black square icon representing a placeholder or empty image.](/images/sagemaker/latest/dg/images/icons/File_upload_squid.png)
    ).
 3. Select the files you want to upload and then choose **Open**.
 4. Double-click a file to open the file in a new tab in Studio Classic.

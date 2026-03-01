@@ -1,6 +1,4 @@
-# Getting started: Create a bounding box labeling job
-
-with Ground Truth
+# Getting started: Create a bounding box labeling job with Ground Truth
 
 To get started using Amazon SageMaker Ground Truth, follow the instructions in the following sections. The
 sections here explain how to use the console to create a bounding box labeling job, assign a
@@ -19,8 +17,7 @@ information, see [Use input and output data](sms-data.md "sms-data.md").
 - [Before You Begin](#sms-getting-started-step1 "#sms-getting-started-step1")
 - [Create a Labeling Job](#sms-getting-started-step2 "#sms-getting-started-step2")
 - [Select Workers](#sms-getting-started-step3 "#sms-getting-started-step3")
-- [Configure the Bounding Box
-  Tool](#sms-getting-started-step4 "#sms-getting-started-step4")
+- [Configure the Bounding Box Tool](#sms-getting-started-step4 "#sms-getting-started-step4")
 - [Monitoring Your Labeling Job](sms-getting-started-step5.md "sms-getting-started-step5.md")
 
 ## Before You Begin
@@ -115,8 +112,7 @@ In this step you choose a workforce for labeling your dataset. It is recommended
 you create a private workforce to test Amazon SageMaker Ground Truth. Use email addresses to invite the
 members of your workforce. If you create a private workforce in this step you won't be
 able to import your Amazon Cognito user pool later. If you want to create a private workforce
-using an Amazon Cognito user pool, see [Manage a Private Workforce
-(Amazon Cognito)](sms-workforce-management-private.md "sms-workforce-management-private.md") and use the Mechanical Turk workforce
+using an Amazon Cognito user pool, see [Manage a Private Workforce (Amazon Cognito)](sms-workforce-management-private.md "sms-workforce-management-private.md") and use the Mechanical Turk workforce
 instead in this tutorial.
 
 ###### Tip
@@ -178,9 +174,7 @@ consists of independent contractors located worldwide and that you should
 not share confidential information, personal information or protected health
 information with this workforce.**
 
-## Configure the Bounding Box
-
-Tool
+## Configure the Bounding Box Tool
 
 Finally you configure the bounding box tool to give instructions to your workers. You
 can configure a task title that describes the task and provides high-level instructions

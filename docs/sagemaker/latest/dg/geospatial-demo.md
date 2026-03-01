@@ -22,9 +22,7 @@ This tutorial shows you how to use SageMaker geospatial API to complete the foll
 - Create an earth observation job (EOJ) by using
   `start_earth_observation_job`.
 
-## Using `list_raster_data_collections`
-
-to find available data collections
+## Using `list_raster_data_collections` to find available data collections
 
 SageMaker geospatial supports multiple raster data collections. To learn more about the available
 data collections, see [Data collections](geospatial-data-collections.md "geospatial-data-collections.md").
@@ -116,9 +114,7 @@ In the [next section](#demo-search-raster-data "#demo-search-raster-data"), you 
 the Sentinel-2 data collection using the `search_raster_data_collection`
 API.
 
-## Searching the Sentinel-2
-
-raster data collection using `search_raster_data_collection`
+## Searching the Sentinel-2 raster data collection using `search_raster_data_collection`
 
 In the preceding section, you used `list_raster_data_collections` to
 get the ARN for the Sentinel-2 data collection. Now you can use that
@@ -255,10 +251,7 @@ Now that you have your query results, in the next section you can visualize the
 results by using `matplotlib`. This is to verify that results are from
 the correct geographical region.
 
-## Visualizing your
-
-`search_raster_data_collection` using
-`matplotlib`
+## Visualizing your `search_raster_data_collection` using `matplotlib`
 
 Before you start the earth observation job (EOJ), you can visualize a result from
 our query
@@ -297,9 +290,7 @@ start the Earth Observation Job (EOJ) in the next step. You use the EOJ to ident
 the water bodies from the satellite images by using a process called land
 segmentation.
 
-## Starting an earth observation job (EOJ) that
-
-performs land segmentation on a series of Satellite images
+## Starting an earth observation job (EOJ) that performs land segmentation on a series of Satellite images
 
 SageMaker geospatial provides multiple pre-trained models that you can use to process geospatial
 data from raster data collections. To learn more about the available pre-trained
@@ -464,9 +455,7 @@ After the status of your EOJ job changes to `COMPLETED`, proceed to the
 next section to calculate the change in Lake Mead's surface
 area.
 
-## Calculating the change in the Lake
-
-Mead surface area
+## Calculating the change in the Lake Mead surface area
 
 To calculate the change in Lake
 Mead's

@@ -1,6 +1,4 @@
-# Configure model auto scaling with
-
-the console
+# Configure model auto scaling with the console
 
 ###### To configure auto scaling for a model (console)
 

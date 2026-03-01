@@ -1,6 +1,4 @@
-# National holiday
-
-calendars
+# National holiday calendars
 
 Autopilot supports a feature-engineered dataset of national holiday information that provides
 access to the holiday calendars of over 250 countries. Holiday calendar features are especially
@@ -8,8 +6,7 @@ useful in the retail domain, where public holidays can significantly affect dema
 section lists the country codes that you can use to access the holiday calendars of each supported
 country.
 
-Refer to [How to incorporate national
-holiday information to your dataset](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-add-holiday-calendar "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-add-holiday-calendar") to learn how to add a calendar
+Refer to [How to incorporate national holiday information to your dataset](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-add-holiday-calendar "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-add-holiday-calendar") to learn how to add a calendar
 to your dataset.
 
 ## Country Codes

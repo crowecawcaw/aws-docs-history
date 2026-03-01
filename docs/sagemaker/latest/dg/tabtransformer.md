@@ -9,9 +9,7 @@ highly robust against both missing and noisy data features, and provide better
 interpretability. This page includes information about Amazon EC2 instance recommendations and
 sample notebooks for TabTransformer.
 
-## Amazon EC2 instance recommendation for the TabTransformer
-
-algorithm
+## Amazon EC2 instance recommendation for the TabTransformer algorithm
 
 SageMaker AI TabTransformer supports single-instance CPU and single-instance GPU training.
 Despite higher per-instance costs, GPUs train more quickly, making them more cost

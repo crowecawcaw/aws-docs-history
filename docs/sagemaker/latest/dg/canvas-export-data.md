@@ -9,9 +9,7 @@ You can export any node in your data flow to the following locations:
   dataset as a Canvas dataset. If you want to use your transformed data in machine
   learning workflows external to SageMaker Canvas, you can export your dataset to Amazon S3.
 
-## Export to a Canvas
-
-dataset
+## Export to a Canvas dataset
 
 Use the following procedure to export a SageMaker Canvas dataset from a node in your data
 flow.
@@ -61,10 +59,8 @@ The following summarizes the options for remote jobs in Canvas:
   used to process your data. For example, you can specify the type and count
   of the compute instances, configure the job in your own VPC and control
   network access, automate processing jobs, and more. For more information
-  about automating processing jobs see [Create a schedule to automatically
-  process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md"). For more general
-  information about SageMaker Processing jobs, see [Data transformation
-  workloads with SageMaker Processing](processing-job.md "processing-job.md").
+  about automating processing jobs see [Create a schedule to automatically process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md"). For more general
+  information about SageMaker Processing jobs, see [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md").
 
 The following file types are supported when exporting to Amazon S3:
 
@@ -73,17 +69,14 @@ The following file types are supported when exporting to Amazon S3:
 
 To get started, review the following prerequisites.
 
-### Prerequisites for
-
-EMR Serverless jobs
+### Prerequisites for EMR Serverless jobs
 
 To create a remote job that uses EMR Serverless resources, you must have the
 necessary permissions. You can grant permissions either through the
 Amazon SageMaker AI domain or user profile settings, or you can manually configure your
 user's AWS IAM role. For instructions on how to grant users permissions to
 perform large data processing, see
-[Grant Users Permissions to Use Large Data
-across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
+[Grant Users Permissions to Use Large Data across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
 
 If you don't want to configure these policies but still need to process large
 datasets through Data Wrangler, you can alternatively use a SageMaker Processing job.
@@ -153,8 +146,7 @@ following:
 4. For **IAM role**, enter the user's IAM
    execution role. This role should have the required permissions
    to run EMR Serverless applications. For more information, see
-   [Grant Users Permissions to Use Large Data
-   across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
+   [Grant Users Permissions to Use Large Data across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
 5. (Optional) For **KMS key**, specify the key
    ID or ARN of an AWS KMS key to encrypt the job logs. If you
    don't enter a key, Canvas uses a default key for
@@ -224,8 +216,7 @@ following:
     job run on recurring intervals. Choose **Create new
     schedule** and fill out the dialog box. For more
     information about filling out this section and running
-    processing jobs on a schedule, see [Create a schedule to automatically
-    process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md").
+    processing jobs on a schedule, see [Create a schedule to automatically process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md").
 13. (Optional) Add **Tags** as key-value pairs so
     that you can categorize and search for processing jobs.
 14. Choose **Export** to start the processing

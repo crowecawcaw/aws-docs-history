@@ -3,9 +3,7 @@
 See the following release notes to track the latest updates for the SageMaker smart sifting
 capability.
 
-## SageMaker smart sifting release
-
-notes: November 29, 2023
+## SageMaker smart sifting release notes: November 29, 2023
 
 ###### New Features
 
@@ -15,5 +13,4 @@ notes: November 29, 2023
 
 - The SageMaker smart sifting library passed integration testing and is available in
   AWS Deep Learning Containers. To find a complete list of the pre-built
-  containers with the SageMaker smart sifting library, see [Supported frameworks and AWS
-  Regions](train-smart-sifting-what-is-supported.md "train-smart-sifting-what-is-supported.md").
+  containers with the SageMaker smart sifting library, see [Supported frameworks and AWS Regions](train-smart-sifting-what-is-supported.md "train-smart-sifting-what-is-supported.md").

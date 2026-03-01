@@ -14,24 +14,18 @@ or below of [SageMaker Operators for Kubernetes](https://github.com/aws/amazon-s
 The ACK service controller is a new generation of SageMaker Operators for Kubernetes based on
 [AWS Controllers for Kubernetes (ACK)](https://aws-controllers-k8s.github.io/community/ "https://aws-controllers-k8s.github.io/community/").
 
-For information on the migration steps, see [Migrate resources to the latest
-Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
+For information on the migration steps, see [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
 
 For answers to frequently asked
 questions on the end of support of the original version of SageMaker Operators for
-Kubernetes, see [Announcing the End of Support
-of the Original Version of SageMaker AI
-Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+Kubernetes, see [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 ###### Contents
 
 - [Install SageMaker AI Operators for Kubernetes](#kubernetes-sagemaker-operators-eos-install "#kubernetes-sagemaker-operators-eos-install")
 - [Use Amazon SageMaker AI Jobs](kubernetes-sagemaker-jobs.md "kubernetes-sagemaker-jobs.md")
-- [Migrate resources to the latest
-  Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md")
-- [Announcing the End of Support
-  of the Original Version of SageMaker AI
-  Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+- [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md")
+- [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 ## Install SageMaker AI Operators for Kubernetes
 
@@ -40,16 +34,13 @@ machine learning models with Amazon SageMaker AI.
 
 ###### Contents
 
-- [IAM role-based setup and
-  operator deployment](#iam-role-based-setup-and-operator-deployment "#iam-role-based-setup-and-operator-deployment")
+- [IAM role-based setup and operator deployment](#iam-role-based-setup-and-operator-deployment "#iam-role-based-setup-and-operator-deployment")
 - [Clean up resources](#cleanup-operator-resources "#cleanup-operator-resources")
 - [Delete operators](#delete-operators "#delete-operators")
 - [Troubleshooting](#troubleshooting "#troubleshooting")
 - [Images and SMlogs in each Region](#images-and-smlogs-in-each-region "#images-and-smlogs-in-each-region")
 
-### IAM role-based setup and
-
-operator deployment
+### IAM role-based setup and operator deployment
 
 The following sections describe the steps to set up and deploy the original version of the
 operator.
@@ -88,9 +79,7 @@ This guide assumes that you have completed the following prerequisites:
 Before you can deploy your operator using an IAM role, associate an OpenID Connect (OIDC) Identity Provider (IdP) with
 your role to authenticate with the IAM service.
 
-##### Create an OIDC
-
-provider for your cluster
+##### Create an OIDC provider for your cluster
 
 The following instructions show how to create and associate an OIDC provider with your
 Amazon EKS cluster.
@@ -232,9 +221,7 @@ PRINCIPAL       arn:aws:iam::123456789012:oidc-provider/oidc.eks.us-east-1.amazo
 
 Take note of `ROLE ARN`; you pass this value to your operator.
 
-##### Attach the
-
-AmazonSageMakerFullAccess policy to the role
+##### Attach the AmazonSageMakerFullAccess policy to the role
 
 To give the role access to SageMaker AI, attach the [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy. If you want to limit permissions to the
 operator, you can create your own custom policy and attach it.
@@ -254,9 +241,7 @@ operator.
 
 When deploying your operator, you can use either a YAML file or Helm charts.
 
-##### Deploy the operator using
-
-YAML
+##### Deploy the operator using YAML
 
 This is the simplest way to deploy your operators. The process is as follows:
 
@@ -276,9 +261,7 @@ wget https://raw.githubusercontent.com/aws/amazon-sagemaker-operator-for-k8s/mas
 kubectl apply -f installer.yaml
 ```
 
-##### Deploy the operator using Helm
-
-Charts
+##### Deploy the operator using Helm Charts
 
 Use the provided Helm Chart to install the operator.
 
@@ -364,9 +347,7 @@ This guide outlines how to install an operator into a particular, predefined nam
 To deploy a controller into a second namespace, follow the guide from beginning to end and
 change out the namespace in each step.
 
-##### Create an OIDC
-
-provider for your Amazon EKS cluster
+##### Create an OIDC provider for your Amazon EKS cluster
 
 The following instructions show how to create and associate an OIDC provider with your
 Amazon EKS cluster.
@@ -509,9 +490,7 @@ ROLE    arn:aws:iam::123456789012:role/my-role 2019-11-22T21:46:10Z    /       A
 
 Take note of `ROLE ARN`. You pass this value to your operator.
 
-##### Attach the
-
-AmazonSageMakerFullAccess policy to your role
+##### Attach the AmazonSageMakerFullAccess policy to your role
 
 To give the role access to SageMaker AI, attach the [`AmazonSageMakerFullAccess`](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy. If you want to limit
 permissions to the operator, you can create your own custom policy and attach it.
@@ -527,15 +506,11 @@ The Kubernetes ServiceAccount `sagemaker-k8s-operator-default` should have
 `AmazonSageMakerFullAccess` permissions. Confirm this when you install the
 operator.
 
-##### Deploy the operator to your
-
-namespace
+##### Deploy the operator to your namespace
 
 When deploying your operator, you can use either a YAML file or Helm charts.
 
-##### Deploy the operator
-
-to your namespace using YAML
+##### Deploy the operator to your namespace using YAML
 
 There are two parts to deploying an operator within the scope of a namespace. The
 first is the set of CRDs that are installed at a cluster level. These resource
@@ -574,9 +549,7 @@ sed -i -e 's/PLACEHOLDER-NAMESPACE/`<YOUR NAMESPACE>`/g' operator.yaml
 kubectl apply -f operator.yaml
 ```
 
-##### Deploy the
-
-operator to your namespace using Helm Charts
+##### Deploy the operator to your namespace using Helm Charts
 
 There are two parts needed to deploy an operator within the scope of a namespace.
 The first is the set of CRDs that are installed at a cluster level. These resource
@@ -624,9 +597,7 @@ NAME                    NAMESPACE                       REVISION        UPDATED 
 sagemaker-operator      my-namespace                    1               2019-11-20 23:14:59.6777082 +0000 UTC   deployed        sagemaker-k8s-operator-0.1.0
 ```
 
-##### Verify the operator
-
-deployment to your namespace
+##### Verify the operator deployment to your namespace
 
 1. You should be able to see the SageMaker AI Custom Resource Definitions (CRDs) for each
    operator deployed to your cluster by running the following command:
@@ -662,9 +633,7 @@ NAME                                                         READY   STATUS    R
 sagemaker-k8s-operator-controller-manager-12345678-r8abc     2/2     Running   0          23s
 ```
 
-#### Install the SageMaker AI logs
-
-`kubectl` plugin
+#### Install the SageMaker AI logs `kubectl` plugin
 
 As part of the SageMaker AI Operators for Kubernetes, you can use the `smlogs`
 [plugin](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/ "https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/") for `kubectl`. This allows SageMaker AI CloudWatch logs to be
@@ -798,9 +767,7 @@ deployment.apps "sagemaker-k8s-operator-controller-manager" deleted
 secrets "sagemaker-k8s-operator-abcde" deleted
 ```
 
-##### Operators installed using Helm
-
-Charts
+##### Operators installed using Helm Charts
 
 To delete the operator CRDs, first delete all the running jobs. Then delete the Helm
 Chart that was used to deploy the operators using the following commands:
@@ -813,9 +780,7 @@ helm ls
 helm delete `<chart_name>`
 ```
 
-#### Delete namespace-based
-
-operators
+#### Delete namespace-based operators
 
 ##### Operators installed with YAML
 
@@ -843,9 +808,7 @@ kubectl delete -f https://raw.githubusercontent.com/aws/amazon-sagemaker-operato
 kubectl delete namespace `<namespace>`
 ```
 
-##### Operators installed with Helm
-
-Charts
+##### Operators installed with Helm Charts
 
 To delete the operator CRDs, first delete all the running jobs. Then delete the Helm
 Chart that was used to deploy the operators using the following commands:

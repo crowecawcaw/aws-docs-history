@@ -26,5 +26,4 @@ For more information about using `get_execution_role` in the
 
 ## Next Step
 
-[Use an Amazon S3 bucket for input and
-output](automatic-model-tuning-ex-bucket.md "automatic-model-tuning-ex-bucket.md")
+[Use an Amazon S3 bucket for input and output](automatic-model-tuning-ex-bucket.md "automatic-model-tuning-ex-bucket.md")

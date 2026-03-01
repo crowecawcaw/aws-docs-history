@@ -8,9 +8,7 @@ the metrics that the algorithm computes. Automatic model tuning searches the
 hyperparameters chosen to find the combination of values that result in the model that
 optimizes the objective metric.
 
-## Metrics Computed by the Semantic
-
-Segmentation Algorithm
+## Metrics Computed by the Semantic Segmentation Algorithm
 
 The semantic segmentation algorithm reports two validation metrics. When tuning
 hyperparameter values, choose one of these metrics as the objective.

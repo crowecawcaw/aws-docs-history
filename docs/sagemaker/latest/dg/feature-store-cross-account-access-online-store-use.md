@@ -1,6 +1,4 @@
-# Use online store shared
-
-resources with access permissions
+# Use online store shared resources with access permissions
 
 The resource owner account must grant permissions to resource consumer accounts to allow for
 discoverability, read-only, write, or admin privileges with a shared resource. In the following
@@ -24,9 +22,7 @@ Invitations are not sent in these cases:
   For more information about accepting and using a resource share in AWS RAM, see [Using shared AWS
   resources](../../../ram/latest/userguide/getting-started-shared.md "../../../ram/latest/userguide/getting-started-shared.md") in the AWS RAM User Guide.
 
-## View shared
-
-resources on the AWS RAM console
+## View shared resources on the AWS RAM console
 
 Granting any access permissions does not grant resource consumer accounts the
 discoverability permission, so the resource consumer accounts with access permissions cannot
@@ -34,22 +30,18 @@ search and discover those feature groups. To allow for resource consumer account
 and discover feature groups from the resource owner account, the resource owner account must
 grant the discoverability permission to the resource consumer accounts, where all of the
 feature groups within the resource owner account are discoverable by the resource consumer
-accounts. For more information about granting the discoverability permission, see [Enabling cross account
-discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
+accounts. For more information about granting the discoverability permission, see [Enabling cross account discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
 
 To view the shared resources on the AWS RAM console, open the [Shared with me: Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares "https://console.aws.amazon.com/ram/home#SharedResourceShares") page in the
 AWS RAM console.
 
-## Read
-
-and write actions with a shared feature groups example
+## Read and write actions with a shared feature groups example
 
 Once your resource consumer account is granted the appropriate permissions by the resource
 owner account, you can perform actions on the shared resources using the Feature Store SDK. You can do
 this by providing the resource ARN as the `FeatureGroupName`. To obtain the Feature
 Group ARN, you can use the AWS SDK for Python (Boto3) [`DescribeFeatureGroup`](https://boto3.amazonaws.com/v1/documentation/api/1.26.98/reference/services/sagemaker/client/describe_feature_group.html#describe-feature-group "https://boto3.amazonaws.com/v1/documentation/api/1.26.98/reference/services/sagemaker/client/describe_feature_group.html#describe-feature-group") function or use the console UI. For information
-about using the console UI to view feature group details, see [View feature group details
-from the console](feature-store-use-with-studio.md#feature-store-view-feature-group-detail-studio "feature-store-use-with-studio.md#feature-store-view-feature-group-detail-studio").
+about using the console UI to view feature group details, see [View feature group details from the console](feature-store-use-with-studio.md#feature-store-view-feature-group-detail-studio "feature-store-use-with-studio.md#feature-store-view-feature-group-detail-studio").
 
 The following examples use `PutRecord` and `GetRecord` with a shared
 feature group entity. See the request and response syntax in the AWS SDK for Python (Boto3) documentation
@@ -82,5 +74,4 @@ featurestore_runtime.get_record(
 )
 ```
 
-For more information about granting permissions to feature group entities, see [Share
-your feature group entities](feature-store-cross-account-access-online-store-share-feature-group.md "feature-store-cross-account-access-online-store-share-feature-group.md").
+For more information about granting permissions to feature group entities, see [Share your feature group entities](feature-store-cross-account-access-online-store-share-feature-group.md "feature-store-cross-account-access-online-store-share-feature-group.md").

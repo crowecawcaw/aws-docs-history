@@ -4,6 +4,5 @@ The following sections show how to create algorithm and model package resources 
 
 ###### Topics
 
-- [Creation of Algorithm and Model Package
-  Resources](sagemaker-mkt-create.md "sagemaker-mkt-create.md")
+- [Creation of Algorithm and Model Package Resources](sagemaker-mkt-create.md "sagemaker-mkt-create.md")
 - [Usage of Algorithm and Model Package Resources](sagemaker-mkt-buy.md "sagemaker-mkt-buy.md")

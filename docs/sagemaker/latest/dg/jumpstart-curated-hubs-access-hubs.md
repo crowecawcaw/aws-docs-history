@@ -29,8 +29,7 @@ JumpStart** landing page takes you directly into that hub. If you
 have access to multiple hubs, you are taken to the **Hubs** page.
 
 For more information on fine-tuning, deploying, and evaluating models that you
-have access to in Studio, see [Use foundation
-models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
+have access to in Studio, see [Use foundation models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
 
 ## Access your private model hub using the SageMaker Python SDK
 
@@ -94,5 +93,4 @@ response = hub.describe_model(model_name=`"example-model"`)
 ```
 
 For more information on fine-tuning and deploying models that you have access to
-using the SageMaker Python SDK, see [Use foundation models
-with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
+using the SageMaker Python SDK, see [Use foundation models with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").

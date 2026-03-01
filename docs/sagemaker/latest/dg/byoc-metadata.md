@@ -1,6 +1,4 @@
-# Save and Access Metadata Information About Your
-
-Processing Job
+# Save and Access Metadata Information About Your Processing Job
 
 To save metadata from the processing container after exiting it, containers can
 write UTF-8 encoded text to the `/opt/ml/output/message` file.

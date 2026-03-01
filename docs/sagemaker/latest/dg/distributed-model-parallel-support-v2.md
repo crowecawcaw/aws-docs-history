@@ -1,6 +1,4 @@
-# Supported frameworks and
-
-AWS Regions
+# Supported frameworks and AWS Regions
 
 Before using the SageMaker model parallelism library v2 (SMP v2), check the supported
 frameworks and instance types and determine if there are enough quotas in your AWS account
@@ -8,12 +6,9 @@ and AWS Region.
 
 ###### Note
 
-To check the latest updates and release notes of the library, see [Release notes for the SageMaker model parallelism
-library](model-parallel-release-notes.md "model-parallel-release-notes.md").
+To check the latest updates and release notes of the library, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md").
 
-## Supported
-
-frameworks
+## Supported frameworks
 
 SMP v2 supports the following deep learning frameworks and available through SMP
 Docker containers and an SMP Conda channel. When you use the framework estimator classes
@@ -54,9 +49,7 @@ For more information about Conda channels in general, see [Channels](https://doc
 To find previous versions of the SMP library v1.x and pre-packaged DLCs, see [Supported Frameworks](distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks "distributed-model-parallel-support.md#distributed-model-parallel-supported-frameworks") in the _SMP
 v1 documentation_.
 
-### Use
-
-SMP v2 with open source libraries
+### Use SMP v2 with open source libraries
 
 The SMP v2 library works with other PyTorch-based open source libraries such as
 PyTorch Lightning, Hugging Face Transformers, and Hugging Face Accelerate, because
@@ -89,9 +82,7 @@ accordingly.
 - us-west-1
 - us-west-2
 
-## Supported
-
-instance types
+## Supported instance types
 
 SMP v2 requires one of the following ML instance types.
 
@@ -104,8 +95,7 @@ SMP v2 requires one of the following ML instance types.
 
 ###### Tip
 
-Starting from SMP v2.2.0 supporting PyTorch v2.2.0 and later, [Mixed precision training with FP8 on P5 instances using Transformer
-Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5")
+Starting from SMP v2.2.0 supporting PyTorch v2.2.0 and later, [Mixed precision training with FP8 on P5 instances using Transformer Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5")
 is available.
 
 For specs of the SageMaker machine learning instance types in general, see the **Accelerated Computing** section in the [Amazon EC2 Instance Types page](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/"). For information about

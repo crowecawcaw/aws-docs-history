@@ -1,6 +1,4 @@
-# Open TensorBoard using the
-
-`sagemaker.interactive_apps.tensorboard` module
+# Open TensorBoard using the `sagemaker.interactive_apps.tensorboard` module
 
 The `sagemaker.interactive_apps.tensorboard` module provides a function
 called `get_app_url` that generates unsigned or presigned URLs to open
@@ -22,14 +20,10 @@ use this functionality, make sure that you upgrade the SDK by running `pip
 
 ###### Topics
 
-- [Option 1: For SageMaker AI
-  Studio Classic](#debugger-htb-access-tb-url-unsigned "#debugger-htb-access-tb-url-unsigned")
-- [Option 2: For non-Studio Classic
-  environments](#debugger-htb-access-tb-url-presigned "#debugger-htb-access-tb-url-presigned")
+- [Option 1: For SageMaker AI Studio Classic](#debugger-htb-access-tb-url-unsigned "#debugger-htb-access-tb-url-unsigned")
+- [Option 2: For non-Studio Classic environments](#debugger-htb-access-tb-url-presigned "#debugger-htb-access-tb-url-presigned")
 
-## Option 1: For SageMaker AI
-
-Studio Classic
+## Option 1: For SageMaker AI Studio Classic
 
 If you are using SageMaker Studio Classic, you can directly open the TensorBoard
 application or retrieve an unsigned URL by running the `get_app_url`
@@ -80,9 +74,7 @@ landing page in the SageMaker AI console, because these do not have sign-in info
 to your domain and user profile. For creating a presigned URL, see Option 2
 in the following section.
 
-## Option 2: For non-Studio Classic
-
-environments
+## Option 2: For non-Studio Classic environments
 
 If you use non-Studio Classic environments, such as SageMaker Notebook instance or
 Amazon EC2, and want to open TensorBoard directly from the environment you are in,

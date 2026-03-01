@@ -1,6 +1,4 @@
-# Default framework
-
-profiling
+# Default framework profiling
 
 Debugger framework default profiling includes the following options: detailed
 profiling, data loader profiling, and Python profiling. The following example code
@@ -24,9 +22,7 @@ seventh step with the data loader profiling option; and the ninth, tenth, and
 eleventh steps with the Python profiling option.
 
 To find available profiling configuration options, the default parameter settings,
-and examples of how to configure them, see [Default system
-monitoring and customized framework profiling with different profiling
-options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md") and [SageMaker Debugger APIs – FrameworkProfile](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.FrameworkProfile "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.FrameworkProfile") in the
+and examples of how to configure them, see [Default system monitoring and customized framework profiling with different profiling options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md") and [SageMaker Debugger APIs – FrameworkProfile](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.FrameworkProfile "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.FrameworkProfile") in the
 [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
 If you want to change the system monitoring interval and enable the default

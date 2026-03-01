@@ -4,18 +4,12 @@ If you no longer need a scaling policy, you can delete it at any time.
 
 ###### Topics
 
-- [Delete all scaling policies
-  and deregister the model (console)](#endpoint-auto-scaling-delete-console "#endpoint-auto-scaling-delete-console")
-- [Delete a scaling policy (AWS CLI
-  or Application Auto Scaling API)](#endpoint-auto-scaling-delete-code "#endpoint-auto-scaling-delete-code")
+- [Delete all scaling policies and deregister the model (console)](#endpoint-auto-scaling-delete-console "#endpoint-auto-scaling-delete-console")
+- [Delete a scaling policy (AWS CLI or Application Auto Scaling API)](#endpoint-auto-scaling-delete-code "#endpoint-auto-scaling-delete-code")
 
-## Delete all scaling policies
+## Delete all scaling policies and deregister the model (console)
 
-and deregister the model (console)
-
-###### To delete all scaling policies and deregister the variant as a scalable
-
-target
+###### To delete all scaling policies and deregister the variant as a scalable target
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. On the navigation pane, choose **Endpoints**.
@@ -24,17 +18,13 @@ target
 4. Choose **Configure auto scaling**.
 5. Choose **Deregister auto scaling**.
 
-## Delete a scaling policy (AWS CLI
-
-or Application Auto Scaling API)
+## Delete a scaling policy (AWS CLI or Application Auto Scaling API)
 
 You
 can use the AWS CLI or the Application Auto Scaling API to delete a scaling policy from a
 variant.
 
-### Delete a scaling policy
-
-(AWS CLI)
+### Delete a scaling policy (AWS CLI)
 
 To delete a scaling policy from a variant, use the [delete-scaling-policy](../../../cli/latest/reference/application-autoscaling/delete-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/delete-scaling-policy.md") command with the following parameters:
 
@@ -64,9 +54,7 @@ aws application-autoscaling delete-scaling-policy \
   --scalable-dimension sagemaker:variant:DesiredInstanceCount
 ```
 
-### Delete a scaling policy
-
-(Application Auto Scaling API)
+### Delete a scaling policy (Application Auto Scaling API)
 
 To delete a scaling policy from your variant, use the [DeleteScalingPolicy](../../../autoscaling/application/APIReference/API_DeleteScalingPolicy.md "../../../autoscaling/application/APIReference/API_DeleteScalingPolicy.md") Application Auto Scaling API action with the following
 parameters:

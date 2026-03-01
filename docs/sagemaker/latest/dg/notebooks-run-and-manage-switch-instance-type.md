@@ -1,6 +1,4 @@
-# Change the Instance
-
-Type for an Amazon SageMaker Studio Classic Notebook
+# Change the Instance Type for an Amazon SageMaker Studio Classic Notebook
 
 When you open a new Studio Classic notebook for the first time, you are assigned a default
 Amazon Elastic Compute Cloud (Amazon EC2) instance type to run the notebook. When you open additional notebooks on
@@ -39,5 +37,4 @@ GiB**.
 4. After choosing a type, choose **Select**.
 5. Wait for the new instance to become enabled, and then the new instance type
    information is displayed.
-   For a list of the available instance types, see [Instance Types Available for Use With
-   Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
+   For a list of the available instance types, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").

@@ -1,13 +1,9 @@
-# Customize your
-
-environment using a package manager
+# Customize your environment using a package manager
 
 Use pip or conda to customize your environment. We recommend using package managers
 instead of lifecycle configuration scripts.
 
-## Create and activate your
-
-custom environment
+## Create and activate your custom environment
 
 This section provides examples of different ways that you can configure an
 environment in JupyterLab.
@@ -59,9 +55,7 @@ menu.
 
 Choose **Select** to select a kernel for the environment.
 
-## Create a conda environment
-
-with a specific Python version
+## Create a conda environment with a specific Python version
 
 Cleaning up conda environments that you’re not using can help free up disk space
 and improve performance. Use the following template to clean up a conda
@@ -89,9 +83,7 @@ conda deactivate
 
 ```
 
-## Create a conda
-
-environment with a specific set of packages
+## Create a conda environment with a specific set of packages
 
 Use the following template to create a conda environment with a specific version
 of Python and set of packages:
@@ -118,9 +110,7 @@ conda deactivate
 
 ```
 
-## Clone conda from an existing
-
-environment
+## Clone conda from an existing environment
 
 Clone your conda environment to preserve its working state. You experiment in the
 cloned environment without having to worry about introducing breaking changes in
@@ -150,9 +140,7 @@ conda deactivate
 
 ```
 
-## Clone conda from a reference
-
-YAML file
+## Clone conda from a reference YAML file
 
 Create a conda environment from a reference YAML file. The following is an example
 of a YAML file that you can use.

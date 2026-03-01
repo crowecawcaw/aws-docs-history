@@ -14,15 +14,11 @@ labels you are adjusting. Review and adjust the labels in your task as needed.
 ###### Topics
 
 - [Navigate the UI](sms-video-worker-instructions-worker-ui-ot.md "sms-video-worker-instructions-worker-ui-ot.md")
-- [Bulk Edit Label and Frame
-  Attributes](sms-video-frame-worker-instructions-ot-bulk-edit.md "sms-video-frame-worker-instructions-ot-bulk-edit.md")
+- [Bulk Edit Label and Frame Attributes](sms-video-frame-worker-instructions-ot-bulk-edit.md "sms-video-frame-worker-instructions-ot-bulk-edit.md")
 - [Tool Guide](sms-video-worker-instructions-tool-guide.md "sms-video-worker-instructions-tool-guide.md")
 - [Icons Guide](sms-video-worker-instructions-ot-icons.md "sms-video-worker-instructions-ot-icons.md")
 - [Shortcuts](sms-video-worker-instructions-ot-hot-keys.md "sms-video-worker-instructions-ot-hot-keys.md")
-- [Understand Release, Stop and
-  Resume, and Decline Task Options](sms-video-worker-instructions-skip-reject-ot.md "sms-video-worker-instructions-skip-reject-ot.md")
-- [Saving Your Work and
-  Submitting](sms-video-worker-instructions-saving-work-ot.md "sms-video-worker-instructions-saving-work-ot.md")
+- [Understand Release, Stop and Resume, and Decline Task Options](sms-video-worker-instructions-skip-reject-ot.md "sms-video-worker-instructions-skip-reject-ot.md")
+- [Saving Your Work and Submitting](sms-video-worker-instructions-saving-work-ot.md "sms-video-worker-instructions-saving-work-ot.md")
 - [Video Frame Object Tracking Tasks](sms-video-ot-worker-instructions.md "sms-video-ot-worker-instructions.md")
-- [Video Frame Object
-  Detection Tasks](sms-video-od-worker-instructions.md "sms-video-od-worker-instructions.md")
+- [Video Frame Object Detection Tasks](sms-video-od-worker-instructions.md "sms-video-od-worker-instructions.md")

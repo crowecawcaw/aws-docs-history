@@ -13,8 +13,7 @@ resources.
 ###### Topics
 
 - [Choose an installation option](#choose-install-option "#choose-install-option")
-- [Configure your pipeline permissions to
-  access SageMaker AI](#configure-permissions-for-pipeline "#configure-permissions-for-pipeline")
+- [Configure your pipeline permissions to access SageMaker AI](#configure-permissions-for-pipeline "#configure-permissions-for-pipeline")
 - [Access the KFP UI (Kubeflow Dashboard)](#access-the-kfp-ui "#access-the-kfp-ui")
 
 ## Choose an installation option
@@ -28,8 +27,7 @@ Select the option that applies to your use case:
 
 To use other Kubeflow components in addition to Kubeflow Pipelines, choose the full
 [AWS distribution of
-Kubeflow](https://awslabs.github.io/kubeflow-manifests "https://awslabs.github.io/kubeflow-manifests") deployment. 2. [Standalone Kubeflow Pipelines
-Deployment](#kubeflow-pipelines-standalone "#kubeflow-pipelines-standalone")
+Kubeflow](https://awslabs.github.io/kubeflow-manifests "https://awslabs.github.io/kubeflow-manifests") deployment. 2. [Standalone Kubeflow Pipelines Deployment](#kubeflow-pipelines-standalone "#kubeflow-pipelines-standalone")
 
 To use the Kubeflow Pipelines without the other components of Kubeflow, install
 Kubeflow pipelines standalone.
@@ -53,8 +51,7 @@ Complete the following steps to set up your node.
 
 You can use an existing Amazon EC2 instance or create a new instance with the latest
 Ubuntu 18.04 DLAMI version using the steps in [Launching and Configuring a
-DLAMI](../../../dlami/latest/devguide/launch-config.md "../../../dlami/latest/devguide/launch-config.md"). 2. ###### Create an IAM role to grant your gateway node access to AWS
-resources.
+DLAMI](../../../dlami/latest/devguide/launch-config.md "../../../dlami/latest/devguide/launch-config.md"). 2. ###### Create an IAM role to grant your gateway node access to AWS resources.
 
 Create an IAM role with permissions to the following resources: CloudWatch, CloudFormation,
 IAM, Amazon EC2, Amazon S3, Amazon EKS.
@@ -181,9 +178,7 @@ replicaset.apps/ml-pipeline-viewer-crd-6db65ccc4            1         
 replicaset.apps/ml-pipeline-visualizationserver-9c47576f4   1         1         1       2d
 ```
 
-## Configure your pipeline permissions to
-
-access SageMaker AI
+## Configure your pipeline permissions to access SageMaker AI
 
 In this section, you create an IAM execution role granting Kubeflow Pipeline pods access
 to SageMaker AI services.
@@ -316,9 +311,7 @@ the pipelines tab.
 Use port forwarding to access the Kubeflow Pipelines UI from your gateway node by
 following those steps.
 
-#### Set up port forwarding to
-
-the KFP UI service
+#### Set up port forwarding to the KFP UI service
 
 Run the following command from the command line of your gateway node.
 
@@ -344,9 +337,7 @@ this command again if your dashboard is unable to get logs or updates. If the
 commands return an error, ensure that there is no process already running on the
 port you are trying to use.
 
-#### Access the KFP UI
-
-service
+#### Access the KFP UI service
 
 Your method of accessing the KFP UI depends on your gateway node type.
 
@@ -389,9 +380,7 @@ Your method of accessing the KFP UI depends on your gateway node type.
 
   3.  Choose **Pipelines** to access the KFP UI.
 
-#### (Optional) Grant SageMaker AI
-
-notebook instances access to Amazon EKS, and run KFP pipelines from your notebook.
+#### (Optional) Grant SageMaker AI notebook instances access to Amazon EKS, and run KFP pipelines from your notebook.
 
 A SageMaker notebook instance is a fully managed Amazon EC2 compute instance that runs the
 Jupyter Notebook App. You can use a notebook instance to create and manage Jupyter

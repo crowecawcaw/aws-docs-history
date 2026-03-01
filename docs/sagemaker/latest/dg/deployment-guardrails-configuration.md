@@ -1,6 +1,4 @@
-# Auto-Rollback Configuration and
-
-Monitoring
+# Auto-Rollback Configuration and Monitoring
 
 Amazon CloudWatch alarms are a prerequisite for using baking periods in deployment guardrails. You can
 only use the auto-rollback functionality in deployment guardrails if you set up CloudWatch alarms

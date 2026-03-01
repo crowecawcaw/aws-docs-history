@@ -3,9 +3,7 @@
 Refer to this troubleshooting guide to help you debug failures you might experience when
 your scheduled notebook job runs.
 
-## Job definition doesn’t create
-
-jobs
+## Job definition doesn’t create jobs
 
 If your job definition does not initiate any jobs, the notebook or training job may not
 be displayed in the **Jobs** section on the left navigation bar in
@@ -65,9 +63,7 @@ Please contact AWS support to request an increase for this limit.
 
 For more information about training job quotas, see [Amazon SageMaker AI endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md").
 
-## Auto visualizations disabled
-
-in SparkMagic notebooks
+## Auto visualizations disabled in SparkMagic notebooks
 
 If your notebook uses the SparkMagic PySpark kernel and you run the notebook as a
 Notebook Job, you may see that your auto visualizations are disabled in the output. Turning

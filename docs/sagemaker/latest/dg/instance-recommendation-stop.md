@@ -1,6 +1,4 @@
-# Stop your inference
-
-recommendation
+# Stop your inference recommendation
 
 You might want to stop a job that is currently running if you began a job by
 mistake or no longer need to run the job. Stop your Inference Recommender inference recommendation

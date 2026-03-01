@@ -1,6 +1,4 @@
-# Use the Debugger APIs to run your own
-
-custom rules
+# Use the Debugger APIs to run your own custom rules
 
 The following code sample shows how to configure a custom rule with the
 [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). This example assumes that the custom rule script you created in the previous step
@@ -26,8 +24,7 @@ The following list explains the Debugger `Rule.custom` API arguments.
 - `image_uri` (str): This is the image of the container that has the
   logic of understanding your custom rule. It sources and evaluates the specified
   tensor collections you save in the training job. You can find the list of open
-  source SageMaker AI rule evaluator images from [Amazon SageMaker Debugger image URIs for custom rule
-  evaluators](debugger-reference.md#debuger-custom-rule-registry-ids "debugger-reference.md#debuger-custom-rule-registry-ids").
+  source SageMaker AI rule evaluator images from [Amazon SageMaker Debugger image URIs for custom rule evaluators](debugger-reference.md#debuger-custom-rule-registry-ids "debugger-reference.md#debuger-custom-rule-registry-ids").
 - `instance_type` (str): You need to specify an instance to build a
   rule docker container. This spins up the instance in parallel with a training
   container.

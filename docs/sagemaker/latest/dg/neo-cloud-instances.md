@@ -21,5 +21,4 @@ image Amazon ECR URI for your primary container. See [Neo Inference Container Im
 - [Supported Instance Types and Frameworks](neo-supported-cloud.md "neo-supported-cloud.md")
 - [Deploy a Model](neo-deployment-hosting-services.md "neo-deployment-hosting-services.md")
 - [Inference Requests With a Deployed Service](neo-requests.md "neo-requests.md")
-- [Inference
-  Container Images](neo-deployment-hosting-services-container-images.md "neo-deployment-hosting-services-container-images.md")
+- [Inference Container Images](neo-deployment-hosting-services-container-images.md "neo-deployment-hosting-services-container-images.md")

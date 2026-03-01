@@ -1,12 +1,9 @@
-# Update the SageMaker
-
-Distribution Image
+# Update the SageMaker Distribution Image
 
 ###### Important
 
 This topic assumes that you've created a space and given the user access to it.
-For more information, see [Give your users access to
-spaces](studio-updated-jl-admin-guide-permissions.md "studio-updated-jl-admin-guide-permissions.md").
+For more information, see [Give your users access to spaces](studio-updated-jl-admin-guide-permissions.md "studio-updated-jl-admin-guide-permissions.md").
 
 Update the JupyterLab spaces that you've already created to use the latest version of
 the SageMaker Distribution Image to access the latest features. You can use either the

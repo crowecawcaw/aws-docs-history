@@ -16,20 +16,15 @@ order) interactions between features.
 
 ###### Topics
 
-- [Input/Output Interface for the Factorization Machines
-  Algorithm](#fm-inputoutput "#fm-inputoutput")
-- [EC2 Instance Recommendation for the Factorization
-  Machines Algorithm](#fm-instances "#fm-instances")
+- [Input/Output Interface for the Factorization Machines Algorithm](#fm-inputoutput "#fm-inputoutput")
+- [EC2 Instance Recommendation for the Factorization Machines Algorithm](#fm-instances "#fm-instances")
 - [Factorization Machines Sample Notebooks](#fm-sample-notebooks "#fm-sample-notebooks")
 - [How Factorization Machines Work](fact-machines-howitworks.md "fact-machines-howitworks.md")
-- [Factorization Machines
-  Hyperparameters](fact-machines-hyperparameters.md "fact-machines-hyperparameters.md")
+- [Factorization Machines Hyperparameters](fact-machines-hyperparameters.md "fact-machines-hyperparameters.md")
 - [Tune a Factorization Machines Model](fm-tuning.md "fm-tuning.md")
 - [Factorization Machines Response Formats](fm-in-formats.md "fm-in-formats.md")
 
-## Input/Output Interface for the Factorization Machines
-
-Algorithm
+## Input/Output Interface for the Factorization Machines Algorithm
 
 The Factorization Machines algorithm can be run in either in binary classification mode
 or regression mode. In each mode, a dataset can be provided to the **test** channel along with the train channel dataset. The scoring depends
@@ -61,9 +56,7 @@ For **inference**, the Factorization Machines algorithm supports the
 Please see [Factorization Machines Sample Notebooks](#fm-sample-notebooks "#fm-sample-notebooks")
 for more details on training and inference file formats.
 
-## EC2 Instance Recommendation for the Factorization
-
-Machines Algorithm
+## EC2 Instance Recommendation for the Factorization Machines Algorithm
 
 The Amazon SageMaker AI Factorization Machines algorithm is highly scalable and can train across
 distributed instances. We recommend training and inference with CPU instances for both

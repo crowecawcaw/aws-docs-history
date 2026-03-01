@@ -1,6 +1,4 @@
-# Deploying models on
-
-Amazon SageMaker HyperPod
+# Deploying models on Amazon SageMaker HyperPod
 
 Amazon SageMaker HyperPod now extends beyond training to deliver a comprehensive inference platform
 that combines the flexibility of Kubernetes with the operational excellence of AWS managed
@@ -47,8 +45,7 @@ then routes it based on one of the following routing strategies:
 2. `kvaware` — Incoming requests are routed to the instance with the highest KV cache hit rate.
 3. `session` — Requests from the same user session are routed to the same instance.
 4. `roundrobin` — Even distribution of requests without considering the state of the KV cache.
-   For more information on how to enable this feature, see [Configure KV caching and intelligent routing for improved
-   performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+   For more information on how to enable this feature, see [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
 **Inbuilt L2 cache Tiered Storage Support for KV Caching**
 
@@ -66,22 +63,29 @@ better performance.
 
 **Data isolation:** When using managed tiered storage as the L2 cache backend, multiple inference deployments within a cluster share cache storage with no isolation. L2 KV cache data (attention keys and values) from different deployments is not separated. For workloads requiring data isolation (multi-tenant scenarios, different data classification levels), deploy to separate clusters or use dedicated Redis instances.
 
+**Multi-instance type deployment with automatic failover**
+
+HyperPod Inference supports multi-instance type deployment to improve deployment reliability and resource utilization.
+Specify a prioritized list of instance types in your deployment configuration, and the system automatically selects from available alternatives when your preferred instance type lacks capacity.
+The Kubernetes scheduler uses `preferredDuringSchedulingIgnoredDuringExecution` node affinity to evaluate instance types in priority order, placing workloads on the highest-priority available instance type while ensuring deployment even when preferred resources are unavailable.
+This capability prevents deployment failures due to capacity constraints while maintaining your cost and performance preferences, ensuring continuous service availability even during cluster capacity fluctuations.
+
+**Custom node affinity for granular scheduling control**
+
+HyperPod Inference supports custom node affinity to control workload placement beyond instance type selection.
+Specify node selection criteria such as availability zone distribution, capacity type filtering (on-demand vs. spot), or custom node labels through the `nodeAffinity` field.
+The system supports mandatory placement constraints using `requiredDuringSchedulingIgnoredDuringExecution` and optional preferences through `preferredDuringSchedulingIgnoredDuringExecution`, providing full control over pod scheduling decisions while maintaining deployment flexibility.
+
 ###### Note
 
 We collect certain routine operational metrics to provide essential service availability. The creation of these metrics is fully automated and does not involve human review of the underlying model inference workload. These metrics relate to deployment operations, resource management, and endpoint registration.
 
 ###### Topics
 
-- [Setting up your
-  HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md")
-- [Deploy foundation models
-  and custom fine-tuned models](sagemaker-hyperpod-model-deployment-deploy.md "sagemaker-hyperpod-model-deployment-deploy.md")
-- [Autoscaling policies
-  for your HyperPod inference model deployment](sagemaker-hyperpod-model-deployment-autoscaling.md "sagemaker-hyperpod-model-deployment-autoscaling.md")
-- [Implementing
-  inference observability on HyperPod clusters](sagemaker-hyperpod-model-deployment-observability.md "sagemaker-hyperpod-model-deployment-observability.md")
-- [Task governance for model
-  deployment on HyperPod](sagemaker-hyperpod-model-deployment-task-gov.md "sagemaker-hyperpod-model-deployment-task-gov.md")
-- [HyperPod inference
-  troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
+- [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md")
+- [Deploy foundation models and custom fine-tuned models](sagemaker-hyperpod-model-deployment-deploy.md "sagemaker-hyperpod-model-deployment-deploy.md")
+- [Autoscaling policies for your HyperPod inference model deployment](sagemaker-hyperpod-model-deployment-autoscaling.md "sagemaker-hyperpod-model-deployment-autoscaling.md")
+- [Implementing inference observability on HyperPod clusters](sagemaker-hyperpod-model-deployment-observability.md "sagemaker-hyperpod-model-deployment-observability.md")
+- [Task governance for model deployment on HyperPod](sagemaker-hyperpod-model-deployment-task-gov.md "sagemaker-hyperpod-model-deployment-task-gov.md")
+- [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
 - [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md "sagemaker-hyperpod-inference-release-notes.md")

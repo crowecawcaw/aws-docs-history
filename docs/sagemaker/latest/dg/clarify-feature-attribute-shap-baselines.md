@@ -1,6 +1,4 @@
-# SHAP Baselines for
-
-Explainability
+# SHAP Baselines for Explainability
 
 Explanations are typically contrastive (that is, they account for deviations from a
 baseline). As a result, for the same model prediction, you can expect to get different

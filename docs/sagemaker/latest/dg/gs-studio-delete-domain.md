@@ -58,9 +58,7 @@ the SageMaker Python SDK, you can set the `RetentionPolicy` to
 `HomeEfsFileSystem=Delete`. This deletes the Amazon EFS volume along with
 the domain.
 
-## Delete an Amazon SageMaker AI domain
-
-(console)
+## Delete an Amazon SageMaker AI domain (console)
 
 ###### Important
 
@@ -108,9 +106,7 @@ artifacts.
     users.
 12. Follow the delete instructions.
 
-## Delete an Amazon SageMaker AI domain
-
-(AWS CLI)
+## Delete an Amazon SageMaker AI domain (AWS CLI)
 
 ###### To delete a domain
 

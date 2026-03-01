@@ -1,6 +1,4 @@
-# Install policies and permissions for
-
-local Jupyter environments
+# Install policies and permissions for local Jupyter environments
 
 You will need to set up the necessary permissions and policies to schedule notebook jobs
 in a local Jupyter environment. The IAM user needs permissions to submit jobs to SageMaker AI and
@@ -193,9 +191,7 @@ JSON
 
 ```
 
-## Job execution role
-
-permissions
+## Job execution role permissions
 
 **Trust relationships**
 

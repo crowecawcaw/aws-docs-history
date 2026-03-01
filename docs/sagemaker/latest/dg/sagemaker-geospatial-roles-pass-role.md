@@ -1,7 +1,4 @@
-# Adding
-
-the SageMaker geospatial service principal to an existing SageMaker AI execution
-role
+# Adding the SageMaker geospatial service principal to an existing SageMaker AI execution role
 
 To use the SageMaker geospatial specific API operations your SageMaker AI execution
 role

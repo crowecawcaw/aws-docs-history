@@ -70,10 +70,8 @@ _task types_ and to learn how to create a labeling job using the
 task type of your choice.
 
 The 3D point cloud labeling job is different from other Ground Truth labeling modalities.
-Before creating a labeling job, we recommend that you read [3D point cloud labeling jobs
-overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). Additionally, review input
-data quotas in [3D Point Cloud and Video Frame Labeling Job
-Quotas](input-data-limits.md#sms-input-data-quotas-other "input-data-limits.md#sms-input-data-quotas-other").
+Before creating a labeling job, we recommend that you read [3D point cloud labeling jobs overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). Additionally, review input
+data quotas in [3D Point Cloud and Video Frame Labeling Job Quotas](input-data-limits.md#sms-input-data-quotas-other "input-data-limits.md#sms-input-data-quotas-other").
 
 ###### Important
 
@@ -83,6 +81,5 @@ you must stop and restart that notebook instance for the notebook to work.
 ###### Topics
 
 - [3D Point Cloud Task types](sms-point-cloud-task-types.md "sms-point-cloud-task-types.md")
-- [3D point cloud labeling jobs
-  overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md")
+- [3D point cloud labeling jobs overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md")
 - [Worker instructions](sms-point-cloud-worker-instructions.md "sms-point-cloud-worker-instructions.md")

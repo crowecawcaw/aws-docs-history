@@ -1,7 +1,4 @@
-# Announcing the End of Support
-
-of the Original Version of SageMaker AI
-Operators for Kubernetes
+# Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes
 
 This page announces the end of support for the original version of [SageMaker AI Operators for
 Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s "https://github.com/aws/amazon-sagemaker-operator-for-k8s") and provides answers to frequently asked questions as well as migration
@@ -9,29 +6,18 @@ information about the [ACK service controller for Amazon SageMaker AI](https://g
 Operators for Kubernetes. For general information about the new SageMaker AI Operators for Kubernetes,
 see [Latest SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-ack.md "kubernetes-sagemaker-operators-ack.md").
 
-## End of Support Frequently Asked
-
-Questions
+## End of Support Frequently Asked Questions
 
 ###### Contents
 
-- [Why are we ending
-  support for the original version of SageMaker AI Operators for Kubernetes?](#kubernetes-sagemaker-operators-eos-faq-why "#kubernetes-sagemaker-operators-eos-faq-why")
-- [Where can I find more
-  information about the new SageMaker AI Operators for Kubernetes and ACK?](#kubernetes-sagemaker-operators-eos-faq-more "#kubernetes-sagemaker-operators-eos-faq-more")
-- [What does end of support
-  (EOS) mean?](#kubernetes-sagemaker-operators-eos-faq-definition "#kubernetes-sagemaker-operators-eos-faq-definition")
-- [How can I migrate my workload
-  to the new SageMaker AI Operators for Kubernetes for training and inference?](#kubernetes-sagemaker-operators-eos-faq-how "#kubernetes-sagemaker-operators-eos-faq-how")
-- [Which version of ACK should
-  I migrate to?](#kubernetes-sagemaker-operators-eos-faq-version "#kubernetes-sagemaker-operators-eos-faq-version")
-- [Are the initial SageMaker AI
-  Operators for Kubernetes and the new Operators (ACK service controller for Amazon SageMaker AI)
-  functionally equivalent?](#kubernetes-sagemaker-operators-eos-faq-parity "#kubernetes-sagemaker-operators-eos-faq-parity")
+- [Why are we ending support for the original version of SageMaker AI Operators for Kubernetes?](#kubernetes-sagemaker-operators-eos-faq-why "#kubernetes-sagemaker-operators-eos-faq-why")
+- [Where can I find more information about the new SageMaker AI Operators for Kubernetes and ACK?](#kubernetes-sagemaker-operators-eos-faq-more "#kubernetes-sagemaker-operators-eos-faq-more")
+- [What does end of support (EOS) mean?](#kubernetes-sagemaker-operators-eos-faq-definition "#kubernetes-sagemaker-operators-eos-faq-definition")
+- [How can I migrate my workload to the new SageMaker AI Operators for Kubernetes for training and inference?](#kubernetes-sagemaker-operators-eos-faq-how "#kubernetes-sagemaker-operators-eos-faq-how")
+- [Which version of ACK should I migrate to?](#kubernetes-sagemaker-operators-eos-faq-version "#kubernetes-sagemaker-operators-eos-faq-version")
+- [Are the initial SageMaker AI Operators for Kubernetes and the new Operators (ACK service controller for Amazon SageMaker AI) functionally equivalent?](#kubernetes-sagemaker-operators-eos-faq-parity "#kubernetes-sagemaker-operators-eos-faq-parity")
 
-### Why are we ending
-
-support for the original version of SageMaker AI Operators for Kubernetes?
+### Why are we ending support for the original version of SageMaker AI Operators for Kubernetes?
 
 Users can now take advantage of the [ACK service controller
 for Amazon SageMaker AI](https://github.com/aws-controllers-k8s/sagemaker-controller "https://github.com/aws-controllers-k8s/sagemaker-controller"). The ACK service controller is a new generation of SageMaker AI Operators for
@@ -47,9 +33,7 @@ Kubernetes 1.21](../../../eks/latest/userguide/kubernetes-versions.md#kubernetes
 For more information on ACK, see [ACK
 history and tenets](https://aws-controllers-k8s.github.io/community/docs/community/background/ "https://aws-controllers-k8s.github.io/community/docs/community/background/").
 
-### Where can I find more
-
-information about the new SageMaker AI Operators for Kubernetes and ACK?
+### Where can I find more information about the new SageMaker AI Operators for Kubernetes and ACK?
 
 - For more information about the new SageMaker AI Operators for Kubernetes, see the [ACK service
   controller for Amazon SageMaker AI](https://github.com/aws-controllers-k8s/sagemaker-controller "https://github.com/aws-controllers-k8s/sagemaker-controller") GitHub repository or read [AWS
@@ -64,9 +48,7 @@ For an autoscaling example, see [Scale SageMaker AI Workloads with Application A
 - For a list of supported SageMaker AI resources, see [ACK API
   Reference](https://aws-controllers-k8s.github.io/community/reference/ "https://aws-controllers-k8s.github.io/community/reference/").
 
-### What does end of support
-
-(EOS) mean?
+### What does end of support (EOS) mean?
 
 While users can continue to use their current operators, we are no longer developing new
 features for the operators, nor will we release any patches or security updates for any
@@ -74,25 +56,17 @@ issues found. `v1.2.2` is the last release of [SageMaker AI Operators
 for Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s/tree/master "https://github.com/aws/amazon-sagemaker-operator-for-k8s/tree/master"). Users should migrate their workloads to use the [ACK service controller
 for Amazon SageMaker AI](https://github.com/aws-controllers-k8s/sagemaker-controller "https://github.com/aws-controllers-k8s/sagemaker-controller").
 
-### How can I migrate my workload
-
-to the new SageMaker AI Operators for Kubernetes for training and inference?
+### How can I migrate my workload to the new SageMaker AI Operators for Kubernetes for training and inference?
 
 For information about migrating resources from the old to the new SageMaker AI Operators for
-Kubernetes, follow [Migrate resources to the latest
-Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
+Kubernetes, follow [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
 
-### Which version of ACK should
-
-I migrate to?
+### Which version of ACK should I migrate to?
 
 Users should migrate to the most recent
 released version of the [ACK service controller for Amazon SageMaker AI](https://github.com/aws-controllers-k8s/sagemaker-controller/tags "https://github.com/aws-controllers-k8s/sagemaker-controller/tags").
 
-### Are the initial SageMaker AI
-
-Operators for Kubernetes and the new Operators (ACK service controller for Amazon SageMaker AI)
-functionally equivalent?
+### Are the initial SageMaker AI Operators for Kubernetes and the new Operators (ACK service controller for Amazon SageMaker AI) functionally equivalent?
 
 Yes, they are at feature parity.
 

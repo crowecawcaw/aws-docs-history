@@ -1,6 +1,4 @@
-# View shared model package
-
-groups
+# View shared model package groups
 
 After the resource owner completes the previous steps to create a resource
 share and the consumer accepts the invitation for the share, the consumer can

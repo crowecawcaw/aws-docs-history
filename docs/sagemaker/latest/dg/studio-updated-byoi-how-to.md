@@ -18,9 +18,6 @@ Amazon SageMaker AI.
 
 ###### Topics
 
-- [Create a custom image and push to
-  Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md")
-- [Attach your custom image to your
-  domain](studio-updated-byoi-how-to-attach-to-domain.md "studio-updated-byoi-how-to-attach-to-domain.md")
-- [Update container
-  configuration](studio-updated-byoi-how-to-container-configuration.md "studio-updated-byoi-how-to-container-configuration.md")
+- [Create a custom image and push to Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md")
+- [Attach your custom image to your domain](studio-updated-byoi-how-to-attach-to-domain.md "studio-updated-byoi-how-to-attach-to-domain.md")
+- [Update container configuration](studio-updated-byoi-how-to-container-configuration.md "studio-updated-byoi-how-to-container-configuration.md")

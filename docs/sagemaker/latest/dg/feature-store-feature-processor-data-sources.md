@@ -7,9 +7,6 @@ provided data sources, see [Feature Processor data source Feature Store Python S
 
 ###### Topics
 
-- [Feature Processor SDK data
-  sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md")
-- [Custom data
-  sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md")
-- [Custom data
-  source examples](feature-store-feature-processor-data-sources-custom-examples.md "feature-store-feature-processor-data-sources-custom-examples.md")
+- [Feature Processor SDK data sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md")
+- [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md")
+- [Custom data source examples](feature-store-feature-processor-data-sources-custom-examples.md "feature-store-feature-processor-data-sources-custom-examples.md")

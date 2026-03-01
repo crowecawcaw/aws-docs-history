@@ -1,6 +1,4 @@
-# Update a model
-
-package stage and status example (boto3)
+# Update a model package stage and status example (boto3)
 
 To update a model package stage and status, you will need to assume an
 execution role with the relevant permissions. The following provides an example
@@ -10,8 +8,7 @@ In this example, the `ModelLifeCycle` stage
 `"Development"` and stage status `"Approved"`
 condition keys for the [`UpdateModelPackage`](../APIReference/API_UpdateModelPackage.md "../APIReference/API_UpdateModelPackage.md") API action has been granted to
 the your execution role. You can include a description in
-`stage-description`. See [Set up Staging
-Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md") for more
+`stage-description`. See [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md") for more
 information.
 
 ```

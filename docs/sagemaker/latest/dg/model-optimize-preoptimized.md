@@ -22,8 +22,7 @@ Amazon SageMaker Studio.
    for **I accept the EULA, and read the terms and
    conditions.**
 
-For more information, see [End-user license
-agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula"). 5. For **Endpoint name** and **Initial instance
+For more information, see [End-user license agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula"). 5. For **Endpoint name** and **Initial instance
 count**, accept the default values or set custom ones. 6. For **Instance type**, keep the default value. Otherwise,
 you can't deploy a pre-optimized configuration. 7. Under **Models**, expand the model configuration.
 Studio shows a table that provides the pre-optimized configurations
@@ -69,8 +68,7 @@ sagemaker_session = Session()
    output.
 
 For more information about using the `SchemaBuilder` and
-`ModelBuilder` classes, see [Create a model in Amazon SageMaker AI with
-ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
+`ModelBuilder` classes, see [Create a model in Amazon SageMaker AI with ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
 
 The following example provides sample input and output strings to the
 `SchemaBuilder` class:

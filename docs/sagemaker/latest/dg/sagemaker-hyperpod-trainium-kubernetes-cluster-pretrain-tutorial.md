@@ -76,9 +76,7 @@ hyperpod connect-cluster --cluster-name "${CLUSTER_NAME}" [--region "${CLUSTER_R
 
 8. Container: The [Neuron container](https://github.com/aws-neuron/deep-learning-containers?tab=readme-ov-file#pytorch-training-neuronx "https://github.com/aws-neuron/deep-learning-containers?tab=readme-ov-file#pytorch-training-neuronx")
 
-## Launch the
-
-training job with the SageMaker HyperPod CLI
+## Launch the training job with the SageMaker HyperPod CLI
 
 We recommend using the SageMaker HyperPod command-line interface (CLI) tool to submit
 your training job with your configurations. The following example submits a training
@@ -139,9 +137,7 @@ kubectl logs `name_of_pod`
 The `STATUS` will turn to `Completed` when you run
 `kubectl get pods`.
 
-## Launch the
-
-training job with the recipes launcher
+## Launch the training job with the recipes launcher
 
 Alternatively, use SageMaker HyperPod recipes to submit your training job. To submit the
 training job using a recipe, update `k8s.yaml` and

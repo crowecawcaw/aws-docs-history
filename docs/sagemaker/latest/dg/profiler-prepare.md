@@ -5,16 +5,11 @@ the training script and configuring the SageMaker training job launcher.
 
 ###### Topics
 
-- [Step 1: Adapt your training
-  script using the SageMaker Profiler Python modules](#profiler-prepare-training-script "#profiler-prepare-training-script")
-- [Step 2: Create a SageMaker AI framework estimator
-  and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig")
-- [(Optional) Install the SageMaker Profiler
-  Python package](#profiler-install-python-package "#profiler-install-python-package")
+- [Step 1: Adapt your training script using the SageMaker Profiler Python modules](#profiler-prepare-training-script "#profiler-prepare-training-script")
+- [Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig")
+- [(Optional) Install the SageMaker Profiler Python package](#profiler-install-python-package "#profiler-install-python-package")
 
-## Step 1: Adapt your training
-
-script using the SageMaker Profiler Python modules
+## Step 1: Adapt your training script using the SageMaker Profiler Python modules
 
 To start capturing kernel runs on GPUs while the training job is running, modify
 your training script using the SageMaker Profiler Python modules. Import the library and add
@@ -26,8 +21,7 @@ during particular operations in each step.
 Note that the annotators extract operations from GPUs. For profiling operations in
 CPUs, you don’t need to add any additional annotations. CPU profiling is also
 activated when you specify the profiling configuration, which you’ll practice in
-[Step 2: Create a SageMaker AI framework estimator
-and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig").
+[Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler](#profiler-profilerconfig "#profiler-profilerconfig").
 
 ###### Note
 
@@ -157,9 +151,7 @@ to submit using a SageMaker training job launcher in the following Step 2. The
 sample launcher assumes that the training script is named
 `train_with_profiler_demo.py`.
 
-## Step 2: Create a SageMaker AI framework estimator
-
-and activate SageMaker Profiler
+## Step 2: Create a SageMaker AI framework estimator and activate SageMaker Profiler
 
 The following procedure shows how to prepare a SageMaker AI framework estimator for
 training using the SageMaker Python SDK.
@@ -194,8 +186,7 @@ its argument.
    import `sagemaker.tensorflow.TensorFlow` instead, and specify one
    of the [TensorFlow
    versions](profiler-support.md#profiler-support-frameworks-tensorflow "profiler-support.md#profiler-support-frameworks-tensorflow") supported by SageMaker Profiler. For more information about
-   supported frameworks and instance types, see [SageMaker AI framework images pre-installed
-   with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks").
+   supported frameworks and instance types, see [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks").
 
 ```
 import sagemaker
@@ -255,27 +246,21 @@ print(
 )
 ```
 
-## (Optional) Install the SageMaker Profiler
+## (Optional) Install the SageMaker Profiler Python package
 
-Python package
-
-To use SageMaker Profiler on PyTorch or TensorFlow framework images not listed in [SageMaker AI framework images pre-installed
-with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks"), or on your own custom Docker container
-for training, you can install SageMaker Profiler by using one of the [SageMaker Profiler Python package binary
-files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package").
+To use SageMaker Profiler on PyTorch or TensorFlow framework images not listed in [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks"), or on your own custom Docker container
+for training, you can install SageMaker Profiler by using one of the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package").
 
 **Option 1: Install the SageMaker Profiler package while launching a
 training job**
 
 If you want to use SageMaker Profiler for training jobs using PyTorch or TensorFlow images
-not listed in [SageMaker AI framework images pre-installed
-with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks"), create a
+not listed in [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks"), create a
 `requirements.txt` file and locate it under the path you specify to
 the `source_dir` parameter of the SageMaker AI framework estimator in [Step 2](#profiler-profilerconfig "#profiler-profilerconfig"). For more information about
 setting up a `requirements.txt` file in general, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#using-third-party-libraries "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#using-third-party-libraries") in the _SageMaker Python SDK
 documentation_. In the `requirements.txt` file, add one of
-the S3 bucket paths for the [SageMaker Profiler Python package binary
-files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package").
+the S3 bucket paths for the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package").
 
 ```
 # requirements.txt
@@ -285,8 +270,7 @@ https://smppy.s3.amazonaws.com/`tensorflow/cu112/smprof-0.3.332-cp39-cp39-linux_
 **Option 2: Install the SageMaker Profiler package in your custom Docker
 containers**
 
-If you use a custom Docker container for training, add one of the [SageMaker Profiler Python package binary
-files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package") to your Dockerfile.
+If you use a custom Docker container for training, add one of the [SageMaker Profiler Python package binary files](profiler-support.md#profiler-python-package "profiler-support.md#profiler-python-package") to your Dockerfile.
 
 ```
 # Install the smprof package version compatible with your CUDA version

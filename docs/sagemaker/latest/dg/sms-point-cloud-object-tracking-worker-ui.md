@@ -1,6 +1,4 @@
-# View the worker task
-
-interface for a 3D point cloud object tracking task
+# View the worker task interface for a 3D point cloud object tracking task
 
 Ground Truth provides workers with a web portal and tools to complete your 3D point cloud
 object tracking annotation tasks. When you create the labeling job, you provide the

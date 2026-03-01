@@ -10,17 +10,13 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the Object2Vec
-
-Algorithm
+## Metrics Computed by the Object2Vec Algorithm
 
 The Object2Vec algorithm has both classification and regression metrics. The
 `output_layer` type determines which metric you can use for automatic
 model tuning.
 
-### Regressor Metrics Computed by the
-
-Object2Vec Algorithm
+### Regressor Metrics Computed by the Object2Vec Algorithm
 
 The algorithm reports a mean squared error regressor metric, which is computed
 during testing and validation. When tuning the model for regression tasks,
@@ -31,9 +27,7 @@ choose this metric as the objective.
 | `test:mean_squared_error`       | The Mean Square Error | Minimize               |
 | `validation:mean_squared_error` | The Mean Square Error | Minimize               |
 
-### Classification Metrics Computed by the
-
-Object2Vec Algorithm
+### Classification Metrics Computed by the Object2Vec Algorithm
 
 The Object2Vec algorithm reports accuracy and cross-entropy classification
 metrics, which are computed during test and validation. When tuning the model
@@ -46,9 +40,7 @@ for classification tasks, choose one of these as the objective.
 | `validation:accuracy`      | Accuracy      | Maximize               |
 | `validation:cross_entropy` | Cross-entropy | Minimize               |
 
-## Tunable Object2Vec
-
-Hyperparameters
+## Tunable Object2Vec Hyperparameters
 
 You can tune the following hyperparameters for the Object2Vec algorithm.
 

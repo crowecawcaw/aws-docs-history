@@ -1,6 +1,4 @@
-# Expert
-
-parallelism
+# Expert parallelism
 
 A _Mixture of Experts_ (MoE) model is a type of
 transformer model that employs a _sparse_ approach, making it lighter
@@ -45,16 +43,13 @@ until the model fits in the GPU memory.
 The following code snippets show how to add the SMP initialization module
 `torch.sagemaker.init()` to your training script and set up the SMP
 configuration dictionary in JSON format for training job launcher while following
-the two-step process introduced in [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
+the two-step process introduced in [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
 don’t need to make any changes to your PyTorch model or [PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp "https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp") configuration. For more information about the
-`expert_parallel_degree` parameter, see [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+`expert_parallel_degree` parameter, see [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
 
 ###### Note
 
-You can use expert parallelism with [Hybrid
-sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md"). Note
+You can use expert parallelism with [Hybrid sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md"). Note
 that expert parallelism is currently not compatible with tensor
 parallelism.
 

@@ -81,13 +81,10 @@ With access set up, JupyterLab users can:
       sources to which you want to connect. To learn about the networking requirements, see
       [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").
   2.  Check connection properties and instructions to create a secret for your data source
-      in [Create secrets for database
-      access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
-  3.  Create the AWS Glue connections to your data sources in [Create AWS Glue connections
-      (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md").
+      in [Create secrets for database access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
+  3.  Create the AWS Glue connections to your data sources in [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md").
   4.  Grant the execution role of your SageMaker domain or user profiles the required
-      permissions in [Set up the IAM
-      permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
+      permissions in [Set up the IAM permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
 
 - If you are a data scientist looking to create your own connections to data sources for
   the SQL extension, follow these steps:
@@ -96,8 +93,7 @@ With access set up, JupyterLab users can:
         data sources to which you want to connect. To learn about the networking
         requirements, see [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").
       - Grant the execution role of your SageMaker domain or user profiles the required
-        permissions in [Set up the IAM
-        permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
+        permissions in [Set up the IAM permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
 
       ###### Note
 
@@ -106,10 +102,8 @@ With access set up, JupyterLab users can:
       in the execution role.
 
   2.  Check connection properties and instructions to create a secret for your data source
-      in [Create secrets for database
-      access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
-  3.  Create your connection in JupyterLab UI using the instructions in [Create
-      user-defined AWS Glue connections](sagemaker-sql-extension-datasources-glue-connection-user-defined.md "sagemaker-sql-extension-datasources-glue-connection-user-defined.md").
+      in [Create secrets for database access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
+  3.  Create your connection in JupyterLab UI using the instructions in [Create user-defined AWS Glue connections](sagemaker-sql-extension-datasources-glue-connection-user-defined.md "sagemaker-sql-extension-datasources-glue-connection-user-defined.md").
 
 - If you are a data scientist looking to browse and query your data sources using the
   SQL extension, ensure that you or your administrator have set up the connections to your
@@ -125,11 +119,9 @@ amazon_sagemaker_sql_magic` in a notebook cell.
 
 ###### Topics
 
-- [Quickstart: Query data in
-  Amazon S3](studio-sqlexplorer-athena-s3-quickstart.md "studio-sqlexplorer-athena-s3-quickstart.md")
+- [Quickstart: Query data in Amazon S3](studio-sqlexplorer-athena-s3-quickstart.md "studio-sqlexplorer-athena-s3-quickstart.md")
 - [SQL extension features and usage](sagemaker-sql-extension-features.md "sagemaker-sql-extension-features.md")
 - [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md")
-- [SQL extension data source
-  connections](sagemaker-sql-extension-datasources-connection.md "sagemaker-sql-extension-datasources-connection.md")
+- [SQL extension data source connections](sagemaker-sql-extension-datasources-connection.md "sagemaker-sql-extension-datasources-connection.md")
 - [Frequently asked questions](sagemaker-sql-extension-faqs.md "sagemaker-sql-extension-faqs.md")
 - [Connection parameters](sagemaker-sql-extension-connection-properties.md "sagemaker-sql-extension-connection-properties.md")

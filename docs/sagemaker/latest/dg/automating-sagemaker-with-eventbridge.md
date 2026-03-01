@@ -1,6 +1,4 @@
-# Events that Amazon SageMaker AI sends to
-
-Amazon EventBridge
+# Events that Amazon SageMaker AI sends to Amazon EventBridge
 
 Amazon EventBridge monitors status change events in Amazon SageMaker AI. EventBridge enables you to automate SageMaker AI and
 respond automatically to events such as a training job status change or endpoint status
@@ -34,8 +32,7 @@ following:
 - [SageMaker hyperparameter tuning job state change](#eventbridge-hpo "#eventbridge-hpo")
 - [SageMaker HyperPod cluster event](#eventbridge-hyperpod-cluster-event "#eventbridge-hyperpod-cluster-event")
 - [SageMaker HyperPod cluster node health](#eventbridge-hyperpod-node-health "#eventbridge-hyperpod-node-health")
-- [SageMaker HyperPod cluster state
-  change](#eventbridge-hyperpod-cluster-state "#eventbridge-hyperpod-cluster-state")
+- [SageMaker HyperPod cluster state change](#eventbridge-hyperpod-cluster-state "#eventbridge-hyperpod-cluster-state")
 - [SageMaker image state change](#eventbridge-image-state "#eventbridge-image-state")
 - [SageMaker image version state change](#eventbridge-image-version-state "#eventbridge-image-version-state")
 - [SageMaker model card state change](#eventbridge-model-card-state "#eventbridge-model-card-state")
@@ -433,9 +430,7 @@ transition to a healthy state.
 }
 ```
 
-## SageMaker HyperPod cluster state
-
-change
+## SageMaker HyperPod cluster state change
 
 Indicates a change in the state of a SageMaker HyperPod cluster. For more information, see the
 [DescribeCluster](../APIReference/API_DescribeCluster.md#API_DescribeCluster_ResponseSyntax "../APIReference/API_DescribeCluster.md#API_DescribeCluster_ResponseSyntax") API reference.

@@ -2,8 +2,7 @@
 
 In this step you use the console to establish which worker type to use and make the
 necessary sub-selections for the worker type. It assumes you have already completed the
-steps up to this point in the [Getting started: Create a bounding box labeling job
-with Ground Truth](sms-getting-started.md "sms-getting-started.md") section and have chosen the **Custom
+steps up to this point in the [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md") section and have chosen the **Custom
 labeling task** as the **Task type**.
 
 ###### To configure your workforce.

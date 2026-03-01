@@ -1,6 +1,4 @@
-# Create Regression or
-
-Classification Jobs for Tabular Data Using the AutoML API
+# Create Regression or Classification Jobs for Tabular Data Using the AutoML API
 
 You can create an Autopilot regression or classification job for tabular data programmatically
 by calling the [`CreateAutoMLJobV2`](../APIReference/API_CreateAutoMLJobV2.md "../APIReference/API_CreateAutoMLJobV2.md") API action in any language supported by Autopilot or the
@@ -36,8 +34,7 @@ option to download their [explainability](autopilot-explainability.md "autopilot
 definitions.
 
 Find guidelines on how to migrate a `CreateAutoMLJob` to
-`CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to
-CreateAutoMLJobV2](#autopilot-create-experiment-api-migrate-v1-v2 "#autopilot-create-experiment-api-migrate-v1-v2").
+`CreateAutoMLJobV2` in [Migrate a CreateAutoMLJob to CreateAutoMLJobV2](#autopilot-create-experiment-api-migrate-v1-v2 "#autopilot-create-experiment-api-migrate-v1-v2").
 
 ## Required parameters
 
@@ -87,8 +84,7 @@ the size of your dataset.
 
 For information on Autopilot's _stacked ensembles_ and
 _hyperparameters optimization_ training methods, see
-[Training modes and algorithm
-support](autopilot-model-support-validation.md "autopilot-model-support-validation.md")
+[Training modes and algorithm support](autopilot-model-support-validation.md "autopilot-model-support-validation.md")
 
 CreateAutoMLJobV2
 For tabular data, you must choose `TabularJobConfig` as the type of `AutoMLProblemTypeConfig`.
@@ -193,8 +189,7 @@ listing exactly three algorithms ("xgboost", "fastai", "catboost") in its
   }
 ```
 
-For the list of available algorithms per training `Mode`, see [`AutoMLAlgorithms`](../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms "../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms"). For details on each algorithm, see [Training modes and algorithm
-support](autopilot-model-support-validation.md "autopilot-model-support-validation.md").
+For the list of available algorithms per training `Mode`, see [`AutoMLAlgorithms`](../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms "../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms"). For details on each algorithm, see [Training modes and algorithm support](autopilot-model-support-validation.md "autopilot-model-support-validation.md").
 
 You can provide your own validation dataset and custom data split ratio, or let Autopilot
 split the dataset automatically.
@@ -465,9 +460,7 @@ JSON
 
 ```
 
-## Migrate a CreateAutoMLJob to
-
-CreateAutoMLJobV2
+## Migrate a CreateAutoMLJob to CreateAutoMLJobV2
 
 We recommend users of `CreateAutoMLJob` to migrate to
 `CreateAutoMLJobV2`.

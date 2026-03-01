@@ -18,12 +18,10 @@ you must use the `fmeval` library.
 
 When your jobs are completed the results are saved in the Amazon S3 bucket specified when
 the job was created. To learn how to interpret your results, see
-[Understand the results of your model
-evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md").
+[Understand the results of your model evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md").
 
 ###### Topics
 
 - [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md "clarify-foundation-model-evaluate-auto-ui.md")
-- [Use the
-  fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md")
+- [Use the fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md")
 - [Model evaluation results](clarify-foundation-model-reports.md "clarify-foundation-model-reports.md")

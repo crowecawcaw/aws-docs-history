@@ -1,6 +1,4 @@
-# Lp-norm
-
-(LP)
+# Lp-norm (LP)
 
 The Lp-norm (LP) measures the p-norm distance between the
 facet distributions of the observed labels in a training dataset. This metric is

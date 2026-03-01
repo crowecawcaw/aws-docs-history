@@ -1,6 +1,4 @@
-# Encrypt Output Data and Storage Volume with
-
-AWS KMS
+# Encrypt Output Data and Storage Volume with AWS KMS
 
 You can use AWS Key Management Service (AWS KMS) to encrypt output data from a labeling job by
 specifying a [customer managed key](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys")
@@ -49,9 +47,7 @@ overview** section. When you create a labeling job using
 }
 ```
 
-## Encrypt Automated Data Labeling ML
-
-Compute Instance Storage Volume
+## Encrypt Automated Data Labeling ML Compute Instance Storage Volume
 
 If you specify a [`VolumeKmsKeyId`](../APIReference/API_LabelingJobResourceConfig.md#sagemaker-Type-LabelingJobResourceConfig-VolumeKmsKeyId "../APIReference/API_LabelingJobResourceConfig.md#sagemaker-Type-LabelingJobResourceConfig-VolumeKmsKeyId") to encrypt the storage volume
 attached to the ML compute instance used for automated data labeling training
@@ -85,5 +81,4 @@ JSON
 
 ```
 
-To learn more about Ground Truth storage volume encryption, see [Use Your KMS Key to Encrypt Automated Data
-Labeling Storage Volume (API Only)](sms-security.md#sms-security-kms-storage-volume "sms-security.md#sms-security-kms-storage-volume").
+To learn more about Ground Truth storage volume encryption, see [Use Your KMS Key to Encrypt Automated Data Labeling Storage Volume (API Only)](sms-security.md#sms-security-kms-storage-volume "sms-security.md#sms-security-kms-storage-volume").

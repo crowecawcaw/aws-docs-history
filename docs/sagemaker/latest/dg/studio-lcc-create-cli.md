@@ -1,6 +1,4 @@
-# Create a Lifecycle Configuration from the
-
-AWS CLI for Amazon SageMaker Studio Classic
+# Create a Lifecycle Configuration from the AWS CLI for Amazon SageMaker Studio Classic
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -38,9 +35,7 @@ Before you begin, complete the following prerequisites:
   credentials. For information about AWS credentials, see [Understanding and getting your AWS credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
 - Onboard to SageMaker AI domain by following the steps in [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 
-## Step 1: Create a lifecycle
-
-configuration
+## Step 1: Create a lifecycle configuration
 
 The following procedure shows how to create a lifecycle configuration script that
 prints `Hello World`.
@@ -83,9 +78,7 @@ Note the ARN of the newly created lifecycle configuration that is returned.
 This ARN is required to attach the lifecycle configuration to your
 application.
 
-## Step 2: Attach the lifecycle configuration
-
-to your domain, user profile, or shared space
+## Step 2: Attach the lifecycle configuration to your domain, user profile, or shared space
 
 To attach the lifecycle configuration, you must update the `UserSettings`
 for your domain or user profile, or the `SpaceSettings` for a shared space.
@@ -141,9 +134,7 @@ aws sagemaker update-space --domain-id `domain-id` \
 For information about setting a default lifecycle configuration for a resource, see
 [Set Default Lifecycle Configurations for Amazon SageMaker Studio Classic](studio-lcc-defaults.md "studio-lcc-defaults.md").
 
-## Step 3: Launch application with lifecycle
-
-configuration
+## Step 3: Launch application with lifecycle configuration
 
 After you attach a lifecycle configuration to a domain, user profile, or space, the
 user can select it when launching an application with the AWS CLI. This section describes

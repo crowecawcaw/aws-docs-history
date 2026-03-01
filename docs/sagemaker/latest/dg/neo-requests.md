@@ -6,7 +6,6 @@ you can submit inference requests:
 
 ###### Topics
 
-- [Request Inferences from a
-  Deployed Service (Amazon SageMaker SDK)](neo-requests-sdk.md "neo-requests-sdk.md")
+- [Request Inferences from a Deployed Service (Amazon SageMaker SDK)](neo-requests-sdk.md "neo-requests-sdk.md")
 - [Request Inferences from a Deployed Service (Boto3)](neo-requests-boto3.md "neo-requests-boto3.md")
 - [Request Inferences from a Deployed Service (AWS CLI)](neo-requests-cli.md "neo-requests-cli.md")

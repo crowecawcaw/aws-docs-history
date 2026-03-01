@@ -1,6 +1,4 @@
-# Create a Private Workforce (OIDC
-
-IdP)
+# Create a Private Workforce (OIDC IdP)
 
 Create a private workforce using an OpenID Connect (OIDC) Identity Provider (IdP) when you want to authenticate and
 manage workers using your own identity provider. Use this page to learn how to configure
@@ -14,18 +12,14 @@ groups are not a [standard
 claim](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims"), your IdP may have a different naming convention for a group of users
 (workers). Therefore, you must identify one or more user groups to which a worker belongs
 using the custom claim `sagemaker:groups` that is sent to Ground Truth or Amazon A2I
-from your IdP. To learn more, see [Send Required and
-Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp").
+from your IdP. To learn more, see [Send Required and Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp").
 
 You create an OIDC IdP workforce using the SageMaker API operation [`CreateWorkforce`](../APIReference/API_CreateWorkforce.md "../APIReference/API_CreateWorkforce.md"). Once you create a private workforce, that
 workforce and all work teams and workers associated with it are available to use for all
 Ground Truth labeling job tasks and Amazon A2I human review workflows tasks. To learn more, see
-[Create an OIDC IdP
-Workforce](#sms-workforce-create-private-oidc-createworkforce "#sms-workforce-create-private-oidc-createworkforce").
+[Create an OIDC IdP Workforce](#sms-workforce-create-private-oidc-createworkforce "#sms-workforce-create-private-oidc-createworkforce").
 
-## Send Required and
-
-Optional Claims to Ground Truth and Amazon A2I
+## Send Required and Optional Claims to Ground Truth and Amazon A2I
 
 When you use your own IdP, Ground Truth and Amazon A2I use your `Issuer`,
 `ClientId`, and `ClientSecret` to authenticate workers by
@@ -75,17 +69,14 @@ Ground Truth or Amazon A2I compares the groups listed in `sagemaker:groups` or
 specified in the labeling job or human review task. After the work team has been
 verified, labeling or human review tasks are sent to that worker.
 
-## Create an OIDC IdP
-
-Workforce
+## Create an OIDC IdP Workforce
 
 You can create a workforce using the SageMaker API operation `CreateWorkforce`
 and associated language-specific SDKs. Specify a `WorkforceName` and
 information about your OIDC IDP in the parameter `OidcConfig`. It is
 recommended that you configure your OIDC with a place-holder redirect URI, and then
 update the URI with the worker portal URL after you create the workforce. To learn more,
-see [Configure your OIDC
-IdP](#sms-workforce-create-private-oidc-configure-url "#sms-workforce-create-private-oidc-configure-url").
+see [Configure your OIDC IdP](#sms-workforce-create-private-oidc-configure-url "#sms-workforce-create-private-oidc-configure-url").
 
 The following shows an example of the request. See [`CreateWorkforce`](../APIReference/API_CreateWorkforce.md "../APIReference/API_CreateWorkforce.md") to learn more about each parameter in this
 request.
@@ -110,9 +101,7 @@ CreateWorkforceRequest: {
 }
 ```
 
-### Configure your OIDC
-
-IdP
+### Configure your OIDC IdP
 
 How you configure your OIDC IdP depends on the IdP you use, and your business
 requirements.
@@ -125,8 +114,7 @@ worker portal URL, you need to create a workforce with your OIDC IdP details usi
 configure your OIDC IdP with required custom sagemaker claims (see the next section for
 more details). Therefore, it is recommended that you configure your OIDC with a
 place-holder redirect URI, and then update the URI after you create the workforce. See
-[Create an OIDC IdP
-Workforce](#sms-workforce-create-private-oidc-createworkforce "#sms-workforce-create-private-oidc-createworkforce") to learn how to create a workforce using this API.
+[Create an OIDC IdP Workforce](#sms-workforce-create-private-oidc-createworkforce "#sms-workforce-create-private-oidc-createworkforce") to learn how to create a workforce using this API.
 
 You can view your worker portal URL in the SageMaker Ground Truth console, or using the
 SageMaker API operation, `DescribeWorkforce`. The worker portal URL is in the
@@ -138,9 +126,7 @@ Make sure you add the workforce subdomain to your OIDC IdP allow list. When
 you add the subdomain to your allow list, it must end with
 `/oauth2/idpresponse`.
 
-###### To view your worker portal URL after creating a private workforce
-
-(Console):
+###### To view your worker portal URL after creating a private workforce (Console):
 
 1. Open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the navigation pane, choose **Labeling workforces**.
@@ -169,9 +155,7 @@ AWS CLI
 `$` `C:\>`  describe-workforce --workforce-name `'string'`
 ```
 
-## Validate Your OIDC IdP Workforce
-
-Authentication Response
+## Validate Your OIDC IdP Workforce Authentication Response
 
 After you have created your OIDC IdP workforce, you can use the following procedure to
 validate its authentication workflow using cURL. This procedure assumes you have access
@@ -294,8 +278,7 @@ curl --request POST \
     Make sure the decoded response contains the following:
 
         + The **Required** SageMaker AI claims in the table
-         found in [Send Required and
-         Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp"). If it does not, you must reconfigure your OIDC IdP to
+         found in [Send Required and Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp"). If it does not, you must reconfigure your OIDC IdP to
          contain these claims.
         + The [Issuer](../APIReference/API_OidcConfig.md#sagemaker-Type-OidcConfig-Issuer "../APIReference/API_OidcConfig.md#sagemaker-Type-OidcConfig-Issuer") you specified when you set up the
          IdP workforce.
@@ -326,8 +309,7 @@ described above:
 If the `access_token` returned in step 6 was plain text, you must
 verify that this response contains required information. In this case, the
 response must contain the **Required** SageMaker AI claims in the table
-found in [Send Required and
-Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp"). For
+found in [Send Required and Optional Claims to Ground Truth and Amazon A2I](#sms-workforce-create-private-oidc-configure-idp "#sms-workforce-create-private-oidc-configure-idp"). For
 example, `sagemaker-groups`, `sagamaker-name`.
 
 ```
@@ -345,9 +327,7 @@ example, `sagemaker-groups`, `sagamaker-name`.
 
 Once you've created a private workforce using your IdP and verified your IdP
 authentication response, you can create work teams using your IdP groups. To learn more,
-see [Manage a Private Workforce (OIDC
-IdP)](sms-workforce-manage-private-oidc.md "sms-workforce-manage-private-oidc.md").
+see [Manage a Private Workforce (OIDC IdP)](sms-workforce-manage-private-oidc.md "sms-workforce-manage-private-oidc.md").
 
 You can restrict worker access to tasks to specific IP addresses, and update or delete
-your workforce using the SageMaker API. To learn more, see [Private workforce management using the
-Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md").
+your workforce using the SageMaker API. To learn more, see [Private workforce management using the Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md").

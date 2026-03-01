@@ -1,6 +1,4 @@
-# Input and Output interface for the
-
-AutoGluon-Tabular algorithm
+# Input and Output interface for the AutoGluon-Tabular algorithm
 
 Gradient boosting operates on tabular data, with the rows representing observations,
 one column representing the target variable or label, and the remaining columns
@@ -76,9 +74,7 @@ SageMaker AI AutoGluon-Tabular uses the `autogluon.tabular.TabularPredictor` mod
 to serialize or deserialize the model, which can be used for saving or loading the
 model.
 
-###### To use a model trained with SageMaker AI AutoGluon-Tabular with the AutoGluon
-
-framework
+###### To use a model trained with SageMaker AI AutoGluon-Tabular with the AutoGluon framework
 
 - Use the following Python code:
 

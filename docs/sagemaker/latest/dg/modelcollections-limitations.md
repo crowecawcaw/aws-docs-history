@@ -21,16 +21,12 @@ Collections.
   **Tag-related constraints**
 
 - A Model Group can belong to a maximum of 48 Collections. For more details,
-  see the following section [Collection and Model Group
-  tagging](#modelcollections-tagging "#modelcollections-tagging").
+  see the following section [Collection and Model Group tagging](#modelcollections-tagging "#modelcollections-tagging").
 - A Collection’s absolute path can be a maximum of 256 characters long.
   Since Collection names are user-specified, you can control the path length.
-  For more details, see the following section [Collection and Model Group
-  tagging](#modelcollections-tagging "#modelcollections-tagging").
+  For more details, see the following section [Collection and Model Group tagging](#modelcollections-tagging "#modelcollections-tagging").
 
-## Collection and Model Group
-
-tagging
+## Collection and Model Group tagging
 
 The SageMaker Model Registry uses tag rules and tags to internally represent your Collection
 groupings and hierarchy. You can access these tag elements in the AWS Resource Access Manager, the

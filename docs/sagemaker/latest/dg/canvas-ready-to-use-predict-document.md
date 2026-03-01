@@ -1,6 +1,4 @@
-# Make predictions for document
-
-data
+# Make predictions for document data
 
 The following procedures describe how to make both single and batch predictions for
 document datasets. Each Ready-to-use model supports both **Single predictions** and

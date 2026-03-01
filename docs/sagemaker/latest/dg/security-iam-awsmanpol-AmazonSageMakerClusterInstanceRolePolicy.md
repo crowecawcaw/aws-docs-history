@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AmazonSageMakerClusterInstanceRolePolicy
+# AWS managed policy: AmazonSageMakerClusterInstanceRolePolicy
 
 This policy grants permissions commonly needed to use Amazon SageMaker HyperPod.
 

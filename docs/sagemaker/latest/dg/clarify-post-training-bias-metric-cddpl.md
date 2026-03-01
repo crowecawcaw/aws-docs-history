@@ -1,6 +1,4 @@
-# Conditional Demographic
-
-Disparity in Predicted Labels (CDDPL)
+# Conditional Demographic Disparity in Predicted Labels (CDDPL)
 
 The demographic disparity metric (DDPL) determines whether facet _d_ has a larger proportion of the predicted rejected labels
 than of the predicted accepted labels. It enables a comparison of difference in

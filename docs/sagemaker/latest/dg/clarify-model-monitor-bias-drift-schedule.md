@@ -1,6 +1,4 @@
-# Schedule Bias Drift
-
-Monitoring Jobs
+# Schedule Bias Drift Monitoring Jobs
 
 After you create your baseline, you can call the
 `create_monitoring_schedule()` method of your
@@ -16,17 +14,14 @@ but not both, when you create your monitoring schedule.
 Unlike data quality monitoring, you need to supply Ground Truth labels if you want to monitor
 model quality. However, Ground Truth labels could be delayed. To address this, specify offsets
 when you create your monitoring schedule. For details about how to create time offsets,
-see [Model monitor
-offsets](model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets "model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets").
+see [Model monitor offsets](model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets "model-monitor-model-quality-schedule.md#model-monitor-model-quality-schedule-offsets").
 
 If you have submitted a baselining job, the monitor automatically picks up analysis
 configuration from the baselining job. If you skip the baselining step or the capture
 dataset has a different nature from the training dataset, you must provide the analysis
 configuration.
 
-## Bias drift monitoring for models
-
-deployed to real-time endpoint
+## Bias drift monitoring for models deployed to real-time endpoint
 
 To schedule a bias drift monitor for a real-time endpoint, pass your
 `EndpointInput` instance to the `endpoint_input` argument
@@ -68,9 +63,7 @@ model_bias_monitor.create_monitoring_schedule(
 )
 ```
 
-## Bias drift monitoring for batch
-
-transform jobs
+## Bias drift monitoring for batch transform jobs
 
 To schedule a bias drift monitor for a batch transform job, pass your
 `BatchTransformInput` instance to the

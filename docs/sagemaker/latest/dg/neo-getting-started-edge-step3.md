@@ -1,6 +1,4 @@
-# Make Inferences on Your
-
-Device
+# Make Inferences on Your Device
 
 In this example, you will use Boto3 to download the output of your compilation
 job onto your edge device. You will then import DLR, download an example images

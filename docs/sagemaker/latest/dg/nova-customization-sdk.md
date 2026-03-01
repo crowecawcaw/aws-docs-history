@@ -36,9 +36,7 @@ To install this SDK, please follow below command.
 pip install amzn-nova-customization-sdk
 ```
 
-## Supported Models and
-
-Techniques
+## Supported Models and Techniques
 
 The SDK supports the following models and techniques within the Amazon Nova
 family:
@@ -55,8 +53,7 @@ family:
 ###### Topics
 
 - [1. Prepare Your Data](#nova-customization-sdk-prepare-data "#nova-customization-sdk-prepare-data")
-- [2. Configure Your
-  Infrastructure](#nova-customization-sdk-configure-infrastructure "#nova-customization-sdk-configure-infrastructure")
+- [2. Configure Your Infrastructure](#nova-customization-sdk-configure-infrastructure "#nova-customization-sdk-configure-infrastructure")
 - [3. Train](#nova-customization-sdk-train "#nova-customization-sdk-train")
 - [4. Monitor](#nova-customization-sdk-monitor "#nova-customization-sdk-monitor")
 - [5. Evaluate](#nova-customization-sdk-evaluate "#nova-customization-sdk-evaluate")
@@ -77,9 +74,7 @@ loader.load("s3://your-bucket/training-data.jsonl")
 loader.transform(method=TrainingMethod.SFT_LORA, model=Model.NOVA_LITE)
 ```
 
-### 2. Configure Your
-
-Infrastructure
+### 2. Configure Your Infrastructure
 
 Choose your compute resources—the SDK validates configurations and ensures optimal
 setup.
@@ -180,25 +175,19 @@ deployment = customizer.deploy(
 
 ## Key Capabilities
 
-### On The Fly Recipe
-
-Creation
+### On The Fly Recipe Creation
 
 The SDK eliminates the need to search for the appropriate recipes or container URI
 for specific techniques.
 
-### Intelligent Data
-
-Processing
+### Intelligent Data Processing
 
 The SDK automatically transforms your data into the correct format for training.
 Whether you're working with JSON, JSONL, or CSV files, the data loader handles the
 conversion seamlessly. Data Loader supports text as well as multimodal data (images
 and videos).
 
-### Enterprise
-
-Infrastructure Support
+### Enterprise Infrastructure Support
 
 The SDK works with both SageMaker Training Jobs and SageMaker HyperPod,
 automatically managing:

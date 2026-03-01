@@ -1,6 +1,4 @@
-# Adapt your training
-
-job to access images in a private Docker registry
+# Adapt your training job to access images in a private Docker registry
 
 You can use a private [Docker
 registry](https://docs.docker.com/registry/ "https://docs.docker.com/registry/") instead of an Amazon Elastic Container Registry (Amazon ECR) to host your images for SageMaker AI
@@ -34,9 +32,7 @@ You must also configure your training job to connect to the same VPC to which yo
 Docker registry has access. For more information, see [Configure a
 Training Job for Amazon VPC Access](train-vpc.md#train-vpc-configure "train-vpc.md#train-vpc-configure").
 
-## Create a
-
-training job using an image from your private Docker registry
+## Create a training job using an image from your private Docker registry
 
 To use an image from your private Docker registry for training, use the following
 guide to configure your image, configure and create a training job. The code

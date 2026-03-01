@@ -3,20 +3,16 @@
 Amazon SageMaker JumpStart offers state-of-the-art, built-in publicly available and proprietary
 foundation models to customize and integrate into your generative AI workflows.
 
-## Publicly
-
-available foundation models
+## Publicly available foundation models
 
 Amazon SageMaker JumpStart onboards and maintains open source foundation models from third-party
 sources. To get started with one of these publicly available models, see [JumpStart foundation model usage](jumpstart-foundation-models-use.md "jumpstart-foundation-models-use.md") or explore one of the
-available [Example
-notebooks](jumpstart-foundation-models-example-notebooks.md "jumpstart-foundation-models-example-notebooks.md"). In a given
+available [Example notebooks](jumpstart-foundation-models-example-notebooks.md "jumpstart-foundation-models-example-notebooks.md"). In a given
 example notebook for a publicly available model, try switching out the model ID to
 experiment with different models within the same model family.
 
 For more information on model IDs and resources on deploying publicly available
-JumpStart foundation models with the SageMaker Python SDK, see [Use foundation models
-with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
+JumpStart foundation models with the SageMaker Python SDK, see [Use foundation models with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
 
 By definition, foundation models are adaptable to many downstream tasks.
 Foundation models are trained on massive amounts of general domain data and the same
@@ -51,8 +47,7 @@ To explore the latest text generation JumpStart foundation models, use the
 **Text Generation** filter on the [Getting started with Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.priority&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=product-type%23foundation-model&awsf.sagemaker-jumpstart-filter-text=ml-task-type%23text-generation&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=*all&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1 "https://aws.amazon.com/sagemaker/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.priority&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=product-type%23foundation-model&awsf.sagemaker-jumpstart-filter-text=ml-task-type%23text-generation&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=*all&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1") product description page. You can
 also explore foundation models based on tasks directly in the Amazon SageMaker Studio UI
 or SageMaker Studio Classic UI. Only a subset of publicly available text generation
-models are available for fine-tuning in JumpStart. For more information, see [Use foundation models in
-Amazon SageMaker Studio Classic](jumpstart-foundation-models-use-studio.md "jumpstart-foundation-models-use-studio.md").
+models are available for fine-tuning in JumpStart. For more information, see [Use foundation models in Amazon SageMaker Studio Classic](jumpstart-foundation-models-use-studio.md "jumpstart-foundation-models-use-studio.md").
 
 ### Publicly available image generation models
 
@@ -69,9 +64,7 @@ To explore the latest image generation JumpStart foundation models, use the
 **Text to Image** filter on the [Getting started with Amazon SageMaker JumpStart](https://aws.amazon.com/sagemaker/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.priority&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=product-type%23foundation-model&awsf.sagemaker-jumpstart-filter-text=*all&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=ml-task-type%23txt2img&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1 "https://aws.amazon.com/sagemaker/jumpstart/getting-started/?sagemaker-jumpstart-cards.sort-by=item.additionalFields.priority&sagemaker-jumpstart-cards.sort-order=asc&awsf.sagemaker-jumpstart-filter-product-type=product-type%23foundation-model&awsf.sagemaker-jumpstart-filter-text=*all&awsf.sagemaker-jumpstart-filter-vision=*all&awsf.sagemaker-jumpstart-filter-tabular=*all&awsf.sagemaker-jumpstart-filter-audio-tasks=*all&awsf.sagemaker-jumpstart-filter-multimodal=ml-task-type%23txt2img&awsf.sagemaker-jumpstart-filter-RL=*all&awsm.page-sagemaker-jumpstart-cards=1") product description page. To get
 started with your chosen text-to-image foundation model, see [JumpStart foundation model usage](jumpstart-foundation-models-use.md "jumpstart-foundation-models-use.md").
 
-## Proprietary
-
-foundation models
+## Proprietary foundation models
 
 Amazon SageMaker JumpStart provides access to proprietary foundation models from third-party
 providers such as [AI21 Labs](https://www.ai21.com/ "https://www.ai21.com/"), [Cohere](https://cohere.com/ "https://cohere.com/"), and [LightOn](https://www.lighton.ai/ "https://www.lighton.ai/").

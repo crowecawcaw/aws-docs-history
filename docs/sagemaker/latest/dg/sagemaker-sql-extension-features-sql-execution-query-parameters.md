@@ -1,6 +1,4 @@
-# Use query
-
-parameters to provide dynamic values in SQL queries
+# Use query parameters to provide dynamic values in SQL queries
 
 Query parameters can be used to provide dynamic values in SQL queries.
 

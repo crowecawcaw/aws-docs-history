@@ -17,8 +17,7 @@ applicable:
   labeling job.
 
 If you are a new Ground Truth user, we recommend that you start by walking through the demo in
-[Getting started: Create a bounding box labeling job
-with Ground Truth](sms-getting-started.md "sms-getting-started.md").
+[Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md").
 
 ###### Important
 
@@ -32,5 +31,4 @@ CORS policy attached. To learn more, see [CORS Requirement for Input Image Data]
 - [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md")
 - [Create a Labeling Job (API)](sms-create-labeling-job-api.md "sms-create-labeling-job-api.md")
 - [Create a streaming labeling job](sms-streaming-create-job.md "sms-streaming-create-job.md")
-- [Labeling category configuration file with
-  label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md")
+- [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md")

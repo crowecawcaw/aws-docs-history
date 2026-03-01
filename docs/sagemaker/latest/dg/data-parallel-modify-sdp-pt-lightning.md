@@ -1,6 +1,4 @@
-# Use the SMDDP library in your
-
-PyTorch Lightning training script
+# Use the SMDDP library in your PyTorch Lightning training script
 
 If you want to bring your [PyTorch
 Lightning](https://pytorch-lightning.readthedocs.io/en/latest/starter/introduction.html "https://pytorch-lightning.readthedocs.io/en/latest/starter/introduction.html") training script and run a distributed data parallel training job in
@@ -89,13 +87,11 @@ trainer = pl.Trainer(
 )
 ```
 
-After you have completed adapting your training script, proceed to [Launching distributed training jobs with SMDDP using the
-SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").
+After you have completed adapting your training script, proceed to [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").
 
 ###### Note
 
-When you construct a SageMaker AI PyTorch estimator and submit a training job request in [Launching distributed training jobs with SMDDP using the
-SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you need to provide `requirements.txt` to
+When you construct a SageMaker AI PyTorch estimator and submit a training job request in [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you need to provide `requirements.txt` to
 install `pytorch-lightning` and `lightning-bolts` in the SageMaker AI
 PyTorch training container.
 

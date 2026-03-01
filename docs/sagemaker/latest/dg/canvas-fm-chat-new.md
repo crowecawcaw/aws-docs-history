@@ -1,6 +1,4 @@
-# Start a new conversation to generate, extract, or
-
-summarize content
+# Start a new conversation to generate, extract, or summarize content
 
 To get started with generative AI foundation models in Canvas, you can initiate a
 new chat session with one of the models. For JumpStart models, you are charged while

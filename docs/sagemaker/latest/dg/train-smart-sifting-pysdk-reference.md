@@ -1,13 +1,9 @@
-# SageMaker smart sifting Python SDK
-
-reference
+# SageMaker smart sifting Python SDK reference
 
 This page provides a reference of Python modules you need for applying SageMaker smart sifting to
 your training script.
 
-## SageMaker smart sifting
-
-configuration modules
+## SageMaker smart sifting configuration modules
 
 **`*class*
  smart_sifting.sift_config.sift_configs.RelativeProbabilisticSiftConfig()`**
@@ -70,9 +66,7 @@ The configuration class for the `sift_config` parameter of
 - `repeat_delay_per_epoch` (bool) – Specify whether to
   delay sifting every epoch. The default value is `False`.
 
-## SageMaker smart sifting data
-
-batch transform modules
+## SageMaker smart sifting data batch transform modules
 
 `*class*
  smart_sifting.data_model.data_model_interface.SiftingBatchTransform`
@@ -98,9 +92,7 @@ A module for keeping track of a list batch for sifting.
 
 A module for keeping track of a tensor batch for sifting.
 
-## SageMaker smart sifting loss
-
-implementation module
+## SageMaker smart sifting loss implementation module
 
 `*class*
  smart_sifting.loss.abstract_sift_loss_module.Loss`
@@ -108,9 +100,7 @@ implementation module
 A wrapper module for registering the SageMaker smart sifting interface to the loss function of
 a PyTorch-based model.
 
-## SageMaker smart sifting
-
-data loader wrapper module
+## SageMaker smart sifting data loader wrapper module
 
 `*class*
  smart_sifting.dataloader.sift_dataloader.SiftingDataloader`

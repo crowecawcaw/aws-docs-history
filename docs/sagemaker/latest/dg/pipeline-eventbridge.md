@@ -34,9 +34,7 @@ console or the AWS CLI. 
 - An Amazon SageMaker AI Pipeline to schedule. To create an Amazon SageMaker AI Pipeline, see [Define a
   Pipeline](define-pipeline.md "define-pipeline.md").
 
-### Create an EventBridge rule using the EventBridge
-
-console
+### Create an EventBridge rule using the EventBridge console
 
 The following procedure shows how to create an EventBridge rule using the EventBridge console. 
 

@@ -1,13 +1,9 @@
-# Pass information to and from your
-
-notebook step
+# Pass information to and from your notebook step
 
 The following sections describe ways to pass information to your notebook as environment
 variables and parameters.
 
-## Pass environment
-
-variables
+## Pass environment variables
 
 Pass environment variables as a dictionary to the `environment_variable`
 argument of your `NotebookJobStep`, as shown in the following example:
@@ -69,9 +65,7 @@ company='default'
 print(f'company is {company}')
 ```
 
-## Retrieve information from a
-
-previous step
+## Retrieve information from a previous step
 
 The following discussion explains how you can extract data from a previous step to to
 pass to your Notebook Job step.

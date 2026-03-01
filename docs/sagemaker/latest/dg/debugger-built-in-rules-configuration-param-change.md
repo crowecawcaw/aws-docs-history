@@ -1,6 +1,4 @@
-# Use Debugger built-in
-
-rules with custom parameter values
+# Use Debugger built-in rules with custom parameter values
 
 If you want to adjust the built-in rule parameter values and customize tensor
 collection regex, configure the `base_config` and
@@ -8,8 +6,7 @@ collection regex, configure the `base_config` and
 and `Rule.sagemaker` classmethods. In case of the `Rule.sagemaker`
 class methods, you can also customize tensor collections through the
 `collections_to_save` parameter. The instruction of how to use the
-`CollectionConfig` class is provided at [Configure tensor collections
-using the CollectionConfig API](debugger-configure-tensor-collections.md "debugger-configure-tensor-collections.md").
+`CollectionConfig` class is provided at [Configure tensor collections using the CollectionConfig API](debugger-configure-tensor-collections.md "debugger-configure-tensor-collections.md").
 
 Use the following configuration template for built-in rules to customize parameter
 values. By changing the rule parameters as you want, you can adjust the sensitivity of

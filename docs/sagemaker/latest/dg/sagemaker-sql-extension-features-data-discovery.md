@@ -24,8 +24,7 @@ Athena connection:
 
 1. Check with your administrator that your execution role has the required permissions
    to access Athena and the AWS Glue catalog. For details on the permissions required, see
-   [Configure an
-   AWS Glue connection for Athena](sagemaker-sql-extension-datasources-glue-connection.md#sagemaker-sql-extension-athena-glue-connection-config "sagemaker-sql-extension-datasources-glue-connection.md#sagemaker-sql-extension-athena-glue-connection-config")
+   [Configure an AWS Glue connection for Athena](sagemaker-sql-extension-datasources-glue-connection.md#sagemaker-sql-extension-athena-glue-connection-config "sagemaker-sql-extension-datasources-glue-connection.md#sagemaker-sql-extension-athena-glue-connection-config")
 2. In your JupyterLab application, navigate to the **Settings** menu
    in the top navigation bar and open the **Settings Editor** menu.
 3. Choose **Data Discovery**.
@@ -42,8 +41,7 @@ Athena connection:
 This automatically populates a notebook cell in JupyterLab with the relevant
 `%%sm_sql` magic command to connect to the data source. It also adds a sample
 SQL statement to help you start querying right away. You can further refine the SQL query
-using the auto-complete and highlighting features of the extension. See [SQL editor features of the
-JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") for more information on using the
+using the auto-complete and highlighting features of the extension. See [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") for more information on using the
 SQL extension SQL editor.
 At the table level, the three dots icon provides the additional option to choose to
 **Preview** a table's metadata.
@@ -71,5 +69,4 @@ to the list of your connections.
 The extension caches your exploration results for fast access. If the cached results are
 outdated or a connection is missing from your list, you can manually refresh the cache by
 choosing the **Refresh** button at the bottom of the SQL extension panel.
-For more information on connection caching, see [SQL extension
-connection caching](sagemaker-sql-extension-features-connection-caching.md "sagemaker-sql-extension-features-connection-caching.md").
+For more information on connection caching, see [SQL extension connection caching](sagemaker-sql-extension-features-connection-caching.md "sagemaker-sql-extension-features-connection-caching.md").

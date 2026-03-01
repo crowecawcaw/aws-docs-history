@@ -1,9 +1,6 @@
-# Launching distributed training jobs with SMDDP using the
+# Launching distributed training jobs with SMDDP using the SageMaker Python SDK
 
-SageMaker Python SDK
-
-To run a distributed training job with your adapted script from [Adapting your training script
-to use the SMDDP collective operations](data-parallel-modify-sdp-select-framework.md "data-parallel-modify-sdp-select-framework.md"), use the SageMaker Python SDK's
+To run a distributed training job with your adapted script from [Adapting your training script to use the SMDDP collective operations](data-parallel-modify-sdp-select-framework.md "data-parallel-modify-sdp-select-framework.md"), use the SageMaker Python SDK's
 framework or generic estimators by specifying the prepared training script as an entry point
 script and the distributed training configuration.
 
@@ -41,14 +38,10 @@ model performance using [Amazon SageMaker Debugger](train-debugger.md "train-deb
 Amazon CloudWatch.
 
 While you follow instructions in the following topics to learn more about technical details,
-we also recommend that you try the [Amazon SageMaker AI data parallelism library
-examples](distributed-data-parallel-v2-examples.md "distributed-data-parallel-v2-examples.md") to get started.
+we also recommend that you try the [Amazon SageMaker AI data parallelism library examples](distributed-data-parallel-v2-examples.md "distributed-data-parallel-v2-examples.md") to get started.
 
 ###### Topics
 
-- [Use the PyTorch framework estimators in
-  the SageMaker Python SDK](data-parallel-framework-estimator.md "data-parallel-framework-estimator.md")
-- [Use the SageMaker AI generic estimator to extend
-  pre-built DLC containers](data-parallel-use-python-skd-api.md "data-parallel-use-python-skd-api.md")
-- [Create your own Docker container with
-  the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md")
+- [Use the PyTorch framework estimators in the SageMaker Python SDK](data-parallel-framework-estimator.md "data-parallel-framework-estimator.md")
+- [Use the SageMaker AI generic estimator to extend pre-built DLC containers](data-parallel-use-python-skd-api.md "data-parallel-use-python-skd-api.md")
+- [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md")

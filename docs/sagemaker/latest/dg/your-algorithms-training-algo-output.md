@@ -1,6 +1,4 @@
-# How Amazon SageMaker AI Processes Training
-
-Output
+# How Amazon SageMaker AI Processes Training Output
 
 As your algorithm runs in a container, it generates output including the status of the
 training job and model and output artifacts. Your algorithm should write this

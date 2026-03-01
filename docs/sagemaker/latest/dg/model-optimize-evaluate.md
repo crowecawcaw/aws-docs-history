@@ -1,6 +1,4 @@
-# Evaluate the performance of optimized
-
-models
+# Evaluate the performance of optimized models
 
 After you use an optimization job to create an optimized model, you can run an evaluation
 of model performance. This evaluation yields metrics for latency, throughput, and price. Use
@@ -50,12 +48,9 @@ column shows the status of your evaluation. 9. When the status is **Completed**,
 to see the evaluation results.
 
 The evaluation details page shows tables that provide the performance metrics for
-latency, throughput, and price. For more information about each metric, see the [Metrics reference for inference
-performance evaluations](#performance-eval-metrics-reference "#performance-eval-metrics-reference").
+latency, throughput, and price. For more information about each metric, see the [Metrics reference for inference performance evaluations](#performance-eval-metrics-reference "#performance-eval-metrics-reference").
 
-## Metrics reference for inference
-
-performance evaluations
+## Metrics reference for inference performance evaluations
 
 After you successfully evaluate the performance of an optimized model, the evaluation
 details page in Studio shows the following metrics.

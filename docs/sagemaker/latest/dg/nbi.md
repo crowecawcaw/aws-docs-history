@@ -31,9 +31,7 @@ data outside of the folder `/home/ec2-user/SageMaker` is not persisted.
 
 For more information, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Machine Learning with the SageMaker Python
-
-SDK
+## Machine Learning with the SageMaker Python SDK
 
 To train, validate, deploy, and evaluate an ML model in a SageMaker notebook instance, use
 the SageMaker Python SDK. The SageMaker Python SDK abstracts AWS SDK for Python (Boto3) and SageMaker API
@@ -59,8 +57,7 @@ following the end-to-end ML tutorial. To find the open source documentation, see
 - [Create an Amazon SageMaker notebook instance](howitworks-create-ws.md "howitworks-create-ws.md")
 - [Access Notebook Instances](howitworks-access-ws.md "howitworks-access-ws.md")
 - [Update a Notebook Instance](nbi-update.md "nbi-update.md")
-- [Customization of a SageMaker notebook instance
-  using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md")
+- [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md")
 - [Set the Notebook Kernel](howitworks-set-kernel.md "howitworks-set-kernel.md")
 - [Git repositories with SageMaker AI Notebook Instances](nbi-git-repo.md "nbi-git-repo.md")
 - [Notebook Instance Metadata](nbi-metadata.md "nbi-metadata.md")

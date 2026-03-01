@@ -35,8 +35,7 @@ For restricted task view in Studio for EKS clusters:
 
 - If your execution role doesn’t have permissions to list namespaces for EKS
   clusters.
-  - See [Restrict task view in
-    Studio for EKS clusters](sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view").
+  - See [Restrict task view in Studio for EKS clusters](sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view").
 
 - If users are experiencing issues with access for EKS clusters.
   1.  Verify RBAC is enabled by running the following AWS CLI command.
@@ -75,6 +74,5 @@ If there are no Amazon CloudWatch metrics are displayed in the **Metrics**
 tab.
 
 - The `Metrics` section of HyperPod cluster details uses CloudWatch to fetch
-  the data. In order to see the metrics in this section, you need to have enabled [Cluster and task
-  observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md"). Contact your
+  the data. In order to see the metrics in this section, you need to have enabled [Cluster and task observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md"). Contact your
   administrator to configure metrics.

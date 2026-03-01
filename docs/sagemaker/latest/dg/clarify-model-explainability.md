@@ -70,8 +70,6 @@ prompted to choose a kernel, choose **Python 3 (Data Science)**.
 
 ###### Topics
 
-- [Feature Attributions that Use Shapley
-  Values](clarify-shapley-values.md "clarify-shapley-values.md")
+- [Feature Attributions that Use Shapley Values](clarify-shapley-values.md "clarify-shapley-values.md")
 - [Asymmetric Shapley Values](clarify-feature-attribute-shap-asymm.md "clarify-feature-attribute-shap-asymm.md")
-- [SHAP Baselines for
-  Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md")
+- [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md")

@@ -1,6 +1,4 @@
-# Visualize Amazon SageMaker Debugger output tensors in
-
-TensorBoard
+# Visualize Amazon SageMaker Debugger output tensors in TensorBoard
 
 ###### Important
 

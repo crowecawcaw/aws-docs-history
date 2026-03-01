@@ -1,7 +1,4 @@
-# Default system
-
-monitoring and customized framework profiling for target steps or a target time
-range
+# Default system monitoring and customized framework profiling for target steps or a target time range
 
 If you want to specify target steps or target time intervals to profile your
 training job, you need to specify parameters for the `FrameworkProfile`

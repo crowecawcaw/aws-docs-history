@@ -69,8 +69,7 @@ own. SageMaker AI provides containers for its built-in algorithms and prebuilt D
 the most common machine learning frameworks, such as Apache MXNet, TensorFlow, PyTorch, and Chainer.
 For a list of available SageMaker images, see [Available
 Deep Learning Containers Images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md"). If you are bringing your own container, you must
-modify it to work with SageMaker AI. For more information about bringing your own container, see [Adapt your own inference container for
-Amazon SageMaker AI](adapt-inference-container.md "adapt-inference-container.md").
+modify it to work with SageMaker AI. For more information about bringing your own container, see [Adapt your own inference container for Amazon SageMaker AI](adapt-inference-container.md "adapt-inference-container.md").
 
 The maximum size of the container image you can use is 10 GB. For serverless endpoints, we
 recommend creating only one worker in the container and only loading one copy of the model. Note

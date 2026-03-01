@@ -18,14 +18,10 @@ hard delete records from the online and offline stores and provide examples.
 
 ###### Topics
 
-- [Delete records from the online
-  store](#feature-store-delete-records-online-store "#feature-store-delete-records-online-store")
-- [Delete records from the offline
-  store](#feature-store-delete-records-offline-store "#feature-store-delete-records-offline-store")
+- [Delete records from the online store](#feature-store-delete-records-online-store "#feature-store-delete-records-online-store")
+- [Delete records from the offline store](#feature-store-delete-records-offline-store "#feature-store-delete-records-offline-store")
 
-## Delete records from the online
-
-store
+## Delete records from the online store
 
 You can soft or hard delete a record from the online store using the
 `DeleteRecord` API by using the `DeletionMode` request parameter to
@@ -66,9 +62,7 @@ delete a record from a feature group, you will need:
 The deletion event time should be later than the event time of the record you wish to
 delete.
 
-### Online store soft delete
-
-example
+### Online store soft delete example
 
 For soft delete you will need use the `DeleteRecord` API and can use the default
 `DeletionMode` or set the `DeletionMode` to `SoftDelete`.
@@ -88,9 +82,7 @@ client.delete_record(
 )
 ```
 
-### Online store hard delete
-
-example
+### Online store hard delete example
 
 For hard delete you will need use the `DeleteRecord` API and set the
 `DeletionMode` to `HardDelete`.
@@ -110,9 +102,7 @@ client.delete_record(
 )
 ```
 
-## Delete records from the offline
-
-store
+## Delete records from the offline store
 
 With Amazon SageMaker Feature Store you can soft and hard delete a record from the `OfflineStore`
 Iceberg table format. With the `OfflineStore` Iceberg table format:
@@ -125,9 +115,7 @@ Iceberg table format. With the `OfflineStore` Iceberg table format:
   contain the record. In this case you should specify which versions of the Iceberg table you
   wish to delete.
 
-### Obtain your
-
-Iceberg table name
+### Obtain your Iceberg table name
 
 To soft and hard delete from your `OfflineStore` Iceberg table, you will need to
 obtain your Iceberg table name, `iceberg-table-name`. The
@@ -141,20 +129,16 @@ serves as data catalog for the `OfflineStore`. The `TableName` within the
 `DataCatalogConfig` is your
 `iceberg-table-name`.
 
-### Amazon Athena offline store soft
-
-and hard delete example
+### Amazon Athena offline store soft and hard delete example
 
 The following instructions use Amazon Athena to soft delete then hard delete a record from the
 `OfflineStore` Iceberg table. This assumes that the record you intend to delete in
 your `OfflineStore` is a deleted record marker. For information on the deleted record
-marker in your `OfflineStore`, see [Delete records from the online
-store](#feature-store-delete-records-online-store "#feature-store-delete-records-online-store").
+marker in your `OfflineStore`, see [Delete records from the online store](#feature-store-delete-records-online-store "#feature-store-delete-records-online-store").
 
 1. Obtain your Iceberg table name,
    `iceberg-table-name`. For information on how to obtain
-   your Iceberg table name, see [Obtain your
-   Iceberg table name](#feature-store-delete-records-offline-store-get-iceberg-table-name "#feature-store-delete-records-offline-store-get-iceberg-table-name").
+   your Iceberg table name, see [Obtain your Iceberg table name](#feature-store-delete-records-offline-store-get-iceberg-table-name "#feature-store-delete-records-offline-store-get-iceberg-table-name").
 2. Run the `DELETE` command to soft delete the records on the
    `OfflineStore`, such that the latest version (or snapshot) of the Iceberg table
    will not contain the records. The following example deletes the records where
@@ -209,13 +193,10 @@ from `OfflineStore`:
     VACUUM `iceberg-table-name`
     ```
 
-### Apache Spark offline store
-
-soft and hard delete example
+### Apache Spark offline store soft and hard delete example
 
 To soft and then hard delete a record from the `OfflineStore` Iceberg table
-using Apache Spark, you can follow the same instructions as in the [Amazon Athena offline store soft
-and hard delete example](#feature-store-delete-records-offline-store-athena "#feature-store-delete-records-offline-store-athena") above, but using Spark
+using Apache Spark, you can follow the same instructions as in the [Amazon Athena offline store soft and hard delete example](#feature-store-delete-records-offline-store-athena "#feature-store-delete-records-offline-store-athena") above, but using Spark
 procedures. For a full list of procedures, see [Spark Procedures](https://iceberg.apache.org/docs/1.3.1/spark-procedures/ "https://iceberg.apache.org/docs/1.3.1/spark-procedures/") in the
 Apache Iceberg documentation.
 

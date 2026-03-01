@@ -1,6 +1,4 @@
-# Video Frame Object
-
-Detection Tasks
+# Video Frame Object Detection Tasks
 
 Video frame object detection tasks required you to classify and identify the
 location of objects in video frames using annotations. A video frame is a still

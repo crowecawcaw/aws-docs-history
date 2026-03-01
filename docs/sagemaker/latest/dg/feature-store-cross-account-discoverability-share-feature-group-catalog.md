@@ -1,6 +1,4 @@
-# Share
-
-your feature group catalog
+# Share your feature group catalog
 
 The feature group catalog, `DefaultFeatureGroupCatalog`, contains _all_ feature group entities owned by the resource owner account. The
 catalog can be shared by the resource owner account to grant discoverability to a single or
@@ -61,8 +59,7 @@ give the specifications for using the AWS RAM console instructions.
   without invitations.
 - If you share with the AWS account that owns the resource, then the principals in that
   account automatically get access to the shared resources without invitations.
-  For more information about accepting and using a resource share, see [Search discoverable
-  resources](feature-store-cross-account-discoverability-use.md "feature-store-cross-account-discoverability-use.md").
+  For more information about accepting and using a resource share, see [Search discoverable resources](feature-store-cross-account-discoverability-use.md "feature-store-cross-account-discoverability-use.md").
 
 ## Share the feature group catalog using the AWS SDK for Python (Boto3)
 

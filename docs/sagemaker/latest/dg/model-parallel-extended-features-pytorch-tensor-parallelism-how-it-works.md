@@ -58,10 +58,7 @@ the notation `X:y` represents the `y`th fraction of the module
    module depends on user input. The fact that a module is supported for tensor
    parallelism does not necessarily mean it is partitioned.
 
-## How
-
-the library adapts tensor parallelism to PyTorch `nn.Linear`
-module
+## How the library adapts tensor parallelism to PyTorch `nn.Linear` module
 
 When tensor parallelism is performed over data parallel ranks, a subset of the
 parameters, gradients, and optimizer states are partitioned across the tensor

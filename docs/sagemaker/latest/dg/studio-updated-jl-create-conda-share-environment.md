@@ -1,6 +1,4 @@
-# Share conda
-
-environments between instance types
+# Share conda environments between instance types
 
 You can share conda environments by saving them to an Amazon EFS directory outside of
 your Amazon EBS volume. Another user can access the environment in the directory where

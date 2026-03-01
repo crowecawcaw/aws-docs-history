@@ -1,6 +1,4 @@
-# Configure the
-
-`DebuggerHookConfig` API to save tensors
+# Configure the `DebuggerHookConfig` API to save tensors
 
 Use the [DebuggerHookConfig](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html #sagemaker.debugger.DebuggerHookConfig "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html #sagemaker.debugger.DebuggerHookConfig") API to create a `debugger_hook_config`
 object using the `collection_configs` object you created in the previous

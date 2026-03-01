@@ -1,6 +1,4 @@
-# User background
-
-sessions
+# User background sessions
 
 User background sessions continue even when the user is no longer active. These allow for
 long-running jobs that can continue even after the user has logged off. This can be enabled
@@ -19,26 +17,19 @@ options and behaviors for user background sessions.
 
 ###### Topics
 
-- [Configure user background
-  session](#configure-user-background-sessions "#configure-user-background-sessions")
-- [Default user background session
-  duration](#default-user-background-session-duration "#default-user-background-session-duration")
+- [Configure user background session](#configure-user-background-sessions "#configure-user-background-sessions")
+- [Default user background session duration](#default-user-background-session-duration "#default-user-background-session-duration")
 - [Impact of disabling trusted identity propagation in Studio](#user-background-session-impact-disable-trustedidentitypropagation-studio "#user-background-session-impact-disable-trustedidentitypropagation-studio")
 - [Impact of disabling user background sessions in the IAM Identity Center console](#user-background-session-impact-disable-trustedidentitypropagation-identity-center "#user-background-session-impact-disable-trustedidentitypropagation-identity-center")
-- [Runtime
-  considerations](#user-background-session-runtime-considerations "#user-background-session-runtime-considerations")
+- [Runtime considerations](#user-background-session-runtime-considerations "#user-background-session-runtime-considerations")
 
-## Configure user background
-
-session
+## Configure user background session
 
 Once trusted identity propagation for Amazon SageMaker Studio is enabled, default duration
 limits can be configured through the [user background sessions
 in the IAM Identity Center](../../../singlesignon/latest/userguide/user-background-sessions.md "../../../singlesignon/latest/userguide/user-background-sessions.md").
 
-## Default user background session
-
-duration
+## Default user background session duration
 
 By default, all user background sessions have a duration limit of 7 days. Administrators
 can [modify this duration in
@@ -105,9 +96,7 @@ sessions](../../../singlesignon/latest/userguide/user-background-sessions.md "..
 The same behavior applies if background sessions are enabled at the IAM Identity Center instance level
 but disabled specifically for the Studio application using [IAM Identity Center APIs](../../../singlesignon/latest/APIReference/welcome.md "../../../singlesignon/latest/APIReference/welcome.md").
 
-## Runtime
-
-considerations
+## Runtime considerations
 
 When an administrator sets `MaxRuntimeInSeconds` for long-running Training or
 Processing jobs that is lower than the user background session duration, SageMaker AI runs the job for

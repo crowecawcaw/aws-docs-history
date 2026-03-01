@@ -12,5 +12,4 @@ file.
 
 - [Accepted Raw 3D Data Formats](sms-point-cloud-raw-data-types.md "sms-point-cloud-raw-data-types.md")
 - [Input Manifest Files for 3D Point Cloud Labeling Jobs](sms-point-cloud-input-manifest.md "sms-point-cloud-input-manifest.md")
-- [Understand Coordinate Systems and
-  Sensor Fusion](sms-point-cloud-sensor-fusion-details.md "sms-point-cloud-sensor-fusion-details.md")
+- [Understand Coordinate Systems and Sensor Fusion](sms-point-cloud-sensor-fusion-details.md "sms-point-cloud-sensor-fusion-details.md")

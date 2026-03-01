@@ -6,8 +6,7 @@ your input data and instructions to help workers complete your task.
 
 For Amazon Rekognition or Amazon Textract task types, you can customize a pre-made worker task template
 using a graphical user interface (GUI) and avoid interacting with HTML code. For this
-option, use the instructions in [Create a Human Review Workflow
-(Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console") to create a human review workflow and
+option, use the instructions in [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console") to create a human review workflow and
 customize your worker task template in the Amazon SageMaker AI console. Once you create a template
 using these instructions, it appears on the worker task templates page of the
 [Augmented AI console](https://console.aws.amazon.com/a2i "https://console.aws.amazon.com/a2i").
@@ -28,7 +27,6 @@ found in [Create a Worker Task Template](a2i-worker-template-console.md#a2i-crea
 
 ###### Topics
 
-- [Create and Delete Worker Task
-  Templates](a2i-worker-template-console.md "a2i-worker-template-console.md")
+- [Create and Delete Worker Task Templates](a2i-worker-template-console.md "a2i-worker-template-console.md")
 - [Create Custom Worker Task Templates](a2i-custom-templates.md "a2i-custom-templates.md")
 - [Creating Good Worker Instructions](a2i-creating-good-instructions-guide.md "a2i-creating-good-instructions-guide.md")

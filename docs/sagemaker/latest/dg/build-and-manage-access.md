@@ -8,8 +8,7 @@ example of how you can implement these permissions, see [Prerequisites](define-p
 - [Pipeline Role Permissions](#build-and-manage-role-permissions "#build-and-manage-role-permissions")
 - [Pipeline Step Permissions](#build-and-manage-step-permissions "#build-and-manage-step-permissions")
 - [CORS configuration with Amazon S3 buckets](#build-and-manage-cors-s3 "#build-and-manage-cors-s3")
-- [Customize access management for
-  Pipelines jobs](#build-and-manage-step-permissions-prefix "#build-and-manage-step-permissions-prefix")
+- [Customize access management for Pipelines jobs](#build-and-manage-step-permissions-prefix "#build-and-manage-step-permissions-prefix")
 - [Customize access to pipeline versions](#build-and-manage-step-permissions-version "#build-and-manage-step-permissions-version")
 - [Service Control Policies with Pipelines](#build-and-manage-scp "#build-and-manage-scp")
 
@@ -114,9 +113,7 @@ documentation to add a CORS header policy using the Amazon S3 console.
 
 ![Gif on how to add a CORS header policy using the Amazon S3 console.](images/sms/gifs/cors-config.gif)
 
-## Customize access management for
-
-Pipelines jobs
+## Customize access management for Pipelines jobs
 
 You can further customize your IAM policies so selected members in your organization
 can run any or all pipeline steps. For example, you can give certain users permission to
@@ -164,9 +161,7 @@ are as follows:
 | `TrainingStep`, `ModelStep`, `TransformStep`, `ProcessingStep`, `ClarifyCheckStep`, `QualityCheckStep`, `RegisterModelStep` | 38            |
 | `TuningStep`, `AutoML`                                                                                                      | 6             |
 
-### Apply job prefixes to an
-
-IAM policy
+### Apply job prefixes to an IAM policy
 
 Your admin creates IAM policies allowing users of specific prefixes to create jobs.
 The following example policy permits data scientists to create training jobs if they use
@@ -182,9 +177,7 @@ the `MyBaseJobName` prefix.
 }
 ```
 
-### Apply job prefixes to
-
-pipeline instantiations
+### Apply job prefixes to pipeline instantiations
 
 You specify your prefix with the `*base_job_name` argument of the job
 instance class.

@@ -1,6 +1,4 @@
-# Troubleshooting
-
-guide
+# Troubleshooting guide
 
 If you encounter errors using SageMaker Clarify online explainability, consult the topics in this
 section.
@@ -27,5 +25,4 @@ To reduce the request latency, try the following:
 - Reduce the number of records in the baseline data.
 - Use a smaller `NumberOfSamples` value to reduce the size of the
   synthetic dataset. For more information about how the number of samples affects
-  your synthetic dataset, see [Synthetic
-  dataset](clarify-online-explainability-create-endpoint-synthetic.md "clarify-online-explainability-create-endpoint-synthetic.md").
+  your synthetic dataset, see [Synthetic dataset](clarify-online-explainability-create-endpoint-synthetic.md "clarify-online-explainability-create-endpoint-synthetic.md").

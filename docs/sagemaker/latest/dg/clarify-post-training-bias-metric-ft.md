@@ -1,6 +1,4 @@
-# Counterfactual Fliptest
-
-(FT)
+# Counterfactual Fliptest (FT)
 
 The fliptest is an approach that looks at each member of facet _d_ and assesses whether similar members of facet _a_ have different model predictions. The members of facet _a_ are chosen to be k-nearest neighbors of the observation
 from facet _d_. We assess how many nearest neighbors of

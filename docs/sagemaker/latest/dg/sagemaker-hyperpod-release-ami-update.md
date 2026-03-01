@@ -1,6 +1,4 @@
-# Update your AMI version in your
-
-SageMaker HyperPod cluster
+# Update your AMI version in your SageMaker HyperPod cluster
 
 Amazon SageMaker HyperPod Amazon Machine Images (AMIs) are specialized machine images for
 distributed machine learning workloads and high-performance computing. Each AMI comes
@@ -64,9 +62,7 @@ operations.
 - [DescribeClusterNode](../APIReference/API_DescribeClusterNode.md "../APIReference/API_DescribeClusterNode.md") and [ListClusterNodes](../APIReference/API_ListClusterNodes.md "../APIReference/API_ListClusterNodes.md") – see when the cluster was last
   updated.
 
-## Required
-
-permissions
+## Required permissions
 
 Depending to how you configured your [Pod
 Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/ "https://kubernetes.io/docs/tasks/run-application/configure-pdb/") in your Amazon EKS cluster, HyperPod evicts pods,
@@ -112,9 +108,7 @@ cd sagemaker-hyperpod-cli/helm_chart
 helm upgrade hyperpod-dependencies HyperPodHelmChart --namespace kube-system --install
 ```
 
-## Cron
-
-expressions
+## Cron expressions
 
 To configure a one-time update at a certain time or a recurring schedule, use cron
 expressions. Cron expressions support six fields and are separated by white space.

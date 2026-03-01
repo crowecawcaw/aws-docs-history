@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -36,10 +35,8 @@ following resources:
 ###### Topics
 
 - [Prerequisites](#studio-lcc-defaults-cli-prereq "#studio-lcc-defaults-cli-prereq")
-- [Set a default lifecycle configuration when creating a new
-  resource](#studio-lcc-defaults-cli-new "#studio-lcc-defaults-cli-new")
-- [Set a default lifecycle configuration for an existing
-  resource](#studio-lcc-defaults-cli-existing "#studio-lcc-defaults-cli-existing")
+- [Set a default lifecycle configuration when creating a new resource](#studio-lcc-defaults-cli-new "#studio-lcc-defaults-cli-new")
+- [Set a default lifecycle configuration for an existing resource](#studio-lcc-defaults-cli-existing "#studio-lcc-defaults-cli-existing")
 
 ## Prerequisites
 
@@ -52,9 +49,7 @@ Before you begin, complete the following prerequisites:
 - Create a lifecycle
   configuration following the steps in [Create and Associate a Lifecycle Configuration with Amazon SageMaker Studio Classic](studio-lcc-create.md "studio-lcc-create.md").
 
-## Set a default lifecycle configuration when creating a new
-
-resource
+## Set a default lifecycle configuration when creating a new resource
 
 To set a default lifecycle configuration when creating a new domain, user profile,
 or space, pass the ARN of your previously created lifecycle configuration as part of
@@ -92,9 +87,7 @@ aws sagemaker create-user-profile --domain-id `domain-id` \
 }'
 ```
 
-## Set a default lifecycle configuration for an existing
-
-resource
+## Set a default lifecycle configuration for an existing resource
 
 To set or update the default lifecycle configuration for an existing resource,
 pass the ARN of your previously created lifecycle configuration as part of one of

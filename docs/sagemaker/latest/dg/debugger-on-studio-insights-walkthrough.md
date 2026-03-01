@@ -1,6 +1,4 @@
-# Explore the Amazon SageMaker Debugger Insights
-
-dashboard
+# Explore the Amazon SageMaker Debugger Insights dashboard
 
 When you initiate a SageMaker training job, SageMaker Debugger starts monitoring the resource
 utilization of the Amazon EC2 instances by default. You can track the system utilization
@@ -24,8 +22,7 @@ page.
 
 When you are done using the SageMaker Debugger Insights dashboard, shut down the
 `ml.m5.4xlarge` instance to avoid accruing charges. For instructions
-on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights
-instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
+on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
 
 ###### Important
 
@@ -43,9 +40,7 @@ assessment of the information.
 In the **System Metrics** tab, you can use the summary table and
 timeseries plots to understand resource utilization.
 
-### Resource
-
-utilization summary
+### Resource utilization summary
 
 This summary table shows the statistics of compute resource utilization metrics of
 all nodes (denoted as algo-_n_). The resource utilization metrics
@@ -56,9 +51,7 @@ p90, and p50 percentiles.
 
 ![A summary table of resource utilization](images/debugger/debugger-studio-insights-resource-util-summary.png)
 
-### Resource utilization
-
-time series plots
+### Resource utilization time series plots
 
 Use the time series graphs to see more details of resource utilization and
 identify at what time interval each instance shows any undesired utilization rate,
@@ -127,7 +120,6 @@ corresponds to which utilization rate.
 Use the **Rules** tab to find a summary of the profiling rule
 analysis on your training job. If the profiling rule is activated with the training
 job, the text appears highlighted with the solid white text. Inactive rules are
-dimmed in gray text. To activate these rules, follow instructions at [Use built-in profiler rules managed
-by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
+dimmed in gray text. To activate these rules, follow instructions at [Use built-in profiler rules managed by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
 
 ![The Rules tab in the SageMaker Debugger Insights dashboard](images/debugger/debugger-insights-rules.png)

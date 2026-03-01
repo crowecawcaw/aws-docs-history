@@ -1,6 +1,4 @@
-# Logging Feature Store operations by using
-
-AWS CloudTrail
+# Logging Feature Store operations by using AWS CloudTrail
 
 Amazon SageMaker Feature Store is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or an AWS service in Feature Store. CloudTrail captures all of the API calls for Feature Store listed on
@@ -12,9 +10,7 @@ request, when it was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Management
-
-events
+## Management events
 
 Management events capture operations performed on Feature Store resources in your AWS account.
 For example, the log generated from the management events provides visibility if a user
@@ -26,8 +22,7 @@ creates or deletes a Feature Store. The following APIs log management events wit
 - `UpdateFeatureGroup`
 
 Amazon SageMaker API calls and management events are logged by default when you create the
-account, as described in [Logging Amazon SageMaker AI API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). For more information, see [Logging
+account, as described in [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). For more information, see [Logging
 management events for trails](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md").
 
 ## Data events

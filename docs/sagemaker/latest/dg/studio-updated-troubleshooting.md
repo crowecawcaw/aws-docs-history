@@ -13,8 +13,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -95,13 +94,11 @@ To obtain your domain details, see [View domains](domain-view.md "domain-view.md
 
 - `space-name`
 
-To obtain the space names associated with your domain, see [Use the AWS CLI to view the
-SageMaker AI spaces in your domain](sm-console-domain-resources-view.md#sm-console-domain-resources-view-spaces-cli "sm-console-domain-resources-view.md#sm-console-domain-resources-view-spaces-cli").
+To obtain the space names associated with your domain, see [Use the AWS CLI to view the SageMaker AI spaces in your domain](sm-console-domain-resources-view.md#sm-console-domain-resources-view-spaces-cli "sm-console-domain-resources-view.md#sm-console-domain-resources-view-spaces-cli").
 
 - `app-name`
 
-The name of your application. To view your applications, see [Use the AWS CLI to view the
-SageMaker AI applications in your domain](sm-console-domain-resources-view.md#sm-console-domain-resources-view-apps-cli "sm-console-domain-resources-view.md#sm-console-domain-resources-view-apps-cli").
+The name of your application. To view your applications, see [Use the AWS CLI to view the SageMaker AI applications in your domain](sm-console-domain-resources-view.md#sm-console-domain-resources-view-apps-cli "sm-console-domain-resources-view.md#sm-console-domain-resources-view-apps-cli").
 
 Access Code Editor application in recovery mode
 
@@ -125,9 +122,7 @@ aws sagemaker create-app \
     --recovery-mode
 ```
 
-## Cannot delete
-
-the Code Editor or JupyterLab application
+## Cannot delete the Code Editor or JupyterLab application
 
 This issue occurs when a user creates an application from Amazon SageMaker Studio, that is
 only available in Studio, then reverts their default experience to Studio Classic. As a
@@ -169,9 +164,7 @@ The following table lists instance families and their recommended alternatives.
 | P4              | 2nd Generation Intel Xeon Scalable processors | 96       | 1152         | NVIDIA A100 Tensor Core | 8      | 320 (640 for P4de)               | G6e                     |
 | P5              | 3rd Gen AMD EPYC processors                   | 192      | 2000         | NVIDIA H100 Tensor Core | 8      | 640                              | P4de                    |
 
-## Insufficient limit
-
-(quota increase required)
+## Insufficient limit (quota increase required)
 
 This issue occurs when you get the following error message while attempting to run a
 space.
@@ -187,9 +180,7 @@ To resolve this issue, request an instance limit increase for the AWS Region tha
 you are launching the space in. For more information, see [Requesting a quota
 increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md").
 
-## Failure to load custom
-
-image
+## Failure to load custom image
 
 This issue occurs when a SageMaker AI image is deleted before detaching the image from your
 domain. This can be seen when you view the **Environment** tab for
@@ -213,7 +204,6 @@ following instructions for a walk through.
    as the image name from above.
 
 If you do not have an image in a Amazon ECR directory, see the instructions in
-[Create a custom image and push to
-Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"). 9. Once you have created your SageMaker AI image, navigate back to your domain
+[Create a custom image and push to Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"). 9. Once you have created your SageMaker AI image, navigate back to your domain
 **Environment** tab. You will see the image attached to
 your domain. 10. Select the image and choose **Detach**. 11. Follow the instructions to detach and delete the temporary SageMaker AI image.

@@ -39,8 +39,7 @@ bucket policy and server-side encryption (SSE). We strongly recommend that you [
 
 In addition, if you use the managed policy for SageMaker AI, we strongly recommend that you
 scope it down to the most restrictive policy that allows you to perform your use case.
-For more information, see [Grant an IAM Role Permission
-to Use Data Wrangler](data-wrangler-security.md#data-wrangler-security-iam-policy "data-wrangler-security.md#data-wrangler-security-iam-policy").
+For more information, see [Grant an IAM Role Permission to Use Data Wrangler](data-wrangler-security.md#data-wrangler-security-iam-policy "data-wrangler-security.md#data-wrangler-security-iam-policy").
 
 All data sources except for Amazon Simple Storage Service (Amazon S3) require you to specify a SQL query to import your data. For each query, you must specify the following:
 
@@ -158,9 +157,7 @@ identify the first row as a header.
 You can import a dataset that you've partitioned into multiple files in an
 Amazon S3 bucket in a single import step.
 
-###### To import a dataset into Data Wrangler from a single file that you've stored
-
-in Amazon S3:
+###### To import a dataset into Data Wrangler from a single file that you've stored in Amazon S3:
 
 1. If you are not currently on the **Import** tab,
    choose **Import**.
@@ -202,9 +199,7 @@ Each file must be in one of the following formats:
 
 Use the following procedure to import multiple files.
 
-###### To import a dataset into Data Wrangler from multiple files that you've stored
-
-in an Amazon S3 directory
+###### To import a dataset into Data Wrangler from multiple files that you've stored in an Amazon S3 directory
 
 1. If you are not currently on the **Import** tab,
    choose **Import**.
@@ -560,11 +555,9 @@ You must meet the following prerequisites to connect to an Amazon EMR cluster:
     The port number is different for Amazon EMR clusters using IAM roles. Navigate to the end of the prerequisites section for more information.
 
 - ###### SageMaker Studio Classic
-  - Amazon SageMaker Studio Classic must run Jupyter Lab Version 3. For information about updating the Jupyter Lab Version, see [View and update the JupyterLab version of an application from the
-    console](studio-jl.md#studio-jl-view "studio-jl.md#studio-jl-view").
+  - Amazon SageMaker Studio Classic must run Jupyter Lab Version 3. For information about updating the Jupyter Lab Version, see [View and update the JupyterLab version of an application from the console](studio-jl.md#studio-jl-view "studio-jl.md#studio-jl-view").
   - Amazon SageMaker Studio Classic has an IAM role that controls user access. The default IAM role that you're using to run Amazon SageMaker Studio Classic doesn't have policies that can give you access to Amazon EMR clusters.
-    You must attach the policy granting permissions to the IAM role. For more information, see [Configure
-    listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md").
+    You must attach the policy granting permissions to the IAM role. For more information, see [Configure listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md").
   - The IAM role must also have the following policy attached `secretsmanager:PutResourcePolicy`.
   - If you're using a Studio Classic domain that you've already created, make sure that its `AppNetworkAccessType` is in VPC-only mode. For information about updating a domain to use VPC-only mode, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md "studio-tasks-update-studio.md").
 
@@ -1761,9 +1754,7 @@ going through the process of setting up, do the following:
   the user's home folder every time the Jupyter Server's instance is
   initialized.
 
-#### Private Connectivity between
-
-Data Wrangler and Snowflake via AWS PrivateLink
+#### Private Connectivity between Data Wrangler and Snowflake via AWS PrivateLink
 
 This section explains how to use AWS PrivateLink to establish a private connection
 between Data Wrangler and Snowflake. The steps are explained in the following sections.
@@ -1785,9 +1776,7 @@ enable AWS PrivateLink:
 As described in Snowflake's documentation, enabling your Snowflake account
 can take up to two business days.
 
-##### Set up Snowflake
-
-AWS PrivateLink Integration
+##### Set up Snowflake AWS PrivateLink Integration
 
 After AWS PrivateLink is activated, retrieve the AWS PrivateLink configuration for
 your Region by running the following command in a Snowflake worksheet.
@@ -1867,9 +1856,7 @@ name (such as `us-west-2`), and no Availability Zone letter
 notation (such as `us-west-2a`). Store this information for
 later use.
 
-##### Configure DNS for
-
-Snowflake Endpoints in your VPC
+##### Configure DNS for Snowflake Endpoints in your VPC
 
 This section explains how to configure DNS for Snowflake endpoints in your
 VPC. This allows your VPC to resolve requests to the Snowflake AWS PrivateLink
@@ -1921,9 +1908,7 @@ endpoint.
 
      ![The Quick create record section in the console.](images/studio/mohave/snowflake-quick-create-ocsp.png)
 
-##### Configure
-
-Route 53 Resolver Inbound Endpoint for your VPC
+##### Configure Route 53 Resolver Inbound Endpoint for your VPC
 
 This section explains how to configure Route 53 resolvers inbound endpoints
 for your VPC.
@@ -1978,9 +1963,7 @@ for your VPC.
 
 ![The IP Addresses section in the console.](images/studio/mohave/snowflake-ip-addresses-2.png)
 
-##### SageMaker AI VPC
-
-Endpoints
+##### SageMaker AI VPC Endpoints
 
 This section explains how to create VPC endpoints for the following:
 Amazon SageMaker Studio Classic, SageMaker Notebooks, the SageMaker API, SageMaker Runtime Runtime, and Amazon SageMaker Feature Store
@@ -2129,9 +2112,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
      plain Snowflake account name. Everything else is left
      unchanged.
 
-#### Provide information to the
-
-data scientist
+#### Provide information to the data scientist
 
 Provide the data scientist with the information that they need to access
 Snowflake from Amazon SageMaker AI Data Wrangler.
@@ -2529,9 +2510,7 @@ For example, if your default bucket is
 queried from Amazon Redshift is located in
 s3://sagemaker-us-east-1-111122223333/redshift/`uuid`/data/.
 
-### Amazon Athena Import
-
-Storage
+### Amazon Athena Import Storage
 
 When you query an Athena database and import a dataset, Data Wrangler stores the dataset, as
 well as a subset of that dataset, or _preview

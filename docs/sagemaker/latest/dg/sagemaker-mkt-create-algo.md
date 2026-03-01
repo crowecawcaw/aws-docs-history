@@ -63,14 +63,10 @@ API.
 
 ###### Topics
 
-- [Create an Algorithm Resource
-  (Console)](#sagemaker-mkt-create-algo-console "#sagemaker-mkt-create-algo-console")
-- [Create an Algorithm Resource
-  (API)](#sagemaker-mkt-create-algo-api "#sagemaker-mkt-create-algo-api")
+- [Create an Algorithm Resource (Console)](#sagemaker-mkt-create-algo-console "#sagemaker-mkt-create-algo-console")
+- [Create an Algorithm Resource (API)](#sagemaker-mkt-create-algo-api "#sagemaker-mkt-create-algo-api")
 
-## Create an Algorithm Resource
-
-(Console)
+## Create an Algorithm Resource (Console)
 
 ###### To create an algorithm resource (console)
 
@@ -262,8 +258,6 @@ API.
 
     5. Choose **Create algorithm**.
 
-## Create an Algorithm Resource
-
-(API)
+## Create an Algorithm Resource (API)
 
 To create an algorithm resource by using the SageMaker API, call the [`CreateAlgorithm`](../APIReference/API_CreateAlgorithm.md "../APIReference/API_CreateAlgorithm.md") API.

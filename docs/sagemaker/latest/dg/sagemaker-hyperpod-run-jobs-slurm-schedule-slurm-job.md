@@ -1,6 +1,4 @@
-# Scheduling a Slurm job on
-
-a SageMaker HyperPod cluster
+# Scheduling a Slurm job on a SageMaker HyperPod cluster
 
 You can launch training jobs using the standard Slurm `sbatch` or
 `srun` commands. For example, to launch an 8-node training job, you can
@@ -75,8 +73,7 @@ $TORCHRUN $DIST_ARGS $TRAINING_SCRIPT
 If you want to make your training job more resilient against hardware
 failures by using the auto-resume capability of SageMaker HyperPod, you need to
 properly set up the environment variable `MASTER_ADDR` in the
-entrypoint script. To learn more, see [Automatic node
-recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md").
+entrypoint script. To learn more, see [Automatic node recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md").
 
 This tutorial assumes that this script is saved as
 `/fsx/users/my_user/train.sh`. 5. With this script in the shared volume at

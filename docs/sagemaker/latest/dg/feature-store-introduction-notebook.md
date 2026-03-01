@@ -1,6 +1,4 @@
-# Introduction to Feature Store example
-
-notebook
+# Introduction to Feature Store example notebook
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -92,9 +89,7 @@ want to store them independently in a Feature Store. Our example considers data 
 
 ![Feature group creation and data ingestion in Feature Store for this example notebook.](images/feature-store/feature-store-intro-diagram.png)
 
-## Step 3: Create
-
-feature groups
+## Step 3: Create feature groups
 
 We first start by creating feature group names for customer_data and orders_data.
 Following this, we create two feature groups, one for `customer_data` and
@@ -179,9 +174,7 @@ orders_feature_group.describe()
 sagemaker_session.boto_session.client('sagemaker', region_name=region).list_feature_groups() # We use the boto client to list FeatureGroups
 ```
 
-## Step 4: Ingest data
-
-into a feature group
+## Step 4: Ingest data into a feature group
 
 After feature groups are created, we can put data into them. If you're using the SageMaker AI
 AWS SDK for Python (Boto3), use the `ingest` API call. If you're using SDK for Python (Boto3), then use
@@ -266,9 +259,7 @@ groups, and ingest data into them.
 
 For an advanced example on how to use Feature Store for a fraud detection use case, see [Fraud Detection with Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html").
 
-## Step 7: Code examples for
-
-programmers
+## Step 7: Code examples for programmers
 
 In this notebook we used a variety of different API calls. Most of them are accessible
 through the SageMaker Python SDK, however some only exist within Boto3. You can invoke the

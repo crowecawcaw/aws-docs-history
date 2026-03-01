@@ -1,6 +1,4 @@
-# Endpoint
-
-response for time series data
+# Endpoint response for time series data
 
 The SageMaker Clarify processing job deserializes the entire payload as JSON.
 It then extracts predictions from the deserialized data using JMESPath

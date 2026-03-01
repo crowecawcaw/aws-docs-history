@@ -9,11 +9,9 @@ input manifest file depends on your task type.
   segmentation** labeling job, each line in your input manifest file
   contains information about a single 3D point cloud frame. This is called a
   _point cloud frame input manifest_. To learn more, see
-  [Create a Point Cloud Frame Input Manifest
-  File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
+  [Create a Point Cloud Frame Input Manifest File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
 - If you are creating a 3D point cloud **object
   tracking** labeling job, each line of your input manifest file
   contains a sequence of 3D point cloud frames and associated data. This is called
   a _point cloud sequence input manifest_. To learn more, see
-  [Create a Point Cloud Sequence
-  Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md").
+  [Create a Point Cloud Sequence Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md").

@@ -10,9 +10,7 @@ objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the IP Insights
-
-Algorithm
+## Metrics Computed by the IP Insights Algorithm
 
 The Amazon SageMaker AI IP Insights algorithm is an unsupervised learning algorithm that learns
 associations between IP addresses and entities. The algorithm trains a discriminator
@@ -33,9 +31,7 @@ optimize for hyperparameter tuning.
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
 | `validation:discriminator_auc` | Area under the receiver operating characteristic curve<br>on the validation dataset. The<br>validation dataset is not labeled. Area Under the Curve (AUC) is a metric that<br>describes the model's ability to discriminate validation data<br>points from randomly generated data points. | Maximize               |
 
-## Tunable IP Insights
-
-Hyperparameters
+## Tunable IP Insights Hyperparameters
 
 You can tune the following
 hyperparameters

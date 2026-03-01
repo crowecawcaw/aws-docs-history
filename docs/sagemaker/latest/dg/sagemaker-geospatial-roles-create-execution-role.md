@@ -1,6 +1,4 @@
-# Creating an new SageMaker AI
-
-execution role
+# Creating an new SageMaker AI execution role
 
 To work with SageMaker geospatial capabilities, you must set up a user, group, or role, and an
 execution role. A user role is an AWS identity with
@@ -26,8 +24,7 @@ in the following procedure, only grants the execution role permission to perform
 certain Amazon S3 actions on buckets or objects with `SageMaker`,
 `Sagemaker`, `sagemaker`, or `aws-glue` in the
 name. To learn how to update the execution role's policy to grant it access to other
-Amazon S3 buckets and objects, see [Add Additional Amazon S3
-Permissions to a SageMaker AI Execution Role](sagemaker-roles.md#sagemaker-roles-get-execution-role-s3 "sagemaker-roles.md#sagemaker-roles-get-execution-role-s3").
+Amazon S3 buckets and objects, see [Add Additional Amazon S3 Permissions to a SageMaker AI Execution Role](sagemaker-roles.md#sagemaker-roles-get-execution-role-s3 "sagemaker-roles.md#sagemaker-roles-get-execution-role-s3").
 
 ###### To create a new role
 

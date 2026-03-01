@@ -1,20 +1,14 @@
-# Open TensorBoard through the SageMaker AI
-
-console
+# Open TensorBoard through the SageMaker AI console
 
 You can also use the SageMaker AI console UI to open the TensorBoard application. There
 are two options to open the TensorBoard application through the SageMaker AI console.
 
 ###### Topics
 
-- [Option 1: Launch
-  TensorBoard from the domain details page](#debugger-htb-access-tb-console-domain-detail "#debugger-htb-access-tb-console-domain-detail")
-- [Option 2: Launch
-  TensorBoard from the TensorBoard landing page](#debugger-htb-access-tb-console-landing-pg "#debugger-htb-access-tb-console-landing-pg")
+- [Option 1: Launch TensorBoard from the domain details page](#debugger-htb-access-tb-console-domain-detail "#debugger-htb-access-tb-console-domain-detail")
+- [Option 2: Launch TensorBoard from the TensorBoard landing page](#debugger-htb-access-tb-console-landing-pg "#debugger-htb-access-tb-console-landing-pg")
 
-## Option 1: Launch
-
-TensorBoard from the domain details page
+## Option 1: Launch TensorBoard from the domain details page
 
 **Navigate to the domain details
 page**
@@ -41,9 +35,7 @@ scoped to a user profile.
 3. Choose **Launch** for your selected user profile,
    then choose **TensorBoard**.
 
-## Option 2: Launch
-
-TensorBoard from the TensorBoard landing page
+## Option 2: Launch TensorBoard from the TensorBoard landing page
 
 The following procedure describes how to launch a TensorBoard application from
 the TensorBoard landing page.

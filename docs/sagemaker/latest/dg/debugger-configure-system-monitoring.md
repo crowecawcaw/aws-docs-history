@@ -1,6 +1,4 @@
-# Configure settings for basic
-
-profiling of system resource utilization
+# Configure settings for basic profiling of system resource utilization
 
 To adjust the time interval for collecting the utilization metrics, use the
 `ProfilerConfig` API operation to create a parameter object while

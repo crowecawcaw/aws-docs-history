@@ -48,8 +48,7 @@ tested.
 tested?**
 
 For an untested model, you might need to first modify the training script to be
-compatible with SageMaker Training Compiler. For more information, see [Bring Your Own Deep Learning
-Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md") and follow the instructions on
+compatible with SageMaker Training Compiler. For more information, see [Bring Your Own Deep Learning Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md") and follow the instructions on
 how to prepare your training script.
 
 Once you have updated your training script, you can start the training job. The
@@ -77,8 +76,7 @@ instance types and models can be found at [Tested Models](training-compiler-supp
 
 Finally, some code in a training script might add additional overhead or disrupt the
 compiled computation graph and slow training. If working with a customized or untested
-model, see the instructions at [Best Practices
-to Use SageMaker Training Compiler with PyTorch/XLA](training-compiler-pytorch-models.md#training-compiler-pytorch-models-best-practices "training-compiler-pytorch-models.md#training-compiler-pytorch-models-best-practices").
+model, see the instructions at [Best Practices to Use SageMaker Training Compiler with PyTorch/XLA](training-compiler-pytorch-models.md#training-compiler-pytorch-models-best-practices "training-compiler-pytorch-models.md#training-compiler-pytorch-models-best-practices").
 
 **Q. Can I always use a larger batch size with SageMaker Training Compiler?**
 
@@ -109,7 +107,6 @@ container)?**
 
 SageMaker Training Compiler is provided through AWS Deep Learning Containers, and you can extend a
 subset of the containers to customize for your use-case. Containers that are extended
-from AWS DLCs are supported by SageMaker Training Compiler. For more information, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks") and [Using the SageMaker AI Python
-SDK and Extending SageMaker AI Framework Deep Learning Containers](training-compiler-enable-tensorflow.md#training-compiler-enable-tensorflow-sdk-extend-container "training-compiler-enable-tensorflow.md#training-compiler-enable-tensorflow-sdk-extend-container"). If you need further
+from AWS DLCs are supported by SageMaker Training Compiler. For more information, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks") and [Using the SageMaker AI Python SDK and Extending SageMaker AI Framework Deep Learning Containers](training-compiler-enable-tensorflow.md#training-compiler-enable-tensorflow-sdk-extend-container "training-compiler-enable-tensorflow.md#training-compiler-enable-tensorflow-sdk-extend-container"). If you need further
 support, reach out to the SageMaker AI team through [AWS Support](https://console.aws.amazon.com/support/ "https://console.aws.amazon.com/support/") or [AWS Developer Forums
 for Amazon SageMaker AI](https://forums.aws.amazon.com/forum.jspa?forumID=285 "https://forums.aws.amazon.com/forum.jspa?forumID=285").

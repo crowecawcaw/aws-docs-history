@@ -1,6 +1,4 @@
-# Opt out of the collection of Amazon SageMaker Debugger usage
-
-statistics
+# Opt out of the collection of Amazon SageMaker Debugger usage statistics
 
 For all SageMaker training jobs, Amazon SageMaker Debugger runs the [ProfilerReport](debugger-built-in-profiler-rules.md#profiler-report "debugger-built-in-profiler-rules.md#profiler-report") rule and autogenerates a [SageMaker Debugger interactive report](debugger-profiling-report.md "debugger-profiling-report.md"). The
 `ProfilerReport` rule provides a Jupyter notebook file
@@ -19,9 +17,7 @@ report itself.
 You can opt out of the collection of usage statistics using one of the following
 options.
 
-## (Recommended) Option 1:
-
-Opt out before running a training job
+## (Recommended) Option 1: Opt out before running a training job
 
 To opt out, you need to add the following Debugger `ProfilerReport` rule
 configuration to your training job request.
@@ -69,9 +65,7 @@ ProfilerRuleConfigurations=[
 ]
 ```
 
-## Option 2: Opt out after a
-
-training job has completed
+## Option 2: Opt out after a training job has completed
 
 To opt out after training has completed, you need to modify the
 `profiler-report.ipynb` file.
@@ -83,8 +77,7 @@ your training job request still report the usage statistics even after you opt o
 using **Option 2**.
 
 1. Follow the instructions on downloading the Debugger profiling report files in
-   the [Download the SageMaker Debugger profiling
-   report](debugger-profiling-report-download.md "debugger-profiling-report-download.md") page.
+   the [Download the SageMaker Debugger profiling report](debugger-profiling-report-download.md "debugger-profiling-report-download.md") page.
 2. In the `/ProfilerReport-1234567890/profiler-output` directory, open
    `profiler-report.ipynb`.
 3. Add `opt_out=True` to the

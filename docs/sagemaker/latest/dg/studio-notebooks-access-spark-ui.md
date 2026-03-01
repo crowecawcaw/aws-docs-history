@@ -1,15 +1,11 @@
-# Access Spark UI from Studio or
-
-Studio Classic
+# Access Spark UI from Studio or Studio Classic
 
 The following sections give instructions for accessing the Spark UI from SageMaker AI
 Studio or Studio Classic notebooks. The Spark UI allows you to monitor and debug your
 Spark Jobs submitted to run on Amazon EMR from Studio or Studio Classic notebooks. SSH
 tunneling and presigned URLs are two ways for accessing the Spark UI.
 
-## Set up SSH tunneling for Spark
-
-UI access
+## Set up SSH tunneling for Spark UI access
 
 To set up SSH tunneling to access the Spark UI, follow one of the two options in
 this section.
@@ -33,9 +29,7 @@ Amazon EMR console to get access to the Spark UI.
 
 You can set up an SSH tunnel even if presigned URLs are not available to you.
 
-## Presigned
-
-URLs
+## Presigned URLs
 
 To create one-click URLs that can access Spark UI on Amazon EMR from SageMaker Studio
 or Studio Classic notebooks, you must enable the following IAM permissions. Choose the
@@ -46,8 +40,7 @@ option that applies to you:
   permissions to the SageMaker Studio or Studio Classic IAM execution role.**
 - **For Amazon EMR clusters that are in a different account
   (not SageMaker Studio or Studio Classic notebook): Add the following
-  permissions to the cross-account role that you created for [List Amazon EMR clusters from Studio or
-  Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md").**
+  permissions to the cross-account role that you created for [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md").**
 
 ###### Note
 

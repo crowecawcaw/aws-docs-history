@@ -15,9 +15,7 @@ response = client.describe_endpoint(
 )
 ```
 
-## To describe an endpoint (using the
-
-console)
+## To describe an endpoint (using the console)
 
 1. Sign in to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home").

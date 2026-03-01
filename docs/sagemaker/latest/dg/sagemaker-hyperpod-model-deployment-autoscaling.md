@@ -1,6 +1,4 @@
-# Autoscaling policies
-
-for your HyperPod inference model deployment
+# Autoscaling policies for your HyperPod inference model deployment
 
 This following information provides practical examples and configurations for
 implementing autoscaling policies on Amazon SageMaker HyperPod inference model deployments.
@@ -11,9 +9,7 @@ standalone KEDA `ScaledObject` configurations for advanced scaling scenarios.
 The examples cover scaling triggers based on CloudWatch metrics, Amazon SQS queue lengths,
 Prometheus queries, and resource utilization metrics like CPU and memory.
 
-## Using
-
-autoScalingSpec in deployment YAML
+## Using autoScalingSpec in deployment YAML
 
 Amazon SageMaker HyperPod inference operator provides built-in autoscaling capabilities for
 model deployments using metrics from CloudWatch and Amazon Managed Prometheus (AMP). The
@@ -238,9 +234,7 @@ available in `prometheusTrigger`:
     replicas = (current replicas) × ceil (Metric Value)
     / (targetValue)
 
-## Using KEDA
-
-ScaledObject yaml definitions through kubectl
+## Using KEDA ScaledObject yaml definitions through kubectl
 
 In addition to configuring autoscaling through the autoScalingSpec section in your
 deployment YAML, you can create and apply standalone KEDA `ScaledObject`

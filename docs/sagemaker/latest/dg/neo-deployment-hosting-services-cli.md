@@ -1,6 +1,4 @@
-# Deploy a Compiled Model
-
-Using the AWS CLI
+# Deploy a Compiled Model Using the AWS CLI
 
 You must satisfy the [prerequisites](neo-deployment-hosting-services-prerequisites.md "neo-deployment-hosting-services-prerequisites.md") section if the model was compiled using AWS SDK for Python (Boto3), AWS CLI,
 or the Amazon SageMaker AI console. Follow the steps below to create and deploy a SageMaker Neo-compiled
@@ -17,9 +15,7 @@ After you have satisfied the [prerequisites](neo-deployment-hosting-services-pre
 commands. The following steps explain how to use these commands to deploy a model
 compiled with Neo:
 
-### Create a
-
-Model
+### Create a Model
 
 From [Neo Inference Container Images](neo-deployment-hosting-services-container-images.md "neo-deployment-hosting-services-container-images.md"), select the inference image URI and
 then use `create-model` API to create a SageMaker AI model. You can do this
@@ -122,9 +118,7 @@ aws sagemaker create-endpoint-config --cli-input-json file://create_config.json
 For the full syntax of the `create-endpoint-config` API, see
 [`create-endpoint-config`](../../../cli/latest/reference/sagemaker/create-endpoint-config.md "../../../cli/latest/reference/sagemaker/create-endpoint-config.md").
 
-### Create
-
-an Endpoint
+### Create an Endpoint
 
 After you have created your endpoint configuration, create an endpoint using
 the `create-endpoint` API:

@@ -1,6 +1,4 @@
-# Define metrics and
-
-environment variables
+# Define metrics and environment variables
 
 A tuning job optimizes hyperparameters for training jobs that it launches by using a
 metric to evaluate performance. This guide shows how to define metrics so that you can use a
@@ -16,9 +14,7 @@ validation-accuracy. The metrics show how well the model is performing on the da
 The following sections describe how to use two types of algorithms for training:
 built-in and custom.
 
-### Use a built-in algorithm
-
-for training
+### Use a built-in algorithm for training
 
 If you use one of the [SageMaker AI built-in algorithms](algos.md "algos.md"), metrics are already defined for you. In addition,
 built-in algorithms automatically send metrics to hyperparameter tuning for optimization.
@@ -40,9 +36,7 @@ Hyperparameter tuning automatically sends an additional hyperparameter
 `_tuning_objective_metric` to pass your objective metric to the tuning job
 for use during training.
 
-### Use a custom algorithm for
-
-training
+### Use a custom algorithm for training
 
 This section shows how to define your own metrics to use your own custom algorithm for
 training. When doing so, make sure that your algorithm writes at least one metric to
@@ -107,9 +101,7 @@ If you are using the SageMaker API, specify the value of the `name` key in the
 `HyperParameterTuningJobObjective` field of the
 `HyperParameterTuningJobConfig` parameter that you send to the [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") operation.
 
-## Specify environment
-
-variables
+## Specify environment variables
 
 SageMaker AI AMT optimizes hyperparameters within a tuning job to find the best parameters for
 model performance. You can use environment variables to configure your tuning job to change

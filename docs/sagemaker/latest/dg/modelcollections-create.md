@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -43,8 +42,7 @@ If you plan to create multiple hierarchies in this
 Collection, keep your Collection names short. The absolute
 path, which is a string representing the location of your
 Collections from the root level, must be 256 characters or
-less. For additional details, see [Collection and Model Group
-tagging](modelcollections-limitations.md#modelcollections-tagging "modelcollections-limitations.md#modelcollections-tagging"). 8. (Optional) To add Model Groups to your Collection, complete
+less. For additional details, see [Collection and Model Group tagging](modelcollections-limitations.md#modelcollections-tagging "modelcollections-limitations.md#modelcollections-tagging"). 8. (Optional) To add Model Groups to your Collection, complete
 the following steps:
 
     1. Choose **Select model
@@ -82,8 +80,7 @@ If you plan to create multiple hierarchies in this
 Collection, keep your Collection names short. The absolute
 path, which is a string representing the location of your
 Collections from the root level, must be 256 characters or
-less. For additional details, see [Collection and Model Group
-tagging](modelcollections-limitations.md#modelcollections-tagging "modelcollections-limitations.md#modelcollections-tagging"). 8. (Optional) To add Model Groups to your Collection, complete
+less. For additional details, see [Collection and Model Group tagging](modelcollections-limitations.md#modelcollections-tagging "modelcollections-limitations.md#modelcollections-tagging"). 8. (Optional) To add Model Groups to your Collection, complete
 the following steps:
 
     1. Choose **Select model

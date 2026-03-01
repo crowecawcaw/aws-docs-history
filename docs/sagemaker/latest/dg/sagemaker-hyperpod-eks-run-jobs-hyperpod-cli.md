@@ -1,10 +1,7 @@
-# Running jobs using the
-
-SageMaker HyperPod CLI
+# Running jobs using the SageMaker HyperPod CLI
 
 To run jobs, make sure that you installed Kubeflow Training Operator in the EKS
-clusters. For more information, see [Installing
-packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
+clusters. For more information, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
 
 Run the `hyperpod get-cluster` command to get the list of available
 HyperPod clusters.
@@ -61,9 +58,7 @@ hyperpod start-job \
     --restart-policy OnFailure
 ```
 
-## Running
-
-jobs with scheduling options
+## Running jobs with scheduling options
 
 The `hyperpod start-job` command has the following options to set up
 the job with queuing mechanisms.
@@ -72,8 +67,7 @@ the job with queuing mechanisms.
 
 You need [Kueue](https://kueue.sigs.k8s.io/docs/overview/ "https://kueue.sigs.k8s.io/docs/overview/")
 installed in the EKS cluster. If you haven't installed, follow the instructions
-in [Setup for
-SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
+in [Setup for SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
 
 - [--scheduler-type <enum>] #Optional, Specify the scheduler type. The
   default is `Kueue`.
@@ -92,9 +86,7 @@ hyperpod start-job \
     --priority high
 ```
 
-## Running
-
-jobs from a configuration file
+## Running jobs from a configuration file
 
 As an alternative, you can create a job configuration file containing all the
 parameters required by the job and then pass this config file to the `hyperpod

@@ -39,8 +39,7 @@ label category configuration file. You can use a single string to create instruc
 can add HTML mark up to customize the appearance of your instructions and add images. Make
 sure that any images you include in your instructions are publicly available, or if your
 instructions are in Amazon S3, that your workers have read access so that they can view them. For
-more information about the label category configuration file, see [Labeling category configuration file with
-label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
+more information about the label category configuration file, see [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
 
 ## Short Instructions
 

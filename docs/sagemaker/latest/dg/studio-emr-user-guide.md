@@ -10,23 +10,15 @@ clusters, see [Admin guide](studio-emr-admin-guide.md "studio-emr-admin-guide.md
 
 ###### Topics
 
-- [Supported images and
-  kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](#studio-notebooks-emr-cluster-connect-kernels "#studio-notebooks-emr-cluster-connect-kernels")
+- [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](#studio-notebooks-emr-cluster-connect-kernels "#studio-notebooks-emr-cluster-connect-kernels")
 - [Bring your own image](#studio-notebooks-emr-byoi "#studio-notebooks-emr-byoi")
-- [Launch an Amazon EMR
-  cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md")
-- [List Amazon EMR clusters from Studio or
-  Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md")
-- [Connect to an Amazon EMR cluster from SageMaker Studio
-  or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")
-- [Terminate an Amazon EMR cluster from Studio or
-  Studio Classic](terminate-emr-clusters.md "terminate-emr-clusters.md")
-- [Access Spark UI from Studio or
-  Studio Classic](studio-notebooks-access-spark-ui.md "studio-notebooks-access-spark-ui.md")
+- [Launch an Amazon EMR cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md")
+- [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md")
+- [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")
+- [Terminate an Amazon EMR cluster from Studio or Studio Classic](terminate-emr-clusters.md "terminate-emr-clusters.md")
+- [Access Spark UI from Studio or Studio Classic](studio-notebooks-access-spark-ui.md "studio-notebooks-access-spark-ui.md")
 
-## Supported images and
-
-kernels to connect to an Amazon EMR cluster from Studio or Studio Classic
+## Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic
 
 The following images and kernels come with [sagemaker-studio-analytics-extension](https://pypi.org/project/sagemaker-studio-analytics-extension/ "https://pypi.org/project/sagemaker-studio-analytics-extension/"), the JupyterLab extension that
 connects to a remote Spark (Amazon EMR) cluster via the [SparkMagic](https://github.com/jupyter-incubator/sparkmagic "https://github.com/jupyter-incubator/sparkmagic") library

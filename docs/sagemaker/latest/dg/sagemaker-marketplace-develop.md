@@ -1,6 +1,4 @@
-# Develop Algorithms and Models in
-
-Amazon SageMaker AI
+# Develop Algorithms and Models in Amazon SageMaker AI
 
 Before you can create algorithm and model package resources to use in Amazon SageMaker AI or list
 on AWS Marketplace, you have to develop them and package them in Docker containers.
@@ -21,13 +19,10 @@ Only the following operating system versions are supported:
 
 ###### Topics
 
-- [Develop
-  Algorithms in SageMaker AI](#sagmeaker-mkt-develop-algo "#sagmeaker-mkt-develop-algo")
+- [Develop Algorithms in SageMaker AI](#sagmeaker-mkt-develop-algo "#sagmeaker-mkt-develop-algo")
 - [Develop Models in SageMaker AI](#sagemaker-mkt-develop-model "#sagemaker-mkt-develop-model")
 
-## Develop
-
-Algorithms in SageMaker AI
+## Develop Algorithms in SageMaker AI
 
 An algorithm should be packaged as a docker container and stored in Amazon ECR to
 use it in SageMaker AI. The Docker container contains the training code used to run training jobs and, optionally, the

@@ -5,9 +5,7 @@ In the frame, in every timestamp, each row represents a target record, and each 
 record has one or more related columns. The values within each data frame cell can be of
 numerical, categorical, or text data types.
 
-## Time series
-
-dataset prerequisites
+## Time series dataset prerequisites
 
 Prior to analysis, complete the necessary preprocessing steps to prepare your
 data, such as data cleaning or feature engineering. You can provide one or multiple
@@ -36,9 +34,7 @@ in your structured data. As shown in the table, SageMaker Clarify supports forma
 `item_records`, `timestamp_records`, and
 `columns`.
 
-## Time series
-
-dataset config examples
+## Time series dataset config examples
 
 This section shows you how to set an analysis configuration using
 `time_series_data_config` for time series data in JSON format. Suppose
@@ -66,9 +62,7 @@ You can encode the dataset using `time_series_data_config` in
 three different ways, depending on `dataset_format`. The following
 sections describe each method.
 
-### Time
-
-series data config when `dataset_format` is `columns`
+### Time series data config when `dataset_format` is `columns`
 
 The following example uses the `columns` value for `dataset_format`.
 The following JSON file represents the preceding dataset.
@@ -100,9 +94,7 @@ is shown as follows:
 }
 ```
 
-### Time
-
-series data config when `dataset_format` is `item_records`
+### Time series data config when `dataset_format` is `item_records`
 
 The following example uses the `item_records` value for `dataset_format`.
 The following JSON file represents the dataset.
@@ -146,9 +138,7 @@ uses JMESPath).
 }
 ```
 
-### Time
-
-series data config when `dataset_format` is `timestamp_record`
+### Time series data config when `dataset_format` is `timestamp_record`
 
 The following example uses the `timestamp_record` value for `dataset_format`.
 The following JSON file represents the preceding dataset.

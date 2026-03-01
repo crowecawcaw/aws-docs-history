@@ -1,6 +1,4 @@
-# List cached
-
-connections
+# List cached connections
 
 You can list your cached connections by running the following command:
 

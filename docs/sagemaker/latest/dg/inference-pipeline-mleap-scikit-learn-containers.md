@@ -1,6 +1,4 @@
-# Feature Processing
-
-with Spark ML and Scikit-learn
+# Feature Processing with Spark ML and Scikit-learn
 
 Before training a model with either Amazon SageMaker AI built-in algorithms or custom algorithms,
 you can use Spark and scikit-learn preprocessors to transform your data and engineer
@@ -40,9 +38,7 @@ runtime to power real-time API services.
 For an example that shows how to feature process with Spark ML, see the [Train an ML Model using Apache Spark in Amazon EMR and deploy in SageMaker AI](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-python-sdk/sparkml_serving_emr_mleap_abalone "https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-python-sdk/sparkml_serving_emr_mleap_abalone") sample
 notebook.
 
-## Feature Processing with
-
-Scikit-Learn
+## Feature Processing with Scikit-Learn
 
 You can run and package scikit-learn jobs into containers directly in Amazon SageMaker AI.
 For an example of Python code for building a scikit-learn featurizer model that

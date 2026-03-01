@@ -1,6 +1,4 @@
-# Give SageMaker AI Hosted Endpoints Access to Resources in Your
-
-Amazon VPC
+# Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC
 
 ## Configure a Model for Amazon VPC Access
 
@@ -43,10 +41,8 @@ Guide_.
 
 - [Ensure That Subnets Have Enough IP Addresses](#host-vpc-ip "#host-vpc-ip")
 - [Create an Amazon S3 VPC Endpoint](#host-vpc-s3 "#host-vpc-s3")
-- [Use a Custom Endpoint Policy to Restrict
-  Access to Amazon S3](#host-vpc-policy "#host-vpc-policy")
-- [Add Permissions for Endpoint Access for
-  Containers Running in a VPC to Custom IAM Policies](#host-vpc-endpoints "#host-vpc-endpoints")
+- [Use a Custom Endpoint Policy to Restrict Access to Amazon S3](#host-vpc-policy "#host-vpc-policy")
+- [Add Permissions for Endpoint Access for Containers Running in a VPC to Custom IAM Policies](#host-vpc-endpoints "#host-vpc-endpoints")
 - [Configure Route Tables](#host-vpc-route-table "#host-vpc-route-table")
 - [Connect to Resources Outside Your VPC](#model-vpc-nat "#model-vpc-nat")
 
@@ -84,12 +80,9 @@ information, see [Endpoints for Amazon S3](../../../AmazonVPC/latest/UserGuide/v
 6. For **Policy**, choose **Full
    Access** to allow full access to the Amazon S3 service by any
    user or service within the VPC. To restrict access further, choose
-   **Custom**. For more information, see [Use a Custom Endpoint Policy to Restrict
-   Access to Amazon S3](#host-vpc-policy "#host-vpc-policy").
+   **Custom**. For more information, see [Use a Custom Endpoint Policy to Restrict Access to Amazon S3](#host-vpc-policy "#host-vpc-policy").
 
-### Use a Custom Endpoint Policy to Restrict
-
-Access to Amazon S3
+### Use a Custom Endpoint Policy to Restrict Access to Amazon S3
 
 The default endpoint policy allows full access to Amazon Simple Storage Service (Amazon S3) for any user
 or service in your VPC. To further restrict access to Amazon S3, create a custom
@@ -98,9 +91,7 @@ endpoint policy. For more information, see [Using Endpoint Policies for Amazon S
 You can also use a bucket policy to restrict access to your S3 buckets to only
 traffic that comes from your Amazon VPC. For information, see [Using Amazon S3 Bucket Policies](../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies "../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies").
 
-#### Restrict Package Installation on the
-
-Model Container with a Custom Endpoint Policy
+#### Restrict Package Installation on the Model Container with a Custom Endpoint Policy
 
 The default endpoint policy allows users to install packages from the Amazon Linux
 and Amazon Linux 2 repositories on the model container. If you don't want users to
@@ -143,9 +134,7 @@ repositories:
 }
 ```
 
-### Add Permissions for Endpoint Access for
-
-Containers Running in a VPC to Custom IAM Policies
+### Add Permissions for Endpoint Access for Containers Running in a VPC to Custom IAM Policies
 
 The `SageMakerFullAccess` managed policy includes the permissions that you
 need to use models configured for Amazon VPC access with an endpoint. These permissions allow SageMaker AI to
@@ -181,8 +170,7 @@ JSON
 ```
 
 For more information about the `SageMakerFullAccess` managed
-policy, see [AWS managed policy:
-AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
+policy, see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
 
 ### Configure Route Tables
 

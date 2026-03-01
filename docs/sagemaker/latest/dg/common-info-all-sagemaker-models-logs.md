@@ -1,6 +1,4 @@
-# Logs for Built-in
-
-Algorithms
+# Logs for Built-in Algorithms
 
 Amazon SageMaker AI algorithms produce Amazon CloudWatch logs, which provide detailed information on
 the training process. To see the logs, in the AWS management console, choose

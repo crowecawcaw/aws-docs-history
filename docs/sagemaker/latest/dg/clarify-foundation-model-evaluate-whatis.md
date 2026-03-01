@@ -25,7 +25,7 @@ In a model evaluation job, an evaluation task is a task you want the model to pe
   such as a label or score to text, based on its content.
 - **Custom** – Allows you to define custom evaluation dimensions for your model evaluation job.
 
-Each task type has specific metrics associated with them that you can use in an automated model evaluation jobs. To learn about the metrics associated with automatic model evaluation jobs, and model evaluation jobs that use human workers, see [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md") .
+Each task type has specific metrics associated with them that you can use in an automated model evaluation jobs. To learn about the metrics associated with automatic model evaluation jobs, and model evaluation jobs that use human workers, see [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md").
 
 ## Updating inference parameters
 
@@ -58,8 +58,7 @@ To create an automatic model evaluation job you can use Studio or the [`fmeval`]
 
 Alternatively, you can deploy the `fmeval` library into your own code base, and customize the model evaluation job for your own use cases.
 
-To better understand your results, use the generated report. The report includes visualizations and examples. You also see the results saved in the Amazon S3 bucket specified when creating the job. To learn more about the structure of the results, see [Understand the
-results of an automatic evaluation job](clarify-foundation-model-evaluate-auto-ui-results.md "clarify-foundation-model-evaluate-auto-ui-results.md").
+To better understand your results, use the generated report. The report includes visualizations and examples. You also see the results saved in the Amazon S3 bucket specified when creating the job. To learn more about the structure of the results, see [Understand the results of an automatic evaluation job](clarify-foundation-model-evaluate-auto-ui-results.md "clarify-foundation-model-evaluate-auto-ui-results.md").
 
 To use a model not publicly available in JumpStart , you must use the `fmeval` library to run the automatic model evaluation job. For a list of JumpStart models, see [Available foundation models](jumpstart-foundation-models-latest.md "jumpstart-foundation-models-latest.md").
 
@@ -99,9 +98,7 @@ Choosing the llama chat model **meta-textgenerationneuron-llama-2-7b-f**, on the
 [INST]<<SYS>>Summarize the following text in one sentence:<</SYS>>Oil prices fell on thursday as demand for energy decreased around the world owing to a global economic slowdown...[/INST]
 ```
 
-#### Custom
-
-prompt templates
+#### Custom prompt templates
 
 In the prompt template dialog box, you can toggle on or off the automatic prompt
 templating support that SageMaker Clarify provides. If you turn off automatic prompt templating, Clarify

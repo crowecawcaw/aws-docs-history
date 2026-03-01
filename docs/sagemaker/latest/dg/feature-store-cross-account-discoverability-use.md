@@ -1,6 +1,4 @@
-# Search discoverable
-
-resources
+# Search discoverable resources
 
 The resource owner account must grant permissions to resource consumer accounts to allow
 for discoverability or access (read-only, read-write, or admin) privileges with a shared
@@ -25,20 +23,16 @@ invitations. Invitations are not sent in these cases:
   For more information about accepting and using a resource share in AWS RAM, see [Respond to
   the resource share invitation](../../../ram/latest/userguide/getting-started-shared.md "../../../ram/latest/userguide/getting-started-shared.md").
 
-## Search
-
-discoverable feature groups example
+## Search discoverable feature groups example
 
 Once resources are shared with a resource consumer account with the discoverability
 permission applied, the resource consumer account can search for and discover the shared
 resources in Amazon SageMaker Feature Store using the console UI and the Feature Store SDK. Note that you cannot search
 on tags for cross account resources. The maximum number of feature group catalogs
 viewable is 1000. For more information about granting discoverability permissions, see
-[Enabling cross account
-discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
+[Enabling cross account discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
 
-For details about viewing shared feature groups in the console, see [Find feature groups in your
-Feature Store](feature-store-search-feature-group-metadata.md "feature-store-search-feature-group-metadata.md").
+For details about viewing shared feature groups in the console, see [Find feature groups in your Feature Store](feature-store-search-feature-group-metadata.md "feature-store-search-feature-group-metadata.md").
 
 In the following example, the resource consumer account uses SageMaker AI search to search for
 resources made discoverable to them when `CrossAccountFilterOption` is set to

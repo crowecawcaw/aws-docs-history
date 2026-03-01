@@ -15,16 +15,12 @@ work with SageMaker AI:
 
 ###### Topics
 
-- [Individual Framework
-  Libraries](#docker-containers-adapt-your-own-frameworks "#docker-containers-adapt-your-own-frameworks")
+- [Individual Framework Libraries](#docker-containers-adapt-your-own-frameworks "#docker-containers-adapt-your-own-frameworks")
 - [SageMaker Training and Inference Toolkits](amazon-sagemaker-toolkits.md "amazon-sagemaker-toolkits.md")
 - [Adapting your own training container](adapt-training-container.md "adapt-training-container.md")
-- [Adapt your own inference container for
-  Amazon SageMaker AI](adapt-inference-container.md "adapt-inference-container.md")
+- [Adapt your own inference container for Amazon SageMaker AI](adapt-inference-container.md "adapt-inference-container.md")
 
-## Individual Framework
-
-Libraries
+## Individual Framework Libraries
 
 In addition to the SageMaker Training Toolkit and SageMaker AI Inference Toolkit, SageMaker AI also
 provides toolkits specialized for TensorFlow, MXNet, PyTorch, and Chainer. The

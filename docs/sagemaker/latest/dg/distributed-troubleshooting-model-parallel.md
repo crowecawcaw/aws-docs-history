@@ -1,27 +1,18 @@
-# Model Parallel
-
-Troubleshooting
+# Model Parallel Troubleshooting
 
 If you run into an error, you can use the following list to try to troubleshoot your
 training job. If the problem persists, contact [AWS Support](https://aws.amazon.com/premiumsupport "https://aws.amazon.com/premiumsupport").
 
 ###### Topics
 
-- [Considerations for Using SageMaker
-  Debugger with the SageMaker Model Parallelism Library](#distributed-ts-model-parallel-debugger "#distributed-ts-model-parallel-debugger")
+- [Considerations for Using SageMaker Debugger with the SageMaker Model Parallelism Library](#distributed-ts-model-parallel-debugger "#distributed-ts-model-parallel-debugger")
 - [Saving Checkpoints](#distributed-ts-model-parallel-checkpoints "#distributed-ts-model-parallel-checkpoints")
-- [Convergence Using Model
-  Parallel and TensorFlow](#distributed-ts-model-parallel-tf-convergence "#distributed-ts-model-parallel-tf-convergence")
-- [Stalling or Crashing
-  Distributed Training Jobs](#distributed-ts-model-parallel-training-issues "#distributed-ts-model-parallel-training-issues")
-- [Receiving NCCL Error for a
-  PyTorch Training Job](#distributed-ts-model-parallel-nccl-error "#distributed-ts-model-parallel-nccl-error")
-- [Receiving
-  RecursionError for a PyTorch Training Job](#distributed-ts-model-parallel-super-forward-not-supported "#distributed-ts-model-parallel-super-forward-not-supported")
+- [Convergence Using Model Parallel and TensorFlow](#distributed-ts-model-parallel-tf-convergence "#distributed-ts-model-parallel-tf-convergence")
+- [Stalling or Crashing Distributed Training Jobs](#distributed-ts-model-parallel-training-issues "#distributed-ts-model-parallel-training-issues")
+- [Receiving NCCL Error for a PyTorch Training Job](#distributed-ts-model-parallel-nccl-error "#distributed-ts-model-parallel-nccl-error")
+- [Receiving RecursionError for a PyTorch Training Job](#distributed-ts-model-parallel-super-forward-not-supported "#distributed-ts-model-parallel-super-forward-not-supported")
 
-## Considerations for Using SageMaker
-
-Debugger with the SageMaker Model Parallelism Library
+## Considerations for Using SageMaker Debugger with the SageMaker Model Parallelism Library
 
 SageMaker Debugger is not available for the SageMaker model parallelism library. Debugger is enabled
 by default for all SageMaker TensorFlow and PyTorch training jobs, and you might see an error
@@ -151,9 +142,7 @@ if smp.local_rank() == 0:
     sync_local_checkpoints_to_s3(local_path=checkpoint_dir, s3_uri=full_s3_uri)
 ```
 
-## Convergence Using Model
-
-Parallel and TensorFlow
+## Convergence Using Model Parallel and TensorFlow
 
 When you use SageMaker AI multi-node training with TensorFlow and the model parallelism
 library, the loss may not converge as expected because the order of training input files
@@ -163,9 +152,7 @@ the input files are ordered the same way in all the ranks before they get conver
 TensorFlow datasets. One way to achieve this is to sort the input file names in the
 training script.
 
-## Stalling or Crashing
-
-Distributed Training Jobs
+## Stalling or Crashing Distributed Training Jobs
 
 If your training job has stalling, crashing, or not responding issues, read the
 following troubleshooting items to identify what's the cause of the issue. If you need
@@ -179,8 +166,7 @@ any further support, reach out to the SageMaker distributed training team throug
     outbound connections for all ports to and from the same SG. You also
     generally need outbound connections to any IP as a separate rule (for
     internet access). To find instructions on how to add inbound and
-    outbound rules for EFA communication, refer to [SageMaker AI distributed training job
-    stalling during initialization](distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-efa-sg "distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-efa-sg").
+    outbound rules for EFA communication, refer to [SageMaker AI distributed training job stalling during initialization](distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-efa-sg "distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-efa-sg").
 
 - If you see a **distributed training job stalling when
   checkpointing** the full model, this might be because the
@@ -192,14 +178,12 @@ any further support, reach out to the SageMaker distributed training team throug
   `shard_optimizer_state` is enabled.
 
 For more information about checkpointing a model with model parallelism, see
-[General Instruction for Saving and Loading](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading") and [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism
-library between v1.6.0 and v1.9.0)](distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-saving-loading-checkpoints "distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-saving-loading-checkpoints").
+[General Instruction for Saving and Loading](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading") and [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library between v1.6.0 and v1.9.0)](distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-saving-loading-checkpoints "distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-saving-loading-checkpoints").
 
 - If the training job crashes with a **CUDA Out of Memory
   error**, this means that the distributed training configuration
   needs to be adjusted to fit the model on the GPU cluster. For more information
-  and best practices, see [Setting Up the Right
-  Configuration for a Given Model](model-parallel-best-practices.md#model-parallel-best-practices-configuration "model-parallel-best-practices.md#model-parallel-best-practices-configuration").
+  and best practices, see [Setting Up the Right Configuration for a Given Model](model-parallel-best-practices.md#model-parallel-best-practices-configuration "model-parallel-best-practices.md#model-parallel-best-practices-configuration").
 - If the training job crashes with an **uncorrectable [ECC error](https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/index.html "https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/index.html")**, this means that one of the GPUs in the
   cluster has gone bad. If you need technical support, share the job ARN with the
   AWS team and restart your training job from a checkpoint if possible.
@@ -230,9 +214,7 @@ library between v1.6.0 and v1.9.0)](distributed-model-parallel-checkpointing-and
     become **available** before starting a
     training job using it.
 
-## Receiving NCCL Error for a
-
-PyTorch Training Job
+## Receiving NCCL Error for a PyTorch Training Job
 
 If you encountered the following error, it might be due to a process running out of
 GPU memory.
@@ -246,9 +228,7 @@ You can resolve this by reducing the batch size or `active_microbatches`.
 If auto partitioning is not resulting in a well-balanced partitioning, you might have to
 consider manual partitioning. For more information, see [Pipeline parallelism across nodes](model-parallel-best-practices.md#model-parallel-best-practices-configuration-pipeline-across-nodes "model-parallel-best-practices.md#model-parallel-best-practices-configuration-pipeline-across-nodes").
 
-## Receiving
-
-`RecursionError` for a PyTorch Training Job
+## Receiving `RecursionError` for a PyTorch Training Job
 
 The library does not support calling `super.forward()` inside a module's
 forward call. If you use `super.forward()`, you might receive the following

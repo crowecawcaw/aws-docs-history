@@ -48,9 +48,7 @@ cond_step = ConditionStep(
 )
 ```
 
-## Pass data between steps with
-
-property files
+## Pass data between steps with property files
 
 Use property files to store information from the output of a processing step. This is
 particularly useful when analyzing the results of a processing step to decide how a

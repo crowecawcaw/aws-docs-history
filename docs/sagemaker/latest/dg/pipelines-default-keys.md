@@ -1,6 +1,4 @@
-# Default cache key attributes by pipeline step
-
-type
+# Default cache key attributes by pipeline step type
 
 When deciding whether to reuse a previous pipeline step or rerun the step, Pipelines checks to
 see if certain attributes have changed. If the set of attributes is different from all

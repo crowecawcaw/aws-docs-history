@@ -1,6 +1,4 @@
-# Custom Inference Code with Batch
-
-Transform
+# Custom Inference Code with Batch Transform
 
 This section explains how Amazon SageMaker AI interacts with a Docker container that runs your own
 inference code for batch transform. Use this information to write inference code and create
@@ -8,19 +6,13 @@ a Docker image.
 
 ###### Topics
 
-- [How SageMaker AI Runs Your Inference
-  Image](#your-algorithms-batch-code-run-image "#your-algorithms-batch-code-run-image")
-- [How SageMaker AI Loads Your Model
-  Artifacts](#your-algorithms-batch-code-load-artifacts "#your-algorithms-batch-code-load-artifacts")
-- [How Containers
-  Serve Requests](#your-algorithms-batch-code-how-containe-serves-requests "#your-algorithms-batch-code-how-containe-serves-requests")
+- [How SageMaker AI Runs Your Inference Image](#your-algorithms-batch-code-run-image "#your-algorithms-batch-code-run-image")
+- [How SageMaker AI Loads Your Model Artifacts](#your-algorithms-batch-code-load-artifacts "#your-algorithms-batch-code-load-artifacts")
+- [How Containers Serve Requests](#your-algorithms-batch-code-how-containe-serves-requests "#your-algorithms-batch-code-how-containe-serves-requests")
 - [How Your Container Should Respond to Inference Requests](#your-algorithms-batch-code-how-containers-should-respond-to-inferences "#your-algorithms-batch-code-how-containers-should-respond-to-inferences")
-- [How Your Container Should
-  Respond to Health Check (Ping) Requests](#your-algorithms-batch-algo-ping-requests "#your-algorithms-batch-algo-ping-requests")
+- [How Your Container Should Respond to Health Check (Ping) Requests](#your-algorithms-batch-algo-ping-requests "#your-algorithms-batch-algo-ping-requests")
 
-## How SageMaker AI Runs Your Inference
-
-Image
+## How SageMaker AI Runs Your Inference Image
 
 To configure a container to run as an executable, use an `ENTRYPOINT`
 instruction in a Dockerfile. Note the following:
@@ -81,9 +73,7 @@ response to the `/execution-parameters`) are used.
 - You can't use the `init` initializer as your entry point in SageMaker AI
   containers because it gets confused by the train and serve arguments.
 
-## How SageMaker AI Loads Your Model
-
-Artifacts
+## How SageMaker AI Loads Your Model Artifacts
 
 In a [`CreateModel`](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") request, container definitions include the
 `ModelDataUrl` parameter, which identifies the location in Amazon S3 where
@@ -99,9 +89,7 @@ to store the model artifacts in Amazon S3 as a compressed tar file. SageMaker AI
 tar file and saves it in the `/opt/ml/model` directory in the
 container before the batch transform job starts.
 
-## How Containers
-
-Serve Requests
+## How Containers Serve Requests
 
 Containers must implement a web server that responds to invocations and ping requests
 on port 8080. For batch transforms, you have the option to set algorithms to implement
@@ -161,9 +149,7 @@ To receive inference requests, the container must have a web server listening on
 8080 and must accept POST requests to the `/invocations` endpoint. The
 inference request timeout and max retries can be configured through `ModelClientConfig`.
 
-## How Your Container Should
-
-Respond to Health Check (Ping) Requests
+## How Your Container Should Respond to Health Check (Ping) Requests
 
 The simplest requirement on the container is to respond with an HTTP 200 status code
 and an empty body. This indicates to SageMaker AI that the container is ready to accept

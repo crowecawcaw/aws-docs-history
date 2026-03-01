@@ -1,6 +1,4 @@
-# Categorize text with text classification (Single
-
-Label)
+# Categorize text with text classification (Single Label)
 
 To categorize articles and text into predefined categories, use text classification. For
 example, you can use text classification to identify the sentiment conveyed in a review or
@@ -99,9 +97,7 @@ response = client.create_labeling_job(
 )
 ```
 
-### Provide a Template for Text
-
-Classification Labeling Jobs
+### Provide a Template for Text Classification Labeling Jobs
 
 If you create a labeling job using the API, you must supply a worker task template
 in `UiTemplateS3Uri`. Copy and modify the following template. Only modify

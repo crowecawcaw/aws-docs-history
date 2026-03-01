@@ -1,6 +1,4 @@
-# Running Feature Store Feature
-
-Processor remotely
+# Running Feature Store Feature Processor remotely
 
 To run your Feature Processors on large data sets that require hardware more powerful than
 what is locally available, you can decorate your code with the `@remote`

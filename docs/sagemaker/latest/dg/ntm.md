@@ -33,8 +33,7 @@ Processing](https://arxiv.org/pdf/1511.06038.pdf "https://arxiv.org/pdf/1511.060
 ###### Topics
 
 - [Input/Output Interface for the NTM Algorithm](#NTM-inputoutput "#NTM-inputoutput")
-- [EC2 Instance Recommendation for the NTM
-  Algorithm](#NTM-instances "#NTM-instances")
+- [EC2 Instance Recommendation for the NTM Algorithm](#NTM-instances "#NTM-instances")
 - [NTM Sample Notebooks](#NTM-sample-notebooks "#NTM-sample-notebooks")
 - [NTM Hyperparameters](ntm_hyperparameters.md "ntm_hyperparameters.md")
 - [Tune an NTM Model](ntm-tuning.md "ntm-tuning.md")
@@ -87,9 +86,7 @@ Neural Topic Model.
 For more information on input and output file formats, see [NTM Response Formats](ntm-in-formats.md "ntm-in-formats.md") for inference and the
 [NTM Sample Notebooks](#NTM-sample-notebooks "#NTM-sample-notebooks").
 
-## EC2 Instance Recommendation for the NTM
-
-Algorithm
+## EC2 Instance Recommendation for the NTM Algorithm
 
 NTM training supports both GPU and CPU instance types. We recommend GPU instances, but
 for certain workloads, CPU instances may result in lower training costs. CPU instances

@@ -13,8 +13,7 @@ for deep learning tasks using the SageMaker Python SDK.
 ###### Tip
 
 To learn best practices for distributed computing of machine learning (ML) training and
-processing jobs in general, see [Distributed computing with SageMaker AI best
-practices](distributed-training-options.md "distributed-training-options.md").
+processing jobs in general, see [Distributed computing with SageMaker AI best practices](distributed-training-options.md "distributed-training-options.md").
 
 ## Distributed training concepts
 

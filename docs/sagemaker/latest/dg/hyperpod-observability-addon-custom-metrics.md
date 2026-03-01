@@ -1,6 +1,4 @@
-# Creating custom
-
-SageMaker HyperPod cluster metrics
+# Creating custom SageMaker HyperPod cluster metrics
 
 The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on provides hundreds of
 health, performance, and efficiency metrics out-of-the-box. In addition to those

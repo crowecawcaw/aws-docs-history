@@ -1,6 +1,4 @@
-# Using Amazon Augmented AI for Human
-
-Review
+# Using Amazon Augmented AI for Human Review
 
 When you use AI applications such as Amazon Rekognition, Amazon Textract, or your custom machine learning (ML)
 models, you can use Amazon Augmented AI to get human review of low-confidence predictions or random
@@ -68,6 +66,5 @@ that demonstrates that workflow in [Use Cases and Examples Using Amazon A2I](a2i
 - [Monitor and Manage Your Human Loop](a2i-monitor-humanloop-results.md "a2i-monitor-humanloop-results.md")
 - [Amazon A2I Output Data](a2i-output-data.md "a2i-output-data.md")
 - [Permissions and Security in Amazon Augmented AI](a2i-permissions-security.md "a2i-permissions-security.md")
-- [Use Amazon CloudWatch Events in
-  Amazon Augmented AI](a2i-cloudwatch-events.md "a2i-cloudwatch-events.md")
+- [Use Amazon CloudWatch Events in Amazon Augmented AI](a2i-cloudwatch-events.md "a2i-cloudwatch-events.md")
 - [Use APIs in Amazon Augmented AI](a2i-api-references.md "a2i-api-references.md")

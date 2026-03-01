@@ -1,6 +1,4 @@
-# Tune a Text Classification -
-
-TensorFlow model
+# Tune a Text Classification - TensorFlow model
 
 _Automatic model tuning_, also known as
 hyperparameter tuning, finds the best version of a model by running many jobs that test
@@ -12,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics computed by the Text Classification - TensorFlow
-
-algorithm
+## Metrics computed by the Text Classification - TensorFlow algorithm
 
 Refer to the following chart to find which metrics are computed by the Text Classification - TensorFlow algorithm.
 
@@ -22,9 +18,7 @@ Refer to the following chart to find which metrics are computed by the Text Clas
 | --------------------- | --------------------------------------------------------------------------------------- | ---------------------- | -------------------------- |
 | `validation:accuracy` | The ratio of the number of correct predictions to the total number of predictions made. | Maximize               | `val_accuracy=([0-9\\.]+)` |
 
-## Tunable Text Classification - TensorFlow
-
-hyperparameters
+## Tunable Text Classification - TensorFlow hyperparameters
 
 Tune a text classification model with the following hyperparameters. The
 hyperparameters that have the greatest impact on text classification objective
@@ -37,8 +31,7 @@ metrics are: `batch_size`, `learning_rate`, and
 `optimizer`.
 
 For more information about which hyperparameters are used for each `optimizer`, see
-[Text Classification - TensorFlow
-Hyperparameters](text-classification-tensorflow-Hyperparameter.md "text-classification-tensorflow-Hyperparameter.md").
+[Text Classification - TensorFlow Hyperparameters](text-classification-tensorflow-Hyperparameter.md "text-classification-tensorflow-Hyperparameter.md").
 
 | Parameter Name            | Parameter Type             | Recommended Ranges                                                     |
 | ------------------------- | -------------------------- | ---------------------------------------------------------------------- |

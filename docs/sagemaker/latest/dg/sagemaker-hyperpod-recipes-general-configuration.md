@@ -1,6 +1,4 @@
-# General
-
-configuration
+# General configuration
 
 The config.yaml file specifies the training recipe and the cluster. It also
 includes runtime configurations such as environment variables for the training
@@ -160,8 +158,7 @@ exp_manager:
 
 ```
 
-To learn more about checkpointing, see [Checkpointing using
-SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
+To learn more about checkpointing, see [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
 
 ### Full checkpointing
 
@@ -224,13 +221,10 @@ model:
 To gain a better understanding of different types of model parallelism
 techniques, you can refer to the following approaches:
 
-1. [Tensor
-   parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md")
-2. [Expert
-   parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md")
+1. [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md")
+2. [Expert parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md")
 3. [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md")
-4. [Hybrid
-   sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md")
+4. [Hybrid sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md")
 
 ### FP8
 
@@ -249,8 +243,7 @@ model:
 It's important to note that the FP8 data format is currently supported
 only on the P5 instance type. If you are using an older instance type, such
 as P4, disable the FP8 feature for your model training process. For more
-information about FP8, see [Mixed precision
-training](model-parallel-core-features-v2-mixed-precision.md "model-parallel-core-features-v2-mixed-precision.md").
+information about FP8, see [Mixed precision training](model-parallel-core-features-v2-mixed-precision.md "model-parallel-core-features-v2-mixed-precision.md").
 
 ### data
 

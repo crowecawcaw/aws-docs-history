@@ -1,6 +1,4 @@
-# Amazon SageMaker Images Available for Use With
-
-Studio Classic Notebooks
+# Amazon SageMaker Images Available for Use With Studio Classic Notebooks
 
 ###### Important
 
@@ -23,8 +21,7 @@ Learning Containers Images](../../../deep-learning-containers/latest/devguide/de
 - [Image ARN format](#notebooks-available-images-arn "#notebooks-available-images-arn")
 - [Supported URI tags](#notebooks-available-uri-tag "#notebooks-available-uri-tag")
 - [Supported images](#notebooks-available-images-supported "#notebooks-available-images-supported")
-- [Images slated for
-  deprecation](#notebooks-available-images-deprecation "#notebooks-available-images-deprecation")
+- [Images slated for deprecation](#notebooks-available-images-deprecation "#notebooks-available-images-deprecation")
 - [Deprecated images](#notebooks-available-images-deprecated "#notebooks-available-images-deprecated")
 
 ## Image ARN format
@@ -123,9 +120,7 @@ SageMaker images and kernels
 | TensorFlow 2.14.0 Python 3.10 CPU Optimized           | The AWS Deep Learning Containers for TensorFlow 2.14 with CUDA 11.8<br>include containers for training on CPU, optimized for performance and<br>scale on AWS. For more information, see [Release Notes for Deep Learning Containers](../../../deep-learning-containers/latest/devguide/dlc-release-notes.md "../../../deep-learning-containers/latest/devguide/dlc-release-notes.md"). | tensorflow-2.14.1-cpu-py310-ubuntu20.04-sagemaker-v1.0       | Python 3 (python3)                                                                                                                                                                                                                                         | Python 3.10    |
 | TensorFlow 2.14.0 Python 3.10 GPU Optimized           | The AWS Deep Learning Containers for TensorFlow 2.14 with CUDA 11.8<br>include containers for training on GPU, optimized for performance and<br>scale on AWS. For more information, see [Release Notes for Deep Learning Containers](../../../deep-learning-containers/latest/devguide/dlc-release-notes.md "../../../deep-learning-containers/latest/devguide/dlc-release-notes.md"). | tensorflow-2.14.1-gpu-py310-cu118-ubuntu20.04-sagemaker-v1.0 | Python 3 (python3)                                                                                                                                                                                                                                         | Python 3.10    |
 
-## Images slated for
-
-deprecation
+## Images slated for deprecation
 
 SageMaker AI ends support for images the day after any of the packages in the image reach
 end-of life by their publisher. The following SageMaker images are slated for deprecation.

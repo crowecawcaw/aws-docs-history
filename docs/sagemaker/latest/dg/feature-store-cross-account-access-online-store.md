@@ -1,6 +1,4 @@
-# Share online feature groups with
-
-AWS Resource Access Manager
+# Share online feature groups with AWS Resource Access Manager
 
 With AWS Resource Access Manager (AWS RAM) you can securely share Amazon SageMaker Feature Store online feature groups with other
 AWS accounts. Members of your team can explore and access feature groups that span multiple
@@ -30,8 +28,7 @@ To allow for resource consumer accounts to search and discover feature groups fr
 owner account, the resource owner account must grant discoverability permission to the resource
 consumer accounts, where all of the feature groups within the resource owner account are
 discoverable by the resource consumer accounts. For more information about granting the
-discoverability permission, see [Enabling cross account
-discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
+discoverability permission, see [Enabling cross account discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
 
 The following topics show how to share Feature Store online store resources using the AWS RAM console.
 For information about sharing your resources and granting permissions within AWS using the AWS RAM
@@ -40,7 +37,5 @@ resources](../../../ram/latest/userguide/getting-started-sharing.md "../../../ra
 
 ###### Topics
 
-- [Share
-  your feature group entities](feature-store-cross-account-access-online-store-share-feature-group.md "feature-store-cross-account-access-online-store-share-feature-group.md")
-- [Use online store shared
-  resources with access permissions](feature-store-cross-account-access-online-store-use.md "feature-store-cross-account-access-online-store-use.md")
+- [Share your feature group entities](feature-store-cross-account-access-online-store-share-feature-group.md "feature-store-cross-account-access-online-store-share-feature-group.md")
+- [Use online store shared resources with access permissions](feature-store-cross-account-access-online-store-use.md "feature-store-cross-account-access-online-store-use.md")

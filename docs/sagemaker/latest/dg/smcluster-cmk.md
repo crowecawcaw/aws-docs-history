@@ -174,10 +174,8 @@ customer managed key for only one of the volumes, then only
 specify one `EbsVolumeConfig`.
 
 For more information about configuring cluster creation and update requests, see
-[Creating
-a SageMaker HyperPod cluster](sagemaker-hyperpod-eks-operate-cli-command-create-cluster.md "sagemaker-hyperpod-eks-operate-cli-command-create-cluster.md") and
-[Updating
-SageMaker HyperPod cluster configuration](sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md "sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md").
+[Creating a SageMaker HyperPod cluster](sagemaker-hyperpod-eks-operate-cli-command-create-cluster.md "sagemaker-hyperpod-eks-operate-cli-command-create-cluster.md") and
+[Updating SageMaker HyperPod cluster configuration](sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md "sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md").
 
 CreateCluster
 The following example shows a [create-cluster](../../../cli/latest/reference/sagemaker/create-cluster.md "../../../cli/latest/reference/sagemaker/create-cluster.md") AWS CLI request with customer managed key encryption.

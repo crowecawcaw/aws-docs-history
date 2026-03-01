@@ -12,8 +12,7 @@ policy concepts, see [Policies](sagemaker-hyperpod-eks-operate-console-ui-govern
 
 If you are having issues with listing or deleting task governance policies,
 you may need to update your cluster administrator minimum set of permissions.
-See the **Amazon EKS** tab in the [IAM users for
-cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
+See the **Amazon EKS** tab in the [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
 section. For additional information, see [Deleting clusters](sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md#hp-eks-troubleshoot-delete-policies "sagemaker-hyperpod-eks-operate-console-ui-governance-troubleshoot.md#hp-eks-troubleshoot-delete-policies").
 
 The following uses the SageMaker AI console to delete your HyperPod task

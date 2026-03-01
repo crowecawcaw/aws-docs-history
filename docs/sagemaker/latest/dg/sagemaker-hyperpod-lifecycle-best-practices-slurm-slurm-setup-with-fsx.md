@@ -5,8 +5,7 @@ up the following.
 
 1. Use your Amazon VPC.
    1. For HyperPod cluster instances to communicate within your
-      VPC, make sure that you attach the [Setting up SageMaker HyperPod
-      with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc") to the IAM role for SageMaker HyperPod.
+      VPC, make sure that you attach the [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc") to the IAM role for SageMaker HyperPod.
    2. In `create_cluster.json`, include the following VPC
       information.
 
@@ -17,8 +16,7 @@ up the following.
    }
    ```
 
-   For more tips about setting up Amazon VPC, see [Prerequisites for using
-   SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md").
+   For more tips about setting up Amazon VPC, see [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md").
 
 2. To finish configuring Slurm with Amazon FSx for Lustre, you can use one of the following approaches. You can find the Amazon FSx information either from the Amazon FSx for Lustre console in your account or by running the following AWS CLI command, `aws fsx describe-file-systems`.
 

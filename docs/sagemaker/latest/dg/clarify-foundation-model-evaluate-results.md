@@ -1,6 +1,4 @@
-# Understand the results of your model
-
-evaluation job
+# Understand the results of your model evaluation job
 
 Use the following sections to learn how to interpret the results of your model evaluation job. The output JSON data saved in Amazon S3 for both automatic and human based model evaluation jobs are different. You can find where the results of a job are saved in Amazon S3 using Studio. To do so, open the **Model evaluations** home page in Studio, and choose your job from the table.
 
@@ -22,7 +20,5 @@ When your model evaluation job is complete, you can see how your model performed
 For information about interpreting the model evaluation results, see the topic that
 corresponds to the type of model evaluation job whose results you want to interpret:
 
-- [Understand the results
-  of a human evaluation job](clarify-foundation-model-evaluate-results-human.md "clarify-foundation-model-evaluate-results-human.md")
-- [Understand the
-  results of an automatic evaluation job](clarify-foundation-model-evaluate-auto-ui-results.md "clarify-foundation-model-evaluate-auto-ui-results.md")
+- [Understand the results of a human evaluation job](clarify-foundation-model-evaluate-results-human.md "clarify-foundation-model-evaluate-results-human.md")
+- [Understand the results of an automatic evaluation job](clarify-foundation-model-evaluate-auto-ui-results.md "clarify-foundation-model-evaluate-auto-ui-results.md")

@@ -10,5 +10,4 @@ you're using pre-defined recipes or customizing them to suit your specific needs
 ###### Topics
 
 - [GitHub repositories](github-repositories.md "github-repositories.md")
-- [General
-  configuration](sagemaker-hyperpod-recipes-general-configuration.md "sagemaker-hyperpod-recipes-general-configuration.md")
+- [General configuration](sagemaker-hyperpod-recipes-general-configuration.md "sagemaker-hyperpod-recipes-general-configuration.md")

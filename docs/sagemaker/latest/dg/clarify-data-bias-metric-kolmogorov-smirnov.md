@@ -1,6 +1,4 @@
-# Kolmogorov-Smirnov
-
-(KS)
+# Kolmogorov-Smirnov (KS)
 
 The Kolmogorov-Smirnov bias metric (KS) is equal to the maximum divergence between
 labels in the distributions for facets _a_ and

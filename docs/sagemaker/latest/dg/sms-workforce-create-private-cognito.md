@@ -1,6 +1,4 @@
-# Create a Private Workforce (Amazon Cognito
-
-Console)
+# Create a Private Workforce (Amazon Cognito Console)
 
 Amazon Cognito is used to define and manage your private workforce and your work teams. It is
 a service that you can use to create identities for your workers and authenticate these

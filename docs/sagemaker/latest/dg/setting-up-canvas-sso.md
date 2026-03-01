@@ -190,9 +190,7 @@ Value: {"SageMakerStudioUserProfileName"}
 14. Under **Assignments**, assign the application to the group that
     you've created.
 
-## Add optional policies on access control in
-
-IAM
+## Add optional policies on access control in IAM
 
 In IAM, you can apply the following policy to the administrator user who creates the
 user profiles.

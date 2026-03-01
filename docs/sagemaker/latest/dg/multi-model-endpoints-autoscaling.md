@@ -1,11 +1,8 @@
-# Set Auto Scaling Policies for Multi-Model
-
-Endpoint Deployments
+# Set Auto Scaling Policies for Multi-Model Endpoint Deployments
 
 SageMaker AI multi-model endpoints fully support automatic scaling, which manages replicas of
 models to ensure models scale based on traffic patterns. We recommend that you configure your
-multi-model endpoint and the size of your instances based on [Instance recommendations for multi-model
-endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md") and
+multi-model endpoint and the size of your instances based on [Instance recommendations for multi-model endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md") and
 also set up instance based auto scaling for your endpoint. The invocation rates used to
 trigger an auto-scale event are based on the aggregate set of predictions across the full set
 of models served by the endpoint. For additional details on setting up endpoint auto scaling,
@@ -32,9 +29,7 @@ the AWS CLI or the Application Auto Scaling API. For more information about poli
 The following options are available for defining a target-tracking scaling policy
 configuration.
 
-### Use a predefined
-
-metric
+### Use a predefined metric
 
 To quickly define a target-tracking scaling policy for a variant, use the
 `SageMakerVariantInvocationsPerInstance` predefined metric.
@@ -86,9 +81,7 @@ the value of the metric should decrease when the number of instances increases.
 Before deploying automatic scaling in production, you must test automatic scaling
 with your custom metric.
 
-#### Example custom metric for
-
-a CPU backed multi-model endpoint
+#### Example custom metric for a CPU backed multi-model endpoint
 
 The following example is a target-tracking configuration for a scaling policy. In
 this configuration, for a model named `my-model`, a custom metric of
@@ -110,9 +103,7 @@ average CPU utilization of 50% across all instances.
 }
 ```
 
-#### Example custom metric for
-
-a GPU backed multi-model endpoint
+#### Example custom metric for a GPU backed multi-model endpoint
 
 The following example is a target-tracking configuration for a scaling policy. In
 this configuration, for a model named `my-model`, a custom metric of

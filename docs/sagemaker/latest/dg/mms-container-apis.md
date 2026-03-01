@@ -1,6 +1,4 @@
-# Custom Containers Contract for Multi-Model
-
-Endpoints
+# Custom Containers Contract for Multi-Model Endpoints
 
 To handle multiple models, your container must support a set of APIs that enable
 Amazon SageMaker AI to communicate with the container for loading, listing, getting, and unloading

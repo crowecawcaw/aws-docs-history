@@ -11,8 +11,7 @@ application.
 For information about opting out of Amazon EFS auto-mounting, see [Opt out of Amazon EFS auto-mounting](studio-updated-automount-optout.md "studio-updated-automount-optout.md").
 
 Amazon EFS auto-mounting also facilitates the migration of data from Studio Classic to Studio.
-For more information, see [(Optional) Migrate data from
-Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
+For more information, see [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
 
 **Access point information**
 

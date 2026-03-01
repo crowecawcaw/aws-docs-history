@@ -1,13 +1,9 @@
-# Remove a
-
-training job (Studio)
+# Remove a training job (Studio)
 
 You can remove a training job, created externally or with SageMaker AI, from your
 model by completing the following steps.
 
-###### To remove a training job from your model package, complete the following
-
-steps.
+###### To remove a training job from your model package, complete the following steps.
 
 1. Choose **Train**.
 2. Choose the **Gear** (

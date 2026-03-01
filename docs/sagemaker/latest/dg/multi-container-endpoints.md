@@ -9,23 +9,17 @@ improve endpoint utilization and optimize costs.
 For information about invoking the containers in a multi-container endpoint in sequence, see [Inference pipelines in Amazon SageMaker AI](inference-pipelines.md "inference-pipelines.md").
 
 For information about invoking a specific container in a multi-container endpoint, see
-[Invoke a multi-container endpoint with direct
-invocation](multi-container-direct.md "multi-container-direct.md")
+[Invoke a multi-container endpoint with direct invocation](multi-container-direct.md "multi-container-direct.md")
 
 ###### Topics
 
 - [Create a multi-container endpoint (Boto 3)](multi-container-create.md "multi-container-create.md")
 - [Update a multi-container endpoint](multi-container-update.md "multi-container-update.md")
-- [Invoke a multi-container endpoint with direct
-  invocation](multi-container-direct.md "multi-container-direct.md")
-- [Security with multi-container endpoints with direct
-  invocation](multi-container-security.md "multi-container-security.md")
-- [Metrics for multi-container endpoints with
-  direct invocation](multi-container-metrics.md "multi-container-metrics.md")
-- [Autoscale multi-container
-  endpoints](multi-container-auto-scaling.md "multi-container-auto-scaling.md")
-- [Troubleshoot multi-container
-  endpoints](multi-container-troubleshooting.md "multi-container-troubleshooting.md")
+- [Invoke a multi-container endpoint with direct invocation](multi-container-direct.md "multi-container-direct.md")
+- [Security with multi-container endpoints with direct invocation](multi-container-security.md "multi-container-security.md")
+- [Metrics for multi-container endpoints with direct invocation](multi-container-metrics.md "multi-container-metrics.md")
+- [Autoscale multi-container endpoints](multi-container-auto-scaling.md "multi-container-auto-scaling.md")
+- [Troubleshoot multi-container endpoints](multi-container-troubleshooting.md "multi-container-troubleshooting.md")
   The following policy allows `invoke_endpoint` requests only when the value of
   the `TargetContainerHostname` field matches one of the specified regular
   expressions.

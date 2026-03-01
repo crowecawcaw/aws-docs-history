@@ -1,6 +1,4 @@
-# HyperPod Slurm cluster
-
-pre-training tutorial (GPU)
+# HyperPod Slurm cluster pre-training tutorial (GPU)
 
 The following tutorial sets up Slurm environment and starts a training job on a Llama
 8 billion parameter model.
@@ -26,9 +24,7 @@ have:
   information about getting the token, see [User access
   tokens](https://huggingface.co/docs/hub/en/security-tokens "https://huggingface.co/docs/hub/en/security-tokens").
 
-## HyperPod GPU Slurm
-
-environment setup
+## HyperPod GPU Slurm environment setup
 
 To initiate a training job on a HyperPod GPU Slurm cluster, do the
 following:
@@ -56,8 +52,7 @@ pip3 install -r requirements.txt
 ```
 
 4. Create a squash file using Enroot. To find the most recent release of the
-   SMP container, see [Release notes for the SageMaker model parallelism
-   library](model-parallel-release-notes.md "model-parallel-release-notes.md"). To gain a deeper
+   SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md"). To gain a deeper
    understanding of how to use the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image "https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image").
 
 ```
@@ -77,9 +72,7 @@ container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
 
 ```
 
-## Launch the training
-
-job
+## Launch the training job
 
 After you install the dependencies, start a training job from the
 `sagemaker-hyperpod-recipes/launcher_scripts` directory. You get the

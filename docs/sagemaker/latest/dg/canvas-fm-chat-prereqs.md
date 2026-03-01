@@ -5,9 +5,7 @@ models and using the document query feature in Canvas. The rest of the content o
 this page assumes that you’ve met the prerequisites for foundation models. The document
 query feature requires additional permissions.
 
-## Prerequisites for foundation
-
-models
+## Prerequisites for foundation models
 
 The permissions you need for interacting with models are included in the
 Canvas Ready-to-use models permissions. To use the generative AI-powered models
@@ -44,9 +42,7 @@ for your account, see [Requesting a
 quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _Service Quotas User
 Guide_.
 
-## Prerequisites for document
-
-querying
+## Prerequisites for document querying
 
 ###### Note
 

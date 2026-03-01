@@ -1,6 +1,4 @@
-# Customization of a SageMaker notebook instance
-
-using an LCC script
+# Customization of a SageMaker notebook instance using an LCC script
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -59,9 +56,7 @@ decrease the run time of scripts, try the following:
   You can attach a notebook instance LCC when you create a new notebook instance. For more
   information about creating a notebook instance, see [Create an Amazon SageMaker notebook instance](howitworks-create-ws.md "howitworks-create-ws.md").
 
-## Lifecycle Configuration Best
-
-Practices
+## Lifecycle Configuration Best Practices
 
 The following are best practices for using lifecycle configurations:
 

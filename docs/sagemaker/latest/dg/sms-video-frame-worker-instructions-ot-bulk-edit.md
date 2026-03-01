@@ -1,6 +1,4 @@
-# Bulk Edit Label and Frame
-
-Attributes
+# Bulk Edit Label and Frame Attributes
 
 You can bulk edit label attributes and frame attributes (attributes).
 

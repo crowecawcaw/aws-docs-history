@@ -1,10 +1,7 @@
-# Create a SHAP Baseline for Models
-
-in Production
+# Create a SHAP Baseline for Models in Production
 
 Explanations are typically contrastive, that is, they account for deviations from a
-baseline. For information on explainability baselines, see [SHAP Baselines for
-Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md").
+baseline. For information on explainability baselines, see [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md").
 
 In addition to providing explanations for per-instance inferences, SageMaker Clarify also supports
 global explanation for ML models that helps you understand the behavior of a model as a

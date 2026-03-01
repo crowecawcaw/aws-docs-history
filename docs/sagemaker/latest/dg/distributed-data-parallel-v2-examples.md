@@ -1,6 +1,4 @@
-# Amazon SageMaker AI data parallelism library
-
-examples
+# Amazon SageMaker AI data parallelism library examples
 
 This page provides Jupyter notebooks that present examples of implementing the SageMaker AI
 distributed data parallelism (SMDDP) library to run distributed training jobs on
@@ -40,9 +38,7 @@ The following blogs discuss case studies about using the SMDDP library.
   and Amazon SageMaker AI](https://huggingface.co/blog/sagemaker-distributed-training-seq2seq "https://huggingface.co/blog/sagemaker-distributed-training-seq2seq"), the _Hugging Face
   website_ (April 8, 2021)
 
-## Example
-
-notebooks
+## Example notebooks
 
 Example notebooks are provided in the [SageMaker AI examples GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/ "https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/"). To download the examples, run the
 following command to clone the repository and go to

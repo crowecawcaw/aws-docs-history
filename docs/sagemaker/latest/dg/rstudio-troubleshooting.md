@@ -15,9 +15,7 @@ more information, see [RStudio Versioning](rstudio-version.md "rstudio-version.m
 You can monitor your workflow performance while using RStudio on Amazon SageMaker AI. View data logs
 and information about metrics with the RStudio administrative dashboard or Amazon CloudWatch.
 
-### View your RStudio logs from the RStudio
-
-administrative dashboard
+### View your RStudio logs from the RStudio administrative dashboard
 
 You can view metrics and logs directly from the RStudio administrative dashboard.
 
@@ -25,9 +23,7 @@ You can view metrics and logs directly from the RStudio administrative dashboard
 2. Navigate to the RStudio administrative dashboard following the steps in [Use the RStudio administrative dashboard](rstudio-admin.md "rstudio-admin.md").
 3. Select the **Logs** tab.
 
-### View your RStudio logs from
-
-Amazon CloudWatch Logs
+### View your RStudio logs from Amazon CloudWatch Logs
 
 Amazon CloudWatch monitors your AWS resources and the applications that you run on AWS in real
 time. You can use Amazon CloudWatch to collect and track metrics, which are variables that you can

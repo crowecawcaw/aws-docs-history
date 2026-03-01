@@ -1,6 +1,4 @@
-# Endpoint
-
-requests for tabular data
+# Endpoint requests for tabular data
 
 To obtain model predictions for post-training bias analysis and feature importance
 analysis, SageMaker Clarify processing jobs serialize the tabular data into bytes and sends

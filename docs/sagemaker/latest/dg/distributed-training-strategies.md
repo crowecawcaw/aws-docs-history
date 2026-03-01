@@ -27,9 +27,7 @@ automatic model splitting and pipeline execution scheduling, simplifies the proc
 implementing model parallelism by making automated decisions that lead to efficient device
 utilization.
 
-## Train with data parallel and model
-
-parallel
+## Train with data parallel and model parallel
 
 If you are training with a large dataset, start with a data parallel approach. If you
 run out of memory during training, you may want to switch to a model parallel approach, or
@@ -85,6 +83,5 @@ Start with model-parallel training when:
 
 To learn more about the SageMaker AI distributed libraries, see the following:
 
-- [Run distributed training with the SageMaker AI distributed data
-  parallelism library](data-parallel.md "data-parallel.md")
+- [Run distributed training with the SageMaker AI distributed data parallelism library](data-parallel.md "data-parallel.md")
 - [(Archived) SageMaker model parallelism library v1.x](model-parallel.md "model-parallel.md")

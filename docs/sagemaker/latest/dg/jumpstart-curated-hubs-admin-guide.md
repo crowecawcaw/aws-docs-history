@@ -1,6 +1,4 @@
-# Admin guide for private model hubs
-
-in Amazon SageMaker JumpStart
+# Admin guide for private model hubs in Amazon SageMaker JumpStart
 
 There are actions that administrators can take related to curated model hubs that
 users within your organization can access. This includes creating, adding, deleting, and

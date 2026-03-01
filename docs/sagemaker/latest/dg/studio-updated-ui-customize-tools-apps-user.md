@@ -1,16 +1,11 @@
-# Hide machine learning
-
-tools and applications on a user level
+# Hide machine learning tools and applications on a user level
 
 The following shows how to customize the applications and ML tools displayed in
-Studio on a user level. For more information, see [Hide machine learning tools and
-applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
+Studio on a user level. For more information, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
 
 This feature is not available if Studio Classic is set as your default experience.
 
-###### To hide machine learning tools and applications Studio UI on a user
-
-level (console)
+###### To hide machine learning tools and applications Studio UI on a user level (console)
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. On the left navigation pane, choose **Admin

@@ -4,8 +4,7 @@ This tutorial explains the API operations you can use to get started using Amazo
 
 To use a Jupyter Notebook to run these operations, select a Jupyter Notebook from
 [Use Cases and Examples Using Amazon A2I](a2i-task-types-general.md "a2i-task-types-general.md") and
-use [Use SageMaker Notebook Instance with
-Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo") to learn how to use it in a SageMaker AI
+use [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo") to learn how to use it in a SageMaker AI
 notebook instance.
 
 To learn more about the API operations you can use with Amazon A2I, see [Use APIs in Amazon Augmented AI](a2i-api-references.md "a2i-api-references.md").
@@ -114,8 +113,7 @@ task template for the two built-in integrations. Replace the template with your
 own to customize this request.
 
 Amazon Textract – Key-value pair extraction
-To learn more about this template, see [Custom Template Example for
-Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
+To learn more about this template, see [Custom Template Example for Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
 
 ```
 `template` = r"""
@@ -170,8 +168,7 @@ Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a
 ```
 
 Amazon Rekognition – Image moderation
-To learn more about this template, see [Custom Template Example for
-Amazon Rekognition](a2i-custom-templates.md#a2i-custom-templates-rekognition-sample "a2i-custom-templates.md#a2i-custom-templates-rekognition-sample").
+To learn more about this template, see [Custom Template Example for Amazon Rekognition](a2i-custom-templates.md#a2i-custom-templates-rekognition-sample "a2i-custom-templates.md#a2i-custom-templates-rekognition-sample").
 
 ```
 `template` = r"""
@@ -283,9 +280,7 @@ follows:
 
 ```
 
-### Create JSON to specify activation
-
-conditions
+### Create JSON to specify activation conditions
 
 For Amazon Textract and Amazon Rekognition built-in integrations, you can save activation
 conditions in a JSON object and use this in your
@@ -293,8 +288,7 @@ conditions in a JSON object and use this in your
 
 Next, select a tab to see example activation conditions you can use for these
 built-in integrations. For additional information about activation condition
-options, see [JSON Schema for Human Loop
-Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md").
+options, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md").
 
 Amazon Textract – Key-value pair extraction
 This example specifies conditions for specific keys (such as

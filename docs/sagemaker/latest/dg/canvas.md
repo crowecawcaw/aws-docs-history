@@ -70,10 +70,8 @@ SageMaker Canvas is currently available in the following Regions:
 
 - [Are you a first-time SageMaker Canvas user?](#canvas-first-time-user "#canvas-first-time-user")
 - [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md")
-- [Tutorial: Build an end-to-end machine
-  learning workflow in SageMaker Canvas](canvas-end-to-end-machine-learning-workflow.md "canvas-end-to-end-machine-learning-workflow.md")
-- [Amazon SageMaker Canvas setup and permissions management (for IT
-  administrators)](canvas-setting-up.md "canvas-setting-up.md")
+- [Tutorial: Build an end-to-end machine learning workflow in SageMaker Canvas](canvas-end-to-end-machine-learning-workflow.md "canvas-end-to-end-machine-learning-workflow.md")
+- [Amazon SageMaker Canvas setup and permissions management (for IT administrators)](canvas-setting-up.md "canvas-setting-up.md")
 - [Generative AI assistance for solving ML problems in Canvas using Amazon Q Developer](canvas-q.md "canvas-q.md")
 - [Data import](canvas-importing-data.md "canvas-importing-data.md")
 - [Data preparation](canvas-data-prep.md "canvas-data-prep.md")
@@ -89,8 +87,6 @@ SageMaker Canvas is currently available in the following Regions:
 If you are a first-time user of SageMaker Canvas, we recommend that you begin by reading the
 following sections:
 
-- For IT administrators – [Amazon SageMaker Canvas setup and permissions management (for IT
-  administrators)](canvas-setting-up.md "canvas-setting-up.md")
+- For IT administrators – [Amazon SageMaker Canvas setup and permissions management (for IT administrators)](canvas-setting-up.md "canvas-setting-up.md")
 - For analysts and individual users – [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md")
-- For an example of an end to end workflow – [Tutorial: Build an end-to-end machine
-  learning workflow in SageMaker Canvas](canvas-end-to-end-machine-learning-workflow.md "canvas-end-to-end-machine-learning-workflow.md")
+- For an example of an end to end workflow – [Tutorial: Build an end-to-end machine learning workflow in SageMaker Canvas](canvas-end-to-end-machine-learning-workflow.md "canvas-end-to-end-machine-learning-workflow.md")

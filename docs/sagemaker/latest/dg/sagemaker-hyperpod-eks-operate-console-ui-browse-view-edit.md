@@ -5,15 +5,11 @@ orchestrated by Amazon EKS in the SageMaker AI console.
 
 ###### Topics
 
-- [To
-  browse your SageMaker HyperPod clusters](#sagemaker-hyperpod-eks-operate-console-ui-browse-clusters "#sagemaker-hyperpod-eks-operate-console-ui-browse-clusters")
+- [To browse your SageMaker HyperPod clusters](#sagemaker-hyperpod-eks-operate-console-ui-browse-clusters "#sagemaker-hyperpod-eks-operate-console-ui-browse-clusters")
 - [To view details of each SageMaker HyperPod cluster](#sagemaker-hyperpod-eks-operate-console-ui-view-details-of-clusters "#sagemaker-hyperpod-eks-operate-console-ui-view-details-of-clusters")
-- [To
-  edit a SageMaker HyperPod cluster](#sagemaker-hyperpod-eks-operate-console-ui-edit-clusters "#sagemaker-hyperpod-eks-operate-console-ui-edit-clusters")
+- [To edit a SageMaker HyperPod cluster](#sagemaker-hyperpod-eks-operate-console-ui-edit-clusters "#sagemaker-hyperpod-eks-operate-console-ui-edit-clusters")
 
-## To
-
-browse your SageMaker HyperPod clusters
+## To browse your SageMaker HyperPod clusters
 
 Under **Clusters** on the SageMaker HyperPod page in
 the SageMaker AI console, all created clusters should be listed under the **Clusters** section, which provides a summary view of
@@ -25,9 +21,7 @@ Under **Clusters** on the SageMaker HyperPod page in
 the SageMaker AI console, the cluster names are activated as links. Choose the cluster
 name link to see details of each cluster.
 
-## To
-
-edit a SageMaker HyperPod cluster
+## To edit a SageMaker HyperPod cluster
 
 1.  Under **Clusters** in the main pane of the
     SageMaker HyperPod console, choose the cluster you want to update.

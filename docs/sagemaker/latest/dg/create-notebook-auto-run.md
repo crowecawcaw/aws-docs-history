@@ -16,5 +16,4 @@ programmatically create a job with the SageMaker Python SDK:
   Since you create both a SageMaker Notebook Job step and a pipeline, you can track your pipeline
   execution status in the SageMaker Notebook Jobs job dashboard and also view your pipeline graph in
   Studio. For details about how to schedule your job with the SageMaker Python SDK and links to
-  example notebooks, see [Create notebook job with SageMaker AI Python
-  SDK example](create-notebook-auto-run-sdk.md "create-notebook-auto-run-sdk.md").
+  example notebooks, see [Create notebook job with SageMaker AI Python SDK example](create-notebook-auto-run-sdk.md "create-notebook-auto-run-sdk.md").

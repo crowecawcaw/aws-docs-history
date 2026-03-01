@@ -1,6 +1,4 @@
-# Create a SageMaker AI Execution Role for a
-
-Ground Truth Labeling Job
+# Create a SageMaker AI Execution Role for a Ground Truth Labeling Job
 
 When you configure your labeling job, you need to provide an _execution
 role_, which is a role that SageMaker AI has permission to assume to start and
@@ -33,8 +31,7 @@ This role must give Ground Truth permission to access the following:
   _except_:
 
 - Data and storage volume encryption of your Amazon S3 buckets. To learn how to
-  configure these permissions, see [Encrypt Output Data and Storage Volume with
-  AWS KMS](sms-security-kms-permissions.md "sms-security-kms-permissions.md").
+  configure these permissions, see [Encrypt Output Data and Storage Volume with AWS KMS](sms-security-kms-permissions.md "sms-security-kms-permissions.md").
 - Permission to select and invoke Lambda functions that do not include
   `GtRecipe`, `SageMaker`, `Sagemaker`,
   `sagemaker`, or `LabelingFunction` in the function
@@ -50,18 +47,12 @@ This role must give Ground Truth permission to access the following:
 
 ###### Topics
 
-- [Built-In Task Types
-  (Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt")
-- [Built-In Task Types
-  (Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming")
-- [Execution Role Requirements for
-  Custom Task Types](#sms-security-permission-execution-role-custom-tt "#sms-security-permission-execution-role-custom-tt")
-- [Automated Data
-  Labeling Permission Requirements](#sms-security-permission-execution-role-custom-auto-labeling "#sms-security-permission-execution-role-custom-auto-labeling")
+- [Built-In Task Types (Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt")
+- [Built-In Task Types (Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming")
+- [Execution Role Requirements for Custom Task Types](#sms-security-permission-execution-role-custom-tt "#sms-security-permission-execution-role-custom-tt")
+- [Automated Data Labeling Permission Requirements](#sms-security-permission-execution-role-custom-auto-labeling "#sms-security-permission-execution-role-custom-auto-labeling")
 
-## Built-In Task Types
-
-(Non-streaming) Execution Role Requirements
+## Built-In Task Types (Non-streaming) Execution Role Requirements
 
 The following policy grants permission to create a labeling job for a [built-in task
 type](sms-task-types.md "sms-task-types.md"). This execution policy does not include permissions for AWS KMS data
@@ -116,9 +107,7 @@ JSON
 
 ```
 
-## Built-In Task Types
-
-(Streaming) Execution Role Requirements
+## Built-In Task Types (Streaming) Execution Role Requirements
 
 If you create a streaming labeling job, you must add a policy similar to the
 following to the execution role you use to create the labeling job. To narrow
@@ -237,16 +226,12 @@ JSON
 
 ```
 
-## Execution Role Requirements for
-
-Custom Task Types
+## Execution Role Requirements for Custom Task Types
 
 If you want to create a [custom labeling
 workflow](sms-custom-templates.md "sms-custom-templates.md"), add the following statement to an execution role policy
-like the ones found in [Built-In Task Types
-(Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt") or
-[Built-In Task Types
-(Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming").
+like the ones found in [Built-In Task Types (Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt") or
+[Built-In Task Types (Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming").
 
 This policy gives the execution role permission to `Invoke` your
 pre-annotation and post-annotation Lambda functions.
@@ -265,9 +250,7 @@ pre-annotation and post-annotation Lambda functions.
 }
 ```
 
-## Automated Data
-
-Labeling Permission Requirements
+## Automated Data Labeling Permission Requirements
 
 If you want to create a labeling job with [automated data
 labeling](sms-automated-labeling.md "sms-automated-labeling.md") enabled, you must 1) add one policy to the IAM policy
@@ -277,10 +260,8 @@ role.
 The following statement allows the IAM execution role to be passed to SageMaker AI
 so that it can be used to run the training and inference jobs used for active
 learning and automated data labeling respectively. Add this statement to an
-execution role policy like the ones found in [Built-In Task Types
-(Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt") or
-[Built-In Task Types
-(Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming"). Replace
+execution role policy like the ones found in [Built-In Task Types (Non-streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt "#sms-security-permission-execution-role-built-in-tt") or
+[Built-In Task Types (Streaming) Execution Role Requirements](#sms-security-permission-execution-role-built-in-tt-streaming "#sms-security-permission-execution-role-built-in-tt-streaming"). Replace
 `arn:aws:iam::<account-number>:role/<role-name>`
 with the execution role ARN. You can find your IAM role ARN in the IAM
 console under **Roles**.

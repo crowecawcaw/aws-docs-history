@@ -1,6 +1,4 @@
-# Security with multi-container endpoints with direct
-
-invocation
+# Security with multi-container endpoints with direct invocation
 
 For multi-container endpoints with direct invocation, there are multiple containers
 hosted in a single instance by sharing memory and a storage volume. It's your

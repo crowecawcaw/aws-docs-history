@@ -1,6 +1,4 @@
-# Hide instance types and
-
-images in the Amazon SageMaker Studio UI
+# Hide instance types and images in the Amazon SageMaker Studio UI
 
 ###### Important
 
@@ -44,7 +42,5 @@ You can customize the Studio UI on a domain level and a user level:
 
 ###### Topics
 
-- [Hide instance
-  types and images on a domain level](studio-updated-ui-customize-instances-images-domain.md "studio-updated-ui-customize-instances-images-domain.md")
-- [Hide instance types
-  and images on a user level](studio-updated-ui-customize-instances-images-user.md "studio-updated-ui-customize-instances-images-user.md")
+- [Hide instance types and images on a domain level](studio-updated-ui-customize-instances-images-domain.md "studio-updated-ui-customize-instances-images-domain.md")
+- [Hide instance types and images on a user level](studio-updated-ui-customize-instances-images-user.md "studio-updated-ui-customize-instances-images-user.md")

@@ -1,6 +1,4 @@
-# Metrics for fine-tuning large language
-
-models in Autopilot
+# Metrics for fine-tuning large language models in Autopilot
 
 The following section describes the metrics that you can use to understand your fine-tuned
 large language models (LLMs). Using your dataset, Autopilot directly fine-tunes a target LLM to enhance a

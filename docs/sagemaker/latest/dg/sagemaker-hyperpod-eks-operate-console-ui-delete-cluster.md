@@ -1,6 +1,4 @@
-# Deleting
-
-a SageMaker HyperPod cluster
+# Deleting a SageMaker HyperPod cluster
 
 Use the following instructions to delete SageMaker HyperPod clusters orchestrated by
 Amazon EKS in the SageMaker AI console.

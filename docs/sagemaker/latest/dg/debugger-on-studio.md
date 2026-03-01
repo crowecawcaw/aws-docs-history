@@ -19,9 +19,6 @@ Studio Classic](studio-tasks-update.md "studio-tasks-update.md").
 ###### Topics
 
 - [Open the Amazon SageMaker Debugger Insights dashboard](debugger-on-studio-insights.md "debugger-on-studio-insights.md")
-- [Amazon SageMaker Debugger Insights dashboard
-  controller](debugger-on-studio-insights-controllers.md "debugger-on-studio-insights-controllers.md")
-- [Explore the Amazon SageMaker Debugger Insights
-  dashboard](debugger-on-studio-insights-walkthrough.md "debugger-on-studio-insights-walkthrough.md")
-- [Shut down the Amazon SageMaker Debugger Insights
-  instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md")
+- [Amazon SageMaker Debugger Insights dashboard controller](debugger-on-studio-insights-controllers.md "debugger-on-studio-insights-controllers.md")
+- [Explore the Amazon SageMaker Debugger Insights dashboard](debugger-on-studio-insights-walkthrough.md "debugger-on-studio-insights-walkthrough.md")
+- [Shut down the Amazon SageMaker Debugger Insights instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md")

@@ -1,6 +1,4 @@
-# Using the Amazon EBS CSI driver on SageMaker HyperPod EKS
-
-clusters
+# Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters
 
 SageMaker HyperPod supports the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver,
 which manages the lifecycle of Amazon EBS volumes as storage for the Kubernetes volumes that you
@@ -12,8 +10,7 @@ orchestration.
 
 - [Key storage capabilities](#sagemaker-hyperpod-eks-ebs-features "#sagemaker-hyperpod-eks-ebs-features")
 - [Use cases](#sagemaker-hyperpod-eks-ebs-use "#sagemaker-hyperpod-eks-ebs-use")
-- [Setting up the Amazon EBS CSI driver on
-  SageMaker HyperPod EKS clusters](#sagemaker-hyperpod-eks-ebs-setup "#sagemaker-hyperpod-eks-ebs-setup")
+- [Setting up the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](#sagemaker-hyperpod-eks-ebs-setup "#sagemaker-hyperpod-eks-ebs-setup")
 - [Using the APIs](#sagemaker-hyperpod-eks-ebs-setup-apis "#sagemaker-hyperpod-eks-ebs-setup-apis")
 
 ## Key storage capabilities
@@ -69,9 +66,7 @@ inference workloads on SageMaker HyperPod EKS clusters.
 
 - Event logging: Store inference results and logs with persistent storage
 
-## Setting up the Amazon EBS CSI driver on
-
-SageMaker HyperPod EKS clusters
+## Setting up the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters
 
 The Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver allows you to dynamically
 provision and manage Amazon EBS volumes for your containerized workloads running on SageMaker HyperPod clusters
@@ -181,9 +176,7 @@ JSON
 
 ```
 
-### Required
-
-permissions for `sagemaker:DetachClusterNodeVolume`
+### Required permissions for `sagemaker:DetachClusterNodeVolume`
 
 JSON
 
@@ -222,9 +215,7 @@ JSON
 
 ```
 
-### Required permissions
-
-for AWS KMS keys
+### Required permissions for AWS KMS keys
 
 Add the following AWS KMS permissions only if you're using customer managed
 KMS keys to encrypt your Amazon EBS volumes attached to HyperPod

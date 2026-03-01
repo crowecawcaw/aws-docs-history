@@ -4,12 +4,9 @@ After you run a baseline processing job and obtained statistics and constraint f
 your dataset, you can execute monitoring jobs that calculate statistics and list any
 violations encountered relative to the baseline constraints. Amazon CloudWatch metrics are also
 reported in your account by default. For information on viewing the results of
-monitoring in Amazon SageMaker Studio, see [Visualize results for
-real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
+monitoring in Amazon SageMaker Studio, see [Visualize results for real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
 
-## List
-
-Executions
+## List Executions
 
 The schedule starts monitoring jobs at the specified intervals. The following code
 lists
@@ -60,9 +57,7 @@ report_uri=latest_execution.output.destination
 print('Report Uri: {}'.format(report_uri))
 ```
 
-## List
-
-Generated Reports
+## List Generated Reports
 
 Use the following code to list the generated reports.
 
@@ -81,9 +76,7 @@ print("Found Report Files:")
 print("\n ".join(report_files))
 ```
 
-## Violations
-
-Report
+## Violations Report
 
 If there are violations compared to the baseline, they are generated in the
 violations report. Use the following code to list the violations.

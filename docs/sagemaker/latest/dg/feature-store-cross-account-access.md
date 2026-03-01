@@ -38,7 +38,5 @@ following:
 
 ###### Topics
 
-- [Share online feature groups with
-  AWS Resource Access Manager](feature-store-cross-account-access-online-store.md "feature-store-cross-account-access-online-store.md")
-- [Cross account offline store
-  access](feature-store-cross-account-access-offline-store.md "feature-store-cross-account-access-offline-store.md")
+- [Share online feature groups with AWS Resource Access Manager](feature-store-cross-account-access-online-store.md "feature-store-cross-account-access-online-store.md")
+- [Cross account offline store access](feature-store-cross-account-access-offline-store.md "feature-store-cross-account-access-offline-store.md")

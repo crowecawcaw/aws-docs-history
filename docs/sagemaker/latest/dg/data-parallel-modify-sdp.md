@@ -1,6 +1,4 @@
-# Distributed training with the SageMaker AI
-
-distributed data parallelism library
+# Distributed training with the SageMaker AI distributed data parallelism library
 
 The SageMaker AI distributed data parallelism (SMDDP) library is designed for ease of use and to
 provide seamless integration with PyTorch.
@@ -14,7 +12,5 @@ depending on which collective operation you want to optimize.
 
 ###### Topics
 
-- [Adapting your training script
-  to use the SMDDP collective operations](data-parallel-modify-sdp-select-framework.md "data-parallel-modify-sdp-select-framework.md")
-- [Launching distributed training jobs with SMDDP using the
-  SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md")
+- [Adapting your training script to use the SMDDP collective operations](data-parallel-modify-sdp-select-framework.md "data-parallel-modify-sdp-select-framework.md")
+- [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md")

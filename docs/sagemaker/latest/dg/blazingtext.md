@@ -64,45 +64,33 @@ Accelerating Word2Vec using Multiple GPUs](https://dl.acm.org/citation.cfm?doid=
 
 ###### Topics
 
-- [Input/Output Interface for the BlazingText
-  Algorithm](#bt-inputoutput "#bt-inputoutput")
-- [EC2 Instance Recommendation for the BlazingText
-  Algorithm](#blazingtext-instances "#blazingtext-instances")
+- [Input/Output Interface for the BlazingText Algorithm](#bt-inputoutput "#bt-inputoutput")
+- [EC2 Instance Recommendation for the BlazingText Algorithm](#blazingtext-instances "#blazingtext-instances")
 - [BlazingText Sample Notebooks](#blazingtext-sample-notebooks "#blazingtext-sample-notebooks")
 - [BlazingText Hyperparameters](blazingtext_hyperparameters.md "blazingtext_hyperparameters.md")
 - [Tune a BlazingText Model](blazingtext-tuning.md "blazingtext-tuning.md")
 
-## Input/Output Interface for the BlazingText
-
-Algorithm
+## Input/Output Interface for the BlazingText Algorithm
 
 The BlazingText algorithm expects a single preprocessed text file with space-separated
 tokens. Each line in the file should contain a single sentence. If you need to train on
 multiple text files, concatenate them into one file and upload the file in the
 respective channel.
 
-### Training and Validation Data
+### Training and Validation Data Format
 
-Format
-
-#### Training and Validation Data
-
-Format for the Word2Vec Algorithm
+#### Training and Validation Data Format for the Word2Vec Algorithm
 
 For Word2Vec training, upload the file under the _train_
 channel. No other channels are supported. The file should contain a training
 sentence per line.
 
-#### Training and Validation
-
-Data Format for the Text Classification Algorithm
+#### Training and Validation Data Format for the Text Classification Algorithm
 
 For supervised mode, you can train with file mode or with the augmented
 manifest text format.
 
-##### Train with
-
-File Mode
+##### Train with File Mode
 
 For `supervised` mode, the training/validation file should
 contain a training sentence per line along with the labels. Labels are words
@@ -152,13 +140,9 @@ labels.
 
 For more information on augmented manifest files, see [Augmented Manifest Files for Training Jobs](augmented-manifest.md "augmented-manifest.md").
 
-### Model Artifacts and
+### Model Artifacts and Inference
 
-Inference
-
-#### Model Artifacts for
-
-the Word2Vec Algorithm
+#### Model Artifacts for the Word2Vec Algorithm
 
 For Word2Vec training, the model artifacts consist of
 _vectors.txt_, which contains words-to-vectors mapping,
@@ -196,9 +180,7 @@ Mime-type: `application/json`
 }
 ```
 
-#### Model Artifacts for
-
-the Text Classification Algorithm
+#### Model Artifacts for the Text Classification Algorithm
 
 Training with supervised outputs creates a _model.bin_ file
 that can be consumed by BlazingText hosting. For inference, the BlazingText
@@ -283,9 +265,7 @@ fasttext predict ./model.bin test.txt
 However, the binaries are only supported when training on CPU and single GPU;
 training on multi-GPU will not produce binaries.
 
-## EC2 Instance Recommendation for the BlazingText
-
-Algorithm
+## EC2 Instance Recommendation for the BlazingText Algorithm
 
 For `cbow` and `skipgram` modes, BlazingText supports single CPU
 and single GPU instances. Both of these modes support learning of `subwords`

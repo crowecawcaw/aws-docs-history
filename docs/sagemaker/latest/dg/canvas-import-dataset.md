@@ -263,8 +263,7 @@ The following screenshot shows the **Version history** tab in the Canvas applica
 On the **Auto updates** tab, you can enable auto updates for
 the dataset and set up a configuration to update your dataset on a regular schedule. To learn
 more about setting up auto updates for a dataset, see
-[Configure automatic updates for a
-dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
+[Configure automatic updates for a dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
 The following screenshot shows the **Auto updates** tab with auto updates turned on
 and a list of auto update jobs that have been performed on the dataset.
 

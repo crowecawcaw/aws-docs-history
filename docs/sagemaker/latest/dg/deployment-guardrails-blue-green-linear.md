@@ -32,8 +32,7 @@ fleet.
 Before setting up a deployment with linear traffic shifting, you must create CloudWatch alarms to
 monitor metrics from your endpoint. The alarms are active during the baking period, and if any
 alarms trip, then all endpoint traffic rolls back to the blue fleet. To learn how to set up CloudWatch
-alarms on an endpoint, see the prerequisite page [Auto-Rollback Configuration and
-Monitoring](deployment-guardrails-configuration.md "deployment-guardrails-configuration.md"). To learn more about CloudWatch alarms, see [Using
+alarms on an endpoint, see the prerequisite page [Auto-Rollback Configuration and Monitoring](deployment-guardrails-configuration.md "deployment-guardrails-configuration.md"). To learn more about CloudWatch alarms, see [Using
 Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
 
 ## Configure Linear Traffic Shifting

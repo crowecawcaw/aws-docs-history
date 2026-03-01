@@ -1,6 +1,4 @@
-# Adapt your own inference container for
-
-Amazon SageMaker AI
+# Adapt your own inference container for Amazon SageMaker AI
 
 If you can't use any of the images listed in [Pre-built SageMaker AI Docker images](docker-containers-prebuilt.md "docker-containers-prebuilt.md") Amazon SageMaker AI for your use case, you can build your own Docker container and use it
 inside SageMaker AI for training and inference. To be compatible with SageMaker AI, your container
@@ -21,8 +19,7 @@ example uses an NGINX web server, Gunicorn as a
 Python web server gateway interface, and Flask as
 a web application framework. You can use different applications to adapt your
 container as long as it meets the previous listed requirements. For more information
-about using your own inference code, see [Custom Inference Code with Hosting
-Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md").
+about using your own inference code, see [Custom Inference Code with Hosting Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md").
 
 ###### Adapt your inference container
 
@@ -178,8 +175,7 @@ Distribution image. For more information, see [SageMaker JupyterLab](studio-upda
      NER model to identify and store entities in the
      variable entities. The Flask application returns the
      response that contains these entities. For more information about
-     these required health requests, see [How Your Container Should
-     Respond to Health Check (Ping) Requests](your-algorithms-inference-code.md#your-algorithms-inference-algo-ping-requests "your-algorithms-inference-code.md#your-algorithms-inference-algo-ping-requests").
+     these required health requests, see [How Your Container Should Respond to Health Check (Ping) Requests](your-algorithms-inference-code.md#your-algorithms-inference-algo-ping-requests "your-algorithms-inference-code.md#your-algorithms-inference-algo-ping-requests").
     5. Upload a script to start an inference server. The following script
      example calls `serve` using Gunicorn as an
      application server, and Nginx as a web server:
@@ -560,8 +556,7 @@ Model Arn: arn:aws:sagemaker:us-east-2:123456789012:model/spacy-nermodel-YYYY-MM
    ```
 
    For more information about endpoint errors, see [Why does my Amazon SageMaker AI endpoint go into the failed state when I
-   create or update an endpoint?](https://repost.aws/knowledge-center/sagemaker-endpoint-creation-fail "https://repost.aws/knowledge-center/sagemaker-endpoint-creation-fail") 2. ###### Create an endpoint and wait for the endpoint to be in
-   service.
+   create or update an endpoint?](https://repost.aws/knowledge-center/sagemaker-endpoint-creation-fail "https://repost.aws/knowledge-center/sagemaker-endpoint-creation-fail") 2. ###### Create an endpoint and wait for the endpoint to be in service.
 
    The following code example creates the endpoint using the
    configuration from the previous configuration example and deploys

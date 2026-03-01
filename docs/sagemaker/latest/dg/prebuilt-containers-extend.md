@@ -1,6 +1,4 @@
-# Extend a Pre-built
-
-Container
+# Extend a Pre-built Container
 
 If a pre-built SageMaker AI container doesn't fulfill all of your requirements, you can
 extend the existing image to accommodate your needs. Even if there is direct support for
@@ -15,14 +13,10 @@ Amazon ECR.
 
 ###### Topics
 
-- [Requirements to Extend a
-  Pre-built Container](#prebuilt-containers-extend-required "#prebuilt-containers-extend-required")
-- [Extend SageMaker AI
-  Containers to Run a Python Script](#prebuilt-containers-extend-tutorial "#prebuilt-containers-extend-tutorial")
+- [Requirements to Extend a Pre-built Container](#prebuilt-containers-extend-required "#prebuilt-containers-extend-required")
+- [Extend SageMaker AI Containers to Run a Python Script](#prebuilt-containers-extend-tutorial "#prebuilt-containers-extend-tutorial")
 
-## Requirements to Extend a
-
-Pre-built Container
+## Requirements to Extend a Pre-built Container
 
 To extend a pre-built SageMaker image, you need to set the following environment variables
 within your Dockerfile. For more information on environment variables with SageMaker AI
@@ -42,9 +36,7 @@ RUN pip install `<library>`
 
 The following tutorial shows how to use these environment variables.
 
-## Extend SageMaker AI
-
-Containers to Run a Python Script
+## Extend SageMaker AI Containers to Run a Python Script
 
 In this tutorial, you learn how to extend the SageMaker AI PyTorch container with a
 Python file that uses the CIFAR-10 dataset. By extending the SageMaker AI PyTorch container, you
@@ -55,9 +47,7 @@ list of the available images, see [Available Deep Learning Containers Images](ht
 To run your own training model using the SageMaker AI containers, build a Docker
 container through a SageMaker Notebook instance.
 
-### Step 1: Create an SageMaker Notebook
-
-Instance
+### Step 1: Create an SageMaker Notebook Instance
 
 1. Open the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the left navigation pane, choose **Notebook**, choose
@@ -108,9 +98,7 @@ Instance
    **InService**, choose **Open
    JupyterLab**.
 
-### Step 2: Create and Upload the Dockerfile and
-
-Python Training Scripts
+### Step 2: Create and Upload the Dockerfile and Python Training Scripts
 
 1.  After JupyterLab opens, create a new folder in the home directory
     of your JupyterLab. In the upper-left corner, choose the **New
@@ -464,9 +452,7 @@ estimator.fit('file:///tmp/pytorch-example/cifar-10-data')
    the source of the data, and the loss and accuracy
    obtained during training.
 
-### Step 5: Push the Container to Amazon Elastic Container Registry
-
-(Amazon ECR)
+### Step 5: Push the Container to Amazon Elastic Container Registry (Amazon ECR)
 
 1. After you successfully run the local mode test, you can push the Docker container to [Amazon ECR](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md") and use it to run training jobs.
 

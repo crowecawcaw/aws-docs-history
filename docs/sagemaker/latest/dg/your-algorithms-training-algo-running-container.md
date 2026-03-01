@@ -1,6 +1,4 @@
-# How Amazon SageMaker AI Provides
-
-Training Information
+# How Amazon SageMaker AI Provides Training Information
 
 This section explains how SageMaker AI makes training information, such as training data,
 hyperparameters, and other configuration information, available to your Docker

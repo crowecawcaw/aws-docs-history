@@ -1,6 +1,4 @@
-# Accessing Docker
-
-Images for Scikit-learn and Spark ML
+# Accessing Docker Images for Scikit-learn and Spark ML
 
 SageMaker AI provides prebuilt Docker images that install the scikit-learn and Spark ML libraries.
 These libraries also include the dependencies needed to build Docker images that are
@@ -22,9 +20,7 @@ aws \
     --repository-name sagemaker-sparkml-serving
 ```
 
-## Accessing an image from the SageMaker AI
-
-Python SDK
+## Accessing an image from the SageMaker AI Python SDK
 
 The following table contains links to the GitHub repositories with the source code for
 the scikit-learn and Spark ML containers. The table also contains links to instructions
@@ -38,9 +34,7 @@ algorithms and hosting your own models.
 
 For more information and links to github repositories, see [Resources for using Scikit-learn with Amazon SageMaker AI](sklearn.md "sklearn.md") and [Resources for using SparkML Serving with Amazon SageMaker AI](sparkml-serving.md "sparkml-serving.md").
 
-## Specifying the Prebuilt
-
-Images Manually
+## Specifying the Prebuilt Images Manually
 
 If you are not using the SageMaker Python SDK and one of its estimators to manage the
 container, you have to retrieve the relevant prebuilt container manually. The SageMaker AI

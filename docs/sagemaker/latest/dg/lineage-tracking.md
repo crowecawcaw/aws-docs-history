@@ -37,8 +37,7 @@ With SageMaker AI Lineage Tracking data scientists and model builders can do the
 ###### Topics
 
 - [Lineage Tracking Entities](lineage-tracking-entities.md "lineage-tracking-entities.md")
-- [Amazon SageMaker AI–Created Tracking
-  Entities](lineage-tracking-auto-creation.md "lineage-tracking-auto-creation.md")
+- [Amazon SageMaker AI–Created Tracking Entities](lineage-tracking-auto-creation.md "lineage-tracking-auto-creation.md")
 - [Manually Create Tracking Entities](lineage-tracking-manual-creation.md "lineage-tracking-manual-creation.md")
 - [Querying Lineage Entities](querying-lineage-entities.md "querying-lineage-entities.md")
 - [Tracking Cross-Account Lineage](xaccount-lineage-tracking.md "xaccount-lineage-tracking.md")

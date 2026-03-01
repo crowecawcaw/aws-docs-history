@@ -1,6 +1,4 @@
-# Accessing and analyzing
-
-evaluation results
+# Accessing and analyzing evaluation results
 
 After your evaluation job completes successfully, you can access and analyze the results
 using the information in this section. Based on the `output_s3_path` (such as

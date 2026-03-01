@@ -18,10 +18,7 @@ scenarios along with the necessary IAM permissions.
 
 ###### Topics
 
-- [Configure Amazon EMR CloudFormation
-  templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md")
-- [Configure
-  listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md")
-- [Configure IAM runtime roles for Amazon EMR
-  cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md")
+- [Configure Amazon EMR CloudFormation templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md")
+- [Configure listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md")
+- [Configure IAM runtime roles for Amazon EMR cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md")
 - [Reference policies](studio-set-up-emr-permissions-reference.md "studio-set-up-emr-permissions-reference.md")

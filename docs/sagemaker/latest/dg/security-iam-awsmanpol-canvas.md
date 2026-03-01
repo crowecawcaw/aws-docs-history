@@ -6,27 +6,17 @@ console.
 
 ###### Topics
 
-- [AWS managed
-  policy: AmazonSageMakerCanvasFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess")
-- [AWS managed
-  policy: AmazonSageMakerCanvasDataPrepFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess")
-- [AWS
-  managed policy: AmazonSageMakerCanvasDirectDeployAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess")
-- [AWS
-  managed policy: AmazonSageMakerCanvasAIServicesAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess")
-- [AWS
-  managed policy: AmazonSageMakerCanvasBedrockAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess")
-- [AWS
-  managed policy: AmazonSageMakerCanvasForecastAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess")
-- [AWS
-  managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy")
+- [AWS managed policy: AmazonSageMakerCanvasFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess")
+- [AWS managed policy: AmazonSageMakerCanvasDataPrepFullAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDataPrepFullAccess")
+- [AWS managed policy: AmazonSageMakerCanvasDirectDeployAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasDirectDeployAccess")
+- [AWS managed policy: AmazonSageMakerCanvasAIServicesAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess")
+- [AWS managed policy: AmazonSageMakerCanvasBedrockAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasBedrockAccess")
+- [AWS managed policy: AmazonSageMakerCanvasForecastAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess")
+- [AWS managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy")
 - [AWS managed policy: AmazonSageMakerCanvasSMDataScienceAssistantAccess](#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess "#security-iam-awsmanpol-AmazonSageMakerCanvasSMDataScienceAssistantAccess")
-- [Amazon SageMaker AI updates to Amazon SageMaker Canvas
-  managed policies](#security-iam-awsmanpol-canvas-updates "#security-iam-awsmanpol-canvas-updates")
+- [Amazon SageMaker AI updates to Amazon SageMaker Canvas managed policies](#security-iam-awsmanpol-canvas-updates "#security-iam-awsmanpol-canvas-updates")
 
-## AWS managed
-
-policy: AmazonSageMakerCanvasFullAccess
+## AWS managed policy: AmazonSageMakerCanvasFullAccess
 
 This policy grants permissions that allow full access to Amazon SageMaker Canvas through the
 AWS Management Console and SDK. The policy also provides select access to related services [for
@@ -72,7 +62,7 @@ This AWS managed policy includes the following permissions.
 - `logs` – Allows principals to publish logs from training
   jobs and endpoints.
 - `quicksight` – Allows principals to list the namespaces
-  in the Quick Suite account.
+  in the Quick account.
 - `rds` – Allows principals to return information about
   provisioned Amazon RDS instances.
 - `redshift` – Allows principals to get credentials for a
@@ -623,9 +613,7 @@ This AWS managed policy includes the following permissions.
 
 [Show moreShow less](# "#")
 
-## AWS managed
-
-policy: AmazonSageMakerCanvasDataPrepFullAccess
+## AWS managed policy: AmazonSageMakerCanvasDataPrepFullAccess
 
 This policy grants permissions that allow full access to the data preparation
 functionality of Amazon SageMaker Canvas. The policy also provides least privilege permissions for
@@ -1080,9 +1068,7 @@ This AWS managed policy includes the following permissions.
 
 [Show moreShow less](# "#")
 
-## AWS
-
-managed policy: AmazonSageMakerCanvasDirectDeployAccess
+## AWS managed policy: AmazonSageMakerCanvasDirectDeployAccess
 
 This policy grants permissions needed for Amazon SageMaker Canvas to create and manage Amazon SageMaker AI
 endpoints.
@@ -1130,9 +1116,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerCanvasAIServicesAccess
+## AWS managed policy: AmazonSageMakerCanvasAIServicesAccess
 
 This policy grants permissions for Amazon SageMaker Canvas to use Amazon Textract, Amazon Rekognition,
 Amazon Comprehend, and Amazon Bedrock.
@@ -1285,9 +1269,7 @@ This AWS managed policy includes the following permissions.
 
 [Show moreShow less](# "#")
 
-## AWS
-
-managed policy: AmazonSageMakerCanvasBedrockAccess
+## AWS managed policy: AmazonSageMakerCanvasBedrockAccess
 
 This policy grants permissions commonly needed to use Amazon SageMaker Canvas with Amazon Bedrock.
 
@@ -1331,9 +1313,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerCanvasForecastAccess
+## AWS managed policy: AmazonSageMakerCanvasForecastAccess
 
 This policy grants permissions commonly needed to use Amazon SageMaker Canvas with Amazon Forecast.
 
@@ -1376,9 +1356,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy
+## AWS managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy
 
 This policy grants permissions to Amazon EMR Serverless for AWS services, such as
 Amazon S3, used by Amazon SageMaker Canvas for large data processing.
@@ -1503,9 +1481,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to Amazon SageMaker Canvas
-
-managed policies
+## Amazon SageMaker AI updates to Amazon SageMaker Canvas managed policies
 
 View details about updates to AWS managed policies for SageMaker Canvas since this service
 began tracking these changes.

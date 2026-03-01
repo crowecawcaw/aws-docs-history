@@ -14,9 +14,7 @@ consider.
 For information about training foundation models for Generative AI, see [Use
 SageMaker JumpStart foundation models in Amazon SageMaker Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
 
-## Choosing a feature within
-
-Amazon SageMaker Training
+## Choosing a feature within Amazon SageMaker Training
 
 There are three main use cases for training ML models within SageMaker AI. This section
 describes those use cases, as well as the SageMaker AI features we recommend for each use case.
@@ -36,9 +34,7 @@ The following are the main uses cases for training ML models within SageMaker AI
 - Use case 3: Develop machine learning models
   at scale with maximum flexibility and control.
 
-### Recommended
-
-features
+### Recommended features
 
 The following table describes three common scenarios of training ML models and
 corresponding options to get started with SageMaker Training.
@@ -51,9 +47,7 @@ corresponding options to get started with SageMaker Training.
 | Considerations          | Minimal flexibility to customize the model provided by<br>Amazon SageMaker Canvas.                                                                                                                                                                                                                                                                                                                                          | The SageMaker Python SDK provides a simplified interface and fewer<br>configuration options compared to the low-level SageMaker Training<br>API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Requires knowledge of AWS infrastructure and distributed<br>training options. See also [Create your own training container](your-algorithms-training-algo.md "your-algorithms-training-algo.md") using the [SageMaker Training toolkit](amazon-sagemaker-toolkits.md "amazon-sagemaker-toolkits.md").                                                                                                                                                                                                                                                                                                       |
 | Recommended environment | Use [Amazon SageMaker Canvas](canvas-getting-started.md#canvas-prerequisites "canvas-getting-started.md#canvas-prerequisites"). To learn how to set it up, see [Getting started with using SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").                                                                                                                                                        | Use [SageMaker AI<br>JupyterLab](studio-updated-jl.md "studio-updated-jl.md") within [Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md"). To learn how to set it up, see [Launch<br>Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").                                                                                                                                                                                                                                                                                                                                                                                                                                             | Use [SageMaker<br>JupyterLab](studio-updated-jl.md "studio-updated-jl.md") within [Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md"). To learn how to set it up, see [Launch<br>Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").                                                                                                                                                                                                                                                                                                                  |
 
-## Additional
-
-options
+## Additional options
 
 SageMaker AI offers the following additional options for training ML models.
 

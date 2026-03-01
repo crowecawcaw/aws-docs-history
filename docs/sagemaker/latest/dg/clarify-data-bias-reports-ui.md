@@ -1,6 +1,4 @@
-# Generate Reports for Bias in Pre-training
-
-Data in SageMaker Studio
+# Generate Reports for Bias in Pre-training Data in SageMaker Studio
 
 SageMaker Clarify is integrated with Amazon SageMaker Data Wrangler, which can help you identify bias during data
 preparation without having to write your own code. Data Wrangler provides an end-to-end solution

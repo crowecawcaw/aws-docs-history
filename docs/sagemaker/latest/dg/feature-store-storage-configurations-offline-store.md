@@ -1,6 +1,4 @@
-# Offline
-
-store
+# Offline store
 
 The offline store is used for historical data when sub-second retrieval is not needed.
 It is typically used for data exploration, model training, and batch inference.

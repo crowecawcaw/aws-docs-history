@@ -1,6 +1,4 @@
-# Updating Debugger system monitoring
-
-and framework profiling configuration while a training job is running
+# Updating Debugger system monitoring and framework profiling configuration while a training job is running
 
 If you want to activate or update the Debugger monitoring configuration for
 a training job that is currently running, use the following SageMaker AI estimator extension

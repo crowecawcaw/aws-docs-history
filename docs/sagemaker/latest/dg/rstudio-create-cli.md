@@ -1,6 +1,4 @@
-# Create an Amazon SageMaker AI domain with RStudio using the
-
-AWS CLI
+# Create an Amazon SageMaker AI domain with RStudio using the AWS CLI
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -26,9 +23,7 @@ AWS CLI. To onboard using the AWS Management Console, see [Amazon SageMaker AI d
 - Configure the
   [AWS CLI](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-config") with IAM credentials
 
-## Create `DomainExecution`
-
-role
+## Create `DomainExecution` role
 
 To launch the RStudio App, you must provide a `DomainExecution` role. This role is
 used to determine whether RStudio needs to be launched as part of Amazon SageMaker AI domain creation.
@@ -242,8 +237,7 @@ aws sagemaker create-domain --region `<REGION>` --domain-name `<DOMAIN_NAME>` \
 
 The following shows how to launch a Amazon SageMaker AI domain with RStudio enabled and
 a `VPCOnly` Network Type. For more information about using the
-`VPCOnly` network access type, see [Connect Studio notebooks in
-a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+`VPCOnly` network access type, see [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
 
 - `DomainExecutionRoleArn` should be the ARN for the role created in the
   previous step.

@@ -1,6 +1,4 @@
-# `StartEarthObservationJob`
-
-API: Execution role permissions
+# `StartEarthObservationJob` API: Execution role permissions
 
 For an execution role that you can pass in a `StartEarthObservationJob` API
 request, you can attach the following minimum permissions policy to the role:

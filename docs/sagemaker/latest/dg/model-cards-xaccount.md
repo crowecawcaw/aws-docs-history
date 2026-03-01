@@ -15,8 +15,7 @@ The following is the process to share model cards:
 
 - [Set up cross-account model card sharing](#model-cards-xaccount-set-up "#model-cards-xaccount-set-up")
 - [Set up AWS KMS permissions for the shared account](#model-cards-xaccount-kms "#model-cards-xaccount-kms")
-- [Get responses to your
-  resource share invitation](#model-cards-xaccount-set-up-responses "#model-cards-xaccount-set-up-responses")
+- [Get responses to your resource share invitation](#model-cards-xaccount-set-up-responses "#model-cards-xaccount-set-up-responses")
   If you're a user in the shared account, see [Set up IAM user permissions in the shared account](#model-cards-xaccount-shared-account-permissions "#model-cards-xaccount-shared-account-permissions") about setting up permissions for yourself and the other users in the account.
 
 ## Set up cross-account model card sharing
@@ -104,9 +103,7 @@ The preceding statement provides users in the shared account with
 `kms:GenerateDataKey`, users can encrypt the model cards that they
 update or the PDFs that they create.
 
-### Get responses to your
-
-resource share invitation
+### Get responses to your resource share invitation
 
 After you've created a resource share, the shared accounts that you've specified in the resource share
 receive an invitation to join it. They must accept the invite

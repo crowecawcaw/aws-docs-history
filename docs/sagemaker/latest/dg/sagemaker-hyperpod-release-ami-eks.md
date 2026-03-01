@@ -1,13 +1,10 @@
-# SageMaker HyperPod AMI releases for
-
-Amazon EKS
+# SageMaker HyperPod AMI releases for Amazon EKS
 
 The following release notes track the latest updates for Amazon SageMaker HyperPod AMI releases
 for Amazon EKS orchestration. Each release note includes a summarized list of packages
 pre-installed or pre-configured in the SageMaker HyperPod DLAMIs for Amazon EKS support. Each DLAMI
 is built on AL2023 and supports a specific Kubernetes version. For
-HyperPod DLAMI releases for Slurm orchestration, see [SageMaker HyperPod AMI releases for
-Slurm](sagemaker-hyperpod-release-ami-slurm.md "sagemaker-hyperpod-release-ami-slurm.md"). For information about
+HyperPod DLAMI releases for Slurm orchestration, see [SageMaker HyperPod AMI releases for Slurm](sagemaker-hyperpod-release-ami-slurm.md "sagemaker-hyperpod-release-ami-slurm.md"). For information about
 Amazon SageMaker HyperPod feature releases, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md "sagemaker-hyperpod-release-notes.md").
 
 ## SageMaker Hyperpod AMI releases for Amazon EKS: January 25, 2026
@@ -1652,9 +1649,7 @@ Kubernetes v1.33
   - aws-cfn-bootstrap version: 2.0
   - rdma-core version: 58.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: November 07, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: November 07, 2025
 
 **AMI general updates**
 
@@ -1780,9 +1775,7 @@ Kubernetes v1.33
 
 runc version has been upgraded to 1.3.2 [Security bulletin](https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/ "https://aws.amazon.com/security/security-bulletins/rss/aws-2025-024/")
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: October 29, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: October 29, 2025
 
 **AMI general updates**
 
@@ -1903,9 +1896,7 @@ Kubernetes v1.33
 - Package updates include extensive system library updates, kernel updates, and boost library updates.
 - Added packages: apr-util-lmdb, kernel-livepatch updates
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: October 22, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: October 22, 2025
 
 **AL2x86**
 
@@ -2104,9 +2095,7 @@ CUDA Version: 13.0
 
 - Removed packages: No packages were removed in this release.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: September 29, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: September 29, 2025
 
 **AMI general updates**
 
@@ -2395,9 +2384,7 @@ and the corresponding versions.
 | nvidia-container-toolkit | 1.17.8-1                  | 1.17.8-1                  |
 | runc                     | 1.2.6-1.amzn2023.0.1      | 1.2.6-1.amzn2023.0.1      |
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: August 25, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: August 25, 2025
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -2679,9 +2666,7 @@ Kubernetes v1.32
 - nvidia-container-toolkit-base.x86_64: cuda-rhel8-x86_64 →
   nvidia-container-toolkit
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: August 12, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: August 12, 2025
 
 **The AMI includes the following:**
 
@@ -2729,9 +2714,7 @@ releases for Amazon EKS: August 12, 2025
 - EBS volume type: gp3
 - Python: `/usr/bin/python3.9`
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: August 6, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: August 6, 2025
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -2821,9 +2804,7 @@ K8s v1.32
 - Upgraded Nvidia Driver to from 570.158.01 to 570.172.08 to fix CVE's
   present in the Nvidia Security Bulletin for July
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: July 31, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: July 31, 2025
 
 Amazon SageMaker HyperPod now supports a new AMI for Amazon EKS clusters that updates the base
 operating system to Amazon Linux 2023. This release provides several improvements from
@@ -2832,9 +2813,7 @@ you run all of your HyperPod clusters on the latest and most secure
 versions of AMIs to address vulnerabilities and phase out outdated software and
 libraries.
 
-### Key
-
-upgrades
+### Key upgrades
 
 - **Operating System**: Amazon Linux 2023
   (updated from Amazon Linux 2, or AL2)
@@ -2858,9 +2837,7 @@ upgrades
 - **NVME**: Version 1.11.1, a newer version
   of the NVMe driver
 
-### Before you
-
-upgrade
+### Before you upgrade
 
 There are a few important things to know before upgrading. With AL2023,
 several packages have been added, upgraded or removed compared to AL2. We
@@ -2924,9 +2901,7 @@ dependencies update helm_chart/HyperPodHelmChart`
 upgrade dependencies helm_chart/HyperPodHelmChart -namespace
 kube-system`
 
-### Workloads
-
-that have been tested on upgraded EKS clusters
+### Workloads that have been tested on upgraded EKS clusters
 
 The following are some use cases where the upgrade has been tested:
 
@@ -2941,9 +2916,7 @@ The following are some use cases where the upgrade has been tested:
   and G instance families) and AWS Neuron accelerators (for Trn
   instances) have been tested.
 
-### How to
-
-upgrade your AMI and associated workloads
+### How to upgrade your AMI and associated workloads
 
 You can upgrade to the new AMI using one of the following methods:
 
@@ -2999,9 +2972,7 @@ Another alternative is to use CPU-only container images (such as
 `pytorch/pytorch:latest-cpu`) or build custom images without
 NVIDIA dependencies.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: July 15, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: July 15, 2025
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -3240,9 +3211,7 @@ K8s v1.32
   - **tensorflow-model-server-neuronx.x86_64:**
     2.10.1.2.12.2.0-0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: June 09, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: June 09, 2025
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -3251,9 +3220,7 @@ Neuron SDK Updates
 - **aws-neuronx-dkms.noarch:**
   2.21.37.0 (from 2.20.74.0)
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: May 22, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: May 22, 2025
 
 **AMI general updates**
 
@@ -3313,18 +3280,14 @@ Neuron SDK Updates
 - For EC2 instances with multiple network cards, please refer to
   EFA configuration guide for proper setup
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: May 07, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: May 07, 2025
 
 Installed the latest version of AWS Neuron SDK
 
 - **tensorflow-model-server-neuron.x86_64**
   2.8.0.2.3.0.0-0 neuron
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: April 28, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: April 28, 2025
 
 **Improvements for K8s**
 
@@ -3372,9 +3335,7 @@ Installed the latest version of AWS Neuron SDK
 - **tensorflow-model-server-neuronx.x86_64:**
   2.10.1.2.12.2.0-0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: April 18, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: April 18, 2025
 
 **AMI general updates**
 
@@ -3413,9 +3374,7 @@ Deep Learning EKS AMI 1.32.1
 - **aws-neuronx-collectives:**
   2.24.59.0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: February 18, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: February 18, 2025
 
 **Improvements for K8s**
 
@@ -3461,9 +3420,7 @@ Installed the latest version of neuron SDK
   2.20.204.0-1 neuron
 - **tensorflow-model-server-neuronx.x86_64**
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: January 22, 2025
+## SageMaker HyperPod AMI releases for Amazon EKS: January 22, 2025
 
 **AMI general updates**
 
@@ -3503,9 +3460,7 @@ Deep Learning EKS AMI 1.31
 - **aws-neuronx-collectives:**
   2.23.133.0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: December 21, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: December 21, 2024
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -3601,17 +3556,13 @@ K8s v1.30
 - **aws-neuronx-collectives:**
   2.23.135.0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: December 13, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: December 13, 2024
 
 **SageMaker HyperPod DLAMI for Amazon EKS upgrade**
 
 - Updated SSM Agent to version `3.3.1311.0`.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: November 24, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: November 24, 2024
 
 **AMI general updates**
 
@@ -3619,9 +3570,7 @@ releases for Amazon EKS: November 24, 2024
 - Updated SageMaker HyperPod base DLAMI to the following versions:
   - Kubernetes: 2024-11-01.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: November 15, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: November 15, 2024
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 
@@ -3717,27 +3666,21 @@ Deep Learning EKS AMI 1.30
 - **aws-neuronx-collectives:**
   2.22.33.0
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: November 11, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: November 11, 2024
 
 **AMI general updates**
 
 - Updated SageMaker HyperPod DLAMI with Amazon EKS versions 1.28.13, 1.29.8,
   1.30.4.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: October 21, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: October 21, 2024
 
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following versions:
   - Amazon EKS: 1.28.11, 1.29.6, 1.30.2.
 
-## SageMaker HyperPod AMI
-
-releases for Amazon EKS: September 10, 2024
+## SageMaker HyperPod AMI releases for Amazon EKS: September 10, 2024
 
 **SageMaker HyperPod DLAMI for Amazon EKS support**
 

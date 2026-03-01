@@ -22,8 +22,7 @@ external libraries you install are not updated by SageMaker AI. To do that, use 
 configuration that includes both a script that runs when you create the notebook instance
 (`on-create)` and a script that runs each time you restart the notebook
 instance (`on-start`). For more information about using notebook instance
-lifecycle configurations, see [Customization of a SageMaker notebook instance
-using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md"). There is a GitHub
+lifecycle configurations, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md"). There is a GitHub
 repository that contains sample lifecycle configuration scripts at [SageMaker AI
 Notebook Instance Lifecycle Config Samples](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples "https://github.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples").
 

@@ -1,6 +1,4 @@
-# Label verification and adjustment data in the
-
-output manifest
+# Label verification and adjustment data in the output manifest
 
 Amazon SageMaker Ground Truth writes label verification data to the output manifest within the metadata
 for the label. It adds two properties to the metadata:

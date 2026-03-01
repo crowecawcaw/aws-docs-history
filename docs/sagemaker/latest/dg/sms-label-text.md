@@ -11,9 +11,6 @@ To learn more about supported file types and input data quotas, see [Input data]
 
 ###### Topics
 
-- [Extract text information using named entity
-  recognition](sms-named-entity-recg.md "sms-named-entity-recg.md")
-- [Categorize text with text classification (Single
-  Label)](sms-text-classification.md "sms-text-classification.md")
-- [Categorize text with text
-  classification (Multi-label)](sms-text-classification-multilabel.md "sms-text-classification-multilabel.md")
+- [Extract text information using named entity recognition](sms-named-entity-recg.md "sms-named-entity-recg.md")
+- [Categorize text with text classification (Single Label)](sms-text-classification.md "sms-text-classification.md")
+- [Categorize text with text classification (Multi-label)](sms-text-classification-multilabel.md "sms-text-classification-multilabel.md")

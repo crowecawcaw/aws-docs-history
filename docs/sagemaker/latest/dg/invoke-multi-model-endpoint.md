@@ -55,9 +55,7 @@ For GPU backed instances, the HTTP response code with 507 from the GPU container
 indicates a lack of memory or other resources. This causes unused models to be unloaded from
 the container in order to load more frequently used models.
 
-## Retry Requests on ModelNotReadyException
-
-Errors
+## Retry Requests on ModelNotReadyException Errors
 
 The first time you call `invoke_endpoint` for a model, the model is
 downloaded from Amazon Simple Storage Service and loaded into the inference container. This makes the first call

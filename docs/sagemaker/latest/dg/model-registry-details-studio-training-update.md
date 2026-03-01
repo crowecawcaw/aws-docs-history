@@ -1,6 +1,4 @@
-# Update training
-
-job details (Studio)
+# Update training job details (Studio)
 
 Complete the following steps to update the details of a training job, created
 externally or with SageMaker AI, associated with your model.

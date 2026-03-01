@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -93,9 +92,7 @@ image version, see [Create a Custom SageMaker Image for Amazon SageMaker Studio 
 The following sections demonstrate how to attach a custom SageMaker image when creating a new
 domain or updating your existing domain using the AWS CLI.
 
-#### Attach the SageMaker image to a new
-
-domain
+#### Attach the SageMaker image to a new domain
 
 The following section demonstrates how to create a new domain with the version attached.
 These steps require that you specify the Amazon Virtual Private Cloud (VPC) information and execution role
@@ -183,9 +180,7 @@ The response should look similar to the following.
 }
 ```
 
-#### Attach the SageMaker image to your
-
-current domain
+#### Attach the SageMaker image to your current domain
 
 If you have onboarded to a SageMaker AI domain, you can attach the custom image to your current
 domain. For more information about onboarding to a SageMaker AI domain, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md"). You don't need to specify

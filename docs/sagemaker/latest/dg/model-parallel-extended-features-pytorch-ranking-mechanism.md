@@ -1,11 +1,7 @@
-# Ranking
-
-Mechanism when Using a Combination of Pipeline Parallelism and Tensor
-Parallelism
+# Ranking Mechanism when Using a Combination of Pipeline Parallelism and Tensor Parallelism
 
 This section explains how the ranking mechanism of model parallelism works with
-tensor parallelism. This is extended from the [Ranking Basics](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#ranking-basics "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#ranking-basics") for [Core Features of the SageMaker Model Parallelism
-Library](model-parallel-core-features.md "model-parallel-core-features.md"). With tensor parallelism, the
+tensor parallelism. This is extended from the [Ranking Basics](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#ranking-basics "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#ranking-basics") for [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md "model-parallel-core-features.md"). With tensor parallelism, the
 library introduces three types of ranking and process group APIs:
 `smp.tp_rank()` for tensor parallel rank, `smp.pp_rank()`
 for pipeline parallel rank, and `smp.rdp_rank()` for reduced-data

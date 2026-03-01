@@ -36,9 +36,7 @@ be accessed in one of the following ways:
    The procedures are for domains that use AWS Identity and Access Management (IAM) or AWS IAM Identity Center
    authentication.
 
-### IAM
-
-authentication
+### IAM authentication
 
 The following procedure outlines generally how to access a space using
 IAM authentication from the AWS CLI.
@@ -58,9 +56,7 @@ aws \
 
 2. Navigate to the URL.
 
-### Accessing a
-
-space in IAM Identity Center authentication
+### Accessing a space in IAM Identity Center authentication
 
 The following procedure outlines how to access a space using IAM Identity Center
 authentication from the AWS CLI.

@@ -1,6 +1,4 @@
-# Detach lifecycle
-
-configurations in Studio
+# Detach lifecycle configurations in Studio
 
 To detach lifecycle configurations for Code Editor, you can use either the console or the
 AWS CLI. For steps on detaching lifecycle configurations from the Studio console, see

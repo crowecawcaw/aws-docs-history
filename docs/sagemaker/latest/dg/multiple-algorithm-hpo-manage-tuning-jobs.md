@@ -1,6 +1,4 @@
-# Manage Hyperparameter Tuning and
-
-Training Jobs
+# Manage Hyperparameter Tuning and Training Jobs
 
 A tuning job can contain many training jobs and creating and managing these jobs and their
 definitions can become a complex and onerous task. SageMaker AI provides tools to help facilitate the
@@ -25,15 +23,13 @@ You can save time by cloning a training job that belongs to a hyperparameter tun
 Cloning copies all of the job’s settings, including data channels, S3 storage locations for
 output artifacts. You can do this for training jobs you have already run from the tuning job
 page, as just described, or when you are creating additional training job definitions while
-creating a hyperparameter tuning job, as described in [Add or clone a training
-job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job") step of that procedure.
+creating a hyperparameter tuning job, as described in [Add or clone a training job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job") step of that procedure.
 
 ###### Tagging
 
 Automatic Model Tuning launches multiple training jobs within a single parent tuning job
 to discover the ideal weighting of model hyperparameters. Tags can be added to the parent
-tuning job as described in the [Components of a
-tuning job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings") section and
+tuning job as described in the [Components of a tuning job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings") section and
 these tags are then propagated to the individual training jobs underneath. Customers can use
 these tags for purposes, such as cost allocation or access control. To add tags using the
 SageMaker SDK, use [`AddTags`](../APIReference/API_AddTags.md "../APIReference/API_AddTags.md") API. For

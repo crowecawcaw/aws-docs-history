@@ -81,9 +81,7 @@ The output should look similar to the following:
 }
 ```
 
-### Set up IAM trust
-
-policies
+### Set up IAM trust policies
 
 Use the following steps to create an IAM trust policy. For more information about
 roles and trust policies, see [Roles terms and concepts](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") in the _AWS Identity and Access Management User
@@ -163,9 +161,7 @@ aws iam put-role-policy \
 role_arn=$(aws iam get-role --role-name  $role_name --query 'Role.Arn' --output text)
 ```
 
-## Create MLflow tracking
-
-server
+## Create MLflow tracking server
 
 Within your terminal, use the `create-mlflow-tracking-server` API to create a
 tracking server in the AWS Region of your choice. This step can take up to 25 minutes.

@@ -5,8 +5,7 @@ exporter packages, check if Prometheus is properly set up on the head node of yo
 HyperPod cluster.
 
 1. Connect to the head node of your cluster. For instructions on accessing a
-   node, see [Accessing your
-   SageMaker HyperPod cluster nodes](sagemaker-hyperpod-run-jobs-slurm-access-nodes.md "sagemaker-hyperpod-run-jobs-slurm-access-nodes.md").
+   node, see [Accessing your SageMaker HyperPod cluster nodes](sagemaker-hyperpod-run-jobs-slurm-access-nodes.md "sagemaker-hyperpod-run-jobs-slurm-access-nodes.md").
 2. Run the following command to verify the Prometheus config and service file
    created by the lifecycle script `install_prometheus.sh` is running on
    the controller node. The output should show the Active status as

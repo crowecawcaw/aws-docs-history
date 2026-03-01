@@ -31,9 +31,7 @@ the job and labels from which workers can choose.
 
 ![Gif showing how to create a video classification labeling job in the SageMaker AI console.](images/sms/video/vid_classification.gif)
 
-## Create a Video Classification
-
-Labeling Job (API)
+## Create a Video Classification Labeling Job (API)
 
 This section covers details you need to know when you create a labeling job using the
 SageMaker API operation `CreateLabelingJob`. This API defines this operation for
@@ -105,9 +103,7 @@ response = client.create_labeling_job(
 )
 ```
 
-### Provide a Template for
-
-Video Classification
+### Provide a Template for Video Classification
 
 If you create a labeling job using the API, you must supply a worker task template
 in `UiTemplateS3Uri`. Copy and modify the following template by modifying

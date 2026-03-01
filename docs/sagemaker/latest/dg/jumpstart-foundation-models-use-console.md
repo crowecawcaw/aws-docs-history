@@ -1,6 +1,4 @@
-# Discover foundation models
-
-in the SageMaker AI Console
+# Discover foundation models in the SageMaker AI Console
 
 You can explore JumpStart foundation models directly through the Amazon SageMaker AI
 Console.

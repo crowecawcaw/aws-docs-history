@@ -1,6 +1,4 @@
-# Example Feature Processing code
-
-for common use cases
+# Example Feature Processing code for common use cases
 
 The following examples provide sample Feature Processing code for common use cases. For a
 more detailed example notebook showcasing specific use cases, see [Amazon SageMaker Feature Store Feature Processing notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-featurestore/feature_store_feature_processor.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-featurestore/feature_store_feature_processor.ipynb").

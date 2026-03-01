@@ -27,9 +27,7 @@ not from the SageMaker AI console.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Evaluation metrics computed by the TabTransformer
-
-algorithm
+## Evaluation metrics computed by the TabTransformer algorithm
 
 The SageMaker AI TabTransformer algorithm computes the following metrics to use for model validation.
 The evaluation metric is automatically assigned based on the type of classification task,

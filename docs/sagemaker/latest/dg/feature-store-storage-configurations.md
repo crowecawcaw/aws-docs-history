@@ -12,6 +12,5 @@ The following topics discuss online store storage types and offline store table 
 ###### Topics
 
 - [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md")
-- [Offline
-  store](feature-store-storage-configurations-offline-store.md "feature-store-storage-configurations-offline-store.md")
+- [Offline store](feature-store-storage-configurations-offline-store.md "feature-store-storage-configurations-offline-store.md")
 - [Throughput modes](feature-store-throughput-mode.md "feature-store-throughput-mode.md")

@@ -22,6 +22,5 @@ the AWS CLI and SageMaker AI console. You'll also learn how to detach these repo
 ###### Topics
 
 - [Attach a Git Repository from the AWS CLI for Amazon SageMaker Studio Classic](studio-git-attach-cli.md "studio-git-attach-cli.md")
-- [Attach a Git Repository from the SageMaker AI
-  Console for Amazon SageMaker Studio Classic](studio-git-attach-console.md "studio-git-attach-console.md")
+- [Attach a Git Repository from the SageMaker AI Console for Amazon SageMaker Studio Classic](studio-git-attach-console.md "studio-git-attach-console.md")
 - [Detach Git Repos from Amazon SageMaker Studio Classic](studio-git-detach.md "studio-git-detach.md")

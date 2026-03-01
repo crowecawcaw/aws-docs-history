@@ -4,9 +4,7 @@ After you train your Amazon SageMaker Autopilot models, you can set up an endpoi
 interactively. The following section describes the steps for deploying your model to a SageMaker AI real-time
 inference endpoint to get predictions from your model.
 
-## Real-time
-
-inferencing
+## Real-time inferencing
 
 Real-time inference is ideal for inference workloads where you have real-time,
 interactive, low latency requirements. This section shows how you can use real-time

@@ -27,6 +27,5 @@ With the Amazon SageMaker Model Registry you can do the following:
   Model Group you created in the first step.
 - Add your Model Group into one or more Model Registry Collections.
   For details about how to create and work with models, model versions, and Model Groups,
-  see [Model Registry Models, Model Versions, and Model
-  Groups](model-registry-models.md "model-registry-models.md").
+  see [Model Registry Models, Model Versions, and Model Groups](model-registry-models.md "model-registry-models.md").
   Optionally, if you want to further group your Model Groups into Collections, see [Model Registry Collections](modelcollections.md "modelcollections.md").

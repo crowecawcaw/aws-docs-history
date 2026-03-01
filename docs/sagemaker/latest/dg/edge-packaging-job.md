@@ -7,6 +7,5 @@ Edge Manager agent.
 ###### Topics
 
 - [Complete prerequisites](edge-packaging-job-prerequisites.md "edge-packaging-job-prerequisites.md")
-- [Package a Model (Amazon SageMaker AI
-  Console)](edge-packaging-job-console.md "edge-packaging-job-console.md")
+- [Package a Model (Amazon SageMaker AI Console)](edge-packaging-job-console.md "edge-packaging-job-console.md")
 - [Package a Model (Boto3)](edge-packaging-job-boto3.md "edge-packaging-job-boto3.md")

@@ -6,9 +6,7 @@ the following sections show you how to create a model using the [CreateModel](..
 Registry, and the [Amazon SageMaker AI
 console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home").
 
-## To create a model (using Model
-
-Registry)
+## To create a model (using Model Registry)
 
 [Model Registry](model-registry.md "model-registry.md") is a feature of SageMaker AI that helps you
 catalog and manage versions of your model for use in ML pipelines. To use Model Registry with
@@ -97,9 +95,7 @@ response = client.create_model(
 )
 ```
 
-## To create a model (using the
-
-console)
+## To create a model (using the console)
 
 1. Sign in to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home").

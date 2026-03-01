@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-SageMaker training plans
+# AWS managed policies for SageMaker training plans
 
 This AWS managed policy grants permissions needed to create and manage
 Amazon SageMaker training plans and Reserved Capacity in SageMaker AI. The policy can be attached to IAM
@@ -9,14 +7,10 @@ including your [SageMaker AI execution role](sagemaker-roles.md "sagemaker-roles
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerTrainingPlanCreateAccess](#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess "#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess")
-- [Amazon SageMaker AI updates to
-  SageMaker training plans managed policies](#security-iam-awsmanpol-training-plan-updates "#security-iam-awsmanpol-training-plan-updates")
+- [AWS managed policy: AmazonSageMakerTrainingPlanCreateAccess](#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess "#security-iam-awsmanpol-AmazonSageMakerTrainingPlanCreateAccess")
+- [Amazon SageMaker AI updates to SageMaker training plans managed policies](#security-iam-awsmanpol-training-plan-updates "#security-iam-awsmanpol-training-plan-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerTrainingPlanCreateAccess
+## AWS managed policy: AmazonSageMakerTrainingPlanCreateAccess
 
 This policy provides the necessary permissions to create, describe, search for, and
 list training plans in SageMaker AI. Additionally, it also allows adding tags to training plans
@@ -98,9 +92,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to
-
-SageMaker training plans managed policies
+## Amazon SageMaker AI updates to SageMaker training plans managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.

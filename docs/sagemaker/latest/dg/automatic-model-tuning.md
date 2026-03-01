@@ -34,20 +34,13 @@ learning problem, including the following:
 
 ###### Topics
 
-- [Understand the hyperparameter tuning
-  strategies available in Amazon SageMaker AI](automatic-model-tuning-how-it-works.md "automatic-model-tuning-how-it-works.md")
-- [Define metrics and
-  environment variables](automatic-model-tuning-define-metrics-variables.md "automatic-model-tuning-define-metrics-variables.md")
+- [Understand the hyperparameter tuning strategies available in Amazon SageMaker AI](automatic-model-tuning-how-it-works.md "automatic-model-tuning-how-it-works.md")
+- [Define metrics and environment variables](automatic-model-tuning-define-metrics-variables.md "automatic-model-tuning-define-metrics-variables.md")
 - [Define Hyperparameter Ranges](automatic-model-tuning-define-ranges.md "automatic-model-tuning-define-ranges.md")
-- [Track and set completion criteria for your
-  tuning job](automatic-model-tuning-progress.md "automatic-model-tuning-progress.md")
-- [Tune Multiple Algorithms with Hyperparameter
-  Optimization to Find the Best Model](multiple-algorithm-hpo.md "multiple-algorithm-hpo.md")
+- [Track and set completion criteria for your tuning job](automatic-model-tuning-progress.md "automatic-model-tuning-progress.md")
+- [Tune Multiple Algorithms with Hyperparameter Optimization to Find the Best Model](multiple-algorithm-hpo.md "multiple-algorithm-hpo.md")
 - [Example: Hyperparameter Tuning Job](automatic-model-tuning-ex.md "automatic-model-tuning-ex.md")
 - [Stop Training Jobs Early](automatic-model-tuning-early-stopping.md "automatic-model-tuning-early-stopping.md")
-- [Run a Warm Start Hyperparameter Tuning
-  Job](automatic-model-tuning-warm-start.md "automatic-model-tuning-warm-start.md")
-- [Resource Limits for Automatic Model
-  Tuning](automatic-model-tuning-limits.md "automatic-model-tuning-limits.md")
-- [Best Practices for Hyperparameter
-  Tuning](automatic-model-tuning-considerations.md "automatic-model-tuning-considerations.md")
+- [Run a Warm Start Hyperparameter Tuning Job](automatic-model-tuning-warm-start.md "automatic-model-tuning-warm-start.md")
+- [Resource Limits for Automatic Model Tuning](automatic-model-tuning-limits.md "automatic-model-tuning-limits.md")
+- [Best Practices for Hyperparameter Tuning](automatic-model-tuning-considerations.md "automatic-model-tuning-considerations.md")

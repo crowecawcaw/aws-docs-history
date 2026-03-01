@@ -7,9 +7,7 @@ model and hyperparameter selection, AutoGluon-Tabular succeeds by ensembling mul
 and stacking them in multiple layers. This page includes information about Amazon EC2 instance
 recommendations and sample notebooks for AutoGluon-Tabular.
 
-## Amazon EC2 instance recommendation for the
-
-AutoGluon-Tabular algorithm
+## Amazon EC2 instance recommendation for the AutoGluon-Tabular algorithm
 
 SageMaker AI AutoGluon-Tabular supports single-instance CPU and single-instance GPU training.
 Despite higher per-instance costs, GPUs train more quickly, making them more cost
@@ -17,9 +15,7 @@ effective. To take advantage of GPU training, specify the instance type as one o
 GPU instances (for example, P3). SageMaker AI AutoGluon-Tabular currently does not support multi-GPU
 training.
 
-## AutoGluon-Tabular sample
-
-notebooks
+## AutoGluon-Tabular sample notebooks
 
 The following table outlines a variety of sample notebooks that address different use cases of Amazon SageMaker AI AutoGluon-Tabular algorithm.
 

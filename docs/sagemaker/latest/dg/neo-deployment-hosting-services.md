@@ -25,7 +25,5 @@ image URI for your primary container.
 - [Prerequisites](neo-deployment-hosting-services-prerequisites.md "neo-deployment-hosting-services-prerequisites.md")
 - [Deploy a Compiled Model Using SageMaker SDK](neo-deployment-hosting-services-sdk.md "neo-deployment-hosting-services-sdk.md")
 - [Deploy a Compiled Model Using Boto3](neo-deployment-hosting-services-boto3.md "neo-deployment-hosting-services-boto3.md")
-- [Deploy a Compiled Model
-  Using the AWS CLI](neo-deployment-hosting-services-cli.md "neo-deployment-hosting-services-cli.md")
-- [Deploy a Compiled Model
-  Using the Console](neo-deployment-hosting-services-console.md "neo-deployment-hosting-services-console.md")
+- [Deploy a Compiled Model Using the AWS CLI](neo-deployment-hosting-services-cli.md "neo-deployment-hosting-services-cli.md")
+- [Deploy a Compiled Model Using the Console](neo-deployment-hosting-services-console.md "neo-deployment-hosting-services-console.md")

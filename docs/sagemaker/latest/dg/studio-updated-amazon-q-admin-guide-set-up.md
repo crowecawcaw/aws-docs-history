@@ -1,6 +1,4 @@
-# Set up Amazon Q Developer for your
-
-users
+# Set up Amazon Q Developer for your users
 
 Amazon Q Developer is a generative AI conversational assistant. You can set up Amazon Q Developer
 within a new domain or an existing domain. Use the following information to set up
@@ -172,9 +170,7 @@ references - Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/code-refe
 - Amazon Q Developer in JupyterLab works within the Jupyter AI extension. You can't
   use other 3P models within the extension while you're using Amazon Q.
 
-## Amazon Q customizations in
-
-Amazon SageMaker AI
+## Amazon Q customizations in Amazon SageMaker AI
 
 If you use Amazon Q Developer Pro, you have the option to create _customizations_. With customizations, Amazon Q Developer provides suggestions
 based on your company's codebase. If you create customizations in Amazon Q Developer, they

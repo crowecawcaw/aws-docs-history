@@ -1,28 +1,20 @@
-# Release notes for the SageMaker model parallelism
-
-library
+# Release notes for the SageMaker model parallelism library
 
 See the following release notes to track the latest updates for the SageMaker model parallelism
 (SMP) library. If you have further questions about the SMP library, contact the SMP service
 team at `sm-model-parallel-feedback@amazon.com`.
 
-## The SageMaker model parallelism
-
-library v2.8.0
+## The SageMaker model parallelism library v2.8.0
 
 _Date: April 01, 2025_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **Bug fixes**
 
 - SMP gradient norm clipping now supports activation offloading.
 
-### SMP Docker and
-
-Enroot containers
+### SMP Docker and Enroot containers
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
 PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
@@ -64,9 +56,7 @@ https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enro
   - NCCL v2.23.4
   - AWS-OFI-NCCL v1.13.2
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in an environment
@@ -77,23 +67,17 @@ library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.7.0
+## The SageMaker model parallelism library v2.7.0
 
 _Date: December 04, 2024_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **New features**
 
 - Added support for [SageMaker HyperPod recipes](sagemaker-hyperpod-recipes.md "sagemaker-hyperpod-recipes.md").
 
-### SMP Docker and
-
-Enroot containers
+### SMP Docker and Enroot containers
 
 The SMP library team distributes Docker and Enroot containers in replacement of
 the SageMaker PyTorch framework containers. If you use the PyTorch estimator class in the
@@ -127,9 +111,7 @@ https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enro
   - EFA v1.32.0
   - NCCL v2.21.5
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in a Conda
@@ -140,15 +122,11 @@ install the SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.6.1
+## The SageMaker model parallelism library v2.6.1
 
 _Date: October 31, 2024_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **Bug fixes**
 
@@ -168,9 +146,7 @@ updates
   PyTorch training jobs to pick up the latest SMP container packaged with SMP
   v2.6.1.
 
-### SMP Docker
-
-container
+### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
 PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
@@ -197,9 +173,7 @@ picks up the SMP Docker containers.
   - EFA v1.32.0
   - NCCL v2.21.5
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in an environment of
@@ -210,28 +184,22 @@ channel to properly install the SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.6.0
+## The SageMaker model parallelism library v2.6.0
 
 _Date: October 17, 2024_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **New features**
 
 - Added support for the following LLM model configurations. You can start
   using [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md")
-  and [Tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+  and [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
   - [Llama3.1 8B](https://huggingface.co/meta-llama/Llama-3.1-8B "https://huggingface.co/meta-llama/Llama-3.1-8B")
   - [Llama3.1 70B](https://huggingface.co/meta-llama/Llama-3.1-70B "https://huggingface.co/meta-llama/Llama-3.1-70B")
   - [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.3 "https://huggingface.co/mistralai/Mistral-7B-v0.3")
 
-- Added [Tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md")
+- Added [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md")
   support for the following Mixtral model configurations.
   - [Mixtral 8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1 "https://huggingface.co/mistralai/Mixtral-8x7B-v0.1")
   - [Mixtral 8x22B](https://huggingface.co/mistralai/Mixtral-8x22B-v0.1 "https://huggingface.co/mistralai/Mixtral-8x22B-v0.1")
@@ -262,9 +230,7 @@ updates
   transformers don’t support context parallelism or FP8 training when sliding
   window configuration is set to a non-null value.
 
-### SMP Docker
-
-container
+### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
 PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
@@ -299,9 +265,7 @@ picks up the SMP Docker containers.
   - EFA v1.32.0
   - NCCL v2.21.5
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in an environment of
@@ -312,23 +276,18 @@ channel to properly install the SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.5.0
+## The SageMaker model parallelism library v2.5.0
 
 _Date: August 28, 2024_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **New features**
 
 - Added support for mixed-precision training using FP8 data format on P5
   instances for the Mixtral model.
   - Supported Mixtral configurations are 8x7B and 8x22B. To learn
-    more, see [Mixed precision training with FP8 on P5 instances using Transformer
-    Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5").
+    more, see [Mixed precision training with FP8 on P5 instances using Transformer Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5").
 
 - Added support for [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md") for the
   following model configurations.
@@ -337,8 +296,7 @@ updates
   - GPT-NeoX: 20B
 
 - Added support for saving checkpoints asynchronously. To learn more, see
-  [Checkpointing using
-  SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
+  [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
   - Support for saving checkpoints to S3 directly without using Amazon EBS
     or file servers.
 
@@ -365,9 +323,7 @@ updates
   parameter initialized transformed model into a Hugging Face transformer
   model leads to a loss mismatch on the first step.
 
-### SMP Docker
-
-container
+### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
 PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
@@ -405,9 +361,7 @@ For a complete list of supported regions, see [AWS Regions](distributed-data-par
   - EFA v1.32.0
   - NCCL v2.21.5
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in an environment of
@@ -418,15 +372,11 @@ channel to properly install the SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.4.0
+## The SageMaker model parallelism library v2.4.0
 
 _Date: June 20, 2024_
 
-### SMP library
-
-updates
+### SMP library updates
 
 **Bug fixes**
 
@@ -457,9 +407,7 @@ updates
   higher loss value while fine-tuning Llama-3 70B with tensor
   parallelism.
 
-### SMP Docker
-
-container
+### SMP Docker container
 
 The SMP library team distributes Docker containers in replacement of the SageMaker
 PyTorch framework containers. If you use the PyTorch estimator class in the SageMaker
@@ -497,9 +445,7 @@ Python SDK to v2.224.0 or later.
   - EFA v1.32.0
   - NCCL v2.21.5
 
-### SMP Conda
-
-channel
+### SMP Conda channel
 
 The following S3 bucket is the public Conda channel of the SMP library hosted by
 the SMP service team. If you want to install the SMP v2 library in an environment of
@@ -510,9 +456,7 @@ channel to properly install the SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.3.1
+## The SageMaker model parallelism library v2.3.1
 
 _Date: May 9, 2024_
 
@@ -539,17 +483,14 @@ following SMP Docker image.
 658645717510.dkr.ecr.`us-west-2`.amazonaws.com/smdistributed-modelparallel:2.2.0-gpu-py310-cu121
 ```
 
-## The SageMaker model parallelism
-
-library v2.3.0
+## The SageMaker model parallelism library v2.3.0
 
 _Date: April 11, 2024_
 
 **New features**
 
 - Added a new core feature, _expert parallelism_, to support
-  Mixture of Experts transformer models. To learn more, see [Expert
-  parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
+  Mixture of Experts transformer models. To learn more, see [Expert parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
 
 **SMP Docker container**
 
@@ -580,9 +521,7 @@ v2.214.4 or later.
     	- EFA v1.30.0
     	- NCCL v2.19.4
 
-## The SageMaker model parallelism
-
-library v2.2.0
+## The SageMaker model parallelism library v2.2.0
 
 _Date: March 7, 2024_
 
@@ -612,8 +551,7 @@ _Date: March 7, 2024_
 
 **Known issues**
 
-- The SMP [Activation
-  offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md")
+- The SMP [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md")
   feature currently does not work. Use the native PyTorch activation offloading
   instead.
 
@@ -652,9 +590,7 @@ v2.212.0 or later.
     	- EFA v1.30.0
     	- NCCL v2.19.4
 
-## The SageMaker model parallelism
-
-library v2.1.0
+## The SageMaker model parallelism library v2.1.0
 
 _Date: February 6, 2024_
 
@@ -716,9 +652,7 @@ SMP library.
 
 For more information about Conda channels in general, see [Channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") in the _Conda documentation_.
 
-## The SageMaker model parallelism
-
-library v2.0.0
+## The SageMaker model parallelism library v2.0.0
 
 _Date: December 19, 2023_
 
@@ -741,8 +675,7 @@ offerings.
   with the `torch.sagemaker.init()` module and pass model parallel
   configuration parameters. With this new package, you can significantly simplify
   code modifications in your training script. To learn more about adapting your
-  training script to use SMP v2, see [Use the SageMaker model parallelism
-  library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
+  training script to use SMP v2, see [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
 - If you've used SMP v1 for training Hugging Face Transformer models and want to
   reuse the models in SMP v2, see [Upgrade from SMP v1 to SMP v2](distributed-model-parallel-v2-reference.md#model-parallel-v2-upgrade-from-v1 "distributed-model-parallel-v2-reference.md#model-parallel-v2-upgrade-from-v1").
 - For PyTorch FSDP training, you should use SMP v2.
@@ -754,8 +687,7 @@ offerings.
   - `auto_wrap_policy =
 functools.partial(transformer_auto_wrap_policy, ...)`
 
-- To use [Activation
-  offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md"),
+- To use [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md"),
   FSDP activation checkpointing type must be [REENTRANT](https://pytorch.org/docs/stable/checkpoint.html "https://pytorch.org/docs/stable/checkpoint.html").
 - When running with tensor parallel enabled with the sharded data parallel
   degree set to `1`, you must use `backend = nccl`. The

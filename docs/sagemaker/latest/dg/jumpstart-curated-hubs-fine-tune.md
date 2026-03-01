@@ -8,8 +8,7 @@ then use or deploy to an endpoint.
 
 You can fine-tune curated hub models in just a few lines of code using the SageMaker
 Python SDK. For more general information on fine-tuning publicly available JumpStart
-models, see [Foundation models and
-hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md").
+models, see [Foundation models and hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md").
 
 ## Prerequisites
 

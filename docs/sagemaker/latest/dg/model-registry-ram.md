@@ -19,15 +19,10 @@ with the sharing of resources:
 
 ###### Topics
 
-- [Share model group in
-  Studio](model-registry-ram-studio-share.md "model-registry-ram-studio-share.md")
-- [View shared model groups in
-  Studio](model-registry-ram-studio-view.md "model-registry-ram-studio-view.md")
+- [Share model group in Studio](model-registry-ram-studio-share.md "model-registry-ram-studio-share.md")
+- [View shared model groups in Studio](model-registry-ram-studio-view.md "model-registry-ram-studio-view.md")
 - [Accessibility](model-registry-ram-accessibility.md "model-registry-ram-accessibility.md")
 - [Set up discoverability](model-registry-ram-discover.md "model-registry-ram-discover.md")
-- [View shared model package
-  groups](model-registry-ram-view-shared.md "model-registry-ram-view-shared.md")
-- [Dissociate principals from a
-  resource share and remove a resource share](model-registry-ram-dissociate.md "model-registry-ram-dissociate.md")
-- [Promote the permission and resource
-  share](model-registry-ram-promote.md "model-registry-ram-promote.md")
+- [View shared model package groups](model-registry-ram-view-shared.md "model-registry-ram-view-shared.md")
+- [Dissociate principals from a resource share and remove a resource share](model-registry-ram-dissociate.md "model-registry-ram-dissociate.md")
+- [Promote the permission and resource share](model-registry-ram-promote.md "model-registry-ram-promote.md")

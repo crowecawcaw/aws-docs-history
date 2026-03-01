@@ -494,9 +494,7 @@ use one-hot encoding. Configure this transform using the following:
   _i_ is encoded as a vector with a
   non-zero in the *i*th location.
 
-### Similarity
-
-encode
+### Similarity encode
 
 Use similarity encoding when you have the following:
 
@@ -562,9 +560,7 @@ statistics_ and _Vectorize_. Use the
 following sections to learn more about these transforms. For both options, the
 **Input column** must contain text data (string type).
 
-### Character
-
-Statistics
+### Character Statistics
 
 Use **Character statistics** to generate statistics for each row
 in a column containing text data.
@@ -745,22 +741,14 @@ transformations that you can perform, see the following sections.
 ###### Topics
 
 - [Group by a Time Series](#canvas-group-by-time-series "#canvas-group-by-time-series")
-- [Resample Time Series
-  Data](#canvas-resample-time-series "#canvas-resample-time-series")
-- [Handle Missing
-  Time Series Data](#canvas-transform-handle-missing-time-series "#canvas-transform-handle-missing-time-series")
-- [Validate the Timestamp
-  of Your Time Series Data](#canvas-transform-validate-timestamp "#canvas-transform-validate-timestamp")
-- [Standardizing the
-  Length of the Time Series](#canvas-transform-standardize-length "#canvas-transform-standardize-length")
-- [Extract
-  Features from Your Time Series Data](#canvas-transform-extract-time-series-features "#canvas-transform-extract-time-series-features")
-- [Use Lagged Features from
-  Your Time Series Data](#canvas-transform-lag-time-series "#canvas-transform-lag-time-series")
-- [Create a Datetime Range In Your
-  Time Series](#canvas-transform-datetime-range "#canvas-transform-datetime-range")
-- [Use a Rolling Window In Your Time
-  Series](#canvas-transform-rolling-window "#canvas-transform-rolling-window")
+- [Resample Time Series Data](#canvas-resample-time-series "#canvas-resample-time-series")
+- [Handle Missing Time Series Data](#canvas-transform-handle-missing-time-series "#canvas-transform-handle-missing-time-series")
+- [Validate the Timestamp of Your Time Series Data](#canvas-transform-validate-timestamp "#canvas-transform-validate-timestamp")
+- [Standardizing the Length of the Time Series](#canvas-transform-standardize-length "#canvas-transform-standardize-length")
+- [Extract Features from Your Time Series Data](#canvas-transform-extract-time-series-features "#canvas-transform-extract-time-series-features")
+- [Use Lagged Features from Your Time Series Data](#canvas-transform-lag-time-series "#canvas-transform-lag-time-series")
+- [Create a Datetime Range In Your Time Series](#canvas-transform-datetime-range "#canvas-transform-datetime-range")
+- [Use a Rolling Window In Your Time Series](#canvas-transform-rolling-window "#canvas-transform-rolling-window")
 
 ### Group by a Time Series
 
@@ -822,9 +810,7 @@ You can use the following procedure to group by a time series column.
 9. Choose **Add** to add the transform to the Data Wrangler data
    flow.
 
-### Resample Time Series
-
-Data
+### Resample Time Series Data
 
 Time series data usually has observations that aren't taken at regular intervals.
 For example, a dataset could have some observations that are recorded hourly and
@@ -893,9 +879,7 @@ You can use the following procedure to resample time series data.
 10. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Handle Missing
-
-Time Series Data
+### Handle Missing Time Series Data
 
 If you have missing values in your dataset, you can do one of the
 following:
@@ -996,9 +980,7 @@ You can use the following procedure to handle missing values.
 11. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Validate the Timestamp
-
-of Your Time Series Data
+### Validate the Timestamp of Your Time Series Data
 
 You might have time stamp data that is invalid. You can use the **Validate
 time stamp** function to determine whether the timestamps in your
@@ -1048,9 +1030,7 @@ dataset.
 10. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Standardizing the
-
-Length of the Time Series
+### Standardizing the Length of the Time Series
 
 If you have time series data stored as arrays, you can standardize each time
 series to the same length. Standardizing the length of the time series array might
@@ -1081,8 +1061,7 @@ values added. The following is an example format of standardizing the time serie
 a longer length: [2, 4, 5, NaN, NaN, NaN].
 
 You can use different approaches to handle the missing values. For information on
-those approaches, see [Handle Missing
-Time Series Data](#canvas-transform-handle-missing-time-series "#canvas-transform-handle-missing-time-series").
+those approaches, see [Handle Missing Time Series Data](#canvas-transform-handle-missing-time-series "#canvas-transform-handle-missing-time-series").
 
 The time series arrays that are longer than the length that you specify are
 truncated.
@@ -1112,9 +1091,7 @@ series.
 11. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Extract
-
-Features from Your Time Series Data
+### Extract Features from Your Time Series Data
 
 If you're running a classification or a regression algorithm on your time series
 data, we recommend extracting features from the time series before running the
@@ -1156,9 +1133,7 @@ Use the following the procedure to extract features from your time series data.
 9. Choose **Add** to add the transform to the Data Wrangler data
    flow.
 
-### Use Lagged Features from
-
-Your Time Series Data
+### Use Lagged Features from Your Time Series Data
 
 For many use cases, the best way to predict the future behavior of your time
 series is to use its most recent behavior.
@@ -1194,9 +1169,7 @@ The most common uses of lagged features are the following:
 10. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Create a Datetime Range In Your
-
-Time Series
+### Create a Datetime Range In Your Time Series
 
 You might have time series data that don't have timestamps. If you know that the
 observations were taken at regular intervals, you can generate timestamps for the
@@ -1252,15 +1225,12 @@ Use the following procedure to add a datetime range to your data.
 10. Choose **Add** to add the transform to the Data Wrangler data
     flow.
 
-### Use a Rolling Window In Your Time
-
-Series
+### Use a Rolling Window In Your Time Series
 
 You can extract features over a time period. For example, for time, _t_, and a time window length of 3, and for the row that
 indicates the *t*th timestamp, we append the
 features that are extracted from the time series at times _t_ - 3, _t_ -2, and _t_ - 1. For information on extracting features, see
-[Extract
-Features from Your Time Series Data](#canvas-transform-extract-time-series-features "#canvas-transform-extract-time-series-features").
+[Extract Features from Your Time Series Data](#canvas-transform-extract-time-series-features "#canvas-transform-extract-time-series-features").
 
 You can use the following procedure to extract features over a time period.
 
@@ -1368,9 +1338,7 @@ Use the following sections to learn more about the transforms this group contain
 specify an **Output name** and each of these transforms produces an
 output column with the resulting data.
 
-### Robust standard
-
-deviation numeric outliers
+### Robust standard deviation numeric outliers
 
 This transform detects and fixes outliers in numeric features using statistics
 that are robust to outliers.
@@ -1392,9 +1360,7 @@ they are detected. You can choose from the following:
 - **Invalidate**: Use this option to replace outliers with
   invalid values.
 
-### Standard Deviation
-
-Numeric Outliers
+### Standard Deviation Numeric Outliers
 
 This transform detects and fixes outliers in numeric features using the mean and
 standard deviation.
@@ -1414,9 +1380,7 @@ they are detected. You can choose from the following:
 - **Invalidate**: Use this option to replace outliers with
   invalid values.
 
-### Quantile
-
-Numeric Outliers
+### Quantile Numeric Outliers
 
 Use this transform to detect and fix outliers in numeric features using quantiles.
 You can define an **Upper quantile** and a **Lower
@@ -1435,9 +1399,7 @@ they are detected. You can choose from the following:
 - **Invalidate**: Use this option to replace outliers with
   invalid values.
 
-### Min-Max
-
-Numeric Outliers
+### Min-Max Numeric Outliers
 
 This transform detects and fixes outliers in numeric features using upper and lower
 thresholds. Use this method if you know threshold values that demark outliers.
@@ -1456,9 +1418,7 @@ are detected. You can choose from the following:
 - **Invalidate**: Use this option to replace outliers with
   invalid values.
 
-### Replace
-
-Rare
+### Replace Rare
 
 When you use the **Replace rare** transform, you specify a
 threshold and Data Wrangler finds all values that meet that threshold and replaces them with
@@ -1506,9 +1466,7 @@ For categorical data, Data Wrangler imputes missing values using the most freque
 the column. To impute a custom string, use the **Fill missing**
 transform instead.
 
-### Add Indicator for
-
-Missing
+### Add Indicator for Missing
 
 Use the **Add indicator for missing** transform to create a new
 indicator column, which contains a Boolean `"false"` if a row contains a

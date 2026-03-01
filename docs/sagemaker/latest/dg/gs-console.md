@@ -29,12 +29,9 @@ individuals' income.
 
 ###### Topics
 
-- [Create an Amazon SageMaker Notebook Instance for the
-  tutorial](gs-setup-working-env.md "gs-setup-working-env.md")
-- [Create a Jupyter notebook in the SageMaker notebook
-  instance](ex1-prepare.md "ex1-prepare.md")
-- [Prepare a
-  dataset](ex1-preprocess-data.md "ex1-preprocess-data.md")
+- [Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md")
+- [Create a Jupyter notebook in the SageMaker notebook instance](ex1-prepare.md "ex1-prepare.md")
+- [Prepare a dataset](ex1-preprocess-data.md "ex1-preprocess-data.md")
 - [Train a Model](ex1-train-model.md "ex1-train-model.md")
 - [Deploy the model to Amazon EC2](ex1-model-deployment.md "ex1-model-deployment.md")
 - [Evaluate the model](ex1-test-model.md "ex1-test-model.md")

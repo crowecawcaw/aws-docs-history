@@ -1,6 +1,4 @@
-# Hide instance types
-
-and images on a user level
+# Hide instance types and images on a user level
 
 ###### Warning
 
@@ -9,16 +7,13 @@ this user profile will overwrite the domain settings, and no longer dynamically
 update with the domain in the future.
 
 The following shows how to use the console to set rules to hide Amazon SageMaker AI instance
-types and images from being displayed in the Amazon SageMaker Studio Classic UI on a _user level_. For more information, see [Hide instance types and
-images in the Amazon SageMaker Studio UI](studio-updated-ui-customize-instances-images.md "studio-updated-ui-customize-instances-images.md").
+types and images from being displayed in the Amazon SageMaker Studio Classic UI on a _user level_. For more information, see [Hide instance types and images in the Amazon SageMaker Studio UI](studio-updated-ui-customize-instances-images.md "studio-updated-ui-customize-instances-images.md").
 
 This setting will take priority over the domain level settings.
 
 The customize Studio UI feature is not available in Studio Classic.
 
-###### To hide instance types and images Studio UI on a user level
-
-(console)
+###### To hide instance types and images Studio UI on a user level (console)
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. On the left navigation pane, choose **Admin

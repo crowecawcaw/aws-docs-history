@@ -1,6 +1,4 @@
-# Create a schedule to automatically
-
-process new data
+# Create a schedule to automatically process new data
 
 ###### Note
 

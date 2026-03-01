@@ -1,6 +1,4 @@
-# Delete a MLOps Project using
-
-Amazon SageMaker Studio or Studio Classic
+# Delete a MLOps Project using Amazon SageMaker Studio or Studio Classic
 
 This procedure demonstrates how to delete a MLOps project using Amazon SageMaker Studio or Studio Classic.
 

@@ -1,6 +1,4 @@
-# Options for evaluating your machine learning
-
-model in Amazon SageMaker AI
+# Options for evaluating your machine learning model in Amazon SageMaker AI
 
 After training a model, evaluate it to determine whether its performance and accuracy
 enable you to achieve your business goals. You might generate multiple models using different

@@ -1,14 +1,10 @@
-# Running
-
-a SageMaker training job
+# Running a SageMaker training job
 
 SageMaker HyperPod Recipes supports submitting a SageMaker training job. Before you submit
 the training job, you must update the cluster configuration,
 `sm_job.yaml`, and install corresponding environment.
 
-## Use
-
-your recipe as a SageMaker training job
+## Use your recipe as a SageMaker training job
 
 You can use your recipe as a SageMaker training job if you aren't hosting a
 cluster. You must modify the SageMaker training job configuration file,

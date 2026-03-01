@@ -36,9 +36,7 @@ examples. You cannot choose to opt out inside a training script.
 The following section shows how you can opt out of metadata collection using the
 AWS CLI, AWS SDK for Python (Boto3), or the SageMaker Python SDK.
 
-### Opt out of metadata collection using the
-
-AWS Command Line Interface (AWS CLI)
+### Opt out of metadata collection using the AWS Command Line Interface (AWS CLI)
 
 To opt out of metadata collection using the AWS CLI, set the environment variable
 `OPT_OUT_TRACKING` to `1` in the
@@ -55,9 +53,7 @@ aws sagemaker create-training-job \
 --environment OPT_OUT_TRACKING=1
 ```
 
-### Opt out of metadata collection using
-
-the AWS SDK for Python (Boto3)
+### Opt out of metadata collection using the AWS SDK for Python (Boto3)
 
 To opt out of metadata collection using the SDK for Python (Boto3), set the environment
 variable `OPT_OUT_TRACKING` to `1` in the
@@ -89,9 +85,7 @@ boto3.client('sagemaker').create_training_job(
 )
 ```
 
-### Opt out of metadata collection using the
-
-SageMaker Python SDK
+### Opt out of metadata collection using the SageMaker Python SDK
 
 To opt out of metadata collection using the SageMaker Python SDK, set the environment
 variable `OPT_OUT_TRACKING` to `1` inside a SageMaker AI estimator as
@@ -109,9 +103,7 @@ sagemaker.estimator(
 )
 ```
 
-### Opt out of metadata collection
-
-account-wide
+### Opt out of metadata collection account-wide
 
 If you want to opt-out of metadata collection for several accounts, you can set an
 environment variable to opt-out of tracking account-wide. You must use the SageMaker AI

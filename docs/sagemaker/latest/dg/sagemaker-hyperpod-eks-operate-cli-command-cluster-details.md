@@ -39,9 +39,7 @@ aws sagemaker describe-cluster-node \
     --node-id `i-111222333444555aa`
 ```
 
-## List
-
-clusters
+## List clusters
 
 Run [list-clusters](../../../cli/latest/reference/sagemaker/list-clusters.md "../../../cli/latest/reference/sagemaker/list-clusters.md") to list all clusters in your account.
 

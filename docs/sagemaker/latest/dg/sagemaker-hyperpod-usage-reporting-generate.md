@@ -4,9 +4,7 @@ This guide provides step-by-step instructions to configure and manage usage repo
 for your SageMaker HyperPod clusters. Follow these procedures to deploy infrastructure,
 generate custom reports, and remove resources when no longer needed.
 
-## Set up usage
-
-reporting
+## Set up usage reporting
 
 ###### Note
 
@@ -24,9 +22,7 @@ Usage reporting in HyperPod requires:
 You can find comprehensive installation instructions in the [SageMaker HyperPod usage report GitHub repository](https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md "https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md"). Specifically, follow the
 steps in the [Set up](https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#set-up-usage-reporting "https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#set-up-usage-reporting") section.
 
-## Generate usage reports on
-
-demand
+## Generate usage reports on demand
 
 Once the usage reporting infrastructure and Kubernetes operator are installed, job
 data for your SageMaker HyperPod cluster is automatically collected and stored in the S3
@@ -46,9 +42,7 @@ The script allows you to:
 - Export reports in CSV or PDF formats
 - Direct reports to a specific S3 location
 
-## Clean up usage
-
-reporting resources
+## Clean up usage reporting resources
 
 When you no longer need your SageMaker HyperPod usage reporting infrastructure, follow
 the steps in [Clean Up Resources](https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#clean-up-resources "https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#clean-up-resources") to clean up the Kubernetes operator and AWS

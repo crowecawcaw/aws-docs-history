@@ -42,24 +42,17 @@ You can use multi-model endpoints with the following features:
 ###### Topics
 
 - [How multi-model endpoints work](#how-multi-model-endpoints-work "#how-multi-model-endpoints-work")
-- [Sample notebooks for multi-model
-  endpoints](#multi-model-endpoint-sample-notebooks "#multi-model-endpoint-sample-notebooks")
+- [Sample notebooks for multi-model endpoints](#multi-model-endpoint-sample-notebooks "#multi-model-endpoint-sample-notebooks")
 - [Supported algorithms, frameworks, and instances for multi-model endpoints](multi-model-support.md "multi-model-support.md")
-- [Instance recommendations for multi-model
-  endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md")
-- [Create
-  a Multi-Model Endpoint](create-multi-model-endpoint.md "create-multi-model-endpoint.md")
+- [Instance recommendations for multi-model endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md")
+- [Create a Multi-Model Endpoint](create-multi-model-endpoint.md "create-multi-model-endpoint.md")
 - [Invoke a Multi-Model Endpoint](invoke-multi-model-endpoint.md "invoke-multi-model-endpoint.md")
 - [Add or Remove Models](add-models-to-endpoint.md "add-models-to-endpoint.md")
-- [Build Your Own Container for SageMaker AI
-  Multi-Model Endpoints](build-multi-model-build-container.md "build-multi-model-build-container.md")
+- [Build Your Own Container for SageMaker AI Multi-Model Endpoints](build-multi-model-build-container.md "build-multi-model-build-container.md")
 - [Multi-Model Endpoint Security](multi-model-endpoint-security.md "multi-model-endpoint-security.md")
-- [CloudWatch Metrics for Multi-Model
-  Endpoint Deployments](multi-model-endpoint-cloudwatch-metrics.md "multi-model-endpoint-cloudwatch-metrics.md")
-- [Set SageMaker AI multi-model endpoint model caching
-  behavior](multi-model-caching.md "multi-model-caching.md")
-- [Set Auto Scaling Policies for Multi-Model
-  Endpoint Deployments](multi-model-endpoints-autoscaling.md "multi-model-endpoints-autoscaling.md")
+- [CloudWatch Metrics for Multi-Model Endpoint Deployments](multi-model-endpoint-cloudwatch-metrics.md "multi-model-endpoint-cloudwatch-metrics.md")
+- [Set SageMaker AI multi-model endpoint model caching behavior](multi-model-caching.md "multi-model-caching.md")
+- [Set Auto Scaling Policies for Multi-Model Endpoint Deployments](multi-model-endpoints-autoscaling.md "multi-model-endpoints-autoscaling.md")
 
 ## How multi-model endpoints work
 
@@ -101,9 +94,7 @@ traffic pattern. However, once it learns your traffic pattern, you can experienc
 latencies for most frequently used models. Less frequently used models may incur some cold
 start latencies since the models are dynamically loaded to an instance.
 
-## Sample notebooks for multi-model
-
-endpoints
+## Sample notebooks for multi-model endpoints
 
 To learn more about how to use multi-model endpoints, you can try the following sample
 notebooks:

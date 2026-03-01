@@ -1,6 +1,4 @@
-# Prepare a training job to collect
-
-TensorBoard output data
+# Prepare a training job to collect TensorBoard output data
 
 A typical training job for machine learning in SageMaker AI consists of two main steps:
 preparing a training script and configuring a SageMaker AI estimator object of the SageMaker AI Python
@@ -28,9 +26,7 @@ information, see
   - `s3:GetObject`
   - `s3:ListBucket`
 
-## Step 1: Modify your training
-
-script with open-source TensorBoard helper tools
+## Step 1: Modify your training script with open-source TensorBoard helper tools
 
 Make sure you determine which output tensors and scalars to collect, and modify
 code lines in your training script using any of the following tools: TensorBoardX,
@@ -67,18 +63,14 @@ callback in transformers.
 ###### Tip
 
 You can also use a different container local output path. However, in
-[Step 2: Create a SageMaker training
-estimator object with the TensorBoard output configuration](#debugger-htb-prepare-training-job-2 "#debugger-htb-prepare-training-job-2"), you must map
+[Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration](#debugger-htb-prepare-training-job-2 "#debugger-htb-prepare-training-job-2"), you must map
 the paths correctly for SageMaker AI to successfully search the local path and
 save the TensorBoard data to the S3 output bucket.
 
 - For guidance on modifying training scripts using the SageMaker Debugger Python
-  library, see [Adapting your training script to register a
-  hook](debugger-modify-script.md "debugger-modify-script.md").
+  library, see [Adapting your training script to register a hook](debugger-modify-script.md "debugger-modify-script.md").
 
-## Step 2: Create a SageMaker training
-
-estimator object with the TensorBoard output configuration
+## Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration
 
 Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring
 a SageMaker AI framework estimator. This configuration API maps the S3 bucket you specify

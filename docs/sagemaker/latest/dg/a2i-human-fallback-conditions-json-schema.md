@@ -1,6 +1,4 @@
-# JSON Schema for Human Loop
-
-Activation Conditions in Amazon Augmented AI
+# JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI
 
 The `HumanLoopActivationConditions` is an input parameter of the [`CreateFlowDefinition`](../APIReference/API_CreateFlowDefinition.md "../APIReference/API_CreateFlowDefinition.md") API. This parameter is a JSON-formatted
 string. The JSON models the conditions under which a human loop is created when those
@@ -118,7 +116,5 @@ parameter is disabled for custom task types.
 
 ###### Topics
 
-- [Use Human Loop
-  Activation Conditions JSON Schema with Amazon Textract](a2i-json-humantaskactivationconditions-textract-example.md "a2i-json-humantaskactivationconditions-textract-example.md")
-- [Use Human Loop
-  Activation Conditions JSON Schema with Amazon Rekognition](a2i-json-humantaskactivationconditions-rekognition-example.md "a2i-json-humantaskactivationconditions-rekognition-example.md")
+- [Use Human Loop Activation Conditions JSON Schema with Amazon Textract](a2i-json-humantaskactivationconditions-textract-example.md "a2i-json-humantaskactivationconditions-textract-example.md")
+- [Use Human Loop Activation Conditions JSON Schema with Amazon Rekognition](a2i-json-humantaskactivationconditions-rekognition-example.md "a2i-json-humantaskactivationconditions-rekognition-example.md")

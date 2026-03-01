@@ -1,6 +1,4 @@
-# Fine-tune publicly available foundation models with the
-
-`JumpStartEstimator` class
+# Fine-tune publicly available foundation models with the `JumpStartEstimator` class
 
 ###### Note
 

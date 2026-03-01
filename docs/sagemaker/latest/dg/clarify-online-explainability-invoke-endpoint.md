@@ -1,6 +1,4 @@
-# Invoke the
-
-endpoint
+# Invoke the endpoint
 
 After the endpoint is running, use the SageMaker AI Runtime [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md") API in the SageMaker AI Runtime service to send requests to, or invoke the endpoint. In
 response, the requests are handled as explainability requests by the SageMaker Clarify
@@ -11,8 +9,7 @@ explainer.
 To invoke an endpoint, choose one of the following options:
 
 - For instructions to use Boto3 or the AWS CLI to invoke an endpoint, see
-  [Invoke models for real-time
-  inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
+  [Invoke models for real-time inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
 - To use the SageMaker SDK for Python to invoke an endpoint, see the [Predictor](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html "https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html") API.
 
 ## Request

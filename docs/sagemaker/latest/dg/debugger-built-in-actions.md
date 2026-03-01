@@ -1,6 +1,4 @@
-# Use Debugger built-in actions for
-
-rules
+# Use Debugger built-in actions for rules
 
 Use Debugger built-in actions to respond to issues found by [Debugger rule](debugger-built-in-rules.md#debugger-built-in-rules-Rule "debugger-built-in-rules.md#debugger-built-in-rules-Rule"). The Debugger `rule_configs` class provides tools to configure a list of
 actions, including automatically stopping training jobs and sending notifications using
@@ -9,18 +7,12 @@ through the steps to accomplish these tasks.
 
 ###### Topics
 
-- [Set up Amazon SNS, create an
-  SMDebugRules topic, and subscribe to the topic](#debugger-built-in-actions-sns "#debugger-built-in-actions-sns")
-- [Set up your IAM role to attach
-  required policies](#debugger-built-in-actions-iam "#debugger-built-in-actions-iam")
-- [Configure Debugger rules with the
-  built-in actions](#debugger-built-in-actions-on-rule "#debugger-built-in-actions-on-rule")
-- [Considerations for using
-  the Debugger built-in actions](#debugger-built-in-actions-considerations "#debugger-built-in-actions-considerations")
+- [Set up Amazon SNS, create an SMDebugRules topic, and subscribe to the topic](#debugger-built-in-actions-sns "#debugger-built-in-actions-sns")
+- [Set up your IAM role to attach required policies](#debugger-built-in-actions-iam "#debugger-built-in-actions-iam")
+- [Configure Debugger rules with the built-in actions](#debugger-built-in-actions-on-rule "#debugger-built-in-actions-on-rule")
+- [Considerations for using the Debugger built-in actions](#debugger-built-in-actions-considerations "#debugger-built-in-actions-considerations")
 
-## Set up Amazon SNS, create an
-
-`SMDebugRules` topic, and subscribe to the topic
+## Set up Amazon SNS, create an `SMDebugRules` topic, and subscribe to the topic
 
 This section walks you through how to set up an Amazon SNS
 `SMDebugRules` topic, subscribe to it, and confirm the
@@ -87,9 +79,7 @@ For more information about Amazon SNS, see [Mobile text
 messaging (SMS)](../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md "../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md") and [Email notifications](../../../sns/latest/dg/sns-email-notifications.md "../../../sns/latest/dg/sns-email-notifications.md") in
 the _Amazon SNS Developer Guide_.
 
-## Set up your IAM role to attach
-
-required policies
+## Set up your IAM role to attach required policies
 
 In this step, you add the required policies to your IAM role.
 
@@ -145,9 +135,7 @@ In this step, you add the required policies to your IAM role.
 
 For more examples of setting up IAM policies for Amazon SNS, see [Example cases for Amazon SNS access control](../../../sns/latest/dg/sns-access-policy-use-cases.md "../../../sns/latest/dg/sns-access-policy-use-cases.md").
 
-## Configure Debugger rules with the
-
-built-in actions
+## Configure Debugger rules with the built-in actions
 
 After successfully finishing the required settings in the preceding steps, you can
 configure the Debugger built-in actions for debugging rules as shown in the following
@@ -285,9 +273,7 @@ the rule finds a StalledTraining issue.
 
 ![An example text notification sent by Debugger when it detects a StalledTraining issue.](images/debugger/debugger-built-in-action-text.png)
 
-## Considerations for using
-
-the Debugger built-in actions
+## Considerations for using the Debugger built-in actions
 
 - To use the Debugger built-in actions, an internet connection is required.
   This feature is not supported in the network isolation mode provided by

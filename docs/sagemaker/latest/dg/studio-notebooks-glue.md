@@ -1,6 +1,4 @@
-# Data preparation using AWS Glue interactive
-
-sessions
+# Data preparation using AWS Glue interactive sessions
 
 [AWS Glue
 interactive sessions](../../../glue/latest/dg/interactive-sessions-overview.md "../../../glue/latest/dg/interactive-sessions-overview.md") is a serverless service that you can enlist to collect,
@@ -26,14 +24,12 @@ from within your Studio or Studio Classic notebooks.
 Before starting your AWS Glue interactive session in Studio or Studio Classic, you need to
 set the appropriate roles and policies. Additionally, you may need to provide access to
 additional resources, such as a storage Amazon S3 bucket. For more information about required
-IAM policies, see [Permissions for AWS Glue interactive sessions in
-Studio or Studio Classic](getting-started-glue-sm.md#glue-sm-iam "getting-started-glue-sm.md#glue-sm-iam").
+IAM policies, see [Permissions for AWS Glue interactive sessions in Studio or Studio Classic](getting-started-glue-sm.md#glue-sm-iam "getting-started-glue-sm.md#glue-sm-iam").
 
 Studio and Studio Classic provide a default configuration for your AWS Glue interactive
 session, however, you can use AWS Glue’s full catalog of Jupyter magic commands to further
 customize your environment. For information about the default and additional Jupyter magics
-that you can use in your AWS Glue interactive session, see [Configure your AWS Glue interactive session in
-Studio or Studio Classic](getting-started-glue-sm.md#glue-sm-magics "getting-started-glue-sm.md#glue-sm-magics").
+that you can use in your AWS Glue interactive session, see [Configure your AWS Glue interactive session in Studio or Studio Classic](getting-started-glue-sm.md#glue-sm-magics "getting-started-glue-sm.md#glue-sm-magics").
 
 - For Studio Classic users initiating an AWS Glue interactive session, they can select from
   the following images and kernels:

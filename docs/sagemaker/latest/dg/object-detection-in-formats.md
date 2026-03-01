@@ -1,6 +1,4 @@
-# Object Detection Request and Response
-
-Formats
+# Object Detection Request and Response Formats
 
 The following page describes the inference request and response formats for the Amazon SageMaker AI
 Object Detection - MXNet model.
@@ -55,8 +53,7 @@ represented as a JSON file. For example:
 {"prediction": [[label_id, confidence_score, xmin, ymin, xmax, ymax], [label_id, confidence_score, xmin, ymin, xmax, ymax]]}
 ```
 
-For more details on training and inference, see the [Object Detection Sample
-Notebooks](object-detection.md#object-detection-sample-notebooks "object-detection.md#object-detection-sample-notebooks").
+For more details on training and inference, see the [Object Detection Sample Notebooks](object-detection.md#object-detection-sample-notebooks "object-detection.md#object-detection-sample-notebooks").
 
 ## OUTPUT: JSON Response Format
 

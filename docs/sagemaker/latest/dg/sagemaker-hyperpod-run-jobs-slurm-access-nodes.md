@@ -1,6 +1,4 @@
-# Accessing your
-
-SageMaker HyperPod cluster nodes
+# Accessing your SageMaker HyperPod cluster nodes
 
 You can access your **InService** cluster through AWS Systems Manager (SSM)
 by running the AWS CLI command `aws ssm start-session` with the SageMaker HyperPod
@@ -18,8 +16,7 @@ Granting users access to HyperPod cluster nodes allows them to install
 and operate user-managed software on the nodes. Ensure that you maintain the
 principle of least-privilege permissions for users.
 
-If you haven't set up AWS Systems Manager, follow the instructions provided at [Setting up AWS Systems Manager and Run As
-for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
+If you haven't set up AWS Systems Manager, follow the instructions provided at [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
 
 ```
 `$` `aws ssm start-session \
@@ -42,15 +39,11 @@ topics.
 
 ###### Topics
 
-- [Additional tips for
-  accessing your SageMaker HyperPod cluster nodes](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips")
+- [Additional tips for accessing your SageMaker HyperPod cluster nodes](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-tips")
 - [Set up a multi-user environment through the Amazon FSx shared space](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-fxs-shared-space "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-fxs-shared-space")
-- [Set up a multi-user environment by integrating HyperPod clusters with Active
-  Directory](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory")
+- [Set up a multi-user environment by integrating HyperPod clusters with Active Directory](#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory "#sagemaker-hyperpod-run-jobs-slurm-access-nodes-multi-user-with-active-directory")
 
-## Additional tips for
-
-accessing your SageMaker HyperPod cluster nodes
+## Additional tips for accessing your SageMaker HyperPod cluster nodes
 
 **Use the `easy-ssh.sh` script provided by
 HyperPod for simplifying the connection process**
@@ -190,8 +183,7 @@ directories, you should also associate them with IAM roles or users by tagging
 them as guided in **Option 2** of step 5 under the
 procedure **To turn on Run As support for Linux and macOS
 managed nodes** provided at [Turn on Run As support for Linux and macOS managed nodes](../../../systems-manager/latest/userguide/session-preferences-run-as.md "../../../systems-manager/latest/userguide/session-preferences-run-as.md") in the
-AWS Systems Manager User Guide. See also [Setting up AWS Systems Manager and Run As
-for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
+AWS Systems Manager User Guide. See also [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
 
 **To set up a multi-user environment while creating a Slurm
 cluster on SageMaker HyperPod**
@@ -276,9 +268,7 @@ EOL
 4. Add the user information to the `shared_users.txt` file, so the
    user will be created on any new compute nodes or new clusters.
 
-## Set up a multi-user environment by integrating HyperPod clusters with Active
-
-Directory
+## Set up a multi-user environment by integrating HyperPod clusters with Active Directory
 
 In practical use cases, HyperPod clusters are typically used by multiple users:
 machine learning (ML) researchers, software engineers, data scientists, and cluster

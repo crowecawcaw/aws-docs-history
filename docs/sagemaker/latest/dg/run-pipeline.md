@@ -81,8 +81,7 @@ execution, examine the results of that execution, and delete your pipeline.
 - [Prerequisites](#run-pipeline-prereq "#run-pipeline-prereq")
 - [Step 1: Start the Pipeline](#run-pipeline-submit "#run-pipeline-submit")
 - [Step 2: Examine a Pipeline Execution](#run-pipeline-examine "#run-pipeline-examine")
-- [Step 3: Override Default Parameters for a Pipeline
-  Execution](#run-pipeline-parametrized "#run-pipeline-parametrized")
+- [Step 3: Override Default Parameters for a Pipeline Execution](#run-pipeline-parametrized "#run-pipeline-parametrized")
 - [Step 4: Stop and Delete a Pipeline Execution](#run-pipeline-delete "#run-pipeline-delete")
 
 ### Prerequisites
@@ -203,9 +202,7 @@ evaluation_json = sagemaker.s3.S3Downloader.read_file("{}/evaluation.json".forma
 json.loads(evaluation_json)
 ```
 
-### Step 3: Override Default Parameters for a Pipeline
-
-Execution
+### Step 3: Override Default Parameters for a Pipeline Execution
 
 You can run additional executions of the pipeline by specifying different pipeline
 parameters to override the defaults.

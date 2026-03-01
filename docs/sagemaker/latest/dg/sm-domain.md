@@ -101,10 +101,8 @@ For more information, contact https://aws.amazon.com/premiumsupport/.
 ###### Topics
 
 - [Complete prerequisites](domain-prerequisites.md "domain-prerequisites.md")
-- [Hide machine learning tools and
-  applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md")
-- [Hide instance types and
-  images in the Amazon SageMaker Studio UI](studio-updated-ui-customize-instances-images.md "studio-updated-ui-customize-instances-images.md")
+- [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md")
+- [Hide instance types and images in the Amazon SageMaker Studio UI](studio-updated-ui-customize-instances-images.md "studio-updated-ui-customize-instances-images.md")
 - [Multiple domains overview](domain-multiple.md "domain-multiple.md")
 - [Isolate domain resources](domain-resource-isolation.md "domain-resource-isolation.md")
 - [Default settings for Amazon SageMaker AI domains](domain-set-defaults.md "domain-set-defaults.md")
@@ -116,11 +114,7 @@ For more information, contact https://aws.amazon.com/premiumsupport/.
 - [Delete an Amazon SageMaker AI domain](gs-studio-delete-domain.md "gs-studio-delete-domain.md")
 - [Domain user profiles](domain-user-profile.md "domain-user-profile.md")
 - [IAM Identity Center groups in a domain](domain-groups.md "domain-groups.md")
-- [Understanding domain space permissions and
-  execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md")
-- [View SageMaker AI resources in your
-  domain](sm-console-domain-resources-view.md "sm-console-domain-resources-view.md")
-- [Shut down SageMaker AI resources in your
-  domain](sm-console-domain-resources-shut-down.md "sm-console-domain-resources-shut-down.md")
-- [Where to shut down resources per SageMaker AI
-  features](sm-shut-down-resources-per-feature.md "sm-shut-down-resources-per-feature.md")
+- [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md")
+- [View SageMaker AI resources in your domain](sm-console-domain-resources-view.md "sm-console-domain-resources-view.md")
+- [Shut down SageMaker AI resources in your domain](sm-console-domain-resources-shut-down.md "sm-console-domain-resources-shut-down.md")
+- [Where to shut down resources per SageMaker AI features](sm-shut-down-resources-per-feature.md "sm-shut-down-resources-per-feature.md")

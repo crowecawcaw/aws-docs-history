@@ -1,6 +1,4 @@
-# Example
-
-notebooks
+# Example notebooks
 
 For step-by-step examples on how to use publicly available JumpStart foundation models with
 the SageMaker Python SDK, refer to the following notebooks on text generation,
@@ -18,9 +16,7 @@ examples in the Jupyter environment of your choice within Studio. For more
 information on applications that you can use to create and access Jupyter in SageMaker AI, see
 [Applications supported in Amazon SageMaker Studio](studio-updated-apps.md "studio-updated-apps.md").
 
-## Time
-
-series forecasting
+## Time series forecasting
 
 You can use the Chronos models to forecast time series data. They're based on the
 language model architecture. Use the [Introduction to SageMaker JumpStart - Time Series Forecasting with Chronos](https://github.com/aws/amazon-sagemaker-examples/blob/default/%20%20%20%20generative_ai/sm-jumpstart_time_series_forecasting.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/default/%20%20%20%20generative_ai/sm-jumpstart_time_series_forecasting.ipynb")
@@ -28,9 +24,7 @@ notebook to get started.
 
 For information about the available Chronos models, see [Available foundation models](jumpstart-foundation-models-latest.md "jumpstart-foundation-models-latest.md").
 
-## Text
-
-generation
+## Text generation
 
 Explore text generation example notebooks, including guidance on general text
 generation workflows, multilingual text classification, real-time batch inference,
@@ -65,8 +59,7 @@ dog.
 ## Model customization
 
 Sometimes your use case requires greater foundation model customization for
-specific tasks. For more information on model customization approaches, see [Foundation model
-customization](jumpstart-foundation-models-customize.md "jumpstart-foundation-models-customize.md") or explore one of the
+specific tasks. For more information on model customization approaches, see [Foundation model customization](jumpstart-foundation-models-customize.md "jumpstart-foundation-models-customize.md") or explore one of the
 following example notebooks.
 
 - [SageMaker JumpStart Foundation Models - Fine-tuning text generation GPT-J 6B

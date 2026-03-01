@@ -34,8 +34,7 @@ search, and generative AI.
 If you have been using Autopilot in Studio Classic until now and want to migrate to
 SageMaker Canvas, you might have to grant additional permissions to your user profile or
 IAM role so that you can create and use the SageMaker Canvas application. For more
-information, see [(Optional) Migrate from
-Autopilot in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-autopilot "studio-updated-migrate-ui.md#studio-updated-migrate-autopilot").
+information, see [(Optional) Migrate from Autopilot in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-autopilot "studio-updated-migrate-ui.md#studio-updated-migrate-autopilot").
 
 - **Amazon SageMaker JumpStart**: SageMaker JumpStart provides pretrained,
   open-source models for a wide range of problem types to help you get started with

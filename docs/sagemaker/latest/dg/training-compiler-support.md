@@ -1,6 +1,4 @@
-# Supported Frameworks, AWS Regions,
-
-Instance Types, and Tested Models
+# Supported Frameworks, AWS Regions, Instance Types, and Tested Models
 
 ###### Important
 
@@ -18,9 +16,7 @@ supported AWS Regions.
 
 SageMaker Training Compiler is available in the SageMaker Python SDK v2.70.0 or later.
 
-## Supported
-
-Frameworks
+## Supported Frameworks
 
 SageMaker Training Compiler supports the following deep learning frameworks and is available through
 AWS Deep Learning Containers.
@@ -58,9 +54,7 @@ Containers GitHub repository_.
 The [SageMaker Training Compiler Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-training-compiler-containers") are available in the AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") are in service except the China
 regions.
 
-## Supported Instance
-
-Types
+## Supported Instance Types
 
 SageMaker Training Compiler is tested on and supports the following ML instance types.
 

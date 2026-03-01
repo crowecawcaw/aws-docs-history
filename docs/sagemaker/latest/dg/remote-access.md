@@ -1,6 +1,4 @@
-# Connect your local Visual Studio Code to SageMaker spaces with remote
-
-access
+# Connect your local Visual Studio Code to SageMaker spaces with remote access
 
 You can remotely connect from Visual Studio Code to Amazon SageMaker Studio spaces. You can use your
 customized local VS Code setup, including AI-assisted development tools and custom
@@ -30,8 +28,7 @@ your required extensions support Microsoft Remote Development before use.
 - [Key concepts](#remote-access-key-concepts "#remote-access-key-concepts")
 - [Connection methods](#remote-access-connection-methods "#remote-access-connection-methods")
 - [Supported IDEs](#remote-access-supported-ides "#remote-access-supported-ides")
-- [VS Code version
-  requirement](#remote-access-vs-code-version-requirement "#remote-access-vs-code-version-requirement")
+- [VS Code version requirement](#remote-access-vs-code-version-requirement "#remote-access-vs-code-version-requirement")
 - [Operating system requirements](#remote-access-os-requirements "#remote-access-os-requirements")
 - [Local machine prerequisites](#remote-access-local-prerequisites "#remote-access-local-prerequisites")
 - [Image requirements](#remote-access-image-requirements "#remote-access-image-requirements")
@@ -70,9 +67,7 @@ Remote connection to Studio spaces supports:
 
 - [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/")
 
-## VS Code version
-
-requirement
+## VS Code version requirement
 
 VS Code version [v1.90](https://code.visualstudio.com/updates/v1_90 "https://code.visualstudio.com/updates/v1_90") or greater is required. We recommend using the [latest stable version of
 VS Code](https://code.visualstudio.com/updates "https://code.visualstudio.com/updates").

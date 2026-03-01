@@ -1,6 +1,4 @@
-# Updating inference containers to comply with
-
-the NVIDIA Container Toolkit
+# Updating inference containers to comply with the NVIDIA Container Toolkit
 
 As of versions 1.17.4 and higher, the NVIDIA Container Toolkit no longer mounts CUDA
 compatibility libraries automatically. This change in behavior could affect your SageMaker AI
@@ -23,9 +21,7 @@ Toolkit, follow these steps:
    NVIDIA Container Toolkit behavior. You specify an AMI when you update an
    existing endpoint or create a new one.
 
-### Updating the CUDA compatibility setup if you
-
-bring your own container
+### Updating the CUDA compatibility setup if you bring your own container
 
 The CUDA compatibility libraries enable forward compatibility. This compatibility
 applies to any CUDA toolkit versions that are newer than the NVIDIA driver provided
@@ -73,9 +69,7 @@ else
 fi
 ```
 
-### Specifying an Inference AMI that complies
-
-with the NVIDIA Container Toolkit
+### Specifying an Inference AMI that complies with the NVIDIA Container Toolkit
 
 In the `InferenceAmiVersion` parameter of the
 `ProductionVariant` data type, you can select the AMI for a SageMaker AI
@@ -171,8 +165,7 @@ requirements, do the following:
 
 1. If you want to run batch transform with a model for which you've brought your
    own container, first, update the container for CUDA compatibility. To update it,
-   follow the process in [Updating the CUDA compatibility setup if you
-   bring your own container](#cuda-compatibility "#cuda-compatibility").
+   follow the process in [Updating the CUDA compatibility setup if you bring your own container](#cuda-compatibility "#cuda-compatibility").
 2. Use the `CreateTransformJob` API action to create the batch
    transform job. In your request, set the
    `SAGEMAKER_CUDA_COMPAT_DISABLED` environment variable to

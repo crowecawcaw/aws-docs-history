@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -59,9 +58,7 @@ in [Onboard to Amazon SageMaker AI domain](gs-studio-onboard.md "gs-studio-onbo
    The following sections demonstrate how to launch the Studio Classic application from the SageMaker AI
    console.
 
-#### Launch Studio Classic from the domain details
-
-page
+#### Launch Studio Classic from the domain details page
 
 The following sections describe how to launch a Studio Classic application from the domain
 details page. The steps to launch the Studio Classic application after you have navigated to the

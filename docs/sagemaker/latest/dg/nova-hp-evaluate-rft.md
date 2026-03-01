@@ -50,8 +50,7 @@ evaluation (accuracy, perplexity, BLEU), use standard evaluation methods.
 - [Data format requirements](#nova-hp-evaluate-rft-data-format "#nova-hp-evaluate-rft-data-format")
 - [Preparing your evaluation recipe](#nova-hp-evaluate-rft-recipe "#nova-hp-evaluate-rft-recipe")
 - [Preset reward functions](#nova-hp-evaluate-rft-preset "#nova-hp-evaluate-rft-preset")
-- [Creating your reward
-  function](#nova-hp-evaluate-rft-create-function "#nova-hp-evaluate-rft-create-function")
+- [Creating your reward function](#nova-hp-evaluate-rft-create-function "#nova-hp-evaluate-rft-create-function")
 - [IAM permissions](#nova-hp-evaluate-rft-iam "#nova-hp-evaluate-rft-iam")
 - [Executing the evaluation job](#nova-hp-evaluate-rft-execution "#nova-hp-evaluate-rft-execution")
 - [Understanding evaluation results](#nova-hp-evaluate-rft-results "#nova-hp-evaluate-rft-results")
@@ -225,9 +224,7 @@ Follow these best practices when using preset reward functions:
 - Format math expressions consistently in reference answers
 - Test your reward function with sample data before deployment
 
-## Creating your reward
-
-function
+## Creating your reward function
 
 ###### Lambda ARN
 

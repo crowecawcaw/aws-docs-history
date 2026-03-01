@@ -3,9 +3,7 @@
 This procedure demonstrates how to delete a model version in the Amazon SageMaker Studio
 console.
 
-## Delete a Model
-
-Version (Studio or Studio Classic)
+## Delete a Model Version (Studio or Studio Classic)
 
 To delete a model version in the Amazon SageMaker Studio console, complete the
 following steps based on whether you use Studio or Studio Classic.

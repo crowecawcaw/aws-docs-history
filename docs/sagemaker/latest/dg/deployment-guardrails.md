@@ -23,8 +23,7 @@ Deployment guardrails provide the following benefits:
 - **Visibility.** You can track the progress of your
   deployment through the [DescribeEndpoint](../APIReference/API_DescribeEndpoint.md "../APIReference/API_DescribeEndpoint.md") API or
   through Amazon CloudWatch Events (for [supported endpoints](deployment-guardrails-exclusions.md "deployment-guardrails-exclusions.md")). To learn more about
-  events in SageMaker AI, see the Endpoint deployment state change section in [Events that Amazon SageMaker AI sends to
-  Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md"). Note that if your endpoint uses any of the features in the [Exclusions](deployment-guardrails-exclusions.md "deployment-guardrails-exclusions.md") page,
+  events in SageMaker AI, see the Endpoint deployment state change section in [Events that Amazon SageMaker AI sends to Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md"). Note that if your endpoint uses any of the features in the [Exclusions](deployment-guardrails-exclusions.md "deployment-guardrails-exclusions.md") page,
   you cannot use CloudWatch Events.
 
 ###### Note

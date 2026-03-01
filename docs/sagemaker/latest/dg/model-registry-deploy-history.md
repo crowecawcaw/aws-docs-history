@@ -1,6 +1,4 @@
-# View the Deployment History of a
-
-Model
+# View the Deployment History of a Model
 
 To view the deployments for a model version in the Amazon SageMaker Studio console,
 complete the following steps based on whether you use Studio or

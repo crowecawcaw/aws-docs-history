@@ -1,20 +1,14 @@
-# Dataset file types and input data
-
-format
+# Dataset file types and input data format
 
 Instruction-based fine-tuning uses labeled datasets to improve the performance of
 pre-trained LLMs on specific natural language processing (NLP) tasks. The labeled examples are
 formatted as prompt-response pairs and phrased as instructions.
 
-To learn about the supported dataset file types, see [Supported dataset file
-types](#autopilot-llms-finetuning-dataset-format "#autopilot-llms-finetuning-dataset-format").
+To learn about the supported dataset file types, see [Supported dataset file types](#autopilot-llms-finetuning-dataset-format "#autopilot-llms-finetuning-dataset-format").
 
-To learn about input data format, see [Input data format for
-instruction-based fine-tuning](#autopilot-llms-finetuning-input-format "#autopilot-llms-finetuning-input-format").
+To learn about input data format, see [Input data format for instruction-based fine-tuning](#autopilot-llms-finetuning-input-format "#autopilot-llms-finetuning-input-format").
 
-## Supported dataset file
-
-types
+## Supported dataset file types
 
 Autopilot supports instruction-based fine-tuning datasets formatted as CSV files (default)
 or as Parquet files.
@@ -29,12 +23,9 @@ or as Parquet files.
 ###### Note
 
 The dataset may consist of multiple files, each of which must adhere to a specific
-template. For information on how to format your input data, see [Input data format for
-instruction-based fine-tuning](#autopilot-llms-finetuning-input-format "#autopilot-llms-finetuning-input-format").
+template. For information on how to format your input data, see [Input data format for instruction-based fine-tuning](#autopilot-llms-finetuning-input-format "#autopilot-llms-finetuning-input-format").
 
-## Input data format for
-
-instruction-based fine-tuning
+## Input data format for instruction-based fine-tuning
 
 Each file in the dataset must adhere to the following format:
 

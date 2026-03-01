@@ -1,6 +1,4 @@
-# Running jobs on SageMaker HyperPod clusters
-
-orchestrated by Amazon EKS
+# Running jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS
 
 The following topics provide procedures and examples of accessing compute nodes and
 running ML workloads on provisioned SageMaker HyperPod clusters orchestrated with Amazon EKS. Depending
@@ -40,11 +38,7 @@ to manage ML experiments and training runs.
 
 ###### Topics
 
-- [Installing the SageMaker HyperPod
-  CLI](sagemaker-hyperpod-eks-run-jobs-access-nodes.md "sagemaker-hyperpod-eks-run-jobs-access-nodes.md")
-- [SageMaker HyperPod CLI
-  commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md")
-- [Running jobs using the
-  SageMaker HyperPod CLI](sagemaker-hyperpod-eks-run-jobs-hyperpod-cli.md "sagemaker-hyperpod-eks-run-jobs-hyperpod-cli.md")
-- [Running jobs using
-  kubectl](sagemaker-hyperpod-eks-run-jobs-kubectl.md "sagemaker-hyperpod-eks-run-jobs-kubectl.md")
+- [Installing the SageMaker HyperPod CLI](sagemaker-hyperpod-eks-run-jobs-access-nodes.md "sagemaker-hyperpod-eks-run-jobs-access-nodes.md")
+- [SageMaker HyperPod CLI commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md")
+- [Running jobs using the SageMaker HyperPod CLI](sagemaker-hyperpod-eks-run-jobs-hyperpod-cli.md "sagemaker-hyperpod-eks-run-jobs-hyperpod-cli.md")
+- [Running jobs using kubectl](sagemaker-hyperpod-eks-run-jobs-kubectl.md "sagemaker-hyperpod-eks-run-jobs-kubectl.md")

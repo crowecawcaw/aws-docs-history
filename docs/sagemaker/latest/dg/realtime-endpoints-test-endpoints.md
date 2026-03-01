@@ -1,15 +1,11 @@
-# Invoke models for real-time
-
-inference
+# Invoke models for real-time inference
 
 After you use Amazon SageMaker AI to deploy a model to an endpoint, you can interact with the model
 by sending inference requests to it. To send an inference request to a model, you invoke the
 endpoint that hosts it. You can invoke your endpoints using Amazon SageMaker Studio, the AWS
 SDKs, or the AWS CLI.
 
-## Invoke Your Model Using
-
-Amazon SageMaker Studio
+## Invoke Your Model Using Amazon SageMaker Studio
 
 After you deploy your model to an endpoint, you can view the endpoint through
 Amazon SageMaker Studio and test your endpoint by sending single inference requests.
@@ -56,9 +52,7 @@ is accepted). The card shows the following fields:
 - **Result Time** – How many minutes have passed since the result was
   returned.
 
-## Invoke Your Model by Using the
-
-AWS SDK for Python (Boto3)
+## Invoke Your Model by Using the AWS SDK for Python (Boto3)
 
 If you want to invoke a model endpoint in your application code, you can use one of
 the AWS SDKs, including the AWS SDK for Python (Boto3). To invoke your endpoint with this SDK, you
@@ -121,9 +115,7 @@ code:
 print(response["HTTPStatusCode"])
 ```
 
-### Invoke to Stream an
-
-Inference Response
+### Invoke to Stream an Inference Response
 
 If you deployed a model that supports inference streaming, you can invoke the
 model to receive its inference payload as a stream of parts. The model delivers
@@ -289,9 +281,7 @@ incrementally:
 a challenging problem in machine learning. The goal is to . . .
 ```
 
-## Invoke Your Model by Using the
-
-AWS CLI
+## Invoke Your Model by Using the AWS CLI
 
 You can invoke your model endpoint by running commands with the AWS Command Line Interface (AWS CLI). The
 AWS CLI supports standard inference requests with the `invoke-endpoint`
@@ -342,9 +332,7 @@ View the output of the invocation by checking the file output file (`output_file
 more output_file.txt
 ```
 
-## Invoke Your Model by Using the
-
-AWS SDK for Python
+## Invoke Your Model by Using the AWS SDK for Python
 
 ### Invoke to Bidirectionally Stream an Inference Request and Response
 

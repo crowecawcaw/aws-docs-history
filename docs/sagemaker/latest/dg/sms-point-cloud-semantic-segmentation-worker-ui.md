@@ -1,6 +1,4 @@
-# View the worker task
-
-interface for a 3D point cloud semantic segmentation job
+# View the worker task interface for a 3D point cloud semantic segmentation job
 
 Ground Truth provides workers with a web portal and tools to complete your 3D point cloud
 semantic segmentation annotation tasks. When you create the labeling job, you provide

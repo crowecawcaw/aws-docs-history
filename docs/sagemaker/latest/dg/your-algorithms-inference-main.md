@@ -10,7 +10,5 @@ of two ways:
 
 ###### Topics
 
-- [Custom Inference Code with Hosting
-  Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md")
-- [Custom Inference Code with Batch
-  Transform](your-algorithms-batch-code.md "your-algorithms-batch-code.md")
+- [Custom Inference Code with Hosting Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md")
+- [Custom Inference Code with Batch Transform](your-algorithms-batch-code.md "your-algorithms-batch-code.md")

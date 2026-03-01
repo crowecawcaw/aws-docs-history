@@ -1,6 +1,4 @@
-# Training modes and algorithm
-
-support
+# Training modes and algorithm support
 
 Autopilot supports different training modes and algorithms to address machine learning
 problems, report on quality and objective metrics, and to use cross-validation automatically,

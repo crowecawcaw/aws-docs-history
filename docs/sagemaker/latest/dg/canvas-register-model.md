@@ -1,6 +1,4 @@
-# Register a model version in the SageMaker AI model
-
-registry
+# Register a model version in the SageMaker AI model registry
 
 With SageMaker Canvas, you can build multiple iterations, or versions, of your model to improve it over time. You might want to build a new version of your model if you acquire better
 training data or if you want to attempt to improve the model’s accuracy. For more information about adding versions to your model, see
@@ -68,9 +66,7 @@ procedure shows how to turn off model registration permissions for a specific us
 
 The user profile should no longer have model registration permissions.
 
-## Register a model version to the SageMaker AI model
-
-registry
+## Register a model version to the SageMaker AI model registry
 
 SageMaker Model Registry tracks all of the model versions that you build to solve a particular problem in a _model group_.
 When you build a SageMaker Canvas model and register it to SageMaker Model Registry, it gets added to a model group as a new model version. For example, if you build and

@@ -1,6 +1,4 @@
-# Configure data input channel to use
-
-Amazon FSx for Lustre
+# Configure data input channel to use Amazon FSx for Lustre
 
 Learn how to use Amazon FSx for Lustre as your data source for higher throughput and faster
 training by reducing the time for data loading.
@@ -13,9 +11,7 @@ ports is necessary for SageMaker AI to access the Amazon FSx file system in the 
 more, see [File System Access Control
 with Amazon VPC](../../../fsx/latest/LustreGuide/limit-access-security-groups.md "../../../fsx/latest/LustreGuide/limit-access-security-groups.md").
 
-## Sync Amazon S3 and
-
-Amazon FSx for Lustre
+## Sync Amazon S3 and Amazon FSx for Lustre
 
 To link your Amazon S3 to Amazon FSx for Lustre and upload your training datasets, do the
 following.
@@ -71,9 +67,7 @@ Amazon FSx in the following directories.
 /ns1/test   # synced with s3://amzn-s3-demo-bucket/data/test
 ```
 
-## Set the Amazon FSx file
-
-system path as the data input channel for SageMaker training
+## Set the Amazon FSx file system path as the data input channel for SageMaker training
 
 The following procedures walk you through the process of setting the Amazon FSx file system
 as the data source for SageMaker training jobs.

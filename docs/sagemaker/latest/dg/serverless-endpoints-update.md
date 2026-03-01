@@ -30,9 +30,7 @@ After creating a new serverless endpoint configuration you can use the [AWS SDK 
 Examples of how to update your endpoint using the AWS SDK for Python (Boto3) and the
 SageMaker AI console are outlined in the following sections.
 
-### To update the endpoint (using
-
-Boto3)
+### To update the endpoint (using Boto3)
 
 The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") to call the [update_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/update_endpoint.html") method. Specify at least the following parameters when calling the method:
 
@@ -47,9 +45,7 @@ response = client.update_endpoint(
 )
 ```
 
-### To update the endpoint (using the
-
-console)
+### To update the endpoint (using the console)
 
 1. Sign in to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").

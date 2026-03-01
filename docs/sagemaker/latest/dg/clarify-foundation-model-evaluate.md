@@ -1,6 +1,4 @@
-# Understand options for evaluating large
-
-language models with SageMaker Clarify
+# Understand options for evaluating large language models with SageMaker Clarify
 
 ###### Important
 
@@ -33,15 +31,11 @@ You can create a model evaluation job using three different approaches.
 ###### Topics
 
 - [What are foundation model evaluations?](clarify-foundation-model-evaluate-whatis.md "clarify-foundation-model-evaluate-whatis.md")
-- [Get started with model
-  evaluations](clarify-foundation-model-evaluate-get-started.md "clarify-foundation-model-evaluate-get-started.md")
+- [Get started with model evaluations](clarify-foundation-model-evaluate-get-started.md "clarify-foundation-model-evaluate-get-started.md")
 - [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")
 - [Create a model evaluation job that uses human workers](clarify-foundation-model-evaluate-human.md "clarify-foundation-model-evaluate-human.md")
 - [Automatic model evaluation](clarify-foundation-model-evaluate-auto.md "clarify-foundation-model-evaluate-auto.md")
-- [Understand the results of your model
-  evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md")
+- [Understand the results of your model evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md")
 - [Customize your workflow using the fmeval library](clarify-foundation-model-evaluate-auto-lib-custom.md "clarify-foundation-model-evaluate-auto-lib-custom.md")
-- [Model evaluation notebook
-  tutorials](clarify-foundation-model-evaluate-auto-tutorial.md "clarify-foundation-model-evaluate-auto-tutorial.md")
-- [Resolve errors when
-  creating a model evaluation job in Amazon SageMaker AI](clarify-foundation-model-evaluate-troubleshooting.md "clarify-foundation-model-evaluate-troubleshooting.md")
+- [Model evaluation notebook tutorials](clarify-foundation-model-evaluate-auto-tutorial.md "clarify-foundation-model-evaluate-auto-tutorial.md")
+- [Resolve errors when creating a model evaluation job in Amazon SageMaker AI](clarify-foundation-model-evaluate-troubleshooting.md "clarify-foundation-model-evaluate-troubleshooting.md")

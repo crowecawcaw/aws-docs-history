@@ -1,6 +1,4 @@
-# Create a VPC Endpoint Policy for
-
-SageMaker AI MLflow
+# Create a VPC Endpoint Policy for SageMaker AI MLflow
 
 You can attach an Amazon VPC endpoint policy to the interface VPC endpoints that you use to
 connect to SageMaker AI MLflow. The endpoint policy controls access to MLflow. You

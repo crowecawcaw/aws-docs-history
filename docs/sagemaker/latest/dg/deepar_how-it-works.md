@@ -7,8 +7,7 @@ set to generate forecasts for the future of the time series in the training set,
 other time series. Both the training and the test datasets consist of one or,
 preferably, more target time series. Each target time series can optionally be
 associated with a vector of feature time series and a vector of categorical features.
-For more information, see [Input/Output Interface for the DeepAR
-Algorithm](deepar.md#deepar-inputoutput "deepar.md#deepar-inputoutput").
+For more information, see [Input/Output Interface for the DeepAR Algorithm](deepar.md#deepar-inputoutput "deepar.md#deepar-inputoutput").
 
 For example, the following is an element of a training set indexed by
 _i_ which consists of a target time series,
@@ -30,9 +29,7 @@ Categorical features allow the model to learn typical behavior for groups, which
 use to increase model accuracy. DeepAR implements this by learning an embedding vector
 for each group that captures the common properties of all time series in the group.
 
-## How Feature Time Series Work in the DeepAR
-
-Algorithm
+## How Feature Time Series Work in the DeepAR Algorithm
 
 To facilitate learning time-dependent patterns, such as spikes during weekends,
 DeepAR automatically creates feature time series based on the frequency of the

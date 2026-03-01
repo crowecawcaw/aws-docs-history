@@ -1,6 +1,4 @@
-# Managing storage paths for different
-
-types of instance local storage
+# Managing storage paths for different types of instance local storage
 
 Consider the following when setting up storage paths for training jobs in SageMaker AI.
 
@@ -28,8 +26,7 @@ Consider the following when setting up storage paths for training jobs in SageMa
   instance storage types and volumes, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 - The default paths for SageMaker training jobs are mounted to Amazon EBS volumes or NVMe SSD
   volumes of the ML instance. When you adapt your training script to SageMaker AI, make sure that
-  you use the default paths listed in the previous topic about [SageMaker AI environment variables and the
-  default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md"). We recommend that you use the
+  you use the default paths listed in the previous topic about [SageMaker AI environment variables and the default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md"). We recommend that you use the
   `/tmp` directory as a scratch space for temporarily storing any large objects
   during training. This means that you must not use directories that are mounted to small
   disk space allocated for system, such as `/user` and `/home`, to

@@ -1,6 +1,4 @@
-# Removing managed tiered
-
-checkpointing
+# Removing managed tiered checkpointing
 
 This section explains how to disable managed tiered checkpointing when you no longer need
 it.

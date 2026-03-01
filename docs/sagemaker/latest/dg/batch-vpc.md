@@ -1,6 +1,4 @@
-# Give Batch Transform Jobs Access to Resources in Your
-
-Amazon VPC
+# Give Batch Transform Jobs Access to Resources in Your Amazon VPC
 
 To control access to your data and batch transform jobs, we recommend that you create
 a private Amazon VPC and configure it so that your jobs aren't accessible over the public
@@ -16,9 +14,7 @@ Guide_.
 This document explains how to add Amazon VPC configurations for batch transform
 jobs.
 
-## Configure a Batch Transform Job for Amazon VPC
-
-Access
+## Configure a Batch Transform Job for Amazon VPC Access
 
 To specify subnets and security groups in your private VPC, use the `VpcConfig`
 request parameter of the [`CreateModel`](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") API, or provide this information when you create a model in the
@@ -47,8 +43,7 @@ VpcConfig: {
 
 If you are creating a model using the `CreateModel` API operation, the
 IAM execution role that you use to create your model must include the permissions
-described in [CreateModel API: Execution Role
-Permissions](sagemaker-roles.md#sagemaker-roles-createmodel-perms "sagemaker-roles.md#sagemaker-roles-createmodel-perms"), including the following
+described in [CreateModel API: Execution Role Permissions](sagemaker-roles.md#sagemaker-roles-createmodel-perms "sagemaker-roles.md#sagemaker-roles-createmodel-perms"), including the following
 permissions required for a private VPC.
 
 When creating a model in the console, if you select **Create a new
@@ -72,9 +67,7 @@ specify must have an execution policy attached with the following permissions.
             "ec2:DescribeSecurityGroups"
 ```
 
-## Configure Your Private VPC for SageMaker AI Batch
-
-Transform
+## Configure Your Private VPC for SageMaker AI Batch Transform
 
 When configuring the private VPC for your SageMaker AI batch transform jobs, use the
 following guidelines. For information about setting up a VPC, see [Working
@@ -85,8 +78,7 @@ Guide_.
 
 - [Ensure That Subnets Have Enough IP Addresses](#batch-vpc-ip "#batch-vpc-ip")
 - [Create an Amazon S3 VPC Endpoint](#batch-vpc-s3 "#batch-vpc-s3")
-- [Use a Custom Endpoint Policy to Restrict
-  Access to S3](#batch-vpc-policy "#batch-vpc-policy")
+- [Use a Custom Endpoint Policy to Restrict Access to S3](#batch-vpc-policy "#batch-vpc-policy")
 - [Configure Route Tables](#batch-vpc-route-table "#batch-vpc-route-table")
 - [Configure the VPC Security Group](#batch-vpc-groups "#batch-vpc-groups")
 - [Connect to Resources Outside Your VPC](#batch-vpc-nat "#batch-vpc-nat")
@@ -125,12 +117,9 @@ information, see [Endpoints for Amazon S3](../../../AmazonVPC/latest/UserGuide/v
 6. For **Policy**, choose **Full
    Access** to allow full access to the S3 service by any user
    or service within the VPC. Choose **Custom** to
-   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict
-   Access to S3](#batch-vpc-policy "#batch-vpc-policy").
+   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict Access to S3](#batch-vpc-policy "#batch-vpc-policy").
 
-### Use a Custom Endpoint Policy to Restrict
-
-Access to S3
+### Use a Custom Endpoint Policy to Restrict Access to S3
 
 The default endpoint policy allows full access to S3 for any user or service
 in your VPC. To further restrict access to S3, create a custom endpoint policy.
@@ -138,9 +127,7 @@ For more information, see [Using Endpoint Policies for Amazon S3](../../../vpc/l
 to restrict access to your S3 buckets to only traffic that comes from your
 Amazon VPC. For information, see [Using Amazon S3 Bucket Policies](../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies "../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies").
 
-#### Restrict Package Installation on
-
-the Model Container
+#### Restrict Package Installation on the Model Container
 
 The default endpoint policy allows users to install packages from the Amazon Linux
 and Amazon Linux 2 repositories on the training container. If you don't want users

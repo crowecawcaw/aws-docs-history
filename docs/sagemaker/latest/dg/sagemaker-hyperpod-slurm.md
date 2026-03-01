@@ -1,6 +1,4 @@
-# Orchestrating SageMaker HyperPod clusters with
-
-Slurm
+# Orchestrating SageMaker HyperPod clusters with Slurm
 
 Slurm support in SageMaker HyperPod helps you provision resilient clusters for running machine
 learning (ML) workloads and developing state-of-the-art models such as large language models
@@ -29,8 +27,7 @@ learn more, see [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod
 SageMaker HyperPod runs [SageMaker HyperPod DLAMI](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami"), which sets up an
 ML environment on the HyperPod clusters. You can configure additional
 customizations to the DLAMI by providing lifecycle scripts to support your use case. To
-learn more about how to set up lifecycle scripts, see [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md") and [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+learn more about how to set up lifecycle scripts, see [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md") and [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 **Scheduling jobs**
 
@@ -43,8 +40,7 @@ jobs for running machine learning workloads. To learn more, see [Jobs on SageMak
 SageMaker HyperPod runs health checks on cluster nodes and provides a workload auto-resume
 functionality. With the cluster resiliency features of HyperPod, you can resume
 your workload from the last checkpoint you saved, after faulty nodes are replaced with
-healthy ones in clusters with more than 16 nodes. To learn more, see [SageMaker HyperPod cluster
-resiliency](sagemaker-hyperpod-resiliency-slurm.md "sagemaker-hyperpod-resiliency-slurm.md").
+healthy ones in clusters with more than 16 nodes. To learn more, see [SageMaker HyperPod cluster resiliency](sagemaker-hyperpod-resiliency-slurm.md "sagemaker-hyperpod-resiliency-slurm.md").
 
 **Logging and managing clusters**
 
@@ -77,13 +73,10 @@ will will use all 17 instances in the first UltraServer and then use 3 from the 
 
 - [Getting started with SageMaker HyperPod](smcluster-getting-started-slurm.md "smcluster-getting-started-slurm.md")
 - [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md")
-- [Customizing SageMaker HyperPod
-  clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md")
+- [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md")
 - [SageMaker HyperPod multi-head node support](sagemaker-hyperpod-multihead-slurm.md "sagemaker-hyperpod-multihead-slurm.md")
 - [Jobs on SageMaker HyperPod clusters](sagemaker-hyperpod-run-jobs-slurm.md "sagemaker-hyperpod-run-jobs-slurm.md")
-- [SageMaker HyperPod cluster
-  resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md")
-- [SageMaker HyperPod cluster
-  resiliency](sagemaker-hyperpod-resiliency-slurm.md "sagemaker-hyperpod-resiliency-slurm.md")
+- [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md")
+- [SageMaker HyperPod cluster resiliency](sagemaker-hyperpod-resiliency-slurm.md "sagemaker-hyperpod-resiliency-slurm.md")
 - [SageMaker HyperPod cluster management](sagemaker-hyperpod-cluster-management-slurm.md "sagemaker-hyperpod-cluster-management-slurm.md")
 - [SageMaker HyperPod FAQs](sagemaker-hyperpod-faq-slurm.md "sagemaker-hyperpod-faq-slurm.md")

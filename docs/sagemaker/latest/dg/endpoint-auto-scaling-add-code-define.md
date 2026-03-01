@@ -8,23 +8,15 @@ your custom metric.
 
 ###### Topics
 
-- [Specify a predefined
-  metric (CloudWatch metric: InvocationsPerInstance)](#endpoint-auto-scaling-add-code-predefined "#endpoint-auto-scaling-add-code-predefined")
-- [Specify a high-resolution
-  predefined metric (CloudWatch metrics: ConcurrentRequestsPerModel and
-  ConcurrentRequestsPerCopy)](#endpoint-auto-scaling-add-code-high-res "#endpoint-auto-scaling-add-code-high-res")
-- [Define a custom metric (CloudWatch
-  metric: CPUUtilization)](#endpoint-auto-scaling-add-code-custom "#endpoint-auto-scaling-add-code-custom")
-- [Define a custom metric
-  (CloudWatch metric: ExplanationsPerInstance)](#endpoint-auto-scaling-online-explainability "#endpoint-auto-scaling-online-explainability")
-- [Specify cooldown
-  periods](#endpoint-auto-scaling-add-code-cooldown "#endpoint-auto-scaling-add-code-cooldown")
+- [Specify a predefined metric (CloudWatch metric: InvocationsPerInstance)](#endpoint-auto-scaling-add-code-predefined "#endpoint-auto-scaling-add-code-predefined")
+- [Specify a high-resolution predefined metric (CloudWatch metrics: ConcurrentRequestsPerModel and ConcurrentRequestsPerCopy)](#endpoint-auto-scaling-add-code-high-res "#endpoint-auto-scaling-add-code-high-res")
+- [Define a custom metric (CloudWatch metric: CPUUtilization)](#endpoint-auto-scaling-add-code-custom "#endpoint-auto-scaling-add-code-custom")
+- [Define a custom metric (CloudWatch metric: ExplanationsPerInstance)](#endpoint-auto-scaling-online-explainability "#endpoint-auto-scaling-online-explainability")
+- [Specify cooldown periods](#endpoint-auto-scaling-add-code-cooldown "#endpoint-auto-scaling-add-code-cooldown")
   This section shows you example policy configurations for target tracking scaling
   policies.
 
-## Specify a predefined
-
-metric (CloudWatch metric: InvocationsPerInstance)
+## Specify a predefined metric (CloudWatch metric: InvocationsPerInstance)
 
 ###### Example
 
@@ -45,10 +37,7 @@ in a file named `config.json`.
 For more information, see [TargetTrackingScalingPolicyConfiguration](../../../autoscaling/application/APIReference/API_TargetTrackingScalingPolicyConfiguration.md "../../../autoscaling/application/APIReference/API_TargetTrackingScalingPolicyConfiguration.md") in the _Application Auto Scaling
 API Reference_.
 
-## Specify a high-resolution
-
-predefined metric (CloudWatch metrics: ConcurrentRequestsPerModel and
-ConcurrentRequestsPerCopy)
+## Specify a high-resolution predefined metric (CloudWatch metrics: ConcurrentRequestsPerModel and ConcurrentRequestsPerCopy)
 
 With the following high-resolution CloudWatch metrics, you can set scaling policies for
 the volume of concurrent requests that your models receive:
@@ -98,9 +87,7 @@ you can create an equivalent policy. In that case, set
 For more information, see [TargetTrackingScalingPolicyConfiguration](../../../autoscaling/application/APIReference/API_TargetTrackingScalingPolicyConfiguration.md "../../../autoscaling/application/APIReference/API_TargetTrackingScalingPolicyConfiguration.md") in the _Application Auto Scaling API
 Reference_.
 
-## Define a custom metric (CloudWatch
-
-metric: CPUUtilization)
+## Define a custom metric (CloudWatch metric: CPUUtilization)
 
 To create a target tracking scaling policy with a custom metric, specify the
 metric's name, namespace, unit, statistic, and zero or more dimensions. A dimension
@@ -134,9 +121,7 @@ file named `config.json`.
 For more information, see [CustomizedMetricSpecification](../../../autoscaling/application/APIReference/API_CustomizedMetricSpecification.md "../../../autoscaling/application/APIReference/API_CustomizedMetricSpecification.md") in the _Application Auto Scaling API
 Reference_.
 
-## Define a custom metric
-
-(CloudWatch metric: ExplanationsPerInstance)
+## Define a custom metric (CloudWatch metric: ExplanationsPerInstance)
 
 When the endpoint has online explainability activated, it emits a
 `ExplanationsPerInstance` metric that outputs the average number of
@@ -146,8 +131,7 @@ strongly recommend using this metric for target tracking scaling of endpoints wi
 online explainability activated.
 
 You can create multiple target tracking policies for a scalable target. Consider
-adding the `InvocationsPerInstance` policy from the [Specify a predefined
-metric (CloudWatch metric: InvocationsPerInstance)](#endpoint-auto-scaling-add-code-predefined "#endpoint-auto-scaling-add-code-predefined") section (in addition
+adding the `InvocationsPerInstance` policy from the [Specify a predefined metric (CloudWatch metric: InvocationsPerInstance)](#endpoint-auto-scaling-add-code-predefined "#endpoint-auto-scaling-add-code-predefined") section (in addition
 to the `ExplanationsPerInstance` policy). If most invocations don't
 return an explanation because of the threshold value set in the
 `EnableExplanations` parameter, then the endpoint can choose the
@@ -180,9 +164,7 @@ Save this configuration in a file named `config.json`.
 For more information, see [CustomizedMetricSpecification](../../../autoscaling/application/APIReference/API_CustomizedMetricSpecification.md "../../../autoscaling/application/APIReference/API_CustomizedMetricSpecification.md") in the _Application Auto Scaling API
 Reference_.
 
-## Specify cooldown
-
-periods
+## Specify cooldown periods
 
 You can optionally define cooldown periods in your target tracking scaling policy
 by specifying the `ScaleOutCooldown` and `ScaleInCooldown`

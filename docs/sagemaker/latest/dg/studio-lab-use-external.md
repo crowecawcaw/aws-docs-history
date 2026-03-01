@@ -10,8 +10,7 @@ The following topics show how to integrate external resources.
 ###### Topics
 
 - [Use GitHub resources](#studio-lab-use-external-clone-github "#studio-lab-use-external-clone-github")
-- [Add an Open in
-  Studio Lab button to your notebook](#studio-lab-use-external-add-button "#studio-lab-use-external-add-button")
+- [Add an Open in Studio Lab button to your notebook](#studio-lab-use-external-add-button "#studio-lab-use-external-add-button")
 - [Import files from your computer](#studio-lab-use-external-import "#studio-lab-use-external-import")
 - [Connect to Amazon S3](#studio-lab-use-external-s3 "#studio-lab-use-external-s3")
 
@@ -55,9 +54,7 @@ To clone a GitHub repo to your Studio Lab project, follow these steps.
 6. Paste the repository's URL under **Git repository URL (.git)**.
 7. Select **Clone**.
 
-### Clone individual notebooks from
-
-GitHub
+### Clone individual notebooks from GitHub
 
 To open a notebook in Studio Lab, you must have access to the repo that the notebook is in.
 The following examples describe Studio Lab permission-related behavior in various
@@ -75,13 +72,10 @@ The following sections show two options for you to copy a GitHub notebook in you
 Studio Lab project. These options depend on whether the notebook has an **Open in
 Studio Lab** button.
 
-#### Option 1: Copy notebook
-
-with an **Open in Studio Lab** button
+#### Option 1: Copy notebook with an **Open in Studio Lab** button
 
 The following procedure shows how to copy a notebook that has an **Open in
-Studio Lab** button. If you want to add this button to your notebook, see [Add an Open in
-Studio Lab button to your notebook](#studio-lab-use-external-add-button "#studio-lab-use-external-add-button").
+Studio Lab** button. If you want to add this button to your notebook, see [Add an Open in Studio Lab button to your notebook](#studio-lab-use-external-add-button "#studio-lab-use-external-add-button").
 
 1. Sign in to Studio Lab following the steps in [Sign in to Studio Lab](studio-lab-onboard.md#studio-lab-onboard-signin "studio-lab-onboard.md#studio-lab-onboard-signin").
 2. In a new browser tab, navigate to the GitHub notebook that you want to clone.
@@ -95,9 +89,7 @@ Studio Lab button to your notebook](#studio-lab-use-external-add-button "#studio
 6. In the **Copy from GitHub?** dialog box, select **Copy
    notebook only**. This copies the notebook file to your project.
 
-#### Option 2: Clone any
-
-GitHub notebook
+#### Option 2: Clone any GitHub notebook
 
 The following procedure shows how to copy any notebook from GitHub.
 
@@ -121,9 +113,7 @@ The following procedure shows how to copy any notebook from GitHub.
 6. In the **Copy from GitHub?** dialog box, select **Copy
    notebook only** to copy the notebook file to your project.
 
-## Add an \*\*Open in
-
-Studio Lab\*\* button to your notebook
+## Add an **Open in Studio Lab** button to your notebook
 
 When you add the **Open in Studio Lab** button to your notebooks, others can
 clone your notebooks or repositories directly to their Studio Lab projects. If you are sharing

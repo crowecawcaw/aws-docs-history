@@ -9,28 +9,20 @@ Use batch transform when you need to do the following:
 - Associate input records with inferences to help with the interpretation of
   results.
   To filter input data before performing inferences or to associate input records with
-  inferences about those records, see [Associate
-  Prediction
-  Results with Input Records](batch-transform-data-processing.md "batch-transform-data-processing.md"). For example, you can filter input
+  inferences about those records, see [Associate Prediction Results with Input Records](batch-transform-data-processing.md "batch-transform-data-processing.md"). For example, you can filter input
   data to provide context for creating and interpreting reports about the output data.
 
 ###### Topics
 
-- [Use
-  batch transform to get inferences from large datasets](#batch-transform-large-datasets "#batch-transform-large-datasets")
+- [Use batch transform to get inferences from large datasets](#batch-transform-large-datasets "#batch-transform-large-datasets")
 - [Speed up a batch transform job](#batch-transform-reduce-time "#batch-transform-reduce-time")
-- [Use batch transform to test production
-  variants](#batch-transform-test-variants "#batch-transform-test-variants")
+- [Use batch transform to test production variants](#batch-transform-test-variants "#batch-transform-test-variants")
 - [Batch transform sample notebooks](#batch-transform-notebooks "#batch-transform-notebooks")
-- [Associate
-  Prediction
-  Results with Input Records](batch-transform-data-processing.md "batch-transform-data-processing.md")
+- [Associate Prediction Results with Input Records](batch-transform-data-processing.md "batch-transform-data-processing.md")
 - [Storage in Batch Transform](batch-transform-storage.md "batch-transform-storage.md")
 - [Troubleshooting](batch-transform-errors.md "batch-transform-errors.md")
 
-## Use
-
-batch transform to get inferences from large datasets
+## Use batch transform to get inferences from large datasets
 
 Batch transform automatically manages the processing of large datasets
 within
@@ -120,8 +112,7 @@ don't support this feature.
 
 For information about using the API to create a batch transform job, see the [`CreateTransformJob`](../APIReference/API_CreateTransformJob.md "../APIReference/API_CreateTransformJob.md") API. For more information about the
 relationship between batch transform input and output objects, see [`OutputDataConfig`](../APIReference/API_OutputDataConfig.md "../APIReference/API_OutputDataConfig.md"). For an example of how to use batch transform,
-see [(Optional) Make Prediction with Batch
-Transform](ex1-model-deployment.md#ex1-batch-transform "ex1-model-deployment.md#ex1-batch-transform").
+see [(Optional) Make Prediction with Batch Transform](ex1-model-deployment.md#ex1-batch-transform "ex1-model-deployment.md#ex1-batch-transform").
 
 ## Speed up a batch transform job
 
@@ -140,15 +131,12 @@ transform job configuration** page. SageMaker AI automatically finds the optimal
 parameter settings for built-in algorithms. For custom algorithms, provide these values
 through an [execution-parameters](your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests "your-algorithms-batch-code.md#your-algorithms-batch-code-how-containe-serves-requests") endpoint.
 
-## Use batch transform to test production
-
-variants
+## Use batch transform to test production variants
 
 To test different models or hyperparameter settings, create a separate transform job
 for each new model variant and use a validation dataset. For each transform job, specify
 a unique model name and location in Amazon S3 for the output file. To analyze the results,
-use [Inference Pipeline Logs and
-Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md").
+use [Inference Pipeline Logs and Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md").
 
 ## Batch transform sample notebooks
 

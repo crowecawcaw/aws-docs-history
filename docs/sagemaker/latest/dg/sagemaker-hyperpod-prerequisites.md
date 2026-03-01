@@ -1,6 +1,4 @@
-# Prerequisites for using
-
-SageMaker HyperPod
+# Prerequisites for using SageMaker HyperPod
 
 The following sections walk you through prerequisites before getting started with
 SageMaker HyperPod.
@@ -8,14 +6,10 @@ SageMaker HyperPod.
 ###### Topics
 
 - [SageMaker HyperPod quotas](#sagemaker-hyperpod-prerequisites-quotas "#sagemaker-hyperpod-prerequisites-quotas")
-- [Setting up SageMaker HyperPod
-  with a custom Amazon VPC](#sagemaker-hyperpod-prerequisites-optional-vpc "#sagemaker-hyperpod-prerequisites-optional-vpc")
-- [Setting
-  up SageMaker HyperPod clusters across multiple AZs](#sagemaker-hyperpod-prerequisites-multiple-availability-zones "#sagemaker-hyperpod-prerequisites-multiple-availability-zones")
-- [Setting up AWS Systems Manager and Run As
-  for cluster user access control](#sagemaker-hyperpod-prerequisites-ssm "#sagemaker-hyperpod-prerequisites-ssm")
-- [(Optional) Setting up
-  SageMaker HyperPod with Amazon FSx for Lustre](#sagemaker-hyperpod-prerequisites-optional-fsx "#sagemaker-hyperpod-prerequisites-optional-fsx")
+- [Setting up SageMaker HyperPod with a custom Amazon VPC](#sagemaker-hyperpod-prerequisites-optional-vpc "#sagemaker-hyperpod-prerequisites-optional-vpc")
+- [Setting up SageMaker HyperPod clusters across multiple AZs](#sagemaker-hyperpod-prerequisites-multiple-availability-zones "#sagemaker-hyperpod-prerequisites-multiple-availability-zones")
+- [Setting up AWS Systems Manager and Run As for cluster user access control](#sagemaker-hyperpod-prerequisites-ssm "#sagemaker-hyperpod-prerequisites-ssm")
+- [(Optional) Setting up SageMaker HyperPod with Amazon FSx for Lustre](#sagemaker-hyperpod-prerequisites-optional-fsx "#sagemaker-hyperpod-prerequisites-optional-fsx")
 
 ## SageMaker HyperPod quotas
 
@@ -26,9 +20,7 @@ usage_ in your AWS account.
 
 To learn more about SageMaker HyperPod pricing, see [SageMaker HyperPod pricing](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-pricing "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-pricing") and [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
 
-### View Amazon SageMaker HyperPod
-
-quotas using the AWS Management Console
+### View Amazon SageMaker HyperPod quotas using the AWS Management Console
 
 Look up the default and applied values of a _quota_, also referred to as a _limit_, for _cluster usage_, which is used for
 SageMaker HyperPod.
@@ -63,9 +55,7 @@ Quota** console and search for the following terms.
 | 7   | Network interfaces per Region                                                 | Under Amazon Virtual Private Cloud (Amazon VPC) search for<br>“Network interfaces per Region"                 | Your account-level quota value must have enough Network<br>Interfaces in the account when setting up your HyperPod<br>cluster.                                                                                                                                                                                                                                                   |
 | 8   | EC2-VPC Elastic IPs                                                           | Under Amazon Elastic Compute Cloud (Amazon EC2) search for<br>“EC2-VPC Elastic IPs"                           | Your account-level quota value must be enough to create a new VPC<br>in the account when setting up your HyperPod cluster. Do check<br>whether you have already exhausted this quota limit by checking the<br>VPC console. This quota increase is only needed if you will create a<br>new VPC via the Quick or Custom cluster setup option in the<br>SageMaker HyperPod console. |
 
-### Request a
-
-Amazon SageMaker HyperPod quota increase using the AWS Management Console
+### Request a Amazon SageMaker HyperPod quota increase using the AWS Management Console
 
 Increase your quotas at the account or resource level.
 
@@ -90,9 +80,7 @@ To learn more about requesting a quota increase in general, see [Requesting a
 Quota Increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the _AWS Service Quotas User
 Guide_.
 
-## Setting up SageMaker HyperPod
-
-with a custom Amazon VPC
+## Setting up SageMaker HyperPod with a custom Amazon VPC
 
 To set up a SageMaker HyperPod cluster with a custom Amazon VPC, review the following
 prerequisites.
@@ -163,8 +151,7 @@ communications differ based on the cluster orchestration platform:
 ###### Note
 
 SageMaker HyperPod supports multi-Availability Zone deployment. For more
-information, see [Setting
-up SageMaker HyperPod clusters across multiple AZs](#sagemaker-hyperpod-prerequisites-multiple-availability-zones "#sagemaker-hyperpod-prerequisites-multiple-availability-zones").
+information, see [Setting up SageMaker HyperPod clusters across multiple AZs](#sagemaker-hyperpod-prerequisites-multiple-availability-zones "#sagemaker-hyperpod-prerequisites-multiple-availability-zones").
 
 - Establish Amazon Simple Storage Service (Amazon S3) connectivity for VPC-deployed SageMaker HyperPod
   instance groups by creating a VPC endpoint. Without internet access, instance
@@ -199,9 +186,7 @@ up SageMaker HyperPod clusters across multiple AZs](#sagemaker-hyperpod-prerequi
   - For examples of CloudFormation templates that specify the subnet CIDR
     block size, see the [HyperPod Slurm template](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml") and [HyperPod Amazon EKS template](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/7.sagemaker-hyperpod-eks/cfn-templates/nested-stacks/private-subnet-stack.yaml "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/7.sagemaker-hyperpod-eks/cfn-templates/nested-stacks/private-subnet-stack.yaml") in the [awsome-distributed-training repository](https://github.com/aws-samples/awsome-distributed-training/tree/main "https://github.com/aws-samples/awsome-distributed-training/tree/main").
 
-## Setting
-
-up SageMaker HyperPod clusters across multiple AZs
+## Setting up SageMaker HyperPod clusters across multiple AZs
 
 You can configure your SageMaker HyperPod clusters across multiple Availability Zones (AZs)
 to improve reliability and availability.
@@ -232,8 +217,7 @@ Once you create a cluster, you cannot modify its `VpcConfig`
 settings.
 
 To learn more about configuring VPCs for HyperPod clusters, see the
-preceding section, [Setting up SageMaker HyperPod
-with a custom Amazon VPC](#sagemaker-hyperpod-prerequisites-optional-vpc "#sagemaker-hyperpod-prerequisites-optional-vpc").
+preceding section, [Setting up SageMaker HyperPod with a custom Amazon VPC](#sagemaker-hyperpod-prerequisites-optional-vpc "#sagemaker-hyperpod-prerequisites-optional-vpc").
 
 - **Multi-AZ configuration**
 
@@ -279,9 +263,7 @@ When running workloads across multiple AZs, be aware that network communication
 between AZs introduces additional latency. Consider this impact when designing
 latency-sensitive applications.
 
-## Setting up AWS Systems Manager and Run As
-
-for cluster user access control
+## Setting up AWS Systems Manager and Run As for cluster user access control
 
 [SageMaker HyperPod DLAMI](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-hyperpod-ami") comes with [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/") (SSM) out of the
 box to help you manage access to your SageMaker HyperPod cluster instance groups. This section
@@ -295,9 +277,7 @@ Granting users access to HyperPod cluster nodes allows them to install
 and operate user-managed software on the nodes. Ensure that you maintain the
 principle of least-privilege permissions for users.
 
-### Enabling Run As
-
-in your AWS account
+### Enabling Run As in your AWS account
 
 As an AWS account admin or a cloud administrator, you can manage access to
 SageMaker HyperPod clusters at an IAM role or user level by using the [Run As
@@ -311,9 +291,7 @@ users by tagging them as guided in **Option 2** of step 5 under
 **To turn on Run As support for Linux and macOS managed
 nodes**.
 
-## (Optional) Setting up
-
-SageMaker HyperPod with Amazon FSx for Lustre
+## (Optional) Setting up SageMaker HyperPod with Amazon FSx for Lustre
 
 To start using SageMaker HyperPod and mapping data paths between the cluster and your
 FSx for Lustre ﬁle system, select one of the AWS Regions supported by SageMaker HyperPod. After

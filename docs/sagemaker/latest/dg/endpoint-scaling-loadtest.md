@@ -1,6 +1,4 @@
-# Load testing your auto scaling
-
-configuration
+# Load testing your auto scaling configuration
 
 Perform load tests to choose a scaling configuration that works the way you
 want.
@@ -11,13 +9,10 @@ uses the predefined target metric
 
 ###### Topics
 
-- [Determine the performance
-  characteristics](#endpoint-scaling-loadtest-variant "#endpoint-scaling-loadtest-variant")
+- [Determine the performance characteristics](#endpoint-scaling-loadtest-variant "#endpoint-scaling-loadtest-variant")
 - [Calculate the target load](#endpoint-scaling-loadtest-calc "#endpoint-scaling-loadtest-calc")
 
-## Determine the performance
-
-characteristics
+## Determine the performance characteristics
 
 Perform load testing to find the peak `InvocationsPerInstance` that
 your model's production variant can handle, and the latency of requests, as
@@ -27,9 +22,7 @@ This value depends on the instance type chosen, payloads that clients of your
 model typically send, and the performance of any external dependencies your model
 has.
 
-###### To find the peak requests-per-second (RPS) your model's production variant
-
-can handle and latency of requests
+###### To find the peak requests-per-second (RPS) your model's production variant can handle and latency of requests
 
 1. Set up an endpoint with your model using a single instance. For
    information about how to set up an endpoint, see [Deploy the Model to SageMaker AI Hosting Services](ex1-model-deployment.md#ex1-deploy-model "ex1-model-deployment.md#ex1-deploy-model").

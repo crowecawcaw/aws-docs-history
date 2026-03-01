@@ -1,6 +1,4 @@
-# Identify image contents using semantic
-
-segmentation
+# Identify image contents using semantic segmentation
 
 To identify the contents of an image at the pixel level, use an Amazon SageMaker Ground Truth semantic
 segmentation labeling task. When assigned a semantic segmentation labeling job, workers

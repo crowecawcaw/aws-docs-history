@@ -1,8 +1,7 @@
 # Deploy a Model in Studio
 
 After you register a model version and approve it for deployment, deploy it to a
-Amazon SageMaker AI endpoint for real-time inference. You can [Deploy a Model from the Registry with
-Python](model-registry-deploy.md "model-registry-deploy.md") or
+Amazon SageMaker AI endpoint for real-time inference. You can [Deploy a Model from the Registry with Python](model-registry-deploy.md "model-registry-deploy.md") or
 deploy your model in Amazon SageMaker Studio. The following provides instructions on how to
 deploy your model in Studio.
 
@@ -16,8 +15,7 @@ This feature is not available in Amazon SageMaker Studio Classic.
   the model package:
 
 - A valid inference specification available. See [InferenceSpecification](../APIReference/API_CreateModelPackage.md#sagemaker-CreateModelPackage-request-InferenceSpecification "../APIReference/API_CreateModelPackage.md#sagemaker-CreateModelPackage-request-InferenceSpecification") for more information.
-- Model with approved status. See [Update the Approval Status of a
-  Model](model-registry-approve.md "model-registry-approve.md") for more information.
+- Model with approved status. See [Update the Approval Status of a Model](model-registry-approve.md "model-registry-approve.md") for more information.
   The following provides instructions on how to deploy a model in
   Studio.
 

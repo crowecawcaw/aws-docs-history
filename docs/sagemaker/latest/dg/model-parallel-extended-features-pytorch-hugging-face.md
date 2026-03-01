@@ -1,6 +1,4 @@
-# Support for
-
-Hugging Face Transformer Models
+# Support for Hugging Face Transformer Models
 
 The SageMaker model parallelism library's tensor parallelism offers out-of-the-box
 support for the following Hugging Face Transformer models:

@@ -1,6 +1,4 @@
-# Deploy a Model from the Registry with
-
-Python
+# Deploy a Model from the Registry with Python
 
 After you register a model version and approve it for deployment, deploy it to a
 SageMaker AI endpoint for real-time inference. You can deploy your model by using the SageMaker AI
@@ -18,16 +16,11 @@ is responsible for deploying and updating models.
 
 ###### Topics
 
-- [Deploy a Model from the Registry
-  (SageMaker SDK)](#model-registry-deploy-smsdk "#model-registry-deploy-smsdk")
-- [Deploy a Model from the Registry
-  (Boto3)](#model-registry-deploy-api "#model-registry-deploy-api")
-- [Deploy a Model Version from a
-  Different Account](#model-registry-deploy-xaccount "#model-registry-deploy-xaccount")
+- [Deploy a Model from the Registry (SageMaker SDK)](#model-registry-deploy-smsdk "#model-registry-deploy-smsdk")
+- [Deploy a Model from the Registry (Boto3)](#model-registry-deploy-api "#model-registry-deploy-api")
+- [Deploy a Model Version from a Different Account](#model-registry-deploy-xaccount "#model-registry-deploy-xaccount")
 
-## Deploy a Model from the Registry
-
-(SageMaker SDK)
+## Deploy a Model from the Registry (SageMaker SDK)
 
 To deploy a model version using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") use the following
 code snippet:
@@ -43,9 +36,7 @@ model = ModelPackage(role=role,
 model.deploy(initial_instance_count=1, instance_type='`ml.m5.xlarge`')
 ```
 
-## Deploy a Model from the Registry
-
-(Boto3)
+## Deploy a Model from the Registry (Boto3)
 
 To deploy a model version using the AWS SDK for Python (Boto3), complete the following
 steps:
@@ -101,9 +92,7 @@ create_endpoint_response = sm_client.create_endpoint(
 print(create_endpoint_response['EndpointArn'])
 ```
 
-## Deploy a Model Version from a
-
-Different Account
+## Deploy a Model Version from a Different Account
 
 You can permit an AWS account to deploy model versions that were created in
 a different account by adding a cross-account resource policy. For example, one

@@ -215,9 +215,7 @@ importance score indicates that it is more predictive of the target
 variable. A common feature selection method is to use all the features that
 have a non-zero lasso coefficient.
 
-## Detect Anomalies In Time
-
-Series Data
+## Detect Anomalies In Time Series Data
 
 You can use the anomaly detection visualization to see outliers in your time series
 data. To understand what determines an anomaly, you need to understand that we decompose
@@ -245,9 +243,7 @@ detection** analysis.
 6. Choose **Preview** to generate a preview of the analysis.
 7. Choose **Add** to add the transform to the Data Wrangler data flow.
 
-## Seasonal Trend Decomposition In
-
-Time Series Data
+## Seasonal Trend Decomposition In Time Series Data
 
 You can determine whether there's seasonality in your time series data by using the
 Seasonal Trend Decomposition visualization. We use the STL (Seasonal Trend decomposition

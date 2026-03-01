@@ -1,6 +1,4 @@
-# Request Inferences from a
-
-Deployed Service (Amazon SageMaker SDK)
+# Request Inferences from a Deployed Service (Amazon SageMaker SDK)
 
 Use the following the code examples to request inferences from your deployed
 service based on the framework you used to train your model. The code examples for the different

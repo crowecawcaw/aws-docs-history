@@ -12,14 +12,10 @@ Studio, see [Bring your own image (BYOI)](studio-updated-byoi.md "studio-updated
 
 ###### Topics
 
-- [Health
-  check and URL for applications](#studio-updated-jl-admin-guide-custom-images-app-healthcheck "#studio-updated-jl-admin-guide-custom-images-app-healthcheck")
-- [Dockerfile
-  examples](#studio-updated-jl-custom-images-dockerfile-templates "#studio-updated-jl-custom-images-dockerfile-templates")
+- [Health check and URL for applications](#studio-updated-jl-admin-guide-custom-images-app-healthcheck "#studio-updated-jl-admin-guide-custom-images-app-healthcheck")
+- [Dockerfile examples](#studio-updated-jl-custom-images-dockerfile-templates "#studio-updated-jl-custom-images-dockerfile-templates")
 
-## Health
-
-check and URL for applications
+## Health check and URL for applications
 
 - `Base URL` – The base URL for the BYOI application must
   be `jupyterlab/default`. You can only have one application and it
@@ -37,9 +33,7 @@ check and URL for applications
   the Jupyter notebooks token or password based authentication and allow all
   origins.
 
-## Dockerfile
-
-examples
+## Dockerfile examples
 
 The following examples are `Dockerfile`s that meets the above
 information and [Custom image specifications](studio-updated-byoi-specs.md "studio-updated-byoi-specs.md").

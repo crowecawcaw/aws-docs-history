@@ -1,6 +1,4 @@
-# Supported Frameworks and
-
-AWS Regions
+# Supported Frameworks and AWS Regions
 
 Before using the SageMaker model parallelism library, check the supported frameworks and instance
 types, and determine if there are enough quotas in your AWS account and
@@ -34,12 +32,10 @@ PyTorch versions supported by SageMaker AI and the SageMaker model parallelism l
 ###### Note
 
 The SageMaker model parallelism library v1.6.0 and later provides extended features for
-PyTorch. For more information, see [Core Features of the SageMaker Model Parallelism
-Library](model-parallel-core-features.md "model-parallel-core-features.md").
+PyTorch. For more information, see [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md "model-parallel-core-features.md").
 
 \*\* The URLs of the binary files are for installing the SageMaker model parallelism library in
-custom containers. For more information, see [Create Your Own Docker
-Container with the SageMaker Distributed Model Parallel Library](model-parallel-sm-sdk.md#model-parallel-bring-your-own-container "model-parallel-sm-sdk.md#model-parallel-bring-your-own-container").
+custom containers. For more information, see [Create Your Own Docker Container with the SageMaker Distributed Model Parallel Library](model-parallel-sm-sdk.md#model-parallel-bring-your-own-container "model-parallel-sm-sdk.md#model-parallel-bring-your-own-container").
 
 TensorFlow versions supported by SageMaker AI and the SageMaker model parallelism library
 

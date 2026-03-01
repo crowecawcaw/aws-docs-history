@@ -1,6 +1,4 @@
-# 3D point cloud object
-
-tracking
+# 3D point cloud object tracking
 
 Use this page to become familiarize with the user interface and tools available to complete your 3D point cloud object detection task.
 
@@ -8,14 +6,11 @@ Use this page to become familiarize with the user interface and tools available 
 
 - [Your Task](#sms-point-cloud-worker-instructions-ot-task "#sms-point-cloud-worker-instructions-ot-task")
 - [Navigate the UI](#sms-point-cloud-worker-instructions-worker-ui-ot "#sms-point-cloud-worker-instructions-worker-ui-ot")
-- [Bulk Edit Label Category and
-  Frame Attributes](#sms-point-cloud-worker-instructions-ot-bulk-edit "#sms-point-cloud-worker-instructions-ot-bulk-edit")
+- [Bulk Edit Label Category and Frame Attributes](#sms-point-cloud-worker-instructions-ot-bulk-edit "#sms-point-cloud-worker-instructions-ot-bulk-edit")
 - [Icon Guide](#sms-point-cloud-worker-instructions-ot-icons "#sms-point-cloud-worker-instructions-ot-icons")
 - [Shortcuts](#sms-point-cloud-worker-instructions-ot-hot-keys "#sms-point-cloud-worker-instructions-ot-hot-keys")
-- [Release, Stop and
-  Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-ot "#sms-point-cloud-worker-instructions-skip-reject-ot")
-- [Saving Your Work and
-  Submitting](#sms-point-cloud-worker-instructions-saving-work-ot "#sms-point-cloud-worker-instructions-saving-work-ot")
+- [Release, Stop and Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-ot "#sms-point-cloud-worker-instructions-skip-reject-ot")
+- [Saving Your Work and Submitting](#sms-point-cloud-worker-instructions-saving-work-ot "#sms-point-cloud-worker-instructions-saving-work-ot")
 
 ## Your Task
 
@@ -209,9 +204,7 @@ back, you can use the **Duplicate to previous frames** or
 **Label** menu to copy the cuboid into all the previous or
 all of the following frames, respectively.
 
-## Bulk Edit Label Category and
-
-Frame Attributes
+## Bulk Edit Label Category and Frame Attributes
 
 You can bulk edit label attributes and frame attributes.
 
@@ -276,9 +269,7 @@ Before you start your task, it is recommended that you review the
 **Shortcuts** menu and become acquainted with these commands.
 You need to use some of the 3D cuboid controls to edit your cuboid.
 
-## Release, Stop and
-
-Resume, and Decline Tasks
+## Release, Stop and Resume, and Decline Tasks
 
 When you open the labeling task, three buttons on the top right allow you to
 decline the task (**Decline task**), release it
@@ -313,9 +304,7 @@ to and complete this task within that time limit, it will expire and
 your work will not be submitted. Contact your administrator for more
 information.
 
-## Saving Your Work and
-
-Submitting
+## Saving Your Work and Submitting
 
 You should periodically save your work. Ground Truth will automatically save your work
 ever 15 minutes.

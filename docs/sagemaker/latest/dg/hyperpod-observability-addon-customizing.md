@@ -1,6 +1,4 @@
-# Customizing
-
-SageMaker HyperPod cluster metrics dashboards and alerts
+# Customizing SageMaker HyperPod cluster metrics dashboards and alerts
 
 Amazon Managed Grafana makes it possible for you to create comprehensive dashboards that
 visualize your data through panels containing queries connected to your data

@@ -93,5 +93,4 @@ On the **Versions** page, you can view the following information for each of you
 - **Shared** – This field states whether you shared the model version
   with SageMaker Studio Classic users.
 - **Model registry** – This field states whether you registered the
-  version to a model registry. For more information, see [Register a model version in the SageMaker AI model
-  registry](canvas-register-model.md "canvas-register-model.md").
+  version to a model registry. For more information, see [Register a model version in the SageMaker AI model registry](canvas-register-model.md "canvas-register-model.md").

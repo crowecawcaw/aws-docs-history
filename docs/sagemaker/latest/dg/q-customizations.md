@@ -1,6 +1,4 @@
-# Customize Amazon Q Developer in Amazon SageMaker Studio
-
-applications
+# Customize Amazon Q Developer in Amazon SageMaker Studio applications
 
 You can customize Amazon Q Developer in the JupyterLab and Code Editor applications in Amazon SageMaker Studio.
 When you customize Q Developer, it provides suggestions and answers based on examples from
@@ -13,9 +11,7 @@ In JupyterLab, you can load any customizations that you've created with Amazon Q
 Or, in your JupyterLab space, you can customize Q Developer locally with files that you
 upload to the space.
 
-### To use customizations that you've
-
-created in Amazon Q Developer Pro
+### To use customizations that you've created in Amazon Q Developer Pro
 
 When you load a customization, Q Developer provides suggestions based on the
 codebase that you used to create the customization. Also, when you use the chat in
@@ -48,9 +44,7 @@ Open your JupyterLab space and complete the following steps.
      2. Use the **Ask Amazon Q** chat box to
         interact with your customization.
 
-### To customize Amazon Q Developer with files in
-
-your JupyterLab space
+### To customize Amazon Q Developer with files in your JupyterLab space
 
 In JupyterLab, you can customize Q Developer with files that you upload to your
 space. Then, in the chat in the **Amazon Q** panel, you can use a

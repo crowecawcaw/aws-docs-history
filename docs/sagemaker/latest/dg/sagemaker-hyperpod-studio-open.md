@@ -1,6 +1,4 @@
-# Connecting to HyperPod clusters and submitting
-
-tasks to clusters
+# Connecting to HyperPod clusters and submitting tasks to clusters
 
 You can launch machine learning workloads on HyperPod clusters within
 Amazon SageMaker Studio IDEs. When you launch Studio IDEs on a HyperPod cluster, a set of
@@ -14,8 +12,7 @@ clusters** (under **Compute**) and view your list of clusters. You can
 connect your cluster to an IDE listed under **Actions**.
 
 You can also choose your custom file system from the list of options. For information on how
-to get this set up, see [Setting up HyperPod in
-Studio](sagemaker-hyperpod-studio-setup.md "sagemaker-hyperpod-studio-setup.md").
+to get this set up, see [Setting up HyperPod in Studio](sagemaker-hyperpod-studio-setup.md "sagemaker-hyperpod-studio-setup.md").
 
 Alternatively, you can create a space and launch an IDE using the AWS CLI. Use the following
 commands to do so. The following example creates a `Private`

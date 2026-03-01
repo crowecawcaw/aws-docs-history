@@ -1,6 +1,4 @@
-# Understand the 3D-2D point cloud
-
-object tracking task type
+# Understand the 3D-2D point cloud object tracking task type
 
 Use this task type when you want workers to link 3D point cloud annotations with 2D images annotations and
 also link 2D image annotations among various cameras.
@@ -27,9 +25,6 @@ tasks.
 
 ###### Topics
 
-- [Create a
-  3D-2D point cloud object tracking labeling job](sms-3d-2d-point-cloud-object-tracking-create-labeling-job.md "sms-3d-2d-point-cloud-object-tracking-create-labeling-job.md")
-- [View the worker task
-  interface for a 3D-2D object tracking labeling job](sms-point-cloud-3d-2d-object-tracking-worker-ui.md "sms-point-cloud-3d-2d-object-tracking-worker-ui.md")
-- [Output data for a
-  3D-2D object tracking labeling job](sms-point-cloud-3d-2d-object-tracking-output-data.md "sms-point-cloud-3d-2d-object-tracking-output-data.md")
+- [Create a 3D-2D point cloud object tracking labeling job](sms-3d-2d-point-cloud-object-tracking-create-labeling-job.md "sms-3d-2d-point-cloud-object-tracking-create-labeling-job.md")
+- [View the worker task interface for a 3D-2D object tracking labeling job](sms-point-cloud-3d-2d-object-tracking-worker-ui.md "sms-point-cloud-3d-2d-object-tracking-worker-ui.md")
+- [Output data for a 3D-2D object tracking labeling job](sms-point-cloud-3d-2d-object-tracking-output-data.md "sms-point-cloud-3d-2d-object-tracking-output-data.md")

@@ -1,6 +1,4 @@
-# Getting started with
-
-SageMaker HyperPod using the SageMaker AI console
+# Getting started with SageMaker HyperPod using the SageMaker AI console
 
 The following tutorial demonstrates how to create a new SageMaker HyperPod cluster and set
 it up with Slurm through the SageMaker AI console UI. Following the tutorial, you'll create a
@@ -9,14 +7,11 @@ HyperPod cluster with three Slurm nodes, `my-controller-group`,
 
 ###### Topics
 
-- [Create
-  cluster](#smcluster-getting-started-slurm-console-create-cluster-page "#smcluster-getting-started-slurm-console-create-cluster-page")
+- [Create cluster](#smcluster-getting-started-slurm-console-create-cluster-page "#smcluster-getting-started-slurm-console-create-cluster-page")
 - [Deploy resources](#smcluster-getting-started-slurm-console-create-cluster-deploy "#smcluster-getting-started-slurm-console-create-cluster-deploy")
 - [Delete the cluster and clean resources](#smcluster-getting-started-slurm-console-delete-cluster-and-clean "#smcluster-getting-started-slurm-console-delete-cluster-and-clean")
 
-## Create
-
-cluster
+## Create cluster
 
 To navigate to the **SageMaker HyperPod Clusters** page and choose
 **Slurm** orchestration, follow these steps.
@@ -205,8 +200,7 @@ Guide_. 8. Choose **Add instance group**.
 You can choose to use the default lifecycle scripts or the custom
 lifecycle scripts, which will be stored in your Amazon S3 bucket. You can view
 the default lifecycle scripts in the [Awesome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts "https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts"). To learn more
-about the lifecycle scripts, see [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+about the lifecycle scripts, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 1. For **Lifecycle scripts**, choose to use default
    or custom lifecycle scripts.
@@ -256,8 +250,7 @@ option to start resource provisioning and cluster creation.
   download the configuration parameter JSON file and run AWS CLI command to
   deploy the CloudFormation stack to provision the configuration resources and
   creating the cluster. You can edit the downloaded parameter JSON file if
-  needed. If you choose this option, see more instructions in [Creating
-  SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-slurm-console-create-cluster-cfn.md "smcluster-getting-started-slurm-console-create-cluster-cfn.md").
+  needed. If you choose this option, see more instructions in [Creating SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-slurm-console-create-cluster-cfn.md "smcluster-getting-started-slurm-console-create-cluster-cfn.md").
 
 ## Delete the cluster and clean resources
 
@@ -267,8 +260,7 @@ recommend that you delete any clusters created using on-demand SageMaker AI inst
 not in use to avoid incurring continued service charges based on on-demand pricing.
 In this tutorial, you have created a cluster that consists of two instance groups.
 One of them uses a C5 instance, so make sure you delete the cluster by following the
-instructions at [Delete a
-SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster").
+instructions at [Delete a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster").
 
 However, if you have created a cluster with reserved compute capacity, the status
 of the clusters does not affect service billing.

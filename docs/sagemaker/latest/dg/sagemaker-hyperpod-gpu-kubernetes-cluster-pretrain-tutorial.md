@@ -1,6 +1,4 @@
-# Kubernetes
-
-cluster pre-training tutorial (GPU)
+# Kubernetes cluster pre-training tutorial (GPU)
 
 There are two ways to launch a training job in a GPU Kubernetes cluster:
 
@@ -24,9 +22,7 @@ Before you start setting up your environment, make sure you have:
   information about getting the token, see [User access
   tokens](https://huggingface.co/docs/hub/en/security-tokens "https://huggingface.co/docs/hub/en/security-tokens").
 
-## GPU Kubernetes
-
-environment setup
+## GPU Kubernetes environment setup
 
 To set up a GPU Kubernetes environment, do the following:
 
@@ -72,17 +68,14 @@ hyperpod connect-cluster --cluster-name "`CLUSTER_NAME`" [--region "`CLUSTER_REG
 
 ```
 
-## Launch
-
-the training job with the SageMaker HyperPod CLI
+## Launch the training job with the SageMaker HyperPod CLI
 
 We recommend using the SageMaker HyperPod command-line interface (CLI) tool to submit
 your training job with your configurations. The following example submits a training
 job for the `hf_llama3_8b_seq16k_gpu_p5x16_pretrain` model.
 
 - `your_training_container`: A Deep Learning container. To find
-  the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism
-  library](model-parallel-release-notes.md "model-parallel-release-notes.md").
+  the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md").
 - (Optional) You can provide the HuggingFace token if you need pre-trained
   weights from HuggingFace by setting the following key-value pair:
 
@@ -165,8 +158,7 @@ git:
 - Update
   `launcher_scripts/llama/run_hf_llama3_8b_seq16k_gpu_p5x16_pretrain.sh`
   - `your_contrainer`: A Deep Learning container. To find
-    the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism
-    library](model-parallel-release-notes.md "model-parallel-release-notes.md").
+    the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md").
   - (Optional) You can provide the HuggingFace token if you need
     pre-trained weights from HuggingFace by setting the following
     key-value pair:

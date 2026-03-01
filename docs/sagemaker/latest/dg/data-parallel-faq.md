@@ -27,9 +27,7 @@ learning rate, have to be changed to ensure convergence.
 
 Yes. You can use managed spot training. You specify the path to the checkpoint file in the
 SageMaker training job. You save and restore checkpoints in their training script as mentioned in the
-last steps of [Use the SMDDP library in your TensorFlow training
-script (deprecated)](data-parallel-modify-sdp-tf2.md "data-parallel-modify-sdp-tf2.md") and [Use the SMDDP library in your PyTorch training
-script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md").
+last steps of [Use the SMDDP library in your TensorFlow training script (deprecated)](data-parallel-modify-sdp-tf2.md "data-parallel-modify-sdp-tf2.md") and [Use the SMDDP library in your PyTorch training script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md").
 
 **Q: Is the SMDDP library relevant in a single-host, multi-device
 setup?**
@@ -49,8 +47,7 @@ you prefer, you can use Amazon EFS or Amazon S3.
 
 **Q: Can the library be used with CPU nodes?**
 
-No. To find instance types supported by the SMDDP library, see [Supported instance
-types](distributed-data-parallel-support.md#distributed-data-parallel-supported-instance-types "distributed-data-parallel-support.md#distributed-data-parallel-supported-instance-types").
+No. To find instance types supported by the SMDDP library, see [Supported instance types](distributed-data-parallel-support.md#distributed-data-parallel-supported-instance-types "distributed-data-parallel-support.md#distributed-data-parallel-supported-instance-types").
 
 **Q: What frameworks and framework versions are currently supported by
 the SMDDP library at launch?**
@@ -95,8 +92,7 @@ training job with data parallelism?**
 We highly recommend that you use Amazon FSx as your data channel if you are using Amazon S3. If you
 are already using Amazon FSx but still having I/O bottleneck problems, you might have set up your
 Amazon FSx file system with a low I/O throughput and a small storage capacity. For more information
-about how to estimate and choose the right size of I/O throughput capacity, see [Use Amazon FSx and set up an optimal storage and
-throughput capacity](data-parallel-config.md#data-parallel-config-fxs "data-parallel-config.md#data-parallel-config-fxs").
+about how to estimate and choose the right size of I/O throughput capacity, see [Use Amazon FSx and set up an optimal storage and throughput capacity](data-parallel-config.md#data-parallel-config-fxs "data-parallel-config.md#data-parallel-config-fxs").
 
 **Q: (For the library v1.4.0 or later) How do I resolve the
 `Invalid backend` error while initializing process group.**
@@ -105,8 +101,7 @@ If you encounter the error message `ValueError: Invalid backend: 'smddp'` when
 calling `init_process_group`, this is due to the breaking change in the SMDDP library
 v1.4.0 and later. You must import the PyTorch client of the library,
 `smdistributed.dataparallel.torch.torch_smddp`, which registers `smddp`
-as a backend for PyTorch. To learn more, see [Use the SMDDP library in your PyTorch training
-script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md").
+as a backend for PyTorch. To learn more, see [Use the SMDDP library in your PyTorch training script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md").
 
 **Q: (For the SMDDP library v1.4.0 or later) I would like to call the
 collective primitives of the [`torch.distributed`](https://pytorch.org/docs/stable/distributed.html "https://pytorch.org/docs/stable/distributed.html") interface. Which primitives does the
@@ -137,5 +132,4 @@ container, BYOC is the right approach. You can build your own container using th
 the library. The recommended process is to write a custom Dockerfile with the library and its
 dependencies, build the Docker container, host it in Amazon ECR, and use the ECR image URI to launch
 a training job using the SageMaker AI generic estimator class. For more instructions on how to prepare a
-custom Dockerfile for distributed training in SageMaker AI with the SMDDP library, see [Create your own Docker container with
-the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
+custom Dockerfile for distributed training in SageMaker AI with the SMDDP library, see [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").

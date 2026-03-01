@@ -1,6 +1,4 @@
-# Recommendations for choosing the right data preparation tool in
-
-SageMaker AI
+# Recommendations for choosing the right data preparation tool in SageMaker AI
 
 Data preparation in machine learning refers to the process of collecting, preprocessing, and
 organizing raw data to make it suitable for analysis and modeling. This step ensures that the

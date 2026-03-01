@@ -1,6 +1,4 @@
-# Use your
-
-SageMaker JumpStart Models in Amazon Bedrock
+# Use your SageMaker JumpStart Models in Amazon Bedrock
 
 You can register the models that you've deployed from Amazon SageMaker JumpStart to Amazon Bedrock. With
 Amazon Bedrock, you can host your model behind multiple endpoints. You can also use Amazon Bedrock

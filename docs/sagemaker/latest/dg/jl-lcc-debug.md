@@ -5,13 +5,10 @@ configurations.
 
 ###### Topics
 
-- [Verify lifecycle configuration process from
-  CloudWatch Logs](#jl-lcc-debug-logs "#jl-lcc-debug-logs")
+- [Verify lifecycle configuration process from CloudWatch Logs](#jl-lcc-debug-logs "#jl-lcc-debug-logs")
 - [Lifecycle configuration timeout](#jl-lcc-debug-timeout "#jl-lcc-debug-timeout")
 
-## Verify lifecycle configuration process from
-
-CloudWatch Logs
+## Verify lifecycle configuration process from CloudWatch Logs
 
 Lifecycle configurations only log `STDOUT` and `STDERR`.
 

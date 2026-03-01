@@ -1,13 +1,9 @@
-# Connect a Notebook Instance in a
-
-VPC to External Resources
+# Connect a Notebook Instance in a VPC to External Resources
 
 The following topic gives information on how to connect your notebook instance in a
 VPC to external resources.
 
-## Default
-
-communication with the internet
+## Default communication with the internet
 
 When your notebook allows _direct internet access_, SageMaker AI
 provides a network interface that allows the notebook to communicate with the
@@ -19,9 +15,7 @@ public internet, while traffic to interface VPC interface endpoints still goes
 through your VPC. If you want to use gateway VPC endpoints, you might want to
 disable direct internet access.
 
-## VPC-only
-
-communication with the internet
+## VPC-only communication with the internet
 
 To disable direct internet access, you can specify a VPC for your notebook
 instance. By doing so, you prevent SageMaker AI from providing internet access to your
@@ -30,8 +24,7 @@ unless your VPC has an interface endpoint (AWS PrivateLink) or a NAT gateway and
 security groups allow outbound connections.
 
 For information about creating a VPC interface endpoint to use AWS PrivateLink for
-your notebook instance, see [Connect to a Notebook Instance Through a
-VPC Interface Endpoint](notebook-interface-endpoint.md "notebook-interface-endpoint.md"). For information about setting up
+your notebook instance, see [Connect to a Notebook Instance Through a VPC Interface Endpoint](notebook-interface-endpoint.md "notebook-interface-endpoint.md"). For information about setting up
 a NAT gateway for your VPC, see [VPC with
 Public and Private Subnets (NAT)](../../../vpc/latest/userguide/vpc-example-private-subnets-nat.md "../../../vpc/latest/userguide/vpc-example-private-subnets-nat.md") in the _Amazon Virtual Private
 Cloud User Guide_. For information about security groups, see [Security Groups for Your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md"). For more information about networking
@@ -48,9 +41,7 @@ you permit with your security group rules. If you apply overly permissive
 inbound rule configurations, then users who have access to your VPC could access
 your Jupyter Notebooks without authenticating.
 
-## Security and Shared Notebook
-
-Instances
+## Security and Shared Notebook Instances
 
 A SageMaker notebook instance is designed to work best for an individual user. It is
 designed to give data scientists and other users the most power for managing their

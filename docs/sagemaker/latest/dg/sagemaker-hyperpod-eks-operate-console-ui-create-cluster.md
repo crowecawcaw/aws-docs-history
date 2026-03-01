@@ -1,6 +1,4 @@
-# Creating
-
-a SageMaker HyperPod cluster with Amazon EKS orchestration
+# Creating a SageMaker HyperPod cluster with Amazon EKS orchestration
 
 The following tutorial demonstrates how to create a new SageMaker HyperPod cluster and
 set it up with Amazon EKS orchestration through the SageMaker AI console UI.
@@ -181,8 +179,7 @@ defaults to **Use default Helm charts and
 add-ons**, which will be used to install operators
 on the EKS cluster. For more information about the default Helm
 charts and add-ons, see [`helm_chart`](https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart/HyperPodHelmChart "https://github.com/aws/sagemaker-hyperpod-cli/tree/main/helm_chart/HyperPodHelmChart") from the GitHub
-repository. For more information, see [Installing
-packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). 4. For **Enabled operators**, view the list of
+repository. For more information, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). 4. For **Enabled operators**, view the list of
 enabled operators. To edit the operators, uncheck the box at top
 and choose operators to enable for the EKS cluster.
 
@@ -245,8 +242,7 @@ User Guide_. 8. For **Instance deep health checks**, choose
 your option. Deep health checks monitor instance health during
 creation and after software updates, automatically recovering
 faulty instances through reboots or replacements when enabled.
-To learn more, see [Deep health
-checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md") 9. For **Use GPU partition - optional**, if your
+To learn more, see [Deep health checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md") 9. For **Use GPU partition - optional**, if your
 instance type supports GPU partitioning with Multi-Instance GPU
 (MIG), you can enable this option to configure the GPU partition
 profile for the instance group. GPU partitioning allows you to
@@ -266,8 +262,7 @@ utilization. For more information, see [Using GPU partitions in Amazon SageMaker
 You can choose to use the default lifecycle scripts or the custom
 lifecycle scripts, which will be stored in your Amazon S3 bucket. You can
 view the default lifecycle scripts in the [Awesome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts "https://github.com/aws-samples/awsome-distributed-training/tree/main/1.architectures/7.sagemaker-hyperpod-eks/LifecycleScripts"). To learn
-more about the lifecycle scripts, see [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+more about the lifecycle scripts, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 1. For **Lifecycle scripts**, choose to use
    default or custom lifecycle scripts.
@@ -279,8 +274,7 @@ clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-sl
 
 Choose or create an IAM role that allows HyperPod to run
 and access necessary AWS resources on your behalf. For more
-information, see [IAM role for
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
+information, see [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
 
 ### Storage
 
@@ -320,5 +314,4 @@ option to start resource provisioning and cluster creation.
   command to deploy the CloudFormation stack to provision the configuration
   resources and creating the cluster. You can edit the downloaded
   parameter JSON file if needed. If you choose this option, see more
-  instructions in [Creating
-  SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
+  instructions in [Creating SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").

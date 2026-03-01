@@ -1,6 +1,4 @@
-# Inspect Reports for Data Bias
-
-Drift
+# Inspect Reports for Data Bias Drift
 
 If you are not able to inspect the results of the monitoring in the generated reports
 in SageMaker Studio, you can print them out as follows:

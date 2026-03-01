@@ -40,8 +40,7 @@ The auto-segmentation tool automatically appears in your workers' consoles if yo
 create a semantic segmentation labeling job using the Amazon SageMaker AI console. While creating a
 semantic segmentation job in the SageMaker AI console, you will be able to preview the tool
 while creating worker instructions. To learn how to create a semantic segmentation
-labeling job in the SageMaker AI console, see [Getting started: Create a bounding box labeling job
-with Ground Truth](sms-getting-started.md "sms-getting-started.md").
+labeling job in the SageMaker AI console, see [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md").
 
 If you are creating a custom instance segmentation labeling job in the SageMaker AI console or
 creating an instance- or semantic-segmentation labeling job using the Ground Truth API, you

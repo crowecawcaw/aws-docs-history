@@ -1,6 +1,4 @@
-# Run distributed
-
-training on a heterogeneous cluster in Amazon SageMaker AI
+# Run distributed training on a heterogeneous cluster in Amazon SageMaker AI
 
 Through the `distribution` argument of the SageMaker AI estimator class, you can
 assign a specific instance group to run distributed training. For example, assume that

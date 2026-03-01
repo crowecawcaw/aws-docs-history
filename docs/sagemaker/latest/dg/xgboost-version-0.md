@@ -8,16 +8,12 @@ learning objectives.
 
 ###### Topics
 
-- [Upgrade SageMaker AI Python
-  SDK Version 1.x to Version 2.x](#upgrade-xgboost-version-0.90-sagemaker-python-sdk "#upgrade-xgboost-version-0.90-sagemaker-python-sdk")
-- [Change the image tag
-  to 1.5-1](#upgrade-xgboost-version-0.90-change-image-tag "#upgrade-xgboost-version-0.90-change-image-tag")
+- [Upgrade SageMaker AI Python SDK Version 1.x to Version 2.x](#upgrade-xgboost-version-0.90-sagemaker-python-sdk "#upgrade-xgboost-version-0.90-sagemaker-python-sdk")
+- [Change the image tag to 1.5-1](#upgrade-xgboost-version-0.90-change-image-tag "#upgrade-xgboost-version-0.90-change-image-tag")
 - [Change Docker Image for Boto3](#upgrade-xgboost-version-0.90-boto3 "#upgrade-xgboost-version-0.90-boto3")
 - [Update Hyperparameters and Learning Objectives](#upgrade-xgboost-version-0.90-hyperparameters "#upgrade-xgboost-version-0.90-hyperparameters")
 
-## Upgrade SageMaker AI Python
-
-SDK Version 1.x to Version 2.x
+## Upgrade SageMaker AI Python SDK Version 1.x to Version 2.x
 
 If you are still using Version 1.x of the SageMaker Python SDK, you must to upgrade
 version 2.x of the SageMaker Python SDK. For information on the latest version of the
@@ -28,9 +24,7 @@ version, run:
 python -m pip install --upgrade sagemaker
 ```
 
-## Change the image tag
-
-to 1.5-1
+## Change the image tag to 1.5-1
 
 If you are using the SageMaker Python SDK and using the XGBoost build-in
 algorithm, change the version parameter in `image_uris.retrive`.

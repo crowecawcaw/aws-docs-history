@@ -21,16 +21,11 @@ it user-configurable.
 
 ###### Topics
 
-- [Use OpenAI Gym Interface for Environments
-  in SageMaker AI RL](#sagemaker-rl-environments-gym "#sagemaker-rl-environments-gym")
-- [Use Open-Source
-  Environments](#sagemaker-rl-environments-open "#sagemaker-rl-environments-open")
-- [Use Commercial
-  Environments](#sagemaker-rl-environments-commercial "#sagemaker-rl-environments-commercial")
+- [Use OpenAI Gym Interface for Environments in SageMaker AI RL](#sagemaker-rl-environments-gym "#sagemaker-rl-environments-gym")
+- [Use Open-Source Environments](#sagemaker-rl-environments-open "#sagemaker-rl-environments-open")
+- [Use Commercial Environments](#sagemaker-rl-environments-commercial "#sagemaker-rl-environments-commercial")
 
-## Use OpenAI Gym Interface for Environments
-
-in SageMaker AI RL
+## Use OpenAI Gym Interface for Environments in SageMaker AI RL
 
 To use OpenAI Gym environments in SageMaker AI RL, use the following API elements. For
 more information about OpenAI Gym, see [Gym Documentation](https://www.gymlibrary.dev/ "https://www.gymlibrary.dev/").
@@ -58,9 +53,7 @@ True`, the episode ends. The RL toolkit re-initializes the
   of the environment after each call to the `step()`
   function.
 
-## Use Open-Source
-
-Environments
+## Use Open-Source Environments
 
 You can use open-source environments, such as EnergyPlus and RoboSchool, in SageMaker AI
 RL by building your own container. For more information about EnergyPlus, see [https://energyplus.net/](https://energyplus.net/ "https://energyplus.net/"). For more
@@ -68,9 +61,7 @@ information about RoboSchool, see [https://github.com/openai/roboschool](https:/
 in the [SageMaker AI examples repository](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/reinforcement_learning "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/reinforcement_learning") show how to build a custom container to use
 with SageMaker AI RL:
 
-## Use Commercial
-
-Environments
+## Use Commercial Environments
 
 You can use commercial environments, such as MATLAB and Simulink, in SageMaker AI RL by
 building your own container. You need to manage your own licenses.

@@ -58,8 +58,7 @@ Use the following procedure to create a Data Quality and Insights report. It ass
 
 Creating a Data Quality and Insights report on the full dataset uses an Amazon SageMaker processing job.
 A SageMaker Processing job provisions the additional compute resources required to get insights for all of your data.
-For more information about SageMaker Processing jobs, see [Data transformation
-workloads with SageMaker Processing](processing-job.md "processing-job.md"). 8. Choose **Create**.
+For more information about SageMaker Processing jobs, see [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md"). 8. Choose **Create**.
 
 The following topics show the sections of the report:
 
@@ -580,9 +579,7 @@ importance score indicates that it is more predictive of the target
 variable. A common feature selection method is to use all the features that
 have a non-zero lasso coefficient.
 
-## Detect anomalies in time
-
-series data
+## Detect anomalies in time series data
 
 You can use the anomaly detection visualization to see outliers in your time series
 data. To understand what determines an anomaly, you need to understand that we decompose
@@ -610,9 +607,7 @@ detection** analysis.
 6. Choose **Preview** to generate a preview of the analysis.
 7. Choose **Add** to add the transform to the Data Wrangler data flow.
 
-## Seasonal trend decomposition in
-
-time series data
+## Seasonal trend decomposition in time series data
 
 You can determine whether there's seasonality in your time series data by using the
 Seasonal Trend Decomposition visualization. We use the STL (Seasonal Trend decomposition

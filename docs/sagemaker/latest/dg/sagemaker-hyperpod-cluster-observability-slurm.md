@@ -1,6 +1,4 @@
-# SageMaker HyperPod cluster
-
-resources monitoring
+# SageMaker HyperPod cluster resources monitoring
 
 To achieve comprehensive observability into your SageMaker HyperPod cluster resources and
 software components, integrate the cluster with [Amazon Managed Service for Prometheus](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md") and [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md"). The integration with Amazon Managed Service for Prometheus enables the export of metrics related to your
@@ -27,7 +25,6 @@ Proceed to the following topics to set up for SageMaker HyperPod cluster observa
 - [Prerequisites for SageMaker HyperPod cluster observability](sagemaker-hyperpod-cluster-observability-slurm-prerequisites.md "sagemaker-hyperpod-cluster-observability-slurm-prerequisites.md")
 - [Installing metrics exporter packages on your HyperPod cluster](sagemaker-hyperpod-cluster-observability-slurm-install-exporters.md "sagemaker-hyperpod-cluster-observability-slurm-install-exporters.md")
 - [Validating Prometheus setup on the head node of a HyperPod cluster](sagemaker-hyperpod-cluster-observability-slurm-validate-prometheus-setup.md "sagemaker-hyperpod-cluster-observability-slurm-validate-prometheus-setup.md")
-- [Setting
-  up an Amazon Managed Grafana workspace](sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws.md "sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws.md")
+- [Setting up an Amazon Managed Grafana workspace](sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws.md "sagemaker-hyperpod-cluster-observability-slurm-managed-grafana-ws.md")
 - [Exported metrics reference](sagemaker-hyperpod-cluster-observability-slurm-exported-metrics-reference.md "sagemaker-hyperpod-cluster-observability-slurm-exported-metrics-reference.md")
 - [Amazon SageMaker HyperPod Slurm metrics](smcluster-slurm-metrics.md "smcluster-slurm-metrics.md")

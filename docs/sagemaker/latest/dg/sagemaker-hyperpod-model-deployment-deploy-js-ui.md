@@ -1,6 +1,4 @@
-# Deploy models
-
-from JumpStart using Amazon SageMaker Studio
+# Deploy models from JumpStart using Amazon SageMaker Studio
 
 The following steps show you through how to deploy models from JumpStart using
 Amazon SageMaker Studio.
@@ -8,12 +6,9 @@ Amazon SageMaker Studio.
 ## Prerequisites
 
 Verify that you've set up inference capabilities on your Amazon SageMaker HyperPod
-clusters. For more information, see [Setting up your
-HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
+clusters. For more information, see [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
 
-## Create
-
-a HyperPod deployment
+## Create a HyperPod deployment
 
 1. In Amazon SageMaker Studio, open the **JumpStart** landing page from the left navigation
    pane.
@@ -54,9 +49,7 @@ if necessary.
 6. After the **Endpoint** has been created,
    select **Test inference**.
 
-## Edit a
-
-HyperPod deployment
+## Edit a HyperPod deployment
 
 1. In Amazon SageMaker Studio, select **Compute** and then **HyperPod
    clusters** from the left navigation pane.
@@ -71,9 +64,7 @@ HyperPod deployment
 6. The **Status** will change to **Updating**. Once it changes back to **In service**, your changes are complete and
    you’ll see a message confirming it.
 
-## Delete
-
-a HyperPod deployment
+## Delete a HyperPod deployment
 
 1. In Amazon SageMaker Studio, select **Compute** and then **HyperPod
    clusters** from the left navigation pane.

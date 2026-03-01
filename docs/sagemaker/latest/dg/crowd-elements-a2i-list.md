@@ -135,9 +135,7 @@ General instructions about how to work with the widget.
 
 Important task-specific instructions that are displayed in a prominent place.
 
-## Example of a Worker Template Using the
-
-crowd Element
+## Example of a Worker Template Using the crowd Element
 
 An example of a worker template using this crowd element would look like the
 following.
@@ -293,9 +291,7 @@ General instructions about how to work with the widget.
 
 Important task-specific instructions that are displayed in a prominent place.
 
-## Example Worker Template with the crowd
-
-Element
+## Example Worker Template with the crowd Element
 
 An example of a worker template using the crowd element would look like the
 following.

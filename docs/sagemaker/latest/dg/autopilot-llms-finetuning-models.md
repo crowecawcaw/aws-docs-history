@@ -1,6 +1,4 @@
-# Supported large language models for
-
-fine-tuning
+# Supported large language models for fine-tuning
 
 Using Autopilot API, users can fine-tune large language models (LLMs) that
 are powered by Amazon SageMaker JumpStart.
@@ -13,8 +11,7 @@ fine-tuning a pretrained model, the weights of the original model are changed, s
 need to later accept a EULA when deploying the fine-tuned model.
 
 For information on how to accept the EULA when creating a fine-tuning job using
-the AutoML API, see [How to set the EULA acceptance when
-fine-tuning a model using the AutoML API](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-eula "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-eula").
+the AutoML API, see [How to set the EULA acceptance when fine-tuning a model using the AutoML API](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-eula "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-eula").
 
 You can find the full details of each model by searching for your **JumpStart Model ID** in the following [model table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html#built-in-algorithms-with-pre-trained-model-table "https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html#built-in-algorithms-with-pre-trained-model-table"), and then following the link in the **Source**
 column. These details might include the languages supported by the model, biases it may

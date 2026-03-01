@@ -1,6 +1,4 @@
-# Supported frameworks and AWS
-
-Regions
+# Supported frameworks and AWS Regions
 
 Before using SageMaker smart sifting data loader, check if your framework of choice is supported,
 that the instance types are available in your AWS account, and that your AWS account
@@ -14,9 +12,7 @@ the `AllReduce` operation. It doesn’t work with model parallelism
 techniques, including sharded data parallelism. Because SageMaker smart sifting works for data
 parallelism jobs, make sure that the model you train fits in each GPU memory.
 
-## Supported
-
-Frameworks
+## Supported Frameworks
 
 SageMaker smart sifting supports the following deep learning frameworks and is available
 through AWS Deep Learning Containers.

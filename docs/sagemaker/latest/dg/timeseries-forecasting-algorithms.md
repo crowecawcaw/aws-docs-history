@@ -1,6 +1,4 @@
-# Algorithms support for time-series
-
-forecasting
+# Algorithms support for time-series forecasting
 
 Autopilot trains the following six built-in algorithms with your target time-series. Then,
 using a stacking ensemble method, it combines these model candidates to create an optimal

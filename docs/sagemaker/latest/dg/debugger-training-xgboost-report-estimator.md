@@ -1,6 +1,4 @@
-# Construct a SageMaker AI
-
-XGBoost estimator with the Debugger XGBoost Report rule
+# Construct a SageMaker AI XGBoost estimator with the Debugger XGBoost Report rule
 
 The [CreateXgboostReport](debugger-built-in-rules.md#create-xgboost-report "debugger-built-in-rules.md#create-xgboost-report")
 rule collects the following output tensors from your training job:

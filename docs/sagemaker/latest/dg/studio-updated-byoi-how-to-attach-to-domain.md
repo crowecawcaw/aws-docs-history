@@ -1,14 +1,11 @@
-# Attach your custom image to your
-
-domain
+# Attach your custom image to your domain
 
 This page provides instructions on how to attach your custom image to your domain. Use
 the following procedure to use the Amazon SageMaker AI console to navigate to your domain and start
 the **Attach image** process.
 
 The following instructions assume that you have pushed an image to a Amazon ECR repository in
-the same AWS Region as your domain. If you have not already done so, see [Create a custom image and push to
-Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md").
+the same AWS Region as your domain. If you have not already done so, see [Create a custom image and push to Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md").
 
 When you choose to attach an image, you will have two options:
 
@@ -17,15 +14,13 @@ When you choose to attach an image, you will have two options:
 
 ###### Note
 
-If you are continuing the BYOI process, from [Create a custom image and push to
-Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"), use the **New
+If you are continuing the BYOI process, from [Create a custom image and push to Amazon ECR](studio-updated-byoi-how-to-prepare-image.md "studio-updated-byoi-how-to-prepare-image.md"), use the **New
 image** option.
 
 - Attach an **Existing image**: If you have already created your
   intended custom image in the SageMaker AI image store, use this option. This option attaches an
   existing custom image to your domain. To view your custom images in the SageMaker AI image
-  store, see [View custom image details
-  (console)](studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console "studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console").
+  store, see [View custom image details (console)](studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console "studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console").
 
 New image
 
@@ -86,8 +81,7 @@ choose **Attach image**. 7. For the **Image source**, choose **Existing
 image**. 8. Choose an existing image and image version from the SageMaker AI image store.
 
 If you are unable to view your image version, you may need to create an image
-version. For more information, see [View custom image details
-(console)](studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console "studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console"). 9. Follow the rest of the instructions to attach your custom image.
+version. For more information, see [View custom image details (console)](studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console "studio-updated-byoi-view-images.md#studio-updated-byoi-view-images-console"). 9. Follow the rest of the instructions to attach your custom image.
 
 ###### Note
 
@@ -98,8 +92,7 @@ Once the image has been successfully attached to your domain, you will be able
 to view it in the **Environment** tab.
 
 Once your image has been successfully attached to your domain, the domain users
-can choose the image for their application. For more information, see [Launch a custom image in
-Studio](studio-updated-byoi-how-to-launch.md "studio-updated-byoi-how-to-launch.md").
+can choose the image for their application. For more information, see [Launch a custom image in Studio](studio-updated-byoi-how-to-launch.md "studio-updated-byoi-how-to-launch.md").
 
 ###### Note
 

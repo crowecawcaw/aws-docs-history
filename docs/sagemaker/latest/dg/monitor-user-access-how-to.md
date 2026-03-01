@@ -1,6 +1,4 @@
-# Turn on sourceIdentity in CloudTrail logs for SageMaker AI
-
-Studio Classic
+# Turn on sourceIdentity in CloudTrail logs for SageMaker AI Studio Classic
 
 With Amazon SageMaker Studio Classic, you can monitor user resource access. However, the
 AWS CloudTrail logs for resource access only list the Studio Classic execution IAM

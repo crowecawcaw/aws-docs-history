@@ -40,9 +40,7 @@ Raspberry Pi 3, you can use:
 pip install https://neo-ai-dlr-release.s3-us-west-2.amazonaws.com/v1.3.0/pi-armv7l-raspbian4.14.71-glibc2_24-libstdcpp3_4/dlr-1.3.0-py3-none-any.whl
 ```
 
-## Deploy a Model (AWS
-
-IoT Greengrass)
+## Deploy a Model (AWS IoT Greengrass)
 
 [AWS IoT Greengrass](../../../greengrass/latest/developerguide/what-is-gg.md "../../../greengrass/latest/developerguide/what-is-gg.md") extends cloud capabilities to local devices. It
 enables devices to collect and analyze data closer to the source of information,

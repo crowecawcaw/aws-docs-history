@@ -1,6 +1,4 @@
-# Quickstart: Create a SageMaker AI sandbox
-
-domain to launch Amazon EMR clusters in Studio
+# Quickstart: Create a SageMaker AI sandbox domain to launch Amazon EMR clusters in Studio
 
 This section walks you through the quick set up of a complete test environment in
 Amazon SageMaker Studio. You will be creating a new Studio domain that lets users launch new
@@ -19,18 +17,12 @@ account and create a user with administrative access, see [Complete Amazon SageM
 
 Spark jobs:
 
-- [Step 1: Create a SageMaker AI domain for
-  launching Amazon EMR clusters in Studio](#studio-notebooks-emr-cluster-quickstart-setup "#studio-notebooks-emr-cluster-quickstart-setup")
-- [Step 2: Launch a new
-  Amazon EMR cluster from Studio UI](#studio-notebooks-emr-cluster-quickstart-launch "#studio-notebooks-emr-cluster-quickstart-launch")
-- [Step 3: Connect a
-  JupyterLab notebook to the Amazon EMR cluster](#studio-notebooks-emr-cluster-quickstart-connect "#studio-notebooks-emr-cluster-quickstart-connect")
-- [Step 4: Clean up
-  your CloudFormation stack](#studio-notebooks-emr-cluster-quickstart-clean-stack "#studio-notebooks-emr-cluster-quickstart-clean-stack")
+- [Step 1: Create a SageMaker AI domain for launching Amazon EMR clusters in Studio](#studio-notebooks-emr-cluster-quickstart-setup "#studio-notebooks-emr-cluster-quickstart-setup")
+- [Step 2: Launch a new Amazon EMR cluster from Studio UI](#studio-notebooks-emr-cluster-quickstart-launch "#studio-notebooks-emr-cluster-quickstart-launch")
+- [Step 3: Connect a JupyterLab notebook to the Amazon EMR cluster](#studio-notebooks-emr-cluster-quickstart-connect "#studio-notebooks-emr-cluster-quickstart-connect")
+- [Step 4: Clean up your CloudFormation stack](#studio-notebooks-emr-cluster-quickstart-clean-stack "#studio-notebooks-emr-cluster-quickstart-clean-stack")
 
-## Step 1: Create a SageMaker AI domain for
-
-launching Amazon EMR clusters in Studio
+## Step 1: Create a SageMaker AI domain for launching Amazon EMR clusters in Studio
 
 In the following steps, you apply a CloudFormation stack to automatically create a new SageMaker AI
 domain. The stack also creates a user profile and configures the needed environment and
@@ -45,9 +37,7 @@ SageMaker AI allows 5 Studio domains per AWS account and AWS Region by default.
 Ensure your account has no more than 4 domains in your region before you create your
 stack.
 
-###### Follow these steps to set up a SageMaker AI domain for launching Amazon EMR clusters from
-
-Studio.
+###### Follow these steps to set up a SageMaker AI domain for launching Amazon EMR clusters from Studio.
 
 1. Download the raw file of this [CloudFormation template](https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml "https://github.com/aws-samples/sagemaker-studio-foundation-models/blob/main/workshop-artifacts/cfn/workshop-cfn.yaml") from the `sagemaker-studio-emr` GitHub
    repository.
@@ -71,9 +61,7 @@ Studio.
    and choose **Create stack**. This creates a Studio domain
    in your account and region.
 
-## Step 2: Launch a new
-
-Amazon EMR cluster from Studio UI
+## Step 2: Launch a new Amazon EMR cluster from Studio UI
 
 In the following steps, you create a new Amazon EMR cluster from the Studio UI.
 
@@ -97,9 +85,7 @@ Clusters** page. When the status changes to
 `Running/Waiting`, your Amazon EMR cluster is ready to use in
 Studio.
 
-## Step 3: Connect a
-
-JupyterLab notebook to the Amazon EMR cluster
+## Step 3: Connect a JupyterLab notebook to the Amazon EMR cluster
 
 In the following steps, you connect a notebook in JupyterLab to your running Amazon EMR
 cluster. For this example, you import a notebook allowing you to build a Retrieval
@@ -217,9 +203,7 @@ You are ready to use the `Lab_3_RAG_on_SageMaker_Studio_using_EMR.ipynb`
 notebook. This example notebook runs distributed PySpark workloads for building a RAG
 system using LangChain and OpenSearch.
 
-## Step 4: Clean up
-
-your CloudFormation stack
+## Step 4: Clean up your CloudFormation stack
 
 After you are finished, make sure to terminate your two endpoints and delete your
 CloudFormation stack to prevent continued charges. Deleting the stack cleans up all the resources

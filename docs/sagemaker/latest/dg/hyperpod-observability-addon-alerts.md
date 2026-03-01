@@ -1,6 +1,4 @@
-# Preconfigured
-
-alerts
+# Preconfigured alerts
 
 The Amazon SageMaker HyperPod (SageMaker HyperPod) observability add-on enables default
 alerts for your cluster and workloads to notify you when the system detects

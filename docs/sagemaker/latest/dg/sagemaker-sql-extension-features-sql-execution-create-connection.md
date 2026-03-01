@@ -1,6 +1,4 @@
-# Create a
-
-simple magic command connection string
+# Create a simple magic command connection string
 
 If your administrator has configured the connections to your data sources, follow these
 steps to easily create a connection string in a notebook cell:

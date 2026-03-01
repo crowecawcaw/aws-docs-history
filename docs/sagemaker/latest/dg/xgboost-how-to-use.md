@@ -10,8 +10,7 @@ algorithm. For information on how to use XGBoost from the Amazon SageMaker Studi
 
 - [Use XGBoost as a framework](#xgboost-how-to-framework "#xgboost-how-to-framework")
 - [Use XGBoost as a built-in algorithm](#xgboost-how-to-built-in "#xgboost-how-to-built-in")
-- [Input/Output interface for the XGBoost
-  algorithm](#InputOutput-XGBoost "#InputOutput-XGBoost")
+- [Input/Output interface for the XGBoost algorithm](#InputOutput-XGBoost "#InputOutput-XGBoost")
 
 ## Use XGBoost as a framework
 
@@ -143,9 +142,7 @@ see the following notebook examples.
 - [Managed Spot Training for XGBoost](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_managed_spot_training.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_managed_spot_training.html")
 - [Regression with Amazon SageMaker AI XGBoost (Parquet input)](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_parquet_input_training.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_parquet_input_training.html")
 
-## Input/Output interface for the XGBoost
-
-algorithm
+## Input/Output interface for the XGBoost algorithm
 
 Gradient boosting operates on tabular data, with the rows representing
 observations, one column representing the target variable or label, and the
@@ -174,8 +171,7 @@ input:
   after the label column contain the zero-based index value pairs for
   features. So each row has the format: : <label>
   <index0>:<value0> <index1>:<value1>.
-- For information on instance types and distributed training, see [EC2 instance recommendation for the XGBoost
-  algorithm](xgboost.md#Instance-XGBoost "xgboost.md#Instance-XGBoost").
+- For information on instance types and distributed training, see [EC2 instance recommendation for the XGBoost algorithm](xgboost.md#Instance-XGBoost "xgboost.md#Instance-XGBoost").
 
 For CSV training input mode, the total memory available to the algorithm must be
 able to hold the training dataset. The total memory available is calculated as
@@ -192,9 +188,7 @@ Be mindful of versions when using an SageMaker AI XGBoost model in open source
 XGBoost. Versions 1.3-1 and later use the XGBoost internal binary format while
 previous versions use the Python pickle module.
 
-###### To use a model trained with SageMaker AI XGBoost v1.3-1 or later in open source
-
-XGBoost
+###### To use a model trained with SageMaker AI XGBoost v1.3-1 or later in open source XGBoost
 
 - Use the following Python code:
 
@@ -206,9 +200,7 @@ xgb_model.load_model(`model_file_path`)
 xgb_model.predict(`dtest`)
 ```
 
-###### To use a model trained with previous versions of SageMaker AI XGBoost in open source
-
-XGBoost
+###### To use a model trained with previous versions of SageMaker AI XGBoost in open source XGBoost
 
 - Use the following Python code:
 
@@ -225,9 +217,7 @@ model = pkl.load(open(`model_file_path`, 'rb'))
 pred = model.predict(`dtest`)
 ```
 
-###### To differentiate the importance of labelled data points use Instance Weight
-
-Supports
+###### To differentiate the importance of labelled data points use Instance Weight Supports
 
 - SageMaker AI XGBoost allows customers to differentiate the importance of labelled
   data points by assigning each instance a weight value. For

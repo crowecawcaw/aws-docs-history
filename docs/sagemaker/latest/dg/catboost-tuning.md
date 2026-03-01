@@ -26,9 +26,7 @@ not from the SageMaker AI console.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Evaluation metrics computed by the CatBoost
-
-algorithm
+## Evaluation metrics computed by the CatBoost algorithm
 
 The SageMaker AI CatBoost algorithm computes the following metrics to use for model
 validation. The evaluation metric is automatically assigned based on the type of

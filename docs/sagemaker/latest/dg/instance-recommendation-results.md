@@ -1,6 +1,4 @@
-# Get your inference
-
-recommendation job results
+# Get your inference recommendation job results
 
 Collect the results of your inference recommendation job programmatically with
 AWS SDK for Python (Boto3), the AWS CLI, Studio Classic, or the SageMaker AI console.
@@ -452,5 +450,4 @@ view the Amazon CloudWatch metrics that were logged for each instance type.
 To learn more about interpreting these metrics, see [Interpret results](inference-recommender-interpret-results.md "inference-recommender-interpret-results.md").
 
 For more information about interpreting the results of your recommendation
-job, see [Recommendation
-results](inference-recommender-interpret-results.md "inference-recommender-interpret-results.md").
+job, see [Recommendation results](inference-recommender-interpret-results.md "inference-recommender-interpret-results.md").

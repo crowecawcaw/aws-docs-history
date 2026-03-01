@@ -6,16 +6,13 @@ sections to create the image successfully.
 ###### Topics
 
 - [Running the image](#studio-updated-byoi-specs-run "#studio-updated-byoi-specs-run")
-- [Specifications for the user and
-  file system](#studio-updated-byoi-specs-user-and-filesystem "#studio-updated-byoi-specs-user-and-filesystem")
-- [Health check and URL for
-  applications](#studio-updated-byoi-specs-app-healthcheck "#studio-updated-byoi-specs-app-healthcheck")
+- [Specifications for the user and file system](#studio-updated-byoi-specs-user-and-filesystem "#studio-updated-byoi-specs-user-and-filesystem")
+- [Health check and URL for applications](#studio-updated-byoi-specs-app-healthcheck "#studio-updated-byoi-specs-app-healthcheck")
 - [Dockerfile samples](#studio-updated-byoi-specs-dockerfile-templates "#studio-updated-byoi-specs-dockerfile-templates")
 
 ## Running the image
 
-The following configurations can be made by updating your [`ContainerConfig`](../APIReference/API_ContainerConfig.md "../APIReference/API_ContainerConfig.md"). For an example, see [Update container
-configuration](studio-updated-byoi-how-to-container-configuration.md "studio-updated-byoi-how-to-container-configuration.md").
+The following configurations can be made by updating your [`ContainerConfig`](../APIReference/API_ContainerConfig.md "../APIReference/API_ContainerConfig.md"). For an example, see [Update container configuration](studio-updated-byoi-how-to-container-configuration.md "studio-updated-byoi-how-to-container-configuration.md").
 
 - `Entrypoint` – You can configure `ContainerEntrypoint` and
   `ContainerArguments` that are passed to the container at runtime. We recommend
@@ -39,9 +36,7 @@ variables:
     + `SAGEMAKER_SPACE_NAME`
     + `SAGEMAKER_APP_TYPE`
 
-## Specifications for the user and
-
-file system
+## Specifications for the user and file system
 
 - `WorkingDirectory` – The Amazon EBS volume for your space is mounted on the
   path `/home/sagemaker-user`. You can't change the mount path. Use the
@@ -68,17 +63,13 @@ cat /opt/ml/metadata/resource-metadata.json
   logging directories of your applications and the extensions associated with it. We recommend
   that you don't use these folders in creating your image.
 
-## Health check and URL for
-
-applications
+## Health check and URL for applications
 
 The health check and URL depend on the applications. Choose the following link associated
 with the application you are building the image for.
 
-- [Health check and URL for
-  applications](code-editor-custom-images.md#code-editor-custom-images-app-healthcheck "code-editor-custom-images.md#code-editor-custom-images-app-healthcheck") for Code Editor
-- [Health
-  check and URL for applications](studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-admin-guide-custom-images-app-healthcheck "studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-admin-guide-custom-images-app-healthcheck") for
+- [Health check and URL for applications](code-editor-custom-images.md#code-editor-custom-images-app-healthcheck "code-editor-custom-images.md#code-editor-custom-images-app-healthcheck") for Code Editor
+- [Health check and URL for applications](studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-admin-guide-custom-images-app-healthcheck "studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-admin-guide-custom-images-app-healthcheck") for
   JupyterLab
 
 ## Dockerfile samples
@@ -87,10 +78,8 @@ For Dockerfile samples that meet both the requirements on this page and your spe
 application needs, navigate to the sample Dockerfiles in the respective application's section.
 The following options include Amazon SageMaker Studio applications.
 
-- [Dockerfile
-  examples](code-editor-custom-images.md#code-editor-custom-images-dockerfile-templates "code-editor-custom-images.md#code-editor-custom-images-dockerfile-templates") for Code Editor
-- [Dockerfile
-  examples](studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-custom-images-dockerfile-templates "studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-custom-images-dockerfile-templates") for JupyterLab
+- [Dockerfile examples](code-editor-custom-images.md#code-editor-custom-images-dockerfile-templates "code-editor-custom-images.md#code-editor-custom-images-dockerfile-templates") for Code Editor
+- [Dockerfile examples](studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-custom-images-dockerfile-templates "studio-updated-jl-admin-guide-custom-images.md#studio-updated-jl-custom-images-dockerfile-templates") for JupyterLab
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# View the worker task
-
-interface for a 3D-2D object tracking labeling job
+# View the worker task interface for a 3D-2D object tracking labeling job
 
 Ground Truth provides workers with a web portal and tools to complete your 3D-2D object
 tracking annotation tasks. When you create the labeling job, you provide the Amazon

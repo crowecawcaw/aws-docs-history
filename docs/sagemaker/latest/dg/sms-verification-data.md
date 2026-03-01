@@ -50,9 +50,7 @@ When you create an adjustment or verification labeling job using the Ground Trut
 _must_ use a different
 `LabelAttributeName` than the original labeling job.
 
-### Color information requirements for
-
-semantic segmentation jobs
+### Color information requirements for semantic segmentation jobs
 
 To properly reproduce color information in verification or adjustment tasks, the
 tool requires hexadecimal RGB color information in the manifest (for example,
@@ -67,9 +65,7 @@ introduced to the output manifest at the same time the verification and adjustme
 workflows were introduced. Therefore, older output manifests aren't compatible with
 this new workflow.
 
-### Filter your data before starting the
-
-job
+### Filter your data before starting the job
 
 Amazon SageMaker Ground Truth processes all objects in your input manifest. If you have a partially
 labeled data set, you might want to create a custom manifest using an [Amazon S3 Select query](../../../AmazonS3/latest/dev/selecting-content-from-objects.md "../../../AmazonS3/latest/dev/selecting-content-from-objects.md") on your input manifest. Unlabeled objects
@@ -83,13 +79,8 @@ part of your workflow where needed.
 
 ###### Topics
 
-- [Requirements to create verification and adjustment
-  labeling jobs](sms-data-verify-adjust-prereq.md "sms-data-verify-adjust-prereq.md")
-- [Create a label verification job
-  (console)](sms-data-verify-start-console.md "sms-data-verify-start-console.md")
-- [Create a label adjustment job
-  (console)](sms-data-adjust-start-console.md "sms-data-adjust-start-console.md")
-- [Start a label verification or adjustment job
-  (API)](sms-data-verify-start-api.md "sms-data-verify-start-api.md")
-- [Label verification and adjustment data in the
-  output manifest](sms-data-verify-manifest.md "sms-data-verify-manifest.md")
+- [Requirements to create verification and adjustment labeling jobs](sms-data-verify-adjust-prereq.md "sms-data-verify-adjust-prereq.md")
+- [Create a label verification job (console)](sms-data-verify-start-console.md "sms-data-verify-start-console.md")
+- [Create a label adjustment job (console)](sms-data-adjust-start-console.md "sms-data-adjust-start-console.md")
+- [Start a label verification or adjustment job (API)](sms-data-verify-start-api.md "sms-data-verify-start-api.md")
+- [Label verification and adjustment data in the output manifest](sms-data-verify-manifest.md "sms-data-verify-manifest.md")

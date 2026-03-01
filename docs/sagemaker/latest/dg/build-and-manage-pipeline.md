@@ -3,8 +3,7 @@
 ###### Topics
 
 - [Pipeline Structure](#build-and-manage-pipeline-structure "#build-and-manage-pipeline-structure")
-- [Pipeline Execution using Parallelism
-  Configuration](#build-and-manage-pipeline-execution "#build-and-manage-pipeline-execution")
+- [Pipeline Execution using Parallelism Configuration](#build-and-manage-pipeline-execution "#build-and-manage-pipeline-execution")
 
 ## Pipeline Structure
 
@@ -41,9 +40,7 @@ from sagemaker.workflow.pipeline import Pipeline
   )
 ```
 
-## Pipeline Execution using Parallelism
-
-Configuration
+## Pipeline Execution using Parallelism Configuration
 
 By default, a pipeline performs all steps that are available to run in parallel. You can
 control this behavior by using the `ParallelismConfiguration` property when

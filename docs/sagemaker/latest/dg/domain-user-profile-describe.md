@@ -3,9 +3,7 @@
 The following section describes how to view the details of a user profile from the SageMaker AI
 console or the AWS CLI.
 
-## View user profile details from
-
-the console
+## View user profile details from the console
 
 Complete the following procedure to view the details of a user profile from the SageMaker AI
 console.
@@ -21,9 +19,7 @@ console.
    profiles** tab.
 6. Select the user profile that you want to view details for.
 
-## View user profile details from the
-
-AWS CLI
+## View user profile details from the AWS CLI
 
 To describe a user profile from the AWS CLI, run the following command from the terminal
 of your local machine.

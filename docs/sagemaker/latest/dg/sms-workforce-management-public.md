@@ -130,8 +130,7 @@ must specify that your input data is free of PII.
 ###### To use Mechanical Turk when you create a human review workflow (console):
 
 1. Use the following to create a human review workflow in the Augmented AI section of
-   the SageMaker AI console: [Create a Human Review Workflow
-   (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
+   the SageMaker AI console: [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
 2. When you are selecting **Worker types** in the
    **Workers** section, select
    **Amazon Mechanical Turk**.

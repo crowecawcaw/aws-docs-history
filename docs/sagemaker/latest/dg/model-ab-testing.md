@@ -208,9 +208,7 @@ Now let's look at the metrics for `Variant2`:
 For most of our defined metrics, `Variant2` is performing better, so this is the one that we
 want to use in production.
 
-### Step 4: Increase traffic to the best
-
-model
+### Step 4: Increase traffic to the best model
 
 Now that we have determined that `Variant2` performs better than `Variant1`, we
 shift more traffic to it. We can continue to use `TargetVariant` to invoke a specific model

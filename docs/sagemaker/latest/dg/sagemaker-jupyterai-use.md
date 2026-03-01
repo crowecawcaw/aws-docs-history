@@ -4,9 +4,7 @@ You can use Jupyter AI in JupyterLab or Studio Classic by invoking language mode
 chat UI or from notebook cells. The following sections give information about the steps needed
 to complete this.
 
-## Use language models from the chat
-
-UI
+## Use language models from the chat UI
 
 Compose your message in the chat UI text box to start interacting with your model. To
 clear the message history, use the `/clear` command.
@@ -16,9 +14,7 @@ clear the message history, use the `/clear` command.
 Clearing the message history does not erase the chat context with the model
 provider.
 
-## Use language models from notebook
-
-cells
+## Use language models from notebook cells
 
 Before using the `%%ai` and `%ai` commands to invoke a language
 model, load the IPython extension by running the following command in a JupyterLab or

@@ -1,6 +1,4 @@
-# Cluster and task
-
-observability
+# Cluster and task observability
 
 There are two options for monitoring SageMaker HyperPod clusters:
 
@@ -23,6 +21,5 @@ metrics that Container Insights collects.
 
 ###### Topics
 
-- [Amazon SageMaker HyperPod
-  observability with Amazon Managed Grafana and Amazon Managed Service for Prometheus](sagemaker-hyperpod-observability-addon.md "sagemaker-hyperpod-observability-addon.md")
+- [Amazon SageMaker HyperPod observability with Amazon Managed Grafana and Amazon Managed Service for Prometheus](sagemaker-hyperpod-observability-addon.md "sagemaker-hyperpod-observability-addon.md")
 - [Observability with Amazon CloudWatch](sagemaker-hyperpod-eks-cluster-observability-cluster-cloudwatch-ci.md "sagemaker-hyperpod-eks-cluster-observability-cluster-cloudwatch-ci.md")

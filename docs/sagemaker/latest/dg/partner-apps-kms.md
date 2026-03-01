@@ -4,15 +4,11 @@ You can protect your data at rest using encryption for Amazon SageMaker Partner 
 server-side encryption with a SageMaker owned key. SageMaker also supports an option for server-side
 encryption with a customer managed KMS key.
 
-## Server-side encryption with SageMaker managed keys
-
-(Default)
+## Server-side encryption with SageMaker managed keys (Default)
 
 Partner AI Apps encrypt all your data at rest using an AWS managed key by default.
 
-## Server-side encryption with customer
-
-managed KMS keys (Optional)
+## Server-side encryption with customer managed KMS keys (Optional)
 
 Partner AI Apps support the use of a symmetric customer managed key that you create, own, and
 manage to replace the existing AWS owned encryption. Because you have full control of

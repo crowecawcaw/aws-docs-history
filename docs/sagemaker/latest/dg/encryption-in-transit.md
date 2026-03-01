@@ -23,8 +23,7 @@ You can choose to encrypt communication between nodes in a training cluster.
 For use cases in the healthcare sector, the best practice for security is to encrypt
 communication between the nodes.
 
-For information about how to encrypt communication, see the next topic at [Protect Communications Between ML Compute Instances in a
-Distributed Training Job](train-encrypt.md "train-encrypt.md").
+For information about how to encrypt communication, see the next topic at [Protect Communications Between ML Compute Instances in a Distributed Training Job](train-encrypt.md "train-encrypt.md").
 
 ###### Note
 
@@ -37,9 +36,7 @@ FIPS validated endpoints are available for the SageMaker AI API and request rout
 models (runtime). For information about FIPS compliant endpoints, see [Federal Information Processing Standard
 (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 
-## Protect Communications with RStudio on
-
-Amazon SageMaker AI
+## Protect Communications with RStudio on Amazon SageMaker AI
 
 RStudio on Amazon SageMaker AI provides encryption for all communications that involve SageMaker AI
 components. However, the previous version did not support encryption between the

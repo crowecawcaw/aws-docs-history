@@ -1,6 +1,4 @@
-# Add a Docker Image Compatible with
-
-Amazon SageMaker Studio Classic to Amazon ECR
+# Add a Docker Image Compatible with Amazon SageMaker Studio Classic to Amazon ECR
 
 ###### Important
 

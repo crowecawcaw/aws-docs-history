@@ -1,6 +1,4 @@
-# Tensor
-
-parallelism
+# Tensor parallelism
 
 _Tensor parallelism_ is a type of model parallelism
 in which specific model weights, gradients, and optimizer states are split across
@@ -28,9 +26,7 @@ scenarios.
 - When training with really large clusters on which the global batch size
   exceeds desired limits.
 
-## Hugging Face Transformer models compatible with the SMP tensor
-
-parallelism
+## Hugging Face Transformer models compatible with the SMP tensor parallelism
 
 SMP v2 currently offers tensor parallelism support for the following Hugging Face
 transformer models.
@@ -59,12 +55,10 @@ until the model fits in the GPU memory.
 The following code snippets show how to add the SMP initialization module
 `torch.sagemaker.init()` to your training script and set up the SMP
 configuration dictionary in JSON format for training job launcher while following
-the two-step process introduced in [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
+the two-step process introduced in [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
 don’t need to make any changes to your PyTorch model or [PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp "https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp") configuration. For more information about the
 `tensor_parallel_degree` and `random_seed` parameters, see
-[SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+[SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
 
 **SMP configuration**
 
@@ -100,8 +94,7 @@ from a transformed model in Hugging Face Transformer representation, and the
 model checkpoint for fine-tuning.
 
 For more information about saving checkpoints while using the tensor parallelism
-feature of SMP v2, see [Checkpointing using
-SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
+feature of SMP v2, see [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
 
 For more information about fine-tuning a model applying the tensor parallelism
 feature of SMP v2, see [Fine-tuning](model-parallel-core-features-v2-fine-tuning.md "model-parallel-core-features-v2-fine-tuning.md").

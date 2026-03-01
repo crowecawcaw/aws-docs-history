@@ -1,6 +1,4 @@
-# Set up automated Studio
-
-space filtering when using the AWS Toolkit
+# Set up automated Studio space filtering when using the AWS Toolkit
 
 Users can filter spaces in the AWS Toolkit for Visual Studio Code explorer to display only relevant
 spaces. This section provides information on filtering and how to set up automated
@@ -10,20 +8,15 @@ This setup only applies when using the [Method 2: AWS Toolkit for Visual Studio 
 
 ###### Topics
 
-- [Filtering
-  overview](#remote-access-remote-setup-filter-overview "#remote-access-remote-setup-filter-overview")
-- [Set
-  up when connecting with IAM credentials](#remote-access-remote-setup-filter-set-up-iam-credentials "#remote-access-remote-setup-filter-set-up-iam-credentials")
+- [Filtering overview](#remote-access-remote-setup-filter-overview "#remote-access-remote-setup-filter-overview")
+- [Set up when connecting with IAM credentials](#remote-access-remote-setup-filter-set-up-iam-credentials "#remote-access-remote-setup-filter-set-up-iam-credentials")
 
-## Filtering
-
-overview
+## Filtering overview
 
 **Manual filtering** allows users to manually
 select which user profiles to display spaces for through the AWS Toolkit
 interface. This method works for all authentication types and takes precedence
-over automated filtering. To manually filter, see [Manual
-filtering](remote-access-local-ide-setup-filter.md#remote-access-local-ide-setup-filter-manual "remote-access-local-ide-setup-filter.md#remote-access-local-ide-setup-filter-manual").
+over automated filtering. To manually filter, see [Manual filtering](remote-access-local-ide-setup-filter.md#remote-access-local-ide-setup-filter-manual "remote-access-local-ide-setup-filter.md#remote-access-local-ide-setup-filter-manual").
 
 **Automated filtering** automatically shows only
 spaces relevant to the authenticated user. This filtering behavior depends on
@@ -41,9 +34,7 @@ User Guide for more information. The following lists the sign-in options.
   - **Using assumed IAM role session
     credentials**
 
-## Set
-
-up when connecting with IAM credentials
+## Set up when connecting with IAM credentials
 
 **When using IAM user credentials**
 

@@ -25,9 +25,7 @@ frame sequence files or less. To learn more, see [Provide Video Files](sms-point
 Make sure your video files are stored in an Amazon S3 bucket in the same AWS
 Region that you perform the automated data setup in.
 
-###### Automatically connect your video files in Amazon S3 with Ground Truth and extract video
-
-frames:
+###### Automatically connect your video files in Amazon S3 with Ground Truth and extract video frames:
 
 1. Navigate to the **Create labeling job** page in the Amazon SageMaker AI
    console: [https://console.aws.amazon.com/sagemaker/groundtruth](https://console.aws.amazon.com//sagemaker/groundtruth "https://console.aws.amazon.com//sagemaker/groundtruth").

@@ -1,6 +1,4 @@
-# Tutorial: Build an end-to-end machine
-
-learning workflow in SageMaker Canvas
+# Tutorial: Build an end-to-end machine learning workflow in SageMaker Canvas
 
 This tutorial guides you through an end-to-end machine learning (ML) workflow using Amazon SageMaker Canvas.
 SageMaker Canvas is a visual no-code interface that you can use to prepare data and to train and deploy ML models.
@@ -74,9 +72,7 @@ randomly samples 50,000 rows.
 9. Choose **Preview data**.
 10. Choose **Save**.
 
-## Data Quality and
-
-Insights Report 1 (sample)
+## Data Quality and Insights Report 1 (sample)
 
 After importing a dataset into Amazon SageMaker Canvas, you can generate a Data Quality and Insights
 report on a sample of the data. Use it to provide valuable insights into the dataset.
@@ -119,9 +115,7 @@ amount**.
 At the top of the navigation, choose the name of the data flow to navigate back to
 it.
 
-## Drop year and hour of
-
-day
+## Drop year and hour of day
 
 We're using insights from the report to drop the **year** and
 **hour_of_day** columns to streamline the feature space and
@@ -148,9 +142,7 @@ Wrangler tool in Amazon SageMaker Canvas.
 You can use the preceding procedure as the basis to add all of the other transforms in
 SageMaker Canvas.
 
-## Data Quality and
-
-Insights Report 2 (full dataset)
+## Data Quality and Insights Report 2 (full dataset)
 
 For the previous insights report, we used a sample of the NYC taxi dataset. For our
 second report, we're running a comprehensive analysis on the entire dataset to identify
@@ -192,9 +184,7 @@ biased towards the majority class. This can lead to poor performance on minority
 classes, which is particularly problematic in scenarios where accurately predicting rare
 or underrepresented instances is important.
 
-## Addressing data quality
-
-issues
+## Addressing data quality issues
 
 To address these issues and prepare the dataset for modeling, you can search for the
 following transformations and apply them:
@@ -211,8 +201,7 @@ following transformations and apply them:
    flag**, and **Toll flag** columns as
    floats.
 
-If you're not sure about how to apply a transform, see [Drop year and hour of
-day](#canvas-tutorial-drop-year-and-hour-of-day "#canvas-tutorial-drop-year-and-hour-of-day")
+If you're not sure about how to apply a transform, see [Drop year and hour of day](#canvas-tutorial-drop-year-and-hour-of-day "#canvas-tutorial-drop-year-and-hour-of-day")
 
 By addressing these data quality issues and applying appropriate transformations, you
 can improve the dataset's suitability for modeling.
@@ -249,9 +238,7 @@ Use the following procedure to create the Data Quality and Insights report.
    dataset**.
 7. Choose **Create**.
 
-## Split the data into training and test
-
-sets
+## Split the data into training and test sets
 
 To train a model and evaluate its performance, we use the **Split
 data** transform to split the data into training and test sets.
@@ -291,12 +278,9 @@ SageMaker Canvas dataset.
 3. Choose **Export** to export the dataset.
 
 After you've created a dataset, you can train a model on the SageMaker Canvas dataset that you've
-created. For information about training a model, see [Build a custom numeric or categorical
-prediction model](canvas-build-model-how-to.md#canvas-build-model-numeric-categorical "canvas-build-model-how-to.md#canvas-build-model-numeric-categorical").
+created. For information about training a model, see [Build a custom numeric or categorical prediction model](canvas-build-model-how-to.md#canvas-build-model-numeric-categorical "canvas-build-model-how-to.md#canvas-build-model-numeric-categorical").
 
-## Evaluate model and
-
-make predictions
+## Evaluate model and make predictions
 
 After training your machine learning model, it's crucial to evaluate its performance
 to ensure it meets your requirements and performs well on unseen data. Amazon SageMaker Canvas

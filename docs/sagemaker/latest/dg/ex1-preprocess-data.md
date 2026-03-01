@@ -1,6 +1,4 @@
-# Prepare a
-
-dataset
+# Prepare a dataset
 
 In this step, you load the [Adult Census dataset](https://archive.ics.uci.edu/ml/datasets/adult "https://archive.ics.uci.edu/ml/datasets/adult") to your notebook instance using the SHAP (SHapley Additive
 exPlanations) Library, review the dataset, transform it, and upload it to Amazon S3. SHAP is a
@@ -9,9 +7,7 @@ information about SHAP, see [Welcome to the SHAP documentation](https://shap.rea
 
 To run the following example, paste the sample code into a cell in your notebook instance.
 
-## Load Adult Census Dataset Using
-
-SHAP
+## Load Adult Census Dataset Using SHAP
 
 Using the SHAP library, import the Adult Census dataset as shown following:
 
@@ -83,9 +79,7 @@ simplify and streamline data preprocessing and feature engineering using Amazon 
 To learn more, see [Prepare ML Data with
 Amazon SageMaker Data Wrangler](data-wrangler.md "data-wrangler.md").
 
-## Split the Dataset into Train,
-
-Validation, and Test Datasets
+## Split the Dataset into Train, Validation, and Test Datasets
 
 Using Sklearn, split the dataset into a training set and a test set. The training set
 is used to train the model, while the test set is used to evaluate the performance of
@@ -142,9 +136,7 @@ test
 
 ![The example test dataset.](images/get-started-ni/gs-ni-prepare-data-2-test.png)
 
-## Convert the Train and Validation
-
-Datasets to CSV Files
+## Convert the Train and Validation Datasets to CSV Files
 
 Convert the `train` and `validation` dataframe objects to CSV
 files to match the input file format for the XGBoost algorithm.

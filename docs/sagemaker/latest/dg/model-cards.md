@@ -4,8 +4,7 @@
 
 Amazon SageMaker Model Card is integrated with SageMaker Model Registry. If you're registering a
 model within Model Registry, you can use the integration to add auditing information. For
-more information, see [Update the Details of a Model
-Version](model-registry-details.md "model-registry-details.md").
+more information, see [Update the Details of a Model Version](model-registry-details.md "model-registry-details.md").
 
 Use Amazon SageMaker Model Cards to document critical details about your machine learning (ML) models in a
 single place for streamlined governance and reporting. Model cards can help you to capture

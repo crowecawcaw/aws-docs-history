@@ -1,6 +1,4 @@
-# Adapt your TensorFlow training
-
-script
+# Adapt your TensorFlow training script
 
 To start collecting model output tensors and debug training issues, make the following
 modifications to your TensorFlow training script.
@@ -15,8 +13,7 @@ hook=smd.get_hook(hook_type="keras", create_if_not_exists=True)
 ```
 
 This creates a hook when you start a SageMaker training job. When you launch a training job
-in [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
+in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
 `DebuggerHookConfig`, `TensorBoardConfig`, or
 `Rules` in your estimator, SageMaker AI adds a JSON configuration file to your
 training instance that is picked up by the `smd.get_hook` method. Note that
@@ -65,8 +62,7 @@ collect output scalars and tensors from your model and optimizer.
 
 The `hook.register_model()` method takes your model and
 iterates through each layer, looking for any tensors that match with regular
-expressions that you’ll provide through the configuration in [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"). The collectable
+expressions that you’ll provide through the configuration in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"). The collectable
 tensors through this hook method are weights, biases, and
 activations.
 
@@ -152,5 +148,4 @@ offer to construct hooks and save tensors, see [Hook Methods](https://sagemaker-
 _`sagemaker-debugger` Python SDK
 documentation_.
 
-After you have completed adapting your training script, proceed to [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md").
+After you have completed adapting your training script, proceed to [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md").

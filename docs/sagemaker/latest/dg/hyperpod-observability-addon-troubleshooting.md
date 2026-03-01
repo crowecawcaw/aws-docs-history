@@ -1,20 +1,14 @@
-# Troubleshooting
-
-the Amazon SageMaker HyperPod observability add-on
+# Troubleshooting the Amazon SageMaker HyperPod observability add-on
 
 Use the following guidance to resolve common issues with the Amazon SageMaker HyperPod
 (SageMaker HyperPod) observability add-on.
 
-## Troubleshooting missing
-
-metrics in Amazon Managed Grafana
+## Troubleshooting missing metrics in Amazon Managed Grafana
 
 If metrics don't appear in your Amazon Managed Grafana dashboards, perform the
 following steps to identify and resolve the issue.
 
-### Verify the
-
-Amazon Managed Service for Prometheus-Amazon Managed Grafana connection
+### Verify the Amazon Managed Service for Prometheus-Amazon Managed Grafana connection
 
 1. Sign in to the Amazon Managed Grafana console.
 2. In the left pane, choose **All
@@ -32,9 +26,7 @@ Amazon Managed Service for Prometheus-Amazon Managed Grafana connection
      that the status is **Data source is
      working**.
 
-### Verify the Amazon EKS add-on
-
-status
+### Verify the Amazon EKS add-on status
 
 1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Select your cluster.
@@ -43,9 +35,7 @@ status
    and that its status is **ACTIVE**.
 5. If the status isn't **ACTIVE**, see [Troubleshooting add-on installation failures](#troubleshooting-addon-installation-failures "#troubleshooting-addon-installation-failures").
 
-### Verify Pod Identity
-
-association
+### Verify Pod Identity association
 
 1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Select your cluster.
@@ -134,9 +124,7 @@ JSON
 
 ```
 
-### Check Amazon Managed Service for Prometheus
-
-throttling
+### Check Amazon Managed Service for Prometheus throttling
 
 1. Sign in to the AWS Management Console and open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 2. In the **Managed quotas** box, search for and
@@ -154,20 +142,16 @@ throttling
 
 ### Verify KV caching and intelligent routing are enabled
 
-If the `KVCache Metrics` dashboard is missing, feature is either not enabled or the port isn't mentioned in the `modelMetrics`. For more information on how to enable this, see steps 1 and 3 in [Configure KV caching and intelligent routing for improved
-performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+If the `KVCache Metrics` dashboard is missing, feature is either not enabled or the port isn't mentioned in the `modelMetrics`. For more information on how to enable this, see steps 1 and 3 in [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
-If the `Intelligent Router Metrics` dashboard is missing, enable the feature to have them show up. For more information on how to enable this, see [Configure KV caching and intelligent routing for improved
-performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+If the `Intelligent Router Metrics` dashboard is missing, enable the feature to have them show up. For more information on how to enable this, see [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
 ## Troubleshooting add-on installation failures
 
 If the observability add-on fails to install, use the following steps to
 diagnose and resolve the issue.
 
-### Check health probe
-
-status
+### Check health probe status
 
 1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Select your cluster.
@@ -175,8 +159,7 @@ status
 4. Choose the failed add-on.
 5. Review the **Health issues** section.
 6. If the health issue is related to credentials or pod identity,
-   see [Verify Pod Identity
-   association](#verify-pod-identity-association "#verify-pod-identity-association"). Also
+   see [Verify Pod Identity association](#verify-pod-identity-association "#verify-pod-identity-association"). Also
    ensure that the pod identity agent add-on is running in the
    cluster.
 7. Check for errors in the manager logs. For instructions, see
@@ -193,9 +176,7 @@ kubectl logs -n hyperpod-observability -l control-plane=hyperpod-observability-c
 
 2. For urgent issues, contact Support.
 
-## Review all observability
-
-pods
+## Review all observability pods
 
 All the pods that the SageMaker HyperPod observability add-on creates are in the
 `hyperpod-observability` namespace. To get the status of
@@ -231,9 +212,7 @@ kubectl describe -n hyperpod-observability deployment deployment-name
 kubectl describe -n hyperpod-observability daemonset daemonset-name
 ```
 
-## Troubleshooting pods that are stuck
-
-in the pending status
+## Troubleshooting pods that are stuck in the pending status
 
 If you see that there are pods that are stuck in the `pending`
 status, make sure that the node is large enough to fit in all the pods. To

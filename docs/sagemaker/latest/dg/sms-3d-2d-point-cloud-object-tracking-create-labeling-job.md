@@ -1,6 +1,4 @@
-# Create a
-
-3D-2D point cloud object tracking labeling job
+# Create a 3D-2D point cloud object tracking labeling job
 
 You can create a 3D-2D point cloud labeling job using the SageMaker API operation, [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md"). To create a labeling job for this task type you
 need the following:
@@ -38,8 +36,7 @@ parameter.
 - Your [`LabelAttributeName`](../APIReference/API_CreateLabelingJob.md#sagemaker-CreateLabelingJob-request-LabelAttributeName "../APIReference/API_CreateLabelingJob.md#sagemaker-CreateLabelingJob-request-LabelAttributeName") must end in `-ref`. For
   example, ``ot-labels`-ref`.
 - Your input manifest file must be a point cloud frame sequence manifest
-  file. For more information, see [Create a Point Cloud Sequence
-  Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md"). You also need to
+  file. For more information, see [Create a Point Cloud Sequence Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md"). You also need to
   provide a label category configuration file as mentioned above.
 - You need to provide pre-defined ARNs for the pre-annotation and
   post-annotation (ACS) Lambda functions. These ARNs are specific to the AWS
@@ -65,16 +62,13 @@ After you have successfully created a 3D-2D object tracking job, it shows up
 on the console under labeling jobs. The task type for the job is displayed as
 **Point Cloud Object Tracking**.
 
-## Input data
-
-format
+## Input data format
 
 You can create a 3D-2D object tracking job using the SageMaker API operation, [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md"). To create a labeling job for this task type
 you need the following:
 
 - A sequence input manifest file. To learn how to create this type of
-  manifest file, see [Create a Point Cloud Sequence
-  Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md"). If you are a new
+  manifest file, see [Create a Point Cloud Sequence Input Manifest](sms-point-cloud-multi-frame-input-data.md "sms-point-cloud-multi-frame-input-data.md"). If you are a new
   user of Ground Truth 3D point cloud labeling modalities, we recommend that you
   review [Accepted Raw 3D Data Formats](sms-point-cloud-raw-data-types.md "sms-point-cloud-raw-data-types.md").
 - You specify your labels, label category and frame attributes, and worker

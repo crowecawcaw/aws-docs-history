@@ -1,6 +1,4 @@
-# Update the Approval Status of a
-
-Model
+# Update the Approval Status of a Model
 
 After you create a model version, you typically want to evaluate its performance
 before you deploy it to a production endpoint. If it performs to your requirements,
@@ -31,9 +29,7 @@ shown.
   a model version as part of a condition step in a SageMaker AI pipeline. For information
   about using a model approval step in a SageMaker AI pipeline, see [Pipelines overview](pipelines-overview.md "pipelines-overview.md").
 
-## Update the Approval Status of a
-
-Model (Boto3)
+## Update the Approval Status of a Model (Boto3)
 
 When you created the model version in [Register a Model Version](model-registry-version.md "model-registry-version.md"), you set the
 `ModelApprovalStatus` to `PendingManualApproval`. You
@@ -53,9 +49,7 @@ model_package_update_input_dict = {
 model_package_update_response = sm_client.update_model_package(**model_package_update_input_dict)
 ```
 
-## Update the Approval Status of a
-
-Model (Studio or Studio Classic)
+## Update the Approval Status of a Model (Studio or Studio Classic)
 
 To manually change the approval status in the Amazon SageMaker Studio console,
 complete the following steps based on whether you use Studio or

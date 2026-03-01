@@ -1,6 +1,4 @@
-# Configuring storage for
-
-SageMaker HyperPod clusters orchestrated by Amazon EKS
+# Configuring storage for SageMaker HyperPod clusters orchestrated by Amazon EKS
 
 Cluster admin needs to configure storage for data scientist users to manage input and
 output data and storing checkpoints during training on SageMaker HyperPod clusters.

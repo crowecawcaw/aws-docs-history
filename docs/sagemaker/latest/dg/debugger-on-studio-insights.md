@@ -20,8 +20,7 @@ page.
 
 When you are done using the SageMaker Debugger Insights dashboard, you must shut down the
 `ml.m5.4xlarge` instance to avoid accruing charges. For instructions
-on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights
-instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
+on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
 
 **To open the SageMaker Debugger Insights dashboard**
 

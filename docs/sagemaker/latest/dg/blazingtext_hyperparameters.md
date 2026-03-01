@@ -5,9 +5,7 @@ specify a training algorithm. You can also specify algorithm-specific hyperparam
 string-to-string maps. The hyperparameters for the BlazingText algorithm depend on which
 mode you use: Word2Vec (unsupervised) and Text Classification (supervised).
 
-## Word2Vec
-
-Hyperparameters
+## Word2Vec Hyperparameters
 
 The following table lists the hyperparameters for the BlazingText Word2Vec
 training algorithm provided by Amazon SageMaker AI.
@@ -29,9 +27,7 @@ training algorithm provided by Amazon SageMaker AI.
 | `vector_dim`         | The dimension of the word vectors that the algorithm<br>learns.<br>**Optional**<br>Valid values: Positive integer<br>Default value: 100                                                                                                                                                                           |
 | `window_size`        | The size of the context window. The context window is the<br>number of words surrounding the target word used for<br>training.<br>**Optional**<br>Valid values: Positive integer<br>Default value: 5                                                                                                              |
 
-## Text Classification
-
-Hyperparameters
+## Text Classification Hyperparameters
 
 The following table lists the hyperparameters for the Text Classification training
 algorithm provided by Amazon SageMaker AI.

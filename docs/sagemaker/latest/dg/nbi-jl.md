@@ -22,8 +22,7 @@ instance defaults to running JupyterLab 1.
 - [JupyterLab 4](#nbi-jl-4 "#nbi-jl-4")
 - [JupyterLab 3](#nbi-jl-3 "#nbi-jl-3")
 - [Create a notebook with your JupyterLab version](nbi-jl-create.md "nbi-jl-create.md")
-- [View the JupyterLab version of a notebook from the
-  console](nbi-jl-view.md "nbi-jl-view.md")
+- [View the JupyterLab version of a notebook from the console](nbi-jl-view.md "nbi-jl-view.md")
 
 ## JupyterLab version maintenance
 

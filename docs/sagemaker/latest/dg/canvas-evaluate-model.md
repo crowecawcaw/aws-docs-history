@@ -19,8 +19,7 @@ used for making predictions and deploying. For each model candidate, you can vie
 **Advanced metrics** information to help you decide which model
 candidate you’d like to select as the default. You can view this information by selecting
 the model candidate from the **Model leaderboard**. For more information,
-see [View model candidates in the model
-leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
+see [View model candidates in the model leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
 
 Canvas also provides the option to download a Jupyter notebook so that you can view and
 run the code used to build your model. This is useful if you’d like to make adjustments to

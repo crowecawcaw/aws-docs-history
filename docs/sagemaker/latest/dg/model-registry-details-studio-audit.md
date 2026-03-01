@@ -1,6 +1,4 @@
-# Update audit (governance)
-
-information (Studio)
+# Update audit (governance) information (Studio)
 
 ###### Important
 
@@ -15,9 +13,7 @@ domain and owners of the model, and understand model risks. You can also save
 details about how the model is expected to perform and reasons for performance
 limitations.
 
-###### To view or update details related to the model governance, complete the
-
-following steps.
+###### To view or update details related to the model governance, complete the following steps.
 
 1. On the **Audit** tab, view the approval status of the
    model card. The status can be one the following:

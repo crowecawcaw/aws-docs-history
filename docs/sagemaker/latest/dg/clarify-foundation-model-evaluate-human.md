@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -28,8 +27,7 @@ In model evaluation job that uses human workers, you have the ability to bring
 inference data from models hosted outside of SageMaker AI and models hosted outside of AWS. To
 learn more, see [Using your own inference data in model evaluation jobs that use human workers](#outside-inference-studio "#outside-inference-studio").
 
-When your jobs are completed the results are saved in the Amazon S3 bucket specified when the job was created. To learn how to interpret your results, see [Understand the results of your model
-evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md").
+When your jobs are completed the results are saved in the Amazon S3 bucket specified when the job was created. To learn how to interpret your results, see [Understand the results of your model evaluation job](clarify-foundation-model-evaluate-results.md "clarify-foundation-model-evaluate-results.md").
 
 ### Prerequisites
 
@@ -38,9 +36,7 @@ To run a model evaluation in the Amazon SageMaker Studio UI, your AWS Identity a
 you do not have a SageMaker AI Domain or IAM role, follow the steps in
 [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
 
-### Setting
-
-up your permissions
+### Setting up your permissions
 
 The following section shows you how to create a Amazon S3 bucket and how to
 specify the correct Cross-origin resource sharing (CORS) permissions.
@@ -662,8 +658,7 @@ previously deployed to an endpoint.
         	 kind of compute instance you want to use to run your
         	 model. AWS has general compute instances and instances
         	 that are optimized for computing and memory. For more
-        	 information about instance types, see [Instance Types Available for Use With
-        	 Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
+        	 information about instance types, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
         	 .
         	* If you want SageMaker AI to use your own AWS Key Management Service (AWS KMS)
         	 encryption key instead of the default AWS managed
@@ -836,5 +831,4 @@ navigation.
 6. Next, under **Prompt dataset** choose the check box under **Bring your own inference** to indicate that your prompts have response keys in it.
 7. Then continue setting up your model evaluation job.
    To learn more about how the responses from your model evaluation job that uses
-   human workers are saved, see [Understand the results
-   of a human evaluation job](clarify-foundation-model-evaluate-results-human.md "clarify-foundation-model-evaluate-results-human.md")
+   human workers are saved, see [Understand the results of a human evaluation job](clarify-foundation-model-evaluate-results-human.md "clarify-foundation-model-evaluate-results-human.md")

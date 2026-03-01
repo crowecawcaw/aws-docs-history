@@ -1,6 +1,4 @@
-# Semantic Segmentation
-
-Hyperparameters
+# Semantic Segmentation Hyperparameters
 
 The following tables list the hyperparameters supported by the Amazon SageMaker AI semantic
 segmentation algorithm for network architecture, data inputs, and training. You specify

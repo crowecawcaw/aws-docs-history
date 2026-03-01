@@ -1,6 +1,4 @@
-# Load and visualize output tensors using
-
-the TensorBoard application
+# Load and visualize output tensors using the TensorBoard application
 
 You can conduct an online or offline analysis by loading collected output tensors from
 S3 buckets paired with training jobs during or after training.
@@ -43,8 +41,7 @@ load TensorBoard-compatible training output data from Amazon S3.
 
 The **SageMaker AI Data Manager** tab only shows training jobs configured
 with the `TensorBoardOutputConfig` parameter. Make sure you have
-configured the SageMaker AI estimator with this parameter. For more information, see [Step 2: Create a SageMaker training
-estimator object with the TensorBoard output configuration](debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2 "debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2").
+configured the SageMaker AI estimator with this parameter. For more information, see [Step 2: Create a SageMaker training estimator object with the TensorBoard output configuration](debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2 "debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2").
 
 ###### Note
 
@@ -56,9 +53,7 @@ data are successfully loaded. You can also set to auto-refresh using the
 **Settings** button next to the refresh button in the upper
 right corner.
 
-## Visualization of the output tensors in
-
-TensorBoard
+## Visualization of the output tensors in TensorBoard
 
 In the graphics tabs, you can find the list of the loaded training jobs in the left
 pane. You can also use the check boxes of the training jobs to show or hide

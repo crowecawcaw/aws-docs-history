@@ -1,6 +1,4 @@
-# Configure and Launch a Hyperparameter
-
-Tuning Job
+# Configure and Launch a Hyperparameter Tuning Job
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -24,22 +21,14 @@ complete the steps in these guides.
 
 ###### Topics
 
-- [Settings for the
-  hyperparameter tuning job](#automatic-model-tuning-ex-low-tuning-config "#automatic-model-tuning-ex-low-tuning-config")
-- [Configure the training
-  jobs](#automatic-model-tuning-ex-low-training-def "#automatic-model-tuning-ex-low-training-def")
-- [Name and launch the hyperparameter
-  tuning job](#automatic-model-tuning-ex-low-launch "#automatic-model-tuning-ex-low-launch")
-- [Monitor the Progress of a Hyperparameter
-  Tuning Job](automatic-model-tuning-monitor.md "automatic-model-tuning-monitor.md")
-- [View the Status of the Training
-  Jobs](#automatic-model-tuning-monitor-training "#automatic-model-tuning-monitor-training")
-- [View
-  the Best Training Job](#automatic-model-tuning-best-training-job "#automatic-model-tuning-best-training-job")
+- [Settings for the hyperparameter tuning job](#automatic-model-tuning-ex-low-tuning-config "#automatic-model-tuning-ex-low-tuning-config")
+- [Configure the training jobs](#automatic-model-tuning-ex-low-training-def "#automatic-model-tuning-ex-low-training-def")
+- [Name and launch the hyperparameter tuning job](#automatic-model-tuning-ex-low-launch "#automatic-model-tuning-ex-low-launch")
+- [Monitor the Progress of a Hyperparameter Tuning Job](automatic-model-tuning-monitor.md "automatic-model-tuning-monitor.md")
+- [View the Status of the Training Jobs](#automatic-model-tuning-monitor-training "#automatic-model-tuning-monitor-training")
+- [View the Best Training Job](#automatic-model-tuning-best-training-job "#automatic-model-tuning-best-training-job")
 
-## Settings for the
-
-hyperparameter tuning job
+## Settings for the hyperparameter tuning job
 
 To specify settings for the hyperparameter tuning job, define a JSON object when you
 create the tuning job. Pass this JSON object as the value of the
@@ -120,9 +109,7 @@ tuning_job_config = {
   }
 ```
 
-## Configure the training
-
-jobs
+## Configure the training jobs
 
 The hyperparameter tuning job will launch training jobs to find an optimal
 configuration of hyperparameters. These training jobs should be configured using the SageMaker AI
@@ -292,9 +279,7 @@ training_job_definition = {
 }
 ```
 
-## Name and launch the hyperparameter
-
-tuning job
+## Name and launch the hyperparameter tuning job
 
 After you configure the hyperparameter tuning job, you can launch it by calling the
 [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") API. The following code example uses
@@ -308,13 +293,9 @@ smclient.create_hyper_parameter_tuning_job(HyperParameterTuningJobName = tuning_
                                            TrainingJobDefinition = training_job_definition)
 ```
 
-## View the Status of the Training
+## View the Status of the Training Jobs
 
-Jobs
-
-###### To view the status of the training jobs that the hyperparameter tuning job
-
-launched
+###### To view the status of the training jobs that the hyperparameter tuning job launched
 
 1. In the list of hyperparameter tuning jobs, choose the job that you
    launched.
@@ -343,9 +324,7 @@ A training job can be:
 Hyperparameter tuning jobs can be stopped and the underlying resources [deleted](automatic-model-tuning-ex-cleanup.md "automatic-model-tuning-ex-cleanup.md"),
 but the jobs themselves cannot be deleted.
 
-## View
-
-the Best Training Job
+## View the Best Training Job
 
 A hyperparameter tuning job uses the objective metric that each training job returns
 to evaluate training jobs. While the hyperparameter tuning job is in progress, the best

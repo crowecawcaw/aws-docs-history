@@ -1,6 +1,4 @@
-# Activation
-
-offloading
+# Activation offloading
 
 ###### Important
 
@@ -33,18 +31,15 @@ see:
   PyTorch Distributed_.
   You can apply the SMP activation offloading feature on [PyTorch activation checkpointing](https://pytorch.org/blog/scaling-multimodal-foundation-models-in-torchmultimodal-with-pytorch-distributed/#activation-checkpointing "https://pytorch.org/blog/scaling-multimodal-foundation-models-in-torchmultimodal-with-pytorch-distributed/#activation-checkpointing"). This is done by adding the
   `sm_activation_offloading` and `activation_loading_horizon`
-  parameters to the SMP configuration dictionary during [Step 2: Launch a training
-  job](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2 "model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2").
+  parameters to the SMP configuration dictionary during [Step 2: Launch a training job](model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2 "model-parallel-use-api-v2.md#model-parallel-launch-a-training-job-v2").
 
 The following code snippets show how to add the SMP initialization module
 `torch.sagemaker.init()` to your training script and set up the SMP
 configuration dictionary in JSON format for training job launcher while following the
-two-step process introduced in [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You don’t
+two-step process introduced in [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You don’t
 need to make any changes to your PyTorch model or [PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp "https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp") configuration. For more information about the
 `sm_activation_offloading` and `activation_loading_horizon`
-parameters, see [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+parameters, see [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
 
 **SMP configuration**
 

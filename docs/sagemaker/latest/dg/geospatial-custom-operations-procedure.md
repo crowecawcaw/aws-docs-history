@@ -1,7 +1,4 @@
-# Using `ScriptProcessor` to
-
-calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2
-satellite data
+# Using `ScriptProcessor` to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data
 
 The
 following code samples show you how to calculate the normalized
@@ -14,8 +11,7 @@ SDK.
 
 This demo also uses an Amazon SageMaker Studio Classic notebook instance that uses the geospatial kernel and
 instance type. To learn how to create a Studio Classic geospatial notebook instance, see
-[Create an Amazon SageMaker Studio Classic notebook using the
-geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md").
+[Create an Amazon SageMaker Studio Classic notebook using the geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md").
 
 You can follow along with this demo in your own notebook instance by copying and
 pasting the following code snippets:
@@ -35,10 +31,7 @@ pasting the following code snippets:
 5. [Visualizing the results of
    your processing job](#geospatial-custom-operations-visual "#geospatial-custom-operations-visual").
 
-## Query
-
-the Sentinel-2 raster data collection using
-`SearchRasterDataCollection`
+## Query the Sentinel-2 raster data collection using `SearchRasterDataCollection`
 
 With `search_raster_data_collection` you can query supported raster
 data collections. This example uses data that's pulled from
@@ -187,10 +180,7 @@ In the [next
 section](#geospatial-custom-operations-procedure-manifest "#geospatial-custom-operations-procedure-manifest"), you create a manifest file using the `'Id'` key from
 the API response.
 
-## Create an input
-
-manifest file using the `Id` key from the
-`search_raster_data_collection` API response
+## Create an input manifest file using the `Id` key from the `search_raster_data_collection` API response
 
 When you run a processing job, you must specify a data input from Amazon S3. The input
 data type can either be a manifest file, which then points to the individual data
@@ -303,9 +293,7 @@ script that processes your data in the processing job. It processes the data fro
 the satellite images, calculates the NDVI, and then returns the results to a
 different Amazon S3 location.
 
-## Write a script that
-
-calculates the NDVI
+## Write a script that calculates the NDVI
 
 Amazon SageMaker Studio Classic supports the use of the `%%writefile` cell magic
 command. After running a cell with this command, its contents will be saved to your
@@ -389,9 +377,7 @@ if __name__ == "__main__":
 You now have a script that can calculate the NDVI. Next, you can create an
 instance of the ScriptProcessor and run your Processing job.
 
-## Creating an instance of the
-
-`ScriptProcessor` class
+## Creating an instance of the `ScriptProcessor` class
 
 This demo uses the [ScriptProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.processing.ScriptProcessor") class that is available via the Amazon SageMaker Python SDK.
 First, you need to create an instance of the class, and then you can start your
@@ -457,9 +443,7 @@ s3_output_uri = preprocessing_job_descriptor["ProcessingOutputConfig"]["Outputs"
 print(s3_output_uri)
 ```
 
-## Visualizing your results using
-
-`matplotlib`
+## Visualizing your results using `matplotlib`
 
 With the [Matplotlib](https://matplotlib.org/stable/index.html "https://matplotlib.org/stable/index.html") Python
 library, you can plot raster data. Before you plot the data, you need to calculate

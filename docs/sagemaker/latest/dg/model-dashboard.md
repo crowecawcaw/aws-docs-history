@@ -59,13 +59,11 @@ The Model Dashboard displays Model Monitor status values by the following monito
      Quality monitor, see [Model quality](model-monitor-model-quality.md "model-monitor-model-quality.md").
     + *Bias Drift*: Compares the distribution of live data to training data, which can
      also cause inaccurate predictions. For additional details about the Bias Drift
-     monitor, see [Bias drift for models in
-     production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
+     monitor, see [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
     + *Feature Attribution Drift*: Also known as explainability drift. Compares the
      relative rankings of your features in training data versus live data, which could also
      be a result of bias drift. For additional details about the Feature Attribution Drift
-     monitor, see [Feature
-     attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
+     monitor, see [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
 
 Each Model Monitor status is one of the following values:
 

@@ -5,9 +5,7 @@ endpoint](../../../AmazonVPC/latest/UserGuide/vpce-interface.md "../../../Amazon
 internet. When you use a VPC interface endpoint, communication between your VPC and the SageMaker AI
 API or Runtime is conducted entirely and securely within an AWS network.
 
-## Connect to SageMaker AI through a VPC interface
-
-endpoint
+## Connect to SageMaker AI through a VPC interface endpoint
 
 The SageMaker API and SageMaker AI Runtime support [Amazon Virtual Private Cloud](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md") (Amazon VPC)
 interface endpoints that are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"). Each VPC endpoint is represented by one or more [Elastic Network
@@ -78,12 +76,9 @@ see DNS failures when attempting to resolve the URL.
 To learn more about AWS PrivateLink, see the [AWS PrivateLink documentation](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md#what-is-privatelink "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md#what-is-privatelink"). Refer to [AWS PrivateLink Pricing](https://aws.amazon.com/privatelink/pricing/ "https://aws.amazon.com/privatelink/pricing/") for the
 price of VPC endpoints. To learn more about VPC and endpoints, see [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/"). For information about how to use
 identity-based AWS Identity and Access Management policies to restrict access to the SageMaker API and SageMaker AI Runtime,
-see [Control access to the SageMaker AI API by using
-identity-based policies](security_iam_id-based-policy-examples.md#api-access-policy "security_iam_id-based-policy-examples.md#api-access-policy").
+see [Control access to the SageMaker AI API by using identity-based policies](security_iam_id-based-policy-examples.md#api-access-policy "security_iam_id-based-policy-examples.md#api-access-policy").
 
-## Using SageMaker training and hosting with resources
-
-inside your VPC
+## Using SageMaker training and hosting with resources inside your VPC
 
 SageMaker AI uses your execution role to download and upload information from an Amazon S3 bucket
 and Amazon Elastic Container Registry (Amazon ECR), in isolation from your training or inference container. If you
@@ -166,12 +161,9 @@ In this example, the following are denied:
 
 In this example, users can still take other SageMaker API actions from outside the VPC.
 For information about how to restrict API calls to those from within the VPC, see
-[Control access to the SageMaker AI API by using
-identity-based policies](security_iam_id-based-policy-examples.md#api-access-policy "security_iam_id-based-policy-examples.md#api-access-policy").
+[Control access to the SageMaker AI API by using identity-based policies](security_iam_id-based-policy-examples.md#api-access-policy "security_iam_id-based-policy-examples.md#api-access-policy").
 
-## Create a VPC Endpoint Policy for
-
-Amazon SageMaker Feature Store
+## Create a VPC Endpoint Policy for Amazon SageMaker Feature Store
 
 To create a VPC Endpoint for Amazon SageMaker Feature Store, use the following endpoint template,
 substituting your `VPC_Endpoint_ID.api` and
@@ -179,9 +171,7 @@ substituting your `VPC_Endpoint_ID.api` and
 
 ``VPC_Endpoint_ID.api`.featurestore-runtime.sagemaker.`Region`.vpce.amazonaws.com`
 
-## Connect Your Private Network to Your
-
-VPC
+## Connect Your Private Network to Your VPC
 
 To call the SageMaker API and SageMaker AI Runtime through your VPC, you have to connect from an
 instance that is inside the VPC or connect your private network to your VPC by using an

@@ -4,9 +4,7 @@ This procedure demonstrates how to delete a Model Group in the Amazon SageMaker 
 console. When you delete a Model Group, you lose access to the model versions in the
 Model Group.
 
-## Delete a Model Group
-
-(Studio or Studio Classic)
+## Delete a Model Group (Studio or Studio Classic)
 
 ###### Important
 

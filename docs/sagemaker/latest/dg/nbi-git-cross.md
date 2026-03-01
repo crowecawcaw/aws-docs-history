@@ -1,13 +1,9 @@
-# Associate a CodeCommit Repository in a Different AWS
-
-Account with a Notebook Instance
+# Associate a CodeCommit Repository in a Different AWS Account with a Notebook Instance
 
 To associate a CodeCommit repository in a different AWS account with your notebook
 instance, set up cross-account access for the CodeCommit repository.
 
-###### To set up cross-account access for a CodeCommit repository and associate it with a
-
-notebook instance:
+###### To set up cross-account access for a CodeCommit repository and associate it with a notebook instance:
 
 1. In the AWS account that contains the CodeCommit repository, create an IAM
    policy that allows access to the repository from users in the account that

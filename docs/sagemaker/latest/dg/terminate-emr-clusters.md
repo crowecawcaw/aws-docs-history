@@ -1,13 +1,9 @@
-# Terminate an Amazon EMR cluster from Studio or
-
-Studio Classic
+# Terminate an Amazon EMR cluster from Studio or Studio Classic
 
 The following procedure shows how to terminate an Amazon EMR cluster from a Studio or
 Studio Classic notebook.
 
-###### To terminate a cluster in a `Running` state, navigate to the list of
-
-available Amazon EMR clusters.
+###### To terminate a cluster in a `Running` state, navigate to the list of available Amazon EMR clusters.
 
 1. In the Studio UI, scroll down to the **Data** node in
    the left navigation menu.

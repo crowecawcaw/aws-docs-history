@@ -6,13 +6,10 @@ console.
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerModelRegistryFullAccess](#security-iam-awsmanpol-model-registry-AmazonSageMakerModelRegistryFullAccess "#security-iam-awsmanpol-model-registry-AmazonSageMakerModelRegistryFullAccess")
+- [AWS managed policy: AmazonSageMakerModelRegistryFullAccess](#security-iam-awsmanpol-model-registry-AmazonSageMakerModelRegistryFullAccess "#security-iam-awsmanpol-model-registry-AmazonSageMakerModelRegistryFullAccess")
 - [Amazon SageMaker AI updates to Model Registry managed policies](#security-iam-awsmanpol-model-registry-updates "#security-iam-awsmanpol-model-registry-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerModelRegistryFullAccess
+## AWS managed policy: AmazonSageMakerModelRegistryFullAccess
 
 This AWS managed policy grants permissions needed to use all Model Registry features inside an
 Amazon SageMaker AI domain. This policy is attached to an execution role when configuring

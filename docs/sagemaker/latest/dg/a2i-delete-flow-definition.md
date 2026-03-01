@@ -36,9 +36,7 @@ You might want to delete a human review workflow for any of the following reason
   operation `ListHumanLoops`, Augmented AI returns a
   `ResourceNotFoundException`.
 
-## Delete a Flow Definition Using the
-
-Console or the SageMaker API
+## Delete a Flow Definition Using the Console or the SageMaker API
 
 You can delete a human review workflow on the **Human review
 workflows** page in the Augmented AI area of the SageMaker AI console or by using the SageMaker AI

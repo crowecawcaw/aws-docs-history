@@ -14,9 +14,7 @@ Amazon SageMaker Canvas uses the following services to process the requests of y
   [Amazon SageMaker AI
   endpoints and quotas](../../../general/latest/gr/sagemaker.md "../../../general/latest/gr/sagemaker.md").
 
-## Request an increase for
-
-instances to build custom models
+## Request an increase for instances to build custom models
 
 When building a custom model, if you encounter an error during post-building analysis
 that tells you to increase your quota for `ml.m5.2xlarge` instances, use the

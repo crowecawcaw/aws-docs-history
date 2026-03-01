@@ -1,6 +1,4 @@
-# Create a training job
-
-using the API, AWS CLI, SageMaker SDK
+# Create a training job using the API, AWS CLI, SageMaker SDK
 
 To use SageMaker training plans for your SageMaker training job, specify the
 `TrainingPlanArn` parameter of the desired plan in the
@@ -61,9 +59,7 @@ training plan by calling the `DescribeTrainingJob` API.
 aws sagemaker describe-training-job --training-job-name `training-job-name`
 ```
 
-## Run a training job on a plan using the SageMaker AI Python
-
-SDK
+## Run a training job on a plan using the SageMaker AI Python SDK
 
 Alternatively, you can create a training job associated with a training plan using the
 [SageMaker Python

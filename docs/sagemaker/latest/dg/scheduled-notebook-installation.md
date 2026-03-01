@@ -7,8 +7,7 @@ to use Notebook Jobs in your JupyterLab environment.
 
 If your notebook is in Amazon SageMaker Studio or Amazon SageMaker Studio Lab, you don’t need to perform
 additional installation—SageMaker Notebook Jobs is built into the platform. To set up
-required permissions for Studio, see [Set up policies and permissions for
-Studio](scheduled-notebook-policies-studio.md "scheduled-notebook-policies-studio.md").
+required permissions for Studio, see [Set up policies and permissions for Studio](scheduled-notebook-policies-studio.md "scheduled-notebook-policies-studio.md").
 
 **For local Jupyter notebooks**
 
@@ -30,8 +29,7 @@ To install SageMaker Notebook Jobs, complete the following steps:
    2. If you haven’t yet created your notebook job role, see [Creating a role to delegate
       permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md").
    3. Attach the necessary permissions and trust policy to attach to your user and role.
-      For step-by-step instructions and permission details, see [Install policies and permissions for
-      local Jupyter environments](scheduled-notebook-policies-other.md "scheduled-notebook-policies-other.md").
+      For step-by-step instructions and permission details, see [Install policies and permissions for local Jupyter environments](scheduled-notebook-policies-other.md "scheduled-notebook-policies-other.md").
 
 5. Generate AWS credentials for your newly-created IAM user and save them in the
    credentials file (~/.aws/credentials) of your JupyterLab environment. You can do this with

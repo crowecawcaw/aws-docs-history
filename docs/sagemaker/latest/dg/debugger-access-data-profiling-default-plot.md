@@ -1,6 +1,4 @@
-# Plot the system metrics
-
-and framework metrics data
+# Plot the system metrics and framework metrics data
 
 You can use the system and algorithm metrics objects for the following visualization
 classes to plot timeline graphs and histograms.

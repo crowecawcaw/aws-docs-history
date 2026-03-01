@@ -52,9 +52,7 @@ When you use a customer managed key, you can take advantage of the following fea
 
 You do not pay a monthly fee for AWS owned customer managed keys. Customer managed keys will [incur a charge](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/") for each API call and AWS Key Management Service quotas apply to each customer managed key.
 
-## Authorizing use of a customer managed Key for
-
-your online store
+## Authorizing use of a customer managed Key for your online store
 
 If you use a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") to
 protect your online store, the policies on that customer managed key must give Feature Store permission to use it on
@@ -63,9 +61,7 @@ your behalf. You have full control over the policies and grants on a customer ma
 Feature Store does not need additional authorization to use the default [AWS owned
 KMS key](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys") to protect your online or offline stores in your AWS account.
 
-### Customer managed key
-
-policy
+### Customer managed key policy
 
 When you select a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") to
 protect your Online Store, Feature Store must have permission to use the customer managed key on behalf of
@@ -176,17 +172,13 @@ The key policy can also allow the account to [revoke the grant](../../../kms/lat
 However, if you revoke the grant on an active encrypted online store, Feature Store won't be able to
 protect and maintain the store.
 
-## Monitoring Feature Store
-
-interaction with AWS KMS
+## Monitoring Feature Store interaction with AWS KMS
 
 If you use a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") to
 protect your online or offline store, you can use AWS CloudTrail logs to track the requests that
 Feature Store sends to AWS KMS on your behalf.
 
-## Accessing data in your online
-
-store
+## Accessing data in your online store
 
 The **caller (either user or role)** to **ALL DataPlane operations (Put, Get, DeleteRecord)** must have below
 permissions on the customer managed key:
@@ -195,9 +187,7 @@ permissions on the customer managed key:
 "kms:Decrypt"
 ```
 
-## Authorizing use of a
-
-customer managed key for your offline store
+## Authorizing use of a customer managed key for your offline store
 
 The **roleArn** that is passed as a parameter to
 `createFeatureGroup` must have below permissions to the OfflineStore KmsKeyId:

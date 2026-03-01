@@ -1,6 +1,4 @@
-# Updating
-
-SageMaker HyperPod cluster configuration
+# Updating SageMaker HyperPod cluster configuration
 
 Run [update-cluster](../../../cli/latest/reference/sagemaker/update-cluster.md "../../../cli/latest/reference/sagemaker/update-cluster.md")
 to update the configuration of a cluster.
@@ -86,8 +84,7 @@ instructions on how to scale down or delete instance groups, see [Scaling down a
     	 Guide*.
     8. For `OnStartDeepHealthChecks`, add
      `InstanceStress` and
-     `InstanceConnectivity` to enable [Deep health
-     checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md").
+     `InstanceConnectivity` to enable [Deep health checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md").
     9. For `NodeRecovery`, specify `Automatic` to
      enable automatic node recovery. SageMaker HyperPod replaces or reboots
      instances (nodes) when issues are found by the health-monitoring

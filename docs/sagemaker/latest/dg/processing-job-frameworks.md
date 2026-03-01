@@ -23,8 +23,7 @@ learning frameworks, see the following topics.
 
 ###### Topics
 
-- [Code example using HuggingFaceProcessor
-  in the Amazon SageMaker Python SDK](processing-job-frameworks-hugging-face.md "processing-job-frameworks-hugging-face.md")
+- [Code example using HuggingFaceProcessor in the Amazon SageMaker Python SDK](processing-job-frameworks-hugging-face.md "processing-job-frameworks-hugging-face.md")
 - [MXNet Framework Processor](processing-job-frameworks-mxnet.md "processing-job-frameworks-mxnet.md")
 - [PyTorch Framework Processor](processing-job-frameworks-pytorch.md "processing-job-frameworks-pytorch.md")
 - [TensorFlow Framework Processor](processing-job-frameworks-tensorflow.md "processing-job-frameworks-tensorflow.md")

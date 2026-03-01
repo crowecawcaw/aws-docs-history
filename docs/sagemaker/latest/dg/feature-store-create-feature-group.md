@@ -54,7 +54,5 @@ In the following we list some available Feature Store managed resources.
 
 ###### Topics
 
-- [Introduction to Feature Store example
-  notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md")
-- [Fraud detection with Feature Store example
-  notebook](feature-store-fraud-detection-notebook.md "feature-store-fraud-detection-notebook.md")
+- [Introduction to Feature Store example notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md")
+- [Fraud detection with Feature Store example notebook](feature-store-fraud-detection-notebook.md "feature-store-fraud-detection-notebook.md")

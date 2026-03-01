@@ -37,23 +37,15 @@ running on an endpoint.
 
 ###### Topics
 
-- [Sample Notebooks for Inference
-  Pipelines](#inference-pipeline-sample-notebooks "#inference-pipeline-sample-notebooks")
-- [Feature Processing
-  with Spark ML and Scikit-learn](inference-pipeline-mleap-scikit-learn-containers.md "inference-pipeline-mleap-scikit-learn-containers.md")
+- [Sample Notebooks for Inference Pipelines](#inference-pipeline-sample-notebooks "#inference-pipeline-sample-notebooks")
+- [Feature Processing with Spark ML and Scikit-learn](inference-pipeline-mleap-scikit-learn-containers.md "inference-pipeline-mleap-scikit-learn-containers.md")
 - [Create a Pipeline Model](inference-pipeline-create-console.md "inference-pipeline-create-console.md")
-- [Run Real-time Predictions with an
-  Inference Pipeline](inference-pipeline-real-time.md "inference-pipeline-real-time.md")
-- [Batch transforms with inference
-  pipelines](inference-pipeline-batch.md "inference-pipeline-batch.md")
-- [Inference Pipeline Logs and
-  Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md")
-- [Troubleshoot Inference
-  Pipelines](inference-pipeline-troubleshoot.md "inference-pipeline-troubleshoot.md")
+- [Run Real-time Predictions with an Inference Pipeline](inference-pipeline-real-time.md "inference-pipeline-real-time.md")
+- [Batch transforms with inference pipelines](inference-pipeline-batch.md "inference-pipeline-batch.md")
+- [Inference Pipeline Logs and Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md")
+- [Troubleshoot Inference Pipelines](inference-pipeline-troubleshoot.md "inference-pipeline-troubleshoot.md")
 
-## Sample Notebooks for Inference
-
-Pipelines
+## Sample Notebooks for Inference Pipelines
 
 For an example that shows how to create and deploy inference pipelines, see the
 [Inference Pipeline with Scikit-learn and Linear Learner](https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-python-sdk/scikit_learn_inference_pipeline "https://github.com/aws/amazon-sagemaker-examples/tree/main/sagemaker-python-sdk/scikit_learn_inference_pipeline") sample notebook. For

@@ -47,21 +47,16 @@ Studio offers the following benefits:
 - [Amazon EFS auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md")
 - [Idle shutdown](studio-updated-idle-shutdown.md "studio-updated-idle-shutdown.md")
 - [Applications supported in Amazon SageMaker Studio](studio-updated-apps.md "studio-updated-apps.md")
-- [Connect your local Visual Studio Code to SageMaker spaces with remote
-  access](remote-access.md "remote-access.md")
+- [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md")
 - [Bring your own image (BYOI)](studio-updated-byoi.md "studio-updated-byoi.md")
-- [Lifecycle configurations within
-  Amazon SageMaker Studio](studio-lifecycle-configurations.md "studio-lifecycle-configurations.md")
+- [Lifecycle configurations within Amazon SageMaker Studio](studio-lifecycle-configurations.md "studio-lifecycle-configurations.md")
 - [Amazon SageMaker Studio spaces](studio-updated-spaces.md "studio-updated-spaces.md")
-- [Trusted identity propagation with
-  Studio](trustedidentitypropagation.md "trustedidentitypropagation.md")
+- [Trusted identity propagation with Studio](trustedidentitypropagation.md "trustedidentitypropagation.md")
 - [Perform common UI tasks](studio-updated-common.md "studio-updated-common.md")
 - [NVMe stores with Amazon SageMaker Studio](studio-updated-nvme.md "studio-updated-nvme.md")
 - [Local mode support in Amazon SageMaker Studio](studio-updated-local.md "studio-updated-local.md")
-- [View your Studio running instances,
-  applications, and spaces](studio-updated-running.md "studio-updated-running.md")
-- [Stop and delete your Studio running
-  applications and spaces](studio-updated-running-stop.md "studio-updated-running-stop.md")
+- [View your Studio running instances, applications, and spaces](studio-updated-running.md "studio-updated-running.md")
+- [Stop and delete your Studio running applications and spaces](studio-updated-running-stop.md "studio-updated-running-stop.md")
 - [SageMaker Studio image support policy](sagemaker-distribution.md "sagemaker-distribution.md")
 - [Amazon SageMaker Studio pricing](studio-updated-cost.md "studio-updated-cost.md")
 - [Troubleshooting](studio-updated-troubleshooting.md "studio-updated-troubleshooting.md")

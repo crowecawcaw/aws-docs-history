@@ -40,8 +40,7 @@ about configuring these settings, see [Prerequisites for setting up Amazon SageM
 
 You can configure the Amazon Bedrock role manually if you would rather use your own IAM execution role
 (instead of letting SageMaker AI create one on your behalf). For more information about configuring your own IAM
-execution role’s trust relationship with Amazon Bedrock, see [Grant Users Permissions to Use Amazon Bedrock
-and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
+execution role’s trust relationship with Amazon Bedrock, see [Grant Users Permissions to Use Amazon Bedrock and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
 
 You must also have a dataset that is formatted for fine-tuning
 large language models (LLMs). The following is a list of requirements for your dataset:
@@ -122,8 +121,7 @@ On the **Fine-tune** tab, do the following:
    that you’d like to fine-tune during the training job. By fine-tuning multiple foundation models, you can compare
    their performance and ultimately choose the one best suited to your use case as
    the default model. For more information about default models, see
-   [View model candidates in the model
-   leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
+   [View model candidates in the model leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
 3. For **Select Input column**, select the column of
    text data in your dataset that contains the example model prompts.
 4. For **Select Output column**, select the column of text
@@ -153,9 +151,7 @@ as **Ready** on the **My models** page, it’s
 ready for use, and you can now analyze the performance of your fine-tuned
 foundation model.
 
-### Analyze the fine-tuned foundation
-
-model
+### Analyze the fine-tuned foundation model
 
 On the **Analyze** tab of your fine-tuned foundation model,
 you can see the model’s performance.
@@ -217,12 +213,9 @@ base models trained during the build. The model with the lowest loss score is co
 model and is selected as the **Default model**, which is the model whose analysis you see
 in the **Analyze** tab. You can only test and deploy the default model. For more information
 about the model leaderboard and how to change the default model, see
-[View model candidates in the model
-leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
+[View model candidates in the model leaderboard](canvas-evaluate-model-candidates.md "canvas-evaluate-model-candidates.md").
 
-### Test a fine-tuned foundation model in a
-
-chat
+### Test a fine-tuned foundation model in a chat
 
 After analyzing the performance of a fine-tuned foundation model, you might
 want to test it out or compare its responses with the base model. You can test a
@@ -248,8 +241,7 @@ After fine-tuning your model in Canvas, you can do the following:
 
 - Register the model to the SageMaker Model Registry
   for integration into your organizations MLOps processes. For more information, see
-  [Register a model version in the SageMaker AI model
-  registry](canvas-register-model.md "canvas-register-model.md").
+  [Register a model version in the SageMaker AI model registry](canvas-register-model.md "canvas-register-model.md").
 - Deploy the model to a SageMaker AI endpoint and send requests to
   the model from your application or website to get predictions
   (or _inference_). For more information, see

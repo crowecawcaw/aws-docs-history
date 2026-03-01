@@ -1,6 +1,4 @@
-# Use the SageMakerEstimator
-
-in a Spark Pipeline
+# Use the SageMakerEstimator in a Spark Pipeline
 
 You can use `org.apache.spark.ml.Estimator` estimators and
 `org.apache.spark.ml.Model` models, and

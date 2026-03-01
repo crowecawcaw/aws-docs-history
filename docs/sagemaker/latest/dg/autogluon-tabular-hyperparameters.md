@@ -1,6 +1,4 @@
-# AutoGluon-Tabular
-
-hyperparameters
+# AutoGluon-Tabular hyperparameters
 
 The following table contains the subset of hyperparameters that are required or most
 commonly used for the Amazon SageMaker AI AutoGluon-Tabular algorithm. Users set these parameters
@@ -9,8 +7,7 @@ AutoGluon-Tabular algorithm is an implementation of the open-source [AutoGluon-T
 
 ###### Note
 
-The default hyperparameters are based on example datasets in the [AutoGluon-Tabular sample
-notebooks](autogluon-tabular.md#autogluon-tabular-sample-notebooks "autogluon-tabular.md#autogluon-tabular-sample-notebooks").
+The default hyperparameters are based on example datasets in the [AutoGluon-Tabular sample notebooks](autogluon-tabular.md#autogluon-tabular-sample-notebooks "autogluon-tabular.md#autogluon-tabular-sample-notebooks").
 
 By default, the SageMaker AI AutoGluon-Tabular algorithm automatically chooses an evaluation
 metric based on the type of classification problem. The algorithm detects the type of

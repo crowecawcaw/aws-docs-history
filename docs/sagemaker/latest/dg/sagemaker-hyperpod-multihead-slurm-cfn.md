@@ -1,15 +1,9 @@
-# Provisioning resources using
-
-CloudFormation stacks
+# Provisioning resources using CloudFormation stacks
 
 To set up multiple controller nodes in a HyperPod Slurm cluster, provision AWS
-resources through two CloudFormation stacks: [Provision basic
-resources](#sagemaker-hyperpod-multihead-slurm-cfn-basic "#sagemaker-hyperpod-multihead-slurm-cfn-basic") and [Provision
-additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead "#sagemaker-hyperpod-multihead-slurm-cfn-multihead").
+resources through two CloudFormation stacks: [Provision basic resources](#sagemaker-hyperpod-multihead-slurm-cfn-basic "#sagemaker-hyperpod-multihead-slurm-cfn-basic") and [Provision additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead "#sagemaker-hyperpod-multihead-slurm-cfn-multihead").
 
-## Provision basic
-
-resources
+## Provision basic resources
 
 Follow these steps to provision basic resources for your Amazon SageMaker HyperPod Slurm cluster.
 
@@ -30,8 +24,7 @@ Follow these steps to provision basic resources for your Amazon SageMaker HyperP
    `BackupSubnetAZ`. For example,
    `use1-az4` is an AZ ID for an
    Availability Zone in the `us-east-1` Region. For more
-   information, see [Availability Zone IDs](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") and [Setting
-   up SageMaker HyperPod clusters across multiple AZs](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-multiple-availability-zones "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-multiple-availability-zones").
+   information, see [Availability Zone IDs](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") and [Setting up SageMaker HyperPod clusters across multiple AZs](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-multiple-availability-zones "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-multiple-availability-zones").
 
 ```
 aws cloudformation deploy \
@@ -62,8 +55,7 @@ Successfully created/updated stack - sagemaker-hyperpod
 
 4. Create environment variables from the stack
    (`sagemaker-hyperpod`) outputs. You will use values
-   of these variables to [Provision
-   additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead "#sagemaker-hyperpod-multihead-slurm-cfn-multihead").
+   of these variables to [Provision additional resources to support multiple controller nodes](#sagemaker-hyperpod-multihead-slurm-cfn-multihead "#sagemaker-hyperpod-multihead-slurm-cfn-multihead").
 
 ```
 source .env
@@ -94,9 +86,7 @@ print $REGION
 us-east-1
 ```
 
-## Provision
-
-additional resources to support multiple controller nodes
+## Provision additional resources to support multiple controller nodes
 
 Follow these steps to provision additional resources for your Amazon SageMaker HyperPod
 Slurm cluster with multiple controller nodes.
@@ -152,8 +142,7 @@ Successfully created/updated stack - sagemaker-hyperpod-mh
 4. Create environment variables from the stack
    (`sagemaker-hyperpod-mh`) outputs. You will use
    values of these variables to update the configuration file
-   (`provisioning_parameters.json`) in [Preparing and uploading
-   lifecycle scripts](sagemaker-hyperpod-multihead-slurm-scripts.md "sagemaker-hyperpod-multihead-slurm-scripts.md").
+   (`provisioning_parameters.json`) in [Preparing and uploading lifecycle scripts](sagemaker-hyperpod-multihead-slurm-scripts.md "sagemaker-hyperpod-multihead-slurm-scripts.md").
 
 ```
 source .env

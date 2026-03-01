@@ -11,9 +11,7 @@ layers of a model. It should be applied right after model creation, from the
 `AutoModelForCausalLM.from_config()` API for example, and before the
 model is being transformed or wrapped with FSDP.
 
-## Use
-
-FlashAttention kernels for self attention
+## Use FlashAttention kernels for self attention
 
 The following code snippet shows how to use the [torch.sagemaker.nn.attn.FlashSelfAttention](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-flashselfattention "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-flashselfattention") API
 provided by SMP v2.
@@ -30,9 +28,7 @@ for layer in model.gpt_neox.layers:
     layer.attention._attn = functools.partial(new_attn, layer.attention)
 ```
 
-## Use
-
-FlashAttention kernels for grouped-query attention
+## Use FlashAttention kernels for grouped-query attention
 
 SMP v2 also supports [FlashAttention](https://github.com/HazyResearch/flash-attention "https://github.com/HazyResearch/flash-attention") kernels for grouped-query attention (GQA) and makes it
 easy to apply them to various scenarios for Hugging Face Transformer models.

@@ -1,13 +1,10 @@
-# Examples and More Information: Use Your Own
-
-Algorithm or Model
+# Examples and More Information: Use Your Own Algorithm or Model
 
 The following Jupyter notebooks and added information show how to use your own algorithms
 or pretrained models from an Amazon SageMaker notebook instance. For links to the GitHub
 repositories with the prebuilt Dockerfiles for the TensorFlow, MXNet, Chainer, and PyTorch
 frameworks and instructions on using the AWS SDK for Python (Boto3) estimators to run your own training
-algorithms on SageMaker AI Learner and your own models on SageMaker AI hosting, see [Prebuilt SageMaker AI Docker images
-for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md")
+algorithms on SageMaker AI Learner and your own models on SageMaker AI hosting, see [Prebuilt SageMaker AI Docker images for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md")
 
 ## Setup
 
@@ -21,9 +18,7 @@ for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-c
    open a notebook, choose its **Use** tab, then
    choose **Create copy**.
 
-## Host models trained in
-
-Scikit-learn
+## Host models trained in Scikit-learn
 
 To learn how to host models trained in Scikit-learn for making predictions in SageMaker AI by
 injecting them into first-party k-means and XGBoost containers, see the following sample
@@ -32,9 +27,7 @@ notebooks.
 - [kmeans_bring_your_own_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/kmeans_bring_your_own_model")
 - [xgboost_bring_your_own_model](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/xgboost_bring_your_own_model")
 
-## Package TensorFlow and
-
-Scikit-learn models for use in SageMaker AI
+## Package TensorFlow and Scikit-learn models for use in SageMaker AI
 
 To learn how to package algorithms that you have developed in TensorFlow and
 scikit-learn frameworks for training and deployment in the SageMaker AI environment, see the
@@ -44,9 +37,7 @@ containers using Dockerfiles.
 - [tensorflow_bring_your_own](https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom/tensorflow_BYOM_iris.ipynb")
 - [scikit_bring_your_own](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advanced_functionality/scikit_bring_your_own")
 
-## Train and deploy a neural network
-
-on SageMaker AI
+## Train and deploy a neural network on SageMaker AI
 
 To learn how to train a neural network locally using MXNet or TensorFlow, and then
 create an endpoint from the trained model and deploy it on SageMaker AI, see the following
@@ -75,9 +66,7 @@ Studio Classic Custom Image Samples](https://github.com/aws-samples/sagemaker-st
 
 - [Bringing your own R environment to Amazon SageMaker Studio Classic](https://aws.amazon.com/blogs/machine-learning/bringing-your-own-r-environment-to-amazon-sagemaker-studio/ "https://aws.amazon.com/blogs/machine-learning/bringing-your-own-r-environment-to-amazon-sagemaker-studio/")
 
-## Extend a pre-built PyTorch container
-
-Image
+## Extend a pre-built PyTorch container Image
 
 To learn how to extend a prebuilt SageMaker AI PyTorch container image when you have
 additional functional requirements for your algorithm or model that the prebuilt Docker
@@ -88,9 +77,7 @@ image doesn't support, see the following notebook.
 For more information about extending a container, see [Extend a Pre-built
 Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md").
 
-## Train and debug training jobs on
-
-a custom container
+## Train and debug training jobs on a custom container
 
 To learn how to train and debug training jobs using SageMaker Debugger, see the following
 notebook. A training script provided through this example uses the TensorFlow Keras

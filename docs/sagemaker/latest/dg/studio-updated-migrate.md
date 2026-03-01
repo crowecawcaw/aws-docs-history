@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -72,8 +71,7 @@ experience for users to the new Studio experience. This only changes the default
 landing UI to the updated Studio UI. The Studio Classic application is still accessible
 from the new Studio UI.
 
-To ensure that migration works successfully for your users, see [Migrate the UI from Studio Classic to
-Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md"). In
+To ensure that migration works successfully for your users, see [Migrate the UI from Studio Classic to Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md"). In
 particular, ensure the following:
 
 - the domain's execution role has the right permissions
@@ -82,16 +80,11 @@ particular, ensure the following:
   Studio VPC endpoint
 
 However, if you need to continue having Studio Classic as your default UI for a limited
-time, set the landing experience to Studio Classic explicitly. For more information, see [Set Studio Classic as the default
-experience](studio-updated-migrate-ui.md#studio-updated-migrate-revert "studio-updated-migrate-ui.md#studio-updated-migrate-revert").
+time, set the landing experience to Studio Classic explicitly. For more information, see [Set Studio Classic as the default experience](studio-updated-migrate-ui.md#studio-updated-migrate-revert "studio-updated-migrate-ui.md#studio-updated-migrate-revert").
 
 ###### Topics
 
-- [Complete prerequisites to migrate the
-  Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md")
-- [Migrate the UI from Studio Classic to
-  Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md")
-- [(Optional) Migrate custom images and lifecycle
-  configurations](studio-updated-migrate-lcc.md "studio-updated-migrate-lcc.md")
-- [(Optional) Migrate data from
-  Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md")
+- [Complete prerequisites to migrate the Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md")
+- [Migrate the UI from Studio Classic to Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md")
+- [(Optional) Migrate custom images and lifecycle configurations](studio-updated-migrate-lcc.md "studio-updated-migrate-lcc.md")
+- [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md")

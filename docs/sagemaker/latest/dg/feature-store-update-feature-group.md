@@ -1,6 +1,4 @@
-# Add features and records to a feature
-
-group
+# Add features and records to a feature group
 
 You can use the Amazon SageMaker Feature Store API or the console to update and describe your
 feature group as well as add features and records to your feature group. A feature group is
@@ -17,8 +15,7 @@ API. For examples on updating, describing, and putting records into a feature gr
 
 You can use the console to add features to a feature group. For more
 information on how to update your feature groups using the console, see
-[Update a feature group from the
-console](feature-store-use-with-studio.md#feature-store-update-feature-group-studio "feature-store-use-with-studio.md#feature-store-update-feature-group-studio").
+[Update a feature group from the console](feature-store-use-with-studio.md#feature-store-update-feature-group-studio "feature-store-use-with-studio.md#feature-store-update-feature-group-studio").
 
 The following sections provide an overview of using Feature Store APIs to add features to a feature
 group followed by examples. With the API, you can also add or overwrite records after you've
@@ -55,14 +52,11 @@ The example code walks you through the following process:
 3. Adding a record to the feature group
 4. Verifying that you've added it successfully
 
-### Step 1: Add features to
-
-a feature group
+### Step 1: Add features to a feature group
 
 The following code uses the [`UpdateFeatureGroup`](../APIReference/API_UpdateFeatureGroup.md "../APIReference/API_UpdateFeatureGroup.md") operation to add new features to
 the feature group. It assumes that you've set up Feature Store and created a feature group.
-For more information about getting started, see [Introduction to Feature Store example
-notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md").
+For more information about getting started, see [Introduction to Feature Store example notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md").
 
 ```
 
@@ -93,9 +87,7 @@ sagemaker_client.describe_feature_group(
 
 ```
 
-### Step 2: Add a new record
-
-to the feature group
+### Step 2: Add a new record to the feature group
 
 The following code uses the [`PutRecord`](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md") operation to add records to the feature
 group that you've created.

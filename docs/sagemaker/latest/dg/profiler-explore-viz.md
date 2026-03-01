@@ -1,6 +1,4 @@
-# Explore the profile output data visualized in the
-
-SageMaker Profiler UI
+# Explore the profile output data visualized in the SageMaker Profiler UI
 
 This section walks through the SageMaker Profiler UI and provides tips for how to use and gain
 insights from it.
@@ -11,9 +9,7 @@ When you open the SageMaker Profiler UI, the **Load profile** page opens
 up. To load and generate the **Dashboard** and
 **Timeline**, go through the following procedure.
 
-###### To load the profile of a
-
-training job
+###### To load the profile of a training job
 
 1. From the **List of training jobs** section, use the check
    box to choose the training job for which you want to load the
@@ -114,8 +110,7 @@ default.
   identify if your training job is spending excessive time on certain memory
   operations.
 - **Create a new histogram** – Create a
-  new diagram of a custom metric you annotated manually during [Step 1: Adapt your training
-  script using the SageMaker Profiler Python modules](profiler-prepare.md#profiler-prepare-training-script "profiler-prepare.md#profiler-prepare-training-script"). When adding a custom
+  new diagram of a custom metric you annotated manually during [Step 1: Adapt your training script using the SageMaker Profiler Python modules](profiler-prepare.md#profiler-prepare-training-script "profiler-prepare.md#profiler-prepare-training-script"). When adding a custom
   annotation to a new histogram, select or type the name of the annotation you
   added in the training script. For example, in the demo training script in
   Step 1, `step`, `Forward`, `Backward`,

@@ -5,14 +5,10 @@ are available in your AWS account and are used by execution roles created from t
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerNotebooksServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerNotebooksServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerNotebooksServiceRolePolicy")
-- [Amazon SageMaker AI updates to SageMaker AI
-  Notebooks managed policies](#security-iam-awsmanpol-notebooks-updates "#security-iam-awsmanpol-notebooks-updates")
+- [AWS managed policy: AmazonSageMakerNotebooksServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerNotebooksServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerNotebooksServiceRolePolicy")
+- [Amazon SageMaker AI updates to SageMaker AI Notebooks managed policies](#security-iam-awsmanpol-notebooks-updates "#security-iam-awsmanpol-notebooks-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerNotebooksServiceRolePolicy
+## AWS managed policy: AmazonSageMakerNotebooksServiceRolePolicy
 
 This AWS managed policy grants permissions commonly needed to use Amazon SageMaker Notebooks.
 The policy is added to the `AWSServiceRoleForAmazonSageMakerNotebooks` that is created when
@@ -233,9 +229,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to SageMaker AI
-
-Notebooks managed policies
+## Amazon SageMaker AI updates to SageMaker AI Notebooks managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.

@@ -1,6 +1,4 @@
-# Scale an endpoint to zero
-
-instances
+# Scale an endpoint to zero instances
 
 When you set up auto scaling for an endpoint, you can allow the scale-in process to
 reduce the number of in-service instances to zero. By doing so, you save costs during
@@ -31,8 +29,7 @@ the following requirements:
   zero instances only if it hosts inference components.
 
 For information about hosting inference components on SageMaker AI endpoints, see
-[Deploy
-models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
+[Deploy models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
 
 - In the endpoint configuration, for the production variant
   `ManagedInstanceScaling` object, you've set the

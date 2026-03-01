@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -50,8 +49,7 @@ After receiving the request, SageMaker AI does the following:
   your VPC. It uses the subnet ID that you provide in the request to determine
   which Availability Zone to create the subnet in. SageMaker AI associates the security
   group that you provide in the request with the subnet. For more information, see
-  [Connect a Notebook Instance in a
-  VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
+  [Connect a Notebook Instance in a VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
 - **Launches an ML compute instance**—SageMaker AI
   launches an ML compute instance in a SageMaker AI VPC. SageMaker AI performs the configuration
   tasks that allow it to manage your notebook instance. If you specified your VPC,
@@ -133,8 +131,7 @@ instance with this storage is launched.
     users create a shell script that can run when you create or start the
     instance. This script, called a lifecycle configuration script, can be
     used to set the environment for the notebook or to perform other
-    functions. For information, see [Customization of a SageMaker notebook instance
-    using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md"). 5. (Optional) **Additional configuration** also lets you
+    functions. For information, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md"). 5. (Optional) **Additional configuration** also lets you
     specify the size, in GB, of the ML storage volume that is attached to
     the notebook instance. You can choose a size between 5 GB and 16,384 GB,
     in 1 GB increments. You can use the volume to clean up the training
@@ -182,8 +179,7 @@ instance with this storage is launched.
          enable direct internet access. For **Direct internet
          access**, choose **Enable**.
          Internet access can make your notebook instance less secure. For
-         more information, see [Connect a Notebook Instance in a
-         VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
+         more information, see [Connect a Notebook Instance in a VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
 
     11. (Optional) To associate Git repositories with the notebook instance,
         choose a default repository and up to three additional repositories. For

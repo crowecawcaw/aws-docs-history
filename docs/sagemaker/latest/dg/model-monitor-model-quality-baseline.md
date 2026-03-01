@@ -1,6 +1,4 @@
-# Create a model quality
-
-baseline
+# Create a model quality baseline
 
 Create a baseline job that compares your model predictions with
 ground
@@ -109,9 +107,7 @@ You can add your pre-processing script to a baseline or monitoring
 schedule as a `record_preprocessor_script`, as defined in the
 [Model Monitor](https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html "https://sagemaker.readthedocs.io/en/stable/api/inference/model_monitor.html") documentation. 5. When you are satisfied with the constraints, pass them as the
 `constraints` parameter when you create a monitoring
-schedule. For more information, see [Schedule model quality
-monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md").
+schedule. For more information, see [Schedule model quality monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md").
 The suggested baseline constraints are contained in the constraints.json file in
 the location you specify with `output_s3_uri`. For information about the
-schema for this file in the [Schema for Constraints
-(constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").
+schema for this file in the [Schema for Constraints (constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").

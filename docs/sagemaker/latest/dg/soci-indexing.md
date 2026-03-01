@@ -18,10 +18,8 @@ have grown larger, creating startup delays that hamper development cycles.
 - [Architecture components](#soci-indexing-architecture-components "#soci-indexing-architecture-components")
 - [Supported tools](#soci-indexing-supported-tools "#soci-indexing-supported-tools")
 - [Permissions for SOCI indexing](soci-indexing-setup.md "soci-indexing-setup.md")
-- [Create SOCI indexes with nerdctl and
-  SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")
-- [Integrate SOCI-indexed images with
-  Studio example](soci-indexing-example-integrate-studio.md "soci-indexing-example-integrate-studio.md")
+- [Create SOCI indexes with nerdctl and SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")
+- [Integrate SOCI-indexed images with Studio example](soci-indexing-example-integrate-studio.md "soci-indexing-example-integrate-studio.md")
 
 ## Key benefits
 
@@ -64,7 +62,5 @@ parallel as your application requires them.
 ###### Topics
 
 - [Permissions for SOCI indexing](soci-indexing-setup.md "soci-indexing-setup.md")
-- [Create SOCI indexes with nerdctl and
-  SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")
-- [Integrate SOCI-indexed images with
-  Studio example](soci-indexing-example-integrate-studio.md "soci-indexing-example-integrate-studio.md")
+- [Create SOCI indexes with nerdctl and SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")
+- [Integrate SOCI-indexed images with Studio example](soci-indexing-example-integrate-studio.md "soci-indexing-example-integrate-studio.md")

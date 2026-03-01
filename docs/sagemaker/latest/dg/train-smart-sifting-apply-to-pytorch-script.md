@@ -1,6 +1,4 @@
-# Apply SageMaker smart sifting to
-
-your PyTorch script
+# Apply SageMaker smart sifting to your PyTorch script
 
 These instructions demonstrate how to enable SageMaker smart sifting with your training
 script.
@@ -42,8 +40,7 @@ sift_config=RelativeProbabilisticSiftConfig(
 ```
 
 For more information about the `loss_based_sift_config`
-parameter and related classes, see [SageMaker smart sifting
-configuration modules](train-smart-sifting-pysdk-reference.md#train-smart-sifting-pysdk-base-config-modules "train-smart-sifting-pysdk-reference.md#train-smart-sifting-pysdk-base-config-modules") in the
+parameter and related classes, see [SageMaker smart sifting configuration modules](train-smart-sifting-pysdk-reference.md#train-smart-sifting-pysdk-base-config-modules "train-smart-sifting-pysdk-reference.md#train-smart-sifting-pysdk-base-config-modules") in the
 SageMaker smart sifting Python SDK reference section.
 
 The `sift_config` object in the preceding code example is used

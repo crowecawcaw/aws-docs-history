@@ -5,8 +5,7 @@ type that is compatible with your use case from the **Instance** dropdown
 menu.
 
 The **Fast launch** instances start up much faster than the other
-instances. For more information about fast launch instance types in Studio, [Instance Types Available for Use With
-Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
+instances. For more information about fast launch instance types in Studio, [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
 
 ###### Note
 

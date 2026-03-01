@@ -1,6 +1,4 @@
-# Troubleshoot multi-container
-
-endpoints
+# Troubleshoot multi-container endpoints
 
 The following sections can help you troubleshoot errors with multi-container
 endpoints.
@@ -17,9 +15,7 @@ loaded (the same guidance applies to deploying an inference pipeline). Otherwise
 your endpoint creation might fail with an error such as `XXX did not pass the
  ping health check`.
 
-## Missing accept-bind-to-port=true
-
-Docker label
+## Missing accept-bind-to-port=true Docker label
 
 The containers in a multi-container endpoints listen on the port specified in the
 `SAGEMAKER_BIND_TO_PORT` environment variable instead of port 8080.

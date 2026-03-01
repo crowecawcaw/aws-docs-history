@@ -1,20 +1,14 @@
-# Create a label adjustment job
-
-(console)
+# Create a label adjustment job (console)
 
 Use one of the following sections to create a label verification job for your task
 type.
 
 ###### Topics
 
-- [Create an image label adjustment job
-  (console)](#sms-data-adjust-start-console-bb-ss "#sms-data-adjust-start-console-bb-ss")
-- [Create a point cloud or video frame label
-  adjustment job (console)](#sms-data-adjust-start-console-frame "#sms-data-adjust-start-console-frame")
+- [Create an image label adjustment job (console)](#sms-data-adjust-start-console-bb-ss "#sms-data-adjust-start-console-bb-ss")
+- [Create a point cloud or video frame label adjustment job (console)](#sms-data-adjust-start-console-frame "#sms-data-adjust-start-console-frame")
 
-## Create an image label adjustment job
-
-(console)
+## Create an image label adjustment job (console)
 
 Use the following procedure to create a bounding box or semantic segmentation
 adjustment labeling job using the console. This procedure assumes that you have
@@ -55,18 +49,14 @@ adjusted.
 12. Select **Create**. This will create and start your labeling
     job.
 
-## Create a point cloud or video frame label
-
-adjustment job (console)
+## Create a point cloud or video frame label adjustment job (console)
 
 Use the following procedure to create a 3D point cloud or video frame adjustment
 job using the console. This procedure assumes that you have already created a
 labeling job using the task type that produces the types of labels you want to be
 verified and its status is Complete.
 
-###### To create a 3D point cloud or video frame label adjustment job
-
-(console)
+###### To create a 3D point cloud or video frame label adjustment job (console)
 
 1. Open the SageMaker AI console: [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/") and choose **Labeling jobs**.
 2. Start a new labeling job by [chaining](sms-reusing-data.md "sms-reusing-data.md") a

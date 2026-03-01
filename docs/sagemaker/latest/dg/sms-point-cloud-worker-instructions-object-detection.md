@@ -1,6 +1,4 @@
-# 3D point cloud object
-
-detection
+# 3D point cloud object detection
 
 Use this page to familiarize yourself with the user interface and tools available to
 complete your 3D point cloud object detection task.
@@ -11,10 +9,8 @@ complete your 3D point cloud object detection task.
 - [Navigate the UI](#sms-point-cloud-worker-instructions-worker-ui-od "#sms-point-cloud-worker-instructions-worker-ui-od")
 - [Icon Guide](#sms-point-cloud-worker-instructions-od-icons "#sms-point-cloud-worker-instructions-od-icons")
 - [Shortcuts](#sms-point-cloud-worker-instructions-od-hot-keys "#sms-point-cloud-worker-instructions-od-hot-keys")
-- [Release, Stop and
-  Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-od "#sms-point-cloud-worker-instructions-skip-reject-od")
-- [Saving Your Work and
-  Submitting](#sms-point-cloud-worker-instructions-saving-work-od "#sms-point-cloud-worker-instructions-saving-work-od")
+- [Release, Stop and Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-od "#sms-point-cloud-worker-instructions-skip-reject-od")
+- [Saving Your Work and Submitting](#sms-point-cloud-worker-instructions-saving-work-od "#sms-point-cloud-worker-instructions-saving-work-od")
 
 ## Your Task
 
@@ -156,9 +152,7 @@ Before you start your task, it is recommended that you review the
 **Shortcuts** menu and become acquainted with these commands.
 You need to use some of the 3D cuboid controls to edit your cuboid.
 
-## Release, Stop and
-
-Resume, and Decline Tasks
+## Release, Stop and Resume, and Decline Tasks
 
 When you open the labeling task, three buttons on the top right allow you to
 decline the task (**Decline task**), release it
@@ -193,9 +187,7 @@ to and complete this task within that time limit, it will expire and
 your work will not be submitted. Contact your administrator for more
 information.
 
-## Saving Your Work and
-
-Submitting
+## Saving Your Work and Submitting
 
 You should periodically save your work. Ground Truth will automatically save your work
 ever 15 minutes.

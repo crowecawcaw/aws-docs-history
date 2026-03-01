@@ -13,8 +13,7 @@ To use the PyTorch data loader profiling analysis tool, import the following
 from smdebug.profiler.analysis.utils.pytorch_dataloader_analysis import PT_dataloader_analysis
 ```
 
-Pass the profiling data retrieved as a Pandas frame data object in the [Access the profiling data
-using the pandas data parsing tool](debugger-access-data-profiling-pandas-frame.md "debugger-access-data-profiling-pandas-frame.md") section:
+Pass the profiling data retrieved as a Pandas frame data object in the [Access the profiling data using the pandas data parsing tool](debugger-access-data-profiling-pandas-frame.md "debugger-access-data-profiling-pandas-frame.md") section:
 
 ```
 pt_analysis = PT_dataloader_analysis(pf)

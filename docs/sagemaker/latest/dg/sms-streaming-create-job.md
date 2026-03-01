@@ -12,8 +12,7 @@ a streaming labeling job:
 - Learn how to create SNS topics with the permissions required for Ground Truth
   streaming labeling jobs by following the steps in [Use Amazon SNS Topics for Data Labeling](sms-create-sns-input-topic.md "sms-create-sns-input-topic.md"). Your SNS topics must be
   created in the same AWS Region as your labeling job.
-- See [Subscribe an Endpoint to
-  Your Amazon SNS Output Topic](sms-create-sns-input-topic.md#sms-streaming-subscribe-output-topic "sms-create-sns-input-topic.md#sms-streaming-subscribe-output-topic") to learn how to set
+- See [Subscribe an Endpoint to Your Amazon SNS Output Topic](sms-create-sns-input-topic.md#sms-streaming-subscribe-output-topic "sms-create-sns-input-topic.md#sms-streaming-subscribe-output-topic") to learn how to set
   up an endpoint to receive labeling task output data at a specified endpoint each
   time a labeling task is completed.
 - To learn how to configure your Amazon S3 bucket to send notifications to your Amazon SNS
@@ -43,5 +42,4 @@ objects using Amazon SNS and the Amazon S3 configuration.
 - [Creating Amazon S3 based bucket event notifications based of the Amazon SNS defined in your labeling job](sms-streaming-s3-setup.md "sms-streaming-s3-setup.md")
 - [Create a Manifest File (Optional)](sms-streaming-manifest.md "sms-streaming-manifest.md")
 - [Create a Streaming Labeling Job with the SageMaker API](sms-streaming-create-labeling-job-api.md "sms-streaming-create-labeling-job-api.md")
-- [Stop a Streaming Labeling
-  Job](sms-streaming-stop-labeling-job.md "sms-streaming-stop-labeling-job.md")
+- [Stop a Streaming Labeling Job](sms-streaming-stop-labeling-job.md "sms-streaming-stop-labeling-job.md")

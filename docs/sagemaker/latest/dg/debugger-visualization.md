@@ -4,16 +4,12 @@ The following demos walk you through advanced use cases and visualization script
 
 ###### Topics
 
-- [Training and pruning models
-  with Amazon SageMaker Experiments and Debugger](#debugger-visualization-video-model-pruning "#debugger-visualization-video-model-pruning")
+- [Training and pruning models with Amazon SageMaker Experiments and Debugger](#debugger-visualization-video-model-pruning "#debugger-visualization-video-model-pruning")
 - [Using SageMaker Debugger to monitor a convolutional autoencoder model training](#debugger-visualization-autoencoder_mnist "#debugger-visualization-autoencoder_mnist")
 - [Using SageMaker Debugger to monitor attentions in BERT model training](#debugger-visualization-bert_attention_head_view "#debugger-visualization-bert_attention_head_view")
-- [Using SageMaker Debugger to visualize class activation maps in convolutional neural
-  networks (CNNs)](#debugger-visualization-cnn_class_activation_maps "#debugger-visualization-cnn_class_activation_maps")
+- [Using SageMaker Debugger to visualize class activation maps in convolutional neural networks (CNNs)](#debugger-visualization-cnn_class_activation_maps "#debugger-visualization-cnn_class_activation_maps")
 
-## Training and pruning models
-
-with Amazon SageMaker Experiments and Debugger
+## Training and pruning models with Amazon SageMaker Experiments and Debugger
 
 _Dr. Nathalie Rauschmayr, AWS Applied Scientist | Length: 49
 minutes 26 seconds_
@@ -161,9 +157,7 @@ ten iterations in the training job provided in the notebook example.
 
 ![An animation of the attention scores](images/debugger/debugger-attention_scores.gif)
 
-## [Using SageMaker Debugger to visualize class activation maps in convolutional neural
-
-networks (CNNs)](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html")
+## [Using SageMaker Debugger to visualize class activation maps in convolutional neural networks (CNNs)](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html")
 
 This notebook demonstrates how to use SageMaker Debugger to plot class activation maps for
 image detection and classification in convolutional neural networks (CNNs). In deep

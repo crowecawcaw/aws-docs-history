@@ -1,6 +1,4 @@
-# Running Docker containers on
-
-a Slurm compute node on HyperPod
+# Running Docker containers on a Slurm compute node on HyperPod
 
 To run Docker containers with Slurm on SageMaker HyperPod, you need to use [Enroot](https://github.com/NVIDIA/enroot "https://github.com/NVIDIA/enroot") and [Pyxis](https://github.com/NVIDIA/pyxis "https://github.com/NVIDIA/pyxis"). The Enroot package helps
 convert Docker images into a runtime that Slurm can understand, while the Pyxis enables
@@ -139,11 +137,9 @@ parallelism (SMP) library.
 
 1. If you want to use one of the pre-built ECR images distributed by SageMaker AI or
    DLC, make sure that you give your HyperPod cluster the permissions to pull ECR
-   images through the [IAM role for
-   SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). If you
+   images through the [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). If you
    use your own or an open source Docker image, you can skip this step. Add the
-   following permissions to the [IAM role for
-   SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). In this
+   following permissions to the [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). In this
    tutorial, we use the [SMP Docker
    image](distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2 "distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-frameworks-v2") pre-packaged with the SMP library .
 

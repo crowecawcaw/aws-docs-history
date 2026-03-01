@@ -1,13 +1,9 @@
-# Remove an
-
-evaluation job (Studio)
+# Remove an evaluation job (Studio)
 
 You can remove an evaluation job, created externally or with SageMaker AI, from your
 model by completing the following steps.
 
-###### To remove an evaluation job from your model package, complete the
-
-following steps.
+###### To remove an evaluation job from your model package, complete the following steps.
 
 1. Choose the **Evaluate** tab.
 2. Choose the **Gear** (

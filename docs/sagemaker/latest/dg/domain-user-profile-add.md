@@ -83,8 +83,7 @@ profile**.
 
 To create a user profile in a domain from the AWS CLI, run the following command from
 the terminal of your local machine. For information about the available JupyterLab version
-ARNs, see [Setting a default JupyterLab
-version](studio-jl.md#studio-jl-set "studio-jl.md#studio-jl-set").
+ARNs, see [Setting a default JupyterLab version](studio-jl.md#studio-jl-set "studio-jl.md#studio-jl-set").
 
 ```
 aws --region `region` \
@@ -104,6 +103,5 @@ sagemaker create-user-profile \
 You can use the AWS CLI to customize the applications and ML tools displayed in
 Studio for the user, using [StudioWebPortalSettings](../APIReference/API_StudioWebPortalSettings.md "../APIReference/API_StudioWebPortalSettings.md"). Use `HiddenAppTypes` to hide applications and
 `HiddenMlTools` to hide ML tools. For more information on customizing the left
-navigation of the Studio UI, see [Hide machine learning tools and
-applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md"). This feature is not available for
+navigation of the Studio UI, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md"). This feature is not available for
 Studio Classic.

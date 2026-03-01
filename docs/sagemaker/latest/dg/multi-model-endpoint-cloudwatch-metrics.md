@@ -1,6 +1,4 @@
-# CloudWatch Metrics for Multi-Model
-
-Endpoint Deployments
+# CloudWatch Metrics for Multi-Model Endpoint Deployments
 
 Amazon SageMaker AI provides metrics for endpoints so you can monitor the cache hit rate, the number
 of models loaded and the model wait times for loading, downloading, and uploading at a
@@ -12,9 +10,7 @@ For more information about the metrics, see **Multi-Model Endpoint
 Model Loading Metrics** and **Multi-Model Endpoint Model
 Instance Metrics** in [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). Per-model metrics aren't supported.
 
-## CloudWatch metrics for CPU backed
-
-multi-model endpoints
+## CloudWatch metrics for CPU backed multi-model endpoints
 
 You can monitor the following metrics on CPU backed multi-model endpoints.
 
@@ -57,9 +53,7 @@ For information about how long CloudWatch metrics are retained for, see [GetMetr
 | `MemoryUtilization` | The percentage of memory that is used by the containers on an instance. This<br>value range is 0%–100%.<br>For endpoint variants, the value is the sum of the memory utilization of the<br>primary and supplementary containers on the instance.<br>Units: Percent                                                                                                                                                                                                                                                                                                  |
 | `DiskUtilization`   | The percentage of disk space used by the containers on an instance. This value<br>range is 0%–100%.<br>For endpoint variants, the value is the sum of the disk space utilization of<br>the primary and supplementary containers on the instance.<br>Units: Percent                                                                                                                                                                                                                                                                                                  |
 
-## CloudWatch metrics for GPU
-
-multi-model endpoint deployments
+## CloudWatch metrics for GPU multi-model endpoint deployments
 
 You can monitor the following metrics on GPU backed multi-model endpoints.
 

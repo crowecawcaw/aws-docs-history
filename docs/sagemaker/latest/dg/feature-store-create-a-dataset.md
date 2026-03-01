@@ -1,6 +1,4 @@
-# Create a dataset from your feature
-
-groups
+# Create a dataset from your feature groups
 
 After a Feature Store feature group has been created in an offline store, you can choose to use
 the following methods to get your data:
@@ -29,9 +27,7 @@ the offline store’s Amazon S3 buckets. For more information, see [Create an IA
 For more information on how to use AWS Glue and Athena to build a training dataset for
 model training and inference, see [Use Feature Store with SDK for Python (Boto3)](feature-store-create-feature-group.md "feature-store-create-feature-group.md").
 
-## Using the Amazon SageMaker Python SDK to get
-
-your data from your feature groups
+## Using the Amazon SageMaker Python SDK to get your data from your feature groups
 
 You can use the [Feature Store APIs](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#dataset-builder") to create a dataset from your feature groups. Data scientists
 create ML datasets for training by retrieving ML feature data from one or more feature
@@ -80,8 +76,7 @@ groups. The following code snippet uses the example feature groups
 "`second_fg_name`", which may not exist or have the same
 schema within your Feature Store. It is recommended to replace these feature groups with
 feature groups that exist within your Feature Store. For information on how to create a
-feature group, see [Step 3: Create
-feature groups](feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction "feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction").
+feature group, see [Step 3: Create feature groups](feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction "feature-store-introduction-notebook.md#feature-store-set-up-feature-groups-introduction").
 
 ```
 from sagemaker.feature_store.feature_group import FeatureGroup

@@ -1,6 +1,4 @@
-# SageMaker Training Compiler Best Practices and
-
-Considerations
+# SageMaker Training Compiler Best Practices and Considerations
 
 ###### Important
 
@@ -12,17 +10,14 @@ updates from AWS, in accordance with the [AWS Deep Learning Containers Framework
 
 Review the following best practices and considerations when using SageMaker Training Compiler.
 
-## Best
-
-Practices
+## Best Practices
 
 Use the following guidelines to achieve the best results when you run training
 jobs with SageMaker Training Compiler.
 
 ###### General Best Practices
 
-- Make sure that you use one of the [Supported Instance
-  Types](training-compiler-support.md#training-compiler-supported-instance-types "training-compiler-support.md#training-compiler-supported-instance-types") and [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models").
+- Make sure that you use one of the [Supported Instance Types](training-compiler-support.md#training-compiler-supported-instance-types "training-compiler-support.md#training-compiler-supported-instance-types") and [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models").
 - When you create a tokenizer for an NLP model using the Hugging Face
   Transformers library in your training script, make sure that you use a
   static input tensor shape by specifying `padding='max_length'`.
@@ -70,9 +65,7 @@ compiler, this might add some overhead.
   PyTorch/XLA's model save function to properly checkpoint your model. For
   more information about the function, see [`torch_xla.core.xla_model.save`](https://pytorch.org/xla/release/1.9/index.html#torch_xla.core.xla_model.save "https://pytorch.org/xla/release/1.9/index.html#torch_xla.core.xla_model.save") in the _PyTorch on XLA Devices documentation_.
 
-To learn how to add the modifications to your PyTorch script, see [Large Language Models
-Using PyTorch Directly (without the Hugging Face Transformers Trainer
-API)](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer").
+To learn how to add the modifications to your PyTorch script, see [Large Language Models Using PyTorch Directly (without the Hugging Face Transformers Trainer API)](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer").
 
 For more information about the actual application of using the model save
 function, see [Checkpoint Writing and Loading](https://huggingface.co/blog/pytorch-xla#checkpoint-writing-and-loading "https://huggingface.co/blog/pytorch-xla#checkpoint-writing-and-loading") in the _Hugging Face on PyTorch/XLA TPUs: Faster and cheaper training
@@ -96,9 +89,7 @@ blog_.
 
 Consider the following when using SageMaker Training Compiler.
 
-### Performance degradation due to logging, checkpointing, and
-
-profiling
+### Performance degradation due to logging, checkpointing, and profiling
 
 - Avoid logging, checkpointing, and profiling model tensors that lead to
   explicit evaluations. To understand what an explicit evaluation is, consider
@@ -151,9 +142,7 @@ epochs instead of every epoch.
   initial compilation overhead depends on the size of the model, the size of
   the input tensors, and the distribution of input tensor shapes.
 
-### Incorrect
-
-use of the PyTorch/XLA APIs when using PyTorch directly
+### Incorrect use of the PyTorch/XLA APIs when using PyTorch directly
 
 PyTorch/XLA defines a set of APIs to replace some of the existing PyTorch
 training APIs. Failing to use them properly leads PyTorch training to
@@ -170,6 +159,4 @@ fail.
   which causes a training convergence failure.
 
 To properly set up your PyTorch script and avoid the aforementioned incorrect
-API uses, see [Large Language Models
-Using PyTorch Directly (without the Hugging Face Transformers Trainer
-API)](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer").
+API uses, see [Large Language Models Using PyTorch Directly (without the Hugging Face Transformers Trainer API)](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer").

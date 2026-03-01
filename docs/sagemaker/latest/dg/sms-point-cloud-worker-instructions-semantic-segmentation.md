@@ -1,6 +1,4 @@
-# 3D point
-
-cloud semantic segmentation
+# 3D point cloud semantic segmentation
 
 Use this page to become familiarize with the user interface and tools available to complete your 3D point cloud semantic segmentation task.
 
@@ -10,10 +8,8 @@ Use this page to become familiarize with the user interface and tools available 
 - [Navigate the UI](#sms-point-cloud-worker-instructions-worker-ui-ss "#sms-point-cloud-worker-instructions-worker-ui-ss")
 - [Icon Guide](#sms-point-cloud-worker-instructions-ss-icons "#sms-point-cloud-worker-instructions-ss-icons")
 - [Shortcuts](#sms-point-cloud-worker-instructions-ss-hot-keys "#sms-point-cloud-worker-instructions-ss-hot-keys")
-- [Release, Stop and
-  Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-ss "#sms-point-cloud-worker-instructions-skip-reject-ss")
-- [Saving Your Work and
-  Submitting](#sms-point-cloud-worker-instructions-saving-work-ss "#sms-point-cloud-worker-instructions-saving-work-ss")
+- [Release, Stop and Resume, and Decline Tasks](#sms-point-cloud-worker-instructions-skip-reject-ss "#sms-point-cloud-worker-instructions-skip-reject-ss")
+- [Saving Your Work and Submitting](#sms-point-cloud-worker-instructions-saving-work-ss "#sms-point-cloud-worker-instructions-saving-work-ss")
 
 ## Your Task
 
@@ -127,9 +123,7 @@ navigate the 3D point cloud and use the paint tool.
 Before you start your task, it is recommended that you review the
 **Shortcuts** menu and become acquainted with these commands.
 
-## Release, Stop and
-
-Resume, and Decline Tasks
+## Release, Stop and Resume, and Decline Tasks
 
 When you open the labeling task, three buttons on the top right allow you to
 decline the task (**Decline task**), release it
@@ -164,9 +158,7 @@ to and complete this task within that time limit, it will expire and
 your work will not be submitted. Contact your administrator for more
 information.
 
-## Saving Your Work and
-
-Submitting
+## Saving Your Work and Submitting
 
 You should periodically save your work. Ground Truth will automatically save your work
 ever 15 minutes.

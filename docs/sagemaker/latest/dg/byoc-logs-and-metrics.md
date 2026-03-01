@@ -1,6 +1,4 @@
-# How Amazon SageMaker Processing Provides Logs and Metrics for Your
-
-Processing Container
+# How Amazon SageMaker Processing Provides Logs and Metrics for Your Processing Container
 
 When your processing container writes to `stdout` or
 `stderr`, Amazon SageMaker Processing saves the output from each processing

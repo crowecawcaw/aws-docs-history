@@ -1,6 +1,4 @@
-# Disable the CloudWatch Events rule to stop using the
-
-automated training job termination
+# Disable the CloudWatch Events rule to stop using the automated training job termination
 
 If you want to disable the automated training job termination, you need to disable
 the CloudWatch Events rule. In the Lambda **Designer** panel, choose the

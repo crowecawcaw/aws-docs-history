@@ -21,8 +21,7 @@ The video frame labeling job is unique because of the following:
 - [Task types](#sms-video-frame-tools "#sms-video-frame-tools")
 - [Workforces](#sms-video-workforces "#sms-video-workforces")
 - [Worker user interface (UI)](#sms-video-worker-task-ui "#sms-video-worker-task-ui")
-- [Video frame job permission
-  requirements](#sms-security-permission-video-frame "#sms-security-permission-video-frame")
+- [Video frame job permission requirements](#sms-security-permission-video-frame "#sms-security-permission-video-frame")
 
 ## Input data
 
@@ -67,8 +66,7 @@ labeling job.
 
 If you are creating a labeling job using the API operation [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md"), you specify the task type using the
 label category configuration file parameter `annotationType`. To learn more,
-see [Labeling category configuration file with
-label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
+see [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
 
 The following task types are available for both video object tracking or video
 object detection labeling jobs:
@@ -119,9 +117,7 @@ use to provide more information about labels and video frames. These attributes 
 referred to as label category attributes and frame attributes respectively. They are all
 displayed in the worker UI.
 
-### Label category and frame
-
-attributes
+### Label category and frame attributes
 
 When you create a video object tracking or video object detection labeling job,
 you can add one or more _label category attributes_ and _frame attributes_:
@@ -206,16 +202,12 @@ number of workers per dataset object ([`NumberOfHumanWorkersPerDataObject`](../A
 the data object is marked as expired and will not be sent to additional
 workers.
 
-## Video frame job permission
-
-requirements
+## Video frame job permission requirements
 
 When you create a video frame labeling job, in addition to the permission requirements
 found in [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md "sms-security-permission.md"), you must add a CORS policy to your S3 bucket that contains your input manifest file.
 
-### CORS permission policy for
-
-your S3 bucket
+### CORS permission policy for your S3 bucket
 
 When you create a video frame labeling job, you specify buckets in S3 where your
 input data and manifest file are located and where your output data will be stored.

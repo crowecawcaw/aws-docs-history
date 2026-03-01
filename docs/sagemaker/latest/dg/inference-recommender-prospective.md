@@ -1,6 +1,4 @@
-# Get instant prospective
-
-instances
+# Get instant prospective instances
 
 Inference Recommender can also provide you with a list of _prospective
 instances_, or instance types that might be suitable for your model,

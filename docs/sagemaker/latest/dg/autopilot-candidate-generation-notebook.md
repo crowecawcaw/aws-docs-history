@@ -1,6 +1,4 @@
-# Find and run the candidate definition
-
-notebook
+# Find and run the candidate definition notebook
 
 The candidate definition notebook contains each suggested preprocessing step, algorithm,
 and hyperparameter ranges.

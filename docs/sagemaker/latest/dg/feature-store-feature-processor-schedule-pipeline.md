@@ -1,6 +1,4 @@
-# Scheduled and event
-
-based executions for Feature Processor pipelines
+# Scheduled and event based executions for Feature Processor pipelines
 
 Amazon SageMaker Feature Store Feature Processing pipeline executions can be configured to start automatically
 and asynchronously based on a preconfigured schedule or as a result of another AWS service
@@ -11,12 +9,9 @@ automatically after a source pipeline execution completes.
 ###### Topics
 
 - [Schedule based executions](#feature-store-feature-processor-schedule-pipeline-schedule-based "#feature-store-feature-processor-schedule-pipeline-schedule-based")
-- [Event
-  based executions](#feature-store-feature-processor-schedule-pipeline-event-based "#feature-store-feature-processor-schedule-pipeline-event-based")
+- [Event based executions](#feature-store-feature-processor-schedule-pipeline-event-based "#feature-store-feature-processor-schedule-pipeline-event-based")
 
-##
-
-Schedule based executions
+## Schedule based executions
 
 The Feature Processor SDK provides a [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule") API to run Feature Processor pipelines on a
 recurring basis with Amazon EventBridge Scheduler integration. The schedule can be specified with an
@@ -59,12 +54,9 @@ reference point for date range–based inputs. To disable (i.e., pause) or re-en
 schedule, use the `state` parameter of the [`schedule`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.schedule") API with `‘DISABLED’` or
 `‘ENABLED’`, respectively.
 
-For information about Feature Processor, see [Feature Processor SDK data
-sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md").
+For information about Feature Processor, see [Feature Processor SDK data sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md").
 
-## Event
-
-based executions
+## Event based executions
 
 A Feature Processing pipeline can be configured to automatically execute when an AWS
 event occurs. The Feature Processing SDK provides a [`put_trigger`](https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.put_trigger "https://sagemaker.readthedocs.io/en/stable/api/prep_data/feature_store.html#sagemaker.feature_store.feature_processor.put_trigger") function that accepts a list of source events
@@ -86,8 +78,7 @@ The following example sets up:
 - A SageMaker AI Pipeline using the `to_pipeline` API, that takes in your
   target pipeline name (`target-pipeline`) and your transformation
   function (`transform`). For information on your Feature Processor and
-  transform function, see [Feature Processor SDK data
-  sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md").
+  transform function, see [Feature Processor SDK data sources](feature-store-feature-processor-data-sources-sdk.md "feature-store-feature-processor-data-sources-sdk.md").
 - A trigger using the `put_trigger` API, that takes in
   `FeatureProcessorPipelineEvent` for the event and your target
   pipeline name (`target-pipeline`).

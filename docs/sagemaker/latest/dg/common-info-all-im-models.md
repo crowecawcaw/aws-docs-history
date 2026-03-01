@@ -1,6 +1,4 @@
-# Parameters for Built-in
-
-Algorithms
+# Parameters for Built-in Algorithms
 
 The following table lists parameters for each of the algorithms provided by
 Amazon SageMaker AI.
@@ -49,7 +47,5 @@ Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-
 
 - [Common Data Formats for Training](cdf-training.md "cdf-training.md")
 - [Common data formats for inference](cdf-inference.md "cdf-inference.md")
-- [Instance Types for Built-in
-  Algorithms](cmn-info-instance-types.md "cmn-info-instance-types.md")
-- [Logs for Built-in
-  Algorithms](common-info-all-sagemaker-models-logs.md "common-info-all-sagemaker-models-logs.md")
+- [Instance Types for Built-in Algorithms](cmn-info-instance-types.md "cmn-info-instance-types.md")
+- [Logs for Built-in Algorithms](common-info-all-sagemaker-models-logs.md "common-info-all-sagemaker-models-logs.md")

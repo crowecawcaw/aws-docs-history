@@ -12,18 +12,12 @@ inference. At a minimum, you need to convert the data for the following:
 
 ###### Topics
 
-- [Convert data for inference request
-  serialization](#ir-serialization "#ir-serialization")
-- [Convert data for inference response
-  deserialization](#ir-deserialization "#ir-deserialization")
-- [Common request formats for all
-  algorithms](#common-in-formats "#common-in-formats")
-- [Use batch transform with built-in
-  algorithms](#cm-batch "#cm-batch")
+- [Convert data for inference request serialization](#ir-serialization "#ir-serialization")
+- [Convert data for inference response deserialization](#ir-deserialization "#ir-deserialization")
+- [Common request formats for all algorithms](#common-in-formats "#common-in-formats")
+- [Use batch transform with built-in algorithms](#cm-batch "#cm-batch")
 
-## Convert data for inference request
-
-serialization
+## Convert data for inference request serialization
 
 Content type options for Amazon SageMaker AI algorithm inference requests include:
 `text/csv`, `application/json`, and
@@ -106,9 +100,7 @@ let request = {
 }
 ```
 
-## Convert data for inference response
-
-deserialization
+## Convert data for inference response deserialization
 
 Amazon SageMaker AI algorithms return JSON in several layouts. At a high level, the
 structure is:
@@ -188,9 +180,7 @@ While running batch transform, we recommended using the
 field in the `CreateTransformJobRequest` to
 `application/jsonlines`.
 
-## Common request formats for all
-
-algorithms
+## Common request formats for all algorithms
 
 Most algorithms use many of the following inference request
 formats.
@@ -296,9 +286,7 @@ CSV support is not available for factorization machines.
 
 Content type: application/x-recordio-protobuf
 
-## Use batch transform with built-in
-
-algorithms
+## Use batch transform with built-in algorithms
 
 While running batch transform, we recommended using the JSONLINES response
 type instead of JSON, if supported by the algorithm. To do this, set the
@@ -332,14 +320,12 @@ see the following:
 
 - [DeepAR Inference Formats](deepar-in-formats.md "deepar-in-formats.md")
 - [Factorization Machines Response Formats](fm-in-formats.md "fm-in-formats.md")
-- [IP Insights Inference Data
-  Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md")
+- [IP Insights Inference Data Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md")
 - [K-Means Response Formats](km-in-formats.md "km-in-formats.md")
 - [k-NN Request and Response Formats](kNN-inference-formats.md "kNN-inference-formats.md")
 - [Linear learner response formats](LL-in-formats.md "LL-in-formats.md")
 - [NTM Response Formats](ntm-in-formats.md "ntm-in-formats.md")
-- [Data Formats for Object2Vec
-  Inference](object2vec-inference-formats.md "object2vec-inference-formats.md")
+- [Data Formats for Object2Vec Inference](object2vec-inference-formats.md "object2vec-inference-formats.md")
 - [Encoder Embeddings for Object2Vec](object2vec-encoder-embeddings.md "object2vec-encoder-embeddings.md")
 - [PCA Response Formats](PCA-in-formats.md "PCA-in-formats.md")
 - [RCF Response Formats](rcf-in-formats.md "rcf-in-formats.md")

@@ -20,8 +20,7 @@ instructions:
 
 1. Prepare your instructions in JSON files. For more information about
    the required format for the prompt-response pair files and the structure
-   of the data folder, see [Prepare and upload training data for instruction-based
-   fine-tuning](#jumpstart-foundation-models-fine-tuning-instruction-based-prepare-data "#jumpstart-foundation-models-fine-tuning-instruction-based-prepare-data").
+   of the data folder, see [Prepare and upload training data for instruction-based fine-tuning](#jumpstart-foundation-models-fine-tuning-instruction-based-prepare-data "#jumpstart-foundation-models-fine-tuning-instruction-based-prepare-data").
 2. Create your fine-tuning training job. For instructions, see [Create a training job for instruction-based fine-tuning](#jumpstart-foundation-models-fine-tuning-instruction-based-train "#jumpstart-foundation-models-fine-tuning-instruction-based-train").
    You can find end-to-end examples in [Example notebooks](#jumpstart-foundation-models-fine-tuning-instruction-based-examples "#jumpstart-foundation-models-fine-tuning-instruction-based-examples").
 
@@ -33,8 +32,7 @@ foundation models:
 
 Some JumpStart foundation models, such as Llama 2 7B, require acceptance of an
 end-user license agreement before fine-tuning and performing inference. For
-more information, see [End-user license
-agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula").
+more information, see [End-user license agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula").
 
 - Flan-T5 Base
 - Flan-T5 Large
@@ -57,9 +55,7 @@ agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-ch
 - RedPajama INCITE Instruct 3B V1
 - RedPajama INCITE Instruct 7B V1
 
-## Prepare and upload training data for instruction-based
-
-fine-tuning
+## Prepare and upload training data for instruction-based fine-tuning
 
 Training data for instruction-based fine-tuning must be provided in JSON
 Lines text file format, where each line is a dictionary. All training data
@@ -126,8 +122,7 @@ print(f"Training data: {train_data_location}")
 
 After your data is uploaded to Amazon S3, you can fine-tune and deploy your
 JumpStart foundation model. To fine-tune your model in Studio, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md "jumpstart-foundation-models-use-studio-updated-fine-tune.md"). To fine-tune your model using the SageMaker Python SDK, see
-[Fine-tune publicly available foundation models with the
-JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").
+[Fine-tune publicly available foundation models with the JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").
 
 ## Example notebooks
 

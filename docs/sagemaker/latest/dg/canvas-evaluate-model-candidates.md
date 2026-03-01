@@ -1,6 +1,4 @@
-# View model candidates in the model
-
-leaderboard
+# View model candidates in the model leaderboard
 
 When you do a [Standard build](canvas-build-model.md "canvas-build-model.md") for
 tabular and time series forecasting models in Amazon SageMaker Canvas, SageMaker AI trains multiple _model candidates_ (different iterations of the model) and by
@@ -33,8 +31,7 @@ To view the **Model leaderboard**, do the following:
 ![The model leaderboard, which lists all of the model candidates that Canvas trained.](images/studio/canvas/canvas-model-leaderboard.png)
 For time series forecasting models, you see 7 models, which include one for each of
 the time series forecasting algorithms supported by Canvas and one ensemble model.
-For more information about the algorithms, see [Advanced time series forecasting
-model settings](canvas-advanced-settings.md#canvas-advanced-settings-time-series "canvas-advanced-settings.md#canvas-advanced-settings-time-series").
+For more information about the algorithms, see [Advanced time series forecasting model settings](canvas-advanced-settings.md#canvas-advanced-settings-time-series "canvas-advanced-settings.md#canvas-advanced-settings-time-series").
 
 In the preceding screenshot, you can see that the first model candidate listed is
 marked as the **Default model**. This is the model candidate with which

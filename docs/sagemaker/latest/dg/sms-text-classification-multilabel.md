@@ -1,6 +1,4 @@
-# Categorize text with text
-
-classification (Multi-label)
+# Categorize text with text classification (Multi-label)
 
 To categorize articles and text into multiple predefined categories, use the multi-label
 text classification task type. For example, you can use this task type to identify more than
@@ -16,8 +14,7 @@ provide this option to workers, include a label similar to "none" or "other" whe
 a multi-label text classification job.
 
 To restrict workers to choosing a single label for each document or text selection, use
-the [Categorize text with text classification (Single
-Label)](sms-text-classification.md "sms-text-classification.md") task
+the [Categorize text with text classification (Single Label)](sms-text-classification.md "sms-text-classification.md") task
 type.
 
 ###### Important
@@ -25,9 +22,7 @@ type.
 If you manually create an input manifest file, use `"source"` to identify
 the text that you want labeled. For more information, see [Input data](sms-data-input.md "sms-data-input.md").
 
-## Create a Multi-Label Text
-
-Classification Labeling Job (Console)
+## Create a Multi-Label Text Classification Labeling Job (Console)
 
 You can follow the instructions [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") to learn how to create a
 multi-label text classification labeling job in the Amazon SageMaker AI console. In Step 10, choose
@@ -41,9 +36,7 @@ complete the job and labels that workers can choose from.
 
 ![Gif showing how to create a multi-label text classification labeling job in the Amazon SageMaker AI console.](images/sms/gifs/multi-label-text.gif)
 
-## Create a Multi-Label
-
-Text Classification Labeling Job (API)
+## Create a Multi-Label Text Classification Labeling Job (API)
 
 To create a multi-label text classification labeling job, use the SageMaker API operation
 `CreateLabelingJob`. This API defines this operation for all AWS SDKs.
@@ -153,9 +146,7 @@ Upload this template to S3, and provide the S3 URI for this file in
 
 To learn how to create a custom template, see [Custom labeling workflows](sms-custom-templates.md "sms-custom-templates.md").
 
-## Multi-label Text
-
-Classification Output Data
+## Multi-label Text Classification Output Data
 
 Once you have created a multi-label text classification labeling job, your output data
 will be located in the Amazon S3 bucket specified in the `S3OutputPath` parameter

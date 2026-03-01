@@ -8,8 +8,7 @@ The following topics describe how you can use features within Canvas to use a Ca
 
 ###### Topics
 
-- [Register a model version in the SageMaker AI model
-  registry](canvas-register-model.md "canvas-register-model.md")
+- [Register a model version in the SageMaker AI model registry](canvas-register-model.md "canvas-register-model.md")
 - [Deploy your models to an endpoint](canvas-deploy-model.md "canvas-deploy-model.md")
 - [View your deployments](canvas-deploy-model-view.md "canvas-deploy-model-view.md")
 - [Update a deployment configuration](canvas-deploy-model-update.md "canvas-deploy-model-update.md")

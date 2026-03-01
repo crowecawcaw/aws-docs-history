@@ -1,6 +1,4 @@
-# Visualize results for
-
-real-time endpoints in Amazon SageMaker Studio
+# Visualize results for real-time endpoints in Amazon SageMaker Studio
 
 If you are monitoring a real-time endpoint, you can also visualize the results in
 Amazon SageMaker Studio. You can view the details of any monitoring job run, and you can create

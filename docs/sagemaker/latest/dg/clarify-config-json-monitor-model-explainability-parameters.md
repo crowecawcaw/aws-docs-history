@@ -1,6 +1,4 @@
-#
-
-Parameters to Monitor Attribution Drift
+# Parameters to Monitor Attribution Drift
 
 Amazon SageMaker Clarify explainability monitor reuses a subset of the parameters used in the
 analysis configuration of [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md"). The following

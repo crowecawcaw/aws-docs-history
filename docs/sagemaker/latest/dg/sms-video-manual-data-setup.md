@@ -18,9 +18,7 @@ file for video frame object tracking and object detection labeling jobs.
 If you want Ground Truth to automatically generate your sequence files and input manifest
 file, see [Set up Automated Video Frame Input Data](sms-video-automated-data-setup.md "sms-video-automated-data-setup.md").
 
-### Create a Video Frame Sequence Input
-
-Manifest
+### Create a Video Frame Sequence Input Manifest
 
 In the video frame sequence input manifest file, each line in the manifest is a
 JSON object, with a `"source-ref"` key that references a sequence

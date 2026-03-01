@@ -1,6 +1,4 @@
-# Hyperparameters for optimizing
-
-the learning process of your text generation models
+# Hyperparameters for optimizing the learning process of your text generation models
 
 You can optimize the learning process of your base model by adjusting any combination of
 the following hyperparameters. These parameters are available for all models.
@@ -40,5 +38,4 @@ complete.
   maximum value. This helps the model converge more effectively and avoid issues like
   divergence or slow convergence that can occur with an initially high learning rate.
   To learn about how to adjust hyperparameters for your fine-tuning experiment in Autopilot and
-  discover their possible values, see [How to set hyperparameters
-  to optimize the learning process of a model](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-hyperparameters "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-hyperparameters").
+  discover their possible values, see [How to set hyperparameters to optimize the learning process of a model](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-hyperparameters "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-set-hyperparameters").

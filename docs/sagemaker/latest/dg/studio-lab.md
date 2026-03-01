@@ -33,8 +33,7 @@ following advanced machine learning capabilities that Studio Lab does not suppor
   (IAM), Amazon Virtual Private Cloud (Amazon VPC), and AWS Key Management Service (AWS KMS). Studio Lab does not support these Studio Classic
   features, nor does it support the use of estimators and built-in SageMaker AI algorithms.
 
-To export your Studio Lab projects for use with Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to
-Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
+To export your Studio Lab projects for use with Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
 
 The following topics give information about Studio Lab and how to use it
 

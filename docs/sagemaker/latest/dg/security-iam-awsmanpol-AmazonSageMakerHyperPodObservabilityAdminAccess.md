@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess
+# AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess
 
 This policy provides administrative privileges required for setting up Amazon SageMaker HyperPod
 observability. It enables access to Amazon Managed Service for Prometheus, Amazon Managed Grafana and Amazon Elastic Kubernetes Service add-ons. The policy

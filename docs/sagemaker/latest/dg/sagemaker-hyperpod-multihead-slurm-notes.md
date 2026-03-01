@@ -1,16 +1,12 @@
-# Considering important
-
-notes
+# Considering important notes
 
 This section provides several important notes which you might find helpful.
 
 1. To migrate to a multi-controller Slurm cluster, complete these
    steps.
-   1. Follow the instructions in [Provisioning resources using
-      CloudFormation stacks](sagemaker-hyperpod-multihead-slurm-cfn.md "sagemaker-hyperpod-multihead-slurm-cfn.md") to provision all
+   1. Follow the instructions in [Provisioning resources using CloudFormation stacks](sagemaker-hyperpod-multihead-slurm-cfn.md "sagemaker-hyperpod-multihead-slurm-cfn.md") to provision all
       the required resources.
-   2. Follow the instructions in [Preparing and uploading
-      lifecycle scripts](sagemaker-hyperpod-multihead-slurm-scripts.md "sagemaker-hyperpod-multihead-slurm-scripts.md") to upload the
+   2. Follow the instructions in [Preparing and uploading lifecycle scripts](sagemaker-hyperpod-multihead-slurm-scripts.md "sagemaker-hyperpod-multihead-slurm-scripts.md") to upload the
       updated lifecycle scripts. When updating the
       `provisioning_parameters.json` file, move your
       existing controller group to the `worker_groups` section,

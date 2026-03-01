@@ -14,9 +14,7 @@ For more information on Pipelines, see [SageMaker Pipelines](pipelines.md "pipel
 When you export one or more steps from your data flow to Pipelines, Data Wrangler creates a Jupyter
 notebook that you can use to define, instantiate, run, and manage a pipeline.
 
-### Use a Jupyter Notebook to
-
-Create a Pipeline
+### Use a Jupyter Notebook to Create a Pipeline
 
 Use the following procedure to create a Jupyter notebook to export your Data Wrangler flow to
 Pipelines.
@@ -51,8 +49,7 @@ Pipeline](define-pipeline.md "define-pipeline.md").
 ## Automate data preparation using an inference endpoint
 
 Use your Data Wrangler flow to process data at the time of inference by creating a SageMaker AI serial inference pipeline from your Data Wrangler flow. An inference pipeline is a series of steps that results in a trained model making predictions on new data. A serial inference pipeline within Data Wrangler transforms the raw data and provides it to the machine learning model for a prediction.
-You create, run, and manage the inference pipeline from a Jupyter notebook within Studio Classic. For more information about accessing the notebook, see [Use a Jupyter notebook to
-create an inference endpoint](#canvas-inference-notebook "#canvas-inference-notebook").
+You create, run, and manage the inference pipeline from a Jupyter notebook within Studio Classic. For more information about accessing the notebook, see [Use a Jupyter notebook to create an inference endpoint](#canvas-inference-notebook "#canvas-inference-notebook").
 
 Within the notebook, you can either train a machine learning model or specify one that you've already trained. You can either use Amazon SageMaker Autopilot or XGBoost to train the model using the data that you've transformed in your Data Wrangler flow.
 
@@ -76,8 +73,7 @@ You can't export your Data Wrangler flow to an inference endpoint if it has the 
 5. Import the data that you've exported from the preceding flow.
 6. Apply the remaining transforms.
 7. Create a serial inference pipeline using the Jupyter notebook that we provide.
-   For information about exporting your data to an Amazon S3 bucket see [Export data](canvas-export-data.md "canvas-export-data.md"). For information about opening the Jupyter notebook used to create the serial inference pipeline, see [Use a Jupyter notebook to
-   create an inference endpoint](#canvas-inference-notebook "#canvas-inference-notebook").
+   For information about exporting your data to an Amazon S3 bucket see [Export data](canvas-export-data.md "canvas-export-data.md"). For information about opening the Jupyter notebook used to create the serial inference pipeline, see [Use a Jupyter notebook to create an inference endpoint](#canvas-inference-notebook "#canvas-inference-notebook").
 
 Data Wrangler ignores transforms that remove data at the time of inference.
 For example, Data Wrangler ignores the [Handle Missing Values](canvas-transform.md#canvas-transform-handle-missing "canvas-transform.md#canvas-transform-handle-missing") transform if you use the **Drop missing** configuration.
@@ -126,9 +122,7 @@ abc,0.0,"Doe, John",12345\ndef,1.1,"Doe, Jane",67890
 
 ```
 
-### Use a Jupyter notebook to
-
-create an inference endpoint
+### Use a Jupyter notebook to create an inference endpoint
 
 Use the following procedure to export your Data Wrangler
 flow to create an inference pipeline.

@@ -16,10 +16,8 @@ Documentation](../../../marketplace/index.md#lang/en_us "../../../marketplace/in
 
 - [SageMaker AI Algorithms](#sagemaker-mkt-algorithm "#sagemaker-mkt-algorithm")
 - [SageMaker AI Model Packages](#sagemaker-mkt-model-package "#sagemaker-mkt-model-package")
-- [Listings for your own algorithms and models
-  with the AWS Marketplace](sagemaker-marketplace-sell.md "sagemaker-marketplace-sell.md")
-- [Find and Subscribe to Algorithms and
-  Model Packages on AWS Marketplace](sagemaker-mkt-find-subscribe.md "sagemaker-mkt-find-subscribe.md")
+- [Listings for your own algorithms and models with the AWS Marketplace](sagemaker-marketplace-sell.md "sagemaker-marketplace-sell.md")
+- [Find and Subscribe to Algorithms and Model Packages on AWS Marketplace](sagemaker-mkt-find-subscribe.md "sagemaker-mkt-find-subscribe.md")
 - [Usage of Algorithm and Model Package Resources](sagemaker-mkt-buy.md "sagemaker-mkt-buy.md")
 
 ## SageMaker AI Algorithms

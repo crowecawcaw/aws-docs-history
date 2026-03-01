@@ -1,6 +1,4 @@
-# Autoscale multi-container
-
-endpoints
+# Autoscale multi-container endpoints
 
 If you want to configure automatic scaling for a multi-container endpoint using the
 `InvocationsPerInstance` metric, we recommend that the model in each

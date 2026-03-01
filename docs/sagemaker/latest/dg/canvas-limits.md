@@ -70,9 +70,7 @@ Your user should now be using an execution role with only one trusted service (S
 
 You can retry granting the Canvas base permissions or the Ready-to-use models permissions to your user.
 
-### 3. Manually attach the AWS managed policy to the
-
-execution role instead of using the toggle in the SageMaker AI domain settings.
+### 3. Manually attach the AWS managed policy to the execution role instead of using the toggle in the SageMaker AI domain settings.
 
 Instead of using the toggle in the domain or user profile settings, you can manually attach the
 AWS managed policies that grant a user the correct permissions.
@@ -108,16 +106,14 @@ When creating a new Canvas application, if you encounter an error stating `Unabl
 this indicates that the underlying Amazon SageMaker Studio space creation has failed. A Studio
 _space_ is the underlying storage that hosts your Canvas
 application data. For more general information about Studio spaces, see [Amazon SageMaker Studio spaces](studio-updated-spaces.md "studio-updated-spaces.md"). For more information
-about configuring spaces in Canvas, see [Store SageMaker Canvas application data in your own SageMaker AI
-space](canvas-spaces-setup.md "canvas-spaces-setup.md").
+about configuring spaces in Canvas, see [Store SageMaker Canvas application data in your own SageMaker AI space](canvas-spaces-setup.md "canvas-spaces-setup.md").
 
 To determine the root cause of your why space creation failed, you can use the [DescribeSpace](../APIReference/API_DescribeSpace.md "../APIReference/API_DescribeSpace.md")
 API to check the `FailureReason` field. For more information about the possible statuses of spaces
 and what they mean, see [Amazon SageMaker AI domain entities and statuses](sm-domain.md "sm-domain.md").
 
 To resolve this issue, find your domain in the SageMaker AI console and delete the failed space listed in the error message you received.
-For detailed steps on how to find and delete a space, see the page [Stop and delete your Studio running
-applications and spaces](studio-updated-running-stop.md "studio-updated-running-stop.md")
+For detailed steps on how to find and delete a space, see the page [Stop and delete your Studio running applications and spaces](studio-updated-running-stop.md "studio-updated-running-stop.md")
 and follow the instructions to **Delete a Studio space**.
 Deleting the space also deletes any applications associated with the space. After deleting the space, you can try to create your Canvas
 application again. The space should now provision successfully, allowing Canvas to launch.

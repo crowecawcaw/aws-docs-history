@@ -8,21 +8,15 @@ fine-tune pretrained models.
 
 ###### Topics
 
-- [Amazon SageMaker JumpStart Industry Python
-  SDK](#studio-jumpstart-industry-pysdk "#studio-jumpstart-industry-pysdk")
+- [Amazon SageMaker JumpStart Industry Python SDK](#studio-jumpstart-industry-pysdk "#studio-jumpstart-industry-pysdk")
 - [Amazon SageMaker JumpStart Industry: Financial Solution](#studio-jumpstart-industry-solutions "#studio-jumpstart-industry-solutions")
 - [Amazon SageMaker JumpStart Industry: Financial Models](#studio-jumpstart-industry-models "#studio-jumpstart-industry-models")
 - [Amazon SageMaker JumpStart Industry: Financial Example Notebooks](#studio-jumpstart-industry-examples "#studio-jumpstart-industry-examples")
-- [Amazon SageMaker JumpStart Industry: Financial
-  Blog Posts](#studio-jumpstart-industry-blogs "#studio-jumpstart-industry-blogs")
-- [Amazon SageMaker JumpStart Industry: Financial
-  Related Research](#studio-jumpstart-industry-research "#studio-jumpstart-industry-research")
-- [Amazon SageMaker JumpStart Industry: Financial
-  Additional Resources](#studio-jumpstart-industry-resources "#studio-jumpstart-industry-resources")
+- [Amazon SageMaker JumpStart Industry: Financial Blog Posts](#studio-jumpstart-industry-blogs "#studio-jumpstart-industry-blogs")
+- [Amazon SageMaker JumpStart Industry: Financial Related Research](#studio-jumpstart-industry-research "#studio-jumpstart-industry-research")
+- [Amazon SageMaker JumpStart Industry: Financial Additional Resources](#studio-jumpstart-industry-resources "#studio-jumpstart-industry-resources")
 
-## Amazon SageMaker JumpStart Industry Python
-
-SDK
+## Amazon SageMaker JumpStart Industry Python SDK
 
 SageMaker Runtime JumpStart provides processing tools for curating industry datasets and
 fine-tuning pretrained models through its client library called SageMaker JumpStart Industry
@@ -163,9 +157,7 @@ the previous topic at [SageMaker JumpStart](studio-jumpstart.md "studio-jumpstar
 To preview the content of the example notebooks, see [Tutorials – Finance](https://sagemaker-jumpstart-industry-pack.readthedocs.io/en/latest/notebooks/index.html "https://sagemaker-jumpstart-industry-pack.readthedocs.io/en/latest/notebooks/index.html") in the _SageMaker JumpStart Industry
 Python SDK documentation_.
 
-## Amazon SageMaker JumpStart Industry: Financial
-
-Blog Posts
+## Amazon SageMaker JumpStart Industry: Financial Blog Posts
 
 For thorough applications of using SageMaker JumpStart Industry: Financial solutions,
 models, examples, and the SDK, see the following blog posts:
@@ -176,9 +168,7 @@ models, examples, and the SDK, see the following blog posts:
 - [Build a corporate credit ratings classifier using graph machine learning in Amazon SageMaker JumpStart](https://aws.amazon.com/blogs/machine-learning/build-a-corporate-credit-ratings-classifier-using-graph-machine-learning-in-amazon-sagemaker-jumpstart/ "https://aws.amazon.com/blogs/machine-learning/build-a-corporate-credit-ratings-classifier-using-graph-machine-learning-in-amazon-sagemaker-jumpstart/")
 - [Domain-adaptation Fine-tuning of Foundation Models in Amazon SageMaker JumpStart on Financial data](https://aws.amazon.com/blogs/machine-learning/domain-adaptation-fine-tuning-of-foundation-models-in-amazon-sagemaker-jumpstart-on-financial-data/ "https://aws.amazon.com/blogs/machine-learning/domain-adaptation-fine-tuning-of-foundation-models-in-amazon-sagemaker-jumpstart-on-financial-data/")
 
-## Amazon SageMaker JumpStart Industry: Financial
-
-Related Research
+## Amazon SageMaker JumpStart Industry: Financial Related Research
 
 For research related to SageMaker JumpStart Industry: Financial solutions, see the following papers:
 
@@ -187,9 +177,7 @@ For research related to SageMaker JumpStart Industry: Financial solutions, see t
 - [On the Lack of Robust Interpretability of Neural Text Classifiers](https://www.amazon.science/publications/on-the-lack-of-robust-interpretability-of-neural-text-classifiers "https://www.amazon.science/publications/on-the-lack-of-robust-interpretability-of-neural-text-classifiers")
 - [FinLex: An Effective Use of Word Embeddings for Financial Lexicon Generation](https://www.sciencedirect.com/science/article/pii/S2405918821000131 "https://www.sciencedirect.com/science/article/pii/S2405918821000131")
 
-## Amazon SageMaker JumpStart Industry: Financial
-
-Additional Resources
+## Amazon SageMaker JumpStart Industry: Financial Additional Resources
 
 For additional documentation and tutorials, see the following resources:
 

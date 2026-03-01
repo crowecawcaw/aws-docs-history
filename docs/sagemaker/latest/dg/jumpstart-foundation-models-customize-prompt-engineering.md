@@ -1,6 +1,4 @@
-# Prompt
-
-engineering for foundation models
+# Prompt engineering for foundation models
 
 Prompt engineering is the process of designing and refining the prompts or input
 stimuli for a language model to generate specific types of output. Prompt
@@ -60,14 +58,10 @@ following are examples of some commonly supported inference parameters:
 | `top_p`             | In each step of text generation, the model samples from<br>the smallest possible set of words with a cumulative<br>probability of `top_p`. Valid values: float,<br>range: 0.0, 1.0.                                                                                                                                                                                 |
 | `return_full_text`  | If `True`, then the input text is part of<br>the generated output text. Valid values: boolean, default:<br>False.                                                                                                                                                                                                                                                   |
 
-For more information on foundation model inference, see [Deploy
-publicly available foundation models with the JumpStartModel
-class](jumpstart-foundation-models-use-python-sdk-model-class.md "jumpstart-foundation-models-use-python-sdk-model-class.md").
+For more information on foundation model inference, see [Deploy publicly available foundation models with the JumpStartModel class](jumpstart-foundation-models-use-python-sdk-model-class.md "jumpstart-foundation-models-use-python-sdk-model-class.md").
 
 If prompt engineering is not sufficient to adapt your foundation model to specific
 business needs, domain-specific language, target tasks, or other requirements, you
 can consider fine-tuning your model on additional data or using Retrieval Augmented
 Generation (RAG) to augment your model architecture with enhanced context from
-archived knowledge sources. For more information, see [Foundation models and
-hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md") or [Retrieval Augmented
-Generation](jumpstart-foundation-models-customize-rag.md "jumpstart-foundation-models-customize-rag.md").
+archived knowledge sources. For more information, see [Foundation models and hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md") or [Retrieval Augmented Generation](jumpstart-foundation-models-customize-rag.md "jumpstart-foundation-models-customize-rag.md").

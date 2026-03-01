@@ -1,6 +1,4 @@
-# Automatic node
-
-recovery and auto-resume
+# Automatic node recovery and auto-resume
 
 ###### Note
 
@@ -13,9 +11,7 @@ automatic node recovery that replaces faulty infrastructure without manual inter
 and auto-resume functionality that restarts training jobs from the last checkpoint after
 hardware failures.
 
-## How automatic
-
-node recovery works
+## How automatic node recovery works
 
 During cluster creation or update, cluster admin users can select the node
 (instance) recovery option between `Automatic` (Recommended) and
@@ -33,9 +29,7 @@ monitoring agent will label the instances when a fault is detected, but it will 
 automatically initiate any repair or recovery actions on the affected nodes. We do
 not recommend this option.
 
-## Running a
-
-training job with the Amazon SageMaker HyperPod auto-resume functionality
+## Running a training job with the Amazon SageMaker HyperPod auto-resume functionality
 
 This section describes how to run a training job with the SageMaker HyperPod auto-resume
 functionality, which provides a zero-touch resiliency infrastructure to
@@ -194,9 +188,7 @@ salloc -N 2 --exclusive
 srun --auto-resume=1 `train_auto_resume.sh`
 ```
 
-## How automatic
-
-node recovery and auto-resume work together
+## How automatic node recovery and auto-resume work together
 
 When both automatic node recovery and auto-resume systems are active, they follow
 a coordinated approach to handling failures. If the HMA detects a hardware fault,

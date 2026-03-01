@@ -1,6 +1,4 @@
-# Input and output interface for the Image
-
-Classification - TensorFlow algorithm
+# Input and output interface for the Image Classification - TensorFlow algorithm
 
 Each of the pretrained models listed in TensorFlow Hub Models can be fine-tuned to any
 dataset with any number of image classes. Be mindful of how to format your training data
@@ -55,9 +53,7 @@ fine-tuned model. For an example of incremental training with the SageMaker AI
 Image Classification - TensorFlow algorithm, see the [Introduction to SageMaker TensorFlow - Image Classification](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/image_classification_tensorflow/Amazon_TensorFlow_Image_Classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/image_classification_tensorflow/Amazon_TensorFlow_Image_Classification.ipynb") sample
 notebook.
 
-## Inference with the Image Classification - TensorFlow
-
-algorithm
+## Inference with the Image Classification - TensorFlow algorithm
 
 You can host the fine-tuned model that results from your TensorFlow Image
 Classification training for inference. Any input image for inference must be in

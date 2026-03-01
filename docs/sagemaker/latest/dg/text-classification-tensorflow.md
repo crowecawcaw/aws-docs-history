@@ -11,22 +11,15 @@ Classification - TensorFlow.
 ###### Topics
 
 - [How to use the SageMaker AI Text Classification - TensorFlow algorithm](text-classification-tensorflow-how-to-use.md "text-classification-tensorflow-how-to-use.md")
-- [Input and output interface
-  for the Text Classification - TensorFlow algorithm](text-classification-tensorflow-inputoutput.md "text-classification-tensorflow-inputoutput.md")
-- [Amazon EC2 instance recommendation
-  for the Text Classification - TensorFlow algorithm](#text-classification-tensorflow-instances "#text-classification-tensorflow-instances")
-- [Text Classification - TensorFlow sample
-  notebooks](#text-classification-tensorflow-sample-notebooks "#text-classification-tensorflow-sample-notebooks")
+- [Input and output interface for the Text Classification - TensorFlow algorithm](text-classification-tensorflow-inputoutput.md "text-classification-tensorflow-inputoutput.md")
+- [Amazon EC2 instance recommendation for the Text Classification - TensorFlow algorithm](#text-classification-tensorflow-instances "#text-classification-tensorflow-instances")
+- [Text Classification - TensorFlow sample notebooks](#text-classification-tensorflow-sample-notebooks "#text-classification-tensorflow-sample-notebooks")
 - [How Text Classification - TensorFlow Works](text-classification-tensorflow-HowItWorks.md "text-classification-tensorflow-HowItWorks.md")
 - [TensorFlow Hub Models](text-classification-tensorflow-Models.md "text-classification-tensorflow-Models.md")
-- [Text Classification - TensorFlow
-  Hyperparameters](text-classification-tensorflow-Hyperparameter.md "text-classification-tensorflow-Hyperparameter.md")
-- [Tune a Text Classification -
-  TensorFlow model](text-classification-tensorflow-tuning.md "text-classification-tensorflow-tuning.md")
+- [Text Classification - TensorFlow Hyperparameters](text-classification-tensorflow-Hyperparameter.md "text-classification-tensorflow-Hyperparameter.md")
+- [Tune a Text Classification - TensorFlow model](text-classification-tensorflow-tuning.md "text-classification-tensorflow-tuning.md")
 
-## Amazon EC2 instance recommendation
-
-for the Text Classification - TensorFlow algorithm
+## Amazon EC2 instance recommendation for the Text Classification - TensorFlow algorithm
 
 The Text Classification - TensorFlow algorithm supports all CPU and GPU instances for
 training, including:
@@ -44,9 +37,7 @@ We recommend GPU instances with more memory for training with large batch sizes.
 CPU (such as M5) and GPU (P2, P3, G4dn, or G5) instances can be used for inference. For
 a comprehensive list of SageMaker training and inference instances across AWS Regions, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
 
-## Text Classification - TensorFlow sample
-
-notebooks
+## Text Classification - TensorFlow sample notebooks
 
 For more information about how to use the SageMaker AI Text Classification - TensorFlow algorithm
 for transfer learning on a custom dataset, see the [Introduction to JumpStart - Text Classification](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_Text_Classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_Text_Classification.ipynb") notebook.

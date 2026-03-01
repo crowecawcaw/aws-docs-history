@@ -1,6 +1,4 @@
-# Installing the SageMaker HyperPod
-
-CLI
+# Installing the SageMaker HyperPod CLI
 
 SageMaker HyperPod provides the [SageMaker HyperPod command line interface](https://github.com/aws/sagemaker-hyperpod-cli "https://github.com/aws/sagemaker-hyperpod-cli") (CLI) package.
 
@@ -31,6 +29,4 @@ hyperpod --help
 
 If you are a data scientist and want to use the SageMaker HyperPod CLI, make sure that
 your IAM role is set up properly by your cluster admins following the instructions
-at [IAM users for
-scientists](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user") and [Setting up Kubernetes role-based
-access control](sagemaker-hyperpod-eks-setup-rbac.md "sagemaker-hyperpod-eks-setup-rbac.md").
+at [IAM users for scientists](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-user") and [Setting up Kubernetes role-based access control](sagemaker-hyperpod-eks-setup-rbac.md "sagemaker-hyperpod-eks-setup-rbac.md").

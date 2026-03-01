@@ -1,6 +1,4 @@
-# Installing
-
-packages on the Amazon EKS cluster using Helm
+# Installing packages on the Amazon EKS cluster using Helm
 
 Before creating a SageMaker HyperPod cluster and attaching it to an Amazon EKS cluster, you
 should install packages using [Helm](https://helm.sh/ "https://helm.sh/"), a package

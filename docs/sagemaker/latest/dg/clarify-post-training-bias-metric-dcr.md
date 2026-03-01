@@ -1,6 +1,4 @@
-# Difference in Conditional
-
-Rejection (DCR)
+# Difference in Conditional Rejection (DCR)
 
 This metric compares the observed labels to the labels predicted by the model and
 assesses whether this is the same across facets for negative outcomes (rejections). This

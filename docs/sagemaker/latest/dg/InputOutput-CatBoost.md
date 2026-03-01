@@ -1,6 +1,4 @@
-# Input and Output interface for the CatBoost
-
-algorithm
+# Input and Output interface for the CatBoost algorithm
 
 Gradient boosting operates on tabular data, with the rows representing observations,
 one column representing the target variable or label, and the remaining columns

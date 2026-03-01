@@ -1,6 +1,4 @@
-# Run SageMaker Clarify Processing Jobs for Bias Analysis and
-
-Explainability
+# Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability
 
 To analyze your data and models for bias and explainability using SageMaker Clarify, you must
 configure a SageMaker Clarify processing job. This guide shows how to configure the job inputs, outputs,
@@ -113,9 +111,7 @@ data_config = clarify.DataConfig(
 )
 ```
 
-### How to
-
-compute all pre-training bias metrics for a CSV dataset
+### How to compute all pre-training bias metrics for a CSV dataset
 
 The following code sample shows how to configure a `BiasConfig`
 object to measure bias of the previous sample input towards samples with a
@@ -147,9 +143,7 @@ pre-training bias metrics to the methods parameter. For example, replacing
 the SageMaker Clarify Processor to compute only [Class
 Imbalance](clarify-bias-metric-class-imbalance.md "clarify-bias-metric-class-imbalance.md") and [Difference in Proportions of Labels](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md").
 
-### How to
-
-compute all post-training bias metrics for a CSV dataset
+### How to compute all post-training bias metrics for a CSV dataset
 
 You can compute pre-training bias metrics prior to training. However, to
 compute [post-training bias metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"), you must have a trained model. The
@@ -210,9 +204,7 @@ post-training bias metrics to the `methods` parameter. For example,
 replace `methods=“all”` with `methods=["DPPL", "DI"]` to
 compute only [Difference in Positive Proportions in Predicted Labels](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md") and [Disparate Impact](clarify-post-training-bias-metric-di.md "clarify-post-training-bias-metric-di.md").
 
-### How to compute all
-
-bias metrics for a CSV dataset
+### How to compute all bias metrics for a CSV dataset
 
 The following configuration example shows how to run all pre-training and
 post-training bias metrics in one SageMaker Clarify processing job.
@@ -231,9 +223,7 @@ clarify_processor.run_bias(
 For an example notebook with instructions on how to run a SageMaker Clarify processing job in
 SageMaker Studio Classic to detect bias, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb").
 
-### How to compute
-
-SHAP values for a CSV dataset
+### How to compute SHAP values for a CSV dataset
 
 SageMaker Clarify provides feature attributions using the [KernelSHAP algorithm](https://arxiv.org/abs/1705.07874 "https://arxiv.org/abs/1705.07874").
 SHAP analysis requires the probability value or score instead
@@ -277,9 +267,7 @@ clarify_processor.run_explainability(
 For an example notebook with instructions on how to run a SageMaker Clarify processing job
 in SageMaker Studio Classic to compute SHAP values, see [Fairness and Explainability with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/fairness_and_explainability/fairness_and_explainability.ipynb").
 
-### How to compute
-
-partial dependence plots (PDPs) for a CSV dataset
+### How to compute partial dependence plots (PDPs) for a CSV dataset
 
 PDPs show the dependence of the predicted target response on
 one or more input features of interest while holding all other features
@@ -323,10 +311,7 @@ clarify_processor.run_explainability(
 For an example notebook with instructions on how to run a SageMaker Clarify processing job
 in SageMaker Studio Classic to compute PDPs, see [Explainability with SageMaker Clarify - Partial Dependence Plots (PDP)](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/explainability_with_pdp.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/fairness_and_explainability/explainability_with_pdp.ipynb").
 
-### How to compute
-
-both SHAP values and PDPs for a CSV
-dataset
+### How to compute both SHAP values and PDPs for a CSV dataset
 
 You can compute both SHAP values and PDPs in a
 single SageMaker Clarify processing job. In the following configuration example, the
@@ -626,9 +611,7 @@ results. SageMaker AI uses the `s3_output_path` while compiling, and cannot take
 a value of a SageMaker AI Pipeline parameter, property, expression, or
 `ExecutionVariable`, which are used during runtime.
 
-### How
-
-to explain an image classification model
+### How to explain an image classification model
 
 The SageMaker Clarify processing job explains images using the KernelSHAP algorithm, which
 treats the image as a collection of super pixels. Given a dataset consisting of
@@ -719,9 +702,7 @@ clarify_processor.run_explainability(
 For a sample notebook that uses SageMaker Clarify to classify images and explain its
 classification, see [Explaining Image Classification with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb").
 
-### How to
-
-explain an object detection model
+### How to explain an object detection model
 
 A SageMaker Clarify processing job can detect and classify objects in an image and then
 provide an explanation for the detected object. The process for explanation is
@@ -951,9 +932,7 @@ forecast value is parsed as follows:
 [[13.4, 3.6], [23.0, 4.7], [3.4, 5.6]]
 ```
 
-## How to run parallel SageMaker Clarify processing
-
-jobs
+## How to run parallel SageMaker Clarify processing jobs
 
 When working with large datasets, you can use [Apache Spark](https://spark.apache.org/ "https://spark.apache.org/") to increase the speed of your SageMaker Clarify processing jobs. Spark is
 a unified analytics engine for large-scale data processing. When you request more than

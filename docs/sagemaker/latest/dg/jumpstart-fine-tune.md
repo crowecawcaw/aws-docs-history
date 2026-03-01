@@ -76,8 +76,7 @@ and g4 instance types.
 You can customize the hyperparameters of the training job that are used to fine-tune
 the model. The hyperparameters available for each fine-tunable model differ depending on
 the model. For information on each available hyperparameter, reference the hyperparameters
-documentation for the model of your choosing in [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md"). For example, see [Image Classification - TensorFlow
-Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md") for details on the fine-tunable Image
+documentation for the model of your choosing in [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md"). For example, see [Image Classification - TensorFlow Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md") for details on the fine-tunable Image
 Classification - TensorFlow hyperparameters.
 
 If you use the default dataset for text models without changing the hyperparameters,
@@ -126,9 +125,7 @@ structure uses the model name that you provided and the model file is in an
 
 Example: `s3://bucket/model-name/output/model.tar.gz`
 
-## Configure default values for model
-
-training
+## Configure default values for model training
 
 You can configure default values for parameters such as IAM roles, VPCs, and
 KMS keys to pre-populate for JumpStart model deployment and training. For more information, see, [Configure default values for JumpStart models](jumpstart-deploy.md#jumpstart-config-defaults "jumpstart-deploy.md#jumpstart-config-defaults").

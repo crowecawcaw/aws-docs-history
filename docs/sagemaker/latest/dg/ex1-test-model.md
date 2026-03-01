@@ -2,12 +2,9 @@
 
 Now that you have trained and deployed a model using Amazon SageMaker AI, evaluate the model to
 ensure that it generates accurate predictions on new data. For model evaluation, use the
-test dataset that you created in [Prepare a
-dataset](ex1-preprocess-data.md "ex1-preprocess-data.md").
+test dataset that you created in [Prepare a dataset](ex1-preprocess-data.md "ex1-preprocess-data.md").
 
-## Evaluate the Model Deployed to SageMaker AI Hosting
-
-Services
+## Evaluate the Model Deployed to SageMaker AI Hosting Services
 
 To evaluate the model and use it in production, invoke the endpoint with the test
 dataset and check whether the inferences you get returns a target accuracy you want to

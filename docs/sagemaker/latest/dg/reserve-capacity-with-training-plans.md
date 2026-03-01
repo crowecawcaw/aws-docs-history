@@ -1,6 +1,4 @@
-# Reserve training plans for your training
-
-jobs or HyperPod clusters
+# Reserve training plans for your training jobs or HyperPod clusters
 
 Amazon SageMaker training plans is a capability that allows you to reserve and help maximize the use of
 GPU capacity for large-scale AI model training workloads. This feature provides access to highly
@@ -52,9 +50,7 @@ SageMaker training plans offer the following benefits:
   from infrastructure failures and workload migration across Availability Zones for SageMaker AI
   training jobs.
 
-## SageMaker training plans advance reservation and
-
-flexible start times
+## SageMaker training plans advance reservation and flexible start times
 
 SageMaker training plans allow you to reserve compute capacity in advance, with flexible start
 times and durations.
@@ -75,8 +71,7 @@ PM, you can make a last-minute search as late as 1:30 PM and complete your purch
 - **Reservation duration and instance quantity**:
   SageMaker training plans allow you to reserve instances with specific duration and quantity
   options. For available instance types in a given AWS Region, duration, and quantity
-  options, see [Supported instance types,
-  AWS Regions, and pricing](#training-plans-supported-instances-and-regions "#training-plans-supported-instances-and-regions").
+  options, see [Supported instance types, AWS Regions, and pricing](#training-plans-supported-instances-and-regions "#training-plans-supported-instances-and-regions").
 - **End time**: Training Plans always end at 11:30 AM UTC
   on the final day of the reservation.
 - **Training plan termination**: If you're using training jobs as a target resource and
@@ -132,9 +127,7 @@ jobs and SageMaker HyperPod clusters.
 
 ![Billing, Capacity reservation with training plans, and instance group management workflow. Illustration of the training plan lifecycle and instance group states managed by Administrators and ML Engineers.](images/training-plans/tp-training-plan-for-hyperpod.png)
 
-## Supported instance types,
-
-AWS Regions, and pricing
+## Supported instance types, AWS Regions, and pricing
 
 Training plans support reservations for the following specific
 high-performance instance types, each available in select AWS Regions:
@@ -177,8 +170,7 @@ AWS services.
 - Make sure that your Training Jobs or HyperPod service quotas allow a
   maximum number of instances per instance type that exceeds the number of instances
   specified in your plan. To view your current quotas or request a quota increase, see
-  [View SageMaker training plans quotas using the AWS management
-  console](training-plan-quotas.md "training-plan-quotas.md").
+  [View SageMaker training plans quotas using the AWS management console](training-plan-quotas.md "training-plan-quotas.md").
 
 ## UltraServers in SageMaker AI
 

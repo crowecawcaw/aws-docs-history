@@ -1,6 +1,4 @@
-# Protect Communications Between ML Compute Instances in a
-
-Distributed Training Job
+# Protect Communications Between ML Compute Instances in a Distributed Training Job
 
 By default, Amazon SageMaker AI runs training
 jobs
@@ -33,12 +31,9 @@ You can enable inter-container traffic encryption for training jobs or hyperpara
 tuning jobs. You can use SageMaker APIs or console to enable inter-container traffic
 encryption.
 
-For information about running training jobs in a private VPC, see [Give SageMaker AI Training Jobs Access to Resources in Your
-Amazon VPC](train-vpc.md "train-vpc.md").
+For information about running training jobs in a private VPC, see [Give SageMaker AI Training Jobs Access to Resources in Your Amazon VPC](train-vpc.md "train-vpc.md").
 
-## Enable Inter-container Traffic Encryption
-
-(API)
+## Enable Inter-container Traffic Encryption (API)
 
 Before enabling inter-container traffic encryption on training or hyperparameter
 tuning jobs with APIs, add inbound and outbound rules to your private VPC's security
@@ -65,17 +60,11 @@ For the `ESP 50` protocol, the AWS Security Group Console might
 display the port range as "All". However, Amazon EC2 ignores the specified port range
 because it is not applicable for the ESP 50 IP protocol.
 
-## Enable Inter-container Traffic Encryption
+## Enable Inter-container Traffic Encryption (Console)
 
-(Console)
+### Enable Inter-container Traffic Encryption in a Training Job
 
-### Enable Inter-container Traffic
-
-Encryption in a Training Job
-
-###### To enable inter-container traffic encryption in a training
-
-job
+###### To enable inter-container traffic encryption in a training job
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the navigation pane, choose **Training**, then
@@ -88,14 +77,9 @@ job
 After you enable inter-container traffic encryption, finish creating the
 training job. For more information, see [Train a Model](ex1-train-model.md "ex1-train-model.md").
 
-### Enable Inter-container Traffic
+### Enable Inter-container Traffic Encryption in a Hyperparameter Tuning Job
 
-Encryption in a Hyperparameter Tuning Job
-
-###### To
-
-enable inter-container traffic encryption in a hyperparameter tuning
-job
+###### To enable inter-container traffic encryption in a hyperparameter tuning job
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the navigation pane, choose **Training**, then
@@ -108,5 +92,4 @@ job
    traffic encryption**.
 
 After enabling inter-container traffic encryption, finish creating the
-hyperparameter tuning job. For more information, see [Configure and Launch a Hyperparameter
-Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md").
+hyperparameter tuning job. For more information, see [Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md").

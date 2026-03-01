@@ -1,6 +1,4 @@
-# Run Scripts with Your Own Processing
-
-Container
+# Run Scripts with Your Own Processing Container
 
 You can use scikit-learn scripts to preprocess data and evaluate your models. To see
 how to run scikit-learn scripts to perform these tasks, see the [scikit-learn Processing](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation "https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker_processing/scikit_learn_data_processing_and_model_evaluation") sample notebook. This notebook uses the

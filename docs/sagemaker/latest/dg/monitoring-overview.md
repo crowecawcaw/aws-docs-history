@@ -27,9 +27,6 @@ appropriate:
 
 - [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [CloudWatch Logs for Amazon SageMaker AI](logging-cloudwatch.md "logging-cloudwatch.md")
-- [Logging Amazon SageMaker AI API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Monitoring user resource access from SageMaker AI
-  Studio Classic with sourceIdentity](monitor-user-access.md "monitor-user-access.md")
-- [Events that Amazon SageMaker AI sends to
-  Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md")
+- [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Monitoring user resource access from SageMaker AI Studio Classic with sourceIdentity](monitor-user-access.md "monitor-user-access.md")
+- [Events that Amazon SageMaker AI sends to Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md")

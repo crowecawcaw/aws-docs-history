@@ -125,9 +125,7 @@ You must also include permissions for `CreateReservedCapacity` and
 }
 ```
 
-### Individual permissions per type of
-
-user
+### Individual permissions per type of user
 
 This section provides a detailed breakdown of the individual permissions required for
 each role, as mentioned in the [IAM for SageMaker training plans](training-plan-iam-permissions.md "training-plan-iam-permissions.md") section.

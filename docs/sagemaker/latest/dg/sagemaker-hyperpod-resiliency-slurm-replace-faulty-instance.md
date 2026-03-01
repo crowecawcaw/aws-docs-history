@@ -1,6 +1,4 @@
-# Manually
-
-replace or reboot a node using Slurm
+# Manually replace or reboot a node using Slurm
 
 This section talks about when you should manually reboot or replace a node, with
 instructions on how to do both.

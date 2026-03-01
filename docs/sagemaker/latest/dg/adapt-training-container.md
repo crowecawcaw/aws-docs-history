@@ -54,9 +54,7 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
    **InService**, choose **Open
    JupyterLab**.
 
-## Step 2: Create and upload the Dockerfile and
-
-Python training scripts
+## Step 2: Create and upload the Dockerfile and Python training scripts
 
 1.  After JupyterLab opens, create a new folder in the home directory of your
     JupyterLab. In the upper-left corner, choose the **New Folder**
@@ -227,9 +225,7 @@ the notebook instance. The ARN should look like the following:
 the values used for the environmental variables, the source of the data, and the
 loss and accuracy obtained during training.
 
-## Step 5: Push the container to Amazon Elastic Container Registry
-
-(Amazon ECR)
+## Step 5: Push the container to Amazon Elastic Container Registry (Amazon ECR)
 
 1. After you successfully run the local mode test, you can push the Docker
    container to [Amazon ECR](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md") and use it
@@ -418,8 +414,7 @@ Amazon ECR image, see the [Building Your Own TensorFlow Container](https://sagem
 To profile and debug training jobs to monitor system utilization issues (such as
 CPU bottlenecks and GPU underutilization) and identify training issues (such as
 overfitting, overtraining, exploding tensors, and vanishing gradients), use Amazon SageMaker Debugger.
-For more information, see [Use Debugger with custom training
-containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md").
+For more information, see [Use Debugger with custom training containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md").
 
 ## Step 6: Clean up resources
 

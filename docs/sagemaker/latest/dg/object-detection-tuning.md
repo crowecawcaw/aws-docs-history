@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the Object Detection
-
-Algorithm
+## Metrics Computed by the Object Detection Algorithm
 
 The object detection algorithm reports on a single metric during training:
 `validation:mAP`. When tuning a model, choose this metric as the
@@ -22,9 +20,7 @@ objective metric.
 | ---------------- | --------------------------------------------------------------- | ---------------------- |
 | `validation:mAP` | Mean Average Precision (mAP) computed on the validation<br>set. | Maximize               |
 
-## Tunable Object Detection
-
-Hyperparameters
+## Tunable Object Detection Hyperparameters
 
 Tune the Amazon SageMaker AI object detection model with the following hyperparameters. The
 hyperparameters that have the greatest impact on the object detection objective

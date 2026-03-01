@@ -1,6 +1,4 @@
-# Update deployment
-
-information (Studio)
+# Update deployment information (Studio)
 
 ###### Important
 
@@ -10,12 +8,9 @@ experience. For information about using the Studio Classic application, see [Ama
 
 After you evaluate your model performance and determine that it is ready to
 use for production workloads, you can change the approval status of the model to
-initiate CI/CD deployment. For more about approval status definitions, see [Update the Approval Status of a
-Model](model-registry-approve.md "model-registry-approve.md").
+initiate CI/CD deployment. For more about approval status definitions, see [Update the Approval Status of a Model](model-registry-approve.md "model-registry-approve.md").
 
-###### To view or update details related to the model package deployment,
-
-complete the following steps.
+###### To view or update details related to the model package deployment, complete the following steps.
 
 1.  On the **Deploy** tab, view the model package
     approval status. Possible values can be the following:

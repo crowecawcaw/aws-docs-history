@@ -1,6 +1,4 @@
-# Synthetic
-
-dataset
+# Synthetic dataset
 
 SageMaker Clarify uses the Kernel SHAP algorithm. Given a record (also called a sample or an
 instance) and the SHAP configuration, the explainer first generates a synthetic

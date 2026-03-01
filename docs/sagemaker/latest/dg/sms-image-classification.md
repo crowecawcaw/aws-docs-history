@@ -1,6 +1,4 @@
-# Create an image classification job (Single
-
-Label)
+# Create an image classification job (Single Label)
 
 Use an Amazon SageMaker Ground Truth image classification labeling task when you need workers to classify
 images using predefined labels that you specify. Workers are shown images and are asked to

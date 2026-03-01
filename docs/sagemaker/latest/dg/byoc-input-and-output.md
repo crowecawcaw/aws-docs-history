@@ -1,6 +1,4 @@
-# How Amazon SageMaker Processing Configures Input and Output For
-
-Your Processing Container
+# How Amazon SageMaker Processing Configures Input and Output For Your Processing Container
 
 When you create a processing job using the `CreateProcessingJob`
 operation, you can specify multiple `ProcessingInput` and

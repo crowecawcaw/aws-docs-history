@@ -25,8 +25,7 @@ components.
 ###### Topics
 
 - [Input/Output Interface for the PCA Algorithm](#pca-inputoutput "#pca-inputoutput")
-- [EC2 Instance Recommendation for the PCA
-  Algorithm](#pca-instances "#pca-instances")
+- [EC2 Instance Recommendation for the PCA Algorithm](#pca-instances "#pca-instances")
 - [PCA Sample Notebooks](#PCA-sample-notebooks "#PCA-sample-notebooks")
 - [How PCA Works](how-pca-works.md "how-pca-works.md")
 - [PCA Hyperparameters](PCA-reference.md "PCA-reference.md")
@@ -48,9 +47,7 @@ with a vector of "projections."
 For more information on input and output file formats, see [PCA Response Formats](PCA-in-formats.md "PCA-in-formats.md") for inference and the
 [PCA Sample Notebooks](#PCA-sample-notebooks "#PCA-sample-notebooks").
 
-## EC2 Instance Recommendation for the PCA
-
-Algorithm
+## EC2 Instance Recommendation for the PCA Algorithm
 
 PCA supports CPU and GPU instances for training and inference. Which instance type is most performant
 depends heavily on the specifics of the input data. For GPU instances, PCA supports P2, P3, G4dn, and G5.

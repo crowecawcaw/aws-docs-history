@@ -35,5 +35,4 @@ Insights Dashboard Walkthrough](debugger-on-studio-insights-walkthrough.md "debu
 
 - [Define Training Metrics](define-train-metrics.md "define-train-metrics.md")
 - [View training job metrics](view-train-metrics.md "view-train-metrics.md")
-- [Example: Viewing a Training and Validation
-  Curve](train-valid-curve.md "train-valid-curve.md")
+- [Example: Viewing a Training and Validation Curve](train-valid-curve.md "train-valid-curve.md")

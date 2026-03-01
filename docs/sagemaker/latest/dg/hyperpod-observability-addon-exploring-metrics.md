@@ -1,6 +1,4 @@
-# Exploring
-
-SageMaker HyperPod cluster metrics in Amazon Managed Grafana
+# Exploring SageMaker HyperPod cluster metrics in Amazon Managed Grafana
 
 After you connect Amazon Managed Grafana to your Amazon Managed Service for Prometheus workspace, you can use Grafana's
 query editor and visualization tools to explore your metrics data. Amazon Managed Grafana

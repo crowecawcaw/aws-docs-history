@@ -1,14 +1,11 @@
-# Use a Private Docker Registry
-
-for Real-Time Inference Containers
+# Use a Private Docker Registry for Real-Time Inference Containers
 
 Amazon SageMaker AI hosting enables you to use images stored in Amazon ECR to build your containers for
 real-time inference by default. Optionally, you can build containers for real-time inference
 from images in a private Docker registry. The private registry must be accessible from an
 Amazon VPC in your account. Models that you create based on the images stored in your private
 Docker registry must be configured to connect to the same VPC where the private Docker
-registry is accessible. For information about connecting your model to a VPC, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your
-Amazon VPC](host-vpc.md "host-vpc.md").
+registry is accessible. For information about connecting your model to a VPC, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md "host-vpc.md").
 
 Your Docker registry must be secured with a TLS certificate from a known public
 certificate authority (CA).
@@ -24,21 +21,14 @@ inside your VPC.
 
 ###### Topics
 
-- [Store Images in
-  a Private Docker Registry other than Amazon Elastic Container Registry](#your-algorithms-containers-inference-private-registry "#your-algorithms-containers-inference-private-registry")
-- [Use an Image from a
-  Private Docker Registry for Real-time Inference](#your-algorithms-containers-inference-private-use "#your-algorithms-containers-inference-private-use")
-- [Allow SageMaker AI to authenticate to a
-  private Docker registry](#inference-private-docker-authenticate "#inference-private-docker-authenticate")
+- [Store Images in a Private Docker Registry other than Amazon Elastic Container Registry](#your-algorithms-containers-inference-private-registry "#your-algorithms-containers-inference-private-registry")
+- [Use an Image from a Private Docker Registry for Real-time Inference](#your-algorithms-containers-inference-private-use "#your-algorithms-containers-inference-private-use")
+- [Allow SageMaker AI to authenticate to a private Docker registry](#inference-private-docker-authenticate "#inference-private-docker-authenticate")
 - [Create the Lambda function](#inference-private-docker-lambda "#inference-private-docker-lambda")
-- [Give your execution role permission to
-  Lambda](#inference-private-docker-perms "#inference-private-docker-perms")
-- [Create an interface VPC
-  endpoint for Lambda](#inference-private-docker-vpc-interface "#inference-private-docker-vpc-interface")
+- [Give your execution role permission to Lambda](#inference-private-docker-perms "#inference-private-docker-perms")
+- [Create an interface VPC endpoint for Lambda](#inference-private-docker-vpc-interface "#inference-private-docker-vpc-interface")
 
-## Store Images in
-
-a Private Docker Registry other than Amazon Elastic Container Registry
+## Store Images in a Private Docker Registry other than Amazon Elastic Container Registry
 
 To use a private Docker registry to store your images for SageMaker AI real-time inference,
 create a private registry that is accessible from your Amazon VPC. For information about
@@ -50,18 +40,14 @@ must comply with the following:
   the `VpcConfig` parameter that you specify when you create your
   model.
 
-## Use an Image from a
-
-Private Docker Registry for Real-time Inference
+## Use an Image from a Private Docker Registry for Real-time Inference
 
 When you create a model and deploy it to SageMaker AI hosting, you can specify that it use an
 image from your private Docker registry to build the inference container. Specify this
 in the `ImageConfig` object in the `PrimaryContainer` parameter
 that you pass to a call to the [create_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model") function.
 
-###### To use an image stored in your private Docker registry for your inference
-
-container
+###### To use an image stored in your private Docker registry for your inference container
 
 1. Create the image configuration object and specify a value of `Vpc`
    for the `RepositoryAccessMode` field.
@@ -78,8 +64,7 @@ image_config = {
    `RepositoryAuthConfig` object, specify the Amazon Resource Name
    (ARN) of an AWS Lambda function that provides credentials that allows SageMaker AI to
    authenticate to your private Docker Registry. For information about how to
-   create the Lambda function to provide authentication, see [Allow SageMaker AI to authenticate to a
-   private Docker registry](#inference-private-docker-authenticate "#inference-private-docker-authenticate").
+   create the Lambda function to provide authentication, see [Allow SageMaker AI to authenticate to a private Docker registry](#inference-private-docker-authenticate "#inference-private-docker-authenticate").
 
 ```
 image_config = {
@@ -178,9 +163,7 @@ sm.create_endpoint(
 sm.describe_endpoint(EndpointName=endpoint_name)
 ```
 
-## Allow SageMaker AI to authenticate to a
-
-private Docker registry
+## Allow SageMaker AI to authenticate to a private Docker registry
 
 To pull an inference image from a private Docker registry that requires
 authentication, create an AWS Lambda function that provides credentials, and provide the
@@ -210,9 +193,7 @@ credentials that your Lambda function returns can mean either of the following:
   Bearer token that can then be used to authenticate to the private Docker
   registry.
 
-## Give your execution role permission to
-
-Lambda
+## Give your execution role permission to Lambda
 
 The execution role that you use to call `create_model` must have
 permissions to call AWS Lambda functions. Add the following to the permissions policy of
@@ -239,9 +220,7 @@ User Guide_.
 An execution role with the `AmazonSageMakerFullAccess` managed policy
 attached to it has permission to call any Lambda function with **SageMaker** in its name.
 
-## Create an interface VPC
-
-endpoint for Lambda
+## Create an interface VPC endpoint for Lambda
 
 Create an interface endpoint so that your Amazon VPC can communicate with your AWS Lambda
 function without sending traffic over the internet. For information about how to do

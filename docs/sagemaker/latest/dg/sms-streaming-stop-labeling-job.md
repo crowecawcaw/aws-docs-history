@@ -1,6 +1,4 @@
-# Stop a Streaming Labeling
-
-Job
+# Stop a Streaming Labeling Job
 
 You can manually stop your streaming labeling job using the operation [StopLabelingJob](../APIReference/API_StopLabelingJob.md "../APIReference/API_StopLabelingJob.md").
 

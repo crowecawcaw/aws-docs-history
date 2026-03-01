@@ -1,6 +1,4 @@
-# Instance recommendations for multi-model
-
-endpoint deployments
+# Instance recommendations for multi-model endpoint deployments
 
 There are several items to consider when selecting a SageMaker AI ML instance type for a
 multi-model endpoint:
@@ -62,8 +60,7 @@ analysis helps you to have successful production deployments.
 **Evaluating your model cache hits**
 
 Amazon CloudWatch metrics can help you evaluate your models. For more information about metrics you
-can use with multi-model endpoints, see [CloudWatch Metrics for Multi-Model
-Endpoint Deployments](multi-model-endpoint-cloudwatch-metrics.md "multi-model-endpoint-cloudwatch-metrics.md") .
+can use with multi-model endpoints, see [CloudWatch Metrics for Multi-Model Endpoint Deployments](multi-model-endpoint-cloudwatch-metrics.md "multi-model-endpoint-cloudwatch-metrics.md").
 
 You can use the `Average` statistic of the `ModelCacheHit` metric
 to monitor the ratio of requests where the model is already loaded. You can use the

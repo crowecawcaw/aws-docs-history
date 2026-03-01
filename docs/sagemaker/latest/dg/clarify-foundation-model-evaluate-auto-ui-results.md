@@ -1,6 +1,4 @@
-# Understand the
-
-results of an automatic evaluation job
+# Understand the results of an automatic evaluation job
 
 When you automatic model evaluation job completes the results are saved in Amazon S3. The sections below describe the files generated and how to interpret them.
 

@@ -1,6 +1,4 @@
-# Recommendation jobs with
-
-Amazon SageMaker Inference Recommender
+# Recommendation jobs with Amazon SageMaker Inference Recommender
 
 Amazon SageMaker Inference Recommender can make two types of recommendations:
 
@@ -36,26 +34,17 @@ Inference Recommender automatically performs benchmarking against your model for
 prospective instances. Since these are preliminary recommendations, we recommend that
 you run further instance recommendation jobs to get more accurate results. To view the
 prospective instances, go to your SageMaker AI model details page. For more information, see
-[Get instant prospective
-instances](inference-recommender-prospective.md "inference-recommender-prospective.md").
+[Get instant prospective instances](inference-recommender-prospective.md "inference-recommender-prospective.md").
 
 ###### Topics
 
-- [Get instant prospective
-  instances](inference-recommender-prospective.md "inference-recommender-prospective.md")
-- [Inference
-  recommendations](inference-recommender-instance-recommendation.md "inference-recommender-instance-recommendation.md")
-- [Get an inference
-  recommendation for an existing endpoint](inference-recommender-existing-endpoint.md "inference-recommender-existing-endpoint.md")
-- [Stop your inference
-  recommendation](instance-recommendation-stop.md "instance-recommendation-stop.md")
-- [Compiled recommendations
-  with Neo](inference-recommender-neo-compilation.md "inference-recommender-neo-compilation.md")
-- [Recommendation
-  results](inference-recommender-interpret-results.md "inference-recommender-interpret-results.md")
-- [Get autoscaling policy
-  recommendations](inference-recommender-autoscaling.md "inference-recommender-autoscaling.md")
+- [Get instant prospective instances](inference-recommender-prospective.md "inference-recommender-prospective.md")
+- [Inference recommendations](inference-recommender-instance-recommendation.md "inference-recommender-instance-recommendation.md")
+- [Get an inference recommendation for an existing endpoint](inference-recommender-existing-endpoint.md "inference-recommender-existing-endpoint.md")
+- [Stop your inference recommendation](instance-recommendation-stop.md "instance-recommendation-stop.md")
+- [Compiled recommendations with Neo](inference-recommender-neo-compilation.md "inference-recommender-neo-compilation.md")
+- [Recommendation results](inference-recommender-interpret-results.md "inference-recommender-interpret-results.md")
+- [Get autoscaling policy recommendations](inference-recommender-autoscaling.md "inference-recommender-autoscaling.md")
 - [Run a custom load test](inference-recommender-load-test.md "inference-recommender-load-test.md")
 - [Stop your load test](load-test-stop.md "load-test-stop.md")
-- [Troubleshoot Inference Recommender
-  errors](inference-recommender-troubleshooting.md "inference-recommender-troubleshooting.md")
+- [Troubleshoot Inference Recommender errors](inference-recommender-troubleshooting.md "inference-recommender-troubleshooting.md")

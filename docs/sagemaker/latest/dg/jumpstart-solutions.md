@@ -24,14 +24,12 @@ cases for more information on available solution templates.
 - [Credit rating prediction](#jumpstart-solutions-credit-prediction "#jumpstart-solutions-credit-prediction")
 - [Fraud detection](#jumpstart-solutions-fraud-detection "#jumpstart-solutions-fraud-detection")
 - [Computer vision](#jumpstart-solutions-computer-vision "#jumpstart-solutions-computer-vision")
-- [Extract and analyze data from
-  documents](#jumpstart-solutions-documents "#jumpstart-solutions-documents")
+- [Extract and analyze data from documents](#jumpstart-solutions-documents "#jumpstart-solutions-documents")
 - [Predictive maintenance](#jumpstart-solutions-predictive-maintenance "#jumpstart-solutions-predictive-maintenance")
 - [Churn prediction](#jumpstart-solutions-churn-prediction "#jumpstart-solutions-churn-prediction")
 - [Personalized recommendations](#jumpstart-solutions-recommendations "#jumpstart-solutions-recommendations")
 - [Reinforcement learning](#jumpstart-solutions-reinforcement-learning "#jumpstart-solutions-reinforcement-learning")
-- [Healthcare and life
-  sciences](#jumpstart-solutions-healthcare-life-sciences "#jumpstart-solutions-healthcare-life-sciences")
+- [Healthcare and life sciences](#jumpstart-solutions-healthcare-life-sciences "#jumpstart-solutions-healthcare-life-sciences")
 - [Financial pricing](#jumpstart-solutions-financial-pricing "#jumpstart-solutions-financial-pricing")
 - [Causal inference](#jumpstart-solutions-causal-inference "#jumpstart-solutions-causal-inference")
   Choose the solution template that best fits your use case from the JumpStart landing page.
@@ -116,9 +114,7 @@ greatly accelerated the momentum of object detection.
 | Handwriting recognition           | Recognize handwritten text in images by training an [object detection model](https://mxnet.apache.org/versions/1.0.0/api/python/gluon/model_zoo.html#mxnet.gluon.model_zoo.vision.resnet34_v1 "https://mxnet.apache.org/versions/1.0.0/api/python/gluon/model_zoo.html#mxnet.gluon.model_zoo.vision.resnet34_v1") and [handwriting recognition model](https://arxiv.org/abs/1910.00663 "https://arxiv.org/abs/1910.00663"). Label your own data using [SageMaker Ground Truth](https://aws.amazon.com/sagemaker/data-labeling/ "https://aws.amazon.com/sagemaker/data-labeling/"). | [GitHub »](https://github.com/awslabs/sagemaker-handwritten-text-recognition "https://github.com/awslabs/sagemaker-handwritten-text-recognition") |
 | Object detection for bird species | Identify birds species in a scene using a [SageMaker AI object detection<br>model](object-detection.md "object-detection.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Find in Amazon SageMaker Studio Classic.                                                                                                          |
 
-## Extract and analyze data from
-
-documents
+## Extract and analyze data from documents
 
 JumpStart provides solutions for you to uncover valuable insights and connections in
 business-critical documents. Use cases include text classification, document summarization,
@@ -190,9 +186,7 @@ autonomous vehicles.
 | Reinforcement learning for Battlesnake AI competitions   | Provide a reinforcement learning workflow for training and inference with the<br>[BattleSnake](https://play.battlesnake.com/ "https://play.battlesnake.com/") AI<br>competitions.                                                                         | [GitHub<br>»](https://github.com/awslabs/sagemaker-battlesnake-ai "https://github.com/awslabs/sagemaker-battlesnake-ai")         |
 | Distributed reinforcement learning for Procgen challenge | Distributed reinforcement learning starter kit for [NeurIPS<br>2020 Procgen](https://www.aicrowd.com/challenges/neurips-2020-procgen-competition "https://www.aicrowd.com/challenges/neurips-2020-procgen-competition") Reinforcement learning challenge. | [GitHub<br>»](https://github.com/aws-samples/sagemaker-rl-procgen-ray "https://github.com/aws-samples/sagemaker-rl-procgen-ray") |
 
-## Healthcare and life
-
-sciences
+## Healthcare and life sciences
 
 Clinicians and researchers can use JumpStart solutions to analyze medical imagery,
 genomic information, and clinical health records.

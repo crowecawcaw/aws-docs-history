@@ -1,32 +1,21 @@
-# Managing SageMaker HyperPod
-
-Slurm clusters using the AWS CLI
+# Managing SageMaker HyperPod Slurm clusters using the AWS CLI
 
 The following topics provide guidance on writing SageMaker HyperPod API request files in
 JSON format and run them using the AWS CLI commands.
 
 ###### Topics
 
-- [Create a new
-  cluster](#sagemaker-hyperpod-operate-slurm-cli-command-create-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-create-cluster")
-- [Describe a
-  cluster](#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster")
-- [List
-  details of cluster nodes](#sagemaker-hyperpod-operate-slurm-cli-command-list-cluster-nodes "#sagemaker-hyperpod-operate-slurm-cli-command-list-cluster-nodes")
+- [Create a new cluster](#sagemaker-hyperpod-operate-slurm-cli-command-create-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-create-cluster")
+- [Describe a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster")
+- [List details of cluster nodes](#sagemaker-hyperpod-operate-slurm-cli-command-list-cluster-nodes "#sagemaker-hyperpod-operate-slurm-cli-command-list-cluster-nodes")
 - [Describe details of a cluster node](#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster-node "#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster-node")
-- [List
-  clusters](#sagemaker-hyperpod-operate-slurm-cli-command-list-clusters "#sagemaker-hyperpod-operate-slurm-cli-command-list-clusters")
-- [Update
-  cluster configuration](#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster")
+- [List clusters](#sagemaker-hyperpod-operate-slurm-cli-command-list-clusters "#sagemaker-hyperpod-operate-slurm-cli-command-list-clusters")
+- [Update cluster configuration](#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster")
 - [Update the SageMaker HyperPod platform software of a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software "#sagemaker-hyperpod-operate-slurm-cli-command-update-cluster-software")
-- [Scale down a
-  cluster](#sagemaker-hyperpod-operate-slurm-cli-command-scale-down "#sagemaker-hyperpod-operate-slurm-cli-command-scale-down")
-- [Delete a
-  cluster](#sagemaker-hyperpod-operate-slurm-cli-command-delete-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-delete-cluster")
+- [Scale down a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-scale-down "#sagemaker-hyperpod-operate-slurm-cli-command-scale-down")
+- [Delete a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-delete-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-delete-cluster")
 
-## Create a new
-
-cluster
+## Create a new cluster
 
 1. Prepare lifecycle configuration scripts and upload them to an S3 bucket,
    such as
@@ -37,23 +26,20 @@ The following step 2 assumes that there’s an entry point script named
 ###### Important
 
 Make sure that you set the S3 path to start with
-`s3://sagemaker-`. The [IAM role for
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
+`s3://sagemaker-`. The [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
 has the managed [`AmazonSageMakerClusterInstanceRolePolicy`](security-iam-awsmanpol-cluster.md "security-iam-awsmanpol-cluster.md")
 attached, which allows access to S3 buckets with the specific prefix
 `sagemaker-`. 2. Prepare a [CreateCluster](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") API request file in JSON format. You should
 configure instance groups to match with the Slurm cluster you design in the
 `provisioning_parameters.json` file that'll be used during
 cluster creating as part of running a set of lifecycle scripts. To learn
-more, see [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md"). The
+more, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md"). The
 following template has two instance groups to meet the minimum requirement
 for a Slurm cluster: one controller (head) node and one compute (worker)
 node. For `ExecutionRole`, provide the ARN of the IAM role you
 created with the managed
 `AmazonSageMakerClusterInstanceRolePolicy` from the section
-[IAM role for
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
+[IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
 
 ```
 `// create_cluster.json`
@@ -119,8 +105,7 @@ support tagging. To learn more about tagging AWS resources in general, see
 User Guide](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
 
 For the `VpcConfig` request parameter, specify the information
-of a VPC you want to use. For more information, see [Setting up SageMaker HyperPod
-with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc"). 3. Run the [create-cluster](../../../cli/latest/reference/sagemaker/create-cluster.md "../../../cli/latest/reference/sagemaker/create-cluster.md") command as follows.
+of a VPC you want to use. For more information, see [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc"). 3. Run the [create-cluster](../../../cli/latest/reference/sagemaker/create-cluster.md "../../../cli/latest/reference/sagemaker/create-cluster.md") command as follows.
 
 ```
 aws sagemaker create-cluster \
@@ -129,9 +114,7 @@ aws sagemaker create-cluster \
 
 This should return the ARN of the new cluster.
 
-## Describe a
-
-cluster
+## Describe a cluster
 
 Run [describe-cluster](../../../cli/latest/reference/sagemaker/describe-cluster.md "../../../cli/latest/reference/sagemaker/describe-cluster.md") to check the status of the cluster. You can specify
 either the name or the ARN of the cluster.
@@ -144,9 +127,7 @@ After the status of the cluster turns to `InService`, proceed
 to the next step. Using this API, you can also retrieve failure messages from
 running other HyperPod API operations.
 
-## List
-
-details of cluster nodes
+## List details of cluster nodes
 
 Run [list-cluster-nodes](../../../cli/latest/reference/sagemaker/list-cluster-nodes.md "../../../cli/latest/reference/sagemaker/list-cluster-nodes.md") to check the key information of the cluster
 nodes.
@@ -170,9 +151,7 @@ aws sagemaker describe-cluster-node \
     --node-id `i-111222333444555aa`
 ```
 
-## List
-
-clusters
+## List clusters
 
 Run [list-clusters](../../../cli/latest/reference/sagemaker/list-clusters.md "../../../cli/latest/reference/sagemaker/list-clusters.md") to
 list all clusters in your account.
@@ -186,9 +165,7 @@ more about what this command runs at low level and additional flags for filterin
 see the [ListClusters](../APIReference/API_ListClusters.md "../APIReference/API_ListClusters.md")
 API reference.
 
-## Update
-
-cluster configuration
+## Update cluster configuration
 
 Run [update-cluster](../../../cli/latest/reference/sagemaker/update-cluster.md "../../../cli/latest/reference/sagemaker/update-cluster.md")
 to update the configuration of a cluster.
@@ -197,8 +174,7 @@ to update the configuration of a cluster.
 
 You can use the `UpdateCluster` API to scale down or remove entire
 instance groups from your SageMaker HyperPod cluster. For additional instructions on
-how to scale down or delete instance groups, see [Scale down a
-cluster](#sagemaker-hyperpod-operate-slurm-cli-command-scale-down "#sagemaker-hyperpod-operate-slurm-cli-command-scale-down").
+how to scale down or delete instance groups, see [Scale down a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-scale-down "#sagemaker-hyperpod-operate-slurm-cli-command-scale-down").
 
 1.  Create an `UpdateCluster` request file in JSON format. Make
     sure that you specify the right cluster name and instance group name to
@@ -342,8 +318,7 @@ security patching, follow up with [Amazon SageMaker HyperPod release notes](sage
 ###### Tip
 
 If the security patch fails, you can retrieve failure messages by running the
-[`DescribeCluster`](../APIReference/API_DescribeCluster.md "../APIReference/API_DescribeCluster.md") API as instructed at [Describe a
-cluster](#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster").
+[`DescribeCluster`](../APIReference/API_DescribeCluster.md "../APIReference/API_DescribeCluster.md") API as instructed at [Describe a cluster](#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster "#sagemaker-hyperpod-operate-slurm-cli-command-describe-cluster").
 
 ###### Note
 
@@ -390,9 +365,7 @@ patching**
 sudo bash patching-backup.sh --restore `<s3-buckup-bucket-path>`
 ```
 
-## Scale down a
-
-cluster
+## Scale down a cluster
 
 You can scale down the number of instances or delete instance groups in your
 SageMaker HyperPod cluster to optimize resource allocation or reduce costs.
@@ -410,9 +383,7 @@ You cannot remove instances that are configured as Slurm controller nodes.
 Attempting to delete a Slurm controller node results in a validation error with
 the error code `NODE_ID_IN_USE`.
 
-## Delete a
-
-cluster
+## Delete a cluster
 
 Run [delete-cluster](../../../cli/latest/reference/sagemaker/delete-cluster.md "../../../cli/latest/reference/sagemaker/delete-cluster.md")
 to delete a cluster. You can specify either the name or the ARN of the

@@ -50,17 +50,14 @@ information, see [Amazon SageMaker Studio Classic UI Overview](studio-ui.md "stu
 
 ###### Topics
 
-- [How Are Amazon SageMaker Studio Classic Notebooks Different from
-  Notebook Instances?](notebooks-comparison.md "notebooks-comparison.md")
+- [How Are Amazon SageMaker Studio Classic Notebooks Different from Notebook Instances?](notebooks-comparison.md "notebooks-comparison.md")
 - [Get Started with Amazon SageMaker Studio Classic Notebooks](notebooks-get-started.md "notebooks-get-started.md")
 - [Amazon SageMaker Studio Classic Tour](gs-studio-end-to-end.md "gs-studio-end-to-end.md")
 - [Create or Open an Amazon SageMaker Studio Classic Notebook](notebooks-create-open.md "notebooks-create-open.md")
 - [Use the Studio Classic Notebook Toolbar](notebooks-menu.md "notebooks-menu.md")
-- [Install External Libraries and Kernels in
-  Amazon SageMaker Studio Classic](studio-notebooks-add-external.md "studio-notebooks-add-external.md")
+- [Install External Libraries and Kernels in Amazon SageMaker Studio Classic](studio-notebooks-add-external.md "studio-notebooks-add-external.md")
 - [Share and Use an Amazon SageMaker Studio Classic Notebook](notebooks-sharing.md "notebooks-sharing.md")
-- [Get Amazon SageMaker Studio Classic Notebook and App
-  Metadata](notebooks-run-and-manage-metadata.md "notebooks-run-and-manage-metadata.md")
+- [Get Amazon SageMaker Studio Classic Notebook and App Metadata](notebooks-run-and-manage-metadata.md "notebooks-run-and-manage-metadata.md")
 - [Get Notebook Differences in Amazon SageMaker Studio Classic](notebooks-diff.md "notebooks-diff.md")
 - [Manage Resources for Amazon SageMaker Studio Classic Notebooks](notebooks-run-and-manage.md "notebooks-run-and-manage.md")
 - [Usage Metering for Amazon SageMaker Studio Classic Notebooks](notebooks-usage-metering.md "notebooks-usage-metering.md")

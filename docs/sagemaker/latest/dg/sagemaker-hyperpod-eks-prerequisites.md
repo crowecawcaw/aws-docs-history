@@ -1,18 +1,13 @@
-# Getting started with Amazon EKS support in
+# Getting started with Amazon EKS support in SageMaker HyperPod
 
-SageMaker HyperPod
-
-In addition to the general [Prerequisites for using
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md") for
+In addition to the general [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md") for
 SageMaker HyperPod, check the following requirements and considerations for orchestrating
 SageMaker HyperPod clusters using Amazon EKS.
 
 ###### Important
 
 You can set up resources configuration for creating SageMaker HyperPod clusters using the
-AWS Management Console and CloudFormation. For more information, see [Creating
-a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md") and [Creating
-SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
+AWS Management Console and CloudFormation. For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md") and [Creating SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-eks-console-create-cluster-cfn.md "smcluster-getting-started-eks-console-create-cluster-cfn.md").
 
 **Requirements**
 
@@ -22,8 +17,7 @@ Before creating a HyperPod cluster, you need a running Amazon EKS cluster
 configured with VPC and installed using Helm.
 
 - If using the SageMaker AI console, you can create an Amazon EKS cluster within the
-  HyperPod cluster console page. For more information, see [Creating
-  a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
+  HyperPod cluster console page. For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
 - If using AWS CLI, you should create an Amazon EKS cluster before creating a
   HyperPod cluster to associate with. For more information, see [Create an
   Amazon EKS cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the Amazon EKS User Guide.
@@ -70,8 +64,7 @@ configured with VPC and installed using Helm.
     Amazon EKS**
 
 - You must use distinct IAM roles based on the type of your nodes. For
-  HyperPod nodes, use a role based on [IAM role for
-  SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). For
+  HyperPod nodes, use a role based on [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod"). For
   Amazon EKS nodes, see [Amazon EKS node IAM
   role](../../../eks/latest/userguide/create-node-role.md "../../../eks/latest/userguide/create-node-role.md").
 - You can provision and mount additional Amazon EBS volumes on SageMaker HyperPod nodes using
@@ -81,8 +74,7 @@ configured with VPC and installed using Helm.
   dynamic pod-level volume management. With [InstanceStorageConfigs](../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-InstanceStorageConfigs "../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-InstanceStorageConfigs"), set
   the [local
   path](https://kubernetes.io/docs/concepts/storage/volumes/#local "https://kubernetes.io/docs/concepts/storage/volumes/#local") to `/opt/sagemaker` to properly mount the volumes to
-  your Amazon EKS pods. For information about how to deploy the [Amazon EBS CSI](../../../eks/latest/userguide/ebs-csi.md "../../../eks/latest/userguide/ebs-csi.md") controller on HyperPod nodes, see [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS
-  clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
+  your Amazon EKS pods. For information about how to deploy the [Amazon EBS CSI](../../../eks/latest/userguide/ebs-csi.md "../../../eks/latest/userguide/ebs-csi.md") controller on HyperPod nodes, see [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
 - If you use instance-type labels for defining scheduling constraints, ensure that
   you use the SageMaker AI ML instance types prefixed with `ml.`. For example, for
   P5 instances, use `ml.p5.48xlarge` instead of
@@ -160,16 +152,14 @@ configured with VPC and installed using Helm.
   Pods.
 - EKS-orchestrated HyperPod clusters support dual IP addressing modes, allowing
   configuration with IPv4 or IPv6 for IPv6 Amazon EKS clusters in IPv6-enabled VPC and
-  subnet environments. For more information, see [Setting up SageMaker HyperPod
-  with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc").
+  subnet environments. For more information, see [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc").
   **Considerations for using the HyperPod cluster resiliency
   features**
 
 - Node auto-replacement is not supported for CPU instances.
 - The HyperPod health monitoring agent needs to be installed for node
   auto-recovery to work. The agent can be installed using Helm. For more information,
-  see [Installing
-  packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
+  see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md").
 - The HyperPod deep health check and health monitoring agent supports GPU
   and Trn instances.
 - SageMaker AI applies the following taint to nodes when they are undergoing deep health
@@ -186,6 +176,5 @@ value: Unschedulable
 You cannot add custom taints to nodes in instance groups with
 `DeepHealthChecks` turned on.
 Once your Amazon EKS cluster is running, configure your cluster using the Helm package manager
-as instructed in [Installing
-packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md")
+as instructed in [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md")
 before creating your HyperPod cluster.

@@ -1,6 +1,4 @@
-# Grant Users Permissions to Use Large Data
-
-across the ML Lifecycle
+# Grant Users Permissions to Use Large Data across the ML Lifecycle
 
 Amazon SageMaker Canvas users working with datasets larger than 10 GB in CSV format or 2.5 GB in Parquet format
 require specific permissions for large data processing. These permissions are
@@ -50,8 +48,7 @@ your SageMaker AI domain, follow these steps:
    2. Create or select an EMR Serverless role:
       1. Choose **Create and use a new execution role** to
          create a new IAM role that has a trust relationship with EMR Serverless
-         and the [AWS
-         managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") policy attached.
+         and the [AWS managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") policy attached.
          This IAM role is assumed by Canvas to create EMR Serverless jobs.
       2. Alternatively, if you already have an execution role with a trust relationship
          for EMR Serverless, then select **Use an existing execution role**
@@ -59,8 +56,7 @@ your SageMaker AI domain, follow these steps:
          - The existing role must have a name that begins with the prefix
            `AmazonSageMakerCanvasEMRSExecutionAccess-`.
          - The role you select should also have at least the permissions described
-           in the [AWS
-           managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") policy.
+           in the [AWS managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") policy.
          - The role should have an EMR Serverless trust policy, as shown below:
 
          JSON
@@ -118,9 +114,7 @@ your SageMaker AI domain, follow these steps:
 
 4. Save your changes and restart your SageMaker Canvas application.
 
-## Scenario 2: Custom domain setup
-
-(with public internet access/without VPC)
+## Scenario 2: Custom domain setup (with public internet access/without VPC)
 
 If you created or use a custom domain, follow steps 1-3 from Scenario 1, and then
 do these additional steps:
@@ -155,9 +149,7 @@ do these additional steps:
 
 2. Save your changes and restart your SageMaker Canvas application.
 
-## Scenario 3: Custom domain setup
-
-(with VPC and without public internet access)
+## Scenario 3: Custom domain setup (with VPC and without public internet access)
 
 If you created or use a custom domain, follow all steps from Scenario 2, then
 follow these additional steps:

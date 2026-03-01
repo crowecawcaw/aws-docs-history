@@ -1,6 +1,4 @@
-# Create notebook job with SageMaker AI Python
-
-SDK example
+# Create notebook job with SageMaker AI Python SDK example
 
 To run a standalone notebook using the SageMaker Python SDK, you need to create a Notebook
 Job step, attach it into a pipeline, and use the utilities provided by Pipelines to run your job
@@ -18,14 +16,10 @@ Python SDK, see [notebook job sample notebooks](https://github.com/aws/amazon-sa
 ###### Topics
 
 - [Steps to create a notebook job](#create-notebook-auto-run-overall "#create-notebook-auto-run-overall")
-- [View your notebook jobs in the Studio
-  UI dashboard](#create-notebook-auto-run-dash "#create-notebook-auto-run-dash")
-- [View your pipeline graph in
-  Studio](#create-notebook-auto-run-graph "#create-notebook-auto-run-graph")
-- [Passing parameters to your
-  notebook](#create-notebook-auto-run-passparam "#create-notebook-auto-run-passparam")
-- [Connecting to an Amazon EMR cluster in your
-  input notebook](#create-notebook-auto-run-emr "#create-notebook-auto-run-emr")
+- [View your notebook jobs in the Studio UI dashboard](#create-notebook-auto-run-dash "#create-notebook-auto-run-dash")
+- [View your pipeline graph in Studio](#create-notebook-auto-run-graph "#create-notebook-auto-run-graph")
+- [Passing parameters to your notebook](#create-notebook-auto-run-passparam "#create-notebook-auto-run-passparam")
+- [Connecting to an Amazon EMR cluster in your input notebook](#create-notebook-auto-run-emr "#create-notebook-auto-run-emr")
 - [Set up default options](#create-notebook-auto-run-intdefaults "#create-notebook-auto-run-intdefaults")
 
 ## Steps to create a notebook job
@@ -42,8 +36,7 @@ following instructions describe both methods.
 ###### Important
 
 If you schedule your notebook job using the SageMaker Python SDK, you can only
-specify certain images to run your notebook job. For more information, see [Image constraints for SageMaker AI
-Python SDK notebook jobs](notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk "notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk").
+specify certain images to run your notebook job. For more information, see [Image constraints for SageMaker AI Python SDK notebook jobs](notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk "notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk").
 
 ```
 notebook_job_step = NotebookJobStep(
@@ -104,12 +97,9 @@ pipeline.put_triggers(triggers=[my_schedule])
 
 4. (Optional) View your notebook jobs in the SageMaker Notebook Jobs dashboard. The values
    you supply for the `tags` argument of your Notebook Job step control how
-   the Studio UI captures and displays the job. For more information, see [View your notebook jobs in the Studio
-   UI dashboard](#create-notebook-auto-run-dash "#create-notebook-auto-run-dash").
+   the Studio UI captures and displays the job. For more information, see [View your notebook jobs in the Studio UI dashboard](#create-notebook-auto-run-dash "#create-notebook-auto-run-dash").
 
-## View your notebook jobs in the Studio
-
-UI dashboard
+## View your notebook jobs in the Studio UI dashboard
 
 The notebook jobs you create as pipeline steps appear in the Studio Notebook Job
 dashboard if you specify certain tags.
@@ -150,17 +140,13 @@ tags:
 Once you set up the necessary tags to view your jobs in the dashboard, see [View notebook jobs](view-notebook-jobs.md "view-notebook-jobs.md") for instructions about
 how to view your jobs and download outputs.
 
-## View your pipeline graph in
-
-Studio
+## View your pipeline graph in Studio
 
 Since your notebook job step is part of a pipeline, you can view the pipeline graph
 (DAG) in Studio. In the pipeline graph, you can view the status of the pipeline run
 and track lineage. For details, see [View the details of a pipeline run](pipelines-studio-view-execution.md "pipelines-studio-view-execution.md").
 
-## Passing parameters to your
-
-notebook
+## Passing parameters to your notebook
 
 If you want to pass parameters to your notebook job (using the `parameters`
 argument of `NotebookJobStep`), you need to prepare your input notebook to
@@ -188,13 +174,10 @@ notebook_job_step = NotebookJobStep(
 )
 ```
 
-## Connecting to an Amazon EMR cluster in your
-
-input notebook
+## Connecting to an Amazon EMR cluster in your input notebook
 
 If you connect to an Amazon EMR cluster from your Jupyter notebook in Studio, you
-might need to further modify your Jupyter notebook. See [Connect to an Amazon EMR cluster from your
-notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md") if you need to perform any of the following tasks in your notebook:
+might need to further modify your Jupyter notebook. See [Connect to an Amazon EMR cluster from your notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md") if you need to perform any of the following tasks in your notebook:
 
 - **Pass parameters into your Amazon EMR connection
   command.** Studio uses Papermill to run notebooks. In SparkMagic

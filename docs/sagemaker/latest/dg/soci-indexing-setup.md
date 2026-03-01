@@ -30,7 +30,6 @@ Your IAM role needs permissions to:
 
 - Create and manage SageMaker AI resources (domains, images, app configs).
   - You may use the [SageMakerFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md") AWS managed policy. For more permission details,
-    see [AWS managed policy:
-    AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
+    see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
 
 - [IAM permissions for pushing an image to an Amazon ECR private repository](../../../AmazonECR/latest/userguide/image-push-iam.md "../../../AmazonECR/latest/userguide/image-push-iam.md").

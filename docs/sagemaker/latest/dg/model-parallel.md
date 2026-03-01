@@ -24,19 +24,11 @@ documentation_.
 ###### Topics
 
 - [Introduction to Model Parallelism](model-parallel-intro.md "model-parallel-intro.md")
-- [Supported Frameworks and
-  AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md")
-- [Core Features of the SageMaker Model Parallelism
-  Library](model-parallel-core-features.md "model-parallel-core-features.md")
-- [Run a SageMaker Distributed Training Job with Model
-  Parallelism](model-parallel-use-api.md "model-parallel-use-api.md")
-- [Checkpointing and Fine-Tuning a Model
-  with Model Parallelism](distributed-model-parallel-checkpointing-and-finetuning.md "distributed-model-parallel-checkpointing-and-finetuning.md")
-- [Amazon SageMaker AI model parallelism library
-  v1 examples](distributed-model-parallel-examples.md "distributed-model-parallel-examples.md")
-- [SageMaker Distributed Model Parallelism Best
-  Practices](model-parallel-best-practices.md "model-parallel-best-practices.md")
-- [The SageMaker Distributed Model
-  Parallelism Library Configuration Tips and Pitfalls](model-parallel-customize-tips-pitfalls.md "model-parallel-customize-tips-pitfalls.md")
-- [Model Parallel
-  Troubleshooting](distributed-troubleshooting-model-parallel.md "distributed-troubleshooting-model-parallel.md")
+- [Supported Frameworks and AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md")
+- [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md "model-parallel-core-features.md")
+- [Run a SageMaker Distributed Training Job with Model Parallelism](model-parallel-use-api.md "model-parallel-use-api.md")
+- [Checkpointing and Fine-Tuning a Model with Model Parallelism](distributed-model-parallel-checkpointing-and-finetuning.md "distributed-model-parallel-checkpointing-and-finetuning.md")
+- [Amazon SageMaker AI model parallelism library v1 examples](distributed-model-parallel-examples.md "distributed-model-parallel-examples.md")
+- [SageMaker Distributed Model Parallelism Best Practices](model-parallel-best-practices.md "model-parallel-best-practices.md")
+- [The SageMaker Distributed Model Parallelism Library Configuration Tips and Pitfalls](model-parallel-customize-tips-pitfalls.md "model-parallel-customize-tips-pitfalls.md")
+- [Model Parallel Troubleshooting](distributed-troubleshooting-model-parallel.md "distributed-troubleshooting-model-parallel.md")

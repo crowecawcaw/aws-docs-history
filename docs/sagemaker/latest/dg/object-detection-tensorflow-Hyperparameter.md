@@ -1,6 +1,4 @@
-# Object Detection - TensorFlow
-
-Hyperparameters
+# Object Detection - TensorFlow Hyperparameters
 
 Hyperparameters are parameters that are set before a machine learning model begins
 learning. The following hyperparameters are supported by the Amazon SageMaker AI built-in Object

@@ -1,6 +1,4 @@
-# (Optional) Migrate custom images and lifecycle
-
-configurations
+# (Optional) Migrate custom images and lifecycle configurations
 
 You must update your custom images and lifecycle configuration (LCC) scripts to work with
 the simplified local run model in Amazon SageMaker Studio. If you have not created custom images or
@@ -23,8 +21,7 @@ creating a new custom image that satisfies the requirements for use in Studio. T
 release of Studio simplifies the process to build custom images by providing [SageMaker Studio image support policy](sagemaker-distribution.md "sagemaker-distribution.md"). SageMaker AI
 Distribution images include popular libraries and packages for machine learning, data
 science, and data analytics visualization. For a list of base SageMaker Distribution images
-and Amazon Elastic Container Registry account information, see [Amazon SageMaker Images Available for Use With
-Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+and Amazon Elastic Container Registry account information, see [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
 
 To build a custom image, complete one of the following.
 
@@ -34,9 +31,7 @@ To build a custom image, complete one of the following.
   JupyterLab and the open source CodeServer on the image to make it
   compatible with Studio.
 
-## Migrate lifecycle
-
-configurations
+## Migrate lifecycle configurations
 
 Because of the simplified local runtime model in Studio, we recommend migrating
 the structure of your existing Studio Classic LCCs. In Studio Classic, you often have to create

@@ -7,9 +7,7 @@ through direct API calls or SageMaker AI lineage queries.
 SageMaker AI uses [AWS Resource Access Manager](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") to help you securely share your lineage resources. You can share your
 resources through the [AWS RAM console](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home").
 
-## Set Up Cross-Account Lineage
-
-Tracking
+## Set Up Cross-Account Lineage Tracking
 
 You can group and share your [Lineage Tracking Entities](lineage-tracking-entities.md "lineage-tracking-entities.md") through a lineage group in Amazon SageMaker AI. SageMaker AI
 supports only one default lineage group per account. SageMaker AI creates the default lineage group
@@ -33,9 +31,7 @@ receives an invitation to join the resource share. The shared account must accep
 invite to gain access to shared resources. For more information on accepting a resource
 share invite in AWS RAM, see [Using shared AWS resources](../../../ram/latest/userguide/getting-started-shared.md "../../../ram/latest/userguide/getting-started-shared.md") in the _AWS Resource Access Manager User Guide_.
 
-### Your cross-account
-
-lineage tracking resource policy
+### Your cross-account lineage tracking resource policy
 
 Amazon SageMaker AI supports only one type of resource policy. The SageMaker AI resource policy must
 allow all of the following operations:
@@ -51,9 +47,7 @@ allow all of the following operations:
 
 ```
 
-###### Example The following is a SageMaker AI resource policy created using AWS Resource Access Manager for creating a
-
-resource share for an accounts lineage group.
+###### Example The following is a SageMaker AI resource policy created using AWS Resource Access Manager for creating a resource share for an accounts lineage group.
 
 JSON
 
@@ -107,14 +101,10 @@ AWS account. For more information, see [Querying Lineage Entities](querying-line
 
 ###### Topics
 
-- [Accessing lineage
-  resources from a different accounts](#tracking-lineage-xaccount-accessing-resources "#tracking-lineage-xaccount-accessing-resources")
-- [Authorization for querying
-  cross-account lineage entities](#tracking-lineage-xaccount-authorization "#tracking-lineage-xaccount-authorization")
+- [Accessing lineage resources from a different accounts](#tracking-lineage-xaccount-accessing-resources "#tracking-lineage-xaccount-accessing-resources")
+- [Authorization for querying cross-account lineage entities](#tracking-lineage-xaccount-authorization "#tracking-lineage-xaccount-authorization")
 
-### Accessing lineage
-
-resources from a different accounts
+### Accessing lineage resources from a different accounts
 
 Once the cross-account access for sharing lineage has been set up, you can call the
 following SageMaker API actions directly with the ARN to describe the shared lineage entities
@@ -135,9 +125,7 @@ SageMaker API actions:
 For a notebook that demonstrates how to use SageMaker AI Lineage APIs to query lineage across
 accounts., see [sagemaker-lineage-cross-account-with-ram.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-cross-account-with-ram.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-cross-account-with-ram.ipynb").
 
-### Authorization for querying
-
-cross-account lineage entities
+### Authorization for querying cross-account lineage entities
 
 Amazon SageMaker AI must validate that you have permissions to perform the
 `QueryLineage` API action on the `StartArns`. This is enforced

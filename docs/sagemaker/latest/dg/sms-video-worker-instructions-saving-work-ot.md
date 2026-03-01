@@ -1,6 +1,4 @@
-# Saving Your Work and
-
-Submitting
+# Saving Your Work and Submitting
 
 You should periodically save your work using the **Save**
 button. Ground Truth will automatically save your work ever 15 minutes.

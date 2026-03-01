@@ -1,6 +1,4 @@
-# Amazon HyperPod Essential Commands
-
-Guide
+# Amazon HyperPod Essential Commands Guide
 
 Amazon Amazon SageMaker HyperPod provides extensive command-line functionality for managing
 training workflows. This guide covers essential commands for common operations, from
@@ -19,15 +17,13 @@ Before using these commands, ensure you have completed the following setup:
 ###### Topics
 
 - [Installing Recipe CLI](#nova-hp-essential-commands-guide-install "#nova-hp-essential-commands-guide-install")
-- [Connecting to your
-  cluster](#nova-hp-essential-commands-guide-connect "#nova-hp-essential-commands-guide-connect")
+- [Connecting to your cluster](#nova-hp-essential-commands-guide-connect "#nova-hp-essential-commands-guide-connect")
 - [Starting a training job](#nova-hp-essential-commands-guide-start-job "#nova-hp-essential-commands-guide-start-job")
 - [Checking job status](#nova-hp-essential-commands-guide-status "#nova-hp-essential-commands-guide-status")
 - [Monitoring job logs](#nova-hp-essential-commands-guide-logs "#nova-hp-essential-commands-guide-logs")
 - [Listing active jobs](#nova-hp-essential-commands-guide-list-jobs "#nova-hp-essential-commands-guide-list-jobs")
 - [Canceling a job](#nova-hp-essential-commands-guide-cancel-job "#nova-hp-essential-commands-guide-cancel-job")
-- [Running an evaluation
-  job](#nova-hp-essential-commands-guide-evaluation "#nova-hp-essential-commands-guide-evaluation")
+- [Running an evaluation job](#nova-hp-essential-commands-guide-evaluation "#nova-hp-essential-commands-guide-evaluation")
 - [Common issues](#nova-hp-essential-commands-guide-troubleshooting "#nova-hp-essential-commands-guide-troubleshooting")
 
 ## Installing Recipe CLI
@@ -35,9 +31,7 @@ Before using these commands, ensure you have completed the following setup:
 Navigate to the root of your recipe repository before running the installation
 command.
 
-###### Use the SageMaker HyperPodrecipes repository if using Non Forge customization techniques,
-
-for Forge based customization refer to the forge specific recipe repository.
+###### Use the SageMaker HyperPodrecipes repository if using Non Forge customization techniques, for Forge based customization refer to the forge specific recipe repository.
 
 Run the following commands to install the HyperPod CLI:
 
@@ -95,9 +89,7 @@ This command installs the HyperPod CLI in editable mode, allowing you to use
 updated recipes without reinstalling each time. It also enables you to add new recipes that
 the CLI can automatically pick up.
 
-## Connecting to your
-
-cluster
+## Connecting to your cluster
 
 Connect the HyperPod CLI to your cluster before running any jobs:
 
@@ -316,7 +308,7 @@ For job completion replace `Starting CPT Job` with `CPT Job
 Then you can click through the results and pick the one that says "Epoch 0" since that
 will be your master node.
 
-###### Using the AWSAWS CLI
+###### Using the AWS AWS CLI
 
 You may choose to tail your logs using the AWS CLI. Before doing so, please check
 your aws cli version using `aws --version`. It is also recommended to use this
@@ -389,9 +381,7 @@ run:
 Use `hyperpod list-jobs -n kubeflow` and copy the `Name` field
 from the output.
 
-## Running an evaluation
-
-job
+## Running an evaluation job
 
 Evaluate a trained model or base model using an evaluation recipe.
 

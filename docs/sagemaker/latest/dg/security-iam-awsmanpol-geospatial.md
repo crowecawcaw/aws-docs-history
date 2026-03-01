@@ -5,16 +5,11 @@ are available in your AWS account and are used by execution roles created from t
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerGeospatialFullAccess](#security-iam-awsmanpol-AmazonSageMakerGeospatialFullAccess "#security-iam-awsmanpol-AmazonSageMakerGeospatialFullAccess")
-- [AWS
-  managed policy: AmazonSageMakerGeospatialExecutionRole](#security-iam-awsmanpol-AmazonSageMakerGeospatialExecutionRole "#security-iam-awsmanpol-AmazonSageMakerGeospatialExecutionRole")
-- [Amazon SageMaker AI updates to Amazon SageMaker geospatial
-  managed policies](#security-iam-awsmanpol-geospatial-updates "#security-iam-awsmanpol-geospatial-updates")
+- [AWS managed policy: AmazonSageMakerGeospatialFullAccess](#security-iam-awsmanpol-AmazonSageMakerGeospatialFullAccess "#security-iam-awsmanpol-AmazonSageMakerGeospatialFullAccess")
+- [AWS managed policy: AmazonSageMakerGeospatialExecutionRole](#security-iam-awsmanpol-AmazonSageMakerGeospatialExecutionRole "#security-iam-awsmanpol-AmazonSageMakerGeospatialExecutionRole")
+- [Amazon SageMaker AI updates to Amazon SageMaker geospatial managed policies](#security-iam-awsmanpol-geospatial-updates "#security-iam-awsmanpol-geospatial-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerGeospatialFullAccess
+## AWS managed policy: AmazonSageMakerGeospatialFullAccess
 
 This policy grants permissions that allow full access to Amazon SageMaker geospatial through the AWS Management Console
 and SDK.
@@ -55,9 +50,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerGeospatialExecutionRole
+## AWS managed policy: AmazonSageMakerGeospatialExecutionRole
 
 This policy grants permissions commonly needed to use SageMaker geospatial.
 
@@ -106,9 +99,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to Amazon SageMaker geospatial
-
-managed policies
+## Amazon SageMaker AI updates to Amazon SageMaker geospatial managed policies
 
 View details about updates to AWS managed policies for SageMaker geospatial since this service
 began tracking these changes.

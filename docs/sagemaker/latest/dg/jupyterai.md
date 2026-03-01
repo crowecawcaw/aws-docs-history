@@ -38,14 +38,12 @@ following prerequisites:
 - Ensure that Jupyter AI libraries are present in your environment. If not, install the
   required package by following the instructions in [Jupyter AI installation](sagemaker-jupyterai-installation.md "sagemaker-jupyterai-installation.md").
 - Familiarize yourself with the capabilities of Jupyter AI in [Access Jupyter AI Features](sagemaker-jupyterai-overview.md "sagemaker-jupyterai-overview.md").
-- Configure the target models you wish to use by following the instructions in [Configure your model
-  provider](sagemaker-jupyterai-model-configuration.md "sagemaker-jupyterai-model-configuration.md").
+- Configure the target models you wish to use by following the instructions in [Configure your model provider](sagemaker-jupyterai-model-configuration.md "sagemaker-jupyterai-model-configuration.md").
   After completing the prerequisite steps, you can proceed to [Use Jupyter AI in JupyterLab or Studio Classic](sagemaker-jupyterai-use.md "sagemaker-jupyterai-use.md").
 
 ###### Topics
 
 - [Jupyter AI installation](sagemaker-jupyterai-installation.md "sagemaker-jupyterai-installation.md")
 - [Access Jupyter AI Features](sagemaker-jupyterai-overview.md "sagemaker-jupyterai-overview.md")
-- [Configure your model
-  provider](sagemaker-jupyterai-model-configuration.md "sagemaker-jupyterai-model-configuration.md")
+- [Configure your model provider](sagemaker-jupyterai-model-configuration.md "sagemaker-jupyterai-model-configuration.md")
 - [Use Jupyter AI in JupyterLab or Studio Classic](sagemaker-jupyterai-use.md "sagemaker-jupyterai-use.md")

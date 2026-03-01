@@ -1,6 +1,4 @@
-# Adapt your PyTorch training
-
-script
+# Adapt your PyTorch training script
 
 To start collecting model output tensors and debug training issues, make the following
 modifications to your PyTorch training script.
@@ -28,8 +26,7 @@ import smdebug.pytorch as smd
 hook=smd.get_hook(create_if_not_exists=True)
 ```
 
-When you launch a training job in [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
+When you launch a training job in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md") with any of the
 DebuggerHookConfig, TensorBoardConfig, or Rules in your estimator, SageMaker AI
 adds a JSON configuration file to your training instance that is picked up
 by the `get_hook` function. Note that if you do not include any
@@ -70,8 +67,7 @@ if hook is None:
 
 The `hook.register_module()` method takes your model and
 iterates through each layer, looking for any tensors that match with regular
-expressions that you’ll provide through the configuration in [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"). The collectable
+expressions that you’ll provide through the configuration in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"). The collectable
 tensors through this hook method are weights, biases, activations,
 gradients, inputs, and outputs.
 
@@ -91,8 +87,7 @@ collection named as you want. For more information, see [step
 
 The `hook.register_loss` method is to wrap the loss function.
 It extracts loss values every `save_interval` that you’ll set
-during configuration in [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"), and saves them to the `"losses"` collection.
+during configuration in [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md"), and saves them to the `"losses"` collection.
 
 ```
 hook.register_loss(loss_function)
@@ -149,5 +144,4 @@ save the custom tensor. The default is
 specify the third argument, the custom tensor is saved to the
 `"default"` tensor collection.
 
-After you have completed adapting your training script, proceed to [Launch training jobs with Debugger
-using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md").
+After you have completed adapting your training script, proceed to [Launch training jobs with Debugger using the SageMaker Python SDK](debugger-configuration-for-debugging.md "debugger-configuration-for-debugging.md").

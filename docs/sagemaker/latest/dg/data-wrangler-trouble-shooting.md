@@ -101,9 +101,7 @@ Use the following procedure to create the file manually.
 
 6. Save your changes to the file.
 
-### Unable to
-
-access Salesforce Data Cloud from the Data Wrangler flow
+### Unable to access Salesforce Data Cloud from the Data Wrangler flow
 
 After your user chooses **Salesforce Data Cloud** from your Data Wrangler
 flow, they might get an error indicating the prerequisites to set up the connection
@@ -197,9 +195,7 @@ possible.
 
 If none of the preceding interventions work, have them set up a new connection to the Salesforce Data Cloud.
 
-### User fails to export their data with an `Invalid batch Id`
-
-error
+### User fails to export their data with an `Invalid batch Id` error
 
 When your user exports the transformations that they've made to their Salesforce
 data, the SageMaker Processing job that Data Wrangler uses on the backend might fail. The

@@ -1,6 +1,4 @@
-# Compile a Model (Amazon SageMaker AI
-
-SDK)
+# Compile a Model (Amazon SageMaker AI SDK)
 
 You can use the [`compile_model`](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html?#sagemaker.estimator.Estimator.compile_model "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html?#sagemaker.estimator.Estimator.compile_model") API in the [Amazon SageMaker AI SDK for Python](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/") to
 compile a trained model and optimize it for specific target hardware. The API should be

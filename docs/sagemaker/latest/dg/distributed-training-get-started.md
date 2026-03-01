@@ -1,6 +1,4 @@
-# Get started with distributed training in
-
-Amazon SageMaker AI
+# Get started with distributed training in Amazon SageMaker AI
 
 The following page gives information about the steps needed to get started with
 distributed training in Amazon SageMaker AI. If you’re already familiar with distributed training, choose
@@ -40,9 +38,7 @@ role to achieve an optimal use of compute resources and a faster training speed.
 communication overhead, make sure that you configure instances, VPC subnet, and data storage
 in the same AWS Region and Availability Zone.
 
-### GPU instances with faster network and high-throughput
-
-storage
+### GPU instances with faster network and high-throughput storage
 
 You can technically use any instances for distributed training. For cases where you need
 to run multi-node distributed training jobs for training large models, such as large
@@ -81,15 +77,13 @@ estimator = PyTorch(
 ```
 
 To learn how to prepare your training script and launch a distributed data-parallel
-training job on SageMaker AI, see [Run distributed training with the SageMaker AI distributed data
-parallelism library](data-parallel.md "data-parallel.md").
+training job on SageMaker AI, see [Run distributed training with the SageMaker AI distributed data parallelism library](data-parallel.md "data-parallel.md").
 
 **Use the SageMaker AI model parallelism library (SMP)**
 
 SageMaker AI provides the SMP library and supports various distributed training techniques,
 such as sharded data parallelism, pipelining, tensor parallelism, optimizer state sharding,
-and more. To learn more about what the SMP library offers, see [Core Features of the SageMaker Model Parallelism
-Library](model-parallel-core-features.md "model-parallel-core-features.md").
+and more. To learn more about what the SMP library offers, see [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md "model-parallel-core-features.md").
 
 To use SageMaker AI's model parallelism library, configure the `distribution` parameter
 of the SageMaker AI framework estimators. Supported framework estimators are [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator"). The following code example shows how to construct a framework estimator

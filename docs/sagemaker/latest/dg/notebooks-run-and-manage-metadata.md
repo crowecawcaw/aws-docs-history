@@ -1,6 +1,4 @@
-# Get Amazon SageMaker Studio Classic Notebook and App
-
-Metadata
+# Get Amazon SageMaker Studio Classic Notebook and App Metadata
 
 ###### Important
 
@@ -16,13 +14,10 @@ You can access notebook metadata and App metadata using the Amazon SageMaker Stu
 
 ###### Topics
 
-- [Get Studio Classic Notebook
-  Metadata](#notebooks-run-and-manage-metadata-notebook "#notebooks-run-and-manage-metadata-notebook")
+- [Get Studio Classic Notebook Metadata](#notebooks-run-and-manage-metadata-notebook "#notebooks-run-and-manage-metadata-notebook")
 - [Get App Metadata](#notebooks-run-and-manage-metadata-app "#notebooks-run-and-manage-metadata-app")
 
-## Get Studio Classic Notebook
-
-Metadata
+## Get Studio Classic Notebook Metadata
 
 Jupyter notebooks contain optional metadata that you can access through the Amazon SageMaker Studio Classic
 UI.

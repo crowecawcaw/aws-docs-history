@@ -23,11 +23,9 @@ follow these steps:
   predictions from the model with Ground Truth labels in a baseline dataset. The baseline
   job automatically creates baseline statistical rules and constraints that define
   thresholds against which the model performance is evaluated. For more
-  information, see [Create a model quality
-  baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md").
+  information, see [Create a model quality baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md").
 - Define and schedule model quality monitoring jobs. For specific information
-  and code samples of model quality monitoring jobs, see [Schedule model quality
-  monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md"). For general
+  and code samples of model quality monitoring jobs, see [Schedule model quality monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md"). For general
   information about monitoring jobs, see [Schedule monitoring jobs](model-monitor-scheduling.md "model-monitor-scheduling.md").
 - Ingest Ground Truth labels that model monitor merges with captured prediction data
   from a real-time inference endpoint or batch transform job. For more
@@ -36,14 +34,11 @@ follow these steps:
   [Monitoring model quality metrics with CloudWatch](model-monitor-model-quality-metrics.md#model-monitor-model-quality-cw "model-monitor-model-quality-metrics.md#model-monitor-model-quality-cw").
 - Interpret the results of a monitoring job. For more information, see [Interpret results](model-monitor-interpreting-results.md "model-monitor-interpreting-results.md").
 - Use SageMaker Studio to enable model quality monitoring and visualize results. For
-  more information, see [Visualize results for
-  real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
+  more information, see [Visualize results for real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
 
 ###### Topics
 
-- [Create a model quality
-  baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md")
-- [Schedule model quality
-  monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md")
+- [Create a model quality baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md")
+- [Schedule model quality monitoring jobs](model-monitor-model-quality-schedule.md "model-monitor-model-quality-schedule.md")
 - [Ingest Ground Truth labels and merge them with predictions](model-monitor-model-quality-merge.md "model-monitor-model-quality-merge.md")
 - [Model quality metrics and Amazon CloudWatch monitoring](model-monitor-model-quality-metrics.md "model-monitor-model-quality-metrics.md")

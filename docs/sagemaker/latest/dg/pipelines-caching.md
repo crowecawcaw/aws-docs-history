@@ -9,8 +9,7 @@ on step caching for your pipelines.
 When you use step signature caching, Pipelines tries to find a previous run of your current
 pipeline step with the same values for certain attributes. If found, Pipelines propagates the
 outputs from the previous run rather than recomputing the step. The attributes checked are
-specific to the step type, and are listed in [Default cache key attributes by pipeline step
-type](pipelines-default-keys.md "pipelines-default-keys.md").
+specific to the step type, and are listed in [Default cache key attributes by pipeline step type](pipelines-default-keys.md "pipelines-default-keys.md").
 
 You must opt in to step caching — it is off by default. When you turn on step caching, you
 must also define a timeout. This timeout defines how old a previous run can be to remain a
@@ -41,6 +40,5 @@ Step caching is available for the following step types:
 
 - [Turn on step caching](pipelines-caching-enabling.md "pipelines-caching-enabling.md")
 - [Turn off step caching](pipelines-caching-disabling.md "pipelines-caching-disabling.md")
-- [Default cache key attributes by pipeline step
-  type](pipelines-default-keys.md "pipelines-default-keys.md")
+- [Default cache key attributes by pipeline step type](pipelines-default-keys.md "pipelines-default-keys.md")
 - [Cached data access control](pipelines-access-control.md "pipelines-access-control.md")

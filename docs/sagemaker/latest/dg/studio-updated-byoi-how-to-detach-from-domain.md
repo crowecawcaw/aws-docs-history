@@ -1,6 +1,4 @@
-# Detach and clean up custom image
-
-resources
+# Detach and clean up custom image resources
 
 The following page provides instructions on how to detach your custom images and clean up the
 related resources using the Amazon SageMaker AI console or the AWS Command Line Interface (AWS CLI).
@@ -11,8 +9,7 @@ You must first detach your custom image from your domain before deleting the ima
 the SageMaker AI image store. If not, you may experience errors while viewing your domain information
 or attaching new custom images to your domain.
 
-If you are experiencing an error loading a custom image, see [Failure to load custom
-image](studio-updated-troubleshooting.md#studio-updated-troubleshooting-custom-image "studio-updated-troubleshooting.md#studio-updated-troubleshooting-custom-image").
+If you are experiencing an error loading a custom image, see [Failure to load custom image](studio-updated-troubleshooting.md#studio-updated-troubleshooting-custom-image "studio-updated-troubleshooting.md#studio-updated-troubleshooting-custom-image").
 
 The following provides instructions on how to detach your custom images from SageMaker AI and clean
 up your custom image resources using the console.
@@ -94,8 +91,7 @@ SAGEMAKER_IMAGE_NAME=`custom-image-name`
 
 ###### Note
 
-If you followed the instructions in [Attach your custom image to your
-domain](studio-updated-byoi-how-to-attach-to-domain.md "studio-updated-byoi-how-to-attach-to-domain.md"), you may have updated your
+If you followed the instructions in [Attach your custom image to your domain](studio-updated-byoi-how-to-attach-to-domain.md "studio-updated-byoi-how-to-attach-to-domain.md"), you may have updated your
 domain using the file named `update-domain.json`.
 
 If you do not have that file, you can create a new json file instead.
@@ -153,10 +149,8 @@ Before you can update the custom images, you must delete all of the **applicatio
 not** need to delete user profiles or shared spaces. For instructions on deleting
 applications, choose one of the following options.
 
-    * If you want to use the SageMaker AI console, see [Shut down SageMaker AI resources in your
-     domain](sm-console-domain-resources-shut-down.md "sm-console-domain-resources-shut-down.md").
-    * If you want to use the AWS CLI, use steps 1 through 3 of [Delete an Amazon SageMaker AI domain
-     (AWS CLI)](gs-studio-delete-domain.md#gs-studio-delete-domain-cli "gs-studio-delete-domain.md#gs-studio-delete-domain-cli").
+    * If you want to use the SageMaker AI console, see [Shut down SageMaker AI resources in your domain](sm-console-domain-resources-shut-down.md "sm-console-domain-resources-shut-down.md").
+    * If you want to use the AWS CLI, use steps 1 through 3 of [Delete an Amazon SageMaker AI domain (AWS CLI)](gs-studio-delete-domain.md#gs-studio-delete-domain-cli "gs-studio-delete-domain.md#gs-studio-delete-domain-cli").
 
 ```
 aws sagemaker update-domain \

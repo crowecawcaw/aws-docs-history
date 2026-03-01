@@ -59,8 +59,7 @@ permissions set. To learn more about configuring CORS permissions, see [CORS Req
 The **Execute Code** step uses an Amazon SageMaker training job to run your
 code. Ensure that your IAM role has the `sagemaker:DescribeTrainingJob` and
 `sagemaker:CreateTrainingJob` API permissions. To learn more about all the
-required permissions for Amazon SageMaker AI and how to set them up, see [Amazon SageMaker AI API Permissions: Actions,
-Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+required permissions for Amazon SageMaker AI and how to set them up, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
 To add an execute code step to a pipeline using the Pipeline Designer, do the
 following:
@@ -273,8 +272,7 @@ training jobs created as trials. For more information, see [Experiments Integrat
 A tuning step requires a [HyperparameterTuner](https://sagemaker.readthedocs.io/en/stable/api/training/tuner.html "https://sagemaker.readthedocs.io/en/stable/api/training/tuner.html") and training inputs. You can retrain previous tuning
 jobs by specifying the `warm_start_config` parameter of the
 `HyperparameterTuner`. For more information on hyperparameter tuning and
-warm start, see [Run a Warm Start Hyperparameter Tuning
-Job](automatic-model-tuning-warm-start.md "automatic-model-tuning-warm-start.md").
+warm start, see [Run a Warm Start Hyperparameter Tuning Job](automatic-model-tuning-warm-start.md "automatic-model-tuning-warm-start.md").
 
 You use the [get_top_model_s3_uri](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep.get_top_model_s3_uri") method of the [sagemaker.workflow.steps.TuningStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TuningStep") class to get the model artifact from
 one of the top-performing model versions. For a notebook that shows how to use a
@@ -335,8 +333,7 @@ The fine-tuning step uses an Amazon SageMaker training job to customize
 your model. Ensure that your IAM role has the `sagemaker:DescribeTrainingJob`
 and `sagemaker:CreateTrainingJob` API permissions to execute the fine-tuning
 job in your pipeline. To learn more about the required permissions for Amazon SageMaker AI and how
-to set them up, see [Amazon SageMaker AI API Permissions: Actions,
-Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+to set them up, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
 To add a **Fine-tune model** step to your pipeline using the
 drag-and-drop editor, follow these steps:
@@ -681,8 +678,7 @@ the following permissions:
 - `sagemaker:DescribeEndpointConfig`
 - `sagemaker:DescribeEndpoint`
   To learn more about all the required permissions for SageMaker AI and how to set them up, see
-  [Amazon SageMaker AI API Permissions: Actions,
-  Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+  [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
 To add a model deployment step to your Pipeline in the drag-and-drop editor, complete
 the following steps:
@@ -705,8 +701,7 @@ the following steps:
    **Deploy model (endpoint)** step to the step to create an
    edge.
    You use a transform step for batch transformation to run inference on an entire dataset.
-   For more information about batch transformation, see [Batch transforms with inference
-   pipelines](inference-pipeline-batch.md "inference-pipeline-batch.md").
+   For more information about batch transformation, see [Batch transforms with inference pipelines](inference-pipeline-batch.md "inference-pipeline-batch.md").
 
 A transform step requires a transformer and the data on which to run batch
 transformation. The following example shows how to create a Transform step definition. For
@@ -1054,8 +1049,7 @@ The `ClarifyCheck` step can also pull baselines for drift check from the
 model registry. The `ClarifyCheck` step uses the SageMaker Clarify prebuilt container.
 This container provides a range of model monitoring capabilities, including constraint
 suggestion and constraint validation against a given baseline. For more information, see
-[Prebuilt SageMaker Clarify
-Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md").
+[Prebuilt SageMaker Clarify Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md").
 
 ### Configuring the ClarifyCheck step
 
@@ -1078,12 +1072,9 @@ Clarify prebuilt container and requires dedicated [configurations for the
 check and the processing job](clarify-configure-processing-jobs.md "clarify-configure-processing-jobs.md"). `ClarifyCheckConfig` and
 `CheckJobConfig` are helper functions for these configurations. These helper
 functions are aligned with how the SageMaker Clarify processing job computes for checking model
-bias, data bias, or model explainability. For more information, see [Run SageMaker Clarify Processing Jobs for Bias Analysis and
-Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
+bias, data bias, or model explainability. For more information, see [Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
 
-### Controlling step behaviors for drift
-
-check
+### Controlling step behaviors for drift check
 
 The `ClarifyCheck` step requires the following two boolean flags to control
 its behavior:
@@ -1098,8 +1089,7 @@ its behavior:
   available. This can be accessed through the
   `BaselineUsedForDriftCheckConstraints` property.
 
-For more information, see [Baseline calculation, drift
-detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md").
+For more information, see [Baseline calculation, drift detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md").
 
 ### Working with baselines
 
@@ -1193,12 +1183,9 @@ prebuilt container and requires dedicated configurations for the check and the p
 job. The `QualityCheckConfig` and `CheckJobConfig` are helper
 functions for these configurations. These helper functions are aligned with how Model Monitor
 creates a baseline for the model quality or data quality monitoring. For more information
-on the Model Monitor baseline suggestions, see [Create a Baseline](model-monitor-create-baseline.md "model-monitor-create-baseline.md") and [Create a model quality
-baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md").
+on the Model Monitor baseline suggestions, see [Create a Baseline](model-monitor-create-baseline.md "model-monitor-create-baseline.md") and [Create a model quality baseline](model-monitor-model-quality-baseline.md "model-monitor-model-quality-baseline.md").
 
-### Controlling step behaviors for drift
-
-check
+### Controlling step behaviors for drift check
 
 The `QualityCheck` step requires the following two Boolean flags to control
 its behavior:
@@ -1215,8 +1202,7 @@ its behavior:
   `BaselineUsedForDriftCheckConstraints` and
   `BaselineUsedForDriftCheckStatistics` properties.
 
-For more information, see [Baseline calculation, drift
-detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md").
+For more information, see [Baseline calculation, drift detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md").
 
 ### Working with baselines
 
@@ -1483,12 +1469,10 @@ notebook_job_step = NotebookJobStep(
 Your `NotebookJobStep` pipeline step is treated as a SageMaker notebook job. As a
 result, track the execution status in the Studio Classic UI notebook job dashboard by including
 specific tags with the `tags` argument. For more details about tags to include,
-see [View your notebook jobs in the Studio
-UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
+see [View your notebook jobs in the Studio UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
 
 Also, if you schedule your notebook job using the SageMaker Python SDK, you can only specify
-certain images to run your notebook job. For more information, see [Image constraints for SageMaker AI
-Python SDK notebook jobs](notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk "notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk").
+certain images to run your notebook job. For more information, see [Image constraints for SageMaker AI Python SDK notebook jobs](notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk "notebook-auto-run-constraints.md#notebook-auto-run-constraints-image-sdk").
 
 Use a Fail step to stop an Amazon SageMaker Pipelines execution when a desired condition or state is not
 achieved. The Fail step also allows you to enter a custom error message, indicating the

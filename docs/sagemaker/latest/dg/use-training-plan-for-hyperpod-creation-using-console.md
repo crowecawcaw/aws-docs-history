@@ -1,6 +1,4 @@
-# Create a SageMaker HyperPod
-
-cluster on training plans using the SageMaker AI console
+# Create a SageMaker HyperPod cluster on training plans using the SageMaker AI console
 
 To create an SageMaker HyperPod cluster using training plans from the SageMaker AI console UI, follow
 these steps:

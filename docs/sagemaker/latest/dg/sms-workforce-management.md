@@ -12,8 +12,7 @@ one or more work teams to each job.
 
 You can use Amazon Cognito or your own private OpenID Connect (OIDC) Identity Provider (IdP) to manage your private
 workforce and work teams. For more information about the permissions required to manage your
-workforce this way, see [Permissions required to use the
-Amazon SageMaker Ground Truth console](security_iam_id-based-policy-examples.md#groundtruth-console-policy "security_iam_id-based-policy-examples.md#groundtruth-console-policy").
+workforce this way, see [Permissions required to use the Amazon SageMaker Ground Truth console](security_iam_id-based-policy-examples.md#groundtruth-console-policy "security_iam_id-based-policy-examples.md#groundtruth-console-policy").
 
 ###### Topics
 

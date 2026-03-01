@@ -1,13 +1,9 @@
-# Getting started with SageMaker HyperPod
-
-using the AWS CLI
+# Getting started with SageMaker HyperPod using the AWS CLI
 
 Create your first SageMaker HyperPod cluster using the AWS CLI commands for
 HyperPod.
 
-## Create your
-
-first SageMaker HyperPod cluster with Slurm
+## Create your first SageMaker HyperPod cluster with Slurm
 
 The following tutorial demonstrates how to create a new SageMaker HyperPod cluster and
 set it up with Slurm through the [AWS CLI
@@ -60,8 +56,7 @@ Amazon S3 bucket.
     cd awsome-distributed-training/1.architectures/5.sagemaker_hyperpods/LifecycleScripts/base-config
     ```
 
-    To learn more about the lifecycle script samples, see [Customizing SageMaker HyperPod
-     clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+    To learn more about the lifecycle script samples, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
     3. Upload the scripts to
      `s3://sagemaker-`<unique-s3-bucket-name>`/`<lifecycle-script-directory>`/src`.
      You can do so by using the Amazon S3 console, or by running the following
@@ -88,8 +83,7 @@ Slurm settings using `Orchestrator.Slurm`.
 
 For `ExecutionRole`, provide the ARN of the IAM role you
 created with the managed
-`AmazonSageMakerClusterInstanceRolePolicy` in [Prerequisites for using
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md").
+`AmazonSageMakerClusterInstanceRolePolicy` in [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md").
 
 ```
 {
@@ -457,12 +451,9 @@ Amazon S3 buckets or file system services such as Amazon FSx for Lustre and Amaz
 prevent incurring charges, delete all artifacts and data from the storage or file
 system.
 
-## Related
-
-topics
+## Related topics
 
 - [SageMaker HyperPod Slurm configuration](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-slurm-configuration "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-slurm-configuration")
-- [Customizing SageMaker HyperPod
-  clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md")
+- [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md")
 - [FSx configuration via InstanceStorageConfigs](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-slurm-fsx-config "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-slurm-fsx-config")
 - [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md")

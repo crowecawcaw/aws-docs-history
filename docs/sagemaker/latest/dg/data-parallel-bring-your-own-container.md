@@ -1,6 +1,4 @@
-# Create your own Docker container with
-
-the SageMaker AI distributed data parallel library
+# Create your own Docker container with the SageMaker AI distributed data parallel library
 
 To build your own Docker container for training and use the SageMaker AI data parallel library,
 you must include the correct dependencies and the binary files of the SageMaker AI distributed
@@ -13,9 +11,7 @@ using the data parallel library.
 This custom Docker option with the SageMaker AI data parallel library as a binary is available
 only for PyTorch.
 
-###### To create a Dockerfile with the SageMaker training toolkit and the data parallel
-
-library
+###### To create a Dockerfile with the SageMaker training toolkit and the data parallel library
 
 1. Start with a Docker image from [NVIDIA CUDA](https://hub.docker.com/r/nvidia/cuda "https://hub.docker.com/r/nvidia/cuda"). Use the cuDNN developer versions that contain CUDA runtime and
    development tools (headers and libraries) to build from the [PyTorch source code](https://github.com/pytorch/pytorch#from-source "https://github.com/pytorch/pytorch#from-source").
@@ -516,5 +512,4 @@ see [Use Your Own Training Algorithms](your-algorithms-training-algo.md "your-al
 ###### Tip
 
 If you want to extend the custom Dockerfile to incorporate the SageMaker AI model parallel
-library, see [Create Your Own Docker
-Container with the SageMaker Distributed Model Parallel Library](model-parallel-sm-sdk.md#model-parallel-bring-your-own-container "model-parallel-sm-sdk.md#model-parallel-bring-your-own-container").
+library, see [Create Your Own Docker Container with the SageMaker Distributed Model Parallel Library](model-parallel-sm-sdk.md#model-parallel-bring-your-own-container "model-parallel-sm-sdk.md#model-parallel-bring-your-own-container").

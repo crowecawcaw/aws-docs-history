@@ -30,8 +30,7 @@ To create an output topic, follow the instructions in [Creating an Amazon SNS to
 Amazon Simple Notification Service Developer Guide.
 
 If you add encryption, you must attach additional permission to the topic.
-See [Add Encryption to Your Output
-Topic (Optional)](#sms-streaming-encryption "#sms-streaming-encryption").
+See [Add Encryption to Your Output Topic (Optional)](#sms-streaming-encryption "#sms-streaming-encryption").
 for more information.
 
 ###### Important
@@ -44,9 +43,7 @@ Note down your input topic ARN and use it in your
 `CreateLabelingJob` request in the parameter `SnsTopicArn`
 in `OutputConfig`.
 
-### Add Encryption to Your Output
-
-Topic (Optional)
+### Add Encryption to Your Output Topic (Optional)
 
 To encrypt messages published to your output topic, you need to provide an
 AWS KMS customer managed key to your topic. Modify the following policy
@@ -136,9 +133,7 @@ JSON
 For more information on creating and securing keys, see [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") and [Using Key
 Policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the AWS Key Management Service Developer Guide.
 
-## Subscribe an Endpoint to
-
-Your Amazon SNS Output Topic
+## Subscribe an Endpoint to Your Amazon SNS Output Topic
 
 When a worker completes a labeling job task from a Ground Truth streaming labeling
 job, Ground Truth uses your output topic to publish output data to one or more

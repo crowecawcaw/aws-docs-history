@@ -1,6 +1,4 @@
-# Supported frameworks and
-
-algorithms
+# Supported frameworks and algorithms
 
 The following table shows SageMaker AI machine learning frameworks and algorithms supported by
 Debugger.
@@ -24,8 +22,7 @@ For the TensorFlow framework with Keras, SageMaker Debugger deprecates the zero 
 change support for debugging models built using the `tf.keras`
 modules of TensorFlow 2.6 and later. This is due to breaking changes
 announced in the [TensorFlow 2.6.0 release note](https://github.com/tensorflow/tensorflow/releases/tag/v2.6.0 "https://github.com/tensorflow/tensorflow/releases/tag/v2.6.0"). For instructions on how to
-update your training script, see [Adapt your TensorFlow training
-script](debugger-modify-script-tensorflow.md "debugger-modify-script-tensorflow.md").
+update your training script, see [Adapt your TensorFlow training script](debugger-modify-script-tensorflow.md "debugger-modify-script-tensorflow.md").
 
 ###### Important
 
@@ -34,8 +31,7 @@ support for debugging models.
 
 This is due to breaking changes that cause SageMaker Debugger to interfere with the
 `torch.jit` functionality. For instructions on how to update
-your training script, see [Adapt your PyTorch training
-script](debugger-modify-script-pytorch.md "debugger-modify-script-pytorch.md").
+your training script, see [Adapt your PyTorch training script](debugger-modify-script-pytorch.md "debugger-modify-script-pytorch.md").
 If the framework or algorithm that you want to train and debug is not listed in the
 table, go to the [AWS Discussion
 Forum](https://forums.aws.amazon.com/ "https://forums.aws.amazon.com/") and leave feedback on SageMaker Debugger.
@@ -49,9 +45,7 @@ Amazon SageMaker Debugger is available in all regions where Amazon SageMaker AI 
 To find if Amazon SageMaker AI is in service in your AWS Region, see [AWS Regional
 Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
 
-## Use Debugger with Custom Training
-
-Containers
+## Use Debugger with Custom Training Containers
 
 Bring your training containers to SageMaker AI and gain insights into your training jobs
 using Debugger. Maximize your work efficiency by optimizing your model on Amazon EC2
@@ -59,8 +53,7 @@ instances using the monitoring and debugging features.
 
 For more information about how to build your training container with the
 `sagemaker-debugger` client library, push it to the Amazon Elastic Container Registry
-(Amazon ECR), and monitor and debug, see [Use Debugger with custom training
-containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md").
+(Amazon ECR), and monitor and debug, see [Use Debugger with custom training containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md").
 
 ## Debugger Open-Source GitHub Repositories
 

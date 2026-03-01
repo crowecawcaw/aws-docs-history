@@ -1,6 +1,4 @@
-# Create and configure a
-
-HyperPod cluster with Karpenter autoscaling
+# Create and configure a HyperPod cluster with Karpenter autoscaling
 
 In the following steps, you'll create a SageMaker HyperPod cluster with continuous
 provisioning enabled and configure it to use Karpenter-based autoscaling.

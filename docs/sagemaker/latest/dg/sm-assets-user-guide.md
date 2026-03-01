@@ -71,13 +71,10 @@ see [Data preparation with SQL in Studio](sagemaker-sql-extension.md "sagemaker-
 
 - [Terminology and Concepts](#sm-assets-terminology "#sm-assets-terminology")
 - [Step 1: Access SageMaker Assets](#sm-assets-access "#sm-assets-access")
-- [Step 2: Share assets and manage access to
-  them](#sm-assets-share "#sm-assets-share")
+- [Step 2: Share assets and manage access to them](#sm-assets-share "#sm-assets-share")
 - [Step 3: Manage access requests](#sm-assets-manage-requests "#sm-assets-manage-requests")
-- [Step 4: Find assets and request access to
-  them](#sm-assets-request-access "#sm-assets-request-access")
-- [Step 5: Use a shared asset in your machine
-  learning workflows](#sm-assets-consume "#sm-assets-consume")
+- [Step 4: Find assets and request access to them](#sm-assets-request-access "#sm-assets-request-access")
+- [Step 5: Use a shared asset in your machine learning workflows](#sm-assets-consume "#sm-assets-consume")
 
 ## Terminology and Concepts
 
@@ -132,9 +129,7 @@ assets**. The assets that you and your project members create are under
 your organization have published are in the **Assets
 catalog**.
 
-## Step 2: Share assets and manage access to
-
-them
+## Step 2: Share assets and manage access to them
 
 After you create machine learning models, feature groups, or data tables, you can
 make them visible to the individuals collaborating with you on your project or your
@@ -273,9 +268,7 @@ Publish a feature group
 Use the following procedure to navigate to a feature group that you've
 created and publish it to your owned assets or asset catalog.
 
-###### To publish the feature group to your owned assets or asset
-
-catalog
+###### To publish the feature group to your owned assets or asset catalog
 
 1. Within Studio, select **Data** on the
    left hand navigation.
@@ -292,9 +285,7 @@ Publish a model group
 Use the following procedure to navigate to a model group that you've
 created and publish it to your owned assets or asset catalog.
 
-###### To publish the model group to your owned assets or asset
-
-catalog
+###### To publish the model group to your owned assets or asset catalog
 
 1. Within Studio, select **Models** on the
    left hand navigation.
@@ -375,9 +366,7 @@ You can also delete assets from the same page where you unpublish them. Deleting
 an asset doesn't delete the source of data. Asset deletion only makes the asset
 invisible to the other members of your project or organization.
 
-## Step 4: Find assets and request access to
-
-them
+## Step 4: Find assets and request access to them
 
 You can request access to assets that other users have published to the resource
 catalog. If they approve the subscription request, you get access to the underlying
@@ -423,9 +412,7 @@ publisher of the asset approves your request, it appears under **Subscribed
 assets**. You can now use the Amazon Redshift, AWS Glue table, or ML source of data
 in your machine learning workflows.
 
-## Step 5: Use a shared asset in your machine
-
-learning workflows
+## Step 5: Use a shared asset in your machine learning workflows
 
 If your subscription request to an asset is approved, you can use it in your
 machine learning workflows.

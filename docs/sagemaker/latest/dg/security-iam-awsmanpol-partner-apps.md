@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-Amazon SageMaker Partner AI Apps
+# AWS managed policies for Amazon SageMaker Partner AI Apps
 
 These AWS managed policies add permissions required to use Amazon SageMaker Partner AI Apps. The policies are
 available in your AWS account and are used by execution roles created from the SageMaker AI
@@ -8,14 +6,10 @@ console.
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerPartnerAppsFullAccess](#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess "#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess")
-- [Amazon SageMaker AI updates to
-  Partner AI Apps managed policies](#security-iam-awsmanpol-partner-apps-updates "#security-iam-awsmanpol-partner-apps-updates")
+- [AWS managed policy: AmazonSageMakerPartnerAppsFullAccess](#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess "#security-iam-awsmanpol-AmazonSageMakerPartnerAppsFullAccess")
+- [Amazon SageMaker AI updates to Partner AI Apps managed policies](#security-iam-awsmanpol-partner-apps-updates "#security-iam-awsmanpol-partner-apps-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerPartnerAppsFullAccess
+## AWS managed policy: AmazonSageMakerPartnerAppsFullAccess
 
 Allows full administrative access to Amazon SageMaker Partner AI Apps.
 
@@ -59,9 +53,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to
-
-Partner AI Apps managed policies
+## Amazon SageMaker AI updates to Partner AI Apps managed policies
 
 View details about updates to AWS managed policies for Partner AI Apps since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

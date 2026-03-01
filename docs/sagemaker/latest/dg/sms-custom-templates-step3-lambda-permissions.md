@@ -1,6 +1,4 @@
-# Add required permissions to use
-
-AWS Lambda with Ground Truth
+# Add required permissions to use AWS Lambda with Ground Truth
 
 You may need to configure some or all the following to create and use AWS Lambda
 with Ground Truth.
@@ -18,16 +16,11 @@ with Ground Truth.
 
 ###### Topics
 
-- [Grant Permission to Create and
-  Select an AWS Lambda Function](#sms-custom-templates-step3-postlambda-create-perms "#sms-custom-templates-step3-postlambda-create-perms")
-- [Grant IAM Execution
-  Role Permission to Invoke AWS Lambda Functions](#sms-custom-templates-step3-postlambda-execution-role-perms "#sms-custom-templates-step3-postlambda-execution-role-perms")
-- [Grant
-  Post-Annotation Lambda Permissions to Access Annotation](#sms-custom-templates-step3-postlambda-perms "#sms-custom-templates-step3-postlambda-perms")
+- [Grant Permission to Create and Select an AWS Lambda Function](#sms-custom-templates-step3-postlambda-create-perms "#sms-custom-templates-step3-postlambda-create-perms")
+- [Grant IAM Execution Role Permission to Invoke AWS Lambda Functions](#sms-custom-templates-step3-postlambda-execution-role-perms "#sms-custom-templates-step3-postlambda-execution-role-perms")
+- [Grant Post-Annotation Lambda Permissions to Access Annotation](#sms-custom-templates-step3-postlambda-perms "#sms-custom-templates-step3-postlambda-perms")
 
-## Grant Permission to Create and
-
-Select an AWS Lambda Function
+## Grant Permission to Create and Select an AWS Lambda Function
 
 If you do not require granular permissions to develop pre-annotation and
 post-annotation Lambda functions, you can attach the AWS managed policy
@@ -83,14 +76,10 @@ Console**
 
 To grant an IAM entity permission to view Lambda functions in the Ground Truth
 console when the user is creating a custom labeling job, the entity must have
-the permissions described in [Grant IAM Permission to Use the
-Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md"), including the
-permissions described in the section [Custom Labeling Workflow
-Permissions](sms-security-permission-console-access.md#sms-security-permissions-custom-workflow "sms-security-permission-console-access.md#sms-security-permissions-custom-workflow").
+the permissions described in [Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md"), including the
+permissions described in the section [Custom Labeling Workflow Permissions](sms-security-permission-console-access.md#sms-security-permissions-custom-workflow "sms-security-permission-console-access.md#sms-security-permissions-custom-workflow").
 
-## Grant IAM Execution
-
-Role Permission to Invoke AWS Lambda Functions
+## Grant IAM Execution Role Permission to Invoke AWS Lambda Functions
 
 If you add the IAM managed policy [AmazonSageMakerGroundTruthExecution](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerGroundTruthExecution "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerGroundTruthExecution") to the IAM execution role
 used to create the labeling job, this role has permission to list and invoke
@@ -124,9 +113,7 @@ JSON
 
 ```
 
-## Grant
-
-Post-Annotation Lambda Permissions to Access Annotation
+## Grant Post-Annotation Lambda Permissions to Access Annotation
 
 As described in [Post-annotation Lambda](sms-custom-templates-step3-lambda-requirements.md#sms-custom-templates-step3-postlambda "sms-custom-templates-step3-lambda-requirements.md#sms-custom-templates-step3-postlambda"), the post-annotation
 Lambda request includes the location of the annotation data in Amazon S3. This

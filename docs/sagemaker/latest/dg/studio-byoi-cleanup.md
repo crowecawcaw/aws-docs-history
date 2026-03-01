@@ -48,8 +48,7 @@ The following section shows how to clean up resources from the AWS CLI.
 
 1. Detach the image and image versions from your domain by passing an empty custom image
    list to the domain. Open the `default-user-settings.json` file you
-   created in [Attach the SageMaker image to your
-   current domain](studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain "studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain"). To detach the image and
+   created in [Attach the SageMaker image to your current domain](studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain "studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain"). To detach the image and
    image version from a shared space, open the
    `default-space-settings.json` file.
 2. Delete the custom images and then save the file.

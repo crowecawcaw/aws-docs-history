@@ -1,6 +1,4 @@
-# Access CloudWatch logs for Debugger rules and training
-
-jobs
+# Access CloudWatch logs for Debugger rules and training jobs
 
 You can use the training and Debugger rule job status in the CloudWatch logs to take
 further actions when there are training issues. The following procedure shows how to

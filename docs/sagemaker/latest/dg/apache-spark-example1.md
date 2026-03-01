@@ -44,9 +44,7 @@ library to your project by adding the following dependency to your
 
 This section provides example code that uses the Apache Spark Scala library provided
 by SageMaker AI to train a model in SageMaker AI using `DataFrame`s in your Spark cluster.
-This is then followed by examples on how to [Use Custom Algorithms for Model
-Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md") and [Use the SageMakerEstimator
-in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md").
+This is then followed by examples on how to [Use Custom Algorithms for Model Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md") and [Use the SageMakerEstimator in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md").
 
 The following example hosts the resulting model artifacts using SageMaker AI hosting services.
 For more details on this example, see [Getting Started: K-Means Clustering on SageMaker AI with SageMaker AI Spark SDK](https://github.com/aws/sagemaker-spark?tab=readme-ov-file#getting-started-k-means-clustering-on-sagemaker-with-sagemaker-spark-sdk "https://github.com/aws/sagemaker-spark?tab=readme-ov-file#getting-started-k-means-clustering-on-sagemaker-with-sagemaker-spark-sdk")
@@ -248,8 +246,7 @@ val model = estimator.fit(trainingData)
 
 You pass the input `DataFrame` as a parameter. The model does all
 the work of training the model and deploying it to SageMaker AI. For more information
-see, [Integrate your Apache Spark application with
-SageMaker AI](apache-spark.md#spark-sdk-common-process "apache-spark.md#spark-sdk-common-process"). In response, you get a
+see, [Integrate your Apache Spark application with SageMaker AI](apache-spark.md#spark-sdk-common-process "apache-spark.md#spark-sdk-common-process"). In response, you get a
 `SageMakerModel` object, which you can use to get inferences from
 your model deployed in SageMaker AI.
 
@@ -323,7 +320,5 @@ You can interpret the data, as follows:
 
 ###### Topics
 
-- [Use Custom Algorithms for Model
-  Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md")
-- [Use the SageMakerEstimator
-  in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md")
+- [Use Custom Algorithms for Model Training and Hosting on Amazon SageMaker AI with Apache Spark](apache-spark-example1-cust-algo.md "apache-spark-example1-cust-algo.md")
+- [Use the SageMakerEstimator in a Spark Pipeline](apache-spark-example1-extend-pipeline.md "apache-spark-example1-extend-pipeline.md")

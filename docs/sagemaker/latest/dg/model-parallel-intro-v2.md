@@ -30,9 +30,7 @@ on multiple compute nodes. Furthermore, with the library, you can achieve optimi
 distributed training using EFA-supported devices, which enhance the performance of
 inter-node communication with low latency, high throughput, and OS bypass.
 
-## Estimate memory
-
-requirements before using model parallelism
+## Estimate memory requirements before using model parallelism
 
 Before you use the SageMaker model parallel library, consider the following to get a
 sense of the memory requirements of training large DL models.
@@ -59,16 +57,13 @@ For distributed training, we recommend that you use Amazon EC2 P4 and P5 instanc
 have NVIDIA A100 and H100 Tensor Core GPUs respectively. For more details about
 specifications such as CPU cores, RAM, attached storage volume, and network bandwidth,
 see the _Accelerated Computing_ section in the [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/") page.
-For instance types that SMP v2 supports, see [Supported
-instance types](distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-instance-types-v2 "distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-instance-types-v2").
+For instance types that SMP v2 supports, see [Supported instance types](distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-instance-types-v2 "distributed-model-parallel-support-v2.md#distributed-model-parallel-supported-instance-types-v2").
 
 Even with the accelerated computing instances, models with about 10 billion parameters
 such as Megatron-LM and T5, and even larger models with hundreds of billions of
 parameters such as GPT-3, cannot fit model replicas in each GPU device.
 
-## How the library employs model
-
-parallelism and memory saving techniques
+## How the library employs model parallelism and memory saving techniques
 
 The library consists of various types of model parallelism features and memory-saving
 features such as optimizer state sharding, activation checkpointing, and activation
@@ -100,8 +95,7 @@ speed from the `AllGather` operation offered by the [SageMaker data parallelism 
 
 To dive deep into sharded data parallelism and learn how to set it up or use a
 combination of sharded data parallelism with other techniques like tensor
-parallelism and mixed precision training, see [Hybrid
-sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md").
+parallelism and mixed precision training, see [Hybrid sharded data parallelism](model-parallel-core-features-v2-sharded-data-parallelism.md "model-parallel-core-features-v2-sharded-data-parallelism.md").
 
 ### Expert parallelism
 
@@ -118,8 +112,7 @@ quality as its counterpart dense model. And _expert
 parallelism_ is a parallelism technique that handles splitting experts
 of an MoE model across GPU devices.
 
-To learn how to train MoE models with SMP v2, see [Expert
-parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
+To learn how to train MoE models with SMP v2, see [Expert parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
 
 ### Tensor parallelism
 
@@ -136,8 +129,7 @@ tensor-distributed model replicas.
 ![Simplest example of how the SMP library splits a model with four layers to achieve two-way tensor parallelism ("tensor_parallel_degree": 2).](images/distributed/model-parallel/smp-v2-tensor-parallel.png)
 
 To dive deep into tensor parallelism and other memory-saving features for PyTorch,
-and to learn how to set a combination of the core features, see [Tensor
-parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+and to learn how to set a combination of the core features, see [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
 
 ### Activation checkpointing and offloading
 
@@ -147,11 +139,9 @@ pass. The library recomputes these activations during the backward pass. In
 addition, with activation offloading, it offloads the stored activations to CPU
 memory and fetches them back to GPU during the backward pass to further reduce the
 activation memory footprint. For more information about how to use these features,
-see [Activation checkpointing](model-parallel-core-features-v2-pytorch-activation-checkpointing.md "model-parallel-core-features-v2-pytorch-activation-checkpointing.md") and [Activation
-offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
+see [Activation checkpointing](model-parallel-core-features-v2-pytorch-activation-checkpointing.md "model-parallel-core-features-v2-pytorch-activation-checkpointing.md") and [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
 
 ### Choosing the right techniques for your model
 
 For more information about choosing the right techniques and configurations, see
-[SageMaker distributed model parallelism best
-practices](model-parallel-best-practices-v2.md "model-parallel-best-practices-v2.md").
+[SageMaker distributed model parallelism best practices](model-parallel-best-practices-v2.md "model-parallel-best-practices-v2.md").

@@ -21,8 +21,7 @@ If you don't provide a customer managed key, Amazon SageMaker AI uses the defaul
 for Amazon S3 for your role's account to encrypt your output data.
 
 If you provide a customer managed key, you must add the required permissions to the
-key described in [Encrypt Output Data and Storage Volume with
-AWS KMS](sms-security-kms-permissions.md "sms-security-kms-permissions.md"). When you use the API operation
+key described in [Encrypt Output Data and Storage Volume with AWS KMS](sms-security-kms-permissions.md "sms-security-kms-permissions.md"). When you use the API operation
 `CreateLabelingJob`, you can specify your customer managed key ID using the
 parameter `KmsKeyId`. See the following procedure to learn how to add a
 customer managed key when you create a labeling job using the console.
@@ -37,9 +36,7 @@ customer managed key when you create a labeling job using the console.
 4. Complete the rest of steps in [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") to create a labeling
    job.
 
-## Use Your KMS Key to Encrypt Automated Data
-
-Labeling Storage Volume (API Only)
+## Use Your KMS Key to Encrypt Automated Data Labeling Storage Volume (API Only)
 
 When you create a labeling job with automated data labeling using the
 `CreateLabelingJob` API operation, you have the option to encrypt the
@@ -50,8 +47,7 @@ information about this parameter, see `LabelingJobResourceConfig`.
 
 If you specify a key ID or ARN for `VolumeKmsKeyId`, your SageMaker AI
 execution role must include permissions to call `kms:CreateGrant`. To
-learn how to add this permission to an execution role, see [Create a SageMaker AI Execution Role for a
-Ground Truth Labeling Job](sms-security-permission-execution-role.md "sms-security-permission-execution-role.md").
+learn how to add this permission to an execution role, see [Create a SageMaker AI Execution Role for a Ground Truth Labeling Job](sms-security-permission-execution-role.md "sms-security-permission-execution-role.md").
 
 ###### Note
 

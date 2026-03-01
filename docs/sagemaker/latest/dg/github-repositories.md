@@ -9,9 +9,7 @@ repositories:
   customizing Large Language Model (LLM) training processes. You use the scripts from
   the repositories to set up and run the training jobs for your LLMs.
 
-## HyperPod recipe
-
-repository
+## HyperPod recipe repository
 
 Use the [SageMaker HyperPod recipes](https://github.com/aws/sagemaker-hyperpod-recipes "https://github.com/aws/sagemaker-hyperpod-recipes") repository to get a recipe.
 
@@ -67,8 +65,7 @@ manage the entire lifecycle of your training jobs. Use the adapter to distribute
 the pre-training or fine-tuning of your models across multiple machines. The
 adaptor uses different parallelism techniques to distribute the training. It
 also handles the implementation and management of saving the checkpoints. For
-more details, see [Advanced
-settings](cluster-specific-configurations-advanced-settings.md "cluster-specific-configurations-advanced-settings.md").
+more details, see [Advanced settings](cluster-specific-configurations-advanced-settings.md "cluster-specific-configurations-advanced-settings.md").
 
 Use the [SageMaker HyperPod recipe adapter repository](https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo "https://github.com/aws/sagemaker-hyperpod-training-adapter-for-nemo") to use the recipe
 adapter.

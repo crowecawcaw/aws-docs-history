@@ -14,9 +14,7 @@ response = client.delete_endpoint(
 )
 ```
 
-## To delete an endpoint (using the
-
-console)
+## To delete an endpoint (using the console)
 
 1. Sign in to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home").

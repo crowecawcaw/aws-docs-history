@@ -17,8 +17,7 @@ This role must also have a trust policy attached to give SageMaker AI permission
 role. This allows Amazon A2I to perform actions in accordance with permissions that you
 attach to the role.
 
-See [Add Permissions to the IAM Role Used to
-Create a Flow Definition](#a2i-human-review-permissions-s3 "#a2i-human-review-permissions-s3") for example policies that you can modify
+See [Add Permissions to the IAM Role Used to Create a Flow Definition](#a2i-human-review-permissions-s3 "#a2i-human-review-permissions-s3") for example policies that you can modify
 and attach to the role you use to create a flow definition. These are the policies that are
 attached to the IAM role that is created in the **Human review
 workflows** section of the Amazon A2I area of the SageMaker AI console.
@@ -28,8 +27,7 @@ workflows** section of the Amazon A2I area of the SageMaker AI console.
   Amazon A2I Runtime API operation `StartHumanLoop` in a custom ML application. You
   need to attach the `AmazonAugmentedAIFullAccess` managed policy to the user
   that invokes these API operations to grant permission to these services to use Amazon A2I
-  operations. To learn how, see [Create a User That Can Invoke Amazon A2I API
-  Operations](#create-user-grants "#create-user-grants").
+  operations. To learn how, see [Create a User That Can Invoke Amazon A2I API Operations](#create-user-grants "#create-user-grants").
 
 This policy does _not_ grant permission to invoke the API operations
 of the AWS service associated with built-in task types. For example,
@@ -37,8 +35,7 @@ of the AWS service associated with built-in task types. For example,
 `DetectModerationLabel` API operation or Amazon Textract
 `AnalyzeDocument` API operation. You can use the more general policy,
 `AmazonAugmentedAIIntegratedAPIAccess`, to grant these permissions. For more
-information, see [Create a User With Permissions to Invoke
-Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](#a2i-grant-general-permission "#a2i-grant-general-permission"). This is a good option when you want to
+information, see [Create a User With Permissions to Invoke Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](#a2i-grant-general-permission "#a2i-grant-general-permission"). This is a good option when you want to
 grant a user broad permissions to use Amazon A2I and integrated AWS services' API
 operations.
 
@@ -48,23 +45,17 @@ Identity-Based Policy Examples](../../../textract/latest/dg/security_iam_id-base
 permission to use these individual services.
 
 - To preview your custom worker task UI template, you need an IAM role with permissions
-  to read Amazon S3 objects that get rendered on your user interface. See a policy example in [Enable Worker Task
-  Template Previews](#permissions-for-worker-task-templates-augmented-ai "#permissions-for-worker-task-templates-augmented-ai") .
+  to read Amazon S3 objects that get rendered on your user interface. See a policy example in [Enable Worker Task Template Previews](#permissions-for-worker-task-templates-augmented-ai "#permissions-for-worker-task-templates-augmented-ai").
 
 ###### Topics
 
 - [CORS Permission Requirement](#a2i-cors-update "#a2i-cors-update")
-- [Add Permissions to the IAM Role Used to
-  Create a Flow Definition](#a2i-human-review-permissions-s3 "#a2i-human-review-permissions-s3")
-- [Create a User That Can Invoke Amazon A2I API
-  Operations](#create-user-grants "#create-user-grants")
-- [Create a User With Permissions to Invoke
-  Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](#a2i-grant-general-permission "#a2i-grant-general-permission")
-- [Enable Worker Task
-  Template Previews](#permissions-for-worker-task-templates-augmented-ai "#permissions-for-worker-task-templates-augmented-ai")
+- [Add Permissions to the IAM Role Used to Create a Flow Definition](#a2i-human-review-permissions-s3 "#a2i-human-review-permissions-s3")
+- [Create a User That Can Invoke Amazon A2I API Operations](#create-user-grants "#create-user-grants")
+- [Create a User With Permissions to Invoke Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations](#a2i-grant-general-permission "#a2i-grant-general-permission")
+- [Enable Worker Task Template Previews](#permissions-for-worker-task-templates-augmented-ai "#permissions-for-worker-task-templates-augmented-ai")
 - [Using Amazon A2I with AWS KMS Encrypted Buckets](#a2i-kms-encryption "#a2i-kms-encryption")
-- [Additional Permissions and
-  Security Resources](#additional-security-resources-augmented-ai "#additional-security-resources-augmented-ai")
+- [Additional Permissions and Security Resources](#additional-security-resources-augmented-ai "#additional-security-resources-augmented-ai")
 
 ## CORS Permission Requirement
 
@@ -122,9 +113,7 @@ documentation to add a CORS header policy using the Amazon S3 console.
 
 ![Gif on how to add a CORS header policy using the Amazon S3 console.](images/sms/gifs/cors-config.gif)
 
-## Add Permissions to the IAM Role Used to
-
-Create a Flow Definition
+## Add Permissions to the IAM Role Used to Create a Flow Definition
 
 To create a flow definition, attach the policies in this section to the role that you use
 when creating a human review workflow in the SageMaker AI console, or when using the
@@ -206,9 +195,7 @@ following topics in the _AWS Identity and Access Management User Guide_:
 - To learn how to attach an IAM policy to a role, see [Adding and Removing
   IAM Identity Permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
 
-## Create a User That Can Invoke Amazon A2I API
-
-Operations
+## Create a User That Can Invoke Amazon A2I API Operations
 
 To use Amazon A2I to create and start human loops for Amazon Rekognition, Amazon Textract, or the Amazon A2I
 runtime API, you must use a user that has permissions to invoke Amazon A2I operations.
@@ -245,9 +232,7 @@ in the _IAM User Guide_.
 For more information, see [Adding and Removing
 IAM Identity Permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS Identity and Access Management User Guide_.
 
-## Create a User With Permissions to Invoke
-
-Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations
+## Create a User With Permissions to Invoke Amazon A2I, Amazon Textract, and Amazon Rekognition API Operations
 
 To create a user that has permission to invoke the API operations used by the
 built-in task types (that is, `DetectModerationLables` for Amazon Rekognition and
@@ -281,9 +266,7 @@ in the _IAM User Guide_.
 For more information, see [Adding and Removing
 IAM Identity Permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _AWS Identity and Access Management User Guide_.
 
-## Enable Worker Task
-
-Template Previews
+## Enable Worker Task Template Previews
 
 To customize the interface and instructions that your workers see when working on your
 tasks, you create a worker task template. You can create the template using the [`CreateHumanTaskUi`](../APIReference/API_CreateHumanTaskUi.md "../APIReference/API_CreateHumanTaskUi.md") operation or the SageMaker AI console.
@@ -354,16 +337,10 @@ you create a flow definition in the console.
 }
 ```
 
-## Additional Permissions and
+## Additional Permissions and Security Resources
 
-Security Resources
-
-- [Control access to SageMaker AI resources by using
-  tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
-- [Identity-based
-  policies for Amazon SageMaker AI](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies")
-- [Control creation of SageMaker AI resources
-  with condition keys](security_iam_id-based-policy-examples.md#sagemaker-condition-examples "security_iam_id-based-policy-examples.md#sagemaker-condition-examples")
-- [Amazon SageMaker AI API Permissions: Actions,
-  Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md")
+- [Control access to SageMaker AI resources by using tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
+- [Identity-based policies for Amazon SageMaker AI](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies")
+- [Control creation of SageMaker AI resources with condition keys](security_iam_id-based-policy-examples.md#sagemaker-condition-examples "security_iam_id-based-policy-examples.md#sagemaker-condition-examples")
+- [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md")
 - [Configure security in Amazon SageMaker AI](security.md "security.md")

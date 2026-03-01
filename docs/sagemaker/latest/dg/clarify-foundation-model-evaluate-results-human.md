@@ -1,6 +1,4 @@
-# Understand the results
-
-of a human evaluation job
+# Understand the results of a human evaluation job
 
 When you created a model evaluation job that uses human workers you selected one or more _metric types_. When members of the workteam evaluate a response in the worker portal their responses are saved in the `humanAnswers` json object. How those responses are stored change based on the metric type selected when the job was created.
 

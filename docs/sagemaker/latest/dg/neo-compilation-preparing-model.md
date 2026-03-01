@@ -366,5 +366,4 @@ optimized_estimator = estimator.compile_model(target_instance_family='ml_c5',
 ```
 
 For more information about compiling models with the SageMaker Python SDK,
-see [Compile a Model (Amazon SageMaker AI
-SDK)](neo-job-compilation-sagemaker-sdk.md "neo-job-compilation-sagemaker-sdk.md").
+see [Compile a Model (Amazon SageMaker AI SDK)](neo-job-compilation-sagemaker-sdk.md "neo-job-compilation-sagemaker-sdk.md").

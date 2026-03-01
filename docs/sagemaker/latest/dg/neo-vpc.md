@@ -1,6 +1,4 @@
-# Give SageMaker AI Compilation Jobs Access to Resources in Your
-
-Amazon VPC
+# Give SageMaker AI Compilation Jobs Access to Resources in Your Amazon VPC
 
 ###### Note
 
@@ -42,8 +40,7 @@ Guide_.
 
 - [Ensure That Subnets Have Enough IP Addresses](#neo-vpc-ip "#neo-vpc-ip")
 - [Create an Amazon S3 VPC Endpoint](#neo-vpc-s3 "#neo-vpc-s3")
-- [Use a Custom Endpoint Policy to Restrict
-  Access to S3](#neo-vpc-policy "#neo-vpc-policy")
+- [Use a Custom Endpoint Policy to Restrict Access to S3](#neo-vpc-policy "#neo-vpc-policy")
 - [Configure Route Tables](#neo-vpc-route-table "#neo-vpc-route-table")
 - [Configure the VPC Security Group](#neo-vpc-groups "#neo-vpc-groups")
 
@@ -82,12 +79,9 @@ For more information, see [Endpoints for Amazon S3](../../../AmazonVPC/latest/Us
 7. For **Policy**, choose **Full
    Access** to allow full access to the S3 service by any user
    or service within the VPC. Choose **Custom** to
-   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict
-   Access to S3](train-vpc.md#train-vpc-policy "train-vpc.md#train-vpc-policy").
+   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict Access to S3](train-vpc.md#train-vpc-policy "train-vpc.md#train-vpc-policy").
 
-### Use a Custom Endpoint Policy to Restrict
-
-Access to S3
+### Use a Custom Endpoint Policy to Restrict Access to S3
 
 The default endpoint policy allows full access to S3 for any user or service
 in your VPC. To further restrict access to S3, create a custom endpoint policy.
@@ -124,9 +118,7 @@ JSON
 
 ```
 
-#### Add Permissions for Compilation Job Running
-
-in a Amazon VPC to Custom IAM Policies
+#### Add Permissions for Compilation Job Running in a Amazon VPC to Custom IAM Policies
 
 The `SageMakerFullAccess` managed policy includes the permissions that you
 need to use models configured for Amazon VPC access with an endpoint. These
@@ -161,8 +153,7 @@ JSON
 ```
 
 For more information about the `SageMakerFullAccess` managed policy, see
-[AWS managed policy:
-AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
+[AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
 
 ### Configure Route Tables
 

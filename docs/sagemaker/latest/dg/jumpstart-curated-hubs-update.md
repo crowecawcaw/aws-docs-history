@@ -14,9 +14,7 @@ minimum model version that you'd like to use.
   argument.
   Follow the section specific to the resource that you want to update.
 
-##
-
-Update model or notebook resources
+## Update model or notebook resources
 
 To update a model or a notebook resource, use the [UpdateHubContent](../APIReference/API_UpdateHubContent.md "../APIReference/API_UpdateHubContent.md") API.
 

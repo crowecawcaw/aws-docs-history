@@ -1,6 +1,4 @@
-# Autopilot model deployment and
-
-predictions
+# Autopilot model deployment and predictions
 
 After fine-tuning a large language model (LLM), you can deploy the model for real-time
 text generation by setting up an endpoint to obtain interactive predictions.
@@ -24,8 +22,7 @@ follows.
 
 Alternatively, you can chose the automatic deployment option when creating your
 fine-tuning experiment in Autopilot. For information on setting up the automatic deployment
-of models, see [How to enable automatic
-deployment](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment").
+of models, see [How to enable automatic deployment](autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment "autopilot-create-experiment-finetune-llms.md#autopilot-llms-finetuning-auto-model-deployment").
 
 You can also use the SageMaker Python SDK and the `JumpStartModel` class to
 perform inferences with models fine-tuned by Autopilot. This can be done by specifying a
@@ -101,17 +98,14 @@ needs to be encoded in bytes.
 ###### Note
 
 The format of your input prompt depends on the language model. For more
-information on the format of text generation prompts, see [Request format for text
-generation models real-time inference](#autopilot-llms-finetuning-realtime-prompt-examples "#autopilot-llms-finetuning-realtime-prompt-examples").
+information on the format of text generation prompts, see [Request format for text generation models real-time inference](#autopilot-llms-finetuning-realtime-prompt-examples "#autopilot-llms-finetuning-realtime-prompt-examples").
 
 ```
 aws sagemaker invoke-endpoint --endpoint-name '`<endpoint-name>`' \
                   --region '`<region>`' --body '`<your-promt-in-bytes>`' [--content-type] 'application/json' `<outfile>`
 ```
 
-## Request format for text
-
-generation models real-time inference
+## Request format for text generation models real-time inference
 
 Different large language models (LLMs) may have specific software dependencies, runtime
 environments, and hardware requirements influencing Autopilot's recommended container to host

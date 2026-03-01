@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -28,14 +27,10 @@ image.
 
 ###### Topics
 
-- [Attach an image version to your domain
-  using the console](#rstudio-byoi-attach-console "#rstudio-byoi-attach-console")
-- [Attach an existing image version to your
-  domain using the AWS CLI](#rstudio-byoi-attach-cli "#rstudio-byoi-attach-cli")
+- [Attach an image version to your domain using the console](#rstudio-byoi-attach-console "#rstudio-byoi-attach-console")
+- [Attach an existing image version to your domain using the AWS CLI](#rstudio-byoi-attach-cli "#rstudio-byoi-attach-cli")
 
-## Attach an image version to your domain
-
-using the console
+## Attach an image version to your domain using the console
 
 You can attach a custom SageMaker image version to your domain using the SageMaker AI console's
 control panel. You can also create a custom SageMaker image, and an image version, and then
@@ -69,9 +64,7 @@ Wait for the image version to be attached to the domain. After the version is
 attached, it appears in the **Custom images** list and is briefly
 highlighted.
 
-## Attach an existing image version to your
-
-domain using the AWS CLI
+## Attach an existing image version to your domain using the AWS CLI
 
 Two methods are presented to attach the image version to your domain using the
 AWS CLI. In the first method, you create a new domain with the version attached. This
@@ -83,9 +76,7 @@ attach the image version to your current domain. In this case, you don't need to
 specify the Amazon VPC information and execution role. After you attach the version, delete
 all of the applications in your domain and relaunch RStudio.
 
-### Attach the SageMaker image to a new
-
-domain
+### Attach the SageMaker image to a new domain
 
 To use this method, you must specify an execution role that has the [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") policy attached.
 
@@ -180,9 +171,7 @@ Response:
 }
 ```
 
-### Attach the SageMaker image to an
-
-existing domain
+### Attach the SageMaker image to an existing domain
 
 This method assumes that you've already onboarded to domain. For more information,
 see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").

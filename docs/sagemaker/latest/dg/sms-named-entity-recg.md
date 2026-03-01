@@ -1,6 +1,4 @@
-# Extract text information using named entity
-
-recognition
+# Extract text information using named entity recognition
 
 To extract information from unstructured text and classify it into predefined categories,
 use an Amazon SageMaker Ground Truth named entity recognition (NER) labeling task. Traditionally, NER involves
@@ -23,9 +21,7 @@ quickly select labels.
 If you manually create an input manifest file, use `"source"` to identify
 the text that you want labeled. For more information, see [Input data](sms-data-input.md "sms-data-input.md").
 
-## Create a Named Entity Recognition Labeling
-
-Job (Console)
+## Create a Named Entity Recognition Labeling Job (Console)
 
 You can follow the instructions [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") to learn how to create a named
 entity recognition labeling job in the SageMaker AI console. In Step 10, choose **Text** from the **Task category**
@@ -38,9 +34,7 @@ complete the job and labels that workers can choose from.
 
 ![Gif showing how to create a named entity recognition labeling job in the SageMaker AI console.](images/sms/gifs/nertool.gif)
 
-## Create a Named Entity Recognition Labeling Job
-
-(API)
+## Create a Named Entity Recognition Labeling Job (API)
 
 To create a named entity recognition labeling job, using the SageMaker API operation
 `CreateLabelingJob`. This API defines this operation for all AWS SDKs.
@@ -69,8 +63,7 @@ you create a labeling job in US West (N. California).
 - Provide worker instructions in the label category configuration file using the
   `instructions` parameter. You can use a string, or HTML markup
   language in the `shortInstruction` and `fullInstruction`
-  fields. For more details, see [Provide Worker Instructions in a Label
-  Category Configuration File](#worker-instructions-ner "#worker-instructions-ner").
+  fields. For more details, see [Provide Worker Instructions in a Label Category Configuration File](#worker-instructions-ner "#worker-instructions-ner").
 
 ```
 "instructions": {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>", "fullInstruction":"<p>Add additional instructions.</p>"}
@@ -132,9 +125,7 @@ response = client.create_labeling_job(
 )
 ```
 
-### Provide Worker Instructions in a Label
-
-Category Configuration File
+### Provide Worker Instructions in a Label Category Configuration File
 
 You must provide worker instructions in the label category configuration file you
 identify with the `LabelCategoryConfigS3Uri` parameter in

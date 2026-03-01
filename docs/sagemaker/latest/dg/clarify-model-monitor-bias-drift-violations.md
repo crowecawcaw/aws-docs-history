@@ -1,6 +1,4 @@
-# Bias Drift
-
-Violations
+# Bias Drift Violations
 
 Bias drift jobs evaluate the baseline constraints provided by the [baseline configuration](../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig "../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig") against the analysis results of current
 `MonitoringExecution`. If violations are detected, the job lists them to
@@ -16,8 +14,7 @@ Here is the schema of the bias drift violations file.
   `value_or_threshold`.
 - `metric_name` – The short name of the bias metric. For
   example, "CI" for class imbalance. See [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md") for the short names of each of
-  the pre-training bias metrics and [Post-training Data and Model
-  Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md") for the short names of
+  the pre-training bias metrics and [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md") for the short names of
   each of the post-training bias metrics.
 - `constraint_check_type` – The type of violation monitored.
   Currently only `bias_drift_check` is supported.

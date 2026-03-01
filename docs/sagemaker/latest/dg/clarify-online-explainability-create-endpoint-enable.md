@@ -1,6 +1,4 @@
-# The
-
-`EnableExplanations` expression
+# The `EnableExplanations` expression
 
 The `EnableExplanations` parameter is a [`JMESPath`](https://jmespath.org/ "https://jmespath.org/") Boolean expression
 string. It is evaluated for **each record** in the

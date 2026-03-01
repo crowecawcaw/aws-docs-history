@@ -6,15 +6,11 @@ compiled with SageMaker Neo based on how you compiled your model.
 
 ###### Topics
 
-- [If
-  you compiled your model using the SageMaker SDK](#neo-deployment-hosting-services-sdk-deploy-sm-sdk "#neo-deployment-hosting-services-sdk-deploy-sm-sdk")
-- [If
-  you compiled your model using MXNet or PyTorch](#neo-deployment-hosting-services-sdk-deploy-sm-boto3 "#neo-deployment-hosting-services-sdk-deploy-sm-boto3")
+- [If you compiled your model using the SageMaker SDK](#neo-deployment-hosting-services-sdk-deploy-sm-sdk "#neo-deployment-hosting-services-sdk-deploy-sm-sdk")
+- [If you compiled your model using MXNet or PyTorch](#neo-deployment-hosting-services-sdk-deploy-sm-boto3 "#neo-deployment-hosting-services-sdk-deploy-sm-boto3")
 - [If you compiled your model using Boto3, SageMaker console, or the CLI for TensorFlow](#neo-deployment-hosting-services-sdk-deploy-sm-boto3-tensorflow "#neo-deployment-hosting-services-sdk-deploy-sm-boto3-tensorflow")
 
-## If
-
-you compiled your model using the SageMaker SDK
+## If you compiled your model using the SageMaker SDK
 
 The [sagemaker.Model](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model "https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model") object handle for the compiled model supplies the
 [deploy()](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model#sagemaker.model.Model.deploy "https://sagemaker.readthedocs.io/en/stable/api/inference/model.html?highlight=sagemaker.Model#sagemaker.model.Model.deploy") function, which enables you to create an endpoint to serve
@@ -30,9 +26,7 @@ predictor = compiled_model.deploy(initial_instance_count = 1, instance_type = 'm
 print(predictor.endpoint_name)
 ```
 
-## If
-
-you compiled your model using MXNet or PyTorch
+## If you compiled your model using MXNet or PyTorch
 
 Create the SageMaker AI model and deploy it using the deploy() API under the
 framework-specific Model APIs. For MXNet, it is [MXNetModel](https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html?highlight=MXNetModel#mxnet-model "https://sagemaker.readthedocs.io/en/stable/frameworks/mxnet/sagemaker.mxnet.html?highlight=MXNetModel#mxnet-model") and for PyTorch, it is [PyTorchModel](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html?highlight=PyTorchModel#sagemaker.pytorch.model.PyTorchModel "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html?highlight=PyTorchModel#sagemaker.pytorch.model.PyTorchModel"). When you are creating and deploying an SageMaker AI model, you

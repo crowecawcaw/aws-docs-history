@@ -1,6 +1,4 @@
-# Create secrets for database
-
-access credentials in Secrets Manager
+# Create secrets for database access credentials in Secrets Manager
 
 Before creating your connection, we recommend storing your database access credentials as
 a secret in AWS Secrets Manager. Alternatively, you can generate temporary database credentials based on
@@ -8,9 +6,7 @@ permissions granted through an AWS Identity and Access Management (IAM) permissi
 your users have to your database. For more information, see [Using IAM authentication to
 generate database user credentials](../../../redshift/latest/mgmt/generating-user-credentials.md "../../../redshift/latest/mgmt/generating-user-credentials.md")
 
-## Create a secret for Amazon Redshift access
-
-credentials
+## Create a secret for Amazon Redshift access credentials
 
 ###### To store Amazon Redshift information in AWS Secrets Manager
 
@@ -26,9 +22,7 @@ credentials
    creation, or customized if required.
 8. Create the secret and retrieve its ARN.
 
-## Create a secret for
-
-Amazon Redshift Serverless access credentials
+## Create a secret for Amazon Redshift Serverless access credentials
 
 ###### If you need to connect to Amazon Redshift Serverless, follow these steps
 
@@ -51,9 +45,7 @@ Amazon Redshift Serverless access credentials
 6. When creating a new connection in SQL extension in JupyterLab, supply all
    other Amazon Redshift connection parameters as needed.
 
-## Create a secret for Snowflake
-
-access credentials
+## Create a secret for Snowflake access credentials
 
 This section provides details on the secret and connection properties in JSON definition
 files that are specific to Snowflake. Before creating your connection, we recommend storing

@@ -1,6 +1,4 @@
-# Bring Your Own Deep Learning
-
-Model
+# Bring Your Own Deep Learning Model
 
 ###### Important
 

@@ -1,6 +1,4 @@
-# Resolve errors when
-
-creating a model evaluation job in Amazon SageMaker AI
+# Resolve errors when creating a model evaluation job in Amazon SageMaker AI
 
 ###### Important
 
@@ -17,18 +15,13 @@ If you run into an error while creating a model evaluation job, use the followin
 
 ###### Topics
 
-- [Error
-  uploading your data from an Amazon S3 bucket](#clarify-foundation-model-evaluate-troubleshooting-cors "#clarify-foundation-model-evaluate-troubleshooting-cors")
-- [The
-  processing job failed to complete](#clarify-foundation-model-evaluate-troubleshooting-failure "#clarify-foundation-model-evaluate-troubleshooting-failure")
-- [You
-  can't find foundation model evaluations in the SageMaker AI console](#clarify-foundation-model-evaluate-troubleshooting-upgrade "#clarify-foundation-model-evaluate-troubleshooting-upgrade")
+- [Error uploading your data from an Amazon S3 bucket](#clarify-foundation-model-evaluate-troubleshooting-cors "#clarify-foundation-model-evaluate-troubleshooting-cors")
+- [The processing job failed to complete](#clarify-foundation-model-evaluate-troubleshooting-failure "#clarify-foundation-model-evaluate-troubleshooting-failure")
+- [You can't find foundation model evaluations in the SageMaker AI console](#clarify-foundation-model-evaluate-troubleshooting-upgrade "#clarify-foundation-model-evaluate-troubleshooting-upgrade")
 - [Your model does not support prompt stereotyping](#clarify-foundation-model-evaluate-troubleshooting-ps "#clarify-foundation-model-evaluate-troubleshooting-ps")
 - [Dataset validation errors (Human)](#clarify-foundation-model-evaluate-troubleshooting-valid "#clarify-foundation-model-evaluate-troubleshooting-valid")
 
-## Error
-
-uploading your data from an Amazon S3 bucket
+## Error uploading your data from an Amazon S3 bucket
 
 When you create a foundation model evaluation, you must set the correct
 permissions for the S3 bucket that you want to store your model input and output in.
@@ -41,9 +34,7 @@ generates the following error:
 
 To set the correct bucket permissions, follow the instructions under **Set up your environment** in [Create an automatic model evaluation job in Studio](clarify-foundation-model-evaluate-auto-ui.md "clarify-foundation-model-evaluate-auto-ui.md").
 
-## The
-
-processing job failed to complete
+## The processing job failed to complete
 
 The most common reasons that your processing job failed to complete include the
 following:
@@ -153,9 +144,7 @@ If the error persists, contact [AWS Support](https://console.aws.amazon.com/supp
 [AWS
 Developer Forums for Amazon SageMaker AI](https://forums.aws.amazon.com/forum.jspa?forumID=285 "https://forums.aws.amazon.com/forum.jspa?forumID=285").
 
-## You
-
-can't find foundation model evaluations in the SageMaker AI console
+## You can't find foundation model evaluations in the SageMaker AI console
 
 In order to use SageMaker Clarify Foundation Model Evaluations, you must upgrade to the new Studio experience.
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named

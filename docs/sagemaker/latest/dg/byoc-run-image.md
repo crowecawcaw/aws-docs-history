@@ -1,6 +1,4 @@
-# How Amazon SageMaker Processing Runs Your Processing Container
-
-Image
+# How Amazon SageMaker Processing Runs Your Processing Container Image
 
 Amazon SageMaker Processing runs your processing container image in a similar way as the following
 command, where `AppSpecification.ImageUri` is the Amazon ECR image URI that

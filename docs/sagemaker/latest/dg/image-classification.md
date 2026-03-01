@@ -28,18 +28,14 @@ For more information on convolutional networks, see:
 
 ###### Topics
 
-- [Input/Output Interface for the Image Classification
-  Algorithm](#IC-inputoutput "#IC-inputoutput")
-- [EC2 Instance Recommendation for the Image Classification
-  Algorithm](#IC-instances "#IC-instances")
+- [Input/Output Interface for the Image Classification Algorithm](#IC-inputoutput "#IC-inputoutput")
+- [EC2 Instance Recommendation for the Image Classification Algorithm](#IC-instances "#IC-instances")
 - [Image Classification Sample Notebooks](#IC-sample-notebooks "#IC-sample-notebooks")
 - [How Image Classification Works](IC-HowItWorks.md "IC-HowItWorks.md")
 - [Image Classification Hyperparameters](IC-Hyperparameter.md "IC-Hyperparameter.md")
 - [Tune an Image Classification Model](IC-tuning.md "IC-tuning.md")
 
-## Input/Output Interface for the Image Classification
-
-Algorithm
+## Input/Output Interface for the Image Classification Algorithm
 
 The SageMaker AI Image Classification algorithm supports both RecordIO
 (`application/x-recordio`) and image (`image/png`,
@@ -112,9 +108,7 @@ files under one subdirectory inside the `train` directory. In that case,
 use that subdirectory for the relative path. For example,
 `s3://<your_bucket>/train/your_image_directory`.
 
-### Train with Augmented Manifest Image
-
-Format
+### Train with Augmented Manifest Image Format
 
 The augmented manifest format enables you to do training in Pipe mode using image
 files without needing to create RecordIO files. You need to specify both train and
@@ -194,9 +188,7 @@ architecture. For the pretrained model file, use the compressed model artifacts 
 .tar.gz format) output by SageMaker AI. You can use either RecordIO or image formats for
 input data.
 
-### Inference with the Image Classification
-
-Algorithm
+### Inference with the Image Classification Algorithm
 
 The generated models can be hosted for inference and support encoded
 `.jpg` and `.png` image formats as `image/png,
@@ -216,9 +208,7 @@ accept: application/jsonlines
 For more details on training and inference, see the image classification sample
 notebook instances referenced in the introduction.
 
-## EC2 Instance Recommendation for the Image Classification
-
-Algorithm
+## EC2 Instance Recommendation for the Image Classification Algorithm
 
 For image classification, we support P2, P3, G4dn, and G5 instances. We recommend using
 GPU instances with more memory for training with large batch sizes. You can also run the

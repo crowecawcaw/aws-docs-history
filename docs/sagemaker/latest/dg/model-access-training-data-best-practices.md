@@ -1,6 +1,4 @@
-# Choosing an input mode and a
-
-storage unit
+# Choosing an input mode and a storage unit
 
 The best data source for your training job depends on workload characteristics such as the
 size of the dataset, the file format, the average size of files, the training duration, a
@@ -18,9 +16,7 @@ channel that points to the Amazon EFS file system. For more information, see [Sp
 you cannot achieve better performance, check your optimization options following the [Amazon Elastic File System performance guide](../../../efs/latest/ug/performance.md#performance-overview "../../../efs/latest/ug/performance.md#performance-overview") or consider using different input modes or data
 storage.
 
-## Use file mode for
-
-small datasets
+## Use file mode for small datasets
 
 If the dataset is stored in Amazon Simple Storage Service and its overall volume is relatively small (for
 example, less than 50-100 GB), try using file mode. The overhead of downloading a 50 GB
@@ -29,9 +25,7 @@ if a dataset is chunked into 100 MB shards. Whether this startup overhead is acc
 primarily depends on the overall duration of your training job, because a longer training
 phase means a proportionally smaller download phase.
 
-## Serializing many small
-
-files
+## Serializing many small files
 
 If your dataset size is small (less than 50-100 GB), but is made up of many small files
 (less than 50 MB per file), the file mode download overhead grows, because each file needs
@@ -42,9 +36,7 @@ into fewer larger file containers (such as 150 MB per file) by using file format
 TensorFlow, [WebDataset](https://webdataset.github.io/webdataset/ "https://webdataset.github.io/webdataset/") for
 PyTorch, and [RecordIO](https://mxnet.apache.org/versions/1.8.0/api/faq/recordio "https://mxnet.apache.org/versions/1.8.0/api/faq/recordio") for MXNet.
 
-## When to use fast file
-
-mode
+## When to use fast file mode
 
 For larger datasets with larger files (more than 50 MB per file), the first option is to
 try fast file mode, which is more straightforward to use than FSx for Lustre because it doesn't
@@ -63,9 +55,7 @@ using the SageMaker Python SDK:
 sagemaker.inputs.TrainingInput(S3_INPUT_FOLDER,  input_mode = 'FastFile')
 ```
 
-## When to use
-
-Amazon FSx for Lustre
+## When to use Amazon FSx for Lustre
 
 If your dataset is too large for file mode, has many small files that you can't
 serialize easily, or uses a random read access pattern, FSx for Lustre is a good option to

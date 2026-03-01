@@ -7,8 +7,7 @@ Find more information and references about using Amazon SageMaker Debugger in th
 - [Amazon SageMaker Debugger APIs](#debugger-apis "#debugger-apis")
 - [Docker images for Debugger rules](#debugger-docker-images-rules "#debugger-docker-images-rules")
 - [Amazon SageMaker Debugger exceptions](#debugger-exceptions "#debugger-exceptions")
-- [Distributed training supported by
-  Amazon SageMaker Debugger](#debugger-considerations "#debugger-considerations")
+- [Distributed training supported by Amazon SageMaker Debugger](#debugger-considerations "#debugger-considerations")
 
 ## Amazon SageMaker Debugger APIs
 
@@ -47,8 +46,7 @@ Debugger when training a model and to manage the configuration of inputs and out
   - [`ProfilerRuleEvaluationStatus`](../APIReference/API_ProfilerRuleEvaluationStatus.md "../APIReference/API_ProfilerRuleEvaluationStatus.md")
 
 The rule configuration API operations use the SageMaker Processing functionality when
-analyzing a model training. For more information about SageMaker Processing, see [Data transformation
-workloads with SageMaker Processing](processing-job.md "processing-job.md").
+analyzing a model training. For more information about SageMaker Processing, see [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md").
 
 ## Docker images for Debugger rules
 
@@ -76,14 +74,10 @@ following topics.
 
 ###### Topics
 
-- [Amazon SageMaker Debugger image URIs for built-in rule
-  evaluators](#debuger-built-in-registry-ids "#debuger-built-in-registry-ids")
-- [Amazon SageMaker Debugger image URIs for custom rule
-  evaluators](#debuger-custom-rule-registry-ids "#debuger-custom-rule-registry-ids")
+- [Amazon SageMaker Debugger image URIs for built-in rule evaluators](#debuger-built-in-registry-ids "#debuger-built-in-registry-ids")
+- [Amazon SageMaker Debugger image URIs for custom rule evaluators](#debuger-custom-rule-registry-ids "#debuger-custom-rule-registry-ids")
 
-### Amazon SageMaker Debugger image URIs for built-in rule
-
-evaluators
+### Amazon SageMaker Debugger image URIs for built-in rule evaluators
 
 Use the following values for the components of the registry URLs for the images that
 provide built-in rules for Amazon SageMaker Debugger. For account IDs, see the following table.
@@ -124,9 +118,7 @@ Account IDs for Built-in Rules Container Images by AWS Region
 | `us-west-2`      | 895741380848 |
 | `us-gov-west-1`  | 515509971035 |
 
-### Amazon SageMaker Debugger image URIs for custom rule
-
-evaluators
+### Amazon SageMaker Debugger image URIs for custom rule evaluators
 
 Use the following values for the components of the registry URL for the images that
 provide custom rule evaluators for Amazon SageMaker Debugger. For account IDs, see the following
@@ -210,9 +202,7 @@ The following exceptions are available:
 - `InsufficientInformationForRuleInvocation` – Insufficient
   information was provided to invoke the rule.
 
-## Distributed training supported by
-
-Amazon SageMaker Debugger
+## Distributed training supported by Amazon SageMaker Debugger
 
 The following list shows the scope of validity and considerations for using Debugger on
 training jobs with deep learning frameworks and various distributed training
@@ -258,8 +248,7 @@ SMDebug Does Not Currently Support Distributed Training Jobs With Checkpointing 
 To use Debugger for training jobs with distributed training options, you need to
 disable SageMaker AI checkpointing and add manual checkpointing functions to your
 training script. For more information about using Debugger with distributed
-training options and checkpoints, see [Using SageMaker AI distributed data
-parallel with Amazon SageMaker Debugger and checkpoints](distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-debugger "distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-debugger") and [Saving Checkpoints](distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints "distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints").
+training options and checkpoints, see [Using SageMaker AI distributed data parallel with Amazon SageMaker Debugger and checkpoints](distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-debugger "distributed-troubleshooting-data-parallel.md#distributed-ts-data-parallel-debugger") and [Saving Checkpoints](distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints "distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints").
 
 - **Parameter Server** – Debugger does not support
   parameter server-based distributed training.

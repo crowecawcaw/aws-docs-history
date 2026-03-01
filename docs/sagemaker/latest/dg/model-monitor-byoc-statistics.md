@@ -1,6 +1,4 @@
-# Schema for Statistics
-
-(statistics.json file)
+# Schema for Statistics (statistics.json file)
 
 The schema defined in the `statistics.json` file
 specifies the statistical parameters to be calculated for the baseline

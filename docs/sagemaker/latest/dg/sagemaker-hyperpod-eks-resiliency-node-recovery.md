@@ -1,6 +1,4 @@
-# Automatic node
-
-recovery
+# Automatic node recovery
 
 During cluster creation or update, cluster admin users can select the node (instance)
 recovery option between `Automatic` (Recommended) and `None` at

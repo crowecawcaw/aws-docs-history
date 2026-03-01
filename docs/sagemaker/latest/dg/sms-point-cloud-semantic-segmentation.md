@@ -1,6 +1,4 @@
-# Understand the 3D point cloud
-
-semantic segmentation task type
+# Understand the 3D point cloud semantic segmentation task type
 
 Semantic segmentation involves classifying individual points of a 3D point cloud into
 pre-specified categories. Use this task type when you want workers to create a point-level
@@ -21,8 +19,7 @@ type. To learn more about adjustment and verification labeling jobs, and to lear
 one, see [Label verification and adjustment](sms-verification-data.md "sms-verification-data.md").
 
 If you are a new user of the Ground Truth 3D point cloud labeling modality, we recommend you
-review [3D point cloud labeling jobs
-overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
+review [3D point cloud labeling jobs overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
 different from other Ground Truth task types, and this topic provides an overview of important
 details you should be aware of when creating a 3D point cloud labeling job.
 
@@ -32,9 +29,6 @@ and provide an overview of the output data you get when workers complete their t
 
 ###### Topics
 
-- [Create a 3D
-  point cloud semantic segmentation labeling job](sms-point-cloud-semantic-segmentation-create-labeling-job.md "sms-point-cloud-semantic-segmentation-create-labeling-job.md")
-- [View the worker task
-  interface for a 3D point cloud semantic segmentation job](sms-point-cloud-semantic-segmentation-worker-ui.md "sms-point-cloud-semantic-segmentation-worker-ui.md")
-- [Output
-  data for a 3D point cloud semantic segmentation job](sms-point-cloud-semantic-segmentation-input-data.md "sms-point-cloud-semantic-segmentation-input-data.md")
+- [Create a 3D point cloud semantic segmentation labeling job](sms-point-cloud-semantic-segmentation-create-labeling-job.md "sms-point-cloud-semantic-segmentation-create-labeling-job.md")
+- [View the worker task interface for a 3D point cloud semantic segmentation job](sms-point-cloud-semantic-segmentation-worker-ui.md "sms-point-cloud-semantic-segmentation-worker-ui.md")
+- [Output data for a 3D point cloud semantic segmentation job](sms-point-cloud-semantic-segmentation-input-data.md "sms-point-cloud-semantic-segmentation-input-data.md")

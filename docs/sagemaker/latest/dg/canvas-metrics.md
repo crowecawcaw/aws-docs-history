@@ -223,9 +223,7 @@ categories, you also receive the _average_ F1,
 Accuracy, Precision, and Recall metrics. The scores for these metrics are just the
 metric scores average for all categories.
 
-## Metrics for time series
-
-forecasts
+## Metrics for time series forecasts
 
 The following defines the advanced metrics for time series forecasts in Amazon SageMaker Canvas and
 gives you information about how you can use them.

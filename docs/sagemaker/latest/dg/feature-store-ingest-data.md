@@ -20,8 +20,7 @@ In the following topics we will discuss the difference between
 
 - [Stream ingestion](#feature-store-ingest-data-stream "#feature-store-ingest-data-stream")
 - [Data Wrangler with Feature Store](#feature-store-data-wrangler-integration "#feature-store-data-wrangler-integration")
-- [Batch ingestion with Amazon SageMaker Feature Store
-  Spark](batch-ingestion-spark-connector-setup.md "batch-ingestion-spark-connector-setup.md")
+- [Batch ingestion with Amazon SageMaker Feature Store Spark](batch-ingestion-spark-connector-setup.md "batch-ingestion-spark-connector-setup.md")
 
 ## Stream ingestion
 

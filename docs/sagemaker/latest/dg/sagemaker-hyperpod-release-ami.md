@@ -11,10 +11,8 @@ Key components added to HyperPod AMIs include:
   support for [building custom
   AMIs](hyperpod-custom-ami-support.md "hyperpod-custom-ami-support.md")
 - Advanced orchestration tools:
-  - [Orchestrating SageMaker HyperPod clusters with
-    Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
-  - [Orchestrating SageMaker HyperPod clusters with
-    Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
+  - [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
+  - [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
 
 - Cluster management dependencies
 - Built-in resiliency features:
@@ -30,8 +28,6 @@ Key components added to HyperPod AMIs include:
 - Amazon Linux 2 or Amazon Linux 2023 based AMI for orchestration with Amazon EKS.
   Choose your HyperPod AMIs based on your orchestration preference:
 
-- For Slurm orchestration, see [SageMaker HyperPod AMI releases for
-  Slurm](sagemaker-hyperpod-release-ami-slurm.md "sagemaker-hyperpod-release-ami-slurm.md").
-- For Amazon EKS orchestration, see [SageMaker HyperPod AMI releases for
-  Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md").
+- For Slurm orchestration, see [SageMaker HyperPod AMI releases for Slurm](sagemaker-hyperpod-release-ami-slurm.md "sagemaker-hyperpod-release-ami-slurm.md").
+- For Amazon EKS orchestration, see [SageMaker HyperPod AMI releases for Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md").
   For information about Amazon SageMaker HyperPod feature releases, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md "sagemaker-hyperpod-release-notes.md").

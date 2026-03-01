@@ -1,6 +1,4 @@
-# Estimator configuration for
-
-framework profiling
+# Estimator configuration for framework profiling
 
 ###### Warning
 
@@ -26,8 +24,7 @@ framework profiling options.
 
 Before getting started with Debugger framework profiling, verify that the framework
 used to build your model is supported by Debugger for framework profiling. For more
-information, see [Supported frameworks and
-algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md").
+information, see [Supported frameworks and algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md").
 
 Debugger saves the framework metrics in a default S3 bucket. The format of the
 default S3 bucket URI is
@@ -35,11 +32,6 @@ default S3 bucket URI is
 
 ###### Topics
 
-- [Default framework
-  profiling](debugger-configure-framework-profiling-basic.md "debugger-configure-framework-profiling-basic.md")
-- [Default system
-  monitoring and customized framework profiling for target steps or a target time
-  range](debugger-configure-framework-profiling-range.md "debugger-configure-framework-profiling-range.md")
-- [Default system
-  monitoring and customized framework profiling with different profiling
-  options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md")
+- [Default framework profiling](debugger-configure-framework-profiling-basic.md "debugger-configure-framework-profiling-basic.md")
+- [Default system monitoring and customized framework profiling for target steps or a target time range](debugger-configure-framework-profiling-range.md "debugger-configure-framework-profiling-range.md")
+- [Default system monitoring and customized framework profiling with different profiling options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md")

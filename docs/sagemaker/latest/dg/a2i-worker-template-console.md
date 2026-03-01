@@ -1,6 +1,4 @@
-# Create and Delete Worker Task
-
-Templates
+# Create and Delete Worker Task Templates
 
 You can use a worker template to customize the interface and instructions that your
 workers see when working on your tasks. Use the instructions on this page to create a worker
@@ -16,8 +14,7 @@ human review workflow on the human review workflows page of the console.
 
 If you are creating a worker task template resource for an Amazon Textract or Amazon Rekognition task type,
 you can preview the worker UI that is generated from your template on the worker task
-templates console page. You must attach the policy described in [Enable Worker Task
-Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai") to the IAM role
+templates console page. You must attach the policy described in [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai") to the IAM role
 that you use to preview the template.
 
 ## Create a Worker Task Template
@@ -59,8 +56,7 @@ the task that you just performed.
 
 If you are creating a worker task template for a custom task type, you can preview
 your worker task UI using `RenderUiTemplate`. For more information, see
-[Preview a Worker Task
-Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template"). 9. When you're satisfied with your template, choose
+[Preview a Worker Task Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template"). 9. When you're satisfied with your template, choose
 **Create**.
 
 After you've created your template, you can select that template when you create a human

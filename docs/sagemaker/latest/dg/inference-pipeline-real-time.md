@@ -1,6 +1,4 @@
-# Run Real-time Predictions with an
-
-Inference Pipeline
+# Run Real-time Predictions with an Inference Pipeline
 
 You can use trained models in an inference pipeline to make real-time predictions
 directly without performing external preprocessing. When you configure the pipeline, you
@@ -34,12 +32,9 @@ value automatically when you run the container in a multicontainer pipeline.
 ###### Note
 
 To use custom Docker images in a pipeline that includes [SageMaker AI built-in algorithms](sagemaker-algo-docker-registry-paths.md "sagemaker-algo-docker-registry-paths.md"), you need an [Amazon Elastic Container Registry (Amazon ECR) policy](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"). Your Amazon ECR repository must grant SageMaker AI
-permission to pull the image. For more information, see [Troubleshoot Amazon ECR
-Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions "inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions").
+permission to pull the image. For more information, see [Troubleshoot Amazon ECR Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions "inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions").
 
-## Create and Deploy an Inference
-
-Pipeline Endpoint
+## Create and Deploy an Inference Pipeline Endpoint
 
 The following code creates and deploys a real-time inference pipeline model with
 SparkML and XGBoost models in series using the SageMaker AI SDK.
@@ -59,9 +54,7 @@ sm_model = PipelineModel(name=model_name, role=role, models=[sparkml_model, xgb_
 sm_model.deploy(initial_instance_count=1, instance_type='ml.c4.xlarge', endpoint_name=endpoint_name)
 ```
 
-## Request Real-Time Inference
-
-from an Inference Pipeline Endpoint
+## Request Real-Time Inference from an Inference Pipeline Endpoint
 
 The following example shows how to make real-time predictions by calling an
 inference endpoint and passing a request payload in JSON format:
@@ -119,9 +112,7 @@ print(predictor.predict(payload))
 The response you get from `predictor.predict(payload)` is the model's
 inference result.
 
-## Realtime inference pipeline
-
-example
+## Realtime inference pipeline example
 
 You can run this [example notebook using the SKLearn predictor](https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-python-sdk/scikit_learn_randomforest/Sklearn_on_SageMaker_end2end.ipynb "https://github.com/awslabs/amazon-sagemaker-examples/blob/master/sagemaker-python-sdk/scikit_learn_randomforest/Sklearn_on_SageMaker_end2end.ipynb") that shows how to deploy
 an endpoint, run an inference request, then deserialize the response. Find this

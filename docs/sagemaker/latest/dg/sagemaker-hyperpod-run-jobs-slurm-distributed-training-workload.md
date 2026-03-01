@@ -96,8 +96,7 @@ conda install pytorch==`X.Y.Z`  torchvision==`X.Y.Z` torchaudio==`X.Y.Z` pytorch
   library, see [Supported Frameworks](distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks "distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks") in the SMDDP library documentation. You
   can also bring your own Docker container with required dependencies
   installed to use the SMDDP library. To learn more about setting up a custom
-  Docker container to use the SMDDP library, see also [Create your own Docker container with
-  the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
+  Docker container to use the SMDDP library, see also [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
 
 ###### Important
 
@@ -110,8 +109,7 @@ the following option when running your container.
 docker run `<OTHER_OPTIONS>` **-v /var/log:/var/log** ...
 ```
 
-To learn how to run data-parallel training jobs with SMDDP in general, see [Distributed training with the SageMaker AI
-distributed data parallelism library](data-parallel-modify-sdp.md "data-parallel-modify-sdp.md").
+To learn how to run data-parallel training jobs with SMDDP in general, see [Distributed training with the SageMaker AI distributed data parallelism library](data-parallel-modify-sdp.md "data-parallel-modify-sdp.md").
 
 ## Using SMP on a SageMaker HyperPod cluster
 

@@ -115,8 +115,7 @@ location.
 
     To help you validate these two JSON files, the HyperPod
      service team provides a validation script, [`validate-config.py`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/validate-config.py "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/validate-config.py"). To learn more, see
-     [Validating the JSON configuration files before creating a Slurm cluster on
-     HyperPod](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-json-files.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-json-files.md").
+     [Validating the JSON configuration files before creating a Slurm cluster on HyperPod](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-json-files.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-validate-json-files.md").
 
 
 
@@ -296,8 +295,7 @@ location.
     	 the [Slurm exporter for Prometheus](https://github.com/vpenso/prometheus-slurm-exporter "https://github.com/vpenso/prometheus-slurm-exporter"), the [NVIDIA DCGM
     	 exporter](https://github.com/NVIDIA/dcgm-exporter "https://github.com/NVIDIA/dcgm-exporter"), and the [EFA node exporter](https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md "https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md"). For more information about
     	 installing the exporter packages and using Grafana dashboards on
-    	 an Amazon Managed Grafana workspace, see [SageMaker HyperPod cluster
-    	 resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md").
+    	 an Amazon Managed Grafana workspace, see [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md").
 
 
     	To enable this installation step, set the

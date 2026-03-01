@@ -1,14 +1,10 @@
-# Stop or delete an EMR Serverless
-
-application from the Studio UI
+# Stop or delete an EMR Serverless application from the Studio UI
 
 You can stop (transition to the `Stopped` state) or delete (transition to
 the `Deleted` state) an EMR Serverless application from the list of
 applications in the Studio UI.
 
-###### To stop or delete an application, navigate to the list of available
-
-EMR Serverless applications.
+###### To stop or delete an application, navigate to the list of available EMR Serverless applications.
 
 1. In the Studio UI, navigate to the left-side panel and select the
    **Data** node in the left navigation menu. Then, scroll and

@@ -10,8 +10,7 @@ the model automatically or manually. You can also use SageMaker APIs to manually
 model.
 
 The following tabs show three options for deploying your model. These instructions
-assume that you have already created a model in Autopilot. If you don't have a model, see [Create Regression or
-Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md"). To see examples
+assume that you have already created a model in Autopilot. If you don't have a model, see [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md"). To see examples
 for each option, open each tab.
 
 The Autopilot UI contains helpful dropdown menus, toggles, tooltips, and more to help

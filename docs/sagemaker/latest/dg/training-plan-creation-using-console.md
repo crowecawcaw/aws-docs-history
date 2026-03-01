@@ -1,6 +1,4 @@
-# SageMaker training plans creation using the
-
-SageMaker AI console
+# SageMaker training plans creation using the SageMaker AI console
 
 SageMaker training plans offer a convenient way to create training plans through the SageMaker AI console
 UI, allowing users to easily schedule their machine learning training resources. This guide

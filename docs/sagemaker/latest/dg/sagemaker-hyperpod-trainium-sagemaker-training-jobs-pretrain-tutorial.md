@@ -16,9 +16,7 @@ Before you start setting up your environment, make sure you have:
 - Request a Service Quota for the `ml.trn1.32xlarge` instance on
   Amazon SageMaker AI. To request a service quota increase, do the following:
 
-###### To request a service quota increase for ml.trn1.32xlarge
-
-instance
+###### To request a service quota increase for ml.trn1.32xlarge instance
 
     1. Navigate to the AWS Service Quotas console.
     2. Choose AWS services.
@@ -198,5 +196,4 @@ base_results_dir: ~/sm_job/hf_llama3_8B # Location to store the results, checkpo
 python3 main.py --config-path recipes_collection --config-name config
 ```
 
-For more information about configuring SageMaker training jobs, see [SageMaker
-training jobs pre-training tutorial (GPU)](sagemaker-hyperpod-gpu-sagemaker-training-jobs-pretrain-tutorial.md "sagemaker-hyperpod-gpu-sagemaker-training-jobs-pretrain-tutorial.md").
+For more information about configuring SageMaker training jobs, see [SageMaker training jobs pre-training tutorial (GPU)](sagemaker-hyperpod-gpu-sagemaker-training-jobs-pretrain-tutorial.md "sagemaker-hyperpod-gpu-sagemaker-training-jobs-pretrain-tutorial.md").

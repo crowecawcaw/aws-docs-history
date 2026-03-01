@@ -1,6 +1,4 @@
-# Batch ingestion with Amazon SageMaker Feature Store
-
-Spark
+# Batch ingestion with Amazon SageMaker Feature Store Spark
 
 Amazon SageMaker Feature Store Spark is a Spark connector that connects the Spark library to Feature Store. Feature Store Spark
 simplifies data ingestion from Spark `DataFrame`s to feature groups. Feature Store supports
@@ -39,14 +37,11 @@ For information about using the different ingestion methods, see [Example imple
 
 ###### Topics
 
-- [Feature Store Spark
-  installation](#batch-ingestion-spark-connector-installation "#batch-ingestion-spark-connector-installation")
+- [Feature Store Spark installation](#batch-ingestion-spark-connector-installation "#batch-ingestion-spark-connector-installation")
 - [Retrieving the JAR for Feature Store Spark](#retrieve-jar-spark-connector "#retrieve-jar-spark-connector")
 - [Example implementations](#batch-ingestion-spark-connector-example-implementations "#batch-ingestion-spark-connector-example-implementations")
 
-## Feature Store Spark
-
-installation
+## Feature Store Spark installation
 
 **Scala users**
 

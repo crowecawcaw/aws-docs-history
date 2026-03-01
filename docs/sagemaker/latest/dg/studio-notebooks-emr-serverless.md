@@ -30,8 +30,7 @@ JupyterLab notebooks, make sure you meet the following prerequisites:
    `1.10` or higher.
 2. Create an EMR Serverless interactive application with Amazon EMR version
    `6.14.0` or higher. You can create an EMR Serverless application
-   from the Studio user interface by following the steps in [Create EMR Serverless applications
-   from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md").
+   from the Studio user interface by following the steps in [Create EMR Serverless applications from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md").
 
 ###### Note
 
@@ -53,17 +52,12 @@ you:
 
 4. To access your interactive applications on EMR Serverless and run workloads
    submitted from your JupyterLab notebooks in SageMaker Studio, you must assign
-   specific permissions and roles. Refer to the [Set up the permissions to enable
-   listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md") section for details on
+   specific permissions and roles. Refer to the [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md") section for details on
    the necessary roles and permissions.
 
 ###### List of topics
 
-- [Set up the permissions to enable
-  listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md")
-- [Create EMR Serverless applications
-  from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md")
-- [Connect to an EMR Serverless
-  application from Studio](connect-emr-serverless-application.md "connect-emr-serverless-application.md")
-- [Stop or delete an EMR Serverless
-  application from the Studio UI](terminate-emr-serverless-application.md "terminate-emr-serverless-application.md")
+- [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md")
+- [Create EMR Serverless applications from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md")
+- [Connect to an EMR Serverless application from Studio](connect-emr-serverless-application.md "connect-emr-serverless-application.md")
+- [Stop or delete an EMR Serverless application from the Studio UI](terminate-emr-serverless-application.md "terminate-emr-serverless-application.md")

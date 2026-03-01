@@ -1,6 +1,4 @@
-# Checkpointing using
-
-SMP
+# Checkpointing using SMP
 
 The SageMaker model parallelism (SMP) library supports PyTorch APIs for checkpoints,
 and provides APIs that help checkpoint properly while using the SMP library.
@@ -273,16 +271,13 @@ with FSDP.state_dict_type(model, StateDictType.SHARDED_STATE_DICT):
    optimizer.load_state_dict(flattened_optimizer_state)
 ```
 
-## Full model
-
-checkpoints
+## Full model checkpoints
 
 At the end of training, you can save a full checkpoint that combines all shards of
 a model into a single model checkpoint file. The SMP library fully supports the
 PyTorch full model checkpoints API, so you don't need to make any changes.
 
-Note that if you use the SMP [Tensor
-parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md"), the SMP library
+Note that if you use the SMP [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md"), the SMP library
 transforms the model. When checkpointing the full model in this case, the SMP
 library translates the model back to the Hugging Face Transformers checkpoint format
 by default.

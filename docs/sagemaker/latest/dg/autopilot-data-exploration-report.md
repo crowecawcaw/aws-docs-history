@@ -56,10 +56,8 @@ convert Jupyter notebooks to other formats.](https://nbconvert.readthedocs.io/en
 - [Target Analysis](#autopilot-data-exploration-report-target-analysis "#autopilot-data-exploration-report-target-analysis")
 - [Data Sample](#autopilot-data-exploration-report-data-sample "#autopilot-data-exploration-report-data-sample")
 - [Duplicate rows](#autopilot-data-exploration-report-duplicate-rows "#autopilot-data-exploration-report-duplicate-rows")
-- [Cross column
-  correlations](#autopilot-data-exploration-report-cross-column-correlations "#autopilot-data-exploration-report-cross-column-correlations")
-- [Anomalous
-  Rows](#autopilot-data-exploration-report-cross-anomolous-rows "#autopilot-data-exploration-report-cross-anomolous-rows")
+- [Cross column correlations](#autopilot-data-exploration-report-cross-column-correlations "#autopilot-data-exploration-report-cross-column-correlations")
+- [Anomalous Rows](#autopilot-data-exploration-report-cross-anomolous-rows "#autopilot-data-exploration-report-cross-anomolous-rows")
 - [Missing values, cardinality, and descriptive statistics](#autopilot-data-exploration-report-description-statistics-and-values "#autopilot-data-exploration-report-description-statistics-and-values")
 
 ## Dataset Summary
@@ -189,9 +187,7 @@ It is not recommended to balance a dataset by up-sampling before providing it to
 Autopilot. This may result in inaccurate validation scores for the models trained by Autopilot,
 and the models that are produced may be unusable.
 
-## Cross column
-
-correlations
+## Cross column correlations
 
 Autopilot uses the Pearson's correlation coefficient, a measure of linear correlation
 between two features, to populate a correlation matrix. In the correlation matrix, numeric
@@ -218,9 +214,7 @@ is correlated with itself, representing perfect correlation.
 
 ![Autopilot data report data cross-correlation matrix.](images/autopilot/autopilot-data-report-data-cross-column-statistics.png)
 
-## Anomalous
-
-Rows
+## Anomalous Rows
 
 Amazon SageMaker Autopilot detects which rows in your dataset might be anomalous. It then assigns an anomaly
 score to each row. Rows with negative anomaly scores are considered anomalous.

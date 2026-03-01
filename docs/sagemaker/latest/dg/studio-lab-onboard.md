@@ -5,14 +5,11 @@ learn how to request a Studio Lab account, create your account, and sign in.
 
 ###### Topics
 
-- [Request a Studio Lab
-  account](#studio-lab-onboard-request "#studio-lab-onboard-request")
+- [Request a Studio Lab account](#studio-lab-onboard-request "#studio-lab-onboard-request")
 - [Create a Studio Lab account](#studio-lab-onboard-register "#studio-lab-onboard-register")
 - [Sign in to Studio Lab](#studio-lab-onboard-signin "#studio-lab-onboard-signin")
 
-## Request a Studio Lab
-
-account
+## Request a Studio Lab account
 
 To use Studio Lab, you must first request approval to create a
 Studio Lab account. An AWS account cannot be used for onboarding to Studio Lab.

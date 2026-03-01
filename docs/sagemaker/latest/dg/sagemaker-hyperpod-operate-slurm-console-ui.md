@@ -1,33 +1,22 @@
-# Managing SageMaker HyperPod Slurm clusters
-
-using the SageMaker console
+# Managing SageMaker HyperPod Slurm clusters using the SageMaker console
 
 The following topics provide guidance on how to manage SageMaker HyperPod through the
 console UI.
 
 ###### Topics
 
-- [Create a
-  SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-create-cluster "#sagemaker-hyperpod-operate-slurm-console-ui-create-cluster")
-- [Browse your
-  SageMaker HyperPod clusters](#sagemaker-hyperpod-operate-slurm-console-ui-browse-clusters "#sagemaker-hyperpod-operate-slurm-console-ui-browse-clusters")
+- [Create a SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-create-cluster "#sagemaker-hyperpod-operate-slurm-console-ui-create-cluster")
+- [Browse your SageMaker HyperPod clusters](#sagemaker-hyperpod-operate-slurm-console-ui-browse-clusters "#sagemaker-hyperpod-operate-slurm-console-ui-browse-clusters")
 - [View details of each SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-view-details-of-clusters "#sagemaker-hyperpod-operate-slurm-console-ui-view-details-of-clusters")
-- [Edit a
-  SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters")
-- [Delete a
-  SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster "#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster")
+- [Edit a SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters")
+- [Delete a SageMaker HyperPod cluster](#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster "#sagemaker-hyperpod-operate-slurm-console-ui-delete-cluster")
 
-## Create a
+## Create a SageMaker HyperPod cluster
 
-SageMaker HyperPod cluster
-
-See the instructions in [Getting started with
-SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md")
+See the instructions in [Getting started with SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md")
 to create a new SageMaker HyperPod cluster through the SageMaker HyperPod console UI.
 
-## Browse your
-
-SageMaker HyperPod clusters
+## Browse your SageMaker HyperPod clusters
 
 Under **Clusters** in the main pane of the SageMaker HyperPod console
 on the SageMaker HyperPod console main page, all created clusters should appear listed
@@ -40,9 +29,7 @@ Under **Clusters** on the console main page, the
 cluster **Names** are activated as links. Choose the cluster name
 link to see details of each cluster.
 
-## Edit a
-
-SageMaker HyperPod cluster
+## Edit a SageMaker HyperPod cluster
 
 1.  Under **Clusters** in the main pane of the SageMaker HyperPod
     console, choose the cluster you want to update.
@@ -76,9 +63,7 @@ SageMaker HyperPod cluster
     resources associated with that group. 3. In the **Tags** section, you can update tags for
     the cluster.
 
-## Delete a
-
-SageMaker HyperPod cluster
+## Delete a SageMaker HyperPod cluster
 
 1. Under **Clusters** in the main pane of the SageMaker HyperPod
    console, choose the cluster you want to delete.

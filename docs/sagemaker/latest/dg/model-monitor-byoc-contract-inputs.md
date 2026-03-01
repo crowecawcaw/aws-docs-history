@@ -1,6 +1,4 @@
-# Container Contract
-
-Inputs
+# Container Contract Inputs
 
 The Amazon SageMaker Model Monitor platform invokes your container code according to a specified
 schedule. If you choose to write your own container code, the following

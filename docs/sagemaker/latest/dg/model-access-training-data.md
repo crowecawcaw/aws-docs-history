@@ -9,9 +9,7 @@ dataset in real time or download the whole dataset at the start of the training 
 
 Your dataset must reside in the same AWS Region as the training job.
 
-## SageMaker AI input modes and AWS cloud
-
-storage options
+## SageMaker AI input modes and AWS cloud storage options
 
 This section provides an overview of the file input modes supported by SageMaker for data
 stored in Amazon EFS and Amazon FSx for Lustre.

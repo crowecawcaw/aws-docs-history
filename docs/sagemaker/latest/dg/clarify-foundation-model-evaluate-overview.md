@@ -3,9 +3,7 @@
 The following sections provide an overview of how to use automatic and human-based
 model evaluation jobs.
 
-## Model evaluation
-
-tasks
+## Model evaluation tasks
 
 In a model evaluation job, an evaluation task is a task you want the model to
 perform based on information found in the prompts.
@@ -15,9 +13,7 @@ to learn more about each task type. Each section also includes a list of availab
 built-in datasets and their corresponding metrics that can be used only in automatic
 model evaluation jobs.
 
-### Open-ended
-
-generation
+### Open-ended generation
 
 Open-ended text generation is a foundation model task that generates natural
 language responses to prompts that don't have a pre-defined structure, such as
@@ -70,9 +66,7 @@ detectors:
      subtle and implicit toxicity pertaining to minority
      groups.
 
-### Text
-
-summarization
+### Text summarization
 
 Text summarization is used for tasks, such as creating summaries of news,
 legal documents, academic papers, content previews, and content curation. The
@@ -113,9 +107,7 @@ evaluate your model for the following:
   one that is perturbed. The accuracy algorithm uses the [ROUGE-N](https://huggingface.co/spaces/evaluate-metric/rouge "https://huggingface.co/spaces/evaluate-metric/rouge"), [Meteor](https://huggingface.co/spaces/evaluate-metric/meteor "https://huggingface.co/spaces/evaluate-metric/meteor"), and [BERTScore](https://huggingface.co/spaces/evaluate-metric/bertscore "https://huggingface.co/spaces/evaluate-metric/bertscore") metrics, as detailed
   previously in this section.
 
-### Question
-
-answering
+### Question answering
 
 Question answering is used for tasks such as generating automatic help-desk
 responses, information retrieval, and e-learning. FMEval can evaluate your model
@@ -266,16 +258,12 @@ and/or against your own prompt datasets for the following.
   scores the absolute difference in accuracy between a text summary that
   is unperturbed and one that is perturbed.
 
-## Types of
-
-foundation model evaluations
+## Types of foundation model evaluations
 
 The following sections provide details about both human and algorithmic types of
 evaluations for your foundation model.
 
-### Human
-
-evaluations
+### Human evaluations
 
 To evaluate your model by a human, you must define the metrics and associated
 metric types. If you want to evaluate more than one model, you can use a
@@ -334,9 +322,7 @@ For a summary of tasks and their associated metrics and datasets, see the table
 in the following **Foundation model summary
 evaluation** section.
 
-## Foundation model
-
-evaluation summary
+## Foundation model evaluation summary
 
 The following table summarizes all of the evaluation tasks, metrics, and built-in
 datasets for both human and automatic evaluations.

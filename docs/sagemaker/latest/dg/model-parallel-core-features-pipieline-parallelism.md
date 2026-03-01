@@ -11,12 +11,9 @@ usage.
 ###### Note
 
 Pipeline parallelism, also called model partitioning, is available for both
-PyTorch and TensorFlow. For supported versions of the frameworks, see [Supported Frameworks and
-AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
+PyTorch and TensorFlow. For supported versions of the frameworks, see [Supported Frameworks and AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
 
-## Pipeline Execution
-
-Schedule
+## Pipeline Execution Schedule
 
 Pipelining is based on splitting a mini-batch into microbatches, which are fed
 into the training pipeline one-by-one and follow an execution schedule defined by
@@ -39,9 +36,7 @@ be configured using the `pipeline` parameter in the SageMaker Python SDK. In
 most cases, interleaved pipeline can achieve better performance by utilizing the
 GPUs more efficiently.
 
-### Interleaved
-
-Pipeline
+### Interleaved Pipeline
 
 In an interleaved pipeline, backward execution of the microbatches is
 prioritized whenever possible. This allows quicker release of the memory used
@@ -61,9 +56,7 @@ parameters. GPU0 always prioritizes backward passes whenever possible (for
 instance, executes B0 before F2), which allows for clearing of the memory used
 for activations earlier.
 
-### Simple
-
-Pipeline
+### Simple Pipeline
 
 A simple pipeline, by contrast, finishes running the forward pass for each
 microbatch before starting the backward pass. This means that it only pipelines
@@ -72,17 +65,13 @@ figure illustrates an example of how this works, over 2 GPUs.
 
 ![Example on a pipeline running the forward pass for each microbatch before starting the backward pass.](images/distributed/model-parallel/simple-pipeline-execution.png)
 
-### Pipelining Execution in Specific
-
-Frameworks
+### Pipelining Execution in Specific Frameworks
 
 Use the following sections to learn about the framework-specific pipeline
 scheduling decisions SageMaker's model parallelism library makes for TensorFlow and
 PyTorch.
 
-#### Pipeline
-
-Execution with TensorFlow
+#### Pipeline Execution with TensorFlow
 
 The following image is an example of a TensorFlow graph partitioned by the
 model parallelism library, using automated model splitting. When a graph is
@@ -114,9 +103,7 @@ Once the gradients from all microbatches in a single mini-batch are
 computed, the library combines the gradients across microbatches, which can
 then be applied to the parameters.
 
-#### Pipeline
-
-Execution with PyTorch
+#### Pipeline Execution with PyTorch
 
 Conceptually, pipelining follows a similar idea in PyTorch. However, since
 PyTorch does not involve static graphs and so the model parallelism

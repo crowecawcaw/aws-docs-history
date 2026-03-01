@@ -1,6 +1,4 @@
-# Prebuilt SageMaker Clarify
-
-Containers
+# Prebuilt SageMaker Clarify Containers
 
 Amazon SageMaker AI provides prebuilt SageMaker Clarify container images that include the libraries and other
 dependencies needed to compute bias metrics and feature attributions for explainability.

@@ -23,8 +23,7 @@ auto-rollback initiates and 100% of the traffic shifts back to the blue fleet.
 Before setting up a deployment with all at once traffic shifting, you must create Amazon CloudWatch
 alarms to watch metrics from your endpoint. If any of the alarms trip during the baking period,
 then the traffic rolls back to your blue fleet. To learn how to set up CloudWatch alarms on an
-endpoint, see the prerequisite page [Auto-Rollback Configuration and
-Monitoring](deployment-guardrails-configuration.md "deployment-guardrails-configuration.md"). To learn more about CloudWatch alarms, see [Using
+endpoint, see the prerequisite page [Auto-Rollback Configuration and Monitoring](deployment-guardrails-configuration.md "deployment-guardrails-configuration.md"). To learn more about CloudWatch alarms, see [Using
 Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
 
 ## Configure All At Once Traffic Shifting

@@ -1,6 +1,4 @@
-# Access the profiling data
-
-using the pandas data parsing tool
+# Access the profiling data using the pandas data parsing tool
 
 The following `PandasFrame` class provides tools to convert the collected
 profiling data to Pandas data frame.

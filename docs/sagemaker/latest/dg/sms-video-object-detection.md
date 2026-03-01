@@ -1,6 +1,4 @@
-# Identify objects using video frame object
-
-detection
+# Identify objects using video frame object detection
 
 You can use the video frame object detection task type to have workers identify and
 locate objects in a sequence of video frames (images extracted from a video) using
@@ -20,8 +18,7 @@ Ground Truth provides a worker UI and tools to complete your labeling job tasks:
 
 You can create a job to adjust annotations created in a video object detection
 labeling job using the video object detection adjustment task type. To learn more, see
-[Create Video Frame Object Detection
-Adjustment or Verification Labeling Job](#sms-video-od-adjustment "#sms-video-od-adjustment").
+[Create Video Frame Object Detection Adjustment or Verification Labeling Job](#sms-video-od-adjustment "#sms-video-od-adjustment").
 
 ## Preview the Worker UI
 
@@ -98,8 +95,7 @@ parameter.
   type, and worker instructions in a label category configuration file.
   Specify the task type (bounding boxes, polylines, polygons or keypoint)
   using `annotationType` in your label category configuration
-  file. For more information, see [Labeling category configuration file with
-  label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md") to learn how to
+  file. For more information, see [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md") to learn how to
   create this file.
 - You need to provide pre-defined ARNs for the pre-annotation and
   post-annotation (ACS) Lambda functions. These ARNs are specific to the
@@ -178,9 +174,7 @@ response = client.create_labeling_job(
 )
 ```
 
-## Create Video Frame Object Detection
-
-Adjustment or Verification Labeling Job
+## Create Video Frame Object Detection Adjustment or Verification Labeling Job
 
 You can create an adjustment and verification labeling job using the Ground Truth console
 or `CreateLabelingJob` API. To learn more about adjustment and

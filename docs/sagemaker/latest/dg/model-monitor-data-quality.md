@@ -18,22 +18,18 @@ To monitor data quality, follow these steps:
   statistics for each feature using [Deequ](https://github.com/awslabs/deequ "https://github.com/awslabs/deequ"), an open source library built on Apache Spark, which is used
   to measure data quality in large datasets. For more information, see [Create a Baseline](model-monitor-create-baseline.md "model-monitor-create-baseline.md").
 - Define and schedule data quality monitoring jobs. For specific information and
-  code samples of data quality monitoring jobs, see [Schedule data quality
-  monitoring jobs](model-monitor-schedule-data-monitor.md "model-monitor-schedule-data-monitor.md"). For general
+  code samples of data quality monitoring jobs, see [Schedule data quality monitoring jobs](model-monitor-schedule-data-monitor.md "model-monitor-schedule-data-monitor.md"). For general
   information about monitoring jobs, see [Schedule monitoring jobs](model-monitor-scheduling.md "model-monitor-scheduling.md").
   - Optionally use preprocessing and postprocessing scripts to transform
     the data coming out of your data quality analysis. For more information,
-    see [Preprocessing and
-    Postprocessing](model-monitor-pre-and-post-processing.md "model-monitor-pre-and-post-processing.md").
+    see [Preprocessing and Postprocessing](model-monitor-pre-and-post-processing.md "model-monitor-pre-and-post-processing.md").
 
-- View data quality metrics. For more information, see [Schema for Statistics
-  (statistics.json file)](model-monitor-interpreting-statistics.md "model-monitor-interpreting-statistics.md").
+- View data quality metrics. For more information, see [Schema for Statistics (statistics.json file)](model-monitor-interpreting-statistics.md "model-monitor-interpreting-statistics.md").
 - Integrate data quality monitoring with Amazon CloudWatch. For more information, see
   [CloudWatch Metrics](model-monitor-interpreting-cloudwatch.md "model-monitor-interpreting-cloudwatch.md").
 - Interpret the results of a monitoring job. For more information, see [Interpret results](model-monitor-interpreting-results.md "model-monitor-interpreting-results.md").
 - Use SageMaker Studio to enable data quality monitoring and visualize results if you
-  are using a real-time endpoint. For more information, see [Visualize results for
-  real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
+  are using a real-time endpoint. For more information, see [Visualize results for real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md").
 
 ###### Note
 
@@ -45,10 +41,7 @@ statistics for the output, not the input.
 ###### Topics
 
 - [Create a Baseline](model-monitor-create-baseline.md "model-monitor-create-baseline.md")
-- [Schedule data quality
-  monitoring jobs](model-monitor-schedule-data-monitor.md "model-monitor-schedule-data-monitor.md")
-- [Schema for Statistics
-  (statistics.json file)](model-monitor-interpreting-statistics.md "model-monitor-interpreting-statistics.md")
+- [Schedule data quality monitoring jobs](model-monitor-schedule-data-monitor.md "model-monitor-schedule-data-monitor.md")
+- [Schema for Statistics (statistics.json file)](model-monitor-interpreting-statistics.md "model-monitor-interpreting-statistics.md")
 - [CloudWatch Metrics](model-monitor-interpreting-cloudwatch.md "model-monitor-interpreting-cloudwatch.md")
-- [Schema for Violations
-  (constraint_violations.json file)](model-monitor-interpreting-violations.md "model-monitor-interpreting-violations.md")
+- [Schema for Violations (constraint_violations.json file)](model-monitor-interpreting-violations.md "model-monitor-interpreting-violations.md")

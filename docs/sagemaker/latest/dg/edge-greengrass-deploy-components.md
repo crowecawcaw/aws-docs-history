@@ -1,6 +1,4 @@
-# Deploy the components to your
-
-device
+# Deploy the components to your device
 
 Deploy your components with the AWS IoT console or with the AWS CLI.
 

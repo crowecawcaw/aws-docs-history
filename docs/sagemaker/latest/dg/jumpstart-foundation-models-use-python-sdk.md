@@ -1,6 +1,4 @@
-# Use foundation models
-
-with the SageMaker Python SDK
+# Use foundation models with the SageMaker Python SDK
 
 All JumpStart foundation models are available for programmatic deployment using the
 SageMaker Python SDK.
@@ -19,8 +17,7 @@ You can find the list of JumpStart available models in [Available foundation mod
 ###### Important
 
 Some foundation models require explicit acceptance of an end-user license
-agreement (EULA). For more information, see [EULA
-acceptance with the SageMaker Python SDK](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-python-sdk "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-python-sdk").
+agreement (EULA). For more information, see [EULA acceptance with the SageMaker Python SDK](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-python-sdk "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-python-sdk").
 
 The following sections show how to fine-tune publicly available foundation models
 using the `JumpStartEstimator` class, deploy publicly available
@@ -29,11 +26,6 @@ proprietary foundation models using the`ModelPackage` class.
 
 ###### Topics
 
-- [Fine-tune publicly available foundation models with the
-  JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md")
-- [Deploy
-  publicly available foundation models with the JumpStartModel
-  class](jumpstart-foundation-models-use-python-sdk-model-class.md "jumpstart-foundation-models-use-python-sdk-model-class.md")
-- [Deploy
-  proprietary foundation models with the ModelPackage
-  class](jumpstart-foundation-models-use-python-sdk-proprietary.md "jumpstart-foundation-models-use-python-sdk-proprietary.md")
+- [Fine-tune publicly available foundation models with the JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md")
+- [Deploy publicly available foundation models with the JumpStartModel class](jumpstart-foundation-models-use-python-sdk-model-class.md "jumpstart-foundation-models-use-python-sdk-model-class.md")
+- [Deploy proprietary foundation models with the ModelPackage class](jumpstart-foundation-models-use-python-sdk-proprietary.md "jumpstart-foundation-models-use-python-sdk-proprietary.md")

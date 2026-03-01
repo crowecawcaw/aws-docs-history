@@ -4,7 +4,7 @@
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. If prior to November 30, 2023 you created a Amazon SageMaker AI domain, Studio Classic remains the default experience. domains created after November 30, 2023 default to the new Studio experience.
 
-Amazon SageMaker geospatial features and resources are _only_ available in Studio Classic. To learn more about setting up a domain and getting started with Studio, see [Getting started with Amazon SageMaker geospatial](geospatial-getting-started.md "geospatial-getting-started.md") .
+Amazon SageMaker geospatial features and resources are _only_ available in Studio Classic. To learn more about setting up a domain and getting started with Studio, see [Getting started with Amazon SageMaker geospatial](geospatial-getting-started.md "geospatial-getting-started.md").
 
 Amazon SageMaker geospatial capabilities makes it easier for data scientists and machine learning (ML) engineers to build, train, and deploy ML models faster using geospatial data. You have access to open-source and third-party data, processing, and visualization tools to make it more efficient to prepare geospatial data for ML. You can increase your productivity by using purpose-built algorithms and pre-trained ML models to speed up model building and training, and use built-in visualization tools to explore prediction outputs on an interactive map and then collaborate across teams on insights and results.
 
@@ -56,22 +56,16 @@ To learn about setting up an AWS account and getting started with SageMaker AI, 
 
 As a managed service, Amazon SageMaker geospatial capabilities performs operations on your behalf on the AWS hardware that SageMaker AI manages. A SageMaker AI execution role an perform only the operations that users grant. To work with SageMaker geospatial capabilities, you must set up a user role and an execution role. For more information, see [SageMaker geospatial capabilities roles](sagemaker-geospatial-roles.md "sagemaker-geospatial-roles.md"). 3. **Update your trust policy to include SageMaker geospatial**.
 
-SageMaker geospatial defines an additional service principal. To learn how to create or update your SageMaker AI execution role's trust policy, see [Adding
-
-the SageMaker geospatial service principal to an existing SageMaker AI execution
-role](sagemaker-geospatial-roles-pass-role.md "sagemaker-geospatial-roles-pass-role.md"). 4. **Set up an Amazon SageMaker AI domain to access Amazon SageMaker Studio Classic.**
+SageMaker geospatial defines an additional service principal. To learn how to create or update your SageMaker AI execution role's trust policy, see [Adding the SageMaker geospatial service principal to an existing SageMaker AI execution role](sagemaker-geospatial-roles-pass-role.md "sagemaker-geospatial-roles-pass-role.md"). 4. **Set up an Amazon SageMaker AI domain to access Amazon SageMaker Studio Classic.**
 
 To use SageMaker geospatial, a domain is required. For domains created before November 30, 2023 the default experience is Studio Classic. domains created after November 30, 2023 default to the Studio experience. To learn more about accessing Studio Classic from Studio, see [Accessing SageMaker geospatial](access-studio-classic-geospatial.md "access-studio-classic-geospatial.md"). 5. **Remember, shut down resources.**
 
-When you have finished using SageMaker geospatial capabilities, shut down the instance it runs on to avoid incurring additional charges. For more information, see [Shut Down Resources from
-Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md").
+When you have finished using SageMaker geospatial capabilities, shut down the instance it runs on to avoid incurring additional charges. For more information, see [Shut Down Resources from Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md").
 
 ###### Topics
 
 - [Getting started with Amazon SageMaker geospatial](geospatial-getting-started.md "geospatial-getting-started.md")
-- [Using a
-  processing
-  jobs for custom geospatial workloads](geospatial-custom-operations.md "geospatial-custom-operations.md")
+- [Using a processing jobs for custom geospatial workloads](geospatial-custom-operations.md "geospatial-custom-operations.md")
 - [Earth Observation Jobs](geospatial-eoj.md "geospatial-eoj.md")
 - [Vector Enrichment Jobs](geospatial-vej.md "geospatial-vej.md")
 - [Visualization Using SageMaker geospatial capabilities](geospatial-visualize.md "geospatial-visualize.md")

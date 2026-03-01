@@ -1,6 +1,4 @@
-# Difference in Positive
-
-Proportions in Predicted Labels (DPPL)
+# Difference in Positive Proportions in Predicted Labels (DPPL)
 
 The difference in positive proportions in predicted labels (DPPL) metric determines
 whether the model predicts outcomes differently for each facet. It is defined as the
@@ -18,10 +16,8 @@ larger than DPL, then bias in positive proportions increased after training. If 
 smaller than DPL, the model did not increase bias in positive proportions after
 training. Comparing DPL against DPPL does not guarantee that the model reduces bias
 along all dimensions. For example, the model may still be biased when considering other
-metrics such as [Counterfactual Fliptest
-(FT)](clarify-post-training-bias-metric-ft.md "clarify-post-training-bias-metric-ft.md") or [Accuracy Difference (AD)](clarify-post-training-bias-metric-ad.md "clarify-post-training-bias-metric-ad.md"). For more information about
-bias detection, see the blog post [Learn how Amazon SageMaker Clarify helps detect bias](https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/ "https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/"). See [Difference in
-Proportions of Labels (DPL)](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md") for more information
+metrics such as [Counterfactual Fliptest (FT)](clarify-post-training-bias-metric-ft.md "clarify-post-training-bias-metric-ft.md") or [Accuracy Difference (AD)](clarify-post-training-bias-metric-ad.md "clarify-post-training-bias-metric-ad.md"). For more information about
+bias detection, see the blog post [Learn how Amazon SageMaker Clarify helps detect bias](https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/ "https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/"). See [Difference in Proportions of Labels (DPL)](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md") for more information
 about DPL.
 
 The formula for the DPPL is:

@@ -1,6 +1,4 @@
-# Data preparation at scale using Amazon EMR Serverless
-
-applications or Amazon EMR clusters in Studio
+# Data preparation at scale using Amazon EMR Serverless applications or Amazon EMR clusters in Studio
 
 Amazon SageMaker Studio and its legacy version, Studio Classic, provide data scientists, and machine
 learning (ML) engineers with tools to perform data analytics and data preparation at scale.

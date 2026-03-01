@@ -20,7 +20,7 @@ tabs:
        prediction job was automatic or manual.
       + **Rows** – The number of rows predicted.
       + **Configuration name** – The name of the batch prediction job configuration.
-      + **QuickSight** – Describes whether you've sent the batch predictions to Quick Suite.
+      + **QuickSight** – Describes whether you've sent the batch predictions to Quick.
       + **Created** – The creation time of the batch prediction job.
 
   If you choose the **More options**
@@ -28,7 +28,7 @@ tabs:
   ![Vertical ellipsis icon representing a menu or more options.](images/studio/canvas/more-options-icon.png)
   ), you can choose **View
   details**, **Preview prediction**,
-  **Download prediction**, or **Send to Quick Suite**. If you
+  **Download prediction**, or **Send to Quick**. If you
   choose **View details**, a page opens that shows you the full details
   of the batch prediction job, including the status, the input and output data configurations, information
   about the instances used to complete the job and access to the Amazon CloudWatch logs. The page looks like the following

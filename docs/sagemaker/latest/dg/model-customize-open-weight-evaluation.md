@@ -1,11 +1,11 @@
 # Model evaluation job submission
 
-You can choose to launch an evaluation job from your custom model details page and
-select between run a LLM as a Judge (LLMAJ) evaluation, Custom scorer evaluation
-where you can pull an Evaluator you have previously defined, or run a quick
-Benchmark evaluation.
+This section describes open-weight custom model evaluation. It gets you started through a walk through of the evaluation job submission process. Additional resources are provided for more advanced evaluation job submission use cases.
 
-![An image containing selection of model customization techniques.](images/screenshot-open-model-3.png)
-Once submitted you will be able to monitor your model evaluation job.
+###### Topics
 
-![An image containing selection of model customization techniques.](images/screenshot-open-model-2.png)
+- [Getting Started](model-customize-evaluation-getting-started.md "model-customize-evaluation-getting-started.md")
+- [Evaluation types and Job Submission](model-customize-evaluation-types.md "model-customize-evaluation-types.md")
+- [Evaluation Metrics Formats](model-customize-evaluation-metrics-formats.md "model-customize-evaluation-metrics-formats.md")
+- [Supported Dataset Formats for Bring-Your-Own-Dataset (BYOD) Tasks](model-customize-evaluation-dataset-formats.md "model-customize-evaluation-dataset-formats.md")
+- [Evaluate with Preset and Custom Scorers](model-customize-evaluation-preset-custom-scorers.md "model-customize-evaluation-preset-custom-scorers.md")

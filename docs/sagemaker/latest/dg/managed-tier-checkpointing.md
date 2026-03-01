@@ -1,6 +1,4 @@
-# HyperPod managed tiered
-
-checkpointing
+# HyperPod managed tiered checkpointing
 
 This section explains how managed tiered checkpointing works and the benefits it provides
 for large-scale model training.
@@ -17,9 +15,7 @@ during your training process.
 This guide covers how to set up, configure, and use managed tiered checkpointing with
 PyTorch frameworks on Amazon EKS HyperPod clusters.
 
-## How managed tiered checkpointing
-
-works
+## How managed tiered checkpointing works
 
 Managed tiered checkpointing uses a multi-tier storage approach. CPU memory serves as the
 primary tier to store model checkpoints. Secondary tiers include persistent storage options
@@ -66,7 +62,5 @@ training:
 ###### Topics
 
 - [Set up managed tiered checkpointing](managed-tier-checkpointing-setup.md "managed-tier-checkpointing-setup.md")
-- [Removing managed tiered
-  checkpointing](managed-tier-checkpointing-remove.md "managed-tier-checkpointing-remove.md")
-- [Security considerations for managed
-  tiered checkpointing](managed-tier-security-considerations.md "managed-tier-security-considerations.md")
+- [Removing managed tiered checkpointing](managed-tier-checkpointing-remove.md "managed-tier-checkpointing-remove.md")
+- [Security considerations for managed tiered checkpointing](managed-tier-security-considerations.md "managed-tier-security-considerations.md")

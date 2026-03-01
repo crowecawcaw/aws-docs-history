@@ -1,6 +1,4 @@
-# How Amazon SageMaker AI Signals
-
-Algorithm Success and Failure
+# How Amazon SageMaker AI Signals Algorithm Success and Failure
 
 A training algorithm indicates whether it succeeded or failed using the exit code of
 its process.

@@ -1,6 +1,4 @@
-# Best practices for endpoint security
-
-and health with Amazon SageMaker AI
+# Best practices for endpoint security and health with Amazon SageMaker AI
 
 To address the latest security issues, Amazon SageMaker AI automatically patches endpoints to the
 latest and most secure software. However, if you incorrectly modify your endpoint
@@ -8,9 +6,7 @@ dependencies, Amazon SageMaker AI can't automatically patch your endpoints or re
 unhealthy instances. To ensure your endpoints remain eligible for automatic updates,
 apply the following best practices.
 
-## Don't delete resources while your
-
-endpoints use them
+## Don't delete resources while your endpoints use them
 
 Avoid deleting any of the following resources if you have existing endpoints that
 use them:
@@ -24,8 +20,7 @@ use them:
 In the model definition that your endpoint uses, ensure that the IAM
 role that you specified has the correct permissions. For more
 information about the required permissions for Amazon SageMaker AI endpoints, see
-[CreateModel API: Execution Role
-Permissions](sagemaker-roles.md#sagemaker-roles-createmodel-perms "sagemaker-roles.md#sagemaker-roles-createmodel-perms").
+[CreateModel API: Execution Role Permissions](sagemaker-roles.md#sagemaker-roles-createmodel-perms "sagemaker-roles.md#sagemaker-roles-createmodel-perms").
 
 - The inference images that you specify for the [`Image`](../APIReference/API_ContainerDefinition.md#sagemaker-Type-ContainerDefinition-Image "../APIReference/API_ContainerDefinition.md#sagemaker-Type-ContainerDefinition-Image") parameter, if you use your own inference
   code.
@@ -44,9 +39,7 @@ access the private registry as long as you're using the endpoint.
 
 Ensure you don’t disable these KMS keys.
 
-## Follow these procedures to update
-
-your endpoints
+## Follow these procedures to update your endpoints
 
 When you update your Amazon SageMaker AI endpoints, use any of the following procedures that
 apply to your needs.
@@ -91,9 +84,7 @@ original names, use the following procedures.
 4. Update your endpoint with the new endpoint configuration so that your
    updates take effect.
 
-###### To update your endpoint configuration and retain the original configuration
-
-name
+###### To update your endpoint configuration and retain the original configuration name
 
 1. Delete the existing endpoint configuration.
 2. Create a new endpoint configuration with your updated settings, and use

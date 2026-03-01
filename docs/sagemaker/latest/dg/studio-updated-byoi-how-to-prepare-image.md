@@ -1,6 +1,4 @@
-# Create a custom image and push to
-
-Amazon ECR
+# Create a custom image and push to Amazon ECR
 
 This page provides instructions on how to create a local Dockerfile, build the container
 image, and add it to Amazon Elastic Container Registry (Amazon ECR).
@@ -15,14 +13,10 @@ image tag](https://docs.docker.com/reference/cli/docker/image/tag/ "https://docs
 
 ###### Topics
 
-- [Create a local
-  Dockerfile and build the container image](#studio-updated-byoi-how-to-create-local-dockerfile "#studio-updated-byoi-how-to-create-local-dockerfile")
-- [Add a Docker image to
-  Amazon ECR](#studio-updated-byoi-add-container-image "#studio-updated-byoi-add-container-image")
+- [Create a local Dockerfile and build the container image](#studio-updated-byoi-how-to-create-local-dockerfile "#studio-updated-byoi-how-to-create-local-dockerfile")
+- [Add a Docker image to Amazon ECR](#studio-updated-byoi-add-container-image "#studio-updated-byoi-add-container-image")
 
-## Create a local
-
-Dockerfile and build the container image
+## Create a local Dockerfile and build the container image
 
 Use the following instructions to create a Dockerfile with your desired software and
 dependencies.
@@ -82,9 +76,7 @@ _Docker documentation_.
 Once you have verified that the server is working, you can stop the server and shut
 down all kernels before continuing. The instructions are viewable the output.
 
-## Add a Docker image to
-
-Amazon ECR
+## Add a Docker image to Amazon ECR
 
 To add a container image to Amazon ECR, you will need to do the following.
 

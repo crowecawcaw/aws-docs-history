@@ -1,6 +1,4 @@
-# Amazon SageMaker HyperPod
-
-observability dashboards
+# Amazon SageMaker HyperPod observability dashboards
 
 This topic describes how to view metrics dashboards for your Amazon SageMaker HyperPod
 (SageMaker HyperPod) clusters and how to add new users to a dashboard. The topic also
@@ -17,18 +15,14 @@ following steps:
    **HyperPod Observability** section,
    and choose **Open dashboard in Grafana**.
 
-## Adding new users
-
-to a Amazon Managed Grafana workspace
+## Adding new users to a Amazon Managed Grafana workspace
 
 For information about how to add users to a Amazon Managed Grafana workspace, see
 [Use AWS
 IAM Identity Center with your Amazon Managed Grafana workspace](../../../grafana/latest/userguide/authentication-in-AMG-SSO.md "../../../grafana/latest/userguide/authentication-in-AMG-SSO.md") in the
 _Amazon Managed Grafana User Guide_.
 
-## Observability
-
-dashboards
+## Observability dashboards
 
 The SageMaker HyperPod observability add-on provides five interconnected
 dashboards in your default Amazon Managed Grafana workspace. Each dashboard provides
@@ -36,9 +30,7 @@ in-depth insights about different resources and tasks in the clusters for
 various users such as data scientists, machine learning engineers, and
 administrators.
 
-### Task
-
-dashboard
+### Task dashboard
 
 The Task dashboard provides comprehensive monitoring and visualization
 of resource utilization metrics for SageMaker HyperPod tasks. The main panel
@@ -87,9 +79,7 @@ tracking, while offering detailed error analysis capabilities to help
 maintain high availability and performance of inference
 workloads.
 
-### Cluster
-
-dashboard
+### Cluster dashboard
 
 The cluster dashboard provides a comprehensive view of cluster health
 and performance, offering real-time visibility into compute, memory,
@@ -106,9 +96,7 @@ interactive graphs and panels that allow you to drill down into specific
 metrics, with customizable time ranges and filtering options by cluster
 name, instance, or GPU ID.
 
-### File
-
-system dashboard
+### File system dashboard
 
 The file-system dashboard provides comprehensive visibility into file
 system (Amazon FSx for Lustre) performance and health metrics. The dashboard
@@ -125,9 +113,7 @@ coverage, the dashboard helps identify potential bottlenecks, optimize
 storage performance, and ensure reliable file system operations for
 SageMaker HyperPod workloads.
 
-### GPU partition
-
-dashboard
+### GPU partition dashboard
 
 To monitor GPU partition-specific metrics when using Multi-Instance GPU (MIG)
 configurations, you need to install or upgrade to the latest version of the

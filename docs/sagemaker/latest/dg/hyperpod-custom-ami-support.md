@@ -1,6 +1,4 @@
-# Custom Amazon Machine Images (AMIs) for SageMaker HyperPod
-
-clusters
+# Custom Amazon Machine Images (AMIs) for SageMaker HyperPod clusters
 
 Using base Amazon Machine Images (AMIs) provided and made public by Amazon SageMaker HyperPod,
 you can build custom AMIs. With a custom AMI, you can create specialized environments for

@@ -1,6 +1,4 @@
-# Supported framework images, AWS Regions, and
-
-instance types
+# Supported framework images, AWS Regions, and instance types
 
 This feature supports the following machine learning frameworks and
 AWS Regions.
@@ -10,15 +8,11 @@ AWS Regions.
 To use this feature, make sure that you have installed the SageMaker Python SDK [version 2.180.0](https://pypi.org/project/sagemaker/2.180.0/ "https://pypi.org/project/sagemaker/2.180.0/") or
 later.
 
-## SageMaker AI framework images pre-installed
-
-with SageMaker Profiler
+## SageMaker AI framework images pre-installed with SageMaker Profiler
 
 SageMaker Profiler is pre-installed in the following [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only").
 
-### PyTorch
-
-images
+### PyTorch images
 
 | PyTorch versions | AWS DLC image URI                                                                                                                                                                                                            |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,9 +43,7 @@ If you want to use SageMaker Profiler for other framework images or your own Doc
 images, you can install SageMaker Profiler using the SageMaker Profiler Python package binary files
 provided in the following section.
 
-## SageMaker Profiler Python package binary
-
-files
+## SageMaker Profiler Python package binary files
 
 If you want to configure your own Docker container, use SageMaker Profiler in other
 pre-built containers for PyTorch and TensorFlow, or install the SageMaker Profiler Python
@@ -72,8 +64,7 @@ CUDA versions in your environment, choose one of the following.
 - Python3.10, CUDA 11.8: [`https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl`](https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl "https://smppy.s3.amazonaws.com/tensorflow/cu118/smprof-0.3.334-cp310-cp310-linux_x86_64.whl")
 
 For more information about how to install SageMaker Profiler using the binary files, see
-[(Optional) Install the SageMaker Profiler
-Python package](profiler-prepare.md#profiler-install-python-package "profiler-prepare.md#profiler-install-python-package").
+[(Optional) Install the SageMaker Profiler Python package](profiler-prepare.md#profiler-install-python-package "profiler-prepare.md#profiler-install-python-package").
 
 ## Supported AWS Regions
 

@@ -1,6 +1,4 @@
-# Understand Coordinate Systems and
-
-Sensor Fusion
+# Understand Coordinate Systems and Sensor Fusion
 
 Point cloud data is always located in a coordinate system. This coordinate system may be
 local to the vehicle or the device sensing the surroundings, or it may be a world coordinate
@@ -33,9 +31,7 @@ is moving in the world and so all of the frames need a point of reference.
 If you include camera data for sensor fusion, it is recommended that you provide camera
 poses in the same world coordinate system as the 3D sensor (such as a LiDAR sensor).
 
-## Using Point Cloud Data in a
-
-World Coordinate System
+## Using Point Cloud Data in a World Coordinate System
 
 This section explains what a world coordinate system (WCS), also referred to as a
 _global frame of reference_, is and explains how you can provide
@@ -76,9 +72,7 @@ transformation metrics (the rotation matrix and translation vector). This will
 transform the data from its original coordinate system to a global reference
 coordinate system. Learn more about this transformation in the next section.
 
-### Convert 3D Point Cloud Data to a
-
-WCS
+### Convert 3D Point Cloud Data to a WCS
 
 Ground Truth assumes that your point cloud data has already been transformed into a
 reference coordinate system of your choice. For example, you can choose the
@@ -183,8 +177,7 @@ used to transform 3D data into a world coordinate system. If your 3D data is alr
 transformed into world coordinate system then the first transformation doesn’t have
 any impact on label translation, and label translation only depends on the camera
 inverse extrinsic. A view matrix is used to visualize projected labels. To learn
-more about these transformations and the view matrix, see [Ground Truth Sensor Fusion
-Transformations](#sms-point-cloud-extrinsic-intrinsic-explanation "#sms-point-cloud-extrinsic-intrinsic-explanation").
+more about these transformations and the view matrix, see [Ground Truth Sensor Fusion Transformations](#sms-point-cloud-extrinsic-intrinsic-explanation "#sms-point-cloud-extrinsic-intrinsic-explanation").
 
 Ground Truth computes these extrinsic matrices by using LiDAR and camera _pose
 data_ that you provide: `heading` ( in quaternions:
@@ -212,8 +205,7 @@ point cloud labeling jobs. If a camera image is already been undistorted, all
 distortion coefficients should be set to 0.
 
 For more information about the transformations Ground Truth performs to undistort images,
-see [Camera Calibrations:
-Extrinsic, Intrinsic and Distortion](#sms-point-cloud-extrinsic-camera-explanation "#sms-point-cloud-extrinsic-camera-explanation").
+see [Camera Calibrations: Extrinsic, Intrinsic and Distortion](#sms-point-cloud-extrinsic-camera-explanation "#sms-point-cloud-extrinsic-camera-explanation").
 
 ### Ego Vehicle
 
@@ -344,12 +336,9 @@ The following is an example of a `heading` JSON object:
 }
 ```
 
-To learn more, see [Compute Orientation
-Quaternions and Position](#sms-point-cloud-ego-vehicle-orientation "#sms-point-cloud-ego-vehicle-orientation").
+To learn more, see [Compute Orientation Quaternions and Position](#sms-point-cloud-ego-vehicle-orientation "#sms-point-cloud-ego-vehicle-orientation").
 
-## Compute Orientation
-
-Quaternions and Position
+## Compute Orientation Quaternions and Position
 
 Ground Truth requires that all orientation, or heading, data be given in quaternions. A
 [quaternions](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation "https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation") is a representation of the orientation consistent with geodesic
@@ -452,16 +441,12 @@ Quaternion ToQuaternion(double yaw, double pitch, double roll) // yaw (Z), pitch
 }
 ```
 
-## Ground Truth Sensor Fusion
-
-Transformations
+## Ground Truth Sensor Fusion Transformations
 
 The following sections go into greater detail about the Ground Truth sensor fusion
 transformations that are performed using the pose data you provide.
 
-### LiDAR
-
-Extrinsic
+### LiDAR Extrinsic
 
 In order to project to and from a 3D LiDAR scene to a 2D camera image, Ground Truth
 computes the rigid transformation projection metrics using the ego vehicle pose and
@@ -481,9 +466,7 @@ extrinsic metrics is simply as follows:
 LiDAR_extrinsic = [R T;0 0 0 1]
 ```
 
-### Camera Calibrations:
-
-Extrinsic, Intrinsic and Distortion
+### Camera Calibrations: Extrinsic, Intrinsic and Distortion
 
 _Geometric camera calibration_, also referred to
 as _camera resectioning_, estimates the parameters
@@ -492,14 +475,11 @@ to correct for lens distortion, measure the size of an object in world units, or
 determine the location of the camera in the scene. Camera parameters include
 intrinsics and distortion coefficients.
 
-####
-
-Camera Extrinsic
+#### Camera Extrinsic
 
 If the camera pose is given, then Ground Truth computes the camera extrinsic based on
 a rigid transformation from the 3D plane into the camera plane. The calculation
-is the same as the one used for the [LiDAR
-Extrinsic](#sms-point-cloud-extrinsic-lidar-explanation "#sms-point-cloud-extrinsic-lidar-explanation"), except that
+is the same as the one used for the [LiDAR Extrinsic](#sms-point-cloud-extrinsic-lidar-explanation "#sms-point-cloud-extrinsic-lidar-explanation"), except that
 Ground Truth uses camera pose (`position` and `heading`) and
 computes the inverse extrinsic.
 
@@ -507,9 +487,7 @@ computes the inverse extrinsic.
  camera_inverse_extrinsic = inv([Rc Tc;0 0 0 1]) #where Rc and Tc are camera pose components
 ```
 
-####
-
-Intrinsic and Distortion
+#### Intrinsic and Distortion
 
 Some cameras, such as pinhole or fisheye cameras, may introduce significant
 distortion in photos. This distortion can be corrected using distortion

@@ -1,6 +1,4 @@
-# View SageMaker training plans quotas using the AWS management
-
-console
+# View SageMaker training plans quotas using the AWS management console
 
 ###### Important
 

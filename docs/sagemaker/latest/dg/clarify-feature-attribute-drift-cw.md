@@ -1,6 +1,4 @@
-# CloudWatch Metrics for Feature
-
-Drift Analysis
+# CloudWatch Metrics for Feature Drift Analysis
 
 This guide shows CloudWatch metrics and their properties that you can use for feature
 attribute drift analysis in SageMaker Clarify. Feature attribute drift monitoring jobs compute and

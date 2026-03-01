@@ -1,7 +1,4 @@
-# Information
-
-for creating a 3D point cloud object tracking adjustment or verification labeling
-job
+# Information for creating a 3D point cloud object tracking adjustment or verification labeling job
 
 You can create an adjustment and verification labeling job using the Ground Truth console or
 `CreateLabelingJob` API. To learn more about adjustment and verification

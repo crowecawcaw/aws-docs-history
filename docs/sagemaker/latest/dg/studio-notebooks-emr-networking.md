@@ -46,15 +46,11 @@ To connect Studio or Studio Classic and Amazon EMR:
 
 - If Studio or Studio Classic and Amazon EMR are in separate VPCs, either in
   the same AWS account or in different accounts, see [Studio and Amazon EMR are in separate VPCs](#studio-notebooks-emr-networking-requirements-cross-vpc "#studio-notebooks-emr-networking-requirements-cross-vpc").
-- If Studio or Studio Classic and Amazon EMR are in the same VPC, see [Studio
-  and Amazon EMR are in the same VPC](#studio-notebooks-emr-networking-requirements-same-vpc "#studio-notebooks-emr-networking-requirements-same-vpc").
+- If Studio or Studio Classic and Amazon EMR are in the same VPC, see [Studio and Amazon EMR are in the same VPC](#studio-notebooks-emr-networking-requirements-same-vpc "#studio-notebooks-emr-networking-requirements-same-vpc").
 - If you chose to connect Studio or Studio Classic and Amazon EMR over public
-  internet, see [Studio
-  and Amazon EMR communicate over public internet](#studio-notebooks-emr-networking-requirements-internet "#studio-notebooks-emr-networking-requirements-internet").
+  internet, see [Studio and Amazon EMR communicate over public internet](#studio-notebooks-emr-networking-requirements-internet "#studio-notebooks-emr-networking-requirements-internet").
 
-##
-
-Studio and Amazon EMR are in separate VPCs
+## Studio and Amazon EMR are in separate VPCs
 
 To allow communication between Studio or Studio Classic and Amazon EMR when they are
 deployed in separate VPCs:
@@ -140,9 +136,7 @@ when accessing the internet.
 
 ![Architectural diagram illustrating an example of a simple Amazon VPC setup that enables Studio or Studio Classic notebooks to provision Amazon EMR clusters from CloudFormation templates in the Service Catalog and then connect to an Amazon EMR cluster within the same AWS account. The diagram provides an additional illustration of the required endpoints for a direct connection to various AWS services, such as Amazon S3 or Amazon CloudWatch, when the VPCs have no internet access. Alternatively, a NAT gateway must be used to allow instances in private subnets of multiple VPCs to share a single public IP address provided by the internet gateway when accessing the internet.](images/studio/emr/studio-notebooks-emr-architecture-singleaccount-vpcendpoints.png)
 
-## Studio
-
-and Amazon EMR are in the same VPC
+## Studio and Amazon EMR are in the same VPC
 
 If Studio or Studio Classic and Amazon EMR are in different subnets, add routes to
 each private subnet route table to route the traffic between Studio or
@@ -160,9 +154,7 @@ _Presto_ TCP ports (respectively
 Studio or Studio Classic instance security group. [Apache Livy](https://livy.apache.org/ "https://livy.apache.org/") is a service that enables
 interaction with a Amazon EMR over a REST interface.
 
-## Studio
-
-and Amazon EMR communicate over public internet
+## Studio and Amazon EMR communicate over public internet
 
 By default, Studio and Studio Classic provide a network interface that allows
 communication with the internet through an internet gateway in the VPC
@@ -189,5 +181,4 @@ your Amazon EMR cluster using TLS.
 For information on setting up HTTPS with Apache Livy, see [Enabling HTTPS with Apache Livy](../../../emr/latest/ReleaseGuide/enabling-https.md "../../../emr/latest/ReleaseGuide/enabling-https.md"). For information on setting an
 Amazon EMR cluster with transit encryption enabled, see [Providing certificates for encrypting data in transit with Amazon EMR
 encryption](../../../emr/latest/ManagementGuide/emr-encryption-enable.md#emr-encryption-certificates "../../../emr/latest/ManagementGuide/emr-encryption-enable.md#emr-encryption-certificates"). Additionally, you need to configure Studio or
-Studio Classic to access your certificate key as specified in [Connect to an Amazon EMR cluster over
-HTTPS](connect-emr-clusters.md#connect-emr-clusters-ssl "connect-emr-clusters.md#connect-emr-clusters-ssl").
+Studio Classic to access your certificate key as specified in [Connect to an Amazon EMR cluster over HTTPS](connect-emr-clusters.md#connect-emr-clusters-ssl "connect-emr-clusters.md#connect-emr-clusters-ssl").

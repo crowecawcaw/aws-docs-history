@@ -1,6 +1,4 @@
-# The large model inference (LMI)
-
-container documentation
+# The large model inference (LMI) container documentation
 
 The [Large Model
 Inference (LMI) container documentation](https://docs.djl.ai/master/docs/serving/serving/docs/lmi/index.html "https://docs.djl.ai/master/docs/serving/serving/docs/lmi/index.html") is provided on the Deep Java Library

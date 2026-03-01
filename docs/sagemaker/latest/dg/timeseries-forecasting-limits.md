@@ -1,6 +1,4 @@
-# Time-series forecasting resource
-
-limits for Autopilot
+# Time-series forecasting resource limits for Autopilot
 
 The following table lists the resource limits for time-series forecasting jobs
 in Amazon SageMaker Autopilot and whether or not you can adjust each limit.

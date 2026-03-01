@@ -1,16 +1,10 @@
-# The SageMaker Distributed Model
-
-Parallelism Library Configuration Tips and Pitfalls
+# The SageMaker Distributed Model Parallelism Library Configuration Tips and Pitfalls
 
 Review the following tips and pitfalls before using Amazon SageMaker AI's model parallelism library.
 This list includes tips that are applicable across frameworks. For TensorFlow and PyTorch
-specific tips, see [Modify a TensorFlow training
-script](model-parallel-customize-training-script-tf.md "model-parallel-customize-training-script-tf.md") and [Modify a PyTorch Training
-Script](model-parallel-customize-training-script-pt.md "model-parallel-customize-training-script-pt.md"), respectively.
+specific tips, see [Modify a TensorFlow training script](model-parallel-customize-training-script-tf.md "model-parallel-customize-training-script-tf.md") and [Modify a PyTorch Training Script](model-parallel-customize-training-script-pt.md "model-parallel-customize-training-script-pt.md"), respectively.
 
-## Batch Size and
-
-Number of Microbatches
+## Batch Size and Number of Microbatches
 
 - The library is most efficient when the batch size is increased. For use cases
   where the model fits within a single device, but can only be trained with a
@@ -37,9 +31,7 @@ Number of Microbatches
   different API for the data pipeline, you might need to manually skip the last
   batch whenever it is not divisible by the number of microbatches.
 
-## Manual
-
-Partitioning
+## Manual Partitioning
 
 - If you use manual partitioning, be mindful of the parameters that are consumed
   by multiple operations and modules in your model, such as the embedding table in
@@ -47,9 +39,7 @@ Partitioning
   in the same device for correctness. When auto-partitioning is used, the library
   automatically enforces this constraint.
 
-## Data
-
-Preparation
+## Data Preparation
 
 - If the model takes multiple inputs, make sure you seed the random operations
   in your data pipeline (e.g., shuffling) with `smp.dp_rank()`. If the
@@ -58,9 +48,7 @@ Preparation
   sure that the order of the data seen on all ranks that form a model partition is
   consistent.
 
-## Returning
-
-Tensors from `smp.DistributedModel`
+## Returning Tensors from `smp.DistributedModel`
 
 - Any tensor that is returned from the `smp.DistributedModel.call`
   (for TensorFlow) or `smp.DistributedModel.forward` (for PyTorch) function
@@ -69,9 +57,7 @@ Tensors from `smp.DistributedModel`
   methods (intermediate activations, for example) should not be returned, as this
   causes needless communication and memory overhead and hurts performance.
 
-## The
-
-`@smp.step` Decorator
+## The `@smp.step` Decorator
 
 - If an `smp.step`-decorated function has a tensor argument that does
   not have a batch dimension, the argument name must be provided in the
@@ -197,5 +183,4 @@ assert tuple(distributed_linear.module.weight.shape) == (60, 60)
        cause your training job to stall.
 
   For more information about checkpointing a model with tensor parallelism, see
-  [Checkpointing a
-  distributed model](distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint").
+  [Checkpointing a distributed model](distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#distributed-model-parallel-checkpoint").

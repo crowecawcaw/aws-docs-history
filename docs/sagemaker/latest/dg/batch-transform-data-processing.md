@@ -1,7 +1,4 @@
-# Associate
-
-Prediction
-Results with Input Records
+# Associate Prediction Results with Input Records
 
 When
 making predictions on a large dataset, you can exclude attributes that aren't needed for
@@ -13,18 +10,12 @@ format only.
 
 ###### Topics
 
-- [Workflow
-  for Associating Inferences with Input Records](#batch-transform-data-processing-workflow "#batch-transform-data-processing-workflow")
-- [Use Data Processing in Batch
-  Transform Jobs](#batch-transform-data-processing-steps "#batch-transform-data-processing-steps")
+- [Workflow for Associating Inferences with Input Records](#batch-transform-data-processing-workflow "#batch-transform-data-processing-workflow")
+- [Use Data Processing in Batch Transform Jobs](#batch-transform-data-processing-steps "#batch-transform-data-processing-steps")
 - [Supported JSONPath Operators](#data-processing-operators "#data-processing-operators")
-- [Batch
-  Transform
-  Examples](#batch-transform-data-processing-examples "#batch-transform-data-processing-examples")
+- [Batch Transform Examples](#batch-transform-data-processing-examples "#batch-transform-data-processing-examples")
 
-## Workflow
-
-for Associating Inferences with Input Records
+## Workflow for Associating Inferences with Input Records
 
 The following diagram shows the workflow for associating inferences with input
 records.
@@ -45,9 +36,7 @@ associate inferences with input data, there are three main steps:
    context for interpreting the predictions in the reports. Use [`OutputFilter`](../APIReference/API_CreateTransformJob.md#SageMaker-Type-DataProcessing-OutputFilter "../APIReference/API_CreateTransformJob.md#SageMaker-Type-DataProcessing-OutputFilter") to store the specified portion of the
    joined dataset in the output file.
 
-## Use Data Processing in Batch
-
-Transform Jobs
+## Use Data Processing in Batch Transform Jobs
 
 When creating a batch transform job with [`CreateTransformJob`](../APIReference/API_CreateTransformJob.md "../APIReference/API_CreateTransformJob.md") to
 process
@@ -80,9 +69,7 @@ files. For example, with the [`TransformOutput`](../APIReference/API_TransformOu
 `text/csv`, `application/json`, or
 `application/jsonlines`. The syntax for specifying columns in a CSV
 file and specifying attributes in a JSON file are different. Using the wrong syntax
-causes an error. For more information, see [Batch
-Transform
-Examples](#batch-transform-data-processing-examples "#batch-transform-data-processing-examples"). For more information
+causes an error. For more information, see [Batch Transform Examples](#batch-transform-data-processing-examples "#batch-transform-data-processing-examples"). For more information
 about input and output file formats for built-in algorithms, see [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md").
 
 The record delimiters for the input and output must also be consistent with your
@@ -124,30 +111,19 @@ field, additional nesting of children within brackets is not supported. For exam
 
 For more information about JSONPath operators, see [JsonPath](https://github.com/json-path/JsonPath "https://github.com/json-path/JsonPath") on GitHub.
 
-## Batch
-
-Transform
-Examples
+## Batch Transform Examples
 
 The following examples show some common ways to join input data with prediction
 results.
 
 ###### Topics
 
-- [Example:
-  Output Only Inferences](#batch-transform-data-processing-example-default "#batch-transform-data-processing-example-default")
-- [Example: Output
-  Inferences Joined with Input Data](#batch-transform-data-processing-example-all "#batch-transform-data-processing-example-all")
-- [Example:
-  Output Inferences Joined with Input Data and Exclude the ID Column from the
-  Input (CSV)](#batch-transform-data-processing-example-select-csv "#batch-transform-data-processing-example-select-csv")
-- [Example:
-  Output Inferences Joined with an ID Column and Exclude the ID Column from
-  the Input (CSV)](#batch-transform-data-processing-example-select-json "#batch-transform-data-processing-example-select-json")
+- [Example: Output Only Inferences](#batch-transform-data-processing-example-default "#batch-transform-data-processing-example-default")
+- [Example: Output Inferences Joined with Input Data](#batch-transform-data-processing-example-all "#batch-transform-data-processing-example-all")
+- [Example: Output Inferences Joined with Input Data and Exclude the ID Column from the Input (CSV)](#batch-transform-data-processing-example-select-csv "#batch-transform-data-processing-example-select-csv")
+- [Example: Output Inferences Joined with an ID Column and Exclude the ID Column from the Input (CSV)](#batch-transform-data-processing-example-select-json "#batch-transform-data-processing-example-select-json")
 
-### Example:
-
-Output Only Inferences
+### Example: Output Only Inferences
 
 By default, the [`DataProcessing`](../APIReference/API_CreateTransformJob.md#SageMaker-CreateTransformJob-request-DataProcessing "../APIReference/API_CreateTransformJob.md#SageMaker-CreateTransformJob-request-DataProcessing") parameter doesn't join inference results
 with input. It outputs only the inference results.
@@ -176,9 +152,7 @@ behavior.
 }
 ```
 
-### Example: Output
-
-Inferences Joined with Input Data
+### Example: Output Inferences Joined with Input Data
 
 If you're using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") to combine the input data with the
 inferences in the output file, specify the `assemble_with` and
@@ -248,10 +222,7 @@ a CSV file, for example, if the record is `[1,2,3]`, and the label
 result is `[1]`, then the output file would contain
 `[1,2,3,1]`.
 
-### Example:
-
-Output Inferences Joined with Input Data and Exclude the ID Column from the
-Input (CSV)
+### Example: Output Inferences Joined with Input Data and Exclude the ID Column from the Input (CSV)
 
 If you are using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") to join your input data with the
 inference output while excluding an ID column from the transformer input,
@@ -303,10 +274,7 @@ omit the number before the colon, for example, `[:5]`, the subset
 includes all columns from the first column (index 0) through the sixth
 column.
 
-### Example:
-
-Output Inferences Joined with an ID Column and Exclude the ID Column from
-the Input (CSV)
+### Example: Output Inferences Joined with an ID Column and Exclude the ID Column from the Input (CSV)
 
 If you are using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can specify the output to join
 only specific input columns (such as the ID column) with the inferences by

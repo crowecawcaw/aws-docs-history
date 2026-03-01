@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -37,8 +36,7 @@ the notebooks use the same kernel, the notebooks run on the same instance of tha
 type.
 
 After you launch a notebook, you can change its instance type, SageMaker image, and kernel from
-within the notebook. For more information, see [Change the Instance
-Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md") and [Change the Image or a Kernel for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-change-image.md "notebooks-run-and-manage-change-image.md").
+within the notebook. For more information, see [Change the Instance Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md") and [Change the Image or a Kernel for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-change-image.md "notebooks-run-and-manage-change-image.md").
 
 ###### Note
 
@@ -61,8 +59,7 @@ For information about shutting down the notebook, see [Shut down resources](note
 - [Open a notebook in Studio Classic](#notebooks-open "#notebooks-open")
 - [Create a Notebook from the File Menu](#notebooks-create-file-menu "#notebooks-create-file-menu")
 - [Create a Notebook from the Launcher](#notebooks-create-launcher "#notebooks-create-launcher")
-- [List of the available instance types,
-  images, and kernels](#notebooks-instance-image-kernels "#notebooks-instance-image-kernels")
+- [List of the available instance types, images, and kernels](#notebooks-instance-image-kernels "#notebooks-instance-image-kernels")
 
 ## Open a notebook in Studio Classic
 
@@ -113,13 +110,9 @@ Terminals and Kernels** icon (
 ![Black square icon representing a placeholder or empty image.](images/studio/icons/running-terminals-kernels.png)
 ). You can stop the notebook's kernel session from this view.
 
-## List of the available instance types,
-
-images, and kernels
+## List of the available instance types, images, and kernels
 
 For a list of all available resources, see:
 
-- [Instance Types Available for Use With
-  Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
-- [Amazon SageMaker Images Available for Use With
-  Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md")
+- [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
+- [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md")

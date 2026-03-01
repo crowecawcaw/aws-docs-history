@@ -61,8 +61,7 @@ string map.
 ###### Topics
 
 - [Step 1: Determine the Initial Cluster Centers](#kmeans-step1 "#kmeans-step1")
-- [Step 2: Iterate over the Training Dataset and
-  Calculate Cluster Centers](#kmeans-step2 "#kmeans-step2")
+- [Step 2: Iterate over the Training Dataset and Calculate Cluster Centers](#kmeans-step2 "#kmeans-step2")
 - [Step 3: Reduce the Clusters from K to k](#kmeans-step3 "#kmeans-step3")
 
 ## Step 1: Determine the Initial Cluster Centers
@@ -125,9 +124,7 @@ For more information about the SageMaker AI k-means estimator, see [K-means](htt
 
 You now have an initial set of cluster centers.
 
-## Step 2: Iterate over the Training Dataset and
-
-Calculate Cluster Centers
+## Step 2: Iterate over the Training Dataset and Calculate Cluster Centers
 
 The cluster centers that you created in the preceding step are mostly random, with
 some consideration for the training dataset. In this step, you use the training

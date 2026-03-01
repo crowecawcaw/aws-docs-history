@@ -1,12 +1,9 @@
-# Invoke ModelLifeCycle
-
-using the AWS CLI examples
+# Invoke ModelLifeCycle using the AWS CLI examples
 
 You can use the AWS CLI tool to manage your AWS resources. A few AWS CLI
 commands include [search](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudsearchdomain/search.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudsearchdomain/search.html") and [list-actions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/fis/list-actions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/fis/list-actions.html"). The following page will provide examples on how to
 use `ModelPackage` while using these commands. For information and
-examples on setting up your stage construct, see [Set up Staging
-Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
+examples on setting up your stage construct, see [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
 
 The examples on this page uses the following variables.
 

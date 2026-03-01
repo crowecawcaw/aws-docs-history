@@ -31,15 +31,10 @@ Model Registry.
 
 ###### Topics
 
-- [Set up prerequisite
-  permissions](modelcollections-permissions.md "modelcollections-permissions.md")
+- [Set up prerequisite permissions](modelcollections-permissions.md "modelcollections-permissions.md")
 - [Create a Collection](modelcollections-create.md "modelcollections-create.md")
-- [Add Model Groups to a
-  Collection](modelcollections-add-models.md "modelcollections-add-models.md")
-- [Remove Model Groups or Collections
-  from a Collection](modelcollections-remove-models.md "modelcollections-remove-models.md")
-- [Move a Model Group Between
-  Collections](modelcollections-move-models.md "modelcollections-move-models.md")
-- [View a Model Group's Parent
-  Collection](modelcollections-view-parent.md "modelcollections-view-parent.md")
+- [Add Model Groups to a Collection](modelcollections-add-models.md "modelcollections-add-models.md")
+- [Remove Model Groups or Collections from a Collection](modelcollections-remove-models.md "modelcollections-remove-models.md")
+- [Move a Model Group Between Collections](modelcollections-move-models.md "modelcollections-move-models.md")
+- [View a Model Group's Parent Collection](modelcollections-view-parent.md "modelcollections-view-parent.md")
 - [Constraints](modelcollections-limitations.md "modelcollections-limitations.md")

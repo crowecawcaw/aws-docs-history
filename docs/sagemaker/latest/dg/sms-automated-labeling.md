@@ -21,18 +21,14 @@ providing a minimum of 5,000 objects.
 
 Automated data labeling is available only for the following Ground Truth built-in task types:
 
-- [Create an image classification job (Single
-  Label)](sms-image-classification.md "sms-image-classification.md")
-- [Identify image contents using semantic
-  segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
+- [Create an image classification job (Single Label)](sms-image-classification.md "sms-image-classification.md")
+- [Identify image contents using semantic segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
 - Object detection ([Classify image objects using a bounding box](sms-bounding-box.md "sms-bounding-box.md"))
-- [Categorize text with text classification (Single
-  Label)](sms-text-classification.md "sms-text-classification.md")
+- [Categorize text with text classification (Single Label)](sms-text-classification.md "sms-text-classification.md")
   [Streaming labeling jobs](sms-streaming-labeling-job.md "sms-streaming-labeling-job.md") do not support automated data labeling.
 
 To learn how to create a custom active learning workflow using your own model, see
-[Set up an active learning workflow
-with your own model](#samurai-automated-labeling-byom "#samurai-automated-labeling-byom").
+[Set up an active learning workflow with your own model](#samurai-automated-labeling-byom "#samurai-automated-labeling-byom").
 
 Input data quotas apply for automated data labeling jobs. See [Input Data Quotas](input-data-limits.md "input-data-limits.md") for information
 about dataset size, input data size and resolution limits.
@@ -110,9 +106,7 @@ Active Learning
 
 ![Example process of active learning.](images/sms/auto-labeling/sagemaker-gt-annotate-data-5.png)
 
-### Accuracy of automated
-
-labels
+### Accuracy of automated labels
 
 The definition of _accuracy_ depends on the built-in task
 type that you use with automated labeling. For all task types, these accuracy
@@ -138,9 +132,7 @@ confidence threshold is found using the human-annotated validation set so that
 the expected accuracy of the auto-labeled objects satisfies certain predefined
 accuracy requirements.
 
-## Create an automated data
-
-labeling job (console)
+## Create an automated data labeling job (console)
 
 To create a labeling job that uses automated labeling in the SageMaker AI console, use the
 following procedure.
@@ -156,8 +148,7 @@ following procedure.
 3. Under **Workers**, choose your workforce type.
 4. In the same section, choose **Enable automated data
    labeling**.
-5. Using [Configure the Bounding Box
-   Tool](sms-getting-started.md#sms-getting-started-step4 "sms-getting-started.md#sms-getting-started-step4") as a guide, create worker
+5. Using [Configure the Bounding Box Tool](sms-getting-started.md#sms-getting-started-step4 "sms-getting-started.md#sms-getting-started-step4") as a guide, create worker
    instructions in the section **`Task Type`
    labeling tool**. For example, if you chose **Semantic
    segmentation** as your labeling job type, this section is
@@ -172,9 +163,7 @@ section of the SageMaker AI console. Your output data appears in the Amazon S3 b
 specified when creating the labeling job. For more information about the format and
 file structure of your labeling job output data, see [Labeling job output data](sms-data-output.md "sms-data-output.md").
 
-## Create an automated data
-
-labeling job (API)
+## Create an automated data labeling job (API)
 
 To create an automated data labeling job using the SageMaker API, use the [`LabelingJobAlgorithmsConfig`](../APIReference/API_LabelingJobAlgorithmsConfig.md "../APIReference/API_LabelingJobAlgorithmsConfig.md") parameter of the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. To learn how to start a
 labeling job using the `CreateLabelingJob` operation, see [Create a Labeling Job (API)](sms-create-labeling-job-api.md "sms-create-labeling-job-api.md").
@@ -183,13 +172,10 @@ Specify the Amazon Resource Name (ARN) of the algorithm that you are using for
 automated data labeling in the [LabelingJobAlgorithmSpecificationArn](../APIReference/API_LabelingJobAlgorithmsConfig.md#SageMaker-Type-LabelingJobAlgorithmsConfig-LabelingJobAlgorithmSpecificationArn "../APIReference/API_LabelingJobAlgorithmsConfig.md#SageMaker-Type-LabelingJobAlgorithmsConfig-LabelingJobAlgorithmSpecificationArn") parameter. Choose from one of the
 four Ground Truth built-in algorithms that are supported with automated labeling:
 
-- [Create an image classification job (Single
-  Label)](sms-image-classification.md "sms-image-classification.md")
-- [Identify image contents using semantic
-  segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
+- [Create an image classification job (Single Label)](sms-image-classification.md "sms-image-classification.md")
+- [Identify image contents using semantic segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
 - Object detection ([Classify image objects using a bounding box](sms-bounding-box.md "sms-bounding-box.md"))
-- [Categorize text with text classification (Single
-  Label)](sms-text-classification.md "sms-text-classification.md")
+- [Categorize text with text classification (Single Label)](sms-text-classification.md "sms-text-classification.md")
 
 When an automated data labeling job finishes, Ground Truth returns the ARN of the model
 it used for the automated data labeling job. Use this model as the starting model
@@ -215,9 +201,7 @@ labeling job, see the **object_detection_tutorial** example in the
 Jobs** section of a SageMaker AI notebook instance. To learn how to create and
 open a notebook instance, see [Create an Amazon SageMaker notebook instance](howitworks-create-ws.md "howitworks-create-ws.md").
 
-## Amazon EC2 instances required for automated data
-
-labeling
+## Amazon EC2 instances required for automated data labeling
 
 The following table lists the Amazon Elastic Compute Cloud (Amazon EC2) instances that you need to run
 automated data labeling for training and batch inference jobs.
@@ -235,9 +219,7 @@ Ground Truth manages the instances that you use for automated data labeling jobs
 creates, configures, and terminates the instances as needed to perform your job.
 These instances don't appear in your Amazon EC2 instance dashboard.
 
-## Set up an active learning workflow
-
-with your own model
+## Set up an active learning workflow with your own model
 
 You can create an active learning workflow with your own algorithm to run training
 and inferences in that workflow to auto-label your data. The notebook

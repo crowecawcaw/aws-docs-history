@@ -1,6 +1,4 @@
-# Feature Processor restrictions, limits,
-
-and quotas
+# Feature Processor restrictions, limits, and quotas
 
 Amazon SageMaker Feature Store Feature Processing relies on SageMaker AI machine learning (ML) lineage tracking. The Feature Store
 Feature Processor uses lineage contexts to represent and track Feature Processing Pipelines and

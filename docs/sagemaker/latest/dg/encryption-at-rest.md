@@ -15,6 +15,5 @@ is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "
 ###### Topics
 
 - [Studio notebooks](encryption-at-rest-studio.md "encryption-at-rest-studio.md")
-- [Notebook instances, SageMaker AI jobs, and
-  Endpoints](encryption-at-rest-nbi.md "encryption-at-rest-nbi.md")
+- [Notebook instances, SageMaker AI jobs, and Endpoints](encryption-at-rest-nbi.md "encryption-at-rest-nbi.md")
 - [SageMaker geospatial capabilities](geospatial-encryption-at-rest.md "geospatial-encryption-at-rest.md")

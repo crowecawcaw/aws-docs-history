@@ -31,5 +31,4 @@ The examples in the links below all include pre-annotation and post-annotation L
 - [Processing data in a custom labeling workflow with AWS Lambda](sms-custom-templates-step3.md "sms-custom-templates-step3.md")
 - [Demo template: Annotation of images with crowd-bounding-box](sms-custom-templates-step2-demo1.md "sms-custom-templates-step2-demo1.md")
 - [Demo Template: Labeling Intents with crowd-classifier](sms-custom-templates-step2-demo2.md "sms-custom-templates-step2-demo2.md")
-- [Create a custom workflow using the
-  API](sms-custom-templates-step4.md "sms-custom-templates-step4.md")
+- [Create a custom workflow using the API](sms-custom-templates-step4.md "sms-custom-templates-step4.md")

@@ -65,8 +65,7 @@ with the stratified sampling method. The
 table below lists the size of the downsample by model type. To control the sampling process, you
 can use Data Wrangler in Canvas to sample using your preferred sampling technique. For time series
 data, you can resample to aggregate data points. For more information about sampling, see [Sampling](canvas-transform.md#canvas-transform-sampling "canvas-transform.md#canvas-transform-sampling"). For more
-information about resampling time series data, see [Resample Time Series
-Data](canvas-transform.md#canvas-resample-time-series "canvas-transform.md#canvas-resample-time-series").
+information about resampling time series data, see [Resample Time Series Data](canvas-transform.md#canvas-resample-time-series "canvas-transform.md#canvas-resample-time-series").
 
 If you choose to do a **Quick build** on a dataset with more than 50,000
 rows, then Canvas samples your data down to 50,000 rows for a shorter model training

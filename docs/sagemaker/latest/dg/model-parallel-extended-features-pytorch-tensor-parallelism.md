@@ -1,6 +1,4 @@
-# Tensor
-
-Parallelism
+# Tensor Parallelism
 
 _Tensor parallelism_ is a type of model parallelism
 in which specific model weights, gradients, and optimizer states are split across
@@ -27,10 +25,6 @@ v1.6.0 and later.
 ###### Topics
 
 - [How Tensor Parallelism Works](model-parallel-extended-features-pytorch-tensor-parallelism-how-it-works.md "model-parallel-extended-features-pytorch-tensor-parallelism-how-it-works.md")
-- [Run a SageMaker Distributed Model Parallel Training Job with Tensor
-  Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism-examples.md "model-parallel-extended-features-pytorch-tensor-parallelism-examples.md")
-- [Support for
-  Hugging Face Transformer Models](model-parallel-extended-features-pytorch-hugging-face.md "model-parallel-extended-features-pytorch-hugging-face.md")
-- [Ranking
-  Mechanism when Using a Combination of Pipeline Parallelism and Tensor
-  Parallelism](model-parallel-extended-features-pytorch-ranking-mechanism.md "model-parallel-extended-features-pytorch-ranking-mechanism.md")
+- [Run a SageMaker Distributed Model Parallel Training Job with Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism-examples.md "model-parallel-extended-features-pytorch-tensor-parallelism-examples.md")
+- [Support for Hugging Face Transformer Models](model-parallel-extended-features-pytorch-hugging-face.md "model-parallel-extended-features-pytorch-hugging-face.md")
+- [Ranking Mechanism when Using a Combination of Pipeline Parallelism and Tensor Parallelism](model-parallel-extended-features-pytorch-ranking-mechanism.md "model-parallel-extended-features-pytorch-ranking-mechanism.md")

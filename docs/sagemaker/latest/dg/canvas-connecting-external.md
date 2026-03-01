@@ -160,8 +160,7 @@ your Amazon DocumentDB data in Canvas to create either a dataset or a data flow.
 You can import data from Amazon Redshift, a data warehouse where your organization keeps its
 data. Before you can import data from Amazon Redshift, the AWS IAM role you use must have
 the `AmazonRedshiftFullAccess` managed policy attached. For instructions on how
-to attach this policy, see [Grant Users Permissions to Import Amazon Redshift
-Data](canvas-redshift-permissions.md "canvas-redshift-permissions.md").
+to attach this policy, see [Grant Users Permissions to Import Amazon Redshift Data](canvas-redshift-permissions.md "canvas-redshift-permissions.md").
 
 To import data from Amazon Redshift, you do the following:
 

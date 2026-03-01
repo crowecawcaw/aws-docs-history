@@ -1,6 +1,4 @@
-# Create a Model Package
-
-Resource
+# Create a Model Package Resource
 
 To create a model package resource that you can use to create deployable models in
 Amazon SageMaker AI and publish on AWS Marketplace specify the following information:
@@ -58,14 +56,10 @@ SageMaker API.
 
 ###### Topics
 
-- [Create a Model Package
-  Resource (Console)](#sagemaker-mkt-create-model-pkg-console "#sagemaker-mkt-create-model-pkg-console")
-- [Create a Model Package
-  Resource (API)](#sagemaker-mkt-create-model-pkg-api "#sagemaker-mkt-create-model-pkg-api")
+- [Create a Model Package Resource (Console)](#sagemaker-mkt-create-model-pkg-console "#sagemaker-mkt-create-model-pkg-console")
+- [Create a Model Package Resource (API)](#sagemaker-mkt-create-model-pkg-api "#sagemaker-mkt-create-model-pkg-api")
 
-## Create a Model Package
-
-Resource (Console)
+## Create a Model Package Resource (Console)
 
 ###### To create a model package in the SageMaker AI console:
 
@@ -161,9 +155,7 @@ Resource (Console)
 
 6.  Choose **Create marketplace model package**.
 
-## Create a Model Package
-
-Resource (API)
+## Create a Model Package Resource (API)
 
 To create a model package by using the SageMaker API, call the [`CreateModelPackage`](../APIReference/API_CreateModelPackage.md "../APIReference/API_CreateModelPackage.md")
 API.

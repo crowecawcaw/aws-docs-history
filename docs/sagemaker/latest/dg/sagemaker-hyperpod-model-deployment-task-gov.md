@@ -1,6 +1,4 @@
-# Task governance for model
-
-deployment on HyperPod
+# Task governance for model deployment on HyperPod
 
 This section covers how to optimize your shared Amazon SageMaker HyperPod EKS clusters for
 real-time inference workloads. You'll learn to configure Kueue's task governance
@@ -8,12 +6,9 @@ features—including quota management, priority scheduling, and resource sharing
 policies—to ensure your inference workloads get the GPU resources they need during
 traffic spikes while maintaining fair allocation across your teams' training,
 evaluation, and testing activities. For more general information on task governance, see
-[SageMaker HyperPod task
-governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md "sagemaker-hyperpod-eks-operate-console-ui-governance.md") .
+[SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md "sagemaker-hyperpod-eks-operate-console-ui-governance.md") .
 
-## How inference
-
-workload management works
+## How inference workload management works
 
 To effectively manage real-time inference traffic spikes in shared
 HyperPod EKS clusters, implement the following task governance strategies
@@ -58,9 +53,7 @@ jobs within your team to accommodate high-priority inference pods, ensuring
 real-time inference can run without depending on external quota borrowing. For more
 information, see [Preemption](https://kueue.sigs.k8s.io/docs/concepts/preemption/ "https://kueue.sigs.k8s.io/docs/concepts/preemption/").
 
-## Sample
-
-inference workload setup
+## Sample inference workload setup
 
 The following example shows how Kueue manages GPU resources in a shared
 Amazon SageMaker HyperPod cluster.

@@ -1,6 +1,4 @@
-# Monitor Amazon SageMaker Feature Store Feature
-
-Processor pipelines
+# Monitor Amazon SageMaker Feature Store Feature Processor pipelines
 
 AWS provides monitoring tools to watch your Amazon SageMaker AI resources and applications in real
 time, report when something goes wrong, and take automatic actions when appropriate. Feature Store
@@ -32,5 +30,4 @@ Amazon SageMaker Studio Classic for a given feature group in the Feature Store U
 Processor pipelines as either inputs or outputs are displayed in the UI. In addition, the
 lineage view can provide context into upstream executions, such as data producing Feature
 Processor pipelines and data sources, for further debugging. For more information on using the
-lineage view using Studio Classic, see [View lineage
-from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio").
+lineage view using Studio Classic, see [View lineage from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio").

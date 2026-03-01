@@ -10,11 +10,8 @@ To learn more about supported file types and input data quotas, see [Input data]
 ###### Topics
 
 - [Classify image objects using a bounding box](sms-bounding-box.md "sms-bounding-box.md")
-- [Identify image contents using semantic
-  segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
+- [Identify image contents using semantic segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md")
 - [Auto-Segmentation Tool](sms-auto-segmentation.md "sms-auto-segmentation.md")
-- [Create an image classification job (Single
-  Label)](sms-image-classification.md "sms-image-classification.md")
-- [Create an image classification job
-  (Multi-label)](sms-image-classification-multilabel.md "sms-image-classification-multilabel.md")
+- [Create an image classification job (Single Label)](sms-image-classification.md "sms-image-classification.md")
+- [Create an image classification job (Multi-label)](sms-image-classification-multilabel.md "sms-image-classification-multilabel.md")
 - [Image Label Verification](sms-label-verification.md "sms-label-verification.md")

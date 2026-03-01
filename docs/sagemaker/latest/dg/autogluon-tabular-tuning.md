@@ -6,5 +6,4 @@ not necessary. Rather than focusing on model tuning, AutoGluon-Tabular succeeds 
 stacking models in multiple layers and training in a layer-wise manner.
 
 For more information about AutoGluon-Tabular hyperparameters, see
-[AutoGluon-Tabular
-hyperparameters](autogluon-tabular-hyperparameters.md "autogluon-tabular-hyperparameters.md").
+[AutoGluon-Tabular hyperparameters](autogluon-tabular-hyperparameters.md "autogluon-tabular-hyperparameters.md").

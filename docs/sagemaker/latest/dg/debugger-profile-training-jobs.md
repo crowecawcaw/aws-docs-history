@@ -18,16 +18,12 @@ If you want to change the metric collection time interval, you can add a paramte
 profiling configuration to your training job launcher. For example, if you're using the SageMaker AI
 Python SDK, you need to pass the `profiler_config` parameter when you create an
 estimator object. To learn how to adjust the resource utilization metric collection
-interval, see [Code template for
-configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI
-Python SDK](debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler "debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler") and then [Configure settings for basic
-profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md").
+interval, see [Code template for configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI Python SDK](debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler "debugger-configuration-for-profiling.md#debugger-configuration-structure-profiler") and then [Configure settings for basic profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md").
 
 Additionally, you can add issue detecting tools called _built-in
 profiling rules_ provided by SageMaker Debugger. The built-in profiling rules run
 analysis against the resource utilization metrics and detect computational performance
-issues. For more information, see [Use built-in profiler rules managed
-by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
+issues. For more information, see [Use built-in profiler rules managed by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
 You can receive rule analysis results through the [SageMaker Debugger UI in SageMaker Studio
 Experiments](debugger-on-studio.md "debugger-on-studio.md") or the [SageMaker Debugger Profiling Report](debugger-profiling-report.md "debugger-profiling-report.md"). You can also create custom profiling rules using
 the SageMaker Python SDK.
@@ -37,13 +33,9 @@ topics.
 
 ###### Topics
 
-- [Estimator configuration with
-  parameters for basic profiling using the Amazon SageMaker Debugger Python modules](debugger-configuration-for-profiling.md "debugger-configuration-for-profiling.md")
-- [Use built-in profiler rules managed
-  by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md")
-- [List of Debugger built-in profiler
-  rules](debugger-built-in-profiler-rules.md "debugger-built-in-profiler-rules.md")
+- [Estimator configuration with parameters for basic profiling using the Amazon SageMaker Debugger Python modules](debugger-configuration-for-profiling.md "debugger-configuration-for-profiling.md")
+- [Use built-in profiler rules managed by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md")
+- [List of Debugger built-in profiler rules](debugger-built-in-profiler-rules.md "debugger-built-in-profiler-rules.md")
 - [Amazon SageMaker Debugger UI in Amazon SageMaker Studio Classic Experiments](debugger-on-studio.md "debugger-on-studio.md")
 - [SageMaker Debugger interactive report](debugger-profiling-report.md "debugger-profiling-report.md")
-- [Analyze data using the Debugger Python client
-  library](debugger-analyze-data.md "debugger-analyze-data.md")
+- [Analyze data using the Debugger Python client library](debugger-analyze-data.md "debugger-analyze-data.md")

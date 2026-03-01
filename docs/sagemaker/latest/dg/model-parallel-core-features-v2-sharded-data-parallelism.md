@@ -1,6 +1,4 @@
-# Hybrid
-
-sharded data parallelism
+# Hybrid sharded data parallelism
 
 _Sharded data parallelism_ is a memory-saving
 distributed training technique that splits the state of a model (model parameters,
@@ -31,11 +29,9 @@ greater than 2 to the `hybrid_shard_degree` parameter.
 The following code snippets show how to add the SMP initialization module
 `torch.sagemaker.init()` to your training script and set up the SMP
 configuration dictionary in JSON format for training job launcher while following the
-two-step process introduced in [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You don’t
+two-step process introduced in [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You don’t
 need to make any changes to your PyTorch model or [PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp "https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp") configuration. For more information about the
-`hybrid_shard_degree` parameter, see [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+`hybrid_shard_degree` parameter, see [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
 
 **SMP configuration dictionary**
 

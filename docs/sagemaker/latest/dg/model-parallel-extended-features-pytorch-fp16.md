@@ -1,6 +1,4 @@
-# FP16 Training with Model
-
-Parallelism
+# FP16 Training with Model Parallelism
 
 For FP16 training, apply the following modifications to your training script and
 estimator.

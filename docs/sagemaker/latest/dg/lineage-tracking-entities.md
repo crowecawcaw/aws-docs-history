@@ -9,8 +9,7 @@ trials and experiments when you create SageMaker AI jobs such as processing jobs
 batch transform jobs. In additional to auto tracking, you can also [Manually Create Tracking Entities](lineage-tracking-manual-creation.md "lineage-tracking-manual-creation.md") to model custom steps in your workflow. For more information, see [Amazon SageMaker Experiments in Studio Classic](experiments.md "experiments.md").
 
 SageMaker AI also automatically creates tracking entities for the other steps in a workflow so you
-can track the workflow from end to end. For more information, see [Amazon SageMaker AI–Created Tracking
-Entities](lineage-tracking-auto-creation.md "lineage-tracking-auto-creation.md").
+can track the workflow from end to end. For more information, see [Amazon SageMaker AI–Created Tracking Entities](lineage-tracking-auto-creation.md "lineage-tracking-auto-creation.md").
 
 You can create additional entities to supplement those created by SageMaker AI. For more
 information, see [Manually Create Tracking Entities](lineage-tracking-manual-creation.md "lineage-tracking-manual-creation.md").

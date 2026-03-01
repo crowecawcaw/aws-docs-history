@@ -1,6 +1,4 @@
-# Search training plan
-
-offerings
+# Search training plan offerings
 
 To create a training plan, start by calling the [`SearchTrainingPlanOfferings`](../APIReference/API_SearchTrainingPlanOfferings.md "../APIReference/API_SearchTrainingPlanOfferings.md") API operation, passing your plan
 requirements (such as instance type, count, and desired time window) as input parameters.
@@ -19,8 +17,7 @@ list is empty. Adjust your search criteria and look for a new set of offerings.
 - Reservation durations are available in 1-day increments from 1 to 182 days.
 - The reservation instance quantity options are 1, 2, 4, 8, 16, 32 or 64
   instances.
-  To learn about the list of available instances supported by SageMaker training plans, see [Supported instance types,
-  AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
+  To learn about the list of available instances supported by SageMaker training plans, see [Supported instance types, AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
 
 The following example uses an AWS CLI command to request training plan offerings with a
 specified instance type, count, and time information.
@@ -180,8 +177,7 @@ that meet your requirements, you must provide the following values:
   `InstanceType` must be of a supported type.
 
 To learn about the list of available instances supported by SageMaker training plans, see
-[Supported instance types,
-AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
+[Supported instance types, AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
 
 - `InstanceCount`: The number of instances to provision. If the number of
   instances is greater than 1, it should be a power of 2.

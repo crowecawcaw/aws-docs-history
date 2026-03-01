@@ -35,9 +35,7 @@ To get started with a tutorial, see [Tutorials](sagemaker-hyperpod-recipes-tutor
 
 - [Tutorials](sagemaker-hyperpod-recipes-tutorials.md "sagemaker-hyperpod-recipes-tutorials.md")
 - [Default configurations](default-configurations.md "default-configurations.md")
-- [Cluster-specific
-  configurations](cluster-specific-configurations.md "cluster-specific-configurations.md")
+- [Cluster-specific configurations](cluster-specific-configurations.md "cluster-specific-configurations.md")
 - [Considerations](cluster-specific-configurations-special-considerations.md "cluster-specific-configurations-special-considerations.md")
-- [Advanced
-  settings](cluster-specific-configurations-advanced-settings.md "cluster-specific-configurations-advanced-settings.md")
+- [Advanced settings](cluster-specific-configurations-advanced-settings.md "cluster-specific-configurations-advanced-settings.md")
 - [Appendix](appendix.md "appendix.md")

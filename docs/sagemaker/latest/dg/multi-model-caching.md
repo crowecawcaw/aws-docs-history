@@ -1,6 +1,4 @@
-# Set SageMaker AI multi-model endpoint model caching
-
-behavior
+# Set SageMaker AI multi-model endpoint model caching behavior
 
 By default, multi-model endpoints cache frequently used models in memory (CPU or GPU,
 depending on whether you have CPU or GPU backed instances) and on disk to provide low latency
@@ -25,5 +23,4 @@ mode. Higher TPS in these use cases is because SageMaker AI does the following a
 - Provides higher concurrency for downloading and loading models in the inference
   container. For both CPU and GPU backed endpoints, the concurrency is a factor of the
   number of the vCPUs of the container instance.
-  For guidelines on choosing a SageMaker AI ML instance type for a multi-model endpoint, see [Instance recommendations for multi-model
-  endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md").
+  For guidelines on choosing a SageMaker AI ML instance type for a multi-model endpoint, see [Instance recommendations for multi-model endpoint deployments](multi-model-endpoint-instance.md "multi-model-endpoint-instance.md").

@@ -20,9 +20,7 @@ needed, predictions can be fed directly to the client application.
 Use the procedures on this page to learn how to integrate Amazon A2I into any machine
 learning workflow using the custom task type.
 
-###### Create a human loop using a flow definition, integrate it into your application, and
-
-monitor the results
+###### Create a human loop using a flow definition, integrate it into your application, and monitor the results
 
 1. Complete the Amazon A2I [Prerequisites to Using Augmented AI](a2i-getting-started-prerequisites.md "a2i-getting-started-prerequisites.md"). Note the following:
    - The path to the Amazon Simple Storage Service (Amazon S3) bucket or buckets where you store your
@@ -48,8 +46,7 @@ In the next step, you create a flow definition:
    IAM role ARN, and your worker template.
    - To learn how to create a flow definition using the SageMaker AI
      `CreateFlowDefinition` API, see [Create a Human Review Workflow (API)](a2i-create-flow-definition.md#a2i-create-human-review-api "a2i-create-flow-definition.md#a2i-create-human-review-api").
-   - To learn how to create a flow definition using the SageMaker AI console, see [Create a Human Review Workflow
-     (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
+   - To learn how to create a flow definition using the SageMaker AI console, see [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").
 
 5. Configure your human loop using the [Amazon A2I Runtime
    API](../../../augmented-ai/2019-11-07/APIReference/Welcome.md "../../../augmented-ai/2019-11-07/APIReference/Welcome.md"). To learn how, see [Create and Start a Human Loop](a2i-start-human-loop.md "a2i-start-human-loop.md").
@@ -61,11 +58,8 @@ In the next step, you create a flow definition:
    Once you have started a human loop, you can manage and monitor your loops using the
    Amazon Augmented AI Runtime API and Amazon EventBridge (also known as Amazon CloudWatch Events). To learn more, see [Monitor and Manage Your Human Loop](a2i-monitor-humanloop-results.md "a2i-monitor-humanloop-results.md").
 
-## End-to-end Tutorial Using
-
-Amazon A2I Custom Task Types
+## End-to-end Tutorial Using Amazon A2I Custom Task Types
 
 For an end-to-end examples that demonstrates how to integrate Amazon A2I into a
 variety of ML workflows, see the table in [Use Cases and Examples Using Amazon A2I](a2i-task-types-general.md "a2i-task-types-general.md"). To get started using one of these
-notebooks, see [Use SageMaker Notebook Instance with
-Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").
+notebooks, see [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").

@@ -5,31 +5,19 @@ SageMaker HyperPod.
 
 ###### Amazon SageMaker HyperPod FAQs
 
-- [Why can't I find log groups of my SageMaker HyperPod
-  cluster in Amazon CloudWatch?](#hyperpod-faqs-q1 "#hyperpod-faqs-q1")
-- [What particular configurations does HyperPod manage in
-  Slurm configuration files such as slurm.conf and
-  gres.conf?](#hyperpod-faqs-q2 "#hyperpod-faqs-q2")
+- [Why can't I find log groups of my SageMaker HyperPod cluster in Amazon CloudWatch?](#hyperpod-faqs-q1 "#hyperpod-faqs-q1")
+- [What particular configurations does HyperPod manage in Slurm configuration files such as slurm.conf and gres.conf?](#hyperpod-faqs-q2 "#hyperpod-faqs-q2")
 - [How do I run Docker on Slurm nodes on HyperPod?](#hyperpod-faqs-q3 "#hyperpod-faqs-q3")
-- [Why does my parallel training job fail when I use
-  NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?](#hyperpod-faqs-q4 "#hyperpod-faqs-q4")
-- [How do I use local NVMe store of P instances for launching Docker
-  or Enroot containers with Slurm?](#hyperpod-faqs-q5 "#hyperpod-faqs-q5")
+- [Why does my parallel training job fail when I use NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?](#hyperpod-faqs-q4 "#hyperpod-faqs-q4")
+- [How do I use local NVMe store of P instances for launching Docker or Enroot containers with Slurm?](#hyperpod-faqs-q5 "#hyperpod-faqs-q5")
 - [How to set up EFA security groups?](#hyperpod-faqs-q6 "#hyperpod-faqs-q6")
-- [How do I monitor my HyperPod cluster nodes?
-  Are there any CloudWatch metrics exported from HyperPod?](#hyperpod-faqs-q7 "#hyperpod-faqs-q7")
-- [Can I add an additional storage to the
-  HyperPod cluster nodes? The cluster instances have limited local instance
-  store.](#hyperpod-faqs-q8 "#hyperpod-faqs-q8")
-- [Why are my compute nodes showing as "DOWN" or "DRAINED"
-  after a reboot?](#hyperpod-faqs-q9 "#hyperpod-faqs-q9")
-- [Why do my nodes keep getting drained due to Out of
-  Memory (OOM) issues?](#hyperpod-faqs-q10 "#hyperpod-faqs-q10")
+- [How do I monitor my HyperPod cluster nodes? Are there any CloudWatch metrics exported from HyperPod?](#hyperpod-faqs-q7 "#hyperpod-faqs-q7")
+- [Can I add an additional storage to the HyperPod cluster nodes? The cluster instances have limited local instance store.](#hyperpod-faqs-q8 "#hyperpod-faqs-q8")
+- [Why are my compute nodes showing as "DOWN" or "DRAINED" after a reboot?](#hyperpod-faqs-q9 "#hyperpod-faqs-q9")
+- [Why do my nodes keep getting drained due to Out of Memory (OOM) issues?](#hyperpod-faqs-q10 "#hyperpod-faqs-q10")
 - [How can I ensure resources are properly cleaned up after jobs complete?](#hyperpod-faqs-q11 "#hyperpod-faqs-q11")
 
-## Why can't I find log groups of my SageMaker HyperPod
-
-cluster in Amazon CloudWatch?
+## Why can't I find log groups of my SageMaker HyperPod cluster in Amazon CloudWatch?
 
 By default, agent logs and instance start-up logs are sent to the HyperPod platform
 account’s CloudWatch. In case of user lifecycle scripts, lifecycle configuration logs are
@@ -102,10 +90,7 @@ following options.
       file:/opt/aws/amazon-cloudwatch-agent/sagemaker_cwagent_config.json
   ```
 
-## What particular configurations does HyperPod manage in
-
-Slurm configuration files such as `slurm.conf` and
-`gres.conf`?
+## What particular configurations does HyperPod manage in Slurm configuration files such as `slurm.conf` and `gres.conf`?
 
 When you create a Slurm cluster on HyperPod, the HyperPod agent sets up
 the [`slurm.conf`](https://slurm.schedmd.com/slurm.conf.html "https://slurm.schedmd.com/slurm.conf.html")
@@ -123,8 +108,7 @@ HyperPod.
   parameters: `ClusterName`, `SlurmctldHost`,
   `PartitionName`, and `NodeName`.
 
-Also, to enable the [Automatic node
-recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md")
+Also, to enable the [Automatic node recovery and auto-resume](sagemaker-hyperpod-resiliency-slurm-auto-resume.md "sagemaker-hyperpod-resiliency-slurm-auto-resume.md")
 functionality, HyperPod requires the `TaskPlugin` and
 `SchedulerParameters` parameters set as follows. The
 HyperPod agent sets up these two parameters with the required values by
@@ -142,12 +126,9 @@ SchedulerParameters=permit_job_expansion
 
 To help you run Docker on your Slurm nodes running on HyperPod, the HyperPod service team
 provides setup scripts that you can include as part of the lifecycle configuration for cluster
-creation. To learn more, see [Base lifecycle scripts provided by HyperPod](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md") and [Running Docker containers on
-a Slurm compute node on HyperPod](sagemaker-hyperpod-run-jobs-slurm-docker.md "sagemaker-hyperpod-run-jobs-slurm-docker.md").
+creation. To learn more, see [Base lifecycle scripts provided by HyperPod](sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md "sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.md") and [Running Docker containers on a Slurm compute node on HyperPod](sagemaker-hyperpod-run-jobs-slurm-docker.md "sagemaker-hyperpod-run-jobs-slurm-docker.md").
 
-## Why does my parallel training job fail when I use
-
-NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?
+## Why does my parallel training job fail when I use NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?
 
 By default, the Linux OS sets the `#RemoveIPC=yes` flag. Slurm and mpirun
 jobs that use NCCL generate inter-process communication (IPC) resources under non-root user sessions. These user sessions
@@ -239,14 +220,11 @@ chmod +x  /path/to/epilog.sh
 
 5. To apply all of your changes, run `scontrol reconfigure`.
 
-## How do I use local NVMe store of P instances for launching Docker
-
-or Enroot containers with Slurm?
+## How do I use local NVMe store of P instances for launching Docker or Enroot containers with Slurm?
 
 Because the default root volume of your head node usually is limited by 100GB EBS volume,
 you need to set up Docker and Enroot to use local NVMe instance store. To learn how to set
-up NVMe store and use it for launching Docker containers, see [Running Docker containers on
-a Slurm compute node on HyperPod](sagemaker-hyperpod-run-jobs-slurm-docker.md "sagemaker-hyperpod-run-jobs-slurm-docker.md").
+up NVMe store and use it for launching Docker containers, see [Running Docker containers on a Slurm compute node on HyperPod](sagemaker-hyperpod-run-jobs-slurm-docker.md "sagemaker-hyperpod-run-jobs-slurm-docker.md").
 
 ## How to set up EFA security groups?
 
@@ -256,22 +234,16 @@ security group itself. To learn more, see [Step 1: Prepare an
 EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _Amazon EC2 User
 Guide_.
 
-## How do I monitor my HyperPod cluster nodes?
-
-Are there any CloudWatch metrics exported from HyperPod?
+## How do I monitor my HyperPod cluster nodes? Are there any CloudWatch metrics exported from HyperPod?
 
 To gain observability into the resource utilization of your HyperPod cluster, we
 recommend that you integrate the HyperPod cluster with Amazon Managed Grafana and Amazon Managed Service for Prometheus. With
 various open-source Grafana dashboards and exporter packages, you can export and visualize
 metrics related to the HyperPod cluster resources. To learn more about setting up
-SageMaker HyperPod with Amazon Managed Grafana and Amazon Managed Service for Prometheus, see [SageMaker HyperPod cluster
-resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md"). Note that SageMaker HyperPod currently
+SageMaker HyperPod with Amazon Managed Grafana and Amazon Managed Service for Prometheus, see [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md "sagemaker-hyperpod-cluster-observability-slurm.md"). Note that SageMaker HyperPod currently
 doesn't support the exportation of system metrics to Amazon CloudWatch.
 
-## Can I add an additional storage to the
-
-HyperPod cluster nodes? The cluster instances have limited local instance
-store.
+## Can I add an additional storage to the HyperPod cluster nodes? The cluster instances have limited local instance store.
 
 If the default instance storage is insufficient for your workload, you can configure
 additional storage per instance. Starting from the [release on June 20, 2024](sagemaker-hyperpod-release-notes.md#sagemaker-hyperpod-release-notes-20240620 "sagemaker-hyperpod-release-notes.md#sagemaker-hyperpod-release-notes-20240620"), you
@@ -281,9 +253,7 @@ clusters created before June 20, 2024. You can utilize this capability by patchi
 SageMaker HyperPod clusters created before June 20, 2024 and adding new instance groups to them.
 This capability is fully effective for any SageMaker HyperPod clusters created after June 20, 2024.
 
-## Why are my compute nodes showing as "DOWN" or "DRAINED"
-
-after a reboot?
+## Why are my compute nodes showing as "DOWN" or "DRAINED" after a reboot?
 
 This typically occurs when nodes are rebooted using `sudo reboot` instead
 of Slurm's control interface. To properly reboot nodes, use the Slurm command
@@ -296,9 +266,7 @@ its boot process within Slurm's default time limit (60 seconds). To resolve this
 increase the `TimeToResume` parameter in `slurm.conf` to 300
 seconds. This gives GPU instances sufficient time to boot and initialize drivers.
 
-## Why do my nodes keep getting drained due to Out of
-
-Memory (OOM) issues?
+## Why do my nodes keep getting drained due to Out of Memory (OOM) issues?
 
 OOM issues occur when jobs exceed the node's memory capacity. To prevent this, implement `cgroups` to enforce memory
 limits per job. This prevents a single job from affecting the entire node and improves isolation and stability.
@@ -337,6 +305,5 @@ processes and GPU drivers) retain allocated.
 Epilogue scripts can perform tasks such as clearing GPU memory, removing temporary
 files, and unmounting file systems. These scripts have limitations when resources are
 not exclusively allocated to a single job. For detailed instructions and sample scripts,
-see the second bullet point of the question [Why does my parallel training job fail when I use
-NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?](#hyperpod-faqs-q4 "#hyperpod-faqs-q4"). For more
+see the second bullet point of the question [Why does my parallel training job fail when I use NVIDIA Collective Communications Library (NCCL) with Slurm on SageMaker HyperPod platform?](#hyperpod-faqs-q4 "#hyperpod-faqs-q4"). For more
 information, see [Enable Slurm epilog script](https://catalog.workshops.aws/sagemaker-hyperpod/en-US/07-tips-and-tricks/18-slurm-epilogue "https://catalog.workshops.aws/sagemaker-hyperpod/en-US/07-tips-and-tricks/18-slurm-epilogue").

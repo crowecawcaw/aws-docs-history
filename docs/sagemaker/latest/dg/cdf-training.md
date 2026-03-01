@@ -15,16 +15,13 @@ go through a series of conversions and transformations, including:
 
 ###### Topics
 
-- [Content Types Supported by
-  Built-In Algorithms](#cdf-common-content-types "#cdf-common-content-types")
+- [Content Types Supported by Built-In Algorithms](#cdf-common-content-types "#cdf-common-content-types")
 - [Using Pipe Mode](#cdf-pipe-mode "#cdf-pipe-mode")
 - [Using CSV Format](#cdf-csv-format "#cdf-csv-format")
 - [Using RecordIO Format](#cdf-recordio-format "#cdf-recordio-format")
 - [Trained Model Deserialization](#td-deserialization "#td-deserialization")
 
-## Content Types Supported by
-
-Built-In Algorithms
+## Content Types Supported by Built-In Algorithms
 
 The following table lists some of the commonly supported [`ContentType`](../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType "../APIReference/API_Channel.md#SageMaker-Type-Channel-ContentType") values and the algorithms that use
 them:

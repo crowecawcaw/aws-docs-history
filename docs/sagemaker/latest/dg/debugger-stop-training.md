@@ -1,6 +1,4 @@
-# Set up Debugger for automated training job
-
-termination using CloudWatch and Lambda
+# Set up Debugger for automated training job termination using CloudWatch and Lambda
 
 The Debugger rules monitor training job status, and a CloudWatch Events rule watches the Debugger
 rule training job evaluation status. The following sections outline the process
@@ -8,16 +6,11 @@ needed to automate training job termination using using CloudWatch and Lambda.
 
 ###### Topics
 
-- [Step 1: Create a Lambda
-  function](#debugger-lambda-function-create "#debugger-lambda-function-create")
-- [Step 2: Configure the Lambda
-  function](#debugger-lambda-function-configure "#debugger-lambda-function-configure")
-- [Step 3: Create a CloudWatch events rule
-  and link to the Lambda function for Debugger](#debugger-cloudwatch-events "#debugger-cloudwatch-events")
+- [Step 1: Create a Lambda function](#debugger-lambda-function-create "#debugger-lambda-function-create")
+- [Step 2: Configure the Lambda function](#debugger-lambda-function-configure "#debugger-lambda-function-configure")
+- [Step 3: Create a CloudWatch events rule and link to the Lambda function for Debugger](#debugger-cloudwatch-events "#debugger-cloudwatch-events")
 
-## Step 1: Create a Lambda
-
-function
+## Step 1: Create a Lambda function
 
 ###### To create a Lambda function
 
@@ -62,9 +55,7 @@ completed.
 
 ![Create Function page.](images/debugger/debugger-lambda-create.png)
 
-## Step 2: Configure the Lambda
-
-function
+## Step 2: Configure the Lambda function
 
 ###### To configure the Lambda function
 
@@ -136,13 +127,9 @@ For more information about the Lambda code editor interface, see [Creating funct
 editor](../../../lambda/latest/dg/code-editor.md "../../../lambda/latest/dg/code-editor.md"). 2. Skip all other settings and choose **Save** at the
 top of the configuration page.
 
-## Step 3: Create a CloudWatch events rule
+## Step 3: Create a CloudWatch events rule and link to the Lambda function for Debugger
 
-and link to the Lambda function for Debugger
-
-###### To create a CloudWatch Events rule and link to the Lambda function for
-
-Debugger
+###### To create a CloudWatch Events rule and link to the Lambda function for Debugger
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

@@ -84,8 +84,7 @@ The following list describes the options and provides a link for more informatio
 - Home– The main landing page with an
   overview, getting started, and what’s new.
 - Running instances– All of the instances
-  that are currently running in Studio. For more information, see [View your Studio running instances,
-  applications, and spaces](studio-updated-running.md "studio-updated-running.md").
+  that are currently running in Studio. For more information, see [View your Studio running instances, applications, and spaces](studio-updated-running.md "studio-updated-running.md").
 - Data– Data preparation options where you
   can collaborate to store, explore, prepare, transform, and share your data. 
   - For more information about Amazon SageMaker Data Wrangler, see [Data preparation](canvas-data-prep.md "canvas-data-prep.md").
@@ -100,8 +99,7 @@ The following list describes the options and provides a link for more informatio
   information, see [Amazon SageMaker Experiments in Studio Classic](experiments.md "experiments.md").
 - Jobs– View jobs created in Studio. 
   - For more information about training, see [Model training](train-model.md "train-model.md").
-  - For more information about model evaluation, see [Understand options for evaluating large
-    language models with SageMaker Clarify](clarify-foundation-model-evaluate.md "clarify-foundation-model-evaluate.md").
+  - For more information about model evaluation, see [Understand options for evaluating large language models with SageMaker Clarify](clarify-foundation-model-evaluate.md "clarify-foundation-model-evaluate.md").
 
 - Pipelines– Automate your ML workflow with
   Amazon SageMaker Pipelines, which provides resources to help you build, track, and manage your

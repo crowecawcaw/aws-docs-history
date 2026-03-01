@@ -41,12 +41,10 @@ To schedule a notebook job, make sure you meet the following criteria:
   installation. For instructions, see [Installation guide](scheduled-notebook-installation.md "scheduled-notebook-installation.md").
 - If you connect to an Amazon EMR cluster in your notebook and want to parameterize your Amazon EMR
   connection command, you must apply a workaround using environment variables to pass
-  parameters. For details, see [Connect to an Amazon EMR cluster from your
-  notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md").
+  parameters. For details, see [Connect to an Amazon EMR cluster from your notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md").
 - If you connect to an Amazon EMR cluster using Kerberos, LDAP, or HTTP Basic Auth
   authentication, you must use the AWS Secrets Manager to pass your security credentials to your Amazon EMR
-  connection command. For details, see [Connect to an Amazon EMR cluster from your
-  notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md").
+  connection command. For details, see [Connect to an Amazon EMR cluster from your notebook](scheduled-notebook-connect-emr.md "scheduled-notebook-connect-emr.md").
 - (optional) If you want the UI to preload a script to run upon notebook startup, your
   admin must install it with a Lifecycle Configuration (LCC). For information about how to use
   a LCC script, see [Customize a Notebook Instance

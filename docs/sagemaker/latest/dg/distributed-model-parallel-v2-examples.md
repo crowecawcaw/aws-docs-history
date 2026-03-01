@@ -1,6 +1,4 @@
-# Amazon SageMaker AI model parallelism library
-
-v2 examples
+# Amazon SageMaker AI model parallelism library v2 examples
 
 This page provides a list of blogs and Jupyter notebooks that present practical examples
 of implementing the SageMaker model parallelism (SMP) library v2 to run distributed training jobs
@@ -13,9 +11,7 @@ The following blogs discuss case studies about using SMP v2.
 - [Amazon SageMaker AI model parallel library now accelerates PyTorch FSDP
   workloads by up to 20%](https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-model-parallel-library-now-accelerates-pytorch-fsdp-workloads-by-up-to-20/ "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-model-parallel-library-now-accelerates-pytorch-fsdp-workloads-by-up-to-20/")
 
-## PyTorch example
-
-notebooks
+## PyTorch example notebooks
 
 Example notebooks are provided in the [SageMaker AI examples GitHub repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/ "https://github.com/aws/amazon-sagemaker-examples/tree/master/training/distributed_training/"). To download the examples, run the
 following command to clone the repository and go to

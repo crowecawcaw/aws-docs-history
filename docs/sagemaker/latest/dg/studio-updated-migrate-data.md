@@ -1,6 +1,4 @@
-# (Optional) Migrate data from
-
-Studio Classic to Studio
+# (Optional) Migrate data from Studio Classic to Studio
 
 Studio Classic and Studio use two different types of storage volumes. Studio Classic uses a
 single Amazon Elastic File System (Amazon EFS) volume to store data across all users and shared spaces in the
@@ -15,9 +13,7 @@ transfer the files from the user home directories to the Amazon EBS volumes asso
 spaces. The following section gives information about this workflow. For more information
 about opting out of Amazon EFS auto-mounting, see [Opt out of Amazon EFS auto-mounting](studio-updated-automount-optout.md "studio-updated-automount-optout.md").
 
-## Manually migrate all of your data from
-
-Studio Classic
+## Manually migrate all of your data from Studio Classic
 
 The following section describes how to migrate all of the data from your Studio Classic storage
 volume to the new Studio experience.
@@ -32,8 +28,7 @@ If you used Amazon SageMaker Data Wrangler in Studio Classic and want to migrate
 choose one of the following options for migration:
 
 - If you want to migrate all of the data from your Studio Classic storage volume,
-  including your data flow files, go to Manually migrate all of your data from
-  Studio Classic and complete the section
+  including your data flow files, go to Manually migrate all of your data from Studio Classic and complete the section
   **Use Amazon S3 to migrate data**. Then, skip to the
   [Import the flow files into Canvas](#studio-updated-migrate-flows-import "#studio-updated-migrate-flows-import") section.
 - If you only want to migrate your data flow files and no other data from your
@@ -41,9 +36,7 @@ choose one of the following options for migration:
 
 ### Prerequisites
 
-Before running these steps, complete the prerequisites in [Complete prerequisites to migrate the
-Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md"). You must also complete the steps in [Migrate the UI from Studio Classic to
-Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md").
+Before running these steps, complete the prerequisites in [Complete prerequisites to migrate the Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md"). You must also complete the steps in [Migrate the UI from Studio Classic to Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md").
 
 ### Choosing an approach
 
@@ -343,8 +336,7 @@ export EFS_ID=$(aws sagemaker describe-domain --domain-id $SOURCE_DOMAIN_ID | jq
 2. Set the target Amazon S3 bucket name. For information about creating an Amazon S3
    bucket, see [Creating a
    bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md"). The bucket used must have a CORS policy as described in
-   [(Optional) Update your CORS policy
-   to access Amazon S3 buckets](studio-updated-migrate-ui.md#studio-updated-migrate-cors "studio-updated-migrate-ui.md#studio-updated-migrate-cors"). Users in the domain must
+   [(Optional) Update your CORS policy to access Amazon S3 buckets](studio-updated-migrate-ui.md#studio-updated-migrate-cors "studio-updated-migrate-ui.md#studio-updated-migrate-cors"). Users in the domain must
    also have permissions to access the Amazon S3 bucket.
 
 In this example, we are copying files to a prefix named
@@ -619,8 +611,7 @@ Review the following prerequisites before you begin migrating your flow files.
 Before migrating data flow files, you need to follow specific steps of the [Migration from Amazon SageMaker Studio Classic](studio-updated-migrate.md "studio-updated-migrate.md")
 guide to ensure that your user profile's AWS IAM execution role has the required permissions. Follow the
 [Prerequisites](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md") and
-[Migrate the UI from Studio Classic to
-Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md")
+[Migrate the UI from Studio Classic to Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md")
 before proceeding, which describe how to grant the required permissions, configure Studio as
 the new experience, and migrate your existing domain.
 
@@ -629,8 +620,7 @@ To obtain these permissions, you can either:
 
 - Add the [AmazonSageMakerCanvasDataPrepFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerCanvasDataPrepFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerCanvasDataPrepFullAccess.md") policy to your IAM role, or
 - Attach a least-permissions policy, as shown in the **(Optional) Migrate from Data Wrangler in Studio Classic to SageMaker Canvas** section
-  of the page [Migrate the UI from Studio Classic to
-  Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md").
+  of the page [Migrate the UI from Studio Classic to Studio](studio-updated-migrate-ui.md "studio-updated-migrate-ui.md").
 
 Make sure to use the same user profile for both Studio and SageMaker Canvas.
 
@@ -693,8 +683,7 @@ Canvas in case the one-click migration method didn't work.
 ###### Note
 
 If you've already migrated your Studio Classic data to Amazon S3 by following the instructions in
-[(Optional) Migrate data from
-Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md"),
+[(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md"),
 you can skip this step and go straight to the
 [Import the flow files into Canvas](#studio-updated-migrate-flows-import "#studio-updated-migrate-flows-import") section
 in which you import your flow files from the Amazon S3 location where your Studio Classic data is stored.

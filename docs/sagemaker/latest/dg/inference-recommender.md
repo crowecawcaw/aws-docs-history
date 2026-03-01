@@ -24,11 +24,9 @@ choose.
 If you are a first-time user of Amazon SageMaker Inference Recommender, we recommend that you do the
 following:
 
-1. Read through the [Prerequisites for using
-   Amazon SageMaker Inference Recommender](inference-recommender-prerequisites.md "inference-recommender-prerequisites.md") section to make sure
+1. Read through the [Prerequisites for using Amazon SageMaker Inference Recommender](inference-recommender-prerequisites.md "inference-recommender-prerequisites.md") section to make sure
    you have satisfied the requirements to use Amazon SageMaker Inference Recommender.
-2. Read through the [Recommendation jobs with
-   Amazon SageMaker Inference Recommender](inference-recommender-recommendation-jobs.md "inference-recommender-recommendation-jobs.md") section to
+2. Read through the [Recommendation jobs with Amazon SageMaker Inference Recommender](inference-recommender-recommendation-jobs.md "inference-recommender-recommendation-jobs.md") section to
    launch your first Inference Recommender recommendation jobs.
 3. Explore the introductory Amazon SageMaker Inference Recommender [Jupyter notebook](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-inference-recommender/inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-inference-recommender/inference-recommender.ipynb") example, or review the example notebooks in the
    following section.

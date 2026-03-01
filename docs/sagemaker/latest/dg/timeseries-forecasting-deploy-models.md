@@ -1,6 +1,4 @@
-# Forecast a deployed Autopilot
-
-model
+# Forecast a deployed Autopilot model
 
 After training your models using the AutoML API, you can deploy them for real-time or
 batch-based forecasting.

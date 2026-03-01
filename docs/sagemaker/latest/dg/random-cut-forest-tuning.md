@@ -20,9 +20,7 @@ the three-sigma limit heuristic to the test dataset.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the RCF
-
-Algorithm
+## Metrics Computed by the RCF Algorithm
 
 The RCF algorithm computes the following metric during training. When tuning the
 model, choose this metric as the objective metric.
@@ -31,9 +29,7 @@ model, choose this metric as the objective metric.
 | ----------- | ----------------------------------------------------------------------------------------------------- | ---------------------- |
 | `test:f1`   | F1-score on the test dataset, based on the difference<br>between calculated labels and actual labels. | Maximize               |
 
-## Tunable RCF
-
-Hyperparameters
+## Tunable RCF Hyperparameters
 
 You can tune a RCF model with the following hyperparameters.
 

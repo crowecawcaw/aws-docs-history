@@ -1,6 +1,4 @@
-# Mapping of training storage paths managed by
-
-Amazon SageMaker AI
+# Mapping of training storage paths managed by Amazon SageMaker AI
 
 This page provides a high-level summary of how the SageMaker training platform manages storage
 paths for training datasets, model artifacts, checkpoints, and outputs between AWS cloud
@@ -19,8 +17,7 @@ run a training job using the SageMaker Python SDK [Estimator](https://sagemaker.
 SageMaker AI maps storage paths between a storage (such as Amazon S3, Amazon FSx, and Amazon EFS) and the SageMaker training
 container based on the paths and input mode specified through a SageMaker AI estimator object. More
 information about how SageMaker AI reads from or writes to the paths and the purpose of the paths, see
-[SageMaker AI environment variables and the
-default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md").
+[SageMaker AI environment variables and the default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md").
 
 You can use `OutputDataConfig` in the [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API
 to save the results of model training to an S3 bucket. Use the [ModelArtifacts](../APIReference/API_ModelArtifacts.md "../APIReference/API_ModelArtifacts.md") API to
@@ -34,7 +31,5 @@ Data](model-access-training-data.md "model-access-training-data.md").
 ###### Topics
 
 - [Uncompressed model output](model-train-storage-uncompressed.md "model-train-storage-uncompressed.md")
-- [Managing storage paths for different
-  types of instance local storage](model-train-storage-tips-considerations.md "model-train-storage-tips-considerations.md")
-- [SageMaker AI environment variables and the
-  default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md")
+- [Managing storage paths for different types of instance local storage](model-train-storage-tips-considerations.md "model-train-storage-tips-considerations.md")
+- [SageMaker AI environment variables and the default paths for training storage locations](model-train-storage-env-var-summary.md "model-train-storage-env-var-summary.md")

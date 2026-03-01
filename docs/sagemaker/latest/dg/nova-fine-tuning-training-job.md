@@ -1,6 +1,4 @@
-# Fine-tuning Amazon Nova models using SageMaker
-
-training jobs
+# Fine-tuning Amazon Nova models using SageMaker training jobs
 
 Fine-tuning Amazon Nova models with SageMaker training jobs offers a powerful way to customize
 foundation models for your specific use cases.

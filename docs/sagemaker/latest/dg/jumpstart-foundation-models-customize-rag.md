@@ -1,6 +1,4 @@
-# Retrieval Augmented
-
-Generation
+# Retrieval Augmented Generation
 
 Foundation models are usually trained offline, making the model agnostic to any
 data that is created after the model was trained. Additionally, foundation models
@@ -34,9 +32,7 @@ embeddings to find the most relevant documents, construct a new prompt with the
 supplemental context. Then, pass the augmented prompt to a text generation model of
 your choosing.
 
-## Example
-
-notebooks
+## Example notebooks
 
 For more information on RAG foundation model solutions, see the following
 example notebooks:

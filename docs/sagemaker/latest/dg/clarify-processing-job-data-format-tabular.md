@@ -5,9 +5,7 @@ the frame, each row represents a record, and each record has one or more columns
 values within each data frame cell can be of numerical, categorical, or text data
 types.
 
-## Tabular dataset
-
-prerequisites
+## Tabular dataset prerequisites
 
 Prior to analysis, your dataset should have had any necessary pre-processing steps
 already applied. This includes data cleaning or feature engineering.

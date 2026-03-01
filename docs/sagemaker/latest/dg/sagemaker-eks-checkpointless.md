@@ -6,8 +6,7 @@ fine-tuning for NeMo-supported models.
 
 Checkpointless training has the following pre-requisites:
 
-- [Getting started with Amazon EKS support in
-  SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md "sagemaker-hyperpod-eks-prerequisites.md")
+- [Getting started with Amazon EKS support in SageMaker HyperPod](sagemaker-hyperpod-eks-prerequisites.md "sagemaker-hyperpod-eks-prerequisites.md")
 - [Installing the training operator](sagemaker-eks-operator-install.md "sagemaker-eks-operator-install.md"). You must install v1.2.0 or above.
 
 Checkpointless training on SageMaker HyperPod is built on top of the [NVIDIA NeMo Framework User Guide](https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/core/exp_manager.html#experiment-manager "https://docs.nvidia.com/nemo-framework/user-guide/latest/nemotoolkit/core/exp_manager.html#experiment-manager"). You can run

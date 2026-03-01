@@ -13,19 +13,14 @@ encoder-decoder architectures.
 
 ###### Topics
 
-- [Input/Output Interface for the Sequence-to-Sequence
-  Algorithm](#s2s-inputoutput "#s2s-inputoutput")
-- [EC2 Instance Recommendation for the Sequence-to-Sequence
-  Algorithm](#s2s-instances "#s2s-instances")
-- [Sequence-to-Sequence Sample
-  Notebooks](#seq-2-seq-sample-notebooks "#seq-2-seq-sample-notebooks")
+- [Input/Output Interface for the Sequence-to-Sequence Algorithm](#s2s-inputoutput "#s2s-inputoutput")
+- [EC2 Instance Recommendation for the Sequence-to-Sequence Algorithm](#s2s-instances "#s2s-instances")
+- [Sequence-to-Sequence Sample Notebooks](#seq-2-seq-sample-notebooks "#seq-2-seq-sample-notebooks")
 - [How Sequence-to-Sequence Works](seq-2-seq-howitworks.md "seq-2-seq-howitworks.md")
 - [Sequence-to-Sequence Hyperparameters](seq-2-seq-hyperparameters.md "seq-2-seq-hyperparameters.md")
 - [Tune a Sequence-to-Sequence Model](seq-2-seq-tuning.md "seq-2-seq-tuning.md")
 
-## Input/Output Interface for the Sequence-to-Sequence
-
-Algorithm
+## Input/Output Interface for the Sequence-to-Sequence Algorithm
 
 **Training**
 
@@ -98,20 +93,15 @@ accept: application/jsonlines
 ```
 
 For additional details on how to serialize and deserialize the inputs and outputs to
-specific formats for inference, see the [Sequence-to-Sequence Sample
-Notebooks](#seq-2-seq-sample-notebooks "#seq-2-seq-sample-notebooks") .
+specific formats for inference, see the [Sequence-to-Sequence Sample Notebooks](#seq-2-seq-sample-notebooks "#seq-2-seq-sample-notebooks") .
 
-## EC2 Instance Recommendation for the Sequence-to-Sequence
-
-Algorithm
+## EC2 Instance Recommendation for the Sequence-to-Sequence Algorithm
 
 The Amazon SageMaker AI seq2seq algorithm only supports on GPU instance types and can only train
 on a single machine. However, you can use instances with multiple GPUs. The seq2seq
 algorithm supports P2, P3, G4dn, and G5 GPU instance families.
 
-## Sequence-to-Sequence Sample
-
-Notebooks
+## Sequence-to-Sequence Sample Notebooks
 
 For a sample notebook that shows how to use the SageMaker AI Sequence to Sequence algorithm to
 train a English-German translation model, see [Machine Translation English-German Example Using SageMaker AI Seq2Seq](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/seq2seq_translation_en-de/SageMaker-Seq2Seq-Translation-English-German.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/seq2seq_translation_en-de/SageMaker-Seq2Seq-Translation-English-German.html"). For

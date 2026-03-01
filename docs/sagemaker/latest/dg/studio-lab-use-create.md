@@ -9,10 +9,8 @@ For information about shutting down the notebook, see [Shut down Studio Lab reso
 ###### Topics
 
 - [Open a Studio Lab notebook](#studio-lab-use-create-open "#studio-lab-use-create-open")
-- [Create a notebook from the file
-  menu](#studio-lab-use-create-file "#studio-lab-use-create-file")
-- [Create a notebook from the
-  Launcher](#studio-lab-use-create-launcher "#studio-lab-use-create-launcher")
+- [Create a notebook from the file menu](#studio-lab-use-create-file "#studio-lab-use-create-file")
+- [Create a notebook from the Launcher](#studio-lab-use-create-launcher "#studio-lab-use-create-launcher")
 
 ## Open a Studio Lab notebook
 
@@ -27,9 +25,7 @@ notebook into your file browser from an external repository, see [Use external r
 2. Browse to a notebook file and double-click it to open the notebook in a new
    tab.
 
-## Create a notebook from the file
-
-menu
+## Create a notebook from the file menu
 
 ###### To create a notebook from the File menu
 
@@ -40,9 +36,7 @@ menu
    box, choose **Select**. Otherwise, to select a different
    kernel, use the dropdown menu.
 
-## Create a notebook from the
-
-Launcher
+## Create a notebook from the Launcher
 
 ###### To create a notebook from the Launcher
 

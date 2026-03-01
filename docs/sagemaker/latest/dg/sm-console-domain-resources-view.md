@@ -1,10 +1,6 @@
-# View SageMaker AI resources in your
+# View SageMaker AI resources in your domain
 
-domain
-
-## Use the SageMaker AI console to view
-
-your domain resources
+## Use the SageMaker AI console to view your domain resources
 
 You can view Amazon SageMaker AI resources in your Amazon SageMaker AI domain using the SageMaker AI console. Use the
 following instructions to learn how to view the resources tagged by the domain ARN.
@@ -38,9 +34,7 @@ SageMaker resources, see [AWS Cost Explorer](https://aws.amazon.com/aws-cost-man
    using the search icon or **Filter status** at the top of each
    resource type.
 
-## Use the AWS CLI to view the
-
-SageMaker AI spaces in your domain
+## Use the AWS CLI to view the SageMaker AI spaces in your domain
 
 The following section provides instructions on how to view the spaces in your
 domain using the AWS CLI.
@@ -54,9 +48,7 @@ aws sagemaker list-spaces \
     --domain-id `domain-id`
 ```
 
-## Use the AWS CLI to view the
-
-SageMaker AI applications in your domain
+## Use the AWS CLI to view the SageMaker AI applications in your domain
 
 The following section provides instructions on how to view the applications in your
 domain using the AWS CLI.

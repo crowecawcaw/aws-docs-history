@@ -1,6 +1,4 @@
-# Setting up a Slurm cluster in
-
-Studio
+# Setting up a Slurm cluster in Studio
 
 The following instructions describe how to set up a HyperPod Slurm cluster in
 Studio.
@@ -13,8 +11,7 @@ Studio.
    2. You can follow the instructions in [Adding a custom file system to a domain](domain-custom-file-system.md "domain-custom-file-system.md").
 
 3. (Optional) We recommend that you add tags to your clusters to ensure a more smooth
-   workflow. For information on how to add tags, see [Edit a
-   SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
+   workflow. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
    using the SageMaker AI console.
    1. Tag your FSx for Lustre file system to your Studio domain. This will help you
       identify the file system while launching your Studio spaces. To do so, add the
@@ -30,8 +27,7 @@ Studio.
 
 4. Add the following permission to your execution role.
 
-For information on SageMaker AI execution roles and how to edit them, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on SageMaker AI execution roles and how to edit them, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 To learn how to attach policies to an IAM user or group, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
 
@@ -91,15 +87,12 @@ JSON
 For information on how to add tags to your execution role, see [Tag IAM
 roles](../../../IAM/latest/UserGuide/id_tags_roles.md "../../../IAM/latest/UserGuide/id_tags_roles.md"). 6. [Turn on Run As support
 for Linux and macOS managed nodes](../../../systems-manager/latest/userguide/session-preferences-run-as.md "../../../systems-manager/latest/userguide/session-preferences-run-as.md"). The Run As settings are account wide and is
-required for all SSM sessions to start successfully. 7. (Optional) [Restrict task view
-in Studio for Slurm clusters](#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view"). For information
+required for all SSM sessions to start successfully. 7. (Optional) [Restrict task view in Studio for Slurm clusters](#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-slurm-restrict-tasks-view"). For information
 on viewable tasks in Studio, see [Tasks](sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks "sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks").
 In Amazon SageMaker Studio you can navigate to view your clusters in HyperPod clusters
 (under Compute).
 
-## Restrict task view
-
-in Studio for Slurm clusters
+## Restrict task view in Studio for Slurm clusters
 
 You can restrict users to view Slurm tasks that are authorized to view, without requiring
 manual input of namespaces or additional permissions checks. The restriction is applied based

@@ -1,6 +1,4 @@
-# Trainium Slurm
-
-cluster pre-training tutorial
+# Trainium Slurm cluster pre-training tutorial
 
 The following tutorial sets up a Trainium environment on a Slurm cluster and starts a
 training job on a Llama 8 billion parameter model.

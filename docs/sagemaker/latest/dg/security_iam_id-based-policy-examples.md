@@ -1,6 +1,4 @@
-# Amazon SageMaker AI
-
-identity-based policy examples
+# Amazon SageMaker AI identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 SageMaker AI resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,30 +13,18 @@ documents, see [Creating Policies on the JSON Tab](../../../service-authorizatio
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  SageMaker AI console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Control creation of SageMaker AI resources
-  with condition keys](#sagemaker-condition-examples "#sagemaker-condition-examples")
-- [Control access to the SageMaker AI API by using
-  identity-based policies](#api-access-policy "#api-access-policy")
-- [Limit access to SageMaker AI API and runtime calls by IP
-  address](#api-ip-filter "#api-ip-filter")
-- [Limit access to a notebook instance by IP
-  address](#nbi-ip-filter "#nbi-ip-filter")
-- [Control access to SageMaker AI resources by using
-  tags](#access-tag-policy "#access-tag-policy")
-- [Provide permissions for tagging SageMaker AI
-  resources](#grant-tagging-permissions "#grant-tagging-permissions")
-- [Limit access to searchable
-  resources with visibility conditions](#limit-access-to-searchable-resources "#limit-access-to-searchable-resources")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the SageMaker AI console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Control creation of SageMaker AI resources with condition keys](#sagemaker-condition-examples "#sagemaker-condition-examples")
+- [Control access to the SageMaker AI API by using identity-based policies](#api-access-policy "#api-access-policy")
+- [Limit access to SageMaker AI API and runtime calls by IP address](#api-ip-filter "#api-ip-filter")
+- [Limit access to a notebook instance by IP address](#nbi-ip-filter "#nbi-ip-filter")
+- [Control access to SageMaker AI resources by using tags](#access-tag-policy "#access-tag-policy")
+- [Provide permissions for tagging SageMaker AI resources](#grant-tagging-permissions "#grant-tagging-permissions")
+- [Limit access to searchable resources with visibility conditions](#limit-access-to-searchable-resources "#limit-access-to-searchable-resources")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete SageMaker AI resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -71,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-SageMaker AI console
+## Using the SageMaker AI console
 
 To access the Amazon SageMaker AI console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -93,21 +77,15 @@ that match the API operation that you're trying to perform.
 
 ###### Topics
 
-- [Permissions required to use the Amazon SageMaker AI
-  console](#console-permissions "#console-permissions")
-- [Permissions required to use the
-  Amazon SageMaker Ground Truth console](#groundtruth-console-policy "#groundtruth-console-policy")
-- [Permissions required to use
-  the Amazon Augmented AI (Preview) console](#amazon-augmented-ai-console-policy "#amazon-augmented-ai-console-policy")
+- [Permissions required to use the Amazon SageMaker AI console](#console-permissions "#console-permissions")
+- [Permissions required to use the Amazon SageMaker Ground Truth console](#groundtruth-console-policy "#groundtruth-console-policy")
+- [Permissions required to use the Amazon Augmented AI (Preview) console](#amazon-augmented-ai-console-policy "#amazon-augmented-ai-console-policy")
 
-### Permissions required to use the Amazon SageMaker AI
-
-console
+### Permissions required to use the Amazon SageMaker AI console
 
 The permissions reference table lists the Amazon SageMaker AI API operations and shows
 the required permissions for each operation. For more information about Amazon SageMaker AI
-API operations, see [Amazon SageMaker AI API Permissions: Actions,
-Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+API operations, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
 To use the Amazon SageMaker AI console, you need to grant permissions for additional
 actions. Specifically, the console needs permissions that allow the
@@ -209,9 +187,7 @@ JSON
 
 ```
 
-### Permissions required to use the
-
-Amazon SageMaker Ground Truth console
+### Permissions required to use the Amazon SageMaker Ground Truth console
 
 To use the Amazon SageMaker Ground Truth console, you need to grant permissions for additional
 resources. Specifically, the console needs permissions for:
@@ -273,9 +249,7 @@ JSON
 
 ```
 
-### Permissions required to use
-
-the Amazon Augmented AI (Preview) console
+### Permissions required to use the Amazon Augmented AI (Preview) console
 
 To use the Augmented AI console, you need to grant permissions for additional
 resources. Grant these permissions with the following permissions policy:
@@ -650,9 +624,7 @@ JSON
 
 ```
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -692,9 +664,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Control creation of SageMaker AI resources
-
-with condition keys
+## Control creation of SageMaker AI resources with condition keys
 
 Control fine-grained access to allow the creation of SageMaker AI resources by using
 SageMaker AI-specific condition keys. For information about using condition keys in IAM
@@ -710,24 +680,15 @@ access.
 
 ###### Topics
 
-- [Control access to SageMaker AI resources by
-  using file system condition keys](#access-fs-condition-keys "#access-fs-condition-keys")
-- [Restrict training to a specific
-  VPC](#sagemaker-condition-vpc "#sagemaker-condition-vpc")
-- [Restrict access to workforce
-  types for Ground Truth labeling jobs and Amazon A2I Human Review workflows](#sagemaker-condition-keys-labeling "#sagemaker-condition-keys-labeling")
-- [Enforce encryption of input
-  data](#sagemaker-condition-kms "#sagemaker-condition-kms")
-- [Enforce network isolation for
-  training jobs](#sagemaker-condition-isolation "#sagemaker-condition-isolation")
-- [Enforce a specific instance type
-  for training jobs](#sagemaker-condition-instance "#sagemaker-condition-instance")
-- [Enforce disabling internet
-  access and root access for creating notebook instances](#sagemaker-condition-nbi-lockdown "#sagemaker-condition-nbi-lockdown")
+- [Control access to SageMaker AI resources by using file system condition keys](#access-fs-condition-keys "#access-fs-condition-keys")
+- [Restrict training to a specific VPC](#sagemaker-condition-vpc "#sagemaker-condition-vpc")
+- [Restrict access to workforce types for Ground Truth labeling jobs and Amazon A2I Human Review workflows](#sagemaker-condition-keys-labeling "#sagemaker-condition-keys-labeling")
+- [Enforce encryption of input data](#sagemaker-condition-kms "#sagemaker-condition-kms")
+- [Enforce network isolation for training jobs](#sagemaker-condition-isolation "#sagemaker-condition-isolation")
+- [Enforce a specific instance type for training jobs](#sagemaker-condition-instance "#sagemaker-condition-instance")
+- [Enforce disabling internet access and root access for creating notebook instances](#sagemaker-condition-nbi-lockdown "#sagemaker-condition-nbi-lockdown")
 
-### Control access to SageMaker AI resources by
-
-using file system condition keys
+### Control access to SageMaker AI resources by using file system condition keys
 
 SageMaker AI training provides a secure infrastructure for the training algorithm to
 run in, but for some cases you may want increased defense in depth. For example,
@@ -743,14 +704,10 @@ policy to scope down the user to:
 
 ###### Topics
 
-- [Restrict an IAM user to
-  specific directories and access modes](#access-fs-condition-keys-ex-dirs "#access-fs-condition-keys-ex-dirs")
-- [Restrict a user to a
-  specific file system](#access-fs-condition-keys-ex-fs "#access-fs-condition-keys-ex-fs")
+- [Restrict an IAM user to specific directories and access modes](#access-fs-condition-keys-ex-dirs "#access-fs-condition-keys-ex-dirs")
+- [Restrict a user to a specific file system](#access-fs-condition-keys-ex-fs "#access-fs-condition-keys-ex-fs")
 
-#### Restrict an IAM user to
-
-specific directories and access modes
+#### Restrict an IAM user to specific directories and access modes
 
 The following policy restricts a user to the
 `/sagemaker/xgboost-dm/train` and
@@ -808,9 +765,7 @@ JSON
 
 ```
 
-#### Restrict a user to a
-
-specific file system
+#### Restrict a user to a specific file system
 
 To prevent a malicious algorithm using a user space client from accessing
 any file system directly in your account, you can restrict networking
@@ -862,9 +817,7 @@ file system using the user space client. To mitigate this, you can:
 
 For more information on how to use roles with SageMaker AI, see [SageMaker AI Roles](sagemaker-roles.md "sagemaker-roles.md").
 
-### Restrict training to a specific
-
-VPC
+### Restrict training to a specific VPC
 
 Restrict an AWS user to creating training jobs from within a Amazon VPC. When a
 training job is created within a VPC, use VPC flow logs to monitor all traffic
@@ -906,9 +859,7 @@ JSON
 
 ```
 
-### Restrict access to workforce
-
-types for Ground Truth labeling jobs and Amazon A2I Human Review workflows
+### Restrict access to workforce types for Ground Truth labeling jobs and Amazon A2I Human Review workflows
 
 Amazon SageMaker Ground Truth and Amazon Augmented AI work teams fall into one of three [workforce types](sms-workforce-management.md "sms-workforce-management.md"):
 
@@ -1007,9 +958,7 @@ JSON
 
 ```
 
-### Enforce encryption of input
-
-data
+### Enforce encryption of input data
 
 The following policy restricts a user to specify a AWS KMS key to encrypt input
 data using the `sagemaker:VolumeKmsKey` condition key when
@@ -1047,9 +996,7 @@ JSON
 
 ```
 
-### Enforce network isolation for
-
-training jobs
+### Enforce network isolation for training jobs
 
 The following policy restricts a user to enable network isolation when
 creating training jobs by using the `sagemaker:NetworkIsolation`
@@ -1080,9 +1027,7 @@ JSON
 
 ```
 
-### Enforce a specific instance type
-
-for training jobs
+### Enforce a specific instance type for training jobs
 
 The following policy restricts a user to use a specific instance type when
 creating training jobs by using the `sagemaker:InstanceTypes`
@@ -1114,15 +1059,12 @@ JSON
 
 ```
 
-### Enforce disabling internet
-
-access and root access for creating notebook instances
+### Enforce disabling internet access and root access for creating notebook instances
 
 You can disable both internet access and root access to notebook instances to
 help make them more secure. For information about controlling root access to a
 notebook instance, see [Control root access to a SageMaker notebook instance](nbi-root-access.md "nbi-root-access.md"). For information about disabling internet
-access for a notebook instance, see [Connect a Notebook Instance in a
-VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
+access for a notebook instance, see [Connect a Notebook Instance in a VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
 
 The following policy requires a user to disable network access when creating
 instance, and disable root access when creating or updating a notebook instance.
@@ -1169,21 +1111,16 @@ JSON
 
 ```
 
-## Control access to the SageMaker AI API by using
-
-identity-based policies
+## Control access to the SageMaker AI API by using identity-based policies
 
 To control access to SageMaker AI API calls and calls to SageMaker AI hosted endpoints, use
 identity-based IAM policies.
 
 ###### Topics
 
-- [Restrict access to SageMaker AI API and runtime
-  to calls from within your VPC](#api-access-policy-vpc "#api-access-policy-vpc")
+- [Restrict access to SageMaker AI API and runtime to calls from within your VPC](#api-access-policy-vpc "#api-access-policy-vpc")
 
-### Restrict access to SageMaker AI API and runtime
-
-to calls from within your VPC
+### Restrict access to SageMaker AI API and runtime to calls from within your VPC
 
 If you set up an interface endpoint in your VPC, individuals outside the VPC
 can connect to the SageMaker AI API and runtime over the internet. To prevent this,
@@ -1264,9 +1201,7 @@ JSON
 
 ```
 
-## Limit access to SageMaker AI API and runtime calls by IP
-
-address
+## Limit access to SageMaker AI API and runtime calls by IP address
 
 You can allow access to SageMaker AI API calls and runtime invocations only from IP
 addresses in a list that you specify. To do so, create an IAM policy that denies
@@ -1314,9 +1249,7 @@ JSON
 
 ```
 
-## Limit access to a notebook instance by IP
-
-address
+## Limit access to a notebook instance by IP address
 
 You can allow access to a notebook instance only from IP addresses in a list that
 you specify. To do so, create an IAM policy that denies access to [`CreatePresignedNotebookInstanceUrl`](../APIReference/API_CreatePresignedNotebookInstanceUrl.md "../APIReference/API_CreatePresignedNotebookInstanceUrl.md") unless the call comes
@@ -1374,12 +1307,9 @@ connect to the notebook instance.
 
 Using this method to filter by IP address is incompatible when [connecting to SageMaker AI through a VPC interface endpoint.](interface-vpc-endpoint.md "interface-vpc-endpoint.md"). For
 information about restricting access to a notebook instance when connecting
-through a VPC interface endpoint, see [Connect to a Notebook Instance Through a
-VPC Interface Endpoint](notebook-interface-endpoint.md "notebook-interface-endpoint.md").
+through a VPC interface endpoint, see [Connect to a Notebook Instance Through a VPC Interface Endpoint](notebook-interface-endpoint.md "notebook-interface-endpoint.md").
 
-## Control access to SageMaker AI resources by using
-
-tags
+## Control access to SageMaker AI resources by using tags
 
 Specify tags within an IAM policy to control access to groups of SageMaker AI resources.
 Use tags to implement attribute based access control (ABAC). Using tags helps you
@@ -1520,9 +1450,7 @@ JSON
 
 ```
 
-## Provide permissions for tagging SageMaker AI
-
-resources
+## Provide permissions for tagging SageMaker AI resources
 
 [Tags](../../../whitepapers/latest/tagging-best-practices/what-are-tags.md "../../../whitepapers/latest/tagging-best-practices/what-are-tags.md")
 are metadata labels that you can attach to certain AWS resources. A tag consists
@@ -1579,9 +1507,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-edi
 [Tagging
 use cases](../../../whitepapers/latest/tagging-best-practices/tagging-use-cases.md "../../../whitepapers/latest/tagging-best-practices/tagging-use-cases.md").
 
-### Grant permission to add
-
-tags when creating SageMaker AI resources
+### Grant permission to add tags when creating SageMaker AI resources
 
 You can allow users (_User-defined tags_) or
 Studio and Studio Classic (_AWS generated
@@ -1725,9 +1651,7 @@ In particular:
 }
 ```
 
-## Limit access to searchable
-
-resources with visibility conditions
+## Limit access to searchable resources with visibility conditions
 
 Use visibility conditions to limit the access of your users to specific tagged
 resources within an AWS account. Your users can access only those resources for

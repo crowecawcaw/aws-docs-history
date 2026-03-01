@@ -24,8 +24,7 @@ Use the following procedure to create a Data Quality and Insights report. It ass
 ###### Note
 
 Creating a Data Quality and Insights report on the entire dataset uses an Amazon SageMaker processing job. A SageMaker Processing job provisions the additional compute resources required to get insights for all of your data.
-For more information about SageMaker Processing jobs, see [Data transformation
-workloads with SageMaker Processing](processing-job.md "processing-job.md"). 7. Choose **Create**.
+For more information about SageMaker Processing jobs, see [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md"). 7. Choose **Create**.
 The following topics show the sections of the report:
 
 ###### Topics

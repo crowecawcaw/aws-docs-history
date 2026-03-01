@@ -1,23 +1,16 @@
-# The SageMaker model parallel
-
-library v2 reference
+# The SageMaker model parallel library v2 reference
 
 The following are references for the SageMaker model parallel library v2 (SMP v2).
 
 ###### Topics
 
-- [SMP v2 core
-  feature configuration parameters](#distributed-model-parallel-v2-reference-init-config "#distributed-model-parallel-v2-reference-init-config")
-- [Reference for the SMP v2
-  torch.sagemaker package](#model-parallel-v2-torch-sagemaker-reference "#model-parallel-v2-torch-sagemaker-reference")
+- [SMP v2 core feature configuration parameters](#distributed-model-parallel-v2-reference-init-config "#distributed-model-parallel-v2-reference-init-config")
+- [Reference for the SMP v2 torch.sagemaker package](#model-parallel-v2-torch-sagemaker-reference "#model-parallel-v2-torch-sagemaker-reference")
 - [Upgrade from SMP v1 to SMP v2](#model-parallel-v2-upgrade-from-v1 "#model-parallel-v2-upgrade-from-v1")
 
-## SMP v2 core
+## SMP v2 core feature configuration parameters
 
-feature configuration parameters
-
-The following is a complete list of parameters to activate and configure the [Core features of the SageMaker model
-parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md"). These must be written in JSON format
+The following is a complete list of parameters to activate and configure the [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md"). These must be written in JSON format
 and passed to the PyTorch estimator in the SageMaker Python SDK or saved as a JSON file for
 SageMaker HyperPod.
 
@@ -67,14 +60,12 @@ SageMaker HyperPod.
   activation offloading implementation. You also need to use the PyTorch activation
   offload wrapper
   (`torch.distributed.algorithms._checkpoint.checkpoint_wrapper.offload_wrapper`)
-  in your script. To learn more, see [Activation
-  offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
+  in your script. To learn more, see [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
   The default value is `True`.
 - `activation_loading_horizon` (Integer) – An integer specifying the
   activation offloading horizon type for FSDP. This is the maximum number of
   checkpointed or offloaded layers whose inputs can be in the GPU memory
-  simultaneously. To learn more, see [Activation
-  offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
+  simultaneously. To learn more, see [Activation offloading](model-parallel-core-features-v2-pytorch-activation-offloading.md "model-parallel-core-features-v2-pytorch-activation-offloading.md").
   The input value must be a positive integer. The default value is
   `2`.
 - `fsdp_cache_flush_warnings` (Boolean) – Detects and warns if cache
@@ -89,8 +80,7 @@ SageMaker HyperPod.
   `world_size`. The default value is `1`. Note that
   passing a value greater than 1 does not enable context parallelism
   automatically; you also need to use the [torch.sagemaker.transform](#model-parallel-v2-torch-sagemaker-reference-transform "#model-parallel-v2-torch-sagemaker-reference-transform") API to
-  wrap the model in your training script. To learn more, see [Tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+  wrap the model in your training script. To learn more, see [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
 - `context_parallel_degree` (Integer) – Specifies the context
   parallelism degree. The value must be between `1` and
   `world_size` , and must be `<=
@@ -102,8 +92,7 @@ hybrid_shard_degree`. The default value is `1`. Note that
   parallelism degree. The value must be between 1 and `world_size`. The
   default value is `1`. Note that passing a value greater than 1 does
   not enable context parallelism automatically; you also need to use the [torch.sagemaker.transform](#model-parallel-v2-torch-sagemaker-reference-transform "#model-parallel-v2-torch-sagemaker-reference-transform") API to
-  wrap the model in your training script. To learn more, see [Expert
-  parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
+  wrap the model in your training script. To learn more, see [Expert parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
 - `random_seed` (Integer) – A seed number for the random
   operations in distributed modules by SMP tensor parallelism or expert
   parallelism. This seed is added to tensor-parallel or expert-parallel ranks to
@@ -112,9 +101,7 @@ hybrid_shard_degree`. The default value is `1`. Note that
   tensor-parallel and expert-parallel ranks matches the non-tensor-parallelism and
   non-expert-parallelism cases respectively.
 
-## Reference for the SMP v2
-
-`torch.sagemaker` package
+## Reference for the SMP v2 `torch.sagemaker` package
 
 This section is a reference for the `torch.sagemaker` package provided by
 SMP v2.
@@ -135,8 +122,7 @@ SMP v2.
 
 ### `torch.sagemaker.delayed_param.DelayedParamIniter`
 
-An API for applying [Delayed parameter
-initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md") to a PyTorch
+An API for applying [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md") to a PyTorch
 model.
 
 ```
@@ -152,14 +138,12 @@ class torch.sagemaker.delayed_param.DelayedParamIniter(
 - `model` (`nn.Module`) – A PyTorch model to wrap and
   apply the delayed parameter initialization functionality of SMP v2.
 - `init_method_using_config` (Callable) – If you use the
-  tensor parallel implementation of SMP v2 or supported [Hugging Face Transformer models compatible with the SMP tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models"), keep this parameter at the default value, which is `None`. By
+  tensor parallel implementation of SMP v2 or supported [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models"), keep this parameter at the default value, which is `None`. By
   default, the `DelayedParamIniter` API finds out how to initialize
   the given model correctly. For any other models, you need to create a custom
   parameter initialization function and add it to your script. The following
   code snippet is the default `init_method_using_config` function
-  that SMP v2 implemented for the [Hugging Face Transformer models compatible with the SMP tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models"). Use the following code snippet as a reference for creating your own
+  that SMP v2 implemented for the [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models"). Use the following code snippet as a reference for creating your own
   initialization configuration function, adding it to your script, and passing
   it to the `init_method_using_config` parameter of the SMP
   `DelayedParamIniter` API.
@@ -206,8 +190,7 @@ functions in the preceding code snippet, see [torch.sagemaker util functions and
   `post_param_init_fn` argument of the PyTorch FSDP wrapper
   class. This is needed when you have tied weights in the model. The model
   must implement the method `tie_weights`. For more information,
-  see the **Notes on tied weight** in [Delayed parameter
-  initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
+  see the **Notes on tied weight** in [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
 - `count_num_params` (`module: nn.Module, *args:
 Tuple[nn.Parameter]`) – Tracks how many parameters are being
   initialized by the parameter initialization function. This helps implement
@@ -414,8 +397,7 @@ def load(
 A configuration class for setting up the SMP-implementation of Mixture-of-Experts
 (MoE). You can specify MoE configuration values through this class and pass it to
 the [`torch.sagemaker.transform`](distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform "distributed-model-parallel-v2-reference.md#model-parallel-v2-torch-sagemaker-reference-transform") API call. To learn more
-about the usage of this class for training MoE models, see [Expert
-parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
+about the usage of this class for training MoE models, see [Expert parallelism](model-parallel-core-features-v2-expert-parallelism.md "model-parallel-core-features-v2-expert-parallelism.md").
 
 ```
 class torch.sagemaker.moe.moe_config.MoEConfig(
@@ -556,8 +538,7 @@ A single `torch.Tensor` with shape `(batch_size x num_heads x
 ### `torch.sagemaker.nn.attn.FlashGroupedQueryAttention`
 
 An API for using `FlashGroupedQueryAttention` with SMP v2. To learn
-more about the usage of this API, see [Use
-FlashAttention kernels for grouped-query attention](model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query "model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query").
+more about the usage of this API, see [Use FlashAttention kernels for grouped-query attention](model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query "model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query").
 
 ```
 class torch.sagemaker.nn.attn.FlashGroupedQueryAttention(
@@ -618,8 +599,7 @@ Returns a single `torch.Tensor (batch_size x num_heads x seq_len x
 ### `torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention`
 
 An API that supports FlashAttention for the Llama model. This API uses the [torch.sagemaker.nn.attn.FlashGroupedQueryAttention](#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn "#model-parallel-v2-torch-sagemaker-reference-flashGroupedQueryAttn")
-API at low level. To learn how to use this, see [Use
-FlashAttention kernels for grouped-query attention](model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query "model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query").
+API at low level. To learn how to use this, see [Use FlashAttention kernels for grouped-query attention](model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query "model-parallel-core-features-v2-flashattention.md#model-parallel-core-features-v2-flashattention-grouped-query").
 
 ```
 class torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention(
@@ -680,21 +660,18 @@ torch.sagemaker.transform(
 )
 ```
 
-SMP v2 maintains transformation policies for the [Hugging Face Transformer models compatible with the SMP tensor
-parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models")
+SMP v2 maintains transformation policies for the [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models")
 by converting the configuration of the Hugging Face Transformer models to the SMP
 transformer configuration.
 
 **Parameters**
 
 - `model` (`torch.nn.Module`) – A model from
-  [Hugging Face Transformer models compatible with the SMP tensor
-  parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models") to transform and apply the tensor parallelism feature of the SMP
+  [Hugging Face Transformer models compatible with the SMP tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models "model-parallel-core-features-v2-tensor-parallelism.md#model-parallel-core-features-v2-tensor-parallelism-supported-models") to transform and apply the tensor parallelism feature of the SMP
   library.
 - `device` (`torch.device`) – If passed, a new
   model is created on this device. If the original module has any parameter on
-  meta device (see [Delayed parameter
-  initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md")), then
+  meta device (see [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md")), then
   the transformed module will also be created on meta device, ignoring the
   argument passed here. The default value is `None`.
 - `dtype` (`torch.dtype`) – If passed, sets
@@ -737,8 +714,7 @@ transformer configuration.
 Returns a transformed model that you can wrap with PyTorch FSDP. When
 `load_state_dict_from_rank0` is set to `True`, the tensor
 parallel group that involves rank 0 has weights loaded from the original state
-dictionary on rank 0. When using [Delayed parameter
-initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md") on the original
+dictionary on rank 0. When using [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md") on the original
 model, only these ranks have the actual tensors on CPUs for the parameters and
 buffers of the transformed model. The rest of the ranks continue to have the
 parameters and buffers on the meta device to save memory.
@@ -773,8 +749,7 @@ initialization of SMP with `torch.sagemaker.init`.
 
 - `torch.sagemaker.state.hybrid_shard_degree` (int) – The sharded
   data parallelism degree, a copy from user input in the SMP configuration
-  passed to `torch.sagemaker.init()`. To learn more, see [Use the SageMaker model parallelism
-  library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
+  passed to `torch.sagemaker.init()`. To learn more, see [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
 - `torch.sagemaker.state.rank` (int) – The global rank for the
   device, in the range of `[0, world_size)`.
 - `torch.sagemaker.state.rep_rank_process_group`
@@ -785,8 +760,7 @@ initialization of SMP with `torch.sagemaker.init`.
   to native PyTorch, it returns `None`.
 - `torch.sagemaker.state.tensor_parallel_degree` (int) – The
   tensor parallelism degree, a copy from user input in the SMP configuration
-  passed to `torch.sagemaker.init()`. To learn more, see [Use the SageMaker model parallelism
-  library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
+  passed to `torch.sagemaker.init()`. To learn more, see [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
 - `torch.sagemaker.state.tp_size` (int) – An alias to
   `torch.sagemaker.state.tensor_parallel_degree`.
 - `torch.sagemaker.state.tp_rank` (int) – The tensor parallelism
@@ -805,14 +779,12 @@ initialization of SMP with `torch.sagemaker.init`.
 
 To move from SMP v1 to SMP v2, you must make script changes to remove the SMP v1 APIs
 and apply the SMP v2 APIs. Instead of starting from your SMP v1 script, we recommend you
-start from a PyTorch FSDP script, and follow the instructions at [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
+start from a PyTorch FSDP script, and follow the instructions at [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md").
 
 To bring SMP v1 _models_ to SMP v2, in SMP v1 you
 must collect the full model state dictionary and apply the translation functions on the
 model state dictionary to convert it into the Hugging Face Transformers model checkpoint
-format. Then in SMP v2, as discussed in [Checkpointing using
-SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md"), you can load the Hugging
+format. Then in SMP v2, as discussed in [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md"), you can load the Hugging
 Face Transformers model checkpoints, and then continue with using the PyTorch checkpoint
 APIs with SMP v2. To use SMP with your PyTorch FSDP model, make sure that you move to
 SMP v2 and make changes to your training script to use PyTorch FSDP and other latest
@@ -846,8 +818,6 @@ if smp.rdp_rank() == 0:
         )
 ```
 
-To find available translation functions in SMP v1, see [Support for
-Hugging Face Transformer Models](model-parallel-extended-features-pytorch-hugging-face.md "model-parallel-extended-features-pytorch-hugging-face.md").
+To find available translation functions in SMP v1, see [Support for Hugging Face Transformer Models](model-parallel-extended-features-pytorch-hugging-face.md "model-parallel-extended-features-pytorch-hugging-face.md").
 
-For instruction on model checkpoints saving and loading in SMP v2, see [Checkpointing using
-SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
+For instruction on model checkpoints saving and loading in SMP v2, see [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").

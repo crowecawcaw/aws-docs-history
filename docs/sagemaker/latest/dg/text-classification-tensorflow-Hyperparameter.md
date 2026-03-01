@@ -1,11 +1,8 @@
-# Text Classification - TensorFlow
-
-Hyperparameters
+# Text Classification - TensorFlow Hyperparameters
 
 Hyperparameters are parameters that are set before a machine learning model begins
 learning. The following hyperparameters are supported by the Amazon SageMaker AI built-in Object
-Detection - TensorFlow algorithm. See [Tune a Text Classification -
-TensorFlow model](text-classification-tensorflow-tuning.md "text-classification-tensorflow-tuning.md") for information on
+Detection - TensorFlow algorithm. See [Tune a Text Classification - TensorFlow model](text-classification-tensorflow-tuning.md "text-classification-tensorflow-tuning.md") for information on
 hyperparameter tuning.
 
 | Parameter Name              | Description                                                                                                                                                                                                                                                                                                                                                                                         |

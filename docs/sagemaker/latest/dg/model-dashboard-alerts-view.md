@@ -1,8 +1,6 @@
 # View alert history or job reports
 
-###### To view alert history or job reports of failed executions, complete the following
-
-steps:
+###### To view alert history or job reports of failed executions, complete the following steps:
 
 1.  Open the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2.  Choose **Governance** in the left panel.

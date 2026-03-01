@@ -1,6 +1,4 @@
-# Create a Bias Drift
-
-Baseline
+# Create a Bias Drift Baseline
 
 After you have configured your application to capture real-time or batch transform
 inference data, the first task to monitor for bias drift is to create a baseline. This

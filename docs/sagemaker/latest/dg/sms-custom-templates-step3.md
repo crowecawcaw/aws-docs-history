@@ -8,16 +8,13 @@ In this topic, you can learn how to deploy optional [AWS Lambda](https://aws.ama
   section as follows:
 
 1. First, review [Using pre-annotation and post-annotation Lambda functions](sms-custom-templates-step3-lambda-requirements.md "sms-custom-templates-step3-lambda-requirements.md").
-2. Then, use the page [Add required permissions to use
-   AWS Lambda with Ground Truth](sms-custom-templates-step3-lambda-permissions.md "sms-custom-templates-step3-lambda-permissions.md") to learn
+2. Then, use the page [Add required permissions to use AWS Lambda with Ground Truth](sms-custom-templates-step3-lambda-permissions.md "sms-custom-templates-step3-lambda-permissions.md") to learn
    about security and permission requirements to use your pre-annotation and
    post-annotation Lambda functions in a Ground Truth custom labeling job.
 3. Next, you need to visit the Lambda console or use Lambda's APIs to create your
-   functions. Use the section [Create Lambda functions using Ground Truth
-   templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md") to learn how to
+   functions. Use the section [Create Lambda functions using Ground Truth templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md") to learn how to
    create Lambda functions.
-4. To learn how to test your Lambda functions, see [Test pre-annotation and post-annotation
-   Lambda functions](sms-custom-templates-step3-lambda-test.md "sms-custom-templates-step3-lambda-test.md").
+4. To learn how to test your Lambda functions, see [Test pre-annotation and post-annotation Lambda functions](sms-custom-templates-step3-lambda-test.md "sms-custom-templates-step3-lambda-test.md").
 5. After you create pre-processing and post-processing Lambda functions, select
    them from the **Lambda functions** section that comes after the
    code editor for your custom HTML in the Ground Truth console. To learn how to use these
@@ -27,9 +24,6 @@ In this topic, you can learn how to deploy optional [AWS Lambda](https://aws.ama
 ###### Topics
 
 - [Using pre-annotation and post-annotation Lambda functions](sms-custom-templates-step3-lambda-requirements.md "sms-custom-templates-step3-lambda-requirements.md")
-- [Add required permissions to use
-  AWS Lambda with Ground Truth](sms-custom-templates-step3-lambda-permissions.md "sms-custom-templates-step3-lambda-permissions.md")
-- [Create Lambda functions using Ground Truth
-  templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md")
-- [Test pre-annotation and post-annotation
-  Lambda functions](sms-custom-templates-step3-lambda-test.md "sms-custom-templates-step3-lambda-test.md")
+- [Add required permissions to use AWS Lambda with Ground Truth](sms-custom-templates-step3-lambda-permissions.md "sms-custom-templates-step3-lambda-permissions.md")
+- [Create Lambda functions using Ground Truth templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md")
+- [Test pre-annotation and post-annotation Lambda functions](sms-custom-templates-step3-lambda-test.md "sms-custom-templates-step3-lambda-test.md")

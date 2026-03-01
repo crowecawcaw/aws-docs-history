@@ -36,9 +36,7 @@ model = FSDP(
 )
 ```
 
-## Fine-tuning a pre-trained Hugging Face Transformer model with SMP tensor
-
-parallelism
+## Fine-tuning a pre-trained Hugging Face Transformer model with SMP tensor parallelism
 
 This section discusses loading Transformer models for two use cases: fine-tuning
 small Transformer models and fine-tuning large Transformer models. For smaller

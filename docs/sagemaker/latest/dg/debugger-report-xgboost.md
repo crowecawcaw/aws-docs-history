@@ -22,9 +22,6 @@ of the information.
 
 ###### Topics
 
-- [Construct a SageMaker AI
-  XGBoost estimator with the Debugger XGBoost Report rule](debugger-training-xgboost-report-estimator.md "debugger-training-xgboost-report-estimator.md")
-- [Download the Debugger
-  XGBoost training report](debugger-training-xgboost-report-download.md "debugger-training-xgboost-report-download.md")
-- [Debugger XGBoost
-  training report walkthrough](debugger-training-xgboost-report-walkthrough.md "debugger-training-xgboost-report-walkthrough.md")
+- [Construct a SageMaker AI XGBoost estimator with the Debugger XGBoost Report rule](debugger-training-xgboost-report-estimator.md "debugger-training-xgboost-report-estimator.md")
+- [Download the Debugger XGBoost training report](debugger-training-xgboost-report-download.md "debugger-training-xgboost-report-download.md")
+- [Debugger XGBoost training report walkthrough](debugger-training-xgboost-report-walkthrough.md "debugger-training-xgboost-report-walkthrough.md")

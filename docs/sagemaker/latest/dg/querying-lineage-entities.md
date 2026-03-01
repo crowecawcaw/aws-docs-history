@@ -4,8 +4,7 @@ Amazon SageMaker AI automatically generates graphs of lineage entities as you us
 this data to answer a variety of questions. The following provides instructions on how to
 query this data in SDK for Python.
 
-For information on how to view a registered model lineage in Amazon SageMaker Studio, see [View model lineage details in
-Studio](model-registry-lineage-view-studio.md "model-registry-lineage-view-studio.md").
+For information on how to view a registered model lineage in Amazon SageMaker Studio, see [View model lineage details in Studio](model-registry-lineage-view-studio.md "model-registry-lineage-view-studio.md").
 
 You can query your lineage entities to:
 
@@ -55,12 +54,9 @@ You can query your lineage entities to:
 
 ###### Topics
 
-- [Getting Started with Querying
-  Lineage Entities](#querying-lineage-entities-getting-started "#querying-lineage-entities-getting-started")
+- [Getting Started with Querying Lineage Entities](#querying-lineage-entities-getting-started "#querying-lineage-entities-getting-started")
 
-## Getting Started with Querying
-
-Lineage Entities
+## Getting Started with Querying Lineage Entities
 
 The easiest way to get started is either via the:
 
@@ -225,9 +221,7 @@ for vertex in query_result.vertices:
 pp.pprint(associations)
 ```
 
-###### Example Using `LineageQueryDirectionEnum.BOTH` to find ascendent and descendent
-
-relationships
+###### Example Using `LineageQueryDirectionEnum.BOTH` to find ascendent and descendent relationships
 
 When the direction is set to `BOTH`, the query traverses the graph to find
 ascendant and descendant relationships. This traversal takes place not only from the
@@ -259,9 +253,7 @@ for vertex in query_result.vertices:
 pp.pprint(associations)
 ```
 
-###### Example Directions in `LineageQuery` - `ASCENDANTS` vs.
-
-`DESCENDANTS`
+###### Example Directions in `LineageQuery` - `ASCENDANTS` vs. `DESCENDANTS`
 
 To understand the direction in the Lineage Graph, take the following entity
 relationship graph - Dataset -> Training Job -> Model -> Endpoint

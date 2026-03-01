@@ -1,6 +1,4 @@
-# Accessing
-
-SageMaker HyperPod cluster nodes
+# Accessing SageMaker HyperPod cluster nodes
 
 You can directly access the nodes of a SageMaker HyperPod cluster in service using the
 AWS CLI commands for AWS Systems Manager (SSM). Run `aws ssm start-session` with
@@ -17,8 +15,7 @@ should be the following.
 
 ###### Note
 
-If you haven't set up AWS Systems Manager, follow the instructions provided at [Setting up AWS Systems Manager and Run As
-for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
+If you haven't set up AWS Systems Manager, follow the instructions provided at [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm").
 
 ```
 `$` `aws ssm start-session \

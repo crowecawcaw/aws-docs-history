@@ -1,6 +1,4 @@
-# Parameters to
-
-Monitor Bias Drift
+# Parameters to Monitor Bias Drift
 
 Amazon SageMaker Clarify bias monitoring reuses a subset of the parameters used in the analysis
 configuration of [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md"). After describing the
@@ -63,22 +61,17 @@ must be provided in the `ConfigUri` parameter of the [`ModelBiasAppSpecification
   to indicate the threshold to select the binary label, in the case of binary
   classification. The default value is 0.5.
 
-## Example JSON
-
-Configuration Files for CSV and JSON Lines Datasets
+## Example JSON Configuration Files for CSV and JSON Lines Datasets
 
 Here are examples of the JSON files used to configure CSV and JSON Lines datasets
 to monitor them for bias drift.
 
 ###### Topics
 
-- [CSV
-  Datasets](#clarify-config-json-monitor-bias-parameters-example-csv "#clarify-config-json-monitor-bias-parameters-example-csv")
+- [CSV Datasets](#clarify-config-json-monitor-bias-parameters-example-csv "#clarify-config-json-monitor-bias-parameters-example-csv")
 - [JSON Lines Datasets](#clarify-config-json-monitor-bias-parameters-example-jsonlines "#clarify-config-json-monitor-bias-parameters-example-jsonlines")
 
-### CSV
-
-Datasets
+### CSV Datasets
 
 Consider a dataset that has four feature columns and one label column, where
 the first feature and the label are binary, as in the following example.

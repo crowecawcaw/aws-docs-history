@@ -11,8 +11,7 @@ teams, use cases, or security requirements. Administrators can create a JumpStar
 private model hub using the SageMaker Python SDK. Users can then browse, train, and deploy the
 curated set of models using Amazon SageMaker Studio or the SageMaker Python SDK.
 
-For more information on creating a private model hub, see [Admin guide for private model hubs
-in Amazon SageMaker JumpStart](jumpstart-curated-hubs-admin-guide.md "jumpstart-curated-hubs-admin-guide.md").
+For more information on creating a private model hub, see [Admin guide for private model hubs in Amazon SageMaker JumpStart](jumpstart-curated-hubs-admin-guide.md "jumpstart-curated-hubs-admin-guide.md").
 
 For more information on sharing private model hubs across accounts, see [Cross-account sharing for private model hubs with AWS Resource Access Manager](jumpstart-curated-hubs-ram.md "jumpstart-curated-hubs-ram.md").
 

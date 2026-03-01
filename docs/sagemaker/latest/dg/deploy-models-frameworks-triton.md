@@ -1,6 +1,4 @@
-# Model deployment with Triton Inference
-
-Server
+# Model deployment with Triton Inference Server
 
 [Triton Inference
 Server](https://github.com/triton-inference-server/server "https://github.com/triton-inference-server/server") is an open source inference serving software that streamlines AI inference.

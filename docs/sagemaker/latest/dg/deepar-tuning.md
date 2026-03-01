@@ -16,8 +16,7 @@ The DeepAR algorithm reports three metrics, which are computed during training.
 When tuning a model, choose one of these as the objective. For the objective, use
 either the forecast accuracy on a provided test channel (recommended) or the
 training loss. For recommendations for the training/test split for the DeepAR
-algorithm, see [Best Practices for Using the DeepAR
-Algorithm](deepar.md#deepar_best_practices "deepar.md#deepar_best_practices").
+algorithm, see [Best Practices for Using the DeepAR Algorithm](deepar.md#deepar_best_practices "deepar.md#deepar_best_practices").
 
 | Metric Name               | Description                                                                                                                                       | Optimization Direction |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
@@ -25,9 +24,7 @@ Algorithm](deepar.md#deepar_best_practices "deepar.md#deepar_best_practices").
 | `test:mean_wQuantileLoss` | The average overall quantile losses computed on the test set.<br>To control which quantiles are used, set the<br>`test_quantiles` hyperparameter. | Minimize               |
 | `train:final_loss`        | The training negative log-likelihood loss averaged over the<br>last training epoch for the model.                                                 | Minimize               |
 
-## Tunable Hyperparameters for the
-
-DeepAR Algorithm
+## Tunable Hyperparameters for the DeepAR Algorithm
 
 Tune a DeepAR model with the following hyperparameters. The hyperparameters that
 have the greatest impact, listed in order from the most to least impactful, on

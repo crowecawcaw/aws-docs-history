@@ -1,6 +1,4 @@
-# Use a
-
-SageMaker AI estimator to run a training job
+# Use a SageMaker AI estimator to run a training job
 
 You can also use an [estimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html") from the SageMaker Python SDK to handle the configuration and
 running of your SageMaker training job. The following code examples show how to configure

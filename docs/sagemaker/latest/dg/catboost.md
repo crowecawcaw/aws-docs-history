@@ -15,9 +15,7 @@ CatBoost introduces two critical algorithmic advances to GBDT:
    algorithms. This page includes information about Amazon EC2 instance recommendations and sample
    notebooks for CatBoost.
 
-## Amazon EC2 instance recommendation for the CatBoost
-
-algorithm
+## Amazon EC2 instance recommendation for the CatBoost algorithm
 
 SageMaker AI CatBoost currently only trains using CPUs. CatBoost is a memory-bound (as opposed
 to compute-bound) algorithm. So, a general-purpose compute instance (for example, M5) is

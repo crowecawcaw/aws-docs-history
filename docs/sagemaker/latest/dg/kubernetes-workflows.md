@@ -10,5 +10,4 @@ service.
 ###### Contents
 
 - [SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators.md "kubernetes-sagemaker-operators.md")
-- [SageMaker AI Components for
-  Kubeflow Pipelines](kubernetes-sagemaker-components-for-kubeflow-pipelines.md "kubernetes-sagemaker-components-for-kubeflow-pipelines.md")
+- [SageMaker AI Components for Kubeflow Pipelines](kubernetes-sagemaker-components-for-kubeflow-pipelines.md "kubernetes-sagemaker-components-for-kubeflow-pipelines.md")

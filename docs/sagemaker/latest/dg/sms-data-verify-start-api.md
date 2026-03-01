@@ -1,6 +1,4 @@
-# Start a label verification or adjustment job
-
-(API)
+# Start a label verification or adjustment job (API)
 
 Start a label verification or adjustment job by chaining a successfully completed
 job or starting a new job from scratch using the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. The procedure is almost the
@@ -117,5 +115,4 @@ adjustment and include them in your task template:
 
 Ground Truth stores the output data from a label verification or adjustment job in the S3
 bucket that you specified in the [`S3OutputPath`](../APIReference/API_LabelingJobOutputConfig.md#SageMaker-Type-LabelingJobOutputConfig-S3OutputPath "../APIReference/API_LabelingJobOutputConfig.md#SageMaker-Type-LabelingJobOutputConfig-S3OutputPath") parameter of the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. For more information about
-the output data from a label verification or adjustment labeling job, see [Label verification and adjustment data in the
-output manifest](sms-data-verify-manifest.md "sms-data-verify-manifest.md").
+the output data from a label verification or adjustment labeling job, see [Label verification and adjustment data in the output manifest](sms-data-verify-manifest.md "sms-data-verify-manifest.md").

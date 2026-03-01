@@ -1,6 +1,4 @@
-# Manage a Workforce (Amazon SageMaker AI
-
-Console)
+# Manage a Workforce (Amazon SageMaker AI Console)
 
 You can use the Amazon SageMaker AI console to create and manage the work teams and individual
 workers that make up a private workforce.
@@ -19,15 +17,13 @@ You have two choices to create a new work team:
 - You can create a user group by using the Amazon Cognito console and then create a work team by
   importing the user group. You can import more than one user group into each work team. You
   manage the members of the work team by updating the user group in the Amazon Cognito console. See
-  [Manage a Private Workforce (Amazon Cognito
-  Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md") for more information.
+  [Manage a Private Workforce (Amazon Cognito Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md") for more information.
 
 ## Create a Work Team Using the SageMaker AI Console
 
 You can create a new Amazon Cognito user group or import an existing user group using the SageMaker AI
 console, on the **Labeling workforces** page. For more information on
-creating a user group in the Amazon Cognito console, see [Manage a Private Workforce (Amazon Cognito
-Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md").
+creating a user group in the Amazon Cognito console, see [Manage a Private Workforce (Amazon Cognito Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md").
 
 ###### To create a work team using the SageMaker AI console
 
@@ -104,9 +100,7 @@ page using the steps above.
    you want to add.
 4. Click **Add workers to team**.
 
-### Disable and Remove a Worker from the
-
-Workforce
+### Disable and Remove a Worker from the Workforce
 
 Disabling a worker stops the worker from receiving a job. This action does not remove
 the worker from the workforce, or from any work team with which the worker is associated. To
@@ -124,8 +118,7 @@ after they have been disabled.
 
 You can remove workers from your private workforce directly in the SageMaker AI console if that
 worker was added in this console. If you added the worker (user) in the Amazon Cognito console,
-see [Manage a Private Workforce (Amazon Cognito
-Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md") to learn how to remove the
+see [Manage a Private Workforce (Amazon Cognito Console)](sms-workforce-management-private-cognito.md "sms-workforce-management-private-cognito.md") to learn how to remove the
 worker in the Amazon Cognito console.
 
 ###### To remove a worker using the private workforce summary page

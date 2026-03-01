@@ -26,13 +26,10 @@ Only three built-in algorithms currently support incremental training: [Object D
 
 ###### Topics
 
-- [Perform Incremental Training
-  (Console)](#incremental-training-console "#incremental-training-console")
+- [Perform Incremental Training (Console)](#incremental-training-console "#incremental-training-console")
 - [Perform Incremental Training (API)](#incremental-training-api "#incremental-training-api")
 
-## Perform Incremental Training
-
-(Console)
+## Perform Incremental Training (Console)
 
 To complete this procedure, you need:
 

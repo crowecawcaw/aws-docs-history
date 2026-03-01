@@ -1,6 +1,4 @@
-# Create cached
-
-connections
+# Create cached connections
 
 You can create cached connections by specifying a connection name in the
 `--connection-name` parameter of your connection string. This is particularly

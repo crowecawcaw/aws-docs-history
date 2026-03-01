@@ -1,6 +1,4 @@
-# Compiled recommendations
-
-with Neo
+# Compiled recommendations with Neo
 
 In Inference Recommender, you can compile your model with Neo and get endpoint recommendations
 for your compiled model. [SageMaker Neo](neo.md "neo.md") is a service that can
@@ -76,9 +74,7 @@ optimize your model.
 | sm-epc-example-222333444 | ml.c5.xlarge  | 1                    | []                    | 0.204       | 1.86E-07         | 18276          | 92           | None                                     |
 | sm-epc-example-333444555 | ml.c5.xlarge  | 1                    | []                    | 0.204       | 1.60E-07         | 21286          | 42           | neo-00011122-2333-4445-5566-677788899900 |
 
-## Get
-
-started
+## Get started
 
 The general steps for creating an Inference Recommender job that includes Neo-optimized
 recommendations are as follows:

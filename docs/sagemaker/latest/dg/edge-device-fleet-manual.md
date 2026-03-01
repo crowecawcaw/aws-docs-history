@@ -1,6 +1,4 @@
-# Download and Set Up the Edge Manager Agent
-
-Manually
+# Download and Set Up the Edge Manager Agent Manually
 
 Download the Edge Manager agent based on your operating system, architecture, and
 AWS Region. The agent is periodically updated, so you have the option to choose your

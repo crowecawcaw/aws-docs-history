@@ -23,8 +23,7 @@ features, data set size, and number of instances.
 ###### Topics
 
 - [Input/Output Interface for the RCF Algorithm](#rcf-input_output "#rcf-input_output")
-- [Instance Recommendations for the RCF
-  Algorithm](#rcf-instance-recommend "#rcf-instance-recommend")
+- [Instance Recommendations for the RCF Algorithm](#rcf-instance-recommend "#rcf-instance-recommend")
 - [RCF Sample Notebooks](#rcf-sample-notebooks "#rcf-sample-notebooks")
 - [How RCF Works](rcf_how-it-works.md "rcf_how-it-works.md")
 - [RCF Hyperparameters](rcf_hyperparameters.md "rcf_hyperparameters.md")
@@ -88,8 +87,7 @@ training data must be partitioned into at least as many files as instances.
 
 For inference, RCF supports `application/x-recordio-protobuf`,
 `text/csv` and `application/json` input data content types.
-See the [Parameters for Built-in
-Algorithms](common-info-all-im-models.md "common-info-all-im-models.md") documentation for more
+See the [Parameters for Built-in Algorithms](common-info-all-im-models.md "common-info-all-im-models.md") documentation for more
 information. RCF inference returns `application/x-recordio-protobuf` or
 `application/json` formatted output. Each record in these output data
 contains the corresponding anomaly scores for each input data point. See [Common Data
@@ -98,9 +96,7 @@ Formats--Inference](cdf-inference.md "cdf-inference.md") for more information.
 For more information on input and output file formats, see [RCF Response Formats](rcf-in-formats.md "rcf-in-formats.md") for inference and the
 [RCF Sample Notebooks](#rcf-sample-notebooks "#rcf-sample-notebooks").
 
-## Instance Recommendations for the RCF
-
-Algorithm
+## Instance Recommendations for the RCF Algorithm
 
 For training, we recommend the `ml.m4`, `ml.c4`, and
 `ml.c5` instance families. For inference we recommend using a

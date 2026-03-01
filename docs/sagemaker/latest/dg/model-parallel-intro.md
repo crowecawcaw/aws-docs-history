@@ -68,19 +68,14 @@ consist of hundreds of billions of parameters.
 
 ###### Topics
 
-- [Sharded data parallelism (available for
-  PyTorch)](#model-parallel-intro-sdp "#model-parallel-intro-sdp")
-- [Pipeline parallelism (available for
-  PyTorch and TensorFlow)](#model-parallel-intro-pp "#model-parallel-intro-pp")
+- [Sharded data parallelism (available for PyTorch)](#model-parallel-intro-sdp "#model-parallel-intro-sdp")
+- [Pipeline parallelism (available for PyTorch and TensorFlow)](#model-parallel-intro-pp "#model-parallel-intro-pp")
 - [Tensor parallelism (available for PyTorch)](#model-parallel-intro-tp "#model-parallel-intro-tp")
-- [Optimizer state sharding (available for
-  PyTorch)](#model-parallel-intro-oss "#model-parallel-intro-oss")
+- [Optimizer state sharding (available for PyTorch)](#model-parallel-intro-oss "#model-parallel-intro-oss")
 - [Activation offloading and checkpointing (available for PyTorch)](#model-parallel-intro-activation-offloading-checkpointing "#model-parallel-intro-activation-offloading-checkpointing")
 - [Choosing the right techniques for your model](#model-parallel-intro-choosing-techniques "#model-parallel-intro-choosing-techniques")
 
-### Sharded data parallelism (available for
-
-PyTorch)
+### Sharded data parallelism (available for PyTorch)
 
 _Sharded data parallelism_ is a memory-saving
 distributed training technique that splits the state of a model (model parameters,
@@ -101,9 +96,7 @@ To dive deep into sharded data parallelism and learn how to set it up or use a
 combination of sharded data parallelism with other techniques like tensor
 parallelism and FP16 training, see [Sharded Data Parallelism](model-parallel-extended-features-pytorch-sharded-data-parallelism.md "model-parallel-extended-features-pytorch-sharded-data-parallelism.md").
 
-### Pipeline parallelism (available for
-
-PyTorch and TensorFlow)
+### Pipeline parallelism (available for PyTorch and TensorFlow)
 
 _Pipeline parallelism_ partitions the set of layers or
 operations across the set of devices, leaving each operation intact. When you
@@ -135,8 +128,7 @@ is essentially the model parallel group.
 
 ![How a model is distributed across the eight GPUs achieving four-way data parallelism and two-way pipeline parallelism.](images/distributed/model-parallel/smdmp-pipeline-parallel-only.png)
 
-To dive deep into pipeline parallelism, see [Core Features of the SageMaker Model Parallelism
-Library](model-parallel-core-features.md "model-parallel-core-features.md").
+To dive deep into pipeline parallelism, see [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md "model-parallel-core-features.md").
 
 To get started with running your model using pipeline parallelism, see [Run a SageMaker Distributed Training Job with the SageMaker Model Parallel
 Library](model-parallel-use-api.md "model-parallel-use-api.md").
@@ -159,12 +151,9 @@ tensor-distributed model replicas.
 The usefulness of this feature is in the fact that you can select specific layers or a
 subset of layers to apply tensor parallelism. To dive deep into tensor parallelism and
 other memory-saving features for PyTorch, and to learn how to set a combination of
-pipeline and tensor parallelism, see [Tensor
-Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
+pipeline and tensor parallelism, see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
 
-### Optimizer state sharding (available for
-
-PyTorch)
+### Optimizer state sharding (available for PyTorch)
 
 To understand how the library performs _optimizer state
 sharding_, consider a simple example model with four layers. The key

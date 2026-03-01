@@ -1,6 +1,4 @@
-# Shut down the Amazon SageMaker Debugger Insights
-
-instance
+# Shut down the Amazon SageMaker Debugger Insights instance
 
 When you are not using the SageMaker Debugger Insights dashboard, you should shut down the
 app instance to avoid incurring additional fees.

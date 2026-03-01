@@ -1,6 +1,4 @@
-# Difference in Conditional
-
-Acceptance (DCAcc)
+# Difference in Conditional Acceptance (DCAcc)
 
 This metric compares the observed labels to the labels predicted by the model and
 assesses whether this is the same across facets for predicted positive outcomes. This

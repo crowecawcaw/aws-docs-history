@@ -1,6 +1,4 @@
-# Setting up the SageMaker HyperPod
-
-observability add-on
+# Setting up the SageMaker HyperPod observability add-on
 
 The following list describes the prerequisites for setting up the
 observability add-on.
@@ -31,8 +29,7 @@ following managed policies and permissions to your console role.
   any other already running pods on the cluster.
 - Add the following policies and permissions to your role.
 
-      + [AWS
-       managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
+      + [AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
       + [AWS managed policy:
        AWSGrafanaWorkspacePermissionManagementV2](../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
       + [AWS managed policy:
@@ -126,8 +123,7 @@ following managed policies and permissions to your console role.
    Observability**, and choose **Custom
    install**.
 3. Specify the metrics categories that you want to see. For more
-   information about these metrics categories, see [SageMaker HyperPod cluster
-   metrics](hyperpod-observability-cluster-metrics.md "hyperpod-observability-cluster-metrics.md").
+   information about these metrics categories, see [SageMaker HyperPod cluster metrics](hyperpod-observability-cluster-metrics.md "hyperpod-observability-cluster-metrics.md").
 4. Specify whether you want to enable Amazon CloudWatch Logs.
 5. Specify whether you want the service to create a new Amazon Managed Service for Prometheus
    workspace.

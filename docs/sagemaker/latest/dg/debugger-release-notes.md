@@ -9,8 +9,7 @@ See the following release notes to track the latest updates for debugging capabi
 Released a remote debugging functionality, a new debugging capability of SageMaker AI that
 gives you a shell-level access to training containers. With this release, you can debug
 training jobs by logging into the job containers running on SageMaker AI ML instances. To learn
-more, see [Access a training container through AWS Systems Manager for
-remote debugging](train-remote-debugging.md "train-remote-debugging.md").
+more, see [Access a training container through AWS Systems Manager for remote debugging](train-remote-debugging.md "train-remote-debugging.md").
 
 ## September 7, 2023
 
@@ -29,8 +28,7 @@ With this functionality, regardless of where or how you run training code and la
 training jobs, you can directly access TensorBoard by running the
 `get_app_url` function in your Jupyter notebook or terminal. This
 functionality is available in the SageMaker Python SDK v2.184.0 and later. For more
-information, see [Accessing the TensorBoard application on
-SageMaker AI](debugger-htb-access-tb.md "debugger-htb-access-tb.md").
+information, see [Accessing the TensorBoard application on SageMaker AI](debugger-htb-access-tb.md "debugger-htb-access-tb.md").
 
 ## April 4, 2023
 

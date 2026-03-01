@@ -1,6 +1,4 @@
-# Notebook instances, SageMaker AI jobs, and
-
-Endpoints
+# Notebook instances, SageMaker AI jobs, and Endpoints
 
 To encrypt the machine learning (ML) storage volume that is attached to notebooks,
 processing jobs, training jobs, hyperparameter tuning jobs, batch transform jobs, and

@@ -1,6 +1,4 @@
-# Difference in Acceptance Rates
-
-(DAR)
+# Difference in Acceptance Rates (DAR)
 
 The difference in acceptance rates (DAR) metric is the difference in the ratios of the
 true positive (TP) predictions to the observed positives (TP + FP) for facets _a_ and _d_. This metric

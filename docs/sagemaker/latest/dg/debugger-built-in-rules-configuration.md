@@ -1,6 +1,4 @@
-# Use Debugger built-in rules with
-
-the default parameter settings
+# Use Debugger built-in rules with the default parameter settings
 
 To specify Debugger built-in rules in an estimator, you need to configure a list object.
 The following example code shows the basic structure of listing the Debugger built-in

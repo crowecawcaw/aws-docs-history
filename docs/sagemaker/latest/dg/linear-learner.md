@@ -39,19 +39,15 @@ to take a snapshot of the state of the model](model-checkpoints.md "model-checkp
 
 ###### Topics
 
-- [Input/Output interface for the linear learner
-  algorithm](#ll-input_output "#ll-input_output")
-- [EC2 instance recommendation for the linear learner
-  algorithm](#ll-instances "#ll-instances")
+- [Input/Output interface for the linear learner algorithm](#ll-input_output "#ll-input_output")
+- [EC2 instance recommendation for the linear learner algorithm](#ll-instances "#ll-instances")
 - [Linear learner sample notebooks](#ll-sample-notebooks "#ll-sample-notebooks")
 - [How linear learner works](ll_how-it-works.md "ll_how-it-works.md")
 - [Linear learner hyperparameters](ll_hyperparameters.md "ll_hyperparameters.md")
 - [Tune a linear learner model](linear-learner-tuning.md "linear-learner-tuning.md")
 - [Linear learner response formats](LL-in-formats.md "LL-in-formats.md")
 
-## Input/Output interface for the linear learner
-
-algorithm
+## Input/Output interface for the linear learner algorithm
 
 The Amazon SageMaker AI linear learner algorithm supports three data channels: train, validation
 (optional), and test (optional). If you provide validation data, the
@@ -102,9 +98,7 @@ which does not produce probability estimates.
 For more information on input and output file formats, see [Linear learner response formats](LL-in-formats.md "LL-in-formats.md"). For more information on
 inference formats, and the [Linear learner sample notebooks](#ll-sample-notebooks "#ll-sample-notebooks").
 
-## EC2 instance recommendation for the linear learner
-
-algorithm
+## EC2 instance recommendation for the linear learner algorithm
 
 The linear learner algorithm supports both CPU and GPU instances for training and
 inference. For GPU, the linear learner algorithm supports P2, P3, G4dn, and G5 GPU

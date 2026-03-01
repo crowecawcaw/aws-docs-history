@@ -1,6 +1,4 @@
-# Conditional Demographic Disparity
-
-(CDD)
+# Conditional Demographic Disparity (CDD)
 
 The demographic disparity metric (DD) determines whether a facet has a larger
 proportion of the rejected outcomes in the dataset than of the accepted outcomes. In

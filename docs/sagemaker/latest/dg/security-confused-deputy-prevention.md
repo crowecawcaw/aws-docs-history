@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The [confused deputy
 problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") is a security issue where an entity that doesn't have permission to perform an
@@ -19,8 +17,7 @@ Read on for general guidance or navigate to an example for a specific SageMaker 
 
 ###### Topics
 
-- [Limit Permissions With Global
-  Condition Keys](#security-confused-deputy-context-keys "#security-confused-deputy-context-keys")
+- [Limit Permissions With Global Condition Keys](#security-confused-deputy-context-keys "#security-confused-deputy-context-keys")
 - [SageMaker Edge Manager](#security-confused-deputy-edge-manager "#security-confused-deputy-edge-manager")
 - [SageMaker Images](#security-confused-deputy-images "#security-confused-deputy-images")
 - [SageMaker AI Inference](#security-confused-deputy-inference "#security-confused-deputy-inference")
@@ -32,9 +29,7 @@ Read on for general guidance or navigate to an example for a specific SageMaker 
 - [SageMaker Studio](#security-confused-deputy-studio "#security-confused-deputy-studio")
 - [SageMaker Training Jobs](#security-confused-deputy-training-job "#security-confused-deputy-training-job")
 
-## Limit Permissions With Global
-
-Condition Keys
+## Limit Permissions With Global Condition Keys
 
 We recommend using the `aws:SourceArn` and `aws:SourceAccount` global condition keys in resource policies to limit the
 permissions to the resource that Amazon SageMaker AI gives another service. If you use both global

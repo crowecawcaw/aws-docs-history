@@ -1,6 +1,4 @@
-# Create
-
-a Multi-Model Endpoint
+# Create a Multi-Model Endpoint
 
 You can use the SageMaker AI console or the AWS SDK for Python (Boto) to create a multi-model endpoint. To
 create either a CPU or GPU backed endpoint through the console, see the console procedure in
@@ -10,16 +8,11 @@ similar but have several differences, such as the container requirements.
 
 ###### Topics
 
-- [Create a multi-model endpoint
-  (console)](#create-multi-model-endpoint-console "#create-multi-model-endpoint-console")
-- [Create a multi-model endpoint using
-  CPUs with the AWS SDK for Python (Boto3)](#create-multi-model-endpoint-sdk-cpu "#create-multi-model-endpoint-sdk-cpu")
-- [Create a multi-model endpoint using
-  GPUs with the AWS SDK for Python (Boto3)](#create-multi-model-endpoint-sdk-gpu "#create-multi-model-endpoint-sdk-gpu")
+- [Create a multi-model endpoint (console)](#create-multi-model-endpoint-console "#create-multi-model-endpoint-console")
+- [Create a multi-model endpoint using CPUs with the AWS SDK for Python (Boto3)](#create-multi-model-endpoint-sdk-cpu "#create-multi-model-endpoint-sdk-cpu")
+- [Create a multi-model endpoint using GPUs with the AWS SDK for Python (Boto3)](#create-multi-model-endpoint-sdk-gpu "#create-multi-model-endpoint-sdk-gpu")
 
-## Create a multi-model endpoint
-
-(console)
+## Create a multi-model endpoint (console)
 
 You can create both CPU and GPU backed multi-model endpoints through the console. Use
 the following procedure to create a multi-model endpoint through the SageMaker AI console.
@@ -46,9 +39,7 @@ about the NVIDIA Triton Inference Server, see [Use Triton Inference Server with
 SageMaker AI](triton.md "triton.md"). 7. Choose **Create model**. 8. Deploy your multi-model endpoint as you would a single model endpoint. For
 instructions, see [Deploy the Model to SageMaker AI Hosting Services](ex1-model-deployment.md#ex1-deploy-model "ex1-model-deployment.md#ex1-deploy-model").
 
-## Create a multi-model endpoint using
-
-CPUs with the AWS SDK for Python (Boto3)
+## Create a multi-model endpoint using CPUs with the AWS SDK for Python (Boto3)
 
 Use the following section to create a multi-model endpoint backed by CPU instances. You
 create a multi-model endpoint using the Amazon SageMaker AI [`create_model`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model"), [`create_endpoint_config`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config"), and [`create_endpoint`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint") APIs just as you would create a single model
@@ -176,9 +167,7 @@ response = sagemaker_client.create_endpoint(
               EndpointConfigName = `'<ENDPOINT_CONFIG_NAME>'`)
 ```
 
-## Create a multi-model endpoint using
-
-GPUs with the AWS SDK for Python (Boto3)
+## Create a multi-model endpoint using GPUs with the AWS SDK for Python (Boto3)
 
 Use the following section to create a GPU backed multi-model endpoint. You create a
 multi-model endpoint using the Amazon SageMaker AI [`create_model`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model"), [`create_endpoint_config`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config"), and [`create_endpoint`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_endpoint") APIs similarly to creating single model endpoints,

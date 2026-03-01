@@ -1,6 +1,4 @@
-# Create a
-
-NodeClass
+# Create a NodeClass
 
 ###### Important
 

@@ -9,21 +9,16 @@ If you are having issues setting up, please see [Troubleshoot](sagemaker-hyperpo
 
 ###### Topics
 
-- [HyperPod Amazon CloudWatch
-  Observability EKS add-on prerequisites](#hp-eks-dashboard-prerequisites "#hp-eks-dashboard-prerequisites")
-- [HyperPod Amazon CloudWatch
-  Observability EKS add-on setup](#hp-eks-dashboard-setup "#hp-eks-dashboard-setup")
+- [HyperPod Amazon CloudWatch Observability EKS add-on prerequisites](#hp-eks-dashboard-prerequisites "#hp-eks-dashboard-prerequisites")
+- [HyperPod Amazon CloudWatch Observability EKS add-on setup](#hp-eks-dashboard-setup "#hp-eks-dashboard-setup")
 
-## HyperPod Amazon CloudWatch
-
-Observability EKS add-on prerequisites
+## HyperPod Amazon CloudWatch Observability EKS add-on prerequisites
 
 The following section includes the prerequisites needed before installing the
 Amazon EKS Observability add-on.
 
 - Ensure that you have the minimum permission policy for
-  HyperPod cluster administrators, in [IAM users for
-  cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin").
+  HyperPod cluster administrators, in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin").
 - Attach the `CloudWatchAgentServerPolicy` IAM policy to
   your worker nodes. To do so, enter the following command. Replace
   `my-worker-node-role` with
@@ -35,9 +30,7 @@ aws iam attach-role-policy \
 --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 ```
 
-## HyperPod Amazon CloudWatch
-
-Observability EKS add-on setup
+## HyperPod Amazon CloudWatch Observability EKS add-on setup
 
 Use the following options to set up the Amazon SageMaker HyperPod Amazon CloudWatch
 Observability EKS add-on.
@@ -45,8 +38,7 @@ Observability EKS add-on.
 Setup using the SageMaker AI console
 The following permissions are required for setup and visualizing
 the HyperPod task governance dashboard. This section
-expands upon the permissions listed in [IAM users for
-cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin").
+expands upon the permissions listed in [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin").
 
 To manage task governance, use the sample policy:
 

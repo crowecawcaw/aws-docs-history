@@ -1,6 +1,4 @@
-# Get event
-
-notifications for ModelLifeCycle
+# Get event notifications for ModelLifeCycle
 
 You can get the ModelLifeCycle update notifications and events with EventBridge in
 your account. The following is an example of an EventBridge rule, to be configured in

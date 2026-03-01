@@ -1,6 +1,4 @@
-# Configure
-
-listing Amazon EMR clusters
+# Configure listing Amazon EMR clusters
 
 Administrators can configure permissions for the SageMaker Studio execution role
 to grant users the ability to view the
@@ -24,8 +22,7 @@ accessing your cluster.
 1. **Step 1**: Retrieve the ARN of the
    SageMaker AI execution role used by your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution
 role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). 2. **Step 2**: Attach the following
@@ -55,14 +52,12 @@ clusters.
 ###### Note
 
 Users of role-based access control (RBAC) connectivity to Amazon EMR clusters
-should also refer to [Configure runtime role
-authentication when your Amazon EMR cluster and Studio are in the same account](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same").
+should also refer to [Configure runtime role authentication when your Amazon EMR cluster and Studio are in the same account](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same").
 
 Before you get started, retrieve the ARN of the SageMaker AI execution role used by
 your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution role,
 see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
@@ -73,8 +68,7 @@ AWS accounts, you configure the permissions on both accounts.
 ###### Note
 
 Users of role-based access control (RBAC) connectivity to Amazon EMR clusters
-should also refer to [Configure runtime role
-authentication when your cluster and Studio are in different accounts](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff").
+should also refer to [Configure runtime role authentication when your cluster and Studio are in different accounts](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff").
 
 **On the Amazon EMR cluster account**
 
@@ -212,8 +206,7 @@ resources in the trusting account.
 1. **Step 1**: Retrieve the ARN of the
    SageMaker AI execution role used by your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution
 role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). 2. **Step 2**: Attach the following
@@ -402,6 +395,5 @@ After the LCC runs and the files are written, the server
 reads the file
 `/home/sagemaker-user/.cross-account-configuration-DO_NOT_DELETE/emr-discovery-iam-role-arns-DO_NOT_DELETE.json`
 and stores the cross-account ARN.
-Refer to [List Amazon EMR clusters from Studio or
-Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md") to learn about how to discover and
+Refer to [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md") to learn about how to discover and
 connect to Amazon EMR clusters from Studio or Studio Classic notebooks.

@@ -43,9 +43,7 @@ Upon receiving the response of an inference endpoint invocation, the SageMaker C
 processing job deserializes response payload and then extracts the predictions from
 it.
 
-### Image
-
-classification problem
+### Image classification problem
 
 The data format of the response payload should be specified by the analysis
 configuration parameter accept_type. If `accept_type` is not
@@ -53,8 +51,7 @@ provided, the data format defaults to `application/json`. The
 supported formats are the same as those described in the **Endpoint response for tabular data** in the tabular data
 section.
 
-See [Inference with the Image Classification
-Algorithm](image-classification.md#IC-inference "image-classification.md#IC-inference") for an example
+See [Inference with the Image Classification Algorithm](image-classification.md#IC-inference "image-classification.md#IC-inference") for an example
 of a SageMaker AI built-in image classification algorithm that accepts a single image
 and then returns an array of probability values (scores), each for a
 class.
@@ -111,9 +108,7 @@ values.
 | Single image (one object)  | '{"prediction":[[4.0, 0.86419455409049988,<br>0.3088374733924866, 0.07030484080314636, 0.7110607028007507,<br>0.9345266819000244]]}'                                                                                                                  |
 | Single image (two objects) | '{"prediction":[[4.0, 0.86419455409049988,<br>0.3088374733924866, 0.07030484080314636, 0.7110607028007507,<br>0.9345266819000244],[0.0, 0.73376623392105103,<br>0.5714187026023865, 0.40427327156066895, 0.827075183391571,<br>0.9712159633636475]]}' |
 
-## Pre-check
-
-endpoint request and response for image data
+## Pre-check endpoint request and response for image data
 
 We recommend that you deploy your model to a SageMaker AI real-time inference endpoint,
 and send requests to the endpoint. Manually examine the requests and responses. Make
@@ -122,9 +117,7 @@ sure that both are compliant with the requirements in the **Endpoint request for
 The following are two code examples showing how to send requests and examine the
 responses for both image classification and object detection problems.
 
-### Image
-
-classification problem
+### Image classification problem
 
 The following example code instructs an endpoint to read a PNG file and then
 classifies it.

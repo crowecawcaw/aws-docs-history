@@ -1,6 +1,4 @@
-# Use the SMDDP library in your PyTorch training
-
-script
+# Use the SMDDP library in your PyTorch training script
 
 Starting from the SageMaker AI distributed data parallelism (SMDDP) library v1.4.0, you can use
 the library as a backend option for the [PyTorch distributed
@@ -32,9 +30,7 @@ support creating subprocess groups with the `torch.distributed.new_group()`
 API. You also cannot use the `smddp` backend concurrently with other process
 group backends such as `NCCL` and `Gloo`.
 
-## For DeepSpeed or
-
-Megatron-DeepSpeed
+## For DeepSpeed or Megatron-DeepSpeed
 
 Initialize the process group as follows.
 
@@ -48,8 +44,7 @@ deepspeed.init_distributed(dist_backend="smddp")
 ###### Note
 
 To use SMDDP `AllGather` with the `mpirun`-based launchers
-(`smdistributed` and `pytorchddp`) in [Launching distributed training jobs with SMDDP using the
-SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you also need to set the following environment
+(`smdistributed` and `pytorchddp`) in [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md"), you also need to set the following environment
 variable in your training script.
 
 ```
@@ -63,5 +58,4 @@ documentation.
 For general guidance on writing a PyTorch DDP training script, see [Getting started with
 distributed data parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html "https://pytorch.org/tutorials/intermediate/ddp_tutorial.html") in the PyTorch documentation.
 
-After you have completed adapting your training script, proceed to [Launching distributed training jobs with SMDDP using the
-SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").
+After you have completed adapting your training script, proceed to [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").

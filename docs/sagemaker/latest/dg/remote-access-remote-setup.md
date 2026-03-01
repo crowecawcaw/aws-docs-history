@@ -27,19 +27,13 @@ where possible and be cautious when using shared workstations or public networks
 
 ###### Topics
 
-- [Step 1: Configure security
-  and permissions](#remote-access-remote-setup-permissions "#remote-access-remote-setup-permissions")
-- [Step 2: Enable remote access for
-  your space](#remote-access-remote-setup-enable "#remote-access-remote-setup-enable")
+- [Step 1: Configure security and permissions](#remote-access-remote-setup-permissions "#remote-access-remote-setup-permissions")
+- [Step 2: Enable remote access for your space](#remote-access-remote-setup-enable "#remote-access-remote-setup-enable")
 - [Advanced access control](remote-access-remote-setup-abac.md "remote-access-remote-setup-abac.md")
-- [Set
-  up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md "remote-access-remote-setup-vpc-subnets-without-internet-access.md")
-- [Set up automated Studio
-  space filtering when using the AWS Toolkit](remote-access-remote-setup-filter.md "remote-access-remote-setup-filter.md")
+- [Set up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md "remote-access-remote-setup-vpc-subnets-without-internet-access.md")
+- [Set up automated Studio space filtering when using the AWS Toolkit](remote-access-remote-setup-filter.md "remote-access-remote-setup-filter.md")
 
-## Step 1: Configure security
-
-and permissions
+## Step 1: Configure security and permissions
 
 ###### Topics
 
@@ -98,8 +92,7 @@ following policy to one of the following:
   role
 - For IdC authentication, attach this policy to the [Permission sets](../../../singlesignon/latest/userguide/permissionsetsconcept.md "../../../singlesignon/latest/userguide/permissionsetsconcept.md") managed by the IdC
 
-To show only spaces relevant to the authenticated user, see [Filtering
-overview](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview").
+To show only spaces relevant to the authenticated user, see [Filtering overview](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview").
 
 ###### Important
 
@@ -191,9 +184,7 @@ JSON
 After setup, users can run `ssh my_studio_space_abc` to start up
 the space. For more information, see [Method 3: Connect from the terminal via SSH CLI](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-3-connect-from-the-terminal-via-ssh-cli").
 
-## Step 2: Enable remote access for
-
-your space
+## Step 2: Enable remote access for your space
 
 After you set up the permissions, you must toggle on **Remote
 Access** and start your space in Studio before the user can

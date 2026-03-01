@@ -9,8 +9,7 @@ To activate auto scaling for a model, you can use the SageMaker AI console, the 
 (AWS CLI), or an AWS SDK through the Application Auto Scaling API.
 
 - If this is your first time configuring scaling for a model, we recommend you
-  [Configure model auto scaling with
-  the console](endpoint-auto-scaling-add-console.md "endpoint-auto-scaling-add-console.md").
+  [Configure model auto scaling with the console](endpoint-auto-scaling-add-console.md "endpoint-auto-scaling-add-console.md").
 - When using the AWS CLI or the Application Auto Scaling API, the flow is to register the model as
   a scalable target, define the scaling policy, and then apply it. On the SageMaker AI
   console, under **Inference** in the navigation pane, choose

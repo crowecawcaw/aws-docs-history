@@ -1,20 +1,15 @@
-# Code examples: SDK for
-
-Python
+# Code examples: SDK for Python
 
 This section provides sample code to create and invoke an endpoint that uses SageMaker Clarify
 online explainability. These code examples use the [AWS SDK for Python.](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/")
 
-## Tabular
-
-data
+## Tabular data
 
 The following example uses tabular data and a SageMaker AI model called
 `model_name`. In this example, the model container accepts data in
 CSV format, and each record has four numerical features. In this minimal
 configuration, **for demonstration purposes only**, the
-SHAP baseline data is set to zero. Refer to [SHAP Baselines for
-Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md") to learn how to
+SHAP baseline data is set to zero. Refer to [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md") to learn how to
 choose more appropriate values for `ShapBaseline`.
 
 Configure the endpoint, as follows:

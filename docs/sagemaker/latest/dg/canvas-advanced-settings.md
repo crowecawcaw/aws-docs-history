@@ -9,16 +9,12 @@ about their options and configurations.
 The following advanced settings are currently only supported for numeric, categorical,
 and time series forecasting model types.
 
-## Advanced numeric and categorical
-
-prediction model settings
+## Advanced numeric and categorical prediction model settings
 
 Canvas supports the following advanced settings for numeric and categorical
 prediction model types.
 
-### Objective
-
-metric
+### Objective metric
 
 The objective metric is the metric that you want Canvas to optimize while
 building your model. If you don’t select a metric, Canvas chooses one for you by
@@ -106,9 +102,7 @@ where 80% of your data is used to build the model while 20% is saved for measuri
 model performance. If you don’t specify a custom ratio, then Canvas splits your
 dataset automatically.
 
-### Max
-
-candidates
+### Max candidates
 
 ###### Note
 
@@ -120,9 +114,7 @@ candidates, which is 100, to build the most accurate models. The maximum number 
 can specify is 250. Decreasing the number of model candidates may impact your
 model’s accuracy.
 
-### Max job
-
-runtime
+### Max job runtime
 
 You can specify the maximum job runtime, or the maximum amount of time that
 Canvas spends building your model. After the time limit, Canvas stops
@@ -132,9 +124,7 @@ The maximum time that you can specify is 720 hours. We highly recommend that you
 keep the maximum job runtime greater than 30 minutes to ensure that Canvas has
 enough time to generate model candidates and finish building your model.
 
-## Advanced time series forecasting
-
-model settings
+## Advanced time series forecasting model settings
 
 For time series forecasting models, Canvas supports the Objective metric,
 which is listed in the previous section.
@@ -181,9 +171,7 @@ Canvas supports the following time series forecasting algorithms:
   model that works best with time series that have strong seasonal effects and several seasons of historical data.
   The algorithm is useful for datasets with non-linear growth trends that approach a limit.
 
-### Forecast
-
-quantiles
+### Forecast quantiles
 
 For time series forecasting, SageMaker AI trains 6 model candidates with your target time
 series. Then, SageMaker AI combines these models using a stacking ensemble method to create

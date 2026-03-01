@@ -11,9 +11,7 @@ the data, train the model, and produce inferences.
 
 ## Step 1: Process Data
 
-During preprocessing, convert the data to the [JSON Lines](http://jsonlines.org/ "http://jsonlines.org/") text file format specified in [Data
-Formats for Object2Vec
-Training](object2vec-training-formats.md "object2vec-training-formats.md") . To get the highest accuracy
+During preprocessing, convert the data to the [JSON Lines](http://jsonlines.org/ "http://jsonlines.org/") text file format specified in [Data Formats for Object2Vec Training](object2vec-training-formats.md "object2vec-training-formats.md") . To get the highest accuracy
 during training, also randomly shuffle the data before feeding it into the model.
 How you generate random permutations depends on the language. For python, you could
 use `np.random.shuffle`; for Unix, `shuf`.

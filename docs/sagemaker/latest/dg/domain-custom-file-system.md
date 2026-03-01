@@ -70,8 +70,7 @@ For FSx for Lustre
      your FSx for Lustre file system ENIs.
 
 
-    ###### Add your domain security group to FSx for Lustre file system ENIs
-     (console)
+    ###### Add your domain security group to FSx for Lustre file system ENIs (console)
 
 
     	1. Navigate to the [Amazon FSx
@@ -101,9 +100,7 @@ For FSx for Lustre
     		 For instructions on how to obtain your domain ID, see [View domains](domain-view.md "domain-view.md").
     		5. Choose **Add security group**.
 
-## Adding a custom file system to a domain
-
-with the AWS CLI
+## Adding a custom file system to a domain with the AWS CLI
 
 To add a custom file system to a domain or user profile with the AWS CLI, you pass a
 `CustomFileSystemConfigs` definition when you use any of the following
@@ -304,9 +301,7 @@ The POSIX user ID. The default is 200001.
 
 The POSIX group ID. The default is 1001.
 
-## Attaching a custom file system to a space with the
-
-AWS CLI
+## Attaching a custom file system to a space with the AWS CLI
 
 After you add a custom file system to a domain, the domain users can attach the
 file system to spaces that they create. For instance, they can attach the file system when

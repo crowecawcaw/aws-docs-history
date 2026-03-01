@@ -1,6 +1,4 @@
-# Update a model
-
-package stage and status in Studio
+# Update a model package stage and status in Studio
 
 To use a model package stage construct, you will need to assume an execution
 role with the relevant permissions. The following page provides information on
@@ -8,8 +6,7 @@ how to update the stage status using Amazon SageMaker Studio.
 
 All stage constructs defined in the domain will be viewable by all users.
 To update a stage, you will need have the administrator set up the relevant
-permissions for you to access it. For information on how, see [Set up Staging
-Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
+permissions for you to access it. For information on how, see [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
 
 The following procedure will take you to the Studio UI where you can
 update your model package stage.
@@ -33,5 +30,4 @@ update your model package stage.
 
 If you cannot update the stage, you will receive an error. Your
 administrator will need to set up the permissions for you to do so. For
-information on how to set up the permissions, see [Set up Staging
-Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
+information on how to set up the permissions, see [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").

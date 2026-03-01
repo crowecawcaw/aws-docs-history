@@ -4,8 +4,7 @@ The difference in positive proportions in the predicted labels metric can be ass
 in the form of a ratio.
 
 The comparison of positive proportions in predicted labels metric can be assessed in
-the form of a ratio instead of as a difference, as it is with the [Difference in Positive
-Proportions in Predicted Labels (DPPL)](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md"). The disparate impact (DI)
+the form of a ratio instead of as a difference, as it is with the [Difference in Positive Proportions in Predicted Labels (DPPL)](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md"). The disparate impact (DI)
 metric is defined as the ratio of the proportion of positive predictions (y’ = 1) for
 facet _d_ over the proportion of positive predictions
 (y’ = 1) for facet _a_. For example, if the model

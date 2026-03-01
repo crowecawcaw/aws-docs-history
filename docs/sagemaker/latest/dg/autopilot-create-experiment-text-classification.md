@@ -1,6 +1,4 @@
-# Create an AutoML job
-
-for text classification using the API
+# Create an AutoML job for text classification using the API
 
 The following instructions show how to create an Amazon SageMaker Autopilot job as a pilot experiment for text
 classification problem types using SageMaker [API Reference](autopilot-reference.md "autopilot-reference.md").

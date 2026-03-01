@@ -1,6 +1,4 @@
-# Tune Multiple Algorithms with Hyperparameter
-
-Optimization to Find the Best Model
+# Tune Multiple Algorithms with Hyperparameter Optimization to Find the Best Model
 
 To create a new hyperparameter optimization (HPO) job with Amazon SageMaker AI that tunes multiple
 algorithms, you must provide job settings that apply to all of the algorithms to be tested and a
@@ -33,8 +31,7 @@ API.
   jobs** from the **Training**, menu, and then
   choose **Create hyperparameter tuning job**. Then following the
   configuration steps to create a training job for each algorithm that you want to use.
-  These steps are documented in the [Create a Hyperparameter
-  Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md") topic.
+  These steps are documented in the [Create a Hyperparameter Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md") topic.
 
 ###### Note
 
@@ -51,7 +48,5 @@ features, you can only tune a single algorithm at a time.
 
 ###### Topics
 
-- [Create a Hyperparameter
-  Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md")
-- [Manage Hyperparameter Tuning and
-  Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md")
+- [Create a Hyperparameter Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md")
+- [Manage Hyperparameter Tuning and Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md")

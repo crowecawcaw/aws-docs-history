@@ -1,6 +1,4 @@
-# Custom reward functions in your AWS
-
-environment
+# Custom reward functions in your AWS environment
 
 Custom reward functions in your AWS environment support single-turn RFT only. This
 trains models on tasks where a single prompt receives a single response, evaluated
@@ -553,9 +551,7 @@ def _extract_ground_truth_text(ground_truth) -> str:
     return str(ground_truth)
 ```
 
-### Using LLM as a judge for reward
-
-functions
+### Using LLM as a judge for reward functions
 
 Large Language Models (LLMs) are increasingly being used as judges in reinforcement
 fine-tuning (RFT) workflows, providing automated reward signals that guide model

@@ -1,6 +1,4 @@
-# Set up the IAM
-
-permissions to access the data sources (for administrators)
+# Set up the IAM permissions to access the data sources (for administrators)
 
 Administrators should ensure that the execution role used by the JupyterLab applications
 has the necessary AWS IAM permissions to access the data through the configured AWS Glue
@@ -14,8 +12,7 @@ connections.
   database-specific permissions. Connections created by administrators are visible to all
   applications sharing the execution role granted the permissions to view specific AWS Glue
   catalogs or databases. To learn about the list of required permissions per type of data
-  source, see the admin-defined connections permissions in [Admin-defined connections required
-  IAM permissions](#admin-defined-connections-permissions "#admin-defined-connections-permissions").
+  source, see the admin-defined connections permissions in [Admin-defined connections required IAM permissions](#admin-defined-connections-permissions "#admin-defined-connections-permissions").
 - **Connections created by users using the SQL extension UI in
   JupyterLab**: Connections [created by
   user profiles](sagemaker-sql-extension-datasources-glue-connection-user-defined.md "sagemaker-sql-extension-datasources-glue-connection-user-defined.md") sharing the same execution role will also be listed unless the
@@ -24,12 +21,9 @@ connections.
   restrict the ability to view, update, or delete those user-created connections to only the
   user who created them, administrators can add additional tag-based access control
   restrictions to the execution role IAM permissions. To learn about the additional
-  tag-based access control required, see [User-defined connections required
-  IAM permissions](#user-defined-connections-permissions "#user-defined-connections-permissions").
+  tag-based access control required, see [User-defined connections required IAM permissions](#user-defined-connections-permissions "#user-defined-connections-permissions").
 
-## Admin-defined connections required
-
-IAM permissions
+## Admin-defined connections required IAM permissions
 
 To grant the SageMaker AI execution role used by your JupyterLab application in Studio
 access to a data source through an AWS Glue connection, attach the following inline policy to
@@ -46,8 +40,7 @@ required.
 To scope down policies and grant least privilege access, replace wildcard
 `"Resource": ["*"]` in your policy with specific ARNs for the exact resources
 needing access. For more information about how to control access to your resources, see
-[Fine-tune AWS resource access with
-granular ARN permissions](#resource-access-control "#resource-access-control").
+[Fine-tune AWS resource access with granular ARN permissions](#resource-access-control "#resource-access-control").
 
 ###### Note
 
@@ -409,9 +402,7 @@ JSON
 
 ```
 
-## User-defined connections required
-
-IAM permissions
+## User-defined connections required IAM permissions
 
 The IAM policy permissions for a user can account for the presence of the
 `UserProfile` tag on AWS Glue connection resources.
@@ -483,9 +474,7 @@ connections to only the connections created by the user profile with the specifi
 }
 ```
 
-## Fine-tune AWS resource access with
-
-granular ARN permissions
+## Fine-tune AWS resource access with granular ARN permissions
 
 For finer-grained control over access to your AWS resources, replace the
 wildcard resource `"Resource": ["*"]` in your policies with the specific Amazon

@@ -4,9 +4,7 @@ In Amazon SageMaker Canvas, you can edit individual steps in your data flows to 
 without having to create a new data flow. The following page covers how to edit join and
 concatenate steps, as well as data source steps.
 
-## Edit join and concatenate
-
-steps
+## Edit join and concatenate steps
 
 Within your data flows, you have the flexibility to edit your join and concatenate
 steps. You can make necessary adjustments to your data processing workflow, ensuring
@@ -34,9 +32,7 @@ Additionally, you cannot select a source node as a replacement. 5. Choose **Prev
 
 Your data flow should now be updated.
 
-## Edit or replace a data source
-
-step
+## Edit or replace a data source step
 
 You might need to make changes to your data source or dataset without deleting the
 transforms and data flow steps applied to your original data. Within Data Wrangler, you can edit

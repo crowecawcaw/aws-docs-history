@@ -7,8 +7,7 @@ See the following sections to learn about how to install the training operator.
 Before you use the HyperPod training operator, you must have completed the following prerequisites:
 
 - [Created a HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
-- Installed the latest AMI on your HyperPod cluster. For more information, see [SageMaker HyperPod AMI releases for
-  Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md").
+- Installed the latest AMI on your HyperPod cluster. For more information, see [SageMaker HyperPod AMI releases for Amazon EKS](sagemaker-hyperpod-release-ami-eks.md "sagemaker-hyperpod-release-ami-eks.md").
 - [Installed cert-manager](https://cert-manager.io/docs/installation/ "https://cert-manager.io/docs/installation/").
 - [Set up the EKS Pod Identity Agent using the console](../../../eks/latest/userguide/pod-id-agent-setup.md "../../../eks/latest/userguide/pod-id-agent-setup.md"). If you want to use the AWS CLI,
   use the following command:
@@ -252,8 +251,7 @@ PyTorch's Elastic Agent, see their [official documentation](https://docs.pytorch
 
 The training operator is integrated with [HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance.md "sagemaker-hyperpod-eks-operate-console-ui-governance.md"), a robust management system designed to streamline resource allocation and ensure efficient
 utilization of compute resources across teams and projects for your Amazon EKS clusters. To set up HyperPod task governance,
-see [Setup for
-SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
+see [Setup for SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
 
 ###### Note
 

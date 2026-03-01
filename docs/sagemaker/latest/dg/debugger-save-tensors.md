@@ -1,24 +1,16 @@
-# Example notebooks and code samples to configure
-
-Debugger hook
+# Example notebooks and code samples to configure Debugger hook
 
 The following sections provide notebooks and code examples of how to use Debugger hook to
 save, access, and visualize output tensors.
 
 ###### Topics
 
-- [Tensor visualization example
-  notebooks](#debugger-tensor-visualization-notebooks "#debugger-tensor-visualization-notebooks")
-- [Save tensors using Debugger built-in
-  collections](#debugger-save-built-in-collections "#debugger-save-built-in-collections")
-- [Save tensors by modifying
-  Debugger built-in collections](#debugger-save-modified-built-in-collections "#debugger-save-modified-built-in-collections")
-- [Save tensors using Debugger custom
-  collections](#debugger-save-custom-collections "#debugger-save-custom-collections")
+- [Tensor visualization example notebooks](#debugger-tensor-visualization-notebooks "#debugger-tensor-visualization-notebooks")
+- [Save tensors using Debugger built-in collections](#debugger-save-built-in-collections "#debugger-save-built-in-collections")
+- [Save tensors by modifying Debugger built-in collections](#debugger-save-modified-built-in-collections "#debugger-save-modified-built-in-collections")
+- [Save tensors using Debugger custom collections](#debugger-save-custom-collections "#debugger-save-custom-collections")
 
-## Tensor visualization example
-
-notebooks
+## Tensor visualization example notebooks
 
 The following two notebook examples show advanced use of Amazon SageMaker Debugger for visualizing
 tensors. Debugger provides a transparent view into training deep learning models.
@@ -68,9 +60,7 @@ retrieves activation outputs of the first convolutional layer from each of 100
 batches and visualizes them. Also, this will show you how to visualize weights
 after the job is done.
 
-## Save tensors using Debugger built-in
-
-collections
+## Save tensors using Debugger built-in collections
 
 You can use built-in collections of tensors using the `CollectionConfig`
 API and save them using the `DebuggerHookConfig` API. The following example
@@ -135,9 +125,7 @@ sagemaker_estimator.fit()
 
 To see a list of Debugger built-in collections, see [Debugger Built-in Collections](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#collection "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#collection").
 
-## Save tensors by modifying
-
-Debugger built-in collections
+## Save tensors by modifying Debugger built-in collections
 
 You can modify the Debugger built-in collections using the `CollectionConfig`
 API operation. The following example shows how to tweak the built-in `losses`
@@ -187,9 +175,7 @@ sagemaker_estimator.fit()
 
 For a full list of `CollectionConfig` parameters, see [Debugger CollectionConfig API](https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk "https://github.com/awslabs/sagemaker-debugger/blob/master/docs/api.md#configuring-collection-using-sagemaker-python-sdk").
 
-## Save tensors using Debugger custom
-
-collections
+## Save tensors using Debugger custom collections
 
 You can also save a reduced number of tensors instead of the full set of tensors (for
 example, if you want to reduce the amount of data saved in your Amazon S3 bucket). The

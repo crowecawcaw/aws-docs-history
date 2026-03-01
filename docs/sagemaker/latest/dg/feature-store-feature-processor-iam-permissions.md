@@ -1,6 +1,4 @@
-# IAM permissions and
-
-execution roles
+# IAM permissions and execution roles
 
 To use the The Amazon SageMaker Python SDK requires permissions to interact with AWS services.
 The following policies are required for full Feature Processor functionality. You can attach

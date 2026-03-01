@@ -1,6 +1,4 @@
-# CloudWatch Metrics for Bias Drift
-
-Analysis
+# CloudWatch Metrics for Bias Drift Analysis
 
 This guide shows CloudWatch metrics and their properties that you can use for bias drift
 analysis in SageMaker Clarify. Bias drift monitoring jobs compute both [pre-training bias

@@ -1,6 +1,4 @@
-# Access a training container through AWS Systems Manager for
-
-remote debugging
+# Access a training container through AWS Systems Manager for remote debugging
 
 You can securely connect to SageMaker training containers through AWS Systems Manager (SSM). This gives
 you a shell-level access to debug training jobs that are running within the container. You
@@ -136,9 +134,7 @@ JSON
 For more information, see [Condition keys for Amazon SageMaker AI](../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys "../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-policy-keys") in the _AWS
 Service Authorization Reference_.
 
-## How to enable remote debugging for a
-
-SageMaker training job
+## How to enable remote debugging for a SageMaker training job
 
 In this section, learn how to enable remote debugging when starting or updating a
 training job in Amazon SageMaker AI.
@@ -321,9 +317,7 @@ aws sagemaker update-training-job \
     --cli-input-json `file://update-training-job-with-remote-debug-config.json`
 ```
 
-## Access your training
-
-container
+## Access your training container
 
 You can access a training container when the `SecondaryStatus` of the
 corresponding training job is `Training`. The following code examples
@@ -419,9 +413,7 @@ AWS PrivateLink restricts all network traffic between your endpoint instances, S
 Amazon EC2 to the Amazon network. For more information on how to setup SSM access
 with AWS PrivateLink, see [Set up an Amazon VPC endpoint for Session Manager](../../../systems-manager/latest/userguide/session-manager-getting-started-privatelink.md "../../../systems-manager/latest/userguide/session-manager-getting-started-privatelink.md").
 
-## Log SSM session commands and
-
-results
+## Log SSM session commands and results
 
 After following the instructions at [Create a Session Manager preferences document (command line)](../../../systems-manager/latest/userguide/getting-started-create-preferences-cli.md "../../../systems-manager/latest/userguide/getting-started-create-preferences-cli.md"), you can
 create SSM documents that define your preferences for SSM sessions. You can use
@@ -432,9 +424,7 @@ documents that define general preferences for all sessions for an
 AWS account and AWS Region, or documents that define preferences for individual
 sessions.
 
-## Troubleshooting issues
-
-by checking error logs from SSM
+## Troubleshooting issues by checking error logs from SSM
 
 Amazon SageMaker AI uploads errors from the SSM agent to your CloudWatch Logs in the
 `/aws/sagemaker/TrainingJobs` log group. SSM agent log streams are

@@ -1,6 +1,4 @@
-# Configure and create an
-
-endpoint
+# Configure and create an endpoint
 
 Create a new endpoint configuration to fit your model, and use this configuration to
 create the endpoint. You can use the model container validated in the [pre-check step](clarify-online-explainability-precheck.md "clarify-online-explainability-precheck.md") to create an endpoint and enable the SageMaker Clarify online explainability

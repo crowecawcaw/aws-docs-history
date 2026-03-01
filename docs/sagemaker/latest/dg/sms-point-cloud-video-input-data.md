@@ -1,6 +1,4 @@
-# Choose Video Files or Video Frames for Input
-
-Data
+# Choose Video Files or Video Frames for Input Data
 
 When you create a video frame object detection or object tracking labeling job, you
 can provide a sequence of video frames (images) or you can use the Amazon SageMaker AI console to have
@@ -81,8 +79,7 @@ sequence files when you create a video frame object tracking and video frame obj
 detection labeling job. If you use the automated data setup console tool to extract
 video frames from more than 10 video files, you will need to modify the manifest
 file the tool generates or create a new one to include 10 video frame sequence files
-or less. To learn more about these quotas, see [3D Point Cloud and Video Frame Labeling Job
-Quotas](input-data-limits.md#sms-input-data-quotas-other "input-data-limits.md#sms-input-data-quotas-other").
+or less. To learn more about these quotas, see [3D Point Cloud and Video Frame Labeling Job Quotas](input-data-limits.md#sms-input-data-quotas-other "input-data-limits.md#sms-input-data-quotas-other").
 
 To use the video frame extraction tool, see [Set up Automated Video Frame Input Data](sms-video-automated-data-setup.md "sms-video-automated-data-setup.md").
 

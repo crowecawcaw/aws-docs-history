@@ -37,7 +37,6 @@ private work teams used by Augmented AI, use the Ground Truth section of the Sag
 
 - [Amazon Cognito Workforces](sms-workforce-private-use-cognito.md "sms-workforce-private-use-cognito.md")
 - [OIDC IdP Workforces](sms-workforce-private-use-oidc.md "sms-workforce-private-use-oidc.md")
-- [Private workforce management using the
-  Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md")
+- [Private workforce management using the Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md")
 - [Track Worker Performance Metrics](workteam-private-tracking.md "workteam-private-tracking.md")
 - [Create the Amazon SNS topic](sms-workforce-management-private-sns.md "sms-workforce-management-private-sns.md")

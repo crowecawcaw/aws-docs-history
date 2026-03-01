@@ -1,6 +1,4 @@
-# Create Lambda functions using Ground Truth
-
-templates
+# Create Lambda functions using Ground Truth templates
 
 You can create a Lambda function using the Lambda console, the AWS CLI, or an AWS SDK
 in a supported programming language of your choice. Use the AWS Lambda Developer Guide to learn
@@ -17,9 +15,7 @@ more about each of these options:
   _recipe_. Use the following procedure to select
   the Ground Truth recipe in the Lambda console.
 
-###### Use the Ground Truth SAR recipe to create pre-annotation and post-annotation Lambda
-
-functions:
+###### Use the Ground Truth SAR recipe to create pre-annotation and post-annotation Lambda functions:
 
 1. Open the [**Functions** page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") on the Lambda
    console.

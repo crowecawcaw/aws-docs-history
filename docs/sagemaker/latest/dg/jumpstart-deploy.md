@@ -16,8 +16,7 @@ applications and cannot create new ones. We recommend that you [migrate your wor
 
 ###### Note
 
-Fore more information on JumpStart model deployment in Studio, see [Deploy a
-model in Studio](jumpstart-foundation-models-use-studio-updated-deploy.md "jumpstart-foundation-models-use-studio-updated-deploy.md")
+Fore more information on JumpStart model deployment in Studio, see [Deploy a model in Studio](jumpstart-foundation-models-use-studio-updated-deploy.md "jumpstart-foundation-models-use-studio-updated-deploy.md")
 
 ## Model deployment configuration
 
@@ -134,8 +133,7 @@ created, no more calls can be made. You can select an Amazon VPC that is passed 
 training jobs and hosting jobs. SageMaker AI uses this Amazon VPC to push and pull resources from
 your Amazon S3 bucket. This Amazon VPC is different from the Amazon VPC that limits access to the
 public internet from your Studio Classic instance. For more information about the
-Studio Classic Amazon VPC, see [Connect Studio notebooks in
-a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+Studio Classic Amazon VPC, see [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
 
 The Amazon VPC that you pass does not need access to the public internet, but it does
 need access to Amazon S3. The Amazon VPC endpoint for Amazon S3 must allow access to at least the

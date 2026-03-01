@@ -12,8 +12,7 @@ response object which contains the same fields described in
 [Test your deployment](canvas-deploy-model-test.md "canvas-deploy-model-test.md").
 
 For more detailed information about how to programmatically invoke endpoints, see
-[Invoke models for real-time
-inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
+[Invoke models for real-time inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
 
 The following Python examples show you how to invoke your endpoint based on the model
 type.

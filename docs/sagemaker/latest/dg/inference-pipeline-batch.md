@@ -1,6 +1,4 @@
-# Batch transforms with inference
-
-pipelines
+# Batch transforms with inference pipelines
 
 To get inferences on an entire dataset you run a batch transform on a trained model.
 To run inferences on a full dataset, you can use the same inference pipeline model
@@ -14,8 +12,7 @@ notebook](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/advan
 
 To use custom Docker images in a pipeline that includes [Amazon SageMaker AI built-in algorithms](sagemaker-algo-docker-registry-paths.md "sagemaker-algo-docker-registry-paths.md"), you need an [Amazon Elastic Container Registry
 (ECR) policy](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"). Your Amazon ECR repository must grant SageMaker AI permission to pull
-the image. For more information, see [Troubleshoot Amazon ECR
-Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions "inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions").
+the image. For more information, see [Troubleshoot Amazon ECR Permissions for Inference Pipelines](inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions "inference-pipeline-troubleshoot.md#inference-pipeline-troubleshoot-permissions").
 
 The following example shows how to run a transform job using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 In this example, `model_name` is the inference pipeline that combines SparkML

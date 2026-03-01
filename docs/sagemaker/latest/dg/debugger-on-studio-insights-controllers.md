@@ -1,6 +1,4 @@
-# Amazon SageMaker Debugger Insights dashboard
-
-controller
+# Amazon SageMaker Debugger Insights dashboard controller
 
 There are different components of the Debugger controller for monitoring and profiling.
 In this guide, you learn about the Debugger controller components.
@@ -19,12 +17,9 @@ instance usage. For information about pricing, see the [Amazon SageMaker Pricing
 
 When you are done using the SageMaker Debugger Insights dashboard, shut down the
 `ml.m5.4xlarge` instance to avoid accruing charges. For instructions
-on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights
-instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
+on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger Insights instance](debugger-on-studio-insights-close.md "debugger-on-studio-insights-close.md").
 
-## SageMaker Debugger Insights
-
-controller UI
+## SageMaker Debugger Insights controller UI
 
 Using the Debugger controller located at the upper-left corner of the Insights
 dashboard, you can refresh the dashboard, configure or update Debugger settings for

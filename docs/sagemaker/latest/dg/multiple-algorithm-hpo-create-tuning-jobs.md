@@ -1,6 +1,4 @@
-# Create a Hyperparameter
-
-Optimization Tuning Job for One or More Algorithms (Console)
+# Create a Hyperparameter Optimization Tuning Job for One or More Algorithms (Console)
 
 This guide shows you how to create a new hyperparameter optimization (HPO) tuning job for
 one or more algorithms. To create an HPO job, define the settings for the tuning job, and
@@ -9,9 +7,7 @@ for and create the tuning job. The following sections provide details about how 
 each step. We provide an example of how to tune multiple algorithms using the SageMaker AI
 SDK for Python client at the end of this guide.
 
-## Components of a
-
-tuning job
+## Components of a tuning job
 
 An HPO tuning job contains the following three components:
 
@@ -86,8 +82,7 @@ To help you manage tuning jobs, you can enter tags as key-value pairs to assign
 metadata to tuning jobs. Values in the key-value pair are not required. You can use
 the key without values. To see the keys associated with a job, choose
 the **Tags** tab on the details page for tuning job. For more
-information about using tags for tuning jobs, see [Manage Hyperparameter Tuning and
-Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md").
+information about using tags for tuning jobs, see [Manage Hyperparameter Tuning and Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md").
 
 To create a training job definition, you must configure the algorithm and
 parameters, define the data input and output, and configure resources. Provide at least
@@ -101,17 +96,12 @@ change what you need for your use case.
 
 ###### Topics
 
-- [Configure algorithm
-  and parameters](#multiple-algorithm-hpo-algorithm-configuration "#multiple-algorithm-hpo-algorithm-configuration")
+- [Configure algorithm and parameters](#multiple-algorithm-hpo-algorithm-configuration "#multiple-algorithm-hpo-algorithm-configuration")
 - [Define data input and output](#multiple-algorithm-hpo-data "#multiple-algorithm-hpo-data")
-- [Configure
-  training job resources](#multiple-algorithm-hpo-training-job-definition-resources "#multiple-algorithm-hpo-training-job-definition-resources")
-- [Add or clone a training
-  job](#multiple-algorithm-hpo-add-training-job "#multiple-algorithm-hpo-add-training-job")
+- [Configure training job resources](#multiple-algorithm-hpo-training-job-definition-resources "#multiple-algorithm-hpo-training-job-definition-resources")
+- [Add or clone a training job](#multiple-algorithm-hpo-add-training-job "#multiple-algorithm-hpo-add-training-job")
 
-#### Configure algorithm
-
-and parameters
+#### Configure algorithm and parameters
 
 The following list describes what you need to configure the set of hyperparameter
 values for each training job.
@@ -209,9 +199,7 @@ information, see [Checkpoints in Amazon SageMaker AI](model-checkpoints.md "mode
 Define an Amazon S3 location for the artifacts of the training job to be stored. You
 have the option of adding encryption to the output using an AWS Key Management Service (AWS KMS) key.
 
-#### Configure
-
-training job resources
+#### Configure training job resources
 
 Each training job definition for a tuning job must configure the resources to
 deploy, including instance types and counts, managed spot training, and stopping
@@ -233,9 +221,7 @@ times by allowing SageMaker AI to use spare capacity to run jobs. For more infor
 The stopping condition specifies the maximum duration that's allowed for each
 training job.
 
-#### Add or clone a training
-
-job
+#### Add or clone a training job
 
 After you create a training job definition for a tuning job, you will return to
 the **Training Job Definition(s)** panel. This panel is where you can
@@ -247,8 +233,7 @@ Alternatively, to replicate an existing training job definition and edit it for
 the new algorithm, choose **Clone** from the
 **Action** menu. The clone option can save time because it copies
 all of the job’s settings, including the data channels and Amazon S3 storage locations. For
-more information about cloning, see [Manage Hyperparameter Tuning and
-Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md").
+more information about cloning, see [Manage Hyperparameter Tuning and Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md").
 
 ###### Resource Limits
 
@@ -262,9 +247,7 @@ exceed the number of jobs that your definitions are expected to run.
 Review the job settings, the training job definitions, and the resource limits. Then
 select **Create hyperparameter tuning job**.
 
-## HPO tuning job
-
-example
+## HPO tuning job example
 
 To run a hyperparameter optimization (HPO) training job, first create a training job
 definition for each algorithm that's being tuned. Next, define the tuning job settings and
@@ -281,9 +264,7 @@ In the following section, code examples show how to tune a job containing either
 single training algorithm or multiple algorithms using the SageMaker AI Python
 SDK.
 
-### Create
-
-training job definitions
+### Create training job definitions
 
 When you create a tuning job that includes multiple training algorithms, your tuning
 job configuration will include the estimators and metrics and other parameters for your
@@ -385,9 +366,7 @@ job. This section provides two code examples to define a tuner. The code example
 how to optimize a single training algorithm followed by an example of how to tune multiple
 training algorithms.
 
-####
-
-Tune a single training algorithm
+#### Tune a single training algorithm
 
 The following code example shows how to initialize a tuner and set hyperparameter
 ranges for one SageMaker AI built-in algorithm, XGBoost.
@@ -458,9 +437,7 @@ tuner = HyperparameterTuner.create(
 )
 ```
 
-### Run your
-
-HPO tuning job
+### Run your HPO tuning job
 
 Now you can run your tuning job by passing your training inputs to the
 `fit` function of the `HyperparameterTuner` class. The following

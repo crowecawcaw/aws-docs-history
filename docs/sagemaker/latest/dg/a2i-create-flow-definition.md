@@ -38,26 +38,20 @@ template. For more information, see [Create and Manage Worker Task Templates](a2
 If you want to preview your worker task template while creating a flow definition for a
 built-in task type in the console, ensure that you grant the role that you use to create the
 flow definition permission to access the Amazon S3 bucket that contains your template artifacts
-using a policy like the one described in [Enable Worker Task
-Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai") .
+using a policy like the one described in [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai").
 
 ###### Topics
 
-- [Create a Human Review Workflow
-  (Console)](#a2i-create-human-review-console "#a2i-create-human-review-console")
+- [Create a Human Review Workflow (Console)](#a2i-create-human-review-console "#a2i-create-human-review-console")
 - [Create a Human Review Workflow (API)](#a2i-create-human-review-api "#a2i-create-human-review-api")
-- [JSON Schema for Human Loop
-  Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md")
+- [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md")
 
-## Create a Human Review Workflow
-
-(Console)
+## Create a Human Review Workflow (Console)
 
 Use this procedure to create a Amazon Augmented AI (Amazon A2I) human review workflow using the SageMaker AI
 console. If you are new to Amazon A2I, we recommend that you create a private work team
 using people in your organization, and use this work team's ARN when creating your flow
-definition. To learn how to set up a private workforce and create a work team, see [Create a Private Workforce (Amazon SageMaker AI
-Console)](sms-workforce-create-private-console.md "sms-workforce-create-private-console.md"). If you have already set up a
+definition. To learn how to set up a private workforce and create a work team, see [Create a Private Workforce (Amazon SageMaker AI Console)](sms-workforce-create-private-console.md "sms-workforce-create-private-console.md"). If you have already set up a
 private workforce, see [Create a Work Team Using the SageMaker AI Console](sms-workforce-management-private-console.md#create-workteam-sm-console "sms-workforce-management-private-console.md#create-workteam-sm-console") to learn how to add a work team to that
 workforce.
 
@@ -82,8 +76,7 @@ see the built-in task types in [Use Cases and Examples Using Amazon A2I](a2i-tas
    3. For **IAM role**, choose the role that has the required
       permissions. If you choose a built-in task type and want to preview your
       worker template in the console, provide a role with the type of policy
-      described in [Enable Worker Task
-      Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai")
+      described in [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai")
       attached.
 
 4. For **Task type**, choose the task type that you want the human
@@ -145,8 +138,7 @@ sample worker task** to preview your worker task UI.
 
 If you are creating a flow definition for a custom task type, you can preview your
 worker task UI using the `RenderUiTemplate` operation. For more
-information, see [Preview a Worker Task
-Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template"). 8. For **Workers**, choose a workforce type. 9. Choose **Create**.
+information, see [Preview a Worker Task Template](a2i-custom-templates.md#a2i-preview-your-custom-template "a2i-custom-templates.md#a2i-preview-your-custom-template"). 8. For **Workers**, choose a workforce type. 9. Choose **Create**.
 
 ### Next Steps
 
@@ -182,8 +174,7 @@ parameter, see [`CreateFlowDefinition`](../APIReference/API_CreateFlowDefinition
 4. (Optional) If you are using a built-in task type, provide conditions that
    initiate a human loop in `HumanLoopActivationConﬁg`. To learn how to
    create the input required for the `HumanLoopActivationConﬁg` parameter,
-   see [JSON Schema for Human Loop
-   Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md"). If you do not
+   see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md"). If you do not
    specify conditions here, when you provide a flow definition to the AWS service
    associated with a built-in task type (for example, Amazon Textract or Amazon Rekognition), that
    service sends every task to a human worker for review.

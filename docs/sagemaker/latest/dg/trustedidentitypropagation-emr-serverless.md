@@ -1,7 +1,4 @@
-# Connect your Studio
-
-JupyterLab notebooks to EMR Serverless with trusted identity propagation
-enabled
+# Connect your Studio JupyterLab notebooks to EMR Serverless with trusted identity propagation enabled
 
 Amazon EMR Serverless provides a serverless option for running Apache Spark and Apache
 Hive applications without managing clusters. When integrated with trusted identity
@@ -14,8 +11,7 @@ identity propagation enabled Studio with the EMR Serverless.
 To connect Studio to Amazon EMR Serverless with trusted identity propagation enabled,
 ensure you have completed the following setups:
 
-- [Setting up trusted identity propagation for
-  Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
+- [Setting up trusted identity propagation for Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
 - [Trusted identity propagation with EMR Serverless](../../../emr/latest/EMR-Serverless-UserGuide/security-iam-service-trusted-prop.md "../../../emr/latest/EMR-Serverless-UserGuide/security-iam-service-trusted-prop.md")
 - [Enable communications
   between Studio and EMR Serverless](studio-notebooks-emr-serverless.md "studio-notebooks-emr-serverless.md")

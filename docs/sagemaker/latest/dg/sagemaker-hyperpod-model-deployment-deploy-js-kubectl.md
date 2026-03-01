@@ -1,6 +1,4 @@
-# Deploy
-
-models from JumpStart using kubectl
+# Deploy models from JumpStart using kubectl
 
 The following steps show you how to deploy a JumpStart model to a
 HyperPod cluster using kubectl.
@@ -14,13 +12,10 @@ executing these commands.
 Before you begin, verify that you've:
 
 - Set up inference capabilities on your Amazon SageMaker HyperPod clusters. For
-  more information, see [Setting up your
-  HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
+  more information, see [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
 - Installed [kubectl](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/") utility and configured [jq](https://jqlang.org/ "https://jqlang.org/") in your terminal.
 
-## Setup and
-
-configuration
+## Setup and configuration
 
 1. Select your Region.
 

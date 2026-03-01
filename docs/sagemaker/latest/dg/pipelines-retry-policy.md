@@ -23,9 +23,7 @@ not retry the `SageMaker.JOB_INTERNAL_ERROR` exception type, even if a retry pol
 is configured. You can program your own [Retry Strategy](../APIReference/API_RetryStrategy.md "../APIReference/API_RetryStrategy.md") using the
 SageMaker API.
 
-## Supported exception types for
-
-the retry policy
+## Supported exception types for the retry policy
 
 The retry policy for pipeline steps supports the following exception types:
 
@@ -46,9 +44,7 @@ The retry policy for pipeline steps supports the following exception types:
   running a SageMaker AI job. You can wait and retry running the SageMaker AI job after a short period and
   see if resources are released.
 
-## The JSON schema for the retry
-
-policy
+## The JSON schema for the retry policy
 
 The retry policy for Pipelines has the following JSON schema:
 

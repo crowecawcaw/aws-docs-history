@@ -1,6 +1,4 @@
-# Model evaluation notebook
-
-tutorials
+# Model evaluation notebook tutorials
 
 This section provides the following notebook tutorials, which include example code and
 explanations:
@@ -12,12 +10,9 @@ explanations:
 
 - [Evaluate a JumpStart model for prompt stereotyping](clarify-foundation-model-evaluate-auto-tutorial-one.md "clarify-foundation-model-evaluate-auto-tutorial-one.md")
 - [Evaluate an Amazon Bedrock model for text summarization accuracy](clarify-foundation-model-evaluate-auto-tutorial-two.md "clarify-foundation-model-evaluate-auto-tutorial-two.md")
-- [Additional
-  notebooks](#clarify-foundation-model-evaluate-auto-tutorial-ex "#clarify-foundation-model-evaluate-auto-tutorial-ex")
+- [Additional notebooks](#clarify-foundation-model-evaluate-auto-tutorial-ex "#clarify-foundation-model-evaluate-auto-tutorial-ex")
 
-## Additional
-
-notebooks
+## Additional notebooks
 
 The [fmeval
 GitHub](https://github.com/aws/fmeval/tree/main/examples "https://github.com/aws/fmeval/tree/main/examples") directory contains the following additional example

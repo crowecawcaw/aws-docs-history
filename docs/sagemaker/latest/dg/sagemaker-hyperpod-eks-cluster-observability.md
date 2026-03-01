@@ -1,6 +1,4 @@
-# Observability for
-
-Amazon SageMaker HyperPod cluster orchestrated by Amazon EKS
+# Observability for Amazon SageMaker HyperPod cluster orchestrated by Amazon EKS
 
 To achieve comprehensive observability into your Amazon SageMaker HyperPod (SageMaker HyperPod) cluster
 resources and software components, integrate the cluster with [Amazon CloudWatch Container
@@ -36,7 +34,5 @@ Proceed to the following topics to set up for SageMaker HyperPod cluster observa
 
 ###### Topics
 
-- [Model observability
-  for training jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-cluster-observability-model.md "sagemaker-hyperpod-eks-cluster-observability-model.md")
-- [Cluster and task
-  observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md")
+- [Model observability for training jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-cluster-observability-model.md "sagemaker-hyperpod-eks-cluster-observability-model.md")
+- [Cluster and task observability](sagemaker-hyperpod-eks-cluster-observability-cluster.md "sagemaker-hyperpod-eks-cluster-observability-cluster.md")

@@ -1,6 +1,4 @@
-# Actions on rules using Amazon CloudWatch and
-
-AWS Lambda
+# Actions on rules using Amazon CloudWatch and AWS Lambda
 
 Amazon CloudWatch collects Amazon SageMaker AI model training job logs and Amazon SageMaker Debugger rule processing job
 logs. Configure Debugger with Amazon CloudWatch Events and AWS Lambda to take action based on Debugger rule
@@ -27,9 +25,6 @@ stops the training job.
 
 ###### Topics
 
-- [Access CloudWatch logs for Debugger rules and training
-  jobs](debugger-cloudwatch-metric.md "debugger-cloudwatch-metric.md")
-- [Set up Debugger for automated training job
-  termination using CloudWatch and Lambda](debugger-stop-training.md "debugger-stop-training.md")
-- [Disable the CloudWatch Events rule to stop using the
-  automated training job termination](debugger-disable-cw.md "debugger-disable-cw.md")
+- [Access CloudWatch logs for Debugger rules and training jobs](debugger-cloudwatch-metric.md "debugger-cloudwatch-metric.md")
+- [Set up Debugger for automated training job termination using CloudWatch and Lambda](debugger-stop-training.md "debugger-stop-training.md")
+- [Disable the CloudWatch Events rule to stop using the automated training job termination](debugger-disable-cw.md "debugger-disable-cw.md")

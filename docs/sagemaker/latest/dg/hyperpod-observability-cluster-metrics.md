@@ -1,6 +1,4 @@
-# SageMaker HyperPod cluster
-
-metrics
+# SageMaker HyperPod cluster metrics
 
 Amazon SageMaker HyperPod (SageMaker HyperPod) publishes various metrics across 9 distinct
 categories to your Amazon Managed Service for Prometheus workspace. Not all metrics are enabled by default
@@ -24,9 +22,7 @@ information, and where they appear in the Amazon Managed Grafana workspace.
 The following tables describe the metrics available for monitoring your
 SageMaker HyperPod cluster, organized by category.
 
-## Training
-
-metrics
+## Training metrics
 
 Use these metrics to track the performance of training tasks executed on
 the SageMaker HyperPod cluster.
@@ -45,9 +41,7 @@ the SageMaker HyperPod cluster.
 | `training_fault_recovery_time_ms` | Recovery time in milliseconds for each type of<br>fault                                                                                                 | No                  | SageMaker HyperPod training operator |
 | `training_time_ms`                | Total time in milliseconds spent in actual<br>training                                                                                                  | No                  | SageMaker HyperPod training operator |
 
-## Inference
-
-metrics
+## Inference metrics
 
 Use these metrics to track the performance of inference tasks on the
 SageMaker HyperPod cluster.
@@ -62,9 +56,7 @@ SageMaker HyperPod cluster.
 | TGI                          | These metrics can be used to monitor the performance of<br>TGI, auto-scale deployment and to help identify bottlenecks.<br>For a detailed list of metrics, see [https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md](https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md "https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md"). | Yes                 | Model container                       |
 | LMI                          | These metrics can be used to monitor the performance of<br>LMI, and to help identify bottlenecks. For a detailed list<br>of metrics, see [https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md](https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md "https://github.com/deepjavalibrary/djl-serving/blob/master/prometheus/README.md").                       | Yes                 | Model container                       |
 
-## Task
-
-governance metrics
+## Task governance metrics
 
 Use these metrics to monitor task governance and resource allocation on
 the SageMaker HyperPod cluster.
@@ -73,9 +65,7 @@ the SageMaker HyperPod cluster.
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------- |
 | Kueue               | See [https://kueue.sigs.k8s.io/docs/reference/metrics/](https://kueue.sigs.k8s.io/docs/reference/metrics/ "https://kueue.sigs.k8s.io/docs/reference/metrics/"). | No                  | Kueue         |
 
-## Scaling
-
-metrics
+## Scaling metrics
 
 Use these metrics to monitor auto-scaling behavior and performance on the
 SageMaker HyperPod cluster.
@@ -86,9 +76,7 @@ SageMaker HyperPod cluster.
 | KEDA Webhook Metrics        | See [https://keda.sh/docs/2.17/integrations/prometheus/#admission-webhooks](https://keda.sh/docs/2.17/integrations/prometheus/#admission-webhooks "https://keda.sh/docs/2.17/integrations/prometheus/#admission-webhooks"). | No                  | Kubernetes Event-driven Autoscaler (KEDA) |
 | KEDA Metrics server Metrics | See [https://keda.sh/docs/2.17/integrations/prometheus/#metrics-server](https://keda.sh/docs/2.17/integrations/prometheus/#metrics-server "https://keda.sh/docs/2.17/integrations/prometheus/#metrics-server").             | No                  | Kubernetes Event-driven Autoscaler (KEDA) |
 
-## Cluster
-
-metrics
+## Cluster metrics
 
 Use these metrics to monitor overall cluster health and resource
 allocation.
@@ -99,9 +87,7 @@ allocation.
 | Kubestate           | See [https://github.com/kubernetes/kube-state-metrics/tree/main/docs#default-resources](https://github.com/kubernetes/kube-state-metrics/tree/main/docs#default-resources "https://github.com/kubernetes/kube-state-metrics/tree/main/docs#default-resources").    | Limited             | Kubernetes    |
 | KubeState Advanced  | See [https://github.com/kubernetes/kube-state-metrics/tree/main/docs#optional-resources](https://github.com/kubernetes/kube-state-metrics/tree/main/docs#optional-resources "https://github.com/kubernetes/kube-state-metrics/tree/main/docs#optional-resources"). | No                  | Kubernetes    |
 
-## Instance
-
-metrics
+## Instance metrics
 
 Use these metrics to monitor individual instance performance and
 health.
@@ -132,9 +118,7 @@ about configuring GPU partitioning, see [Using GPU partitions in Amazon SageMake
 | NVIDIA GPU (advanced) | DCGM metrics that are commented out in the following CSV<br>file:[https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv](https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv "https://github.com/NVIDIA/dcgm-exporter/blob/main/etc/dcp-metrics-included.csv")                                                                                                                                   | No                  | NVIDIA Data Center GPU Manager (DCGM) |
 | AWS Trainium          | Neuron metrics. See [https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html#neuron-monitor-nc-counters](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html#neuron-monitor-nc-counters "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/tools/neuron-sys-tools/neuron-monitor-user-guide.html#neuron-monitor-nc-counters"). | No                  | AWS Neuron Monitor                    |
 
-## Network
-
-metrics
+## Network metrics
 
 Use these metrics to monitor the performance and health of the Elastic
 Fabric Adapters (EFA) in your cluster.
@@ -143,9 +127,7 @@ Fabric Adapters (EFA) in your cluster.
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------- |
 | EFA                 | See [https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md](https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md "https://github.com/aws-samples/awsome-distributed-training/blob/main/4.validation_and_observability/3.efa-node-exporter/README.md"). | No                  | Elastic Fabric Adapter |
 
-## File system
-
-metrics
+## File system metrics
 
 | Metric name or type | Description                                                                                                                                                                                                    | Enabled by default? | Metric source         |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | --------------------- |

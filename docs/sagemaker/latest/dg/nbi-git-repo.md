@@ -30,10 +30,7 @@ instance can be useful for:
 
 ###### Topics
 
-- [Add a Git repository to your Amazon SageMaker AI
-  account](nbi-git-resource.md "nbi-git-resource.md")
-- [Create a Notebook Instance with an Associated Git
-  Repository](nbi-git-create.md "nbi-git-create.md")
-- [Associate a CodeCommit Repository in a Different AWS
-  Account with a Notebook Instance](nbi-git-cross.md "nbi-git-cross.md")
+- [Add a Git repository to your Amazon SageMaker AI account](nbi-git-resource.md "nbi-git-resource.md")
+- [Create a Notebook Instance with an Associated Git Repository](nbi-git-create.md "nbi-git-create.md")
+- [Associate a CodeCommit Repository in a Different AWS Account with a Notebook Instance](nbi-git-cross.md "nbi-git-cross.md")
 - [Use Git Repositories in a Notebook Instance](git-nbi-use.md "git-nbi-use.md")

@@ -1,6 +1,4 @@
-# Understand Release, Stop and
-
-Resume, and Decline Task Options
+# Understand Release, Stop and Resume, and Decline Task Options
 
 When you open the labeling task, three buttons on the top right allow you to
 decline the task (**Decline task**), release it

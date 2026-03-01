@@ -1,6 +1,4 @@
-# Bias drift for models in
-
-production
+# Bias drift for models in production
 
 Amazon SageMaker Clarify bias monitoring helps data scientists and ML engineers monitor predictions for
 bias on a regular basis. As the model is monitored, customers can view exportable reports
@@ -52,9 +50,7 @@ allowed range A, SageMaker Clarify interprets it as “it is likely that the bia
 data distribution falls within the allowed range”. If C and A are disjoint, SageMaker Clarify is
 confident that the bias metric does not lie in A and raises an alert.
 
-## Model Monitor Sample
-
-Notebook
+## Model Monitor Sample Notebook
 
 Amazon SageMaker Clarify provides the following sample notebook that shows how to capture inference
 data for a real-time endpoint, create a baseline to monitor evolving bias against, and
@@ -72,15 +68,9 @@ examples from the example notebook.
 
 ###### Topics
 
-- [Create a Bias Drift
-  Baseline](clarify-model-monitor-bias-drift-baseline.md "clarify-model-monitor-bias-drift-baseline.md")
-- [Bias Drift
-  Violations](clarify-model-monitor-bias-drift-violations.md "clarify-model-monitor-bias-drift-violations.md")
-- [Parameters to
-  Monitor Bias Drift](clarify-config-json-monitor-bias-parameters.md "clarify-config-json-monitor-bias-parameters.md")
-- [Schedule Bias Drift
-  Monitoring Jobs](clarify-model-monitor-bias-drift-schedule.md "clarify-model-monitor-bias-drift-schedule.md")
-- [Inspect Reports for Data Bias
-  Drift](clarify-model-monitor-bias-drift-report.md "clarify-model-monitor-bias-drift-report.md")
-- [CloudWatch Metrics for Bias Drift
-  Analysis](clarify-model-monitor-bias-drift-cw.md "clarify-model-monitor-bias-drift-cw.md")
+- [Create a Bias Drift Baseline](clarify-model-monitor-bias-drift-baseline.md "clarify-model-monitor-bias-drift-baseline.md")
+- [Bias Drift Violations](clarify-model-monitor-bias-drift-violations.md "clarify-model-monitor-bias-drift-violations.md")
+- [Parameters to Monitor Bias Drift](clarify-config-json-monitor-bias-parameters.md "clarify-config-json-monitor-bias-parameters.md")
+- [Schedule Bias Drift Monitoring Jobs](clarify-model-monitor-bias-drift-schedule.md "clarify-model-monitor-bias-drift-schedule.md")
+- [Inspect Reports for Data Bias Drift](clarify-model-monitor-bias-drift-report.md "clarify-model-monitor-bias-drift-report.md")
+- [CloudWatch Metrics for Bias Drift Analysis](clarify-model-monitor-bias-drift-cw.md "clarify-model-monitor-bias-drift-cw.md")

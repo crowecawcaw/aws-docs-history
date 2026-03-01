@@ -1,6 +1,4 @@
-# Connect to a Notebook Instance Through a
-
-VPC Interface Endpoint
+# Connect to a Notebook Instance Through a VPC Interface Endpoint
 
 You can connect to your notebook instance from your VPC through an [interface
 endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in your Virtual Private Cloud (VPC) instead of connecting over the
@@ -37,16 +35,11 @@ SageMaker notebook instances support VPC endpoints in all AWS Regions where both
 
 ###### Topics
 
-- [Connect Your Private Network to Your
-  VPC](#notebook-private-link-vpn-nbi "#notebook-private-link-vpn-nbi")
-- [Create a VPC Endpoint Policy for SageMaker AI
-  Notebook Instances](#nbi-private-link-policy "#nbi-private-link-policy")
-- [Restrict Access to Connections from
-  Within Your VPC](#notebook-private-link-restrict "#notebook-private-link-restrict")
+- [Connect Your Private Network to Your VPC](#notebook-private-link-vpn-nbi "#notebook-private-link-vpn-nbi")
+- [Create a VPC Endpoint Policy for SageMaker AI Notebook Instances](#nbi-private-link-policy "#nbi-private-link-policy")
+- [Restrict Access to Connections from Within Your VPC](#notebook-private-link-restrict "#notebook-private-link-restrict")
 
-## Connect Your Private Network to Your
-
-VPC
+## Connect Your Private Network to Your VPC
 
 To connect to your notebook instance through your VPC, you either have to connect
 from an instance that is inside the VPC, or connect your private network to your VPC
@@ -55,9 +48,7 @@ Connections](../../../vpc/latest/userguide/vpn-connections.md "../../../vpc/late
 information about AWS Direct Connect, see [Creating a Connection](../../../directconnect/latest/UserGuide/create-connection.md "../../../directconnect/latest/UserGuide/create-connection.md") in the _AWS Direct Connect User
 Guide_.
 
-## Create a VPC Endpoint Policy for SageMaker AI
-
-Notebook Instances
+## Create a VPC Endpoint Policy for SageMaker AI Notebook Instances
 
 You can create a policy for Amazon VPC endpoints for SageMaker notebook instances to specify
 the following:
@@ -89,9 +80,7 @@ access to the endpoint are allowed to access the notebook instance named
 
 Access to other notebook instances is denied.
 
-## Restrict Access to Connections from
-
-Within Your VPC
+## Restrict Access to Connections from Within Your VPC
 
 Even if you set up an interface endpoint in your VPC, individuals outside the VPC
 can connect to the notebook instance over the internet.

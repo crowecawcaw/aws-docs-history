@@ -1,6 +1,4 @@
-# How Amazon SageMaker AI works with
-
-IAM
+# How Amazon SageMaker AI works with IAM
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -23,21 +20,15 @@ That Work with IAM](../../../service-authorization/latest/reference/reference_aw
 
 ###### Topics
 
-- [Identity-based
-  policies for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Identity-based policies for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [Resource-based policies within Amazon SageMaker AI](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Policy
-  actions for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
+- [Policy actions for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
 - [Policy resources for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
 - [Policy condition keys for Amazon SageMaker AI](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
-- [Authorization based on
-  SageMaker AI tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [SageMaker AI IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on SageMaker AI tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [SageMaker AI IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Identity-based
-
-policies for Amazon SageMaker AI
+## Identity-based policies for Amazon SageMaker AI
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -73,9 +64,7 @@ additional identity-based policy is required. For more information, see [Cross a
 Use [AWS Resource Access Manager](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") for securely sharing supported SageMaker AI resources. To find the list
 of sharable resources, see [shareable Amazon SageMaker AI resources](../../../ram/latest/userguide/shareable.md#shareable-sagemaker "../../../ram/latest/userguide/shareable.md#shareable-sagemaker").
 
-## Policy
-
-actions for Amazon SageMaker AI
+## Policy actions for Amazon SageMaker AI
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -179,17 +168,13 @@ To see a list of SageMaker AI condition keys, see [Condition keys for Amazon Sag
 _Service Authorization Reference_. To learn with which actions and
 resources you can use a condition key, see [Actions defined by Amazon SageMaker AI](../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonsagemaker.md#amazonsagemaker-actions-as-permissions").
 
-For examples of using SageMaker AI condition keys, see the following: [Control creation of SageMaker AI resources
-with condition keys](security_iam_id-based-policy-examples.md#sagemaker-condition-examples "security_iam_id-based-policy-examples.md#sagemaker-condition-examples").
+For examples of using SageMaker AI condition keys, see the following: [Control creation of SageMaker AI resources with condition keys](security_iam_id-based-policy-examples.md#sagemaker-condition-examples "security_iam_id-based-policy-examples.md#sagemaker-condition-examples").
 
 ### Examples
 
-To view examples of SageMaker AI identity-based policies, see [Amazon SageMaker AI
-identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of SageMaker AI identity-based policies, see [Amazon SageMaker AI identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on
-
-SageMaker AI tags
+## Authorization based on SageMaker AI tags
 
 You can attach tags to SageMaker AI resources or pass tags in a request to
 SageMaker AI. To control access based on tags, you provide tag information
@@ -197,23 +182,17 @@ in the [condition element](../../../service-authorization/latest/reference/refer
 `sagemaker:ResourceTag/`key-name``,
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition keys. For more information about tagging
-SageMaker AI resources, see [Control access to SageMaker AI resources by using
-tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
+SageMaker AI resources, see [Control access to SageMaker AI resources by using tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
 
 To view an example identity-based policy for limiting access to a resource
-based on the tags on that resource, see [Control access to SageMaker AI resources by using
-tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
+based on the tags on that resource, see [Control access to SageMaker AI resources by using tags](security_iam_id-based-policy-examples.md#access-tag-policy "security_iam_id-based-policy-examples.md#access-tag-policy").
 
-## SageMaker AI IAM
-
-roles
+## SageMaker AI IAM roles
 
 An [IAM role](../../../service-authorization/latest/reference/id_roles.md "../../../service-authorization/latest/reference/id_roles.md") is an entity
 within your AWS account that has specific permissions.
 
-### Using
-
-temporary credentials with SageMaker AI
+### Using temporary credentials with SageMaker AI
 
 You can use temporary credentials to sign in with federation, assume an
 IAM role, or to assume a cross-account role. You obtain temporary security
@@ -226,9 +205,7 @@ SageMaker AI supports using temporary credentials.
 SageMaker AI partially supports [service-linked roles](../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). Service-linked roles are currently
 available for SageMaker Studio Classic.
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-role "../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to
 access resources in other services to complete an action on your behalf.
@@ -238,9 +215,7 @@ role. However, doing so might break the functionality of the service.
 
 SageMaker AI supports service roles.
 
-### Choosing an
-
-IAM role in SageMaker AI
+### Choosing an IAM role in SageMaker AI
 
 When you create a notebook instance, processing job, training job, hosted
 endpoint, or batch transform job resource in SageMaker AI, you must

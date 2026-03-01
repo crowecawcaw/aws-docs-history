@@ -77,8 +77,7 @@ SageMaker:
 ```
 
 For more details about how to use `IncludeLocalWorkdir`
-with `CustomFileFilter`, see [Using modular code with the @remote
-decorator](train-remote-decorator-modular.md "train-remote-decorator-modular.md").
+with `CustomFileFilter`, see [Using modular code with the @remote decorator](train-remote-decorator-modular.md "train-remote-decorator-modular.md").
 
 - `s3_root_uri (str)`: The root Amazon S3 folder to which SageMaker AI uploads
   the code archives and data. If unspecified, the default SageMaker AI bucket is

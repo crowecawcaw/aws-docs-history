@@ -1,6 +1,4 @@
-# Download the Debugger
-
-XGBoost training report
+# Download the Debugger XGBoost training report
 
 Download the Debugger XGBoost training report while your training job is running or
 after the job has finished using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") and AWS Command Line Interface

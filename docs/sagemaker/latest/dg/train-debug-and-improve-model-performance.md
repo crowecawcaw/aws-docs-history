@@ -1,6 +1,4 @@
-# Debugging and improving model
-
-performance
+# Debugging and improving model performance
 
 The essence of training machine learning models, deep learning neural networks,
 transformer models is in achieving stable model convergence, and as such, state-of-the-art
@@ -35,6 +33,5 @@ issues, and set up Amazon Simple Notification Service to receive email or text n
 
 - [TensorBoard in Amazon SageMaker AI](tensorboard-on-sagemaker.md "tensorboard-on-sagemaker.md")
 - [Amazon SageMaker Debugger](train-debugger.md "train-debugger.md")
-- [Access a training container through AWS Systems Manager for
-  remote debugging](train-remote-debugging.md "train-remote-debugging.md")
+- [Access a training container through AWS Systems Manager for remote debugging](train-remote-debugging.md "train-remote-debugging.md")
 - [Release notes for debugging capabilities of Amazon SageMaker AI](debugger-release-notes.md "debugger-release-notes.md")

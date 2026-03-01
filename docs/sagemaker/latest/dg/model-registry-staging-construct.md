@@ -1,6 +1,4 @@
-# Staging Construct for your Model
-
-Lifecycle
+# Staging Construct for your Model Lifecycle
 
 You can define a series of stages that models can progress through for your model
 workflows and lifecycle with the Model Registry staging construct. This simplifies
@@ -21,13 +19,11 @@ benefits.
   points. Administrators can assign permission by using IAM policies and
   condition keys with the API. For example, you can restrict you data
   scientist from updating the Model Lifecycle stage transition from
-  "Development" to "Production". For examples, see [Set up Staging
-  Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
+  "Development" to "Production". For examples, see [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md").
 - Model Life Cycle Events via Amazon EventBridge - You can consume the lifecycle stage
   events using EventBridge. This sets you up to receive event notifications when
   models change approval or staging state, enabling integration with
-  third-party governance tools. See [Get event
-  notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md") for an
+  third-party governance tools. See [Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md") for an
   example.
 - Search based on Model Life Cycle Fields - You can search and filter stage
   and stage status using the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") API.
@@ -39,13 +35,8 @@ benefits.
 
 ###### Topics
 
-- [Set up Staging
-  Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md")
-- [Update a model
-  package stage and status in Studio](model-registry-staging-construct-update-studio.md "model-registry-staging-construct-update-studio.md")
-- [Update a model
-  package stage and status example (boto3)](model-registry-staging-construct-update-boto3.md "model-registry-staging-construct-update-boto3.md")
-- [Invoke ModelLifeCycle
-  using the AWS CLI examples](model-registry-staging-construct-cli.md "model-registry-staging-construct-cli.md")
-- [Get event
-  notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md")
+- [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md")
+- [Update a model package stage and status in Studio](model-registry-staging-construct-update-studio.md "model-registry-staging-construct-update-studio.md")
+- [Update a model package stage and status example (boto3)](model-registry-staging-construct-update-boto3.md "model-registry-staging-construct-update-boto3.md")
+- [Invoke ModelLifeCycle using the AWS CLI examples](model-registry-staging-construct-cli.md "model-registry-staging-construct-cli.md")
+- [Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md")

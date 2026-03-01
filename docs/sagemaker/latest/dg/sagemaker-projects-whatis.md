@@ -14,9 +14,7 @@ bootstrap the ML workflow
 with source version control, automated ML pipelines,
 and a set of code to quickly start iterating over ML use cases.
 
-## When Should You Use a SageMaker AI
-
-Project?
+## When Should You Use a SageMaker AI Project?
 
 ###### Important
 
@@ -117,9 +115,7 @@ all of the entities associated with your project. These include:
 - CodePipeline and Jenkins pipelines
 - CodeCommit and third-party Git repositories
 
-## Do I Need to Create a Project to Use SageMaker AI
-
-Pipelines?
+## Do I Need to Create a Project to Use SageMaker AI Pipelines?
 
 No. SageMaker pipelines are standalone entities just like training jobs, processing
 jobs, and other SageMaker AI jobs. You can create, update, and run pipelines directly within

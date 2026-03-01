@@ -1,6 +1,4 @@
-# Update OIDC Identity Provider workforce
-
-configuration
+# Update OIDC Identity Provider workforce configuration
 
 You may want to update a workforce created using your own OIDC IdP to specify a
 different authorization endpoint, token endpoint, or issuer. You can update any

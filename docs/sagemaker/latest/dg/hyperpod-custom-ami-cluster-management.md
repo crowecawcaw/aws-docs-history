@@ -3,9 +3,7 @@
 After the custom AMI is built, you can use it for creating or updating an Amazon SageMaker HyperPod cluster.
 You can also scale up or add instance groups that use the new AMI.
 
-## Permissions required for
-
-cluster operations
+## Permissions required for cluster operations
 
 Add the following permissions to the cluster admin user who operates and
 configures SageMaker HyperPod clusters. The following policy example includes the
@@ -257,9 +255,7 @@ aws sagemaker update-cluster \
 }]'
 ```
 
-## Add an instance
-
-group
+## Add an instance group
 
 The following example shows how to add an instance group to a cluster using a custom AMI:
 

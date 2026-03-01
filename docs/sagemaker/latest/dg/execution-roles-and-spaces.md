@@ -1,6 +1,4 @@
-# Understanding domain space permissions and
-
-execution roles
+# Understanding domain space permissions and execution roles
 
 For many SageMaker AI applications, when you start up a SageMaker AI application within a domain, a
 space is created for the application. When a user profile creates a space, that space assumes an
@@ -22,11 +20,9 @@ for your role session.
 When you start up Amazon SageMaker Canvas or RStudio, it does not create a space that assumes an IAM
 role. Instead, you change the role associated with the user profile to manage their
 permissions for the application. For information on obtaining a SageMaker AI user profile’s role, see
-[Get user execution
-role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
+[Get user execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
 
-For SageMaker Canvas, see [Amazon SageMaker Canvas setup and permissions management (for IT
-administrators)](canvas-setting-up.md "canvas-setting-up.md").
+For SageMaker Canvas, see [Amazon SageMaker Canvas setup and permissions management (for IT administrators)](canvas-setting-up.md "canvas-setting-up.md").
 
 For RStudio, see [Create Amazon SageMaker AI domain with RStudio App](rstudio-create-cli.md#rstudio-create-cli-domain "rstudio-create-cli.md#rstudio-create-cli-domain").
 
@@ -40,11 +36,9 @@ Users can access their SageMaker AI applications within a shared or private spac
 - The shared space will be granted the permissions defined by the **space default execution role**. If you wish to modify the shared space's
   execution role, you must modify the space default execution role.
 
-For information on obtaining the space default execution role, see [Get space execution
-role](sagemaker-roles.md#sagemaker-roles-get-execution-role-space "sagemaker-roles.md#sagemaker-roles-get-execution-role-space").
+For information on obtaining the space default execution role, see [Get space execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-space "sagemaker-roles.md#sagemaker-roles-get-execution-role-space").
 
-For information on modifying your execution role, see [Modify permissions to
-execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role").
+For information on modifying your execution role, see [Modify permissions to execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role").
 
 - For information about shared spaces, see [Collaboration with shared spaces](domain-space.md "domain-space.md").
 - To create a shared space, see [Create a shared space](domain-space-create.md#domain-space-create-app "domain-space-create.md#domain-space-create-app").
@@ -57,11 +51,9 @@ execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sag
   role** of the user profile that created it. If you wish to modify the private
   space's execution role, you must modify the user profile's execution role.
 
-For information on obtaining the user profile's execution role, see [Get user execution
-role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
+For information on obtaining the user profile's execution role, see [Get user execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
 
-For information on modifying your execution role, see [Modify permissions to
-execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role").
+For information on modifying your execution role, see [Modify permissions to execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role").
 
 - All applications that support spaces also support private spaces.
 - A private space for Studio Classic is already created for each user profile by
@@ -70,8 +62,7 @@ execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sag
 ###### Topics
 
 - [SageMaker AI execution roles](#sagemaker-execution-roles "#sagemaker-execution-roles")
-- [Example of flexible permissions with
-  execution roles](#sagemaker-execution-roles-example "#sagemaker-execution-roles-example")
+- [Example of flexible permissions with execution roles](#sagemaker-execution-roles-example "#sagemaker-execution-roles-example")
 
 ## SageMaker AI execution roles
 
@@ -106,13 +97,9 @@ practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/
 Guide_.
 
 Any changes or modifications to the execution roles may take a few minutes to propagate.
-For more information, see [Change your execution
-role](sagemaker-roles.md#sagemaker-roles-change-execution-role "sagemaker-roles.md#sagemaker-roles-change-execution-role") or [Modify permissions to
-execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role"), respectively.
+For more information, see [Change your execution role](sagemaker-roles.md#sagemaker-roles-change-execution-role "sagemaker-roles.md#sagemaker-roles-change-execution-role") or [Modify permissions to execution role](sagemaker-roles.md#sagemaker-roles-modify-to-execution-role "sagemaker-roles.md#sagemaker-roles-modify-to-execution-role"), respectively.
 
-## Example of flexible permissions with
-
-execution roles
+## Example of flexible permissions with execution roles
 
 With [IAM
 roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") you can manage and grant permissions on broad and granular levels. The
@@ -125,8 +112,7 @@ buckets, run SageMaker training jobs, and deploy models using an application in 
 _space default execution role_, granting broad permissions
 for your team. When a user profile creates a _shared space_,
 that space will assume the _space default execution role_.
-For information on assigning an execution role to an existing domain, see [Get space execution
-role](sagemaker-roles.md#sagemaker-roles-get-execution-role-space "sagemaker-roles.md#sagemaker-roles-get-execution-role-space").
+For information on assigning an execution role to an existing domain, see [Get space execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-space "sagemaker-roles.md#sagemaker-roles-get-execution-role-space").
 
 Instead of allowing any individual user profile working in their own _private space_ to have full access to Amazon S3 buckets, you can restrict
 a user profile’s permissions and not allow them to alter the Amazon S3 buckets. In this example,
@@ -136,8 +122,7 @@ user-level execution role called "DataScientistRole" with the relatively more li
 permissions. Then you can assign "DataScientistRole" to the _user
 profile execution role_, granting the necessary permissions to perform their
 specific data science tasks within the defined scope. When a user profile creates a _private space_, that space will assume the _user execution role_. For information on assigning an execution role to an
-existing user profile, see [Get user execution
-role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
+existing user profile, see [Get user execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role-user "sagemaker-roles.md#sagemaker-roles-get-execution-role-user").
 
 For information on SageMaker AI execution roles and adding additional permissions to them, see
 [How to use SageMaker AI execution roles](sagemaker-roles.md "sagemaker-roles.md").

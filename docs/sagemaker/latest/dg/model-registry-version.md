@@ -16,27 +16,18 @@ or by creating a step in a SageMaker AI model building pipeline, use the followi
 
 ###### Topics
 
-- [Register a Model Version (SageMaker AI
-  Pipelines)](#model-registry-pipeline "#model-registry-pipeline")
-- [Register a Model Version
-  (Boto3)](#model-registry-version-api "#model-registry-version-api")
-- [Register a Model Version (Studio or
-  Studio Classic)](#model-registry-studio "#model-registry-studio")
-- [Register a Model Version from
-  a Different Account](#model-registry-version-xaccount "#model-registry-version-xaccount")
+- [Register a Model Version (SageMaker AI Pipelines)](#model-registry-pipeline "#model-registry-pipeline")
+- [Register a Model Version (Boto3)](#model-registry-version-api "#model-registry-version-api")
+- [Register a Model Version (Studio or Studio Classic)](#model-registry-studio "#model-registry-studio")
+- [Register a Model Version from a Different Account](#model-registry-version-xaccount "#model-registry-version-xaccount")
 
-## Register a Model Version (SageMaker AI
-
-Pipelines)
+## Register a Model Version (SageMaker AI Pipelines)
 
 To register a model version by using a SageMaker AI model building pipeline, create a
 `RegisterModel` step in your pipeline. For information about
-creating a `RegisterModel` step as part of a pipeline, see [Step 8: Define a RegisterModel step to create
-a model package](define-pipeline.md#define-pipeline-register "define-pipeline.md#define-pipeline-register").
+creating a `RegisterModel` step as part of a pipeline, see [Step 8: Define a RegisterModel step to create a model package](define-pipeline.md#define-pipeline-register "define-pipeline.md#define-pipeline-register").
 
-## Register a Model Version
-
-(Boto3)
+## Register a Model Version (Boto3)
 
 To register a model version by using Boto3, call the
 `create_model_package` API operation.
@@ -81,9 +72,7 @@ model_package_arn = create_model_package_response["ModelPackageArn"]
 print('ModelPackage Version ARN : {}'.format(model_package_arn))
 ```
 
-## Register a Model Version (Studio or
-
-Studio Classic)
+## Register a Model Version (Studio or Studio Classic)
 
 To register a model version in the Amazon SageMaker Studio console, complete the
 following steps based on whether you use Studio or Studio Classic.
@@ -166,9 +155,7 @@ Studio Classic
 14. Confirm your new model version appears in the parent model
     group page.
 
-## Register a Model Version from
-
-a Different Account
+## Register a Model Version from a Different Account
 
 To register model versions with a Model Group created by a different AWS
 account, you must add a cross-account AWS Identity and Access Management resource policy to enable that
@@ -215,9 +202,7 @@ have a role that has access to SageMaker AI actions, such as a role with the
 `AmazonSageMakerFullAccess` managed policy. For information about
 SageMaker AI managed policies, see [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-### Required IAM
-
-resource policies
+### Required IAM resource policies
 
 The following diagram captures the policies required to allow
 cross-account model registration. As shown, these policies need to be active
@@ -304,9 +289,7 @@ JSON
 
 ```
 
-### Apply
-
-resource policies to accounts
+### Apply resource policies to accounts
 
 The following policy configuration applies the policies discussed in the
 previous section and must be put in the model training account.

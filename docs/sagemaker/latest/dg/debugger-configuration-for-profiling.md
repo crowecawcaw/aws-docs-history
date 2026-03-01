@@ -1,6 +1,4 @@
-# Estimator configuration with
-
-parameters for basic profiling using the Amazon SageMaker Debugger Python modules
+# Estimator configuration with parameters for basic profiling using the Amazon SageMaker Debugger Python modules
 
 By default, SageMaker Debugger basic profiling is on by default and monitors resource utilization
 metrics, such as CPU utilization, GPU utilization, GPU memory utilization, Network, and I/O
@@ -34,10 +32,7 @@ import IPython
 IPython.Application.instance().kernel.do_shutdown(True)
 ```
 
-## Code template for
-
-configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI
-Python SDK
+## Code template for configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI Python SDK
 
 To adjust the basic profiling configuration (`profiler_config`) or add the
 profiler rules (`rules`), choose one of the tabs to get the template for
@@ -227,9 +222,7 @@ The following provides brief descriptions of the parameters.
   metrics and framework metrics from your training job and save into your secured
   S3 bucket URI or local machine. You can set how frequently or loosely collect
   the system metrics. To learn how to configure the `profiler_config`
-  parameter, see [Configure settings for basic
-  profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md") and [Estimator configuration for
-  framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").
+  parameter, see [Configure settings for basic profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md") and [Estimator configuration for framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").
 - `rules` – Configure this parameter to activate SageMaker Debugger
   built-in rules that you want to run in parallel. Make sure that your training
   job has access to this S3 bucket. The rules runs on processing containers and
@@ -238,8 +231,7 @@ The following provides brief descriptions of the parameters.
   rule is the most integrated rule that runs all
   built-in profiling rules and saves the profiling results as a report into your
   secured S3 bucket. To learn how to configure the `rules` parameter,
-  see [Use built-in profiler rules managed
-  by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
+  see [Use built-in profiler rules managed by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
 
 ###### Note
 
@@ -256,10 +248,7 @@ detail.
 
 ###### Topics
 
-- [Configure settings for basic
-  profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md")
-- [Estimator configuration for
-  framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md")
-- [Updating Debugger system monitoring
-  and framework profiling configuration while a training job is running](debugger-update-monitoring-profiling.md "debugger-update-monitoring-profiling.md")
+- [Configure settings for basic profiling of system resource utilization](debugger-configure-system-monitoring.md "debugger-configure-system-monitoring.md")
+- [Estimator configuration for framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md")
+- [Updating Debugger system monitoring and framework profiling configuration while a training job is running](debugger-update-monitoring-profiling.md "debugger-update-monitoring-profiling.md")
 - [Turn off Debugger](debugger-turn-off-profiling.md "debugger-turn-off-profiling.md")

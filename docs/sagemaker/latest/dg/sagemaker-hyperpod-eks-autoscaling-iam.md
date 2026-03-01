@@ -1,6 +1,4 @@
-# Create an IAM role for
-
-HyperPod autoscaling with Karpenter
+# Create an IAM role for HyperPod autoscaling with Karpenter
 
 In the following steps, you'll create an IAM role that allows SageMaker HyperPod to manage
 Kubernetes nodes in your cluster through Karpenter-based autoscaling. This role provides

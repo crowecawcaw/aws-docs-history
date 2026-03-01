@@ -23,9 +23,7 @@ and up to 50 labels that workers can choose from.
 
 ![Gif showing how to draw a box around an object for a category.](images/sms/gifs/bb-sample.gif)
 
-## Create a Bounding Box Labeling Job
-
-(API)
+## Create a Bounding Box Labeling Job (API)
 
 To create a bounding box labeling job, use the SageMaker API operation
 `CreateLabelingJob`. This API defines this operation for all AWS SDKs. To see a
@@ -98,9 +96,7 @@ response = client.create_labeling_job(
 )
 ```
 
-### Provide a Template for
-
-Bounding Box Labeling Jobs
+### Provide a Template for Bounding Box Labeling Jobs
 
 If you create a labeling job using the API, you must supply a worker task template in
 `UiTemplateS3Uri`. Copy and modify the following template. Only modify the

@@ -40,19 +40,13 @@ includes additional downstream image processing or other applications.
 
 ###### Topics
 
-- [Semantic Segmentation Sample
-  Notebooks](#semantic-segmentation-sample-notebooks "#semantic-segmentation-sample-notebooks")
-- [Input/Output Interface for the
-  Semantic Segmentation Algorithm](#semantic-segmentation-inputoutput "#semantic-segmentation-inputoutput")
-- [EC2 Instance Recommendation for the
-  Semantic Segmentation Algorithm](#semantic-segmentation-instances "#semantic-segmentation-instances")
-- [Semantic Segmentation
-  Hyperparameters](segmentation-hyperparameters.md "segmentation-hyperparameters.md")
+- [Semantic Segmentation Sample Notebooks](#semantic-segmentation-sample-notebooks "#semantic-segmentation-sample-notebooks")
+- [Input/Output Interface for the Semantic Segmentation Algorithm](#semantic-segmentation-inputoutput "#semantic-segmentation-inputoutput")
+- [EC2 Instance Recommendation for the Semantic Segmentation Algorithm](#semantic-segmentation-instances "#semantic-segmentation-instances")
+- [Semantic Segmentation Hyperparameters](segmentation-hyperparameters.md "segmentation-hyperparameters.md")
 - [Tuning a Semantic Segmentation Model](semantic-segmentation-tuning.md "semantic-segmentation-tuning.md")
 
-## Semantic Segmentation Sample
-
-Notebooks
+## Semantic Segmentation Sample Notebooks
 
 For a sample Jupyter notebook that uses the SageMaker AI semantic segmentation algorithm to
 train a model and deploy it to perform inferences, see the [Semantic Segmentation Example](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/semantic_segmentation_pascalvoc/semantic_segmentation_pascalvoc.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/semantic_segmentation_pascalvoc/semantic_segmentation_pascalvoc.html"). For instructions on how to create and access
@@ -63,9 +57,7 @@ choose the **SageMaker AI Examples** tab. The example semantic
 segmentation notebooks are located under **Introduction to Amazon
 algorithms**. To open a notebook, choose its **Use** tab, and choose **Create copy**.
 
-## Input/Output Interface for the
-
-Semantic Segmentation Algorithm
+## Input/Output Interface for the Semantic Segmentation Algorithm
 
 SageMaker AI semantic segmentation expects the customer's training dataset to be on [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/").
 Once trained, it produces the resulting model artifacts on Amazon S3. The input interface
@@ -80,9 +72,7 @@ not, the algorithm uses a default. It also supports the augmented manifest image
 for training in Pipe input mode straight from Amazon S3. For inference, an
 endpoint accepts images with an `image/jpeg` content type.
 
-### How Training
-
-Works
+### How Training Works
 
 The training data is split into four directories: `train`,
 `train_annotation`, `validation`, and
@@ -226,9 +216,7 @@ value of the `ContentType` parameter must be
 
 For more information on augmented manifest files, see [Augmented Manifest Files for Training Jobs](augmented-manifest.md "augmented-manifest.md").
 
-### Incremental
-
-Training
+### Incremental Training
 
 You can also seed the training of a new model with a model that you trained
 previously using SageMaker AI. This incremental training saves training time when you want
@@ -247,9 +235,7 @@ file, you can use the compressed (.tar.gz) artifacts from SageMaker AI outputs. 
 use Image formats for input data. For more information on incremental training and
 for instructions on how to use it, see [Use Incremental Training in Amazon SageMaker AI](incremental-training.md "incremental-training.md").
 
-### Produce
-
-Inferences
+### Produce Inferences
 
 To query a trained model that is deployed to an endpoint, you need to provide an
 image and an `AcceptType` that denotes the type of output required. The
@@ -262,9 +248,7 @@ latter format outputs a 3D tensor where the third dimension is the same size as 
 number of classes. This component denotes the probability of each class label for
 each pixel.
 
-## EC2 Instance Recommendation for the
-
-Semantic Segmentation Algorithm
+## EC2 Instance Recommendation for the Semantic Segmentation Algorithm
 
 The SageMaker AI semantic segmentation algorithm only supports GPU instances for training, and
 we recommend using GPU instances with more memory for training with large batch sizes.

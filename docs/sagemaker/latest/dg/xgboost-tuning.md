@@ -22,9 +22,7 @@ not from the SageMaker AI console.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Evaluation Metrics Computed by the XGBoost
-
-Algorithm
+## Evaluation Metrics Computed by the XGBoost Algorithm
 
 The XGBoost algorithm computes the following metrics to use for model validation.
 When tuning the model, choose one of these metrics to evaluate the model. For full

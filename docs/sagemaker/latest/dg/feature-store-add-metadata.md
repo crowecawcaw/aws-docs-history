@@ -1,6 +1,4 @@
-# Adding searchable metadata to your
-
-features
+# Adding searchable metadata to your features
 
 In Amazon SageMaker Feature Store, you can search through all of your features. To make your features more
 discoverable, you can add metadata to them. You can add the following types of
@@ -13,9 +11,7 @@ metadata:
 
 To update the metadata of a feature, you can use either the console or the [`UpdateFeatureMetadata`](../APIReference/API_UpdateFeatureMetadata.md "../APIReference/API_UpdateFeatureMetadata.md") operation.
 
-## How to add searchable metadata to
-
-your features
+## How to add searchable metadata to your features
 
 You can use the console or the Amazon SageMaker Feature Store API to add searchable metadata to your
 features. Instructions for using Feature Store through the console depend on whether you have
@@ -198,9 +194,7 @@ sagemaker_client.update_feature_metadata(
 
 ```
 
-#### Example
-
-code
+#### Example code
 
 After you've updated the metadata for a feature, you can use the [`DescribeFeatureMetadata`](../APIReference/API_DescribeFeatureMetadata.md "../APIReference/API_DescribeFeatureMetadata.md") operation to see the
 updates that you've made.
@@ -215,9 +209,7 @@ AWS SDK for Python (Boto3). The example code does the following:
 
 For more Feature Store examples and resources, see [Amazon SageMaker Feature Store resources](feature-store-resources.md "feature-store-resources.md").
 
-##### Step 1:
-
-Setup
+##### Step 1: Setup
 
 To start using Feature Store, create SageMaker AI, boto3 and Feature Store sessions. Then set up
 the S3 bucket you want to use for your features. This is your offline
@@ -258,9 +250,7 @@ sagemaker_client = boto_session.client(service_name='sagemaker', region_name=reg
 
 ```
 
-##### Step 2: Create a
-
-feature group and add features
+##### Step 2: Create a feature group and add features
 
 The following code is an example of creating a feature group with
 feature definitions.
@@ -291,9 +281,7 @@ except ClientError as e:
 
 ```
 
-##### Step 3: Add
-
-metadata
+##### Step 3: Add metadata
 
 Before you add metadata, use the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.md "../APIReference/API_DescribeFeatureGroup.md") operation to make
 sure that the status of the feature group is

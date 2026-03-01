@@ -26,19 +26,15 @@ in clustering and visualization tasks.
 
 ###### Topics
 
-- [Input/Output Interface for the IP Insights
-  Algorithm](#ip-insights-inputoutput "#ip-insights-inputoutput")
-- [EC2 Instance Recommendation for the IP Insights
-  Algorithm](#ip-insights-instances "#ip-insights-instances")
+- [Input/Output Interface for the IP Insights Algorithm](#ip-insights-inputoutput "#ip-insights-inputoutput")
+- [EC2 Instance Recommendation for the IP Insights Algorithm](#ip-insights-instances "#ip-insights-instances")
 - [IP Insights Sample Notebooks](#ip-insights-sample-notebooks "#ip-insights-sample-notebooks")
 - [How IP Insights Works](ip-insights-howitworks.md "ip-insights-howitworks.md")
 - [IP Insights Hyperparameters](ip-insights-hyperparameters.md "ip-insights-hyperparameters.md")
 - [Tune an IP Insights Model](ip-insights-tuning.md "ip-insights-tuning.md")
 - [IP Insights Data Formats](ip-insights-data-formats.md "ip-insights-data-formats.md")
 
-## Input/Output Interface for the IP Insights
-
-Algorithm
+## Input/Output Interface for the IP Insights Algorithm
 
 **Training and Validation**
 
@@ -49,8 +45,7 @@ discriminates between positive and negative samples. Training and validation dat
 content types need to be in `text/csv` format. The first column of the CSV
 data is an opaque string that provides a unique identifier for the entity. The second
 column is an IPv4 address in decimal-dot notation. IP Insights currently supports only
-File mode. For more information and some examples, see [IP Insights Training Data
-Formats](ip-insights-training-data-formats.md "ip-insights-training-data-formats.md").
+File mode. For more information and some examples, see [IP Insights Training Data Formats](ip-insights-training-data-formats.md "ip-insights-training-data-formats.md").
 
 **Inference**
 
@@ -61,21 +56,16 @@ SageMaker AI, see [Common data formats for inference](cdf-inference.md "cdf-infe
 inference returns output formatted as either `application/json` or
 `application/jsonlines`. Each record in the output data contains the
 corresponding `dot_product` (or compatibility score) for each input data
-point. For more information and some examples, see [IP Insights Inference Data
-Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md").
+point. For more information and some examples, see [IP Insights Inference Data Formats](ip-insights-inference-data-formats.md "ip-insights-inference-data-formats.md").
 
-## EC2 Instance Recommendation for the IP Insights
-
-Algorithm
+## EC2 Instance Recommendation for the IP Insights Algorithm
 
 The SageMaker AI IP Insights algorithm can run on both GPU and CPU instances. For training
 jobs, we recommend using GPU instances. However, for certain workloads with large
 training datasets, distributed CPU instances might reduce training costs. For inference,
 we recommend using CPU instances. IP Insights supports P2, P3, G4dn, and G5 GPU families.
 
-### GPU Instances for the IP Insights
-
-Algorithm
+### GPU Instances for the IP Insights Algorithm
 
 IP Insights supports all available GPUs. If you need to speed up training, we
 recommend starting with a single GPU instance, such as ml.p3.2xlarge, and then
@@ -85,9 +75,7 @@ If you switch from a single GPU to multiple GPUs, the `mini_batch_size`
 is divided equally into the number of GPUs used. You may want to increase the value
 of the `mini_batch_size` to compensate for this.
 
-### CPU Instances for the IP Insights
-
-Algorithm
+### CPU Instances for the IP Insights Algorithm
 
 The type of CPU instance that we recommend depends largely on the instance's
 available memory and the model size. The model size is determined by two

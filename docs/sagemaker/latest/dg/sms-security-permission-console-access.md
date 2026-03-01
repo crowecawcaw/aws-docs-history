@@ -1,6 +1,4 @@
-# Grant IAM Permission to Use the
-
-Amazon SageMaker Ground Truth Console
+# Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console
 
 To use the Ground Truth area of the SageMaker AI console, you need to grant permission to an entity
 to access SageMaker AI and other AWS services that Ground Truth interacts with. Required
@@ -22,12 +20,9 @@ permissions to access other AWS services depends on your use-case:
 ###### Topics
 
 - [Ground Truth Console Permissions](#sms-security-permissions-console-all "#sms-security-permissions-console-all")
-- [Custom Labeling Workflow
-  Permissions](#sms-security-permissions-custom-workflow "#sms-security-permissions-custom-workflow")
-- [Private Workforce
-  Permissions](#sms-security-permission-workforce-creation "#sms-security-permission-workforce-creation")
-- [Vendor Workforce
-  Permissions](#sms-security-permissions-workforce-creation-vendor "#sms-security-permissions-workforce-creation-vendor")
+- [Custom Labeling Workflow Permissions](#sms-security-permissions-custom-workflow "#sms-security-permissions-custom-workflow")
+- [Private Workforce Permissions](#sms-security-permission-workforce-creation "#sms-security-permission-workforce-creation")
+- [Vendor Workforce Permissions](#sms-security-permissions-workforce-creation-vendor "#sms-security-permissions-workforce-creation-vendor")
 
 ## Ground Truth Console Permissions
 
@@ -36,8 +31,7 @@ to create a labeling job, attach the following policy to the user or role. The
 following policy will give an IAM role permission to create a labeling job
 using a [built-in task type](sms-task-types.md "sms-task-types.md")
 task type. If you want to create a custom labeling workflow, add the policy in
-[Custom Labeling Workflow
-Permissions](#sms-security-permissions-custom-workflow "#sms-security-permissions-custom-workflow") to the following
+[Custom Labeling Workflow Permissions](#sms-security-permissions-custom-workflow "#sms-security-permissions-custom-workflow") to the following
 policy. Each `Statement` included in the following policy is
 described below this code block.
 
@@ -193,8 +187,7 @@ the ARNs of the roles you want the user to have permission to view in
 These permissions are required to view and choose vendor work teams that you
 are already subscribed to when creating a labeling job. To give the user
 permission to _subscribe_ to vendor work teams,
-add the statement in [Vendor Workforce
-Permissions](#sms-security-permissions-workforce-creation-vendor "#sms-security-permissions-workforce-creation-vendor") to the
+add the statement in [Vendor Workforce Permissions](#sms-security-permissions-workforce-creation-vendor "#sms-security-permissions-workforce-creation-vendor") to the
 policy above
 
 `**PassRoleForExecutionRoles**`
@@ -234,9 +227,7 @@ role used to create the labeling job under `Resource`.
   create, view and manage and private workforce using Amazon Cognito. To learn more
   about these actions, refer to the [Amazon Cognito API References](../../../cognito/latest/developerguide/cognito-reference.md "../../../cognito/latest/developerguide/cognito-reference.md").
 
-## Custom Labeling Workflow
-
-Permissions
+## Custom Labeling Workflow Permissions
 
 Add the following statement to a policy similar to the one in [Ground Truth Console Permissions](#sms-security-permissions-console-all "#sms-security-permissions-console-all") to give a user
 permission to select pre-existing pre-annotation and post-annotation Lambda
@@ -258,9 +249,7 @@ labeling workflow](sms-custom-templates.md "sms-custom-templates.md").
 To learn how to give an entity permission to create and test
 pre-annotation and post-annotation Lambda functions, see [Required Permissions To Use Lambda With Ground Truth](sms-custom-templates-step3-lambda-permissions.md "sms-custom-templates-step3-lambda-permissions.md").
 
-## Private Workforce
-
-Permissions
+## Private Workforce Permissions
 
 When added to a permissions policy, the following permission grants access to create
 and manage a private workforce and work team using Amazon Cognito. These permissions are
@@ -297,12 +286,9 @@ not required to use an [OIDC IdP workforce](sms-workforce-create-private-oidc.md
 
 To learn more about creating private workforce using Amazon Cognito, see [Amazon Cognito Workforces](sms-workforce-private-use-cognito.md "sms-workforce-private-use-cognito.md").
 
-## Vendor Workforce
+## Vendor Workforce Permissions
 
-Permissions
-
-You can add the following statement to the policy in [Grant IAM Permission to Use the
-Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md") to grant an
+You can add the following statement to the policy in [Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md") to grant an
 entity permission to subscribe to a [vendor
 workforce](sms-workforce-management-vendor.md "sms-workforce-management-vendor.md").
 

@@ -1,6 +1,4 @@
-# View shared model groups in
-
-Studio
+# View shared model groups in Studio
 
 You can view model groups that are shared with you or an account belonging to
 the same AWS Organizations. If a model group is shared with an account belonging to the

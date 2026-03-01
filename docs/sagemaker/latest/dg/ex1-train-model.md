@@ -152,8 +152,7 @@ You can also tune the hyperparameters using the SageMaker AI hyperparameter
 optimization feature. For more information, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md"). 4. Use the `TrainingInput` class to configure a data input flow for
 training. The following example code shows how to configure
 `TrainingInput` objects to use the training and validation
-datasets you uploaded to Amazon S3 in the [Split the Dataset into Train,
-Validation, and Test Datasets](ex1-preprocess-data.md#ex1-preprocess-data-transform "ex1-preprocess-data.md#ex1-preprocess-data-transform") section.
+datasets you uploaded to Amazon S3 in the [Split the Dataset into Train, Validation, and Test Datasets](ex1-preprocess-data.md#ex1-preprocess-data-transform "ex1-preprocess-data.md#ex1-preprocess-data-transform") section.
 
 ```
 from sagemaker.session import TrainingInput

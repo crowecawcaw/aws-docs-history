@@ -1,15 +1,11 @@
-# Inference Pipeline Logs and
-
-Metrics
+# Inference Pipeline Logs and Metrics
 
 Monitoring is important for maintaining the reliability, availability, and performance
 of Amazon SageMaker AI resources. To monitor and troubleshoot inference pipeline performance, use
 Amazon CloudWatch logs and error messages. For information about the monitoring tools that SageMaker AI
 provides, see [Monitoring AWS resources in Amazon SageMaker AI](monitoring-overview.md "monitoring-overview.md").
 
-## Use Metrics to Monitor Multi-container
-
-Models
+## Use Metrics to Monitor Multi-container Models
 
 To monitor the multi-container models in Inference Pipelines, use Amazon CloudWatch. CloudWatch
 collects raw data and processes it into readable, near real-time metrics. SageMaker AI
@@ -92,9 +88,7 @@ or a notebook instance lifecycle configuration sends to `stdout` or
 `stderr` to Amazon CloudWatch Logs. You can use this information for debugging and
 to analyze progress.
 
-## Use Logs to Monitor an Inference
-
-Pipeline
+## Use Logs to Monitor an Inference Pipeline
 
 The following table lists the log groups and log streams SageMaker AI. sends to Amazon CloudWatch
 
@@ -120,7 +114,6 @@ that share the same retention, monitoring, and access control settings.
 
 SageMaker AI creates the `/aws/sagemaker/NotebookInstances` log group when
 you create a notebook instance with a lifecycle configuration. For more
-information, see [Customization of a SageMaker notebook instance
-using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md").
+information, see [Customization of a SageMaker notebook instance using an LCC script](notebook-lifecycle-config.md "notebook-lifecycle-config.md").
 
 For more information about SageMaker AI logging, see [CloudWatch Logs for Amazon SageMaker AI](logging-cloudwatch.md "logging-cloudwatch.md").

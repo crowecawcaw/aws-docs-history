@@ -1,19 +1,14 @@
-# Data Formats for Object2Vec
-
-Inference
+# Data Formats for Object2Vec Inference
 
 The following page describes the input request and output response formats
 for getting scoring inference from the Amazon SageMaker AI Object2Vec model.
 
-## GPU
-
-optimization: Classification or Regression
+## GPU optimization: Classification or Regression
 
 Due to GPU memory scarcity, the `INFERENCE_PREFERRED_MODE` environment
 variable can be specified to optimize on whether the classification/regression
 or the
-[Output: Encoder
-Embeddings](object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data "object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data") inference network is loaded
+[Output: Encoder Embeddings](object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data "object2vec-encoder-embeddings.md#object2vec-out-encoder-embeddings-data") inference network is loaded
 into GPU. If the majority of your inference is for classification or regression,
 specify `INFERENCE_PREFERRED_MODE=classification`. The following is a
 Batch Transform example of using 4 instances of p3.2xlarge that optimizes for
@@ -29,9 +24,7 @@ transformer = o2v.transformer(instance_count=4,
                               output_path=output_s3_path)
 ```
 
-## Input: Classification or Regression
-
-Request Format
+## Input: Classification or Regression Request Format
 
 Content-type:
 application/json
@@ -58,9 +51,7 @@ application/jsonlines
 For classification problems, the length of the scores vector corresponds to
 `num_classes`. For regression problems, the length is 1.
 
-## Output: Classification or Regression
-
-Response Format
+## Output: Classification or Regression Response Format
 
 Accept:
 application/json

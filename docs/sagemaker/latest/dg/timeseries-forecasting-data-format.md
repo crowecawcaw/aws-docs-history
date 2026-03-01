@@ -1,6 +1,4 @@
-# Time-series datasets format and missing
-
-values filling methods
+# Time-series datasets format and missing values filling methods
 
 Time-series data refers to a collection of observations or measurements recorded over
 regular intervals of time. In this type of data, each observation is associated with a
@@ -29,8 +27,7 @@ analysis and the data available to you. At a minimum, the time-series data is co
 You can add a feature-engineered dataset of national holiday information to your
 time-series. By including holidays in your time series model, you can capture the periodic
 patterns that holidays create. This helps your forecasts better reflect the underlying
-seasonality of your data. For information on the available calendars per country, see [National holiday
-calendars](autopilot-timeseries-forecasting-holiday-calendars.md "autopilot-timeseries-forecasting-holiday-calendars.md")
+seasonality of your data. For information on the available calendars per country, see [National holiday calendars](autopilot-timeseries-forecasting-holiday-calendars.md "autopilot-timeseries-forecasting-holiday-calendars.md")
 
 ## Datasets format for time-series forecasting
 
@@ -48,8 +45,7 @@ files.
   them a better option for big data problems.
 
 For more information about the resource limits on time-series datasets for forecasting
-in Autopilot, see [Time-series forecasting resource
-limits for Autopilot](timeseries-forecasting-limits.md "timeseries-forecasting-limits.md").
+in Autopilot, see [Time-series forecasting resource limits for Autopilot](timeseries-forecasting-limits.md "timeseries-forecasting-limits.md").
 
 ## Handle missing values
 
@@ -64,8 +60,7 @@ Autopilot provides a number of filling methods to handle missing values, with di
 approaches for the target column and other additional columns. Filling is the process of
 adding standardized values to missing entries in your dataset.
 
-Refer to [How to handle missing values
-in your input datasets](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-fill-missing-values "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-fill-missing-values") to learn how to set the
+Refer to [How to handle missing values in your input datasets](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-fill-missing-values "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-fill-missing-values") to learn how to set the
 method for filling missing values in your time-series dataset.
 
 Autopilot supports the following filling methods:

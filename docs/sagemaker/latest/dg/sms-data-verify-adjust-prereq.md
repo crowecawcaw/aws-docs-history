@@ -1,6 +1,4 @@
-# Requirements to create verification and adjustment
-
-labeling jobs
+# Requirements to create verification and adjustment labeling jobs
 
 To create a label verification or adjustment job, you must satisfy the following
 criteria.

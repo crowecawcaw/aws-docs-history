@@ -6,8 +6,5 @@ container, and how to use CloudFormation to create a monitoring schedule.
 
 ###### Topics
 
-- [Custom
-  monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md")
-- [Create a
-  Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom
-  Resource](model-monitor-cloudformation-monitoring-schedules.md "model-monitor-cloudformation-monitoring-schedules.md")
+- [Custom monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md")
+- [Create a Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom Resource](model-monitor-cloudformation-monitoring-schedules.md "model-monitor-cloudformation-monitoring-schedules.md")

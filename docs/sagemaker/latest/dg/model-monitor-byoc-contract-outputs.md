@@ -1,6 +1,4 @@
-# Container Contract
-
-Outputs
+# Container Contract Outputs
 
 The container can analyze the data available in the
 `*dataset_source*` path and write reports to the path in
@@ -26,7 +24,5 @@ these files is described in the following sections.
 
 ###### Topics
 
-- [Schema for Statistics
-  (statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md")
-- [Schema for Constraints
-  (constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md")
+- [Schema for Statistics (statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md")
+- [Schema for Constraints (constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md")

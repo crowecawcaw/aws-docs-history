@@ -28,8 +28,7 @@ configuration using the `CreateProcessingJob` API.
 The URI must identify a pre-built SageMaker Clarify container image.
 `ContainerEntrypoint` and `ContainerArguments`
 are not supported. For more information about SageMaker Clarify container images,
-see [Prebuilt SageMaker Clarify
-Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md"). 2. Specify both the configuration for your analysis and parameters for your
+see [Prebuilt SageMaker Clarify Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md"). 2. Specify both the configuration for your analysis and parameters for your
 input dataset inside the `ProcessingInputs` parameter.
 
     1. Specify the location of the JSON analysis configuration file,
@@ -171,8 +170,7 @@ input dataset inside the `ProcessingInputs` parameter.
          communication between different instances in the same processing
          job. Configure a rule for your security group that allows inbound
          connections between members of the same security group. For more
-         information, see [Give Amazon SageMaker Clarify Jobs Access to Resources in Your
-         Amazon VPC](clarify-vpc.md "clarify-vpc.md").
+         information, see [Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC](clarify-vpc.md "clarify-vpc.md").
 
     The following code gives an example of a network configuration.
 
@@ -203,8 +201,7 @@ input dataset inside the `ProcessingInputs` parameter.
    must have a trust relationship with Amazon SageMaker AI. It can be used to perform the
    SageMaker API operations listed in the following table. We recommend using the
    Amazon SageMaker AIFullAccess managed policy, which grants full access to SageMaker AI. For
-   more information on this policy, see [AWS managed policy:
-   AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess"). If
+   more information on this policy, see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess"). If
    you have concerns about granting full access, the minimal permissions
    required depend on whether you provide a model or an endpoint name. Using an
    endpoint name allows for granting fewer permissions to SageMaker AI.
@@ -222,8 +219,7 @@ the API operation that is required for each input.
 | [DescribeEndpoint](../APIReference/API_DescribeEndpoint.md "../APIReference/API_DescribeEndpoint.md")             | X          | X             | Describe endpoint for its status, the endpoint must be<br>InService to serve requests. |
 | [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")   | X          | X             | Invoke the endpoint for predictions.                                                   |
 
-For more information about required permissions, see [Amazon SageMaker AI API Permissions: Actions,
-Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+For more information about required permissions, see [Amazon SageMaker AI API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
 For more information about passing roles to SageMaker AI, see [Passing Roles](sagemaker-roles.md#sagemaker-roles-pass-role "sagemaker-roles.md#sagemaker-roles-pass-role").
 
@@ -294,12 +290,10 @@ S3 bucket used in the notebook must be in the same AWS Region as the notebook
 instance that accesses it.
 
 You can also configure a SageMaker Clarify processing job using the [SageMaker ClarifyProcessor](https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor "https://sagemaker.readthedocs.io/en/stable/api/training/processing.html#sagemaker.clarify.SageMakerClarifyProcessor") in the SageMaker Python SDK API. For more information, see
-[Run SageMaker Clarify Processing Jobs for Bias Analysis and
-Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
+[Run SageMaker Clarify Processing Jobs for Bias Analysis and Explainability](clarify-processing-job-run.md "clarify-processing-job-run.md").
 
 ###### Topics
 
-- [Prebuilt SageMaker Clarify
-  Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md")
+- [Prebuilt SageMaker Clarify Containers](clarify-processing-job-configure-container.md "clarify-processing-job-configure-container.md")
 - [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md")
 - [Data Format Compatibility Guide](clarify-processing-job-data-format.md "clarify-processing-job-data-format.md")

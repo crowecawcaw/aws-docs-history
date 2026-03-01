@@ -31,21 +31,16 @@ For more information, see [How the DeepAR Algorithm Works](deepar_how-it-works.m
 
 ###### Topics
 
-- [Input/Output Interface for the DeepAR
-  Algorithm](#deepar-inputoutput "#deepar-inputoutput")
-- [Best Practices for Using the DeepAR
-  Algorithm](#deepar_best_practices "#deepar_best_practices")
-- [EC2 Instance Recommendations for the DeepAR
-  Algorithm](#deepar-instances "#deepar-instances")
+- [Input/Output Interface for the DeepAR Algorithm](#deepar-inputoutput "#deepar-inputoutput")
+- [Best Practices for Using the DeepAR Algorithm](#deepar_best_practices "#deepar_best_practices")
+- [EC2 Instance Recommendations for the DeepAR Algorithm](#deepar-instances "#deepar-instances")
 - [DeepAR Sample Notebooks](#deepar-sample-notebooks "#deepar-sample-notebooks")
 - [How the DeepAR Algorithm Works](deepar_how-it-works.md "deepar_how-it-works.md")
 - [DeepAR Hyperparameters](deepar_hyperparameters.md "deepar_hyperparameters.md")
 - [Tune a DeepAR Model](deepar-tuning.md "deepar-tuning.md")
 - [DeepAR Inference Formats](deepar-in-formats.md "deepar-in-formats.md")
 
-## Input/Output Interface for the DeepAR
-
-Algorithm
+## Input/Output Interface for the DeepAR Algorithm
 
 DeepAR supports two data channels. The required `train` channel describes
 the training dataset. The optional `test` channel describes a dataset that
@@ -219,9 +214,7 @@ For inference, DeepAR accepts JSON format and the following fields:
 
 For more information, see [DeepAR Inference Formats](deepar-in-formats.md "deepar-in-formats.md").
 
-## Best Practices for Using the DeepAR
-
-Algorithm
+## Best Practices for Using the DeepAR Algorithm
 
 When preparing your time series data, follow these best practices to achieve the best
 results:
@@ -264,9 +257,7 @@ results:
   requires that the total number of observations available across all training
   time series is at least 300.
 
-## EC2 Instance Recommendations for the DeepAR
-
-Algorithm
+## EC2 Instance Recommendations for the DeepAR Algorithm
 
 You can train DeepAR on both GPU and CPU instances and in both single and
 multi-machine settings. We recommend starting with a single CPU instance (for example,

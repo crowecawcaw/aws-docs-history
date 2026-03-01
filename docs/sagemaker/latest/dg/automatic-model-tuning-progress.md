@@ -1,6 +1,4 @@
-# Track and set completion criteria for your
-
-tuning job
+# Track and set completion criteria for your tuning job
 
 You can use completion criteria to instruct Automatic model tuning (AMT) to stop your
 tuning job if certain conditions are met. With these conditions, you can set a minimum model
@@ -9,9 +7,7 @@ objective metric. You can also track the progress of your tuning job and decide 
 continue or to stop it manually. This guide shows you how to set completion criteria, check
 the progress of and stop your tuning job manually.
 
-## Set completion criteria for
-
-your tuning job
+## Set completion criteria for your tuning job
 
 During hyperparameter optimization, a tuning job will launch several training jobs
 inside a loop. The tuning job will do the following.
@@ -23,8 +19,7 @@ AMT will continuously check the training jobs that were launched from your tunin
 update statistics. These statistics include tuning job runtime and best training job. Then,
 AMT determines whether it should stop the job according to your completion criteria. You can
 also check these statistics and stop your job manually. For more information about stopping
-a job manually, see the [Stopping your tuning job
-manually](#automatic-model-tuning-progress-stop "#automatic-model-tuning-progress-stop") section.
+a job manually, see the [Stopping your tuning job manually](#automatic-model-tuning-progress-stop "#automatic-model-tuning-progress-stop") section.
 
 As an example, if your tuning job meets your objective, you can stop tuning early to
 conserve resources or ensure model quality. AMT checks your job performance against your
@@ -50,9 +45,7 @@ You can specify the following kinds of completion criteria:
   algorithm determines that the tuning job is unlikely to improve more than 1% over the
   objective metric from the best training job.
 
-### Selecting completion
-
-criteria
+### Selecting completion criteria
 
 You can choose one or multiple completion criteria to stop your hyperparameter tuning
 job after a condition has been meet. The following instructions show you how to select
@@ -105,9 +98,7 @@ specified in this field.
   less). Improvement is measured against the objective metric returned by the highest
   performing job, so far.
 
-### Combining different
-
-completion criteria
+### Combining different completion criteria
 
 You can also combine any of the different completion criteria in the same tuning job.
 AMT will stop the tuning job when any one of the completion criteria is met. For example,
@@ -152,9 +143,7 @@ obtain statistics about your tuning job.
   improve your model performance. Model performance is evaluated against the best
   objective metric if it ran to completion.
 
-## Stopping your tuning job
-
-manually
+## Stopping your tuning job manually
 
 You can determine if you should let the tuning job run until it completes or if you
 should stop the tuning job manually. To determine this, use the information returned by the

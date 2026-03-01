@@ -3,8 +3,7 @@
 Ground Truth supports the following functionalities in Amazon VPC.
 
 - You can use Amazon S3 bucket policies to control access to buckets from specific Amazon VPC endpoints, or specific VPCs. If you launch a labeling job and your input data is located in an Amazon S3 bucket that is restricted to users in your VPC, you can add a bucket policy to also grant a Ground Truth endpoint permission to access the bucket. To learn more, see [Allow Ground Truth to Access VPC Restricted Amazon S3 Buckets](#sms-vpc-permissions-s3 "#sms-vpc-permissions-s3").
-- You can launch an [automated data labeling job](sms-automated-labeling.md "sms-automated-labeling.md") in your VPC. You use a VPC configuration to specify VPC subnets and security groups. SageMaker AI uses this configuration to launch the training and inference jobs used for automated data labeling in your VPC. To learn more, see [Create an Automated Data
-  Labeling Job in a VPC](#sms-vpc-permissions-automated-labeling "#sms-vpc-permissions-automated-labeling").
+- You can launch an [automated data labeling job](sms-automated-labeling.md "sms-automated-labeling.md") in your VPC. You use a VPC configuration to specify VPC subnets and security groups. SageMaker AI uses this configuration to launch the training and inference jobs used for automated data labeling in your VPC. To learn more, see [Create an Automated Data Labeling Job in a VPC](#sms-vpc-permissions-automated-labeling "#sms-vpc-permissions-automated-labeling").
   You may want to use these options in any of the following ways.
 
 - You can use both of these methods to launch a labeling job using a VPC-protected
@@ -252,9 +251,7 @@ After you have granted Ground Truth permission to access your Amazon S3 buckets,
 the topics in [Create a Labeling Job](sms-create-labeling-job.md "sms-create-labeling-job.md") to launch a labeling job. Specify the VPC-restricted
 Amazon S3 buckets for your input and output data buckets.
 
-## Create an Automated Data
-
-Labeling Job in a VPC
+## Create an Automated Data Labeling Job in a VPC
 
 To create an automated data labeling job using an Amazon VPC, you provide a VPC
 configuration using the Ground Truth console or `CreateLabelingJob` API operation.

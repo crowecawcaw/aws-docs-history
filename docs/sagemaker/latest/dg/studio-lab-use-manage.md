@@ -26,18 +26,15 @@ Jupyter notebook.
 The following sections give information about your `default` conda environment,
 how to customize it, and how to add and remove conda environments. For a list of sample
 environments that you can install into Studio Lab, see [Creating Custom
-conda Environments](https://github.com/aws/studio-lab-examples/tree/main/custom-environments "https://github.com/aws/studio-lab-examples/tree/main/custom-environments"). To use these sample environment YAML files with Studio Lab, see [Step 4: Install your Studio Lab conda environments
-in Studio Classic](studio-lab-use-migrate.md#studio-lab-use-migrate-step4 "studio-lab-use-migrate.md#studio-lab-use-migrate-step4").
+conda Environments](https://github.com/aws/studio-lab-examples/tree/main/custom-environments "https://github.com/aws/studio-lab-examples/tree/main/custom-environments"). To use these sample environment YAML files with Studio Lab, see [Step 4: Install your Studio Lab conda environments in Studio Classic](studio-lab-use-migrate.md#studio-lab-use-migrate-step4 "studio-lab-use-migrate.md#studio-lab-use-migrate-step4").
 
 ###### Topics
 
 - [Your default environment](#studio-lab-use-manage-conda-default "#studio-lab-use-manage-conda-default")
 - [View environments](#studio-lab-use-view-conda-envs "#studio-lab-use-view-conda-envs")
-- [Create, activate, and use new conda
-  environments](#studio-lab-use-manage-conda-new-conda "#studio-lab-use-manage-conda-new-conda")
+- [Create, activate, and use new conda environments](#studio-lab-use-manage-conda-new-conda "#studio-lab-use-manage-conda-new-conda")
 - [Using sample Studio Lab environments](#studio-lab-use-manage-conda-sample "#studio-lab-use-manage-conda-sample")
-- [Customize your
-  environment](#studio-lab-use-manage-conda-default-customize "#studio-lab-use-manage-conda-default-customize")
+- [Customize your environment](#studio-lab-use-manage-conda-default-customize "#studio-lab-use-manage-conda-default-customize")
 - [Refresh Studio Lab](#studio-lab-use-manage-conda-reset "#studio-lab-use-manage-conda-reset")
 
 ## Your default environment
@@ -81,9 +78,7 @@ sagemaker-distribution     /opt/conda/envs/sagemaker-distribution
 
 The `*` marks the activated environment.
 
-## Create, activate, and use new conda
-
-environments
+## Create, activate, and use new conda environments
 
 If you would like to maintain multiple environments for different use cases, you can
 create new conda environments in your project. The following sections show how to create and
@@ -115,8 +110,7 @@ conda activate `<ENVIRONMENT_NAME>`
 ```
 
 When you run this command, any packages installed using conda or pip are installed in the
-environment. For more information on installing packages, see [Customize your
-environment](#studio-lab-use-manage-conda-default-customize "#studio-lab-use-manage-conda-default-customize").
+environment. For more information on installing packages, see [Customize your environment](#studio-lab-use-manage-conda-default-customize "#studio-lab-use-manage-conda-default-customize").
 
 **Use a conda environment**
 
@@ -162,12 +156,9 @@ The following shows how to clone and build these environments.
 5. Right click the `.yml` file in the folder, then select **Build
    conda Environment**.
 6. You can now use the environment as a kernel after your conda environment has finished
-   building. For instructions on how to use an existing environment as a kernel, see [Create, activate, and use new conda
-   environments](#studio-lab-use-manage-conda-new-conda "#studio-lab-use-manage-conda-new-conda")
+   building. For instructions on how to use an existing environment as a kernel, see [Create, activate, and use new conda environments](#studio-lab-use-manage-conda-new-conda "#studio-lab-use-manage-conda-new-conda")
 
-## Customize your
-
-environment
+## Customize your environment
 
 You can customize your environment by installing and removing extensions and packages as
 needed. Studio Lab comes with environments with packages pre-installed and using an existing

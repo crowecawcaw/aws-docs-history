@@ -67,9 +67,7 @@ To set up a model training step, do the following:
    added in the previous section to the **Train model** step to create
    an edge connecting the two steps.
 
-### Create a model package with a Register model
-
-step
+### Create a model package with a Register model step
 
 To create a model package with a model registration step, do the following:
 
@@ -87,9 +85,7 @@ To create a model package with a model registration step, do the following:
    in the previous section to the **Register model** step to create an
    edge connecting the two steps.
 
-### Deploy the model to an endpoint with a Deploy
-
-model (endpoint) step
+### Deploy the model to an endpoint with a Deploy model (endpoint) step
 
 To deploy your model using a model deployment step, do the following:
 
@@ -200,8 +196,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -331,9 +326,7 @@ batch_data = ParameterString(
 )
 ```
 
-#### Step 3: Define a processing step
-
-for feature engineering
+#### Step 3: Define a processing step for feature engineering
 
 This section shows how to create a processing step to prepare the data from the
 dataset for training.
@@ -600,9 +593,7 @@ step_train = TrainingStep(
 )
 ```
 
-#### Step 5: Define a processing step for
-
-model evaluation
+#### Step 5: Define a processing step for model evaluation
 
 This section shows how to create a processing step to evaluate the accuracy of the
 model. The result of this model evaluation is used in the condition step to determine
@@ -731,9 +722,7 @@ step_eval = ProcessingStep(
 )
 ```
 
-#### Step 6: Define a CreateModelStep for
-
-batch transformation
+#### Step 6: Define a CreateModelStep for batch transformation
 
 ###### Important
 
@@ -789,9 +778,7 @@ step_create_model = CreateModelStep(
 )
 ```
 
-#### Step 7: Define a TransformStep to perform
-
-batch transformation
+#### Step 7: Define a TransformStep to perform batch transformation
 
 This section shows how to create a `TransformStep` to perform batch
 transformation on a dataset after the model is trained. This step is passed into the
@@ -832,9 +819,7 @@ step_transform = TransformStep(
 )
 ```
 
-#### Step 8: Define a RegisterModel step to create
-
-a model package
+#### Step 8: Define a RegisterModel step to create a model package
 
 ###### Important
 
@@ -889,9 +874,7 @@ step_register = RegisterModel(
 )
 ```
 
-#### Step 9: Define a condition step to verify
-
-model accuracy
+#### Step 9: Define a condition step to verify model accuracy
 
 A `ConditionStep` allows Pipelines to support conditional running in your
 pipeline DAG based on the condition of step properties. In this case, you only want to

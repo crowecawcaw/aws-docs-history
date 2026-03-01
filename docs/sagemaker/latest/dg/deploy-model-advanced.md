@@ -1,6 +1,4 @@
-# Advanced endpoint options for inference with
-
-Amazon SageMaker AI
+# Advanced endpoint options for inference with Amazon SageMaker AI
 
 With real-time inference, you can further optimize for performance and cost with the
 following advanced inference options:

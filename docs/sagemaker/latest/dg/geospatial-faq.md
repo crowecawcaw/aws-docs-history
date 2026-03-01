@@ -19,10 +19,7 @@ it?**
 
 Yes. To use SageMaker geospatial you must specify an additional service principal in your IAM
 trust policy: `sagemaker-geospatial.amazonaws.com`. To learn about
-specifying a service principal in a trust relationship, see [Adding
-
-the SageMaker geospatial service principal to an existing SageMaker AI execution
-role](sagemaker-geospatial-roles-pass-role.md "sagemaker-geospatial-roles-pass-role.md") in the
+specifying a service principal in a trust relationship, see [Adding the SageMaker geospatial service principal to an existing SageMaker AI execution role](sagemaker-geospatial-roles-pass-role.md "sagemaker-geospatial-roles-pass-role.md") in the
 _Amazon SageMaker AI Developer Guide_. 4. **Can I use SageMaker geospatial capabilities through my VPC
 environment?**
 
@@ -34,8 +31,7 @@ that you are not using a shared space. 6. **Why can't I see the SageMaker geospa
 to create a notebook instance in Studio Classic?**
 
 Verify that you are launching Amazon SageMaker Studio Classic in the US West (Oregon) Region and
-that you are not using a shared space. To learn more, see [Create an Amazon SageMaker Studio Classic notebook using the
-geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md"). 7. **What bands supported for various raster data
+that you are not using a shared space. To learn more, see [Create an Amazon SageMaker Studio Classic notebook using the geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md"). 7. **What bands supported for various raster data
 collections?**
 
 Use the `GetRasterDataCollection` API response and refer to the

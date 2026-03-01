@@ -69,9 +69,7 @@ client application.
 
 ![Amazon A2I custom workflow](images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
 
-## Human Review Workflow (Flow
-
-Definition)
+## Human Review Workflow (Flow Definition)
 
 You use a human review workflow to specify your human _work
 team_, to set up your worker UI using a _worker

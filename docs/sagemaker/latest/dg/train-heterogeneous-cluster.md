@@ -1,6 +1,4 @@
-# Running training jobs on a heterogeneous
-
-cluster
+# Running training jobs on a heterogeneous cluster
 
 Using the heterogeneous cluster feature of SageMaker Training, you can run a training job with
 multiple types of ML instances for a better resource scaling and utilization for different
@@ -23,9 +21,6 @@ See also the blog [Improve price performance of your model training using Amazon
 
 ###### Topics
 
-- [Configure a training job with a
-  heterogeneous cluster in Amazon SageMaker AI](train-heterogeneous-cluster-configure.md "train-heterogeneous-cluster-configure.md")
-- [Run distributed
-  training on a heterogeneous cluster in Amazon SageMaker AI](train-heterogeneous-cluster-configure-distributed.md "train-heterogeneous-cluster-configure-distributed.md")
-- [Modify your
-  training script to assign instance groups](train-heterogeneous-cluster-modify-training-script.md "train-heterogeneous-cluster-modify-training-script.md")
+- [Configure a training job with a heterogeneous cluster in Amazon SageMaker AI](train-heterogeneous-cluster-configure.md "train-heterogeneous-cluster-configure.md")
+- [Run distributed training on a heterogeneous cluster in Amazon SageMaker AI](train-heterogeneous-cluster-configure-distributed.md "train-heterogeneous-cluster-configure-distributed.md")
+- [Modify your training script to assign instance groups](train-heterogeneous-cluster-modify-training-script.md "train-heterogeneous-cluster-modify-training-script.md")

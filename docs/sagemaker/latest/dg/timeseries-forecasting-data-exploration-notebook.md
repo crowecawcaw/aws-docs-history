@@ -1,6 +1,4 @@
-# Amazon SageMaker Autopilot data exploration
-
-notebook
+# Amazon SageMaker Autopilot data exploration notebook
 
 Amazon SageMaker Autopilot cleans and pre-processes your dataset automatically. To help users understand their
 data, uncover patterns, relationships, and anomalies about the time-series, Amazon SageMaker Autopilot generates a

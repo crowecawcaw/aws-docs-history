@@ -4,8 +4,7 @@
 
 For administrators:
 
-- Chat for data prep requires the `AmazonSageMakerCanvasAIServicesAccess` policy. For more information, see [AWS
-  managed policy: AmazonSageMakerCanvasAIServicesAccess](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess")
+- Chat for data prep requires the `AmazonSageMakerCanvasAIServicesAccess` policy. For more information, see [AWS managed policy: AmazonSageMakerCanvasAIServicesAccess](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess")
 - Chat for data prep requires access to Amazon Bedrock and the **Anthropic Claude** model within it. For more information, see [Add model access](../../../bedrock/latest/userguide/model-access.md#add-model-access "../../../bedrock/latest/userguide/model-access.md#add-model-access").
 - You must run SageMaker Canvas data prep in the same AWS Region as the Region where you're running your model. Chat for data prep is available in the US East (N. Virginia), US West (Oregon), and Europe (Frankfurt) AWS Regions.
   In addition to using the built-in transforms and analyses, you can use natural language to explore, visualize, and transform your data in a conversational interface. Within the conversational interface, you can use natural language queries to understand and prepare your data to build ML models.

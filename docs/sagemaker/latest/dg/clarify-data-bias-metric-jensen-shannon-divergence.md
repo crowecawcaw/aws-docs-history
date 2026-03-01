@@ -1,6 +1,4 @@
-# Jensen-Shannon
-
-Divergence (JS)
+# Jensen-Shannon Divergence (JS)
 
 The Jensen-Shannon divergence (JS) measures how much the label distributions of
 different facets diverge from each other entropically. It is based on the

@@ -1,6 +1,4 @@
-# Cross account feature group discoverability and
-
-access
+# Cross account feature group discoverability and access
 
 Data scientists and data engineers can benefit from exploring and accessing features that
 span multiple accounts, in order to promote data consistency, streamline collaboration, and reduce
@@ -48,6 +46,5 @@ feature group data, with access determined by the relevant access permission.
 
 ###### Topics
 
-- [Enabling cross account
-  discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md")
+- [Enabling cross account discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md")
 - [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md")

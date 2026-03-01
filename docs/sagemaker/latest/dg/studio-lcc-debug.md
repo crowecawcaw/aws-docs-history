@@ -15,15 +15,12 @@ configurations.
 
 ###### Topics
 
-- [Verify lifecycle configuration process from
-  CloudWatch Logs](#studio-lcc-debug-logs "#studio-lcc-debug-logs")
+- [Verify lifecycle configuration process from CloudWatch Logs](#studio-lcc-debug-logs "#studio-lcc-debug-logs")
 - [JupyterServer app failure](#studio-lcc-debug-jupyterserver "#studio-lcc-debug-jupyterserver")
 - [KernelGateway app failure](#studio-lcc-debug-kernel "#studio-lcc-debug-kernel")
 - [Lifecycle configuration timeout](#studio-lcc-debug-timeout "#studio-lcc-debug-timeout")
 
-## Verify lifecycle configuration process from
-
-CloudWatch Logs
+## Verify lifecycle configuration process from CloudWatch Logs
 
 Lifecycle configurations only log `STDOUT` and `STDERR`.
 
@@ -99,8 +96,7 @@ A default KernelGateway lifecycle configuration specified in `DefaultResourceSpe
 applies to all KernelGateway images in the domain, user profile, or shared space
 unless the user selects a different script from the list presented in the Studio Classic
 launcher. The default script also runs if `No Script` is selected by the
-user. For more information on selecting a script, see [Step 3: Launch an application with the
-lifecycle configuration](studio-lcc-create-console.md#studio-lcc-create-console-step3 "studio-lcc-create-console.md#studio-lcc-create-console-step3").
+user. For more information on selecting a script, see [Step 3: Launch an application with the lifecycle configuration](studio-lcc-create-console.md#studio-lcc-create-console-step3 "studio-lcc-create-console.md#studio-lcc-create-console-step3").
 
 ## Lifecycle configuration timeout
 

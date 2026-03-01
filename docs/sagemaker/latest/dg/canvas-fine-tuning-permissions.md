@@ -1,6 +1,4 @@
-# Grant Users Permissions to Use Amazon Bedrock
-
-and Generative AI Features in Canvas
+# Grant Users Permissions to Use Amazon Bedrock and Generative AI Features in Canvas
 
 Generative AI features in Amazon SageMaker Canvas are powered by Amazon Bedrock foundation models, which are large
 language models (LLMs) that have the capability to understand and generate human-like text.

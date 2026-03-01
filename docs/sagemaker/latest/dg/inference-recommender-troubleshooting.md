@@ -1,14 +1,10 @@
-# Troubleshoot Inference Recommender
-
-errors
+# Troubleshoot Inference Recommender errors
 
 This section contains information about how to understand and prevent common
 errors, the error messages they generate, and guidance on how to resolve these
 errors.
 
-## How to
-
-troubleshoot
+## How to troubleshoot
 
 You can attempt to resolve your error by going through the following
 steps:
@@ -22,9 +18,7 @@ steps:
 - When you kick off an Inference Recommender job, you should see endpoints being
   created in the console and you can review the CloudWatch logs.
 
-## Common
-
-errors
+## Common errors
 
 Review the following table for common Inference Recommender errors and their
 solutions.
@@ -41,9 +35,7 @@ solutions.
 | ModelError when calling InvokeEndpoint operation                                                           | A model error can happen for the following reasons:<br>• The invocation timed out while waiting for a<br>response from the model container.<br>• The model couldn't process the input<br>payload.                                                                                                                                                                                                       |
 | PayloadError when calling InvokeEndpoint operation                                                         | A payload error can happen for following reasons:<br>• The payload source isn't in the Amazon S3<br>bucket.<br>• The payload is in a non-file object format.<br>• The payload is in an invalid file type. For<br>example, a model expects an image type payload but<br>is passed a text file.<br>• The payload is empty.                                                                                |
 
-## Check
-
-CloudWatch
+## Check CloudWatch
 
 When you kick off an Inference Recommender job, you should see endpoints being created in the
 console. Select one of the endpoints and view the CloudWatch logs to monitor for any
@@ -94,9 +86,7 @@ terms and patterns in this log data as the data is sent to CloudWatch. Then, you
 create a CloudWatch alarm based on the log group-metric filter. For more information,
 see [Create a CloudWatch alarm based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Create_alarm_log_group_metric_filter.md "../../../AmazonCloudWatch/latest/monitoring/Create_alarm_log_group_metric_filter.md").
 
-## Check
-
-benchmarks
+## Check benchmarks
 
 When you kick off an Inference Recommender job, Inference Recommender creates several benchmarks to evaluate
 the performance of your model on different instance types. You can use the

@@ -1,24 +1,18 @@
-# Filter your Studio
-
-spaces
+# Filter your Studio spaces
 
 You can use filtering to display only the relevant Amazon SageMaker AI spaces in the
 AWS Toolkit for Visual Studio Code explorer. The following provides information on manual filtering and
 automated filtering. For more information on the definitions of manual and automatic
-filtering, see [Filtering
-overview](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview").
+filtering, see [Filtering overview](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-overview").
 
 This setup only applies when using the [Method 2: AWS Toolkit for Visual Studio Code](remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code "remote-access-local-ide-setup.md#remote-access-local-ide-setup-local-vs-code-method-2-aws-toolkit-in-vs-code") method to connect from local Visual Studio Code to Amazon SageMaker Studio spaces. See [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md") for more information.
 
 ###### Topics
 
-- [Manual
-  filtering](#remote-access-local-ide-setup-filter-manual "#remote-access-local-ide-setup-filter-manual")
+- [Manual filtering](#remote-access-local-ide-setup-filter-manual "#remote-access-local-ide-setup-filter-manual")
 - [Automatic filtering setup when using IAM credentials to sign-in](#remote-access-local-ide-setup-filter-automatic-IAM-credentials "#remote-access-local-ide-setup-filter-automatic-IAM-credentials")
 
-## Manual
-
-filtering
+## Manual filtering
 
 To manually filter displayed spaces:
 
@@ -37,8 +31,7 @@ Automated filtering depends on the authentication method during sign-in. See
 User Guide for more information.
 
 When you authenticate and connect with **IAM Credentials**,
-automated filtering requires [Set
-up when connecting with IAM credentials](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-set-up-iam-credentials "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-set-up-iam-credentials").
+automated filtering requires [Set up when connecting with IAM credentials](remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-set-up-iam-credentials "remote-access-remote-setup-filter.md#remote-access-remote-setup-filter-set-up-iam-credentials").
 Without this setup, if users opt-in for identity filtering, no spaces will be
 shown.
 

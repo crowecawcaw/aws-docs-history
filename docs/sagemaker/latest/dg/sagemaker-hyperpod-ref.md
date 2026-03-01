@@ -9,11 +9,9 @@ topics.
 - [SageMaker HyperPod APIs](#sagemaker-hyperpod-ref-api "#sagemaker-hyperpod-ref-api")
 - [SageMaker HyperPod Slurm configuration](#sagemaker-hyperpod-ref-slurm-configuration "#sagemaker-hyperpod-ref-slurm-configuration")
 - [SageMaker HyperPod DLAMI](#sagemaker-hyperpod-ref-hyperpod-ami "#sagemaker-hyperpod-ref-hyperpod-ami")
-- [SageMaker HyperPod API permissions
-  reference](#sagemaker-hyperpod-ref-api-permissions "#sagemaker-hyperpod-ref-api-permissions")
+- [SageMaker HyperPod API permissions reference](#sagemaker-hyperpod-ref-api-permissions "#sagemaker-hyperpod-ref-api-permissions")
 - [SageMaker HyperPod commands in AWS CLI](#sagemaker-hyperpod-ref-cli "#sagemaker-hyperpod-ref-cli")
-- [SageMaker HyperPod Python modules in
-  AWS SDK for Python (Boto3)](#sagemaker-hyperpod-ref-boto3 "#sagemaker-hyperpod-ref-boto3")
+- [SageMaker HyperPod Python modules in AWS SDK for Python (Boto3)](#sagemaker-hyperpod-ref-boto3 "#sagemaker-hyperpod-ref-boto3")
 
 ## SageMaker HyperPod pricing
 
@@ -374,8 +372,7 @@ The following example shows a complete CreateCluster request using API-driven Sl
 }
 ```
 
-To learn more about using API-driven configuration, see [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+To learn more about using API-driven configuration, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 ### Legacy configuration: provisioning_parameters.json
 
@@ -391,8 +388,7 @@ The following code is the Slurm configuration form you should prepare to properl
 set up Slurm nodes on your HyperPod cluster. You should complete this form
 and upload it as part of a set of lifecycle scripts during cluster creation. To
 learn how this form should be prepared throughout HyperPod cluster creation
-processes, see [Customizing SageMaker HyperPod
-clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
+processes, see [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md "sagemaker-hyperpod-lifecycle-best-practices-slurm.md").
 
 ```
 // Save as provisioning_parameters.json.
@@ -468,9 +464,7 @@ packages to support resiliency features such as cluster health check and auto-re
 follow up with HyperPod software updates that the HyperPod service
 team distributes through DLAMIs, see [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md "sagemaker-hyperpod-release-notes.md").
 
-## SageMaker HyperPod API permissions
-
-reference
+## SageMaker HyperPod API permissions reference
 
 ###### Important
 
@@ -479,8 +473,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -520,9 +513,7 @@ The following are the AWS CLI commands for SageMaker HyperPod to run the core [H
 - [update-cluster](../../../cli/latest/reference/sagemaker/update-cluster.md "../../../cli/latest/reference/sagemaker/update-cluster.md")
 - [update-cluster-software](../../../cli/latest/reference/sagemaker/update-cluster-software.md "../../../cli/latest/reference/sagemaker/update-cluster-software.md")
 
-## SageMaker HyperPod Python modules in
-
-AWS SDK for Python (Boto3)
+## SageMaker HyperPod Python modules in AWS SDK for Python (Boto3)
 
 The following are the methods of the AWS SDK for Python (Boto3) client for SageMaker AI to run the core
 [HyperPod API

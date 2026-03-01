@@ -46,9 +46,7 @@ them, `.` means any character, `*` means zero or more, and
 `?` means capture only until the first instance of the `;`
 character.
 
-## Define Metrics Using the SageMaker AI Python
-
-SDK
+## Define Metrics Using the SageMaker AI Python SDK
 
 Define the metrics that you want to send to CloudWatch by specifying a list of metric
 names and regular expressions as the `metric_definitions` argument when
@@ -77,9 +75,7 @@ estimator = Estimator(
 For more information about training by using [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") estimators,
 see[Sagemaker Python SDK](https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview "https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview") on GitHub.
 
-## Define Metrics Using the SageMaker AI
-
-Console
+## Define Metrics Using the SageMaker AI Console
 
 If you choose the **Your own algorithm container in
 ECR** option as your algorithm source in the SageMaker AI console when you
@@ -89,9 +85,7 @@ expressions.
 
 ![Example Algorithm options form in the console.](images/training-metrics-using-smconsole.png)
 
-## Define Metrics Using the Low-level SageMaker AI
-
-API
+## Define Metrics Using the Low-level SageMaker AI API
 
 Define the metrics that you want to send to CloudWatch by specifying a list of metric
 names and regular expressions in the `MetricDefinitions` field of the

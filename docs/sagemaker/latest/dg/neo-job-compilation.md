@@ -9,5 +9,4 @@ models: the AWS Command Line Interface, the Amazon SageMaker AI console, or the 
 - [Prepare Model for Compilation](neo-compilation-preparing-model.md "neo-compilation-preparing-model.md")
 - [Compile a Model (AWS Command Line Interface)](neo-job-compilation-cli.md "neo-job-compilation-cli.md")
 - [Compile a Model (Amazon SageMaker AI Console)](neo-job-compilation-console.md "neo-job-compilation-console.md")
-- [Compile a Model (Amazon SageMaker AI
-  SDK)](neo-job-compilation-sagemaker-sdk.md "neo-job-compilation-sagemaker-sdk.md")
+- [Compile a Model (Amazon SageMaker AI SDK)](neo-job-compilation-sagemaker-sdk.md "neo-job-compilation-sagemaker-sdk.md")

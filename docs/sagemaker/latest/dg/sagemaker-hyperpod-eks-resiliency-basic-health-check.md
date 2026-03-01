@@ -1,6 +1,4 @@
-# Basic health
-
-checks
+# Basic health checks
 
 SageMaker HyperPod performs a set of _basic health checks_ on cluster
 instances during the creation and update of HyperPod clusters. These basic

@@ -9,8 +9,7 @@ To use idle shutdown with your application, you must complete the following prer
 
 - Ensure that your application is using the SageMaker Distribution (SMD) version
   2.0. You can select this version during application creation or update the image version
-  of the application after creation. For more information, see [Update the SageMaker
-  Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md") .
+  of the application after creation. For more information, see [Update the SageMaker Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md") .
 - For applications built with custom images, idle shutdown is supported if your custom image
   is created with SageMaker Distribution (SMD) version 2.0 or later as the base image. If the
   custom image is created with a different base image, then you must install the [jupyter-activity-monitor-extension >= 0.3.1](https://anaconda.org/conda-forge/jupyter-activity-monitor-extension "https://anaconda.org/conda-forge/jupyter-activity-monitor-extension") extension on the image and attach

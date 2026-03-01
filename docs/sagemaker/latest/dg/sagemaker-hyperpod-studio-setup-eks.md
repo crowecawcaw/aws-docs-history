@@ -1,6 +1,4 @@
-# Setting up an Amazon EKS cluster in
-
-Studio
+# Setting up an Amazon EKS cluster in Studio
 
 The following instructions describe how to set up an Amazon EKS cluster in Studio.
 
@@ -8,8 +6,7 @@ The following instructions describe how to set up an Amazon EKS cluster in Studi
    [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
 2. Add the following permission to your execution role.
 
-For information on SageMaker AI execution roles and how to edit them, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on SageMaker AI execution roles and how to edit them, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 To learn how to attach policies to an IAM user or group, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
 
@@ -94,8 +91,7 @@ JSON
          have access to.
 
 4. (Optional) To ensure a more smooth experience, we recommend that you add tags to your
-   clusters. For information on how to add tags, see [Edit a
-   SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
+   clusters. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
    using the SageMaker AI console.
    1. Tag your [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")
       workspace to your Studio domain. This will be used to quickly link to your Grafana
@@ -104,13 +100,10 @@ JSON
 
    Tag Key = “`grafana-workspace`”, Tag Value = “`ws-id`”.
 
-5. (Optional) [Restrict task view in
-   Studio for EKS clusters](#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view"). For information on
+5. (Optional) [Restrict task view in Studio for EKS clusters](#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view"). For information on
    viewable tasks in Studio, see [Tasks](sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks "sagemaker-hyperpod-studio-tabs.md#sagemaker-hyperpod-studio-tabs-tasks").
 
-## Restrict task view in
-
-Studio for EKS clusters
+## Restrict task view in Studio for EKS clusters
 
 You can restrict Kubernetes namespace permissions for users, so that they will only have
 access to view tasks belonging to a specified namespace. The following provides information on

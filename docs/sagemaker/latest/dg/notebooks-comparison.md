@@ -1,6 +1,4 @@
-# How Are Amazon SageMaker Studio Classic Notebooks Different from
-
-Notebook Instances?
+# How Are Amazon SageMaker Studio Classic Notebooks Different from Notebook Instances?
 
 ###### Important
 

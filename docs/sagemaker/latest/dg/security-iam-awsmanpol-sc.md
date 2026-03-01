@@ -20,36 +20,21 @@ product resources.
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy")
-- [Amazon SageMaker AI updates to AWS Service Catalog AWS managed
-  policies](#security-iam-awsmanpol-sc-updates "#security-iam-awsmanpol-sc-updates")
+- [AWS managed policy: AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy")
+- [AWS managed policy: AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy](#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy "#security-iam-awsmanpol-AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy")
+- [Amazon SageMaker AI updates to AWS Service Catalog AWS managed policies](#security-iam-awsmanpol-sc-updates "#security-iam-awsmanpol-sc-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy
+## AWS managed policy: AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy
 
 This service role policy is used by the AWS Service Catalog service to provision products from the
 Amazon SageMaker AI portfolio. The policy grants permissions to a set of related AWS
@@ -106,9 +91,7 @@ To view the permissions for this policy, see
 [AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy.md")
 in the AWS Managed Policy Reference.
 
-## AWS
-
-managed policy: AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy
+## AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy
 
 This policy is used by Amazon API Gateway within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -162,9 +145,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy
+## AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy
 
 This policy is used by AWS CloudFormation within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -335,9 +316,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## AWS
-
-managed policy: AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy
+## AWS managed policy: AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy
 
 This policy is used by AWS Lambda within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -376,9 +355,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy
 
 This policy is used by Amazon API Gateway within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -430,9 +407,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy
 
 This policy is used by AWS CloudFormation within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -747,9 +722,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy
 
 This policy is used by AWS CodeBuild within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -791,9 +764,7 @@ To view the permissions for this policy, see
 [AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy.md")
 in the AWS Managed Policy Reference.
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy
 
 This policy is used by AWS CodePipeline within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -828,9 +799,7 @@ To view the permissions for this policy, see
 [AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy.md")
 in the AWS Managed Policy Reference.
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy
 
 This policy is used by Amazon EventBridge within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -860,9 +829,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy
 
 This policy is used by Amazon Data Firehose within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -896,9 +863,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy
 
 This policy is used by AWS Glue within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -1023,9 +988,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy
+## AWS managed policy: AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy
 
 This policy is used by AWS Lambda within the AWS Service Catalog provisioned products from the
 Amazon SageMaker AI portfolio. The policy is intended to be attached to an IAM role that the
@@ -1503,9 +1466,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## Amazon SageMaker AI updates to AWS Service Catalog AWS managed
-
-policies
+## Amazon SageMaker AI updates to AWS Service Catalog AWS managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.

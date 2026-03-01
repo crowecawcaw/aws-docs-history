@@ -60,9 +60,7 @@ pre-training. While CPT data is often described as "unlabeled," the reality is f
 nuanced. How data is structured, formatted, and presented determines whether the model
 will acquire the knowledge and skills required for the business use case.
 
-### Preparing structured business datasets
-
-for CPT
+### Preparing structured business datasets for CPT
 
 This is a common challenge for companies and organizations building foundation
 models specialized in their domain. Most businesses possess rich repositories of
@@ -147,9 +145,7 @@ such as predicting platform from {title, price} and predicting a price bucket fr
 strategy is to learn the true relationships between attributes rather than memorize a
 template.
 
-### The way data is presented
-
-matters
+### The way data is presented matters
 
 LLMs learn by predicting the next token from what they have already seen. So the
 order of fields and events shown during training decides what the model can learn. If

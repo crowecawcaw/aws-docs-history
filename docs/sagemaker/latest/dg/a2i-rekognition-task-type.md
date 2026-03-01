@@ -29,40 +29,32 @@ You can set the following activation conditions when using the Amazon Rekognitio
   review workflow, or by creating a JSON for human loop activation conditions and specifying
   this as input in the `HumanLoopActivationConditions` parameter of the
   `CreateFlowDefinition` API operation. To learn how specify activation
-  conditions in JSON format, see [JSON Schema for Human Loop
-  Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md") and [Use Human Loop
-  Activation Conditions JSON Schema with Amazon Rekognition](a2i-json-humantaskactivationconditions-rekognition-example.md "a2i-json-humantaskactivationconditions-rekognition-example.md").
+  conditions in JSON format, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md") and [Use Human Loop Activation Conditions JSON Schema with Amazon Rekognition](a2i-json-humantaskactivationconditions-rekognition-example.md "a2i-json-humantaskactivationconditions-rekognition-example.md").
 
 ###### Note
 
 When using Augmented AI with Amazon Rekognition, create Augmented AI resources in the same AWS Region you use to
 call `DetectModerationLabels`.
 
-## Get Started: Integrate a Human
-
-Review into an Amazon Rekognition Image Moderation Job
+## Get Started: Integrate a Human Review into an Amazon Rekognition Image Moderation Job
 
 To integrate a human review into an Amazon Rekognition, see the following topics:
 
-- [Create a Human Review Workflow
-  (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console")
+- [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console")
 - [Create a Human Review Workflow (API)](a2i-create-flow-definition.md#a2i-create-human-review-api "a2i-create-flow-definition.md#a2i-create-human-review-api")
 
 After you've created your flow definition, see [Using Augmented AI with Amazon
 Rekognition](../../../rekognition/latest/dg/a2i-rekognition.md "../../../rekognition/latest/dg/a2i-rekognition.md") to learn how to integrate your flow definition into your Amazon Rekognition
 task.
 
-## End-to-end Demo Using
-
-Amazon Rekognition and Amazon A2I
+## End-to-end Demo Using Amazon Rekognition and Amazon A2I
 
 For an end-to-end example that demonstrates how to use Amazon Rekognition with Amazon A2I using the
 console, see [Tutorial: Get Started in the Amazon A2I Console](a2i-get-started-console.md "a2i-get-started-console.md").
 
 To learn how to use the Amazon A2I API to create and start a human review, you can use
 [Amazon Augmented AI (Amazon A2I) integration with Amazon Rekognition
-[Example]](<https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb> "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb") in a SageMaker notebook instance. To get started, see [Use SageMaker Notebook Instance with
-Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").
+[Example]](<https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb> "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb") in a SageMaker notebook instance. To get started, see [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").
 
 ## A2I Rekognition Worker Console Preview
 

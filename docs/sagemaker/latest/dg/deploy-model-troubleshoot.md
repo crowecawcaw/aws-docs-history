@@ -5,14 +5,11 @@ following guidance.
 
 ###### Topics
 
-- [Detection Errors in the Active CPU
-  Count](#deploy-model-troubleshoot-jvms "#deploy-model-troubleshoot-jvms")
+- [Detection Errors in the Active CPU Count](#deploy-model-troubleshoot-jvms "#deploy-model-troubleshoot-jvms")
 - [Issues with deploying a model.tar.gz file](#deploy-model-troubleshoot-tarballs "#deploy-model-troubleshoot-tarballs")
 - [Primary container did not pass ping health checks](#deploy-model-troubleshoot-ping "#deploy-model-troubleshoot-ping")
 
-## Detection Errors in the Active CPU
-
-Count
+## Detection Errors in the Active CPU Count
 
 If you deploy a SageMaker AI model with a Linux Java Virtual Machine (JVM), you might
 encounter detection errors that prevent using available CPU resources. This issue

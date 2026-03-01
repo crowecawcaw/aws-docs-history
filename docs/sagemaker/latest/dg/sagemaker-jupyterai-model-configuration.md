@@ -1,6 +1,4 @@
-# Configure your model
-
-provider
+# Configure your model provider
 
 ###### Note
 
@@ -17,9 +15,7 @@ JumpStart documentation. You need to request access to [Amazon Bedrock](https://
 The configuration of Jupyter AI varies depending on whether you are using the chat UI or
 magic commands.
 
-## Configure your model
-
-provider in the chat UI
+## Configure your model provider in the chat UI
 
 ###### Note
 
@@ -94,9 +90,7 @@ invoke a Flan-t5-small model provided by JumpStart and deployed in SageMaker AI.
 
 ![Chat UI configuration panel set to invoke a Flan-t5-small model provided by JumpStart.](images/studio/jupyterai/jupyterai-chatui-configuration.png)
 
-### Pass extra model
-
-parameters and custom parameters to your request
+### Pass extra model parameters and custom parameters to your request
 
 Your model may need extra parameters, like a customized attribute for user agreement
 approval or adjustments to other model parameters such as temperature or response length.
@@ -188,13 +182,9 @@ is updated by the LCC, run `more ~/.jupyter/jupyter_jupyter_ai_config.json` in
 a terminal. The content of the file should correspond to the content of the JSON file
 passed to the LCC.
 
-## Configure your
+## Configure your model provider in a notebook
 
-model provider in a notebook
-
-###### To invoke a model via Jupyter AI within JupyterLab or Studio Classic notebooks using the
-
-`%%ai` and `%ai` magic commands
+###### To invoke a model via Jupyter AI within JupyterLab or Studio Classic notebooks using the `%%ai` and `%ai` magic commands
 
 1. Install the client libraries specific to your model provider in your notebook
    environment. For example, when using OpenAI models, you need to install the

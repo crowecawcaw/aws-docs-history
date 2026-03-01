@@ -11,21 +11,15 @@ Image Classification - TensorFlow.
 ###### Topics
 
 - [How to use the SageMaker Image Classification - TensorFlow algorithm](IC-TF-how-to-use.md "IC-TF-how-to-use.md")
-- [Input and output interface for the Image
-  Classification - TensorFlow algorithm](IC-TF-inputoutput.md "IC-TF-inputoutput.md")
-- [Amazon EC2 instance recommendation for the Image
-  Classification - TensorFlow algorithm](#IC-TF-instances "#IC-TF-instances")
-- [Image Classification - TensorFlow sample
-  notebooks](#IC-TF-sample-notebooks "#IC-TF-sample-notebooks")
+- [Input and output interface for the Image Classification - TensorFlow algorithm](IC-TF-inputoutput.md "IC-TF-inputoutput.md")
+- [Amazon EC2 instance recommendation for the Image Classification - TensorFlow algorithm](#IC-TF-instances "#IC-TF-instances")
+- [Image Classification - TensorFlow sample notebooks](#IC-TF-sample-notebooks "#IC-TF-sample-notebooks")
 - [How Image Classification - TensorFlow Works](IC-TF-HowItWorks.md "IC-TF-HowItWorks.md")
 - [TensorFlow Hub Models](IC-TF-Models.md "IC-TF-Models.md")
-- [Image Classification - TensorFlow
-  Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md")
+- [Image Classification - TensorFlow Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md")
 - [Tune an Image Classification - TensorFlow model](IC-TF-tuning.md "IC-TF-tuning.md")
 
-## Amazon EC2 instance recommendation for the Image
-
-Classification - TensorFlow algorithm
+## Amazon EC2 instance recommendation for the Image Classification - TensorFlow algorithm
 
 The Image Classification - TensorFlow algorithm supports all CPU and GPU instances for
 training, including:
@@ -43,9 +37,7 @@ We recommend GPU instances with more memory for
 training with large batch sizes. Both CPU (such as M5) and GPU (P2, P3, G4dn, or G5)
 instances can be used for inference.
 
-## Image Classification - TensorFlow sample
-
-notebooks
+## Image Classification - TensorFlow sample notebooks
 
 For more information about how to use the SageMaker Image Classification - TensorFlow algorithm for transfer learning on a custom dataset, see the [Introduction to SageMaker TensorFlow - Image Classification](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/image_classification_tensorflow/Amazon_TensorFlow_Image_Classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/image_classification_tensorflow/Amazon_TensorFlow_Image_Classification.ipynb") notebook.
 

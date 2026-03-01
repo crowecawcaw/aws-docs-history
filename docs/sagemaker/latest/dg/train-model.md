@@ -29,9 +29,7 @@ with popular machine learning frameworks.
 
 ![How users provide data and choose algorithms and SageMaker AI provisions compute infrastructure.](images/sagemaker-training.png)
 
-## Full view of the SageMaker Training workflow and
-
-features
+## Full view of the SageMaker Training workflow and features
 
 The full journey of ML training involves tasks beyond data ingestion to ML models,
 training models on compute instances, and obtaining model artifacts and outputs. You
@@ -152,8 +150,7 @@ during-training stages and relevant SageMaker Training features.
   jobs over the latency reduction from warm pools alone. To learn more, see
   the following topics.
 
-      + [Running training jobs on a heterogeneous
-       cluster](train-heterogeneous-cluster.md "train-heterogeneous-cluster.md")
+      + [Running training jobs on a heterogeneous cluster](train-heterogeneous-cluster.md "train-heterogeneous-cluster.md")
       + [SageMaker AI Managed Warm Pools](train-warm-pools.md "train-warm-pools.md")
       + [Using persistent cache](train-warm-pools.md#train-warm-pools-persistent-cache "train-warm-pools.md#train-warm-pools-persistent-cache")
 

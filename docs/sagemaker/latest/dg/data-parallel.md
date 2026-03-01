@@ -1,6 +1,4 @@
-# Run distributed training with the SageMaker AI distributed data
-
-parallelism library
+# Run distributed training with the SageMaker AI distributed data parallelism library
 
 The SageMaker AI distributed data parallelism (SMDDP) library extends SageMaker training
 capabilities on deep learning models with near-linear scaling efficiency by providing
@@ -21,25 +19,18 @@ To address such overhead and memory problems, the SMDDP library offers the follo
 - The SMDDP library improves communication between nodes with implementations of
   `AllReduce` and `AllGather` collective communication operations that
   are optimized for AWS infrastructure.
-  To learn more about the details of the SMDDP library offerings, proceed to [Introduction to the SageMaker AI distributed data parallelism
-  library](data-parallel-intro.md "data-parallel-intro.md").
+  To learn more about the details of the SMDDP library offerings, proceed to [Introduction to the SageMaker AI distributed data parallelism library](data-parallel-intro.md "data-parallel-intro.md").
 
 For more information about training with the model-parallel strategy offered by SageMaker AI,
 see also [(Archived) SageMaker model parallelism library v1.x](model-parallel.md "model-parallel.md").
 
 ###### Topics
 
-- [Introduction to the SageMaker AI distributed data parallelism
-  library](data-parallel-intro.md "data-parallel-intro.md")
-- [Supported frameworks, AWS Regions, and
-  instances types](distributed-data-parallel-support.md "distributed-data-parallel-support.md")
-- [Distributed training with the SageMaker AI
-  distributed data parallelism library](data-parallel-modify-sdp.md "data-parallel-modify-sdp.md")
-- [Amazon SageMaker AI data parallelism library
-  examples](distributed-data-parallel-v2-examples.md "distributed-data-parallel-v2-examples.md")
-- [Configuration tips for the SageMaker AI distributed data
-  parallelism library](data-parallel-config.md "data-parallel-config.md")
+- [Introduction to the SageMaker AI distributed data parallelism library](data-parallel-intro.md "data-parallel-intro.md")
+- [Supported frameworks, AWS Regions, and instances types](distributed-data-parallel-support.md "distributed-data-parallel-support.md")
+- [Distributed training with the SageMaker AI distributed data parallelism library](data-parallel-modify-sdp.md "data-parallel-modify-sdp.md")
+- [Amazon SageMaker AI data parallelism library examples](distributed-data-parallel-v2-examples.md "distributed-data-parallel-v2-examples.md")
+- [Configuration tips for the SageMaker AI distributed data parallelism library](data-parallel-config.md "data-parallel-config.md")
 - [Amazon SageMaker AI distributed data parallelism library FAQ](data-parallel-faq.md "data-parallel-faq.md")
-- [Troubleshooting for distributed
-  training in Amazon SageMaker AI](distributed-troubleshooting-data-parallel.md "distributed-troubleshooting-data-parallel.md")
+- [Troubleshooting for distributed training in Amazon SageMaker AI](distributed-troubleshooting-data-parallel.md "distributed-troubleshooting-data-parallel.md")
 - [SageMaker AI data parallelism library release notes](data-parallel-release-notes.md "data-parallel-release-notes.md")

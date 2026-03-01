@@ -1,6 +1,4 @@
-# Best Practices for Hyperparameter
-
-Tuning
+# Best Practices for Hyperparameter Tuning
 
 Hyperparameter optimization (HPO) is not a fully-automated process. To improve
 optimization, follow these best practices for hyperparameter tuning.
@@ -8,18 +6,12 @@ optimization, follow these best practices for hyperparameter tuning.
 ###### Topics
 
 - [Choosing a tuning strategy](#automatic-model-tuning-strategy "#automatic-model-tuning-strategy")
-- [Choosing the number of
-  hyperparameters](#automatic-model-tuning-num-hyperparameters "#automatic-model-tuning-num-hyperparameters")
-- [Choosing hyperparameter
-  ranges](#automatic-model-tuning-choosing-ranges "#automatic-model-tuning-choosing-ranges")
-- [Using the correct scales for
-  hyperparameters](#automatic-model-tuning-log-scales "#automatic-model-tuning-log-scales")
-- [Choosing the best number of parallel
-  training jobs](#automatic-model-tuning-parallelism "#automatic-model-tuning-parallelism")
-- [Running training jobs on
-  multiple instances](#automatic-model-tuning-distributed-metrics "#automatic-model-tuning-distributed-metrics")
-- [Using a random seed to reproduce
-  hyperparameter configurations](#automatic-model-tuning-random-seed "#automatic-model-tuning-random-seed")
+- [Choosing the number of hyperparameters](#automatic-model-tuning-num-hyperparameters "#automatic-model-tuning-num-hyperparameters")
+- [Choosing hyperparameter ranges](#automatic-model-tuning-choosing-ranges "#automatic-model-tuning-choosing-ranges")
+- [Using the correct scales for hyperparameters](#automatic-model-tuning-log-scales "#automatic-model-tuning-log-scales")
+- [Choosing the best number of parallel training jobs](#automatic-model-tuning-parallelism "#automatic-model-tuning-parallelism")
+- [Running training jobs on multiple instances](#automatic-model-tuning-distributed-metrics "#automatic-model-tuning-distributed-metrics")
+- [Using a random seed to reproduce hyperparameter configurations](#automatic-model-tuning-random-seed "#automatic-model-tuning-random-seed")
 
 ## Choosing a tuning strategy
 
@@ -46,9 +38,7 @@ from the search space. Because grid search analyzes every combination of hyperpa
 optimal hyperparameter values will be identical between tuning jobs that use the same
 hyperparameters.
 
-## Choosing the number of
-
-hyperparameters
+## Choosing the number of hyperparameters
 
 During optimization, the computational complexity of a hyperparameter tuning job depends
 on the following:
@@ -60,9 +50,7 @@ Although you can simultaneously specify up to 30 hyperparameters, limiting your 
 to a smaller number can reduce computation time. Reducing computation time allows SageMaker AI to
 converge more quickly to an optimal hyperparameter configuration.
 
-## Choosing hyperparameter
-
-ranges
+## Choosing hyperparameter ranges
 
 The range of values that you choose to search can adversely affect hyperparameter
 optimization. For example, a range that covers every possible hyperparameter value can lead
@@ -70,9 +58,7 @@ to large compute times and a model that doesn't generalize well to unseen data. 
 that using a subset of the largest possible range is appropriate for your use case, consider
 limiting the range to that subset.
 
-## Using the correct scales for
-
-hyperparameters
+## Using the correct scales for hyperparameters
 
 During hyperparameter tuning, SageMaker AI attempts to infer if your hyperparameters are
 log-scaled or linear-scaled. Initially, SageMaker AI assumes linear scaling for hyperparameters. If
@@ -80,9 +66,7 @@ hyperparameters are log-scaled, choosing the correct scale will make your search
 efficient. You can also select `Auto` for `ScalingType` in the [CreateHyperParameterTuningJob](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") API if you want SageMaker AI to detect the scale for
 you.
 
-## Choosing the best number of parallel
-
-training jobs
+## Choosing the best number of parallel training jobs
 
 You can use the results of previous trials to improve the performance of subsequent
 trials. Choose the largest number of parallel jobs that would provide a meaningful
@@ -90,18 +74,14 @@ incremental result that is also within your region and account compute constrain
 [`MaxParallelTrainingJobs`](../APIReference/API_ResourceLimits.md#MaxParallelTrainingJobs "../APIReference/API_ResourceLimits.md#MaxParallelTrainingJobs") field to limit the number of training jobs
 that a hyperparameter tuning job can launch in parallel. For more information, see [Running multiple HPO jobs in parallel on Amazon SageMaker AI](https://aws.amazon.com/blogs/machine-learning/running-multiple-hpo-jobs-in-parallel-on-amazon-sagemaker "https://aws.amazon.com/blogs/machine-learning/running-multiple-hpo-jobs-in-parallel-on-amazon-sagemaker").
 
-## Running training jobs on
-
-multiple instances
+## Running training jobs on multiple instances
 
 When a training job runs on multiple machines in distributed mode, each machine emits an
 objective metric. HPO can only use one of these emitted objective metrics to evaluate model
 performance, In distributed mode, HPO uses the objective metric that was reported by the
 last running job across all instances.
 
-## Using a random seed to reproduce
-
-hyperparameter configurations
+## Using a random seed to reproduce hyperparameter configurations
 
 You can specify an integer as a random seed for hyperparameter tuning and use that seed
 during hyperparameter generation. Later, you can use the same seed to reproduce

@@ -1,6 +1,4 @@
-# Annotation consolidation function
-
-creation
+# Annotation consolidation function creation
 
 You can choose to use your own annotation consolidation function to determine the
 final labels for your labeled objects. There are many possible approaches for
@@ -30,9 +28,7 @@ strategies, or you can use one that meets your data labeling needs:
   there can be a function that determines which annotations represent the
   same object and should be consolidated.
 
-## Assess the most probable
-
-label
+## Assess the most probable label
 
 With one of the strategies detailed in the previous sections in mind, make
 some sort of probabilistic judgment on what the consolidated label should be. In

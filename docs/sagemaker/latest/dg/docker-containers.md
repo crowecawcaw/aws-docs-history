@@ -9,20 +9,15 @@ information about how to bring your own containers for use with Amazon SageMaker
 
 ###### Topics
 
-- [Scenarios for Running Scripts, Training
-  Algorithms, or Deploying Models with SageMaker AI](#container-scenarios "#container-scenarios")
+- [Scenarios for Running Scripts, Training Algorithms, or Deploying Models with SageMaker AI](#container-scenarios "#container-scenarios")
 - [Docker container basics](docker-basics.md "docker-basics.md")
 - [Pre-built SageMaker AI Docker images](docker-containers-prebuilt.md "docker-containers-prebuilt.md")
 - [Custom Docker containers with SageMaker AI](docker-containers-adapt-your-own.md "docker-containers-adapt-your-own.md")
-- [Container creation with your own algorithms
-  and models](docker-containers-create.md "docker-containers-create.md")
-- [Examples and More Information: Use Your Own
-  Algorithm or Model](docker-containers-notebooks.md "docker-containers-notebooks.md")
+- [Container creation with your own algorithms and models](docker-containers-create.md "docker-containers-create.md")
+- [Examples and More Information: Use Your Own Algorithm or Model](docker-containers-notebooks.md "docker-containers-notebooks.md")
 - [Troubleshooting your Docker containers and deployments](#docker-containers-troubleshooting "#docker-containers-troubleshooting")
 
-## Scenarios for Running Scripts, Training
-
-Algorithms, or Deploying Models with SageMaker AI
+## Scenarios for Running Scripts, Training Algorithms, or Deploying Models with SageMaker AI
 
 Amazon SageMaker AI always uses Docker containers when running scripts, training algorithms, and
 deploying models. Your level of engagement with containers depends on your use case.
@@ -34,16 +29,11 @@ The following decision tree illustrates three main scenarios: **Use cases for us
 
 ###### Topics
 
-- [Use cases for using pre-built
-  Docker containers with SageMaker AI](#container-scenarios-use-prebuilt "#container-scenarios-use-prebuilt")
-- [Use cases for extending a pre-built
-  Docker container](#container-scenarios-extend-prebuilt "#container-scenarios-extend-prebuilt")
-- [Use case for building your own
-  container](#container-scenarios-byoc "#container-scenarios-byoc")
+- [Use cases for using pre-built Docker containers with SageMaker AI](#container-scenarios-use-prebuilt "#container-scenarios-use-prebuilt")
+- [Use cases for extending a pre-built Docker container](#container-scenarios-extend-prebuilt "#container-scenarios-extend-prebuilt")
+- [Use case for building your own container](#container-scenarios-byoc "#container-scenarios-byoc")
 
-### Use cases for using pre-built
-
-Docker containers with SageMaker AI
+### Use cases for using pre-built Docker containers with SageMaker AI
 
 Consider the following use cases when using containers with SageMaker AI:
 
@@ -63,16 +53,13 @@ Consider the following use cases when using containers with SageMaker AI:
     requirements.txt file, or extend the pre-built container based on
     the following use cases.
 
-### Use cases for extending a pre-built
-
-Docker container
+### Use cases for extending a pre-built Docker container
 
 The following are use cases for extending a pre-built Docker container:
 
 - **You can't import the dependencies**
   – Extend the pre-built Docker image associated with your framework.
-  See [Extend a Pre-built
-  Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md") for more
+  See [Extend a Pre-built Container](prebuilt-containers-extend.md "prebuilt-containers-extend.md") for more
   information.
 - **You can't import the dependencies in the pre-built
   container and the pre-built container supports
@@ -85,9 +72,7 @@ The following are use cases for extending a pre-built Docker container:
   - [PyTorch](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/pytorch/using_pytorch.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/pytorch/using_pytorch.html?highlight=requirements.txt")
   - [Apache MXNet](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/mxnet/using_mxnet.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/mxnet/using_mxnet.html?highlight=requirements.txt")
 
-### Use case for building your own
-
-container
+### Use case for building your own container
 
 If you build or train a custom model and require custom framework that does not
 have a pre-built image, build a custom container.
@@ -128,11 +113,9 @@ details about the previously listed options.
   [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), you can deploy the containers by passing the full
   container URI to their respective SageMaker SDK `Estimator` class. For the
   full list of deep learning frameworks that are currently supported by SageMaker AI, see
-  [Prebuilt SageMaker AI Docker images
-  for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md"). For
+  [Prebuilt SageMaker AI Docker images for deep learning](pre-built-containers-frameworks-deep-learning.md "pre-built-containers-frameworks-deep-learning.md"). For
   information about the scikit-learn and SparkML pre-built container images, see
-  [Accessing Docker
-  Images for Scikit-learn and Spark ML](pre-built-docker-containers-scikit-learn-spark.md "pre-built-docker-containers-scikit-learn-spark.md"). For more
+  [Accessing Docker Images for Scikit-learn and Spark ML](pre-built-docker-containers-scikit-learn-spark.md "pre-built-docker-containers-scikit-learn-spark.md"). For more
   information about using frameworks with the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"), see their
   respective topics in [Machine Learning Frameworks and Languages](frameworks.md "frameworks.md").
 - **Extend a pre-built SageMaker AI container image**. If

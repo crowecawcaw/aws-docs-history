@@ -1,6 +1,4 @@
-# Access the Python profiling
-
-stats data
+# Access the Python profiling stats data
 
 The Python profiling provides framework metrics related to Python functions and
 operators in your training scripts and the SageMaker AI deep learning frameworks.
@@ -70,9 +68,7 @@ Debugger supports the Python profiling with two profiling tools:
   metrics on CPU time for every function called when profiling was enabled.
 - Pyinstrument – This is a low overhead Python profiler sampling
   profiling events every milliseconds.
-  To learn more about the Python profiling options and what's collected, see [Default system
-  monitoring and customized framework profiling with different profiling
-  options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md").
+  To learn more about the Python profiling options and what's collected, see [Default system monitoring and customized framework profiling with different profiling options](debugger-configure-framework-profiling-options.md "debugger-configure-framework-profiling-options.md").
 
 The following methods of the `PythonProfileAnalysis`,
 `cProfileAnalysis`, `PyinstrumentAnalysis` classes are

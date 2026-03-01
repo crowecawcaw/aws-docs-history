@@ -18,8 +18,7 @@ in any supported SDK for technical implementation.
 
 If you have been using Autopilot in Studio Classic until now and want to migrate to SageMaker Canvas,
 you might have to grant additional permissions to your user profile or IAM role so that you can create and use the SageMaker Canvas application.
-For more information, see [(Optional) Migrate from
-Autopilot in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-autopilot "studio-updated-migrate-ui.md#studio-updated-migrate-autopilot").
+For more information, see [(Optional) Migrate from Autopilot in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-autopilot "studio-updated-migrate-ui.md#studio-updated-migrate-autopilot").
 
 All UI-related instructions in this guide pertain to Autopilot's standalone features before
 migrating to [Amazon SageMaker Canvas](canvas.md "canvas.md"). Users following these instructions should use [Studio Classic](studio.md "studio.md").
@@ -92,27 +91,20 @@ forecasting needs, or generative AI.
   accepted include numerical, categorical, text, and time series that consists of strings of
   comma-separated numbers.
   - To create an Autopilot job as a pilot experiment using the SageMaker API reference, see
-    [Create Regression or
-    Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md").
-  - To create an Autopilot job as a pilot experiment using the Studio Classic UI, see [Create a Regression
-    or Classification Autopilot experiment for tabular data using the Studio Classic UI](autopilot-automate-model-development-create-experiment-ui.md "autopilot-automate-model-development-create-experiment-ui.md").
+    [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md").
+  - To create an Autopilot job as a pilot experiment using the Studio Classic UI, see [Create a Regression or Classification Autopilot experiment for tabular data using the Studio Classic UI](autopilot-automate-model-development-create-experiment-ui.md "autopilot-automate-model-development-create-experiment-ui.md").
   - If you are an administrator looking to pre-configure default infrastructure,
-    networking, or security parameters of Autopilot experiments in Studio Classic UI, see [Configure the default
-    parameters of an Autopilot experiment (for administrators)](autopilot-set-default-parameters-create-experiment.md "autopilot-set-default-parameters-create-experiment.md").
+    networking, or security parameters of Autopilot experiments in Studio Classic UI, see [Configure the default parameters of an Autopilot experiment (for administrators)](autopilot-set-default-parameters-create-experiment.md "autopilot-set-default-parameters-create-experiment.md").
 
 - **Text classification** with data formatted as CSV or
   Parquet files in which a column provides the sentences to be classified, while another
-  column should provide the corresponding class label. See [Create an AutoML job
-  for text classification using the API](autopilot-create-experiment-text-classification.md "autopilot-create-experiment-text-classification.md").
+  column should provide the corresponding class label. See [Create an AutoML job for text classification using the API](autopilot-create-experiment-text-classification.md "autopilot-create-experiment-text-classification.md").
 - **Image classification** with image formats such as PNG,
-  JPEG, or a combination of both.See [Create an Image
-  Classification Job using the AutoML API](autopilot-create-experiment-image-classification.md "autopilot-create-experiment-image-classification.md").
+  JPEG, or a combination of both.See [Create an Image Classification Job using the AutoML API](autopilot-create-experiment-image-classification.md "autopilot-create-experiment-image-classification.md").
 - **Time-series forecasting** with time-series data
-  formatted as CSV or Parquet files.See [Create an AutoML job for
-  time-series forecasting using the API](autopilot-create-experiment-timeseries-forecasting.md "autopilot-create-experiment-timeseries-forecasting.md").
+  formatted as CSV or Parquet files.See [Create an AutoML job for time-series forecasting using the API](autopilot-create-experiment-timeseries-forecasting.md "autopilot-create-experiment-timeseries-forecasting.md").
 - Fine-tuning of large language models (LLMs) for **text
-  generation** with data formatted as CSV or Parquet files.See [Create an AutoML job to fine-tune
-  text generation models using the API](autopilot-create-experiment-finetune-llms.md "autopilot-create-experiment-finetune-llms.md").
+  generation** with data formatted as CSV or Parquet files.See [Create an AutoML job to fine-tune text generation models using the API](autopilot-create-experiment-finetune-llms.md "autopilot-create-experiment-finetune-llms.md").
   Additionally, Autopilot helps users understand how models make predictions by automatically
   generating reports that show the importance of each individual feature. This provides
   transparency and insights into the factors influencing the predictions, which can be used by
@@ -140,20 +132,13 @@ Pricing](https://aws.amazon.com/sagemaker/pricing "https://aws.amazon.com/sagema
 
 ###### Topics
 
-- [Create Regression or
-  Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md")
-- [Create an Image
-  Classification Job using the AutoML API](autopilot-create-experiment-image-classification.md "autopilot-create-experiment-image-classification.md")
-- [Create an AutoML job
-  for text classification using the API](autopilot-create-experiment-text-classification.md "autopilot-create-experiment-text-classification.md")
-- [Create an AutoML job for
-  time-series forecasting using the API](autopilot-create-experiment-timeseries-forecasting.md "autopilot-create-experiment-timeseries-forecasting.md")
-- [Create an AutoML job to fine-tune
-  text generation models using the API](autopilot-create-experiment-finetune-llms.md "autopilot-create-experiment-finetune-llms.md")
-- [Create a Regression
-  or Classification Autopilot experiment for tabular data using the Studio Classic UI](autopilot-automate-model-development-create-experiment-ui.md "autopilot-automate-model-development-create-experiment-ui.md")
+- [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md")
+- [Create an Image Classification Job using the AutoML API](autopilot-create-experiment-image-classification.md "autopilot-create-experiment-image-classification.md")
+- [Create an AutoML job for text classification using the API](autopilot-create-experiment-text-classification.md "autopilot-create-experiment-text-classification.md")
+- [Create an AutoML job for time-series forecasting using the API](autopilot-create-experiment-timeseries-forecasting.md "autopilot-create-experiment-timeseries-forecasting.md")
+- [Create an AutoML job to fine-tune text generation models using the API](autopilot-create-experiment-finetune-llms.md "autopilot-create-experiment-finetune-llms.md")
+- [Create a Regression or Classification Autopilot experiment for tabular data using the Studio Classic UI](autopilot-automate-model-development-create-experiment-ui.md "autopilot-automate-model-development-create-experiment-ui.md")
 - [Amazon SageMaker Autopilot example notebooks](autopilot-example-notebooks.md "autopilot-example-notebooks.md")
-- [Videos: Use Autopilot to automate and explore the machine
-  learning process](autopilot-videos.md "autopilot-videos.md")
+- [Videos: Use Autopilot to automate and explore the machine learning process](autopilot-videos.md "autopilot-videos.md")
 - [Autopilot quotas](autopilot-quotas.md "autopilot-quotas.md")
 - [API Reference guide for Autopilot](autopilot-reference.md "autopilot-reference.md")

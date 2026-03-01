@@ -1,6 +1,4 @@
-# Download, Prepare, and Upload Training
-
-Data
+# Download, Prepare, and Upload Training Data
 
 For
 this example, you use a training dataset of information about bank customers that includes
@@ -15,9 +13,7 @@ performs, see the _hpo_xgboost_direct_marketing_sagemaker_APIs_ notebook
 in the **Hyperparameter Tuning** section of the **SageMaker AI
 Examples** tab in your notebook instance.
 
-## Download and Explore the
-
-Training Dataset
+## Download and Explore the Training Dataset
 
 To
 download and
@@ -63,5 +59,4 @@ boto3.Session().resource('s3').Bucket(bucket).Object(os.path.join(prefix, 'valid
 
 ## Next Step
 
-[Configure and Launch a Hyperparameter
-Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md")
+[Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md")

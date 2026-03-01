@@ -1,18 +1,13 @@
-# SageMaker distributed model parallelism best
-
-practices
+# SageMaker distributed model parallelism best practices
 
 Use the following guidelines when you run a distributed training job with the SageMaker model
 parallel library v2 (SMP v2).
 
-## Setting up the right
-
-configuration for distributed training
+## Setting up the right configuration for distributed training
 
 To estimate and find the best starting point to apply distributed training techniques
 that SMP v2 provides, review the following list. Each list item discusses the advantage
-of using the [Core features of the SageMaker model
-parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md") along with potential
+of using the [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md") along with potential
 tradeoffs.
 
 ### Configuration tips
@@ -30,14 +25,12 @@ model.
    `float16`.
 3. Turn on the [SageMaker distributed data
    parallelism library](data-parallel.md "data-parallel.md") (instead of using NCCL) whenever it’s
-   applicable, as shown in [Compatibility with the
-   SMDDP library optimized for AWS infrastructure](model-parallel-core-features-v2-smddp-allgather.md "model-parallel-core-features-v2-smddp-allgather.md"). One
+   applicable, as shown in [Compatibility with the SMDDP library optimized for AWS infrastructure](model-parallel-core-features-v2-smddp-allgather.md "model-parallel-core-features-v2-smddp-allgather.md"). One
    exception is for tensor-parallelism-only use cases
    (`hybrid_shard_degree = 1` and `tensor_paralle_degree >
 1`).
 4. If your model has more than about 60 billion parameters, we recommend
-   using [Delayed parameter
-   initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
+   using [Delayed parameter initialization](model-parallel-core-features-v2-delayed-param-init.md "model-parallel-core-features-v2-delayed-param-init.md").
    You can also use delayed parameter initialization to speed up the
    initialization for any model.
 5. We recommend you to enable [Activation checkpointing](model-parallel-core-features-v2-pytorch-activation-checkpointing.md "model-parallel-core-features-v2-pytorch-activation-checkpointing.md").
@@ -61,8 +54,7 @@ guidance.
       communication.
 
 2. Use sharded data parallelism of PyTorch FSDP and tensor parallelism of SMP
-   v2 simultaneously, as introduced in [Tensor
-   parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+   v2 simultaneously, as introduced in [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
    1. When training on large clusters, with FSDP alone the global batch
       size can become too large, causing convergence issues for the model.
       Typically, most research work keeps the batch size under 4 million
@@ -80,9 +72,7 @@ guidance.
    you can train efficiently by composing PyTorch FSDP with tensor
    parallelism of SMP v2.
 
-### Reference
-
-configurations
+### Reference configurations
 
 The SageMaker model parallelism training team provides the following reference points
 based on experiments with the Llama 2 model transformed to the SMP transformer model
@@ -102,9 +92,7 @@ for your model configuration. For example, if you increase the sequence length f
 might want to lower batch size first. If the model still doesn’t fit, try increasing
 the degree of tensor parallelism.
 
-## Monitoring and logging a
-
-training job using the SageMaker AI console and Amazon CloudWatch
+## Monitoring and logging a training job using the SageMaker AI console and Amazon CloudWatch
 
 To monitor system-level metrics such as CPU memory utilization, GPU memory
 utilization, and GPU utilization, use visualization provided through the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").

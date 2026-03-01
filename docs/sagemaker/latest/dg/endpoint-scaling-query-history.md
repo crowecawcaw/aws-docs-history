@@ -1,6 +1,4 @@
-# Check the status of a scaling activity
-
-by describing scaling activities
+# Check the status of a scaling activity by describing scaling activities
 
 You can check the status of a scaling activity for your auto scaled endpoint by
 describing scaling activities. Application Auto Scaling provides descriptive information about the
@@ -14,8 +12,7 @@ scaling activity using the console.
 ###### Topics
 
 - [Describe scaling activities (AWS CLI)](#endpoint-how-to "#endpoint-how-to")
-- [Identify blocked scaling
-  activities from instance quotas (AWS CLI)](#endpoint-identify-blocked-autoscaling "#endpoint-identify-blocked-autoscaling")
+- [Identify blocked scaling activities from instance quotas (AWS CLI)](#endpoint-identify-blocked-autoscaling "#endpoint-identify-blocked-autoscaling")
 
 ## Describe scaling activities (AWS CLI)
 
@@ -54,9 +51,7 @@ The following example shows the output produced when you run this command.
 }
 ```
 
-## Identify blocked scaling
-
-activities from instance quotas (AWS CLI)
+## Identify blocked scaling activities from instance quotas (AWS CLI)
 
 When you scale out (add more instances), you might reach your account-level
 instance quota. You can use the [describe-scaling-activities](../../../cli/latest/reference/application-autoscaling/describe-scaling-activities.md "../../../cli/latest/reference/application-autoscaling/describe-scaling-activities.md") command to check whether you have reached

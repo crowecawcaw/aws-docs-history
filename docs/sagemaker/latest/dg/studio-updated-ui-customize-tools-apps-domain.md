@@ -1,17 +1,12 @@
-# Hide machine learning
-
-tools and applications on a domain level
+# Hide machine learning tools and applications on a domain level
 
 The following shows how to use the console to customize the applications and ML tools
-displayed in Studio on a domain level. For more information, see [Hide machine learning tools and
-applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
+displayed in Studio on a domain level. For more information, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
 
 This feature is not available if Amazon SageMaker Studio Classic is set as your default
 experience.
 
-###### To hide machine learning tools and applications Studio UI on a
-
-domain level (console)
+###### To hide machine learning tools and applications Studio UI on a domain level (console)
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. On the left navigation pane, choose **Admin

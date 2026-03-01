@@ -34,8 +34,7 @@ paradigms, and algorithms appropriate for different problem types.
 ###### Topics
 
 - [Choose an algorithm implementation](#algorithms-choose-implementation "#algorithms-choose-implementation")
-- [Problem types for the basic machine
-  learning paradigms](#basic-machine-learning-paradigms "#basic-machine-learning-paradigms")
+- [Problem types for the basic machine learning paradigms](#basic-machine-learning-paradigms "#basic-machine-learning-paradigms")
 - [Built-in algorithms and pretrained models in Amazon SageMaker](algos.md "algos.md")
 - [Use Reinforcement Learning with Amazon SageMaker AI](reinforcement-learning.md "reinforcement-learning.md")
 
@@ -60,8 +59,7 @@ Amazon SageMaker AI supports three implementation options that require increasin
 ###### Topics
 
 - [Use a built-in algorithm](#built-in-algorithms-benefits "#built-in-algorithms-benefits")
-- [Use script mode in a supported
-  framework](#supported-frameworks-benefits "#supported-frameworks-benefits")
+- [Use script mode in a supported framework](#supported-frameworks-benefits "#supported-frameworks-benefits")
 - [Use a custom Docker image](#custom-image-use-case "#custom-image-use-case")
 
 Algorithm implementation guidance
@@ -100,12 +98,9 @@ For more information on the built-in algorithms provided by SageMaker AI, see [B
 
 For important information about docker registry paths, data formats, recommended EC2
 instance types, and CloudWatch logs common to all of the built-in algorithms provided by SageMaker AI,
-see [Parameters for Built-in
-Algorithms](common-info-all-im-models.md "common-info-all-im-models.md").
+see [Parameters for Built-in Algorithms](common-info-all-im-models.md "common-info-all-im-models.md").
 
-### Use script mode in a supported
-
-framework
+### Use script mode in a supported framework
 
 If the algorithm you want to use for your model is not supported by a built-in choice
 and you are comfortable coding your own solution, then you should consider using an Amazon SageMaker AI
@@ -141,9 +136,7 @@ properly.
 
 For more information on custom Docker images in SageMaker AI, see [Docker containers for training and deploying models](docker-containers.md "docker-containers.md").
 
-## Problem types for the basic machine
-
-learning paradigms
+## Problem types for the basic machine learning paradigms
 
 The following three sections describe the main problem types addressed by the three basic
 paradigms for machine learning. For a list of the built-in algorithms that SageMaker AI provides to
@@ -227,8 +220,7 @@ by unsupervised learning:
 
 SageMaker AI provides several built-in machine learning algorithms that you can use for these
 unsupervised learning tasks. For more information on the built-in unsupervised algorithms
-provided by SageMaker AI, see [Unsupervised
-learning](algos.md#algorithms-built-in-unsupervised-learning "algos.md#algorithms-built-in-unsupervised-learning").
+provided by SageMaker AI, see [Unsupervised learning](algos.md#algorithms-built-in-unsupervised-learning "algos.md#algorithms-built-in-unsupervised-learning").
 
 ### Reinforcement learning
 

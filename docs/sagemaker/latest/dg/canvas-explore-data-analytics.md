@@ -18,9 +18,7 @@ you can drop those features when building your model.
 
 To get started with correlation matrices in SageMaker Canvas, see the following section.
 
-## Create a correlation
-
-matrix
+## Create a correlation matrix
 
 You can create a correlation matrix when you are preparing to build a model in the
 **Build** tab of the SageMaker Canvas application.
@@ -42,9 +40,7 @@ columns of the dataset organized into a correlation matrix.
 After you’ve created the correlation matrix, you can customize it by doing the
 following:
 
-### 1. Choose your
-
-columns
+### 1. Choose your columns
 
 For **Columns**, you can select the columns that you want to include in
 the matrix. You can compare up to 15 columns from your dataset.
@@ -70,9 +66,7 @@ For the best data insights, include your target column in the correlation matrix
 you include your target column in the correlation matrix, it appears as the last feature on
 the matrix with a target symbol.
 
-### 2. Choose your
-
-correlation type
+### 2. Choose your correlation type
 
 SageMaker Canvas supports different _correlation types_, or methods
 for calculating the correlation between your columns.
@@ -111,9 +105,7 @@ correlation value only indicates that there is a relationship between two variab
 variables might not have a causal relationship. Carefully review your columns of interest to
 avoid bias when building your model.
 
-### 3. Filter your
-
-correlations
+### 3. Filter your correlations
 
 In the side panel, you can use the **Filter correlations** feature to
 filter for the range of correlation values that you want to include in the matrix. For
@@ -141,9 +133,7 @@ whereas the _numeric x numeric_ correlations (which use the
 Spearman measure) are on a scale of -1 to 1. Review your correlations of interest carefully to
 ensure that you know the correlation type being used to calculate each value.
 
-### 4. Choose the
-
-visualization method
+### 4. Choose the visualization method
 
 In the side panel, you can use **Visualize by** to change the
 visualization method of the matrix. Choose the **Numeric** visualization
@@ -152,9 +142,7 @@ method to show the correlation (Pearson, Spearman, or MI) value, or choose the
 sized and colored dots. If you choose **Size**, you can hover over a specific
 dot on the matrix to see the actual correlation value.
 
-### 5. Choose a color
-
-palette
+### 5. Choose a color palette
 
 In the side panel, you can use **Color selection** to change the color
 palette used for the scale of negative to positive correlation in the matrix. Select one of

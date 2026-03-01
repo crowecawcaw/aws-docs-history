@@ -1,6 +1,4 @@
-# Configure the default
-
-parameters of an Autopilot experiment (for administrators)
+# Configure the default parameters of an Autopilot experiment (for administrators)
 
 Autopilot supports setting default values to simplify the configuration of Amazon SageMaker Autopilot when you
 create an Autopilot experiment using the Studio Classic UI. Administrators can use Studio Classic [lifecycle configurations](studio-lcc.md "studio-lcc.md") (LCC) to set infrastructure,
@@ -26,14 +24,10 @@ those default values.
 
 ###### Topics
 
-- [List of default
-  parameters supported](#autopilot-list-default-parameters-create-experiment "#autopilot-list-default-parameters-create-experiment")
-- [Set default
-  Autopilot experiment parameters](#autopilot-set-default-parameters-create-experiment-howto "#autopilot-set-default-parameters-create-experiment-howto")
+- [List of default parameters supported](#autopilot-list-default-parameters-create-experiment "#autopilot-list-default-parameters-create-experiment")
+- [Set default Autopilot experiment parameters](#autopilot-set-default-parameters-create-experiment-howto "#autopilot-set-default-parameters-create-experiment-howto")
 
-## List of default
-
-parameters supported
+## List of default parameters supported
 
 The following parameters support setting default values with a configuration file for
 creating an Autopilot experiment using the Studio Classic UI. Once set, the values automatically
@@ -48,9 +42,7 @@ in the Studio Classic UI. See [Advanced settings
 - **Tags:** Key-value pairs used to label and organize
   SageMaker AI resources.
 
-## Set default
-
-Autopilot experiment parameters
+## Set default Autopilot experiment parameters
 
 Administrators can set default values in a configuration file, then manually place the
 file in a recommended location within the Studio Classic environment of specific users, or they
@@ -59,8 +51,7 @@ the Studio Classic environment for a given domain or user profile.
 
 - To set up the configuration file, start by filling in its default parameters.
 
-To configure any or all default values listed in [List of default
-parameters supported](#autopilot-list-default-parameters-create-experiment "#autopilot-list-default-parameters-create-experiment"), administrators
+To configure any or all default values listed in [List of default parameters supported](#autopilot-list-default-parameters-create-experiment "#autopilot-list-default-parameters-create-experiment"), administrators
 can create a configuration file named `config.yaml`, the structure of which
 should adhere to this [sample configuration file](https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure "https://sagemaker.readthedocs.io/en/stable/overview.html#configuration-file-structure"). The following snippet shows a sample configuration
 file with all the supported `AutoML` parameters. For more information on the

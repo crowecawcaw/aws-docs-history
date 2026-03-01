@@ -18,9 +18,7 @@ compatible.
 This page details the support policy and availability for SageMaker Distribution Images on SageMaker
 Studio.
 
-## Versioning, release cadence, and support
-
-policy
+## Versioning, release cadence, and support policy
 
 The table below outlines the release schedule for SageMaker Distribution Image versions and
 their planned support. AWS provides ongoing functionality and security updates for
@@ -41,9 +39,7 @@ Each major version of the Amazon SageMaker Distribution is available for 18 mont
 first 12 months, new minor versions are released monthly. For the remaining 6 months,
 the existing minor versions continue to be supported.
 
-## Supported image
-
-versions
+## Supported image versions
 
 The tables below list the supported SageMaker Distribution image versions, their planned
 end of support dates, and their availability on SageMaker Studio. For image versions

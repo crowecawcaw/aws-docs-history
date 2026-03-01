@@ -9,18 +9,14 @@ important details to understand regarding VPC configuration.
 
 JupyterLab version 4.0 is supported.
 
-## Installation of packages that
-
-require kernel restart
+## Installation of packages that require kernel restart
 
 Papermill does not support calling `pip install` to install packages that
 require a kernel restart. In this situation, use `pip install` in an
 initialization script. For a package installation that does not require kernel restart, you
 can still include `pip install` in the notebook.
 
-## Kernel and language names
-
-registered with Jupyter
+## Kernel and language names registered with Jupyter
 
 Papermill registers a translator for specific kernels and languages. If you bring your
 own instance (BYOI), use a standard kernel name as shown in the following snippet:
@@ -40,9 +36,7 @@ papermill_translators.register("sparkrkernel", RTranslator)
 papermill_translators.register("bash", BashTranslator)
 ```
 
-## Parameters and environment
-
-variable limits
+## Parameters and environment variable limits
 
 **Parameters and environment variable limits.** When you
 create your notebook job, it receives the parameters and environment variables you specify.
@@ -53,9 +47,7 @@ characters long. If you need more than 28 environment variables, use additional 
 variables in an initialization script which has no limit on the number of environment
 variables you can use.
 
-## Viewing jobs and job
-
-definitions
+## Viewing jobs and job definitions
 
 **Viewing jobs and job definitions.** If you schedule your
 notebook job in the Studio UI in the JupyterLab notebook, you can [view your notebook
@@ -63,17 +55,14 @@ jobs](view-notebook-jobs.md "view-notebook-jobs.md") and your [notebook job
 definitions](view-def-detail-notebook-auto-run.md "view-def-detail-notebook-auto-run.md") in the Studio UI. If you scheduled your notebook job with the
 SageMaker Python SDK, you can view your jobs only—the SageMaker Python SDK notebook job step
 does not create job definitions. To view your jobs, you also need to supply additional tags
-to your notebook job step instance. For details, see [View your notebook jobs in the Studio
-UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
+to your notebook job step instance. For details, see [View your notebook jobs in the Studio UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
 
 ## Image
 
 You need to manage image constraints depending on whether you run notebook jobs in
 Studio or the SageMaker Python SDK notebook job step in a pipeline.
 
-### Image constraints for SageMaker AI
-
-Notebook Jobs (Studio)
+### Image constraints for SageMaker AI Notebook Jobs (Studio)
 
 **Image and kernel support.** The driver that launches
 your notebook job assumes the following:
@@ -99,14 +88,11 @@ must have root privileges on your own Studio images, either as the root user or 
 `sudo`, use `1000/100` as the
 `UID/GID`.
 
-### Image constraints for SageMaker AI
-
-Python SDK notebook jobs
+### Image constraints for SageMaker AI Python SDK notebook jobs
 
 The notebook job step supports the following images:
 
-- SageMaker Distribution Images listed in [Amazon SageMaker Images Available for Use With
-  Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+- SageMaker Distribution Images listed in [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
 - A custom image based on the SageMaker Distribution images in the previous list. Use a
   [SageMaker Distribution
   image](https://github.com/aws/sagemaker-distribution "https://github.com/aws/sagemaker-distribution") as a base.
@@ -122,9 +108,7 @@ The notebook job step supports the following images:
     `sudo`, use `1000/100` as the
     `UID/GID`.
 
-## VPC subnets used during job
-
-creation
+## VPC subnets used during job creation
 
 If you use a VPC, Studio uses your private subnets to create your job. Specify one
 to five private subnets (and 1–15 security groups).

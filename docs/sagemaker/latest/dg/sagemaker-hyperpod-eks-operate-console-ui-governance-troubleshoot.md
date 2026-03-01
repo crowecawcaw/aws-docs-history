@@ -84,8 +84,7 @@ clusters.
   policies, you will need to [Delete policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-delete.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-delete.md").
 - When cluster deletion fails due to the missing the following permissions,
   you will need to update your cluster administrator minimum set of
-  permissions. See the **Amazon EKS** tab in the [IAM users for
-  cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
+  permissions. See the **Amazon EKS** tab in the [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
   section.
   - `sagemaker:ListComputeQuotas`
   - `sagemaker:ListClusterSchedulerConfig`

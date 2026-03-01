@@ -8,8 +8,7 @@ library, see [(Archived) SageMaker model parallelism library v1.x](model-paralle
 
 The Amazon SageMaker AI model parallelism library is a capability of SageMaker AI that enables high
 performance and optimized large scale training on SageMaker AI accelerate compute instances. The
-[Core features of the SageMaker model
-parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md") include techniques and optimizations
+[Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md") include techniques and optimizations
 to accelerate and simplify large model training, such as hybrid sharded data parallelism,
 tensor parallelism, activation checkpointing, and activation offloading. You can use the SMP
 library to accelerate the training and fine-tuning of large language models (LLMs), large
@@ -28,18 +27,11 @@ and distributed training workloads on [Amazon SageMaker HyperPod](sagemaker-hype
 ###### Topics
 
 - [Model parallelism concepts](model-parallel-intro-v2.md "model-parallel-intro-v2.md")
-- [Supported frameworks and
-  AWS Regions](distributed-model-parallel-support-v2.md "distributed-model-parallel-support-v2.md")
-- [Use the SageMaker model parallelism
-  library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md")
-- [Core features of the SageMaker model
-  parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md")
-- [Amazon SageMaker AI model parallelism library
-  v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md")
-- [SageMaker distributed model parallelism best
-  practices](model-parallel-best-practices-v2.md "model-parallel-best-practices-v2.md")
-- [The SageMaker model parallel
-  library v2 reference](distributed-model-parallel-v2-reference.md "distributed-model-parallel-v2-reference.md")
-- [Release notes for the SageMaker model parallelism
-  library](model-parallel-release-notes.md "model-parallel-release-notes.md")
+- [Supported frameworks and AWS Regions](distributed-model-parallel-support-v2.md "distributed-model-parallel-support-v2.md")
+- [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md")
+- [Core features of the SageMaker model parallelism library v2](model-parallel-core-features-v2.md "model-parallel-core-features-v2.md")
+- [Amazon SageMaker AI model parallelism library v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md")
+- [SageMaker distributed model parallelism best practices](model-parallel-best-practices-v2.md "model-parallel-best-practices-v2.md")
+- [The SageMaker model parallel library v2 reference](distributed-model-parallel-v2-reference.md "distributed-model-parallel-v2-reference.md")
+- [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md")
 - [(Archived) SageMaker model parallelism library v1.x](model-parallel.md "model-parallel.md")

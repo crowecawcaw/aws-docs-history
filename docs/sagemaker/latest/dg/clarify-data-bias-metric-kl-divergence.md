@@ -1,6 +1,4 @@
-# Kullback-Leibler Divergence
-
-(KL)
+# Kullback-Leibler Divergence (KL)
 
 The Kullback-Leibler divergence (KL) measures how much the observed label
 distribution of facet _a_,

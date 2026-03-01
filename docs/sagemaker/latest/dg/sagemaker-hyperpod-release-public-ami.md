@@ -17,9 +17,7 @@ status, compliance findings, and recommended actions to ensure that you can main
 secure HyperPod environments while minimizing operational disruption during AMI
 transitions.
 
-## SageMaker HyperPod
-
-public AMI releases: August 04, 2025
+## SageMaker HyperPod public AMI releases: August 04, 2025
 
 Amazon SageMaker HyperPod now supports new public AMIs for Amazon EKS clusters. The AMIs include
 the following:

@@ -1,6 +1,4 @@
-# Classify objects in a 3D point cloud with
-
-object detection
+# Classify objects in a 3D point cloud with object detection
 
 Use this task type when you want workers to classify objects in a 3D point cloud by
 drawing 3D cuboids around objects. For example, you can use this task type to ask workers to
@@ -24,18 +22,15 @@ You can create a job to adjust annotations created in a 3D point cloud object de
 labeling job using the 3D point cloud object detection adjustment task type.
 
 If you are a new user of the Ground Truth 3D point cloud labeling modality, we recommend you
-review [3D point cloud labeling jobs
-overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
+review [3D point cloud labeling jobs overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
 different from other Ground Truth task types, and this page provides an overview of important
 details you should be aware of when creating a 3D point cloud labeling job.
 
 ###### Topics
 
 - [View the Worker Task Interface](#sms-point-cloud-object-detection-worker-ui "#sms-point-cloud-object-detection-worker-ui")
-- [Create a 3D Point Cloud
-  Object Detection Labeling Job](#sms-point-cloud-object-detection-create-labeling-job "#sms-point-cloud-object-detection-create-labeling-job")
-- [Create a 3D Point Cloud
-  Object Detection Adjustment or Verification Labeling Job](#sms-point-cloud-object-detection-adjustment-verification "#sms-point-cloud-object-detection-adjustment-verification")
+- [Create a 3D Point Cloud Object Detection Labeling Job](#sms-point-cloud-object-detection-create-labeling-job "#sms-point-cloud-object-detection-create-labeling-job")
+- [Create a 3D Point Cloud Object Detection Adjustment or Verification Labeling Job](#sms-point-cloud-object-detection-adjustment-verification "#sms-point-cloud-object-detection-adjustment-verification")
 - [Output Data Format](#sms-point-cloud-object-detection-output-data "#sms-point-cloud-object-detection-output-data")
 
 ## View the Worker Task Interface
@@ -109,17 +104,14 @@ for this task type:
   attributes like color or intensity. Workers can also choose between perspective
   and orthogonal projections.
 
-## Create a 3D Point Cloud
-
-Object Detection Labeling Job
+## Create a 3D Point Cloud Object Detection Labeling Job
 
 You can create a 3D point cloud labeling job using the SageMaker AI console or API operation,
 [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md"). To create a labeling job for this
 task type you need the following:
 
 - A single-frame input manifest file. To learn how to create this type of
-  manifest file, see [Create a Point Cloud Frame Input Manifest
-  File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md"). If you are a new
+  manifest file, see [Create a Point Cloud Frame Input Manifest File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md"). If you are a new
   user of Ground Truth 3D point cloud labeling modalities, you may also want to review
   [Accepted Raw 3D Data Formats](sms-point-cloud-raw-data-types.md "sms-point-cloud-raw-data-types.md").
 - A work team from a private or vendor workforce. You cannot use Amazon Mechanical Turk for
@@ -131,17 +123,14 @@ Additionally, make sure that you have reviewed and satisfied the [Assign IAM Per
 Use one of the following sections to learn how to create a labeling job using the
 console or an API.
 
-### Create a Labeling Job
-
-(Console)
+### Create a Labeling Job (Console)
 
 You can follow the instructions [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") in order to learn how to
 create a 3D point cloud object detection labeling job in the SageMaker AI console. While you
 are creating your labeling job, be aware of the following:
 
 - Your input manifest file must be a single-frame manifest file. For more
-  information, see [Create a Point Cloud Frame Input Manifest
-  File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
+  information, see [Create a Point Cloud Frame Input Manifest File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
 - Optionally, you can provide label category and frame attributes. Workers
   can assign one or more of these attributes to annotations to provide more
   information about that object. For example, you might want to use the
@@ -173,12 +162,10 @@ There should not be an entry for the `UiTemplateS3Uri`
 parameter.
 
 - Your input manifest file must be a single-frame manifest file. For more
-  information, see [Create a Point Cloud Frame Input Manifest
-  File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
+  information, see [Create a Point Cloud Frame Input Manifest File](sms-point-cloud-single-frame-input-data.md "sms-point-cloud-single-frame-input-data.md").
 - You specify your labels, label category and frame attributes, and worker
   instructions in a label category configuration file. To learn how to create
-  this file, see [Labeling category configuration file with
-  label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
+  this file, see [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
 - You need to provide pre-defined ARNs for the pre-annotation and
   post-annotation (ACS) Lambda functions. These ARNs are specific to the AWS
   Region you use to create your labeling job.
@@ -201,9 +188,7 @@ parameter.
   complete. You can specify a longer time limit for these labeling jobs in
   `TaskTimeLimitInSeconds` (up to 7 days, or 604,800 seconds).
 
-## Create a 3D Point Cloud
-
-Object Detection Adjustment or Verification Labeling Job
+## Create a 3D Point Cloud Object Detection Adjustment or Verification Labeling Job
 
 You can create an adjustment or verification labeling job using the Ground Truth console
 or `CreateLabelingJob` API. To learn more about adjustment and verification

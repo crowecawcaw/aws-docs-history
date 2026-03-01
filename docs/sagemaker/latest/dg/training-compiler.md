@@ -46,8 +46,7 @@ your models faster than when you train them without compilation.
 It is a two-step process to activate SageMaker Training Compiler for your training job:
 
 1.  Bring your own DL script and, if needed, adapt to compile and train with
-    SageMaker Training Compiler. To learn more, see [Bring Your Own Deep Learning
-    Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md").
+    SageMaker Training Compiler. To learn more, see [Bring Your Own Deep Learning Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md").
 2.  Create a SageMaker AI estimator object with the compiler configuration parameter using
     the SageMaker Python SDK.
 
@@ -75,8 +74,7 @@ It is a two-step process to activate SageMaker Training Compiler for your traini
         When you adjust the batch size, you also have to adjust the
          `learning_rate` appropriately. For best practices for
          adjusting the learning rate along with the change in batch size, see
-         [SageMaker Training Compiler Best Practices and
-         Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md").
+         [SageMaker Training Compiler Best Practices and Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md").
         3. By running the `estimator.fit()` class method, SageMaker AI
          compiles your model and starts the training job.
 
@@ -95,15 +93,11 @@ compiler](neo.md "neo.md").
 
 ###### Topics
 
-- [Supported Frameworks, AWS Regions,
-  Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md")
-- [Bring Your Own Deep Learning
-  Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md")
+- [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md")
+- [Bring Your Own Deep Learning Model](training-compiler-modify-scripts.md "training-compiler-modify-scripts.md")
 - [Enable SageMaker Training Compiler](training-compiler-enable.md "training-compiler-enable.md")
-- [SageMaker Training Compiler Example Notebooks and
-  Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md")
-- [SageMaker Training Compiler Best Practices and
-  Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md")
+- [SageMaker Training Compiler Example Notebooks and Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md")
+- [SageMaker Training Compiler Best Practices and Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md")
 - [SageMaker Training Compiler FAQ](training-compiler-faq.md "training-compiler-faq.md")
 - [SageMaker Training Compiler Troubleshooting](training-compiler-troubleshooting.md "training-compiler-troubleshooting.md")
 - [Amazon SageMaker Training Compiler Release Notes](training-compiler-release-notes.md "training-compiler-release-notes.md")

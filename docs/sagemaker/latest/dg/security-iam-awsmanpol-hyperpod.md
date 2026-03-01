@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-Amazon SageMaker HyperPod
+# AWS managed policies for Amazon SageMaker HyperPod
 
 The following AWS managed policies add permissions required to use Amazon SageMaker HyperPod. The
 policies are available in your AWS account and are used by execution roles created from the
@@ -9,18 +7,12 @@ SageMaker AI console or the HyperPod service-linked role.
 ###### Topics
 
 - [AWS managed policy: AmazonSageMakerHyperPodTrainingOperatorAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodTrainingOperatorAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodTrainingOperatorAccess.md")
-- [AWS
-  managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
-- [AWS
-  managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md")
-- [AWS
-  managed policy: AmazonSageMakerClusterInstanceRolePolicy](security-iam-awsmanpol-AmazonSageMakerClusterInstanceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerClusterInstanceRolePolicy.md")
-- [Amazon SageMaker AI updates to SageMaker HyperPod
-  managed policies](#security-iam-awsmanpol-hyperpod-updates "#security-iam-awsmanpol-hyperpod-updates")
+- [AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
+- [AWS managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md")
+- [AWS managed policy: AmazonSageMakerClusterInstanceRolePolicy](security-iam-awsmanpol-AmazonSageMakerClusterInstanceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerClusterInstanceRolePolicy.md")
+- [Amazon SageMaker AI updates to SageMaker HyperPod managed policies](#security-iam-awsmanpol-hyperpod-updates "#security-iam-awsmanpol-hyperpod-updates")
 
-## Amazon SageMaker AI updates to SageMaker HyperPod
-
-managed policies
+## Amazon SageMaker AI updates to SageMaker HyperPod managed policies
 
 View details about updates to AWS managed policies for SageMaker HyperPod since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

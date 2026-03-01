@@ -1,6 +1,4 @@
-# Validating runtime before running production workloads on a HyperPod Slurm
-
-cluster
+# Validating runtime before running production workloads on a HyperPod Slurm cluster
 
 To check the runtime before running any production workloads on a Slurm cluster on
 HyperPod, use the runtime validation script [`hyperpod-precheck.py`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/hyperpod-precheck.py "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/hyperpod-precheck.py"). This script checks if the Slurm

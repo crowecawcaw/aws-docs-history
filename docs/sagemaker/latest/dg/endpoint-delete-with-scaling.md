@@ -1,6 +1,4 @@
-# Delete endpoints configured for auto
-
-scaling
+# Delete endpoints configured for auto scaling
 
 If you delete an endpoint, Application Auto Scaling checks to see whether any of the models on that
 endpoint are targets for auto scaling. If any are and you have permission to deregister

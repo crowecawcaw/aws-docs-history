@@ -16,9 +16,6 @@ workshop](https://catalog.workshops.aws/sagemaker-hyperpod "https://catalog.work
 
 ###### In this topic:
 
-- [Getting started with
-  SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md")
-- [Creating
-  SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-slurm-console-create-cluster-cfn.md "smcluster-getting-started-slurm-console-create-cluster-cfn.md")
-- [Getting started with SageMaker HyperPod
-  using the AWS CLI](smcluster-getting-started-slurm-cli.md "smcluster-getting-started-slurm-cli.md")
+- [Getting started with SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md")
+- [Creating SageMaker HyperPod clusters using CloudFormation templates](smcluster-getting-started-slurm-console-create-cluster-cfn.md "smcluster-getting-started-slurm-console-create-cluster-cfn.md")
+- [Getting started with SageMaker HyperPod using the AWS CLI](smcluster-getting-started-slurm-cli.md "smcluster-getting-started-slurm-cli.md")

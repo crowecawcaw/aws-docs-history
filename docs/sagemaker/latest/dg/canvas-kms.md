@@ -32,8 +32,7 @@ steps:
   specify your own. If you specify your AWS KMS key, the data stored in the `/home/sagemaker-user` directory is encrypted with your key.
   If you don't specify an AWS KMS key, the data inside `/home/sagemaker-user` is encrypted with an AWS managed key. Regardless of whether you specify an AWS KMS key, all of the data outside of the working directory is encrypted with an AWS Managed Key.
   To learn more about the Studio space and your Canvas
-  application storage, see [Store SageMaker Canvas application data in your own SageMaker AI
-  space](canvas-spaces-setup.md "canvas-spaces-setup.md"). If creating a Canvas application with the
+  application storage, see [Store SageMaker Canvas application data in your own SageMaker AI space](canvas-spaces-setup.md "canvas-spaces-setup.md"). If creating a Canvas application with the
   [CreateApp](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md") API, use the `KmsKeyID` field to specify this
   key.
 
@@ -82,9 +81,7 @@ KMS key through the user’s IAM role, see [Specifying KMS keys in IAM
 policy statements](../../../kms/latest/developerguide/cmks-in-iam-policies.md "../../../kms/latest/developerguide/cmks-in-iam-policies.md") in the _AWS KMS Developer
 Guide_.
 
-### Encrypt your data in the SageMaker Canvas
-
-application
+### Encrypt your data in the SageMaker Canvas application
 
 The first KMS key you can use in SageMaker Canvas is used for encrypting application data
 stored on Amazon Elastic Block Store (Amazon EBS) volumes and in the Amazon Elastic File System that SageMaker AI creates in your
@@ -110,9 +107,7 @@ the domain.
    have a format similar to the following:
    `arn:aws:kms:example-region-1:123456789098:key/111aa2bb-333c-4d44-5555-a111bb2c33dd`
 
-### Encrypt your SageMaker Canvas data saved in
-
-Amazon S3
+### Encrypt your SageMaker Canvas data saved in Amazon S3
 
 The second KMS key you can specify is used for data that SageMaker Canvas stores to Amazon S3. This
 KMS key is specified in the `S3KMSKeyId` field in the

@@ -1,11 +1,8 @@
-# Extract information from documents with document
-
-querying
+# Extract information from documents with document querying
 
 ###### Note
 
-This section assumes that you’ve completed the section above [Prerequisites for document
-querying](canvas-fm-chat-prereqs.md#canvas-fm-chat-prereqs-kendra "canvas-fm-chat-prereqs.md#canvas-fm-chat-prereqs-kendra").
+This section assumes that you’ve completed the section above [Prerequisites for document querying](canvas-fm-chat-prereqs.md#canvas-fm-chat-prereqs-kendra "canvas-fm-chat-prereqs.md#canvas-fm-chat-prereqs-kendra").
 
 Document querying is a feature that you can use while interacting with foundation
 models in Canvas. With document querying, you can access a corpus of documents

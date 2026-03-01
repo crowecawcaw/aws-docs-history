@@ -1,6 +1,4 @@
-# Walk Through a SageMaker AI MLOps
-
-Project Using Third-party Git Repos
+# Walk Through a SageMaker AI MLOps Project Using Third-party Git Repos
 
 ###### Important
 
@@ -12,8 +10,7 @@ Studio Classic is still maintained for existing
 workloads but is no longer available for onboarding. You can only stop or delete existing Studio Classic
 applications and cannot create new ones. We recommend that you [migrate your workload to the new Studio experience](studio-updated-migrate.md "studio-updated-migrate.md").
 
-This walkthrough uses the template [MLOps templates for model
-building, training, and deployment with third-party Git using CodePipeline](sagemaker-projects-templates-sm.md#sagemaker-projects-templates-git-code-pipeline "sagemaker-projects-templates-sm.md#sagemaker-projects-templates-git-code-pipeline") to demonstrate how
+This walkthrough uses the template [MLOps templates for model building, training, and deployment with third-party Git using CodePipeline](sagemaker-projects-templates-sm.md#sagemaker-projects-templates-git-code-pipeline "sagemaker-projects-templates-sm.md#sagemaker-projects-templates-git-code-pipeline") to demonstrate how
 to use MLOps projects to create a CI/CD system to build, train, and deploy
 models.
 
@@ -22,9 +19,7 @@ models.
 To complete this walkthrough, you need:
 
 - An IAM or IAM Identity Center account to sign in to Studio Classic. For information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
-- Permission to use SageMaker AI-provided project templates. For information, see [Granting SageMaker Studio Permissions
-  Required to Use
-  Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md").
+- Permission to use SageMaker AI-provided project templates. For information, see [Granting SageMaker Studio Permissions Required to Use Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md").
 - Basic familiarity with the Studio Classic user interface. For information, see
   [Amazon SageMaker Studio Classic UI Overview](studio-ui.md "studio-ui.md").
 - Two empty GitHub repositories. You input these
@@ -33,22 +28,14 @@ To complete this walkthrough, you need:
 
 ###### Topics
 
-- [Step 1: Set up the GitHub
-  connection](#sagemaker-proejcts-walkthrough-connect-3rdgit "#sagemaker-proejcts-walkthrough-connect-3rdgit")
-- [Step 2: Create the
-  Project](#sagemaker-proejcts-walkthrough-create-3rdgit "#sagemaker-proejcts-walkthrough-create-3rdgit")
-- [Step 3: Make a Change in
-  the Code](#sagemaker-projects-walkthrough-change-3rdgit "#sagemaker-projects-walkthrough-change-3rdgit")
-- [Step 4: Approve the
-  Model](#sagemaker-proejcts-walkthrough-approve-3rdgit "#sagemaker-proejcts-walkthrough-approve-3rdgit")
-- [(Optional) Step 5: Deploy the
-  Model Version to Production](#sagemaker-projects-walkthrough-prod-3rdgit "#sagemaker-projects-walkthrough-prod-3rdgit")
-- [Step 6: Clean Up
-  Resources](#sagemaker-projectcts-walkthrough-cleanup-3rdgit "#sagemaker-projectcts-walkthrough-cleanup-3rdgit")
+- [Step 1: Set up the GitHub connection](#sagemaker-proejcts-walkthrough-connect-3rdgit "#sagemaker-proejcts-walkthrough-connect-3rdgit")
+- [Step 2: Create the Project](#sagemaker-proejcts-walkthrough-create-3rdgit "#sagemaker-proejcts-walkthrough-create-3rdgit")
+- [Step 3: Make a Change in the Code](#sagemaker-projects-walkthrough-change-3rdgit "#sagemaker-projects-walkthrough-change-3rdgit")
+- [Step 4: Approve the Model](#sagemaker-proejcts-walkthrough-approve-3rdgit "#sagemaker-proejcts-walkthrough-approve-3rdgit")
+- [(Optional) Step 5: Deploy the Model Version to Production](#sagemaker-projects-walkthrough-prod-3rdgit "#sagemaker-projects-walkthrough-prod-3rdgit")
+- [Step 6: Clean Up Resources](#sagemaker-projectcts-walkthrough-cleanup-3rdgit "#sagemaker-projectcts-walkthrough-cleanup-3rdgit")
 
-## Step 1: Set up the GitHub
-
-connection
+## Step 1: Set up the GitHub connection
 
 In this step, you connect to your GitHub repositories using an [AWS CodeConnections connection](../../../dtconsole/latest/userguide/welcome-connections.md "../../../dtconsole/latest/userguide/welcome-connections.md"). The SageMaker AI project uses this connection to access your
 source code repositories.
@@ -75,9 +62,7 @@ installation ID is automatically populated. 12. Choose **Connect**. 13. Add a ta
 to this CodeConnections connection. 14. Copy the connection ARN to save for later. You use the ARN as a parameter
 in the project creation step.
 
-## Step 2: Create the
-
-Project
+## Step 2: Create the Project
 
 In this step, you create a SageMaker AI MLOps project by using a SageMaker AI-provided project
 template to build, train, and deploy models.
@@ -121,9 +106,7 @@ name`.
 The project appears in the **Projects** list with a
 **Status** of **Created**.
 
-## Step 3: Make a Change in
-
-the Code
+## Step 3: Make a Change in the Code
 
 Now make a change to the pipeline code that builds the model and commit the change
 to initiate a new pipeline run. The pipeline run registers a new model
@@ -149,9 +132,7 @@ After you commit your code change, the MLOps system initiates a run of the
 pipeline that creates a new model version. In the next step, you approve the new
 model version to deploy it to production.
 
-## Step 4: Approve the
-
-Model
+## Step 4: Approve the Model
 
 Now you approve the new model version that was created in the previous step to
 initiate a deployment of the model version to a SageMaker AI endpoint.
@@ -179,9 +160,7 @@ Approving the model version causes the MLOps system to deploy the model to
 staging. To view the endpoint, choose the **Endpoints** tab
 on the project tab.
 
-## (Optional) Step 5: Deploy the
-
-Model Version to Production
+## (Optional) Step 5: Deploy the Model Version to Production
 
 Now you can deploy the model version to the production environment.
 
@@ -208,9 +187,7 @@ system to deploy the model to production. To view the endpoint, choose the
 **Endpoints** tab on the project tab in
 Studio Classic.
 
-## Step 6: Clean Up
-
-Resources
+## Step 6: Clean Up Resources
 
 To stop incurring charges, clean up the resources that were created in this
 walkthrough.

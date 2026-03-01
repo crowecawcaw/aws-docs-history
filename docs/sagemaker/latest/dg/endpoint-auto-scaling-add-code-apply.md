@@ -6,14 +6,10 @@ AWS Command Line Interface (AWS CLI) or the Application Auto Scaling API.
 
 ###### Topics
 
-- [Apply a target tracking
-  scaling policy (AWS CLI)](#endpoint-auto-scaling-add-code-apply-cli "#endpoint-auto-scaling-add-code-apply-cli")
-- [Apply a scaling policy
-  (Application Auto Scaling API)](#endpoint-auto-scaling-add-code-apply-api "#endpoint-auto-scaling-add-code-apply-api")
+- [Apply a target tracking scaling policy (AWS CLI)](#endpoint-auto-scaling-add-code-apply-cli "#endpoint-auto-scaling-add-code-apply-cli")
+- [Apply a scaling policy (Application Auto Scaling API)](#endpoint-auto-scaling-add-code-apply-api "#endpoint-auto-scaling-add-code-apply-api")
 
-## Apply a target tracking
-
-scaling policy (AWS CLI)
+## Apply a target tracking scaling policy (AWS CLI)
 
 To apply a scaling policy to your model, use the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") AWS CLI command with the following parameters:
 
@@ -50,9 +46,7 @@ aws application-autoscaling put-scaling-policy \
   --target-tracking-scaling-policy-configuration file://config.json
 ```
 
-## Apply a scaling policy
-
-(Application Auto Scaling API)
+## Apply a scaling policy (Application Auto Scaling API)
 
 To apply a scaling policy to a variant with the Application Auto Scaling API, use the [PutScalingPolicy](../../../autoscaling/application/APIReference/API_PutScalingPolicy.md "../../../autoscaling/application/APIReference/API_PutScalingPolicy.md") Application Auto Scaling API action with the following
 parameters:

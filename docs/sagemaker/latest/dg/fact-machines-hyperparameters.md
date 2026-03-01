@@ -1,6 +1,4 @@
-# Factorization Machines
-
-Hyperparameters
+# Factorization Machines Hyperparameters
 
 The following table contains the hyperparameters for the Factorization Machines algorithm.
 These are parameters that are set by users to facilitate the estimation of model

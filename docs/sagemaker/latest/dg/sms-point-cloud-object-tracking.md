@@ -1,6 +1,4 @@
-# Understand the 3D point cloud object
-
-tracking task type
+# Understand the 3D point cloud object tracking task type
 
 Use this task type when you want workers to add and fit 3D cuboids around objects to track
 their movement across 3D point cloud frames. For example, you can use this task type to ask
@@ -27,8 +25,7 @@ You can adjust annotations created in a 3D point cloud object detection labeling
 the 3D point cloud object tracking adjustment task type.
 
 If you are a new user of the Ground Truth 3D point cloud labeling modality, we recommend you
-review [3D point cloud labeling jobs
-overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
+review [3D point cloud labeling jobs overview](sms-point-cloud-general-information.md "sms-point-cloud-general-information.md"). This labeling modality is
 different from other Ground Truth task types, and this page provides an overview of important
 details you should be aware of when creating a 3D point cloud labeling job.
 
@@ -40,12 +37,7 @@ labeling jobs.
 
 ###### Topics
 
-- [Create a 3D point
-  cloud object tracking labeling job](sms-point-cloud-object-tracking-create-labeling-job.md "sms-point-cloud-object-tracking-create-labeling-job.md")
-- [View the worker task
-  interface for a 3D point cloud object tracking task](sms-point-cloud-object-tracking-worker-ui.md "sms-point-cloud-object-tracking-worker-ui.md")
-- [Output data for a 3D point
-  cloud object tracking labeling job](sms-point-cloud-object-tracking-output-data.md "sms-point-cloud-object-tracking-output-data.md")
-- [Information
-  for creating a 3D point cloud object tracking adjustment or verification labeling
-  job](sms-point-cloud-object-tracking-adjustment-verification.md "sms-point-cloud-object-tracking-adjustment-verification.md")
+- [Create a 3D point cloud object tracking labeling job](sms-point-cloud-object-tracking-create-labeling-job.md "sms-point-cloud-object-tracking-create-labeling-job.md")
+- [View the worker task interface for a 3D point cloud object tracking task](sms-point-cloud-object-tracking-worker-ui.md "sms-point-cloud-object-tracking-worker-ui.md")
+- [Output data for a 3D point cloud object tracking labeling job](sms-point-cloud-object-tracking-output-data.md "sms-point-cloud-object-tracking-output-data.md")
+- [Information for creating a 3D point cloud object tracking adjustment or verification labeling job](sms-point-cloud-object-tracking-adjustment-verification.md "sms-point-cloud-object-tracking-adjustment-verification.md")

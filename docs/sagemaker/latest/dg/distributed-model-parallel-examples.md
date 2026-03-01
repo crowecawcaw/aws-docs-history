@@ -1,6 +1,4 @@
-# Amazon SageMaker AI model parallelism library
-
-v1 examples
+# Amazon SageMaker AI model parallelism library v1 examples
 
 This page provides a list of blogs and Jupyter notebooks that present practical examples
 of implementing the SageMaker model parallelism (SMP) library v1 to run distributed training jobs

@@ -1,6 +1,4 @@
-# Deploy models with
-
-TorchServe
+# Deploy models with TorchServe
 
 TorchServe is the recommended model server for PyTorch, preinstalled in the AWS
 PyTorch Deep Learning Container (DLC). This powerful tool offers customers a consistent
@@ -31,9 +29,7 @@ The following table lists the AWS PyTorch DLCs supported by TorchServe.
 The following sections describe the setup to build and test PyTorch DLCs on
 Amazon SageMaker AI.
 
-## Getting
-
-started
+## Getting started
 
 To get started, ensure that you have the following prerequisites:
 
@@ -100,9 +96,7 @@ baseimage = sagemaker.image_uris.retrieve(
 mkdir -p workspace/
 ```
 
-## Adding a
-
-package
+## Adding a package
 
 The following sections describe how to add and preinstall packages to your PyTorch
 DLC image.
@@ -157,9 +151,7 @@ mkdir -p workspace/code
 
 ```
 
-## Create TorchServe
-
-model artifacts
+## Create TorchServe model artifacts
 
 In the following example, we use the pre-trained [MNIST model](https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist "https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist"). We create a directory `workspace/mnist`,
 implement [mnist_handler.py](https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py "https://github.com/pytorch/serve/blob/master/examples/image_classifier/mnist/mnist_handler.py") by following the [TorchServe custom service instructions](https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service "https://github.com/pytorch/serve/blob/master/docs/custom_service.md#custom-service"), and [configure the model parameters](https://github.com/pytorch/serve/tree/master/model-archiver#config-file "https://github.com/pytorch/serve/tree/master/model-archiver#config-file") (such as batch size and workers) in
@@ -212,9 +204,7 @@ cd workspace
     aws s3 cp mnist.tar.gz {output_path}/mnist.tar.gz
 ```
 
-## Using single
-
-model endpoints to deploy with TorchServe
+## Using single model endpoints to deploy with TorchServe
 
 The following example shows you how to create a [single model
 real-time inference endpoint](realtime-endpoints-deployment.md "realtime-endpoints-deployment.md"), deploy the model to the endpoint, and test
@@ -247,9 +237,7 @@ from sagemaker.model import Model
     res = predictor.predict(dummy_data)
 ```
 
-## Using multi-model endpoints to
-
-deploy with TorchServe
+## Using multi-model endpoints to deploy with TorchServe
 
 [Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md") are a scalable and cost-effective solution to
 hosting large numbers of models behind one endpoint. They improve endpoint

@@ -1,6 +1,4 @@
-# 3D point cloud labeling jobs
-
-overview
+# 3D point cloud labeling jobs overview
 
 This topic provides an overview of the unique features of a Ground Truth 3D point cloud labeling
 job. You can use the 3D point cloud labeling jobs to have workers label objects in a 3D
@@ -138,9 +136,7 @@ add label category and frame attributes to a labeling job, use the **Create
 Labeling Job** section on the [task type page](sms-point-cloud-task-types.md "sms-point-cloud-task-types.md") of
 your choice.
 
-#### Label category
-
-attributes
+#### Label category attributes
 
 Add label category attributes to labels to give workers the ability to provide
 more information about the annotations they create. A label category attribute

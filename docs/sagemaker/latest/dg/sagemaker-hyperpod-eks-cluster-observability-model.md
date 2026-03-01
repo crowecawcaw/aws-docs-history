@@ -1,6 +1,4 @@
-# Model observability
-
-for training jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS
+# Model observability for training jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS
 
 SageMaker HyperPod clusters orchestrated with Amazon EKS can integrate with the [MLflow application on
 Amazon SageMaker Studio](mlflow.md "mlflow.md"). Cluster admins set up the MLflow server and connect it with

@@ -15,8 +15,6 @@ notebook. To create a custom kernel to use with your notebooks, see [Custom Imag
 
 ###### Topics
 
-- [Change the Instance
-  Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md")
+- [Change the Instance Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md")
 - [Change the Image or a Kernel for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-change-image.md "notebooks-run-and-manage-change-image.md")
-- [Shut Down Resources from
-  Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md")
+- [Shut Down Resources from Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md")

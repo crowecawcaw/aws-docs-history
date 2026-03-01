@@ -9,15 +9,13 @@ The search functionality helps find the features that are relevant to your use c
 The feature groups where you're searching for features must be within your
 AWS Region and AWS account. For shared feature groups, the feature groups must be
 made discoverable to your AWS account. For more instructions on how to share the
-feature group catalog and grant discoverability, see [Share
-your feature group catalog](feature-store-cross-account-discoverability-share-feature-group-catalog.md "feature-store-cross-account-discoverability-share-feature-group-catalog.md").
+feature group catalog and grant discoverability, see [Share your feature group catalog](feature-store-cross-account-discoverability-share-feature-group-catalog.md "feature-store-cross-account-discoverability-share-feature-group-catalog.md").
 
 If you're on a team, and teammates are looking for features to use in their models, they
 can search through the features in all of the feature groups.
 
 You can add searchable parameters and descriptions to make your features more
-discoverable. For more information, see [Adding searchable metadata to your
-features](feature-store-add-metadata.md "feature-store-add-metadata.md").
+discoverable. For more information, see [Adding searchable metadata to your features](feature-store-add-metadata.md "feature-store-add-metadata.md").
 
 You can search for features using either the console or by using the [`Search`](../APIReference/API_Search.md "../APIReference/API_Search.md") API operation in SageMaker AI. The following table lists all of
 the searchable metadata and whether you can search for it in the console or with the
@@ -34,9 +32,7 @@ API.
 | Last modified time  | LastModifiedTime | No                         |
 | Parameters          | Parameters.`key` | Yes                        |
 
-## How to search for your
-
-features
+## How to search for your features
 
 The instructions for using Feature Store through the console depends on whether you have
 enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your default experience. Choose one of

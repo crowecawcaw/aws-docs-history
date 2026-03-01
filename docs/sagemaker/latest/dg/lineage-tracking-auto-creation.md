@@ -1,6 +1,4 @@
-# Amazon SageMaker AI–Created Tracking
-
-Entities
+# Amazon SageMaker AI–Created Tracking Entities
 
 Amazon SageMaker AI automatically creates tracking entities for SageMaker AI jobs, models, model packages,
 and endpoints if the data is available. There is no limit to the number of lineage entities
@@ -11,10 +9,8 @@ For information on how you can manually create tracking entities, see [Manually 
 ###### Topics
 
 - [Tracking Entities for SageMaker AI Jobs](#lineage-tracking-auto-creation-jobs "#lineage-tracking-auto-creation-jobs")
-- [Tracking Entities for Model
-  Packages](#lineage-tracking-auto-creation-model-package "#lineage-tracking-auto-creation-model-package")
-- [Tracking Entities for
-  Endpoints](#lineage-tracking-auto-creation-endpoint "#lineage-tracking-auto-creation-endpoint")
+- [Tracking Entities for Model Packages](#lineage-tracking-auto-creation-model-package "#lineage-tracking-auto-creation-model-package")
+- [Tracking Entities for Endpoints](#lineage-tracking-auto-creation-endpoint "#lineage-tracking-auto-creation-endpoint")
 
 ## Tracking Entities for SageMaker AI Jobs
 
@@ -50,9 +46,7 @@ Amazon Simple Storage Service (Amazon S3) artifacts are tracked based on the Ama
 Create API, for example [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md"), and not on the Amazon S3 key and hash or etag values from each
 file.
 
-## Tracking Entities for Model
-
-Packages
+## Tracking Entities for Model Packages
 
 The following entities are created:
 
@@ -77,9 +71,7 @@ The following entities are created:
   - An artifact for the model created by each algorithm.
   - An association between each artifact and the model package artifact.
 
-## Tracking Entities for
-
-Endpoints
+## Tracking Entities for Endpoints
 
 The following entities are created by Amazon SageMaker AI:
 

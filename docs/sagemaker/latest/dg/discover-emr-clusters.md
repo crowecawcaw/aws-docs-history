@@ -1,6 +1,4 @@
-# List Amazon EMR clusters from Studio or
-
-Studio Classic
+# List Amazon EMR clusters from Studio or Studio Classic
 
 Data scientists and data engineers can discover, and then connect to Amazon EMR clusters
 from Studio. The Amazon EMR clusters may be in the same AWS account as Studio or
@@ -24,5 +22,4 @@ The list displays clusters in the following stages:
 **Bootstrapping**, **Starting**
 **Running**, **Waiting**. You can narrow down
 the displayed clusters by their current status using the filter icon. 2. Choose a particular **Running** cluster you want to connect
-to, and then refer to [Connect to an Amazon EMR cluster from SageMaker Studio
-or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md").
+to, and then refer to [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md").

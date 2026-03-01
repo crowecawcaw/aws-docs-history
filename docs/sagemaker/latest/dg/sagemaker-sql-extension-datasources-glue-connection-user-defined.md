@@ -1,6 +1,4 @@
-# Create
-
-user-defined AWS Glue connections
+# Create user-defined AWS Glue connections
 
 ###### Note
 
@@ -27,8 +25,7 @@ completed the following tasks:
     data sources to which you want to connect. To learn about the networking
     requirements, see [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").
   - Ensure that the necessary IAM permissions are set up for managing AWS Glue
-    connections and access to Secrets Manager. To learn about the required permissions, see [Set up the IAM
-    permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
+    connections and access to Secrets Manager. To learn about the required permissions, see [Set up the IAM permissions to access the data sources (for administrators)](sagemaker-sql-extension-datasources-connection-permissions.md "sagemaker-sql-extension-datasources-connection-permissions.md").
 
   ###### Note
 
@@ -37,8 +34,7 @@ completed the following tasks:
   configuring [tag-based access control](sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions "sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions") scoped down to the user profile.
 
 - Check the connection properties and instructions to create a secret for your data
-  source in [Create secrets for database
-  access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
+  source in [Create secrets for database access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
 
 ## User workflow
 
@@ -55,8 +51,7 @@ The following steps provide the user workflow when creating user connections:
 3. **Select your AWS Secrets Manager ARN**: For Amazon Redshift and Snowflake
    data sources, the user is prompted to select the AWS Secrets Manager ARN that stores
    sensitive information such as the username and password. To learn about the creation of
-   a secret for your data source, see [Create secrets for database
-   access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
+   a secret for your data source, see [Create secrets for database access credentials in Secrets Manager](sagemaker-sql-extension-glue-connection-secrets.md "sagemaker-sql-extension-glue-connection-secrets.md").
 4. **Save your connection details**: Upon clicking
    **Create**, the provided connection properties are saved as a AWS Glue
    connection.
@@ -69,5 +64,4 @@ The following steps provide the user workflow when creating user connections:
 7. **(Optional) Update or delete user-created
    connections**: Provided that the user has been granted the necessary
    permissions, they can update or delete the connections they have created. To learn more
-   about the required permissions, see [User-defined connections required
-   IAM permissions](sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions "sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions").
+   about the required permissions, see [User-defined connections required IAM permissions](sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions "sagemaker-sql-extension-datasources-connection-permissions.md#user-defined-connections-permissions").

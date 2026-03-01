@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics computed by the Image Classification - TensorFlow
-
-algorithm
+## Metrics computed by the Image Classification - TensorFlow algorithm
 
 The image classification algorithm is a supervised algorithm. It reports an
 accuracy metric that is computed during training. When tuning the model, choose this
@@ -22,9 +20,7 @@ metric as the objective metric.
 | --------------------- | ------------------------------------------------------------------------------------------ | ---------------------- |
 | `validation:accuracy` | The ratio of the number of correct predictions to the total<br>number of predictions made. | Maximize               |
 
-## Tunable Image Classification - TensorFlow
-
-hyperparameters
+## Tunable Image Classification - TensorFlow hyperparameters
 
 Tune an image classification model with the following hyperparameters. The
 hyperparameters that have the greatest impact on image classification objective
@@ -37,8 +33,7 @@ selected `optimizer`. For example, use `beta_1` and
 `optimizer`.
 
 For more information about which hyperparameters are used for each `optimizer`, see
-[Image Classification - TensorFlow
-Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md").
+[Image Classification - TensorFlow Hyperparameters](IC-TF-Hyperparameter.md "IC-TF-Hyperparameter.md").
 
 | Parameter Name         | Parameter Type             | Recommended Ranges                                            |
 | ---------------------- | -------------------------- | ------------------------------------------------------------- |

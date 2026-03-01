@@ -34,9 +34,7 @@ offline store:
   `RecordIdentifierValue` and set to `True` in the offline
   store.
 
-## Amazon SageMaker Feature Store offline store URI
-
-structures
+## Amazon SageMaker Feature Store offline store URI structures
 
 In the following examples `amzn-s3-demo-bucket` is the Amazon S3 bucket within
 your account, `example-prefix` is your example

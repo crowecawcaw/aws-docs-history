@@ -1,6 +1,4 @@
-# Understand the hyperparameter tuning
-
-strategies available in Amazon SageMaker AI
+# Understand the hyperparameter tuning strategies available in Amazon SageMaker AI
 
 When you build complex machine learning systems like deep learning neural networks,
 exploring all of the possible combinations is impractical. Hyperparameter tuning can
@@ -119,9 +117,7 @@ For more information about Hyperband, see the following links:
 - [Model-based Asynchronous
   Hyperparameter and Neural Architecture Search](https://openreview.net/pdf?id=a2rFihIU7i "https://openreview.net/pdf?id=a2rFihIU7i")
 
-### Hyperband with early
-
-stopping
+### Hyperband with early stopping
 
 Training jobs can be stopped early when they are unlikely to improve the objective
 metric of the hyperparameter tuning job. This can help reduce compute time and avoid

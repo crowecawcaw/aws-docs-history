@@ -24,8 +24,7 @@ Admins can complete the following prerequisites to set up Partner AI Apps.
   domain. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
   - If using Partner AI Apps in a SageMaker AI domain in VPC-only mode, admins must create an endpoint
     with the following format to connect to the Partner AI Apps. For more information about using
-    Studio in VPC-only mode, see [Connect Amazon SageMaker Studio
-    in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md").
+    Studio in VPC-only mode, see [Connect Amazon SageMaker Studio in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md").
 
   ```
   aws.sagemaker.`region`.partner-app
@@ -285,9 +284,7 @@ JSON
 
 ```
 
-### Manage user authorization and
-
-authentication
+### Manage user authorization and authentication
 
 To provide access to Partner AI Apps to members of their team, admins must make sure that the
 identity of their users is propagated to the Partner AI Apps. This propagation makes sure users can

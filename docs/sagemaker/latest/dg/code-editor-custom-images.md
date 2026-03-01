@@ -11,14 +11,10 @@ learn about custom Amazon SageMaker AI images and how to bring your own image to
 
 ###### Topics
 
-- [Health check and URL for
-  applications](#code-editor-custom-images-app-healthcheck "#code-editor-custom-images-app-healthcheck")
-- [Dockerfile
-  examples](#code-editor-custom-images-dockerfile-templates "#code-editor-custom-images-dockerfile-templates")
+- [Health check and URL for applications](#code-editor-custom-images-app-healthcheck "#code-editor-custom-images-app-healthcheck")
+- [Dockerfile examples](#code-editor-custom-images-dockerfile-templates "#code-editor-custom-images-dockerfile-templates")
 
-## Health check and URL for
-
-applications
+## Health check and URL for applications
 
 - `Base URL` – The base URL for the BYOI application must be
   `CodeEditor/default`. You can only have one application and it must
@@ -35,9 +31,7 @@ If you are using Amazon SageMaker Distribution as the base image, these requirem
 already taken care of as part of the included `entrypoint-code-editor`
 script.
 
-## Dockerfile
-
-examples
+## Dockerfile examples
 
 The following examples are `Dockerfile`s that meets the above
 information and [Custom image specifications](studio-updated-byoi-specs.md "studio-updated-byoi-specs.md").

@@ -18,6 +18,5 @@ more, see [Create a Video Frame Input Manifest File](sms-video-manual-data-setup
 
 ###### Topics
 
-- [Choose Video Files or Video Frames for Input
-  Data](sms-point-cloud-video-input-data.md "sms-point-cloud-video-input-data.md")
+- [Choose Video Files or Video Frames for Input Data](sms-point-cloud-video-input-data.md "sms-point-cloud-video-input-data.md")
 - [Input Data Setup](sms-video-data-setup.md "sms-video-data-setup.md")

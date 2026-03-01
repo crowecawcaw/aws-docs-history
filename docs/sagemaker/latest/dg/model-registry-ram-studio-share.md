@@ -1,6 +1,4 @@
-# Share model group in
-
-Studio
+# Share model group in Studio
 
 You can share your model groups with other AWS principals (AWS accounts or
 AWS Organizations) using the Studio UI. This streamlined sharing process enables

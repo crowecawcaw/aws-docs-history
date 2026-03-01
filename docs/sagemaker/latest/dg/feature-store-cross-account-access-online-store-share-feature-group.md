@@ -1,6 +1,4 @@
-# Share
-
-your feature group entities
+# Share your feature group entities
 
 As the resource owner account you can use the feature group resource type for Amazon SageMaker Feature Store to
 share feature group entities, by creating a resource share in AWS Resource Access Manager (AWS RAM).
@@ -41,8 +39,7 @@ following choices.
     and discover feature groups from the resource owner account, the resource owner account must
     grant the discoverability permission to the resource consumer accounts, where _all_ of the feature groups within the resource owner account are
     discoverable by the resource consumer accounts. For more information about granting the
-    discoverability permission, see [Enabling cross account
-    discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
+    discoverability permission, see [Enabling cross account discoverability](feature-store-cross-account-discoverability.md "feature-store-cross-account-discoverability.md").
 
 If the resource consumer accounts are only granted access permissions, the feature group
 entities can still be viewed on AWS RAM. To view resources on AWS RAM, see [Access AWS

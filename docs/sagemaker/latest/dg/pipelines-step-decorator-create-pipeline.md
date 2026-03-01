@@ -1,6 +1,4 @@
-# Create a pipeline
-
-with `@step`-decorated functions
+# Create a pipeline with `@step`-decorated functions
 
 You can create a pipeline by converting Python functions into pipeline steps
 using the `@step` decorator, creating dependencies between those functions
@@ -121,9 +119,7 @@ get_step(step_train_result).add_depends_on([step_process_result])
 
 ```
 
-### Pass data to and from a `@step`-decorated function
-
-to a traditional pipeline step
+### Pass data to and from a `@step`-decorated function to a traditional pipeline step
 
 You can
 create a pipeline that includes a `@step`-decorated step and a

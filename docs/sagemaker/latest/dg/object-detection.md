@@ -11,21 +11,15 @@ from scratch, or trained with models that have been pre-trained on the [ImageNet
 
 ###### Topics
 
-- [Input/Output Interface for the Object
-  Detection Algorithm](#object-detection-inputoutput "#object-detection-inputoutput")
-- [EC2 Instance Recommendation for the Object
-  Detection Algorithm](#object-detection-instances "#object-detection-instances")
-- [Object Detection Sample
-  Notebooks](#object-detection-sample-notebooks "#object-detection-sample-notebooks")
+- [Input/Output Interface for the Object Detection Algorithm](#object-detection-inputoutput "#object-detection-inputoutput")
+- [EC2 Instance Recommendation for the Object Detection Algorithm](#object-detection-instances "#object-detection-instances")
+- [Object Detection Sample Notebooks](#object-detection-sample-notebooks "#object-detection-sample-notebooks")
 - [How Object Detection Works](algo-object-detection-tech-notes.md "algo-object-detection-tech-notes.md")
 - [Object Detection Hyperparameters](object-detection-api-config.md "object-detection-api-config.md")
 - [Tune an Object Detection Model](object-detection-tuning.md "object-detection-tuning.md")
-- [Object Detection Request and Response
-  Formats](object-detection-in-formats.md "object-detection-in-formats.md")
+- [Object Detection Request and Response Formats](object-detection-in-formats.md "object-detection-in-formats.md")
 
-## Input/Output Interface for the Object
-
-Detection Algorithm
+## Input/Output Interface for the Object Detection Algorithm
 
 The SageMaker AI Object Detection algorithm supports both RecordIO
 (`application/x-recordio`) and image (`image/png`,
@@ -45,13 +39,10 @@ To maintain better interoperability with existing deep learning frameworks, this
 differs from the protobuf data formats commonly used by other Amazon SageMaker AI
 algorithms.
 
-See the [Object Detection Sample
-Notebooks](#object-detection-sample-notebooks "#object-detection-sample-notebooks") for more details on data
+See the [Object Detection Sample Notebooks](#object-detection-sample-notebooks "#object-detection-sample-notebooks") for more details on data
 formats.
 
-### Train with the RecordIO
-
-Format
+### Train with the RecordIO Format
 
 If you use the RecordIO format for training, specify both train and validation
 channels as values for the `InputDataConfig` parameter of the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") request. Specify one RecordIO (.rec) file
@@ -63,9 +54,7 @@ GluonCV](https://gluon-cv.mxnet.io/build/examples_datasets/recordio.html "https:
 Classes](http://host.robots.ox.ac.uk/pascal/VOC/ "http://host.robots.ox.ac.uk/pascal/VOC/") and [Common Objects in
 Context (COCO)](http://cocodataset.org/#home "http://cocodataset.org/#home").
 
-### Train with the Image
-
-Format
+### Train with the Image Format
 
 If you use the image format for training, specify `train`,
 `validation`, `train_annotation`, and
@@ -153,9 +142,7 @@ and class name. The class indices should be numbered successively and the number
 should start with 0. The `"categories"` property is optional for the
 annotation .json file
 
-### Train with Augmented
-
-Manifest Image Format
+### Train with Augmented Manifest Image Format
 
 The augmented manifest format enables you to do training in pipe mode using image
 files without needing to create RecordIO files. You need to specify both train and
@@ -207,9 +194,7 @@ input data.
 For more
 information on incremental training and for instructions on how to use it, see [Use Incremental Training in Amazon SageMaker AI](incremental-training.md "incremental-training.md").
 
-## EC2 Instance Recommendation for the Object
-
-Detection Algorithm
+## EC2 Instance Recommendation for the Object Detection Algorithm
 
 The object detection algorithm supports P2, P3, G4dn, and G5 GPU instance families.
 We recommend using GPU instances with more memory for training with large batch sizes.
@@ -217,9 +202,7 @@ You can run the object detection algorithm on multi-GPU and mult-machine setting
 
 You can use both CPU (such as C5 and M5) and GPU (such as P3 and G4dn) instances for inference.
 
-## Object Detection Sample
-
-Notebooks
+## Object Detection Sample Notebooks
 
 For a sample notebook that shows how to use the SageMaker AI Object Detection algorithm to
 train and host a model on the

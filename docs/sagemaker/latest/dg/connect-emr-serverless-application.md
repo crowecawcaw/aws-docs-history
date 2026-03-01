@@ -1,11 +1,8 @@
-# Connect to an EMR Serverless
-
-application from Studio
+# Connect to an EMR Serverless application from Studio
 
 Data scientists and data engineers can discover and then connect to an EMR Serverless
 application directly from the Studio user interface. Before you begin, ensure that
-you have created an EMR Serverless application by following the instructions in [Create EMR Serverless applications
-from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md").
+you have created an EMR Serverless application by following the instructions in [Create EMR Serverless applications from Studio](create-emr-serverless-application.md "create-emr-serverless-application.md").
 
 You can connect an EMR Serverless application to a new JupyterLab notebook directly
 from the Studio UI, or choose to initiate the connection in a notebook of a running
@@ -19,9 +16,7 @@ Ensure that the EMR Serverless applications are located in the same AWS region a
 your Studio environment. Your JupyterLab space must use a SageMaker Distribution
 image version `1.10` or higher.
 
-###### To connect an EMR Serverless application to a new JupyterLab notebook from the
-
-Studio UI:
+###### To connect an EMR Serverless application to a new JupyterLab notebook from the Studio UI:
 
 1. In the Studio UI, navigate to the left-side panel and select the
    **Data** node in the left navigation menu. Then, scroll and
@@ -56,8 +51,7 @@ EMR Serverless application.
 
 To successfully connect a JupyterLab notebook to an EMR Serverless
 application, you must first associate the list of runtime roles with your
-domain or user profile, as outlined in [Set up the permissions to enable
-listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md"). Failing to complete this
+domain or user profile, as outlined in [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md"). Failing to complete this
 step will prevent you from establishing the connection.
 
 Once the connection succeeds, a message confirms the connection, starts your
@@ -78,8 +72,7 @@ from either `Stopped` or `Created` to
 2. Select the application to which you want to connect, then choose
    **Connect**.
 3. EMR Serverless supports runtime IAM roles that were preloaded when setting
-   the required permissions as outlined in [Set up the permissions to enable
-   listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md"). Failing to complete this step
+   the required permissions as outlined in [Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio](studio-emr-serverless-permissions.md "studio-emr-serverless-permissions.md"). Failing to complete this step
    will prevent you from establishing the connection.
 
 You can select your role from the **Amazon EMR execution role**

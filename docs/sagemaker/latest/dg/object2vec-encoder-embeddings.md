@@ -3,15 +3,12 @@
 The following page lists the input request and output response formats for getting encoder embedding inference
 from the Amazon SageMaker AI Object2Vec model.
 
-## GPU
-
-optimization: Encoder Embeddings
+## GPU optimization: Encoder Embeddings
 
 An embedding is a mapping from discrete objects, such as words, to vectors of real numbers.
 
 Due to GPU memory scarcity, the `INFERENCE_PREFERRED_MODE` environment
-variable can be specified to optimize on whether the [Data Formats for Object2Vec
-Inference](object2vec-inference-formats.md "object2vec-inference-formats.md") or the encoder embedding inference
+variable can be specified to optimize on whether the [Data Formats for Object2Vec Inference](object2vec-inference-formats.md "object2vec-inference-formats.md") or the encoder embedding inference
 network is loaded into GPU. If the majority of your inference is for encoder
 embeddings, specify `INFERENCE_PREFERRED_MODE=embedding`. The following
 is a Batch Transform example of using 4 instances of p3.2xlarge that optimizes for
@@ -27,9 +24,7 @@ transformer = o2v.transformer(instance_count=4,
                               output_path=output_s3_path)
 ```
 
-## Input: Encoder
-
-Embeddings
+## Input: Encoder Embeddings
 
 Content-type: application/json;
 infer_max_seqlens=<FWD-LENGTH>,<BCK-LENGTH>
@@ -63,9 +58,7 @@ In both of these formats, you specify only one input type: `“in0”` or
 `“in1.”` The inference service then invokes the corresponding encoder
 and outputs the embeddings for each of the instances.
 
-## Output: Encoder
-
-Embeddings
+## Output: Encoder Embeddings
 
 Content-type:
 application/json

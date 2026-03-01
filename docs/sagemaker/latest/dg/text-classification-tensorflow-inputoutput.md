@@ -1,6 +1,4 @@
-# Input and output interface
-
-for the Text Classification - TensorFlow algorithm
+# Input and output interface for the Text Classification - TensorFlow algorithm
 
 Each of the pretrained models listed in TensorFlow Hub Models can be fine-tuned to any
 dataset made up of text sentences with any number of classes. The pretrained model
@@ -48,9 +46,7 @@ fine-tuned model.
 For more information on using incremental training with the SageMaker AI Text
 Classification - TensorFlow algorithm, see the [Introduction to JumpStart - Text Classification](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_Text_Classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_Text_Classification.ipynb") sample notebook.
 
-## Inference with the Text Classification - TensorFlow
-
-algorithm
+## Inference with the Text Classification - TensorFlow algorithm
 
 You can host the fine-tuned model that results from your TensorFlow Text Classification
 training for inference. Any raw text formats for inference must be content type

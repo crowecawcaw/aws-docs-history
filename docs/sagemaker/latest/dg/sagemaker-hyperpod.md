@@ -9,8 +9,7 @@ H100 Graphical Processing Units (GPUs). When accelerators fail, the resiliency f
 SageMaker HyperPod monitor the cluster instances automatically detect and replace the faulty
 hardware on the fly so that you can focus on running ML workloads.
 
-To get started, check [Prerequisites for using
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md"), set up [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md"), and choose one of the following
+To get started, check [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md"), set up [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md"), and choose one of the following
 orchestrator options supported by SageMaker HyperPod.
 
 **Slurm support in SageMaker HyperPod**
@@ -24,8 +23,7 @@ direct access to cluster nodes for job scheduling. With HyperPod's lifecycle
 configuration support, you can customize the computing environment of the clusters to meet
 your specific requirements. Additionally, by leveraging the Amazon SageMaker AI distributed training
 libraries, you can optimize the clusters' performance on AWS computing and network
-resources. To learn more, see [Orchestrating SageMaker HyperPod clusters with
-Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
+resources. To learn more, see [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md").
 
 **Amazon EKS support in SageMaker HyperPod**
 
@@ -38,8 +36,7 @@ containerized workloads for training foundation models, inference on the EKS clu
 leveraging the job auto-resume capability for Kubeflow PyTorch training. The architecture
 involves a 1-to-1 mapping between an EKS cluster (control plane) and a HyperPod
 cluster (worker nodes) within a VPC, providing a tightly integrated solution for running
-large-scale ML workloads. To learn more, see [Orchestrating SageMaker HyperPod clusters with
-Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").
+large-scale ML workloads. To learn more, see [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md").
 
 **UltraServers with HyperPod**
 
@@ -63,9 +60,7 @@ For example, if you want 14 instances and have 2 UltraServers in your plan, Sage
 instances in the first UltraServer. If you want 20 instances, SageMaker AI uses all 18 instances in the first
 UltraServer and then uses 2 more from the second.
 
-## AWS Regions supported by
-
-SageMaker HyperPod
+## AWS Regions supported by SageMaker HyperPod
 
 SageMaker HyperPod is available in the following AWS Regions.
 
@@ -89,18 +84,14 @@ SageMaker HyperPod is available in the following AWS Regions.
 ###### Topics
 
 - [Amazon SageMaker HyperPod quickstart](sagemaker-hyperpod-quickstart.md "sagemaker-hyperpod-quickstart.md")
-- [Prerequisites for using
-  SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md")
+- [Prerequisites for using SageMaker HyperPod](sagemaker-hyperpod-prerequisites.md "sagemaker-hyperpod-prerequisites.md")
 - [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md")
 - [Customer managed AWS KMS key encryption for SageMaker HyperPod](smcluster-cmk.md "smcluster-cmk.md")
 - [SageMaker HyperPod recipes](sagemaker-hyperpod-recipes.md "sagemaker-hyperpod-recipes.md")
-- [Orchestrating SageMaker HyperPod clusters with
-  Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
-- [Orchestrating SageMaker HyperPod clusters with
-  Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
+- [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
+- [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
 - [Using topology-aware scheduling in Amazon SageMaker HyperPod](sagemaker-hyperpod-topology.md "sagemaker-hyperpod-topology.md")
-- [Deploying models on
-  Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md")
+- [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md")
 - [HyperPod in Studio](sagemaker-hyperpod-studio.md "sagemaker-hyperpod-studio.md")
 - [SageMaker HyperPod references](sagemaker-hyperpod-ref.md "sagemaker-hyperpod-ref.md")
 - [Amazon SageMaker HyperPod release notes](sagemaker-hyperpod-release-notes.md "sagemaker-hyperpod-release-notes.md")

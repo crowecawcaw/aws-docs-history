@@ -1,6 +1,4 @@
-# Connect Amazon SageMaker Studio
-
-in a VPC to External Resources
+# Connect Amazon SageMaker Studio in a VPC to External Resources
 
 ###### Important
 
@@ -13,14 +11,10 @@ to external resources.
 
 ###### Topics
 
-- [Default communication
-  with the internet](#studio-notebooks-and-internet-access-default-setting "#studio-notebooks-and-internet-access-default-setting")
-- [VPC only
-  communication with the internet](#studio-notebooks-and-internet-access-vpc-only "#studio-notebooks-and-internet-access-vpc-only")
+- [Default communication with the internet](#studio-notebooks-and-internet-access-default-setting "#studio-notebooks-and-internet-access-default-setting")
+- [VPC only communication with the internet](#studio-notebooks-and-internet-access-vpc-only "#studio-notebooks-and-internet-access-vpc-only")
 
-## Default communication
-
-with the internet
+## Default communication with the internet
 
 By default, Amazon SageMaker Studio provides a network interface that allows communication
 with the internet through a VPC managed by SageMaker AI. Traffic to AWS services like Amazon S3
@@ -28,9 +22,7 @@ and CloudWatch goes through an internet gateway, as does traffic that accesses t
 API and SageMaker AI runtime. Traffic between the domain and your Amazon EFS volume goes through
 the VPC that you specified when you onboarded to the domain or called the [CreateDomain](../APIReference/API_CreateDomain.md "../APIReference/API_CreateDomain.md") API.
 
-## `VPC only`
-
-communication with the internet
+## `VPC only` communication with the internet
 
 To prevent SageMaker AI from providing internet access to Studio, you
 can disable internet access by specifying the `VPC only` network access

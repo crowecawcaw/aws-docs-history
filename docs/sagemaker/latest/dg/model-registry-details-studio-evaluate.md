@@ -1,6 +1,4 @@
-# Add an evaluation job
-
-(Studio)
+# Add an evaluation job (Studio)
 
 ###### Important
 
@@ -15,9 +13,7 @@ add a job from Amazon S3, SageMaker AI prepopulates the fields for all of the su
 **Evaluate** tab. If you define your own evaluation job,
 you need to add details related to your evaluation job manually.
 
-###### To add your first evaluation job to your model package, complete the
-
-following steps.
+###### To add your first evaluation job to your model package, complete the following steps.
 
 1. Choose the **Evaluate** tab.
 2. Choose **Add**.
@@ -37,9 +33,7 @@ following steps.
       2. Enter a name for the evaluation job.
       3. Choose **Add**.
 
-###### To add an additional evaluation job to your model package, complete the
-
-following steps.
+###### To add an additional evaluation job to your model package, complete the following steps.
 
 1. Choose the **Evaluate** tab.
 2. Choose the **Gear** (

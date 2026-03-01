@@ -1,6 +1,4 @@
-# Create a label verification job
-
-(console)
+# Create a label verification job (console)
 
 Use one of the following sections to create a label verification job for your task
 type. Bounding box and semantic segmentation labeling jobs are created by choosing the
@@ -8,9 +6,7 @@ type. Bounding box and semantic segmentation labeling jobs are created by choosi
 verification job for 3D point cloud and video frame task types, you must choose the same
 task type as the original labeling job and choose to display existing labels.
 
-## Create an image label
-
-verification job (console)
+## Create an image label verification job (console)
 
 Use the following procedure to create a bounding box or semantic segmentation
 verification job using the console. This procedure assumes that you have already
@@ -49,9 +45,7 @@ displaying the prior labels correctly and presents the label verification
 task clearly. 10. Select **Create**. This will create and start your
 labeling job.
 
-## Create a point cloud or video frame label
-
-verification job (console)
+## Create a point cloud or video frame label verification job (console)
 
 Use the following procedure to create a 3D point cloud or video frame verification job
 using the console. This procedure assumes that you have already created a labeling job

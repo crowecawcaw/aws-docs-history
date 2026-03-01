@@ -3,18 +3,14 @@
 To invoke a function inside the @remote decorator, use either of the following
 methods:
 
-- [Use an @remote
-  decorator to invoke a function](#train-remote-decorator-invocation-decorator "#train-remote-decorator-invocation-decorator").
-- [Use the
-  RemoteExecutor API to invoke a function](#train-remote-decorator-invocation-api "#train-remote-decorator-invocation-api").
+- [Use an @remote decorator to invoke a function](#train-remote-decorator-invocation-decorator "#train-remote-decorator-invocation-decorator").
+- [Use the RemoteExecutor API to invoke a function](#train-remote-decorator-invocation-api "#train-remote-decorator-invocation-api").
   If you use the @remote decorator method to invoke a function, the training job will
   wait for the function to complete before starting a new task. However, if you use the
   `RemoteExecutor` API, you can run more than one job in parallel. The
   following sections show both ways of invoking a function.
 
-## Use an @remote
-
-decorator to invoke a function
+## Use an @remote decorator to invoke a function
 
 You can use the @remote decorator to annotate a function. SageMaker AI will transform the
 code inside the decorator into a SageMaker training job. The training job will then
@@ -75,9 +71,7 @@ with pytest.raises(ZeroDivisionError):
 The decorated function is run as a remote job. If the thread is interrupted,
 the underlying job will not be stopped.
 
-### How to
-
-change the value of a local variable
+### How to change the value of a local variable
 
 The decorator function is run on a remote machine. Changing a non-local
 variable or input arguments inside a decorated function will not change the
@@ -130,9 +124,7 @@ a = func(a)
 -> {"key-1": "value-1", "key-2": "value-2"}
 ```
 
-### Data
-
-serialization and deserialization
+### Data serialization and deserialization
 
 When you invoke a remote function, SageMaker AI automatically serializes your function
 arguments during the input and output stages. Function arguments and returns are
@@ -159,9 +151,7 @@ The following section contains best practices for using the previous Python
 classes with some limitations in your remote function, information about where
 SageMaker AI stores your serialized data and how to manage access to it.
 
-#### Best practices for Python classes with limited support for remote data
-
-serialization
+#### Best practices for Python classes with limited support for remote data serialization
 
 You can use the Python classes listed in this section with limitations.
 The next sections discuss best practices for how to use the following Python
@@ -181,9 +171,7 @@ the following.
 - How to convert summary statistics from a Dask DataFrame
   into a Pandas DataFrame
 
-##### How to pass a Dask DataFrame into your remote
-
-function
+##### How to pass a Dask DataFrame into your remote function
 
 [Dask DataFrames](https://docs.dask.org/en/latest/dataframe.html "https://docs.dask.org/en/latest/dataframe.html") are often used to process large
 datasets because they can hold datasets that require more memory
@@ -240,9 +228,7 @@ def clean(raw_data_path: str, output_data_path: str: split_ratio: list[float]):
 clean("`s3://amzn-s3-demo-bucket/raw/`", "`s3://amzn-s3-demo-bucket/cleaned/`", split_ratio=`[0.7, 0.3]`)
 ```
 
-##### How to convert summary statistics from a Dask DataFrame
-
-into a Pandas DataFrame
+##### How to convert summary statistics from a Dask DataFrame into a Pandas DataFrame
 
 Summary statistics from a Dask DataFrame can be converted into
 a Pandas DataFrame by invoking the `compute` method
@@ -269,9 +255,7 @@ data. A DMatrix object can’t be pickled in order to move easily
 between compute sessions. Directly passing DMatrix instances will
 fail with a `SerializationError`.
 
-##### How to pass a data object to your remote function and train
-
-with XGBoost
+##### How to pass a data object to your remote function and train with XGBoost
 
 To convert a Pandas DataFrame into a DMatrix instance and use
 it for training in your remote function, pass it directly to the
@@ -438,9 +422,7 @@ specify in your configuration file with a [bucket
 policy](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md"). The configuration file can be shared and used across
 projects and jobs. For more information, see [Configuration File](train-remote-decorator-config.md "train-remote-decorator-config.md").
 
-## Use the
-
-`RemoteExecutor` API to invoke a function
+## Use the `RemoteExecutor` API to invoke a function
 
 You can use the `RemoteExecutor` API to invoke a function. SageMaker AI Python
 SDK will transform the code inside the `RemoteExecutor` call into a SageMaker AI
@@ -497,9 +479,7 @@ parallel jobs before any jobs are submitted. For more information about
 `max_parallel_job` or other parameters for the @remote decorator, see
 [Remote function classes and methods specification](https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html "https://sagemaker.readthedocs.io/en/stable/remote_function/sagemaker.remote_function.html").
 
-### Future class for
-
-the `RemoteExecutor` API
+### Future class for the `RemoteExecutor` API
 
 A future class is a public class that represents the return function from the
 training job when it is invoked asynchronously. The future class implements the

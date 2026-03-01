@@ -1,6 +1,4 @@
-# Best practices to minimize interruptions during
-
-GPU driver upgrades
+# Best practices to minimize interruptions during GPU driver upgrades
 
 SageMaker AI Model Deployment upgrades GPU drivers on the ML instances for Real-time, Batch,
 and Asynchronous Inference options over time to provide customers access to
@@ -52,8 +50,7 @@ the Docker container, then deploying an endpoint will fail with the following er
 
 Based on your use case, follow these best practices to resolve the failure or error:
 
-- Follow the best practice recommendation described in the [The driver my container depends on is greater than
-  the version on the ML GPU instances](#collapsible-driver-dependency-higher "#collapsible-driver-dependency-higher") dropdown.
+- Follow the best practice recommendation described in the [The driver my container depends on is greater than the version on the ML GPU instances](#collapsible-driver-dependency-higher "#collapsible-driver-dependency-higher") dropdown.
 - Follow the best practice recommendation described in the [If you use a CUDA compatibility layer](#collapsible-cuda-compat "#collapsible-cuda-compat") dropdown.
 
 ## Best practices for working with mismatched driver versions

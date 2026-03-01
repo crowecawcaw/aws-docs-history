@@ -1,6 +1,4 @@
-# Creating a SageMaker HyperPod
-
-cluster
+# Creating a SageMaker HyperPod cluster
 
 After setting up all the required resources and uploading the scripts to the Amazon S3
 bucket, you can create a cluster.

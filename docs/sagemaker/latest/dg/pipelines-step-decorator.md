@@ -27,8 +27,7 @@ step, and customize the experience for your use case.
 
 ###### Topics
 
-- [Create a pipeline
-  with @step-decorated functions](pipelines-step-decorator-create-pipeline.md "pipelines-step-decorator-create-pipeline.md")
+- [Create a pipeline with @step-decorated functions](pipelines-step-decorator-create-pipeline.md "pipelines-step-decorator-create-pipeline.md")
 - [Run a pipeline](pipelines-step-decorator-run-pipeline.md "pipelines-step-decorator-run-pipeline.md")
 - [Configure your pipeline](pipelines-step-decorator-cfg-pipeline.md "pipelines-step-decorator-cfg-pipeline.md")
 - [Best Practices](pipelines-step-decorator-best.md "pipelines-step-decorator-best.md")

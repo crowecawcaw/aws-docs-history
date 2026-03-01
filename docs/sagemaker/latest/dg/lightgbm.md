@@ -8,9 +8,7 @@ models. LightGBM uses additional techniques to significantly improve the efficie
 scalability of conventional GBDT. This page includes information about Amazon EC2 instance
 recommendations and sample notebooks for LightGBM.
 
-## Amazon EC2 instance recommendation for the LightGBM
-
-algorithm
+## Amazon EC2 instance recommendation for the LightGBM algorithm
 
 SageMaker AI LightGBM currently supports single-instance and multi-instance CPU training. For
 multi-instance CPU training (distributed training), specify an

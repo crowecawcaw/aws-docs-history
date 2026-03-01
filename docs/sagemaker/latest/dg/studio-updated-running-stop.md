@@ -1,6 +1,4 @@
-# Stop and delete your Studio running
-
-applications and spaces
+# Stop and delete your Studio running applications and spaces
 
 The following page includes information and instructions on how to stop and delete unused
 Amazon SageMaker Studio resources to avoid unwanted additional costs. For the Studio resources
@@ -17,18 +15,14 @@ you no longer you wish to use, you will need to both:
 If you delete the space, you will lose access to the data within that space.
 Do not delete the space unless you're sure that you want to.
 For more information about the differences between Studio spaces and applications,
-see [View your Studio running instances,
-applications, and spaces](studio-updated-running.md "studio-updated-running.md").
+see [View your Studio running instances, applications, and spaces](studio-updated-running.md "studio-updated-running.md").
 
 ###### Topics
 
-- [Stop your Amazon SageMaker Studio
-  application](#studio-updated-running-stop-app "#studio-updated-running-stop-app")
+- [Stop your Amazon SageMaker Studio application](#studio-updated-running-stop-app "#studio-updated-running-stop-app")
 - [Delete a Studio space](#studio-updated-running-stop-space "#studio-updated-running-stop-space")
 
-## Stop your Amazon SageMaker Studio
-
-application
+## Stop your Amazon SageMaker Studio application
 
 To avoid additional charges from unused running applications, you must stop them. The
 following includes information on what stopping an application does and how to do
@@ -56,8 +50,7 @@ using the Studio UI, the SageMaker AI console, or the AWS CLI.
 ###### Note
 
 To view and stop all of your Studio running instances in one location, we
-recommend the [Stop
-applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui")
+recommend the [Stop applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui")
 workflow from the following options.
 
 To stop your Studio applications using the Studio UI, use the
@@ -76,8 +69,7 @@ instances or applications in your spaces. 3. In the table under the **Name** and
 the application that you want to stop. 4. Choose the corresponding **Stop** button to stop the
 application.
 To view or stop Studio running instances from a centralized location, see
-[Stop
-applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui").
+[Stop applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui").
 Otherwise, use the following instructions.
 
 In the SageMaker AI console, you can only stop the running Studio applications
@@ -111,8 +103,7 @@ type** column, search for the app to stop. 7. Under the **Action** column, choos
 you do so the delete input field becomes available. 9. Enter `delete` in the delete input field to
 confirm deletion. 10. Choose **Delete**.
 To view or stop any of your Studio running instances from a centralized
-location, see [Stop
-applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui").
+location, see [Stop applications using the Studio UI](#studio-updated-running-stop-app-using-studio-updated-ui "#studio-updated-running-stop-app-using-studio-updated-ui").
 Otherwise, use the following instructions.
 
 The following code examples use the [`DeleteApp`](../APIReference/API_DeleteApp.md "../APIReference/API_DeleteApp.md") API to stop an application in an example
@@ -134,9 +125,7 @@ aws sagemaker delete-app \
   `example-domain-id`, use the
   following instructions:
 
-###### To get
-
-`example-domain-id`
+###### To get `example-domain-id`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -151,9 +140,7 @@ aws sagemaker delete-app \
   use the following instructions to ensure you are using the correct
   AWS Region for your domain:
 
-###### To get
-
-`AWS Region`
+###### To get `AWS Region`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -181,9 +168,7 @@ aws sagemaker delete-app \
   `example-space-name`, use the
   following steps:
 
-###### To get
-
-`example-space-name`
+###### To get `example-space-name`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -257,8 +242,7 @@ You can delete the Studio spaces that are viewable in the
 spaces, see [View your Studio spaces](studio-updated-running.md#studio-updated-running-view-space "studio-updated-running.md#studio-updated-running-view-space").
 
 There are no spaces for SageMaker Canvas, Studio Classic (private), and RStudio. To stop and delete
-your SageMaker Canvas, Studio Classic (private), or RStudio applications, see [Stop your Amazon SageMaker Studio
-application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
+your SageMaker Canvas, Studio Classic (private), or RStudio applications, see [Stop your Amazon SageMaker Studio application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
 
 The **Spaces** section within your **Domain
 details** page gives information about Studio spaces within
@@ -295,8 +279,7 @@ your domain. You can view, create, and delete spaces on this page.
 
     Before you can delete a space using the AWS CLI, you must delete the application
     associated with it. For information about stopping your Studio
-    applications, see [Stop your Amazon SageMaker Studio
-    application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
+    applications, see [Stop your Amazon SageMaker Studio application](#studio-updated-running-stop-app "#studio-updated-running-stop-app").
 
 Use the following AWS CLI command to delete a space within a domain:
 
@@ -311,9 +294,7 @@ aws sagemaker delete-space \
   `example-domain-id`, use the
   following instructions:
 
-###### To get
-
-`example-domain-id`
+###### To get `example-domain-id`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -328,9 +309,7 @@ aws sagemaker delete-space \
   use the following instructions to ensure you are using the correct
   AWS Region for your domain:
 
-###### To get
-
-`AWS Region`
+###### To get `AWS Region`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -348,9 +327,7 @@ aws sagemaker delete-space \
   `example-space-name`, use the
   following steps:
 
-###### To get
-
-`example-space-name`
+###### To get `example-space-name`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin

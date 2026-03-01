@@ -15,8 +15,7 @@ relationship of the events between GPUs and CPUs.
 
 ###### Note
 
-SageMaker Profiler supports PyTorch and TensorFlow and is available in [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only"). To learn more, see [Supported framework images, AWS Regions, and
-instance types](profiler-support.md "profiler-support.md").
+SageMaker Profiler supports PyTorch and TensorFlow and is available in [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only"). To learn more, see [Supported framework images, AWS Regions, and instance types](profiler-support.md "profiler-support.md").
 
 **For data scientists**
 
@@ -42,11 +41,9 @@ and delete the Profiler application given the permission level you have.
 
 ###### Topics
 
-- [Supported framework images, AWS Regions, and
-  instance types](profiler-support.md "profiler-support.md")
+- [Supported framework images, AWS Regions, and instance types](profiler-support.md "profiler-support.md")
 - [Prerequisites for SageMaker Profiler](profiler-prereq.md "profiler-prereq.md")
 - [Prepare and run a training job with SageMaker Profiler](profiler-prepare.md "profiler-prepare.md")
 - [Open the SageMaker Profiler UI application](profiler-access-smprofiler-ui.md "profiler-access-smprofiler-ui.md")
-- [Explore the profile output data visualized in the
-  SageMaker Profiler UI](profiler-explore-viz.md "profiler-explore-viz.md")
+- [Explore the profile output data visualized in the SageMaker Profiler UI](profiler-explore-viz.md "profiler-explore-viz.md")
 - [Troubleshooting for SageMaker Profiler](profiler-faq.md "profiler-faq.md")

@@ -1,6 +1,4 @@
-# Test pre-annotation and post-annotation
-
-Lambda functions
+# Test pre-annotation and post-annotation Lambda functions
 
 You can test your pre-annotation and post annotation Lambda functions in the Lambda
 console. If you are a new user of Lambda, you can learn how to test, or _invoke_, your Lambda functions in the console using the
@@ -11,10 +9,8 @@ Ground Truth pre-annotation and post-annotation templates provided through an AW
 ###### Topics
 
 - [Prerequisites](#sms-custom-templates-step3-lambda-test-pre "#sms-custom-templates-step3-lambda-test-pre")
-- [Test the Pre-annotation
-  Lambda Function](#sms-custom-templates-step3-lambda-test-pre-annotation "#sms-custom-templates-step3-lambda-test-pre-annotation")
-- [Test the Post-Annotation
-  Lambda Function](#sms-custom-templates-step3-lambda-test-post-annotation "#sms-custom-templates-step3-lambda-test-post-annotation")
+- [Test the Pre-annotation Lambda Function](#sms-custom-templates-step3-lambda-test-pre-annotation "#sms-custom-templates-step3-lambda-test-pre-annotation")
+- [Test the Post-Annotation Lambda Function](#sms-custom-templates-step3-lambda-test-post-annotation "#sms-custom-templates-step3-lambda-test-post-annotation")
 
 ## Prerequisites
 
@@ -22,11 +18,9 @@ You must do the following to use the tests described on this page.
 
 - You need access to the Lambda console, and you need permission to
   create and invoke Lambda functions. To learn how to set up these
-  permissions, see [Grant Permission to Create and
-  Select an AWS Lambda Function](sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-create-perms "sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-create-perms").
+  permissions, see [Grant Permission to Create and Select an AWS Lambda Function](sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-create-perms "sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-create-perms").
 - If you have not deployed the Ground Truth SAR recipe, use the procedure in
-  [Create Lambda functions using Ground Truth
-  templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md") to do
+  [Create Lambda functions using Ground Truth templates](sms-custom-templates-step3-lambda-create.md "sms-custom-templates-step3-lambda-create.md") to do
   so.
 - To test the post-annotation Lambda function, you must have a data file
   in Amazon S3 with sample annotation data. For a simple test, you can copy and
@@ -40,17 +34,14 @@ You must do the following to use the tests described on this page.
 
 ```
 
-- You must use the directions in [Grant
-  Post-Annotation Lambda Permissions to Access Annotation](sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-perms "sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-perms") to
+- You must use the directions in [Grant Post-Annotation Lambda Permissions to Access Annotation](sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-perms "sms-custom-templates-step3-lambda-permissions.md#sms-custom-templates-step3-postlambda-perms") to
   give your post-annotation Lambda function's execution role permission to
   assume the SageMaker AI execution role you use to create the labeling job. The
   post-annotation Lambda function uses the SageMaker AI execution role to access
   the annotation data file, `sample-annotations.json`, in
   S3.
 
-## Test the Pre-annotation
-
-Lambda Function
+## Test the Pre-annotation Lambda Function
 
 Use the following procedure to test the pre-annotation Lambda function created
 when you deployed the Ground Truth AWS Serverless Application Repository (SAR) recipe.
@@ -102,9 +93,7 @@ pre-annotation response syntax:
 
 ```
 
-## Test the Post-Annotation
-
-Lambda Function
+## Test the Post-Annotation Lambda Function
 
 Use the following procedure to test the post-annotation Lambda function created
 when you deployed the Ground Truth AWS Serverless Application Repository (SAR) recipe.

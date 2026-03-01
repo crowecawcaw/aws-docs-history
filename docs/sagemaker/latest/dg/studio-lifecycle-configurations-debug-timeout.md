@@ -1,6 +1,4 @@
-# Lifecycle
-
-configuration timeout
+# Lifecycle configuration timeout
 
 There is a lifecycle configuration timeout limitation of 5 minutes. If a lifecycle
 configuration script takes longer than 5 minutes to run, you get an error.

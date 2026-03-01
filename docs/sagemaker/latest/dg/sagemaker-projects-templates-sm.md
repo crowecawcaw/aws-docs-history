@@ -14,9 +14,7 @@ the configuration files to suit your requirements.
 ###### Note
 
 Additional roles are required to use project templates. For a complete list of required
-roles and instructions on how to create them, see [Granting SageMaker Studio Permissions
-Required to Use
-Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md"). If you do not have the new roles, you
+roles and instructions on how to create them, see [Granting SageMaker Studio Permissions Required to Use Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md"). If you do not have the new roles, you
 will get the error message **CodePipeline is not authorized to perform
 AssumeRole on role
 arn:aws:iam::xxx:role/service-role/AmazonSageMakerServiceCatalogProductsCodePipelineRole**
@@ -39,12 +37,8 @@ automation tools, and pipeline stages:
 For step-by-step instructions on how to create a real project, you can follow one of the
 project walkthroughs:
 
-- If you want to use the template [MLOps templates for model
-  building, training, and deployment with third-party Git using CodePipeline](#sagemaker-projects-templates-git-code-pipeline "#sagemaker-projects-templates-git-code-pipeline"), see [Walk Through a SageMaker AI MLOps
-  Project Using Third-party Git Repos](sagemaker-projects-walkthrough-3rdgit.md "sagemaker-projects-walkthrough-3rdgit.md").
-- If you want to use the template [MLOps templates for model
-  building, training, and deployment with third-party Git repositories using
-  Jenkins](#sagemaker-projects-templates-git-jenkins "#sagemaker-projects-templates-git-jenkins"), see [Create Amazon SageMaker Projects using third-party source control and Jenkins](https://aws.amazon.com/blogs/machine-learning/create-amazon-sagemaker-projects-using-third-party-source-control-and-jenkins/ "https://aws.amazon.com/blogs/machine-learning/create-amazon-sagemaker-projects-using-third-party-source-control-and-jenkins/").
+- If you want to use the template [MLOps templates for model building, training, and deployment with third-party Git using CodePipeline](#sagemaker-projects-templates-git-code-pipeline "#sagemaker-projects-templates-git-code-pipeline"), see [Walk Through a SageMaker AI MLOps Project Using Third-party Git Repos](sagemaker-projects-walkthrough-3rdgit.md "sagemaker-projects-walkthrough-3rdgit.md").
+- If you want to use the template [MLOps templates for model building, training, and deployment with third-party Git repositories using Jenkins](#sagemaker-projects-templates-git-jenkins "#sagemaker-projects-templates-git-jenkins"), see [Create Amazon SageMaker Projects using third-party source control and Jenkins](https://aws.amazon.com/blogs/machine-learning/create-amazon-sagemaker-projects-using-third-party-source-control-and-jenkins/ "https://aws.amazon.com/blogs/machine-learning/create-amazon-sagemaker-projects-using-third-party-source-control-and-jenkins/").
 
 ###### Topics
 
@@ -58,9 +52,7 @@ organization. Add a tag with the key `sagemaker` and value
 
 - **CI/CD workflow automation**: AWS CodePipeline
 
-### Model
-
-building and training
+### Model building and training
 
 This template provides the following resources:
 
@@ -78,9 +70,7 @@ This template provides the following resources:
 - An Amazon S3 bucket to store artifacts, including CodePipeline and CodeBuild artifacts, and
   any artifacts generated from the SageMaker AI pipeline runs.
 
-### Model
-
-deployment
+### Model deployment
 
 This template provides the following resources:
 
@@ -148,9 +138,7 @@ and deployment with Git repositories using CodePipeline. It includes both the mo
 training, and deployment components of the template, and an additional Amazon SageMaker Model Monitor template
 that provides the following types of monitoring:
 
-### Monitor a
-
-deployed model
+### Monitor a deployed model
 
 You can use this template for an MLOps solution to deploy one or more of the
 Amazon SageMaker AI data quality, model quality, model bias, and model explainability monitors to
@@ -235,8 +223,7 @@ In summary, the steps guide you through the following tasks:
 9. Create your Jenkins model deploy pipeline with the model deploy seed
    code.
 
-This template is an extension of the [MLOps templates for model
-building, training, and deployment with third-party Git using CodePipeline](#sagemaker-projects-templates-git-code-pipeline "#sagemaker-projects-templates-git-code-pipeline"). It includes both the
+This template is an extension of the [MLOps templates for model building, training, and deployment with third-party Git using CodePipeline](#sagemaker-projects-templates-git-code-pipeline "#sagemaker-projects-templates-git-code-pipeline"). It includes both the
 model building, training, and deployment components of that template and the following
 options:
 

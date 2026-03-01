@@ -46,8 +46,7 @@ Events from your labeling jobs appear in Amazon CloudWatch under the `/aws/sagem
 
 If you are a first-time user of Ground Truth, we recommend that you do the following:
 
-1. **Read [Getting started: Create a bounding box labeling job
-   with Ground Truth](sms-getting-started.md "sms-getting-started.md")**—This section
+1. **Read [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md")**—This section
    walks you through setting up your first Ground Truth labeling job.
 2. **Explore other topics**—Depending on your
    needs, do the following:

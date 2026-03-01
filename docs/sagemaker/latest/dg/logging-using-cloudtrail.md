@@ -1,6 +1,4 @@
-# Logging Amazon SageMaker AI API calls using
-
-AWS CloudTrail
+# Logging Amazon SageMaker AI API calls using AWS CloudTrail
 
 Amazon SageMaker AI is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
 AWS service. CloudTrail captures all
@@ -122,9 +120,7 @@ Amazon SageMaker AI logs all Amazon SageMaker AI control plane operations as man
 of the Amazon SageMaker AI control plane operations that Amazon SageMaker AI logs to CloudTrail, see the
 [Amazon SageMaker AI API Reference](../APIReference.md "../APIReference.md").
 
-## Operations Performed by Automatic Model
-
-Tuning
+## Operations Performed by Automatic Model Tuning
 
 SageMaker AI supports logging non-API service events to your CloudTrail log files for automatic model
 tuning jobs. These events are related to your tuning jobs but, are not the direct result of

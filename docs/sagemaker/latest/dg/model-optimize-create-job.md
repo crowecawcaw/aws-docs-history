@@ -219,8 +219,7 @@ model containers with a network connection within your VPC that is
 not connected to the internet. They also enable your model to
 connect to resources in your private VPC.
 
-For more information, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your
-Amazon VPC](host-vpc.md "host-vpc.md").
+For more information, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md "host-vpc.md").
 
 **Enable network isolation**
 
@@ -296,8 +295,7 @@ sagemaker_session = Session()
    output.
 
 For more information about using the `SchemaBuilder` and
-`ModelBuilder` classes, see [Create a model in Amazon SageMaker AI with
-ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
+`ModelBuilder` classes, see [Create a model in Amazon SageMaker AI with ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
 
 The following example provides sample input and output strings to the
 `SchemaBuilder` class:
@@ -818,8 +816,7 @@ For more information about these endpoint types, see [Multi-model endpoints](mul
 - Create a model package for the model. You use model packages to create
   deployable models that you publish on AWS Marketplace.
 
-For more information about this feature, see [Create a Model Package
-Resource](sagemaker-mkt-create-model-package.md "sagemaker-mkt-create-model-package.md").
+For more information about this feature, see [Create a Model Package Resource](sagemaker-mkt-create-model-package.md "sagemaker-mkt-create-model-package.md").
 
 - Use your own inference code in the model container.
 - Use a `requirements.txt` file in the model container. This type of

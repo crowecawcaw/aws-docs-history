@@ -1,6 +1,4 @@
-# Find feature groups in your
-
-Feature Store
+# Find feature groups in your Feature Store
 
 With Amazon SageMaker Feature Store, you can search for the feature groups using either the console or the
 [Search](../APIReference/API_Search.md "../APIReference/API_Search.md") operation. You can use the search functionality to find features and
@@ -12,8 +10,7 @@ functionality to quickly find the feature groups that are relevant to your use c
 The feature groups that you're searching for must be within your AWS Region and
 AWS account, or shared with and made discoverable to your AWS account. For more
 information about how to share the feature group catalog and grant discoverability, see
-[Share
-your feature group catalog](feature-store-cross-account-discoverability-share-feature-group-catalog.md "feature-store-cross-account-discoverability-share-feature-group-catalog.md").
+[Share your feature group catalog](feature-store-cross-account-discoverability-share-feature-group-catalog.md "feature-store-cross-account-discoverability-share-feature-group-catalog.md").
 
 The following table shows the searchable fields and whether you can use the console to
 search for a specific field.
@@ -40,9 +37,7 @@ groups but are not searchable for feature groups made discoverable to you.
 | Record Identfier Feature Name | RecordIdentifierFeatureName                                                                                 | Yes                        | Yes                            |
 | Tags                          | Tags.`key`                                                                                                  | Yes                        | No                             |
 
-## How to find feature
-
-groups
+## How to find feature groups
 
 You can use the console or the Amazon SageMaker Feature Store API to find your feature groups. The
 instructions for using Feature Store through the console depends on if you have enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Amazon SageMaker Studio Classic](studio.md "studio.md") as your default experience.

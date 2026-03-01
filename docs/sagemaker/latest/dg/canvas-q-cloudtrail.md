@@ -17,8 +17,7 @@ the logs, appearing as `HIDDEN_DUE_TO_SECURITY_REASONS` in the request
 and response elements.
 
 To learn more about CloudTrail, see the [_AWS CloudTrail User Guide_](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"). To learn more about CloudTrail
-in SageMaker AI, see [Logging Amazon SageMaker AI API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+in SageMaker AI, see [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 The following is an example log file entry for the `SendConversation`
 API:

@@ -42,8 +42,7 @@ This section shows a metrics dashboard with separate graphs for the following me
 The last three metrics monitor the model container runtime resource usage. The rest are CloudWatch
 metrics that you can use to analyse the performance of your variant. In general, fewer errors
 indicate a more stable model. A lower latency indicates either a faster model or a faster
-infrastructure. For more information about CloudWatch metrics, see [SageMaker AI endpoint invocation
-metrics](monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation "monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation"). The following screenshot shows the
+infrastructure. For more information about CloudWatch metrics, see [SageMaker AI endpoint invocation metrics](monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation "monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation"). The following screenshot shows the
 metrics dashboard.
 
 ![Metrics analysis dashboard.](images/juxtaposer/shadow-test-analysis.png)

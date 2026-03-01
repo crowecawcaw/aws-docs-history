@@ -5,14 +5,10 @@ are available in your AWS account and are used by execution roles created from t
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerFeatureStoreAccess](#security-iam-awsmanpol-AmazonSageMakerFeatureStoreAccess "#security-iam-awsmanpol-AmazonSageMakerFeatureStoreAccess")
-- [Amazon SageMaker AI updates to Amazon SageMaker Feature Store
-  managed policies](#security-iam-awsmanpol-feature-store-updates "#security-iam-awsmanpol-feature-store-updates")
+- [AWS managed policy: AmazonSageMakerFeatureStoreAccess](#security-iam-awsmanpol-AmazonSageMakerFeatureStoreAccess "#security-iam-awsmanpol-AmazonSageMakerFeatureStoreAccess")
+- [Amazon SageMaker AI updates to Amazon SageMaker Feature Store managed policies](#security-iam-awsmanpol-feature-store-updates "#security-iam-awsmanpol-feature-store-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerFeatureStoreAccess
+## AWS managed policy: AmazonSageMakerFeatureStoreAccess
 
 This policy grants permissions required to enable the offline store for an Amazon SageMaker Feature Store
 feature group.
@@ -76,9 +72,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to Amazon SageMaker Feature Store
-
-managed policies
+## Amazon SageMaker AI updates to Amazon SageMaker Feature Store managed policies
 
 View details about updates to AWS managed policies for Feature Store since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -9,8 +9,7 @@ issues early.
 - [Hyperparameter guidance](#nova-hp-rft-monitoring-hyperparams "#nova-hp-rft-monitoring-hyperparams")
 - [Evaluation after RFT](#nova-hp-rft-monitoring-evaluation "#nova-hp-rft-monitoring-evaluation")
 - [Using fine-tuned models](#nova-hp-rft-monitoring-checkpoints "#nova-hp-rft-monitoring-checkpoints")
-- [Limitations and best
-  practices](#nova-hp-rft-monitoring-limitations "#nova-hp-rft-monitoring-limitations")
+- [Limitations and best practices](#nova-hp-rft-monitoring-limitations "#nova-hp-rft-monitoring-limitations")
 - [Troubleshooting](#nova-hp-rft-monitoring-troubleshooting "#nova-hp-rft-monitoring-troubleshooting")
 
 ## Key metrics to track
@@ -107,9 +106,7 @@ run:
 
 For deployment and inference instructions, refer to the Inference section.
 
-## Limitations and best
-
-practices
+## Limitations and best practices
 
 **Current limitations:**
 

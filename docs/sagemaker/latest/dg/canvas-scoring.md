@@ -17,9 +17,7 @@ To view the analysis of your model, do the following:
    The following sections describe how to interpret the scoring for each model
    type.
 
-## Evaluate categorical prediction
-
-models
+## Evaluate categorical prediction models
 
 The **Overview** tab shows you the column impact for each column.
 **Column impact** is a percentage score that indicates how much
@@ -89,9 +87,7 @@ information about your model’s performance, such as the advanced metrics, erro
 density plots, or confusion matrices. To learn more about the **Advanced
 metrics** tab, see [Use advanced metrics in your analyses](canvas-advanced-metrics.md "canvas-advanced-metrics.md").
 
-## Evaluate time series forecasting
-
-models
+## Evaluate time series forecasting models
 
 On the **Analyze** page for time series forecasting models, you
 can see an overview of the model’s metrics. You can hover over each metric for more
@@ -127,8 +123,7 @@ that you can use to dive deeper into your model’s performance and continue ite
 - **Accuracy metrics** –
   This section lists the advanced metrics that evaluate your model's performance,
   such as Root Mean Squared Error (RMSE). For more information about each metric, see
-  [Metrics for time series
-  forecasts](canvas-metrics.md#canvas-time-series-forecast-metrics "canvas-metrics.md#canvas-time-series-forecast-metrics").
+  [Metrics for time series forecasts](canvas-metrics.md#canvas-time-series-forecast-metrics "canvas-metrics.md#canvas-time-series-forecast-metrics").
 - **Explainability report** –
   This section provides a link to download the explainability report, which offers insights
   into the model's decision-making process and the relative importance of input columns.

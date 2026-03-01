@@ -26,8 +26,7 @@ The input to the SageMaker Clarify processing job consists of the following:
   After that, the SageMaker Clarify processing job extracts predictions from the **response**.
 - The SageMaker Clarify processing job performs the bias and explainability analysis, and then
   it outputs the results.
-  For more information, see [How SageMaker Clarify Processing Jobs
-  Work](clarify-configure-processing-jobs.md#clarify-processing-job-configure-how-it-works "clarify-configure-processing-jobs.md#clarify-processing-job-configure-how-it-works") .
+  For more information, see [How SageMaker Clarify Processing Jobs Work](clarify-configure-processing-jobs.md#clarify-processing-job-configure-how-it-works "clarify-configure-processing-jobs.md#clarify-processing-job-configure-how-it-works") .
 
 The parameter that' you use to specify the format of the data depends on where the data is
 used in the processing flow as follows:

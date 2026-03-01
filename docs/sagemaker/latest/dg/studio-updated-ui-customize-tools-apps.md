@@ -1,6 +1,4 @@
-# Hide machine learning tools and
-
-applications in the Amazon SageMaker Studio UI
+# Hide machine learning tools and applications in the Amazon SageMaker Studio UI
 
 ###### Important
 
@@ -33,7 +31,5 @@ settings.
 
 ###### Topics
 
-- [Hide machine learning
-  tools and applications on a domain level](studio-updated-ui-customize-tools-apps-domain.md "studio-updated-ui-customize-tools-apps-domain.md")
-- [Hide machine learning
-  tools and applications on a user level](studio-updated-ui-customize-tools-apps-user.md "studio-updated-ui-customize-tools-apps-user.md")
+- [Hide machine learning tools and applications on a domain level](studio-updated-ui-customize-tools-apps-domain.md "studio-updated-ui-customize-tools-apps-domain.md")
+- [Hide machine learning tools and applications on a user level](studio-updated-ui-customize-tools-apps-user.md "studio-updated-ui-customize-tools-apps-user.md")

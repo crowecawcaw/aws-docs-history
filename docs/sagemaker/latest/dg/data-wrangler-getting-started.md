@@ -91,9 +91,7 @@ features and updates. The Data Wrangler app name starts with
 **sagemaker-data-wrang**. To learn how to update a Studio Classic app,
 see [Shut Down and Update Amazon SageMaker Studio Classic Apps](studio-tasks-update-apps.md "studio-tasks-update-apps.md").
 
-## Demo: Data Wrangler Titanic Dataset
-
-Walkthrough
+## Demo: Data Wrangler Titanic Dataset Walkthrough
 
 The following sections provide a walkthrough to help you get started using Data Wrangler. This
 walkthrough assumes that you have already followed the steps in [Access Data Wrangler](#data-wrangler-getting-started-access "#data-wrangler-getting-started-access") and have a new data flow file
@@ -118,9 +116,7 @@ In this tutorial, you perform the following steps.
 5. Process your data, and kick off a SageMaker training job to train a XGBoost Binary
    Classifier.
 
-### Upload Dataset to S3 and
-
-Import
+### Upload Dataset to S3 and Import
 
 To get started, you can use one of the following methods to import the Titanic dataset into Data Wrangler:
 
@@ -175,9 +171,7 @@ transformations, you can come back to this tab and see what the data flow looks 
 Now, add some basic transformations under the **Prepare** and
 **Analyze** tabs.
 
-#### Prepare and
-
-Visualize
+#### Prepare and Visualize
 
 Data Wrangler has built-in transformations and visualizations that you can use to
 analyze, clean, and transform your data.
@@ -192,9 +186,7 @@ The information from the report can help you clean and process your data. It giv
 If you have issues with your data, such as target leakage or imbalance, the insights report can bring those issues to your attention.
 For more information about creating a report, see [Get Insights On Data and Data Quality](data-wrangler-data-insights.md "data-wrangler-data-insights.md").
 
-##### Data
-
-Exploration
+##### Data Exploration
 
 First, create a table summary of the data using an analysis. Do the
 following:
@@ -221,9 +213,7 @@ following about this dataset:
 
 Next, clean your data using the insights gained from these stats.
 
-##### Drop Unused
-
-Columns
+##### Drop Unused Columns
 
 Using the analysis from the previous section, clean up the dataset to
 prepare it for training. To add a new transform to your data flow, choose
@@ -274,9 +264,7 @@ df = df.drop(cols, axis=1)
 5. Choose **Preview** to preview the change, and then
    choose **Add** to add the transformation.
 
-##### Clean up
-
-Missing Values
+##### Clean up Missing Values
 
 Now, clean up missing values. You can do this with the **Handling
 missing values** transform group.
@@ -310,9 +298,7 @@ You can use `df.info()` in the **Custom
 transform** section to confirm that all rows now have 1,045
 values.
 
-##### Custom Pandas:
-
-Encode
+##### Custom Pandas: Encode
 
 Try flat encoding using Pandas. Encoding categorical data is the process
 of creating a numerical representation for categories. For example, if your
@@ -343,9 +329,7 @@ df = pd.concat((df, encoded),axis=1)
    encoded version of each column is added to the dataset.
 4. Choose **Add** to add the transformation.
 
-#### Custom SQL: SELECT
-
-Columns
+#### Custom SQL: SELECT Columns
 
 Now, select the columns you want to keep using SQL. For this demo, select the
 columns listed in the following `SELECT` statement. Because _survived_ is your target column for training, put
@@ -372,9 +356,7 @@ The following section explains how to export to a Data Wrangler job notebook. A 
 used to process your data using the steps defined in your data flow. To learn more
 about all export options, see [Export](data-wrangler-data-export.md "data-wrangler-data-export.md").
 
-#### Export to Data Wrangler
-
-Job Notebook
+#### Export to Data Wrangler Job Notebook
 
 When you export your data flow using a **Data Wrangler job**, the
 process automatically creates a Jupyter Notebook. This notebook automatically
@@ -396,8 +378,7 @@ Training Job (Optional)** if you want to create a SageMaker AI
 training job to train an XGBoost classifier. You can find the cost to
 run a SageMaker training job in [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
 
-Alternatively, you can add the code blocks found in [Training XGBoost
-Classifier](#data-wrangler-getting-started-train-xgboost "#data-wrangler-getting-started-train-xgboost") to the
+Alternatively, you can add the code blocks found in [Training XGBoost Classifier](#data-wrangler-getting-started-train-xgboost "#data-wrangler-getting-started-train-xgboost") to the
 notebook and run them to use the [XGBoost](https://xgboost.readthedocs.io/en/latest/ "https://xgboost.readthedocs.io/en/latest/") open
 source library to train an XGBoost classifier. 7. Uncomment and run the cell under **Cleanup** and run
 it to revert the SageMaker Python SDK to its original version.
@@ -411,13 +392,10 @@ If you kicked off a training job, you can monitor its status using the SageMaker
 console under **Training jobs** in the **Training
 section**.
 
-#### Training XGBoost
-
-Classifier
+#### Training XGBoost Classifier
 
 You can train an XGBoost Binary Classifier using either a Jupyter notebook or a Amazon SageMaker Autopilot. You can use Autopilot to automatically train and tune models on the data that you've transformed directly from
-your Data Wrangler flow. For information about Autopilot, see [Automatically Train Models on Your Data
-Flow](data-wrangler-autopilot.md "data-wrangler-autopilot.md").
+your Data Wrangler flow. For information about Autopilot, see [Automatically Train Models on Your Data Flow](data-wrangler-autopilot.md "data-wrangler-autopilot.md").
 
 In the same notebook that kicked off the Data Wrangler job, you can pull the data and
 train an XGBoost Binary Classifier using the prepared data with minimal data

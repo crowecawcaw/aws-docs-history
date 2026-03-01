@@ -1,6 +1,4 @@
-# Continuous provisioning for enhanced
-
-cluster operations on Amazon EKS
+# Continuous provisioning for enhanced cluster operations on Amazon EKS
 
 Amazon SageMaker HyperPod clusters created with Amazon EKS orchestration now supports continuous
 provisioning, a new capability that enables greater flexibility and efficiency running
@@ -84,17 +82,14 @@ fails due to insufficient capacity or other issues, you are not charged for that
 failed attempt. Billing is calculated at the instance level and costs are aggregated
 and reported under your cluster's Amazon Resource Name (ARN).
 
-## Create a cluster with continuous
-
-provisioning enabled
+## Create a cluster with continuous provisioning enabled
 
 ###### Note
 
 You must have an existing Amazon EKS cluster configured with VPC networking and the
 required Helm chart installed. Additionally, prepare a lifecycle configuration
 script and upload it to an Amazon S3 bucket that your execution role can access. For more
-information, see [Managing SageMaker HyperPod clusters orchestrated
-by Amazon EKS](sagemaker-hyperpod-eks-operate.md "sagemaker-hyperpod-eks-operate.md").
+information, see [Managing SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-operate.md "sagemaker-hyperpod-eks-operate.md").
 
 The following AWS CLI operation creates a HyperPod cluster with one instance
 group and continuous provisioning enabled.

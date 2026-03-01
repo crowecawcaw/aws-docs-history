@@ -1,6 +1,4 @@
-# Complete prerequisites to deploy the
-
-Edge Manager agent
+# Complete prerequisites to deploy the Edge Manager agent
 
 SageMaker Edge Manager uses AWS IoT Greengrass V2 to simplify the deployment of the Edge Manager agent,
 your machine learning models, and your inference application to your devices with
@@ -91,8 +89,7 @@ Before you start, you must complete the following prerequisites:
 5. Register your device with the same name as your AWS IoT thing name created
    during the AWS IoT Greengrass V2 setup.
 6. Create at least one custom private AWS IoT Greengrass component. This component is the
-   application that runs inference on the device. For more information, see [Create a Hello
-   World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how")
+   application that runs inference on the device. For more information, see [Create a Hello World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how")
 
 ###### Note
 

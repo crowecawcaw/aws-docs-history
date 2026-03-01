@@ -8,8 +8,7 @@ when a human review loop status changes to `Completed`, `Failed`, or
 events created when human loops finish are successfully delivered to EventBridge.
 
 Use the procedures below to learn how to use the Amazon A2I Runtime API to monitor and
-manage your human loops. See [Use Amazon CloudWatch Events in
-Amazon Augmented AI](a2i-cloudwatch-events.md "a2i-cloudwatch-events.md") to learn how Amazon A2I integrates with
+manage your human loops. See [Use Amazon CloudWatch Events in Amazon Augmented AI](a2i-cloudwatch-events.md "a2i-cloudwatch-events.md") to learn how Amazon A2I integrates with
 Amazon EventBridge.
 
 ###### To check your output data:

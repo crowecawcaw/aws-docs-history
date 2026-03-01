@@ -1,12 +1,9 @@
-# Pre-check
-
-endpoint request and response for time series data
+# Pre-check endpoint request and response for time series data
 
 You are advised to deploy your model to a SageMaker AI real-time inference endpoint
 and send requests to the endpoint. Manually examine the requests and responses
 to make sure that both are compliant with the requirements in the [Endpoint requests for time series data](clarify-processing-job-data-format-time-series-request-jsonlines.md "clarify-processing-job-data-format-time-series-request-jsonlines.md") and
-[Endpoint
-response for time series data](clarify-processing-job-data-format-time-series-response-json.md "clarify-processing-job-data-format-time-series-response-json.md") sections.
+[Endpoint response for time series data](clarify-processing-job-data-format-time-series-response-json.md "clarify-processing-job-data-format-time-series-response-json.md") sections.
 If your model container supports batch requests, you can start with a single record
 request and then try two or more records.
 

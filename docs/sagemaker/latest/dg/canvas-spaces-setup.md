@@ -1,6 +1,4 @@
-# Store SageMaker Canvas application data in your own SageMaker AI
-
-space
+# Store SageMaker Canvas application data in your own SageMaker AI space
 
 Your Amazon SageMaker Canvas application data, such as datasets that you import and your model
 artifacts, is stored in a _Amazon SageMaker Studio private space_.

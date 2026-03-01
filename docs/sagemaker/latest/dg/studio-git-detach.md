@@ -16,8 +16,7 @@ using the AWS CLI or Amazon SageMaker AI console.
 ###### Topics
 
 - [Detach a Git repo using the AWS CLI](#studio-git-detach-cli "#studio-git-detach-cli")
-- [Detach the Git repo using the SageMaker AI
-  console](#studio-git-detach-console "#studio-git-detach-console")
+- [Detach the Git repo using the SageMaker AI console](#studio-git-detach-console "#studio-git-detach-console")
 
 ## Detach a Git repo using the AWS CLI
 
@@ -38,9 +37,7 @@ aws sagemaker update-domain --region `region` --domain-name `domain-name` \
     --domain-settings JupyterServerAppSettings={CodeRepositories=[]}
 ```
 
-### Detach from a user
-
-profile
+### Detach from a user profile
 
 The following command detaches all Git repo URLs from a user profile.
 
@@ -49,9 +46,7 @@ aws sagemaker update-user-profile --domain-name `domain-name` --user-profile-nam
     --user-settings JupyterServerAppSettings={CodeRepositories=[]}
 ```
 
-## Detach the Git repo using the SageMaker AI
-
-console
+## Detach the Git repo using the SageMaker AI console
 
 The following sections show how to detach a Git repo URL from a domain or user
 profile using the SageMaker AI console.
@@ -76,9 +71,7 @@ domain.
    **Detach**.
 8. From the new window, choose **Detach**.
 
-### Detach from a user
-
-profile
+### Detach from a user profile
 
 Use the following steps to detach a Git repo URL from a user profile.
 

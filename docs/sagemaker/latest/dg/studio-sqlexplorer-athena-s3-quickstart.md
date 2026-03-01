@@ -1,6 +1,4 @@
-# Quickstart: Query data in
-
-Amazon S3
+# Quickstart: Query data in Amazon S3
 
 Users can analyze data stored in Amazon S3 by running SQL queries from JupyterLab notebooks
 using the SQL extension. The extension integrates with Athena enabling the functionality
@@ -28,18 +26,12 @@ JupyterLab notebooks.
 
 ###### To access and query your data in Amazon S3:
 
-- [Step 1: Set up an Athena
-  data source and AWS Glue crawler for your Amazon S3 data](#studio-sqlexplorer-athena-s3-quickstart-setup "#studio-sqlexplorer-athena-s3-quickstart-setup")
-- [Step 2: Grant
-  Studio the permissions to access Athena](#studio-sqlexplorer-athena-s3-quickstart-permissions "#studio-sqlexplorer-athena-s3-quickstart-permissions")
-- [Step 3: Enable Athena
-  default connection in JupyterLab](#studio-sqlexplorer-athena-s3-quickstart-connect "#studio-sqlexplorer-athena-s3-quickstart-connect")
-- [Step 4: Query data in
-  Amazon S3 from JupyterLab notebooks using the SQL extension](#studio-sqlexplorer-athena-s3-quickstart-query "#studio-sqlexplorer-athena-s3-quickstart-query")
+- [Step 1: Set up an Athena data source and AWS Glue crawler for your Amazon S3 data](#studio-sqlexplorer-athena-s3-quickstart-setup "#studio-sqlexplorer-athena-s3-quickstart-setup")
+- [Step 2: Grant Studio the permissions to access Athena](#studio-sqlexplorer-athena-s3-quickstart-permissions "#studio-sqlexplorer-athena-s3-quickstart-permissions")
+- [Step 3: Enable Athena default connection in JupyterLab](#studio-sqlexplorer-athena-s3-quickstart-connect "#studio-sqlexplorer-athena-s3-quickstart-connect")
+- [Step 4: Query data in Amazon S3 from JupyterLab notebooks using the SQL extension](#studio-sqlexplorer-athena-s3-quickstart-query "#studio-sqlexplorer-athena-s3-quickstart-query")
 
-## Step 1: Set up an Athena
-
-data source and AWS Glue crawler for your Amazon S3 data
+## Step 1: Set up an Athena data source and AWS Glue crawler for your Amazon S3 data
 
 Follow these steps to index your data in Amazon S3 and create tables in Athena.
 
@@ -129,9 +121,7 @@ To ensure that a new table was created, go to the left menu in AWS Glue and choo
 **Databases** then **Tables**. You should now see
 a new table containing your data.
 
-## Step 2: Grant
-
-Studio the permissions to access Athena
+## Step 2: Grant Studio the permissions to access Athena
 
 In the following steps you grant the execution role of your user profile permissions
 to access Athena.
@@ -240,9 +230,7 @@ to access Athena.
    values. 8. Enter a name for your policy and then choose **Create
    policy**.
 
-## Step 3: Enable Athena
-
-default connection in JupyterLab
+## Step 3: Enable Athena default connection in JupyterLab
 
 In the following steps, you enable a `default-athena-connection` in your
 JupyterLab application. The default Athena connection allows running SQL queries in
@@ -279,9 +267,7 @@ JupyterLab application. 4. Enable Athena default connection:
      `default-athena-connection` in the list of
      connections.
 
-## Step 4: Query data in
-
-Amazon S3 from JupyterLab notebooks using the SQL extension
+## Step 4: Query data in Amazon S3 from JupyterLab notebooks using the SQL extension
 
 You are ready to query your data using SQL in your JupyterLab notebooks.
 
@@ -302,6 +288,5 @@ Ensure to load the extension in the top cell before you run an SQL
 query.
 
 You can further refine the SQL query using the auto-complete and highlighting
-features of the extension. See [SQL editor features of the
-JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") for more information on
+features of the extension. See [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") for more information on
 using the SQL extension SQL editor.

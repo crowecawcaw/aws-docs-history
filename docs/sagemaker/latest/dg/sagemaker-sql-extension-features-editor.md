@@ -1,6 +1,4 @@
-# SQL editor features of the
-
-JupyterLab SQL extension
+# SQL editor features of the JupyterLab SQL extension
 
 The SQL extension provides magic commands that enable the SQL editor functionalities
 within your JupyterLab notebook cells.
@@ -27,8 +25,7 @@ of a cell to activate the following capabilities of the SQL editor.
 ```
 
 Use the SQL editor's features below to build your SQL queries, then run the query by
-running the cell. For more information on the SQL execution capabilities, see [SQL execution features of the
-JupyterLab SQL extension](sagemaker-sql-extension-features-sql-execution.md "sagemaker-sql-extension-features-sql-execution.md").
+running the cell. For more information on the SQL execution capabilities, see [SQL execution features of the JupyterLab SQL extension](sagemaker-sql-extension-features-sql-execution.md "sagemaker-sql-extension-features-sql-execution.md").
 
 - **Query result dropdown**: You can specify how to
   render query results by selecting a result type from the dropdown menu next to your

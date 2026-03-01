@@ -1,6 +1,4 @@
-# Use Custom Algorithms for Model
-
-Training and Hosting on Amazon SageMaker AI with Apache Spark
+# Use Custom Algorithms for Model Training and Hosting on Amazon SageMaker AI with Apache Spark
 
 In [SageMaker AI Spark for Scala examples](apache-spark-example1.md "apache-spark-example1.md"),
 you use the `kMeansSageMakerEstimator` because the example uses the

@@ -1,6 +1,4 @@
-# Promote the permission and resource
-
-share
+# Promote the permission and resource share
 
 If you use customized (customer managed) permissions, you need to promote the
 permission and the associated resource share in order for the model package

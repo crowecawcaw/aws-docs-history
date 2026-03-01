@@ -1,6 +1,4 @@
-# Reserve the best training
-
-plan
+# Reserve the best training plan
 
 After reviewing the available training plan offerings that best match your requirements,
 you can reserve a specific plan by calling the [`CreateTrainingPlan`](../APIReference/API_CreateTrainingPlan.md "../APIReference/API_CreateTrainingPlan.md") API operation. When created, the plan initially
@@ -44,9 +42,7 @@ process is complete.
 The following sections define the mandatory and optional input request parameters for
 the [`CreateTrainingPlan`](../APIReference/API_CreateTrainingPlan.md "../APIReference/API_CreateTrainingPlan.md") API operation.
 
-## Required
-
-parameters
+## Required parameters
 
 When calling [`CreateTrainingPlan`](../APIReference/API_CreateTrainingPlan.md "../APIReference/API_CreateTrainingPlan.md") API to reserve a particular training plan,
 you must provide the following values:

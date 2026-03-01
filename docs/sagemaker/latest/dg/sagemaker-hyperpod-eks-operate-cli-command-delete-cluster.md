@@ -1,6 +1,4 @@
-# Deleting
-
-a SageMaker HyperPod cluster
+# Deleting a SageMaker HyperPod cluster
 
 Run [delete-cluster](../../../cli/latest/reference/sagemaker/delete-cluster.md "../../../cli/latest/reference/sagemaker/delete-cluster.md")
 to delete a cluster. You can specify either the name or the ARN of the

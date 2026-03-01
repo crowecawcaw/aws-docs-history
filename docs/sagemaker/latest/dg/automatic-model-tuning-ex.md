@@ -26,10 +26,7 @@ To run the code in this example, you need
 - [Create a Notebook Instance](automatic-model-tuning-ex-notebook.md "automatic-model-tuning-ex-notebook.md")
 - [Get the Amazon SageMaker AI Boto 3 Client](automatic-model-tuning-ex-client.md "automatic-model-tuning-ex-client.md")
 - [Get the SageMaker AI Execution Role](automatic-model-tuning-ex-role.md "automatic-model-tuning-ex-role.md")
-- [Use an Amazon S3 bucket for input and
-  output](automatic-model-tuning-ex-bucket.md "automatic-model-tuning-ex-bucket.md")
-- [Download, Prepare, and Upload Training
-  Data](automatic-model-tuning-ex-data.md "automatic-model-tuning-ex-data.md")
-- [Configure and Launch a Hyperparameter
-  Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md")
+- [Use an Amazon S3 bucket for input and output](automatic-model-tuning-ex-bucket.md "automatic-model-tuning-ex-bucket.md")
+- [Download, Prepare, and Upload Training Data](automatic-model-tuning-ex-data.md "automatic-model-tuning-ex-data.md")
+- [Configure and Launch a Hyperparameter Tuning Job](automatic-model-tuning-ex-tuning-job.md "automatic-model-tuning-ex-tuning-job.md")
 - [Clean up](automatic-model-tuning-ex-cleanup.md "automatic-model-tuning-ex-cleanup.md")

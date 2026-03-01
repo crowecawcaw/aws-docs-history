@@ -93,8 +93,7 @@ SageMakerRepository:
         * **value**: `true`
 
     After you complete these steps, Studio (or Studio Classic) users in your organization can
-    create a project with the template you created by following the steps in [Create a MLOps Project using
-    Amazon SageMaker Studio or Studio Classic](sagemaker-projects-create.md "sagemaker-projects-create.md") and choosing
+    create a project with the template you created by following the steps in [Create a MLOps Project using Amazon SageMaker Studio or Studio Classic](sagemaker-projects-create.md "sagemaker-projects-create.md") and choosing
     **Organization templates** when you choose a template.
 
 ## Using a template from an Amazon S3 bucket

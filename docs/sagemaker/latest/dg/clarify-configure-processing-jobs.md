@@ -6,9 +6,7 @@ compute bias metrics and feature attributions and generate reports for model exp
 jobs are implemented using a specialized SageMaker Clarify container image. The following page
 describes how SageMaker Clarify works and how to get started with an analysis.
 
-## What is fairness and model
-
-explainability for machine learning predictions?
+## What is fairness and model explainability for machine learning predictions?
 
 Machine learning (ML) models are helping make decisions in domains including financial
 services, healthcare, education, and human resources. Policymakers, regulators, and
@@ -52,9 +50,7 @@ Amazon SageMaker AI](https://aws.amazon.com/blogs/machine-learning/architect-and
 and post-training bias, and how the features impact the model prediction. The blog post
 contains links to example code for each task in the ML lifecycle.
 
-### Best practices to
-
-evaluate fairness and explainability in the ML lifecycle
+### Best practices to evaluate fairness and explainability in the ML lifecycle
 
 **Fairness as a process** – Notions of bias and
 fairness depend on their application. The measurement of bias and the choice of the bias
@@ -84,9 +80,7 @@ recommend asking the following questions during the ML lifecycle:
 
 ![Best practices for the process of evaluating fairness and model explainability.](images/clarify-best-practices-image.png)
 
-### Guide to the SageMaker AI explanations
-
-and bias documentation
+### Guide to the SageMaker AI explanations and bias documentation
 
 Bias can occur and be measured in the data both before and after training a model.
 SageMaker Clarify can provide explanations for model predictions after training and for models
@@ -98,22 +92,17 @@ documentation for explaining and detecting bias using SageMaker Clarify is struc
   see [Configure a SageMaker Clarify Processing Job](clarify-processing-job-configure-parameters.md "clarify-processing-job-configure-parameters.md").
 - For information on detecting bias in pre-processing data before it's used to
   train a model, see [Pre-training Data Bias](clarify-detect-data-bias.md "clarify-detect-data-bias.md").
-- For information on detecting post-training data and model bias, see [Post-training Data and Model
-  Bias](clarify-detect-post-training-bias.md "clarify-detect-post-training-bias.md").
+- For information on detecting post-training data and model bias, see [Post-training Data and Model Bias](clarify-detect-post-training-bias.md "clarify-detect-post-training-bias.md").
 - For information on the model-agnostic feature attribution approach to explain
   model predictions after training, see [Model Explainability](clarify-model-explainability.md "clarify-model-explainability.md").
 - For information on monitoring for feature contribution drift away from the
-  baseline that was established during model training, see [Feature
-  attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
+  baseline that was established during model training, see [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
 - For information about monitoring models that are in production for baseline
-  drift, see [Bias drift for models in
-  production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
+  drift, see [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
 - For information about obtaining explanations in real time from a SageMaker AI
   endpoint, see [Online explainability with SageMaker Clarify](clarify-online-explainability.md "clarify-online-explainability.md").
 
-## How SageMaker Clarify Processing Jobs
-
-Work
+## How SageMaker Clarify Processing Jobs Work
 
 You can use SageMaker Clarify to analyze your datasets and models for explainability and bias. A SageMaker Clarify
 processing job uses the SageMaker Clarify processing container to interact with an Amazon S3 bucket
@@ -141,20 +130,17 @@ learning workflow. SageMaker Clarify can help you compute the following analysis
 - Post-training bias metrics. These metrics can help you understand any bias
   introduced by an algorithm, hyperparameter choices, or any bias that wasn't apparent
   earlier in the flow. For more information about post-training bias metrics, see
-  [Post-training Data and Model
-  Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). SageMaker Clarify uses the model
+  [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). SageMaker Clarify uses the model
   predictions in addition to the data and labels to identify bias. To run a job to
   analyze post-training bias metrics, you must provide the dataset and a JSON analysis
   configuration file. The configuration should include the model or endpoint
   name.
 - Shapley values, which can help you understand what impact your feature has on what
-  your model predicts. For more informaton about Shapley values, see [Feature Attributions that Use Shapley
-  Values](clarify-shapley-values.md "clarify-shapley-values.md"). This
+  your model predicts. For more informaton about Shapley values, see [Feature Attributions that Use Shapley Values](clarify-shapley-values.md "clarify-shapley-values.md"). This
   feature requires a trained model.
 - Partial dependence plots (PDPs), which can help you understand how much your
   predicted target variable would change if you varied the value of one feature. For
-  more information about PDPs, see [Partial dependence plots
-  (PDPs) analysis](clarify-processing-job-analysis-results.md#clarify-processing-job-analysis-results-pdp "clarify-processing-job-analysis-results.md#clarify-processing-job-analysis-results-pdp") This feature
+  more information about PDPs, see [Partial dependence plots (PDPs) analysis](clarify-processing-job-analysis-results.md#clarify-processing-job-analysis-results-pdp "clarify-processing-job-analysis-results.md#clarify-processing-job-analysis-results-pdp") This feature
   requires a trained model.
 
 SageMaker Clarify needs model predictions to compute post-training bias metrics and feature
@@ -181,9 +167,7 @@ For additional information about bias metrics, explainability and how to interpr
 see [Learn
 How Amazon SageMaker Clarify Helps Detect Bias](https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias "https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias"), [Fairness Measures for Machine Learning in Finance](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf"), and the [Amazon AI Fairness and Explainability Whitepaper](https://pages.awscloud.com/rs/112-TZM-766/images/Amazon.AI.Fairness.and.Explainability.Whitepaper.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/Amazon.AI.Fairness.and.Explainability.Whitepaper.pdf").
 
-## Sample
-
-notebooks
+## Sample notebooks
 
 The following sections contains notebooks to help you get started using SageMaker Clarify, to use it
 for special tasks, including those inside a distributed job, and for computer vision.

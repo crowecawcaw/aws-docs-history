@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics computed by the Object Detection - TensorFlow
-
-algorithm
+## Metrics computed by the Object Detection - TensorFlow algorithm
 
 Refer to the following chart to find which metrics are computed by the Object Detection - TensorFlow algorithm.
 
@@ -20,9 +18,7 @@ Refer to the following chart to find which metrics are computed by the Object De
 | ------------------------------ | ----------------------------------------- | ---------------------- | ------------------------------ |
 | `validation:localization_loss` | The localization loss for box prediction. | Minimize               | `Val_localization=([0-9\\.]+)` |
 
-## Tunable Object Detection - TensorFlow
-
-hyperparameters
+## Tunable Object Detection - TensorFlow hyperparameters
 
 Tune an object detection model with the following hyperparameters. The
 hyperparameters that have the greatest impact on object detection objective
@@ -35,8 +31,7 @@ selected `optimizer`. For example, use `beta_1` and
 `optimizer`.
 
 For more information about which hyperparameters are used for each `optimizer`, see
-[Object Detection - TensorFlow
-Hyperparameters](object-detection-tensorflow-Hyperparameter.md "object-detection-tensorflow-Hyperparameter.md").
+[Object Detection - TensorFlow Hyperparameters](object-detection-tensorflow-Hyperparameter.md "object-detection-tensorflow-Hyperparameter.md").
 
 | Parameter Name              | Parameter Type             | Recommended Ranges                                            |
 | --------------------------- | -------------------------- | ------------------------------------------------------------- |

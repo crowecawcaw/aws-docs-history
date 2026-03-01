@@ -17,8 +17,7 @@ For information about the AWS Regions that RStudio on SageMaker AI is supported 
 - [RStudioServerPro instance type](rstudio-select-instance.md "rstudio-select-instance.md")
 - [Add an RStudio Connect URL](rstudio-configure-connect.md "rstudio-configure-connect.md")
 - [Update the RStudio Package Manager URL](rstudio-configure-pm.md "rstudio-configure-pm.md")
-- [Create an Amazon SageMaker AI domain with RStudio using the
-  AWS CLI](rstudio-create-cli.md "rstudio-create-cli.md")
+- [Create an Amazon SageMaker AI domain with RStudio using the AWS CLI](rstudio-create-cli.md "rstudio-create-cli.md")
 - [Add RStudio support to an existing domain](rstudio-add-existing.md "rstudio-add-existing.md")
 - [Custom images with RStudio on SageMaker AI](rstudio-byoi.md "rstudio-byoi.md")
 - [Create a user to use RStudio](rstudio-create-user.md "rstudio-create-user.md")

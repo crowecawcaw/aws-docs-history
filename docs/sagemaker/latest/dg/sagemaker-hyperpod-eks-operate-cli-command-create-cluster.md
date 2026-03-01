@@ -1,6 +1,4 @@
-# Creating
-
-a SageMaker HyperPod cluster
+# Creating a SageMaker HyperPod cluster
 
 Learn how to create SageMaker HyperPod clusters orchestrated by Amazon EKS using the
 AWS CLI.
@@ -11,9 +9,7 @@ AWS CLI.
       [Create an Amazon EKS
       cluster](../../../eks/latest/userguide/create-cluster.md "../../../eks/latest/userguide/create-cluster.md") in the _Amazon EKS User
       Guide_.
-   2. Install the Helm chart as instructed in [Installing
-      packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). If you create a [Creating a HyperPod EKS cluster with restricted
-      instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md"), you will need
+   2. Install the Helm chart as instructed in [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). If you create a [Creating a HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md"), you will need
       a separate Helm chart.
 
 2. Prepare a lifecycle configuration script and upload to an Amazon S3 bucket,
@@ -28,8 +24,7 @@ stage.
 
 ###### Important
 
-If you create an [IAM role for
-SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
+If you create an [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
 attaching only the managed [`AmazonSageMakerClusterInstanceRolePolicy`](security-iam-awsmanpol-cluster.md "security-iam-awsmanpol-cluster.md"),
 your cluster has access to Amazon S3 buckets with the specific prefix
 `sagemaker-`.
@@ -65,8 +60,7 @@ actions.
    `ExecutionRole`, provide the ARN of the IAM role you
    created with the managed
    `AmazonSageMakerClusterInstanceRolePolicy` from the section
-   [IAM role for
-   SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
+   [IAM role for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod").
 
 ###### Note
 
@@ -170,8 +164,7 @@ associating with an EKS cluster.
      the EKS cluster you want to use as the orchestrator.
     * For `OnStartDeepHealthChecks`, add
      `InstanceStress` and
-     `InstanceConnectivity` to enable [Deep health
-     checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md").
+     `InstanceConnectivity` to enable [Deep health checks](sagemaker-hyperpod-eks-resiliency-deep-health-checks.md "sagemaker-hyperpod-eks-resiliency-deep-health-checks.md").
     * For `NodeRecovery`, specify `Automatic` to
      enable automatic node recovery. SageMaker HyperPod replaces or reboots
      instances (nodes) when issues are found by the health-monitoring

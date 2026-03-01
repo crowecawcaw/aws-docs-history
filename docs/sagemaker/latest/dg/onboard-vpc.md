@@ -62,5 +62,4 @@ apply the security group settings to shared spaces created in the domain.
 ###### Note
 
 For the maximum number of allowed security groups, see [UserSettings](../APIReference/API_UserSettings.md "../APIReference/API_UserSettings.md").
-For Amazon VPC requirements in **VPC only** mode, see [Connect Studio notebooks in
-a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+For Amazon VPC requirements in **VPC only** mode, see [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").

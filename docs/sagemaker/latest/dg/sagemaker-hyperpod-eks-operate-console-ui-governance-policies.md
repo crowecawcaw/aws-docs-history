@@ -24,8 +24,7 @@ compute is borrowed and how tasks are prioritized by teams.
   - **Fair-share**: When applied, teams borrow idle
     compute based on their assigned **Fair-share weight**.
     These weights are defined in **Compute allocation**.
-    For more information on how this can be used, see [Sharing idle compute
-    resources examples](#hp-eks-task-governance-policies-examples "#hp-eks-task-governance-policies-examples").
+    For more information on how this can be used, see [Sharing idle compute resources examples](#hp-eks-task-governance-policies-examples "#hp-eks-task-governance-policies-examples").
 
 - **Task prioritization** defines how tasks are queued as
   compute becomes available. When choosing a **Task
@@ -43,8 +42,7 @@ compute is borrowed and how tasks are prioritized by teams.
   When data scientists submit jobs to the cluster, they use the priority
   class name in the YAML file. The priority class is in the format
   ``priority-class-name`-priority`.
-  For an example, see [Submit a job to SageMaker AI-managed queue and
-  namespace](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job").
+  For an example, see [Submit a job to SageMaker AI-managed queue and namespace](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md#hp-eks-cli-start-job").
   - **Priority classes**: These classes establish a
     relative priority for tasks when borrowing capacity. When a task is
     running using borrowed quota, it may be preempted by another task of
@@ -93,12 +91,9 @@ than Team B.
       + **Absolute borrow limit**: The limit of idle compute that a team is allowed to borrow, defined as absolute resource values per instance type. This provides granular control over borrowing behavior for specific instance types. You need to specify absolute limits using the same schema as **Compute quota**, including instance count, accelerators, vCPU, memory, or accelerator partitions. You can specify absolute limits for one or more instance types in your team's quota.
 
   For information on how these concepts are used, such as priority classes and name
-  spaces, see [Example
-  HyperPod task governance AWS CLI commands](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md").
+  spaces, see [Example HyperPod task governance AWS CLI commands](sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md "sagemaker-hyperpod-eks-operate-console-ui-governance-cli.md").
 
-## Sharing idle compute
-
-resources examples
+## Sharing idle compute resources examples
 
 The total reserved quota should not surpass the cluster's available capacity for
 that resource, to ensure proper quota management. For example, if a cluster
@@ -188,5 +183,4 @@ requirements:
 - [Create policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-create.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-create.md")
 - [Edit policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-edit.md")
 - [Delete policies](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-delete.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-delete.md")
-- [Allocating compute quota
-  in Amazon SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation.md")
+- [Allocating compute quota in Amazon SageMaker HyperPod task governance](sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation.md "sagemaker-hyperpod-eks-operate-console-ui-governance-policies-compute-allocation.md")

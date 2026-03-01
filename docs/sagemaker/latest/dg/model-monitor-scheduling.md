@@ -11,8 +11,7 @@ a violations report. In addition, CloudWatch metrics are emitted for each featur
 analysis.
 
 SageMaker AI provides a prebuilt container for performing analysis on tabular datasets.
-Alternatively, you could choose to bring your own container as outlined in the [Support for Your Own Containers
-With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md")
+Alternatively, you could choose to bring your own container as outlined in the [Support for Your Own Containers With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md")
 topic.
 
 You can create a model monitoring schedule for your real-time endpoint or batch transform

@@ -47,8 +47,7 @@ shadow test.
 ## Prerequisites
 
 Before creating a shadow test with the SageMaker AI console, you must have a SageMaker AI model ready
-to use. For more information about how to create a SageMaker AI model, see [Deploy
-models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
+to use. For more information about how to create a SageMaker AI model, see [Deploy models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
 
 You can get started with shadow tests with an existing endpoint with a production variant and a shadow
 variant, an existing endpoint with only a production variant, or just the SageMaker AI models you'd like to
@@ -82,9 +81,7 @@ doing the following:
    **Value** pairs.
 7. Choose **Next**.
 
-##
-
-Enter shadow test settings
+## Enter shadow test settings
 
 After filling out the **Enter shadow test details** page, fill out the **Enter
 shadow test settings** page. If you already have a SageMaker AI Inference endpoint and a production

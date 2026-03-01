@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -58,9 +57,7 @@ After you have completed the prerequisites, you can add RStudio support to your 
 domain. The following steps outline how to update your existing domain to add support
 for RStudio.
 
-### Step 1: Delete all apps in the
-
-domain
+### Step 1: Delete all apps in the domain
 
 To add support for RStudio in your domain, SageMaker AI must update the underlying security groups
 for all existing user profiles. To complete this, you must delete and recreate all existing
@@ -94,9 +91,7 @@ aws sagemaker \
     --app-name `<APP_NAME>`
 ```
 
-### Step 2 - Update all user profiles with the new
-
-list of security groups
+### Step 2 - Update all user profiles with the new list of security groups
 
 This is a one-time action that you must complete for all of the existing user profiles in
 your domain when you have refactored your existing security groups. This prevents you
@@ -125,9 +120,7 @@ aws sagemaker \
     --user-settings "{\"SecurityGroups\": [\"`<SECURITY_GROUP>`\", \"`<SECURITY_GROUP>`\"]}"
 ```
 
-### Step 3 - Activate RStudio by calling the
-
-UpdateDomain API
+### Step 3 - Activate RStudio by calling the UpdateDomain API
 
 1. Call the [UpdateDomain](../APIReference/API_UpdateDomain.md "../APIReference/API_UpdateDomain.md") API to
    add support for RStudio on SageMaker AI. The `defaultusersettings` parameter is only
@@ -169,9 +162,7 @@ aws sagemaker \
 aws sagemaker list-apps --user-profile-name domain-shared
 ```
 
-### Step 4 - Add RStudio access for existing
-
-users
+### Step 4 - Add RStudio access for existing users
 
 As part of the update in Step 3, SageMaker AI marks the RStudio [AccessStatus](../APIReference/API_RStudioServerProAppSettings.md#sagemaker-Type-RStudioServerProAppSettings-AccessStatus "../APIReference/API_RStudioServerProAppSettings.md#sagemaker-Type-RStudioServerProAppSettings-AccessStatus") of all existing user profiles in the domain as
 `DISABLED` by default. This prevents exceeding the number of users allowed by
@@ -196,9 +187,7 @@ aws sagemaker \
 By default, the number of
 users that can have access to RStudio is 60.
 
-### Step 5 – Deactivate RStudio access for new
-
-users
+### Step 5 – Deactivate RStudio access for new users
 
 Unless otherwise specified when calling `UpdateDomain`, RStudio support is added
 by default for all new user profiles created after you have added support for RStudio on

@@ -1,7 +1,4 @@
-# Overview:
-
-Run processing jobs using `ScriptProcessor` and a SageMaker geospatial
-container
+# Overview: Run processing jobs using `ScriptProcessor` and a SageMaker geospatial container
 
 SageMaker geospatial provides a purpose-built processing container,
 `081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest`.
@@ -32,9 +29,7 @@ quota increase](../../../servicequotas/latest/userguide/request-quota-increase.m
    `ScriptProcessor` and submit a Amazon SageMaker Processing job using the SageMaker geospatial
    container.
 
-###### To create a `ScriptProcessor` instance and submit a Amazon SageMaker Processing job using a
-
-SageMaker geospatial container
+###### To create a `ScriptProcessor` instance and submit a Amazon SageMaker Processing job using a SageMaker geospatial container
 
 1. Instantiate an instance of the `ScriptProcessor` class using the
    SageMaker geospatial image:

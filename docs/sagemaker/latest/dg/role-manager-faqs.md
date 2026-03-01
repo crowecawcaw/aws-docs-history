@@ -83,5 +83,4 @@ A: AWS IAM Identity Center Studio Classic Cloud Applications use a Studio Classi
 grant permissions to federated users. This execution role can be specified at
 the Studio Classic IAM Identity Center user profile level or the default domain level. User
 identities and groups must be synchronized into IAM Identity Center and the
-Studio Classic user profile must be created with IAM Identity Center user assignment using [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md"). For more information, see [Launch Studio Classic
-with IAM Identity Center](role-manager-launch-notebook.md#role-manager-launch-notebook-iam-identity-center "role-manager-launch-notebook.md#role-manager-launch-notebook-iam-identity-center").
+Studio Classic user profile must be created with IAM Identity Center user assignment using [CreateUserProfile](../APIReference/API_CreateUserProfile.md "../APIReference/API_CreateUserProfile.md"). For more information, see [Launch Studio Classic with IAM Identity Center](role-manager-launch-notebook.md#role-manager-launch-notebook-iam-identity-center "role-manager-launch-notebook.md#role-manager-launch-notebook-iam-identity-center").

@@ -1,6 +1,4 @@
-# Specificity difference
-
-(SD)
+# Specificity difference (SD)
 
 The specificity difference (SD) is the difference in specificity between the favored
 facet _a_ and disfavored facet _d_. Specificity measures how often the model correctly predicts a

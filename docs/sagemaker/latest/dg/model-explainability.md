@@ -12,9 +12,7 @@ Amazon SageMaker AI.
 
 ###### Topics
 
-- [Understand options for evaluating large
-  language models with SageMaker Clarify](clarify-foundation-model-evaluate.md "clarify-foundation-model-evaluate.md")
+- [Understand options for evaluating large language models with SageMaker Clarify](clarify-foundation-model-evaluate.md "clarify-foundation-model-evaluate.md")
 - [Evaluating and comparing Amazon SageMaker JumpStart text classification models](jumpstart-text-classification-evaluation.md "jumpstart-text-classification-evaluation.md")
 - [Fairness, model explainability and bias detection with SageMaker Clarify](clarify-configure-processing-jobs.md "clarify-configure-processing-jobs.md")
-- [SageMaker Clarify explainability with SageMaker AI
-  Autopilot](autopilot-explainability.md "autopilot-explainability.md")
+- [SageMaker Clarify explainability with SageMaker AI Autopilot](autopilot-explainability.md "autopilot-explainability.md")

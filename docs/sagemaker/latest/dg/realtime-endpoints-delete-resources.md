@@ -9,8 +9,7 @@ interactively using the SageMaker AI console.
 
 SageMaker AI frees up all of the resources that were deployed when the endpoint was created.
 Deleting an endpoint will not delete the endpoint configuration or the SageMaker AI model. See
-[Delete Endpoint
-Configuration](#realtime-endpoints-delete-endpoint-config "#realtime-endpoints-delete-endpoint-config") and [Delete Model](#realtime-endpoints-delete-model "#realtime-endpoints-delete-model") for information on how to delete
+[Delete Endpoint Configuration](#realtime-endpoints-delete-endpoint-config "#realtime-endpoints-delete-endpoint-config") and [Delete Model](#realtime-endpoints-delete-model "#realtime-endpoints-delete-model") for information on how to delete
 your endpoint configuration and SageMaker AI model.
 
 AWS SDK for Python (Boto3)
@@ -57,9 +56,7 @@ Delete your endpoint interactively with the SageMaker AI console.
    right corner.
 5. Choose **Delete**.
 
-## Delete Endpoint
-
-Configuration
+## Delete Endpoint Configuration
 
 Delete your endpoint configuration programmaticially using AWS SDK for Python (Boto3), with the
 AWS CLI, or interactively using the SageMaker AI console. Deleting an endpoint configuration does

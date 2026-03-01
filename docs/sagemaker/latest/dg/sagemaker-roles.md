@@ -7,9 +7,7 @@ IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../I
 
 To create and use an execution role, you can use the following procedures.
 
-## Create execution
-
-role
+## Create execution role
 
 Use the following procedure to create an execution role with the IAM managed
 policy, `AmazonSageMakerFullAccess`, attached. If your use case requires
@@ -24,8 +22,7 @@ following procedure only grants the execution role permission to perform certain
 Amazon S3 actions on buckets or objects with `SageMaker`,
 `Sagemaker`, `sagemaker`, or `aws-glue` in
 the name. To learn how to add an additional policy to an execution role to grant
-it access to other Amazon S3 buckets and objects, see [Add Additional Amazon S3
-Permissions to a SageMaker AI Execution Role](#sagemaker-roles-get-execution-role-s3 "#sagemaker-roles-get-execution-role-s3").
+it access to other Amazon S3 buckets and objects, see [Add Additional Amazon S3 Permissions to a SageMaker AI Execution Role](#sagemaker-roles-get-execution-role-s3 "#sagemaker-roles-get-execution-role-s3").
 
 ###### Note
 
@@ -33,8 +30,7 @@ You can create an execution role directly when you create a SageMaker AI domain 
 a notebook instance.
 
 - For information on how to create a SageMaker AI domain, see [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
-- For information on how to create a notebook instance, see [Create an Amazon SageMaker Notebook Instance for the
-  tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
+- For information on how to create a notebook instance, see [Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
 
 **To create a new execution role from the SageMaker AI
 console**
@@ -107,9 +103,7 @@ xgb = sagemaker.estimator.Estimator(
 
 ```
 
-### Add Additional Amazon S3
-
-Permissions to a SageMaker AI Execution Role
+### Add Additional Amazon S3 Permissions to a SageMaker AI Execution Role
 
 When you use a SageMaker AI feature with resources in Amazon S3, such as input data, the
 execution role you specify in your request (for example
@@ -195,16 +189,11 @@ profile.
 
 ###### Topics
 
-- [Get domain
-  execution role](#sagemaker-roles-get-execution-role-domain "#sagemaker-roles-get-execution-role-domain")
-- [Get space execution
-  role](#sagemaker-roles-get-execution-role-space "#sagemaker-roles-get-execution-role-space")
-- [Get user execution
-  role](#sagemaker-roles-get-execution-role-user "#sagemaker-roles-get-execution-role-user")
+- [Get domain execution role](#sagemaker-roles-get-execution-role-domain "#sagemaker-roles-get-execution-role-domain")
+- [Get space execution role](#sagemaker-roles-get-execution-role-space "#sagemaker-roles-get-execution-role-space")
+- [Get user execution role](#sagemaker-roles-get-execution-role-user "#sagemaker-roles-get-execution-role-user")
 
-### Get domain
-
-execution role
+### Get domain execution role
 
 The following provides instructions on finding your domain’s execution
 role.
@@ -224,9 +213,7 @@ role.
 The execution role name is after the last `/` in
 the execution role ARN.
 
-### Get space execution
-
-role
+### Get space execution role
 
 The following provides instructions on finding your space’s execution
 role.
@@ -265,9 +252,7 @@ print(role)
 The execution role name is after the last `/` in the
 execution role ARN.
 
-### Get user execution
-
-role
+### Get user execution role
 
 The following provides instructions on finding a user’s execution role.
 
@@ -304,9 +289,7 @@ aws sts get-caller-identity
 The execution role name is after the last `/` in the
 execution role ARN.
 
-## Change your execution
-
-role
+## Change your execution role
 
 An execution role is an IAM role that a SageMaker AI identity (like a SageMaker AI user, space,
 or domain) assumes. Changing the IAM role changes the permissions for all of
@@ -322,28 +305,21 @@ also change. The effects of the change may take some time to propagate.
   role_, the _shared spaces_ in
   the domain will assume the changed execution role.
 
-For more information on execution roles and spaces, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For more information on execution roles and spaces, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 You can change the execution role for a identity to a different IAM role by
 using one of the following instructions.
 
 If, instead, you want to _modify_ a role that an
-identity is assuming, see [Modify permissions to
-execution role](#sagemaker-roles-modify-to-execution-role "#sagemaker-roles-modify-to-execution-role").
+identity is assuming, see [Modify permissions to execution role](#sagemaker-roles-modify-to-execution-role "#sagemaker-roles-modify-to-execution-role").
 
 ###### Topics
 
-- [Change the
-  domain default execution role](#sagemaker-roles-change-execution-role-domain "#sagemaker-roles-change-execution-role-domain")
-- [Change space
-  default execution role](#sagemaker-roles-change-execution-role-space "#sagemaker-roles-change-execution-role-space")
-- [Change user profile
-  execution role](#sagemaker-roles-change-execution-role-user "#sagemaker-roles-change-execution-role-user")
+- [Change the domain default execution role](#sagemaker-roles-change-execution-role-domain "#sagemaker-roles-change-execution-role-domain")
+- [Change space default execution role](#sagemaker-roles-change-execution-role-space "#sagemaker-roles-change-execution-role-space")
+- [Change user profile execution role](#sagemaker-roles-change-execution-role-user "#sagemaker-roles-change-execution-role-user")
 
-### Change the
-
-domain default execution role
+### Change the domain default execution role
 
 The following provides instructions on changing your domain’s default
 execution role.
@@ -369,17 +345,13 @@ If you wish to create a new role, you can choose
 wizard** option. 8. Choose Next in the following steps and choose Submit on the
 last step.
 
-### Change space
-
-default execution role
+### Change space default execution role
 
 The following provides instructions on changing your space’s default execution
 role. Changing this execution role will change the role assumed by all of the
 shared spaces in the domain.
 
-###### Change the space default execution role for when you create a new
-
-space
+###### Change the space default execution role for when you create a new space
 
 1. Open the SageMaker AI console, [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/")
 2. On the left navigation pane, choose
@@ -400,9 +372,7 @@ If you wish to create a new role, you can choose
 wizard** option. 8. Choose **Next** in the following steps and
 choose **Submit** on the last step.
 
-### Change user profile
-
-execution role
+### Change user profile execution role
 
 The following provides instructions on changing a user’s execution role.
 Changing this execution role will change the role assumed by all of the private
@@ -426,9 +396,7 @@ If you wish to create a new role, you can choose
 wizard** option. 8. Choose **Next** in the following steps and
 choose **Submit** on the last step.
 
-## Modify permissions to
-
-execution role
+## Modify permissions to execution role
 
 You can modify existing permissions to the execution role of an identity (like a
 SageMaker AI user, space, or domain). This is done by finding the appropriate IAM role
@@ -445,22 +413,17 @@ also change. The effects of the change may not be immediate.
   role_, the _shared spaces_ in
   the domain will assume the modified execution role.
 
-For more information on execution roles and spaces, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For more information on execution roles and spaces, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 If, instead, you want to _change_ a role that an
-identity is assuming, see [Change your execution
-role](#sagemaker-roles-change-execution-role "#sagemaker-roles-change-execution-role").
+identity is assuming, see [Change your execution role](#sagemaker-roles-change-execution-role "#sagemaker-roles-change-execution-role").
 
 ###### To modify permissions to your execution roles
 
 1. First get name of the identity you would like to modify.
-   - [Get domain
-     execution role](#sagemaker-roles-get-execution-role-domain "#sagemaker-roles-get-execution-role-domain")
-   - [Get space execution
-     role](#sagemaker-roles-get-execution-role-space "#sagemaker-roles-get-execution-role-space")
-   - [Get user execution
-     role](#sagemaker-roles-get-execution-role-user "#sagemaker-roles-get-execution-role-user")
+   - [Get domain execution role](#sagemaker-roles-get-execution-role-domain "#sagemaker-roles-get-execution-role-domain")
+   - [Get space execution role](#sagemaker-roles-get-execution-role-space "#sagemaker-roles-get-execution-role-space")
+   - [Get user execution role](#sagemaker-roles-get-execution-role-user "#sagemaker-roles-get-execution-role-user")
 
 2. To modify a role that an identity is assuming, see [Modifying
    a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md") in the _AWS Identity and Access Management User
@@ -507,41 +470,31 @@ Instead of managing permissions by crafting a permission policy, you can use
 the AWS-managed `AmazonSageMakerFullAccess` permission policy. The
 permissions in this policy are fairly broad, to allow for any actions you might
 want to perform in SageMaker AI. For a listing of the policy including information about
-the reasons for adding many of the permissions, see [AWS managed policy:
-AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess"). If you
+the reasons for adding many of the permissions, see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess"). If you
 prefer to create custom policies and manage permissions to scope the permissions
 only to the actions you need to perform with the execution role, see the
 following topics.
 
 ###### Important
 
-If you're running into issues, see [Troubleshooting Amazon SageMaker AI
-Identity and Access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
+If you're running into issues, see [Troubleshooting Amazon SageMaker AI Identity and Access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
 
 For more information about IAM roles, see [IAM
 Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _Service Authorization Reference_.
 
 ###### Topics
 
-- [CreateAutoMLJob and CreateAutoMLJobV2 API: Execution
-  Role Permissions](#sagemaker-roles-autopilot-perms "#sagemaker-roles-autopilot-perms")
-- [CreateDomain API: Execution
-  Role Permissions](#sagemaker-roles-createdomain-perms "#sagemaker-roles-createdomain-perms")
-- [CreateImage and UpdateImage
-  APIs: Execution Role Permissions](#sagemaker-roles-createimage-perms "#sagemaker-roles-createimage-perms")
+- [CreateAutoMLJob and CreateAutoMLJobV2 API: Execution Role Permissions](#sagemaker-roles-autopilot-perms "#sagemaker-roles-autopilot-perms")
+- [CreateDomain API: Execution Role Permissions](#sagemaker-roles-createdomain-perms "#sagemaker-roles-createdomain-perms")
+- [CreateImage and UpdateImage APIs: Execution Role Permissions](#sagemaker-roles-createimage-perms "#sagemaker-roles-createimage-perms")
 - [CreateNotebookInstance API: Execution Role Permissions](#sagemaker-roles-createnotebookinstance-perms "#sagemaker-roles-createnotebookinstance-perms")
 - [CreateHyperParameterTuningJob API: Execution Role Permissions](#sagemaker-roles-createhyperparametertiningjob-perms "#sagemaker-roles-createhyperparametertiningjob-perms")
-- [CreateProcessingJob API:
-  Execution Role Permissions](#sagemaker-roles-createprocessingjob-perms "#sagemaker-roles-createprocessingjob-perms")
-- [CreateTrainingJob API:
-  Execution Role Permissions](#sagemaker-roles-createtrainingjob-perms "#sagemaker-roles-createtrainingjob-perms")
-- [CreateModel API: Execution Role
-  Permissions](#sagemaker-roles-createmodel-perms "#sagemaker-roles-createmodel-perms")
+- [CreateProcessingJob API: Execution Role Permissions](#sagemaker-roles-createprocessingjob-perms "#sagemaker-roles-createprocessingjob-perms")
+- [CreateTrainingJob API: Execution Role Permissions](#sagemaker-roles-createtrainingjob-perms "#sagemaker-roles-createtrainingjob-perms")
+- [CreateModel API: Execution Role Permissions](#sagemaker-roles-createmodel-perms "#sagemaker-roles-createmodel-perms")
 - [SageMaker geospatial capabilities roles](sagemaker-geospatial-roles.md "sagemaker-geospatial-roles.md")
 
-## CreateAutoMLJob and CreateAutoMLJobV2 API: Execution
-
-Role Permissions
+## CreateAutoMLJob and CreateAutoMLJobV2 API: Execution Role Permissions
 
 For an execution role that you can pass in a `CreateAutoMLJob` or `CreateAutoMLJobV2` API
 request, you can attach the following minimum permission policy to the role:
@@ -654,9 +607,7 @@ add the following permissions:
 }
 ```
 
-## CreateDomain API: Execution
-
-Role Permissions
+## CreateDomain API: Execution Role Permissions
 
 The execution role for domains with IAM Identity Center and the user/execution role for
 IAM domains need the following permissions when you pass an AWS KMS customer managed key
@@ -713,9 +664,7 @@ JSON
 
 ```
 
-## CreateImage and UpdateImage
-
-APIs: Execution Role Permissions
+## CreateImage and UpdateImage APIs: Execution Role Permissions
 
 For an execution role that you can pass in a `CreateImage` or
 `UpdateImage` API request, you can attach the following permission
@@ -1117,9 +1066,7 @@ hyperparameter tuning job, add the following permissions:
 }
 ```
 
-## CreateProcessingJob API:
-
-Execution Role Permissions
+## CreateProcessingJob API: Execution Role Permissions
 
 For an execution role that you can pass in a `CreateProcessingJob` API
 request, you can attach the following permission policy to the role:
@@ -1286,9 +1233,7 @@ job, add the following permissions:
 }
 ```
 
-## CreateTrainingJob API:
-
-Execution Role Permissions
+## CreateTrainingJob API: Execution Role Permissions
 
 For an execution role that you can pass in a `CreateTrainingJob` API
 request, you can attach the following permission policy to the role:
@@ -1459,9 +1404,7 @@ job, add the following permissions:
 }
 ```
 
-## CreateModel API: Execution Role
-
-Permissions
+## CreateModel API: Execution Role Permissions
 
 For an execution role that you can pass in a `CreateModel` API request,
 you can attach the following permission policy to the role:

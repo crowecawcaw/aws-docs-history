@@ -20,9 +20,7 @@ console.
    For more information about using CloudWatch graphs, see [Graph Metrics](../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md "../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md") in the _Amazon CloudWatch User
    Guide_.
 
-## Monitor training job metrics (SageMaker AI
-
-console)
+## Monitor training job metrics (SageMaker AI console)
 
 You can monitor the metrics that a training job emits in real time by using the SageMaker AI
 console.

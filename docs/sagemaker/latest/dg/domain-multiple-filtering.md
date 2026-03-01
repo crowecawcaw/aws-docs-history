@@ -1,6 +1,4 @@
-# How domain resource display filtering
-
-works
+# How domain resource display filtering works
 
 Amazon SageMaker AI automatically filters the resources displayed in Studio or Studio Classic based
 on the Amazon SageMaker AI domain. This filtering is done by using the `sagemaker:domain-arn`

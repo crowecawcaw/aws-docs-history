@@ -1,6 +1,4 @@
-# Access control and setting permissions for SageMaker Studio
-
-notebooks
+# Access control and setting permissions for SageMaker Studio notebooks
 
 Amazon SageMaker Studio uses filesystem and container permissions for access control and isolation
 of Studio users and notebooks. This is one of the major differences between Studio notebooks and
@@ -60,8 +58,7 @@ container. For more information, see [Runtime privilege and Linux capabilities](
 
 Metadata used by running apps are mounted to the container with read-only permission.
 Customers aren’t able to modify this metadata from the container. For the available metadata,
-see [Get Amazon SageMaker Studio Classic Notebook and App
-Metadata](notebooks-run-and-manage-metadata.md "notebooks-run-and-manage-metadata.md").
+see [Get Amazon SageMaker Studio Classic Notebook and App Metadata](notebooks-run-and-manage-metadata.md "notebooks-run-and-manage-metadata.md").
 
 **User isolation on EFS**
 

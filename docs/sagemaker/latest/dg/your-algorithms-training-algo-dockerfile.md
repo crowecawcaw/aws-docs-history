@@ -1,6 +1,4 @@
-# How Amazon SageMaker AI Runs Your
-
-Training Image
+# How Amazon SageMaker AI Runs Your Training Image
 
 You can use a custom entrypoint script to automate infrastructure to train in a
 production environment. If you pass your entrypoint script into your Docker container,
@@ -45,9 +43,7 @@ with Amazon S3 managed keys (SSE-S3). Server-side encryption with AWS KMS keys (
 currently supported for storing SageMaker AI output data in directory buckets.
 For more information, see [S3 Express One Zone](../../../AmazonS3/latest/userguide/s3-express-one-zone.md "../../../AmazonS3/latest/userguide/s3-express-one-zone.md").
 
-## Run a training
-
-job with an entrypoint script bundled inside the Docker container
+## Run a training job with an entrypoint script bundled inside the Docker container
 
 SageMaker AI can run an entrypoint script bundled inside your Docker container.
 
@@ -120,9 +116,7 @@ To bundle your shell or Python scripts inside your Docker image, or to provide t
 script in an Amazon S3 bucket or by using the AWS Command Line Interface (CLI), continue to the following
 section.
 
-### Bundle your
-
-shell script in a Docker container
+### Bundle your shell script in a Docker container
 
 If you want to bundle a custom shell script inside your Docker image, use the
 following steps.
@@ -161,9 +155,7 @@ aws --region `<your-region>` sagemaker create-training-job \
 --stopping-condition '{"MaxRuntimeInSeconds": `180`}'
 ```
 
-### Bundle your
-
-Python script in a Docker container
+### Bundle your Python script in a Docker container
 
 To bundle a custom Python script inside your Docker image, use the following
 steps.
@@ -189,9 +181,7 @@ COPY `./custom_entrypoint.py /mydir/`
     "ContainerArguments": ["`/mydir/custom_entrypoint.py`"]}' \
 ```
 
-## Run a
-
-training job with an entrypoint script outside the Docker container
+## Run a training job with an entrypoint script outside the Docker container
 
 You can use your own Docker container for training and pass in an entrypoint
 script from outside the Docker container. There are some benefits to structuring
@@ -277,9 +267,7 @@ You can use any supported `InputDataConfig` source in the
 `CreateTrainingJob` API to provide an entrypoint script to run your
 training image.
 
-### Provide
-
-your entrypoint script in an Amazon S3 bucket
+### Provide your entrypoint script in an Amazon S3 bucket
 
 To provide a custom entrypoint script using an S3 bucket, use the
 `S3DataSource` parameter of the [DataSource](../APIReference/API_DataSource.md#sagemaker-Type-DataSource-S3DataSource "../APIReference/API_DataSource.md#sagemaker-Type-DataSource-S3DataSource") API to specify the location of the script. If you use

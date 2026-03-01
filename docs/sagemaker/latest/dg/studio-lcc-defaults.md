@@ -53,8 +53,7 @@ A default KernelGateway lifecycle configuration set for a domain applies to all
 KernelGateway applications launched in the domain. Unless the user selects a different
 lifecycle configuration from the list presented in the Studio Classic launcher, the default
 lifecycle configuration is used. The default script also runs if `No Script`
-is selected by the user. For more information about selecting a script, see [Step 3: Launch an application with the
-lifecycle configuration](studio-lcc-create-console.md#studio-lcc-create-console-step3 "studio-lcc-create-console.md#studio-lcc-create-console-step3").
+is selected by the user. For more information about selecting a script, see [Step 3: Launch an application with the lifecycle configuration](studio-lcc-create-console.md#studio-lcc-create-console-step3 "studio-lcc-create-console.md#studio-lcc-create-console-step3").
 
 ###### Topics
 

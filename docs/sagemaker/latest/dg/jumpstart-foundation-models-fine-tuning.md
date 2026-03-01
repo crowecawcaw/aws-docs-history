@@ -1,6 +1,4 @@
-# Foundation models and
-
-hyperparameters for fine-tuning
+# Foundation models and hyperparameters for fine-tuning
 
 Foundation models are computationally expensive and trained on a large, unlabeled
 corpus. Fine-tuning a pre-trained foundation model is an affordable way to take
@@ -25,9 +23,7 @@ Fine-tuning might be useful to you if you need:
 2. If you're interested in instruction-based fine-tuning using prompt and
    response examples, see [Fine-tune a large language model (LLM) using prompt instructions](jumpstart-foundation-models-fine-tuning-instruction-based.md "jumpstart-foundation-models-fine-tuning-instruction-based.md").
 
-## Foundation
-
-models available for fine-tuning
+## Foundation models available for fine-tuning
 
 You can fine-tune any of the following JumpStart foundation models:
 
@@ -111,5 +107,4 @@ You can specify hyperparameter values when you fine-tune your model in
 Studio. For more information, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md "jumpstart-foundation-models-use-studio-updated-fine-tune.md").
 
 You can also override default hyperparameter values when fine-tuning your
-model using the SageMaker Python SDK. For more information, see [Fine-tune publicly available foundation models with the
-JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").
+model using the SageMaker Python SDK. For more information, see [Fine-tune publicly available foundation models with the JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").

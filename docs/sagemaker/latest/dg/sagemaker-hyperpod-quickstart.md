@@ -6,15 +6,11 @@ infrastructure needs to get started with SageMaker HyperPod.
 
 ###### In this topic:
 
-- [Create a Slurm-orchestrated
-  SageMaker HyperPod cluster](#sagemaker-hyperpod-quickstart-slurm "#sagemaker-hyperpod-quickstart-slurm")
-- [Create an EKS-orchestrated
-  SageMaker HyperPod cluster](#sagemaker-hyperpod-quickstart-eks "#sagemaker-hyperpod-quickstart-eks")
+- [Create a Slurm-orchestrated SageMaker HyperPod cluster](#sagemaker-hyperpod-quickstart-slurm "#sagemaker-hyperpod-quickstart-slurm")
+- [Create an EKS-orchestrated SageMaker HyperPod cluster](#sagemaker-hyperpod-quickstart-eks "#sagemaker-hyperpod-quickstart-eks")
 - [Submit workloads](#sagemaker-hyperpod-quickstart-workload "#sagemaker-hyperpod-quickstart-workload")
 
-## Create a Slurm-orchestrated
-
-SageMaker HyperPod cluster
+## Create a Slurm-orchestrated SageMaker HyperPod cluster
 
 Follow these steps to create your first SageMaker HyperPod cluster with Slurm
 orchestration.
@@ -92,12 +88,9 @@ Follow these steps to add an instance group.
    creation process.
 9. Choose **Submit**.
 
-For more information, see [Getting started with
-SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md").
+For more information, see [Getting started with SageMaker HyperPod using the SageMaker AI console](smcluster-getting-started-slurm-console.md "smcluster-getting-started-slurm-console.md").
 
-## Create an EKS-orchestrated
-
-SageMaker HyperPod cluster
+## Create an EKS-orchestrated SageMaker HyperPod cluster
 
 Follow these steps to create your first SageMaker HyperPod cluster with Amazon EKS
 orchestration.
@@ -175,8 +168,7 @@ Follow these steps to add an instance group.
    creation process.
 9. Choose **Submit**.
 
-For more information, see [Creating
-a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
+For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
 
 ## Submit workloads
 

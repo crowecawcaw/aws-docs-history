@@ -1,6 +1,4 @@
-# Set up Staging
-
-Construct Examples
+# Set up Staging Construct Examples
 
 To set up stage constructs for your Amazon SageMaker Model Registry, the administrator will need to
 grant the relevant permissions to the intended roles. The following provides
@@ -207,6 +205,5 @@ the model lifecycle stage to:
 ```
 
 To get Amazon EventBridge notifications on any model status update, see the example in
-[Get event
-notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md"). For an
+[Get event notifications for ModelLifeCycle](model-registry-staging-construct-event-bridge.md "model-registry-staging-construct-event-bridge.md"). For an
 example EventBridge payload you may receive, see [SageMaker model package state change](automating-sagemaker-with-eventbridge.md#eventbridge-model-package "automating-sagemaker-with-eventbridge.md#eventbridge-model-package").

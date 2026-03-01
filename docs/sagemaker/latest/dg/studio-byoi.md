@@ -13,8 +13,7 @@ applications and cannot create new ones. We recommend that you [migrate your wor
 A SageMaker image is a file that identifies the kernels, language packages, and other
 dependencies required to run a Jupyter notebook in Amazon SageMaker Studio Classic. These images are used to
 create an environment that you then run Jupyter notebooks from. Amazon SageMaker AI provides many built-in
-images for you to use. For the list of built-in images, see [Amazon SageMaker Images Available for Use With
-Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+images for you to use. For the list of built-in images, see [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
 
 If you need different functionality, you can bring your own custom images to Studio Classic. You
 can create images and image versions, and attach image versions to your domain or shared space,
@@ -49,8 +48,7 @@ The following section defines key terms for bringing your own image to use with 
 
 - [Custom SageMaker Image Specifications for Amazon SageMaker Studio Classic](studio-byoi-specs.md "studio-byoi-specs.md")
 - [Prerequisites for Custom Images in Amazon SageMaker Studio Classic](studio-byoi-prereq.md "studio-byoi-prereq.md")
-- [Add a Docker Image Compatible with
-  Amazon SageMaker Studio Classic to Amazon ECR](studio-byoi-sdk-add-container-image.md "studio-byoi-sdk-add-container-image.md")
+- [Add a Docker Image Compatible with Amazon SageMaker Studio Classic to Amazon ECR](studio-byoi-sdk-add-container-image.md "studio-byoi-sdk-add-container-image.md")
 - [Create a Custom SageMaker Image for Amazon SageMaker Studio Classic](studio-byoi-create.md "studio-byoi-create.md")
 - [Attach a Custom SageMaker Image in Amazon SageMaker Studio Classic](studio-byoi-attach.md "studio-byoi-attach.md")
 - [Launch a Custom SageMaker Image in Amazon SageMaker Studio Classic](studio-byoi-launch.md "studio-byoi-launch.md")

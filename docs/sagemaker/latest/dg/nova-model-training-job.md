@@ -42,16 +42,12 @@ brevity, safety versus coverage, or multi-step reasoning under constraints. In
 practice, you alternate SFT and RFT in cycles to shape the pre-trained model into a
 reliable, policy-aligned system that performs complex tasks consistently.
 
-### Choose the right
-
-customization approach
+### Choose the right customization approach
 
 In this section we will cover post training customization strategies: RFT and
 SFT.
 
-#### Reinforcement fine-tuning
-
-(RFT)
+#### Reinforcement fine-tuning (RFT)
 
 Reinforcement fine-tuning improves model performance through feedback
 signals—measurable scores or rewards that indicate response quality—rather than
@@ -129,9 +125,7 @@ If you can point to "the right answer," use SFT. If you need new
 knowledge, use RAG. Use RFT only after you have a solid baseline and a
 robust, fast, hard-to-exploit reward function.
 
-#### Supervised fine-tuning
-
-(SFT)
+#### Supervised fine-tuning (SFT)
 
 Supervised fine-tuning trains the LLM on a dataset of human-labeled
 input-output pairs for your task. You provide examples of prompts (questions,
@@ -219,7 +213,6 @@ model.
 
 - [Amazon Nova distillation](nova-distillation.md "nova-distillation.md")
 - [Nova Customization SDK](nova-customization-sdk.md "nova-customization-sdk.md")
-- [Fine-tuning Amazon Nova models using SageMaker
-  training jobs](nova-fine-tuning-training-job.md "nova-fine-tuning-training-job.md")
+- [Fine-tuning Amazon Nova models using SageMaker training jobs](nova-fine-tuning-training-job.md "nova-fine-tuning-training-job.md")
 - [Monitoring Progress Across Iterations](nova-model-monitor.md "nova-model-monitor.md")
 - [Evaluating your SageMaker AI-trained model](nova-model-evaluation.md "nova-model-evaluation.md")

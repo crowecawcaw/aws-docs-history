@@ -1,6 +1,4 @@
-# Create an Amazon SageMaker Studio Classic notebook using the
-
-geospatial image
+# Create an Amazon SageMaker Studio Classic notebook using the geospatial image
 
 ###### Important
 

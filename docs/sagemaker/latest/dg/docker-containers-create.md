@@ -1,6 +1,4 @@
-# Container creation with your own algorithms
-
-and models
+# Container creation with your own algorithms and models
 
 If none of the existing SageMaker AI containers meet your needs and you don't have an existing
 container of your own, you may need to create a new Docker container. The following

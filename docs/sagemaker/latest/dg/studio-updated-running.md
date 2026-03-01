@@ -1,6 +1,4 @@
-# View your Studio running instances,
-
-applications, and spaces
+# View your Studio running instances, applications, and spaces
 
 ###### Important
 
@@ -12,9 +10,7 @@ The following topics include information and instructions about how to view your
 Studio running instances, applications, and spaces. For more information about
 Studio spaces, see [Amazon SageMaker Studio spaces](studio-updated-spaces.md "studio-updated-spaces.md").
 
-## View your Studio running
-
-instances and applications
+## View your Studio running instances and applications
 
 The **Running instances** page gives information about all running
 application instances that were created in Amazon SageMaker Studio by the user, or were shared

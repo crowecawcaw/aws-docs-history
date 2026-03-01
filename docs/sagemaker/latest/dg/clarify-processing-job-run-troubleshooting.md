@@ -1,6 +1,4 @@
-# Troubleshoot SageMaker Clarify Processing
-
-Jobs
+# Troubleshoot SageMaker Clarify Processing Jobs
 
 If you encounter failures with SageMaker Clarify processing jobs, consult the following scenarios to
 help identify the issue.
@@ -14,28 +12,18 @@ misleading messages or are unable to find a solution, submit feedback.
 
 ###### Topics
 
-- [Processing job fails to
-  finish](#clarify-troubleshooting-job-fails "#clarify-troubleshooting-job-fails")
-- [Processing job is taking too long to
-  run](#clarify-troubleshooting-job-long "#clarify-troubleshooting-job-long")
-- [Processing job finishes
-  without results and you get a CloudWatch warning message](#clarify-troubleshooting-no-results-and-warning "#clarify-troubleshooting-no-results-and-warning")
-- [Error message
-  for invalid analysis configuration](#clarify-troubleshooting-invalid-analysis-configuration "#clarify-troubleshooting-invalid-analysis-configuration")
-- [Bias metric
-  computation fails for several or all metrics](#clarify-troubleshooting-bias-metric-computation-fails "#clarify-troubleshooting-bias-metric-computation-fails")
+- [Processing job fails to finish](#clarify-troubleshooting-job-fails "#clarify-troubleshooting-job-fails")
+- [Processing job is taking too long to run](#clarify-troubleshooting-job-long "#clarify-troubleshooting-job-long")
+- [Processing job finishes without results and you get a CloudWatch warning message](#clarify-troubleshooting-no-results-and-warning "#clarify-troubleshooting-no-results-and-warning")
+- [Error message for invalid analysis configuration](#clarify-troubleshooting-invalid-analysis-configuration "#clarify-troubleshooting-invalid-analysis-configuration")
+- [Bias metric computation fails for several or all metrics](#clarify-troubleshooting-bias-metric-computation-fails "#clarify-troubleshooting-bias-metric-computation-fails")
 - [Mismatch between analysis config and dataset/model input/output](#clarify-troubleshooting-mismatch-analysis-config-and-data-model "#clarify-troubleshooting-mismatch-analysis-config-and-data-model")
-- [Model returns 500
-  Internal Server Error or container falls back to per-record predictions due to model
-  error](#clarify-troubleshooting-500-internal-server-error "#clarify-troubleshooting-500-internal-server-error")
-- [Execution role is
-  invalid](#clarify-troubleshooting-execution-role-invalid "#clarify-troubleshooting-execution-role-invalid")
+- [Model returns 500 Internal Server Error or container falls back to per-record predictions due to model error](#clarify-troubleshooting-500-internal-server-error "#clarify-troubleshooting-500-internal-server-error")
+- [Execution role is invalid](#clarify-troubleshooting-execution-role-invalid "#clarify-troubleshooting-execution-role-invalid")
 - [Failed to download data](#clarify-troubleshooting-data-download "#clarify-troubleshooting-data-download")
 - [Could not connect to SageMaker AI](#clarify-troubleshooting-connection "#clarify-troubleshooting-connection")
 
-## Processing job fails to
-
-finish
+## Processing job fails to finish
 
 If the processing job fails to finish, you can try the following:
 
@@ -52,9 +40,7 @@ If the processing job fails to finish, you can try the following:
   - `aws sagemaker describe-processing-job —processing-job-name
 <processing-job-id>`
 
-## Processing job is taking too long to
-
-run
+## Processing job is taking too long to run
 
 If your processing job is taking too long to run, use the following ways to find the
 root cause.
@@ -70,11 +56,9 @@ load. To speed up your job, try the following:
 - Add more instances. SageMaker Clarify can use multiple instances to explain multiple input
   data points in parallel. To enable parallel computing, set your
   `instance_count` to more than `1` when you call
-  `SageMakerClarifyProcessor`. For more information, see [How to run parallel SageMaker Clarify processing
-  jobs](clarify-processing-job-run.md#clarify-processing-job-run-spark "clarify-processing-job-run.md#clarify-processing-job-run-spark"). If you increase your
+  `SageMakerClarifyProcessor`. For more information, see [How to run parallel SageMaker Clarify processing jobs](clarify-processing-job-run.md#clarify-processing-job-run-spark "clarify-processing-job-run.md#clarify-processing-job-run-spark"). If you increase your
   instance count, monitor the performance of your endpoint to check that it can
-  deploy the increased load. For more information, see [Capture data from real-time
-  endpoint](model-monitor-data-capture-endpoint.md "model-monitor-data-capture-endpoint.md").
+  deploy the increased load. For more information, see [Capture data from real-time endpoint](model-monitor-data-capture-endpoint.md "model-monitor-data-capture-endpoint.md").
 - If you're computing SHapley Additive exPlanations
   (SHAP) values, reduce the `num_samples` parameter
   in your analysis configuration file. The number of samples directly affects the
@@ -87,9 +71,7 @@ load. To speed up your job, try the following:
   Reducing the number of samples can also lead to reduced accuracy in estimating
   SHAP values. For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
 
-## Processing job finishes
-
-without results and you get a CloudWatch warning message
+## Processing job finishes without results and you get a CloudWatch warning message
 
 If the processing job finishes but no results are found, the CloudWatch logs produce a
 warning message that says **`Signal 15 received, cleaning up.`**This
@@ -98,9 +80,7 @@ warning indicates that the job was stopped either because a customer request cal
 its completion. In the latter case, check the maximum runtime in the job configuration
 (`max_runtime_in_seconds`) and increase it as needed.
 
-## Error message
-
-for invalid analysis configuration
+## Error message for invalid analysis configuration
 
 - If you get the error message **`Unable to load analysis configuration
 as JSON.`**, this means that the analysis configuration input file
@@ -113,9 +93,7 @@ validation error.`**, this means that the analysis configuration
   cross-check them with the parameters listed in the analysis configuration file.
   For more information, see [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
 
-## Bias metric
-
-computation fails for several or all metrics
+## Bias metric computation fails for several or all metrics
 
 If your receive one of the following error messages **`No Label values are
  present in the predicted Label Column, Positive Predicted Index Series contains all
@@ -153,10 +131,7 @@ dataset.`** or **`Feature names not found.`**,
 features.`**, check the content template for JSON Lines and compare
   it with the dataset sample if available.
 
-## Model returns 500
-
-Internal Server Error or container falls back to per-record predictions due to model
-error
+## Model returns 500 Internal Server Error or container falls back to per-record predictions due to model error
 
 If you receive the error message **`Fallback to per-record prediction because
  of model error.`**, this could indicate that model cannot handle the batch
@@ -165,9 +140,7 @@ serialization problems. You should review the CloudWatch logs for the SageMaker 
 look for error messages or tracebacks. For model throttling cases, it may help to use a
 different instance type or increasing the number of instances for the endpoint.
 
-## Execution role is
-
-invalid
+## Execution role is invalid
 
 This indicates that the role provided is incorrect or missing required permissions.
 Check the role and its permissions that were used to configure the processing job and

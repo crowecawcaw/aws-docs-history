@@ -42,28 +42,20 @@ Ensure that you have enabled communication between Studio or Studio Classic and
 Amazon EMR clusters. For instructions, see the [Configure network access for your Amazon EMR cluster](studio-notebooks-emr-networking.md "studio-notebooks-emr-networking.md") section. Once this
 communication is enabled, you can:
 
-    + [Configure Amazon EMR CloudFormation
-     templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md")
-    + [Configure
-     listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md")
+    + [Configure Amazon EMR CloudFormation templates in the Service Catalog](studio-notebooks-set-up-emr-templates.md "studio-notebooks-set-up-emr-templates.md")
+    + [Configure listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md")
 
 - **If you are a data scientist or data engineer**, you
   can:
-  - [Launch an Amazon EMR
-    cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md")
-  - [List Amazon EMR clusters from Studio or
-    Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md")
-  - [Connect to an Amazon EMR cluster from SageMaker Studio
-    or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")
-  - [Terminate an Amazon EMR cluster from Studio or
-    Studio Classic](terminate-emr-clusters.md "terminate-emr-clusters.md")
-  - [Access Spark UI from Studio or
-    Studio Classic](studio-notebooks-access-spark-ui.md "studio-notebooks-access-spark-ui.md")
+  - [Launch an Amazon EMR cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md")
+  - [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md")
+  - [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")
+  - [Terminate an Amazon EMR cluster from Studio or Studio Classic](terminate-emr-clusters.md "terminate-emr-clusters.md")
+  - [Access Spark UI from Studio or Studio Classic](studio-notebooks-access-spark-ui.md "studio-notebooks-access-spark-ui.md")
 
 ###### List of topics
 
-- [Quickstart: Create a SageMaker AI sandbox
-  domain to launch Amazon EMR clusters in Studio](studio-notebooks-emr-cluster-quickstart.md "studio-notebooks-emr-cluster-quickstart.md")
+- [Quickstart: Create a SageMaker AI sandbox domain to launch Amazon EMR clusters in Studio](studio-notebooks-emr-cluster-quickstart.md "studio-notebooks-emr-cluster-quickstart.md")
 - [Admin guide](studio-emr-admin-guide.md "studio-emr-admin-guide.md")
 - [User guide](studio-emr-user-guide.md "studio-emr-user-guide.md")
 - [Blogs and whitepapers](studio-notebooks-emr-resources.md "studio-notebooks-emr-resources.md")

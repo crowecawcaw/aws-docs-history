@@ -12,10 +12,7 @@ If you run into an error, you can use the following list to try to troubleshoot 
 training job. If you need further support, reach out to the SageMaker AI team through [AWS Support](https://console.aws.amazon.com/support/ "https://console.aws.amazon.com/support/") or [AWS Developer Forums
 for Amazon SageMaker AI](https://forums.aws.amazon.com/forum.jspa?forumID=285 "https://forums.aws.amazon.com/forum.jspa?forumID=285").
 
-## Training job
-
-is not converging as expected when compared to the native framework training
-job
+## Training job is not converging as expected when compared to the native framework training job
 
 Convergence issues range from “the model is not learning when SageMaker Training Compiler is turned
 on” to “the model is learning but slower than the native framework”. In this
@@ -153,9 +150,7 @@ gradient computation with AMP is as follows.
 Note that this checklist has an additional item for synchronizing all workers,
 compared to the checklist for single-GPU training.
 
-## Training job
-
-fails due to missing PyTorch/XLA configuration
+## Training job fails due to missing PyTorch/XLA configuration
 
 If a training job fails with the `Missing XLA configuration` error
 message, it might be due to a misconfiguration in the number of GPUs per instance
@@ -256,6 +251,5 @@ page_.
 ## SageMaker Training Compiler doesn't reduce the total training time
 
 If the total training time does not decrease with SageMaker Training Compiler, we highly recommend you
-to go over the [SageMaker Training Compiler Best Practices and
-Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md") page to check your training
+to go over the [SageMaker Training Compiler Best Practices and Considerations](training-compiler-tips-pitfalls.md "training-compiler-tips-pitfalls.md") page to check your training
 configuration, padding strategy for the input tensor shape, and hyperparameters.

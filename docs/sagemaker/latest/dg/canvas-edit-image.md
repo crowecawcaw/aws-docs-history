@@ -28,9 +28,7 @@ The following screenshot shows the page for editing your image dataset.
 ![Screenshot of the image dataset management page in Canvas.](images/studio/canvas/dataset-management-page.png)
 From this page, you can do the following actions.
 
-## View the properties for each image (label, size,
-
-dimensions)
+## View the properties for each image (label, size, dimensions)
 
 To view an individual image, you can search for it by file name in the search bar. Then,
 choose the image to open the full view. You can view the image properties and reassign the

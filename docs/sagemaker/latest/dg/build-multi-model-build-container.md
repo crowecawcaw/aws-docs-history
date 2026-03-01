@@ -1,30 +1,22 @@
-# Build Your Own Container for SageMaker AI
-
-Multi-Model Endpoints
+# Build Your Own Container for SageMaker AI Multi-Model Endpoints
 
 Refer to the following sections for bringing your own container and dependencies to
 multi-model endpoints.
 
 ###### Topics
 
-- [Bring your own dependencies for
-  multi-model endpoints on CPU backed instances](#build-multi-model-container-cpu "#build-multi-model-container-cpu")
-- [Bring your own dependencies for
-  multi-model endpoints on GPU backed instances](#build-multi-model-container-gpu "#build-multi-model-container-gpu")
+- [Bring your own dependencies for multi-model endpoints on CPU backed instances](#build-multi-model-container-cpu "#build-multi-model-container-cpu")
+- [Bring your own dependencies for multi-model endpoints on GPU backed instances](#build-multi-model-container-gpu "#build-multi-model-container-gpu")
 - [Use the SageMaker AI Inference Toolkit](#multi-model-inference-toolkit "#multi-model-inference-toolkit")
-- [Custom Containers Contract for Multi-Model
-  Endpoints](mms-container-apis.md "mms-container-apis.md")
+- [Custom Containers Contract for Multi-Model Endpoints](mms-container-apis.md "mms-container-apis.md")
 
-## Bring your own dependencies for
-
-multi-model endpoints on CPU backed instances
+## Bring your own dependencies for multi-model endpoints on CPU backed instances
 
 If none of the pre-built container images serve your needs, you can build your own
 container for use with CPU backed multi-model endpoints.
 
 Custom Amazon Elastic Container Registry (Amazon ECR) images deployed in Amazon SageMaker AI are expected to adhere to the basic
-contract described in [Custom Inference Code with Hosting
-Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md") that govern how SageMaker AI interacts with a
+contract described in [Custom Inference Code with Hosting Services](your-algorithms-inference-code.md "your-algorithms-inference-code.md") that govern how SageMaker AI interacts with a
 Docker container that runs your own inference code. For a container to be capable of loading
 and serving multiple models concurrently, there are additional APIs and behaviors that must
 be followed. This additional contract includes new APIs to load, list, get, and unload
@@ -44,8 +36,7 @@ SAGEMAKER_MULTI_MODEL=true
 
 If you are creating a multi-model endpoint for a serial inference pipline, your Docker
 file must have the required labels for both multi-models and serial inference pipelines. For
-more information about serial information pipelines, see [Run Real-time Predictions with an
-Inference Pipeline](inference-pipeline-real-time.md "inference-pipeline-real-time.md").
+more information about serial information pipelines, see [Run Real-time Predictions with an Inference Pipeline](inference-pipeline-real-time.md "inference-pipeline-real-time.md").
 
 To help you implement these requirements for a custom container, two libraries are
 available:
@@ -65,9 +56,7 @@ available:
   to tweak important performance parameters, such as the number of workers per model,
   depending on the needs of your scenario.
 
-## Bring your own dependencies for
-
-multi-model endpoints on GPU backed instances
+## Bring your own dependencies for multi-model endpoints on GPU backed instances
 
 The bring your own container (BYOC) capability on multi-model endpoints with GPU backed
 instances is not currently supported by the Multi Model Server and SageMaker AI Inference Toolkit
@@ -109,8 +98,7 @@ container that supports multi-model endpoints in SageMaker AI, see the [Multi-Mo
 
 The SageMaker AI inference toolkit supports only Python model handlers. If you want to
 implement your handler in any other language, you must build your own container that
-implements the additional multi-model endpoint APIs. For information, see [Custom Containers Contract for Multi-Model
-Endpoints](mms-container-apis.md "mms-container-apis.md").
+implements the additional multi-model endpoint APIs. For information, see [Custom Containers Contract for Multi-Model Endpoints](mms-container-apis.md "mms-container-apis.md").
 
 ###### To extend a container by using the SageMaker AI inference toolkit
 
@@ -211,5 +199,4 @@ You can now use this container to deploy multi-model endpoints in SageMaker AI.
 
 ###### Topics
 
-- [Custom Containers Contract for Multi-Model
-  Endpoints](mms-container-apis.md "mms-container-apis.md")
+- [Custom Containers Contract for Multi-Model Endpoints](mms-container-apis.md "mms-container-apis.md")

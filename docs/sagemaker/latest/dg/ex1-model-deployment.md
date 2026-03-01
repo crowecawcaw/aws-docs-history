@@ -5,10 +5,8 @@ To get predictions, deploy your model to Amazon EC2 using Amazon SageMaker AI.
 ###### Topics
 
 - [Deploy the Model to SageMaker AI Hosting Services](#ex1-deploy-model "#ex1-deploy-model")
-- [(Optional) Use SageMaker AI Predictor to
-  Reuse the Hosted Endpoint](#ex1-deploy-model-sdk-use-endpoint "#ex1-deploy-model-sdk-use-endpoint")
-- [(Optional) Make Prediction with Batch
-  Transform](#ex1-batch-transform "#ex1-batch-transform")
+- [(Optional) Use SageMaker AI Predictor to Reuse the Hosted Endpoint](#ex1-deploy-model-sdk-use-endpoint "#ex1-deploy-model-sdk-use-endpoint")
+- [(Optional) Make Prediction with Batch Transform](#ex1-batch-transform "#ex1-batch-transform")
 
 ## Deploy the Model to SageMaker AI Hosting Services
 
@@ -60,9 +58,7 @@ To learn more about compiling and optimizing your model for deployment to
 Amazon EC2 instances or edge devices, see [Compile and Deploy Models with
 Neo](neo.md "neo.md").
 
-## (Optional) Use SageMaker AI Predictor to
-
-Reuse the Hosted Endpoint
+## (Optional) Use SageMaker AI Predictor to Reuse the Hosted Endpoint
 
 After you deploy the model to an endpoint, you can set up a new SageMaker AI predictor by
 pairing the endpoint and continuously make real-time predictions in any other notebooks.
@@ -82,9 +78,7 @@ xgb_predictor_reuse=sagemaker.predictor.Predictor(
 The `xgb_predictor_reuse` Predictor behaves exactly the same as the
 original `xgb_predictor`. For more information, see the [SageMaker AI Predictor](https://sagemaker.readthedocs.io/en/stable/predictors.html#sagemaker.predictor.RealTimePredictor "https://sagemaker.readthedocs.io/en/stable/predictors.html#sagemaker.predictor.RealTimePredictor") class in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
-## (Optional) Make Prediction with Batch
-
-Transform
+## (Optional) Make Prediction with Batch Transform
 
 Instead of hosting an endpoint in production, you can run a one-time batch inference
 job to make predictions on a test dataset using the SageMaker AI batch transform. After your

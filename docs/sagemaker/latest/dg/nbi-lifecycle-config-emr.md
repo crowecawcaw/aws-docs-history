@@ -1,6 +1,4 @@
-# Control an Amazon EMR Spark Instance Using a
-
-Notebook
+# Control an Amazon EMR Spark Instance Using a Notebook
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -31,9 +28,7 @@ The process requires three procedures using the Amazon SageMaker AI console:
 - Create the Jupyter Notebook
 - Test the notebook-to-Amazon EMR connection
 
-###### To create an Amazon EMR Spark instance that can be controlled from a notebook
-
-using Sparkmagic
+###### To create an Amazon EMR Spark instance that can be controlled from a notebook using Sparkmagic
 
 1. Open the Amazon EMR console at
    [https://console.aws.amazon.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/ "https://console.aws.amazon.com/elasticmapreduce/").
@@ -50,9 +45,7 @@ using Sparkmagic
    the EMR cluster was created. You will use these values when you create a
    notebook.
 
-###### To create a notebook that uses Sparkmagic to control an Amazon EMR Spark
-
-instance
+###### To create a notebook that uses Sparkmagic to control an Amazon EMR Spark instance
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the navigation pane, under **Notebook instances**,

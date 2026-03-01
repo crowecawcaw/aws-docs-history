@@ -1,6 +1,4 @@
-#
-
-Evaluate an Amazon Bedrock model for text summarization accuracy
+# Evaluate an Amazon Bedrock model for text summarization accuracy
 
 You can use a high-level `ModelRunner` wrapper to create a custom
 evaluation based on a model that is hosted outside of JumpStart.
@@ -25,8 +23,7 @@ The tutorials show how to do the following:
   starting this tutorial.
 
 For additional information about instance types and their
-recommended use cases, see [Instance Types Available for Use With
-Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
+recommended use cases, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
 
 ###### Set up Amazon Bedrock
 
@@ -321,8 +318,7 @@ eval_algo = SummarizationAccuracy(SummarizationAccuracyConfig())
 
 For examples of algorithms that calculate metrics for other
 evaluation tasks, see **Evaluate your
-model** in [Use the
-fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md"). 2. Run your evaluation algorithm. The following code example uses the
+model** in [Use the fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md"). 2. Run your evaluation algorithm. The following code example uses the
 data configuration that was previously defined, and a
 `prompt_template` that uses the `Human`
 and `Assistant` keys:

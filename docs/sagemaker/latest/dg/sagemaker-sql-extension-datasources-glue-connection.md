@@ -1,6 +1,4 @@
-# Create AWS Glue connections
-
-(for administrators)
+# Create AWS Glue connections (for administrators)
 
 To use data sources with the SQL extension, administrators can set up AWS Glue connections
 for each data source. These connections store the necessary configuration details to access
@@ -33,9 +31,7 @@ Before creating AWS Glue connections, ensure that you complete the following ste
   on using Secrets Manager to store credentials, see [Storing connection
   credentials in AWS Secrets Manager](../../../glue/latest/dg/connection-properties-secrets-manager.md "../../../glue/latest/dg/connection-properties-secrets-manager.md").
 
-## Create a connection
-
-definition JSON file
+## Create a connection definition JSON file
 
 To create an AWS Glue connection definition file, create a JSON file to define the
 connection details on the machine where you have installed and configured the AWS CLI. For this example, name the file
@@ -82,12 +78,9 @@ The connection definition files for each data source contain the specific proper
 configuration required to connect to those data stores from the SQL extension. Refer to
 the appropriate section for details on defining connections to that source.
 
-- To create an AWS Glue connection for Amazon Redshift, see the sample definition file in [Configure an
-  AWS Glue connection for Amazon Redshift](#sagemaker-sql-extension-redshift-glue-connection-config "#sagemaker-sql-extension-redshift-glue-connection-config").
-- To create an AWS Glue connection for Amazon Athena, see the sample definition file in [Configure an
-  AWS Glue connection for Athena](#sagemaker-sql-extension-athena-glue-connection-config "#sagemaker-sql-extension-athena-glue-connection-config").
-- To create an AWS Glue connection for Snowflake, see the sample definition file in [Configure an
-  AWS Glue connection for Snowflake](#sagemaker-sql-extension-snowflake-glue-connection-config "#sagemaker-sql-extension-snowflake-glue-connection-config").
+- To create an AWS Glue connection for Amazon Redshift, see the sample definition file in [Configure an AWS Glue connection for Amazon Redshift](#sagemaker-sql-extension-redshift-glue-connection-config "#sagemaker-sql-extension-redshift-glue-connection-config").
+- To create an AWS Glue connection for Amazon Athena, see the sample definition file in [Configure an AWS Glue connection for Athena](#sagemaker-sql-extension-athena-glue-connection-config "#sagemaker-sql-extension-athena-glue-connection-config").
+- To create an AWS Glue connection for Snowflake, see the sample definition file in [Configure an AWS Glue connection for Snowflake](#sagemaker-sql-extension-snowflake-glue-connection-config "#sagemaker-sql-extension-snowflake-glue-connection-config").
 
 This section provides details on the secret and connection properties in JSON
 definition files that are specific to Amazon Redshift. Before creating your connection
@@ -97,9 +90,7 @@ permissions granted through an AWS Identity and Access Management (IAM) permissi
 that your users have to your Amazon Redshift database. For more information, see [Using
 IAM authentication to generate database user credentials](../../../redshift/latest/mgmt/generating-user-credentials.md "../../../redshift/latest/mgmt/generating-user-credentials.md").
 
-#### Create a secret for Amazon Redshift
-
-access credentials
+#### Create a secret for Amazon Redshift access credentials
 
 ###### To store Amazon Redshift information in AWS Secrets Manager
 
@@ -115,13 +106,10 @@ access credentials
    creation, or customized if required.
 8. Create the secret and retrieve its ARN.
 
-#### Configure
-
-an AWS Glue connection for Amazon Redshift
+#### Configure an AWS Glue connection for Amazon Redshift
 
 The SQL extension connects to data sources using custom AWS Glue connections. For
-general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections
-(for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
+general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
 example is a sample AWS Glue connection definition for connecting to Amazon Redshift.
 
 Before creating a new connection, keep these recommendations in mind:
@@ -161,20 +149,16 @@ Before creating a new connection, keep these recommendations in mind:
 }
 ```
 
-Once your definition file is updated, follow the steps in [Create AWS Glue
-connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
+Once your definition file is updated, follow the steps in [Create AWS Glue connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
 your AWS Glue connection.
 
 This section provides details on the connection properties in JSON definition files
 that are specific to Athena.
 
-#### Configure an
-
-AWS Glue connection for Athena
+#### Configure an AWS Glue connection for Athena
 
 The SQL extension connects to data sources using custom AWS Glue connections. For
-general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections
-(for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
+general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
 example is a sample AWS Glue connection definition for connecting to Athena.
 
 Before creating a new connection, keep these recommendations in mind:
@@ -211,8 +195,7 @@ Before creating a new connection, keep these recommendations in mind:
 }
 ```
 
-Once your definition file is updated, follow the steps in [Create AWS Glue
-connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
+Once your definition file is updated, follow the steps in [Create AWS Glue connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
 your AWS Glue connection.
 
 This section provides details on the secret and connection properties in JSON
@@ -220,9 +203,7 @@ definition files that are specific to Snowflake. Before creating your connection
 configuration file, we recommend storing your Snowflake access credentials as a secret
 in Secrets Manager.
 
-#### Create a secret for
-
-Snowflake access credentials
+#### Create a secret for Snowflake access credentials
 
 ###### To store Amazon Redshift information in Secrets Manager
 
@@ -247,13 +228,10 @@ Snowflake access credentials
    creation, or customized if required.
 7. Create the secret and retrieve its ARN.
 
-#### Configure
-
-an AWS Glue connection for Snowflake
+#### Configure an AWS Glue connection for Snowflake
 
 The SQL extension connects to data sources using custom AWS Glue connections. For
-general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections
-(for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
+general information on creating AWS Glue connections to connect a data source, see [Create AWS Glue connections (for administrators)](sagemaker-sql-extension-datasources-glue-connection.md "sagemaker-sql-extension-datasources-glue-connection.md"). The following
 example is a sample AWS Glue connection definition for connecting to Snowflake.
 
 Before creating a new connection, keep these recommendations in mind:
@@ -286,13 +264,10 @@ to a secret.
 }
 ```
 
-Once your definition file is updated, follow the steps in [Create AWS Glue
-connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
+Once your definition file is updated, follow the steps in [Create AWS Glue connections](#sagemaker-sql-extension-datasources-glue-connection-creation "#sagemaker-sql-extension-datasources-glue-connection-creation") to create
 your AWS Glue connection.
 
-## Create AWS Glue
-
-connections
+## Create AWS Glue connections
 
 To create an AWS Glue connection through the AWS CLI, use your connection
 definition file and run this AWS CLI command. Replace the `region`

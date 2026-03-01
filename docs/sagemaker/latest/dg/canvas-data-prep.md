@@ -6,12 +6,10 @@ Previously, Amazon SageMaker Data Wrangler was part of the SageMaker Studio Clas
 the new Studio experience, you must use SageMaker Canvas to access Data Wrangler and receive the latest feature updates.
 If you have been using Data Wrangler in Studio Classic until now and want to migrate to Data Wrangler in Canvas,
 you might have to grant additional permissions so that you can create and use a Canvas
-application. For more information, see [(Optional) Migrate from Data Wrangler in
-Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-dw "studio-updated-migrate-ui.md#studio-updated-migrate-dw").
+application. For more information, see [(Optional) Migrate from Data Wrangler in Studio Classic to SageMaker Canvas](studio-updated-migrate-ui.md#studio-updated-migrate-dw "studio-updated-migrate-ui.md#studio-updated-migrate-dw").
 
 To learn how to migrate your data flows from Data Wrangler in Studio Classic, see
-[(Optional) Migrate data from
-Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
+[(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
 
 Use Amazon SageMaker Data Wrangler in Amazon SageMaker Canvas to prepare, featurize and analyze your data. You can integrate a Data Wrangler data preparation flow
 into your machine learning (ML) workflows to simplify and streamline data pre-processing and

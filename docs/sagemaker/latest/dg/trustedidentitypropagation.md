@@ -1,6 +1,4 @@
-# Trusted identity propagation with
-
-Studio
+# Trusted identity propagation with Studio
 
 Trusted identity propagation is an AWS IAM Identity Center feature that administrators of connected AWS
 services can use to grant and audit access to service data. Access to this data is based on user
@@ -27,13 +25,8 @@ to connected AWS services, creating more granular permissions and security gover
 
 ###### Topics
 
-- [Trusted identity propagation
-  architecture and compatibility](trustedidentitypropagation-compatibility.md "trustedidentitypropagation-compatibility.md")
-- [Setting up trusted identity propagation for
-  Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
-- [Monitoring and auditing with
-  CloudTrail](trustedidentitypropagation-auditing.md "trustedidentitypropagation-auditing.md")
-- [User background
-  sessions](trustedidentitypropagation-user-background-sessions.md "trustedidentitypropagation-user-background-sessions.md")
-- [How to connect with other AWS
-  services with trusted identity propagation enabled](trustedidentitypropagation-connect-other.md "trustedidentitypropagation-connect-other.md")
+- [Trusted identity propagation architecture and compatibility](trustedidentitypropagation-compatibility.md "trustedidentitypropagation-compatibility.md")
+- [Setting up trusted identity propagation for Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
+- [Monitoring and auditing with CloudTrail](trustedidentitypropagation-auditing.md "trustedidentitypropagation-auditing.md")
+- [User background sessions](trustedidentitypropagation-user-background-sessions.md "trustedidentitypropagation-user-background-sessions.md")
+- [How to connect with other AWS services with trusted identity propagation enabled](trustedidentitypropagation-connect-other.md "trustedidentitypropagation-connect-other.md")

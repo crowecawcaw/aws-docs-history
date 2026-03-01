@@ -13,14 +13,10 @@ Depending on the type of labeling job you create, Amazon SageMaker Ground Truth 
 
 ###### Topics
 
-- [Use MaxConcurrentTaskCount to control the flow
-  of data objects](#sms-batching-maxconcurrenttaskcount "#sms-batching-maxconcurrenttaskcount")
-- [Use Amazon SQS to control the flow of data objects to
-  streaming labeling jobs](#sms-batching-streaming-sqs "#sms-batching-streaming-sqs")
+- [Use MaxConcurrentTaskCount to control the flow of data objects](#sms-batching-maxconcurrenttaskcount "#sms-batching-maxconcurrenttaskcount")
+- [Use Amazon SQS to control the flow of data objects to streaming labeling jobs](#sms-batching-streaming-sqs "#sms-batching-streaming-sqs")
 
-## Use MaxConcurrentTaskCount to control the flow
-
-of data objects
+## Use MaxConcurrentTaskCount to control the flow of data objects
 
 [`MaxConcurrentTaskCount`](../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-MaxConcurrentTaskCount "../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-MaxConcurrentTaskCount") defines the maximum number of data objects available at one time in the worker-portal task queue. If you use the console, this parameter is set to 1,000. If you use `CreateLabelingJob`, you can set this parameter to any integer between 1 and 5,000, inclusive.
 
@@ -35,9 +31,7 @@ Use the following example to better understand how the number of entries in your
      `NumberOfHumanWorkersPerDataObject`, a new data object from the queue is used to create`NumberOfHumanWorkersPerDataObject`-tasks, which are sent to workers in real time.
    - **Non-streaming labeling job**: As workers finish labeling one set of objects, up to `MaxConcurrentTaskCount` times `NumberOfHumanWorkersPerDataObject` number of new tasks will be sent to workers. This process is repeated until all data objects in the input manifest file are labeled.
 
-## Use Amazon SQS to control the flow of data objects to
-
-streaming labeling jobs
+## Use Amazon SQS to control the flow of data objects to streaming labeling jobs
 
 When you create a streaming labeling job, an Amazon SQS queue is automatically created
 in your account. Data objects are only added to the Amazon SQS queue when the total

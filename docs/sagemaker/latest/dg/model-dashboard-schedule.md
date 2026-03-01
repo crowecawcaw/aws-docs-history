@@ -6,8 +6,7 @@ the monitors you create on all your models in your account. You can track the st
 monitor, which indicates whether your monitor is running as expected or failed due to an
 internal error. You can also activate or deactivate any monitor in the model details page
 itself. For instructions about how to view scheduled monitors for a model, see [View scheduled monitors](model-dashboard-schedule-view.md "model-dashboard-schedule-view.md"). For
-instructions about how to activate or deactivate model monitors, see [Activate or deactivate a model
-monitor](model-dashboard-schedule-activate.md "model-dashboard-schedule-activate.md").
+instructions about how to activate or deactivate model monitors, see [Activate or deactivate a model monitor](model-dashboard-schedule-activate.md "model-dashboard-schedule-activate.md").
 
 A properly-configured and actively-running model monitor might raise alerts, in which case
 the monitoring executions produce violation reports. For details about how alerts work and how

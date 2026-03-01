@@ -1,11 +1,8 @@
-# Connect to an Amazon EMR cluster from SageMaker Studio
-
-or Studio Classic
+# Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic
 
 Data scientists and data engineers can discover and then connect to an Amazon EMR cluster
 directly from the Studio user interface. Before you begin, ensure that you have
-configured the necessary permissions as described in the [Step 4: Set up the permissions to enable
-listing and launching Amazon EMR clusters from Studio](studio-notebooks-set-up-emr-templates.md#studio-emr-permissions "studio-notebooks-set-up-emr-templates.md#studio-emr-permissions") section.
+configured the necessary permissions as described in the [Step 4: Set up the permissions to enable listing and launching Amazon EMR clusters from Studio](studio-notebooks-set-up-emr-templates.md#studio-emr-permissions "studio-notebooks-set-up-emr-templates.md#studio-emr-permissions") section.
 These permissions grant Studio the ability to create, start, view, access, and
 terminate clusters.
 
@@ -21,18 +18,13 @@ are located in the same AWS region as your Studio environment. Your
 JupyterLab space must use a SageMaker Distribution image version `1.10` or
 higher.
 
-## Connect to an Amazon EMR cluster using
-
-the Studio UI
+## Connect to an Amazon EMR cluster using the Studio UI
 
 To connect to your cluster using the Studio or Studio Classic UI, you can either
-initiate a connection from the list of clusters accessed in [List Amazon EMR clusters from Studio or
-Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md"), or from
+initiate a connection from the list of clusters accessed in [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md"), or from
 a notebook in SageMaker Studio or Studio Classic.
 
-###### To connect an Amazon EMR cluster to a new JupyterLab notebook from the
-
-Studio UI:
+###### To connect an Amazon EMR cluster to a new JupyterLab notebook from the Studio UI:
 
 1. In the Studio UI's left-side panel, select the
    **Data** node in the left navigation menu. Navigate
@@ -52,8 +44,7 @@ application, and then choose **Open notebook**.
 This launches a JupyterLab application from your chosen space and
 opens a new notebook. ###### Note
 Users of Studio Classic need to select an image and kernel. For a
-list of supported images, see [Supported images and
-kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or refer to [Bring your own image](studio-emr-user-guide.md#studio-notebooks-emr-byoi "studio-emr-user-guide.md#studio-notebooks-emr-byoi").
+list of supported images, see [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or refer to [Bring your own image](studio-emr-user-guide.md#studio-notebooks-emr-byoi "studio-emr-user-guide.md#studio-notebooks-emr-byoi").
 _ Alternatively, you can create a new private space by choosing the
 **Create new space** button at the top of the
 modal window. Enter a name for your space and then choose
@@ -73,8 +64,7 @@ IAM role that your Amazon EMR cluster can assume for the job run.
 
 To successfully connect a JupyterLab notebook to an Amazon EMR cluster
 supporting runtime roles, you must first associate the list of runtime
-roles with your domain or user profile, as outlined in [Configure IAM runtime roles for Amazon EMR
-cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md") . Failing to complete
+roles with your domain or user profile, as outlined in [Configure IAM runtime roles for Amazon EMR cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md"). Failing to complete
 this step will prevent you from establishing the connection.
 
 Upon selection, a connection command populates the first cell of your
@@ -83,9 +73,7 @@ notebook and initiates the connection with the Amazon EMR cluster.
 Once the connection succeeds, a message confirms the connection and the
 start of the Spark application.
 
-###### Alternatively, you can connect to a cluster from a JupyterLab or Studio Classic
-
-notebook.
+###### Alternatively, you can connect to a cluster from a JupyterLab or Studio Classic notebook.
 
 1. Choose the **Cluster** button at the top of your
    notebook. This opens a modal window listing the Amazon EMR clusters in a
@@ -96,8 +84,7 @@ notebook.
 ###### Note
 
 For the users of Studio Classic, **Cluster** is only
-visible when you use a kernel from [Supported images and
-kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or
+visible when you use a kernel from [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels") or
 from [Bring your own image](studio-emr-user-guide.md#studio-notebooks-emr-byoi "studio-emr-user-guide.md#studio-notebooks-emr-byoi"). If you cannot see
 **Cluster** at the top of your notebook, ensure
 that your administrator has [configured the discoverability of your clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md") and switch
@@ -110,8 +97,7 @@ drop down menu.
 
 To successfully connect a JupyterLab notebook to an Amazon EMR cluster
 supporting runtime roles, you must first associate the list of runtime
-roles with your domain or user profile, as outlined in [Configure IAM runtime roles for Amazon EMR
-cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md") . Failing to complete
+roles with your domain or user profile, as outlined in [Configure IAM runtime roles for Amazon EMR cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md"). Failing to complete
 this step will prevent you from establishing the connection.
 
 Otherwise, if the cluster you choose does not use Kerberos, LDAP, or
@@ -125,9 +111,7 @@ type.
 Once the connection succeeds, a message confirms the connection and the
 start of the Spark application.
 
-## Connect to an Amazon EMR cluster using a
-
-connection command
+## Connect to an Amazon EMR cluster using a connection command
 
 To establish a connection to an Amazon EMR cluster, you can execute connection commands
 within a notebook cell.
@@ -199,8 +183,7 @@ cross-account Amazon EMR access. Append the `--verify-certificate`
 argument if you connect to your cluster with HTTPS.
 
 For more information on connecting to an Amazon EMR cluster using runtime IAM
-roles, see [Configure IAM runtime roles for Amazon EMR
-cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md") .
+roles, see [Configure IAM runtime roles for Amazon EMR cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks-emr-cluster-rbac.md").
 
 ```
 %load_ext sagemaker_studio_analytics_extension.magics
@@ -211,9 +194,7 @@ cluster access in Studio](studio-notebooks-emr-cluster-rbac.md "studio-notebooks
 [--verify-certificate `/home/user/certificateKey.pem`]
 ```
 
-## Connect to an Amazon EMR cluster over
-
-HTTPS
+## Connect to an Amazon EMR cluster over HTTPS
 
 If you have configured your Amazon EMR cluster with transit encryption enabled and
 Apache Livy server for HTTPS and would like Studio or Studio Classic to communicate
@@ -249,5 +230,4 @@ Alternatively, you can disable the certificate validation by setting the
 `--verify-certificate` parameter as `false`.
 
 You can find the list of available connection commands to an Amazon EMR cluster in
-[Connect to an Amazon EMR cluster using a
-connection command](#connect-emr-clusters-manually "#connect-emr-clusters-manually").
+[Connect to an Amazon EMR cluster using a connection command](#connect-emr-clusters-manually "#connect-emr-clusters-manually").

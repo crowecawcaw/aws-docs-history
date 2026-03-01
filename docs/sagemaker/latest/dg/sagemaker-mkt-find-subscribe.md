@@ -1,6 +1,4 @@
-# Find and Subscribe to Algorithms and
-
-Model Packages on AWS Marketplace
+# Find and Subscribe to Algorithms and Model Packages on AWS Marketplace
 
 With AWS Marketplace, you can browse and search for hundreds of machine learning algorithms and
 models in a broad range of categories, such as computer vision, natural language
@@ -32,9 +30,7 @@ This takes you to the AWS Marketplace model packages page. For information about
 finding and subscribing to model packages on AWS Marketplace, see [Machine Learning Products](../../../marketplace/latest/buyerguide/aws-machine-learning-marketplace.md "../../../marketplace/latest/buyerguide/aws-machine-learning-marketplace.md") in the _AWS Marketplace User Guide for
 AWS Consumers_.
 
-## Use
-
-Algorithms and Model Packages
+## Use Algorithms and Model Packages
 
 For information about using algorithms and model packages that you subscribe to in
 SageMaker AI, see [Usage of Algorithm and Model Package Resources](sagemaker-mkt-buy.md "sagemaker-mkt-buy.md").

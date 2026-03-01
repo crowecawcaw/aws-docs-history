@@ -1,6 +1,4 @@
-# Reports details and data
-
-breakdown
+# Reports details and data breakdown
 
 SageMaker HyperPod's usage reports provide two distinct lenses for analyzing compute
 resource consumption: **summary reports** for cost
@@ -14,9 +12,7 @@ administrators and finance teams can cross-reference summary trends with task-le
 to validate cost attribution accuracy, resolve discrepancies, and optimize shared
 infrastructure.
 
-## Common report
-
-headers
+## Common report headers
 
 Both summary and detailed reports include the following metadata to contextualize
 the usage data:
@@ -34,9 +30,7 @@ Report`).
   collection due to cluster downtime or monitoring issues (e.g.,
   `2025-04-16 00:00:00 to 2025-04-19 00:00:00`).
 
-## Summary
-
-reports
+## Summary reports
 
 Summary reports provide a per-day high-level overview of compute resource
 consumption across teams/namespaces, and instance types distinguishing between
@@ -80,9 +74,7 @@ Example: 72 GPU hours total (48 allocated, 24 borrowed).
 Only total utilization is displayed for namespaces not managed by Task
 Governance.
 
-## Detailed
-
-reports
+## Detailed reports
 
 Detailed reports provide forensic-level visibility into compute usage, breaking
 down resource consumption by task, exposing granular metrics like task execution

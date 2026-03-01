@@ -1,6 +1,4 @@
-# Logging parameters and metrics with
-
-Amazon SageMaker Experiments
+# Logging parameters and metrics with Amazon SageMaker Experiments
 
 This guide show how to log parameters and metrics with Amazon SageMaker Experiments. A SageMaker AI
 experiment consists of runs, and each run consists of all the inputs, parameters,
@@ -23,17 +21,13 @@ methods:
   by using the previous listed methods. The sections also describe cases that are not
   supported by SageMaker training.
 
-## Use the @remote
-
-decorator to integrate with SageMaker Experiments
+## Use the @remote decorator to integrate with SageMaker Experiments
 
 You can either instantiate an experiment in SageMaker AI, or load a current SageMaker AI
 experiment from inside a remote function. The following sections show you show to
 use either method.
 
-### Create an
-
-experiment with SageMaker Experiments
+### Create an experiment with SageMaker Experiments
 
 You can create an experiment run in SageMaker AI experiment. To do this you pass your
 experiment name, run name, and other parameters into your remote
@@ -75,10 +69,7 @@ def train(`value_1`, `value_2`, `exp_name`, `run_name`):
 train(1.0, 2.0, "my-exp-name", "my-run-name")
 ```
 
-### Load
-
-current SageMaker Experiments with a job initiated by the @remote
-decorator
+### Load current SageMaker Experiments with a job initiated by the @remote decorator
 
 Use the `load_run()` function from the SageMaker Experiments library to
 load the current run object from the run context. You can also use the
@@ -107,9 +98,7 @@ with Run(
     train(0.5, 1.0)
 ```
 
-## Load a current experiment
-
-run within a job initiated with the `RemoteExecutor` API
+## Load a current experiment run within a job initiated with the `RemoteExecutor` API
 
 You can also load a current SageMaker AI experiment run if your jobs were initiated with
 the `RemoteExecutor` API. The following code example shows how to use
@@ -138,10 +127,7 @@ with RemoteExecutor(
         future_1 = e.submit(square, 2)
 ```
 
-## Unsupported uses
-
-for SageMaker Experiments while annotating your code with an @remote
-decorator
+## Unsupported uses for SageMaker Experiments while annotating your code with an @remote decorator
 
 SageMaker AI does not support passing a `Run` type object to an @remote
 function or using global `Run` objects. The following examples show code

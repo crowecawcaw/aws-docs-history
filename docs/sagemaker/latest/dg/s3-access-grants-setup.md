@@ -1,6 +1,4 @@
-# Connect Amazon S3 Access Grants with Studio
-
-JupyterLab notebooks
+# Connect Amazon S3 Access Grants with Studio JupyterLab notebooks
 
 Use the following information to grant Amazon S3 Access Grants in Studio
 JupyterLab notebooks.
@@ -76,9 +74,7 @@ JSON
 
 ```
 
-## Use Amazon S3 Access Grants to call
-
-Amazon S3
+## Use Amazon S3 Access Grants to call Amazon S3
 
 The following is an example Python script showing how Amazon S3 Access Grants can be used
 to call Amazon S3. This assumes you have already successfully set up trusted identity

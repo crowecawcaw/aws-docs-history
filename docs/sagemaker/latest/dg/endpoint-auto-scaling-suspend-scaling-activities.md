@@ -1,6 +1,4 @@
-# Temporarily turn off
-
-scaling policies
+# Temporarily turn off scaling policies
 
 After you configure auto scaling, you have the following options if you need to
 investigate an issue without interference from scaling policies (dynamic

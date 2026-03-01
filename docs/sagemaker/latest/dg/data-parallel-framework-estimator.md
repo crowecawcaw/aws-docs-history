@@ -1,6 +1,4 @@
-# Use the PyTorch framework estimators in
-
-the SageMaker Python SDK
+# Use the PyTorch framework estimators in the SageMaker Python SDK
 
 You can launch distributed training by adding the `distribution` argument to
 the SageMaker AI framework estimators, [`PyTorch`](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#sagemaker.pytorch.estimator.PyTorch "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#sagemaker.pytorch.estimator.PyTorch") or [`TensorFlow`](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator"). For more details, choose one of the frameworks supported
@@ -123,9 +121,7 @@ For more information about specifying the source directory to place the
 submission, see [Using third-party libraries](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12 "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/using_pytorch.html#id12") in the _Amazon SageMaker AI Python
 SDK documentation_.
 
-###### Considerations for activating SMDDP collective operations and using the right
-
-distributed training launcher options
+###### Considerations for activating SMDDP collective operations and using the right distributed training launcher options
 
 - SMDDP `AllReduce` and SMDDP `AllGather` are not mutually
   compatible at present.
@@ -150,8 +146,7 @@ TensorFlow
 
 The SMDDP library discontinued support for TensorFlow and is no longer available
 in DLCs for TensorFlow later than v2.11.0. To find previous TensorFlow DLCs with the
-SMDDP library installed, see [TensorFlow
-(deprecated)](distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks-tensorflow "distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks-tensorflow").
+SMDDP library installed, see [TensorFlow (deprecated)](distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks-tensorflow "distributed-data-parallel-support.md#distributed-data-parallel-supported-frameworks-tensorflow").
 
 ```
 from sagemaker.tensorflow import TensorFlow

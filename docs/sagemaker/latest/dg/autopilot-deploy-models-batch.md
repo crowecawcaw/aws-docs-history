@@ -8,8 +8,7 @@ the AWS Command Line Interface ([AWS CLI](../../../cli.md "../../../cli.md")).
 
 The following tabs show three options for deploying your model: Using APIs, Autopilot UI,
 or using APIs to deploy from different accounts. These instructions assume that you have
-already created a model in Autopilot. If you don't have a model, see [Create Regression or
-Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md"). To see examples
+already created a model in Autopilot. If you don't have a model, see [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md"). To see examples
 for each option, open each tab.
 
 The Autopilot UI contains helpful dropdown menus, toggles, tooltips, and more to help
@@ -373,6 +372,5 @@ After the `TransformJobStatus` changes to
 `S3OutputPath`.
 
 To create a batch inferencing job in a different account than the one that the model
-was generated in, follow the instructions in [Deploy models from
-different accounts](autopilot-deploy-models-realtime.md#autopilot-deploy-models-realtime-across-accounts "autopilot-deploy-models-realtime.md#autopilot-deploy-models-realtime-across-accounts"). Then you can
+was generated in, follow the instructions in [Deploy models from different accounts](autopilot-deploy-models-realtime.md#autopilot-deploy-models-realtime-across-accounts "autopilot-deploy-models-realtime.md#autopilot-deploy-models-realtime-across-accounts"). Then you can
 create models and transform jobs by following the [Deploy using SageMaker APIs](#autopilot-deploy-models-batch-steps "#autopilot-deploy-models-batch-steps").

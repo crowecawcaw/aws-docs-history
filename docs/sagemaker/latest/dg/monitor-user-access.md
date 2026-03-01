@@ -1,6 +1,4 @@
-# Monitoring user resource access from SageMaker AI
-
-Studio Classic with sourceIdentity
+# Monitoring user resource access from SageMaker AI Studio Classic with sourceIdentity
 
 With Amazon SageMaker Studio Classic, you can monitor user resource access. To view resource access activity,
 you can configure AWS CloudTrail to monitor and record user activities by following
@@ -17,12 +15,9 @@ AWS CloudTrail log when using a shared execution role, using
 the `sourceIdentity` configuration to propagate the Studio Classic user profile name. For
 more information about source identity, see [Monitor and control
 actions taken with assumed roles](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md"). To turn `sourceIdentity` on or off for your
-CloudTrail logs, see [Turn on sourceIdentity in CloudTrail logs for SageMaker AI
-Studio Classic](monitor-user-access-how-to.md "monitor-user-access-how-to.md").
+CloudTrail logs, see [Turn on sourceIdentity in CloudTrail logs for SageMaker AI Studio Classic](monitor-user-access-how-to.md "monitor-user-access-how-to.md").
 
-## Considerations when using
-
-sourceIdentity
+## Considerations when using sourceIdentity
 
 When you make AWS API calls from Studio Classic notebooks, SageMaker Canvas, or Amazon SageMaker Data Wrangler, the
 `sourceIdentity` is only recorded in CloudTrail if those calls are made using the

@@ -32,8 +32,6 @@ Before you create a labeling job, we recommend that you review [Video frame labe
 
 ###### Topics
 
-- [Identify objects using video frame object
-  detection](sms-video-object-detection.md "sms-video-object-detection.md")
-- [Track objects in video frames using video
-  frame object tracking](sms-video-object-tracking.md "sms-video-object-tracking.md")
+- [Identify objects using video frame object detection](sms-video-object-detection.md "sms-video-object-detection.md")
+- [Track objects in video frames using video frame object tracking](sms-video-object-tracking.md "sms-video-object-tracking.md")
 - [Video frame labeling job reference](sms-video-overview.md "sms-video-overview.md")

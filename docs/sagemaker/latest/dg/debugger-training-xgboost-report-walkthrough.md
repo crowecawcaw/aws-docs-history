@@ -1,6 +1,4 @@
-# Debugger XGBoost
-
-training report walkthrough
+# Debugger XGBoost training report walkthrough
 
 This section walks you through the Debugger XGBoost training report. The report is
 automatically aggregated depending on the output tensor regex, recognizing what type
@@ -16,8 +14,7 @@ independent assessment of the information.
 ###### Topics
 
 - [Distribution of true labels of the dataset](#debugger-training-xgboost-report-walkthrough-dist-label "#debugger-training-xgboost-report-walkthrough-dist-label")
-- [Loss
-  versus step graph](#debugger-training-xgboost-report-walkthrough-loss-vs-step "#debugger-training-xgboost-report-walkthrough-loss-vs-step")
+- [Loss versus step graph](#debugger-training-xgboost-report-walkthrough-loss-vs-step "#debugger-training-xgboost-report-walkthrough-loss-vs-step")
 - [Feature importance](#debugger-training-xgboost-report-walkthrough-feature-importance "#debugger-training-xgboost-report-walkthrough-feature-importance")
 - [Confusion matrix](#debugger-training-xgboost-report-walkthrough-confusion-matrix "#debugger-training-xgboost-report-walkthrough-confusion-matrix")
 - [Evaluation of the confusion matrix](#debugger-training-xgboost-report-walkthrough-eval-conf-matrix "#debugger-training-xgboost-report-walkthrough-eval-conf-matrix")
@@ -36,9 +33,7 @@ regression.
 
 ![An example of a distribution of true labels of the dataset graph.](images/debugger/debugger-training-xgboost-report-walkthrough-dist-label.png)
 
-## Loss
-
-versus step graph
+## Loss versus step graph
 
 This is a line chart that shows the progression of loss on training data and
 validation data throughout training steps. The loss is what you defined in your

@@ -1,6 +1,4 @@
-# Private repository for runtime
-
-dependencies
+# Private repository for runtime dependencies
 
 You can use pre-execution commands or script to configure a dependency manager like
 pip or conda in your job environment. To achieve network isolation, use either of these
@@ -13,9 +11,7 @@ The following sections show you how to access a private Python Package Index (Py
 repository managed with AWS CodeArtifact. The sections also show how to access a custom conda
 channel hosted on Amazon Simple Storage Service (Amazon S3).
 
-## How to use a custom PyPI
-
-repository managed with AWS CodeArtifact
+## How to use a custom PyPI repository managed with AWS CodeArtifact
 
 To use CodeArtifact to manage a custom PyPI repository, the following prerequisites are
 required:
@@ -49,9 +45,7 @@ def matrix_multiply(a, b):
     return np.matmul(a, b)
 ```
 
-## How to use a custom conda
-
-channel hosted on Amazon S3
+## How to use a custom conda channel hosted on Amazon S3
 
 To use Amazon S3 to manage a custom conda repository, the following prerequisites are
 required:

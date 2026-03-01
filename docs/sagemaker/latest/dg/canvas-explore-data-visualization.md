@@ -1,6 +1,4 @@
-# Explore your data using visualization
-
-techniques
+# Explore your data using visualization techniques
 
 ###### Note
 

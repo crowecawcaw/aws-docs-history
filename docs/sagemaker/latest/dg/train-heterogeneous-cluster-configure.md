@@ -1,6 +1,4 @@
-# Configure a training job with a
-
-heterogeneous cluster in Amazon SageMaker AI
+# Configure a training job with a heterogeneous cluster in Amazon SageMaker AI
 
 This section provides instructions on how to run a training job using a heterogeneous
 cluster that consists of multiple instance types.
@@ -18,14 +16,10 @@ Note the following before you start.
 
 ###### Topics
 
-- [Option 1: Using the
-  SageMaker Python SDK](#train-heterogeneous-cluster-configure-pysdk "#train-heterogeneous-cluster-configure-pysdk")
-- [Option 2: Using the
-  low-level SageMaker APIs](#train-heterogeneous-cluster-configure-api "#train-heterogeneous-cluster-configure-api")
+- [Option 1: Using the SageMaker Python SDK](#train-heterogeneous-cluster-configure-pysdk "#train-heterogeneous-cluster-configure-pysdk")
+- [Option 2: Using the low-level SageMaker APIs](#train-heterogeneous-cluster-configure-api "#train-heterogeneous-cluster-configure-api")
 
-## Option 1: Using the
-
-SageMaker Python SDK
+## Option 1: Using the SageMaker Python SDK
 
 Follow instructions on how to configure instance groups for a heterogeneous
 cluster using the SageMaker Python SDK.
@@ -174,9 +168,7 @@ estimator.fit(
 )
 ```
 
-## Option 2: Using the
-
-low-level SageMaker APIs
+## Option 2: Using the low-level SageMaker APIs
 
 If you use the AWS Command Line Interface or AWS SDK for Python (Boto3) and want to use low-level SageMaker APIs for
 submitting a training job request with a heterogeneous cluster, see the following

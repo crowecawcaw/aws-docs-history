@@ -44,8 +44,7 @@ image is an example of a pipeline DAG:
 - [Caching pipeline steps](pipelines-caching.md "pipelines-caching.md")
 - [Retry Policy for Pipeline Steps](pipelines-retry-policy.md "pipelines-retry-policy.md")
 - [Selective execution of pipeline steps](pipelines-selective-ex.md "pipelines-selective-ex.md")
-- [Baseline calculation, drift
-  detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md")
+- [Baseline calculation, drift detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines](pipelines-quality-clarify-baseline-lifecycle.md "pipelines-quality-clarify-baseline-lifecycle.md")
 - [Schedule Pipeline Runs](pipeline-eventbridge.md "pipeline-eventbridge.md")
 - [Amazon SageMaker Experiments Integration](pipelines-experiments.md "pipelines-experiments.md")
 - [Run pipelines using local mode](pipelines-local-mode.md "pipelines-local-mode.md")

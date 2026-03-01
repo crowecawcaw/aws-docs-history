@@ -1,6 +1,4 @@
-# Allow Access only from within your
-
-VPC
+# Allow Access only from within your VPC
 
 Users outside your VPC can connect to SageMaker AI MLflow or over the internet even if you set
 up an interface endpoint in your VPC.

@@ -1,6 +1,4 @@
-# Complete prerequisites to migrate the
-
-Studio experience
+# Complete prerequisites to migrate the Studio experience
 
 Migration of the default experience from Studio Classic to Studio is managed by the
 administrator of the existing domain. If you do not have permissions to set Studio as
@@ -15,8 +13,7 @@ prerequisites before migrating an existing domain from Studio Classic to Studio.
 ###### Note
 
 The release of Studio includes updates to the AWS managed policies. For
-more information, see [SageMaker AI Updates to AWS Managed
-Policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+more information, see [SageMaker AI Updates to AWS Managed Policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
     + Phase 1 required permissions:
 

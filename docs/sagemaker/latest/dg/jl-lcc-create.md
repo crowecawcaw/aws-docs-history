@@ -23,9 +23,7 @@ Before you begin, complete the following prerequisites:
 - Onboard to Amazon SageMaker AI domain. For conceptual information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md"). For a
   quickstart guide, see [Use quick setup for Amazon SageMaker AI](onboard-quick-start.md "onboard-quick-start.md").
 
-### Step 1: Create a lifecycle
-
-configuration
+### Step 1: Create a lifecycle configuration
 
 The following procedure shows how to create a lifecycle configuration script that
 prints `Hello World`.
@@ -68,9 +66,7 @@ Note the ARN of the newly created lifecycle configuration that is returned.
 This ARN is required to attach the lifecycle configuration to your
 application.
 
-### Step 2: Attach the lifecycle configuration
-
-to your Amazon SageMaker AI domain (domain) and user profile
+### Step 2: Attach the lifecycle configuration to your Amazon SageMaker AI domain (domain) and user profile
 
 To attach the lifecycle configuration, you must update the `UserSettings`
 for your domain or user profile. Lifecycle configuration scripts that are associated at the domain level are inherited by
@@ -110,9 +106,7 @@ aws sagemaker create-user-profile --domain-id `domain-id` \
 Learn how to create a lifecycle configuration using the AWS Management Console to automate
 customization for your Studio environment.
 
-### Step 1: Create a lifecycle
-
-configuration
+### Step 1: Create a lifecycle configuration
 
 Use the following procedure to create a lifecycle configuration script that
 prints `Hello World`.
@@ -137,9 +131,7 @@ echo 'Hello World!'
 
 8. Choose **Create configuration**.
 
-### Step 2: Attach the lifecycle configuration
-
-to your Amazon SageMaker AI domain (domain) and user profile
+### Step 2: Attach the lifecycle configuration to your Amazon SageMaker AI domain (domain) and user profile
 
 Lifecycle configuration scripts associated at the domain level are inherited by all users.
 However, scripts that are associated at the user profile level are scoped to a specific user.

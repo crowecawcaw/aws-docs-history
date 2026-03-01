@@ -31,9 +31,7 @@ training job the hyperparameter tuning job launches as follows:
   running averages of the objective metric for previous training jobs up to the same
   epoch, SageMaker AI stops the current training job.
 
-## Algorithms That Support Early
-
-Stopping
+## Algorithms That Support Early Stopping
 
 To support early stopping, an algorithm must emit objective metrics for each epoch. The
 following built-in SageMaker AI algorithms support early stopping:

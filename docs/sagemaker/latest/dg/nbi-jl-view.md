@@ -1,6 +1,4 @@
-# View the JupyterLab version of a notebook from the
-
-console
+# View the JupyterLab version of a notebook from the console
 
 ###### Important
 

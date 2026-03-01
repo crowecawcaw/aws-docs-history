@@ -6,8 +6,7 @@ are satisfied that they accurately represent the ground truth, or what is direct
 observable in the real world. You can use an Amazon SageMaker Ground Truth image label verification task to
 direct workers to review a dataset's labels and improve label accuracy. Workers can indicate
 if the existing labels are correct or rate label quality. They can also add comments to
-explain their reasoning. Amazon SageMaker Ground Truth supports label verification for [Classify image objects using a bounding box](sms-bounding-box.md "sms-bounding-box.md") and [Identify image contents using semantic
-segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md") labels.
+explain their reasoning. Amazon SageMaker Ground Truth supports label verification for [Classify image objects using a bounding box](sms-bounding-box.md "sms-bounding-box.md") and [Identify image contents using semantic segmentation](sms-semantic-segmentation.md "sms-semantic-segmentation.md") labels.
 You create an image label verification labeling job using the Ground Truth section of the Amazon SageMaker AI
 console or the [CreateLabelingJob](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md")
 operation.

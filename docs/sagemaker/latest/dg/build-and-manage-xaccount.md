@@ -8,9 +8,7 @@ topic covers how to set up cross-account pipeline sharing, the different permiss
 available for shared resources, and how to access and interact with shared pipeline entities
 through direct API calls to SageMaker AI.
 
-## Set up cross-account pipeline
-
-sharing
+## Set up cross-account pipeline sharing
 
 SageMaker AI uses [AWS
 Resource Access Manager](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") (AWS RAM) to help you securely share your pipeline
@@ -24,8 +22,7 @@ entities across accounts.
    account, all of its executions are also shared implicitly.
 3. Associate permissions with your resource share. Choose either the default
    read-only permission policy or the extended pipeline execution permission policy. For
-   more detailed information, see [Permission policies for Pipelines
-   resources](#build-and-manage-xaccount-permissions "#build-and-manage-xaccount-permissions").
+   more detailed information, see [Permission policies for Pipelines resources](#build-and-manage-xaccount-permissions "#build-and-manage-xaccount-permissions").
 
 ###### Note
 
@@ -40,9 +37,7 @@ For more information, see [Sharing your AWS
 resources](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md") in the _AWS Resource Access Manager User
 Guide_.
 
-### Get responses to your
-
-resource share invitation
+### Get responses to your resource share invitation
 
 Once the resource share and principal associations are set, the specified AWS
 accounts receive an invitation to join the resource share. The AWS accounts must accept
@@ -52,17 +47,13 @@ For more information on accepting a resource share invite through AWS RAM, see [
 AWS resources](../../../ram/latest/userguide/getting-started-shared.md "../../../ram/latest/userguide/getting-started-shared.md") in the _AWS Resource Access Manager
 User Guide_.
 
-## Permission policies for Pipelines
-
-resources
+## Permission policies for Pipelines resources
 
 When creating your resource share, choose one of two supported permission policies to
 associate with the SageMaker AI pipeline resource type. Both policies grant access to any selected
 pipeline and all of its executions.
 
-### Default read-only
-
-permissions
+### Default read-only permissions
 
 The `AWSRAMDefaultPermissionSageMakerPipeline` policy allows the following
 read-only actions:
@@ -77,9 +68,7 @@ read-only actions:
 "sagemaker:Search"
 ```
 
-### Extended pipeline
-
-execution permissions
+### Extended pipeline execution permissions
 
 The `AWSRAMPermissionSageMakerPipelineAllowExecution` policy includes all
 of the read-only permissions from the default policy and also allows shared accounts to
@@ -107,9 +96,7 @@ The extended pipeline execution permission policy allows the following actions:
 "sagemaker:Search"
 ```
 
-## Access shared pipeline entities
-
-through direct API calls
+## Access shared pipeline entities through direct API calls
 
 Once cross-account pipeline sharing is set up, you can call the following SageMaker API
 actions using a pipeline ARN:

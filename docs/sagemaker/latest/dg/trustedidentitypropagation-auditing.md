@@ -1,6 +1,4 @@
-# Monitoring and auditing with
-
-CloudTrail
+# Monitoring and auditing with CloudTrail
 
 With trusted identity propagation enabled, AWS CloudTrail logs include the identity information
 of the specific user who performed an action, rather than just the IAM role. This provides

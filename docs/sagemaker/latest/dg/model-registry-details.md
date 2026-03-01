@@ -1,6 +1,4 @@
-# Update the Details of a Model
-
-Version
+# Update the Details of a Model Version
 
 You can view and update details of a specific model version by using either the
 AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
@@ -9,12 +7,9 @@ AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
 
 Amazon SageMaker AI integrates Model Cards into Model Registry. A model package registered in the
 Model Registry includes a simplified Model Card as a component of the model package. For
-more information, see [Model package model card schema
-(Studio)](#model-card-schema "#model-card-schema").
+more information, see [Model package model card schema (Studio)](#model-card-schema "#model-card-schema").
 
-## View and Update the Details of a
-
-Model Version (Boto3)
+## View and Update the Details of a Model Version (Boto3)
 
 To view the details of a model version by using Boto3, complete the following
 steps.
@@ -85,9 +80,7 @@ details.
   'RetryAttempts': 0}}
 ```
 
-### Model package model card schema
-
-(Studio)
+### Model package model card schema (Studio)
 
 All details related to the model version are encapsulated in the model
 package’s model card. The model card of a model package is a special usage
@@ -698,14 +691,11 @@ schema is shown in the following expandable dropdown.
 }
 ```
 
-## View and Update the Details of a
-
-Model Version (Studio or Studio Classic)
+## View and Update the Details of a Model Version (Studio or Studio Classic)
 
 To view and update the details of a model version, complete the following
 steps based on whether you use Studio or Studio Classic. In Studio Classic, you can
-update the approval status for a model version. For details, see [Update the Approval Status of a
-Model](model-registry-approve.md "model-registry-approve.md").
+update the approval status for a model version. For details, see [Update the Approval Status of a Model](model-registry-approve.md "model-registry-approve.md").
 In Studio, on the other hand, SageMaker AI creates a model card for a model
 package, and the model version UI provides options to update details in the
 model card.
@@ -730,24 +720,20 @@ Studio
      details related to your training job, including
      performance metrics, artifacts, IAM role and
      encryption, and containers. For more information,
-     see [Add a training job
-     (Studio)](model-registry-details-studio-training.md "model-registry-details-studio-training.md").
+     see [Add a training job (Studio)](model-registry-details-studio-training.md "model-registry-details-studio-training.md").
    - **Evaluate**: To view or edit
      details related to your training job, such as
      performance metrics, evaluation datasets, and
-     security. For more information, see [Add an evaluation job
-     (Studio)](model-registry-details-studio-evaluate.md "model-registry-details-studio-evaluate.md").
+     security. For more information, see [Add an evaluation job (Studio)](model-registry-details-studio-evaluate.md "model-registry-details-studio-evaluate.md").
    - **Audit**: To view or edit
      high-level details related to the model’s business
      purpose, usage, risk, and technical details such as
      algorithm and performance limitations. For more
-     information, see [Update audit (governance)
-     information (Studio)](model-registry-details-studio-audit.md "model-registry-details-studio-audit.md").
+     information, see [Update audit (governance) information (Studio)](model-registry-details-studio-audit.md "model-registry-details-studio-audit.md").
    - **Deploy**: To view or edit the
      location of your inference image container and
      instances which compose the endpoint. For more
-     information, see [Update deployment
-     information (Studio)](model-registry-details-studio-deploy.md "model-registry-details-studio-deploy.md").
+     information, see [Update deployment information (Studio)](model-registry-details-studio-deploy.md "model-registry-details-studio-deploy.md").
 
 Studio Classic
 
@@ -781,13 +767,11 @@ Studio Classic
      checks, which compare the relative rankings of your
      features in training data versus live data. For more
      information about Model Monitor explainability checks, see
-     [Feature
-     attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
+     [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md").
    - **Bias**: Reports metrics related
      to your Model Monitor bias drift checks, which compare the
      distribution of live data to training data. For more
-     information about Model Monitor bias drift checks, see [Bias drift for models in
-     production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
+     information about Model Monitor bias drift checks, see [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md").
    - **Inference recommender**:
      Provides initial instance recommendations for
      optimal performance based on your model and sample

@@ -5,16 +5,11 @@ the Amazon SageMaker AI console, the low-level Amazon SageMaker API, or the [Ama
 
 ###### Topics
 
-- [Use an Algorithm to Run a
-  Training Job (Console)](#sagemaker-mkt-algo-train-console "#sagemaker-mkt-algo-train-console")
-- [Use an Algorithm to Run a
-  Training Job (API)](#sagemaker-mkt-algo-train-api "#sagemaker-mkt-algo-train-api")
-- [Use an Algorithm to Run a
-  Training Job (Amazon SageMaker Python SDK)](#sagemaker-mkt-algo-train-sdk "#sagemaker-mkt-algo-train-sdk")
+- [Use an Algorithm to Run a Training Job (Console)](#sagemaker-mkt-algo-train-console "#sagemaker-mkt-algo-train-console")
+- [Use an Algorithm to Run a Training Job (API)](#sagemaker-mkt-algo-train-api "#sagemaker-mkt-algo-train-api")
+- [Use an Algorithm to Run a Training Job (Amazon SageMaker Python SDK)](#sagemaker-mkt-algo-train-sdk "#sagemaker-mkt-algo-train-sdk")
 
-## Use an Algorithm to Run a
-
-Training Job (Console)
+## Use an Algorithm to Run a Training Job (Console)
 
 ###### To use an algorithm to run a training job (console)
 
@@ -58,8 +53,7 @@ following information:
     	 or days, that you want the training job to run.
     4. For **VPC**, choose a Amazon VPC that you want to
      allow your training container to access. For more information,
-     see [Give SageMaker AI Training Jobs Access to Resources in Your
-     Amazon VPC](train-vpc.md "train-vpc.md").
+     see [Give SageMaker AI Training Jobs Access to Resources in Your Amazon VPC](train-vpc.md "train-vpc.md").
     5. For **Hyperparameters**, specify the values
      of the hyperparameters to use for the training job.
     6. For **Input data configuration**, specify the
@@ -118,18 +112,14 @@ following information:
     9. Choose **Create training job** to run the
      training job.
 
-## Use an Algorithm to Run a
-
-Training Job (API)
+## Use an Algorithm to Run a Training Job (API)
 
 To use an algorithm to run a training job by using the SageMaker API, specify
 either the name or the Amazon Resource Name (ARN) as the
 `AlgorithmName` field of the [`AlgorithmSpecification`](../APIReference/API_AlgorithmSpecification.md "../APIReference/API_AlgorithmSpecification.md") object that you pass to [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md"). For
 information about training models in SageMaker AI, see [Train a Model with Amazon SageMaker](how-it-works-training.md "how-it-works-training.md").
 
-## Use an Algorithm to Run a
-
-Training Job ([Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"))
+## Use an Algorithm to Run a Training Job ([Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"))
 
 Use an algorithm that you created or subscribed to on AWS Marketplace to create a
 training job, create an `AlgorithmEstimator` object and specify

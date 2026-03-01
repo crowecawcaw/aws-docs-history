@@ -15,16 +15,14 @@ or through the console UI. For more information about using the console, see [Us
 You can use the `Provisioned` throughput mode with offline-only feature groups or
 feature groups with the `Standard` storage type. For other storage configurations,
 the `On-demand` throughput mode is used. For information about the online and offline
-storage configurations, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md") and [Offline
-store](feature-store-storage-configurations-offline-store.md "feature-store-storage-configurations-offline-store.md"), respectively.
+storage configurations, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md") and [Offline store](feature-store-storage-configurations-offline-store.md "feature-store-storage-configurations-offline-store.md"), respectively.
 
 For more details about pricing, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
 
 ###### Topics
 
 - [On-demand throughput mode](#feature-store-throughput-mode-on-demand "#feature-store-throughput-mode-on-demand")
-- [Provisioned throughput
-  mode](#feature-store-throughput-mode-provisioned "#feature-store-throughput-mode-provisioned")
+- [Provisioned throughput mode](#feature-store-throughput-mode-provisioned "#feature-store-throughput-mode-provisioned")
 - [Throughput mode metrics](#feature-store-throughput-mode-metrics "#feature-store-throughput-mode-metrics")
 - [Throughput mode limits](#feature-store-throughput-mode-limits "#feature-store-throughput-mode-limits")
 
@@ -48,9 +46,7 @@ APIs or through the console UI. For more information about using the console UI,
 You can only update your feature group throughput mode to `On-demand` once in
 a 24 hour period.
 
-## Provisioned throughput
-
-mode
+## Provisioned throughput mode
 
 The `Provisioned` throughput mode works best when you are using feature groups
 with predictable workloads and you can forecast the capacity requirements to control costs.

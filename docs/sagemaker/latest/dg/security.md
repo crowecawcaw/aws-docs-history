@@ -29,5 +29,4 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Logging and Monitoring](sagemaker-incident-response.md "sagemaker-incident-response.md")
 - [Compliance validation for Amazon SageMaker AI](sagemaker-compliance.md "sagemaker-compliance.md")
 - [Resilience in Amazon SageMaker AI](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure Security in
-  Amazon SageMaker AI](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure Security in Amazon SageMaker AI](infrastructure-security.md "infrastructure-security.md")

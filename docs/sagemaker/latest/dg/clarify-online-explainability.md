@@ -6,9 +6,7 @@ The online explainability function fits into the **Deploy to
 production** part of the [Amazon SageMaker AI Machine Learning
 workflow](how-it-works-mlconcepts.md "how-it-works-mlconcepts.md").
 
-## How Clarify Online
-
-Explainability Works
+## How Clarify Online Explainability Works
 
 The following graphic depicts SageMaker AI architecture for hosting an endpoint that serves
 explainability requests. It depicts interactions between an endpoint, the model

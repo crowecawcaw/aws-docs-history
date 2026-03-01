@@ -1,6 +1,4 @@
-# Use foundation
-
-models in Studio
+# Use foundation models in Studio
 
 Amazon SageMaker Studio allows you to fine-tune, deploy, and evaluate both publicly
 available and proprietary JumpStart foundation models directly through the Studio
@@ -30,8 +28,6 @@ For more information on getting started with Amazon SageMaker Studio, see [Amazo
 ###### Topics
 
 - [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md "jumpstart-foundation-models-use-studio-updated-fine-tune.md")
-- [Deploy a
-  model in Studio](jumpstart-foundation-models-use-studio-updated-deploy.md "jumpstart-foundation-models-use-studio-updated-deploy.md")
+- [Deploy a model in Studio](jumpstart-foundation-models-use-studio-updated-deploy.md "jumpstart-foundation-models-use-studio-updated-deploy.md")
 - [Evaluate a model in Studio](jumpstart-foundation-models-use-studio-updated-evaluate.md "jumpstart-foundation-models-use-studio-updated-evaluate.md")
-- [Use your
-  SageMaker JumpStart Models in Amazon Bedrock](jumpstart-foundation-models-use-studio-updated-register-bedrock.md "jumpstart-foundation-models-use-studio-updated-register-bedrock.md")
+- [Use your SageMaker JumpStart Models in Amazon Bedrock](jumpstart-foundation-models-use-studio-updated-register-bedrock.md "jumpstart-foundation-models-use-studio-updated-register-bedrock.md")

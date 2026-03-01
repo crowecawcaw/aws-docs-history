@@ -14,12 +14,9 @@ when those thresholds are met. For more information, see the [Amazon CloudWatch 
 ###### SageMaker AI Metrics and Dimensions
 
 - [SageMaker AI endpoint metrics](#cloudwatch-metrics-endpoints "#cloudwatch-metrics-endpoints")
-- [SageMaker AI endpoint invocation
-  metrics](#cloudwatch-metrics-endpoint-invocation "#cloudwatch-metrics-endpoint-invocation")
-- [SageMaker AI inference component
-  metrics](#cloudwatch-metrics-inference-component "#cloudwatch-metrics-inference-component")
-- [SageMaker AI multi-model endpoint
-  metrics](#cloudwatch-metrics-multimodel-endpoints "#cloudwatch-metrics-multimodel-endpoints")
+- [SageMaker AI endpoint invocation metrics](#cloudwatch-metrics-endpoint-invocation "#cloudwatch-metrics-endpoint-invocation")
+- [SageMaker AI inference component metrics](#cloudwatch-metrics-inference-component "#cloudwatch-metrics-inference-component")
+- [SageMaker AI multi-model endpoint metrics](#cloudwatch-metrics-multimodel-endpoints "#cloudwatch-metrics-multimodel-endpoints")
 - [SageMaker AI job metrics](#cloudwatch-metrics-jobs "#cloudwatch-metrics-jobs")
 - [SageMaker Inference Recommender jobs metrics](#cloudwatch-metrics-inference-recommender "#cloudwatch-metrics-inference-recommender")
 - [SageMaker Ground Truth metrics](#cloudwatch-metrics-ground-truth "#cloudwatch-metrics-ground-truth")
@@ -60,9 +57,7 @@ Reference_.
 | ------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
 | `EndpointName, VariantName`     | Filters endpoint metrics for a `ProductionVariant` of the specified<br>endpoint and variant. |
 
-## SageMaker AI endpoint invocation
-
-metrics
+## SageMaker AI endpoint invocation metrics
 
 The `AWS/SageMaker` namespace includes the following request metrics from
 calls to [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md").
@@ -108,9 +103,7 @@ information about how long CloudWatch metrics are retained for, see [GetMetricSt
 | `EndpointName, VariantName`                | Filters endpoint invocation metrics for a `ProductionVariant` of<br>the specified endpoint and variant. |
 | `InferenceComponentName`                   | Filters inference component invocation metrics.                                                         |
 
-## SageMaker AI inference component
-
-metrics
+## SageMaker AI inference component metrics
 
 The `/aws/sagemaker/InferenceComponents` namespace includes the following
 metrics from calls to [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md") for endpoints that host inference components.
@@ -128,9 +121,7 @@ Metrics are available at a 1-minute frequency.
 | ------------------------------------------ | ------------------------------------ | ----------- |
 | `InferenceComponentName`                   | Filters inference component metrics. |
 
-## SageMaker AI multi-model endpoint
-
-metrics
+## SageMaker AI multi-model endpoint metrics
 
 The `AWS/SageMaker` namespace includes the following model loading metrics
 from calls to [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md").

@@ -1,6 +1,4 @@
-# Give Amazon SageMaker Clarify Jobs Access to Resources in Your
-
-Amazon VPC
+# Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC
 
 To control access to your data and SageMaker Clarify jobs, we recommend that you create a private
 Amazon VPC and configure it so that your jobs aren't accessible over the public internet. For
@@ -13,8 +11,7 @@ requirements for SageMaker Clarify jobs.
 ###### Topics
 
 - [Configure a SageMaker Clarify Job for Amazon VPC Access](#clarify-vpc-config "#clarify-vpc-config")
-- [Configure Your Private Amazon VPC for SageMaker Clarify
-  jobs](#clarify-vpc-vpc "#clarify-vpc-vpc")
+- [Configure Your Private Amazon VPC for SageMaker Clarify jobs](#clarify-vpc-vpc "#clarify-vpc-vpc")
 
 ## Configure a SageMaker Clarify Job for Amazon VPC Access
 
@@ -25,14 +22,10 @@ explain model predictions.
 
 ###### Topics
 
-- [SageMaker Clarify Job Amazon VPC Subnets and Security
-  Groups](#clarify-vpc-job "#clarify-vpc-job")
-- [Configure a Model Amazon VPC for
-  Inference](#clarify-vpc-model "#clarify-vpc-model")
+- [SageMaker Clarify Job Amazon VPC Subnets and Security Groups](#clarify-vpc-job "#clarify-vpc-job")
+- [Configure a Model Amazon VPC for Inference](#clarify-vpc-model "#clarify-vpc-model")
 
-### SageMaker Clarify Job Amazon VPC Subnets and Security
-
-Groups
+### SageMaker Clarify Job Amazon VPC Subnets and Security Groups
 
 Subnets and security groups in your private Amazon VPC can be assigned to a SageMaker Clarify
 job in various ways, depending on how you create the job.
@@ -94,9 +87,7 @@ The network isolation option of the SageMaker Clarify job must be turned off (by
 default the option is turned off) so that the SageMaker Clarify job can communicate with
 the shadow endpoint.
 
-### Configure a Model Amazon VPC for
-
-Inference
+### Configure a Model Amazon VPC for Inference
 
 In order to compute post-training bias metrics and explainability, the SageMaker Clarify
 job needs to get inferences from the SageMaker AI model that is specified by the
@@ -145,12 +136,9 @@ shadow endpoint creation fails with the following error:
 
 If your model requires model files in Amazon S3, then the model Amazon VPC needs to have
 an Amazon S3 VPC endpoint. For more information about creating and configuring an
-Amazon VPC for SageMaker AI models, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your
-Amazon VPC](host-vpc.md "host-vpc.md").
+Amazon VPC for SageMaker AI models, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md "host-vpc.md").
 
-## Configure Your Private Amazon VPC for SageMaker Clarify
-
-jobs
+## Configure Your Private Amazon VPC for SageMaker Clarify jobs
 
 In general, you can follow the steps in [Configure Your
 Private VPC for SageMaker Processing](process-vpc.md#process-vpc-vpc "process-vpc.md#process-vpc-vpc") to configure your private Amazon VPC for
@@ -158,14 +146,10 @@ SageMaker Clarify jobs. Here are some highlights and special requirements for Sa
 
 ###### Topics
 
-- [Connect to Resources Outside Your
-  Amazon VPC](#clarify-vpc-nat "#clarify-vpc-nat")
-- [Configure the Amazon VPC Security
-  Group](#clarify-vpc-security-group "#clarify-vpc-security-group")
+- [Connect to Resources Outside Your Amazon VPC](#clarify-vpc-nat "#clarify-vpc-nat")
+- [Configure the Amazon VPC Security Group](#clarify-vpc-security-group "#clarify-vpc-security-group")
 
-### Connect to Resources Outside Your
-
-Amazon VPC
+### Connect to Resources Outside Your Amazon VPC
 
 If you configure your Amazon VPC so that it does not have public internet access,
 then some additional setup is required to grant SageMaker Clarify jobs access to resources
@@ -195,9 +179,7 @@ more AWS services.
   where `region` is the name of the Region where
   your Amazon VPC resides.
 
-### Configure the Amazon VPC Security
-
-Group
+### Configure the Amazon VPC Security Group
 
 SageMaker Clarify jobs support distributed processing when two or more processing
 instances are specified in one of the following ways:

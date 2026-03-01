@@ -1,6 +1,4 @@
-# Data refining during training with
-
-Amazon SageMaker smart sifting
+# Data refining during training with Amazon SageMaker smart sifting
 
 SageMaker smart sifting is a capability of SageMaker Training that helps improve the efficiency of your
 training datasets and reduce total training time and cost.
@@ -36,12 +34,9 @@ training or data processing workflows.
 ###### Topics
 
 - [How SageMaker smart sifting works](train-smart-sifting-how-it-works.md "train-smart-sifting-how-it-works.md")
-- [Supported frameworks and AWS
-  Regions](train-smart-sifting-what-is-supported.md "train-smart-sifting-what-is-supported.md")
-- [SageMaker smart sifting within your training
-  script](train-smart-sifting-apply-to-script.md "train-smart-sifting-apply-to-script.md")
+- [Supported frameworks and AWS Regions](train-smart-sifting-what-is-supported.md "train-smart-sifting-what-is-supported.md")
+- [SageMaker smart sifting within your training script](train-smart-sifting-apply-to-script.md "train-smart-sifting-apply-to-script.md")
 - [Troubleshooting](train-smart-sifting-best-prac-considerations-troubleshoot.md "train-smart-sifting-best-prac-considerations-troubleshoot.md")
 - [Security in SageMaker smart sifting](train-smart-sifting-security.md "train-smart-sifting-security.md")
-- [SageMaker smart sifting Python SDK
-  reference](train-smart-sifting-pysdk-reference.md "train-smart-sifting-pysdk-reference.md")
+- [SageMaker smart sifting Python SDK reference](train-smart-sifting-pysdk-reference.md "train-smart-sifting-pysdk-reference.md")
 - [SageMaker smart sifting release notes](train-smart-sifting-release-notes.md "train-smart-sifting-release-notes.md")

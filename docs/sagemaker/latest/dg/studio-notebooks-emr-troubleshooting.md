@@ -8,9 +8,7 @@ common problems that can arise.
 The following are common errors that might occur while connecting or using Amazon EMR
 clusters from Studio or Studio Classic notebooks.
 
-## Troubleshoot Livy
-
-connections hanging or failing
+## Troubleshoot Livy connections hanging or failing
 
 The following are Livy connectivity issues that might occur while using Amazon EMR
 clusters from Studio or Studio Classic notebooks.

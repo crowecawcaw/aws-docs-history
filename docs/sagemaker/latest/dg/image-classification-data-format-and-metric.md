@@ -1,6 +1,4 @@
-# Datasets format and objective
-
-metric for image classification
+# Datasets format and objective metric for image classification
 
 In this section we learn about the available formats for datasets used in image
 classification as well as the objective metric used to evaluate the predictive quality of

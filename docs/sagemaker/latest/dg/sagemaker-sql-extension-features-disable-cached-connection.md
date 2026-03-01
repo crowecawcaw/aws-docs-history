@@ -1,6 +1,4 @@
-# Disable cached
-
-connections
+# Disable cached connections
 
 To disable connection caching, run the following command:
 

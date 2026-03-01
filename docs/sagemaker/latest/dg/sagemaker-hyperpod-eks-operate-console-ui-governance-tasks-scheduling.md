@@ -1,6 +1,4 @@
-#
-
-Using topology-aware scheduling in Amazon SageMaker HyperPod task governance
+# Using topology-aware scheduling in Amazon SageMaker HyperPod task governance
 
 Topology-aware scheduling in Amazon SageMaker HyperPod task governance
 optimizes the training efficiency of distributed machine learning workloads by placing pods based on the physical network topology of your Amazon EC2 instances.
@@ -101,8 +99,7 @@ The following table explains the new parameters you can use in the kubectl YAML 
 | nodeSelector                  | Specifies the network layer that represents the layer of Amazon EC2 instance placement. Use either this field or an annotation,<br>but not both at the same time. In your YAML file, you can also use the nodeSelector parameter to choose the exact layer for your pods.<br>To get the value of your label, use the [DescribeInstanceTopology](../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceTopology.md") API operation. |
 
 You can also use the HyperPod CLI to run your job and use topology aware scheduling. For more information about the HyperPod CLI, see
-[SageMaker HyperPod CLI
-commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md").
+[SageMaker HyperPod CLI commands](sagemaker-hyperpod-eks-hyperpod-cli-reference.md "sagemaker-hyperpod-eks-hyperpod-cli-reference.md").
 
 ```
 hyp create hyp-pytorch-job \

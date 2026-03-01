@@ -1,6 +1,4 @@
-# Invoke another notebook in your notebook
-
-job
+# Invoke another notebook in your notebook job
 
 You can set up a pipeline in which one notebook job calls another notebook.
 The following sets up an example of a pipeline with a Notebook Job step in

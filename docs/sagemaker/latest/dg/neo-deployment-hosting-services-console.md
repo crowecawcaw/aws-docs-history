@@ -1,6 +1,4 @@
-# Deploy a Compiled Model
-
-Using the Console
+# Deploy a Compiled Model Using the Console
 
 You must satisfy the [prerequisites](neo-deployment-hosting-services-prerequisites.md "neo-deployment-hosting-services-prerequisites.md") section if the model was compiled using AWS SDK for Python (Boto3), the
 AWS CLI, or the Amazon SageMaker AI console. Follow the steps below to create and deploy a SageMaker AI

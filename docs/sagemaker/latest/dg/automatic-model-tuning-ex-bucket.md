@@ -1,6 +1,4 @@
-# Use an Amazon S3 bucket for input and
-
-output
+# Use an Amazon S3 bucket for input and output
 
 Set up a S3 bucket to upload training datasets and save training output data for your
 hyperparameter tuning job.
@@ -40,5 +38,4 @@ IAM role that you use to run the hyperparameter tuning job has a policy that giv
 
 ## Next Step
 
-[Download, Prepare, and Upload Training
-Data](automatic-model-tuning-ex-data.md "automatic-model-tuning-ex-data.md")
+[Download, Prepare, and Upload Training Data](automatic-model-tuning-ex-data.md "automatic-model-tuning-ex-data.md")

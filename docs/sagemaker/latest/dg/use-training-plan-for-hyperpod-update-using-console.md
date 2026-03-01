@@ -1,6 +1,4 @@
-# Update a SageMaker HyperPod
-
-cluster on training plans using the SageMaker AI console
+# Update a SageMaker HyperPod cluster on training plans using the SageMaker AI console
 
 You can update, remove, or add a training plan to an existing SageMaker HyperPod cluster using
 the SageMaker AI console UI. To update the instance group of an SageMaker HyperPod cluster, follow these

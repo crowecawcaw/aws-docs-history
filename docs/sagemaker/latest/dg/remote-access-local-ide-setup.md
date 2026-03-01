@@ -1,31 +1,21 @@
 # Set up local Visual Studio Code
 
-After administrators complete the instructions in [Connect your local Visual Studio Code to SageMaker spaces with remote
-access](remote-access.md "remote-access.md"), you can connect your local Visual Studio Code to your
+After administrators complete the instructions in [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md"), you can connect your local Visual Studio Code to your
 remote SageMaker spaces.
 
 ###### Topics
 
-- [Set up your local
-  environment](#remote-access-local-ide-setup-local-environment "#remote-access-local-ide-setup-local-environment")
-- [Connect to your local
-  VS Code](#remote-access-local-ide-setup-local-vs-code "#remote-access-local-ide-setup-local-vs-code")
-- [Connect to VPC with
-  subnets without internet access](remote-access-local-ide-setup-vpc-no-internet.md "remote-access-local-ide-setup-vpc-no-internet.md")
-- [Filter your Studio
-  spaces](remote-access-local-ide-setup-filter.md "remote-access-local-ide-setup-filter.md")
+- [Set up your local environment](#remote-access-local-ide-setup-local-environment "#remote-access-local-ide-setup-local-environment")
+- [Connect to your local VS Code](#remote-access-local-ide-setup-local-vs-code "#remote-access-local-ide-setup-local-vs-code")
+- [Connect to VPC with subnets without internet access](remote-access-local-ide-setup-vpc-no-internet.md "remote-access-local-ide-setup-vpc-no-internet.md")
+- [Filter your Studio spaces](remote-access-local-ide-setup-filter.md "remote-access-local-ide-setup-filter.md")
 
-## Set up your local
-
-environment
+## Set up your local environment
 
 Install [Visual Studio Code](https://code.visualstudio.com/ "https://code.visualstudio.com/") on your
-local machine. For information on the requirements, see [Connect your local Visual Studio Code to SageMaker spaces with remote
-access](remote-access.md "remote-access.md").
+local machine. For information on the requirements, see [Connect your local Visual Studio Code to SageMaker spaces with remote access](remote-access.md "remote-access.md").
 
-## Connect to your local
-
-VS Code
+## Connect to your local VS Code
 
 Before you can establish a connection from your local Visual Studio Code to your remote
 SageMaker spaces, your administrator must [Set up remote access](remote-access-remote-setup.md "remote-access-remote-setup.md"). Your administrator sets up a

@@ -1,6 +1,4 @@
-# Get autoscaling policy
-
-recommendations
+# Get autoscaling policy recommendations
 
 With Amazon SageMaker Inference Recommender, you can get recommendations for autoscaling policies for your
 SageMaker AI endpoint based on your anticipated traffic pattern. If you’ve already completed
@@ -27,9 +25,7 @@ the details of your inference recommendation job in the SageMaker AI console, or
 use the `RecommendationId` or `EndpointName` fields
 returned by the [DescribeInferenceRecommendationsJob](../APIReference/API_DescribeInferenceRecommendationsJob.md "../APIReference/API_DescribeInferenceRecommendationsJob.md") API.
 
-## Create an autoscaling
-
-configuration recommendation
+## Create an autoscaling configuration recommendation
 
 To create an autoscaling recommendation policy, you can use the
 AWS SDK for Python (Boto3).
@@ -75,9 +71,7 @@ After submitting your request, you’ll receive a response with autoscaling
 policies defined for each metric. See the following section for information
 about interpreting the response.
 
-## Review your
-
-autoscaling configuration recommendation results
+## Review your autoscaling configuration recommendation results
 
 The following example shows the response from the [GetScalingConfigurationRecommendation](../APIReference/API_GetScalingConfigurationRecommendation.md "../APIReference/API_GetScalingConfigurationRecommendation.md") API:
 

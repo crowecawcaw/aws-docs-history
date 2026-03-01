@@ -11,8 +11,7 @@ corner. Note that not all models have fine-tuning available.
 ###### Important
 
 Some foundation models require explicit acceptance of an end-user license
-agreement (EULA) before fine-tuning. For more information, see [EULA acceptance
-in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").
+agreement (EULA) before fine-tuning. For more information, see [EULA acceptance in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").
 
 ## Model settings
 

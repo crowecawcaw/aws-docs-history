@@ -5,8 +5,7 @@
 You can automatically view your notebook jobs if you scheduled your notebook job from
 the Studio UI. If you used the SageMaker Python SDK to schedule your notebook job, you
 need to supply additional tags when you create the notebook job step. For details, see
-[View your notebook jobs in the Studio
-UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
+[View your notebook jobs in the Studio UI dashboard](create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash "create-notebook-auto-run-sdk.md#create-notebook-auto-run-dash").
 
 The following topic gives information about the **Notebook Jobs** tab
 and how to view the details of a single notebook job. The **Notebook Jobs**

@@ -9,8 +9,7 @@ scaling using the AWS Command Line Interface (AWS CLI) or Application Auto Scali
 ###### Topics
 
 - [Register a model (AWS CLI)](#endpoint-auto-scaling-add-cli "#endpoint-auto-scaling-add-cli")
-- [Register a model (Application Auto Scaling
-  API)](#endpoint-auto-scaling-add-api "#endpoint-auto-scaling-add-api")
+- [Register a model (Application Auto Scaling API)](#endpoint-auto-scaling-add-api "#endpoint-auto-scaling-add-api")
 
 ## Register a model (AWS CLI)
 
@@ -48,9 +47,7 @@ aws application-autoscaling register-scalable-target \
   --max-capacity `8`
 ```
 
-## Register a model (Application Auto Scaling
-
-API)
+## Register a model (Application Auto Scaling API)
 
 To register your model with Application Auto Scaling, use the [RegisterScalableTarget](../../../autoscaling/application/APIReference/API_RegisterScalableTarget.md "../../../autoscaling/application/APIReference/API_RegisterScalableTarget.md") Application Auto Scaling API action with the following
 parameters:

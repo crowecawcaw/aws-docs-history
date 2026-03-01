@@ -25,8 +25,7 @@ policy concepts, see [Policies](sagemaker-hyperpod-eks-operate-console-ui-govern
 ###### Edit HyperPod task governance policies
 
 This procedure assumes that you have already created an Amazon EKS cluster set up
-with HyperPod. If you have not already done so, see [Creating
-a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
+with HyperPod. If you have not already done so, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md "sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md").
 
 1. Navigate to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").

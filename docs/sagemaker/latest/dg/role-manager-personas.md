@@ -7,9 +7,7 @@ execution roles for common AWS service interactions needed to work with SageMake
 Each persona has suggested permissions in the form of selected ML activities. For
 information on predefined ML activities and their permissions, see [ML activity reference](role-manager-ml-activities.md "role-manager-ml-activities.md").
 
-## Data scientist
-
-persona
+## Data scientist persona
 
 Use this persona to configure permissions to perform general machine learning
 development and experimentation in a SageMaker AI environment. This persona includes the

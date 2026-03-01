@@ -1,6 +1,4 @@
-# Model Package and Edge Manager Agent Deployment with
-
-AWS IoT Greengrass
+# Model Package and Edge Manager Agent Deployment with AWS IoT Greengrass
 
 SageMaker Edge Manager integrates AWS IoT Greengrass version 2 to simplify accessing, maintaining, and
 deploying the Edge Manager agent and model to your devices. Without AWS IoT Greengrass V2, setting up
@@ -25,7 +23,6 @@ You use the following three components to deploy the Edge Manager agent:
   `PresetDeploymentType`.
 - _A custom component_: This is the inference
   application that is responsible for preprocessing and making inferences on your
-  device. You must create this component. See either [Create a Hello
-  World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how") in the
+  device. You must create this component. See either [Create a Hello World custom component](edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how "edge-greengrass-custom-component.md#edge-greengrass-create-custom-component-how") in the
   SageMaker Edge Manager documentation or [Create custom AWS IoT Greengrass components](../../../greengrass/v2/developerguide/create-components.md "../../../greengrass/v2/developerguide/create-components.md") in the AWS IoT Greengrass documentation for more
   information on how to create custom components.

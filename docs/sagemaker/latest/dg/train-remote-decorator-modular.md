@@ -1,6 +1,4 @@
-# Using modular code with the @remote
-
-decorator
+# Using modular code with the @remote decorator
 
 You can organize your code into modules for ease of workspace management during
 development and still use the @remote function to invoke a function. You can also
@@ -89,9 +87,7 @@ def my_filter(path: str, files: List[str]) -> List[str]:
 )
 ```
 
-## Best practices in
-
-structuring your working directory
+## Best practices in structuring your working directory
 
 The following best practices suggest how you can organize your directory structure
 while using the `@remote` decorator in

@@ -121,8 +121,7 @@ class Module(torch.nn.Module):
 
 ### Set up the SageMaker PyTorch estimator
 
-When configuring a SageMaker PyTorch estimator in [Step 2: Launch a Training Job Using the SageMaker
-Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), add the parameters for sharded data
+When configuring a SageMaker PyTorch estimator in [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), add the parameters for sharded data
 parallelism.
 
 To turn on sharded data parallelism, add the
@@ -465,8 +464,7 @@ Parallelism**
 To run FP16 training with sharded data parallelism, add `"fp16": True"`
 to the `smp_options` configuration dictionary. In your training script,
 you can choose between the static and dynamic loss scaling options through the
-`smp.DistributedOptimizer` module. For more information, see [FP16 Training with Model
-Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md").
+`smp.DistributedOptimizer` module. For more information, see [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md").
 
 ```
 smp_options = {
@@ -696,8 +694,7 @@ Consider the following when using the SageMaker model parallelism library's shar
 data parallelism.
 
 - Sharded data parallelism is compatible with FP16 training. To run FP16
-  training, see the [FP16 Training with Model
-  Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md")
+  training, see the [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md")
   section.
 - Sharded data parallelism is compatible with tensor parallelism. The
   following items are what you might need to consider for using sharded data
@@ -708,8 +705,7 @@ data parallelism.
        tensor parallel group. In other words, the
        `distribute_embedding` parameter is automatically set
        to `True`. For more information about tensor parallelism,
-       see [Tensor
-       Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
+       see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
       + Note that sharded data parallelism with tensor parallelism
        currently uses the NCCL collectives as the backend of the
        distributed training strategy.
@@ -731,9 +727,7 @@ data parallelism.
   boundary of gradient accumulation.
 - You can checkpoint your models trained with sharded data parallelism using
   the library's checkpointing APIs, `smp.save_checkpoint` and
-  `smp.resume_from_checkpoint`. For more information, see [Checkpointing
-  a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0
-  and later)](distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-checkpoint").
+  `smp.resume_from_checkpoint`. For more information, see [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0 and later)](distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-checkpoint "distributed-model-parallel-checkpointing-and-finetuning.md#model-parallel-extended-features-pytorch-checkpoint").
 - The behavior of the [`delayed_parameter_initialization`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.delay_param_initialization "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.delay_param_initialization") configuration
   parameter changes under sharded data parallelism. When these two features
   are simultaneously turned on, parameters are immediately initialized upon

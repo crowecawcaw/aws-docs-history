@@ -1,6 +1,4 @@
-# Inference
-
-Container Images
+# Inference Container Images
 
 SageMaker Neo now provides inference image URI information for `ml_*`
 targets. For more information see [DescribeCompilationJob](../APIReference/API_DescribeCompilationJob.md#sagemaker-DescribeCompilationJob-response-InferenceImage "../APIReference/API_DescribeCompilationJob.md#sagemaker-DescribeCompilationJob-response-InferenceImage").

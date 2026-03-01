@@ -39,8 +39,7 @@ JSON
 ###### Topics
 
 - [Send Events to CloudWatch Events](#sms-cloud-watch-event-rule-setup "#sms-cloud-watch-event-rule-setup")
-- [Set Up a Target to
-  Process Events](#sms-cloud-watch-events-labelingjob-notifications "#sms-cloud-watch-events-labelingjob-notifications")
+- [Set Up a Target to Process Events](#sms-cloud-watch-events-labelingjob-notifications "#sms-cloud-watch-events-labelingjob-notifications")
 - [Labeling Job Expiration](#sms-labeling-job-expiration "#sms-labeling-job-expiration")
 - [Declining Tasks](#sms-decline-tasks "#sms-decline-tasks")
 
@@ -100,9 +99,7 @@ aws events put-rule --name "LabelingJobCompletedOrFailed"
 To learn more about the `put-rule` request, see [Event
 Patterns in CloudWatch Events](../../../AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.md "../../../AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.md") in the _Amazon CloudWatch Events User Guide_.
 
-## Set Up a Target to
-
-Process Events
+## Set Up a Target to Process Events
 
 After you have created a rule, events similar to the following are sent to CloudWatch Events. In
 this example, the labeling job `test-labeling-job`'s status changed to

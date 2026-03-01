@@ -2,10 +2,7 @@
 
 Choose one of the following procedures to make manual batch predictions based on your model type.
 
-## Make manual
-
-batch predictions with numeric, categorical, and time series forecasting
-models
+## Make manual batch predictions with numeric, categorical, and time series forecasting models
 
 To make manual batch predictions for numeric, categorical, and time series
 forecasting model types, do the following:
@@ -33,9 +30,7 @@ probability that the prediction is correct. Then, you can choose
 **Download prediction** to download the results as a
 file.
 
-## Make manual batch predictions with image prediction
-
-models
+## Make manual batch predictions with image prediction models
 
 To make manual batch predictions for a single-label image prediction model, do the
 following:
@@ -62,9 +57,7 @@ see the output data. You can see the images along with their predicted labels an
 confidence scores. Then, you can choose **Download prediction** to
 download the results as a CSV or a ZIP file.
 
-## Make manual batch predictions with text prediction
-
-models
+## Make manual batch predictions with text prediction models
 
 To make manual batch predictions for a multi-category text prediction model, do the
 following:

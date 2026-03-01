@@ -1,6 +1,4 @@
-# Customize your runtime
-
-environment
+# Customize your runtime environment
 
 You can customize your runtime environment to use your preferred local integrated
 development environments (IDEs), SageMaker notebooks, or SageMaker Studio Classic notebooks to write

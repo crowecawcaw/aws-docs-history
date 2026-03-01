@@ -1,6 +1,4 @@
-# Use a Model Package to Create a
-
-Model
+# Use a Model Package to Create a Model
 
 Use a model package to create a deployable model that you can use to get real-time
 inferences by creating a hosted endpoint or to run batch transform jobs. You can
@@ -9,16 +7,11 @@ low-level SageMaker API), or the [Amazon SageMaker Python SDK](https://sagemaker
 
 ###### Topics
 
-- [Use a Model Package to
-  Create a Model (Console)](#sagemaker-mkt-model-pkg-model-console "#sagemaker-mkt-model-pkg-model-console")
-- [Use a Model Package to
-  Create a Model (API)](#sagemaker-mkt-model-pkg-model-api "#sagemaker-mkt-model-pkg-model-api")
-- [Use a Model Package to
-  Create a Model (Amazon SageMaker Python SDK)](#sagemaker-mkt-model-pkg-model-sdk "#sagemaker-mkt-model-pkg-model-sdk")
+- [Use a Model Package to Create a Model (Console)](#sagemaker-mkt-model-pkg-model-console "#sagemaker-mkt-model-pkg-model-console")
+- [Use a Model Package to Create a Model (API)](#sagemaker-mkt-model-pkg-model-api "#sagemaker-mkt-model-pkg-model-api")
+- [Use a Model Package to Create a Model (Amazon SageMaker Python SDK)](#sagemaker-mkt-model-pkg-model-sdk "#sagemaker-mkt-model-pkg-model-sdk")
 
-## Use a Model Package to
-
-Create a Model (Console)
+## Use a Model Package to Create a Model (Console)
 
 ###### To create a deployable model from a model package (console)
 
@@ -36,8 +29,7 @@ Create a Model (Console)
    role that has the `AmazonSageMakerFullAccess` managed policy
    attached. For information, see [How to use SageMaker AI execution roles](sagemaker-roles.md "sagemaker-roles.md").
 7. For **VPC**, choose a Amazon VPC that you want to allow
-   the model to access. For more information, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your
-   Amazon VPC](host-vpc.md "host-vpc.md").
+   the model to access. For more information, see [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md "host-vpc.md").
 8. Leave the default values for **Container input
    options** and **Choose model
    package**.
@@ -52,9 +44,7 @@ After you create a deployable model, you can use it to set up an endpoint for
 real-time inference or create a batch transform job to get inferences on entire
 datasets. For information about hosting endpoints in SageMaker AI, see [Deploy Models for Inference](deploy-model.md "deploy-model.md").
 
-## Use a Model Package to
-
-Create a Model (API)
+## Use a Model Package to Create a Model (API)
 
 To use a model package to create a deployable model by using the SageMaker API,
 specify the name or the Amazon Resource Name (ARN) of the model package as the
@@ -65,9 +55,7 @@ After you create a deployable model, you can use it to set up an endpoint for
 real-time inference or create a batch transform job to get inferences on entire
 datasets. For information about hosted endpoints in SageMaker AI, see [Deploy Models for Inference](deploy-model.md "deploy-model.md").
 
-## Use a Model Package to
-
-Create a Model ([Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"))
+## Use a Model Package to Create a Model ([Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"))
 
 To use a model package to create a deployable model by using the SageMaker AI Python
 SDK, initialize a `ModelPackage` object, and pass the Amazon Resource

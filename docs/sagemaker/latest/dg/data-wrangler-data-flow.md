@@ -148,9 +148,7 @@ select one of the following options:
 - **Concatenate**: Concatenates two datasets and adds the
   resulting dataset to the data flow. To learn more, see [Concatenate Datasets](data-wrangler-transform.md#data-wrangler-transform-concatenate "data-wrangler-transform.md#data-wrangler-transform-concatenate").
 
-## Delete a Step from Your Data
-
-Flow
+## Delete a Step from Your Data Flow
 
 To delete a step, select the step and select **Delete**. If the node
 is a node that has a single input, you delete only the step that you select. Deleting a
@@ -195,9 +193,7 @@ and concatenate nodes.
 
 ![Example showing how to delete a step in the table view of the Data Wrangler console.](images/studio/mohave/delete-step-table-0.png)
 
-## Edit a Step in Your Data Wrangler
-
-Flow
+## Edit a Step in Your Data Wrangler Flow
 
 You can edit each step that you've added in your Data Wrangler flow. By editing steps, you can
 change the transformations or the data types of the columns. You can edit the steps to

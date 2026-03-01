@@ -1,6 +1,4 @@
-# Merge timelines of multiple profile trace
-
-files
+# Merge timelines of multiple profile trace files
 
 The SMDebug client library provide profiling analysis and visualization tools for
 merging timelines of system metrics, framework metrics, and Python profiling data

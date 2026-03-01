@@ -81,9 +81,7 @@ The output should look similar to the following:
   }
 ```
 
-### Set up IAM trust
-
-policies
+### Set up IAM trust policies
 
 Use the following steps to create an IAM trust policy. For more information about
 roles and trust policies, see [Roles terms and concepts](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") in the _AWS Identity and Access Management User

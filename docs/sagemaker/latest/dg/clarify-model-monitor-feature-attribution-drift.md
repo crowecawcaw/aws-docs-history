@@ -1,6 +1,4 @@
-# Feature
-
-attribution drift for models in production
+# Feature attribution drift for models in production
 
 A drift in the distribution of live data for models in production can result in a
 corresponding drift in the feature attribution values, just as it could cause a drift in
@@ -69,9 +67,7 @@ with
 
 In SageMaker Clarify, if the NDCG value is below 0.90, we automatically raise an alert.
 
-## Model Monitor
-
-Example Notebook
+## Model Monitor Example Notebook
 
 SageMaker Clarify provides the following example notebook that shows how to capture inference
 data for a real-time endpoint, create a baseline to monitor evolving bias against, and inspect the
@@ -89,14 +85,9 @@ notebook.
 
 ###### Topics
 
-- [Create a SHAP Baseline for Models
-  in Production](clarify-model-monitor-shap-baseline.md "clarify-model-monitor-shap-baseline.md")
-- [Model Feature
-  Attribution Drift Violations](clarify-model-monitor-model-attribution-drift-violations.md "clarify-model-monitor-model-attribution-drift-violations.md")
+- [Create a SHAP Baseline for Models in Production](clarify-model-monitor-shap-baseline.md "clarify-model-monitor-shap-baseline.md")
+- [Model Feature Attribution Drift Violations](clarify-model-monitor-model-attribution-drift-violations.md "clarify-model-monitor-model-attribution-drift-violations.md")
 - [Parameters to Monitor Attribution Drift](clarify-config-json-monitor-model-explainability-parameters.md "clarify-config-json-monitor-model-explainability-parameters.md")
-- [Schedule
-  Feature Attribute Drift Monitoring Jobs](clarify-model-monitor-feature-attribute-drift-schedule.md "clarify-model-monitor-feature-attribute-drift-schedule.md")
-- [Inspect Reports for Feature
-  Attribute Drift in Production Models](clarify-feature-attribute-drift-report.md "clarify-feature-attribute-drift-report.md")
-- [CloudWatch Metrics for Feature
-  Drift Analysis](clarify-feature-attribute-drift-cw.md "clarify-feature-attribute-drift-cw.md")
+- [Schedule Feature Attribute Drift Monitoring Jobs](clarify-model-monitor-feature-attribute-drift-schedule.md "clarify-model-monitor-feature-attribute-drift-schedule.md")
+- [Inspect Reports for Feature Attribute Drift in Production Models](clarify-feature-attribute-drift-report.md "clarify-feature-attribute-drift-report.md")
+- [CloudWatch Metrics for Feature Drift Analysis](clarify-feature-attribute-drift-cw.md "clarify-feature-attribute-drift-cw.md")

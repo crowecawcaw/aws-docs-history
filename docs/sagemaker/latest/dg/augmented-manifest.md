@@ -79,9 +79,7 @@ The following sections show you how to use augmented manifest files in your
 Amazon SageMaker training jobs, either with the SageMaker AI console or programmatically using the
 SageMaker Python SDK.
 
-### Use an Augmented Manifest File
-
-(Console)
+### Use an Augmented Manifest File (Console)
 
 To complete this procedure, you need:
 
@@ -180,9 +178,7 @@ whose path you provided for **S3 output path** in the **Output
 data configuration** field. To deploy the model to get predictions, see
 [Deploy the model to Amazon EC2](ex1-model-deployment.md "ex1-model-deployment.md").
 
-### Use an Augmented Manifest File
-
-(API)
+### Use an Augmented Manifest File (API)
 
 The following shows how to train a model with an augmented manifest
 file

@@ -1,6 +1,4 @@
-# Create an image classification job
-
-(Multi-label)
+# Create an image classification job (Multi-label)
 
 Use an Amazon SageMaker Ground Truth multi-label image classification labeling task when you need workers to
 classify multiple objects in an image. For example, the following image features a dog and a
@@ -17,8 +15,7 @@ When creating a labeling job in the console, Ground Truth doesn't provide a "non
 for when none of the labels applies to an image. To provide this option to workers, include
 a label similar to "none" or "other" when you create a multi-label image classification job.
 
-To restrict workers to choosing a single label for each image, use the [Create an image classification job (Single
-Label)](sms-image-classification.md "sms-image-classification.md") task
+To restrict workers to choosing a single label for each image, use the [Create an image classification job (Single Label)](sms-image-classification.md "sms-image-classification.md") task
 type.
 
 ###### Important
@@ -27,9 +24,7 @@ For this task type, if you create your own manifest file, use
 `"source-ref"` to identify the location of each image file in Amazon S3 that
 you want labeled. For more information, see [Input data](sms-data-input.md "sms-data-input.md").
 
-## Create a Multi-Label
-
-Image Classification Labeling Job (Console)
+## Create a Multi-Label Image Classification Labeling Job (Console)
 
 You can follow the instructions [Create a Labeling Job (Console)](sms-create-labeling-job-console.md "sms-create-labeling-job-console.md") to learn how to create a
 multi-label image classification labeling job in the SageMaker AI console. In Step 10, choose
@@ -43,9 +38,7 @@ the job and labels that workers can choose from.
 
 ![Example worker UI for labeling tasks, provided by Ground Truth.](images/image-classification-multilabel-example.png)
 
-## Create a
-
-Multi-Label Image Classification Labeling Job (API)
+## Create a Multi-Label Image Classification Labeling Job (API)
 
 To create a multi-label image classification labeling job, use the SageMaker API operation
 `CreateLabelingJob`. This API defines this operation for all AWS SDKs.
@@ -118,9 +111,7 @@ response = client.create_labeling_job(
 )
 ```
 
-### Provide a
-
-Template for Multi-label Image Classification
+### Provide a Template for Multi-label Image Classification
 
 If you create a labeling job using the API, you must supply a worker task template
 in `UiTemplateS3Uri`. Copy and modify the following template. Only modify
@@ -153,9 +144,7 @@ Upload this template to S3, and provide the S3 URI for this file in
 </crowd-form>
 ```
 
-## Multi-label Image
-
-Classification Output Data
+## Multi-label Image Classification Output Data
 
 Once you have created a multi-label image classification labeling job, your output
 data will be located in the Amazon S3 bucket specified in the `S3OutputPath`

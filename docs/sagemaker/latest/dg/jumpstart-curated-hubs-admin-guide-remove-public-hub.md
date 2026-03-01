@@ -1,6 +1,4 @@
-# Remove access
-
-to the SageMaker **Public models** hub
+# Remove access to the SageMaker **Public models** hub
 
 In addition to adding a private curated hub to JumpStart in Studio, you
 can also remove access to the SageMaker **Public models** hub

@@ -1,6 +1,4 @@
-# Connect to Amazon SageMaker Studio and Studio Classic
-
-Through an Interface VPC Endpoint
+# Connect to Amazon SageMaker Studio and Studio Classic Through an Interface VPC Endpoint
 
 You can connect to your Amazon SageMaker Studio and Amazon SageMaker Studio Classic from your [Amazon Virtual Private Cloud](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") (Amazon VPC) through an [interface endpoint](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in your VPC
 instead of connecting over the internet. When you use an interface VPC endpoint (interface
@@ -16,10 +14,8 @@ Studio and Studio Classic supports interface endpoints in all AWS Regions where 
 ###### Topics
 
 - [Create a VPC Endpoint](#studio-interface-endpoint-create "#studio-interface-endpoint-create")
-- [Create a VPC Endpoint Policy for
-  Studio or Studio Classic](#studio-private-link-policy "#studio-private-link-policy")
-- [Allow Access Only from Within Your
-  VPC](#studio-private-link-restrict "#studio-private-link-restrict")
+- [Create a VPC Endpoint Policy for Studio or Studio Classic](#studio-private-link-policy "#studio-private-link-policy")
+- [Allow Access Only from Within Your VPC](#studio-private-link-restrict "#studio-private-link-restrict")
 
 ## Create a VPC Endpoint
 
@@ -51,9 +47,7 @@ Studio Classic can access the SageMaker API using the
 `api.sagemaker.$region.amazonaws.com` endpoint rather than using the VPC
 endpoint URL. For instructions on setting up a private hosted zone, see [Working with private hosted zones](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md").
 
-## Create a VPC Endpoint Policy for
-
-Studio or Studio Classic
+## Create a VPC Endpoint Policy for Studio or Studio Classic
 
 You can attach an Amazon VPC endpoint policy to the interface VPC endpoints that you use to
 connect to Studio or Studio Classic. The endpoint policy controls access to Studio
@@ -102,9 +96,7 @@ the specified domain ID. Access to other domains is denied.
 }
 ```
 
-## Allow Access Only from Within Your
-
-VPC
+## Allow Access Only from Within Your VPC
 
 Users outside your VPC can connect to Studio or Studio Classic over the internet even
 if you set up an interface endpoint in your VPC.

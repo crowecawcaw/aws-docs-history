@@ -38,12 +38,9 @@ By enabling Karpenter-based autoscaling with HyperPod, you have access to:
 ###### Topics
 
 - [Prerequisites](#sagemaker-hyperpod-eks-autoscaling-prereqs "#sagemaker-hyperpod-eks-autoscaling-prereqs")
-- [Create an IAM role for
-  HyperPod autoscaling with Karpenter](sagemaker-hyperpod-eks-autoscaling-iam.md "sagemaker-hyperpod-eks-autoscaling-iam.md")
-- [Create and configure a
-  HyperPod cluster with Karpenter autoscaling](sagemaker-hyperpod-eks-autoscaling-cluster.md "sagemaker-hyperpod-eks-autoscaling-cluster.md")
-- [Create a
-  NodeClass](sagemaker-hyperpod-eks-autoscaling-nodeclass.md "sagemaker-hyperpod-eks-autoscaling-nodeclass.md")
+- [Create an IAM role for HyperPod autoscaling with Karpenter](sagemaker-hyperpod-eks-autoscaling-iam.md "sagemaker-hyperpod-eks-autoscaling-iam.md")
+- [Create and configure a HyperPod cluster with Karpenter autoscaling](sagemaker-hyperpod-eks-autoscaling-cluster.md "sagemaker-hyperpod-eks-autoscaling-cluster.md")
+- [Create a NodeClass](sagemaker-hyperpod-eks-autoscaling-nodeclass.md "sagemaker-hyperpod-eks-autoscaling-nodeclass.md")
 - [Create a NodePool](sagemaker-hyperpod-eks-autoscaling-nodepool.md "sagemaker-hyperpod-eks-autoscaling-nodepool.md")
 - [Deploy a workload](sagemaker-hyperpod-eks-autoscaling-workload.md "sagemaker-hyperpod-eks-autoscaling-workload.md")
 
@@ -52,8 +49,7 @@ By enabling Karpenter-based autoscaling with HyperPod, you have access to:
 - Continuous provisioning enabled on your HyperPod cluster. Enable
   continuous provisioning by setting `--node-provisioning-mode` to
   `Continuous` when creating your SageMaker HyperPod cluster. For more
-  information, see [Continuous provisioning for enhanced
-  cluster operations on Amazon EKS](sagemaker-hyperpod-scaling-eks.md "sagemaker-hyperpod-scaling-eks.md").
+  information, see [Continuous provisioning for enhanced cluster operations on Amazon EKS](sagemaker-hyperpod-scaling-eks.md "sagemaker-hyperpod-scaling-eks.md").
 - Health Monitoring Agent version 1.0.742.0_1.0.241.0 or above installed.
   Required for HyperPod cluster operations and monitoring. The agent must
   be configured before enabling Karpenter autoscaling to ensure proper cluster
@@ -61,5 +57,4 @@ By enabling Karpenter-based autoscaling with HyperPod, you have access to:
 - Only if your Amazon EKS cluster has Karpenter running on it, the Karpenter
   `NodePool` and `NodeClaim` versions need to be
   v1.
-- `NodeRecovery` set to automatic. For more information, see [Automatic node
-  recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md").
+- `NodeRecovery` set to automatic. For more information, see [Automatic node recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md").

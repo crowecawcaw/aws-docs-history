@@ -1,6 +1,4 @@
-# Capture data from real-time
-
-endpoint
+# Capture data from real-time endpoint
 
 ###### Note
 

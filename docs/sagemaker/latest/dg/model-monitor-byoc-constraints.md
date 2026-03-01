@@ -1,6 +1,4 @@
-# Schema for Constraints
-
-(constraints.json file)
+# Schema for Constraints (constraints.json file)
 
 A constraints.json file is used to express the constraints that a
 dataset must satisfy. Amazon SageMaker Model Monitor containers can use the constraints.json file

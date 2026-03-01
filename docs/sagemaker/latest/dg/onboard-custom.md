@@ -10,8 +10,7 @@ information about domains, see [Amazon SageMaker AI domain overview](gs-studio-o
 
 - [Authentication methods](#onboard-custom-authentication-details "#onboard-custom-authentication-details")
 - [Setup for organizations (custom setup)](#onboard-custom-instructions "#onboard-custom-instructions")
-- [Access the domain after
-  onboarding](#onboard-custom-users-accesss-domain "#onboard-custom-users-accesss-domain")
+- [Access the domain after onboarding](#onboard-custom-users-accesss-domain "#onboard-custom-users-accesss-domain")
 
 ## Authentication methods
 
@@ -65,8 +64,7 @@ URL** under **Settings summary**.
   the account.
 - You can restrict access to your domains exclusively to particular Amazon Virtual Private Clouds
   (VPCs), interface endpoints, or a predefined set of IP addresses when using AWS Identity and Access Management
-  (IAM) authentication. For more information, see [Allow Access Only from Within Your
-  VPC](studio-interface-endpoint.md#studio-private-link-restrict "studio-interface-endpoint.md#studio-private-link-restrict").
+  (IAM) authentication. For more information, see [Allow Access Only from Within Your VPC](studio-interface-endpoint.md#studio-private-link-restrict "studio-interface-endpoint.md#studio-private-link-restrict").
 
 ## Setup for organizations (custom setup)
 
@@ -328,8 +326,7 @@ aws --region `region` ec2 describe-subnets --filters Name=vpc-id,Values=`default
 
 4. Create a domain by passing the default Amazon VPC ID, subnets, and execution role ARN.
    You must also pass a SageMaker image ARN. For information on the available JupyterLab version
-   ARNs, see [Setting a default JupyterLab
-   version](studio-jl.md#studio-jl-set "studio-jl.md#studio-jl-set").
+   ARNs, see [Setting a default JupyterLab version](studio-jl.md#studio-jl-set "studio-jl.md#studio-jl-set").
 
 For `authentication-mode`, use `SSO`
 for IAM Identity Center authentication or `IAM` for IAM authentication.
@@ -341,8 +338,7 @@ aws --region `region` sagemaker create-domain --domain-name `domain-name` --vpc-
 You can use the AWS CLI to customize the applications and ML tools displayed in
 Studio for the domain, using [StudioWebPortalSettings](../APIReference/API_StudioWebPortalSettings.md "../APIReference/API_StudioWebPortalSettings.md"). Use `HiddenAppTypes` to hide applications and
 `HiddenMlTools` to hide ML tools. For more information on customizing the left
-navigation of the Studio UI, see [Hide machine learning tools and
-applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md"). This feature is not available for
+navigation of the Studio UI, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md"). This feature is not available for
 Studio Classic. 5. Verify that the domain has been created.
 
 ```
@@ -359,9 +355,7 @@ After the domain is set up, the administrative user can view and edit the domain
 For information, see [View domains](domain-view.md "domain-view.md") and
 [Edit domain settings](domain-edit.md "domain-edit.md").
 
-## Access the domain after
-
-onboarding
+## Access the domain after onboarding
 
 The users can access SageMaker AI using:
 

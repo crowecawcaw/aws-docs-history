@@ -1,6 +1,4 @@
-# SageMaker Training Compiler Example Notebooks and
-
-Blogs
+# SageMaker Training Compiler Example Notebooks and Blogs
 
 ###### Important
 

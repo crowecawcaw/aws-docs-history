@@ -1,6 +1,4 @@
-# Create an AutoML job for
-
-time-series forecasting using the API
+# Create an AutoML job for time-series forecasting using the API
 
 Forecasting in machine learning refers to the process of predicting future outcomes or
 trends based on historical data and patterns. By analyzing past time-series data and identifying
@@ -56,12 +54,10 @@ to:
 
 - Prepare your time-series dataset. Dataset preparation involves collecting relevant
   data from various sources, cleaning and filtering it to remove noise and inconsistencies,
-  and organizing it into a structured format. See [Time-series datasets format and missing
-  values filling methods](timeseries-forecasting-data-format.md "timeseries-forecasting-data-format.md") to learn more about time-series
+  and organizing it into a structured format. See [Time-series datasets format and missing values filling methods](timeseries-forecasting-data-format.md "timeseries-forecasting-data-format.md") to learn more about time-series
   formats requirements in Autopilot. Optionally, you can supplement your dataset with the
   public holiday calendar of the country of your choice to capture associated patterns. For
-  more information on holiday calendars, see [National holiday
-  calendars](autopilot-timeseries-forecasting-holiday-calendars.md "autopilot-timeseries-forecasting-holiday-calendars.md").
+  more information on holiday calendars, see [National holiday calendars](autopilot-timeseries-forecasting-holiday-calendars.md "autopilot-timeseries-forecasting-holiday-calendars.md").
 
 ###### Note
 
@@ -77,8 +73,7 @@ Make sure to provide enough data to capture seasonal and recurrent patterns.
   - For information on retrieving your SageMaker AI execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
   - For information on granting your SageMaker AI execution role permissions to access one or
     more specific buckets in Amazon S3, see _Add Additional Amazon S3
-    Permissions to a SageMaker AI Execution Role_ in [Create execution
-    role](sagemaker-roles.md#sagemaker-roles-create-execution-role "sagemaker-roles.md#sagemaker-roles-create-execution-role").
+    Permissions to a SageMaker AI Execution Role_ in [Create execution role](sagemaker-roles.md#sagemaker-roles-create-execution-role "sagemaker-roles.md#sagemaker-roles-create-execution-role").
 
 ## Required parameters
 
@@ -191,8 +186,7 @@ exactly three algorithms ("cnn-qr", "prophet", "arima") in its
   }
 ```
 
-For the list of available algorithms for time-series forecasting, see [`AutoMLAlgorithms`](../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms "../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms"). For details on each algorithm, see [Algorithms support for time-series
-forecasting](timeseries-forecasting-algorithms.md "timeseries-forecasting-algorithms.md").
+For the list of available algorithms for time-series forecasting, see [`AutoMLAlgorithms`](../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms "../APIReference/API_AutoMLAlgorithmConfig.md#sagemaker-Type-AutoMLAlgorithmConfig-AutoMLAlgorithms"). For details on each algorithm, see [Algorithms support for time-series forecasting](timeseries-forecasting-algorithms.md "timeseries-forecasting-algorithms.md").
 
 Autopilot trains 6 models candidates with your target time-series, then combines these
 models using a stacking ensemble method to create an optimal forecasting model for a given
@@ -297,8 +291,7 @@ By default, Autopilot uses the Average Weighted Quantile Loss. However, you can 
 the objective metric when you create your AutoML job in the `MetricName`
 attribute of [AutoMLJobObjective](../APIReference/API_AutoMLJobObjective.md "../APIReference/API_AutoMLJobObjective.md").
 
-For the list of available algorithms, see [Algorithms support for time-series
-forecasting](timeseries-forecasting-algorithms.md "timeseries-forecasting-algorithms.md").
+For the list of available algorithms, see [Algorithms support for time-series forecasting](timeseries-forecasting-algorithms.md "timeseries-forecasting-algorithms.md").
 
 In Autopilot, you can incorporate a feature-engineered dataset of national holiday
 information to your time-series. Autopilot provide native support for the holiday calendars

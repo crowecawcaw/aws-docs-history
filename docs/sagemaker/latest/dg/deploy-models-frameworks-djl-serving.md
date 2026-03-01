@@ -1,6 +1,4 @@
-# Deploy models with DJL
-
-Serving
+# Deploy models with DJL Serving
 
 DJL Serving is a high performance universal stand-alone model serving solution. It
 takes a deep learning model, several models, or workflows and makes them available
@@ -107,9 +105,7 @@ docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/<image_name>:<image_tag>
 You should now have a customized container image that you can use for model
 serving. For more examples of customizing your container, see [Building AWS Deep Learning Containers Custom Images](https://github.com/aws/deep-learning-containers/blob/master/custom_images.md "https://github.com/aws/deep-learning-containers/blob/master/custom_images.md").
 
-## Prepare your model
-
-artifacts
+## Prepare your model artifacts
 
 Before deploying your model on SageMaker AI, you must package your model artifacts in a
 `.tar.gz` file. DJL Serving accepts the following artifacts in your
@@ -140,14 +136,11 @@ don't need to specify the model checkpoint inside LMI containers. In Java mode, 
 are required to package the model checkpoint. For more details on how to configure
 `serving.properties` and operate with different engines, see [DJL Serving Operation Modes](https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md "https://github.com/deepjavalibrary/djl-serving/blob/master/serving/docs/modes.md").
 
-## Use single model
-
-endpoints to deploy with DJL Serving
+## Use single model endpoints to deploy with DJL Serving
 
 After preparing your model artifacts, you can deploy your model to a SageMaker AI
 endpoint. This section describes how to deploy a single model to an endpoint with
-DJL Serving. If you're deploying multiple models, skip this section and go to [Use multi-model endpoints to
-deploy with DJL Serving](#deploy-models-frameworks-djl-mme "#deploy-models-frameworks-djl-mme").
+DJL Serving. If you're deploying multiple models, skip this section and go to [Use multi-model endpoints to deploy with DJL Serving](#deploy-models-frameworks-djl-mme "#deploy-models-frameworks-djl-mme").
 
 The following example shows you a method to create a model object using the
 Amazon SageMaker Python SDK. You'll need to specify the following fields:
@@ -186,9 +179,7 @@ def create_model(model_name, model_s3_url):
     return model
 ```
 
-## Use multi-model endpoints to
-
-deploy with DJL Serving
+## Use multi-model endpoints to deploy with DJL Serving
 
 If you want to deploy multiple models to an endpoint, SageMaker AI offers multi-model endpoints, which are
 a scalable and cost-effective solution to deploying large numbers of models. DJL
@@ -197,8 +188,7 @@ on each of the models concurrently. DJL Serving containers adhere to the SageMak
 contracts and can be used to deploy multi-model endpoints.
 
 Each individual model artifact needs to be packaged in the same way as described
-in the previous section [Prepare your model
-artifacts](#deploy-models-frameworks-djl-artifacts "#deploy-models-frameworks-djl-artifacts").
+in the previous section [Prepare your model artifacts](#deploy-models-frameworks-djl-artifacts "#deploy-models-frameworks-djl-artifacts").
 You can set model-specific configurations in the `serving.properties` file
 and model-specific inference handler code in `model.py`. For a multi-model endpoint, models
 need to be arranged in the following way:

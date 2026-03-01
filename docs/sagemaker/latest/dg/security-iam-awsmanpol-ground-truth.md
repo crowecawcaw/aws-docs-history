@@ -5,14 +5,10 @@ are available in your AWS account and are used by execution roles created from t
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerGroundTruthExecution](#security-iam-awsmanpol-gt-AmazonSageMakerGroundTruthExecution "#security-iam-awsmanpol-gt-AmazonSageMakerGroundTruthExecution")
-- [Amazon SageMaker AI updates to SageMaker AI
-  Ground Truth managed policies](#security-iam-awsmanpol-groundtruth-updates "#security-iam-awsmanpol-groundtruth-updates")
+- [AWS managed policy: AmazonSageMakerGroundTruthExecution](#security-iam-awsmanpol-gt-AmazonSageMakerGroundTruthExecution "#security-iam-awsmanpol-gt-AmazonSageMakerGroundTruthExecution")
+- [Amazon SageMaker AI updates to SageMaker AI Ground Truth managed policies](#security-iam-awsmanpol-groundtruth-updates "#security-iam-awsmanpol-groundtruth-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerGroundTruthExecution
+## AWS managed policy: AmazonSageMakerGroundTruthExecution
 
 This AWS managed policy grants permissions commonly needed to use SageMaker AI Ground Truth.
 
@@ -190,9 +186,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to SageMaker AI
-
-Ground Truth managed policies
+## Amazon SageMaker AI updates to SageMaker AI Ground Truth managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI Ground Truth since this service
 began tracking these changes.

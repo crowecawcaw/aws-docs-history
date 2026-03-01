@@ -11,8 +11,7 @@ You can find a list of models that have been tested by the Amazon SageMaker Neo 
 
 - Ambarella devices require additional files to be included within the compressed TAR
   file before it is sent for compilation. For more information,
-  see [Troubleshoot
-  Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md").
+  see [Troubleshoot Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md").
 - TIM-VX (libtim-vx.so) is required for i.MX 8M Plus.
   For information on how to build TIM-VX, see the [TIM-VX GitHub repository](https://github.com/VeriSilicon/TIM-VX "https://github.com/VeriSilicon/TIM-VX").
 

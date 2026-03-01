@@ -1,7 +1,4 @@
-# Default system
-
-monitoring and customized framework profiling with different profiling
-options
+# Default system monitoring and customized framework profiling with different profiling options
 
 This section gives information about the supported profiling configuration
 classes, as well as an example configuration. You can use the following profiling

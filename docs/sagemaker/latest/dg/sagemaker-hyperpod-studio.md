@@ -14,9 +14,7 @@ IDEs within Studio.
 
 ###### Topics
 
-- [Setting up HyperPod in
-  Studio](sagemaker-hyperpod-studio-setup.md "sagemaker-hyperpod-studio-setup.md")
+- [Setting up HyperPod in Studio](sagemaker-hyperpod-studio-setup.md "sagemaker-hyperpod-studio-setup.md")
 - [HyperPod tabs in Studio](sagemaker-hyperpod-studio-tabs.md "sagemaker-hyperpod-studio-tabs.md")
-- [Connecting to HyperPod clusters and submitting
-  tasks to clusters](sagemaker-hyperpod-studio-open.md "sagemaker-hyperpod-studio-open.md")
+- [Connecting to HyperPod clusters and submitting tasks to clusters](sagemaker-hyperpod-studio-open.md "sagemaker-hyperpod-studio-open.md")
 - [Troubleshooting](sagemaker-hyperpod-studio-troubleshoot.md "sagemaker-hyperpod-studio-troubleshoot.md")

@@ -1,6 +1,4 @@
-# Use the SageMaker AI generic estimator to extend
-
-pre-built DLC containers
+# Use the SageMaker AI generic estimator to extend pre-built DLC containers
 
 You can customize SageMaker AI prebuilt containers or extend them to handle any additional
 functional requirements for your algorithm or model that the prebuilt SageMaker AI Docker image

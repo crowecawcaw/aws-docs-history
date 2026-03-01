@@ -14,11 +14,9 @@ a dedicated Ground Truth work portal login URL.
 
 You can also restrict workers to a Classless Inter-Domain Routing (CIDR) block/IP address
 range. This means annotators must be on a specific network to access the annotation site.
-You can add up to ten CIDR blocks for one workforce. To learn more, see [Private workforce management using the
-Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md").
+You can add up to ten CIDR blocks for one workforce. To learn more, see [Private workforce management using the Amazon SageMaker API](sms-workforce-management-private-api.md "sms-workforce-management-private-api.md").
 
-To learn how you can create a private workforce, see [Create a Private Workforce
-(Amazon Cognito)](sms-workforce-create-private.md "sms-workforce-create-private.md").
+To learn how you can create a private workforce, see [Create a Private Workforce (Amazon Cognito)](sms-workforce-create-private.md "sms-workforce-create-private.md").
 
 ## Restrict Access to Workforce Types
 

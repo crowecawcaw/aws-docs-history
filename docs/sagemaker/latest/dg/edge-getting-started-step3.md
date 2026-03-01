@@ -1,6 +1,4 @@
-# Register and Authenticate Your Device
-
-Fleet
+# Register and Authenticate Your Device Fleet
 
 In this section you will create your AWS IoT thing object, create a device fleet,
 register your device fleet so it can interact with the cloud, create X.509 certificates

@@ -7,18 +7,12 @@ or through the low-level APIs. Administrators can optionally use the
 
 ###### Topics
 
-- [Using the SageMaker AI Python
-  SDK](#train-warm-pools-how-to-use-python-sdk "#train-warm-pools-how-to-use-python-sdk")
-- [Using the Amazon SageMaker AI
-  console](#train-warm-pools-how-to-use-sagemaker-console "#train-warm-pools-how-to-use-sagemaker-console")
-- [Using the low-level
-  SageMaker APIs](#train-warm-pools-how-to-use-low-level-apis "#train-warm-pools-how-to-use-low-level-apis")
-- [IAM condition
-  key](#train-warm-pools-how-to-use-iam-condition-key "#train-warm-pools-how-to-use-iam-condition-key")
+- [Using the SageMaker AI Python SDK](#train-warm-pools-how-to-use-python-sdk "#train-warm-pools-how-to-use-python-sdk")
+- [Using the Amazon SageMaker AI console](#train-warm-pools-how-to-use-sagemaker-console "#train-warm-pools-how-to-use-sagemaker-console")
+- [Using the low-level SageMaker APIs](#train-warm-pools-how-to-use-low-level-apis "#train-warm-pools-how-to-use-low-level-apis")
+- [IAM condition key](#train-warm-pools-how-to-use-iam-condition-key "#train-warm-pools-how-to-use-iam-condition-key")
 
-## Using the SageMaker AI Python
-
-SDK
+## Using the SageMaker AI Python SDK
 
 Create, update, or terminate warm pools using the SageMaker Python SDK.
 
@@ -29,16 +23,11 @@ v2.110.0](https://pypi.org/project/sagemaker/2.110.0/ "https://pypi.org/project/
 
 ###### Topics
 
-- [Create a warm
-  pool](#train-warm-pools-how-to-use-python-sdk-create "#train-warm-pools-how-to-use-python-sdk-create")
-- [Update a warm
-  pool](#train-warm-pools-how-to-use-python-sdk-update "#train-warm-pools-how-to-use-python-sdk-update")
-- [Terminate a
-  warm pool](#train-warm-pools-how-to-use-python-sdk-terminate "#train-warm-pools-how-to-use-python-sdk-terminate")
+- [Create a warm pool](#train-warm-pools-how-to-use-python-sdk-create "#train-warm-pools-how-to-use-python-sdk-create")
+- [Update a warm pool](#train-warm-pools-how-to-use-python-sdk-update "#train-warm-pools-how-to-use-python-sdk-update")
+- [Terminate a warm pool](#train-warm-pools-how-to-use-python-sdk-terminate "#train-warm-pools-how-to-use-python-sdk-terminate")
 
-### Create a warm
-
-pool
+### Create a warm pool
 
 To create a warm pool, use the SageMaker Python SDK to create an estimator with a
 `keep_alive_period_in_seconds` value greater than 0 and call
@@ -156,9 +145,7 @@ the following example:
 ...
 ```
 
-### Update a warm
-
-pool
+### Update a warm pool
 
 When the training job is complete and the warm pool status is
 `Available`, then you can update the
@@ -168,9 +155,7 @@ When the training job is complete and the warm pool status is
 session.update_training_job(job_name, resource_config={"KeepAlivePeriodInSeconds":`3600`})
 ```
 
-### Terminate a
-
-warm pool
+### Terminate a warm pool
 
 To manually terminate a warm pool, set the `KeepAlivePeriodInSeconds` value to 0.
 
@@ -182,9 +167,7 @@ The warm pool automatically terminates when it exceeds the designated
 `KeepAlivePeriodInSeconds` value or if there is a patch update
 for the cluster.
 
-## Using the Amazon SageMaker AI
-
-console
+## Using the Amazon SageMaker AI console
 
 Through the console, you can create a warm pool, release a warm pool, or check the
 warm pool status and billable time of specific training jobs. You can also see which
@@ -210,15 +193,11 @@ matching training job reused a warm pool.
    seconds, and the name of the training job that reused the warm pool if the
    warm pool status is `Reused`.
 
-## Using the low-level
-
-SageMaker APIs
+## Using the low-level SageMaker APIs
 
 Use SageMaker AI managed warm pools with either the SageMaker API or the AWS CLI.
 
-### SageMaker AI
-
-API
+### SageMaker AI API
 
 Set up SageMaker AI managed warm pools using the SageMaker API with the following
 commands:
@@ -228,9 +207,7 @@ commands:
 - [ListTrainingJobs](../APIReference/API_ListTrainingJobs.md "../APIReference/API_ListTrainingJobs.md")
 - [DescribeTrainingJob](../APIReference/API_DescribeTrainingJob.md "../APIReference/API_DescribeTrainingJob.md")
 
-### AWS
-
-CLI
+### AWS CLI
 
 Set up SageMaker AI managed warm pools using the AWS CLI with the following
 commands:
@@ -240,9 +217,7 @@ commands:
 - [list-training-jobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/list-training-jobs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/list-training-jobs.html")
 - [describe-training-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/describe-training-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/describe-training-job.html")
 
-## IAM condition
-
-key
+## IAM condition key
 
 Administrators can optionally use the `sagemaker:KeepAlivePeriod`
 condition key to further restrict the `KeepAlivePeriodInSeconds` limits

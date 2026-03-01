@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -23,20 +22,13 @@ For Feature Store examples and resources using the Amazon SageMaker APIs and AWS
 
 ###### Topics
 
-- [Create a feature group from the
-  console](#feature-store-create-feature-group-studio "#feature-store-create-feature-group-studio")
-- [View feature group details
-  from the console](#feature-store-view-feature-group-detail-studio "#feature-store-view-feature-group-detail-studio")
-- [Update a feature group from the
-  console](#feature-store-update-feature-group-studio "#feature-store-update-feature-group-studio")
-- [View
-  pipeline executions from the console](#feature-store-view-feature-processor-pipeline-executions-studio "#feature-store-view-feature-processor-pipeline-executions-studio")
-- [View lineage
-  from the console](#feature-store-view-feature-processor-pipeline-lineage-studio "#feature-store-view-feature-processor-pipeline-lineage-studio")
+- [Create a feature group from the console](#feature-store-create-feature-group-studio "#feature-store-create-feature-group-studio")
+- [View feature group details from the console](#feature-store-view-feature-group-detail-studio "#feature-store-view-feature-group-detail-studio")
+- [Update a feature group from the console](#feature-store-update-feature-group-studio "#feature-store-update-feature-group-studio")
+- [View pipeline executions from the console](#feature-store-view-feature-processor-pipeline-executions-studio "#feature-store-view-feature-processor-pipeline-executions-studio")
+- [View lineage from the console](#feature-store-view-feature-processor-pipeline-lineage-studio "#feature-store-view-feature-processor-pipeline-lineage-studio")
 
-## Create a feature group from the
-
-console
+## Create a feature group from the console
 
 The create feature group process has four steps:
 
@@ -276,9 +268,7 @@ After the feature group has been successfully created, a green pop-up message
 appears at the bottom of the page. The new feature group also appears in your feature
 groups catalog.
 
-## View feature group details
-
-from the console
+## View feature group details from the console
 
 You can view details of your feature groups after a feature group has successfully been
 created in the Feature Store.
@@ -337,9 +327,7 @@ instructions for using Feature Store through the console depends on if you have 
 21. Under the **Lineage** tab, you can view the lineage of your
     feature group.
 
-## Update a feature group from the
-
-console
+## Update a feature group from the console
 
 You can update your feature groups after a feature group has successfully been created in
 the Feature Store.
@@ -401,9 +389,7 @@ for using Feature Store through the console depends on if you have enabled [Amaz
 21. Choose **Save changes**.
 22. To confirm your changes, choose **Confirm**.
 
-## View
-
-pipeline executions from the console
+## View pipeline executions from the console
 
 You can view the latest pipeline execution information for a feature or feature group
 under **Pipeline executions**. You can also get links to pipelines,
@@ -440,9 +426,7 @@ default experience.
 17. You can view the links for the pipeline, execution, and code details. You can also
     view the execution owner, status, date, and duration.
 
-## View lineage
-
-from the console
+## View lineage from the console
 
 You can view the lineage of a feature group. The lineage includes the information about
 the execution code of your feature processing workflow, what data sources were used, and how

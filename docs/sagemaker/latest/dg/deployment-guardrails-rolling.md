@@ -84,9 +84,7 @@ Also, review the [Exclusions](deployment-guardrails-exclusions.md "deployment-gu
 page to make sure that your endpoint meets the requirements for a rolling
 deployment.
 
-## Determine the rolling batch
-
-size
+## Determine the rolling batch size
 
 Before updating your endpoint, determine the batch size that you want to use for
 incrementally shifting traffic to the new fleet.
@@ -97,9 +95,7 @@ quickly. However, keep in mind that the endpoint requires more capacity while up
 roughly the batch size overhead. If you choose a smaller batch size, the deployment
 takes longer, but you use less capacity during the deployment.
 
-## Configure a rolling
-
-deployment
+## Configure a rolling deployment
 
 Once you are ready for your deployment and have set up CloudWatch alarms for your endpoint,
 you can use the SageMaker AI [UpdateEndpoint](../APIReference/API_UpdateEndpoint.md "../APIReference/API_UpdateEndpoint.md")

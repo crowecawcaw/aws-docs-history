@@ -31,9 +31,7 @@ Metrics (SageMaker Python SDK)](training-metrics.md#define-train-metrics-sdk "tr
 and as a Pandas `DataFrame` using the [TrainingJobAnalytics](https://sagemaker.readthedocs.io/en/stable/api/training/analytics.html#sagemaker.analytics.TrainingJobAnalytics "https://sagemaker.readthedocs.io/en/stable/api/training/analytics.html#sagemaker.analytics.TrainingJobAnalytics") method. After your model is trained and fine-tuned, you can
 use it like any other model to run inference jobs.
 
-### How to run training with the Hugging Face
-
-estimator
+### How to run training with the Hugging Face estimator
 
 You can implement the Hugging Face Estimator for training jobs using the SageMaker AI Python
 SDK. The SageMaker Python SDK is an open source library for training and deploying machine
@@ -79,9 +77,7 @@ can also run inference jobs without having to write any custom inference code. W
 inference code, you can customize the inference logic by providing your own Python
 script.
 
-### How to deploy an inference job using the
-
-Hugging Face Deep Learning Containers
+### How to deploy an inference job using the Hugging Face Deep Learning Containers
 
 You have two options for running inference with SageMaker AI. You can run inference using a
 model that you trained, or deploy a pre-trained Hugging Face model.

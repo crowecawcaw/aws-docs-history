@@ -62,10 +62,10 @@ the location you specify with `output_s3_uri`.
 
 Output Files for Tabular Dataset Statistics and Constraints
 
-| File Name              | Description                                                                                                                                                                                                                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`statistics.json`**  | This file is expected to have columnar statistics for each<br>feature in the dataset that is analyzed. For more information<br>about the schema for this file, see [Schema for Statistics<br>(statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md"). |
-| **`constraints.json`** | This file is expected to have the constraints on the features<br>observed. For more information about the schema for this file,<br>see [Schema for Constraints<br>(constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").                         |
+| File Name              | Description                                                                                                                                                                                                                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`statistics.json`**  | This file is expected to have columnar statistics for each<br>feature in the dataset that is analyzed. For more information<br>about the schema for this file, see [Schema for Statistics (statistics.json file)](model-monitor-byoc-statistics.md "model-monitor-byoc-statistics.md"). |
+| **`constraints.json`** | This file is expected to have the constraints on the features<br>observed. For more information about the schema for this file,<br>see [Schema for Constraints (constraints.json file)](model-monitor-byoc-constraints.md "model-monitor-byoc-constraints.md").                         |
 
 The [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") provides convenience functions described to generate the
 baseline statistics and constraints. But if you want to call processing job directly

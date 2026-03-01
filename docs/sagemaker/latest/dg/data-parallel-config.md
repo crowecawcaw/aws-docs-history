@@ -1,6 +1,4 @@
-# Configuration tips for the SageMaker AI distributed data
-
-parallelism library
+# Configuration tips for the SageMaker AI distributed data parallelism library
 
 Review the following tips before using the SageMaker AI distributed data parallelism (SMDDP)
 library. This list includes tips that are applicable across frameworks.
@@ -12,8 +10,7 @@ library. This list includes tips that are applicable across frameworks.
 - [Debug scaling efficiency with Debugger](#data-parallel-config-debug "#data-parallel-config-debug")
 - [Batch size](#data-parallel-config-batch-size "#data-parallel-config-batch-size")
 - [Custom MPI options](#data-parallel-config-mpi-custom "#data-parallel-config-mpi-custom")
-- [Use Amazon FSx and set up an optimal storage and
-  throughput capacity](#data-parallel-config-fxs "#data-parallel-config-fxs")
+- [Use Amazon FSx and set up an optimal storage and throughput capacity](#data-parallel-config-fxs "#data-parallel-config-fxs")
 
 ## Data preprocessing
 
@@ -82,9 +79,7 @@ of the program:
 distribution = {'smdistributed':{'dataparallel':{'enabled': True, "custom_mpi_options": "-verbose -x NCCL_DEBUG=VERSION"}}}
 ```
 
-## Use Amazon FSx and set up an optimal storage and
-
-throughput capacity
+## Use Amazon FSx and set up an optimal storage and throughput capacity
 
 When training a model on multiple nodes with distributed data parallelism, it is
 highly recommended to use [FSx for Lustre](../../../fsx/latest/LustreGuide/what-is.md "../../../fsx/latest/LustreGuide/what-is.md"). Amazon FSx is a

@@ -5,9 +5,7 @@ you stop incurring costs for the space.
 
 Alternatively, you can delete unused Code Editor resources by using the AWS CLI.
 
-## Stop your Code Editor space using
-
-Studio
+## Stop your Code Editor space using Studio
 
 To stop your Code Editor space in Studio use the following steps:
 
@@ -33,9 +31,7 @@ instance shuts down. To stop accruing charges from resources, delete any additio
 resources. For more information, see [Delete unused
 resources](studio-updated-jl-admin-guide-clean-up.md "studio-updated-jl-admin-guide-clean-up.md").
 
-## Delete Code Editor resources using
-
-the AWS CLI
+## Delete Code Editor resources using the AWS CLI
 
 You can delete your Code Editor application and space using the AWS Command Line Interface (AWS CLI).
 

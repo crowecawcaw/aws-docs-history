@@ -1,6 +1,4 @@
-# Configure data input mode using the
-
-SageMaker Python SDK
+# Configure data input mode using the SageMaker Python SDK
 
 SageMaker Python SDK provides the generic [Estimator class](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator") and its [variations for ML
 frameworks](https://sagemaker.readthedocs.io/en/stable/frameworks/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/index.html") for launching training jobs. You can specify one of the data input modes
@@ -82,6 +80,5 @@ environment variables explicitly in your Dockerfile. For more information, see [
 container with your own algorithms and models](docker-containers-create.md "docker-containers-create.md").
 
 For more information about how to set the data input modes using the low-level SageMaker APIs,
-see [How Amazon SageMaker AI Provides
-Training Information](your-algorithms-training-algo-running-container.md "your-algorithms-training-algo-running-container.md"), the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API, and the `TrainingInputMode` in
+see [How Amazon SageMaker AI Provides Training Information](your-algorithms-training-algo-running-container.md "your-algorithms-training-algo-running-container.md"), the [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API, and the `TrainingInputMode` in
 [`AlgorithmSpecification`](../APIReference/API_AlgorithmSpecification.md "../APIReference/API_AlgorithmSpecification.md").

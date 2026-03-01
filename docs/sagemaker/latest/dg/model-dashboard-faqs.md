@@ -74,16 +74,14 @@ Model Monitor computes model metrics and statistics on tabular data only. For us
 other than tabular datasets, such as images or text, you can bring your own containers
 (BYOC) to monitor your data and models. For example, you can use BYOC to monitor an image
 classification model that takes images as input and outputs a label. To learn
-more about container contracts, see [Support for Your Own Containers
-With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md").
+more about container contracts, see [Support for Your Own Containers With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md").
 
 You can find helpful BYOC examples in the following links:
 
 - [Data and model quality monitoring with Amazon SageMaker Model Monitor](model-monitor.md "model-monitor.md")
 - [GitHub
   example repository](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker_model_monitor "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker_model_monitor")
-- [Support for Your Own Containers
-  With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md")
+- [Support for Your Own Containers With Amazon SageMaker Model Monitor](model-monitor-byoc-containers.md "model-monitor-byoc-containers.md")
 - [Detecting
   data drift in NLP using BYOC Model Monitor](https://aws.amazon.com/blogs/machine-learning/detect-nlp-data-drift-using-custom-amazon-sagemaker-model-monitor "https://aws.amazon.com/blogs/machine-learning/detect-nlp-data-drift-using-custom-amazon-sagemaker-model-monitor")
 - [Detecting and analyzing incorrect predictions in CV](https://aws.amazon.com/blogs//machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger "https://aws.amazon.com/blogs//machine-learning/detecting-and-analyzing-incorrect-model-predictions-with-amazon-sagemaker-model-monitor-and-debugger")

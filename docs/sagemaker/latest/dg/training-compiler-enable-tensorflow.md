@@ -6,10 +6,8 @@ Amazon SageMaker notebook instances, AWS SDK for Python (Boto3), and AWS Command
 ###### Topics
 
 - [Using the SageMaker Python SDK](#training-compiler-enable-tensorflow-pysdk "#training-compiler-enable-tensorflow-pysdk")
-- [Using the SageMaker AI Python
-  SDK and Extending SageMaker AI Framework Deep Learning Containers](#training-compiler-enable-tensorflow-sdk-extend-container "#training-compiler-enable-tensorflow-sdk-extend-container")
-- [Enable SageMaker Training Compiler Using the SageMaker AI
-  CreateTrainingJob API Operation](#training-compiler-enable-tensorflow-api "#training-compiler-enable-tensorflow-api")
+- [Using the SageMaker AI Python SDK and Extending SageMaker AI Framework Deep Learning Containers](#training-compiler-enable-tensorflow-sdk-extend-container "#training-compiler-enable-tensorflow-sdk-extend-container")
+- [Enable SageMaker Training Compiler Using the SageMaker AI CreateTrainingJob API Operation](#training-compiler-enable-tensorflow-api "#training-compiler-enable-tensorflow-api")
 
 ## Using the SageMaker Python SDK
 
@@ -176,8 +174,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify the
 `transformers_version`, `tensorflow_version`,
 `hyperparameters`, and `compiler_config` parameters to
 enable SageMaker Training Compiler. You cannot use `image_uri` to manually specify the
-Training Compiler integrated Deep Learning Containers that are listed at [Supported
-Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+Training Compiler integrated Deep Learning Containers that are listed at [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 
 - `entry_point` (str) – Required. Specify the file name of
   your training script.
@@ -187,12 +184,10 @@ Frameworks](training-compiler-support.md#training-compiler-supported-frameworks 
   type.
 - `transformers_version` (str) – Required only when using the
   SageMaker AI Hugging Face estimator. Specify the Hugging Face Transformers library
-  version supported by SageMaker Training Compiler. To find available versions, see [Supported
-  Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+  version supported by SageMaker Training Compiler. To find available versions, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 - `framework_version` or `tensorflow_version` (str)
   – Required. Specify the TensorFlow version supported by SageMaker Training Compiler. To find
-  available versions, see [Supported
-  Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+  available versions, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 
 ###### Note
 
@@ -207,8 +202,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify both
   for the training job, such as `n_gpus`, `batch_size`, and
   `learning_rate`. When you enable SageMaker Training Compiler, try larger batch sizes
   and adjust the learning rate accordingly. To find case studies of using the
-  compiler and adjusted batch sizes to improve training speed, see [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models") and [SageMaker Training Compiler Example Notebooks and
-  Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md").
+  compiler and adjusted batch sizes to improve training speed, see [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models") and [SageMaker Training Compiler Example Notebooks and Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md").
 - `compiler_config` (TrainingCompilerConfig object) –
   Required. Include this parameter to turn on SageMaker Training Compiler. The following are
   parameters for the `TrainingCompilerConfig` class.
@@ -251,9 +245,7 @@ Configuring SM Training Compiler...
 Training Compiler set to debug mode
 ```
 
-## Using the SageMaker AI Python
-
-SDK and Extending SageMaker AI Framework Deep Learning Containers
+## Using the SageMaker AI Python SDK and Extending SageMaker AI Framework Deep Learning Containers
 
 AWS Deep Learning Containers (DLC) for TensorFlow use adapted versions of TensorFlow
 that include changes on top of the open-source TensorFlow framework. The [SageMaker AI Framework Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only") are optimized for the underlying
@@ -327,9 +319,7 @@ RUN pip3 uninstall -y tensorflow tensorflow-gpu \
     tensorflow-datasets==`x.y.z`
 ```
 
-### Build
-
-and push to ECR
+### Build and push to ECR
 
 To build and push your Docker container to Amazon ECR, follow the instructions in the
 following links:
@@ -338,9 +328,7 @@ following links:
 - [Step 4: Test the container](adapt-training-container.md#byoc-training-step4 "adapt-training-container.md#byoc-training-step4")
 - [Step 5: Push the container to Amazon ECR](adapt-training-container.md#byoc-training-step5 "adapt-training-container.md#byoc-training-step5")
 
-### Run using
-
-the SageMaker Python SDK Estimator
+### Run using the SageMaker Python SDK Estimator
 
 Use the SageMaker AI TensorFlow framework estimator as usual. You must specify
 `image_uri` to use the new container you hosted in Amazon ECR.
@@ -381,9 +369,7 @@ estimator = TensorFlow(
 estimator.fit()
 ```
 
-## Enable SageMaker Training Compiler Using the SageMaker AI
-
-`CreateTrainingJob` API Operation
+## Enable SageMaker Training Compiler Using the SageMaker AI `CreateTrainingJob` API Operation
 
 SageMaker Training Compiler configuration options must be specified through the
 `AlgorithmSpecification` and `HyperParameters` field in the
@@ -401,5 +387,4 @@ request syntax for the [`CreateTrainingJob` API operation](https://amazonaws.com
 ```
 
 To find a complete list of deep learning container image URIs that have SageMaker Training Compiler
-implemented, see [Supported
-Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+implemented, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").

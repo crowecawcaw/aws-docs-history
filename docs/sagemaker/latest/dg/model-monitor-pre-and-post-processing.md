@@ -1,6 +1,4 @@
-# Preprocessing and
-
-Postprocessing
+# Preprocessing and Postprocessing
 
 You can use custom preprocessing and postprocessing Python scripts to
 transform the input to your model monitor or extend the code after a successful
@@ -61,16 +59,11 @@ my_default_monitor.create_monitoring_schedule(
 
 ###### Topics
 
-- [Preprocessing
-  Script](#model-monitor-pre-processing-script "#model-monitor-pre-processing-script")
-- [Custom
-  Sampling](#model-monitor-pre-processing-custom-sampling "#model-monitor-pre-processing-custom-sampling")
-- [Postprocessing
-  Script](#model-monitor-post-processing-script "#model-monitor-post-processing-script")
+- [Preprocessing Script](#model-monitor-pre-processing-script "#model-monitor-pre-processing-script")
+- [Custom Sampling](#model-monitor-pre-processing-custom-sampling "#model-monitor-pre-processing-custom-sampling")
+- [Postprocessing Script](#model-monitor-post-processing-script "#model-monitor-post-processing-script")
 
-## Preprocessing
-
-Script
+## Preprocessing Script
 
 Use preprocessing scripts when you need to transform the inputs to your
 model monitor.
@@ -236,9 +229,7 @@ class CapturedData:
 
 ```
 
-## Custom
-
-Sampling
+## Custom Sampling
 
 You can also apply a custom sampling strategy in your preprocessing
 script. To do this, configure Model Monitor's first-party, pre-built container to
@@ -277,9 +268,7 @@ def preprocess_handler(inference_record, logger):
 
 ```
 
-## Postprocessing
-
-Script
+## Postprocessing Script
 
 Use a postprocessing script when you want to extend the code following a
 successful monitoring run.

@@ -1,13 +1,9 @@
-# Pre-check
-
-endpoint request and response for tabular data
+# Pre-check endpoint request and response for tabular data
 
 We recommend that you deploy your model to a SageMaker AI real-time inference endpoint,
 and send requests to the endpoint. Manually examine the requests and responses to
-make sure that both are compliant with the requirements in the [Endpoint
-requests for tabular data](clarify-processing-job-data-format-tabular-request.md "clarify-processing-job-data-format-tabular-request.md") section and the
-[Endpoint
-response for tabular data](clarify-processing-job-data-format-tabular-response.md "clarify-processing-job-data-format-tabular-response.md") section. If your
+make sure that both are compliant with the requirements in the [Endpoint requests for tabular data](clarify-processing-job-data-format-tabular-request.md "clarify-processing-job-data-format-tabular-request.md") section and the
+[Endpoint response for tabular data](clarify-processing-job-data-format-tabular-response.md "clarify-processing-job-data-format-tabular-response.md") section. If your
 model container supports batch requests, you can start with a single record request,
 and then try two or more records.
 

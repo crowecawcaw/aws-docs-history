@@ -1,6 +1,4 @@
-# Use Debugger with custom training
-
-containers
+# Use Debugger with custom training containers
 
 Amazon SageMaker Debugger is available for any deep learning models that you bring to Amazon SageMaker AI. The AWS CLI,
 SageMaker AI `Estimator` API, and the Debugger APIs enable you to use any Docker base
@@ -16,8 +14,7 @@ You need the following resources to build a customized container with Debugger.
   library](https://github.com/awslabs/sagemaker-debugger "https://github.com/awslabs/sagemaker-debugger")
 - A Docker base image of your choice
 - Your training script with a Debugger hook registered – For more information about
-  registering a Debugger hook to your training script, see [Register Debugger hook to your training
-  script](#debugger-script-mode "#debugger-script-mode").
+  registering a Debugger hook to your training script, see [Register Debugger hook to your training script](#debugger-script-mode "#debugger-script-mode").
   For an end-to-end example of using Debugger with a custom training container, see the
   following example notebook.
 
@@ -29,9 +26,7 @@ This custom container with Debugger guide is an extension of the [Adapting your 
 which walks you thorough how to build and push your custom training container to
 Amazon ECR.
 
-## Prepare to build a custom training
-
-container
+## Prepare to build a custom training container
 
 To build a docker container, the basic structure of files should look like the
 following:
@@ -43,9 +38,7 @@ following:
     └──  Dockerfile                                    # a Dockerfile to build your own container
 ```
 
-## Register Debugger hook to your training
-
-script
+## Register Debugger hook to your training script
 
 To debug your model training, you need to add a Debugger hook to your training script.
 
@@ -147,9 +140,7 @@ Debugger. Additionally, this example shows how you can use Debugger built-in rul
 to detect training issues such as the vanishing gradients problem, and the
 Debugger trial features to call and analyze the saved tensors.
 
-## Create and configure a
-
-Dockerfile
+## Create and configure a Dockerfile
 
 Open your SageMaker AI JupyterLab and create a new folder,
 `debugger_custom_container_test_folder` in this example, to save
@@ -172,9 +163,7 @@ CMD ["bin/bash"]
 
 If you want to use a pre-built AWS Deep Learning Container image, see [Available AWS Deep Learning Containers Images](https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/ "https://aws.amazon.com/releasenotes/available-deep-learning-containers-images/").
 
-## Build and push the custom training
-
-image to Amazon ECR
+## Build and push the custom training image to Amazon ECR
 
 Create a test notebook,
 `debugger_custom_container_test_notebook.ipynb`, and run the
@@ -213,9 +202,7 @@ in to Amazon ECR and access to the Deep Learning Container image repository.
 ! aws ecr get-login-password --region {region} | docker login --username AWS --password-stdin 763104351884.dkr.ecr.us-east-1.amazonaws.com
 ```
 
-## Run and debug training jobs using
-
-the custom training container
+## Run and debug training jobs using the custom training container
 
 After you build and push your docker container to Amazon ECR, configure a SageMaker AI estimator
 with your training script and the Debugger-specific parameters. After you execute the

@@ -1,6 +1,4 @@
-# Set up policies and permissions for
-
-Studio
+# Set up policies and permissions for Studio
 
 You will need to install the proper policies and permissions before you schedule your first
 notebook run. The following provides instructions on setting up the following permissions:
@@ -73,9 +71,7 @@ situations:
 
 The following discussion provides the policies you need for each case.
 
-### Permissions needed if your
-
-Studio execution and notebook job roles differ
+### Permissions needed if your Studio execution and notebook job roles differ
 
 The following JSON snippet is an example policy that you should add to the
 Studio execution and notebook job roles if you don’t use the Studio execution
@@ -206,9 +202,7 @@ JSON
 
 ```
 
-### Permissions needed to access Amazon S3
-
-resources through a S3 VPC endpoint
+### Permissions needed to access Amazon S3 resources through a S3 VPC endpoint
 
 If you run SageMaker Studio in private VPC mode and access S3 through the S3 VPC
 endpoint, you can add permissions to the VPC endpoint policy to control which S3
@@ -234,9 +228,7 @@ permissions—for example, you can provide a more narrow specification for the
 For details about how to set up a S3 VPC endpoint policy, see [Edit
 the VPC endpoint policy](../../../vpc/latest/privatelink/vpc-endpoints-s3.md#edit-vpc-endpoint-policy-s3 "../../../vpc/latest/privatelink/vpc-endpoints-s3.md#edit-vpc-endpoint-policy-s3").
 
-### Permissions needed to use a custom
-
-KMS key (optional)
+### Permissions needed to use a custom KMS key (optional)
 
 By default, the input and output Amazon S3 buckets are encrypted using
 server side encryption, but you can specify a custom KMS key to encrypt your data in

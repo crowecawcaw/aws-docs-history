@@ -1,6 +1,4 @@
-# Fine-tune models with adapter inference
-
-components
+# Fine-tune models with adapter inference components
 
 With Amazon SageMaker AI, you can host pre-trained foundation models without needing to create your
 own models from scratch. However, to tailor a general-purpose foundation model for the
@@ -31,8 +29,7 @@ requirements:
 - You have a base inference component that contains the foundation model to adapt.
   You've deployed this inference component to a SageMaker AI endpoint.
 
-For more information about deploying inference components to endpoints, see [Deploy
-models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
+For more information about deploying inference components to endpoints, see [Deploy models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
 
 - You have a LoRA adapter model, and you've stored the model artifacts as a
   `tar.gz` file in Amazon S3. You specify the S3 URI of the
@@ -40,9 +37,7 @@ models for real-time inference](realtime-endpoints-deploy-models.md "realtime-en
   The following examples use the SDK for Python (Boto3) to create and invoke an adapter inference
   component.
 
-###### Example `create_inference_component` call to create an adapter inference
-
-component
+###### Example `create_inference_component` call to create an adapter inference component
 
 The following example creates an adapter inference component and assigns it to a base
 inference component:
@@ -112,5 +107,4 @@ follows:
   inference component.
 - `prompt` – The prompt for the inference
   request.
-  For more information about invoking inference components with the SDK for Python (Boto3), see [Invoke models for real-time
-  inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").
+  For more information about invoking inference components with the SDK for Python (Boto3), see [Invoke models for real-time inference](realtime-endpoints-test-endpoints.md "realtime-endpoints-test-endpoints.md").

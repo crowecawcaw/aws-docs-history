@@ -1,6 +1,4 @@
-# Code example using HuggingFaceProcessor
-
-in the Amazon SageMaker Python SDK
+# Code example using HuggingFaceProcessor in the Amazon SageMaker Python SDK
 
 Hugging Face is an open-source provider of natural language processing (NLP) models.
 The `HuggingFaceProcessor` in the Amazon SageMaker Python SDK provides you with the ability to run processing jobs with

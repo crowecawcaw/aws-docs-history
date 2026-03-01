@@ -1,6 +1,4 @@
-# Cross account offline store
-
-access
+# Cross account offline store access
 
 Amazon SageMaker Feature Store allows users to create a feature group in one account (Account A) and configure
 it with an offline store using an Amazon S3 bucket in another account (Account B). You can set
@@ -8,18 +6,12 @@ this up using the steps in the following section.
 
 ###### Topics
 
-- [Step 1: Set up the offline store
-  access role in Account A](#feature-store-setup-step1 "#feature-store-setup-step1")
-- [Step 2: Set up an offline store Amazon S3
-  bucket in Account B](#feature-store-setup-step2 "#feature-store-setup-step2")
-- [Step 3: Set up an offline store AWS KMS
-  encryption key in Account A](#feature-store-setup-step3 "#feature-store-setup-step3")
-- [Step 4: Create a feature group in
-  Account A](#feature-store-setup-step4 "#feature-store-setup-step4")
+- [Step 1: Set up the offline store access role in Account A](#feature-store-setup-step1 "#feature-store-setup-step1")
+- [Step 2: Set up an offline store Amazon S3 bucket in Account B](#feature-store-setup-step2 "#feature-store-setup-step2")
+- [Step 3: Set up an offline store AWS KMS encryption key in Account A](#feature-store-setup-step3 "#feature-store-setup-step3")
+- [Step 4: Create a feature group in Account A](#feature-store-setup-step4 "#feature-store-setup-step4")
 
-## Step 1: Set up the offline store
-
-access role in Account A
+## Step 1: Set up the offline store access role in Account A
 
 First, set up a role for Amazon SageMaker Feature Store to write the data into the offline store. The
 simplest way to accomplish this is to create a new role using the
@@ -91,9 +83,7 @@ The `Resource` section of this policy is scoped to any key in Account A. To
 further scope this down, after setting up the offline store KMS key in Step 3, return to
 this policy and replace it with the key ARN.
 
-## Step 2: Set up an offline store Amazon S3
-
-bucket in Account B
+## Step 2: Set up an offline store Amazon S3 bucket in Account B
 
 Create an Amazon S3 bucket in Account B. If you are using the default
 `AmazonSageMakerFeatureStoreAccess` policy, the bucket name must include
@@ -138,9 +128,7 @@ In the preceding policy, the principal is
 Account A in Step 1 and provided to Amazon SageMaker Feature Store to write to the offline store. You can
 provide multiple ARN roles under `Principal`.
 
-## Step 3: Set up an offline store AWS KMS
-
-encryption key in Account A
+## Step 3: Set up an offline store AWS KMS encryption key in Account A
 
 Amazon SageMaker Feature Store ensures that server-side encryption is always enabled for Amazon S3 objects in the
 offline store. For cross account use cases, you must provide a customer managed key so that you
@@ -234,9 +222,7 @@ JSON
 
 ```
 
-## Step 4: Create a feature group in
-
-Account A
+## Step 4: Create a feature group in Account A
 
 Next, create the feature group in Account A, with an offline store Amazon S3 bucket in
 Account B. To do this, provide the following parameters for `RoleArn`,

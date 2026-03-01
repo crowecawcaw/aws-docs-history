@@ -132,9 +132,7 @@ After you've created the environment, you can create AWS Glue and Amazon Redshif
 databases. For more information, see [Query
 data in Athena or Amazon Redshift](../../../datazone/latest/userguide/query-athena-with-deep-link-in-project.md "../../../datazone/latest/userguide/query-athena-with-deep-link-in-project.md").
 
-## Viewing and modifying your users'
-
-permissions
+## Viewing and modifying your users' permissions
 
 After you create a SageMaker AI environment, you can change your users' permissions to
 suit the needs of your organization. The SageMaker AI blueprint specifies permissions for

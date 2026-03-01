@@ -95,8 +95,7 @@ To find available keys for the `rule_parameters` parameter, see the parameter de
 Sample rule configuration codes are provided for each built-in rule below the parameter
 description tables.
 
-- For a full instruction and examples of using the Debugger built-in rules, see [Debugger built-in rules example
-  code](debugger-built-in-rules-example.md#debugger-deploy-built-in-rules "debugger-built-in-rules-example.md#debugger-deploy-built-in-rules").
+- For a full instruction and examples of using the Debugger built-in rules, see [Debugger built-in rules example code](debugger-built-in-rules-example.md#debugger-deploy-built-in-rules "debugger-built-in-rules-example.md#debugger-deploy-built-in-rules").
 - For a full instruction on using the built-in rules with the low-level SageMaker API
   operations, see [Configure Debugger using SageMaker API](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md").
 

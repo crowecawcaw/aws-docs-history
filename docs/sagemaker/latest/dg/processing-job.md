@@ -1,6 +1,4 @@
-# Data transformation
-
-workloads with SageMaker Processing
+# Data transformation workloads with SageMaker Processing
 
 SageMaker Processing refers to SageMaker AI’s capabilities to run data pre and post processing, feature
 engineering, and model evaluation tasks on SageMaker AI's fully-managed infrastructure. These tasks
@@ -40,8 +38,7 @@ or Amazon Redshift as input sources.
 ###### Tip
 
 To learn best practices for distributed computing of machine learning (ML) training
-and processing jobs in general, see [Distributed computing with SageMaker AI best
-practices](distributed-training-options.md "distributed-training-options.md").
+and processing jobs in general, see [Distributed computing with SageMaker AI best practices](distributed-training-options.md "distributed-training-options.md").
 
 ## Use Amazon SageMaker Processing Sample Notebooks
 
@@ -63,9 +60,7 @@ use to run these samples in SageMaker AI, see [Amazon SageMaker notebook instanc
 you have created a notebook instance and opened it, choose the **SageMaker AI Examples** tab to see a list of all the SageMaker AI samples. To open a
 notebook, choose its **Use** tab and choose **Create copy**.
 
-## Monitor Amazon SageMaker Processing Jobs with CloudWatch Logs and
-
-Metrics
+## Monitor Amazon SageMaker Processing Jobs with CloudWatch Logs and Metrics
 
 Amazon SageMaker Processing provides Amazon CloudWatch logs and metrics to monitor processing jobs. CloudWatch provides
 CPU, GPU, memory, GPU memory, and disk metrics, and event logging. For more information,

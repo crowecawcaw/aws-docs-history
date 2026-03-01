@@ -1,6 +1,4 @@
-# Baseline calculation, drift
-
-detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines
+# Baseline calculation, drift detection and lifecycle with ClarifyCheck and QualityCheck steps in Amazon SageMaker Pipelines
 
 The following topic discusses how baselines and model versions evolve in the Amazon SageMaker Pipelines when
 using the [ClarifyCheck](build-and-manage-steps-types.md#step-type-clarify-check "build-and-manage-steps-types.md#step-type-clarify-check") and [QualityCheck](build-and-manage-steps-types.md#step-type-quality-check "build-and-manage-steps-types.md#step-type-quality-check")
@@ -17,9 +15,7 @@ impacting baseline behavior and lifecycle in these two pipeline steps. For examp
 does the same in the `CalculatedBaselineConstraints` and
 `CalculatedBaselineStatistics` properties.
 
-## Baseline calculation and
-
-registration for ClarifyCheck and QualityCheck steps
+## Baseline calculation and registration for ClarifyCheck and QualityCheck steps
 
 Both the `ClarifyCheck` and `QualityCheck` steps always calculate
 new baselines based on step inputs through the underlying processing job run. These newly
@@ -56,14 +52,11 @@ baselines can also be used in the ClarifyCheckStep and `QualityCheck` step to
 compare newly trained models against the existing models that are registered in the model
 registry for future pipeline runs.
 
-## Drift Detection against
-
-Previous Baselines in Pipelines
+## Drift Detection against Previous Baselines in Pipelines
 
 In the case of the `QualityCheck` step, when you initiate the pipeline for
 regular retraining to get a new model version, you may not want to run the training step if
-the data quality and the data bias has [Schema for Violations
-(constraint_violations.json file)](model-monitor-interpreting-violations.md "model-monitor-interpreting-violations.md") on the baselines of your
+the data quality and the data bias has [Schema for Violations (constraint_violations.json file)](model-monitor-interpreting-violations.md "model-monitor-interpreting-violations.md") on the baselines of your
 previous approved model version. You also may not want to register the newly trained model
 version if the model quality, model bias, or model explainability violates the registered
 baseline of your previous approved model version when running the `ClarifyCheck`
@@ -79,9 +72,7 @@ Previous baselines can also be supplied directly through
 `supplied_baseline_statistics` if it is a `QualityCheck` step) and are
 always prioritized over any baselines pulled from the model package group.
 
-## Baseline and model version
-
-lifecycle and evolution with Pipelines
+## Baseline and model version lifecycle and evolution with Pipelines
 
 By setting `register_new_baseline` of your `ClarifyCheck` and
 `QualityCheck` step to `False`, your previous baseline is accessible

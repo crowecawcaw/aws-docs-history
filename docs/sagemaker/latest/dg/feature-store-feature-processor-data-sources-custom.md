@@ -1,6 +1,4 @@
-# Custom data
-
-sources
+# Custom data sources
 
 On this page we will describe how to create a custom data source class and show some usage
 examples. With custom data sources, you can use the SageMaker AI SDK for Python (Boto3) provided APIs in the same
@@ -19,11 +17,9 @@ the following class members and function.
   includes information about the execution code of a feature processing workflow, what
   data sources were used, and how they are ingested into the feature group or feature.
   For information about viewing lineage of a feature group in
-  **Studio**, see [View lineage
-  from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio").
+  **Studio**, see [View lineage from the console](feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio "feature-store-use-with-studio.md#feature-store-view-feature-processor-pipeline-lineage-studio").
 - `read_data` (func): a method used to connect with the feature
-  processor. Returns a Spark data frame. For examples, see [Custom data
-  source examples](feature-store-feature-processor-data-sources-custom-examples.md "feature-store-feature-processor-data-sources-custom-examples.md").
+  processor. Returns a Spark data frame. For examples, see [Custom data source examples](feature-store-feature-processor-data-sources-custom-examples.md "feature-store-feature-processor-data-sources-custom-examples.md").
   Both `data_source_name` and `data_source_unique_id` are used to
   uniquely identify your lineage entity. The following is an example for a custom data source
   class named `CustomDataSource`.

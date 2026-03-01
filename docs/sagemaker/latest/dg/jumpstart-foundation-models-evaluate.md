@@ -1,6 +1,4 @@
-# Evaluate a text generation
-
-foundation model in Studio
+# Evaluate a text generation foundation model in Studio
 
 ###### Note
 
@@ -63,8 +61,7 @@ responses from the LLM. You must also have sufficient quota and memory to run th
 evaluation algorithms. The quota and memory requirements of the evaluation instance are
 generally smaller than those required for a hosting instance. We recommend selecting the
 `ml.m5.2xlarge` instance. For more information about quota and memory,
-see [Resolve errors when
-creating a model evaluation job in Amazon SageMaker AI](clarify-foundation-model-evaluate-troubleshooting.md "clarify-foundation-model-evaluate-troubleshooting.md").
+see [Resolve errors when creating a model evaluation job in Amazon SageMaker AI](clarify-foundation-model-evaluate-troubleshooting.md "clarify-foundation-model-evaluate-troubleshooting.md").
 
 Automatic evaluations can be used to score LLMs across the following
 dimensions:

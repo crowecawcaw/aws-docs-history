@@ -54,9 +54,7 @@ If you import them at global scope, you risk an import collision
 while serializing the function. For example, `sklearn.pipeline.Pipeline` could be overridden by
 `sagemaker.workflow.pipeline.Pipeline`.
 
-## Referencing child members of
-
-function return value
+## Referencing child members of function return value
 
 If you reference child members of a `@step`-decorated function's return value, the following
 limitations apply:
@@ -91,9 +89,7 @@ for item in func(): # this raises a NotImplementedError
 delayed_return.a_child # raises AttributeError
 ```
 
-## Existing pipeline features
-
-that are not supported
+## Existing pipeline features that are not supported
 
 You cannot use the `@step` decorator with the following pipeline features:
 

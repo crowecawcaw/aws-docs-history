@@ -5,14 +5,10 @@ notebook instances.
 
 ###### Topics
 
-- [Debugging models with Amazon SageMaker Debugger in
-  Studio Classic](#debugger-video-get-started "#debugger-video-get-started")
-- [Deep dive on Amazon SageMaker Debugger and SageMaker AI model
-  monitor](#debugger-video-dive-deep "#debugger-video-dive-deep")
+- [Debugging models with Amazon SageMaker Debugger in Studio Classic](#debugger-video-get-started "#debugger-video-get-started")
+- [Deep dive on Amazon SageMaker Debugger and SageMaker AI model monitor](#debugger-video-dive-deep "#debugger-video-dive-deep")
 
-## Debugging models with Amazon SageMaker Debugger in
-
-Studio Classic
+## Debugging models with Amazon SageMaker Debugger in Studio Classic
 
 _Julien Simon, AWS Technical Evangelist | Length: 14
 minutes 17 seconds_
@@ -33,9 +29,7 @@ file inside the `debugger.ipynb` notebook. For example, if you
 cloned the two files in the same directory, set it as `keras_script_path =
  "mnist_keras_tf.py"`.
 
-## Deep dive on Amazon SageMaker Debugger and SageMaker AI model
-
-monitor
+## Deep dive on Amazon SageMaker Debugger and SageMaker AI model monitor
 
 _Julien Simon, AWS Technical Evangelist | Length: 44
 minutes 34 seconds_

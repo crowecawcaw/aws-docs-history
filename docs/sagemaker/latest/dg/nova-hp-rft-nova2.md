@@ -10,8 +10,7 @@ section provides guidance on preparing effective training data for RFT on Nova 2
 - [Field descriptions](#nova-hp-rft-field-descriptions "#nova-hp-rft-field-descriptions")
 - [Additional properties](#nova-hp-rft-additional-properties "#nova-hp-rft-additional-properties")
 - [Dataset size recommendations](#nova-hp-rft-dataset-size "#nova-hp-rft-dataset-size")
-- [Characteristics of effective training
-  data](#nova-hp-rft-effective-data "#nova-hp-rft-effective-data")
+- [Characteristics of effective training data](#nova-hp-rft-effective-data "#nova-hp-rft-effective-data")
 
 ## Data format and structure
 
@@ -165,9 +164,7 @@ You can include the following types of additional fields:
 - context_data: Background information for the problem
 - external_references: Links to relevant documentation or resources
 
-### Example with additional
-
-properties
+### Example with additional properties
 
 The following example includes custom metadata fields:
 
@@ -225,9 +222,7 @@ get comfortable with the RFT workflow, identify and fix issues early, validate y
 approach before scaling up, and test reward function reliability. Once validated, you
 can expand to larger datasets to further improve performance.
 
-## Characteristics of effective training
-
-data
+## Characteristics of effective training data
 
 ### Clarity and consistency
 
@@ -254,9 +249,7 @@ robust real-world performance. Include:
 This diversity helps prevent overfitting and ensures the model handles unfamiliar
 inputs gracefully.
 
-### Reward function
-
-considerations
+### Reward function considerations
 
 Design your reward function for efficient training:
 

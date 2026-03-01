@@ -1,6 +1,4 @@
-# Add Model Groups to a
-
-Collection
+# Add Model Groups to a Collection
 
 You can add model groups to a Collection in the Amazon SageMaker Studio console. To add
 Model Groups to a Collection, complete the following steps based on whether you use

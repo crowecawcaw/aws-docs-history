@@ -53,5 +53,4 @@ To learn more about creating a model, see [How custom models work](canvas-build-
   and [Edit a destination node](canvas-destination-nodes-edit.md "canvas-destination-nodes-edit.md").
 
 For more information about setting up a schedule with Amazon EventBridge to automatically
-process and export your data on a schedule, see [Create a schedule to automatically
-process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md").
+process and export your data on a schedule, see [Create a schedule to automatically process new data](canvas-data-export-schedule-job.md "canvas-data-export-schedule-job.md").

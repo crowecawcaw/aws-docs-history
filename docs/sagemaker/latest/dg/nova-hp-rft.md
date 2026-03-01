@@ -106,6 +106,5 @@ The RFT process involves four key phases:
 ###### Topics
 
 - [RFT on Nova 2.0](nova-hp-rft-nova2.md "nova-hp-rft-nova2.md")
-- [Custom reward functions in your AWS
-  environment](nova-hp-rft-reward-functions.md "nova-hp-rft-reward-functions.md")
+- [Custom reward functions in your AWS environment](nova-hp-rft-reward-functions.md "nova-hp-rft-reward-functions.md")
 - [Monitoring RFT training](nova-hp-rft-monitoring.md "nova-hp-rft-monitoring.md")

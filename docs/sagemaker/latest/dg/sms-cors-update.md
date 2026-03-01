@@ -36,9 +36,7 @@ console to add the policy to your bucket, you must use the JSON format.
 ###### Important
 
 If you create a 3D point cloud or video frame labeling job, you must add
-additional rules to your CORS configuration. To learn more, see [3D point cloud labeling job
-permission requirements](sms-security-permission-3d-point-cloud.md "sms-security-permission-3d-point-cloud.md") and [Video frame job permission
-requirements](sms-video-overview.md#sms-security-permission-video-frame "sms-video-overview.md#sms-security-permission-video-frame") respectively.
+additional rules to your CORS configuration. To learn more, see [3D point cloud labeling job permission requirements](sms-security-permission-3d-point-cloud.md "sms-security-permission-3d-point-cloud.md") and [Video frame job permission requirements](sms-video-overview.md#sms-security-permission-video-frame "sms-video-overview.md#sms-security-permission-video-frame") respectively.
 
 **JSON**
 

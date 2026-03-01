@@ -4,9 +4,7 @@ A Model Group contains different versions of a model. You can create a Model Gro
 that tracks all of the models that you train to solve a particular problem. Create a
 Model Group by using either the AWS SDK for Python (Boto3) or the Amazon SageMaker Studio console.
 
-## Create a Model Group
-
-(Boto3)
+## Create a Model Group (Boto3)
 
 ###### Important
 
@@ -15,8 +13,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -57,9 +54,7 @@ create_model_package_group_response = sm_client.create_model_package_group(**mod
 print('ModelPackageGroup Arn : {}'.format(create_model_package_group_response['ModelPackageGroupArn']))
 ```
 
-## Create a Model Group
-
-(Studio or Studio Classic)
+## Create a Model Group (Studio or Studio Classic)
 
 To create a Model Group in the Amazon SageMaker Studio console, complete the following
 steps based on whether you use Studio or Studio Classic.

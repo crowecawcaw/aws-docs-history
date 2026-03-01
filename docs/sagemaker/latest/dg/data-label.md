@@ -13,5 +13,4 @@ labeling](sms-automated-labeling.md "sms-automated-labeling.md") and [annotation
 - [Use Amazon SageMaker Ground Truth Plus to Label Data](gtp.md "gtp.md")
 - [Workforces](sms-workforce-management.md "sms-workforce-management.md")
 - [Crowd HTML Elements Reference](sms-ui-template-reference.md "sms-ui-template-reference.md")
-- [Using Amazon Augmented AI for Human
-  Review](a2i-use-augmented-ai-a2i-human-review-loops.md "a2i-use-augmented-ai-a2i-human-review-loops.md")
+- [Using Amazon Augmented AI for Human Review](a2i-use-augmented-ai-a2i-human-review-loops.md "a2i-use-augmented-ai-a2i-human-review-loops.md")

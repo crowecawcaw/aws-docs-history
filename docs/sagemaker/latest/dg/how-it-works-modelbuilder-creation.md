@@ -1,6 +1,4 @@
-# Create a model in Amazon SageMaker AI with
-
-ModelBuilder
+# Create a model in Amazon SageMaker AI with ModelBuilder
 
 Preparing your model for deployment on a SageMaker AI endpoint requires multiple steps,
 including choosing a model image, setting up the endpoint configuration, coding your
@@ -68,8 +66,7 @@ with an inference specification (as an `InferenceSpec` instance) instead of a mo
 with additional customization. In this case, the call to model builder includes a path to
 store model artifacts and also turns on autocapture of all available
 dependencies. For additional details about `InferenceSpec`,
-see [Customize model loading and handling
-of requests](#how-it-works-modelbuilder-creation-is "#how-it-works-modelbuilder-creation-is").
+see [Customize model loading and handling of requests](#how-it-works-modelbuilder-creation-is "#how-it-works-modelbuilder-creation-is").
 
 ```
 model_builder = ModelBuilder(
@@ -189,16 +186,13 @@ its supporting classes to customize the experience for your use case.
 
 ###### Topics
 
-- [Customize model loading and handling
-  of requests](#how-it-works-modelbuilder-creation-is "#how-it-works-modelbuilder-creation-is")
+- [Customize model loading and handling of requests](#how-it-works-modelbuilder-creation-is "#how-it-works-modelbuilder-creation-is")
 - [Build your model and deploy](#how-it-works-modelbuilder-creation-deploy "#how-it-works-modelbuilder-creation-deploy")
 - [Bring your own container (BYOC)](#how-it-works-modelbuilder-creation-mb-byoc "#how-it-works-modelbuilder-creation-mb-byoc")
 - [Using ModelBuilder in local mode](#how-it-works-modelbuilder-creation-local "#how-it-works-modelbuilder-creation-local")
 - [ModelBuilder examples](#how-it-works-modelbuilder-creation-example "#how-it-works-modelbuilder-creation-example")
 
-## Customize model loading and handling
-
-of requests
+## Customize model loading and handling of requests
 
 Providing your own inference code through `InferenceSpec` offers an
 additional layer of customization. With `InferenceSpec`, you can customize

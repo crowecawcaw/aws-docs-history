@@ -1,6 +1,4 @@
-# Give your users access to
-
-spaces
+# Give your users access to spaces
 
 To give users access to private or shared spaces, you must attach a permissions policy
 to their IAM roles. You can also use the permissions policy to restrict private spaces

@@ -38,9 +38,7 @@ TensorFlow 2.0 or later has the eager execution on by default, so you should
 add the `@tf.function` decorator in front of every function that you
 use for constructing a TensorFlow model.
 
-## TensorFlow Models with
-
-Hugging Face Transformers
+## TensorFlow Models with Hugging Face Transformers
 
 TensorFlow models with [Hugging
 Face Transformers](https://huggingface.co/docs/transformers/index "https://huggingface.co/docs/transformers/index") are based on TensorFlow's [tf.keras.Model](https://www.tensorflow.org/api_docs/python/tf/keras/Model "https://www.tensorflow.org/api_docs/python/tf/keras/Model") API. Hugging Face Transformers also provides pretrained
@@ -67,14 +65,10 @@ documentation_.
 
 ###### Topics
 
-- [Using
-  Keras](#training-compiler-tensorflow-models-transformers-keras "#training-compiler-tensorflow-models-transformers-keras")
-- [Without
-  Keras](#training-compiler-tensorflow-models-transformers-no-keras "#training-compiler-tensorflow-models-transformers-no-keras")
+- [Using Keras](#training-compiler-tensorflow-models-transformers-keras "#training-compiler-tensorflow-models-transformers-keras")
+- [Without Keras](#training-compiler-tensorflow-models-transformers-no-keras "#training-compiler-tensorflow-models-transformers-no-keras")
 
-### Using
-
-Keras
+### Using Keras
 
 For the best compiler acceleration, we recommend using models that are subclasses
 of TensorFlow Keras ([tf.keras.Model](https://www.tensorflow.org/api_docs/python/tf/keras/Model "https://www.tensorflow.org/api_docs/python/tf/keras/Model")). As noted in the [Quick tour](https://huggingface.co/docs/transformers/quicktour "https://huggingface.co/docs/transformers/quicktour") page
@@ -139,9 +133,7 @@ with strategy.scope():
     # create a model and do fit
 ```
 
-### Without
-
-Keras
+### Without Keras
 
 If you want to bring custom models with custom training loops using TensorFlow without
 Keras, you should wrap the model and the training loop with the TensorFlow function

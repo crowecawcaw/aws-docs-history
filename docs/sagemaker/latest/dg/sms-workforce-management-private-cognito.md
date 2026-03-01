@@ -1,6 +1,4 @@
-# Manage a Private Workforce (Amazon Cognito
-
-Console)
+# Manage a Private Workforce (Amazon Cognito Console)
 
 A private workforce corresponds to a single **Amazon Cognito user
 pool**. Private work teams correspond to **Amazon Cognito user

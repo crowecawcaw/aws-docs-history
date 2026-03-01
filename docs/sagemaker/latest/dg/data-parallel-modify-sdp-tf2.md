@@ -1,6 +1,4 @@
-# Use the SMDDP library in your TensorFlow training
-
-script (deprecated)
+# Use the SMDDP library in your TensorFlow training script (deprecated)
 
 ###### Important
 
@@ -159,5 +157,4 @@ if sdp.rank() == 0:
 
 ```
 
-After you have completed adapting your training script, move on to [Launching distributed training jobs with SMDDP using the
-SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").
+After you have completed adapting your training script, move on to [Launching distributed training jobs with SMDDP using the SageMaker Python SDK](data-parallel-use-api.md "data-parallel-use-api.md").

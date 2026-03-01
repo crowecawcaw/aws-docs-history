@@ -1,6 +1,4 @@
-# Open TensorBoard using
-
-the `get_app_url` function as an `estimator` class method
+# Open TensorBoard using the `get_app_url` function as an `estimator` class method
 
 If you are in the process of running a training job using the
 `estimator` class of the SageMaker Python SDK and have an active object of

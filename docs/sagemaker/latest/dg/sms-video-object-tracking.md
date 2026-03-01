@@ -1,6 +1,4 @@
-# Track objects in video frames using video
-
-frame object tracking
+# Track objects in video frames using video frame object tracking
 
 You can use the video frame object tracking task type to have workers track the
 movement of objects in a sequence of video frames (images extracted from a video) using
@@ -27,8 +25,7 @@ Ground Truth provides a worker UI and tools to complete your labeling job tasks:
 
 You can create a job to adjust annotations created in a video object detection
 labeling job using the video object detection adjustment task type. To learn more, see
-[Create Video Frame Object Detection
-Adjustment or Verification Labeling Job](sms-video-object-detection.md#sms-video-od-adjustment "sms-video-object-detection.md#sms-video-od-adjustment").
+[Create Video Frame Object Detection Adjustment or Verification Labeling Job](sms-video-object-detection.md#sms-video-od-adjustment "sms-video-object-detection.md#sms-video-od-adjustment").
 
 ## Preview the Worker UI
 
@@ -107,8 +104,7 @@ parameter.
   task type, and worker instructions in a label category configuration
   file. Specify the task type (bounding boxes, polylines, polygons or
   keypoint) using `annotationType` in your label category
-  configuration file. For more information, see [Labeling category configuration file with
-  label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md") to learn how to
+  configuration file. For more information, see [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md") to learn how to
   create this file.
 - You need to provide pre-defined ARNs for the pre-annotation and
   post-annotation (ACS) Lambda functions. These ARNs are specific to
@@ -186,9 +182,7 @@ response = client.create_labeling_job(
 )
 ```
 
-## Create a Video Frame Object Tracking
-
-Adjustment or Verification Labeling Job
+## Create a Video Frame Object Tracking Adjustment or Verification Labeling Job
 
 You can create an adjustment and verification labeling job using the Ground Truth console
 or `CreateLabelingJob` API. To learn more about adjustment and

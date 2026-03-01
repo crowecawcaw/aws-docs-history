@@ -11,6 +11,5 @@ can use the Studio Lab project runtime, you must onboard to Studio Lab by follow
 - [Manage your environment](studio-lab-use-manage.md "studio-lab-use-manage.md")
 - [Use external resources in Amazon SageMaker Studio Lab](studio-lab-use-external.md "studio-lab-use-external.md")
 - [Get notebook differences](studio-lab-use-diff.md "studio-lab-use-diff.md")
-- [Export an Amazon SageMaker Studio Lab environment to
-  Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md")
+- [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md")
 - [Shut down Studio Lab resources](studio-lab-use-shutdown.md "studio-lab-use-shutdown.md")

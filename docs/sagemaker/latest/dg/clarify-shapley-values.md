@@ -1,6 +1,4 @@
-# Feature Attributions that Use Shapley
-
-Values
+# Feature Attributions that Use Shapley Values
 
 SageMaker Clarify provides feature attributions based on the concept of [Shapley value](https://en.wikipedia.org/wiki/Shapley_value "https://en.wikipedia.org/wiki/Shapley_value"). You can use
 Shapley values to determine the contribution that each feature made to model

@@ -31,5 +31,4 @@ color.
 4. After choosing an image or kernel, choose **Select**.
 5. Wait for the kernel's status to show as idle, which indicates the kernel has
    started.
-   For a list of available SageMaker images and kernels, see [Amazon SageMaker Images Available for Use With
-   Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+   For a list of available SageMaker images and kernels, see [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").

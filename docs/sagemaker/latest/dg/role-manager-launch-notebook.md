@@ -4,9 +4,7 @@ Use your persona-focused roles to launch Studio Classic. If you are an administr
 can give your users access to Studio Classic and have them assume their persona role either
 directly through the AWS Management Console or through the AWS IAM Identity Center.
 
-## Launch Studio Classic with
-
-AWS Management Console
+## Launch Studio Classic with AWS Management Console
 
 For data scientists or other users to assume their given persona through the
 AWS Management Console, they require a console role to get to the Studio Classic environment.
@@ -77,9 +75,7 @@ Your new user should now be visible in the Studio Classic control panel. To test
 user, choose **Studio** from the **Launch app**
 dropdown list in the same row as the user’s name.
 
-## Launch Studio Classic
-
-with IAM Identity Center
+## Launch Studio Classic with IAM Identity Center
 
 To assign IAM Identity Center users to execution roles, the user must first
 exist in the IAM Identity Center directory. For more information, see [Manage

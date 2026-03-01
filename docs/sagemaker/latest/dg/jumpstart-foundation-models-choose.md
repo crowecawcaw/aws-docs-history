@@ -1,14 +1,10 @@
-# Model sources and license
-
-agreements
+# Model sources and license agreements
 
 Amazon SageMaker JumpStart provides access to hundreds of publicly available and proprietary foundation
 models from third-party sources and partners. You can explore the JumpStart foundation model
 selection directly in the SageMaker AI console, Studio, or Studio Classic.
 
-## Licenses and model
-
-sources
+## Licenses and model sources
 
 Amazon SageMaker JumpStart provides access to both publicly available and proprietary foundation
 models. Foundation models are onboarded and maintained from third-party open source
@@ -30,21 +26,16 @@ questions about license information for a specific proprietary model, reach out 
 model provider directly. You can find model provider contact information in the
 **Support** tab of each model page in AWS Marketplace.
 
-## End-user license
-
-agreements
+## End-user license agreements
 
 Some JumpStart foundation models require explicit acceptance of an end-user license
 agreement (EULA) before use.
 
-### EULA acceptance
-
-in Amazon SageMaker Studio
+### EULA acceptance in Amazon SageMaker Studio
 
 You may be prompted to accept an end-user license agreement before
 fine-tuning, deploying, or evaluating a JumpStart foundation model in Studio. To
-get started with JumpStart foundation models in Studio, see [Use foundation
-models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
+get started with JumpStart foundation models in Studio, see [Use foundation models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
 
 ###### Important
 
@@ -64,8 +55,7 @@ downloading or using a model.
 You may be prompted to accept an end-user license agreement before
 deploying a JumpStart foundation model or opening a JumpStart foundation model
 notebook in Studio Classic. To get started with JumpStart foundation models in
-Studio Classic, see [Use foundation models in
-Amazon SageMaker Studio Classic](jumpstart-foundation-models-use-studio.md "jumpstart-foundation-models-use-studio.md").
+Studio Classic, see [Use foundation models in Amazon SageMaker Studio Classic](jumpstart-foundation-models-use-studio.md "jumpstart-foundation-models-use-studio.md").
 
 ###### Important
 
@@ -87,15 +77,12 @@ are responsible for reviewing and complying with any applicable license
 terms and making sure they are acceptable for your use case before
 downloading or using a model.
 
-### EULA
-
-acceptance with the SageMaker Python SDK
+### EULA acceptance with the SageMaker Python SDK
 
 The following sections show you how to explicitly declare EULA acceptance when
 deploying or fine-tuning a JumpStart model with the SageMaker Python SDK.
 For more information on getting started with JumpStart foundation models using the
-SageMaker Python SDK, see [Use foundation models
-with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
+SageMaker Python SDK, see [Use foundation models with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
 
 Before you begin, make sure that you do the following:
 
@@ -155,9 +142,7 @@ The `accept_eula` value is `None` by default and
 must be explicitly redefined as `"true"` within the `fit()` method in order to
 accept the end-user license agreement. For more information, see [JumpStartEstimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.jumpstart.estimator.JumpStartEstimator").
 
-#### EULA acceptance SageMaker Python SDK versions earlier than
-
-2.198.0
+#### EULA acceptance SageMaker Python SDK versions earlier than 2.198.0
 
 ###### Important
 
@@ -179,8 +164,7 @@ must be explicitly redefined as `true` in order to accept the
 end-user license agreement. The predictor returns an error if you try to run
 inference while `accept_eula` is set to `false`. For
 more information on getting started with JumpStart foundation models using the
-SageMaker Python SDK, see [Use foundation models
-with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
+SageMaker Python SDK, see [Use foundation models with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md "jumpstart-foundation-models-use-python-sdk.md").
 
 ###### Important
 

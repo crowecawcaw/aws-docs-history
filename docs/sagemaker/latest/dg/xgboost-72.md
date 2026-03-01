@@ -47,9 +47,7 @@ expanded set of metrics. The earlier implementation of XGBoost remains available
 customers if they need to postpone migrating to the new version. But this previous
 implementation will remain tied to the 0.72 release of XGBoost.
 
-## Input/Output Interface for the XGBoost
-
-Release 0.72
+## Input/Output Interface for the XGBoost Release 0.72
 
 Gradient boosting operates on tabular data, with the rows representing
 observations, one column representing the target variable or label, and the
@@ -106,9 +104,7 @@ model = pkl.load(open(`model_file_path`, 'rb'))
 pred = model.predict(`dtest`)
 ```
 
-###### To differentiate the importance of labelled data points use Instance Weight
-
-Supports
+###### To differentiate the importance of labelled data points use Instance Weight Supports
 
 - SageMaker AI XGBoost allows customers to differentiate the importance of labelled
   data points by assigning each instance a weight value. For
@@ -120,9 +116,7 @@ Supports
   in the column after labels. For example:
   `label,weight,val_0,val_1,...`).
 
-## EC2 Instance Recommendation for the XGBoost
-
-Release 0.72
+## EC2 Instance Recommendation for the XGBoost Release 0.72
 
 SageMaker AI XGBoost currently only trains using CPUs. It is a memory-bound (as opposed to
 compute-bound) algorithm. So, a general-purpose compute instance (for example, M4)
@@ -132,9 +126,7 @@ training data. Although it supports the use of disk space to handle data that do
 not fit into main memory (the out-of-core feature available with the libsvm input
 mode), writing cache files onto disk slows the algorithm processing time.
 
-## XGBoost Release 0.72 Sample
-
-Notebooks
+## XGBoost Release 0.72 Sample Notebooks
 
 For a sample notebook that shows how to use the latest version of SageMaker AI XGBoost as
 a built-in algorithm to train and host a regression model, see [Regression with Amazon SageMaker AI XGBoost algorithm](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_abalone.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_abalone.html"). To use the 0.72 version of
@@ -146,9 +138,7 @@ Examples** tab to see a list of all the SageMaker AI samples. The topic
 modeling example notebooks using the XGBoost algorithms are located in the **Introduction to Amazon algorithms** section. To open a
 notebook, click on its **Use** tab and select **Create copy**.
 
-## XGBoost Release 0.72
-
-Hyperparameters
+## XGBoost Release 0.72 Hyperparameters
 
 The following table contains the hyperparameters for the XGBoost algorithm. These
 are parameters that are set by users to facilitate the estimation of model
@@ -220,9 +210,7 @@ combination of values that result in the model that optimizes the evaluation met
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-### Metrics Computed by the XGBoost Release
-
-0.72 Algorithm
+### Metrics Computed by the XGBoost Release 0.72 Algorithm
 
 The XGBoost algorithm based on version 0.72 computes the following nine
 metrics to use for model validation. When tuning the model, choose one of these
@@ -241,9 +229,7 @@ values, refer to [XGBoost Learning Task Parameters](https://github.com/dmlc/xgbo
 | `validation:ndcg`     | Normalized Discounted Cumulative Gain.                                              | Maximize               |
 | `validation:rmse`     | Root mean square error.                                                             | Minimize               |
 
-### Tunable XGBoost Release
-
-0.72 Hyperparameters
+### Tunable XGBoost Release 0.72 Hyperparameters
 
 Tune the XGBoost model with the following hyperparameters. The hyperparameters
 that have the greatest effect on optimizing the XGBoost evaluation metrics are:

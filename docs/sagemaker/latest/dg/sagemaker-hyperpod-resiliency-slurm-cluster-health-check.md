@@ -1,6 +1,4 @@
-# Health
-
-monitoring agent
+# Health monitoring agent
 
 This section describes the set of health checks that SageMaker HyperPod uses to regularly
 monitor cluster instance health for issues with devices such as accelerators (GPU and

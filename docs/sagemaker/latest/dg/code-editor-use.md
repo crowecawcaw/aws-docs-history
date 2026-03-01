@@ -19,6 +19,5 @@ Within your Code Editor environment, you can do the following:
 - [Launch a Code Editor application in Studio](code-editor-use-studio.md "code-editor-use-studio.md")
 - [Launch a Code Editor application using the AWS CLI](code-editor-launch-cli.md "code-editor-launch-cli.md")
 - [Clone a repository in Code Editor](code-editor-use-clone-a-repository.md "code-editor-use-clone-a-repository.md")
-- [Code Editor Connections and
-  Extensions](code-editor-use-connections-and-extensions.md "code-editor-use-connections-and-extensions.md")
+- [Code Editor Connections and Extensions](code-editor-use-connections-and-extensions.md "code-editor-use-connections-and-extensions.md")
 - [Shut down Code Editor resources](code-editor-use-log-out.md "code-editor-use-log-out.md")

@@ -10,9 +10,6 @@ The following topics provide guidance on best practices for deploying machine le
 - [Migrate inference workload from x86 to AWS Graviton](realtime-endpoints-graviton.md "realtime-endpoints-graviton.md")
 - [Troubleshoot Amazon SageMaker AI model deployments](deploy-model-troubleshoot.md "deploy-model-troubleshoot.md")
 - [Inference cost optimization best practices](inference-cost-optimization.md "inference-cost-optimization.md")
-- [Best practices to minimize interruptions during
-  GPU driver upgrades](inference-gpu-drivers.md "inference-gpu-drivers.md")
-- [Best practices for endpoint security
-  and health with Amazon SageMaker AI](best-practice-endpoint-security.md "best-practice-endpoint-security.md")
-- [Updating inference containers to comply with
-  the NVIDIA Container Toolkit](container-nvidia-compliance.md "container-nvidia-compliance.md")
+- [Best practices to minimize interruptions during GPU driver upgrades](inference-gpu-drivers.md "inference-gpu-drivers.md")
+- [Best practices for endpoint security and health with Amazon SageMaker AI](best-practice-endpoint-security.md "best-practice-endpoint-security.md")
+- [Updating inference containers to comply with the NVIDIA Container Toolkit](container-nvidia-compliance.md "container-nvidia-compliance.md")

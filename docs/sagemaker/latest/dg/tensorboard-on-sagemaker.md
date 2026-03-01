@@ -69,10 +69,7 @@ Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagem
 
 ###### Topics
 
-- [Prepare a training job to collect
-  TensorBoard output data](debugger-htb-prepare-training-job.md "debugger-htb-prepare-training-job.md")
-- [Accessing the TensorBoard application on
-  SageMaker AI](debugger-htb-access-tb.md "debugger-htb-access-tb.md")
-- [Load and visualize output tensors using
-  the TensorBoard application](debugger-htb-access-tb-data.md "debugger-htb-access-tb-data.md")
+- [Prepare a training job to collect TensorBoard output data](debugger-htb-prepare-training-job.md "debugger-htb-prepare-training-job.md")
+- [Accessing the TensorBoard application on SageMaker AI](debugger-htb-access-tb.md "debugger-htb-access-tb.md")
+- [Load and visualize output tensors using the TensorBoard application](debugger-htb-access-tb-data.md "debugger-htb-access-tb-data.md")
 - [Delete unused TensorBoard applications](debugger-htb-delete-app.md "debugger-htb-delete-app.md")

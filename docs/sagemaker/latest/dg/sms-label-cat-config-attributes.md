@@ -1,6 +1,4 @@
-# Labeling category configuration file with
-
-label category and frame attributes reference
+# Labeling category configuration file with label category and frame attributes reference
 
 When you create a 3D point cloud or video frame labeling job using the Amazon SageMaker API
 operation `CreateLabelingJob`, you use a label category configuration file to
@@ -43,17 +41,12 @@ file.
 
 ###### Topics
 
-- [Examples: label category
-  configuration files for 3D point cloud labeling jobs](#sms-label-cat-config-attributes-3d-pc "#sms-label-cat-config-attributes-3d-pc")
-- [Examples: label category
-  configuration files for video frame labeling jobs](#sms-label-cat-config-attributes-vid-frame "#sms-label-cat-config-attributes-vid-frame")
+- [Examples: label category configuration files for 3D point cloud labeling jobs](#sms-label-cat-config-attributes-3d-pc "#sms-label-cat-config-attributes-3d-pc")
+- [Examples: label category configuration files for video frame labeling jobs](#sms-label-cat-config-attributes-vid-frame "#sms-label-cat-config-attributes-vid-frame")
 - [Label category configuration file schema](#sms-label-cat-config-attributes-schema "#sms-label-cat-config-attributes-schema")
-- [Label and label category attribute
-  quotas](#sms-point-cloud-label-cat-limits "#sms-point-cloud-label-cat-limits")
+- [Label and label category attribute quotas](#sms-point-cloud-label-cat-limits "#sms-point-cloud-label-cat-limits")
 
-## Examples: label category
-
-configuration files for 3D point cloud labeling jobs
+## Examples: label category configuration files for 3D point cloud labeling jobs
 
 The following topics show examples of 3D point cloud label category configuration
 files for object detection, object tracking, semantic segmentation, adjustment, and
@@ -61,16 +54,12 @@ verification labeling jobs.
 
 ###### Topics
 
-- [Example: 3D point cloud object
-  tracking and object detection](#example-3d-point-cloud-object "#example-3d-point-cloud-object")
+- [Example: 3D point cloud object tracking and object detection](#example-3d-point-cloud-object "#example-3d-point-cloud-object")
 - [Example: 3D point cloud semantic segmentation](#example-3d-point-cloud-semantic "#example-3d-point-cloud-semantic")
 - [Example: 3D point cloud adjustment](#example-3d-point-cloud-adjustment "#example-3d-point-cloud-adjustment")
-- [Example: 3D point cloud
-  verification](#example-3d-point-cloud-verification "#example-3d-point-cloud-verification")
+- [Example: 3D point cloud verification](#example-3d-point-cloud-verification "#example-3d-point-cloud-verification")
 
-### Example: 3D point cloud object
-
-tracking and object detection
+### Example: 3D point cloud object tracking and object detection
 
 The following is an example of a label category configuration file that
 includes label category attributes for a 3D point cloud object detection or
@@ -253,9 +242,7 @@ frame attribute can be edited.
 }
 ```
 
-### Example: 3D point cloud
-
-verification
+### Example: 3D point cloud verification
 
 The following is an example of a label category configuration file you may
 use for a 3D point cloud object detection or object tracking verification
@@ -333,9 +320,7 @@ verification labeling job. Additionally, you must use the
 }
 ```
 
-## Examples: label category
-
-configuration files for video frame labeling jobs
+## Examples: label category configuration files for video frame labeling jobs
 
 The annotation tools available to your worker and task type used depends on the value
 you specify for `annotationType`. For example, if you want workers to use key
@@ -597,9 +582,7 @@ list of `Labels`. Each parameter should be included in a JSON object.
 | `categoryAttributes` | No       | A list of JSON objects.<br>**Required Parameters in each JSON<br>Object:**<br>`name`, `type`<br>`minimum` and `maximum` required if<br>`type` is `"number"`<br>**Optional Parameters in each JSON<br>Object:**<br>`description`, `enum`,<br>`editsAllowed`, `isRequired` | Use this parameter to add label category attributes to specific<br>labels you specify in `labels`. To add one<br>or more label category attributes to a label, include the<br>`categoryAttributes` JSON object in the same<br>`labels` JSON object as that<br>`label`.See the following table for more<br>information.                                                                                                                                                     |
 | `editsAllowed`       | No       | String<br>**Supported Values**:<br>`"none"`: no modifications are not allowed.<br>or<br>`"any"` (Default): all modifications are<br>allowed.                                                                                                                             | Specifies whether or not a label can be edited by workers.<br>For video frame or 3D point cloud *adjustment<br>• labeling jobs, add this parameter to one<br>or more JSON objects in the `labels` list to specify<br>whether or not a worker can edit a label.<br>For 3D point cloud and video frame *verification<br>• labeling jobs, add this parameter with<br>the value `"none"` to each JSON object in the<br>`labels` list. This will make all labels<br>uneditable. |
 
-### frameAttributes and
-
-categoryGlobalAttributes schema
+### frameAttributes and categoryGlobalAttributes schema
 
 The following table describes the parameters that you can and must use to create a frame
 attributes using `frameAttributes` and label category attribute using the
@@ -616,9 +599,7 @@ parameters.
 | `editsAllowed`          | No                                                                                  | String<br>**Required Values**:<br>`"none"`: no modifications are not allowed.<br>or<br>`"any"` (Default): all modifications are<br>allowed. | Specifies whether or not a label category or frame attribute can<br>be edited by workers.<br>For video frame or 3D point cloud *adjustment<br>• and *verification<br>• labeling jobs, add this parameter to<br>label category and frame attribute JSON objects to specify whether<br>or not a worker can edit an attribute.                                                                                                                                                                       |
 | `isRequired`            | No                                                                                  | Boolean                                                                                                                                     | Specifies whether workers are required to annotate an attribute.<br>Workers cannot submit the job until all required attributes are annotated.                                                                                                                                                                                                                                                                                                                                                    |
 
-## Label and label category attribute
-
-quotas
+## Label and label category attribute quotas
 
 You can specify up to 10 label category attributes per class. This 10-attribute quotas
 includes global label category attributes. For example, if you create four global label

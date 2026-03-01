@@ -23,9 +23,7 @@ Before you begin, complete the following prerequisites:
   credentials. For information about AWS credentials, see [Understanding and getting your AWS credentials](../../../general/latest/gr/aws-sec-cred-types.md "../../../general/latest/gr/aws-sec-cred-types.md").
 - Onboard to Amazon SageMaker AI domain. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 
-## Attach the Git repo to a domain or
-
-user profile
+## Attach the Git repo to a domain or user profile
 
 Git repo URLs associated at the domain level are inherited by all users. However,
 Git repo URLs that are associated at the user profile level are scoped to a specific
@@ -44,9 +42,7 @@ aws sagemaker update-domain --region `region` --domain-id `domain-id` \
     --default-user-settings JupyterServerAppSettings={CodeRepositories=[{RepositoryUrl="`repository`"}]}
 ```
 
-### Attach to a user
-
-profile
+### Attach to a user profile
 
 The following shows how to attach a Git repo URL to an existing user
 profile.

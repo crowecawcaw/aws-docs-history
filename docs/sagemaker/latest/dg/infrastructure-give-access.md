@@ -33,17 +33,10 @@ Specifying a VPC configuration alone doesn't change the invocation path. To conn
 
 ###### Topics
 
-- [Give SageMaker AI Processing Jobs Access to Resources in Your
-  Amazon VPC](process-vpc.md "process-vpc.md")
-- [Give SageMaker AI Training Jobs Access to Resources in Your
-  Amazon VPC](train-vpc.md "train-vpc.md")
-- [Give SageMaker AI Hosted Endpoints Access to Resources in Your
-  Amazon VPC](host-vpc.md "host-vpc.md")
-- [Give Batch Transform Jobs Access to Resources in Your
-  Amazon VPC](batch-vpc.md "batch-vpc.md")
-- [Give Amazon SageMaker Clarify Jobs Access to Resources in Your
-  Amazon VPC](clarify-vpc.md "clarify-vpc.md")
-- [Give SageMaker AI Compilation Jobs Access to Resources in Your
-  Amazon VPC](neo-vpc.md "neo-vpc.md")
-- [Give Inference Recommender Jobs Access to Resources in Your
-  Amazon VPC](inference-recommender-vpc-access.md "inference-recommender-vpc-access.md")
+- [Give SageMaker AI Processing Jobs Access to Resources in Your Amazon VPC](process-vpc.md "process-vpc.md")
+- [Give SageMaker AI Training Jobs Access to Resources in Your Amazon VPC](train-vpc.md "train-vpc.md")
+- [Give SageMaker AI Hosted Endpoints Access to Resources in Your Amazon VPC](host-vpc.md "host-vpc.md")
+- [Give Batch Transform Jobs Access to Resources in Your Amazon VPC](batch-vpc.md "batch-vpc.md")
+- [Give Amazon SageMaker Clarify Jobs Access to Resources in Your Amazon VPC](clarify-vpc.md "clarify-vpc.md")
+- [Give SageMaker AI Compilation Jobs Access to Resources in Your Amazon VPC](neo-vpc.md "neo-vpc.md")
+- [Give Inference Recommender Jobs Access to Resources in Your Amazon VPC](inference-recommender-vpc-access.md "inference-recommender-vpc-access.md")

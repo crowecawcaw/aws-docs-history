@@ -46,9 +46,7 @@ For general information about writing TensorFlow script mode training scripts an
 using TensorFlow script mode estimators and models with SageMaker AI, see [Using TensorFlow with
 the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/using_tf.html "https://sagemaker.readthedocs.io/en/stable/using_tf.html").
 
-## TensorFlow Legacy Mode for Versions 1.11 and
-
-Earlier
+## TensorFlow Legacy Mode for Versions 1.11 and Earlier
 
 The [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") provides a legacy mode that supports TensorFlow versions 1.11 and
 earlier. Use legacy mode TensorFlow training scripts to run TensorFlow jobs in SageMaker AI

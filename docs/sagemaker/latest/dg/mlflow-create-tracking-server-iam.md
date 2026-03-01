@@ -4,27 +4,21 @@ You must configure the necessary IAM service roles to get started with MLflow in
 Amazon SageMaker AI.
 
 If you create a new Amazon SageMaker AI domain to access your experiments in Studio, you can
-configure the necessary IAM permissions during domain setup. For more information, see [Set up MLflow IAM
-permissions when creating a new domain](#mlflow-create-tracking-server-iam-role-manager "#mlflow-create-tracking-server-iam-role-manager").
+configure the necessary IAM permissions during domain setup. For more information, see [Set up MLflow IAM permissions when creating a new domain](#mlflow-create-tracking-server-iam-role-manager "#mlflow-create-tracking-server-iam-role-manager").
 
 To set up permissions using the IAM console, see [Create necessary IAM service roles in the IAM console](#mlflow-create-tracking-server-iam-service-roles "#mlflow-create-tracking-server-iam-service-roles").
 
 You must configure authorization controls for `sagemaker-mlflow` actions. You
 can optionally define more granular authorization controls to govern action-specific MLflow
-permissions. For more information, see [Create action-specific
-authorization controls](#mlflow-create-tracking-server-update-iam-actions "#mlflow-create-tracking-server-update-iam-actions").
+permissions. For more information, see [Create action-specific authorization controls](#mlflow-create-tracking-server-update-iam-actions "#mlflow-create-tracking-server-update-iam-actions").
 
-## Set up MLflow IAM
-
-permissions when creating a new domain
+## Set up MLflow IAM permissions when creating a new domain
 
 When setting up a new Amazon SageMaker AI domain for your organization, you can configure IAM
 permissions for your domain service role through the **Users and ML Activities**
 settings.
 
-###### To configure IAM permissions for using MLflow with SageMaker AI when setting up a new
-
-domain
+###### To configure IAM permissions for using MLflow with SageMaker AI when setting up a new domain
 
 1. Set up a new domain using the SageMaker AI console. On the **Set up SageMaker AI
    domain** page, choose **Set up for organizations**. For
@@ -60,9 +54,7 @@ in order to create and use an MLflow Tracking Server:
 - A SageMaker AI IAM service role that SageMaker AI can use to create and manage
   MLflow resources
 
-### IAM policies for
-
-the tracking server IAM service role
+### IAM policies for the tracking server IAM service role
 
 The tracking server IAM service role is used by the tracking server to access the resources it
 needs such as Amazon S3 and the SageMaker Model Registry.
@@ -118,9 +110,7 @@ JSON
 
 ```
 
-### IAM policy for the
-
-SageMaker AI IAM service role
+### IAM policy for the SageMaker AI IAM service role
 
 The SageMaker AI service role is used by the client accessing the MLflow Tracking Server and needs
 permissions to call MLflow REST APIs. The SageMaker AI service role also needs SageMaker API permissions to create, view
@@ -154,9 +144,7 @@ JSON
 
 ```
 
-## Create action-specific
-
-authorization controls
+## Create action-specific authorization controls
 
 You must set up authorization controls for `sagemaker-mlflow`, and can
 optionally configure action-specific authorization controls to govern more granular MLflow
@@ -170,8 +158,7 @@ available. To learn how to create a tracking server, see [Create a tracking serv
 The following command creates a file called `mlflow-policy.json` that
 provides your tracking server with IAM permissions for all available SageMaker AI MLflow actions.
 You can optionally limit the permissions a user has by choosing the specific actions you
-want that user to perform. For a list of available actions, see [IAM actions supported for
-MLflow](#mlflow-create-tracking-server-iam-actions "#mlflow-create-tracking-server-iam-actions").
+want that user to perform. For a list of available actions, see [IAM actions supported for MLflow](#mlflow-create-tracking-server-iam-actions "#mlflow-create-tracking-server-iam-actions").
 
 ```
 # Replace "Resource":"*" with "Resource":"TrackingServerArn"
@@ -209,9 +196,7 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::`123456789012`:policy/`MLflowPolicy`
 ```
 
-### IAM actions supported for
-
-MLflow
+### IAM actions supported for MLflow
 
 The following SageMaker AI MLflow actions are supported for authorization access
 control:

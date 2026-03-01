@@ -13,8 +13,7 @@ Neo Compilation Errors](neo-troubleshooting-compilation.md "neo-troubleshooting-
 Neo Inference Errors](neo-troubleshooting-inference.md "neo-troubleshooting-inference.md").
 
 **Did you encounter an error trying to compile your model for Ambarella devices?** If yes, see
-[Troubleshoot
-Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md").
+[Troubleshoot Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md").
 
 ## Error Classification Types
 
@@ -60,5 +59,4 @@ Neo passes the errors for these straight through from the dependent service.
 
 - [Troubleshoot Neo Compilation Errors](neo-troubleshooting-compilation.md "neo-troubleshooting-compilation.md")
 - [Troubleshoot Neo Inference Errors](neo-troubleshooting-inference.md "neo-troubleshooting-inference.md")
-- [Troubleshoot
-  Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md")
+- [Troubleshoot Ambarella Errors](neo-troubleshooting-target-devices-ambarella.md "neo-troubleshooting-target-devices-ambarella.md")

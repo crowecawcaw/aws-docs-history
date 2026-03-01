@@ -40,18 +40,14 @@ for training ML models. For more information, see [Managed Spot Training in Amaz
 
 ###### Topics
 
-- [Checkpoints for frameworks and
-  algorithms in SageMaker AI](#model-checkpoints-whats-supported "#model-checkpoints-whats-supported")
-- [Considerations for
-  checkpointing](#model-checkpoints-considerations "#model-checkpoints-considerations")
+- [Checkpoints for frameworks and algorithms in SageMaker AI](#model-checkpoints-whats-supported "#model-checkpoints-whats-supported")
+- [Considerations for checkpointing](#model-checkpoints-considerations "#model-checkpoints-considerations")
 - [Enable checkpointing](model-checkpoints-enable.md "model-checkpoints-enable.md")
 - [Browse checkpoint files](model-checkpoints-saved-file.md "model-checkpoints-saved-file.md")
 - [Resume training from a checkpoint](model-checkpoints-resume.md "model-checkpoints-resume.md")
 - [Cluster repairs for GPU errors](model-checkpoints-cluster-repair.md "model-checkpoints-cluster-repair.md")
 
-## Checkpoints for frameworks and
-
-algorithms in SageMaker AI
+## Checkpoints for frameworks and algorithms in SageMaker AI
 
 Use checkpoints to save snapshots of ML models built on your preferred frameworks
 within SageMaker AI.
@@ -99,9 +95,7 @@ callbacks or training APIs to save checkpoints to the local path
 script. SageMaker AI estimators can sync up with the local path and save the checkpoints to
 Amazon S3.
 
-## Considerations for
-
-checkpointing
+## Considerations for checkpointing
 
 Consider the following when using checkpoints in SageMaker AI.
 
@@ -117,9 +111,6 @@ Consider the following when using checkpoints in SageMaker AI.
 - If you use SageMaker AI checkpoints with SageMaker Debugger and SageMaker AI distributed and are
   facing issues, see the following pages for troubleshooting and
   considerations.
-  - [Distributed training supported by
-    Amazon SageMaker Debugger](debugger-reference.md#debugger-considerations "debugger-reference.md#debugger-considerations")
-  - [Troubleshooting for distributed
-    training in Amazon SageMaker AI](distributed-troubleshooting-data-parallel.md "distributed-troubleshooting-data-parallel.md")
-  - [Model Parallel
-    Troubleshooting](distributed-troubleshooting-model-parallel.md "distributed-troubleshooting-model-parallel.md")
+  - [Distributed training supported by Amazon SageMaker Debugger](debugger-reference.md#debugger-considerations "debugger-reference.md#debugger-considerations")
+  - [Troubleshooting for distributed training in Amazon SageMaker AI](distributed-troubleshooting-data-parallel.md "distributed-troubleshooting-data-parallel.md")
+  - [Model Parallel Troubleshooting](distributed-troubleshooting-model-parallel.md "distributed-troubleshooting-model-parallel.md")

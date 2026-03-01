@@ -14,7 +14,5 @@ The following sections list the available resources for Amazon SageMaker Studio 
 
 ###### Topics
 
-- [Instance Types Available for Use With
-  Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
-- [Amazon SageMaker Images Available for Use With
-  Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md")
+- [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md")
+- [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md")

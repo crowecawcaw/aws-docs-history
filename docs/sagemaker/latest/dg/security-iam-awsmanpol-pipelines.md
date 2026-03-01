@@ -5,14 +5,10 @@ are available in your AWS account and are used by execution roles created from t
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerPipelinesIntegrations](#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations "#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations")
-- [Amazon SageMaker AI updates to SageMaker AI
-  Pipelines managed policies](#security-iam-awsmanpol-pipelines-updates "#security-iam-awsmanpol-pipelines-updates")
+- [AWS managed policy: AmazonSageMakerPipelinesIntegrations](#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations "#security-iam-awsmanpol-AmazonSageMakerPipelinesIntegrations")
+- [Amazon SageMaker AI updates to SageMaker AI Pipelines managed policies](#security-iam-awsmanpol-pipelines-updates "#security-iam-awsmanpol-pipelines-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerPipelinesIntegrations
+## AWS managed policy: AmazonSageMakerPipelinesIntegrations
 
 This AWS managed policy grants permissions commonly needed to use Callback steps
 and Lambda steps in SageMaker Pipelines. The policy is added to the
@@ -127,9 +123,7 @@ JSON
 
 ```
 
-## Amazon SageMaker AI updates to SageMaker AI
-
-Pipelines managed policies
+## Amazon SageMaker AI updates to SageMaker AI Pipelines managed policies
 
 View details about updates to AWS managed policies for Amazon SageMaker AI since this service
 began tracking these changes.

@@ -28,22 +28,16 @@ The SageMaker Clarify processing job output directory contains the following fil
 
 - [Bias analysis](#clarify-processing-job-analysis-results-bias "#clarify-processing-job-analysis-results-bias")
 - [SHAP analysis](#clarify-processing-job-analysis-results-shap "#clarify-processing-job-analysis-results-shap")
-- [Computer vision (CV)
-  explainability analysis](#clarify-processing-job-analysis-results-cv "#clarify-processing-job-analysis-results-cv")
-- [Partial dependence plots
-  (PDPs) analysis](#clarify-processing-job-analysis-results-pdp "#clarify-processing-job-analysis-results-pdp")
-- [Asymmetric
-  Shapley values](#clarify-processing-job-analysis-results-asymmshap "#clarify-processing-job-analysis-results-asymmshap")
+- [Computer vision (CV) explainability analysis](#clarify-processing-job-analysis-results-cv "#clarify-processing-job-analysis-results-cv")
+- [Partial dependence plots (PDPs) analysis](#clarify-processing-job-analysis-results-pdp "#clarify-processing-job-analysis-results-pdp")
+- [Asymmetric Shapley values](#clarify-processing-job-analysis-results-asymmshap "#clarify-processing-job-analysis-results-asymmshap")
 
 ## Bias analysis
 
-Amazon SageMaker Clarify uses the terminology documented in [Amazon SageMaker Clarify Terms for Bias and
-Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms") to discuss bias and
+Amazon SageMaker Clarify uses the terminology documented in [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms") to discuss bias and
 fairness.
 
-### Schema for the
-
-analysis file
+### Schema for the analysis file
 
 The analysis file is in JSON format and is organized into two sections:
 pre-training bias metrics and post-training bias metrics. The parameters for
@@ -96,8 +90,7 @@ pre-training and post-training bias metrics are as follows.
 - post_training_bias_metrics – The
   section contains the post-training bias metrics and it follows a similar
   layout and structure to the pre-training section. For more information, see
-  [Post-training Data and Model
-  Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md").
+  [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md").
 
 The following is an example of an analysis configuration that will calculate both
 pre-training and post-training bias metrics.
@@ -152,9 +145,7 @@ pre-training and post-training bias metrics.
 }
 ```
 
-### Bias analysis
-
-report
+### Bias analysis report
 
 The bias analysis report includes several tables and diagrams that contain
 detailed explanations and descriptions. These include, but are not limited to, the
@@ -169,12 +160,9 @@ The SageMaker Clarify processing job produces both local and global SHAP values.
 determine the contribution of each feature towards model predictions. Local SHAP values
 represent the feature importance for each individual instance, while global SHAP values
 aggregate the local SHAP values across all instances in the dataset. For more
-information about SHAP values and how to interpret them, see [Feature Attributions that Use Shapley
-Values](clarify-shapley-values.md "clarify-shapley-values.md").
+information about SHAP values and how to interpret them, see [Feature Attributions that Use Shapley Values](clarify-shapley-values.md "clarify-shapley-values.md").
 
-### Schema for the
-
-SHAP analysis file
+### Schema for the SHAP analysis file
 
 Global SHAP analysis results are stored in the explanations section of the
 analysis file, under the `kernel_shap` method. The different parameters
@@ -268,9 +256,7 @@ that is generated after analysis of a text feature.
 }
 ```
 
-### Schema for
-
-the generated baseline file
+### Schema for the generated baseline file
 
 When a SHAP baseline configuration is not provided, the SageMaker Clarify processing job
 generates a baseline dataset. SageMaker Clarify uses a distance-based clustering algorithm to
@@ -290,9 +276,7 @@ Age,Gender,Income,Occupation
 42,0,4621,0
 ```
 
-### Schema for
-
-local SHAP values from tabular dataset explainability analysis
+### Schema for local SHAP values from tabular dataset explainability analysis
 
 For tabular datasets, if a single compute instance is used, the SageMaker Clarify processing
 job saves the local SHAP values to a CSV file named
@@ -321,9 +305,7 @@ Age_Target,Gender_Target,Income_Target,Occupation_Target
 ...
 ```
 
-### Schema for
-
-local SHAP values from NLP explainability analysis
+### Schema for local SHAP values from NLP explainability analysis
 
 For NLP explainability analysis, if a single compute instance is used, the SageMaker Clarify
 processing job saves local SHAP values to a JSON Lines file named
@@ -413,9 +395,7 @@ beautified to enhance its readability.
 }
 ```
 
-### SHAP analysis
-
-report
+### SHAP analysis report
 
 The SHAP analysis report provides a bar chart of a maximum of `10` top
 global SHAP values. The following chart example shows the SHAP values for the top
@@ -423,9 +403,7 @@ global SHAP values. The following chart example shows the SHAP values for the to
 
 ![Horizontal bar chart of global SHAP values calculated for target variable of the top four features.](images/clarify/shap-chart.png)
 
-## Computer vision (CV)
-
-explainability analysis
+## Computer vision (CV) explainability analysis
 
 SageMaker Clarify computer vision explainability takes a dataset consisting of images and treats
 each image as a collection of super pixels. After analysis, the SageMaker Clarify processing job
@@ -447,9 +425,7 @@ stronger the relationship between the super pixel and model prediction.
 
 For more information, see the sample notebooks [Explaining Image Classification with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb") and [Explaining object detection models with Amazon SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb").
 
-## Partial dependence plots
-
-(PDPs) analysis
+## Partial dependence plots (PDPs) analysis
 
 Partial dependence plots show the dependence of the predicted target response on a set
 of input features of interest. These are marginalized over the values of all other input
@@ -457,9 +433,7 @@ features and are referred to as the complement features. Intuitively, you can in
 the partial dependence as the target response, which is expected as a function of each
 input feature of interest.
 
-### Schema for the
-
-analysis file
+### Schema for the analysis file
 
 The PDP values are stored in the `explanations` section of the analysis
 file under the `pdp` method. The parameters for `explanations`
@@ -532,9 +506,7 @@ result.
 }
 ```
 
-### PDP analysis
-
-report
+### PDP analysis report
 
 You can generate an analysis report containing a PDP chart for each feature. The
 PDP chart plots `feature_values` along the x-axis, and it plots
@@ -550,17 +522,13 @@ the higher feature values have the same model prediction values.
 
 ![Line chart showing how model predictions vary against feature_values for 10 unique grid points.](images/clarify/pdp-chart.png)
 
-## Asymmetric
-
-Shapley values
+## Asymmetric Shapley values
 
 SageMaker Clarify processing jobs use the asymmetric Shapley value algorithm to compute
 time series forecasting model explanation attributions. This algorithm determines the contribution
 of input features at each time step toward the forecasted predictions.
 
-### Schema
-
-for the asymmetric Shapley values analysis file
+### Schema for the asymmetric Shapley values analysis file
 
 Asymmetric Shapley value results are stored in an Amazon S3 bucket. You can find the location
 of this bucket in the section _explanations_
@@ -598,9 +566,7 @@ example analysis file:
 The following sections describe how the explanation results structure depends
 on the value of `granularity` in the config.
 
-#### Timewise
-
-granularity
+#### Timewise granularity
 
 When the granularity is `timewise` the output is represented in
 the following structure. The `scores` value represents the attribution for
@@ -632,9 +598,7 @@ first predicted time step.
 }
 ```
 
-#### Fine-grained
-
-granularity
+#### Fine-grained granularity
 
 The following example demonstrates attribution results when
 granularity is `fine_grained`. The `offset` value

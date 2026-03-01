@@ -1,6 +1,4 @@
-# Difference in
-
-Proportions of Labels (DPL)
+# Difference in Proportions of Labels (DPL)
 
 The difference in proportions of labels (DPL) compares the proportion of observed
 outcomes with positive labels for facet _d_ with

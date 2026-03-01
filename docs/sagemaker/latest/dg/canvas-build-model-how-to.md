@@ -4,8 +4,7 @@ The following sections show you how to build a model for each of the main types 
 models.
 
 - To build numeric prediction, 2 category prediction, or 3+ category prediction models, see
-  [Build a custom numeric or categorical
-  prediction model](#canvas-build-model-numeric-categorical "#canvas-build-model-numeric-categorical").
+  [Build a custom numeric or categorical prediction model](#canvas-build-model-numeric-categorical "#canvas-build-model-numeric-categorical").
 - To build single-label image prediction models, see [Build a custom image prediction model](#canvas-build-model-image "#canvas-build-model-image").
 - To build multi-category text prediction models, see [Build a custom text prediction model](#canvas-build-model-text "#canvas-build-model-text").
 - To build time series forecasting models, see [Build a time series forecasting model](#canvas-build-model-forecasting "#canvas-build-model-forecasting").
@@ -16,9 +15,7 @@ If you encounter an error during post-building analysis that tells you to increa
 quota for `ml.m5.2xlarge` instances, see [Request a Quota
 Increase](canvas-requesting-quota-increases.md "canvas-requesting-quota-increases.md").
 
-## Build a custom numeric or categorical
-
-prediction model
+## Build a custom numeric or categorical prediction model
 
 Numeric and categorical prediction models support both **Quick builds** and
 **Standard builds**.

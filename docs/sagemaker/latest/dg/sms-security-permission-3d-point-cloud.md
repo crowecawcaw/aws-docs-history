@@ -1,14 +1,10 @@
-# 3D point cloud labeling job
-
-permission requirements
+# 3D point cloud labeling job permission requirements
 
 When you create a 3D point cloud labeling job, in addition to the permission requirements
 found in [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md "sms-security-permission.md"),
 you must add a CORS policy to your S3 bucket that contains your input manifest file.
 
-## Add a CORS permission policy to S3
-
-bucket
+## Add a CORS permission policy to S3 bucket
 
 When you create a 3D point cloud labeling job, you specify buckets in S3 where your
 input data and manifest file are located and where your output data will be stored.

@@ -1,6 +1,4 @@
-# Schedule model quality
-
-monitoring jobs
+# Schedule model quality monitoring jobs
 
 After you create your baseline, you can call the
 `create_monitoring_schedule()` method of your
@@ -18,9 +16,7 @@ Unlike data quality monitoring, you need to supply Ground Truth labels if you wa
 monitor model quality. However, Ground Truth labels could be delayed. To address this,
 specify offsets when you create your monitoring schedule.
 
-## Model monitor
-
-offsets
+## Model monitor offsets
 
 Model quality jobs include `StartTimeOffset` and
 `EndTimeOffset`, which are fields of the
@@ -53,9 +49,7 @@ divided between the two jobs, so for an hourly model quality monitoring job,
 the value of `MaxRuntimeInSeconds` specified as part of
 `StoppingCondition` should be no more than 1800.
 
-## Model quality
-
-monitoring for models deployed to real-time endpoints
+## Model quality monitoring for models deployed to real-time endpoints
 
 To schedule a model quality monitor for a real-time endpoint, pass your
 `EndpointInput` instance to the `endpoint_input`
@@ -88,9 +82,7 @@ schedule = model_quality_model_monitor.create_monitoring_schedule(
 )
 ```
 
-## Model quality
-
-monitoring for batch transform jobs
+## Model quality monitoring for batch transform jobs
 
 To schedule a model quality monitor for a batch transform job, pass your
 `BatchTransformInput` instance to the

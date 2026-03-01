@@ -32,9 +32,7 @@ classification](sms-video-classification.md "sms-video-classification.md") label
 | Bounding box (Object detection) label verification | 40 MB                 |
 | Semantic segmentation label verification           | 40 MB                 |
 
-## Input Image Resolution
-
-Quotas
+## Input Image Resolution Quotas
 
 Image file resolution refers to the number of pixels in an image, and
 determines the amount of detail an image holds. Image resolution quotas differ
@@ -101,9 +99,7 @@ The following quotas apply for question-answer pairs that you provide in the lab
 | Word count of a question | Minimum is one word. Maximum is 200 words. |
 | Word count of an answer  | Minimum is one word. Maximum is 200 words. |
 
-## 3D Point Cloud and Video Frame Labeling Job
-
-Quotas
+## 3D Point Cloud and Video Frame Labeling Job Quotas
 
 The following quotas apply for 3D point cloud and video frame labeling job
 input data.

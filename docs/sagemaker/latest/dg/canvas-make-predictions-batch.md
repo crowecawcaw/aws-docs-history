@@ -14,8 +14,7 @@ There are two types of batch predictions you can make:
   data, you can set up automatic batch predictions that run whenever you update
   the dataset. After setting up an automated batch predictions workflow, see [How to manage automations](canvas-manage-automations.md "canvas-manage-automations.md") for more information about
   viewing and editing the details of your configuration. For more information
-  about setting up automatic dataset updates, see [Configure automatic updates for a
-  dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
+  about setting up automatic dataset updates, see [Configure automatic updates for a dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
 
 ###### Note
 

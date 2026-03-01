@@ -1,12 +1,9 @@
-# Migrate the UI from Studio Classic to
-
-Studio
+# Migrate the UI from Studio Classic to Studio
 
 The first phase for migrating an existing domain involves migrating the UI from
 Amazon SageMaker Studio Classic to Amazon SageMaker Studio. This phase does not include the migration of data. Users
 can continue working with their data the same way as they were before migration. For
-information about migrating data, see [(Optional) Migrate data from
-Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
+information about migrating data, see [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
 
 Phase 1 consists of the following steps:
 
@@ -17,12 +14,9 @@ Phase 1 consists of the following steps:
 
 ## Prerequisites
 
-Before running these steps, complete the prerequisites in [Complete prerequisites to migrate the
-Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md").
+Before running these steps, complete the prerequisites in [Complete prerequisites to migrate the Studio experience](studio-updated-migrate-prereq.md "studio-updated-migrate-prereq.md").
 
-## Step 1: Update application creation
-
-permissions
+## Step 1: Update application creation permissions
 
 Before migrating the domain, update the domain's execution role to grant users
 permissions to create applications.
@@ -207,12 +201,9 @@ permissions to create applications.
 
 If you use your domain in `VPC-Only` mode, ensure your VPC configuration
 meets the requirements for using Studio in `VPC-Only` mode. For more
-information, see [Connect Amazon SageMaker Studio
-in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md").
+information, see [Connect Amazon SageMaker Studio in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md").
 
-## Step 3: Upgrade to the
-
-Studio UI
+## Step 3: Upgrade to the Studio UI
 
 Before you migrate your existing domain from Studio Classic to Studio, we recommend
 creating a test domain using Studio with the same configurations as your existing
@@ -290,9 +281,7 @@ aws sagemaker create-user-profile \
 --user-profile-name test-network-user
 ```
 
-#### Test Studio
-
-functionality
+#### Test Studio functionality
 
 Launch the test domain using the `test-network-user` user
 profile. We suggest that you thoroughly test the Studio UI and create
@@ -312,9 +301,7 @@ If these tests are successful, then upgrade the existing domain. If you
 encounter any failures, we recommended fixing your environment and
 connectivity issues before updating the existing domain.
 
-#### Clean up test domain
-
-resources
+#### Clean up test domain resources
 
 After you have migrated the existing domain, clean up test domain
 resources.
@@ -420,8 +407,7 @@ using the SageMaker AI console.
    ###### Note
 
    You will need to migrate your data manually. For
-   instructions about migrating your data, see [(Optional) Migrate data from
-   Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
+   instructions about migrating your data, see [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md").
    - In the **Revert to Studio Classic
      experience** section you can view how to revert
      back to Studio Classic after enabling Studio as your default
@@ -435,8 +421,7 @@ using the SageMaker AI console.
 
 To prevent users from running these applications, choose the AWS Identity and Access Management
 (IAM) Role that has an IAM policy that denies access. For
-information about how to create a policy to limit access, see [Step 1: Update application creation
-permissions](#studio-updated-migrate-limit-apps "#studio-updated-migrate-limit-apps"). 8. In the **Choose default S3 bucket to attach CORS
+information about how to create a policy to limit access, see [Step 1: Update application creation permissions](#studio-updated-migrate-limit-apps "#studio-updated-migrate-limit-apps"). 8. In the **Choose default S3 bucket to attach CORS
 policy** section, you can give Studio access to Amazon S3
 buckets. The default Amazon S3 bucket, in this case, is the default Amazon S3
 bucket for your Studio Classic. In this step you can do the
@@ -452,8 +437,7 @@ following:
 
     If you wish to include more than 10 buckets, you can add them
      manually. For more information about manually attaching the CORS
-     policy to your Amazon S3 buckets, see [(Optional) Update your CORS policy
-     to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
+     policy to your Amazon S3 buckets, see [(Optional) Update your CORS policy to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
 
 To proceed, select the check box next to **Do you agree to
 overriding any existing CORS policy on the chosen Amazon S3
@@ -461,8 +445,7 @@ buckets?**. 9. The **Migrate data** section contains information
 about the different data storage volumes for Studio Classic and Studio.
 Your data will not be migrated automatically through this process. For
 instructions about migrating your data, lifecycle configurations, and
-JupyterLab extensions, see [(Optional) Migrate data from
-Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md"). 10. Once you have completed the tasks on the page and verified your
+JupyterLab extensions, see [(Optional) Migrate data from Studio Classic to Studio](studio-updated-migrate-data.md "studio-updated-migrate-data.md"). 10. Once you have completed the tasks on the page and verified your
 configuration, choose **Enable the new Studio**.
 To set Studio as the default experience for the existing domain using the
 AWS CLI, use the [update-domain](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-domain.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/update-domain.html") call. You must set `ENABLED` as the value
@@ -503,9 +486,7 @@ aws sagemaker update-domain \
   `existing-domain-id`, use the
   following instructions:
 
-###### To get
-
-`existing-domain-id`
+###### To get `existing-domain-id`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -519,9 +500,7 @@ aws sagemaker update-domain \
 - To ensure you are using the correct AWS Region for your domain,
   use the following instructions:
 
-###### To get
-
-`AWS Region`
+###### To get `AWS Region`
 
     1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
     2. From the left navigation pane, expand **Admin
@@ -541,8 +520,7 @@ Studio Classic default Amazon S3 bucket and additional Amazon S3 buckets. To do 
 manually attach a [Cross-Origin
 Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS") (CORS) configuration to the Amazon S3 buckets. For more
 information about how to manually attach the CORS policy to your Amazon S3 buckets,
-see [(Optional) Update your CORS policy
-to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
+see [(Optional) Update your CORS policy to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
 
 Similarly, you can set Studio as the default experience when you create a
 domain from the AWS CLI using the [create-domain](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/create-domain.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sagemaker/create-domain.html") call. 
@@ -559,8 +537,7 @@ Studio Classic default Amazon S3 bucket and additional Amazon S3 buckets. To do 
 manually attach a [Cross-Origin
 Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS") (CORS) configuration to the Amazon S3 buckets. For
 information about how to manually attach the CORS policy to your Amazon S3 buckets,
-see [(Optional) Update your CORS policy
-to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
+see [(Optional) Update your CORS policy to access Amazon S3 buckets](#studio-updated-migrate-cors "#studio-updated-migrate-cors").
 
 In Studio Classic, users can create, list, and upload files to Amazon Simple Storage Service (Amazon S3)
 buckets. To support the same experience in Studio, administrators must
@@ -578,8 +555,7 @@ following reasons.
   default experience to Studio.
 - If you are using the AWS CLI to migrate the existing domain's default
   experience to Studio. For information about using the AWS CLI to
-  migrate, see [Set Studio
-  as the default experience for the existing domain using the AWS CLI](#studio-updated-migrate-set-studio-updated-cli "#studio-updated-migrate-set-studio-updated-cli").
+  migrate, see [Set Studio as the default experience for the existing domain using the AWS CLI](#studio-updated-migrate-set-studio-updated-cli "#studio-updated-migrate-set-studio-updated-cli").
 - If you want to attach the CORS policy to additional Amazon S3
   buckets.
 
@@ -787,9 +763,7 @@ applications.
 After attaching the necessary permissions, you can create a Canvas
 application and log in. For more information, see [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").
 
-## Set Studio Classic as the default
-
-experience
+## Set Studio Classic as the default experience
 
 Administrators can revert to Studio Classic as the default experience for an existing
 domain. This can be done through the AWS CLI.

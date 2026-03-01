@@ -1,6 +1,4 @@
-# Use Amazon CloudWatch Events in
-
-Amazon Augmented AI
+# Use Amazon CloudWatch Events in Amazon Augmented AI
 
 Amazon Augmented AI uses Amazon CloudWatch Events to alert you when a human review loop status changes to
 `Completed`, `Failed`, or `Stopped`. This event delivery is
@@ -131,5 +129,4 @@ After you receive human review results, you can analyze the results and compare 
 
 ## More Information
 
-[Events that Amazon SageMaker AI sends to
-Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md")
+[Events that Amazon SageMaker AI sends to Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md")

@@ -20,14 +20,11 @@ or below of [SageMaker Operators for Kubernetes](https://github.com/aws/amazon-s
 The ACK service controller is a new generation of SageMaker Operators for Kubernetes based on
 [AWS Controllers for Kubernetes (ACK)](https://aws-controllers-k8s.github.io/community/ "https://aws-controllers-k8s.github.io/community/").
 
-For information on the migration steps, see [Migrate resources to the latest
-Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
+For information on the migration steps, see [Migrate resources to the latest Operators](kubernetes-sagemaker-operators-migrate.md "kubernetes-sagemaker-operators-migrate.md").
 
 For answers to frequently asked
 questions on the end of support of the original version of SageMaker Operators for
-Kubernetes, see [Announcing the End of Support
-of the Original Version of SageMaker AI
-Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+Kubernetes, see [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 ###### Note
 
@@ -46,9 +43,7 @@ by creating a **custom resource** that contains their
 application-specific or domain-specific logic and components. Operators in Kubernetes allow
 users to natively invoke these custom resources and automate associated workflows.
 
-### How does AWS Controllers for
-
-Kubernetes (ACK) work?
+### How does AWS Controllers for Kubernetes (ACK) work?
 
 The SageMaker AI Operators for Kubernetes allow you to manage jobs in SageMaker AI from your Kubernetes
 cluster. The latest version of SageMaker AI Operators for Kubernetes is based on AWS Controllers

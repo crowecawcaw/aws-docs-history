@@ -82,9 +82,7 @@ later.
 
 You can use XGBoost v1.0-1, but it's not officially supported.
 
-## EC2 instance recommendation for the XGBoost
-
-algorithm
+## EC2 instance recommendation for the XGBoost algorithm
 
 SageMaker AI XGBoost supports CPU and GPU training and inference. Instance recommendations
 depend on training and inference needs, as well as the version of the XGBoost algorithm.

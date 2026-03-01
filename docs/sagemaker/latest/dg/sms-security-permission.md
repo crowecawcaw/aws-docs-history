@@ -15,9 +15,7 @@ You can use the sections on this page to learn the following:
 
 - If you are getting started using Ground Truth, or you do not require granular permissions
   for your use case, it is recommended that you use the IAM managed policies described in [Use IAM Managed Policies with Ground Truth](sms-security-permissions-get-started.md "sms-security-permissions-get-started.md").
-- Learn about the permissions required to use the Ground Truth console in [Grant IAM Permission to Use the
-  Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md"). This section includes policy examples that grant an IAM entity permission to create and
+- Learn about the permissions required to use the Ground Truth console in [Grant IAM Permission to Use the Amazon SageMaker Ground Truth Console](sms-security-permission-console-access.md "sms-security-permission-console-access.md"). This section includes policy examples that grant an IAM entity permission to create and
   modify private work teams, subscribe to vendor work teams, and create custom labeling workflows.
-- When you create a labeling job, you must provide an execution role. Use [Create a SageMaker AI Execution Role for a
-  Ground Truth Labeling Job](sms-security-permission-execution-role.md "sms-security-permission-execution-role.md") to learn about the
+- When you create a labeling job, you must provide an execution role. Use [Create a SageMaker AI Execution Role for a Ground Truth Labeling Job](sms-security-permission-execution-role.md "sms-security-permission-execution-role.md") to learn about the
   permissions required for this role.

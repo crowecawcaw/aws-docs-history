@@ -1,6 +1,4 @@
-# Recommendation
-
-results
+# Recommendation results
 
 Each Inference Recommender job result includes `InstanceType`,
 `InitialInstanceCount`, and `EnvironmentParameters`, which

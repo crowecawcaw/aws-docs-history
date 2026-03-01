@@ -1,6 +1,4 @@
-# Connect Studio JupyterLab
-
-notebooks to Amazon EMR with trusted identity propagation enabled
+# Connect Studio JupyterLab notebooks to Amazon EMR with trusted identity propagation enabled
 
 Connecting Amazon SageMaker Studio JupyterLab notebooks to Amazon EMR clusters enables you
 to leverage the distributed computing power of Amazon EMR for large-scale data processing and
@@ -13,8 +11,7 @@ your Studio notebook.
 To connect Studio to Amazon EMR with trusted identity propagation enabled, ensure
 you have completed the following setups:
 
-- [Setting up trusted identity propagation for
-  Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
+- [Setting up trusted identity propagation for Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
 - [Getting
   started with AWS IAM Identity Center integration for Amazon EMR](../../../emr/latest/ManagementGuide/emr-idc-start.md "../../../emr/latest/ManagementGuide/emr-idc-start.md")
 - [Enable communications between Studio and Amazon EMR clusters](studio-notebooks-emr-cluster.md "studio-notebooks-emr-cluster.md")

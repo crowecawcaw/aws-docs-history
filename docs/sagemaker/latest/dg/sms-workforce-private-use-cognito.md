@@ -7,7 +7,5 @@ provides authentication, authorization, and user management for your private wor
 
 ###### Topics
 
-- [Create a Private Workforce
-  (Amazon Cognito)](sms-workforce-create-private.md "sms-workforce-create-private.md")
-- [Manage a Private Workforce
-  (Amazon Cognito)](sms-workforce-management-private.md "sms-workforce-management-private.md")
+- [Create a Private Workforce (Amazon Cognito)](sms-workforce-create-private.md "sms-workforce-create-private.md")
+- [Manage a Private Workforce (Amazon Cognito)](sms-workforce-management-private.md "sms-workforce-management-private.md")

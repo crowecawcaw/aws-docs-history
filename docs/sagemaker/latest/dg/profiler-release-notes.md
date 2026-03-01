@@ -1,6 +1,4 @@
-# Release notes for profiling capabilities of
-
-Amazon SageMaker AI
+# Release notes for profiling capabilities of Amazon SageMaker AI
 
 See the following release notes to track the latest updates for profiling capabilities of
 Amazon SageMaker AI.

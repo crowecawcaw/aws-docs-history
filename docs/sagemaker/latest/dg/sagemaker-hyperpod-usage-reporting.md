@@ -1,6 +1,4 @@
-# Usage reporting for cost attribution in
-
-SageMaker HyperPod
+# Usage reporting for cost attribution in SageMaker HyperPod
 
 Usage reporting in SageMaker HyperPod EKS-orchestrated clusters provides granular visibility
 into compute resource consumption. The capability allows organizations to implement
@@ -73,9 +71,7 @@ tools). This infrastructure-level monitoring ensures comprehensive usage-based
 accountability, preventing gaps in cost attribution for shared clusters regardless
 of how namespaces are managed.
 
-## Reports formats and time
-
-range
+## Reports formats and time range
 
 Using the Python script provided in [Generate reports](sagemaker-hyperpod-usage-reporting-generate.md "sagemaker-hyperpod-usage-reporting-generate.md"), administrators can generate
 usage reports on demand in CSV or PDF formats, selecting time ranges from daily
@@ -87,9 +83,7 @@ You can configure the historical window to extend beyond the default 180-day
 maximum when setting up the reporting infrastructure. For more information on
 configuring the data retention period, see [Install Usage Report Infrastructure using CloudFormation](https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#install-usage-report-infrastructure-using-cloudformation "https://github.com/awslabs/sagemaker-hyperpod-usage-report/blob/main/README.md#install-usage-report-infrastructure-using-cloudformation").
 
-## Illustrative use
-
-cases
+## Illustrative use cases
 
 This capability addresses critical scenarios in multi-tenant AI/ML environments such
 as:

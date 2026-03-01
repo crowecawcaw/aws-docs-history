@@ -4,16 +4,12 @@ The following page explains how to build a custom Amazon Machine Image (AMI) usi
 base AMIs. You begin by selecting a base AMI, and then you create your own customized AMI using any of the common methods
 for creating new images, such as the AWS CLI.
 
-## Select a SageMaker HyperPod base
-
-AMI
+## Select a SageMaker HyperPod base AMI
 
 You can select a SageMaker HyperPod base AMI through one of the following
 methods.
 
-### AWS console
-
-selection
+### AWS console selection
 
 You can select public SageMaker HyperPod AMIs through the AWS console or by
 using the `DescribeImages` API call. SageMaker HyperPod AMIs are public
@@ -33,9 +29,7 @@ To find SageMaker HyperPod AMIs in the console:
    for your use case. For instance, you can choose an AMI between
    Kubernetes 1.31 versus Kubernetes 1.30.
 
-### Fetch latest public AMI ID
-
-through the AWS CLI
+### Fetch latest public AMI ID through the AWS CLI
 
 If you want to always use the latest release public AMI, it is more
 efficient to use the public SageMaker HyperPod SSM parameter that contains the
@@ -83,9 +77,7 @@ create-image` command to create an AMI from an existing Amazon EC2
   deployment of Linux or Windows Server images. For more information,
   see the [EC2 Image Builder User Guide](../../../imagebuilder/latest/userguide/what-is-image-builder.md "../../../imagebuilder/latest/userguide/what-is-image-builder.md").
 
-### Build a custom AMI with customer
-
-managed AWS KMS encryption
+### Build a custom AMI with customer managed AWS KMS encryption
 
 The following sections describe how to build a custom AMI with a customer managed AWS KMS key
 to encrypt your HyperPod cluster volumes. For more information about customer managed keys in HyperPod
@@ -94,9 +86,7 @@ and granting the required IAM and KMS key policy permissions, see
 to use a custom AMI that is encrypted with a customer managed key, ensure that you also encrypt
 your HyperPod cluster's Amazon EBS root volume with the same key.
 
-#### AWS CLI example: Create a new
-
-AMI using EC2 Image Builder and a HyperPod base image
+#### AWS CLI example: Create a new AMI using EC2 Image Builder and a HyperPod base image
 
 The following example shows how to create an AMI using Image Builder with
 AWS KMS encryption:
@@ -109,9 +99,7 @@ aws imagebuilder create-image-recipe \
     block-device-mappings DeviceName="/dev/xvda",Ebs={VolumeSize=100,VolumeType=gp3,Encrypted=true,KmsKeyId=arn:aws:kms:`us-east-1`:`111122223333`:key/`key-id`,DeleteOnTermination=true}
 ```
 
-#### Amazon EC2 console: Create
-
-a new AMI from an Amazon EC2
+#### Amazon EC2 console: Create a new AMI from an Amazon EC2
 
 To create an AMI from an Amazon EC2 instance using the Amazon EC2 console:
 
@@ -123,9 +111,7 @@ To create an AMI from an Amazon EC2 instance using the Amazon EC2 console:
    `arn:aws:kms:`us-east-2`:`111122223333`:key/`<your-kms-key-id>``
 or use the key alias: `alias/`<your-hyperpod-key>``.
 
-#### AWS CLI example: Create
-
-a new AMI from an Amazon EC2 instance
+#### AWS CLI example: Create a new AMI from an Amazon EC2 instance
 
 Use the `aws ec2 create-image` command with AWS KMS
 encryption:

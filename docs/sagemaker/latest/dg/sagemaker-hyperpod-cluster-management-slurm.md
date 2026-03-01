@@ -76,9 +76,7 @@ When you write a [CreateCluster](../APIReference/API_CreateCluster.md "../APIRef
 or [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md")
 API request file in JSON format, edit the `Tags` section.
 
-### Using the
-
-AWS CLI tagging commands for SageMaker AI
+### Using the AWS CLI tagging commands for SageMaker AI
 
 **To tag a cluster**
 

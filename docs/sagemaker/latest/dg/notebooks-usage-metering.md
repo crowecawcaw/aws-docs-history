@@ -39,8 +39,7 @@ instance.
 
 Metering starts when an instance is created. Metering ends when all the apps on the
 instance are shut down, or the instance is shut down. For information about how to shut down
-an instance, see [Shut Down Resources from
-Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md").
+an instance, see [Shut Down Resources from Amazon SageMaker Studio Classic](notebooks-run-and-manage-shut-down.md "notebooks-run-and-manage-shut-down.md").
 
 ###### Important
 
@@ -55,7 +54,6 @@ instance even if they are using different kernels. You are billed only for the t
 instance is running.
 
 You can change the instance type from within the notebook after you open it. For more
-information, see [Change the Instance
-Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md").
+information, see [Change the Instance Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md").
 
 For information about billing along with pricing examples, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").

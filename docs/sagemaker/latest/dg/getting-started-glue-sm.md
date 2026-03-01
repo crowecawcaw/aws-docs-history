@@ -1,13 +1,9 @@
-# Get Started with AWS Glue Interactive
-
-Sessions
+# Get Started with AWS Glue Interactive Sessions
 
 In this guide, you learn how to initiate an AWS Glue interactive session in SageMaker AI
 Studio Classic, and manage your environment with Jupyter magics.
 
-## Permissions for AWS Glue interactive sessions in
-
-Studio or Studio Classic
+## Permissions for AWS Glue interactive sessions in Studio or Studio Classic
 
 This section lists the required policies to run AWS Glue interactive sessions in
 Studio or Studio Classic and explains how to set them up. In particular, it details
@@ -18,9 +14,7 @@ how to:
 - Create an inline custom policy on your SageMaker AI execution role.
 - Modify the trust relationship of your SageMaker AI execution role.
 
-###### To attach the `AwsGlueSessionUserRestrictedServiceRole` managed
-
-policy to your execution role
+###### To attach the `AwsGlueSessionUserRestrictedServiceRole` managed policy to your execution role
 
 1. Open the [IAM
    console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -133,8 +127,7 @@ By default, the role associated with the AWS Glue interactive session is the
 same as the SageMaker AI execution role. You can specify a different execution role
 for the AWS Glue interactive session by using the `%iam_role` magic
 command. For information on the available Jupyter magic commands to configure
-AWS Glue interactive sessions, see [Configure your AWS Glue interactive session in
-Studio or Studio Classic](#glue-sm-magics "#glue-sm-magics").
+AWS Glue interactive sessions, see [Configure your AWS Glue interactive session in Studio or Studio Classic](#glue-sm-magics "#glue-sm-magics").
 
 - _On your SageMaker AI execution role_: Create
   a new inline policy, and paste the following JSON file. The policy
@@ -253,9 +246,7 @@ For more information on tagging, refer to the following resources.
 - For information on controlling access to AWS Glue based on tag keys, see
   [ABAC with AWS Glue](glue/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "glue/latest/dg/security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 
-## Launch your AWS Glue interactive session on
-
-Studio or Studio Classic
+## Launch your AWS Glue interactive session on Studio or Studio Classic
 
 After you create the roles, policies, and SageMaker AI domain, you can launch your
 AWS Glue interactive session in Studio or Studio Classic.
@@ -277,14 +268,11 @@ AWS Glue interactive session in Studio or Studio Classic.
 
 For Studio users, select a **Glue Spark** or
 **Glue Python [PySpark and Ray]** kernel 7. (optional) Use Jupyter magics to customize your environment. For more
-information about Jupyter magics, see [Configure your AWS Glue interactive session in
-Studio or Studio Classic](#glue-sm-magics "#glue-sm-magics"). 8. Start writing your Spark data processing scripts. The following [notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/use-cases/pyspark_etl_and_training/pyspark-etl-training.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/use-cases/pyspark_etl_and_training/pyspark-etl-training.ipynb") showcases an end-to-end workflow for ETL on a large
+information about Jupyter magics, see [Configure your AWS Glue interactive session in Studio or Studio Classic](#glue-sm-magics "#glue-sm-magics"). 8. Start writing your Spark data processing scripts. The following [notebook](https://github.com/aws/amazon-sagemaker-examples/blob/main/use-cases/pyspark_etl_and_training/pyspark-etl-training.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/use-cases/pyspark_etl_and_training/pyspark-etl-training.ipynb") showcases an end-to-end workflow for ETL on a large
 dataset using an AWS Glue interactive session, exploratory data analysis, data
 preprocessing, and finally training a model on the processed data with SageMaker AI.
 
-## Configure your AWS Glue interactive session in
-
-Studio or Studio Classic
+## Configure your AWS Glue interactive session in Studio or Studio Classic
 
 ###### Note
 

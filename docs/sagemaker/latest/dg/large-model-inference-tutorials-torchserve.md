@@ -1,6 +1,4 @@
-# Deploy large models for inference with
-
-TorchServe
+# Deploy large models for inference with TorchServe
 
 This tutorial demonstrates how to deploy large models and serve inference in Amazon SageMaker AI with
 TorchServe on GPUs. This example deploys the [OPT-30b](https://huggingface.co/facebook/opt-30b "https://huggingface.co/facebook/opt-30b") model to an
@@ -14,9 +12,7 @@ Accelerate, it offers uniform handler APIs that remain consistent across distrib
 model and non-distributed model inference scenarios. For more information, see [TorchServe’s large model
 inference documentation](https://pytorch.org/serve/large_model_inference.html# "https://pytorch.org/serve/large_model_inference.html#").
 
-## Deep learning
-
-containers with TorchServe
+## Deep learning containers with TorchServe
 
 To deploy a large model with TorchServe on SageMaker AI, you can use one of the SageMaker AI deep
 learning containers (DLCs). By default, TorchServe is installed in all AWS PyTorch
@@ -32,9 +28,7 @@ The following table lists all of the [SageMaker AI DLCs with TorchServe](https:/
 | [StabilityAI Inference Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#stabilityai-inference-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#stabilityai-inference-containers")                                                         | PyTorch 2.0.0+ | GPU      | 763104351884.dkr.ecr.us-east-1.amazonaws.com/stabilityai-pytorch-inference:2.0.1-sgm0.1.0-gpu-py310-cu118-ubuntu20.04-sagemaker |
 | [Neuron Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#neuron-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#neuron-containers")                                                                                                      | PyTorch 1.13.1 | Neuronx  | 763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-inference-neuron:1.13.1-neuron-py310-sdk2.12.0-ubuntu20.04                 |
 
-## Getting
-
-started
+## Getting started
 
 Before deploying your model, complete the prerequisites. You can also configure your
 model parameters and customize the handler code.
@@ -221,9 +215,7 @@ class TransformersSeqClassifierHandler(BaseDeepSpeedHandler, ABC):
         """
 ```
 
-## Prepare your
-
-model artifacts
+## Prepare your model artifacts
 
 Before deploying your model on SageMaker AI, you must package your model artifacts. For large
 models, we recommend that you use the PyTorch [torch-model-archiver](https://github.com/pytorch/serve/blob/master/model-archiver/README.md "https://github.com/pytorch/serve/blob/master/model-archiver/README.md") tool with the argument `--archive-format
@@ -251,9 +243,7 @@ aws s3 cp opt `{your_s3_bucket}`/opt --recursive
 You should now have model artifacts stored in Amazon S3 that are ready to deploy to a SageMaker AI
 endpoint.
 
-## Deploy the model
-
-using the SageMaker Python SDK
+## Deploy the model using the SageMaker Python SDK
 
 After preparing your model artifacts, you can deploy your model to a SageMaker AI Hosting
 endpoint. This section describes how to deploy a single large model to an endpoint and

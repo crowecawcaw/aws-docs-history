@@ -1,6 +1,4 @@
-# CloudWatch Metrics for Bring Your
-
-Own Containers
+# CloudWatch Metrics for Bring Your Own Containers
 
 If the `publish_cloudwatch_metrics` value is
 `Enabled` in the `Environment` map in the

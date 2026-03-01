@@ -20,19 +20,15 @@ are closer together). For more information about how k-means works in Amazon Sag
 
 ###### Topics
 
-- [Input/Output Interface for the K-Means
-  Algorithm](#km-inputoutput "#km-inputoutput")
-- [EC2 Instance Recommendation for the K-Means
-  Algorithm](#km-instances "#km-instances")
+- [Input/Output Interface for the K-Means Algorithm](#km-inputoutput "#km-inputoutput")
+- [EC2 Instance Recommendation for the K-Means Algorithm](#km-instances "#km-instances")
 - [K-Means Sample Notebooks](#kmeans-sample-notebooks "#kmeans-sample-notebooks")
 - [How K-Means Clustering Works](algo-kmeans-tech-notes.md "algo-kmeans-tech-notes.md")
 - [K-Means Hyperparameters](k-means-api-config.md "k-means-api-config.md")
 - [Tune a K-Means Model](k-means-tuning.md "k-means-tuning.md")
 - [K-Means Response Formats](km-in-formats.md "km-in-formats.md")
 
-## Input/Output Interface for the K-Means
-
-Algorithm
+## Input/Output Interface for the K-Means Algorithm
 
 For training, the k-means algorithm expects data to be provided in the
 _train_ channel (recommended
@@ -52,9 +48,7 @@ For more information on input and output file formats, see [K-Means Response For
 k-means algorithm does not support multiple instance learning, in which the training set
 consists of labeled “bags”, each of which is a collection of unlabeled instances.
 
-## EC2 Instance Recommendation for the K-Means
-
-Algorithm
+## EC2 Instance Recommendation for the K-Means Algorithm
 
 We recommend training k-means on CPU instances. You can train on GPU instances, but
 should limit GPU training to single-GPU instances (such as ml.g4dn.xlarge) because only one GPU is used per

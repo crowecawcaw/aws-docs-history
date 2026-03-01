@@ -1,6 +1,4 @@
-# Give Inference Recommender Jobs Access to Resources in Your
-
-Amazon VPC
+# Give Inference Recommender Jobs Access to Resources in Your Amazon VPC
 
 ###### Note
 

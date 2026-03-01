@@ -13,8 +13,7 @@ you have imported through local upload or Amazon S3.
 
 You can
 update your dataset either manually or automatically. For more information
-about automatic dataset updates, see [Configure automatic updates for a
-dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
+about automatic dataset updates, see [Configure automatic updates for a dataset](canvas-update-dataset-auto.md "canvas-update-dataset-auto.md").
 
 Every time you update your dataset, Canvas creates a
 new version of your dataset. You can only use the latest version of your

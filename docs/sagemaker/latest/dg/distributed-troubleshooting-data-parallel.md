@@ -1,6 +1,4 @@
-# Troubleshooting for distributed
-
-training in Amazon SageMaker AI
+# Troubleshooting for distributed training in Amazon SageMaker AI
 
 If you have problems in running a training job when you use the library, use the following
 list to try to troubleshoot. If you need further support, reach out to the SageMaker AI team through
@@ -9,22 +7,14 @@ Amazon Amazon SageMaker AI](https://forums.aws.amazon.com/forum.jspa?forumID=285
 
 ###### Topics
 
-- [Using SageMaker AI distributed data
-  parallel with Amazon SageMaker Debugger and checkpoints](#distributed-ts-data-parallel-debugger "#distributed-ts-data-parallel-debugger")
-- [An unexpected prefix
-  attached to model parameter keys](#distributed-ts-data-parallel-pytorch-prefix "#distributed-ts-data-parallel-pytorch-prefix")
-- [SageMaker AI distributed training job
-  stalling during initialization](#distributed-ts-data-parallel-efa-sg "#distributed-ts-data-parallel-efa-sg")
-- [SageMaker AI distributed
-  training job stalling at the end of training](#distributed-ts-data-parallel-stall-at-the-end "#distributed-ts-data-parallel-stall-at-the-end")
-- [Observing scaling
-  efficiency degradation due to Amazon FSx throughput bottlenecks](#distributed-ts-data-parallel-fxs-bottleneck "#distributed-ts-data-parallel-fxs-bottleneck")
-- [SageMaker AI distributed
-  training job with PyTorch returns deprecation warnings](#distributed-ts-data-parallel-deprecation-warnings "#distributed-ts-data-parallel-deprecation-warnings")
+- [Using SageMaker AI distributed data parallel with Amazon SageMaker Debugger and checkpoints](#distributed-ts-data-parallel-debugger "#distributed-ts-data-parallel-debugger")
+- [An unexpected prefix attached to model parameter keys](#distributed-ts-data-parallel-pytorch-prefix "#distributed-ts-data-parallel-pytorch-prefix")
+- [SageMaker AI distributed training job stalling during initialization](#distributed-ts-data-parallel-efa-sg "#distributed-ts-data-parallel-efa-sg")
+- [SageMaker AI distributed training job stalling at the end of training](#distributed-ts-data-parallel-stall-at-the-end "#distributed-ts-data-parallel-stall-at-the-end")
+- [Observing scaling efficiency degradation due to Amazon FSx throughput bottlenecks](#distributed-ts-data-parallel-fxs-bottleneck "#distributed-ts-data-parallel-fxs-bottleneck")
+- [SageMaker AI distributed training job with PyTorch returns deprecation warnings](#distributed-ts-data-parallel-deprecation-warnings "#distributed-ts-data-parallel-deprecation-warnings")
 
-## Using SageMaker AI distributed data
-
-parallel with Amazon SageMaker Debugger and checkpoints
+## Using SageMaker AI distributed data parallel with Amazon SageMaker Debugger and checkpoints
 
 To monitor system bottlenecks, profile framework operations, and debug model output
 tensors for training jobs with SageMaker AI distributed data parallel, use Amazon SageMaker Debugger.
@@ -68,9 +58,7 @@ estimator = TensorFlow(
   information about setting up manual checkpointing in a training script, see
   [Saving Checkpoints](distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints "distributed-troubleshooting-model-parallel.md#distributed-ts-model-parallel-checkpoints").
 
-## An unexpected prefix
-
-attached to model parameter keys
+## An unexpected prefix attached to model parameter keys
 
 For PyTorch distributed training jobs, an unexpected prefix (`model` for
 example) might be attached to `state_dict` keys (model parameters). The SageMaker AI
@@ -96,9 +84,7 @@ For more information about the PyTorch methods for saving and loading models, se
 [Saving & Loading Model Across Devices](https://pytorch.org/tutorials/beginner/saving_loading_models.html#saving-loading-model-across-devices "https://pytorch.org/tutorials/beginner/saving_loading_models.html#saving-loading-model-across-devices") in the _PyTorch
 documentation_.
 
-## SageMaker AI distributed training job
-
-stalling during initialization
+## SageMaker AI distributed training job stalling during initialization
 
 If your SageMaker AI distributed data parallel training job stalls during initialization when
 using EFA-enabled instances, this might be due to a misconfiguration in the security
@@ -133,9 +119,7 @@ resolved.
 For more information about configuring security groups for VPC and EFA, see [Security
 groups for your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") and [Elastic Fabric Adapter](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md").
 
-## SageMaker AI distributed
-
-training job stalling at the end of training
+## SageMaker AI distributed training job stalling at the end of training
 
 One of the root causes of stalling issues at the end of training is a mismatch in the
 number of batches that are processed per epoch across different ranks. All workers
@@ -153,9 +137,7 @@ gets the same number of data samples so that each worker goes through the same n
 batches while training. Make sure each rank gets the same number of batches to avoid
 this stalling issue.
 
-## Observing scaling
-
-efficiency degradation due to Amazon FSx throughput bottlenecks
+## Observing scaling efficiency degradation due to Amazon FSx throughput bottlenecks
 
 One potential cause of lowered scaling efficiency is the FSx throughput limit. If you
 observe a sudden drop in scaling efficiency when you switch to a larger training
@@ -165,9 +147,7 @@ system performance](../../../fsx/latest/LustreGuide/performance.md#fsx-aggregate
 throughput capacity](../../../fsx/latest/LustreGuide/managing-storage-capacity.md "../../../fsx/latest/LustreGuide/managing-storage-capacity.md") in the _Amazon FSx for Lustre User
 Guide_.
 
-## SageMaker AI distributed
-
-training job with PyTorch returns deprecation warnings
+## SageMaker AI distributed training job with PyTorch returns deprecation warnings
 
 Since v1.4.0, the SageMaker AI distributed data parallelism library works as a backend of
 PyTorch distributed. Because of the breaking change of using the library with PyTorch,
@@ -186,7 +166,6 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-modify-sdp-pt.html
 In v1.4.0 and later, the library only needs to be imported once at the top of your
 training script and set as the backend during the PyTorch distributed initialization.
 With the single line of backend specification, you can keep your PyTorch training script
-unchanged and directly use the PyTorch distributed modules. See [Use the SMDDP library in your PyTorch training
-script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md")
+unchanged and directly use the PyTorch distributed modules. See [Use the SMDDP library in your PyTorch training script](data-parallel-modify-sdp-pt.md "data-parallel-modify-sdp-pt.md")
 to learn about the breaking changes and the new way to use the library with
 PyTorch.

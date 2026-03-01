@@ -1,6 +1,4 @@
-# Deploy
-
-models for real-time inference
+# Deploy models for real-time inference
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -40,9 +37,7 @@ roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/Use
 The Amazon S3 bucket where the model artifacts are stored must be in the same
 AWS Region as the model that you are creating.
 
-## Shared resource utilization with multiple
-
-models
+## Shared resource utilization with multiple models
 
 You can deploy one or more models to an endpoint with Amazon SageMaker AI. When multiple models
 share an endpoint, they jointly utilize the resources that are hosted there, such as the
@@ -188,9 +183,7 @@ screenshot:
 
 ![Screenshot of the Container definition section for creating a model in Studio.](images/inference/studio-container-definition.png)
 
-###### For the **Container definition** section, do the
-
-following:
+###### For the **Container definition** section, do the following:
 
 1. For **Container type**, select **Pre-built
    container** if you'd like to use a SageMaker AI managed container, or
@@ -272,9 +265,7 @@ section, which looks like the following screenshot:
 
 ![Screenshot of the Advanced options section for creating a model in Studio.](images/inference/studio-advanced-options.png)
 
-###### (Optional) For the **Advanced options** section, do the
-
-following:
+###### (Optional) For the **Advanced options** section, do the following:
 
 1. Turn on the **Customized instance recommendations**
    toggle if you want to run an Amazon SageMaker Inference Recommender job on your model after its
@@ -442,14 +433,11 @@ model is to use `ModelBuilder` for which you provide model artifacts or
 inference code. `ModelBuilder` automatically captures your dependencies,
 infers the needed serialization and deserialization functions, and packages your
 dependencies to create your `Model` object. For more information about
-`ModelBuilder`, see [Create a model in Amazon SageMaker AI with
-ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
+`ModelBuilder`, see [Create a model in Amazon SageMaker AI with ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md").
 
 The following section describes both methods to create your model and deploy your model object.
 
-### Set
-
-up
+### Set up
 
 The following examples prepare for the model deployment process. They import the
 necessary libraries and define the S3 URL that locates the model artifacts.
@@ -554,8 +542,7 @@ following ways:
   create your `Model` object.
 
 For more information about `ModelBuilder`, see
-[Create a model in Amazon SageMaker AI with
-ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md"). You
+[Create a model in Amazon SageMaker AI with ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md"). You
 can also see the blog [Package and deploy classical ML models and LLMs easily with SageMaker AI
 – Part 1](https://aws.amazon.com/blogs/machine-learning/package-and-deploy-classical-ml-and-llms-easily-with-amazon-sagemaker-part-1-pysdk-improvements/ "https://aws.amazon.com/blogs/machine-learning/package-and-deploy-classical-ml-and-llms-easily-with-amazon-sagemaker-part-1-pysdk-improvements/") for more information.
 

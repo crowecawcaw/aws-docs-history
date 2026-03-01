@@ -1,6 +1,4 @@
-# Delayed parameter
-
-initialization
+# Delayed parameter initialization
 
 Initialization of a large model for training is not always possible with the limited
 GPU memory. To resolve this problem of insufficient GPU memory, you can initialize the

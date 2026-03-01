@@ -1,6 +1,4 @@
-# Configure Amazon EMR CloudFormation
-
-templates in the Service Catalog
+# Configure Amazon EMR CloudFormation templates in the Service Catalog
 
 This topic assumes administrators are familiar with [CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md"), [portfolios and
 products in AWS Service Catalog](../../../servicecatalog/latest/adminguide/getstarted-portfolio.md "../../../servicecatalog/latest/adminguide/getstarted-portfolio.md"), as well as [Amazon EMR](../../../emr/latest/ManagementGuide/emr-gs.md "../../../emr/latest/ManagementGuide/emr-gs.md").
@@ -37,16 +35,13 @@ The [sagemaker-studio-emr/cloudformation/emr_servicecatalog_templates](https://g
 repository contains various sample Amazon EMR CloudFormation launch templates, including
 options for single account and cross-account deployments.
 
-Refer to [Connect to an Amazon EMR cluster from SageMaker Studio
-or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md") for details on the authentication methods you can use to connect to an Amazon EMR
+Refer to [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md") for details on the authentication methods you can use to connect to an Amazon EMR
 cluster.
 
 To let data scientists discover Amazon EMR CloudFormation templates and provision clusters from
 Studio or Studio Classic, follow these steps.
 
-## Step 0: Check your networking and prepare
-
-your CloudFormation stack
+## Step 0: Check your networking and prepare your CloudFormation stack
 
 Before you start:
 
@@ -58,9 +53,7 @@ Before you start:
   following steps highlight the specific configurations in your end-to-end
   stack to enable the use of Amazon EMR templates within Studio or Studio Classic.
 
-## Step 1: Associate your
-
-Service Catalog portfolio with SageMaker AI
+## Step 1: Associate your Service Catalog portfolio with SageMaker AI
 
 **In your Service Catalog portfolio**, associate your
 portfolio ID with the SageMaker AI execution role accessing your cluster.
@@ -85,9 +78,7 @@ SageMakerStudioEMRProductPortfolioPrincipalAssociation:
 
 For details on the required set of IAM permissions, see the [permissions](#studio-emr-permissions "#studio-emr-permissions") section.
 
-## Step 2: Reference an
-
-Amazon EMR template in a Service Catalog product
+## Step 2: Reference an Amazon EMR template in a Service Catalog product
 
 **In a Service Catalog product of your portfolio**, reference
 an Amazon EMR template resource and ensure its visibility in Studio or Studio Classic.
@@ -123,9 +114,7 @@ SMStudioEMRNoAuthProduct:
           Value: "true"
 ```
 
-## Step 3: Parameterize the Amazon EMR
-
-CloudFormation template
+## Step 3: Parameterize the Amazon EMR CloudFormation template
 
 **The CloudFormation template used to define the Amazon EMR cluster
 within the Service Catalog product** allows administrators to specify configurable
@@ -203,14 +192,11 @@ Amazon EMR template to create an Amazon EMR cluster in Studio or Studio Classic.
 
 ![Illustration of a dynamic form assembled from a CloudFormation Amazon EMR template to create an Amazon EMR cluster from Studio or Studio Classic.](images/studio/emr/studio-notebooks-emr-cluster-creation.png)
 
-Visit [Launch an Amazon EMR
-cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md") to learn
+Visit [Launch an Amazon EMR cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md") to learn
 about how to launch a cluster from Studio or Studio Classic using those Amazon EMR
 templates.
 
-## Step 4: Set up the permissions to enable
-
-listing and launching Amazon EMR clusters from Studio
+## Step 4: Set up the permissions to enable listing and launching Amazon EMR clusters from Studio
 
 Last, attach the required IAM permissions to enable listing existing running
 Amazon EMR clusters and self-provisioning new clusters from Studio or
@@ -234,8 +220,7 @@ role accessing your cluster.
 1. **Step 1**: Retrieve the ARN of the
    SageMaker AI execution role used by your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's
 execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). 2. **Step 2**: Attach the following
@@ -272,14 +257,12 @@ clusters.
 ###### Note
 
 Users of role-based access control (RBAC) connectivity to Amazon EMR
-clusters should also refer to [Configure runtime role
-authentication when your Amazon EMR cluster and Studio are in the same account](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same").
+clusters should also refer to [Configure runtime role authentication when your Amazon EMR cluster and Studio are in the same account](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-same").
 
 Before you get started, retrieve the ARN of the SageMaker AI execution role used
 by your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution
 role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
@@ -291,8 +274,7 @@ accounts.
 ###### Note
 
 Users of role-based access control (RBAC) connectivity to Amazon EMR
-clusters should also refer to [Configure runtime role
-authentication when your cluster and Studio are in different accounts](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff").
+clusters should also refer to [Configure runtime role authentication when your cluster and Studio are in different accounts](studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff "studio-notebooks-emr-cluster-rbac.md#studio-notebooks-emr-cluster-iam-diff").
 
 #### On the Amazon EMR cluster account
 
@@ -433,8 +415,7 @@ access resources in the trusting account.
    the SageMaker AI execution role used by your private space.
 
 For information on spaces and execution roles in SageMaker AI, see
-[Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+[Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's
 execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). 2. **Step 2**: Attach the

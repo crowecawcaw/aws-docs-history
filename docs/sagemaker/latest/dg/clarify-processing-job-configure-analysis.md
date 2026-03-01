@@ -17,21 +17,15 @@ the underlying configuration used by the SageMaker Clarify job.
 
 ###### Topics
 
-- [Schema for the analysis
-  configuration file](#clarify-processing-job-configure-schema "#clarify-processing-job-configure-schema")
-- [Example analysis
-  configuration files](#clarify-processing-job-configure-analysis-examples "#clarify-processing-job-configure-analysis-examples")
+- [Schema for the analysis configuration file](#clarify-processing-job-configure-schema "#clarify-processing-job-configure-schema")
+- [Example analysis configuration files](#clarify-processing-job-configure-analysis-examples "#clarify-processing-job-configure-analysis-examples")
 
-## Schema for the analysis
-
-configuration file
+## Schema for the analysis configuration file
 
 The following section describes the schema for the analysis configuration file
 including requirements and descriptions of parameters.
 
-### Requirements
-
-for the analysis configuration file
+### Requirements for the analysis configuration file
 
 The SageMaker Clarify processing job expects the analysis configuration file to be structured
 with the following requirements:
@@ -272,8 +266,7 @@ probability_threshold` filters out objects detected
   An array of label values or a threshold
   number, which indicate positive outcome for ground truth and predicted
   labels for bias metrics. For more information, see positive label values
-  in [Amazon SageMaker Clarify Terms for Bias and
-  Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). If the label is
+  in [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). If the label is
   numeric, the threshold is applied as the lower bound to select the
   positive outcome. To set `label_values_or_threshold` for
   different problem types, refer to the following examples:
@@ -301,8 +294,7 @@ probability_threshold` filters out objects detected
   attributes against which bias is measured. You can use facets to
   understand the bias characteristics of your dataset and model even if
   your model is trained without using sensitive attributes. For more
-  information, see **Facet** in [Amazon SageMaker Clarify Terms for Bias and
-  Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). Each facet object
+  information, see **Facet** in [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). Each facet object
   includes the following fields:
   - name_or_index – (Optional) The name
     or zero-based index of the sensitive attribute column in a
@@ -353,9 +345,7 @@ probability_threshold` filters out objects detected
 
 - group_variable – (Optional) The name or
   zero-based index of the column that indicates the subgroup to be used
-  for the bias metric [Conditional Demographic Disparity
-  (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md") or [Conditional Demographic
-  Disparity in Predicted Labels (CDDPL)](clarify-post-training-bias-metric-cddpl.md "clarify-post-training-bias-metric-cddpl.md").
+  for the bias metric [Conditional Demographic Disparity (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md") or [Conditional Demographic Disparity in Predicted Labels (CDDPL)](clarify-post-training-bias-metric-cddpl.md "clarify-post-training-bias-metric-cddpl.md").
 - facet_dataset_uri – (Optional) Only
   applicable when dataset_type is `text/csv`. The S3 URI for a
   dataset containing sensitive attributes for bias analysis. You can use
@@ -407,8 +397,7 @@ in the facet dataset.
        This field is used to locate all static covariate fields in the shared input dataset,
        if present.
 
-  For examples, see [Time series
-  dataset config examples](clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex "clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex").
+  For examples, see [Time series dataset config examples](clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex "clarify-processing-job-data-format-time-series.md#clarify-processing-job-data-format-time-series-ex").
 
 - methods – An object containing
   one or more analysis methods and their parameters. If any method is
@@ -428,26 +417,18 @@ in the facet dataset.
       **Difference in Proportions of
       Labels**.
       - `CI` for [Class Imbalance (CI)](clarify-bias-metric-class-imbalance.md "clarify-bias-metric-class-imbalance.md")
-      - `DPL` for [Difference in
-        Proportions of Labels (DPL)](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md")
-      - `KL` for [Kullback-Leibler Divergence
-        (KL)](clarify-data-bias-metric-kl-divergence.md "clarify-data-bias-metric-kl-divergence.md")
-      - `JS` for [Jensen-Shannon
-        Divergence (JS)](clarify-data-bias-metric-jensen-shannon-divergence.md "clarify-data-bias-metric-jensen-shannon-divergence.md")
-      - `LP` for [Lp-norm
-        (LP)](clarify-data-bias-metric-lp-norm.md "clarify-data-bias-metric-lp-norm.md")
-      - `TVD` for [Total Variation
-        Distance (TVD)](clarify-data-bias-metric-total-variation-distance.md "clarify-data-bias-metric-total-variation-distance.md")
-      - `KS` for [Kolmogorov-Smirnov
-        (KS)](clarify-data-bias-metric-kolmogorov-smirnov.md "clarify-data-bias-metric-kolmogorov-smirnov.md")
-      - `CDDL` for [Conditional Demographic Disparity
-        (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md")
+      - `DPL` for [Difference in Proportions of Labels (DPL)](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md")
+      - `KL` for [Kullback-Leibler Divergence (KL)](clarify-data-bias-metric-kl-divergence.md "clarify-data-bias-metric-kl-divergence.md")
+      - `JS` for [Jensen-Shannon Divergence (JS)](clarify-data-bias-metric-jensen-shannon-divergence.md "clarify-data-bias-metric-jensen-shannon-divergence.md")
+      - `LP` for [Lp-norm (LP)](clarify-data-bias-metric-lp-norm.md "clarify-data-bias-metric-lp-norm.md")
+      - `TVD` for [Total Variation Distance (TVD)](clarify-data-bias-metric-total-variation-distance.md "clarify-data-bias-metric-total-variation-distance.md")
+      - `KS` for [Kolmogorov-Smirnov (KS)](clarify-data-bias-metric-kolmogorov-smirnov.md "clarify-data-bias-metric-kolmogorov-smirnov.md")
+      - `CDDL` for [Conditional Demographic Disparity (CDD)](clarify-data-bias-metric-cddl.md "clarify-data-bias-metric-cddl.md")
 
   - post_training_bias –
     Include this method if you want to compute post-training bias
     metrics. The detailed description of the metrics can be found in
-    [Post-training Data and Model
-    Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). The
+    [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). The
     `post_training_bias` object has the following
     parameters.
     - methods – An
@@ -459,26 +440,18 @@ in the facet dataset.
       `["DPPL", "DI"]` computes the **Difference in Positive Proportions in
       Predicted Labels** and **Disparate Impact**. The
       available methods are as follows.
-      - `DPPL` for [Difference in Positive
-        Proportions in Predicted Labels (DPPL)](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md")
+      - `DPPL` for [Difference in Positive Proportions in Predicted Labels (DPPL)](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md")
       - `DI`for [Disparate Impact (DI)](clarify-post-training-bias-metric-di.md "clarify-post-training-bias-metric-di.md")
-      - `DCA` for [Difference in Conditional
-        Acceptance (DCAcc)](clarify-post-training-bias-metric-dcacc.md "clarify-post-training-bias-metric-dcacc.md")
-      - `DCR` for [Difference in Conditional
-        Rejection (DCR)](clarify-post-training-bias-metric-dcr.md "clarify-post-training-bias-metric-dcr.md")
-      - `SD` for [Specificity difference
-        (SD)](clarify-post-training-bias-metric-sd.md "clarify-post-training-bias-metric-sd.md")
+      - `DCA` for [Difference in Conditional Acceptance (DCAcc)](clarify-post-training-bias-metric-dcacc.md "clarify-post-training-bias-metric-dcacc.md")
+      - `DCR` for [Difference in Conditional Rejection (DCR)](clarify-post-training-bias-metric-dcr.md "clarify-post-training-bias-metric-dcr.md")
+      - `SD` for [Specificity difference (SD)](clarify-post-training-bias-metric-sd.md "clarify-post-training-bias-metric-sd.md")
       - `RD` for [Recall Difference (RD)](clarify-post-training-bias-metric-rd.md "clarify-post-training-bias-metric-rd.md")
-      - `DAR` for [Difference in Acceptance Rates
-        (DAR)](clarify-post-training-bias-metric-dar.md "clarify-post-training-bias-metric-dar.md")
-      - `DRR` for [Difference in Rejection Rates
-        (DRR)](clarify-post-training-bias-metric-drr.md "clarify-post-training-bias-metric-drr.md")
+      - `DAR` for [Difference in Acceptance Rates (DAR)](clarify-post-training-bias-metric-dar.md "clarify-post-training-bias-metric-dar.md")
+      - `DRR` for [Difference in Rejection Rates (DRR)](clarify-post-training-bias-metric-drr.md "clarify-post-training-bias-metric-drr.md")
       - `AD` for [Accuracy Difference (AD)](clarify-post-training-bias-metric-ad.md "clarify-post-training-bias-metric-ad.md")
       - `TE` for [Treatment Equality (TE)](clarify-post-training-bias-metric-te.md "clarify-post-training-bias-metric-te.md")
-      - `CDDPL` for [Conditional Demographic
-        Disparity in Predicted Labels (CDDPL)](clarify-post-training-bias-metric-cddpl.md "clarify-post-training-bias-metric-cddpl.md")
-      - `FT` for [Counterfactual Fliptest
-        (FT)](clarify-post-training-bias-metric-ft.md "clarify-post-training-bias-metric-ft.md")
+      - `CDDPL` for [Conditional Demographic Disparity in Predicted Labels (CDDPL)](clarify-post-training-bias-metric-cddpl.md "clarify-post-training-bias-metric-cddpl.md")
+      - `FT` for [Counterfactual Fliptest (FT)](clarify-post-training-bias-metric-ft.md "clarify-post-training-bias-metric-ft.md")
       - `GE` for [Generalized entropy (GE)](clarify-post-training-bias-metric-ge.md "clarify-post-training-bias-metric-ge.md")
 
   - shap – Include this
@@ -490,8 +463,7 @@ in the facet dataset.
       background dataset. Additional requirements for the
       baseline dataset in a tabular dataset or computer vision
       problem are as follows. For more information about SHAP
-      Baselines, see [SHAP Baselines for
-      Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md")
+      Baselines, see [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md")
       - For a **tabular**
         dataset, `baseline` can be either the
         in-place baseline data or the S3 URI of a baseline
@@ -628,8 +600,7 @@ in the facet dataset.
       columns as text and explanations should be provided for
       individual units of text. For an example of an analysis
       configuration for natural language processing
-      explainability, see [Analysis configuration
-      for natural language processing explainability](#clarify-analysis-configure-nlp-example "#clarify-analysis-configure-nlp-example")
+      explainability, see [Analysis configuration for natural language processing explainability](#clarify-analysis-configure-nlp-example "#clarify-analysis-configure-nlp-example")
       - granularity
         – The unit of granularity for the analysis
         of text columns. Valid values are
@@ -771,8 +742,7 @@ in the facet dataset.
 
   - pdp – Include this
     method to compute partial dependence plots (PDPs). For an
-    example of an analysis configuration to generate PDPs, see [Compute partial
-    dependence plots (PDPs)](#clarify-analysis-configure-csv-example-pdp "#clarify-analysis-configure-csv-example-pdp")
+    example of an analysis configuration to generate PDPs, see [Compute partial dependence plots (PDPs)](#clarify-analysis-configure-csv-example-pdp "#clarify-analysis-configure-csv-example-pdp")
     - features –
       Mandatory if the `shap` method is not
       requested. An array of feature names or indices to
@@ -1195,9 +1165,7 @@ in the facet dataset.
     - forecast – A JMESPath expression
       used to extract the forecast result.
 
-## Example analysis
-
-configuration files
+## Example analysis configuration files
 
 The following sections contain example analysis configuration files for data in CSV
 format, JSON Lines format, and for natural language processing (NLP), computer
@@ -1223,9 +1191,7 @@ The following sections show how to compute pre-training and post-training bias
 metrics, SHAP values, and partial dependence plots (PDPs) showing feature
 importance for a dataset in CSV format.
 
-#### Compute all
-
-of the pre-training bias metrics
+#### Compute all of the pre-training bias metrics
 
 This example configuration shows how to measure if the previous sample
 dataset is favorably biased towards samples with a
@@ -1253,9 +1219,7 @@ pre-training bias metrics for the dataset.
 
 ```
 
-#### Compute
-
-all of the post-training bias metrics
+#### Compute all of the post-training bias metrics
 
 You can compute pre-training bias metrics prior to training. However, you
 must have a trained model to compute post-training bias metrics. The
@@ -1308,9 +1272,7 @@ use the value of the parameter dataset_type, which is
 }
 ```
 
-#### Compute the
-
-SHAP values
+#### Compute the SHAP values
 
 The following example analysis configuration instructs the job to compute
 the SHAP values designating the `Target` column as labels and all
@@ -1339,9 +1301,7 @@ example, probability is set to `1`. This instructs the SageMaker Clarify
 processing job to extract the probability score from the second column of
 the model output (using zero-based indexing).
 
-#### Compute partial
-
-dependence plots (PDPs)
+#### Compute partial dependence plots (PDPs)
 
 The following example shows how to view the importance of the
 `Income` feature on the analysis report using PDPs. The
@@ -1375,9 +1335,7 @@ predictions.
 }
 ```
 
-#### Compute both
-
-bias metrics and feature importance
+#### Compute both bias metrics and feature importance
 
 You can combine all the methods from the previous configuration examples
 into a single analysis configuration file and compute them all by a single
@@ -1470,9 +1428,7 @@ The following sections show how to compute pre-training and post-training bias
 metrics, SHAP values, and partial dependence plots (PDPs) showing feature
 importance for a dataset in JSON Lines format.
 
-#### Compute
-
-pre-training bias metrics
+#### Compute pre-training bias metrics
 
 Specify the label, features, format, and methods to measure pre-training
 bias metrics for a `Gender` value of `0`. In the
@@ -1508,9 +1464,7 @@ sensitive attribute, as follows.
 }
 ```
 
-#### Compute all the
-
-bias metrics
+#### Compute all the bias metrics
 
 You must have a trained model to compute post-training bias metrics. The
 following example is from a binary classification model that outputs JSON
@@ -1565,9 +1519,7 @@ array of features.
 }
 ```
 
-#### Compute the SHAP
-
-values
+#### Compute the SHAP values
 
 Because SHAP analysis doesn’t need a ground truth label, the
 `label` parameter is omitted. In this example, the
@@ -1598,9 +1550,7 @@ SHAP values.
 }
 ```
 
-#### Compute partials
-
-dependence plots (PDPs)
+#### Compute partials dependence plots (PDPs)
 
 The following example shows how to view the importance of "Income" on PDP.
 In this example, the feature headers are not provided. Therefore, the
@@ -1634,9 +1584,7 @@ predictions.
 }
 ```
 
-#### Compute
-
-both bias metrics and feature importance
+#### Compute both bias metrics and feature importance
 
 You can combine all previous methods into a single analysis configuration
 file and compute them all by a single job. The following example shows an
@@ -1751,9 +1699,7 @@ Use a facet name to specify the sensitive attribute, as follows.
 }
 ```
 
-#### Compute all
-
-the bias metrics
+#### Compute all the bias metrics
 
 You must have a trained model to compute post-training bias metrics. The
 following code example is from a binary classification model that outputs
@@ -1823,9 +1769,7 @@ the model.
 }
 ```
 
-#### Compute the
-
-SHAP values
+#### Compute the SHAP values
 
 You don’t need to specify a label for SHAP analysis. In the following
 example, the `headers` parameter is not specified. Therefore, the
@@ -1858,9 +1802,7 @@ values.
 }
 ```
 
-#### Compute
-
-partial dependence plots (PDPs)
+#### Compute partial dependence plots (PDPs)
 
 The following example shows you how to view a feature importance in PDPs.
 In the example, the feature headers are not provided. Therefore, the
@@ -1900,9 +1842,7 @@ The following configuration example shows how to view the importance of
 }
 ```
 
-#### Compute
-
-both bias metrics and feature importance
+#### Compute both bias metrics and feature importance
 
 You can combine all previous configuration methods into a single analysis
 configuration file and compute them all with a single job. The following
@@ -2127,9 +2067,7 @@ input parameter `dataset_uri`.
 The following sections explain how to compute feature attributions for a forecasting
 model with the asymmetric Shapley values algorithm for a JSON dataset.
 
-#### Compute
-
-the explanations for time series forecasting models
+#### Compute the explanations for time series forecasting models
 
 The following example analysis configuration displays the options used by
 the job to compute the explanations for time series forecasting models.
@@ -2177,9 +2115,7 @@ the job to compute the explanations for time series forecasting models.
 }
 ```
 
-##### Time
-
-series explainability configuration
+##### Time series explainability configuration
 
 The preceding example uses `asymmetric_shapley_value` in `methods` to define
 the time series explainability arguments like baseline, direction, granularity,
@@ -2188,9 +2124,7 @@ related time series, static covariates, and target time series.
 These fields instruct the SageMaker Clarify
 processor to compute feature attributions for one item at a time.
 
-#####
-
-Predictor configuration
+##### Predictor configuration
 
 You can fully control the payload structure that the SageMaker Clarify processor sends using JMESPath
 syntax. In the preceding example, the `predictor` config instructs Clarify
@@ -2230,9 +2164,7 @@ The forecast value is parsed as the following:
 ]
 ```
 
-#####
-
-Data configuration
+##### Data configuration
 
 Use the `time_series_data_config` attribute to instruct the
 SageMaker Clarify processor to parse data correctly from the data passed as an S3 URI in

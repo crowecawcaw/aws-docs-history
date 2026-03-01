@@ -1,6 +1,4 @@
-# Inspect Reports for Feature
-
-Attribute Drift in Production Models
+# Inspect Reports for Feature Attribute Drift in Production Models
 
 After the schedule that you set up is started by default, you need to wait for the its
 first execution to start, and then stop the schedule to avoid incurring charges.

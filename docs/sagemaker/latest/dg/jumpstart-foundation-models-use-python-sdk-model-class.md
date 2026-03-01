@@ -1,7 +1,4 @@
-# Deploy
-
-publicly available foundation models with the `JumpStartModel`
-class
+# Deploy publicly available foundation models with the `JumpStartModel` class
 
 You can deploy a built-in algorithm or pre-trained model to a SageMaker AI endpoint in
 just a few lines of code using the SageMaker Python SDK.
@@ -63,9 +60,7 @@ print(instance_type)
 See all supported instance types for a given JumpStart model with the
 `instance_types.retrieve()` method.
 
-## Use inference components to deploy multiple models to a shared
-
-endpoint
+## Use inference components to deploy multiple models to a shared endpoint
 
 An inference component is a SageMaker AI hosting object that you can use to deploy
 one or more models to an endpoint for increased flexibility and scalability.
@@ -80,8 +75,7 @@ predictor = my_model.deploy(
 ```
 
 For more information on creating endpoints with inference components and
-deploying SageMaker AI models, see [Shared resource utilization with multiple
-models](realtime-endpoints-deploy-models.md#deployed-shared-utilization "realtime-endpoints-deploy-models.md#deployed-shared-utilization").
+deploying SageMaker AI models, see [Shared resource utilization with multiple models](realtime-endpoints-deploy-models.md#deployed-shared-utilization "realtime-endpoints-deploy-models.md#deployed-shared-utilization").
 
 ## Check valid input and output inference formats
 

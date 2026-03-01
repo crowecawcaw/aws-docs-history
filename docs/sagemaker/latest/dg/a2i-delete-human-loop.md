@@ -24,9 +24,7 @@ immediately.
 If you delete the AWS account used to create the human loop, it is stopped and deleted
 automatically.
 
-## Human Loop Data Retention and
-
-Deletion
+## Human Loop Data Retention and Deletion
 
 When a human worker completes a human review task, the results are stored in the Amazon S3
 output bucket you specified in the human review workflow used to create the human loop.
@@ -54,9 +52,7 @@ one of the following: `Deleted`, `Stopped`, or
 has been completed, stopped, or deleted. Additionally, this data is deleted after 30
 days if you close the AWS account used to create associated human loops.
 
-## Stop and Delete a Flow Definition Using the Console
-
-or the Amazon A2I API
+## Stop and Delete a Flow Definition Using the Console or the Amazon A2I API
 
 You can stop and delete a human loop in the Augmented AI console or by using the SageMaker API.
 When the human loop has been deleted, the status changes to `Deleted`.

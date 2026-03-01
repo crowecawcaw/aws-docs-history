@@ -1,6 +1,4 @@
-# Allocating compute quota
-
-in Amazon SageMaker HyperPod task governance
+# Allocating compute quota in Amazon SageMaker HyperPod task governance
 
 Cluster administrators can decide how the organization uses purchased compute. Doing so reduces waste and idle resources. You can allocate
 compute quota such that teams can borrow unused resources from each other.
@@ -42,8 +40,7 @@ HyperPod task governance allocates resources based on your values:
 
 To see all of the allocated allocations, including the defaults, use the [DescribeComputeQuota](../APIReference/API_DescribeComputeQuota.md "../APIReference/API_DescribeComputeQuota.md") operation. To update your allocations, use the [UpdateComputeQuota](../APIReference/API_UpdateComputeQuota.md "../APIReference/API_UpdateComputeQuota.md") operation.
 
-You can also use the HyperPod CLI to allocate compute quotas. For more information about the HyperPod CLI, see [Running jobs on SageMaker HyperPod clusters
-orchestrated by Amazon EKS](sagemaker-hyperpod-eks-run-jobs.md "sagemaker-hyperpod-eks-run-jobs.md"). The following example demonstrates how to set compute quotas using the HyperPod CLI.
+You can also use the HyperPod CLI to allocate compute quotas. For more information about the HyperPod CLI, see [Running jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-run-jobs.md "sagemaker-hyperpod-eks-run-jobs.md"). The following example demonstrates how to set compute quotas using the HyperPod CLI.
 
 ```
 hyp create hyp-pytorch-job --version 1.1 --job-name sample-job \

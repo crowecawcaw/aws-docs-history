@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the Sequence-to-Sequence
-
-Algorithm
+## Metrics Computed by the Sequence-to-Sequence Algorithm
 
 The sequence to sequence algorithm reports three metrics that are computed during
 training. Choose one of them as an objective to optimize when tuning the
@@ -24,9 +22,7 @@ hyperparameter values.
 | `validation:bleu`       | [Bleu﻿](https://en.wikipedia.org/wiki/BLEU "https://en.wikipedia.org/wiki/BLEU")<br>score computed on the validation dataset. Because BLEU<br>computation is expensive, you can choose to compute BLEU on a<br>random subsample of the validation dataset to speed up the<br>overall training process.<br>Use<br>the `bleu_sample_size` parameter to specify the<br>subsample.                                                    | Maximize               |
 | `validation:perplexity` | [Perplexity](https://en.wikipedia.org/wiki/Perplexity "https://en.wikipedia.org/wiki/Perplexity"), is a loss function computed on the<br>validation dataset. Perplexity measures the cross-entropy<br>between an empirical sample and the distribution predicted by a<br>model and so provides a measure of how well a model predicts the<br>sample values, Models that are good at predicting a sample have<br>a low perplexity. | Minimize               |
 
-## Tunable
-
-Sequence-to-Sequence Hyperparameters
+## Tunable Sequence-to-Sequence Hyperparameters
 
 You can tune the following hyperparameters for the SageMaker AI Sequence to Sequence
 algorithm. The hyperparameters that have the greatest impact on sequence to sequence

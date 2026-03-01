@@ -1,6 +1,4 @@
-# Give SageMaker AI Training Jobs Access to Resources in Your
-
-Amazon VPC
+# Give SageMaker AI Training Jobs Access to Resources in Your Amazon VPC
 
 ###### Note
 
@@ -48,8 +46,7 @@ Guide_.
 
 - [Ensure That Subnets Have Enough IP Addresses](#train-vpc-ip "#train-vpc-ip")
 - [Create an Amazon S3 VPC Endpoint](#train-vpc-s3 "#train-vpc-s3")
-- [Use a Custom Endpoint Policy to Restrict
-  Access to S3](#train-vpc-policy "#train-vpc-policy")
+- [Use a Custom Endpoint Policy to Restrict Access to S3](#train-vpc-policy "#train-vpc-policy")
 - [Configure Route Tables](#train-vpc-route-table "#train-vpc-route-table")
 - [Configure the VPC Security Group](#train-vpc-groups "#train-vpc-groups")
 - [Connect to Resources Outside Your VPC](#train-vpc-nat "#train-vpc-nat")
@@ -93,12 +90,9 @@ more information, see [Endpoints for Amazon S3](../../../AmazonVPC/latest/UserGu
 7. For **Policy**, choose **Full
    Access** to allow full access to the S3 service by any user
    or service within the VPC. Choose **Custom** to
-   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict
-   Access to S3](#train-vpc-policy "#train-vpc-policy").
+   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict Access to S3](#train-vpc-policy "#train-vpc-policy").
 
-### Use a Custom Endpoint Policy to Restrict
-
-Access to S3
+### Use a Custom Endpoint Policy to Restrict Access to S3
 
 The default endpoint policy allows full access to S3 for any user or service
 in your VPC. To further restrict access to S3, create a custom endpoint policy.
@@ -106,9 +100,7 @@ For more information, see [Using Endpoint Policies for Amazon S3](../../../vpc/l
 to restrict access to your S3 buckets to only traffic that comes from your
 Amazon VPC. For information, see [Using Amazon S3 Bucket Policies](../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies "../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies").
 
-#### Restrict Package Installation on
-
-the Training Container
+#### Restrict Package Installation on the Training Container
 
 The default endpoint policy allows users to install packages from the Amazon Linux
 and Amazon Linux 2 repositories on the training container. If you don't want users

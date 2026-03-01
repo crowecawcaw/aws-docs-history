@@ -30,20 +30,16 @@ determined and the k nearest points to use for inference.
 
 ###### Topics
 
-- [Input/Output
-  Interface for the k-NN Algorithm](#kNN-input_output "#kNN-input_output")
+- [Input/Output Interface for the k-NN Algorithm](#kNN-input_output "#kNN-input_output")
 - [k-NN Sample Notebooks](#kNN-sample-notebooks "#kNN-sample-notebooks")
-- [How
-  the k-NN Algorithm Works](kNN_how-it-works.md "kNN_how-it-works.md")
+- [How the k-NN Algorithm Works](kNN_how-it-works.md "kNN_how-it-works.md")
 - [EC2 Instance Recommendation for the k-NN Algorithm](#kNN-instances "#kNN-instances")
 - [k-NN Hyperparameters](kNN_hyperparameters.md "kNN_hyperparameters.md")
 - [Tune a k-NN Model](kNN-tuning.md "kNN-tuning.md")
 - [Data Formats for k-NN Training Input](kNN-in-formats.md "kNN-in-formats.md")
 - [k-NN Request and Response Formats](kNN-inference-formats.md "kNN-inference-formats.md")
 
-## Input/Output
-
-Interface for the k-NN Algorithm
+## Input/Output Interface for the k-NN Algorithm
 
 SageMaker AI k-NN supports train and test data channels.
 

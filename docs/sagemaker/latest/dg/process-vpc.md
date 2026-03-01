@@ -1,6 +1,4 @@
-# Give SageMaker AI Processing Jobs Access to Resources in Your
-
-Amazon VPC
+# Give SageMaker AI Processing Jobs Access to Resources in Your Amazon VPC
 
 To control access to your data and processing jobs, create a Amazon VPC with private subnets.
 For information about creating and configuring a VPC, see [Get
@@ -12,14 +10,11 @@ Logs](../../../AmazonVPC/latest/UserGuide/flow-logs.md "../../../AmazonVPC/lates
 
 This document explains how to add Amazon VPC configurations for processing jobs.
 
-## Configure a Processing Job for Amazon VPC
-
-Access
+## Configure a Processing Job for Amazon VPC Access
 
 You configure the processing job by specifying the subnets and security group IDs within the VPC.
 You don’t need to specify the subnet for the processing container. Amazon SageMaker AI automatically pulls the processing container from Amazon ECR.
-For more information about processing containers, see [Data transformation
-workloads with SageMaker Processing](processing-job.md "processing-job.md").
+For more information about processing containers, see [Data transformation workloads with SageMaker Processing](processing-job.md "processing-job.md").
 
 When creating a processing job, you can specify subnets and security groups in your VPC using either the SageMaker AI console or the API.
 
@@ -42,9 +37,7 @@ VpcConfig: {
 }
 ```
 
-## Configure Your Private VPC for SageMaker AI
-
-Processing
+## Configure Your Private VPC for SageMaker AI Processing
 
 When configuring the private VPC for your SageMaker AI processing jobs, use the following
 guidelines. For information about setting up a VPC, see [Working
@@ -55,8 +48,7 @@ Guide_.
 
 - [Ensure That Subnets Have Enough IP Addresses](#process-vpc-ip "#process-vpc-ip")
 - [Create an Amazon S3 VPC Endpoint](#process-vpc-s3 "#process-vpc-s3")
-- [Use a Custom Endpoint Policy to Restrict
-  Access to S3](#process-vpc-policy "#process-vpc-policy")
+- [Use a Custom Endpoint Policy to Restrict Access to S3](#process-vpc-policy "#process-vpc-policy")
 - [Configure Route Tables](#process-vpc-route-table "#process-vpc-route-table")
 - [Configure the VPC Security Group](#process-vpc-groups "#process-vpc-groups")
 - [Connect to Resources Outside Your VPC](#process-vpc-nat "#process-vpc-nat")
@@ -96,12 +88,9 @@ information, see [Endpoints for Amazon S3](../../../AmazonVPC/latest/UserGuide/v
 6. For **Policy**, choose **Full
    Access** to allow full access to the S3 service by any user
    or service within the VPC. Choose **Custom** to
-   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict
-   Access to S3](#process-vpc-policy "#process-vpc-policy").
+   restrict access further. For information, see [Use a Custom Endpoint Policy to Restrict Access to S3](#process-vpc-policy "#process-vpc-policy").
 
-### Use a Custom Endpoint Policy to Restrict
-
-Access to S3
+### Use a Custom Endpoint Policy to Restrict Access to S3
 
 The default endpoint policy allows full access to S3 for any user or service
 in your VPC. To further restrict access to S3, create a custom endpoint policy.
@@ -109,9 +98,7 @@ For more information, see [Using Endpoint Policies for Amazon S3](../../../vpc/l
 to restrict access to your S3 buckets to only traffic that comes from your
 Amazon VPC. For information, see [Using Amazon S3 Bucket Policies](../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies "../../../vpc/latest/userguide/vpc-endpoints-s3.md#vpc-endpoints-s3-bucket-policies").
 
-#### Restrict Package Installation on
-
-the Processing Container
+#### Restrict Package Installation on the Processing Container
 
 The default endpoint policy allows users to install packages from the Amazon Linux
 and Amazon Linux 2 repositories on the processing container. If you don't want users

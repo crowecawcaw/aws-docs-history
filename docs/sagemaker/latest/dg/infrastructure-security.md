@@ -1,6 +1,4 @@
-# Infrastructure Security in
-
-Amazon SageMaker AI
+# Infrastructure Security in Amazon SageMaker AI
 
 As a managed service, Amazon SageMaker AI is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
@@ -18,18 +16,13 @@ support the following:
 
 ###### Topics
 
-- [SageMaker AI Scans AWS Marketplace Training and Inference Containers for
-  Security Vulnerabilities](#mkt-container-scan "#mkt-container-scan")
-- [Connect to Amazon SageMaker AI resources from
-  within a VPC](infrastructure-connect-to-resources.md "infrastructure-connect-to-resources.md")
-- [Run Training and Inference Containers in Internet-Free
-  Mode](mkt-algo-model-internet-free.md "mkt-algo-model-internet-free.md")
+- [SageMaker AI Scans AWS Marketplace Training and Inference Containers for Security Vulnerabilities](#mkt-container-scan "#mkt-container-scan")
+- [Connect to Amazon SageMaker AI resources from within a VPC](infrastructure-connect-to-resources.md "infrastructure-connect-to-resources.md")
+- [Run Training and Inference Containers in Internet-Free Mode](mkt-algo-model-internet-free.md "mkt-algo-model-internet-free.md")
 - [Connect to SageMaker AI Within your VPC](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
 - [Give SageMaker AI Access to Resources in your Amazon VPC](infrastructure-give-access.md "infrastructure-give-access.md")
 
-## SageMaker AI Scans AWS Marketplace Training and Inference Containers for
-
-Security Vulnerabilities
+## SageMaker AI Scans AWS Marketplace Training and Inference Containers for Security Vulnerabilities
 
 To meet our security requirements, all the [pre-built SageMaker images](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md"), including AWS Deep Learning Containers, the SageMaker AI
 machine learning framework containers, and the SageMaker AI built-in algorithm containers, and algorithms and

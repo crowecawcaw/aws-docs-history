@@ -1,6 +1,4 @@
-# Mixed precision
-
-training
+# Mixed precision training
 
 The SageMaker model parallelism (SMP) library v2 supports mixed precision training out of
 the box by integrating with open source frameworks such as PyTorch FSDP and Transformer
@@ -8,14 +6,10 @@ Engine. To learn more, see the following topics.
 
 ###### Topics
 
-- [Mixed precision training with FP8 on P5 instances using Transformer
-  Engine](#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5")
-- [Mixed precision training with half-precision data types using PyTorch
-  FSDP](#model-parallel-core-features-v2-mixed-precision-half-precision "#model-parallel-core-features-v2-mixed-precision-half-precision")
+- [Mixed precision training with FP8 on P5 instances using Transformer Engine](#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5")
+- [Mixed precision training with half-precision data types using PyTorch FSDP](#model-parallel-core-features-v2-mixed-precision-half-precision "#model-parallel-core-features-v2-mixed-precision-half-precision")
 
-## Mixed precision training with FP8 on P5 instances using Transformer
-
-Engine
+## Mixed precision training with FP8 on P5 instances using Transformer Engine
 
 Starting from the SageMaker model parallelism (SMP) library v2.2.0, the SMP library
 integrates with [Transformer Engine](https://docs.nvidia.com/deeplearning/transformer-engine/index.html "https://docs.nvidia.com/deeplearning/transformer-engine/index.html") and supports [FP8 mixed precision training](https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html "https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html") out of the box, keeping compatibility with
@@ -111,9 +105,7 @@ To find a practical example of FP8 training with SMP v2 on P5 instances, see the
 example notebook at [Accelerate SageMaker PyTorch FSDP Training of Llama-v2 (or GPT-NeoX) with FP8 on P5
 instances](https://github.com/aws/amazon-sagemaker-examples/blob/main/training/distributed_training/pytorch/model_parallel_v2/llama_v2/smp-train-llama-fsdp-tp-fp8.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/training/distributed_training/pytorch/model_parallel_v2/llama_v2/smp-train-llama-fsdp-tp-fp8.ipynb").
 
-## Mixed precision training with half-precision data types using PyTorch
-
-FSDP
+## Mixed precision training with half-precision data types using PyTorch FSDP
 
 SMP v2 supports [PyTorch FSDP `MixedPrecision`](https://pytorch.org/docs/stable/fsdp.html#torch.distributed.fsdp.MixedPrecision "https://pytorch.org/docs/stable/fsdp.html#torch.distributed.fsdp.MixedPrecision") for training jobs on P4 and P5
 instances. PyTorch FSDP provides various configurations for mixed precision for both

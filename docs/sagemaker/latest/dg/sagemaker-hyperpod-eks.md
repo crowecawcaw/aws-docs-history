@@ -1,6 +1,4 @@
-# Orchestrating SageMaker HyperPod clusters with
-
-Amazon EKS
+# Orchestrating SageMaker HyperPod clusters with Amazon EKS
 
 SageMaker HyperPod is a SageMaker AI-managed service that enables large-scale training of foundation
 models on long-running and resilient compute clusters, integrating with Amazon EKS for
@@ -40,8 +38,7 @@ network egress from the HyperPod cluster is secured.
 To learn more about securing access to the Amazon EKS API Server, see [Control
 network access to cluster API server endpoint](../../../eks/latest/userguide/cluster-endpoint.md "../../../eks/latest/userguide/cluster-endpoint.md").
 
-To learn more about securing network access on HyperPod, see [Setting up SageMaker HyperPod
-with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc").
+To learn more about securing network access on HyperPod, see [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc").
 
 The high-level architecture of Amazon EKS support in HyperPod involves a 1-to-1
 mapping between an EKS cluster (control plane) and a HyperPod cluster (worker

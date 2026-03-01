@@ -1,6 +1,4 @@
-# Supported frameworks, AWS Regions, and
-
-instances types
+# Supported frameworks, AWS Regions, and instances types
 
 Before using the SageMaker AI distributed data parallelism (SMDDP) library, check what are the
 supported ML frameworks and instance types and if there are enough quotas in your AWS account
@@ -22,8 +20,7 @@ To check the latest updates and release notes of the SMDDP library, see the [Sag
 - [PyTorch](#distributed-data-parallel-supported-frameworks-pytorch "#distributed-data-parallel-supported-frameworks-pytorch")
 - [PyTorch Lightning](#distributed-data-parallel-supported-frameworks-lightning "#distributed-data-parallel-supported-frameworks-lightning")
 - [Hugging Face Transformers](#distributed-data-parallel-supported-frameworks-transformers "#distributed-data-parallel-supported-frameworks-transformers")
-- [TensorFlow
-  (deprecated)](#distributed-data-parallel-supported-frameworks-tensorflow "#distributed-data-parallel-supported-frameworks-tensorflow")
+- [TensorFlow (deprecated)](#distributed-data-parallel-supported-frameworks-tensorflow "#distributed-data-parallel-supported-frameworks-tensorflow")
 
 ### PyTorch
 
@@ -41,8 +38,7 @@ To check the latest updates and release notes of the SMDDP library, see the [Sag
 | v1.11.0         | `smdistributed-dataparallel==v1.4.1` | `763104351884.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:1.11.0-gpu-py38-cu113-ubuntu20.04-sagemaker` | Not available                                                                                        | `https://smdataparallel.s3.amazonaws.com/binary/pytorch/1.11.0/cu113/2022-04-14/smdistributed_dataparallel-1.4.1-cp38-cp38-linux_x86_64.whl`  |
 
 \*\* The URLs of the binary files are for installing the SMDDP library in custom
-containers. For more information, see [Create your own Docker container with
-the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
+containers. For more information, see [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
 
 ###### Note
 
@@ -85,8 +81,7 @@ Containers for PyTorch and the SMP Docker containers.
 | 1.7.2<br>1.7.0<br>1.6.4<br>1.6.3<br>1.5.10 | 1.12.0          | `smdistributed-dataparallel==v1.5.0` | 763104351884.dkr.ecr.`<region>`.amazonaws.com/pytorch-training:1.12.0-gpu-py38-cu113-ubuntu20.04-sagemaker | https://smdataparallel.s3.amazonaws.com/binary/pytorch/1.12.0/cu113/2022-07-01/smdistributed\_dataparallel-1.5.0-cp38-cp38-linux\_x86\_64.whl |
 
 \*\* The URLs of the binary files are for installing the SMDDP library in custom
-containers. For more information, see [Create your own Docker container with
-the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
+containers. For more information, see [Create your own Docker container with the SageMaker AI distributed data parallel library](data-parallel-bring-your-own-container.md "data-parallel-bring-your-own-container.md").
 
 ###### Note
 
@@ -113,9 +108,7 @@ The AWS Deep Learning Containers for Hugging Face use the SageMaker Training Con
 PyTorch and TensorFlow as their base images. To look up the Hugging Face Transformers library
 versions and paired PyTorch and TensorFlow versions, see the latest [Hugging Face Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#huggingface-training-containers "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#huggingface-training-containers") and the [Prior Hugging Face Container Versions](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#prior-hugging-face-container-versions "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#prior-hugging-face-container-versions").
 
-### TensorFlow
-
-(deprecated)
+### TensorFlow (deprecated)
 
 ###### Important
 
@@ -133,9 +126,7 @@ TensorFlow with the SMDDP library installed.
 The SMDDP library is available in all of the AWS Regions where the [AWS Deep Learning Containers for SageMaker AI](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only") and the [SMP Docker images](distributed-model-parallel-support-v2.md "distributed-model-parallel-support-v2.md") are in
 service.
 
-## Supported instance
-
-types
+## Supported instance types
 
 The SMDDP library requires one of the following instance types.
 

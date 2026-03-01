@@ -1,37 +1,28 @@
-# Modify a PyTorch Training
-
-Script
+# Modify a PyTorch Training Script
 
 In this section, you learn how to modify PyTorch training scripts to configure the
 SageMaker model parallelism library for auto-partitioning and manual partitioning.
 
 ###### Note
 
-To find which PyTorch versions are supported by the library, see [Supported Frameworks and
-AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
+To find which PyTorch versions are supported by the library, see [Supported Frameworks and AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
 
 ###### Tip
 
 For end-to-end notebook examples that demonstrate how to use a PyTorch training
-script with the SageMaker model parallelism library, see [Amazon SageMaker AI model parallelism library
-v1 examples](distributed-model-parallel-examples.md "distributed-model-parallel-examples.md").
+script with the SageMaker model parallelism library, see [Amazon SageMaker AI model parallelism library v1 examples](distributed-model-parallel-examples.md "distributed-model-parallel-examples.md").
 
 Note that auto-partitioning is enabled by default. Unless otherwise specified, the
 following scripts use auto-partitioning.
 
 ###### Topics
 
-- [Automated splitting
-  with PyTorch](#model-parallel-customize-training-script-pt-16 "#model-parallel-customize-training-script-pt-16")
-- [Manual
-  splitting with PyTorch](#model-parallel-customize-training-script-pt-16-hvd "#model-parallel-customize-training-script-pt-16-hvd")
+- [Automated splitting with PyTorch](#model-parallel-customize-training-script-pt-16 "#model-parallel-customize-training-script-pt-16")
+- [Manual splitting with PyTorch](#model-parallel-customize-training-script-pt-16-hvd "#model-parallel-customize-training-script-pt-16-hvd")
 - [Considerations](#model-parallel-pt-considerations "#model-parallel-pt-considerations")
-- [Unsupported framework
-  features](#model-parallel-pt-unsupported-features "#model-parallel-pt-unsupported-features")
+- [Unsupported framework features](#model-parallel-pt-unsupported-features "#model-parallel-pt-unsupported-features")
 
-## Automated splitting
-
-with PyTorch
+## Automated splitting with PyTorch
 
 The following training script changes are required to run a PyTorch training
 script with SageMaker's model parallelism library:
@@ -47,14 +38,12 @@ script with SageMaker's model parallelism library:
 ###### Note
 
 For FP16 training, you need to use the [smdistributed.modelparallel.torch.model_creation()](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html") context
-manager to wrap the model. For more information, see [FP16 Training with Model
-Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md"). 3. Wrap the optimizer with [`smdistributed.modelparallel.torch.DistributedOptimizer`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer").
+manager to wrap the model. For more information, see [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md"). 3. Wrap the optimizer with [`smdistributed.modelparallel.torch.DistributedOptimizer`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer").
 
 ###### Note
 
 For FP16 training, you need to set up static or dynamic loss scaling.
-For more information, see [FP16 Training with Model
-Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md"). 4. Use the returned `DistributedModel` object instead of a user
+For more information, see [FP16 Training with Model Parallelism](model-parallel-extended-features-pytorch-fp16.md "model-parallel-extended-features-pytorch-fp16.md"). 4. Use the returned `DistributedModel` object instead of a user
 model. 5. Put the forward and backward logic in a step function and decorate it with
 [`smdistributed.modelparallel.torch.step`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_common_api.html#smp.init "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_common_api.html#smp.init"). 6. Restrict each process to its own device through
 `torch.cuda.set_device(smp.local_rank())`. 7. Move the input tensors to the GPU using the `.to()` API before
@@ -148,9 +137,7 @@ optimizer = smp.DistributedOptimizer(optimizer)
 train(model, device, train_loader, optimizer)
 ```
 
-## Manual
-
-splitting with PyTorch
+## Manual splitting with PyTorch
 
 Use [`smp.partition`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/v1.2.0/smd_model_parallel_pytorch.html#smp.DistributedOptimizer") context managers to place modules in
 specific devices. Any module not placed in any `smp.partition` contexts
@@ -384,9 +371,7 @@ def train_step(model, data, target):
     return output, loss
 ```
 
-## Unsupported framework
-
-features
+## Unsupported framework features
 
 The following PyTorch features are unsupported by SageMaker's model parallelism
 library:

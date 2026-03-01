@@ -26,8 +26,7 @@ endpoints with provision concurrency is generally significantly less.
 Serverless endpoints can also use the `Invocations4XXErrors`,
 `Invocations5XXErrors`, `Invocations`, `ModelLatency`,
 `ModelSetupTime` and `MemoryUtilization` metrics. To learn more
-about these metrics, see [SageMaker AI endpoint invocation
-metrics](monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation "monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation").
+about these metrics, see [SageMaker AI endpoint invocation metrics](monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation "monitoring-cloudwatch.md#cloudwatch-metrics-endpoint-invocation").
 
 ### Common serverless endpoint metrics
 

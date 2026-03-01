@@ -15,8 +15,7 @@ match the number of inputs configured in the `@feature_processor` decorator.
 For more information on the `@feature_processor` decorator, see the [Feature Processor Feature Store SDK for Python (Boto3)](https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/feature_store/feature_processor "https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/feature_store/feature_processor").
 
 The following code are basic examples on how to use the `@feature_processor`
-decorator. For more specific example usage cases, see [Example Feature Processing code
-for common use cases](feature-store-feature-processor-examples.md "feature-store-feature-processor-examples.md").
+decorator. For more specific example usage cases, see [Example Feature Processing code for common use cases](feature-store-feature-processor-examples.md "feature-store-feature-processor-examples.md").
 
 The Feature Processor SDK can be installed from the SageMaker Python SDK and its extras using the
 following command.
@@ -102,8 +101,7 @@ argument to your function) is an important value to support retrying each execut
 can help to uniquely identify the Feature Processor’s execution and can be used as a reference
 point for daterange–based inputs (for example, only loading the last 24 hours worth of
 data) to guarantee the input range independent of the code’s actual execution time. If the
-Feature Processor runs on a schedule (see [Scheduled and event
-based executions for Feature Processor pipelines](feature-store-feature-processor-schedule-pipeline.md "feature-store-feature-processor-schedule-pipeline.md")) then its value is fixed
+Feature Processor runs on a schedule (see [Scheduled and event based executions for Feature Processor pipelines](feature-store-feature-processor-schedule-pipeline.md "feature-store-feature-processor-schedule-pipeline.md")) then its value is fixed
 to the time it is scheduled to run. The argument can be overridden during synchronous execution
 using the SDK’s execute API to support use cases such as data backfills or re-running a missed
 past execution. Its value is the current time if the Feature Processor runs any other
@@ -112,8 +110,7 @@ way.
 For information about authoring Spark code, see the [Spark SQL Programming
 Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html "https://spark.apache.org/docs/latest/sql-programming-guide.html").
 
-For more code samples for common use-cases, see the [Example Feature Processing code
-for common use cases](feature-store-feature-processor-examples.md "feature-store-feature-processor-examples.md").
+For more code samples for common use-cases, see the [Example Feature Processing code for common use cases](feature-store-feature-processor-examples.md "feature-store-feature-processor-examples.md").
 
 Note that transformation functions decorated with `@feature_processor` do not
 return a value. To programmatically test your function, you can remove or monkey patch the

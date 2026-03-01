@@ -92,9 +92,7 @@ share and discover it. Users can browse through a list of all feature groups in 
 discover existing feature groups by searching by feature group name, description, record
 identifier name, creation date, and tags. 
 
-## Real-time inference for features stored in the online
-
-store
+## Real-time inference for features stored in the online store
 
 With Feature Store, you can enrich your features stored in the online store in real time with data
 from a streaming source (clean stream data from another application) and serve the features
@@ -103,9 +101,7 @@ with low millisecond latency for real-time inference. 
 You can also perform joins across different `FeatureGroups` for real-time
 inference by querying two different `FeatureGroups` in the client application. 
 
-## Offline store for model training and batch
-
-inference
+## Offline store for model training and batch inference
 
 Feature Store provides offline storage for feature values in your S3 bucket. Your data is stored in
 your S3 bucket using a prefixing scheme based on event time. The offline store is an

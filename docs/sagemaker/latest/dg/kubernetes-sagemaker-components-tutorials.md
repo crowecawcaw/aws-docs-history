@@ -16,9 +16,7 @@ You can find additional [SageMaker AI Kubeflow Pipelines examples](https://githu
 To run the classification pipeline example, create a SageMaker AI IAM execution role granting your training job
 the permission to access AWS resources, then continue with the steps that correspond to your deployment option.
 
-## Create a SageMaker AI execution
-
-role
+## Create a SageMaker AI execution role
 
 The `kfp-example-sagemaker-execution-role` IAM role is a runtime role assumed
 by SageMaker AI jobs to access AWS resources. In the following command, you create an IAM
@@ -60,9 +58,7 @@ cloned on your gateway node, run the following command to upload the
 aws s3 cp mnist-kmeans-sagemaker/kmeans_preprocessing.py s3://`<bucket-name>`/mnist_kmeans_example/processing_code/kmeans_preprocessing.py
 ```
 
-### Compile and deploy your
-
-pipeline
+### Compile and deploy your pipeline
 
 After defining the pipeline, you must compile it to an intermediate representation
 before you submit it to the Kubeflow Pipelines service on your cluster. The intermediate
@@ -105,9 +101,7 @@ Complete the following steps from your gateway node.
 dsl-compile --py `<path-to-python-file>` --output `<path-to-output>`
 ```
 
-#### Upload and run the
-
-pipeline using the KFP CLI
+#### Upload and run the pipeline using the KFP CLI
 
 Complete the following steps from the command line of your gateway node. KFP
 organizes runs of your pipeline as experiments. You have the option to specify an
@@ -170,9 +164,7 @@ Run 95084a2c-f18d-4b77-a9da-eba00bf01e63 is submitted
 
 3. Navigate to the UI to check the progress of the job.
 
-#### Upload and run the
-
-pipeline using the KFP UI
+#### Upload and run the pipeline using the KFP UI
 
 1. On the left panel, choose the **Pipelines** tab.
 2. In the upper-right corner, choose **+UploadPipeline**.
@@ -192,16 +184,11 @@ against the endpoint that was created by the Deploy component. Use the KFP UI to
 output artifacts for `sagemaker-deploy-model-endpoint_name`. Download the .tgz
 file to extract the endpoint name or check the SageMaker AI console in the region you used.
 
-#### Configure permissions to run
-
-predictions
+#### Configure permissions to run predictions
 
 If you want to run predictions from your gateway node, skip this section.
 
-###### To use any other machine to run predictions, assign
-
-the `sagemaker:InvokeEndpoint` permission to the IAM role used by the
-client machine.
+###### To use any other machine to run predictions, assign the `sagemaker:InvokeEndpoint` permission to the IAM role used by the client machine.
 
 1. On your gateway node, run the following to create an IAM policy file:
 

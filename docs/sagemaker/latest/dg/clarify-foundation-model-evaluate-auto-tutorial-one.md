@@ -1,6 +1,4 @@
-#
-
-Evaluate a JumpStart model for prompt stereotyping
+# Evaluate a JumpStart model for prompt stereotyping
 
 You can use a high-level `ModelRunner` wrapper to evaluate an
 Amazon SageMaker JumpStart model for prompt stereotyping. The prompt stereotyping
@@ -30,8 +28,7 @@ The sections of this tutorial show how to do the following:
   starting this tutorial.
 
 For more information about instance types and their recommended
-use cases, see [Instance Types Available for Use With
-Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
+use cases, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
 
 ###### Install required libraries
 
@@ -196,8 +193,7 @@ category_location="bias_type",
 
 For more information about column information that other tasks
 require, see the **Use a custom input dataset
-section** in [Use a
-custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 3. Set up a custom `ModelRunner` as shown in the following
+section** in [Use a custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 3. Set up a custom `ModelRunner` as shown in the following
 code example:
 
 ```
@@ -274,9 +270,7 @@ or remove the variable entirely. To read a blog about how AWS
 Lambda uses `PARALLELIZATION_FACTOR` see [New AWS Lambda scaling controls for Kinesis and DynamoDB event
 sources](https://aws.amazon.com/blogs/compute/new-aws-lambda-scaling-controls-for-kinesis-and-dynamodb-event-sources/ "https://aws.amazon.com/blogs/compute/new-aws-lambda-scaling-controls-for-kinesis-and-dynamodb-event-sources/").
 
-## Run
-
-your model evaluation
+## Run your model evaluation
 
 1. Define your evaluation algorithm. The following example shows how
    to define a `PromptStereotyping` algorithm:
@@ -287,8 +281,7 @@ eval_algo = PromptStereotyping()
 
 For examples of algorithms that calculate metrics for other
 evaluation tasks, see **Evaluate your
-model** in [Use the
-fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md"). 2. Run your evaluation algorithm. The following code example uses the
+model** in [Use the fmeval library to run an automatic evaluation](clarify-foundation-model-evaluate-auto-lib.md "clarify-foundation-model-evaluate-auto-lib.md"). 2. Run your evaluation algorithm. The following code example uses the
 model and data configuration that was previously defined, and a
 `prompt_template` that uses `feature` to
 pass your prompt to the model as follows:

@@ -1,6 +1,4 @@
-# Input and output interface for
-
-the Object Detection - TensorFlow algorithm
+# Input and output interface for the Object Detection - TensorFlow algorithm
 
 Each of the pretrained models listed in TensorFlow Models can be fine-tuned to any dataset
 with any number of image classes. Be mindful of how to format your training data for
@@ -55,9 +53,7 @@ but instead of starting with a pretrained model, you start with an existing
 fine-tuned model. For more information about how to use incremental training with
 the SageMaker AI Object Detection - TensorFlow, see the [Introduction to SageMaker TensorFlow - Object Detection](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_tensorflow/Amazon_Tensorflow_Object_Detection.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/object_detection_tensorflow/Amazon_Tensorflow_Object_Detection.ipynb") notebook.
 
-## Inference with the Object Detection - TensorFlow
-
-algorithm
+## Inference with the Object Detection - TensorFlow algorithm
 
 You can host the fine-tuned model that results from your TensorFlow Object Detection
 training for inference. Any input image for inference must be in `.jpg`,

@@ -1,6 +1,4 @@
-#
-
-Migrate inference workload from x86 to AWS Graviton
+# Migrate inference workload from x86 to AWS Graviton
 
 [AWS Graviton](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/") is a series of ARM-based processors
 designed by AWS. They are more energy efficient than x86-based processors and offer a compelling

@@ -1,6 +1,4 @@
-# Prebuilt SageMaker AI Docker images
-
-for deep learning
+# Prebuilt SageMaker AI Docker images for deep learning
 
 Amazon SageMaker AI provides prebuilt Docker images that include
 deep learning frameworks and other dependencies needed for training and inference. For a
@@ -8,9 +6,7 @@ complete list of the prebuilt Docker images managed by SageMaker AI, see
 [Docker
 Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md").
 
-## Using the SageMaker AI
-
-Python SDK
+## Using the SageMaker AI Python SDK
 
 With the [SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk"), you can train and deploy models using these popular deep
 learning frameworks. For instructions on installing and using the SDK, see [[Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable")](https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk "https://github.com/aws/sagemaker-python-sdk#installing-the-sagemaker-python-sdk"). The following table lists the available frameworks
@@ -24,9 +20,7 @@ and instructions on how to use them with the [SageMaker Python SDK](https://gith
 | `Chainer`      | [Using Chainer with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/chainer/using_chainer.html "https://sagemaker.readthedocs.io/en/stable/frameworks/chainer/using_chainer.html") |
 | `Hugging Face` | [Using Hugging Face with the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html "https://sagemaker.readthedocs.io/en/stable/frameworks/huggingface/index.html")    |
 
-## Extending Prebuilt
-
-SageMaker AI Docker Images
+## Extending Prebuilt SageMaker AI Docker Images
 
 You can customize these prebuilt containers or extend them as needed. With this
 customization, you can handle any additional functional requirements for your algorithm

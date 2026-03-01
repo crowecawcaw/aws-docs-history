@@ -1,6 +1,4 @@
-# Use foundation models in
-
-Amazon SageMaker Studio Classic
+# Use foundation models in Amazon SageMaker Studio Classic
 
 You can fine-tune and deploy both publicly available and proprietary JumpStart
 foundation models through the Studio Classic UI.
@@ -36,8 +34,7 @@ the **Search** bar. If you need guidance on selecting a model, see
 ###### Important
 
 Some foundation models require explicit acceptance of an end-user license
-agreement (EULA). For more information, see [EULA acceptance
-in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").
+agreement (EULA). For more information, see [EULA acceptance in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").
 
 After you choose **View model** for the foundation model of your
 choice in Studio Classic, you can deploy the model. For more information, see [Deploy a Model](jumpstart-deploy.md "jumpstart-deploy.md").
@@ -54,5 +51,4 @@ example notebook within Studio Classic.
 
 If the model is fine-tunable, you can also fine-tune the model. For more
 information, see [Fine-Tune a Model](jumpstart-fine-tune.md "jumpstart-fine-tune.md"). For a list of which JumpStart foundation
-models are fine-tunable, see [Foundation models and
-hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md").
+models are fine-tunable, see [Foundation models and hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md "jumpstart-foundation-models-fine-tuning.md").

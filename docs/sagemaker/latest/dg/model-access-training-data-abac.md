@@ -1,6 +1,4 @@
-# Use attribute-based access control (ABAC)
-
-for multi-tenancy training
+# Use attribute-based access control (ABAC) for multi-tenancy training
 
 In a multi-tenant environment, it is crucial to ensure that each tenant's data is isolated
 and accessible only to authorized entities. SageMaker AI supports the use of [attribute-based
@@ -78,9 +76,7 @@ JSON
 
 ```
 
-## Create a training job with
-
-session tag chaining enabled
+## Create a training job with session tag chaining enabled
 
 The following procedure shows you how to create a training job with session tag chaining
 using the SageMaker Python SDK for ABAC-enabled multi-tenancy training.

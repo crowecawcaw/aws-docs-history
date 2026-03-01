@@ -1,6 +1,4 @@
-# Distributed computing with SageMaker AI best
-
-practices
+# Distributed computing with SageMaker AI best practices
 
 This best practices page presents various flavors of distributed computing for machine
 learning (ML) jobs in general. The term _distributed computing_
@@ -34,18 +32,12 @@ training job at scale.
 
 ###### Topics
 
-- [Option 1: Use a SageMaker AI built-in algorithm
-  that supports distributed training](#distributed-training-options-1 "#distributed-training-options-1")
-- [Option 2: Run a custom ML code in the
-  SageMaker AI managed training or processing environment](#distributed-training-options-2 "#distributed-training-options-2")
-- [Option 3: Write your own custom
-  distributed training code](#distributed-training-options-3 "#distributed-training-options-3")
-- [Option 4: Launch multiple jobs in
-  parallel or sequentially](#distributed-training-options-4 "#distributed-training-options-4")
+- [Option 1: Use a SageMaker AI built-in algorithm that supports distributed training](#distributed-training-options-1 "#distributed-training-options-1")
+- [Option 2: Run a custom ML code in the SageMaker AI managed training or processing environment](#distributed-training-options-2 "#distributed-training-options-2")
+- [Option 3: Write your own custom distributed training code](#distributed-training-options-3 "#distributed-training-options-3")
+- [Option 4: Launch multiple jobs in parallel or sequentially](#distributed-training-options-4 "#distributed-training-options-4")
 
-## Option 1: Use a SageMaker AI built-in algorithm
-
-that supports distributed training
+## Option 1: Use a SageMaker AI built-in algorithm that supports distributed training
 
 SageMaker AI provides [built-in algorithms](algos.md "algos.md") that you can use out of the box through the SageMaker AI
 console or the SageMaker Python SDK. Using the built-in algorithms, you don’t need to spend
@@ -60,17 +52,13 @@ distributed training, while the rest of the parallelizable algorithms support
 parallelization across multiple GPUs in a single instance, as indicated in the
 **Parallelizable** column.
 
-## Option 2: Run a custom ML code in the
-
-SageMaker AI managed training or processing environment
+## Option 2: Run a custom ML code in the SageMaker AI managed training or processing environment
 
 SageMaker AI jobs can instantiate distributed training environment for specific use cases and
 frameworks. This environment acts as a ready-to-use whiteboard, where you can bring and
 run your own ML code.
 
-### If your ML code uses a deep
-
-learning framework
+### If your ML code uses a deep learning framework
 
 You can launch distributed training jobs using the [Deep Learning Containers
 (DLC)](https://github.com/aws/deep-learning-containers "https://github.com/aws/deep-learning-containers") for SageMaker Training, which you can orchestrate either through the
@@ -157,9 +145,7 @@ modification is required to do the following.
      parameter updates across multiple GPUs.
     + Assign responsibility of checkpointing to a specific host and GPU.
 
-### If your ML code involves tabular
-
-data processing
+### If your ML code involves tabular data processing
 
 PySpark is a Python frontend of Apache Spark, which is an open-source distributed
 computing framework. PySpark has been widely adopted for distributed tabular data
@@ -169,9 +155,7 @@ PySpark containers](use-spark-processing-container.md "use-spark-processing-cont
 processing jobs in parallel using SageMaker Training and SageMaker Processing APIs in
 Amazon SageMaker Studio Classic, which is integrated with [Amazon EMR](https://aws.amazon.com/blogs/machine-learning/part-1-create-and-manage-amazon-emr-clusters-from-sagemaker-studio-to-run-interactive-spark-and-ml-workloads/ "https://aws.amazon.com/blogs/machine-learning/part-1-create-and-manage-amazon-emr-clusters-from-sagemaker-studio-to-run-interactive-spark-and-ml-workloads/") and [AWS Glue](https://aws.amazon.com/about-aws/whats-new/2022/09/sagemaker-studio-supports-glue-interactive-sessions/?nc1=h_ls "https://aws.amazon.com/about-aws/whats-new/2022/09/sagemaker-studio-supports-glue-interactive-sessions/?nc1=h_ls").
 
-## Option 3: Write your own custom
-
-distributed training code
+## Option 3: Write your own custom distributed training code
 
 When you submit a training or processing job to SageMaker AI, SageMaker Training and SageMaker AI
 Processing APIs launch Amazon EC2 compute instances. You can customize training and
@@ -205,9 +189,7 @@ random spread of input data across such multiple nodes can be facilitated by set
 `S3DataDistributionType=ShardedByS3Key` in the data input configuration
 of the SageMaker AI `TrainingInput` API.
 
-## Option 4: Launch multiple jobs in
-
-parallel or sequentially
+## Option 4: Launch multiple jobs in parallel or sequentially
 
 You can also distribute an ML compute workflow into smaller parallel or sequential
 compute tasks, each represented by its own SageMaker Training or SageMaker Processing job.

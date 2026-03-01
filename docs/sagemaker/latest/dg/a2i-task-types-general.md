@@ -19,8 +19,7 @@ about the built-in task types, use the following:
 - For more details, see [Use Amazon Augmented AI with Custom Task Types](a2i-task-types-custom.md "a2i-task-types-custom.md")
   The following table outlines a variety of Amazon A2I use cases that you can explore using
   SageMaker AI Jupyter Notebooks. To get started with a Jupyter Notebook, use the instructions in
-  [Use SageMaker Notebook Instance with
-  Amazon A2I Jupyter Notebook](#a2i-task-types-notebook-demo "#a2i-task-types-notebook-demo"). For more examples, see this [GitHub
+  [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](#a2i-task-types-notebook-demo "#a2i-task-types-notebook-demo"). For more examples, see this [GitHub
   repository](https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks").
 
 | **Use Case**                                                                                                                                                                                                                                                                                                                                                                                                                  | **Description**                                                                                                                                                                                                                              | **Task Type** |
@@ -35,27 +34,21 @@ about the built-in task types, use the following:
 
 ###### Topics
 
-- [Use SageMaker Notebook Instance with
-  Amazon A2I Jupyter Notebook](#a2i-task-types-notebook-demo "#a2i-task-types-notebook-demo")
+- [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](#a2i-task-types-notebook-demo "#a2i-task-types-notebook-demo")
 - [Use Amazon Augmented AI with Amazon Textract](a2i-textract-task-type.md "a2i-textract-task-type.md")
 - [Use Amazon Augmented AI with Amazon Rekognition](a2i-rekognition-task-type.md "a2i-rekognition-task-type.md")
 - [Use Amazon Augmented AI with Custom Task Types](a2i-task-types-custom.md "a2i-task-types-custom.md")
 
-## Use SageMaker Notebook Instance with
-
-Amazon A2I Jupyter Notebook
+## Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook
 
 For an end-to-end example that demonstrates how to integrate an Amazon A2I human
 review loop into a machine learning workflow, you can use a Jupyter Notebook from this
 [GitHub Repository](https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks") in a SageMaker notebook instance.
 
-###### To use an Amazon A2I custom task type sample notebook in an Amazon SageMaker
-
-notebook instance:
+###### To use an Amazon A2I custom task type sample notebook in an Amazon SageMaker notebook instance:
 
 1. If you do not have an active SageMaker notebook instance, create one by following
-   the instructions in [Create an Amazon SageMaker Notebook Instance for the
-   tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
+   the instructions in [Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
 2. When your notebook instance is active, choose **Open
    JupyterLab** to the right of the notebook instance's name. It may
    take a few moments for JupyterLab to load.

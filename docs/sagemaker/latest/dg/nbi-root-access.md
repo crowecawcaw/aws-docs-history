@@ -12,8 +12,7 @@ If you don't want users to have root access to a notebook instance, when you cal
 [`CreateNotebookInstance`](../APIReference/API_CreateNotebookInstance.md "../APIReference/API_CreateNotebookInstance.md") or [`UpdateNotebookInstance`](../APIReference/API_UpdateNotebookInstance.md "../APIReference/API_UpdateNotebookInstance.md") operations, set the
 `RootAccess` field to `Disabled`. You can also disable
 root access for users when you create or update a notebook instance in the Amazon SageMaker AI
-console. For information, see [Create an Amazon SageMaker Notebook Instance for the
-tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
+console. For information, see [Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
 
 ###### Note
 

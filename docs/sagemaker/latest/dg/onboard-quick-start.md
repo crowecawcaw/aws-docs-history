@@ -71,8 +71,7 @@ sagemaker-studio-XXXXXXXXXXXXXXX
   - [`StudioWebPortalSettings`](../APIReference/API_StudioWebPortalSettings.md "../APIReference/API_StudioWebPortalSettings.md")
     `HiddenAppTypes` is set to `["JupyterServer"]`
 
-  For information about hidden applications, see [Hide machine learning tools and
-  applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
+  For information about hidden applications, see [Hide machine learning tools and applications in the Amazon SageMaker Studio UI](studio-updated-ui-customize-tools-apps.md "studio-updated-ui-customize-tools-apps.md").
 
 After the domain is set up, the administrative user can [Edit domain settings](domain-edit.md "domain-edit.md").
 

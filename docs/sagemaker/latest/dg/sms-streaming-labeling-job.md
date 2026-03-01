@@ -45,6 +45,5 @@ job if the backlog of pending objects moves above a threshold.
 
 - [Send data to a streaming labeling job](sms-streaming-how-it-works-send-data.md "sms-streaming-how-it-works-send-data.md")
 - [Manage labeling requests with an Amazon SQS queue](sms-streaming-how-it-works-sqs.md "sms-streaming-how-it-works-sqs.md")
-- [Receive output data from a streaming
-  labeling job](sms-streaming-how-it-works-output-data.md "sms-streaming-how-it-works-output-data.md")
+- [Receive output data from a streaming labeling job](sms-streaming-how-it-works-output-data.md "sms-streaming-how-it-works-output-data.md")
 - [Duplicate message handling](sms-streaming-impotency.md "sms-streaming-impotency.md")

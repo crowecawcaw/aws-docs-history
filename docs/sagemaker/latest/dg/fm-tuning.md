@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the Factorization Machines
-
-Algorithm
+## Metrics Computed by the Factorization Machines Algorithm
 
 The Factorization Machines algorithm has both binary classification and regression
 predictor types. The predictor type determines which metric you can use for
@@ -34,9 +32,7 @@ tasks, choose one of these as the objective.
 | `test:binary_classification_cross_entropy` | Cross Entropy | Minimize               |
 | `test:binary_f_beta`                       | Beta          | Maximize               |
 
-## Tunable Factorization Machines
-
-Hyperparameters
+## Tunable Factorization Machines Hyperparameters
 
 You can tune the following hyperparameters for the Factorization Machines
 algorithm. The initialization parameters that contain the terms bias, linear, and

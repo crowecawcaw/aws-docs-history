@@ -52,43 +52,35 @@ You can set these activation conditions using the Amazon SageMaker AI console wh
 review workflow, or by creating a JSON for human loop activation conditions and specifying
 this as input in the `HumanLoopActivationConditions` parameter of
 `CreateFlowDefinition` API operation. To learn how specify activation
-conditions in JSON format, see [JSON Schema for Human Loop
-Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md") and [Use Human Loop
-Activation Conditions JSON Schema with Amazon Textract](a2i-json-humantaskactivationconditions-textract-example.md "a2i-json-humantaskactivationconditions-textract-example.md").
+conditions in JSON format, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](a2i-human-fallback-conditions-json-schema.md "a2i-human-fallback-conditions-json-schema.md") and [Use Human Loop Activation Conditions JSON Schema with Amazon Textract](a2i-json-humantaskactivationconditions-textract-example.md "a2i-json-humantaskactivationconditions-textract-example.md").
 
 ###### Note
 
 When using Augmented AI with Amazon Textract, create Augmented AI resources in the same AWS Region you
 use to call `AnalyzeDocument`.
 
-## Get Started: Integrate a Human Review
-
-into an Amazon Textract Analyze Document Job
+## Get Started: Integrate a Human Review into an Amazon Textract Analyze Document Job
 
 To integrate a human review into an Amazon Textract text detection and analysis job,
 you need to create a flow definition, and then use the Amazon Textract API to integrate that
 flow definition into your workflow. To learn how to create a flow definition using the
 SageMaker AI console or Augmented AI API, see the following topics:
 
-- [Create a Human Review Workflow
-  (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console")
+- [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console")
 - [Create a Human Review Workflow (API)](a2i-create-flow-definition.md#a2i-create-human-review-api "a2i-create-flow-definition.md#a2i-create-human-review-api")
 
 After you've created your flow definition, see [Using Augmented AI with Amazon
 Textract](../../../textract/latest/dg/a2i-textract.md "../../../textract/latest/dg/a2i-textract.md") to learn how to integrate your flow definition into your Amazon Textract
 task.
 
-## End-to-End Example Using
-
-Amazon Textract and Amazon A2I
+## End-to-End Example Using Amazon Textract and Amazon A2I
 
 For an end-to-end example that demonstrates how to use Amazon Textract with Amazon A2I
 using the console, see [Tutorial: Get Started in the Amazon A2I Console](a2i-get-started-console.md "a2i-get-started-console.md").
 
 To learn how to use the Amazon A2I API to create and start a human review, you can use
 [Amazon Augmented AI (Amazon A2I) integration with Amazon Textract's Analyze
-Document [Example]](<https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Textract%20AnalyzeDocument.ipynb> "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Textract%20AnalyzeDocument.ipynb") in a SageMaker Notebook instance. To get started, see [Use SageMaker Notebook Instance with
-Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").
+Document [Example]](<https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Textract%20AnalyzeDocument.ipynb> "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Textract%20AnalyzeDocument.ipynb") in a SageMaker Notebook instance. To get started, see [Use SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](a2i-task-types-general.md#a2i-task-types-notebook-demo "a2i-task-types-general.md#a2i-task-types-notebook-demo").
 
 ## A2I Textract Worker Console Preview
 

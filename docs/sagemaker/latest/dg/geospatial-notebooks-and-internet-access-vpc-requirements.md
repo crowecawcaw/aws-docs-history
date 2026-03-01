@@ -3,9 +3,7 @@
 The following topic gives information on how to use SageMaker notebooks with a SageMaker geospatial image in a Amazon SageMaker AI domain with VPC only mode.
 For more information on VPCs in Amazon SageMaker Studio Classic see [Choose an Amazon VPC](onboard-vpc.md "onboard-vpc.md").
 
-## `VPC only`
-
-communication with the internet
+## `VPC only` communication with the internet
 
 By default, SageMaker AI domain uses two Amazon VPC. One of the Amazon VPC is managed by Amazon SageMaker AI and provides direct
 internet access. You specify the other Amazon VPC, which provides encrypted traffic between

@@ -12,6 +12,5 @@ To access and get started using Amazon SageMaker geospatial, do the following:
 ###### Topics
 
 - [Accessing SageMaker geospatial](access-studio-classic-geospatial.md "access-studio-classic-geospatial.md")
-- [Create an Amazon SageMaker Studio Classic notebook using the
-  geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md")
+- [Create an Amazon SageMaker Studio Classic notebook using the geospatial image](geospatial-launch-notebook.md "geospatial-launch-notebook.md")
 - [Access the Sentinel-2 raster data collection and create an earth observation job to perform land segmentation](geospatial-demo.md "geospatial-demo.md")

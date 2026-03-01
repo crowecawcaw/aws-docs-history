@@ -1,6 +1,4 @@
-# Run a SageMaker Distributed Model Parallel Training Job with Tensor
-
-Parallelism
+# Run a SageMaker Distributed Model Parallel Training Job with Tensor Parallelism
 
 In this section, you learn:
 

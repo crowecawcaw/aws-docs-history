@@ -17,8 +17,7 @@ Follow these steps to complete the form:
    UltraServers with SageMaker AI, see [UltraServers in SageMaker AI](reserve-capacity-with-training-plans.md#training-plans-ultraservers "reserve-capacity-with-training-plans.md#training-plans-ultraservers").
 3. Choose your preferred **Instance type** and **Instance
    count**: For available instance types in a given AWS Region, duration, and
-   quantity options, see [Supported instance types,
-   AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
+   quantity options, see [Supported instance types, AWS Regions, and pricing](reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions "reserve-capacity-with-training-plans.md#training-plans-supported-instances-and-regions").
 4. Define your time parameters: Choose your desired start and end dates, and specify
    the plan duration within this window.
 5. Choose **Find training plans**.

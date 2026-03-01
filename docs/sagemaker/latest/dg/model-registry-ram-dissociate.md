@@ -1,6 +1,4 @@
-# Dissociate principals from a
-
-resource share and remove a resource share
+# Dissociate principals from a resource share and remove a resource share
 
 The resource owner can dissociate principals from the resource share for a set
 of permissions or delete the entire resource share using the AWS CLI or the AWS RAM

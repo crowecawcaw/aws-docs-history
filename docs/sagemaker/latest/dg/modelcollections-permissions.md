@@ -1,6 +1,4 @@
-# Set up prerequisite
-
-permissions
+# Set up prerequisite permissions
 
 Create a custom policy which includes the following required Resource Groups actions:
 

@@ -29,5 +29,4 @@ For account IDs and AWS Region names, see
 [Docker
 Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md").
 
-To write your own analysis container, see the container contract described in [Custom
-monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md").
+To write your own analysis container, see the container contract described in [Custom monitoring schedules](model-monitor-custom-monitoring-schedules.md "model-monitor-custom-monitoring-schedules.md").

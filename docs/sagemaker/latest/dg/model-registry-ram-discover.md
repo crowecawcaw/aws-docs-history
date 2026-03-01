@@ -63,8 +63,7 @@ AWS CLI
         * `CREATED_FROM_POLICY`: The
          permission needs to be promoted in order for the
          entity to be discoverable. For more information,
-         see [Promote the permission and resource
-         share](model-registry-ram-promote.md "model-registry-ram-promote.md").
+         see [Promote the permission and resource share](model-registry-ram-promote.md "model-registry-ram-promote.md").
 
 2.  Accept the resource share invitation in the model consumer
     account.
@@ -120,8 +119,7 @@ AWS RAM console
          permission and the resource policy after you
          create the resource share. For information about
          how to promote permissions and resource shares,
-         see [Promote the permission and resource
-         share](model-registry-ram-promote.md "model-registry-ram-promote.md"). For
+         see [Promote the permission and resource share](model-registry-ram-promote.md "model-registry-ram-promote.md"). For
          more information about how to attach custom
          permissions, see [Creating and using customer managed permissions
          in AWS RAM](../../../ram/latest/userguide/create-customer-managed-permissions.md "../../../ram/latest/userguide/create-customer-managed-permissions.md").

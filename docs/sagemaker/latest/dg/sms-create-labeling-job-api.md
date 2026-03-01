@@ -34,10 +34,8 @@ To use the `CreateLabelingJob` operation, you need the following:
     you must specify at least two label categories. For all other task types,
     the minimum number of label categories required is one.
   - For named entity recognition tasks, you must provide worker instructions
-    in this file. See [Provide Worker Instructions in a Label
-    Category Configuration File](sms-named-entity-recg.md#worker-instructions-ner "sms-named-entity-recg.md#worker-instructions-ner") for details and an example.
-  - For 3D point cloud and video frame task type, use the format in [Labeling category configuration file with
-    label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
+    in this file. See [Provide Worker Instructions in a Label Category Configuration File](sms-named-entity-recg.md#worker-instructions-ner "sms-named-entity-recg.md#worker-instructions-ner") for details and an example.
+  - For 3D point cloud and video frame task type, use the format in [Labeling category configuration file with label category and frame attributes reference](sms-label-cat-config-attributes.md "sms-label-cat-config-attributes.md").
   - For all other built-in task types and custom tasks, your label category
     configuration file must be a JSON file in the following format. Identify the
     labels you want to use by replacing `label_1`,

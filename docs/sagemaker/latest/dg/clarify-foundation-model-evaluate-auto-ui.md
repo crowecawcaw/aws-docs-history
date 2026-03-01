@@ -370,7 +370,7 @@ procedure.
        type.
 
     For more information about tasks types and the associated
-    evaluation dimensions, see the **Automatic evaluation** in **[Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")** . 7. In the **Evaluation metrics** section,
+    evaluation dimensions, see the **Automatic evaluation** in **[Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")**. 7. In the **Evaluation metrics** section,
     choose an **Evaluation dimension**. The
     text box under **Description** contains
     additional context about the dimension.
@@ -384,8 +384,7 @@ procedure.
     in a way that FMEval can use. It must also be located in an
     S3 bucket that has the CORS permissions referenced in the
     previous [Set up your environment](#clarify-foundation-model-evaluate-auto-ui-setup "#clarify-foundation-model-evaluate-auto-ui-setup") section. For more information about how to format a
-    custom dataset see [Use a
-    custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 10. Input an S3 bucket location where you want to save the
+    custom dataset see [Use a custom input dataset](clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input "clarify-foundation-model-evaluate-auto-lib-custom.md#clarify-foundation-model-evaluate-auto-lib-custom-input"). 10. Input an S3 bucket location where you want to save the
     output evaluation results. This file is in jsonlines
     (.jsonl) format. 11. Configure your processor in the **Processor
     configuration** section using the following
@@ -399,8 +398,7 @@ procedure.
         * Use **Instance type** to choose
          the kind of compute instance you want to use to run
          your model. For more information about instance
-         types, see [Instance Types Available for Use With
-         Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
+         types, see [Instance Types Available for Use With Amazon SageMaker Studio Classic Notebooks](notebooks-available-instance-types.md "notebooks-available-instance-types.md").
         * Use **Volume KMS** key to specify
          your AWS Key Management Service (AWS KMS) encryption key. SageMaker AI uses
          your AWS KMS key to encrypt incoming traffic from the

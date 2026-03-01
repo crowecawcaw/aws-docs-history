@@ -1,6 +1,4 @@
-# Step 1: Modify Your Own Training
-
-Script Using SageMaker's Distributed Model Parallel Library
+# Step 1: Modify Your Own Training Script Using SageMaker's Distributed Model Parallel Library
 
 Use this section to learn how to customize your training script to use the core features
 of the Amazon SageMaker AI model parallelism library. To use the library-specific API functions and
@@ -10,21 +8,15 @@ documentation_.
 The training script examples provided in these sections are simplified and designed to
 highlight the required changes you must make to use the library. For end-to-end, runnable
 notebook examples that demonstrate how to use a TensorFlow or PyTorch training script with the
-SageMaker model parallelism library, see [Amazon SageMaker AI model parallelism library
-v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md").
+SageMaker model parallelism library, see [Amazon SageMaker AI model parallelism library v2 examples](distributed-model-parallel-v2-examples.md "distributed-model-parallel-v2-examples.md").
 
 ###### Topics
 
-- [Split the model of your
-  training script using the SageMaker model parallelism library](#model-parallel-model-splitting-using-smp-lib "#model-parallel-model-splitting-using-smp-lib")
-- [Modify a TensorFlow training
-  script](model-parallel-customize-training-script-tf.md "model-parallel-customize-training-script-tf.md")
-- [Modify a PyTorch Training
-  Script](model-parallel-customize-training-script-pt.md "model-parallel-customize-training-script-pt.md")
+- [Split the model of your training script using the SageMaker model parallelism library](#model-parallel-model-splitting-using-smp-lib "#model-parallel-model-splitting-using-smp-lib")
+- [Modify a TensorFlow training script](model-parallel-customize-training-script-tf.md "model-parallel-customize-training-script-tf.md")
+- [Modify a PyTorch Training Script](model-parallel-customize-training-script-pt.md "model-parallel-customize-training-script-pt.md")
 
-## Split the model of your
-
-training script using the SageMaker model parallelism library
+## Split the model of your training script using the SageMaker model parallelism library
 
 There are two ways to modify your training script to set up model splitting: automated
 splitting or manual splitting.
@@ -80,8 +72,7 @@ is made, the assigned modules and weights are loaded to their
 devices.
 
 For instructions on how to register the `smp.step`
-decorator to your PyTorch training script, see [Automated splitting
-with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16 "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16").
+decorator to your PyTorch training script, see [Automated splitting with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16 "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16").
 
 The model parallelism library analyzes the sizes of the trainable
 variables and the graph structure, and internally uses a graph partitioning
@@ -109,12 +100,9 @@ that share a `tf.Variable`, then all operations that are part
 of these layers are placed on a single device.
 
 For instructions on how to register the `smp.step`
-decorator to your PyTorch training script, see [Automated splitting
-with TensorFlow](model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-23 "model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-23").
+decorator to your PyTorch training script, see [Automated splitting with TensorFlow](model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-23 "model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-23").
 
-##### Comparison of automated model splitting
-
-between frameworks
+##### Comparison of automated model splitting between frameworks
 
 In TensorFlow, the fundamental unit of computation is a `tf.Operation`,
 and TensorFlow represents the model as a directed acyclic graph (DAG) of
@@ -136,10 +124,8 @@ If you want to manually specify how to partition your model across devices, use
 the `smp.partition` context manager. For instructions on how to set the
 context manager for manual partitioning, see the following pages.
 
-- [Manual
-  splitting with TensorFlow](model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-manual "model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-manual")
-- [Manual
-  splitting with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16-hvd "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16-hvd")
+- [Manual splitting with TensorFlow](model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-manual "model-parallel-customize-training-script-tf.md#model-parallel-customize-training-script-tf-manual")
+- [Manual splitting with PyTorch](model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16-hvd "model-parallel-customize-training-script-pt.md#model-parallel-customize-training-script-pt-16-hvd")
 
 To use this option after making modifications, in Step 2, you'll need to set
 `auto_partition` to `False`, and define a

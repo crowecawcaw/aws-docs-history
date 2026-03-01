@@ -1,6 +1,4 @@
-# Deploy custom
-
-fine-tuned models from Amazon S3 and Amazon FSx using kubectl
+# Deploy custom fine-tuned models from Amazon S3 and Amazon FSx using kubectl
 
 The following steps show you how to deploy models stored on Amazon S3 or Amazon FSx to a
 Amazon SageMaker HyperPod cluster using kubectl.
@@ -14,13 +12,10 @@ executing these commands.
 Before you begin, verify that you've:
 
 - Set up inference capabilities on your Amazon SageMaker HyperPod clusters. For
-  more information, see [Setting up your
-  HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
+  more information, see [Setting up your HyperPod clusters for model deployment](sagemaker-hyperpod-model-deployment-setup.md "sagemaker-hyperpod-model-deployment-setup.md").
 - Installed [kubectl](https://kubernetes.io/docs/reference/kubectl/ "https://kubernetes.io/docs/reference/kubectl/") utility and configured [jq](https://jqlang.org/ "https://jqlang.org/") in your terminal.
 
-## Setup and
-
-configuration
+## Setup and configuration
 
 Replace all placeholder values with your actual resource identifiers.
 
@@ -353,9 +348,7 @@ Using Amazon S3 as the model source
     EOF
     ```
 
-## Configure KV caching and intelligent routing for improved
-
-performance
+## Configure KV caching and intelligent routing for improved performance
 
 1. Enable KV caching by setting `enableL1Cache` and `enableL2Cache` to `true`.Then, set `l2CacheSpec` to `redis` and update `l2CacheLocalUrl` with the Redis cluster URL.
 
@@ -394,9 +387,7 @@ metrics:
       containerPort: <port value>
 ```
 
-## Deploy your
-
-model from Amazon S3 or Amazon FSx
+## Deploy your model from Amazon S3 or Amazon FSx
 
 1. Get the Amazon EKS cluster name from the HyperPod cluster ARN for
    kubectl authentication.
@@ -423,9 +414,7 @@ Deploy with Amazon S3 as a source
 kubectl apply -f deploy_s3_inference.yaml
 ```
 
-## Verify the
-
-status of your deployment
+## Verify the status of your deployment
 
 1. Check if the model successfully deployed.
 
@@ -453,9 +442,7 @@ aws sagemaker-runtime invoke-endpoint \
   /dev/stdout
 ```
 
-## Manage your
-
-deployment
+## Manage your deployment
 
 When you're finished testing your deployment, use the following commands to
 clean up your resources.

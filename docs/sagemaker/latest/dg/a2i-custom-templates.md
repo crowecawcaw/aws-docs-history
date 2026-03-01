@@ -66,9 +66,7 @@ for your task type. Use `{{
 where you specify
 `customInputValuesForStartHumanLoop`.
 
-## Custom Template Example for
-
-Amazon Textract
+## Custom Template Example for Amazon Textract
 
 All custom templates begin and end with the `<crowd-form>
  </crowd-form>` elements. Like standard HTML `<form>`
@@ -167,9 +165,7 @@ If the content of the value has multiple lines, enter all the text without a lin
 </crowd-form>
 ```
 
-## Custom Template Example for
-
-Amazon Rekognition
+## Custom Template Example for Amazon Rekognition
 
 All custom templates begin and end with the `<crowd-form>
  </crowd-form>` elements. Like standard HTML `<form>`
@@ -444,9 +440,7 @@ uses the [crowd-classifier](sms-ui-template-crowd-classifier.md "sms-ui-template
 
 ```
 
-## Preview a Worker Task
-
-Template
+## Preview a Worker Task Template
 
 To preview a custom worker task template, use the SageMaker AI `RenderUiTemplate`
 operation. You can use the `RenderUiTemplate` operation with the AWS CLI or
@@ -458,8 +452,7 @@ this API operation, see the [`See Also`](../APIReference/API_RenderUiTemplate.md
 To preview your worker task template, the AWS Identity and Access Management (IAM) role Amazon Resource Name
 (ARN), or `RoleArn`, that you use must have permission to access to the S3
 objects that are used by the template. To learn how to configure your role or user see
-[Enable Worker Task
-Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai") .
+[Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai").
 
 ###### To preview your worker task template using the `RenderUiTemplate` operation:
 
@@ -486,5 +479,4 @@ the worker UI.
 
 To preview your template, you need an IAM role with permissions to read Amazon S3
 objects that get rendered on your user interface. For a sample policy that you can
-attach to your IAM role to grant these permissions, see [Enable Worker Task
-Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai") .
+attach to your IAM role to grant these permissions, see [Enable Worker Task Template Previews](a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai "a2i-permissions-security.md#permissions-for-worker-task-templates-augmented-ai").

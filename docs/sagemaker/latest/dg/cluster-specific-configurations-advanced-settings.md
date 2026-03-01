@@ -1,6 +1,4 @@
-# Advanced
-
-settings
+# Advanced settings
 
 The SageMaker HyperPod recipe adapter is built on top of the Nvidia Nemo and
 Pytorch-lightning frameworks. If you've already used these frameworks, integrating your

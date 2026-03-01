@@ -8,8 +8,7 @@ job. Hyperparameter tuning finds the best hyperparameter values for your model b
 over a [range](../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-HyperParameterRanges "../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-HyperParameterRanges") of values that you specify for each tunable hyperparameter. You can also
 specify up to 100 [static hyperparameters](../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters "../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters") that do not change over the course of the tuning job. You
 can use up to 100 hyperparameters in total (static + tunable). For guidance on choosing
-hyperparameters and ranges, see [Best Practices for Hyperparameter
-Tuning](automatic-model-tuning-considerations.md "automatic-model-tuning-considerations.md"). You can also use autotune to find
+hyperparameters and ranges, see [Best Practices for Hyperparameter Tuning](automatic-model-tuning-considerations.md "automatic-model-tuning-considerations.md"). You can also use autotune to find
 optimal tuning job settings. For more information, see the following **Autotune** section.
 
 ###### Note
@@ -43,9 +42,7 @@ Static hyperparameters have the following structure:
 You can use the Amazon SageMaker API to specify key value pairs in the [StaticHyperParameters](../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters "../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters") field of the
 `HyperParameterTrainingJobDefinition` parameter that you pass to the [CreateHyperParameterTuningJob](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") operation.
 
-## Dynamic
-
-hyperparameters
+## Dynamic hyperparameters
 
 You can use the SageMaker API to define [hyperparameter ranges](../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-HyperParameterRanges "../APIReference/API_HyperParameterTrainingJobDefinition.md#sagemaker-Type-HyperParameterTrainingJobDefinition-HyperParameterRanges"). Specify the names of hyperparameters and ranges of values
 in the `ParameterRanges` field of the `HyperParameterTuningJobConfig`

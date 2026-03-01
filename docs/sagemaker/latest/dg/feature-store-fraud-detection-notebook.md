@@ -1,6 +1,4 @@
-# Fraud detection with Feature Store example
-
-notebook
+# Fraud detection with Feature Store example notebook
 
 ###### Important
 
@@ -9,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -35,8 +32,7 @@ steps in [Clone a Git Repository in Amazon SageMaker Studio Classic](studio-task
 
 First launch SageMaker notebook instance by following the instructions in [Access Notebook Instances](howitworks-access-ws.md "howitworks-access-ws.md").
 
-Then, follow the instructions in [Add a Git repository to your Amazon SageMaker AI
-account](nbi-git-resource.md "nbi-git-resource.md").
+Then, follow the instructions in [Add a Git repository to your Amazon SageMaker AI account](nbi-git-resource.md "nbi-git-resource.md").
 Now that you have the SageMaker AI example notebooks, navigate to the
 `amazon-sagemaker-examples/sagemaker-featurestore` directory and open the [Fraud Detection with Amazon SageMaker Feature Store](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-featurestore/sagemaker_featurestore_fraud_detection_python_sdk.html") example notebook.
 
@@ -76,9 +72,7 @@ feature_store_session = Session(
 )
 ```
 
-## Step 2: Load datasets and partition data into
-
-feature groups
+## Step 2: Load datasets and partition data into feature groups
 
 Load your data into data frames for each of your features. You use these data frames after
 you set up the feature group. In the fraud detection example, you can see these steps in the
@@ -117,9 +111,7 @@ transformed_transaction_data = pd.concat([transaction_data, encoded_card_type, e
 transformed_transaction_data = transformed_transaction_data.rename(columns={"card_bank_american express": "card_bank_american_express"})
 ```
 
-## Step 3: Set up feature
-
-groups
+## Step 3: Set up feature groups
 
 When you set up your feature groups, you need to customize the feature names with a unique
 name and set up each feature group with the `FeatureGroup` class.
@@ -147,9 +139,7 @@ identity_feature_group = FeatureGroup(name=identity_feature_group_name, sagemake
 transaction_feature_group = FeatureGroup(name=transaction_feature_group_name, sagemaker_session=feature_store_session)
 ```
 
-## Step 4: Set up record
-
-identifier and event time features
+## Step 4: Set up record identifier and event time features
 
 In this step, you specify a record identifier name and an event time feature name. This
 name maps to the column of the corresponding features in your data. For example, in the fraud
@@ -166,9 +156,7 @@ identity_data[event_time_feature_name] = pd.Series([current_time_sec]*len(identi
 transformed_transaction_data[event_time_feature_name] = pd.Series([current_time_sec]*len(transaction_data), dtype="float64")
 ```
 
-## Step 5: Load feature
-
-definitions
+## Step 5: Load feature definitions
 
 You can now load the feature definitions by passing a data frame containing the feature
 data. In the following code for the fraud detection example, the identity feature and
@@ -184,9 +172,7 @@ identity_feature_group.load_feature_definitions(data_frame=identity_data); # out
 transaction_feature_group.load_feature_definitions(data_frame=transformed_transaction_data); # output is suppressed
 ```
 
-## Step 6: Create a feature
-
-group
+## Step 6: Create a feature group
 
 In this step, you use the `create` function to create the feature group. The
 following code shows all of the available parameters. The online store is not created by
@@ -246,9 +232,7 @@ When this step has finished successfully, the response is `Created`. Other possi
 statuses are `CreateFailed`, `Deleting`, or
 `DeleteFailed`.
 
-## Step 7: Work with feature
-
-groups
+## Step 7: Work with feature groups
 
 Now that you've set up your feature group, you can perform any of the following
 tasks:
@@ -257,12 +241,9 @@ tasks:
 
 - [Describe a feature group](#feature-store-describe-feature-groups "#feature-store-describe-feature-groups")
 - [List feature groups](#feature-store-list-feature-groups "#feature-store-list-feature-groups")
-- [Put records in a feature
-  group](#feature-store-put-records-feature-group "#feature-store-put-records-feature-group")
-- [Get records from a feature
-  group](#feature-store-get-records-feature-group "#feature-store-get-records-feature-group")
-- [Generate hive DDL
-  commands](#feature-store-generate-hive-ddl-commands-feature-group "#feature-store-generate-hive-ddl-commands-feature-group")
+- [Put records in a feature group](#feature-store-put-records-feature-group "#feature-store-put-records-feature-group")
+- [Get records from a feature group](#feature-store-get-records-feature-group "#feature-store-get-records-feature-group")
+- [Generate hive DDL commands](#feature-store-generate-hive-ddl-commands-feature-group "#feature-store-generate-hive-ddl-commands-feature-group")
 - [Build a training dataset](#feature-store-build-training-dataset "#feature-store-build-training-dataset")
 - [Write and execute an Athena query](#feature-store-write-athena-query "#feature-store-write-athena-query")
 - [Delete a feature group](#feature-store-delete-feature-group "#feature-store-delete-feature-group")
@@ -285,9 +266,7 @@ You can list all of your feature groups with the
 sagemaker_client.list_feature_groups()
 ```
 
-### Put records in a feature
-
-group
+### Put records in a feature group
 
 You can use the `ingest` function to load your feature data. You pass in a
 data frame of feature data, set the number of workers, and choose to wait for it to return
@@ -302,9 +281,7 @@ feature_group.ingest(
 For each feature group you have, run the `ingest` function on the feature
 data you want to load.
 
-### Get records from a feature
-
-group
+### Get records from a feature group
 
 You can use the `get_record` function to retrieve the data for a specific
 feature by its record identifier. The following example uses an example identifier to
@@ -328,9 +305,7 @@ An example response from the fraud detection example:
 ...
 ```
 
-### Generate hive DDL
-
-commands
+### Generate hive DDL commands
 
 The SageMaker Python SDK’s `FeatureStore` class also provides the functionality to
 generate Hive DDL commands. The schema of the table is generated based on the feature

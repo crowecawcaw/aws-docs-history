@@ -1,6 +1,4 @@
-# `StartVectorEnrichmentJob`
-
-API: Execution role permissions
+# `StartVectorEnrichmentJob` API: Execution role permissions
 
 For an execution role that you can pass in a `StartVectorEnrichmentJob` API
 request, you can attach the following minimum permissions policy to the role:

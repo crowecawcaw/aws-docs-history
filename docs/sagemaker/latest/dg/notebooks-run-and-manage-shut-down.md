@@ -1,6 +1,4 @@
-# Shut Down Resources from
-
-Amazon SageMaker Studio Classic
+# Shut Down Resources from Amazon SageMaker Studio Classic
 
 ###### Important
 
@@ -30,13 +28,10 @@ The following topics demonstrate how to delete these SageMaker AI resources.
 
 ###### Topics
 
-- [Shut down an open
-  notebook](#notebooks-run-and-manage-shut-down-notebook "#notebooks-run-and-manage-shut-down-notebook")
+- [Shut down an open notebook](#notebooks-run-and-manage-shut-down-notebook "#notebooks-run-and-manage-shut-down-notebook")
 - [Shut down resources](#notebooks-run-and-manage-shut-down-sessions "#notebooks-run-and-manage-shut-down-sessions")
 
-## Shut down an open
-
-notebook
+## Shut down an open notebook
 
 When you shut down a Studio Classic notebook, the notebook is not deleted. The kernel that
 the notebook is running on is shut down and any unsaved information in the notebook is

@@ -1,6 +1,4 @@
-# Activate or deactivate a model
-
-monitor
+# Activate or deactivate a model monitor
 
 Use the following procedure to activate or deactivate a model monitor.
 

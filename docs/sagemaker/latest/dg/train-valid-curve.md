@@ -1,6 +1,4 @@
-# Example: Viewing a Training and Validation
-
-Curve
+# Example: Viewing a Training and Validation Curve
 
 Typically, you split the data on which you train your model into training and
 validation datasets. You use the training set to train the model parameters that are
@@ -20,8 +18,7 @@ this example, you can use the
 **Image-classification-full-training** example in the
 **Example notebooks** section of your SageMaker AI notebook instance. If
 you don't have a SageMaker notebook instance, create one by following the instructions at
-[Create an Amazon SageMaker Notebook Instance for the
-tutorial](gs-setup-working-env.md "gs-setup-working-env.md"). If you
+[Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md"). If you
 prefer, you can follow along with the [End-to-End Multiclass Image Classification Example](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/imageclassification_caltech/Image-classification-fulltraining.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/imageclassification_caltech/Image-classification-fulltraining.html") in the example notebook
 on GitHub. You also need an Amazon S3 bucket to store the training data and for the model
 output.

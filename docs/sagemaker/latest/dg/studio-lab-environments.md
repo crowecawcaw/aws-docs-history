@@ -29,8 +29,7 @@ Amazon SageMaker AI. Here's an overview of each environment and its use case:
 The `sagemaker-distribution` environment is closely related to the
 environment used in Amazon SageMaker Studio Classic, so after graduating from Studio Lab to Studio Classic the
 notebooks should run similarly. For information on exporting your environment from Studio Lab
-to Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to
-Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
+to Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
 
 - `default`: A persistent environment with minimal packages pre-installed. Use
   this environment if you want to customize it significantly by installing additional
@@ -45,11 +44,8 @@ Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migra
   environment is not intended for customer use.
   To view the packages in an environment, run the command `conda list`.
 
-For more information on installing packages within your environment, see [Customize your
-environment](studio-lab-use-manage.md#studio-lab-use-manage-conda-default-customize "studio-lab-use-manage.md#studio-lab-use-manage-conda-default-customize").
+For more information on installing packages within your environment, see [Customize your environment](studio-lab-use-manage.md#studio-lab-use-manage-conda-default-customize "studio-lab-use-manage.md#studio-lab-use-manage-conda-default-customize").
 
-If you plan to graduate from Studio Lab to Amazon SageMaker Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to
-Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
+If you plan to graduate from Studio Lab to Amazon SageMaker Studio Classic, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
 
-For information on SageMaker images and their versions, see [Amazon SageMaker Images Available for Use With
-Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+For information on SageMaker images and their versions, see [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").

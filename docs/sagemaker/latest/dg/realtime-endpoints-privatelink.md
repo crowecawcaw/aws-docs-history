@@ -86,5 +86,4 @@ response = runtime_client.invoke_endpoint(EndpointName=endpoint_name,
 
 ```
 
-For more information on endpoint configuration, see [Deploy
-models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").
+For more information on endpoint configuration, see [Deploy models for real-time inference](realtime-endpoints-deploy-models.md "realtime-endpoints-deploy-models.md").

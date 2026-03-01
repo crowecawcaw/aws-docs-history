@@ -1,13 +1,9 @@
-# SageMaker Distributed Model Parallelism Best
-
-Practices
+# SageMaker Distributed Model Parallelism Best Practices
 
 Use the following guidelines when you run a distributed training job with the SageMaker model
 parallel library.
 
-## Setting Up the Right
-
-Configuration for a Given Model
+## Setting Up the Right Configuration for a Given Model
 
 When scaling up a model, we recommend you to go over the following list in order. Each
 list item discusses the advantage of using the library's techniques along with the
@@ -72,8 +68,7 @@ For more information, see [Activation Checkpointing](model-parallel-extended-fea
   adds significant overhead from communication of activations across the nodes and
   can become computationally expensive.
 
-For more information, see [Tensor
-Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
+For more information, see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md").
 
 ###### Pipeline parallelism across nodes
 
@@ -121,9 +116,7 @@ Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "mod
 
 For more information, see [Activation Offloading](model-parallel-extended-features-pytorch-activation-offloading.md "model-parallel-extended-features-pytorch-activation-offloading.md").
 
-### Reference
-
-configurations
+### Reference configurations
 
 The SageMaker model parallelism training team provides the following reference points
 based on experiments with the GPT-2 model, the sequence length of 512, and the
@@ -141,13 +134,10 @@ for your model configuration. For example, if you increase the sequence length f
 might want to lower batch size first. If the model still doesn’t fit, try increasing
 the degree of tensor parallelism.
 
-## Modifying Your
-
-Training Script
+## Modifying Your Training Script
 
 - Before you use the SageMaker model parallel library’s features in your training
-  script, review [The SageMaker Distributed Model
-  Parallelism Library Configuration Tips and Pitfalls](model-parallel-customize-tips-pitfalls.md "model-parallel-customize-tips-pitfalls.md").
+  script, review [The SageMaker Distributed Model Parallelism Library Configuration Tips and Pitfalls](model-parallel-customize-tips-pitfalls.md "model-parallel-customize-tips-pitfalls.md").
 - To launch a training job faster, use the [SageMaker AI local mode](https://sagemaker.readthedocs.io/en/v2.199.0/overview.html?highlight=local%20mode#local-mode "https://sagemaker.readthedocs.io/en/v2.199.0/overview.html?highlight=local%20mode#local-mode"). This helps you quickly run a training job locally
   on a SageMaker notebook instance. Depending on the scale of the ML instance on which
   your SageMaker notebook instance is running, you might need to adjust the size of
@@ -156,9 +146,7 @@ Training Script
   on the notebook instance before using a large cluster for training the full
   model.
 
-## Monitoring and Logging a
-
-Training Job Using the SageMaker AI Console and Amazon CloudWatch
+## Monitoring and Logging a Training Job Using the SageMaker AI Console and Amazon CloudWatch
 
 To monitor system-level metrics such as CPU memory utilization, GPU memory
 utilization, and GPU utilization, use visualization provided through the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").

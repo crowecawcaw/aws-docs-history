@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -49,8 +48,7 @@ Image is used by default. For more information about SageMaker Distribution Imag
 ###### Important
 
 For information about updating the space to use the latest version of the SageMaker AI
-Distribution Image, see [Update the SageMaker
-Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md").
+Distribution Image, see [Update the SageMaker Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md").
 
 The working directory of your users within the storage volume is
 `/home/sagemaker-user`. If you specify your own AWS KMS key to encrypt the
@@ -64,14 +62,11 @@ administrator.
 
 ###### Topics
 
-- [Give your users access to
-  spaces](studio-updated-jl-admin-guide-permissions.md "studio-updated-jl-admin-guide-permissions.md")
-- [Change the default storage
-  size for your JupyterLab users](studio-updated-jl-admin-guide-storage-size.md "studio-updated-jl-admin-guide-storage-size.md")
+- [Give your users access to spaces](studio-updated-jl-admin-guide-permissions.md "studio-updated-jl-admin-guide-permissions.md")
+- [Change the default storage size for your JupyterLab users](studio-updated-jl-admin-guide-storage-size.md "studio-updated-jl-admin-guide-storage-size.md")
 - [Lifecycle configurations with JupyterLab](jl-lcc.md "jl-lcc.md")
 - [Git repos in JupyterLab](studio-updated-jl-admin-guide-git-attach.md "studio-updated-jl-admin-guide-git-attach.md")
 - [Custom images](studio-updated-jl-admin-guide-custom-images.md "studio-updated-jl-admin-guide-custom-images.md")
-- [Update the SageMaker
-  Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md")
+- [Update the SageMaker Distribution Image](studio-updated-jl-update-distribution-image.md "studio-updated-jl-update-distribution-image.md")
 - [Delete unused resources](studio-updated-jl-admin-guide-clean-up.md "studio-updated-jl-admin-guide-clean-up.md")
 - [Quotas](studio-updated-jl-admin-guide-quotas.md "studio-updated-jl-admin-guide-quotas.md")

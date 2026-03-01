@@ -8,6 +8,5 @@ access. The following topics describe how to change permissions for both kinds o
 
 ###### Topics
 
-- [Access control and setting permissions for SageMaker Studio
-  notebooks](security-access-control-studio-nb.md "security-access-control-studio-nb.md")
+- [Access control and setting permissions for SageMaker Studio notebooks](security-access-control-studio-nb.md "security-access-control-studio-nb.md")
 - [Control root access to a SageMaker notebook instance](nbi-root-access.md "nbi-root-access.md")

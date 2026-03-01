@@ -6,8 +6,7 @@ Amazon SageMaker notebook instances, AWS SDK for Python (Boto3), and AWS Command
 ###### Topics
 
 - [Using the SageMaker Python SDK](#training-compiler-enable-pytorch-pysdk "#training-compiler-enable-pytorch-pysdk")
-- [Using the SageMaker AI
-  CreateTrainingJob API Operation](#training-compiler-enable-pytorch-api "#training-compiler-enable-pytorch-api")
+- [Using the SageMaker AI CreateTrainingJob API Operation](#training-compiler-enable-pytorch-api "#training-compiler-enable-pytorch-api")
 
 ## Using the SageMaker Python SDK
 
@@ -39,8 +38,7 @@ For PyTorch v1.11.0 and before, use the previous versions of the SageMaker Train
 containers for Hugging Face and PyTorch.
 
 For a complete list of framework versions and corresponding container information,
-see [Supported
-Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 
 For information that fits your use case, see one of the following options.
 
@@ -133,8 +131,7 @@ To prepare your training script, see the following pages.
 
 - [For single GPU training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-single-gpu "training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-single-gpu") of a PyTorch model using Hugging Face Transformers'
   [Trainer API](https://huggingface.co/docs/transformers/main_classes/trainer "https://huggingface.co/docs/transformers/main_classes/trainer")
-- [For
-  single GPU training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-single-gpu "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-single-gpu") of a PyTorch model without Hugging Face Transformers'
+- [For single GPU training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-single-gpu "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-single-gpu") of a PyTorch model without Hugging Face Transformers'
   [Trainer API](https://huggingface.co/transformers/main_classes/trainer.html "https://huggingface.co/transformers/main_classes/trainer.html")
 
 To find end-to-end examples, see the following notebooks:
@@ -259,8 +256,7 @@ pages.
 
 - [For distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-distributed") of a PyTorch model using Hugging Face Transformers'
   [Trainer API](https://huggingface.co/transformers/main_classes/trainer.html "https://huggingface.co/transformers/main_classes/trainer.html")
-- [For
-  distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed") of a PyTorch model without Hugging Face Transformers'
+- [For distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed") of a PyTorch model without Hugging Face Transformers'
   [Trainer API](https://huggingface.co/transformers/main_classes/trainer.html "https://huggingface.co/transformers/main_classes/trainer.html")
 
 Transformers v4.17 with PyTorch v1.10.2 and before
@@ -344,8 +340,7 @@ pages.
 
 - [For distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer-distributed") of a PyTorch model using Hugging Face Transformers'
   [Trainer API](https://huggingface.co/transformers/main_classes/trainer.html "https://huggingface.co/transformers/main_classes/trainer.html")
-- [For
-  distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed") of a PyTorch model without Hugging Face Transformers'
+- [For distributed training](training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed "training-compiler-pytorch-models.md#training-compiler-pytorch-models-non-trainer-distributed") of a PyTorch model without Hugging Face Transformers'
   [Trainer API](https://huggingface.co/transformers/main_classes/trainer.html "https://huggingface.co/transformers/main_classes/trainer.html")
 
 ###### Tip
@@ -369,8 +364,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify the
 `transformers_version`, `pytorch_version`,
 `hyperparameters`, and `compiler_config` parameters to
 enable SageMaker Training Compiler. You cannot use `image_uri` to manually specify the
-Training Compiler integrated Deep Learning Containers that are listed at [Supported
-Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+Training Compiler integrated Deep Learning Containers that are listed at [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 
 - `entry_point` (str) – Required. Specify the file name of
   your training script.
@@ -399,12 +393,10 @@ example notebooks:
   type.
 - `transformers_version` (str) – Required only when using the
   SageMaker AI Hugging Face estimator. Specify the Hugging Face Transformers library
-  version supported by SageMaker Training Compiler. To find available versions, see [Supported
-  Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+  version supported by SageMaker Training Compiler. To find available versions, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 - `framework_version` or `pytorch_version` (str) –
   Required. Specify the PyTorch version supported by SageMaker Training Compiler. To find available
-  versions, see [Supported
-  Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+  versions, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
 
 ###### Note
 
@@ -416,8 +408,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify both
   for the training job, such as `n_gpus`, `batch_size`, and
   `learning_rate`. When you enable SageMaker Training Compiler, try larger batch sizes
   and adjust the learning rate accordingly. To find case studies of using the
-  compiler and adjusted batch sizes to improve training speed, see [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models") and [SageMaker Training Compiler Example Notebooks and
-  Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md").
+  compiler and adjusted batch sizes to improve training speed, see [Tested Models](training-compiler-support.md#training-compiler-tested-models "training-compiler-support.md#training-compiler-tested-models") and [SageMaker Training Compiler Example Notebooks and Blogs](training-compiler-examples-and-blogs.md "training-compiler-examples-and-blogs.md").
 
 ###### Note
 
@@ -471,9 +462,7 @@ Configuring SM Training Compiler...
 Training Compiler set to debug mode
 ```
 
-## Using the SageMaker AI
-
-`CreateTrainingJob` API Operation
+## Using the SageMaker AI `CreateTrainingJob` API Operation
 
 SageMaker Training Compiler configuration options must be specified through the
 `AlgorithmSpecification` and `HyperParameters` field in the
@@ -492,5 +481,4 @@ request syntax for the [`CreateTrainingJob` API operation](../APIReference/API_C
 ```
 
 To find a complete list of deep learning container image URIs that have SageMaker Training Compiler
-implemented, see [Supported
-Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").
+implemented, see [Supported Frameworks](training-compiler-support.md#training-compiler-supported-frameworks "training-compiler-support.md#training-compiler-supported-frameworks").

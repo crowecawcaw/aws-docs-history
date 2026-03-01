@@ -1,6 +1,4 @@
-# Useful SageMaker AI estimator class methods
-
-for Debugger
+# Useful SageMaker AI estimator class methods for Debugger
 
 The following estimator class methods are useful for accessing your SageMaker training job
 information and retrieving output paths of training data collected by Debugger. The

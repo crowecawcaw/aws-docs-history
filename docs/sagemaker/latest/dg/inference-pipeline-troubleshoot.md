@@ -1,6 +1,4 @@
-# Troubleshoot Inference
-
-Pipelines
+# Troubleshoot Inference Pipelines
 
 To troubleshoot inference pipeline issues, use CloudWatch logs and error messages. If you
 are using custom Docker images in a pipeline that includes Amazon SageMaker AI built-in algorithms,
@@ -9,16 +7,11 @@ an Amazon Elastic Container Registry (Amazon ECR) policy.
 
 ###### Topics
 
-- [Troubleshoot Amazon ECR
-  Permissions for Inference Pipelines](#inference-pipeline-troubleshoot-permissions "#inference-pipeline-troubleshoot-permissions")
-- [Use CloudWatch Logs to Troubleshoot
-  SageMaker AI Inference Pipelines](#inference-pipeline-troubleshoot-logs "#inference-pipeline-troubleshoot-logs")
-- [Use Error Messages to
-  Troubleshoot Inference Pipelines](#inference-pipeline-troubleshoot-errors "#inference-pipeline-troubleshoot-errors")
+- [Troubleshoot Amazon ECR Permissions for Inference Pipelines](#inference-pipeline-troubleshoot-permissions "#inference-pipeline-troubleshoot-permissions")
+- [Use CloudWatch Logs to Troubleshoot SageMaker AI Inference Pipelines](#inference-pipeline-troubleshoot-logs "#inference-pipeline-troubleshoot-logs")
+- [Use Error Messages to Troubleshoot Inference Pipelines](#inference-pipeline-troubleshoot-errors "#inference-pipeline-troubleshoot-errors")
 
-## Troubleshoot Amazon ECR
-
-Permissions for Inference Pipelines
+## Troubleshoot Amazon ECR Permissions for Inference Pipelines
 
 When you use custom Docker images in a pipeline that includes [SageMaker AI built-in algorithms](sagemaker-algo-docker-registry-paths.md "sagemaker-algo-docker-registry-paths.md"), you need an [Amazon ECR policy](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md"). The policy allows your Amazon ECR repository to grant
 permission for SageMaker AI to pull the image. The policy must add the following
@@ -48,9 +41,7 @@ JSON
 
 ```
 
-## Use CloudWatch Logs to Troubleshoot
-
-SageMaker AI Inference Pipelines
+## Use CloudWatch Logs to Troubleshoot SageMaker AI Inference Pipelines
 
 SageMaker AI publishes the container logs for endpoints that deploy an inference pipeline
 to Amazon CloudWatch at the following path for each container.
@@ -94,12 +85,9 @@ choose `MyInferencePipelinesEndpoint`, and then
 
 ![The CloudWatch log stream for the inference pipeline.](images/pipeline-log-streams-2.png)
 
-For a list of the logs that SageMaker AI publishes, see [Inference Pipeline Logs and
-Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md").
+For a list of the logs that SageMaker AI publishes, see [Inference Pipeline Logs and Metrics](inference-pipeline-logs-metrics.md "inference-pipeline-logs-metrics.md").
 
-## Use Error Messages to
-
-Troubleshoot Inference Pipelines
+## Use Error Messages to Troubleshoot Inference Pipelines
 
 The inference pipeline error messages indicate which containers failed.
 

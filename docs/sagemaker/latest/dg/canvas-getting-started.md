@@ -2,8 +2,7 @@
 
 This guide tells you how to get started with using SageMaker Canvas. If you're an IT administrator and would
 like more in-depth details, see
-[Amazon SageMaker Canvas setup and permissions management (for IT
-administrators)](canvas-setting-up.md "canvas-setting-up.md") to set up SageMaker Canvas for your
+[Amazon SageMaker Canvas setup and permissions management (for IT administrators)](canvas-setting-up.md "canvas-setting-up.md") to set up SageMaker Canvas for your
 users.
 
 ###### Topics
@@ -106,8 +105,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
 
 3. (Optional) Configure the **Large data processing** section if your users
    plan to process datasets larger than 5 GB in Canvas. For more detailed information about how
-   to configure these options, see [Grant Users Permissions to Use Large Data
-   across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
+   to configure these options, see [Grant Users Permissions to Use Large Data across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
 4. (Optional) For the **ML Ops permissions configuration** section, do the following:
    1. Leave the **Enable direct deployment of Canvas models** option
       turned on to give your users permissions to deploy their models from Canvas to a SageMaker AI endpoint.
@@ -115,16 +113,14 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
       [Deploy your models to an endpoint](canvas-deploy-model.md "canvas-deploy-model.md").
    2. Leave the **Enable Model Registry registration permissions for all users** option
       turned on to give your users permissions to register their model version to the SageMaker AI model
-      registry (it is turned on by default). For more information, see [Register a model version in the SageMaker AI model
-      registry](canvas-register-model.md "canvas-register-model.md").
+      registry (it is turned on by default). For more information, see [Register a model version in the SageMaker AI model registry](canvas-register-model.md "canvas-register-model.md").
    3. If you left the **Enable Model Registry registration permissions for all users** option turned on,
       then select either **Register to Model Registry only** or **Register and approve model in Model Registry**.
 
 5. (Optional) For the **Local file upload configuration** section, turn on the **Enable local file upload**
    option to give your users permissions to upload files to Canvas from their local machines. Turning this option on attaches a cross-origin resource sharing (CORS)
    policy to the Amazon S3 bucket specified in the **Canvas storage configuration** (and overrides any existing CORS policy).
-   To learn more about local file upload permissions, see [Grant Your Users Permissions to Upload Local
-   Files](canvas-set-up-local-upload.md "canvas-set-up-local-upload.md").
+   To learn more about local file upload permissions, see [Grant Your Users Permissions to Upload Local Files](canvas-set-up-local-upload.md "canvas-set-up-local-upload.md").
 6. (Optional) For the **OAuth settings** section, do the following:
    1. Choose **Add OAuth configuration**.
    2. For **Data source**, select your data source.
@@ -148,8 +144,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
       Canvas. If you already have an execution role with a trust relationship, then select
       **Use an existing execution role** and choose your role from the dropdown.
       For more information about manually configuring permissions for your own execution role, see
-      [Grant Users Permissions to Use Amazon Bedrock
-      and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
+      [Grant Users Permissions to Use Amazon Bedrock and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
 
 8. Finish configuring the rest of the domain settings using the [Use custom setup for Amazon SageMaker AI](onboard-custom.md "onboard-custom.md")
    procedures.
@@ -165,9 +160,7 @@ You can edit the Canvas permissions for a domain or a specific user after the in
 Individual user settings override the domain settings. To learn how to edit your Canvas permissions in
 the domain settings, see [Edit domain settings](domain-edit.md "domain-edit.md").
 
-### Give yourself permissions to use specific
-
-features in Canvas
+### Give yourself permissions to use specific features in Canvas
 
 The following information outlines the various permissions that you can grant to a
 Canvas user to allow the use of various features and functionalities within Canvas. Some
@@ -187,8 +180,7 @@ to enable:
   for building custom image and text prediction models are turned on by default in the
   Canvas base permissions when setting up your domain. However, if you have a custom
   IAM configuration and don't want to attach the [AmazonSageMakerCanvasFullAccess](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess") policy to your user's IAM execution role, then you
-  must explicitly grant your user the necessary permissions. For more information, see [Grant Your Users Permissions to Build Custom Image and
-  Text Prediction Models](canvas-set-up-cv-nlp.md "canvas-set-up-cv-nlp.md").
+  must explicitly grant your user the necessary permissions. For more information, see [Grant Your Users Permissions to Build Custom Image and Text Prediction Models](canvas-set-up-cv-nlp.md "canvas-set-up-cv-nlp.md").
 - **Ready-to-use models and foundation models.** You might
   want to use the Canvas Ready-to-use models to make predictions for your data. With the
   Ready-to-use models permissions, you can also chat with generative AI-powered models. The
@@ -206,13 +198,12 @@ see [Generative AI foundation models in SageMaker Canvas](canvas-fm-chat.md "can
   domain, or you can edit the permissions for the domain or user profile after creating
   your domain. You must add the [AmazonSageMakerCanvasAIServicesAccess](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasAIServicesAccess") policy to the AWS IAM role you chose when
   setting up the user profile, and you must also add a trust relationship with Amazon Bedrock to
-  the role. For instructions on how to add these permissions to your IAM role, see [Grant Users Permissions to Use Amazon Bedrock
-  and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
-- **Send batch predictions to Quick Suite.** You might want to [send _batch predictions_](canvas-send-predictions.md "canvas-send-predictions.md"), or datasets of predictions you generate
-  from a custom model, to Quick Suite for analysis. In [QuickSight](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md"), you can build and publish
+  the role. For instructions on how to add these permissions to your IAM role, see [Grant Users Permissions to Use Amazon Bedrock and Generative AI Features in Canvas](canvas-fine-tuning-permissions.md "canvas-fine-tuning-permissions.md").
+- **Send batch predictions to Quick.** You might want to [send _batch predictions_](canvas-send-predictions.md "canvas-send-predictions.md"), or datasets of predictions you generate
+  from a custom model, to Quick for analysis. In [QuickSight](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md"), you can build and publish
   predictive dashboards with your prediction results. For instructions on how to add these
   permissions to your Canvas user's IAM role, see [Grant Your Users Permissions to
-  Send Predictions to Quick Suite](canvas-quicksight-permissions.md "canvas-quicksight-permissions.md").
+  Send Predictions to Quick](canvas-quicksight-permissions.md "canvas-quicksight-permissions.md").
 - **Deploy Canvas models to a SageMaker AI endpoint.** SageMaker AI
   Hosting offers _endpoints_ which you can use to deploy your
   model for use in production. You can deploy models built in Canvas to a SageMaker AI endpoint and then
@@ -225,8 +216,7 @@ see [Generative AI foundation models in SageMaker Canvas](canvas-fm-chat.md "can
   of your model that you’ve built and approve or reject them. Then, they can deploy your model
   version to production or kick off an automated workflow. Model registration permissions are
   turned on by default for your domain. You can manage permissions at the user profile level
-  and grant or remove permissions to specific users. For more information, see [Register a model version in the SageMaker AI model
-  registry](canvas-register-model.md "canvas-register-model.md").
+  and grant or remove permissions to specific users. For more information, see [Register a model version in the SageMaker AI model registry](canvas-register-model.md "canvas-register-model.md").
 - **Import data from Amazon Redshift.** If you want to import data from
   Amazon Redshift, you must give yourself additional permissions. You must add the
   `AmazonRedshiftFullAccess` managed policy to the AWS IAM role you chose when
@@ -256,8 +246,7 @@ a SageMaker AI _space_ for you. The Canvas application’s
 data is stored in the space. To learn more about spaces, see [Collaboration with shared spaces](domain-space.md "domain-space.md").
 The space consists of your user profile’s applications and a shared directory for all of your
 applications’ data. If you don’t want to use the default space created by SageMaker AI and would prefer
-to create your own space for storing application data, see the page [Store SageMaker Canvas application data in your own SageMaker AI
-space](canvas-spaces-setup.md "canvas-spaces-setup.md").
+to create your own space for storing application data, see the page [Store SageMaker Canvas application data in your own SageMaker AI space](canvas-spaces-setup.md "canvas-spaces-setup.md").
 
 ## Step 2: Use SageMaker Canvas to get predictions
 

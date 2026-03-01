@@ -1,6 +1,4 @@
-# Run Training and Inference Containers in Internet-Free
-
-Mode
+# Run Training and Inference Containers in Internet-Free Mode
 
 SageMaker AI training and deployed inference containers are internet-enabled by default. This allows
 containers to access external services and resources on the public internet as part of your training and
@@ -43,9 +41,7 @@ they require access to Amazon S3:
 - Chainer
 - SageMaker AI Reinforcement Learning
 
-### Network
-
-isolation with a VPC
+### Network isolation with a VPC
 
 Network isolation can be used in conjunction with a VPC. In this scenario, the download
 and upload of customer data and model artifacts are routed through your VPC

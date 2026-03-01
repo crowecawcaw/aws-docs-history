@@ -1,6 +1,4 @@
-# Migrate resources to the latest
-
-Operators
+# Migrate resources to the latest Operators
 
 We are stopping the development and technical
 support of the original version of [SageMaker Operators for Kubernetes](https://github.com/aws/amazon-sagemaker-operator-for-k8s/tree/master "https://github.com/aws/amazon-sagemaker-operator-for-k8s/tree/master").
@@ -13,9 +11,7 @@ The ACK service controller is a new generation of SageMaker Operators for Kubern
 
 For answers to frequently asked
 questions on the end of support of the original version of SageMaker Operators for
-Kubernetes, see [Announcing the End of Support
-of the Original Version of SageMaker AI
-Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
+Kubernetes, see [Announcing the End of Support of the Original Version of SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-eos-announcement.md "kubernetes-sagemaker-operators-eos-announcement.md")
 
 Use the following steps to migrate your resources and use ACK to train, tune, and deploy
 machine learning models with Amazon SageMaker AI.
@@ -28,8 +24,7 @@ The latest SageMaker AI Operators for Kubernetes are not backwards compatible.
 
 - [Prerequisites](#migrate-resources-to-new-operators-prerequisites "#migrate-resources-to-new-operators-prerequisites")
 - [Adopt resources](#migrate-resources-to-new-operators-steps "#migrate-resources-to-new-operators-steps")
-- [Clean up old
-  resources](#migrate-resources-to-new-operators-cleanup "#migrate-resources-to-new-operators-cleanup")
+- [Clean up old resources](#migrate-resources-to-new-operators-cleanup "#migrate-resources-to-new-operators-cleanup")
 - [Use the new SageMaker AI Operators for Kubernetes](#migrate-resources-to-new-operators-tutorials "#migrate-resources-to-new-operators-tutorials")
 
 ## Prerequisites
@@ -39,8 +34,7 @@ must do the following:
 
 1. Install the latest SageMaker AI Operators for Kubernetes. See [Setup](https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/#setup "https://aws-controllers-k8s.github.io/community/docs/tutorials/sagemaker-example/#setup") in _Machine Learning with the ACK SageMaker AI
    Controller_ for step-by-step instructions.
-2. If you are using [HostingAutoscalingPolicy
-   resources](#migrate-resources-to-new-operators-hap "#migrate-resources-to-new-operators-hap"), install the new
+2. If you are using [HostingAutoscalingPolicy resources](#migrate-resources-to-new-operators-hap "#migrate-resources-to-new-operators-hap"), install the new
    Application Auto Scaling Operators. See [Setup](https://aws-controllers-k8s.github.io/community/docs/tutorials/autoscaling-example/#setup "https://aws-controllers-k8s.github.io/community/docs/tutorials/autoscaling-example/#setup") in _Scale SageMaker AI Workloads with
    Application Auto Scaling_ for step-by-step instructions. This step is optional if
    you are not using HostingAutoScalingPolicy resources.
@@ -126,9 +120,7 @@ Check that your resource exists in your cluster:
 kubectl describe endpoints.sagemaker xgboost-endpoint
 ```
 
-### HostingAutoscalingPolicy
-
-resources
+### HostingAutoscalingPolicy resources
 
 The `HostingAutoscalingPolicy` (HAP) resource consists of multiple
 Application Auto Scaling resources: `ScalableTarget` and `ScalingPolicy`. When
@@ -152,16 +144,12 @@ can be found in status of the `HostingDeployment` resource
 For a list of all supported SageMaker AI resources, refer to the [ACK API
 Reference](https://aws-controllers-k8s.github.io/community/reference/ "https://aws-controllers-k8s.github.io/community/reference/").
 
-## Clean up old
-
-resources
+## Clean up old resources
 
 After the new SageMaker AI Operators for Kubernetes adopt your resources, you can
 uninstall old operators and clean up old resources.
 
-### Step 1: Uninstall the
-
-old operator
+### Step 1: Uninstall the old operator
 
 To uninstall the old operator, see [Delete operators](kubernetes-sagemaker-operators-end-of-support.md#delete-operators "kubernetes-sagemaker-operators-end-of-support.md#delete-operators").
 
@@ -169,9 +157,7 @@ To uninstall the old operator, see [Delete operators](kubernetes-sagemaker-opera
 
 Uninstall the old operator before deleting any old resources.
 
-### Step 2: Remove
-
-finalizers and delete old resources
+### Step 2: Remove finalizers and delete old resources
 
 ###### Warning
 
@@ -204,5 +190,4 @@ done
 
 ## Use the new SageMaker AI Operators for Kubernetes
 
-For in-depth guides on using the new SageMaker AI Operators for Kubernetes, see [Use SageMaker AI Operators for
-Kubernetes](kubernetes-sagemaker-operators-ack.md#kubernetes-sagemaker-operators-ack-use "kubernetes-sagemaker-operators-ack.md#kubernetes-sagemaker-operators-ack-use")
+For in-depth guides on using the new SageMaker AI Operators for Kubernetes, see [Use SageMaker AI Operators for Kubernetes](kubernetes-sagemaker-operators-ack.md#kubernetes-sagemaker-operators-ack-use "kubernetes-sagemaker-operators-ack.md#kubernetes-sagemaker-operators-ack-use")

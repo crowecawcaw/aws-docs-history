@@ -21,9 +21,7 @@ relevant MLflow API actions to successfully run provided examples. For more info
 For more information about using the MLflow SDK, see [Python API](https://mlflow.org/docs/2.13.2/python_api/index.html "https://mlflow.org/docs/2.13.2/python_api/index.html") in the MLflow
 documentation.
 
-## Install MLflow and the AWS MLflow
-
-plugin
+## Install MLflow and the AWS MLflow plugin
 
 Within your development environment, install both MLflow and the AWS MLflow plugin.
 
@@ -39,9 +37,7 @@ To ensure compatibility between your MLflow client and tracking server, use the 
 
 To see which versions of MLflow are available to use with SageMaker AI, see [Tracking server versions](mlflow.md#mlflow-create-tracking-server-versions "mlflow.md#mlflow-create-tracking-server-versions").
 
-##
-
-Connect to your MLflow Tracking Server
+## Connect to your MLflow Tracking Server
 
 Use `mlflow.set_tracking_uri` to connect to a your tracking server from your
 development environment using its ARN:

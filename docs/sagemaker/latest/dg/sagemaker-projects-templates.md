@@ -4,9 +4,7 @@ An Amazon SageMaker AI project template automates the setup and implementation o
 projects. A SageMaker AI project template is an Service Catalog product that SageMaker AI makes available to
 Amazon SageMaker Studio (or Studio Classic) users. These Service Catalog products are visible in your Service Catalog console
 after you enable permissions when you onboard or update Amazon SageMaker Studio (or Studio Classic). For
-information about enabling permissions to use SageMaker AI project templates, see [Granting SageMaker Studio Permissions
-Required to Use
-Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md"). Use SageMaker AI project templates to create a project that is an end-to-end MLOps solution.
+information about enabling permissions to use SageMaker AI project templates, see [Granting SageMaker Studio Permissions Required to Use Projects](sagemaker-projects-studio-updates.md "sagemaker-projects-studio-updates.md"). Use SageMaker AI project templates to create a project that is an end-to-end MLOps solution.
 
 You can use a SageMaker Projects template to implement image-building CI/CD. With this template,
 you can automate the CI/CD of images that are built and pushed to Amazon ECR. Changes in the

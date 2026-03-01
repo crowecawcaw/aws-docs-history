@@ -1,6 +1,4 @@
-# Enable a dual-stack
-
-workforce
+# Enable a dual-stack workforce
 
 You can enable a dual-stack workforce by using the [CreateWorkforce](../APIReference/API_CreateWorkforce.md "../APIReference/API_CreateWorkforce.md") and [UpdateWorkforce](../APIReference/API_UpdateWorkforce.md "../APIReference/API_UpdateWorkforce.md") API operations. Creating a dual-stack workforce, updating
 an existing workforce to dual-stack, and changing a workforce from dual-stack back to
@@ -11,9 +9,7 @@ IPv4 are not supported in AWS Management Console.
 A workforce without a defined `IpAddressType` defaults to
 `IPv4`.
 
-## Create a
-
-dual-stack workforce
+## Create a dual-stack workforce
 
 The process for creating a dual-stack workforce is similar to creating an
 IPv4-only workforce, with the exceptions noted below. For more information, see
@@ -53,9 +49,7 @@ client.create_workforce(
 )
 ```
 
-## Update a
-
-dual-stack workforce
+## Update a dual-stack workforce
 
 When updating an existing workforce to be dual-stack, note the following. For more
 information, see [UpdateWorkforce](../APIReference/API_UpdateWorkforce.md "../APIReference/API_UpdateWorkforce.md") and [IPv6 support for your

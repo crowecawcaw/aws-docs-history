@@ -10,9 +10,7 @@ accordance with the [AWS Deep Learning Containers Framework Support Policy](../.
 
 See the following release notes to track the latest updates for Amazon SageMaker Training Compiler.
 
-## SageMaker Training Compiler Release Notes:
-
-February 13, 2023
+## SageMaker Training Compiler Release Notes: February 13, 2023
 
 ###### Currency Updates
 
@@ -45,12 +43,9 @@ Learning Container:
 763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-trcomp-training:1.13.1-gpu-py39-cu117-ubuntu20.04-sagemaker
 ```
 
-To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
-## SageMaker Training Compiler Release Notes:
-
-January 9, 2023
+## SageMaker Training Compiler Release Notes: January 9, 2023
 
 **Breaking Changes**
 
@@ -80,12 +75,9 @@ Learning Container:
 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.11.0-gpu-py39-cu112-ubuntu20.04-sagemaker
 ```
 
-To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
-## SageMaker Training Compiler Release Notes:
-
-December 8, 2022
+## SageMaker Training Compiler Release Notes: December 8, 2022
 
 **Bug Fixes**
 
@@ -106,9 +98,7 @@ December 8, 2022
 - When using the Hugging Face Transformers `Trainer` class, make sure
   that you use SyncFree optimizers by setting the `optim` argument to
   `adamw_torch_xla`. For more information, see
-  [Large
-  Language Models Using the Hugging Face Transformers Trainer
-  Class](training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer"). See also [Optimizer](https://huggingface.co/docs/transformers/v4.23.1/en/perf_train_gpu_one#optimizer "https://huggingface.co/docs/transformers/v4.23.1/en/perf_train_gpu_one#optimizer") in the _Hugging Face Transformers
+  [Large Language Models Using the Hugging Face Transformers Trainer Class](training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer "training-compiler-pytorch-models.md#training-compiler-pytorch-models-transformers-trainer"). See also [Optimizer](https://huggingface.co/docs/transformers/v4.23.1/en/perf_train_gpu_one#optimizer "https://huggingface.co/docs/transformers/v4.23.1/en/perf_train_gpu_one#optimizer") in the _Hugging Face Transformers
   documentation_.
 
 ###### Migration to AWS Deep Learning Containers
@@ -122,12 +112,9 @@ Learning Container:
 763104351884.dkr.ecr.`<region>`.amazonaws.com/pytorch-trcomp-training:1.12.0-gpu-py38-cu113-ubuntu20.04-sagemaker
 ```
 
-To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
-## SageMaker Training Compiler Release Notes:
-
-October 4, 2022
+## SageMaker Training Compiler Release Notes: October 4, 2022
 
 ###### Currency Updates
 
@@ -149,12 +136,9 @@ Learning Container:
 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.10.0-gpu-py39-cu112-ubuntu20.04-sagemaker
 ```
 
-To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
-## SageMaker Training Compiler Release Notes:
-
-September 1, 2022
+## SageMaker Training Compiler Release Notes: September 1, 2022
 
 ###### Currency Updates
 
@@ -169,8 +153,7 @@ September 1, 2022
 - Integrated with EFA to improve the collective communication in distributed
   training.
 - Added support for G5 instances for PyTorch training jobs. For more
-  information, see [Supported Frameworks, AWS Regions,
-  Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+  information, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
 ###### Migration to AWS Deep Learning Containers
 
@@ -183,8 +166,7 @@ Learning Container:
 763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-pytorch-trcomp-training:1.11.0-transformers4.21.1-gpu-py38-cu113-ubuntu20.04
 ```
 
-To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
 ## SageMaker Training Compiler Release Notes: June 14, 2022
 
@@ -210,41 +192,31 @@ Learning Container:
 763104351884.dkr.ecr.`<region>`.amazonaws.com/tensorflow-training:2.9.1-gpu-py39-cu112-ubuntu20.04-sagemaker
 ```
 
-To find a complete list of the pre-built containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+To find a complete list of the pre-built containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
 
-## SageMaker Training Compiler Release Notes: April 26,
-
-2022
+## SageMaker Training Compiler Release Notes: April 26, 2022
 
 ###### Improvements
 
 - Added support for all of the AWS Regions where [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md") are in service except the China
   regions.
 
-## SageMaker Training Compiler Release Notes: April 12,
-
-2022
+## SageMaker Training Compiler Release Notes: April 12, 2022
 
 ###### Currency Updates
 
 - Added support for Hugging Face Transformers v4.17.0 with TensorFlow v2.6.3 and
   PyTorch v1.10.2.
 
-## SageMaker Training Compiler Release Notes: February 21,
-
-2022
+## SageMaker Training Compiler Release Notes: February 21, 2022
 
 ###### Improvements
 
 - Completed benchmark test and confirmed training speed-ups on the
   `ml.g4dn` instance types. To find a complete list of tested
-  `ml` instances, see [Supported Instance
-  Types](training-compiler-support.md#training-compiler-supported-instance-types "training-compiler-support.md#training-compiler-supported-instance-types").
+  `ml` instances, see [Supported Instance Types](training-compiler-support.md#training-compiler-supported-instance-types "training-compiler-support.md#training-compiler-supported-instance-types").
 
-## SageMaker Training Compiler Release Notes: December 01,
-
-2021
+## SageMaker Training Compiler Release Notes: December 01, 2021
 
 ###### New Features
 
@@ -253,5 +225,4 @@ Instance Types, and Tested Models](training-compiler-support.md "training-compil
 ###### Migration to AWS Deep Learning Containers
 
 - Amazon SageMaker Training Compiler passed benchmark testing and is migrated to AWS Deep Learning Containers. To find a
-  complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions,
-  Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").
+  complete list of the prebuilt containers with Amazon SageMaker Training Compiler, see [Supported Frameworks, AWS Regions, Instance Types, and Tested Models](training-compiler-support.md "training-compiler-support.md").

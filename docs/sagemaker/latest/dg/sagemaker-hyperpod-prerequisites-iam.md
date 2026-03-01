@@ -12,8 +12,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -67,12 +66,9 @@ References for adding detailed scope for the services related to SageMaker Hyper
 ###### Topics
 
 - [IAM permissions for cluster creation](#sagemaker-hyperpod-prerequisites-iam-cluster-creation "#sagemaker-hyperpod-prerequisites-iam-cluster-creation")
-- [IAM users for
-  cluster admin](#sagemaker-hyperpod-prerequisites-iam-cluster-admin "#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
-- [IAM users for
-  scientists](#sagemaker-hyperpod-prerequisites-iam-cluster-user "#sagemaker-hyperpod-prerequisites-iam-cluster-user")
-- [IAM role for
-  SageMaker HyperPod](#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
+- [IAM users for cluster admin](#sagemaker-hyperpod-prerequisites-iam-cluster-admin "#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
+- [IAM users for scientists](#sagemaker-hyperpod-prerequisites-iam-cluster-user "#sagemaker-hyperpod-prerequisites-iam-cluster-user")
+- [IAM role for SageMaker HyperPod](#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod "#sagemaker-hyperpod-prerequisites-iam-role-for-hyperpod")
 
 ## IAM permissions for cluster creation
 
@@ -542,9 +538,7 @@ JSON
 
 ```
 
-## IAM users for
-
-cluster admin
+## IAM users for cluster admin
 
 Cluster administrators (admins) operate and configure SageMaker HyperPod clusters,
 performing the tasks in [SageMaker HyperPod Slurm cluster operations](sagemaker-hyperpod-operate-slurm.md "sagemaker-hyperpod-operate-slurm.md"). The following
@@ -648,9 +642,7 @@ SageMaker API calls, features, and resources.
 For guidance on IAM users in general, see [IAM users](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md") in the
 _AWS Identity and Access Management User Guide_.
 
-## IAM users for
-
-scientists
+## IAM users for scientists
 
 Scientists log into and run ML workloads on SageMaker HyperPod cluster nodes provisioned by
 cluster admins. For scientists in your AWS account, you should grant the permission
@@ -685,8 +677,7 @@ Amazon EKS
 Grant the following IAM role permissions for data scientists to run
 `hyperpod list-clusters` and `hyperpod
  connect-cluster` commands among the HyperPod CLI commands. To
-learn more about the HyperPod CLI, see [Running jobs on SageMaker HyperPod clusters
-orchestrated by Amazon EKS](sagemaker-hyperpod-eks-run-jobs.md "sagemaker-hyperpod-eks-run-jobs.md"). It also includes SSM
+learn more about the HyperPod CLI, see [Running jobs on SageMaker HyperPod clusters orchestrated by Amazon EKS](sagemaker-hyperpod-eks-run-jobs.md "sagemaker-hyperpod-eks-run-jobs.md"). It also includes SSM
 session permissions to connect to an SSM target for all resources. This
 allows you to access HyperPod clusters.
 
@@ -738,15 +729,12 @@ the cluster, see also [Grant IAM users and
 roles access to Kubernetes APIs](../../../eks/latest/userguide/grant-k8s-access.md "../../../eks/latest/userguide/grant-k8s-access.md") in the _Amazon EKS User
 Guide_.
 
-## IAM role for
-
-SageMaker HyperPod
+## IAM role for SageMaker HyperPod
 
 For SageMaker HyperPod clusters to run and communicate with necessary AWS resources, you
 need create an IAM role for HyperPod cluster to assume.
 
-Start with attaching the managed role [AWS
-managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md"). Given
+Start with attaching the managed role [AWS managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md"). Given
 this AWS managed policy, SageMaker HyperPod cluster instance groups assume the role to
 communicate with Amazon CloudWatch, Amazon S3, and AWS Systems Manager Agent (SSM Agent). This managed policy
 is the minimum requirement for SageMaker HyperPod resources to run properly, so you must
@@ -760,8 +748,7 @@ different instance groups. When you set up your cluster user access to specific
 SageMaker HyperPod cluster nodes, the nodes assume the role with the selective permissions
 you manually attached.
 
-When you set up the access for scientists to specific cluster nodes through [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/") (see also [Setting up AWS Systems Manager and Run As
-for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm")), the cluster nodes assume the
+When you set up the access for scientists to specific cluster nodes through [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/") (see also [Setting up AWS Systems Manager and Run As for cluster user access control](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-ssm")), the cluster nodes assume the
 role with the selective permissions you manually attach.
 
 After you are done with creating IAM roles, make notes of their names and ARNs. You
@@ -923,8 +910,7 @@ optional. It's required if you plan to use EKS Pod identity.
 **SageMaker HyperPod service-linked role**
 
 For Amazon EKS support in SageMaker HyperPod, HyperPod creates a
-service-linked role with [AWS
-managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md") to monitor and support resiliency on your EKS cluster such as replacing
+service-linked role with [AWS managed policy: AmazonSageMakerHyperPodServiceRolePolicy](security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md "security-iam-awsmanpol-AmazonSageMakerHyperPodServiceRolePolicy.md") to monitor and support resiliency on your EKS cluster such as replacing
 nodes and restarting jobs.
 
 **Additional IAM policies for

@@ -1,6 +1,4 @@
-# Manually quarantine, replace,
-
-or reboot a node
+# Manually quarantine, replace, or reboot a node
 
 Learn how to manually quarantine, replace, and reboot a faulty node in SageMaker HyperPod
 clusters orchestrated with Amazon EKS.
@@ -72,8 +70,7 @@ enforce node replacement when requested through the API.
 
 Label the node to replace with
 `sagemaker.amazonaws.com/node-health-status=UnschedulablePendingReplacement`,
-which triggers the SageMaker HyperPod [Automatic node
-recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md"). Note that you also need
+which triggers the SageMaker HyperPod [Automatic node recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md"). Note that you also need
 to activate automatic node recovery during cluster creation or update.
 
 ```
@@ -85,8 +82,7 @@ to activate automatic node recovery during cluster creation or update.
 
 Label the node to reboot with
 `sagemaker.amazonaws.com/node-health-status=UnschedulablePendingReboot`,
-which triggers the SageMaker HyperPod [Automatic node
-recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md"). Note that you also need
+which triggers the SageMaker HyperPod [Automatic node recovery](sagemaker-hyperpod-eks-resiliency-node-recovery.md "sagemaker-hyperpod-eks-resiliency-node-recovery.md"). Note that you also need
 to activate automatic node recovery during cluster creation or update.
 
 ```

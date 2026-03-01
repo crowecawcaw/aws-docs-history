@@ -10,9 +10,7 @@ available. Model Monitor computes standard deviation by randomly sampling 80% of
 five times, computing the metric, and taking the standard deviation for those
 results.
 
-## Regression
-
-metrics
+## Regression metrics
 
 The following shows an example of the metrics that model quality monitor
 computes for a regression problem.
@@ -38,9 +36,7 @@ computes for a regression problem.
   }
 ```
 
-## Binary
-
-classification metrics
+## Binary classification metrics
 
 The following shows an example of the metrics that model quality monitor
 computes for a binary classification problem.
@@ -136,9 +132,7 @@ computes for a binary classification problem.
   }
 ```
 
-## Multiclass
-
-metrics
+## Multiclass metrics
 
 The following shows an example of the metrics that model quality monitor
 computes for a multiclass classification problem.

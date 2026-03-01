@@ -1,6 +1,4 @@
-# Use the `smdebug`
-
-client library to create a custom rule as a Python script
+# Use the `smdebug` client library to create a custom rule as a Python script
 
 The `smdebug` Rule API provides an interface to set up your own custom rules.
 The following python script is a sample of how to construct a custom rule, `CustomGradientRule`.

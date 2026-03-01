@@ -7,7 +7,5 @@ actions based on the Debugger rule evaluation status, see the following topics.
 
 ###### Topics
 
-- [Use Debugger built-in actions for
-  rules](debugger-built-in-actions.md "debugger-built-in-actions.md")
-- [Actions on rules using Amazon CloudWatch and
-  AWS Lambda](debugger-cloudwatch-lambda.md "debugger-cloudwatch-lambda.md")
+- [Use Debugger built-in actions for rules](debugger-built-in-actions.md "debugger-built-in-actions.md")
+- [Actions on rules using Amazon CloudWatch and AWS Lambda](debugger-cloudwatch-lambda.md "debugger-cloudwatch-lambda.md")

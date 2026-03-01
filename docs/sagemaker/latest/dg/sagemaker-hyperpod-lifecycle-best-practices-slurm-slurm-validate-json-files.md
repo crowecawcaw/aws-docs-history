@@ -1,6 +1,4 @@
-# Validating the JSON configuration files before creating a Slurm cluster on
-
-HyperPod
+# Validating the JSON configuration files before creating a Slurm cluster on HyperPod
 
 To validate the JSON configuration files before submitting a cluster creation request,
 use the configuration validation script [`validate-config.py`](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/validate-config.py "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/validate-config.py"). This script parses and compares your

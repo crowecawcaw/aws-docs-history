@@ -1,6 +1,4 @@
-# Connect to Amazon SageMaker AI resources from
-
-within a VPC
+# Connect to Amazon SageMaker AI resources from within a VPC
 
 ###### Important
 
@@ -23,9 +21,6 @@ instances to resources in a VPC.
 
 ###### Topics
 
-- [Connect Amazon SageMaker Studio
-  in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md")
-- [Connect Studio notebooks in
-  a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md")
-- [Connect a Notebook Instance in a
-  VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md")
+- [Connect Amazon SageMaker Studio in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md")
+- [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md")
+- [Connect a Notebook Instance in a VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md")

@@ -26,23 +26,18 @@ the following classes, among others:
   the [SageMaker AI Spark](https://github.com/aws/sagemaker-spark "https://github.com/aws/sagemaker-spark") GitHub
   repository.
 
-For installation and examples of the SageMaker AI Spark library, see [SageMaker AI Spark for Scala examples](apache-spark-example1.md "apache-spark-example1.md") or [Resources for using SageMaker AI Spark for
-Python (PySpark) examples](apache-spark-additional-examples.md "apache-spark-additional-examples.md").
+For installation and examples of the SageMaker AI Spark library, see [SageMaker AI Spark for Scala examples](apache-spark-example1.md "apache-spark-example1.md") or [Resources for using SageMaker AI Spark for Python (PySpark) examples](apache-spark-additional-examples.md "apache-spark-additional-examples.md").
 
 If you use Amazon EMR on AWS to manage Spark clusters, see [Apache Spark](https://aws.amazon.com/emr/features/spark/ "https://aws.amazon.com/emr/features/spark/"). For more information on using Amazon EMR in
 SageMaker AI, see [Data preparation using Amazon EMR](studio-notebooks-emr-cluster.md "studio-notebooks-emr-cluster.md").
 
 ###### Topics
 
-- [Integrate your Apache Spark application with
-  SageMaker AI](#spark-sdk-common-process "#spark-sdk-common-process")
+- [Integrate your Apache Spark application with SageMaker AI](#spark-sdk-common-process "#spark-sdk-common-process")
 - [SageMaker AI Spark for Scala examples](apache-spark-example1.md "apache-spark-example1.md")
-- [Resources for using SageMaker AI Spark for
-  Python (PySpark) examples](apache-spark-additional-examples.md "apache-spark-additional-examples.md")
+- [Resources for using SageMaker AI Spark for Python (PySpark) examples](apache-spark-additional-examples.md "apache-spark-additional-examples.md")
 
-## Integrate your Apache Spark application with
-
-SageMaker AI
+## Integrate your Apache Spark application with SageMaker AI
 
 The following is high-level summary of the steps for integrating your Apache Spark
 application with SageMaker AI.

@@ -5,14 +5,10 @@ the last Git commit, using the Amazon SageMaker Studio Lab project UI.
 
 ###### Topics
 
-- [Get the difference between the last
-  checkpoint](#studio-lab-use-diff-checkpoint "#studio-lab-use-diff-checkpoint")
-- [Get the difference between the last
-  commit](#studio-lab-use-diff-git "#studio-lab-use-diff-git")
+- [Get the difference between the last checkpoint](#studio-lab-use-diff-checkpoint "#studio-lab-use-diff-checkpoint")
+- [Get the difference between the last commit](#studio-lab-use-diff-git "#studio-lab-use-diff-git")
 
-## Get the difference between the last
-
-checkpoint
+## Get the difference between the last checkpoint
 
 When you create a notebook, a hidden checkpoint file that matches the notebook is
 created. You can view changes between the notebook and the checkpoint file, or revert
@@ -34,9 +30,7 @@ To revert the Studio Lab notebook to the checkpoint file: On the main Studio Lab
 choose **File**, and then **Revert Notebook to
 Checkpoint**.
 
-## Get the difference between the last
-
-commit
+## Get the difference between the last commit
 
 If a notebook is opened from a Git repository, you can view the difference between the
 notebook and the last Git commit.

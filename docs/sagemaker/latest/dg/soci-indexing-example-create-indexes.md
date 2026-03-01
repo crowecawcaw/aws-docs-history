@@ -1,6 +1,4 @@
-# Create SOCI indexes with nerdctl and
-
-SOCI CLI example
+# Create SOCI indexes with nerdctl and SOCI CLI example
 
 The following page provides an example on how to create SOCI indexes with nerdctl and SOCI
 CLI.

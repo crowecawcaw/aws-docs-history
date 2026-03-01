@@ -1,6 +1,4 @@
-# Suggested resilience
-
-configurations
+# Suggested resilience configurations
 
 When the deep health checks are enabled, whenever a new instance is added to the
 HyperPod cluster (either during create-cluster or through automatic node

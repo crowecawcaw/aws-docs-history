@@ -1,20 +1,14 @@
-# Create and attach lifecycle
-
-configurations
+# Create and attach lifecycle configurations
 
 You can create and attach lifecycle configurations using either the AWS Management Console or the
 AWS Command Line Interface.
 
 ###### Topics
 
-- [Create and attach
-  lifecycle configurations (AWS CLI)](#studio-lifecycle-configurations-create-cli "#studio-lifecycle-configurations-create-cli")
-- [Create and attach
-  lifecycle configurations (console)](#studio-lifecycle-configurations-create-console "#studio-lifecycle-configurations-create-console")
+- [Create and attach lifecycle configurations (AWS CLI)](#studio-lifecycle-configurations-create-cli "#studio-lifecycle-configurations-create-cli")
+- [Create and attach lifecycle configurations (console)](#studio-lifecycle-configurations-create-console "#studio-lifecycle-configurations-create-console")
 
-## Create and attach
-
-lifecycle configurations (AWS CLI)
+## Create and attach lifecycle configurations (AWS CLI)
 
 ###### Important
 
@@ -175,9 +169,7 @@ aws sagemaker update-user-profile --domain-id `domain-id` \
 }'
 ```
 
-## Create and attach
-
-lifecycle configurations (console)
+## Create and attach lifecycle configurations (console)
 
 To create and attach lifecycle configurations in the AWS Management Console, navigate to the
 [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker") and choose

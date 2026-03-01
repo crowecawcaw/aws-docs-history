@@ -1,6 +1,4 @@
-# Example
-
-HyperPod task governance AWS CLI commands
+# Example HyperPod task governance AWS CLI commands
 
 You can use HyperPod with EKS through Kubectl or through HyperPod
 custom CLI. You can use these commands through Studio or AWS CLI. The following
@@ -11,18 +9,14 @@ Github repository](https://github.com/aws/sagemaker-hyperpod-cli "https://github
 
 ###### Topics
 
-- [Get cluster accelerator device quota
-  information](#hp-eks-cli-get-clusters "#hp-eks-cli-get-clusters")
-- [Submit a job to SageMaker AI-managed queue and
-  namespace](#hp-eks-cli-start-job "#hp-eks-cli-start-job")
+- [Get cluster accelerator device quota information](#hp-eks-cli-get-clusters "#hp-eks-cli-get-clusters")
+- [Submit a job to SageMaker AI-managed queue and namespace](#hp-eks-cli-start-job "#hp-eks-cli-start-job")
 - [List jobs](#hp-eks-cli-list-jobs "#hp-eks-cli-list-jobs")
 - [Get job detailed information](#hp-eks-cli-get-job "#hp-eks-cli-get-job")
 - [Suspend and unsuspend jobs](#hp-eks-cli-patch-job "#hp-eks-cli-patch-job")
 - [Debugging jobs](#hp-eks-cli-other "#hp-eks-cli-other")
 
-## Get cluster accelerator device quota
-
-information
+## Get cluster accelerator device quota information
 
 The following example command gets the information on the cluster accelerator
 device quota.
@@ -56,9 +50,7 @@ Example response:
 ]
 ```
 
-## Submit a job to SageMaker AI-managed queue and
-
-namespace
+## Submit a job to SageMaker AI-managed queue and namespace
 
 The following example command submits a job to your HyperPod cluster. If
 you have access to only one team, the HyperPod AWS CLI will automatically

@@ -1,6 +1,4 @@
-# SageMaker Python SDK Troubleshooting
-
-Guide
+# SageMaker Python SDK Troubleshooting Guide
 
 You can use the SageMaker Python SDK to interact with Amazon SageMaker AI within your Python scripts or
 Jupyter notebooks. Despite the SDK providing a simplified workflow, you might encounter
@@ -21,9 +19,7 @@ While less convenient, providing more granular permissions is a secure approach 
 the SDK. Each of the following sections has information about the permissions
 required.
 
-## Create a
-
-Training Job
+## Create a Training Job
 
 ###### Important
 
@@ -93,9 +89,7 @@ permissions issues, or resource constraints. Use the following list for context 
   come up when the IAM role that you're using doesn't have permissions for the
   training job.
 
-## Update a
-
-Training Job
+## Update a Training Job
 
 ###### Important
 
@@ -154,9 +148,7 @@ the `update_training_job` function. For example, it expects the
 `profiler_rule_configs` parameter to be a list. If the parameter is
 passed as a dictionary instead, it raises the error.
 
-## Create a
-
-Processing Job
+## Create a Processing Job
 
 ###### Important
 
@@ -247,9 +239,7 @@ within each account. To resolve the issue, do the following:
    `sagemaker:CreateProcessingJob` or
    `iam:PassRole`.
 
-## Create an
-
-Endpoint
+## Create an Endpoint
 
 ###### Important
 
@@ -297,9 +287,7 @@ NotImplementedError: gptq quantization is not supported for AutoModel, you can t
 
 For information about resolving the `botocore.exceptions.ClientError`, see [Guidance on exception handling](#sagemaker-python-sdk-troubleshooting-exception-handling "#sagemaker-python-sdk-troubleshooting-exception-handling").
 
-## Update an
-
-Endpoint
+## Update an Endpoint
 
 ###### Important
 

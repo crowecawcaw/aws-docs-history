@@ -1,6 +1,4 @@
-# Training plans
-
-utilization for SageMaker training jobs
+# Training plans utilization for SageMaker training jobs
 
 You can use a SageMaker training plans for your training jobs by specifying the plan of your choice
 when creating a training job.
@@ -109,7 +107,5 @@ print("Training completed.")
 
 ###### Topics
 
-- [Create a training job
-  using the SageMaker AI console](use-training-plan-for-training-jobs-using-console.md "use-training-plan-for-training-jobs-using-console.md")
-- [Create a training job
-  using the API, AWS CLI, SageMaker SDK](use-training-plan-for-training-jobs-using-api-cli-sdk.md "use-training-plan-for-training-jobs-using-api-cli-sdk.md")
+- [Create a training job using the SageMaker AI console](use-training-plan-for-training-jobs-using-console.md "use-training-plan-for-training-jobs-using-console.md")
+- [Create a training job using the API, AWS CLI, SageMaker SDK](use-training-plan-for-training-jobs-using-api-cli-sdk.md "use-training-plan-for-training-jobs-using-api-cli-sdk.md")

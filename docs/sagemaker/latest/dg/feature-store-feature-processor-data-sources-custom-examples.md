@@ -1,10 +1,7 @@
-# Custom data
-
-source examples
+# Custom data source examples
 
 This section provides examples of custom data sources implementations for Feature
-Processors. For more information on custom data sources, see [Custom data
-sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
+Processors. For more information on custom data sources, see [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
 
 Security is a shared responsibility between AWS and our customers. AWS is responsible
 for protecting the infrastructure that runs the services in the AWS Cloud. Customers are
@@ -29,8 +26,7 @@ about how to download the Amazon Redshift JDBC driver, see [Download the Amazon 
 version 2.1](../../../redshift/latest/mgmt/jdbc20-download-driver.md "../../../redshift/latest/mgmt/jdbc20-download-driver.md").
 
 To create the custom Amazon Redshift data source class, you will need to overwrite the
-`read_data` method from the [Custom data
-sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
+`read_data` method from the [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
 
 To connect with an Amazon Redshift cluster you need your:
 
@@ -153,8 +149,7 @@ Spark, see [Snowflake
 Connector for Spark](https://docs.snowflake.com/en/user-guide/spark-connector "https://docs.snowflake.com/en/user-guide/spark-connector") in the Snowflake documentation.
 
 To create the custom Snowflake data source class, you will need to override the
-`read_data` method from the [Custom data
-sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md") and add the Spark
+`read_data` method from the [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md") and add the Spark
 connector packages to the Spark classpath.
 
 To connect with a Snowflake data source you need:
@@ -291,8 +286,7 @@ Spark classpath. For more information, see [JDBC To Other
 Databases](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html "https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html") in the Spark SQL Guide.
 
 To create the custom Databricks data source class, you will need to override the
-`read_data` method from the [Custom data
-sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md") and add the JDBC jar
+`read_data` method from the [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md") and add the JDBC jar
 to the Spark classpath.
 
 To connect with a Databricks data source you need:
@@ -423,8 +417,7 @@ Spark Structured Streaming](https://github.com/roncemer/spark-sql-kinesis "https
 Streams?](../../../streams/latest/dev/introduction.md "../../../streams/latest/dev/introduction.md") in the Amazon Kinesis Developer Guide.
 
 To create the custom Amazon Kinesis data source class, you will need to extend the
-`BaseDataSource` class and override the `read_data` method from [Custom data
-sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
+`BaseDataSource` class and override the `read_data` method from [Custom data sources](feature-store-feature-processor-data-sources-custom.md "feature-store-feature-processor-data-sources-custom.md").
 
 To connect to an Amazon Kinesis data stream you need:
 
@@ -531,8 +524,7 @@ triggers**
 The Feature Processor uses SageMaker Training as compute infrastructure and it has a maximum
 runtime limit of 28 days. You can use event based triggers to extend your continuous streaming
 for a longer period of time and recover from transient failures. For more information on
-schedule and event based executions, see [Scheduled and event
-based executions for Feature Processor pipelines](feature-store-feature-processor-schedule-pipeline.md "feature-store-feature-processor-schedule-pipeline.md").
+schedule and event based executions, see [Scheduled and event based executions for Feature Processor pipelines](feature-store-feature-processor-schedule-pipeline.md "feature-store-feature-processor-schedule-pipeline.md").
 
 The following is an example of setting up an event based trigger to keep the streaming
 Feature Processor pipeline running continuously. This uses the streaming transform function

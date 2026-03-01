@@ -1,6 +1,4 @@
-# Checkpointing and Fine-Tuning a Model
-
-with Model Parallelism
+# Checkpointing and Fine-Tuning a Model with Model Parallelism
 
 The SageMaker model parallelism library provides checkpointing APIs to save the model state
 and the optimizer state split by the various model parallelism strategies, and to
@@ -9,31 +7,21 @@ The APIs also support options to save the model and optimizer states partially o
 
 ###### Topics
 
-- [Checkpointing a
-  distributed model](#distributed-model-parallel-checkpoint "#distributed-model-parallel-checkpoint")
+- [Checkpointing a distributed model](#distributed-model-parallel-checkpoint "#distributed-model-parallel-checkpoint")
 - [Fine-tuning a distributed model](#distributed-model-parallel-fine-tuning "#distributed-model-parallel-fine-tuning")
 
-## Checkpointing a
-
-distributed model
+## Checkpointing a distributed model
 
 Choose one of the following topics depending on the framework between PyTorch and
 TensorFlow and the version of the SageMaker model parallelism library you use.
 
 ###### Topics
 
-- [Checkpointing
-  a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0
-  and later)](#model-parallel-extended-features-pytorch-checkpoint "#model-parallel-extended-features-pytorch-checkpoint")
-- [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism
-  library between v1.6.0 and v1.9.0)](#model-parallel-extended-features-pytorch-saving-loading-checkpoints "#model-parallel-extended-features-pytorch-saving-loading-checkpoints")
-- [Checkpointing a
-  distributed TensorFlow model](#distributed-model-parallel-checkpoint-tensorflow "#distributed-model-parallel-checkpoint-tensorflow")
+- [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0 and later)](#model-parallel-extended-features-pytorch-checkpoint "#model-parallel-extended-features-pytorch-checkpoint")
+- [Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library between v1.6.0 and v1.9.0)](#model-parallel-extended-features-pytorch-saving-loading-checkpoints "#model-parallel-extended-features-pytorch-saving-loading-checkpoints")
+- [Checkpointing a distributed TensorFlow model](#distributed-model-parallel-checkpoint-tensorflow "#distributed-model-parallel-checkpoint-tensorflow")
 
-### Checkpointing
-
-a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0
-and later)
+### Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library v1.10.0 and later)
 
 The SageMaker model parallelism library provides checkpoint APIs to save and load full
 or partial checkpoints of the distributed model state and its optimizer
@@ -162,9 +150,7 @@ smp_checkpoint = smp.resume_from_checkpoint(
 )
 ```
 
-### Checkpointing a distributed PyTorch model (for the SageMaker model parallelism
-
-library between v1.6.0 and v1.9.0)
+### Checkpointing a distributed PyTorch model (for the SageMaker model parallelism library between v1.6.0 and v1.9.0)
 
 The SageMaker model parallelism library provides Python functions for saving partial or
 full checkpoints for training jobs with tensor parallelism. The following procedure
@@ -173,8 +159,7 @@ tensor parallelism.
 
 ###### Note
 
-This checkpointing method is recommended if you use PyTorch, [Tensor
-Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md"), and
+This checkpointing method is recommended if you use PyTorch, [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md "model-parallel-extended-features-pytorch-tensor-parallelism.md"), and
 the SageMaker model parallelism library between v1.6.0 and v1.9.0.
 
 1. Prepare a model object and wrap it with the library's wrapper function
@@ -303,9 +288,7 @@ optimizer = smp.DistributedOptimizer(optimizer)
     `MP_GROUP`s. Full checkpointing optimizer state dict
     is currently not supported with tensor parallelism.
 
-### Checkpointing a
-
-distributed TensorFlow model
+### Checkpointing a distributed TensorFlow model
 
 To save a TensorFlow model while training with model parallelism, use the
 following functions provided by the SageMaker model parallelism library.

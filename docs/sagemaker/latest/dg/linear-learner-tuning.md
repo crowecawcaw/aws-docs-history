@@ -18,9 +18,7 @@ off automatically. This sets the number of parallel models, `num_models`, to
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics computed by the linear learner
-
-algorithm
+## Metrics computed by the linear learner algorithm
 
 The linear learner algorithm reports the metrics in the following table, which are
 computed during training. Choose one of them as the objective metric. To avoid
@@ -59,9 +57,7 @@ training metric.
 | `validation:rmse`                           | The root mean square error of the final model on the<br>validation dataset. This objective metric is only valid for<br>regression.                                                                                                                                                                                                                                                               | Minimize               |
 | `validation:roc_auc_score`                  | The area under receiving operating characteristic curve (ROC curve) of the final model<br>on the validation dataset. This objective metric is only valid for binary classification.                                                                                                                                                                                                              | Maximize               |
 
-## Tuning linear learner
-
-hyperparameters
+## Tuning linear learner hyperparameters
 
 You can tune a linear learner model with the following hyperparameters.
 

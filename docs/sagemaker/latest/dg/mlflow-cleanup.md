@@ -14,9 +14,7 @@ Don't delete the IAM role that you've used to create until you've deleted the tr
 We recommend stopping your tracking server when it is no longer in use.
 You can stop a tracking server in Studio or using the AWS CLI.
 
-### Stop a tracking server using
-
-Studio
+### Stop a tracking server using Studio
 
 To stop a tracking server in Studio:
 
@@ -57,9 +55,7 @@ aws sagemaker start-mlflow-tracking-server \
 
 You can fully delete a tracking server in Studio or using the AWS CLI.
 
-### Delete a tracking server using
-
-Studio
+### Delete a tracking server using Studio
 
 To delete a tracking server in Studio:
 

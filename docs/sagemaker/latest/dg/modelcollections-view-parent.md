@@ -1,6 +1,4 @@
-# View a Model Group's Parent
-
-Collection
+# View a Model Group's Parent Collection
 
 You can view the Collections which contain a particular Model Group in the
 Amazon SageMaker Studio console.

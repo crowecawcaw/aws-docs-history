@@ -9,8 +9,7 @@ information about Code Editor and key details for using it.
 Code Editor has the [AWS Toolkit for VS Code](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md")
 extension pre-installed, which enables connections to AWS services such as [Amazon CodeWhisperer](../../../toolkit-for-vscode/latest/userguide/codewhisperer.md "../../../toolkit-for-vscode/latest/userguide/codewhisperer.md"), a general purpose, machine learning-powered code
 generator that provides code recommendations in real time. For more information about
-extensions, see [Code Editor Connections and
-Extensions](code-editor-use-connections-and-extensions.md "code-editor-use-connections-and-extensions.md").
+extensions, see [Code Editor Connections and Extensions](code-editor-use-connections-and-extensions.md "code-editor-use-connections-and-extensions.md").
 
 ###### Important
 
@@ -40,8 +39,7 @@ space. For more information, see [Code Editor application instances and images](
 
 Your administrator might provide you with a lifecycle configuration to customize your
 environment. You can specify the lifecycle configuration when you create the space. For more
-information, see [Code Editor lifecycle
-configurations](code-editor-use-lifecycle-configurations.md "code-editor-use-lifecycle-configurations.md").
+information, see [Code Editor lifecycle configurations](code-editor-use-lifecycle-configurations.md "code-editor-use-lifecycle-configurations.md").
 
 You can also bring your own file storage system if you have an Amazon EFS volume.
 

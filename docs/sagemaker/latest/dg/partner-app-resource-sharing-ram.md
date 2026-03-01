@@ -1,6 +1,4 @@
-# Setting up cross-account sharing for Amazon SageMaker AI
-
-partner AI apps
+# Setting up cross-account sharing for Amazon SageMaker AI partner AI apps
 
 Amazon SageMaker AI integrates with AWS Resource Access Manager (AWS RAM) to enable resource sharing. AWS RAM is a service
 that enables you to share some Amazon SageMaker AI resources with other AWS accounts or through
@@ -16,18 +14,13 @@ shared with you.
 
 ###### Contents
 
-- [Prerequisites for sharing an
-  Amazon SageMaker Partner AI App](#partner-app-resource-sharing-ram-prereqs "#partner-app-resource-sharing-ram-prereqs")
+- [Prerequisites for sharing an Amazon SageMaker Partner AI App](#partner-app-resource-sharing-ram-prereqs "#partner-app-resource-sharing-ram-prereqs")
 - [Sharing an Amazon SageMaker Partner AI App](#partner-app-resource-sharing-share "#partner-app-resource-sharing-share")
-- [Accepting resource share
-  invitations](#partner-app-resource-sharing-responses "#partner-app-resource-sharing-responses")
+- [Accepting resource share invitations](#partner-app-resource-sharing-responses "#partner-app-resource-sharing-responses")
 - [Identifying a shared Amazon SageMaker Partner AI App](#sharing-identify "#sharing-identify")
-- [Responsibilities and permissions for shared
-  Amazon SageMaker Partner AI Apps](#sharing-perms "#sharing-perms")
+- [Responsibilities and permissions for shared Amazon SageMaker Partner AI Apps](#sharing-perms "#sharing-perms")
 
-## Prerequisites for sharing an
-
-Amazon SageMaker Partner AI App
+## Prerequisites for sharing an Amazon SageMaker Partner AI App
 
 - To share an Amazon SageMaker Partner AI App, you must own it in your AWS account. This means that the
   resource must be allocated or provisioned in your account. You cannot share an Amazon SageMaker Partner AI App
@@ -71,9 +64,7 @@ See [Creating a Resource Share](../../../ram/latest/userguide/working-with-shari
 
 Use the [create-resource-share](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md") command.
 
-## Accepting resource share
-
-invitations
+## Accepting resource share invitations
 
 When a resource owner sets up a resource share, each consumer AWS account receives an
 invitation to join the resource share. The consumer AWS accounts must accept the invitation
@@ -98,9 +89,7 @@ Use the [list-partner-apps](../../../cli/latest/reference/sagemaker/list-partner
 command. The command returns the Amazon SageMaker Partner AI Apps that you own and Amazon SageMaker Partner AI Apps that are shared
 with you. `OwnerId` shows the AWS account ID of the Amazon SageMaker Partner AI App owner.
 
-## Responsibilities and permissions for shared
-
-Amazon SageMaker Partner AI Apps
+## Responsibilities and permissions for shared Amazon SageMaker Partner AI Apps
 
 The account with which an Amazon SageMaker Partner AI App is shared needs to have the following AWS Identity and Access Management
 policy.

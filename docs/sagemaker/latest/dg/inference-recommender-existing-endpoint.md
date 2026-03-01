@@ -1,6 +1,4 @@
-# Get an inference
-
-recommendation for an existing endpoint
+# Get an inference recommendation for an existing endpoint
 
 Inference recommendation jobs run a set of load tests on recommended instance
 types and an existing endpoint. Inference recommendation jobs use performance
@@ -37,8 +35,7 @@ for Python (Boto3) and the AWS CLI.
 ###### Note
 
 Before you create an Inference Recommender recommendation job, make sure you have satisfied
-the [Prerequisites for using
-Amazon SageMaker Inference Recommender](inference-recommender-prerequisites.md "inference-recommender-prerequisites.md").
+the [Prerequisites for using Amazon SageMaker Inference Recommender](inference-recommender-prerequisites.md "inference-recommender-prerequisites.md").
 
 ## Prerequisites
 
@@ -46,9 +43,7 @@ If you don’t already have a SageMaker AI Inference endpoint, you can either [g
 create a Real-Time Inference endpoint by following the instructions in [Create your
 endpoint and deploy your model](realtime-endpoints-deployment.md "realtime-endpoints-deployment.md").
 
-## Create an
-
-inference recommendation job for an existing endpoint
+## Create an inference recommendation job for an existing endpoint
 
 Create an inference recommendation programmatically using AWS SDK for Python (Boto3), or
 the AWS CLI. Specify a job name for your inference recommendation, the name of an
@@ -157,14 +152,11 @@ aws sagemaker create-inference-recommendations-job
         }"
 ```
 
-## Get your
-
-inference recommendation job results
+## Get your inference recommendation job results
 
 You can collect the results of your inference recommendation job
 programmatically with the same procedure for standard inference recommendation
-jobs. For more information, see [Get your inference
-recommendation job results](instance-recommendation-results.md "instance-recommendation-results.md").
+jobs. For more information, see [Get your inference recommendation job results](instance-recommendation-results.md "instance-recommendation-results.md").
 
 When you get inference recommendation job results for an existing endpoint,
 you should receive a JSON response similar to the following:

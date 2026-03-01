@@ -1,6 +1,4 @@
-# Endpoint
-
-response for tabular data
+# Endpoint response for tabular data
 
 After the SageMaker Clarify processing job receives an inference endpoint invocation's
 response, it deserializes the response payload and extracts predictions from it. Use

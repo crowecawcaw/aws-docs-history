@@ -1,6 +1,4 @@
-# Use an Interactive Data
-
-Preparation Widget in an Amazon SageMaker Studio Classic Notebook to Get Data Insights
+# Use an Interactive Data Preparation Widget in an Amazon SageMaker Studio Classic Notebook to Get Data Insights
 
 Use the Data Wrangler data preparation widget to interact with your data, get visualizations,
 explore actionable insights, and fix data quality issues.
@@ -32,8 +30,7 @@ To run the widget, the notebook must use one of the following images:
 - Python 3 (Data Science 3.0) with Python 3.10
 - SparkAnalytics 1.0
 - SparkAnalytics 2.0
-  For more information about images, see [Amazon SageMaker Images Available for Use With
-  Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
+  For more information about images, see [Amazon SageMaker Images Available for Use With Studio Classic Notebooks](notebooks-available-images.md "notebooks-available-images.md").
 
 Use the following code to import the data preparation widget and pandas. The widget
 uses pandas dataframes to analyze your data.
@@ -163,9 +160,7 @@ To get target column insights, do the following.
 5. (Optional) Under **Target Column Insights**, choose one of
    the suggested transforms.
 
-## Reference for the
-
-insights and transforms in the widget
+## Reference for the insights and transforms in the widget
 
 For feature columns (columns that aren't the target column), you can get the following
 insights to warn you about issues with your dataset.

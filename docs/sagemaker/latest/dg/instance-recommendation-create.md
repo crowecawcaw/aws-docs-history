@@ -1,6 +1,4 @@
-# Create an inference
-
-recommendation
+# Create an inference recommendation
 
 Create an inference recommendation programmatically using the AWS SDK for Python (Boto3) or
 the AWS CLI, or interactively using Studio Classic or the SageMaker AI console. Specify a job

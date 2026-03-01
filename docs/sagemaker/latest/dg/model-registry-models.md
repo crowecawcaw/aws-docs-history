@@ -1,6 +1,4 @@
-# Model Registry Models, Model Versions, and Model
-
-Groups
+# Model Registry Models, Model Versions, and Model Groups
 
 The SageMaker Model Registry is structured as several Model (Package) Groups with model packages in
 each group. These Model Groups can optionally be added to one or more Collections. Each
@@ -31,21 +29,14 @@ Model Groups in the Model Registry.
 - [Delete a Model Group](model-registry-delete-model-group.md "model-registry-delete-model-group.md")
 - [Register a Model Version](model-registry-version.md "model-registry-version.md")
 - [View Model Groups and Versions](model-registry-view.md "model-registry-view.md")
-- [Update the Details of a Model
-  Version](model-registry-details.md "model-registry-details.md")
+- [Update the Details of a Model Version](model-registry-details.md "model-registry-details.md")
 - [Compare Model Versions](model-registry-version-compare.md "model-registry-version-compare.md")
-- [View and Manage Model Group and Model Version
-  Tags](model-registry-tags.md "model-registry-tags.md")
+- [View and Manage Model Group and Model Version Tags](model-registry-tags.md "model-registry-tags.md")
 - [Delete a Model Version](model-registry-delete-model-version.md "model-registry-delete-model-version.md")
-- [Staging Construct for your Model
-  Lifecycle](model-registry-staging-construct.md "model-registry-staging-construct.md")
-- [Update the Approval Status of a
-  Model](model-registry-approve.md "model-registry-approve.md")
-- [Deploy a Model from the Registry with
-  Python](model-registry-deploy.md "model-registry-deploy.md")
+- [Staging Construct for your Model Lifecycle](model-registry-staging-construct.md "model-registry-staging-construct.md")
+- [Update the Approval Status of a Model](model-registry-approve.md "model-registry-approve.md")
+- [Deploy a Model from the Registry with Python](model-registry-deploy.md "model-registry-deploy.md")
 - [Deploy a Model in Studio](model-registry-deploy-studio.md "model-registry-deploy-studio.md")
 - [Cross-account discoverability](model-registry-ram.md "model-registry-ram.md")
-- [View the Deployment History of a
-  Model](model-registry-deploy-history.md "model-registry-deploy-history.md")
-- [View model lineage details in
-  Studio](model-registry-lineage-view-studio.md "model-registry-lineage-view-studio.md")
+- [View the Deployment History of a Model](model-registry-deploy-history.md "model-registry-deploy-history.md")
+- [View model lineage details in Studio](model-registry-lineage-view-studio.md "model-registry-lineage-view-studio.md")

@@ -32,8 +32,7 @@ store and re-use your information in a different job.
 - [Warm pool lifecycle](#train-warm-pools-lifecycle "#train-warm-pools-lifecycle")
 - [Warm pool creation](#train-warm-pools-creation "#train-warm-pools-creation")
 - [Matching training jobs](#train-warm-pools-matching-criteria "#train-warm-pools-matching-criteria")
-- [Maximum warm pool
-  duration](#train-warm-pools-maximum-duration "#train-warm-pools-maximum-duration")
+- [Maximum warm pool duration](#train-warm-pools-maximum-duration "#train-warm-pools-maximum-duration")
 - [Using persistent cache](#train-warm-pools-persistent-cache "#train-warm-pools-persistent-cache")
 - [Billing](#train-warm-pools-billing "#train-warm-pools-billing")
 
@@ -110,15 +109,12 @@ is a match if the following values are identical:
   `EnableSessionTagChaining` set to `True` in the
   training job's `SessionChainingConfig`, then a matching training
   job must also set `EnableSessionTagChaining` to `True`
-  and have identical session keys. For more information, see [Use attribute-based access control (ABAC)
-  for multi-tenancy training](model-access-training-data-abac.md "model-access-training-data-abac.md").
+  and have identical session keys. For more information, see [Use attribute-based access control (ABAC) for multi-tenancy training](model-access-training-data-abac.md "model-access-training-data-abac.md").
 
 All of these values must be the same for a warm pool to move to a subsequent
 training job for reuse.
 
-### Maximum warm pool
-
-duration
+### Maximum warm pool duration
 
 The maximum `KeepAlivePeriodInSeconds` for a single training job is
 3600 seconds (60 minutes) and the maximum length of time that a warm pool cluster
@@ -231,8 +227,7 @@ if __name__ == '__main__':
 
 SageMaker AI managed warm pools are a billable resource. Retrieve the warm pool status for
 your training job to check the billable time for your warm pools. You can check the
-warm pool status either through the [Using the Amazon SageMaker AI
-console](train-warm-pools-how-to-use.md#train-warm-pools-how-to-use-sagemaker-console "train-warm-pools-how-to-use.md#train-warm-pools-how-to-use-sagemaker-console") or directly
+warm pool status either through the [Using the Amazon SageMaker AI console](train-warm-pools-how-to-use.md#train-warm-pools-how-to-use-sagemaker-console "train-warm-pools-how-to-use.md#train-warm-pools-how-to-use-sagemaker-console") or directly
 through the [DescribeTrainingJob](../APIReference/API_DescribeTrainingJob.md "../APIReference/API_DescribeTrainingJob.md") API command. For more information, see [WarmPoolStatus](../APIReference/API_WarmPoolStatus.md "../APIReference/API_WarmPoolStatus.md") in the _Amazon SageMaker API
 Reference_.
 

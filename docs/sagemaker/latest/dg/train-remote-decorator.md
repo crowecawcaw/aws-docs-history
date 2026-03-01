@@ -31,15 +31,11 @@ integrating with SageMaker Experiments.
 - [Set up your environment](#train-remote-decorator-env "#train-remote-decorator-env")
 - [Invoke a remote function](train-remote-decorator-invocation.md "train-remote-decorator-invocation.md")
 - [Configuration file](train-remote-decorator-config.md "train-remote-decorator-config.md")
-- [Customize your runtime
-  environment](train-remote-decorator-customize.md "train-remote-decorator-customize.md")
+- [Customize your runtime environment](train-remote-decorator-customize.md "train-remote-decorator-customize.md")
 - [Container image compatibility](train-remote-decorator-container.md "train-remote-decorator-container.md")
-- [Logging parameters and metrics with
-  Amazon SageMaker Experiments](train-remote-decorator-experiments.md "train-remote-decorator-experiments.md")
-- [Using modular code with the @remote
-  decorator](train-remote-decorator-modular.md "train-remote-decorator-modular.md")
-- [Private repository for runtime
-  dependencies](train-remote-decorator-private.md "train-remote-decorator-private.md")
+- [Logging parameters and metrics with Amazon SageMaker Experiments](train-remote-decorator-experiments.md "train-remote-decorator-experiments.md")
+- [Using modular code with the @remote decorator](train-remote-decorator-modular.md "train-remote-decorator-modular.md")
+- [Private repository for runtime dependencies](train-remote-decorator-private.md "train-remote-decorator-private.md")
 - [Example notebooks](train-remote-decorator-examples.md "train-remote-decorator-examples.md")
 
 ## Set up your environment

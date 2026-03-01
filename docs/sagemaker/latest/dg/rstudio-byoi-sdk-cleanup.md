@@ -11,9 +11,7 @@ SageMaker AI console or the AWS CLI, as shown in this guide.
   see [Deleting a
   repository](../../../AmazonECR/latest/userguide/repository-delete.md "../../../AmazonECR/latest/userguide/repository-delete.md").
 
-## Clean up resources from the SageMaker AI
-
-console
+## Clean up resources from the SageMaker AI console
 
 When you detach an image from a domain, all versions of the image are
 detached. When an image is detached, all users of the domain lose access to the
@@ -33,17 +31,14 @@ image versions.
    delete the associated images from Amazon ECR.
 8. Choose **Detach**.
 
-## Clean up resources from the
-
-AWS CLI
+## Clean up resources from the AWS CLI
 
 ###### To clean up resources
 
 1. Detach the image and image versions from your domain by passing an
    empty custom image list to the domain. Open the
    `update-domain-input.json` file that you created in
-   [Attach the SageMaker image to your
-   current domain](studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain "studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain").
+   [Attach the SageMaker image to your current domain](studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain "studio-byoi-attach.md#studio-byoi-sdk-attach-current-domain").
 2. Delete the `RSessionAppSettings` custom images and then save
    the file. Do not modify the `KernelGatewayAppSettings` custom
    images.

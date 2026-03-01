@@ -1,6 +1,4 @@
-# Deploy a
-
-model in Studio
+# Deploy a model in Studio
 
 To deploy JumpStart foundation models, navigate to a model detail card in the
 Studio UI. For more information on how to open JumpStart in Studio, see
@@ -11,5 +9,4 @@ right corner of the Studio UI. Then, follow the steps in [Deploy models with Sag
 ###### Important
 
 Some foundation models require explicit acceptance of an end-user license
-agreement (EULA) before deployment. For more information, see [EULA acceptance
-in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").
+agreement (EULA) before deployment. For more information, see [EULA acceptance in Amazon SageMaker Studio](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula-studio").

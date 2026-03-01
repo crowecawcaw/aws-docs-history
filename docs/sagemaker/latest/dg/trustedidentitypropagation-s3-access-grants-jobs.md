@@ -1,6 +1,4 @@
-# Connect Studio
-
-JupyterLab notebooks to Amazon S3 Access Grants with Training and Processing jobs
+# Connect Studio JupyterLab notebooks to Amazon S3 Access Grants with Training and Processing jobs
 
 Use the following information to grant Amazon S3 Access Grants to access data in Amazon SageMaker
 Training and Processing jobs.
@@ -22,8 +20,7 @@ to your corresponding [Amazon S3 Access Grant](../../../singlesignon/latest/user
 ###### Topics
 
 - [Considerations](#s3-access-grants-jobs-considerations "#s3-access-grants-jobs-considerations")
-- [Set up Amazon S3 Access Grants with Training
-  and Processing jobs](#s3-access-grants-jobs-setup "#s3-access-grants-jobs-setup")
+- [Set up Amazon S3 Access Grants with Training and Processing jobs](#s3-access-grants-jobs-setup "#s3-access-grants-jobs-setup")
 
 ## Considerations
 
@@ -42,9 +39,7 @@ following feature
 
 - DatasetDefinition
 
-## Set up Amazon S3 Access Grants with Training
-
-and Processing jobs
+## Set up Amazon S3 Access Grants with Training and Processing jobs
 
 After Amazon S3 Access Grants is set up, [add the following
 permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") to your domain or user [execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").

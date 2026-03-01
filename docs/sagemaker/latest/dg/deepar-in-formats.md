@@ -123,8 +123,7 @@ DeepAR forecasting supports getting inferences by using batch transform from dat
 using the JSON Lines format. In this format, each record is represented on a single
 line as a JSON object, and lines are separated by newline characters. The format is
 identical to the JSON Lines format used for model training. For information, see
-[Input/Output Interface for the DeepAR
-Algorithm](deepar.md#deepar-inputoutput "deepar.md#deepar-inputoutput"). For
+[Input/Output Interface for the DeepAR Algorithm](deepar.md#deepar-inputoutput "deepar.md#deepar-inputoutput"). For
 example:
 
 ```

@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -36,9 +35,7 @@ For information on testing your image locally and resolving common issues, see t
 After you have created your custom SageMaker image, you must attach it to your domain or shared
 space to use it with Studio Classic. For more information, see [Attach a Custom SageMaker Image in Amazon SageMaker Studio Classic](studio-byoi-attach.md "studio-byoi-attach.md").
 
-## Create a SageMaker image from the
-
-console
+## Create a SageMaker image from the console
 
 The following section demonstrates how to create a custom SageMaker image from the SageMaker AI
 console.

@@ -6,13 +6,10 @@ SageMaker AI console.
 
 ###### Topics
 
-- [AWS
-  managed policy: AmazonSageMakerModelGovernanceUseAccess](#security-iam-awsmanpol-governance-AmazonSageMakerModelGovernanceUseAccess "#security-iam-awsmanpol-governance-AmazonSageMakerModelGovernanceUseAccess")
+- [AWS managed policy: AmazonSageMakerModelGovernanceUseAccess](#security-iam-awsmanpol-governance-AmazonSageMakerModelGovernanceUseAccess "#security-iam-awsmanpol-governance-AmazonSageMakerModelGovernanceUseAccess")
 - [Amazon SageMaker AI updates to SageMaker AI Model Governance managed policies](#security-iam-awsmanpol-governance-updates "#security-iam-awsmanpol-governance-updates")
 
-## AWS
-
-managed policy: AmazonSageMakerModelGovernanceUseAccess
+## AWS managed policy: AmazonSageMakerModelGovernanceUseAccess
 
 This AWS managed policy grants permissions needed to use all Amazon SageMaker AI Governance features. The policy is available in your AWS account.
 

@@ -4,19 +4,15 @@ You must configure the necessary IAM service roles to get started with MLflow Ap
 Amazon SageMaker AI.
 
 If you create a new Amazon SageMaker AI domain to access your experiments in Studio, you can
-configure the necessary IAM permissions during domain setup. For more information, see [Set up MLflow IAM
-permissions when creating a new domain](mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-role-manager "mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-role-manager").
+configure the necessary IAM permissions during domain setup. For more information, see [Set up MLflow IAM permissions when creating a new domain](mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-role-manager "mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-role-manager").
 
 To set up permissions using the IAM console, see [Create necessary IAM service roles in the IAM console](mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-service-roles "mlflow-create-tracking-server-iam.md#mlflow-create-tracking-server-iam-service-roles").
 
 You must configure authorization controls for `sagemaker-mlflow` actions. You
 can optionally define more granular authorization controls to govern action-specific MLflow
-permissions. For more information, see [Create action-specific
-authorization controls](#mlflow-create-app-update-iam-actions "#mlflow-create-app-update-iam-actions").
+permissions. For more information, see [Create action-specific authorization controls](#mlflow-create-app-update-iam-actions "#mlflow-create-app-update-iam-actions").
 
-## Set up MLflow IAM
-
-permissions when creating a new domain
+## Set up MLflow IAM permissions when creating a new domain
 
 When setting up a new Amazon SageMaker AI domain for your organization, you can configure IAM
 permissions for your domain service role through the **Users and ML Activities**
@@ -56,9 +52,7 @@ in order to create and use an MLflow Apps:
 - A SageMaker AI IAM service role that SageMaker AI can use to create and manage
   MLflow resources
 
-### IAM policies for
-
-the MLflow App IAM service role
+### IAM policies for the MLflow App IAM service role
 
 The MLflow App IAM service role is used by the app to access the resources it
 needs such as Amazon S3 and the SageMaker Model Registry.
@@ -114,9 +108,7 @@ JSON
 
 ```
 
-### IAM policy for the
-
-SageMaker AI IAM service role
+### IAM policy for the SageMaker AI IAM service role
 
 The SageMaker AI service role is used by the client accessing the MLflow App and needs
 permissions to call MLflow REST APIs. The SageMaker AI service role also needs SageMaker API permissions to create, view
@@ -150,9 +142,7 @@ JSON
 
 ```
 
-## Create action-specific
-
-authorization controls
+## Create action-specific authorization controls
 
 You must set up authorization controls for `sagemaker-mlflow`, and can
 optionally configure action-specific authorization controls to govern more granular MLflow
@@ -163,9 +153,7 @@ permissions that your users have on an MLflow Apps.
 The following steps assume that you have an ARN for an MLflow Apps already
 available.
 
-### Data Plane IAM actions supported for
-
-MLflow Apps
+### Data Plane IAM actions supported for MLflow Apps
 
 The following SageMaker AI MLflow actions are supported for authorization access
 control:

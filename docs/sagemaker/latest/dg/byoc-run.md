@@ -1,6 +1,4 @@
-# Run Your Processing Container Using the SageMaker AI Python
-
-SDK
+# Run Your Processing Container Using the SageMaker AI Python SDK
 
 You can use the SageMaker Python SDK to run your own processing image by using the
 `Processor` class. The following example shows how to run your own
@@ -27,8 +25,7 @@ processor.run(inputs=[ProcessingInput(
 Instead of building your processing code into your processing image, you can
 provide a `ScriptProcessor` with your image and the command that you want
 to run, along with the code that you want to run inside that container. For an
-example, see [Run Scripts with Your Own Processing
-Container](processing-container-run-scripts.md "processing-container-run-scripts.md").
+example, see [Run Scripts with Your Own Processing Container](processing-container-run-scripts.md "processing-container-run-scripts.md").
 
 You can also use the scikit-learn image that Amazon SageMaker Processing provides through
 `SKLearnProcessor` to run scikit-learn scripts. For an example, see

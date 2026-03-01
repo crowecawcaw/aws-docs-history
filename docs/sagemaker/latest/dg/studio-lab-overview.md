@@ -123,8 +123,7 @@ runtime has ended.
 File edits are periodically saved, but are not saved when your runtime ends. To ensure
 that you do not lose your progress, save your work manually. If you have content in your
 Studio Lab project that you don’t want to lose, we recommend that you back up your content
-elsewhere. For more information about exporting your environment and files, see [Export an Amazon SageMaker Studio Lab environment to
-Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
+elsewhere. For more information about exporting your environment and files, see [Export an Amazon SageMaker Studio Lab environment to Amazon SageMaker Studio Classic](studio-lab-use-migrate.md "studio-lab-use-migrate.md").
 
 During long computation, you do not need to keep your project open. For example, you can
 start training a model, then close your browser. The instance keeps running for up to the

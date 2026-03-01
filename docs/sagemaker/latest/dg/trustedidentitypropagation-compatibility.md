@@ -1,6 +1,4 @@
-# Trusted identity propagation
-
-architecture and compatibility
+# Trusted identity propagation architecture and compatibility
 
 Trusted identity propagation integrates AWS IAM Identity Center with Amazon SageMaker Studio and other connected
 AWS services to propagate users' identity context across services. The following page
@@ -36,9 +34,7 @@ IAM Identity Center, SageMaker AI:
 - Enables downstream AWS services to make access decisions and log activities based on
   the user identity
 
-## Compatible
-
-SageMaker AI features
+## Compatible SageMaker AI features
 
 Trusted identity propagation works with the following Studio features:
 
@@ -69,9 +65,7 @@ Trusted identity propagation works with the following Studio features:
   Asynchronous Inference](async-inference.md "async-inference.md")
 - [Managed MLflow](mlflow.md "mlflow.md")
 
-## Compatible
-
-AWS services
+## Compatible AWS services
 
 Trusted identity propagation for Amazon SageMaker Studio integrates with compatible AWS
 services, where trusted identity propagation is enabled. See [use

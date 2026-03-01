@@ -1,6 +1,4 @@
-# Custom Inference Code with Hosting
-
-Services
+# Custom Inference Code with Hosting Services
 
 This section explains how Amazon SageMaker AI interacts with a Docker container that runs your own
 inference code for hosting services. Use this information to write inference code and create
@@ -8,21 +6,14 @@ a Docker image.
 
 ###### Topics
 
-- [How SageMaker AI Runs Your Inference
-  Image](#your-algorithms-inference-code-run-image "#your-algorithms-inference-code-run-image")
-- [How SageMaker AI Loads Your
-  Model Artifacts](#your-algorithms-inference-code-load-artifacts "#your-algorithms-inference-code-load-artifacts")
-- [How Your Container
-  Should Respond to Inference Requests](#your-algorithms-inference-code-container-response "#your-algorithms-inference-code-container-response")
-- [How Your Container Should
-  Respond to Health Check (Ping) Requests](#your-algorithms-inference-algo-ping-requests "#your-algorithms-inference-algo-ping-requests")
+- [How SageMaker AI Runs Your Inference Image](#your-algorithms-inference-code-run-image "#your-algorithms-inference-code-run-image")
+- [How SageMaker AI Loads Your Model Artifacts](#your-algorithms-inference-code-load-artifacts "#your-algorithms-inference-code-load-artifacts")
+- [How Your Container Should Respond to Inference Requests](#your-algorithms-inference-code-container-response "#your-algorithms-inference-code-container-response")
+- [How Your Container Should Respond to Health Check (Ping) Requests](#your-algorithms-inference-algo-ping-requests "#your-algorithms-inference-algo-ping-requests")
 - [Container Contract to Support Bidirectional Streaming Capabilities](#your-algorithms-inference-algo-bidi "#your-algorithms-inference-algo-bidi")
-- [Use a Private Docker Registry
-  for Real-Time Inference Containers](your-algorithms-containers-inference-private.md "your-algorithms-containers-inference-private.md")
+- [Use a Private Docker Registry for Real-Time Inference Containers](your-algorithms-containers-inference-private.md "your-algorithms-containers-inference-private.md")
 
-## How SageMaker AI Runs Your Inference
-
-Image
+## How SageMaker AI Runs Your Inference Image
 
 To configure a container to run as an executable, use an `ENTRYPOINT`
 instruction in a Dockerfile. Note the following:
@@ -102,9 +93,7 @@ sends the `SIGKILL` signal 30 seconds later.
   containers because it gets confused by the `train` and
   `serve` arguments.
 
-## How SageMaker AI Loads Your
-
-Model Artifacts
+## How SageMaker AI Loads Your Model Artifacts
 
 In your [`CreateModel`](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") API request, you can use either the
 `ModelDataUrl` or `S3DataSource` parameter to identify the S3
@@ -123,9 +112,7 @@ this tar file into /opt/ml/model directory before your container starts.
 
 For deploying large models, we recommend that you follow [Deploying uncompressed models](large-model-inference-uncompressed.md "large-model-inference-uncompressed.md").
 
-## How Your Container
-
-Should Respond to Inference Requests
+## How Your Container Should Respond to Inference Requests
 
 To obtain inferences, the client application sends a POST request to the SageMaker AI
 endpoint. SageMaker AI passes the request to the container, and returns the inference result
@@ -457,9 +444,7 @@ the inference request that SageMaker AI sends to the
 `/invocations-bidirectional-stream` endpoint. It shows
 handling stream requests and stream responses back to the client.
 
-## How Your Container Should
-
-Respond to Health Check (Ping) Requests
+## How Your Container Should Respond to Health Check (Ping) Requests
 
 SageMaker AI launches new inference containers in the following situations:
 

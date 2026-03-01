@@ -1027,8 +1027,7 @@ The following is a sample of output from this element.
 
 For more information, see the following:
 
-- [Categorize text with text
-  classification (Multi-label)](sms-text-classification-multilabel.md "sms-text-classification-multilabel.md")
+- [Categorize text with text classification (Multi-label)](sms-text-classification-multilabel.md "sms-text-classification-multilabel.md")
 - [Training data labeling using humans with Amazon SageMaker Ground Truth](sms.md "sms.md")
 - [Crowd HTML Elements Reference](sms-ui-template-reference.md "sms-ui-template-reference.md")
 
@@ -1812,8 +1811,7 @@ The following is a sample of output from this element.
 
 For more information, see the following:
 
-- [Create an image classification job
-  (Multi-label)](sms-image-classification-multilabel.md "sms-image-classification-multilabel.md")
+- [Create an image classification job (Multi-label)](sms-image-classification-multilabel.md "sms-image-classification-multilabel.md")
 - [Training data labeling using humans with Amazon SageMaker Ground Truth](sms.md "sms.md")
 - [Crowd HTML Elements Reference](sms-ui-template-reference.md "sms-ui-template-reference.md")
 

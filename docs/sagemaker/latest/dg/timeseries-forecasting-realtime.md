@@ -17,8 +17,7 @@ You can use SageMaker APIs to retrieve the best candidate of an AutoML job and t
 SageMaker AI endpoint using that candidate.
 
 Alternatively, you can chose the automatic deployment option when creating your Autopilot
-experiment. For information on setting up the automatic deployment of models, see [How to enable automatic
-deployment](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-auto-model-deployment "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-auto-model-deployment").
+experiment. For information on setting up the automatic deployment of models, see [How to enable automatic deployment](autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-auto-model-deployment "autopilot-create-experiment-timeseries-forecasting.md#timeseries-forecasting-auto-model-deployment").
 
 ###### To create a SageMaker AI endpoint using your best model candidate:
 

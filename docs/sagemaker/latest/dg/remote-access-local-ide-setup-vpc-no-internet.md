@@ -1,10 +1,7 @@
-# Connect to VPC with
-
-subnets without internet access
+# Connect to VPC with subnets without internet access
 
 Before connecting Visual Studio Code to Studio spaces in private subnets without
-internet access, ensure your administrator has [Set
-up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md "remote-access-remote-setup-vpc-subnets-without-internet-access.md").
+internet access, ensure your administrator has [Set up Studio to run with subnets without internet access within a VPC](remote-access-remote-setup-vpc-subnets-without-internet-access.md "remote-access-remote-setup-vpc-subnets-without-internet-access.md").
 
 You have two options to connect your local Visual Studio Code to Studio spaces in
 private subnets:
@@ -61,9 +58,7 @@ remote server and extensions**
    - Choose a VS Code version specific LCC script to attach to the
      space when you launch the space.
 
-### Example Dockerfile usage for pre-packaging your VS Code remote server
-
-and extensions
+### Example Dockerfile usage for pre-packaging your VS Code remote server and extensions
 
 The following is a sample Dockerfile to launch a local container with SSH
 server pre-installed, if it is not possible to create a space with remote

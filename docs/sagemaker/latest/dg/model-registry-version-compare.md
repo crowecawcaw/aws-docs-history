@@ -7,9 +7,7 @@ remove models that perform poorly on selected measures. The following procedure
 shows you how to set up model version comparison in Model Registry using the Amazon SageMaker Studio Classic
 console.
 
-## Compare Model Versions
-
-(Amazon SageMaker Studio Classic)
+## Compare Model Versions (Amazon SageMaker Studio Classic)
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Grant Your Users Permissions to Upload Local
-
-Files
+# Grant Your Users Permissions to Upload Local Files
 
 If your users are uploading files from their local machines to SageMaker Canvas, you must attach a
 CORS (cross-origin resource sharing) configuration to the Amazon S3 bucket that they're using. When

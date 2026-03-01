@@ -19,11 +19,9 @@ Model Monitor provides the following types of monitoring:
   quality.
 - [Model quality](model-monitor-model-quality.md "model-monitor-model-quality.md") - Monitor drift in model quality
   metrics, such as accuracy.
-- [Bias drift for models in
-  production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md") - Monitor bias in your
+- [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md") - Monitor bias in your
   model's predictions.
-- [Feature
-  attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md") - Monitor
+- [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md") - Monitor
   drift in feature attribution.
 
 ###### Topics
@@ -33,15 +31,12 @@ Model Monitor provides the following types of monitoring:
 - [Data capture](model-monitor-data-capture.md "model-monitor-data-capture.md")
 - [Data quality](model-monitor-data-quality.md "model-monitor-data-quality.md")
 - [Model quality](model-monitor-model-quality.md "model-monitor-model-quality.md")
-- [Bias drift for models in
-  production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md")
-- [Feature
-  attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md")
+- [Bias drift for models in production](clarify-model-monitor-bias-drift.md "clarify-model-monitor-bias-drift.md")
+- [Feature attribution drift for models in production](clarify-model-monitor-feature-attribution-drift.md "clarify-model-monitor-feature-attribution-drift.md")
 - [Schedule monitoring jobs](model-monitor-scheduling.md "model-monitor-scheduling.md")
 - [Amazon SageMaker Model Monitor prebuilt container](model-monitor-pre-built-container.md "model-monitor-pre-built-container.md")
 - [Interpret results](model-monitor-interpreting-results.md "model-monitor-interpreting-results.md")
-- [Visualize results for
-  real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md")
+- [Visualize results for real-time endpoints in Amazon SageMaker Studio](model-monitor-interpreting-visualize-results.md "model-monitor-interpreting-visualize-results.md")
 - [Advanced topics](model-monitor-advanced-topics.md "model-monitor-advanced-topics.md")
 - [Model Monitor FAQs](model-monitor-faqs.md "model-monitor-faqs.md")
 
@@ -98,8 +93,7 @@ the data through the various data collection, monitoring, and analysis processes
   to let Model Monitor communicate with Amazon S3 and CloudWatch. For information about VPC
   endpoints, see [VPC endpoints](../../../vpc/latest/privatelink/concepts.md "../../../vpc/latest/privatelink/concepts.md") in the
   _Amazon Virtual Private Cloud User Guide_. For information about launching
-  SageMaker Studio in a custom VPC, see [Connect Studio notebooks in
-  a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+  SageMaker Studio in a custom VPC, see [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
 
 ### Model Monitor sample notebooks
 

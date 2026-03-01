@@ -61,11 +61,7 @@ For information about lifecycle configurations, see [Lifecycle configurations wi
 
 - [Create a space](studio-updated-jl-user-guide-create-space.md "studio-updated-jl-user-guide-create-space.md")
 - [Configure a space](studio-updated-jl-user-guide-configure-space.md "studio-updated-jl-user-guide-configure-space.md")
-- [Customize your
-  environment using a package manager](studio-updated-jl-user-guide-customize-package-manager.md "studio-updated-jl-user-guide-customize-package-manager.md")
-- [Clean up a conda
-  environment](studio-updated-jl-clean-up-conda.md "studio-updated-jl-clean-up-conda.md")
-- [Share conda
-  environments between instance types](studio-updated-jl-create-conda-share-environment.md "studio-updated-jl-create-conda-share-environment.md")
-- [Use Amazon Q to Expedite Your Machine
-  Learning Workflows](studio-updated-jl-user-guide-use-amazon-q.md "studio-updated-jl-user-guide-use-amazon-q.md")
+- [Customize your environment using a package manager](studio-updated-jl-user-guide-customize-package-manager.md "studio-updated-jl-user-guide-customize-package-manager.md")
+- [Clean up a conda environment](studio-updated-jl-clean-up-conda.md "studio-updated-jl-clean-up-conda.md")
+- [Share conda environments between instance types](studio-updated-jl-create-conda-share-environment.md "studio-updated-jl-create-conda-share-environment.md")
+- [Use Amazon Q to Expedite Your Machine Learning Workflows](studio-updated-jl-user-guide-use-amazon-q.md "studio-updated-jl-user-guide-use-amazon-q.md")

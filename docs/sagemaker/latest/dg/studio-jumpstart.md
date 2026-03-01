@@ -51,8 +51,7 @@ Choose a model to see its model detail card. In the upper right-hand corner of t
 detail card, choose **Fine-tune**, **Customize**,
 **Deploy**, or **Evaluate** to start working through the fine-tuning,
 deployment, or evaluation workflows, respectively. Note that not all models are available for customization,
-fine-tuning or evaluation. For more information on each of these options, see [Use foundation
-models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
+fine-tuning or evaluation. For more information on each of these options, see [Use foundation models in Studio](jumpstart-foundation-models-use-studio-updated.md "jumpstart-foundation-models-use-studio-updated.md").
 
 You can also access **Private or Curated Hub** models through a dedicated tab. These
 work exactly like JumpStart base models, and clicking on a model card will take you to the details page, where

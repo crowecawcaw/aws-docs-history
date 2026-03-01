@@ -1,6 +1,4 @@
-# Download the SageMaker Debugger profiling
-
-report
+# Download the SageMaker Debugger profiling report
 
 Download the SageMaker Debugger profiling report while your training job is running or after
 the job has finished using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") and AWS Command Line Interface (CLI).
@@ -130,8 +128,7 @@ configure the `profiler_config` parameter when constructing or updating
 SageMaker AI estimators.
 
 To learn how to configure the `profiler_config` parameter before
-starting a training job, see [Estimator configuration for
-framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").
+starting a training job, see [Estimator configuration for framework profiling](debugger-configure-framework-profiling.md "debugger-configure-framework-profiling.md").
 
 To update the current training job and enable framework metrics profiling, see
 [Update Debugger Framework

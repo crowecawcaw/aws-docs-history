@@ -1,6 +1,4 @@
-# Troubleshoot
-
-Ambarella Errors
+# Troubleshoot Ambarella Errors
 
 SageMaker Neo requires models to be packaged in a compressed TAR file
 (`*.tar.gz`). Ambarella devices require additional files to be

@@ -7,8 +7,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -58,9 +57,7 @@ Consider the following when using JupyterLab 3:
   - Base Python 3.0
   - Data Science 3.0
 
-## Restricting default JupyterLab version using an IAM policy condition
-
-key
+## Restricting default JupyterLab version using an IAM policy condition key
 
 You can use IAM policy condition keys to restrict the version of JupyterLab that your users
 can launch.
@@ -144,9 +141,7 @@ JSON
 
 ```
 
-## Setting a default JupyterLab
-
-version
+## Setting a default JupyterLab version
 
 The following sections show how to set a default JupyterLab version for Studio Classic using
 either the console or the AWS CLI. 
@@ -282,9 +277,7 @@ sagemaker update-user-profile \
 }'
 ```
 
-## View and update the JupyterLab version of an application from the
-
-console
+## View and update the JupyterLab version of an application from the console
 
 The following shows how to view and update the JupyterLab version of an application.
 

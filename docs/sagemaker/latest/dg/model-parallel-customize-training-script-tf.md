@@ -1,6 +1,4 @@
-# Modify a TensorFlow training
-
-script
+# Modify a TensorFlow training script
 
 In this section, you learn how to modify TensorFlow training scripts to configure the SageMaker
 model parallelism library for auto-partitioning and manual partitioning. This selection
@@ -9,19 +7,15 @@ parallelism.
 
 ###### Note
 
-To find which TensorFlow versions are supported by the library, see [Supported Frameworks and
-AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
+To find which TensorFlow versions are supported by the library, see [Supported Frameworks and AWS Regions](distributed-model-parallel-support.md "distributed-model-parallel-support.md").
 
 The required modifications you must make to your training script to use the library
-are listed in [Automated splitting
-with TensorFlow](#model-parallel-customize-training-script-tf-23 "#model-parallel-customize-training-script-tf-23").
+are listed in [Automated splitting with TensorFlow](#model-parallel-customize-training-script-tf-23 "#model-parallel-customize-training-script-tf-23").
 
 To learn how to modify your training script to use hybrid model and data parallelism
-with Horovod, see [Automated
-splitting with TensorFlow and Horovod for hybrid model and data parallelism](#model-parallel-customize-training-script-tf-2.3 "#model-parallel-customize-training-script-tf-2.3").
+with Horovod, see [Automated splitting with TensorFlow and Horovod for hybrid model and data parallelism](#model-parallel-customize-training-script-tf-2.3 "#model-parallel-customize-training-script-tf-2.3").
 
-If you want to use manual partitioning, also review [Manual
-splitting with TensorFlow](#model-parallel-customize-training-script-tf-manual "#model-parallel-customize-training-script-tf-manual").
+If you want to use manual partitioning, also review [Manual splitting with TensorFlow](#model-parallel-customize-training-script-tf-manual "#model-parallel-customize-training-script-tf-manual").
 
 The following topics show examples of training scripts that you can use to configure
 SageMaker's model parallelism library for auto-partitioning and manual partitioning TensorFlow
@@ -34,18 +28,12 @@ scripts use auto-partitioning.
 
 ###### Topics
 
-- [Automated splitting
-  with TensorFlow](#model-parallel-customize-training-script-tf-23 "#model-parallel-customize-training-script-tf-23")
-- [Automated
-  splitting with TensorFlow and Horovod for hybrid model and data parallelism](#model-parallel-customize-training-script-tf-2.3 "#model-parallel-customize-training-script-tf-2.3")
-- [Manual
-  splitting with TensorFlow](#model-parallel-customize-training-script-tf-manual "#model-parallel-customize-training-script-tf-manual")
-- [Unsupported framework
-  features](#model-parallel-tf-unsupported-features "#model-parallel-tf-unsupported-features")
+- [Automated splitting with TensorFlow](#model-parallel-customize-training-script-tf-23 "#model-parallel-customize-training-script-tf-23")
+- [Automated splitting with TensorFlow and Horovod for hybrid model and data parallelism](#model-parallel-customize-training-script-tf-2.3 "#model-parallel-customize-training-script-tf-2.3")
+- [Manual splitting with TensorFlow](#model-parallel-customize-training-script-tf-manual "#model-parallel-customize-training-script-tf-manual")
+- [Unsupported framework features](#model-parallel-tf-unsupported-features "#model-parallel-tf-unsupported-features")
 
-## Automated splitting
-
-with TensorFlow
+## Automated splitting with TensorFlow
 
 The following training script changes are required to run a TensorFlow model with
 SageMaker's model parallelism library:
@@ -152,26 +140,21 @@ for epoch in range(5):
     accuracy = train_accuracy.result()
 ```
 
-If you are done preparing your training script, proceed to [Step 2: Launch a Training Job Using the SageMaker
-Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"). If you
+If you are done preparing your training script, proceed to [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"). If you
 want to run a hybrid model and data parallel training job, continue to the next
 section.
 
-## Automated
-
-splitting with TensorFlow and Horovod for hybrid model and data parallelism
+## Automated splitting with TensorFlow and Horovod for hybrid model and data parallelism
 
 You can use the SageMaker model parallelism library with Horovod for hybrid model and
 data parallelism. To read more about how the library splits a model for hybrid
-parallelism, see [Pipeline parallelism (available for
-PyTorch and TensorFlow)](model-parallel-intro.md#model-parallel-intro-pp "model-parallel-intro.md#model-parallel-intro-pp").
+parallelism, see [Pipeline parallelism (available for PyTorch and TensorFlow)](model-parallel-intro.md#model-parallel-intro-pp "model-parallel-intro.md#model-parallel-intro-pp").
 
 In this step, we focus on how to modify your training script to adapt the SageMaker
 model parallelism library.
 
 To properly set up your training script to pick up the hybrid parallelism
-configuration that you'll set in [Step 2: Launch a Training Job Using the SageMaker
-Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), use the library's helper functions,
+configuration that you'll set in [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"), use the library's helper functions,
 `smp.dp_rank()` and `smp.mp_rank()`, which automatically
 detect the data parallel rank and model parallel rank respectively.
 
@@ -190,8 +173,7 @@ The required changes needed in the script are:
 When you use Horovod, you must not directly call `hvd.init` in your
 training script. Instead, you'll have to set `"horovod"` to
 `True` in the SageMaker Python SDK `modelparallel`
-parameters in [Step 2: Launch a Training Job Using the SageMaker
-Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"). This allows the library to
+parameters in [Step 2: Launch a Training Job Using the SageMaker Python SDK](model-parallel-sm-sdk.md "model-parallel-sm-sdk.md"). This allows the library to
 internally initialize Horovod based on the device assignments of model
 partitions. Calling `hvd.init()` directly in your training script can
 cause problems.
@@ -290,9 +272,7 @@ for epoch in range(5):
         loss = train_step(images, labels, tf.constant(batch == 0))
 ```
 
-## Manual
-
-splitting with TensorFlow
+## Manual splitting with TensorFlow
 
 Use `smp.partition` context managers to place operations in specific
 partition. Any operation not placed in any `smp.partition` contexts is
@@ -376,9 +356,7 @@ for epoch in range(5):
 
 ```
 
-## Unsupported framework
-
-features
+## Unsupported framework features
 
 The following TensorFlow features are not supported by the library:
 

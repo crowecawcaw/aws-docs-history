@@ -1,6 +1,4 @@
-# Configuring SageMaker Debugger to save
-
-tensors
+# Configuring SageMaker Debugger to save tensors
 
 _Tensors_ are data collections of updated parameters from the
 backward and forward pass of each training iteration. SageMaker Debugger collects the
@@ -25,9 +23,6 @@ URI is
 
 ###### Topics
 
-- [Configure tensor collections
-  using the CollectionConfig API](debugger-configure-tensor-collections.md "debugger-configure-tensor-collections.md")
-- [Configure the
-  DebuggerHookConfig API to save tensors](debugger-configure-tensor-hook.md "debugger-configure-tensor-hook.md")
-- [Example notebooks and code samples to configure
-  Debugger hook](debugger-save-tensors.md "debugger-save-tensors.md")
+- [Configure tensor collections using the CollectionConfig API](debugger-configure-tensor-collections.md "debugger-configure-tensor-collections.md")
+- [Configure the DebuggerHookConfig API to save tensors](debugger-configure-tensor-hook.md "debugger-configure-tensor-hook.md")
+- [Example notebooks and code samples to configure Debugger hook](debugger-save-tensors.md "debugger-save-tensors.md")

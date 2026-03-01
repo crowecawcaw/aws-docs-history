@@ -3,9 +3,7 @@
 For information about the algorithms, frameworks, and instance types that you can use with
 multi-model endpoints, see the following sections.
 
-## Supported algorithms, frameworks, and instances
-
-for multi-model endpoints using CPU backed instances
+## Supported algorithms, frameworks, and instances for multi-model endpoints using CPU backed instances
 
 The inference containers for the following algorithms and frameworks support multi-model
 endpoints:
@@ -20,14 +18,11 @@ endpoints:
 - [Resources for using PyTorch with Amazon SageMaker AI](pytorch.md "pytorch.md")
 
 To use any other framework or algorithm, use the SageMaker AI inference toolkit to build a
-container that supports multi-model endpoints. For information, see [Build Your Own Container for SageMaker AI
-Multi-Model Endpoints](build-multi-model-build-container.md "build-multi-model-build-container.md").
+container that supports multi-model endpoints. For information, see [Build Your Own Container for SageMaker AI Multi-Model Endpoints](build-multi-model-build-container.md "build-multi-model-build-container.md").
 
 Multi-model endpoints support all of the CPU instance types.
 
-## Supported algorithms, frameworks, and instances
-
-for multi-model endpoints using GPU backed instances
+## Supported algorithms, frameworks, and instances for multi-model endpoints using GPU backed instances
 
 Hosting multiple GPU backed models on multi-model endpoints is supported through the
 [SageMaker AI Triton Inference

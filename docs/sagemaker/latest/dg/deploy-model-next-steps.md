@@ -58,9 +58,7 @@ and choose an `Inf1` instance for your deployment option. To learn more,
 see [Optimize model
 performance using SageMaker Neo](neo.md "neo.md").
 
-## Optimize model
-
-performance
+## Optimize model performance
 
 SageMaker AI provides features to manage resources and optimize inference performance when
 deploying machine learning models. You can use SageMaker AI’s [built-in algorithms and pre-built

@@ -1,6 +1,4 @@
-# Set up the permissions to enable
-
-listing and launching Amazon EMR applications from SageMaker Studio
+# Set up the permissions to enable listing and launching Amazon EMR applications from SageMaker Studio
 
 In this section, we detail the roles and permissions required to list and connect to
 EMR Serverless applications from SageMaker Studio, considering scenarios where
@@ -61,9 +59,7 @@ involved:
   regardless of whether they are deployed in the same account or across different
   accounts.
 
-## Single
-
-account
+## Single account
 
 The following diagrams illustrate the roles and permissions required to list and
 connect to EMR Serverless applications from Studio when Studio and the
@@ -153,8 +149,7 @@ is further isolation of Spark sessions across different source
 identities. 3. **Step 3**: Retrieve the ARN of the SageMaker AI
 execution role used by your private space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution
 role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
@@ -199,8 +194,7 @@ application.
      **Create inline policy**.
     5. In the **JSON** tab, add the Amazon EMR Serverless
      permissions allowing EMR Serverless access and operations. For
-     details on the policy document, see *EMR Serverless policies* in [Reference
-     policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region`,
+     details on the policy document, see *EMR Serverless policies* in [Reference policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region`,
      `accountID`, and passed
      `EMRServerlessAppRuntimeRole`(s) with
      their actual values before copying the list of statements to the
@@ -219,8 +213,7 @@ application.
      domains, user profiles, and spaces. For details on the
      `SageMakerUpdateResourcesPolicy` policy document, see
      *Domain, user profile, and space update
-     actions policy* in [Reference
-     policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region` and
+     actions policy* in [Reference policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region` and
      `accountID` with their actual values
      before copying the list of statements to the inline policy of your
      role.
@@ -311,9 +304,7 @@ resp['LastModifiedTime'] = str(resp['LastModifiedTime'])
 print(json.dumps(resp, indent=2))
 ```
 
-## Cross
-
-account
+## Cross account
 
 The following diagrams illustrate the roles and permissions required to list and
 connect to EMR Serverless applications from Studio when Studio and the
@@ -327,8 +318,7 @@ Creating an IAM role (console).
 Before you get started:
 
 - Retrieve the ARN of the SageMaker AI execution role used by your private space.
-  For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-  execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md"). For more information about
+  For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md"). For more information about
   how to retrieve the ARN of SageMaker AI's execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
 - Retrieve the ARN of the Amazon S3 bucket you will use for data sources and
   output data storage in the [Amazon S3
@@ -450,8 +440,7 @@ follow these steps:
      policy**.
     3. In the **JSON** tab, add the Amazon EMR Serverless
      permissions allowing EMR Serverless access and operations. For
-     details on the policy document, see *EMR Serverless policies* in [Reference
-     policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region`, `accountID`, and
+     details on the policy document, see *EMR Serverless policies* in [Reference policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region`, `accountID`, and
      passed `EMRServerlessAppRuntimeRole`(s) with their
      actual values before copying the list of statements to the
      inline policy of your role.
@@ -528,8 +517,7 @@ permissions to access resources in the trusting account.
 1. **Step 1**: Retrieve the ARN of the
    SageMaker AI execution role used by your space.
 
-For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and
-execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
+For information on spaces and execution roles in SageMaker AI, see [Understanding domain space permissions and execution roles](execution-roles-and-spaces.md "execution-roles-and-spaces.md").
 
 For more information about how to retrieve the ARN of SageMaker AI's execution
 role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role"). 2. **Step 2**: Attach the following
@@ -549,8 +537,7 @@ application.
      profiles, and spaces. For details on the
      `SageMakerUpdateResourcesPolicy` policy document,
      see *Domain, user profile, and space
-     update actions policy* in [Reference
-     policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region` and `accountID`
+     update actions policy* in [Reference policies](#studio-set-up-emr-serverless-permissions-reference "#studio-set-up-emr-serverless-permissions-reference"). Replace the `region` and `accountID`
      with their actual values before copying the list of statements
      to the inline policy of your role.
     6. Choose **Next** and then provide a
@@ -679,9 +666,7 @@ resp['LastModifiedTime'] = str(resp['LastModifiedTime'])
 print(json.dumps(resp, indent=2))
 ```
 
-## Reference
-
-policies
+## Reference policies
 
 - **EMR Serverless policies**: This policy
   allows managing EMR Serverless applications, including listing, creating

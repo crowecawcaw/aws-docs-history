@@ -1,19 +1,13 @@
-# IP Insights Inference Data
-
-Formats
+# IP Insights Inference Data Formats
 
 The following are the available input and output formats for the IP Insights
 algorithm. Amazon SageMaker AI built-in algorithms adhere to the common input inference format
 described in [Common data formats for inference](cdf-inference.md "cdf-inference.md"). However,
 the SageMaker AI IP Insights algorithm does not currently support RecordIO format.
 
-## IP
+## IP Insights Input Request Formats
 
-Insights Input Request Formats
-
-### INPUT:
-
-CSV Format
+### INPUT: CSV Format
 
 The CSV file must have two columns. The first column is an opaque string
 that corresponds to an entity's unique identifier. The second column is the
@@ -43,9 +37,7 @@ content-type: application/json
 }
 ```
 
-### INPUT: JSONLINES
-
-Format
+### INPUT: JSONLINES Format
 
 The JSON Lines content type is useful for running batch transform jobs.
 For more information on SageMaker AI inference formats, see [Common data formats for inference](cdf-inference.md "cdf-inference.md"). For more
@@ -58,13 +50,9 @@ content-type: application/jsonlines
 {"features": ["entity_id_2", "10.10.1.2"]}]
 ```
 
-## IP Insights Output Response
+## IP Insights Output Response Formats
 
-Formats
-
-### OUTPUT: JSON Response
-
-Format
+### OUTPUT: JSON Response Format
 
 The default output of the SageMaker AI IP Insights algorithm is the
 `dot_product` between the input entity and IP address. The
@@ -111,9 +99,7 @@ accept: application/json;verbose=True
 }
 ```
 
-### OUTPUT: JSONLINES Response
-
-Format
+### OUTPUT: JSONLINES Response Format
 
 accept: application/jsonlines
 

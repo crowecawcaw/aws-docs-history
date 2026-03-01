@@ -1,6 +1,4 @@
-# Set
-
-up Studio to run with subnets without internet access within a VPC
+# Set up Studio to run with subnets without internet access within a VPC
 
 This guide shows you how to connect to Amazon SageMaker Studio spaces from Visual Studio Code
 when your Amazon SageMaker AI domain runs in private subnets without internet access. You’ll
@@ -167,8 +165,7 @@ server and extensions**
    Remote SSH or connect to the Studio space via the Studio
    remote VS Code feature. VS Code installs the remote server into
    `.VS Code-server` in the home directory in
-   the remote container during connection. See [Example Dockerfile usage for pre-packaging your VS Code remote server
-   and extensions](remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-dockerfile "remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-dockerfile") for more information.
+   the remote container during connection. See [Example Dockerfile usage for pre-packaging your VS Code remote server and extensions](remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-dockerfile "remote-access-local-ide-setup-vpc-no-internet.md#remote-access-local-ide-setup-vpc-no-internet-pre-packaged-vs-code-remote-server-and-extensions-example-dockerfile") for more information.
 4. After connecting remotely, ensure you use the VS Code Default
    profile.
 5. Install the required VS Code extensions and validate their

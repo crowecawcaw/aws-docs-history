@@ -24,9 +24,7 @@ import IPython
 IPython.Application.instance().kernel.do_shutdown(True)
 ```
 
-## Debugger example notebooks for profiling
-
-training jobs
+## Debugger example notebooks for profiling training jobs
 
 The following list shows Debugger example notebooks introducing Debugger's adaptability to
 monitor and profile training jobs for various machine learning models, datasets, and
@@ -39,9 +37,7 @@ frameworks.
 | [Profiling TensorFlow ResNet model training with various distributed training settings](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/tensorflow_profiling "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/tensorflow_profiling")                                                                                                                          | TensorFlow | ResNet50                         | Cifar-10     | Run TensorFlow training jobs with various distributed training settings,<br>monitor system resource utilization, and profile model performance using<br>Debugger.                                                           |
 | [Profiling PyTorch ResNet model training with various distributed training settings](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/pytorch_profiling "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/pytorch_profiling")                                                                                                                                   | PyTorch    | ResNet50                         | Cifar-10     | Run PyTorch training jobs with various distributed training settings,<br>monitor system resource utilization, and profile model performance using<br>Debugger.                                                              |
 
-## Debugger example notebooks for analyzing
-
-model parameters
+## Debugger example notebooks for analyzing model parameters
 
 The following list shows Debugger example notebooks introducing Debugger's adaptability to
 debug training jobs for various machine learning models, datasets, and frameworks.

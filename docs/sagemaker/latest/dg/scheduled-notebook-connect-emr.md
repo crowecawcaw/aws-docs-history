@@ -1,6 +1,4 @@
-# Connect to an Amazon EMR cluster from your
-
-notebook
+# Connect to an Amazon EMR cluster from your notebook
 
 If you connect to an Amazon EMR cluster from your Jupyter notebook in Studio, you might need
 to perform additional setup. In particular, the following discussion addresses two
@@ -11,18 +9,14 @@ issues:
   command may not work as expected due to differences in how Papermill passes parameters and
   how SparkMagic receives parameters. The workaround to address this limitation is to pass
   parameters as environment variables. For more details about the issue and workaround, see
-  [Pass parameters to your EMR
-  connection command](#scheduled-notebook-connect-emr-pass-param "#scheduled-notebook-connect-emr-pass-param").
+  [Pass parameters to your EMR connection command](#scheduled-notebook-connect-emr-pass-param "#scheduled-notebook-connect-emr-pass-param").
 - **Passing user credentials to Kerberos, LDAP, or HTTP Basic
   Auth-authenticated Amazon EMR clusters**. In interactive mode, Studio asks for
   credentials in a popup form where you can enter your sign-in credentials. In your
   noninteractive scheduled notebook, you have to pass them through the AWS Secrets Manager. For more
-  details about how to use the AWS Secrets Manager in your scheduled notebook jobs, see [Pass user credentials to your
-  Kerberos, LDAP, or HTTP Basic Auth-authenticated Amazon EMR cluster](#scheduled-notebook-connect-emr-credentials "#scheduled-notebook-connect-emr-credentials").
+  details about how to use the AWS Secrets Manager in your scheduled notebook jobs, see [Pass user credentials to your Kerberos, LDAP, or HTTP Basic Auth-authenticated Amazon EMR cluster](#scheduled-notebook-connect-emr-credentials "#scheduled-notebook-connect-emr-credentials").
 
-## Pass parameters to your EMR
-
-connection command
+## Pass parameters to your EMR connection command
 
 If you are using images with the SparkMagic PySpark and Spark kernels and want to
 parameterize your EMR connection command, provide your parameters in the
@@ -48,9 +42,7 @@ command accompany any local variables you define. However, Papermill does not pa
 Papermill limitation, you must supply your parameters as environment variables in the
 **Environment variables** field.
 
-## Pass user credentials to your
-
-Kerberos, LDAP, or HTTP Basic Auth-authenticated Amazon EMR cluster
+## Pass user credentials to your Kerberos, LDAP, or HTTP Basic Auth-authenticated Amazon EMR cluster
 
 To establish a secure connection to an Amazon EMR cluster that uses Kerberos, LDAP, or HTTP
 Basic Auth authentication, you use the AWS Secrets Manager to pass user credentials to your connection

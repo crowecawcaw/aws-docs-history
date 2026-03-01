@@ -1,6 +1,4 @@
-# The cron expression for monitoring
-
-schedule
+# The cron expression for monitoring schedule
 
 To provide details for the monitoring schedule, use [`ScheduleConfig`](../APIReference/API_ScheduleConfig.md "../APIReference/API_ScheduleConfig.md"), which is a `cron` expression that
 describes details about the monitoring schedule.

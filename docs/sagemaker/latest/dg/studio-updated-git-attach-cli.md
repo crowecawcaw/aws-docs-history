@@ -31,9 +31,7 @@ aws sagemaker update-domain --region `region` --domain-id `domain-id` \
     --default-user-settings JupyterLabAppSettings={CodeRepositories=[{RepositoryUrl="`repository`"}]}
 ```
 
-### Attach to a user
-
-profile
+### Attach to a user profile
 
 The following command attaches a Git repo URL to an existing user profile:
 

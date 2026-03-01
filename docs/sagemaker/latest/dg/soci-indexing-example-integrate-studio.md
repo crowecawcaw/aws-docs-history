@@ -1,11 +1,8 @@
-# Integrate SOCI-indexed images with
-
-Studio example
+# Integrate SOCI-indexed images with Studio example
 
 You must reference the SOCI-indexed image tag to use SOCI-indexed images in Studio,
 rather than the original container image tag. Use the tag you specified during the SOCI
-conversion process (e.g., `SOCI_IMAGE_TAG` in the [Create SOCI indexes with nerdctl and
-SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")).
+conversion process (e.g., `SOCI_IMAGE_TAG` in the [Create SOCI indexes with nerdctl and SOCI CLI example](soci-indexing-example-create-indexes.md "soci-indexing-example-create-indexes.md")).
 
 ###### Integrate SOCI-indexed images example
 
@@ -118,6 +115,5 @@ aws sagemaker update-domain \
 ```
 
 6. After you update your domain to include your custom image, you can create an
-   application in Studio using your custom image. When you [Launch a custom image in
-   Studio](studio-updated-byoi-how-to-launch.md "studio-updated-byoi-how-to-launch.md") ensure that you are using your
+   application in Studio using your custom image. When you [Launch a custom image in Studio](studio-updated-byoi-how-to-launch.md "studio-updated-byoi-how-to-launch.md") ensure that you are using your
    custom image.

@@ -1,6 +1,4 @@
-# Get started with model
-
-evaluations
+# Get started with model evaluations
 
 A large language model (LLM) is a machine learning model that can analyze and generate
 natural language text. If you want to evaluate an LLM, SageMaker AI provides the following three
@@ -42,7 +40,6 @@ configure and run both a starting and customized evaluation.
 **Topics**
 
 - [Using prompt datasets and available evaluation dimensions in model evaluation jobs](clarify-foundation-model-evaluate-overview.md "clarify-foundation-model-evaluate-overview.md")
-- [Foundation model
-  evaluation summary](clarify-foundation-model-evaluate-overview.md#clarify-foundation-model-evaluate-summary "clarify-foundation-model-evaluate-overview.md#clarify-foundation-model-evaluate-summary")
+- [Foundation model evaluation summary](clarify-foundation-model-evaluate-overview.md#clarify-foundation-model-evaluate-summary "clarify-foundation-model-evaluate-overview.md#clarify-foundation-model-evaluate-summary")
 - [Create a model evaluation job that uses human workers](clarify-foundation-model-evaluate-human.md "clarify-foundation-model-evaluate-human.md")
 - [Automatic model evaluation](clarify-foundation-model-evaluate-auto.md "clarify-foundation-model-evaluate-auto.md")

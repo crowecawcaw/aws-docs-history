@@ -1,6 +1,4 @@
-# Invoke a multi-container endpoint with direct
-
-invocation
+# Invoke a multi-container endpoint with direct invocation
 
 SageMaker AI multi-container endpoints enable customers to deploy multiple containers to deploy
 different models on a SageMaker AI endpoint. You can host up to 15

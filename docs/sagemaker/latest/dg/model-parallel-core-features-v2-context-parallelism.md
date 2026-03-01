@@ -8,8 +8,7 @@ sequence dimension.
 
 SMP v2 integrates with [Transformer
 Engine](https://docs.nvidia.com/deeplearning/transformer-engine/index.html "https://docs.nvidia.com/deeplearning/transformer-engine/index.html") for context parallelism and can be used in conjunction with PyTorch
-FSDP and SMP [Tensor
-parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md"). You
+FSDP and SMP [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md"). You
 can enable all three parallelisms simultaneously for model training. Context parallelism
 is beneficial for training models with large activation sizes and long sequence lengths.
 It accelerates the computation of attention scores and attention outputs, by allowing
@@ -18,9 +17,7 @@ dimension. While tensor parallelism also accelerates computation through partiti
 along the hidden dimension, the advantage of context parallelism is more substantial
 since computational requirements increase quadratically with sequence dimension.
 
-## Hugging Face Transformer models compatible with SMP context
-
-parallelism
+## Hugging Face Transformer models compatible with SMP context parallelism
 
 SMP v2 currently offers context parallelism support for the following Hugging Face
 transformer models.
@@ -42,11 +39,9 @@ sequence length.
 The following code snippets show how to add the SMP initialization module
 `torch.sagemaker.init()` to your training script and set up the SMP
 configuration dictionary in JSON format for training job launcher while following
-the two-step process introduced in [Use the SageMaker model parallelism
-library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
+the two-step process introduced in [Use the SageMaker model parallelism library v2](model-parallel-use-api-v2.md "model-parallel-use-api-v2.md"). You
 don’t need to make any changes to your PyTorch model or [PyTorch FSDP](https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp "https://pytorch.org/docs/stable/fsdp.html#module-torch.distributed.fsdp") configuration. For more information about the
-`context_parallel_degree` parameter, see [SMP v2 core
-feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
+`context_parallel_degree` parameter, see [SMP v2 core feature configuration parameters](distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config "distributed-model-parallel-v2-reference.md#distributed-model-parallel-v2-reference-init-config").
 
 ### In your training script
 

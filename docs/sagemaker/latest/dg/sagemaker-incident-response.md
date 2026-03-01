@@ -16,8 +16,7 @@ storage. For more information, see [CloudWatch Logs for Amazon SageMaker AI](log
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS service in SageMaker AI.
 Using the information collected by CloudTrail, you can determine the request that was made to
 SageMaker AI, the IP address from which the request was made, who made the request, when it was
-made, and additional details. For more information, [Logging Amazon SageMaker AI API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+made, and additional details. For more information, [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") is a threat detection service that continuously monitors and analyzes
 your CloudTrail management and event logs to identify potential security issues. When you enable
@@ -29,8 +28,7 @@ identify that the AWS credentials associated with the Amazon EC2 instance were e
 then used to call SageMaker APIs from another AWS account.
 
 You can create rules in Amazon CloudWatch Events to react to status changes in status in a SageMaker training,
-hyperperparameter tuning, or batch transform job. For more information, see [Events that Amazon SageMaker AI sends to
-Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md").
+hyperperparameter tuning, or batch transform job. For more information, see [Events that Amazon SageMaker AI sends to Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md").
 
 ###### Note
 

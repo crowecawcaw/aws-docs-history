@@ -1,6 +1,4 @@
-# Create a
-
-SageMaker HyperPod cluster on training plans using the SageMaker API, or AWS CLI
+# Create a SageMaker HyperPod cluster on training plans using the SageMaker API, or AWS CLI
 
 To use SageMaker training plans for your Amazon SageMaker HyperPod cluster, specify the ARN of the training
 plan you want to use in the [`TrainingPlanArn`](../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-TrainingPlanArn "../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-TrainingPlanArn") parameter of the [`ClusterInstanceGroupSpecification`](../APIReference/API_ClusterInstanceGroupSpecification.md "../APIReference/API_ClusterInstanceGroupSpecification.md") when calling the [`CreateCluster`](../APIReference/API_CreateCluster.md "../APIReference/API_CreateCluster.md") API operation.

@@ -1,14 +1,10 @@
-# Resilience-related
-
-Kubernetes labels by SageMaker HyperPod
+# Resilience-related Kubernetes labels by SageMaker HyperPod
 
 _Labels_ are key-value pairs that are attached to
 [Kubernetes objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/#kubernetes-objects "https://kubernetes.io/docs/concepts/overview/working-with-objects/#kubernetes-objects"). SageMaker HyperPod introduces the following labels for the
 health checks it provides.
 
-## Node
-
-health status labels
+## Node health status labels
 
 The `node-health-status` labels represent the status of the node health
 and to be used as part of node selector filter in healthy nodes.
@@ -43,23 +39,17 @@ labels.
 - `fault-reason` labels represent the detailed fault reason
   associated with a `fault-type`.
 
-## How
-
-SageMaker HyperPod labels
+## How SageMaker HyperPod labels
 
 The following topics cover how labeling is done depending on various cases.
 
 ###### Topics
 
-- [When a node is added to a SageMaker HyperPod cluster with deep health check
-  config disabled](#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-off "#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-off")
-- [When a node is added to a SageMaker HyperPod cluster with deep health check
-  config enabled](#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-on "#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-on")
+- [When a node is added to a SageMaker HyperPod cluster with deep health check config disabled](#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-off "#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-off")
+- [When a node is added to a SageMaker HyperPod cluster with deep health check config enabled](#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-on "#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-dhc-is-on")
 - [When there are any compute failures on nodes](#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-node-fails "#sagemaker-hyperpod-eks-resiliency-node-how-it-labels-when-node-fails")
 
-### When a node is added to a SageMaker HyperPod cluster with deep health check
-
-config disabled
+### When a node is added to a SageMaker HyperPod cluster with deep health check config disabled
 
 When a new node is added into a cluster, and if deep health check is not enabled
 for the instance group, SageMaker HyperPod runs the same health checks as the [currently
@@ -76,9 +66,7 @@ If the health check doesn't pass, the nodes will be terminated and replaced.
 This behavior is the same as the way SageMaker HyperPod health check works for Slurm
 clusters.
 
-### When a node is added to a SageMaker HyperPod cluster with deep health check
-
-config enabled
+### When a node is added to a SageMaker HyperPod cluster with deep health check config enabled
 
 When a new node is added into a SageMaker HyperPod cluster, and if the deep health
 check test is enabled for the instance group, HyperPod first taints the

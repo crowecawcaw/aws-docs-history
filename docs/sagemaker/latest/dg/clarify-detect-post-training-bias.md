@@ -1,6 +1,4 @@
-# Post-training Data and Model
-
-Bias
+# Post-training Data and Model Bias
 
 Post-training bias analysis can help reveal biases that might have emanated from
 biases in the data, or from biases introduced by the classification and prediction
@@ -18,7 +16,6 @@ not be due to a machine learning model, but might still be detectable by post-tr
 bias analysis.
 
 Amazon SageMaker Clarify tries to ensure a consistent use of terminology. For a list of terms and
-their definitions, see [Amazon SageMaker Clarify Terms for Bias and
-Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms").
+their definitions, see [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms").
 
 For additional information about post-training bias metrics, see [Learn How Amazon SageMaker Clarify Helps Detect Bias](https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/ "https://aws.amazon.com/blogs/machine-learning/learn-how-amazon-sagemaker-clarify-helps-detect-bias/") and [Fairness Measures for Machine Learning in Finance.](https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/Fairness.Measures.for.Machine.Learning.in.Finance.pdf").

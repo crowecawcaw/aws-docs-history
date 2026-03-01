@@ -1,6 +1,4 @@
-# List
-
-Your Algorithm or Model Package on AWS Marketplace
+# List Your Algorithm or Model Package on AWS Marketplace
 
 After creating and validating your algorithm or model in Amazon SageMaker AI, list your product
 on AWS Marketplace. The listing process makes your products available in the AWS Marketplace and the

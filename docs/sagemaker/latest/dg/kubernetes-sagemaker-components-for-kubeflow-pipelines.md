@@ -1,6 +1,4 @@
-# SageMaker AI Components for
-
-Kubeflow Pipelines
+# SageMaker AI Components for Kubeflow Pipelines
 
 With SageMaker AI components for Kubeflow Pipelines, you can create and monitor native SageMaker AI
 training, tuning, endpoint deployment, and batch transform jobs from your Kubeflow Pipelines. By
@@ -12,15 +10,11 @@ prior knowledge of Kubernetes and Kubeflow.
 
 - [What are Kubeflow Pipelines?](#what-is-kubeflow-pipelines "#what-is-kubeflow-pipelines")
 - [What are Kubeflow Pipeline components?](#kubeflow-pipeline-components "#kubeflow-pipeline-components")
-- [Why use SageMaker AI Components for Kubeflow
-  Pipelines?](#why-use-sagemaker-components "#why-use-sagemaker-components")
-- [SageMaker AI Components for Kubeflow
-  Pipelines versions](#sagemaker-components-versions "#sagemaker-components-versions")
-- [List of SageMaker AI Components for Kubeflow
-  Pipelines](#sagemaker-components-list "#sagemaker-components-list")
+- [Why use SageMaker AI Components for Kubeflow Pipelines?](#why-use-sagemaker-components "#why-use-sagemaker-components")
+- [SageMaker AI Components for Kubeflow Pipelines versions](#sagemaker-components-versions "#sagemaker-components-versions")
+- [List of SageMaker AI Components for Kubeflow Pipelines](#sagemaker-components-list "#sagemaker-components-list")
 - [IAM permissions](#iam-permissions "#iam-permissions")
-- [Converting pipelines to use
-  SageMaker AI](#converting-pipelines-to-use-amazon-sagemaker "#converting-pipelines-to-use-amazon-sagemaker")
+- [Converting pipelines to use SageMaker AI](#converting-pipelines-to-use-amazon-sagemaker "#converting-pipelines-to-use-amazon-sagemaker")
 - [Install Kubeflow Pipelines](kubernetes-sagemaker-components-install.md "kubernetes-sagemaker-components-install.md")
 - [Use SageMaker AI components](kubernetes-sagemaker-components-tutorials.md "kubernetes-sagemaker-components-tutorials.md")
 
@@ -56,9 +50,7 @@ logic in a custom container, you simply load the components and describe your pi
 the Kubeflow Pipelines SDK. When the pipeline runs, your instructions are translated into a
 SageMaker AI job or deployment. The workload then runs on the fully managed infrastructure of SageMaker AI.
 
-## Why use SageMaker AI Components for Kubeflow
-
-Pipelines?
+## Why use SageMaker AI Components for Kubeflow Pipelines?
 
 SageMaker AI Components for Kubeflow Pipelines offer an alternative to launching your
 compute-intensive jobs from SageMaker AI. The components integrate SageMaker AI with the portability and
@@ -74,15 +66,12 @@ The SageMaker AI components integrate key SageMaker AI features into your ML wor
 data, to building, training, and deploying ML models. You can create a Kubeflow Pipeline built
 entirely using these components, or integrate individual components into your workflow as
 needed. The components are available in one or two versions. Each version of a component
-leverages a different backend. For more information on those versions, see [SageMaker AI Components for Kubeflow
-Pipelines versions](#sagemaker-components-versions "#sagemaker-components-versions").
+leverages a different backend. For more information on those versions, see [SageMaker AI Components for Kubeflow Pipelines versions](#sagemaker-components-versions "#sagemaker-components-versions").
 
 There is no additional charge for using SageMaker AI Components for Kubeflow Pipelines. You incur
 charges for any SageMaker AI resources you use through these components.
 
-## SageMaker AI Components for Kubeflow
-
-Pipelines versions
+## SageMaker AI Components for Kubeflow Pipelines versions
 
 SageMaker AI Components for Kubeflow Pipelines come in two versions. Each version leverages a
 different backend to create and manage resources on SageMaker AI.
@@ -109,9 +98,7 @@ version 2 provides some additional advantages. In particular, it offers:
 3. Zero setup time to use the SageMaker AI components if you deployed the full [Kubeflow on AWS](https://awslabs.github.io/kubeflow-manifests/docs/about/ "https://awslabs.github.io/kubeflow-manifests/docs/about/")
    release since the SageMaker AI Operator is part of its deployment.
 
-## List of SageMaker AI Components for Kubeflow
-
-Pipelines
+## List of SageMaker AI Components for Kubeflow Pipelines
 
 The following is a list of all SageMaker AI Components for Kubeflow Pipelines and their available
 versions. Alternatively, you can find all [SageMaker AI Components for Kubeflow Pipelines in GitHub](https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker#versioning "https://github.com/kubeflow/pipelines/tree/master/components/aws/sagemaker#versioning").
@@ -241,9 +228,7 @@ The role requires the following permissions:
     + AmazonSageMakerFullAccess
     + AmazonS3FullAccess
 
-## Converting pipelines to use
-
-SageMaker AI
+## Converting pipelines to use SageMaker AI
 
 You can convert an existing pipeline to use SageMaker AI by porting your generic Python [processing
 containers](amazon-sagemaker-containers.md "amazon-sagemaker-containers.md") and [training containers](your-algorithms-training-algo.md "your-algorithms-training-algo.md"). If

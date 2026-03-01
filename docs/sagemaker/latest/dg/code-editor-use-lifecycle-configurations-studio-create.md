@@ -1,6 +1,4 @@
-# Create and attach
-
-lifecycle configurations in Studio
+# Create and attach lifecycle configurations in Studio
 
 The following section provides AWS CLI commands to create a lifecycle configuration,
 attach a lifecycle configuration when creating a new user profile, and attach a lifecycle

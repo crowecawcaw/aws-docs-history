@@ -18,8 +18,7 @@ pre-generated model training artifacts to construct a SageMaker AI Estimator.
 First, retrieve the Docker image URI, training script URI, and pretrained model URI.
 Then, change the hyperparameters as you see fit. You can see a Python dictionary of all
 available hyperparameters and their default values with
-`hyperparameters.retrieve_default`. For more information, see [Object Detection - TensorFlow
-Hyperparameters](object-detection-tensorflow-Hyperparameter.md "object-detection-tensorflow-Hyperparameter.md"). Use these
+`hyperparameters.retrieve_default`. For more information, see [Object Detection - TensorFlow Hyperparameters](object-detection-tensorflow-Hyperparameter.md "object-detection-tensorflow-Hyperparameter.md"). Use these
 values to construct a SageMaker AI Estimator.
 
 ###### Note

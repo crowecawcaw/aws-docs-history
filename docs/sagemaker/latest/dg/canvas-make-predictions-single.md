@@ -15,9 +15,7 @@ receiving any prediction requests) for two hours.
 
 Choose one of the following procedures based on your model type.
 
-## Make single predictions with
-
-numeric and categorical prediction models
+## Make single predictions with numeric and categorical prediction models
 
 To make a single prediction for a numeric or categorical prediction model, do the
 following:
@@ -42,9 +40,7 @@ You can **Copy** the prediction result chart, or you can also choose
 **Download** to either download the prediction result chart as an
 image or to download the values and prediction as a CSV file.
 
-## Make single predictions with
-
-time series forecasting models
+## Make single predictions with time series forecasting models
 
 To make a single prediction for a time series forecasting model, do the
 following:
@@ -62,9 +58,7 @@ Choose **Schema view** to see the numeric predicted values.
 You can also choose **Download** to download the prediction results as either an
 image or a CSV file.
 
-## Make single predictions with image prediction
-
-models
+## Make single predictions with image prediction models
 
 To make a single prediction for a single-label image prediction model, do the
 following:
@@ -88,9 +82,7 @@ an image, with a confidence score of 96%. The model may have predicted the image
 **Glacier** with only a confidence score of 4%. Therefore, you can
 determine that your model is fairly confident in predicting images of the sea.
 
-## Make single predictions with text prediction
-
-models
+## Make single predictions with text prediction models
 
 To make a single prediction for a multi-category text prediction model, do the
 following:

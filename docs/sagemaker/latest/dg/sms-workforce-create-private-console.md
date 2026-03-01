@@ -1,6 +1,4 @@
-# Create a Private Workforce (Amazon SageMaker AI
-
-Console)
+# Create a Private Workforce (Amazon SageMaker AI Console)
 
 You can create a private workforce in the Amazon SageMaker AI console in one of two ways:
 
@@ -15,12 +13,9 @@ You can create a private workforce in the Amazon SageMaker AI console in one of 
 When you create a private workforce using the console, SageMaker AI uses Amazon Cognito as an identity
 provider for your workforce. If you want to use your own OpenID Connect (OIDC) Identity Provider (IdP) to create and manage
 your private workforce, you must create a workforce using the SageMaker API operation
-`CreateWorkforce`. To learn more, see [Create a Private Workforce (OIDC
-IdP)](sms-workforce-create-private-oidc.md "sms-workforce-create-private-oidc.md").
+`CreateWorkforce`. To learn more, see [Create a Private Workforce (OIDC IdP)](sms-workforce-create-private-oidc.md "sms-workforce-create-private-oidc.md").
 
-## Create an Amazon Cognito Workforce When Creating
-
-a Labeling Job
+## Create an Amazon Cognito Workforce When Creating a Labeling Job
 
 If you haven't created a private workforce when you create your labeling job and you
 choose to use private workers, you are prompted to create a work team. This will create
@@ -30,8 +25,7 @@ a private workforce using Amazon Cognito.
 
 1. Open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. In the navigation pane, choose **Labeling jobs** and fill in
-   all required fields. For instructions on how to start a labeling job, see [Getting started: Create a bounding box labeling job
-   with Ground Truth](sms-getting-started.md "sms-getting-started.md"). Choose
+   all required fields. For instructions on how to start a labeling job, see [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md"). Choose
    **Next**.
 3. Choose **Private** for the workforce type.
 4. In the **Workers** section, enter:
@@ -49,16 +43,13 @@ When you create the labeling job, an email is sent to each worker inviting them 
 join the workforce. After creating the workforce, you can add, delete, and disable
 workers using the SageMaker AI console or the Amazon Cognito console.
 
-## Create an Amazon Cognito Workforce Using the
-
-Labeling Workforces Page
+## Create an Amazon Cognito Workforce Using the Labeling Workforces Page
 
 To create and manage your private workforce using Amazon Cognito, you can use the
 **Labeling workforces** page. When following the instructions
 below, you have the option to create a private workforce by entering worker emails
 importing a pre-existing workforce from an Amazon Cognito user pool. To import a workforce, see
-[Create a Private Workforce (Amazon Cognito
-Console)](sms-workforce-create-private-cognito.md "sms-workforce-create-private-cognito.md").
+[Create a Private Workforce (Amazon Cognito Console)](sms-workforce-create-private-cognito.md "sms-workforce-create-private-cognito.md").
 
 ###### To create a private workforce using worker emails
 

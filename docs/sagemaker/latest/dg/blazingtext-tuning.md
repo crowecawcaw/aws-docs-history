@@ -10,9 +10,7 @@ optimizes the objective metric.
 
 For more information about model tuning, see [Automatic model tuning with SageMaker AI](automatic-model-tuning.md "automatic-model-tuning.md").
 
-## Metrics Computed by the BlazingText
-
-Algorithm
+## Metrics Computed by the BlazingText Algorithm
 
 The BlazingText Word2Vec algorithm (`skipgram`, `cbow`, and
 `batch_skipgram` modes) reports on a single metric during training:
@@ -29,13 +27,9 @@ these metrics as the objective.
 | `train:mean_rho`      | The mean rho (Spearman's rank correlation coefficient) on<br>[WS-353 word similarity datasets](http://alfonseca.org/pubs/ws353simrel.tar.gz "http://alfonseca.org/pubs/ws353simrel.tar.gz") | Maximize               |
 | `validation:accuracy` | The classification accuracy on the user-specified validation<br>dataset                                                                                                                     | Maximize               |
 
-## Tunable BlazingText
+## Tunable BlazingText Hyperparameters
 
-Hyperparameters
-
-### Tunable
-
-Hyperparameters for the Word2Vec Algorithm
+### Tunable Hyperparameters for the Word2Vec Algorithm
 
 Tune an Amazon SageMaker AI BlazingText Word2Vec model with the following
 hyperparameters. The hyperparameters that have the greatest impact on Word2Vec
@@ -55,9 +49,7 @@ objective metrics are: `mode`, `learning_rate`,
 | `vector_dim`         | `IntegerParameterRange`     | [32-300]                                        |
 | `window_size`        | `IntegerParameterRange`     | [1-10]                                          |
 
-### Tunable
-
-Hyperparameters for the Text Classification Algorithm
+### Tunable Hyperparameters for the Text Classification Algorithm
 
 Tune an Amazon SageMaker AI BlazingText text classification model with the following
 hyperparameters.

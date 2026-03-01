@@ -1,6 +1,4 @@
-# Use Human Loop
-
-Activation Conditions JSON Schema with Amazon Textract
+# Use Human Loop Activation Conditions JSON Schema with Amazon Textract
 
 When used with Amazon A2I, the `AnalyzeDocument` operation supports the
 following inputs in the `ConditionType` parameter:
@@ -74,12 +72,9 @@ condition are included in the worker UI. If you use a custom worker task templat
 you need to include the `{{ task.input.selectedAiServiceResponse.blocks
  }}` element to include initial-value input data (inferences) from
 Amazon Textract. For an example of a custom template that uses this input element, see
-[Custom Template Example for
-Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
+[Custom Template Example for Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
 
-## `MissingImportantFormKey` Inputs
-
-and Results
+## `MissingImportantFormKey` Inputs and Results
 
 The `MissingImportantFormKey`
 `ConditionType` supports the following
@@ -107,9 +102,7 @@ a task is created asking workers to identify the key in
 task template, you need to include the `<task.input.humanLoopContext>`
 custom HTML element to configure this task.
 
-## Sampling Inputs and
-
-Results
+## Sampling Inputs and Results
 
 The `Sampling`
 `ConditionType` supports the `RandomSamplingPercentage`
@@ -131,8 +124,7 @@ condition are included in the worker UI. If you use a custom worker task templat
 you need to include the `{{ task.input.selectedAiServiceResponse.blocks
  }}` element to include initial-value input data (inferences) from
 Amazon Textract. For an example of a custom template that uses this input element, see
-[Custom Template Example for
-Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
+[Custom Template Example for Amazon Textract](a2i-custom-templates.md#a2i-custom-templates-textract-sample "a2i-custom-templates.md#a2i-custom-templates-textract-sample").
 
 ## Examples
 

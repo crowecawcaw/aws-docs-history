@@ -6,9 +6,7 @@ whether you want a real-time or serverless endpoint. To create a serverless endp
 configuration, you can use the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home"), the [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md")
 API, or the AWS CLI. The API and console approaches are outlined in the following sections.
 
-## To create an endpoint configuration
-
-(using API)
+## To create an endpoint configuration (using API)
 
 The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html") to call the [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md") API. Specify the following values:
 
@@ -49,9 +47,7 @@ response = client.create_endpoint_config(
 )
 ```
 
-## To create an endpoint
-
-configuration (using the console)
+## To create an endpoint configuration (using the console)
 
 1. Sign in to the [Amazon SageMaker AI
    console](https://console.aws.amazon.com/sagemaker/home "https://console.aws.amazon.com/sagemaker/home").

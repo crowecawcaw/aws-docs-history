@@ -1,10 +1,7 @@
-# Save SQL
-
-query results in a pandas DataFrame
+# Save SQL query results in a pandas DataFrame
 
 You can store the results of your SQL query in a pandas DataFrame. The easiest way to
-output query results to a DataFrame is to use the [SQL editor features of the
-JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") query-result dropdown and choose the
+output query results to a DataFrame is to use the [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md") query-result dropdown and choose the
 **Pandas dataframe** option.
 
 Alternatively, you can add the parameter `--output '{"format": "DATAFRAME",

@@ -1,6 +1,4 @@
-# Use Amazon Q to Expedite Your Machine
-
-Learning Workflows
+# Use Amazon Q to Expedite Your Machine Learning Workflows
 
 Amazon Q Developer is your AI-powered companion for machine learning development. With
 Amazon Q Developer, you can:
@@ -13,8 +11,7 @@ Amazon Q Developer, you can:
   your JupyterLab or Code Editor environment.
 
 If you don't see the **Q** icon, your administrator needs to set it
-up for you. For more information about setting up Amazon Q Developer, see [Set up Amazon Q Developer for your
-users](studio-updated-amazon-q-admin-guide-set-up.md "studio-updated-amazon-q-admin-guide-set-up.md").
+up for you. For more information about setting up Amazon Q Developer, see [Set up Amazon Q Developer for your users](studio-updated-amazon-q-admin-guide-set-up.md "studio-updated-amazon-q-admin-guide-set-up.md").
 
 Amazon Q automatically provides suggestions to help you write your code. You can also
 ask for suggestions through the chat interface.

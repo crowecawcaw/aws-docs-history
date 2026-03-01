@@ -1,6 +1,4 @@
-# Install External Libraries and Kernels in
-
-Amazon SageMaker Studio Classic
+# Install External Libraries and Kernels in Amazon SageMaker Studio Classic
 
 ###### Important
 
@@ -46,8 +44,7 @@ on the image. Studio Classic supports the following package installation tools:
 We do not recommend using `pip install -u` or `pip install
  --user`, because those commands install packages on the user's Amazon EFS volume and
 can potentially block JupyterServer app restarts. Instead, use a lifecycle configuration
-to reinstall the required packages on app restarts as shown in [Install packages using lifecycle
-configurations](#nbi-add-external-lcc "#nbi-add-external-lcc").
+to reinstall the required packages on app restarts as shown in [Install packages using lifecycle configurations](#nbi-add-external-lcc "#nbi-add-external-lcc").
 
 We recommend using `%pip` and `%conda` to install packages from
 within a notebook because they correctly take into account the active environment or
@@ -121,9 +118,7 @@ result in a failure. If issues occur, you can contact the library maintainer abo
 updating the package dependencies. When you modify the environment, such as removing or
 updating existing packages, this may result in instability of that environment.
 
-## Install packages using lifecycle
-
-configurations
+## Install packages using lifecycle configurations
 
 Install custom images and kernels on the Studio Classic instance's Amazon EBS volume so that they
 persist when you stop and restart the notebook, and that any external libraries you install

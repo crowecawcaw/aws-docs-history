@@ -33,8 +33,7 @@ of the following values:
 - Delete: Removes the job definition from the **Notebook Job
   Definitions** tab.
 - Resume: Continues a paused job definition so that it can start jobs.
-  If you created a job definition but it doesn’t initiate jobs, see [Job definition doesn’t create
-  jobs](notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs "notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs") in the [Troubleshooting guide](notebook-auto-run-troubleshoot.md "notebook-auto-run-troubleshoot.md").
+  If you created a job definition but it doesn’t initiate jobs, see [Job definition doesn’t create jobs](notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs "notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs") in the [Troubleshooting guide](notebook-auto-run-troubleshoot.md "notebook-auto-run-troubleshoot.md").
 
 ## View a single job definition
 
@@ -42,8 +41,7 @@ If you select a job definition name in the **Notebook Job
 Definitions** tab, you see the **Job Definition** page where
 you can view specific details for a job definition. Use this page to confirm the settings
 you specified when you created the job definition. If you don’t see any jobs created from
-your job definition, see [Job definition doesn’t create
-jobs](notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs "notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs") in the [Troubleshooting guide](notebook-auto-run-troubleshoot.md "notebook-auto-run-troubleshoot.md").
+your job definition, see [Job definition doesn’t create jobs](notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs "notebook-auto-run-troubleshoot.md#notebook-auto-run-troubleshoot-no-jobs") in the [Troubleshooting guide](notebook-auto-run-troubleshoot.md "notebook-auto-run-troubleshoot.md").
 
 This page also contains a section listing the jobs that run from this job definition.
 Viewing your jobs in the **Job Definition** page may be a more productive

@@ -1,6 +1,4 @@
-# Running jobs using
-
-`kubectl`
+# Running jobs using `kubectl`
 
 ###### Note
 
@@ -8,8 +6,7 @@ Training job auto resume requires Kubeflow Training Operator release version
 `1.7.0`, `1.8.0`, or `1.8.1`.
 
 Note that you should install Kubeflow Training Operator in the clusters using a Helm
-chart. For more information, see [Installing
-packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). Verify if the
+chart. For more information, see [Installing packages on the Amazon EKS cluster using Helm](sagemaker-hyperpod-eks-install-packages-using-helm-chart.md "sagemaker-hyperpod-eks-install-packages-using-helm-chart.md"). Verify if the
 Kubeflow Training Operator control plane is properly set up by running the following
 command.
 

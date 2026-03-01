@@ -9,8 +9,7 @@ This fine-tuning process modifies the weights of the model.
 
 To fine-tune your model on a domain-specific dataset:
 
-1. Prepare your training data. For instructions, see [Prepare and upload training data for domain adaptation
-   fine-tuning](#jumpstart-foundation-models-fine-tuning-domain-adaptation-prepare-data "#jumpstart-foundation-models-fine-tuning-domain-adaptation-prepare-data").
+1. Prepare your training data. For instructions, see [Prepare and upload training data for domain adaptation fine-tuning](#jumpstart-foundation-models-fine-tuning-domain-adaptation-prepare-data "#jumpstart-foundation-models-fine-tuning-domain-adaptation-prepare-data").
 2. Create your fine-tuning training job. For instructions, see [Create a training job for instruction-based fine-tuning](#jumpstart-foundation-models-fine-tuning-domain-adaptation-train "#jumpstart-foundation-models-fine-tuning-domain-adaptation-train").
    You can find end-to-end examples in [Example notebooks](#jumpstart-foundation-models-fine-tuning-domain-adaptation-examples "#jumpstart-foundation-models-fine-tuning-domain-adaptation-examples").
 
@@ -21,8 +20,7 @@ models:
 
 Some JumpStart foundation models, such as Llama 2 7B, require acceptance of an
 end-user license agreement before fine-tuning and performing inference. For
-more information, see [End-user license
-agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula").
+more information, see [End-user license agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula "jumpstart-foundation-models-choose.md#jumpstart-foundation-models-choose-eula").
 
 - Bloom 3B
 - Bloom 7B1
@@ -42,9 +40,7 @@ agreements](jumpstart-foundation-models-choose.md#jumpstart-foundation-models-ch
 - Llama 2 7B Chat
 - Llama 2 7B Neuron
 
-## Prepare and upload training data for domain adaptation
-
-fine-tuning
+## Prepare and upload training data for domain adaptation fine-tuning
 
 Training data for domain adaptation fine-tuning can be provided in CSV,
 JSON, or TXT file format. All training data must be in a single file within
@@ -98,8 +94,7 @@ print(f"Training data: {train_data_location}")
 
 After your data is uploaded to Amazon S3, you can fine-tune and deploy your
 JumpStart foundation model. To fine-tune your model in Studio, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md "jumpstart-foundation-models-use-studio-updated-fine-tune.md"). To fine-tune your model using the SageMaker Python SDK, see
-[Fine-tune publicly available foundation models with the
-JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").
+[Fine-tune publicly available foundation models with the JumpStartEstimator class](jumpstart-foundation-models-use-python-sdk-estimator-class.md "jumpstart-foundation-models-use-python-sdk-estimator-class.md").
 
 ## Example notebooks
 

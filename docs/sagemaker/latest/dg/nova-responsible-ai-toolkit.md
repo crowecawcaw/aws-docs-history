@@ -1,10 +1,6 @@
-# Responsible AI toolkit and content
+# Responsible AI toolkit and content moderation
 
-moderation
-
-## Responsible AI
-
-toolkit
+## Responsible AI toolkit
 
 Nova Forge provides a Responsible AI toolkit that includes training and evaluation
 data to align models to Amazon Nova's responsible AI guidelines during the training
@@ -36,9 +32,7 @@ expectations of safety, fairness, and other properties, as well as overall
 effectiveness. For more information, see AWS Responsible Use of AI Guide, AWS
 Responsible AI Policy, AWS Acceptable Use Policy, and AWS Service Terms.
 
-## Customizable content
-
-moderation
+## Customizable content moderation
 
 Customizable content moderation settings (CCMS) allow adjustment of controls
 relevant to business requirements while maintaining essential, non-configurable

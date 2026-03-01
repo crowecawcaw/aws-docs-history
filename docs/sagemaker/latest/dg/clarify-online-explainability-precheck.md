@@ -39,9 +39,7 @@ table.
 | '{"features":["This is a good product",5]}'                                                   | Single record; a list of features can be extracted<br>by JMESPath expression `features`.         |
 | '{"features":["This is a good<br>product",5]}\n{"features":["Bad shopping<br>experience",1]}' | Two records.                                                                                     |
 
-## Model container
-
-output
+## Model container output
 
 Your model container output should also be in either CSV, or JSON Lines dense
 format. Additionally the model container should include the probabilities of the
@@ -126,9 +124,7 @@ extracted by `JMESPath` expression `predicted
 | Single record         | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}'                                                                          |
 | Two records           | '{"predicted_labels":["cat","dog","fish"],"probabilities":[0.1,0.6,0.3]}\n{"predicted_labels":["cat","dog","fish"],"probabilities":[0.2,0.5,0.3]}' |
 
-## Model container
-
-validation
+## Model container validation
 
 We recommend that you deploy your model to a SageMaker AI real-time inference endpoint,
 and send requests to the endpoint. Manually examine the requests (model container

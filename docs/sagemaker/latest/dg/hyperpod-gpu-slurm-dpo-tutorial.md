@@ -1,6 +1,4 @@
-# HyperPod Slurm cluster DPO
-
-tutorial (GPU)
+# HyperPod Slurm cluster DPO tutorial (GPU)
 
 The following tutorial sets up a Slurm environment and starts a direct preference
 optimization (DPO) job on a Llama 8 billion parameter model.
@@ -25,9 +23,7 @@ Before you start setting up your environment, make sure you have:
   you start training. For more information about getting the token, see [User access
   tokens](https://huggingface.co/docs/hub/en/security-tokens "https://huggingface.co/docs/hub/en/security-tokens").
 
-## Set up the
-
-HyperPod GPU Slurm environment
+## Set up the HyperPod GPU Slurm environment
 
 To initiate a training job on a Slurm cluster, do the following:
 
@@ -55,8 +51,7 @@ pip3 install -r requirements.txt
 ```
 
 - Create a squash file using Enroot. To find the most recent release of the
-  SMP container, see [Release notes for the SageMaker model parallelism
-  library](model-parallel-release-notes.md "model-parallel-release-notes.md"). For more information
+  SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md"). For more information
   about using the Enroot file, see [Build AWS-optimized Nemo-Launcher image](https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image "https://github.com/aws-samples/awsome-distributed-training/tree/main/3.test_cases/2.nemo-launcher#2-build-aws-optimized-nemo-launcher-image").
 
 ```
@@ -76,9 +71,7 @@ container: /fsx/path/to/your/smdistributed-modelparallel.sqsh
 
 ```
 
-## Launch the training
-
-job
+## Launch the training job
 
 To launch a DPO job for the Llama 8 billion parameter model with a sequence length
 of 8192 on a single Slurm compute node, set the launch script,

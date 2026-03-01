@@ -17,8 +17,7 @@ resources must also grant permissions to add tags to those resources. The permis
 add tags to resources is required because Studio and Studio Classic automatically tag
 any resources they create. If an IAM policy allows Studio and Studio Classic to
 create resources but does not allow tagging, "AccessDenied" errors can occur when
-trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI
-resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
+trying to create resources. For more information, see [Provide permissions for tagging SageMaker AI resources](security_iam_id-based-policy-examples.md#grant-tagging-permissions "security_iam_id-based-policy-examples.md#grant-tagging-permissions").
 
 [AWS managed policies for Amazon SageMaker AI](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 that give permissions to create SageMaker resources already include permissions to add tags
@@ -57,8 +56,7 @@ verify the following networking configurations:
     + If your domain is set up in `VpcOnly` mode: Verify that
      there is an Amazon VPC endpoint for AWS STS, or a NAT Gateway for outbound
      traffic, including traffic over the internet. To do this, follow the
-     steps in [Connect Studio notebooks in
-     a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+     steps in [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
     + If your Amazon VPC is set up with a custom DNS instead of the DNS provided
      by Amazon: Verify that the routes are configured using Dynamic Host
      Configuration Protocol (DHCP) for each Amazon VPC endpoint added to the Amazon VPC
@@ -89,7 +87,7 @@ does not resolve your issue, create an issue with https://aws.amazon.com/premium
      following steps.
 
 
-    ######  To verify or create mount targets.
+    ###### To verify or create mount targets.
 
 
     	1. Find the Amazon EFS volume that is associated with the domain by
@@ -126,8 +124,7 @@ domain.
 
     1. View the Amazon CloudWatch Logs for the lifecycle configuration to trace the
      command that caused the failure. To view the log, follow the steps
-     in [Verify lifecycle configuration process from
-     CloudWatch Logs](studio-lcc-debug.md#studio-lcc-debug-logs "studio-lcc-debug.md#studio-lcc-debug-logs").
+     in [Verify lifecycle configuration process from CloudWatch Logs](studio-lcc-debug.md#studio-lcc-debug-logs "studio-lcc-debug.md#studio-lcc-debug-logs").
     2. Detach the default script from the user profile or domain. For more
      information, see [Update and Detach Lifecycle Configurations in Amazon SageMaker Studio Classic](studio-lcc-delete.md "studio-lcc-delete.md").
     3. Launch the Studio Classic application.
@@ -226,8 +223,7 @@ notebook session. If the KernelGateway application's status is `In
     		 `8192-65535`.
     For more information about security group rules, see [Control traffic to resources using security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-group-rules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#working-with-security-group-rules"). For
      more information about requirements to use Studio Classic in
-     `VPCOnly` mode, see [Connect Studio notebooks in
-     a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
+     `VPCOnly` mode, see [Connect Studio notebooks in a VPC to external resources](studio-notebooks-and-internet-access.md "studio-notebooks-and-internet-access.md").
     + Verify firewall and WebSocket
      connections
 
@@ -279,8 +275,7 @@ either of the following errors. This is caused by exceeding resource quotas.
     	- Delete an existing KernelGateway application running on the instance, then restart the new
     	 notebook.
     	- Start the new notebook on a different instance type
-     For more information, see [Change the Instance
-     Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md").
+     For more information, see [Change the Instance Type for an Amazon SageMaker Studio Classic Notebook](notebooks-run-and-manage-switch-instance-type.md "notebooks-run-and-manage-switch-instance-type.md").
     + ```
     An error occurred (ResourceLimitExceeded) when calling the CreateApp operation
     ```

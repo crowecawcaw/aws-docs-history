@@ -1,6 +1,4 @@
-# Configure IAM runtime roles for Amazon EMR
-
-cluster access in Studio
+# Configure IAM runtime roles for Amazon EMR cluster access in Studio
 
 When you connect to an Amazon EMR cluster from your Studio or Studio Classic notebooks, you can
 visually browse a list of IAM roles, known as runtime roles, and select one on the fly.
@@ -31,15 +29,11 @@ Before you get started, make sure you meet the following prerequisites:
 - Allow the use of runtime roles in your cluster's security configuration. For more
   information, see [Runtime roles for Amazon EMR
   steps](../../../emr/latest/ManagementGuide/emr-steps-runtime-roles.md "../../../emr/latest/ManagementGuide/emr-steps-runtime-roles.md").
-- Create a notebook with any of the kernels listed in [Supported images and
-  kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels").
-- Make sure you review the instructions in [Set up Studio to use runtime IAM
-  roles](#studio-notebooks-emr-cluster-iam "#studio-notebooks-emr-cluster-iam") to configure your runtime
+- Create a notebook with any of the kernels listed in [Supported images and kernels to connect to an Amazon EMR cluster from Studio or Studio Classic](studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels "studio-emr-user-guide.md#studio-notebooks-emr-cluster-connect-kernels").
+- Make sure you review the instructions in [Set up Studio to use runtime IAM roles](#studio-notebooks-emr-cluster-iam "#studio-notebooks-emr-cluster-iam") to configure your runtime
   roles.
 
-## Cross-account connection
-
-scenarios
+## Cross-account connection scenarios
 
 Runtime role authentication supports a variety of cross-account connection scenarios when
 your data resides outside of your Studio account. The following image shows three
@@ -66,12 +60,9 @@ execution role is in the data account. Your Studio or Studio Classic execution r
 permission to use the Amazon EMR API `GetClusterSessionCredentials` to gain access to
 your cluster. Add the Amazon EMR runtime execution role into the execution role configuration JSON.
 Then you can select the role in the UI when you choose your cluster. For details about how to
-set up your execution role configuration JSON file, see [Preload your execution roles into
-Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
+set up your execution role configuration JSON file, see [Preload your execution roles into Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
 
-## Set up Studio to use runtime IAM
-
-roles
+## Set up Studio to use runtime IAM roles
 
 To establish runtime role authentication for your Amazon EMR clusters, configure the required
 IAM policies, network, and usability enhancements. Your setup depends on whether you handle
@@ -80,15 +71,12 @@ reside outside of your Studio account. The following section guides you through 
 policies to install, how to configure the network to allow traffic between cross-accounts, and
 the local configuration file to set up to automate your Amazon EMR connection.
 
-### Configure runtime role
-
-authentication when your Amazon EMR cluster and Studio are in the same account
+### Configure runtime role authentication when your Amazon EMR cluster and Studio are in the same account
 
 If your Amazon EMR cluster resides in your Studio account, complete the following steps
 to add necessary permissions to your Studio execution policy:
 
-1. Add the required IAM policy to connect to Amazon EMR clusters. For details, see [Configure
-   listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md").
+1. Add the required IAM policy to connect to Amazon EMR clusters. For details, see [Configure listing Amazon EMR clusters](studio-notebooks-configure-discoverability-emr-cluster.md "studio-notebooks-configure-discoverability-emr-cluster.md").
 2. Grant permission to call the Amazon EMR API `GetClusterSessionCredentials`
    when you pass one or more permitted Amazon EMR runtime execution roles specified in the
    policy.
@@ -97,8 +85,7 @@ to add necessary permissions to your Studio execution policy:
 4. (Optional) Grant permission to access Amazon EMR clusters that are tagged with specific
    user-defined strings.
 5. Preload your IAM roles so you can select the role to use when you connect to your
-   Amazon EMR cluster. For details about how to preload your IAM roles, see [Preload your execution roles into
-   Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
+   Amazon EMR cluster. For details about how to preload your IAM roles, see [Preload your execution roles into Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
 
 The following example policy permits Amazon EMR runtime execution roles belonging to the
 modeling and training groups to call `GetClusterSessionCredentials`. In addition,
@@ -135,9 +122,7 @@ JSON
 
 ```
 
-### Configure runtime role
-
-authentication when your cluster and Studio are in different accounts
+### Configure runtime role authentication when your cluster and Studio are in different accounts
 
 If your Amazon EMR cluster is not in your Studio account, allow your SageMaker AI execution
 role to assume the cross-account Amazon EMR access role so you can connect to the cluster.
@@ -229,8 +214,7 @@ JSON
       traffic from the Studio instance security group.
 
 5. Preload your IAM runtime roles so you can select the role to use when you connect
-   to your Amazon EMR cluster. For details about how to preload your IAM roles, see [Preload your execution roles into
-   Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
+   to your Amazon EMR cluster. For details about how to preload your IAM roles, see [Preload your execution roles into Studio or Studio Classic](#studio-notebooks-emr-cluster-iam-preload "#studio-notebooks-emr-cluster-iam-preload").
 
 ### Configure Lake Formation access
 
@@ -239,9 +223,7 @@ and column-level access using policies attached to your runtime role. To configu
 permission for Lake Formation access, see [Integrate Amazon EMR with
 AWS Lake Formation](../../../emr/latest/ManagementGuide/emr-lake-formation.md "../../../emr/latest/ManagementGuide/emr-lake-formation.md").
 
-### Preload your execution roles into
-
-Studio or Studio Classic
+### Preload your execution roles into Studio or Studio Classic
 
 You can preload your IAM runtime roles so you can select the role to use when you
 connect to your Amazon EMR cluster. Users of JupyterLab in Studio can use the SageMaker AI console

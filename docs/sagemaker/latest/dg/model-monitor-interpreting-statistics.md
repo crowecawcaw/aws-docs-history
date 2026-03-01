@@ -1,6 +1,4 @@
-# Schema for Statistics
-
-(statistics.json file)
+# Schema for Statistics (statistics.json file)
 
 Amazon SageMaker Model Monitor prebuilt container computes per column/feature statistics. The statistics
 are calculated for the baseline dataset and also for the current dataset that is

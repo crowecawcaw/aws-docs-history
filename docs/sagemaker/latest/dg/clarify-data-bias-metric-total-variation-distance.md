@@ -1,6 +1,4 @@
-# Total Variation
-
-Distance (TVD)
+# Total Variation Distance (TVD)
 
 The total variation distance data bias metric (TVD) is half the
 L1-norm. The TVD is the largest possible difference

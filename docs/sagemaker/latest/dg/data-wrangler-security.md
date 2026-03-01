@@ -15,12 +15,9 @@ Additionally, you need to grant each IAM role that uses Data Wrangler permission
 required resources. If you do not require granular permissions for the IAM role you
 use to access Data Wrangler, you can add the IAM managed policy, [`AmazonSageMakerFullAccess`](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"), to an IAM role that you use
 to create your Studio Classic user. This policy grants you full permission to use Data Wrangler. If
-you require more granular permissions, refer to the section, [Grant an IAM Role Permission
-to Use Data Wrangler](#data-wrangler-security-iam-policy "#data-wrangler-security-iam-policy").
+you require more granular permissions, refer to the section, [Grant an IAM Role Permission to Use Data Wrangler](#data-wrangler-security-iam-policy "#data-wrangler-security-iam-policy").
 
-## Add a Bucket Policy To
-
-Restrict Access to Datasets Imported to Data Wrangler
+## Add a Bucket Policy To Restrict Access to Datasets Imported to Data Wrangler
 
 You can add a policy to the S3 bucket that contains your Data Wrangler resources using an
 Amazon S3 bucket policy. Resources that Data Wrangler uploads to your default SageMaker AI S3 bucket in
@@ -36,9 +33,7 @@ restrict IAM role access to that bucket. To learn how to add a policy to an S3
 bucket, see [How do I add an S3
 Bucket policy?](../../../AmazonS3/latest/user-guide/add-bucket-policy.md "../../../AmazonS3/latest/user-guide/add-bucket-policy.md").
 
-###### To set up a bucket policy on the S3 bucket that stores your Data Wrangler
-
-resources:
+###### To set up a bucket policy on the S3 bucket that stores your Data Wrangler resources:
 
 1. Configure one or more IAM roles that you want to be able to access
    Data Wrangler.
@@ -120,9 +115,7 @@ Delete any IAM policies that prevent users from running the following operations
 After you've creating the policy using the template, attach it to the IAM roles of your users. For information about attaching a policy, see
 [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console").
 
-## Grant an IAM Role Permission
-
-to Use Data Wrangler
+## Grant an IAM Role Permission to Use Data Wrangler
 
 You can grant an IAM role permission to use Data Wrangler with the general IAM managed
 policy, [`AmazonSageMakerFullAccess`](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"). This is a general policy
@@ -529,9 +522,7 @@ under the left panel to make this change.
 
 ![The Key users section in the console.](images/data-wrangler-kms.png)
 
-### Amazon S3 customer managed key setup for Data Wrangler
-
-imported data storage
+### Amazon S3 customer managed key setup for Data Wrangler imported data storage
 
 By default, Data Wrangler uses Amazon S3 buckets that have the following naming convention:
 `sagemaker-region-account number`. For example, if your account
@@ -549,9 +540,7 @@ Amazon S3 bucket.
    Studio Classic role as the key user. To do this, follow the instructions in
    [Allows key users to use a customer managed key](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users").
 
-### Encrypting the Data That You
-
-Export
+### Encrypting the Data That You Export
 
 You can encrypt the data that you export using one of the following
 methods:
@@ -685,9 +674,7 @@ JSON
 
 ```
 
-## Using Lifecycle Configurations in
-
-Data Wrangler
+## Using Lifecycle Configurations in Data Wrangler
 
 You might have an Amazon EC2 instance that is configured to run Kernel Gateway applications, but not the Data Wrangler application. Kernel Gateway applications provide access to the environment and the kernels that you
 use to run Studio Classic notebooks and terminals. The Data Wrangler application is the UI application that runs Data Wrangler. Amazon EC2 instances that aren't Data Wrangler instances require a modification to their lifecycle configurations to run Data Wrangler. Lifecycle configurations are shell scripts that automate the customization of your Amazon SageMaker Studio Classic

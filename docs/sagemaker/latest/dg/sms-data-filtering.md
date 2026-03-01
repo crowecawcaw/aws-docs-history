@@ -9,8 +9,7 @@ data must be stored in an Amazon S3 bucket. You have three options:
   The following options are available in the **Labeling jobs**
   section of the [SageMaker AI
   console](https://console.aws.amazon.com/sagemaker/groundtruth "https://console.aws.amazon.com/sagemaker/groundtruth") after selecting **Create labeling job**. To
-  learn how to create a labeling job in the console, see [Getting started: Create a bounding box labeling job
-  with Ground Truth](sms-getting-started.md "sms-getting-started.md"). To
+  learn how to create a labeling job in the console, see [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md"). To
   configure the dataset that you use for labeling, in the **Job
   overview** section, choose **Additional
   configuration**.
