@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Windows Server platform update on
-
-September 4, 2020
+# Release: Elastic Beanstalk Windows Server platform update on September 4, 2020
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates.
 It also updates framework and AWS components.
@@ -23,9 +21,7 @@ might take a few hours for the release to complete.
 | **Framework updates**        |                                                                                                                                                                                                                           | \*_Framework_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_.NET Core_<br>•        | Updated .NET Core 3.1 to version 3.1.7.<br>Updated .NET Core 2.1 to version 2.1.21. |      |
 | **AWS component updates**    |                                                                                                                                                                                                                           | \*_Component_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AWS SDK for .NET_<br>• | Updated the SDK to version 3.15.1084.                                               | <br> | \*_AMI_<br>• | Updated the base AMI to version 2020.08.12. |     |
 
-## New platform
-
-versions
+## New platform versions
 
 ### .NET on Windows Server
 

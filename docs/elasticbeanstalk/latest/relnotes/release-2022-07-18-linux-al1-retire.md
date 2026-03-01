@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Amazon Linux AMI platforms are retired on
-
-July 18, 2022
+# Release: Elastic Beanstalk Amazon Linux AMI platforms are retired on July 18, 2022
 
 This release announces the retirement of all Elastic Beanstalk platforms based on Amazon Linux AMI (AL1).
 

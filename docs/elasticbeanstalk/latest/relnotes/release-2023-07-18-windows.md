@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Windows Server platform update on
-
-July 18, 2023
+# Release: Elastic Beanstalk Windows Server platform update on July 18, 2023
 
 This release provides new Windows Server platform versions for AWS Elastic Beanstalk. The release applies Windows security updates.
 It also updates framework and AWS components.
@@ -25,9 +23,7 @@ The following table lists the changes included in this release.
 | **Framework updates**        |                                                                                                                                                                                                                         | \*_Framework_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_.NET Core_<br>• | Updated .NET 6 to version 6.0.20 on Windows Server 2019 and 2016<br>platform versions. |      |
 | **AWS component updates**    |                                                                                                                                                                                                                         | \*_Component_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AMI_<br>•       | Updated the base AMI to version 2023.07.12.                                            | <br> | \*_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version 1.247360.0b252689. | <br> | \*_EC2Launch_<br>• | Updated EC2Launch V2 to version 2.0.1521.0. |     |
 
-## New platform
-
-versions
+## New platform versions
 
 ### .NET on Windows Server
 

@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk adds support for AWS Israel (Tel Aviv) Region on
-
-August 4, 2023
+# Release: Elastic Beanstalk adds support for AWS Israel (Tel Aviv) Region on August 4, 2023
 
 AWS Elastic Beanstalk now supports the AWS Israel (Tel Aviv) Region
 

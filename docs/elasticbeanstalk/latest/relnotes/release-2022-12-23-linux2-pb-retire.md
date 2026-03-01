@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Amazon Linux 2 platform branches retired on
-
-December 23, 2022
+# Release: Elastic Beanstalk Amazon Linux 2 platform branches retired on December 23, 2022
 
 This release announces the retirement of the Node.js 12 and Ruby 2.6 platform branches based on Amazon Linux 2.
 

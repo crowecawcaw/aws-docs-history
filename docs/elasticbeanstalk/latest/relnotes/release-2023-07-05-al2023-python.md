@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Amazon Linux 2023 platform updates on
-
-July 05, 2023
+# Release: Elastic Beanstalk Amazon Linux 2023 platform updates on July 05, 2023
 
 This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2023.
 The release includes security updates. It also includes AMI, nginx, and Python updates.
@@ -34,9 +32,7 @@ The following table lists the changes included in this release.
 | **Cross-platform updates**    | Made these cross-platform updates:<br>                                                                                                                                                                                                 | \*_Component_<br>• | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AMI_<br>•    | Updated the base AMI to version 2023.1.20230629.                                                                                                                                                                                                           | <br> | \*_nginx_<br>• | Updated AL2023 platforms supporting the nginx server to [version 1.24.0](https://https://nginx.org/en/CHANGES-1.24 "https://https://nginx.org/en/CHANGES-1.24") from<br>version 1.22.1<br>The updates in this release include security fixes. |     |
 | **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                                              | \*_Platform_<br>•  | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | \*_Python_<br>• | Updated Pipenv to release 2023.6.26 for both the Python 3.9 and Python<br>3.11 platform branches. For details, see the Pipenv [Release and Version<br>History](https://pipenv.pypa.io/en/latest/changelog/ "https://pipenv.pypa.io/en/latest/changelog/"). |      |
 
-## New platform
-
-versions
+## New platform versions
 
 ###### Note
 

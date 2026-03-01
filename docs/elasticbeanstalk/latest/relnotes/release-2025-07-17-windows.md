@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Windows Server platform update on
-
-July 17, 2025
+# Release: Elastic Beanstalk Windows Server platform update on July 17, 2025
 
 This release provides new Windows Server platform versions
 for AWS Elastic Beanstalk. It updates framework and AWS components and applies Windows security updates.
@@ -27,18 +25,13 @@ The following table lists the changes included in this release.
 | **AWS component updates**                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | \*_Component_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AWS SDK for .NET_<br>• | Updated the SDK to version 3.7.1077.0.                                | <br> | \*_AMI_<br>• | Updated the base AMI to version 2025.07.09. | <br> | \*_X-Ray daemon_<br>• | Updated the X-Ray daemon to version 3.3.15. | <br> | \*_SSM Agent_<br>• | Updated the SSM Agent to version 3.3.2471.0. | <br> | \*_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version<br>1.300057.0b1161. |     |
 | **Additional changes with this<br>release** | This release adds support for creating multiple IIS websites and<br>deploying applications to them using the [deployment manifest](../dg/dotnet-manifest-schema.md "../dg/dotnet-manifest-schema.md"). The IIS Application Request Routing Module<br>(ARR) is now installed by default on Windows AMIs. These changes provide<br>more customization options for IIS sites and routing configuration.                                                                      |
 
-## New platform
-
-versions
+## New platform versions
 
 ###### These platforms are updated:
 
-- [.NET on Windows
-  Server](#release-2025-07-17-windows.platforms.net "#release-2025-07-17-windows.platforms.net")
+- [.NET on Windows Server](#release-2025-07-17-windows.platforms.net "#release-2025-07-17-windows.platforms.net")
 
-### .NET on Windows
-
-Server
+### .NET on Windows Server
 
 #### Configuration basics
 

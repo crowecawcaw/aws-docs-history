@@ -1,6 +1,4 @@
-# Release: Elastic Beanstalk Amazon Linux 2 Ruby platform update on
-
-April 19, 2023
+# Release: Elastic Beanstalk Amazon Linux 2 Ruby platform update on April 19, 2023
 
 This release provides new branch versions for the AWS Elastic Beanstalk Ruby platform based on Amazon Linux 2.
 The release includes Ruby language updates that address security vulnerabilities CVE-2023-28755 and CVE-2023-28756.
@@ -28,9 +26,7 @@ Be aware that at the time these release notes are published, the new platform
 versions might not yet be available in all the AWS Regions that Elastic Beanstalk supports. It
 might take a few hours for the release to complete.
 
-## New platform
-
-versions
+## New platform versions
 
 ###### These platforms are updated:
 
