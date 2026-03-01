@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](aws-iq-end-of-support.md "aws-iq-end-of-support.md").
 
-# Working with milestone payment requests in AWS
-
-IQ
+# Working with milestone payment requests in AWS IQ
 
 In AWS IQ, you can request payment as you complete work using milestone payments. This
 topic leads you through creating a milestone payment request in the AWS IQ Console.

@@ -17,9 +17,7 @@ individual can have only one expert profile.
 Set up an account on [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace") with your
 payment and tax information.
 
-## Updating your payment
-
-information
+## Updating your payment information
 
 After setting up your payment information in an AWS Marketplace account, you can update it by using
 the AWS IQ console. Then, you're directed to AWS Marketplace to edit your seller information.
@@ -30,4 +28,4 @@ the AWS IQ console. Then, you're directed to AWS Marketplace to edit your seller
 2. Open your profile by choosing the down arrow next to your account, and then choose
    **Account settings**.
 
-![AWS IQ - Access Account Settings for Experts](/images/aws-iq/latest/experts-user-guide/images/aws-iq-experts-providers-edit-profile-account-settings1.png) 3. On the Profile page, choose **Payments**. 4. Update your payment information as necessary.
+![AWS IQ - Access Account Settings for Experts](images/aws-iq-experts-providers-edit-profile-account-settings1.png) 3. On the Profile page, choose **Payments**. 4. Update your payment information as necessary.

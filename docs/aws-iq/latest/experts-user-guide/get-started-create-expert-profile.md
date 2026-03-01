@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](aws-iq-end-of-support.md "aws-iq-end-of-support.md").
 
-# Setting up your individual or company
-
-details in AWS IQ
+# Setting up your individual or company details in AWS IQ
 
 Set up your individual or company details in AWS IQ to respond to customers. If you're
 working as a freelancer (and not on behalf of your company), you might prefer to provide only
@@ -24,9 +22,7 @@ you enter in the AWS Marketplace account settings is prefilled in AWS IQ.
 
 The following sections provide tips for ﬁlling out your profile information.
 
-## Entering your
-
-personal details
+## Entering your personal details
 
 When entering your personal details, keep the following things in mind:
 
@@ -128,9 +124,7 @@ work._
 Setting your rate is optional, but it gives customers an idea of your fees. Use a wide
 range if you're flexible on pricing.
 
-## Verifying your identity and reviewing your
-
-profile
+## Verifying your identity and reviewing your profile
 
 AWS IQ verifies your identity for security purposes. You must provide your personal
 details even if you're registering on behalf of a company. You must have an address from an

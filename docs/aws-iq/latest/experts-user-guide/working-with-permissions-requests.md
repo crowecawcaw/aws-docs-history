@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](aws-iq-end-of-support.md "aws-iq-end-of-support.md").
 
-# Working with permissions requests in AWS
-
-IQ
+# Working with permissions requests in AWS IQ
 
 After you and a customer agree on a proposal, request access to the customer's AWS account,
 if necessary to complete the work. This topic explains how to create such a request.

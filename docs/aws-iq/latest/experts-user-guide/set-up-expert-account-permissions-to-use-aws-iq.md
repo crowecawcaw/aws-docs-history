@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](aws-iq-end-of-support.md "aws-iq-end-of-support.md").
 
-# Setting up permissions to use
-
-AWS IQ
+# Setting up permissions to use AWS IQ
 
 To access AWS IQ, you must have the necessary permissions. Navigate to the AWS Management Console to
 view or set up permissions. To leverage all resources on AWS IQ, add the [`AWSIQFullAccess` managed policy](../../../aws-managed-policy/latest/reference/AWSIQFullAccess.md "../../../aws-managed-policy/latest/reference/AWSIQFullAccess.md"). For more granular controls, add specific
@@ -22,16 +20,11 @@ attach policies to an existing user, and set up granular permissions in the AWS 
 
 ###### Topics
 
-- [Creating a user with
-  AWSIQFullAccess permissions](#create-iam-user-AWSIQFullAccess-IAMFullAccess-permissions "#create-iam-user-AWSIQFullAccess-IAMFullAccess-permissions")
-- [Attaching managed
-  policies to an existing
-  user](#attach-managed-policies-AWSIQFullAccess-IAMFullAccess "#attach-managed-policies-AWSIQFullAccess-IAMFullAccess")
+- [Creating a user with AWSIQFullAccess permissions](#create-iam-user-AWSIQFullAccess-IAMFullAccess-permissions "#create-iam-user-AWSIQFullAccess-IAMFullAccess-permissions")
+- [Attaching managed policies to an existing user](#attach-managed-policies-AWSIQFullAccess-IAMFullAccess "#attach-managed-policies-AWSIQFullAccess-IAMFullAccess")
 - [Granular IAM permissions](#iq-granular-iam-permissions "#iq-granular-iam-permissions")
 
-## Creating a user with
-
-`AWSIQFullAccess` permissions
+## Creating a user with `AWSIQFullAccess` permissions
 
 You, or your AWS account administrator, can create a new user with the
 `AWSIQFullAccess` managed policy on your AWS account. You can also attach this
@@ -60,10 +53,7 @@ Guide_.
    password to a secure location. You can also choose **Send email** to send the
    login instructions within an email message.
 
-## Attaching managed
-
-policies to an existing
-user
+## Attaching managed policies to an existing user
 
 If you already have an
 IAM user,

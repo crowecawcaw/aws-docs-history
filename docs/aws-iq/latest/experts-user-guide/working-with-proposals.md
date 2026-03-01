@@ -26,9 +26,7 @@ Create a proposal in the AWS IQ console after you have enough information to und
 customer request. If you need more information before proceeding, chat with the customer or set
 up a call to discuss the details.
 
-## To create a customer proposal in AWS
-
-IQ
+## To create a customer proposal in AWS IQ
 
 1. Sign in to the AWS IQ console at [https://iq.aws.amazon.com/](https://iq.aws.amazon.com/ "https://iq.aws.amazon.com/").
 2. On the **Requests** page, choose
@@ -49,8 +47,7 @@ IQ
    proposal.
 
    This is the maximum amount you can request in payments. To request more, you must create
-   an additional proposal. For more information, see [Working with milestone payment requests in AWS
-   IQ](working-with-payment-requests.md "working-with-payment-requests.md").
+   an additional proposal. For more information, see [Working with milestone payment requests in AWS IQ](working-with-payment-requests.md "working-with-payment-requests.md").
 
 6. In the **Proposal Terms** text box, describe what you will deliver to the
    customer. Include the terms for this project, milestones, and any necessary changes to the
@@ -67,17 +64,14 @@ using the AWS IQ console. You can close a proposal by sending the final payment 
 closing without a payment request. After completing a proposal, you can't send payment requests
 and any previously scheduled payment requests will be canceled.
 
-## To complete a customer proposal in AWS
-
-IQ
+## To complete a customer proposal in AWS IQ
 
 1. Sign in to the AWS IQ console at [https://iq.aws.amazon.com/](https://iq.aws.amazon.com/ "https://iq.aws.amazon.com/").
 2. On the **Requests** page, choose
    **Conversations**.
 3. Choose the customer request for the proposal that you're completing.
 4. Close the proposal by sending a final payment request to the customer. For more
-   information, see [Working with milestone payment requests in AWS
-   IQ](working-with-payment-requests.md "working-with-payment-requests.md").
+   information, see [Working with milestone payment requests in AWS IQ](working-with-payment-requests.md "working-with-payment-requests.md").
 5. If there are no additional payments needed, select the proposal that you want to close,
    and then choose **Complete**.
 
