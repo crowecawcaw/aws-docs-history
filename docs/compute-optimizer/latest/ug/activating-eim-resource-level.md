@@ -1,6 +1,4 @@
-# Activating enhanced infrastructure metrics
-
-at the resource level
+# Activating enhanced infrastructure metrics at the resource level
 
 This section provides you with instructions on how to activate or deactivate enhanced infrastructure metrics at the
 resource level. Recommendation preferences activated at the resource level apply only to
@@ -9,14 +7,11 @@ the individual resource.
 ## Prerequisites
 
 Make sure that you have the appropriate permissions to activate and deactivate enhanced
-infrastructure metrics. For more information, see [Policies to grant
-access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+infrastructure metrics. For more information, see [Policies to grant access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Procedure
 
-###### To activate or deactivate enhanced infrastructure metrics at the
-
-resource level
+###### To activate or deactivate enhanced infrastructure metrics at the resource level
 
 1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/ "https://console.aws.amazon.com/compute-optimizer/").
 2. In the left navigation pane under **Recommendations** and **Rightsizing**,
@@ -46,12 +41,9 @@ Compute Optimizer considers updated preferences the next time that it generates 
 Until then, a **pending** status is affixed to your updated preference
 (for example, **Active-pending** or
 **Inactive-pending**). To confirm if your resource recommendations are
-taking enhanced infrastructure metrics into consideration, see [Confirming the status of enhanced infrastructure
-metrics](enhanced-infrastructure-metrics.md#confirm-eim-status "enhanced-infrastructure-metrics.md#confirm-eim-status").
+taking enhanced infrastructure metrics into consideration, see [Confirming the status of enhanced infrastructure metrics](enhanced-infrastructure-metrics.md#confirm-eim-status "enhanced-infrastructure-metrics.md#confirm-eim-status").
 
 ## Additional resources
 
-- Troubleshooting — [Failed to get or update enhanced
-  infrastructure metrics recommendation preferences](troubleshooting-account-opt-in.md#accounts-eim-missing-permissions "troubleshooting-account-opt-in.md#accounts-eim-missing-permissions")
-- [Activating enhanced infrastructure metrics
-  at the organization or account level](activating-eim-level.md "activating-eim-level.md")
+- Troubleshooting — [Failed to get or update enhanced infrastructure metrics recommendation preferences](troubleshooting-account-opt-in.md#accounts-eim-missing-permissions "troubleshooting-account-opt-in.md#accounts-eim-missing-permissions")
+- [Activating enhanced infrastructure metrics at the organization or account level](activating-eim-level.md "activating-eim-level.md")

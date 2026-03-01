@@ -1,6 +1,4 @@
-# Configuring external metrics
-
-ingestion
+# Configuring external metrics ingestion
 
 This section provides you with instructions on how to configure external metric ingestion. You can
 configure external metric ingestion using the Compute Optimizer console or the AWS CLI.
@@ -74,6 +72,5 @@ Compute Optimizer can't receive your external metrics.
 
 ## Additional resources
 
-- [Opting out of external metrics
-  ingestion](deactivate-external-metrics-ingestion.md "deactivate-external-metrics-ingestion.md")
+- [Opting out of external metrics ingestion](deactivate-external-metrics-ingestion.md "deactivate-external-metrics-ingestion.md")
 - [External metrics ingestion](external-metrics-ingestion.md "external-metrics-ingestion.md")

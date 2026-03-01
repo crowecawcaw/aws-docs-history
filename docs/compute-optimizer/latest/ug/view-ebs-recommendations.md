@@ -27,8 +27,7 @@ data must be accumulated. For more information, see [Resource requirements](requ
 ###### Contents
 
 - [Finding classifications](#ebs-recommendations-findings "#ebs-recommendations-findings")
-- [Estimated monthly savings and savings
-  opportunity](#ebs-savings-calculation "#ebs-savings-calculation")
+- [Estimated monthly savings and savings opportunity](#ebs-savings-calculation "#ebs-savings-calculation")
 - [Performance risk](#ebs-performance-risk "#ebs-performance-risk")
 - [Utilization graphs](#ebs-utilization-graphs "#ebs-utilization-graphs")
 - [Accessing EBS volumes recommendations and details](ebs-view-recommendations.md "ebs-view-recommendations.md")
@@ -46,9 +45,7 @@ The following findings classifications apply to EBS volumes.
 | Not optimized  | An EBS volume is considered not optimized when Compute Optimizer has identified a volume type,<br>volume size, or IOPS specification that can provide better performance or cost for your<br>workload.                                                                                                                   |
 | Optimized      | An EBS volume is considered optimized when Compute Optimizer determines that the volume is<br>correctly provisioned to run your workload, based on the chosen volume type, volume size,<br>and IOPS specification. For optimized resources, Compute Optimizer might sometimes recommend a new<br>generation volume type. |
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 **Estimated monthly savings (after discounts)**
 
@@ -84,9 +81,7 @@ uses Cost Explorer data and On-Demand pricing information to generate your recom
 information, see [Enabling
 Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_.
 
-### Estimated monthly savings
-
-calculation
+### Estimated monthly savings calculation
 
 For each recommendation, we calculate the cost to operate a new EBS volume using the
 recommended volume specifications. Estimated monthly savings are calculated based on the number

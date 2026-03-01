@@ -1,6 +1,4 @@
-# Activating enhanced infrastructure metrics
-
-at the organization or account level
+# Activating enhanced infrastructure metrics at the organization or account level
 
 This section provides you with instructions on how to activate or deactivate enhanced infrastructure metrics
 for member accounts of an AWS Organization or an individual AWS account holder.
@@ -8,8 +6,7 @@ for member accounts of an AWS Organization or an individual AWS account holder.
 ## Prerequisites
 
 Make sure that you have the appropriate permissions to activate and deactivate enhanced
-infrastructure metrics. For more information, see [Policies to grant
-access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+infrastructure metrics. For more information, see [Policies to grant access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Procedure
 
@@ -36,12 +33,9 @@ Compute Optimizer considers updated preferences the next time that it generates 
 Until then, a **pending** status is affixed to your update preference
 (for example, **Active-pending** or
 **Inactive-pending**). To confirm that your resource recommendations are
-taking enhanced infrastructure metrics into consideration, see [Confirming the status of enhanced infrastructure
-metrics](enhanced-infrastructure-metrics.md#confirm-eim-status "enhanced-infrastructure-metrics.md#confirm-eim-status").
+taking enhanced infrastructure metrics into consideration, see [Confirming the status of enhanced infrastructure metrics](enhanced-infrastructure-metrics.md#confirm-eim-status "enhanced-infrastructure-metrics.md#confirm-eim-status").
 
 ## Additional resources
 
-- Troubleshooting — [Failed to get or update enhanced
-  infrastructure metrics recommendation preferences](troubleshooting-account-opt-in.md#accounts-eim-missing-permissions "troubleshooting-account-opt-in.md#accounts-eim-missing-permissions")
-- [Activating enhanced infrastructure metrics
-  at the resource level](activating-eim-resource-level.md "activating-eim-resource-level.md")
+- Troubleshooting — [Failed to get or update enhanced infrastructure metrics recommendation preferences](troubleshooting-account-opt-in.md#accounts-eim-missing-permissions "troubleshooting-account-opt-in.md#accounts-eim-missing-permissions")
+- [Activating enhanced infrastructure metrics at the resource level](activating-eim-resource-level.md "activating-eim-resource-level.md")

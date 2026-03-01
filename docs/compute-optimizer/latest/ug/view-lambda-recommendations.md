@@ -28,8 +28,7 @@ data must be accumulated. For more information, see [Resource requirements](requ
 ###### Contents
 
 - [Finding classifications](#lambda-recommendations-findings "#lambda-recommendations-findings")
-- [Estimated monthly savings and savings
-  opportunity](#lambda-savings-calculation "#lambda-savings-calculation")
+- [Estimated monthly savings and savings opportunity](#lambda-savings-calculation "#lambda-savings-calculation")
 - [Current performance risk](#lambda-current-performance-risk "#lambda-current-performance-risk")
 - [Utilization graphs](#lambda-utilization-graphs "#lambda-utilization-graphs")
 - [Accessing Lambda function recommendations and details](lambda-view-recommendations.md "lambda-view-recommendations.md")
@@ -48,9 +47,7 @@ The following findings classifications apply to Lambda functions.
 | Optimized      | A Lambda function is considered optimized when Compute Optimizer determines that its configured<br>memory or CPU power (which is proportional to the configured memory) is correctly<br>provisioned to run your workload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Unavailable    | Compute Optimizer was unable to generate a recommendation for the function. This could be because<br>the function has not met the [requirements of<br>Compute Optimizer for Lambda functions](requirements.md#requirements-lambda-functions "requirements.md#requirements-lambda-functions"), or the function does not qualify for a<br>recommendation.<br>For this finding classification, Compute Optimizer displays one of the following finding<br>reasons:<br>• **Insufficient data** when the function does not have sufficient<br>metric data for Compute Optimizer to generate a recommendation.<br>• **Inconclusive** when the function does not qualify for a recommendation<br>because the function has configured memory greater than 1,792 MB, or Compute Optimizer cannot generate a recommendation<br>with a high degree of confidence.<br>NoteFunctions with a finding of \*_Unavailable_<br>• are not listed in the<br>Compute Optimizer console. |
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 **Estimated monthly savings (after discounts)**
 
@@ -87,9 +84,7 @@ uses Cost Explorer data and On-Demand pricing information to generate your recom
 information, see [Enabling
 Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_.
 
-### Estimated monthly savings
-
-calculation
+### Estimated monthly savings calculation
 
 For each recommendation, we calculate the cost to operate a new Lambda function using the
 recommended memory specification. Estimated monthly savings are calculated based on the number

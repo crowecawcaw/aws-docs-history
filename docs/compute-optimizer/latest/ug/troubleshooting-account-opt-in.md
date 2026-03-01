@@ -7,8 +7,7 @@ section show how you can mitigate these problems.
 
 - [Failed to create service-linked role](#slr-create-failed "#slr-create-failed")
 - [Failed to enable trusted access](#slr-create-failed "#slr-create-failed")
-- [Failed to get or update enhanced
-  infrastructure metrics recommendation preferences](#accounts-eim-missing-permissions "#accounts-eim-missing-permissions")
+- [Failed to get or update enhanced infrastructure metrics recommendation preferences](#accounts-eim-missing-permissions "#accounts-eim-missing-permissions")
 - [Troubleshooting failed export jobs](#troubleshooting-exports "#troubleshooting-exports")
 
 ## Failed to create service-linked role
@@ -57,9 +56,7 @@ User Guide_. After you add the required permissions, opt in to Compute Optimizer
 again using your organization's management account and include all member accounts
 within the organization. For more information, see [Opting in to AWS Compute Optimizer](account-opt-in.md "account-opt-in.md").
 
-## Failed to get or update enhanced
-
-infrastructure metrics recommendation preferences
+## Failed to get or update enhanced infrastructure metrics recommendation preferences
 
 ###### Description
 
@@ -74,8 +71,7 @@ preferences.
 ###### Solution
 
 Add the required permissions to the user who will view or edit recommendation
-preferences. For more information, see [Policies to grant
-access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+preferences. For more information, see [Policies to grant access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Troubleshooting failed export jobs
 
@@ -83,9 +79,7 @@ When you try to export your resource recommendations, you might experience one o
 error messages or issues. Use the information provided to try to resolve the error before trying to
 export your recommendations again.
 
-###### You don't have permissions to the Amazon S3 bucket specified. Confirm the permissions of
-
-your S3 bucket and try again.
+###### You don't have permissions to the Amazon S3 bucket specified. Confirm the permissions of your S3 bucket and try again.
 
 Confirm that you have configured the required permissions on your Amazon S3 bucket. For more
 information, see [Specifying an existing S3 bucket for your recommendations export](create-s3-bucket-policy-for-compute-optimizer.md "create-s3-bucket-policy-for-compute-optimizer.md").
@@ -95,9 +89,7 @@ information, see [Specifying an existing S3 bucket for your recommendations expo
 Your Amazon S3 bucket must be set to block public access. For more information, see [Blocking public access to your
 Amazon S3 storage](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md") in the _Amazon Simple Storage Service User Guide_.
 
-###### You created a scripted or automatic export job but there is recommendation data missing
-
-from your Amazon S3 bucket.
+###### You created a scripted or automatic export job but there is recommendation data missing from your Amazon S3 bucket.
 
 Call the `DescribeRecommendationExportJobs` API to verify the final status of the export job.
 If the export job failed, try to call the `Export`Resource`Recommendations`

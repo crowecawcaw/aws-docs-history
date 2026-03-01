@@ -2,9 +2,7 @@
 
 When you enable Automation for your organization’s management account, you can also configure Automation for your organization’s member accounts, enabling centralized implementation of optimization actions across your organization. This centralized approach can help you optimize for cost and performance at scale.
 
-## Policy to enable Automation across your
-
-organization
+## Policy to enable Automation across your organization
 
 The following policy statement enables Automation across your organization.
 
@@ -60,8 +58,7 @@ Compute Optimizer verifies that trusted access is enabled each time you access r
 
 ## Configure automation for member accounts
 
-To enable Automation for member accounts, the management account needs permissions to associate and disassociate accounts. These permissions allow the management account to enable Automation for member accounts and configure whether the management account can implement optimizations on behalf of member accounts. For more information , see [Policy to enable Automation across your
-organization](security-iam.md#automation-enable-org "security-iam.md#automation-enable-org").
+To enable Automation for member accounts, the management account needs permissions to associate and disassociate accounts. These permissions allow the management account to enable Automation for member accounts and configure whether the management account can implement optimizations on behalf of member accounts. For more information , see [Policy to enable Automation across your organization](security-iam.md#automation-enable-org "security-iam.md#automation-enable-org").
 
 Once a member account is associated, the management account or delegated administrator can view and apply recommended actions to the member account. When you associate a member account, its organization rule mode is automatically set to Any Allowed, which permits the management account to create Automation rules that automatically apply actions to that account. If the member account has not previously enabled the Automation feature, the association process automatically enables it.
 

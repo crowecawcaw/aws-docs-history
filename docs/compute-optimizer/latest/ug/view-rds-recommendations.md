@@ -56,10 +56,8 @@ DB instances. For more information, see [Resource requirements](requirements.md 
 
 - [Finding classifications](#rds-recommendations-findings "#rds-recommendations-findings")
 - [Finding reasons](#rds-finding-reasons "#rds-finding-reasons")
-- [AWS Graviton-based instance
-  recommendations](#rds-graviton-recommendations "#rds-graviton-recommendations")
-- [Estimated monthly savings and savings
-  opportunity](#rds-savings-calculation "#rds-savings-calculation")
+- [AWS Graviton-based instance recommendations](#rds-graviton-recommendations "#rds-graviton-recommendations")
+- [Estimated monthly savings and savings opportunity](#rds-savings-calculation "#rds-savings-calculation")
 - [Performance risk](#rds-performance-risk "#rds-performance-risk")
 - [Comparison graphs](#rds-utilization-graphs "#rds-utilization-graphs")
 - [Accessing Aurora and RDS database recommendations and details](rds-view-recommendations.md "rds-view-recommendations.md")
@@ -147,9 +145,7 @@ The following finding reasons apply to Aurora DB clusters.
 | DBClusterStorageSavingsAvailable | Potential cost savings were found by switching your Aurora DB cluster from Aurora Standard storage to<br>Aurora I/O-Optimized storage. Your cluster's I/O usage pattern suggests that the predictable pricing model<br>of Aurora I/O-Optimized would be more cost-effective than the variable I/O costs of Aurora Standard. This<br>finding reason appears when I/O Optimized is identified as the top recommended option for your cluster.                                             |
 | DBClusterStorageOptionAvailable  | Aurora I/O-Optimized was found to be a viable alternative storage option for your Aurora DB cluster.<br>While your current storage configuration is considered optimized from a cost perspective, switching to<br>Aurora I/O-Optimized could provide benefits such as more predictable monthly costs and simplified budgeting<br>by eliminating variable I/O charges. This finding reason appears when I/O-Optimized is displayed as the<br>second recommended option for your cluster. |
 
-## AWS Graviton-based instance
-
-recommendations
+## AWS Graviton-based instance recommendations
 
 When viewing Amazon RDS DB instance recommendations, you can view the price and performance impact
 of running your workload on AWS Graviton-based instances. To do so, choose **Graviton
@@ -165,9 +161,7 @@ architecture preference. For example, if you choose **Graviton (aws-arm64)**,
 prices are compared between the current DB instance type and the recommended Graviton-based
 instance type.
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 **Estimated monthly savings (after discounts)**
 
@@ -227,9 +221,7 @@ uses Cost Explorer data and On-Demand pricing information to generate your recom
 information, see [Enabling
 Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_.
 
-### Estimated monthly savings
-
-calculation
+### Estimated monthly savings calculation
 
 For each recommendation, Compute Optimizer calculate the cost to operate a new RDS DB instance or storage using the recommended
 specifications. Estimated monthly savings are calculated based on the number of running hours for the current

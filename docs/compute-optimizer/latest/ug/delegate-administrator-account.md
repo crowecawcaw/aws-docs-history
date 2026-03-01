@@ -25,9 +25,7 @@ delegated administrator. You can do this using the Compute Optimizer console or 
 
 Console
 
-###### To register or update an account as a
-
-delegated administrator
+###### To register or update an account as a delegated administrator
 
 1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/ "https://console.aws.amazon.com/compute-optimizer/").
 2. Choose **Account management** in the navigation pane.
@@ -40,9 +38,7 @@ delegated administrator
 
 CLI
 
-###### To register or update an account as a
-
-delegated administrator
+###### To register or update an account as a delegated administrator
 
 1. Log in as the management account of your
    organization.

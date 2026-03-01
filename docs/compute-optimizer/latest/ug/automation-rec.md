@@ -16,6 +16,7 @@ In the recommended actions table, you will find a list of optimization opportuni
 There are several considerations when applying recommended actions:
 
 - The estimated monthly savings considers the snapshot cost based on the volume's provisioned size. Actual snapshot cost depends on the incremental EBS snapshot size.
+- When Compute Optimizer implements recommended actions that involve creating EBS snapshots, it automatically applies an AWS-generated tag to each snapshot. The tag key is `aws:compute-optimizer:automation-event-id`, and its value contains the unique identifier of the corresponding automation event. Compute Optimizer applies this tag to EBS snapshots created on or after February 24, 2026.
 - After Compute Optimizer modifies an Amazon EBS volume, you must wait at least six hours and ensure that the volume is in the 'in-use' or 'available' state before you can modify the same volume. For more information, see the [Amazon EBS User Guide](../../../ebs/latest/userguide/ebs-modify-volume.md#elastic-volumes-considerations "../../../ebs/latest/userguide/ebs-modify-volume.md#elastic-volumes-considerations").
 
 ## Estimated monthly savings

@@ -23,17 +23,12 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 
 ###### Topics
 
-- [AWS managed
-  policy: ComputeOptimizerServiceRolePolicy](#security-iam-awsmanpol-ComputeOptimizerServiceRolePolicy "#security-iam-awsmanpol-ComputeOptimizerServiceRolePolicy")
-- [AWS managed
-  policy: ComputeOptimizerReadOnlyAccess](#security-iam-awsmanpol-ComputeOptimizerReadOnlyAccess "#security-iam-awsmanpol-ComputeOptimizerReadOnlyAccess")
+- [AWS managed policy: ComputeOptimizerServiceRolePolicy](#security-iam-awsmanpol-ComputeOptimizerServiceRolePolicy "#security-iam-awsmanpol-ComputeOptimizerServiceRolePolicy")
+- [AWS managed policy: ComputeOptimizerReadOnlyAccess](#security-iam-awsmanpol-ComputeOptimizerReadOnlyAccess "#security-iam-awsmanpol-ComputeOptimizerReadOnlyAccess")
 - [AWS managed policy: ComputeOptimizerAutomationServiceRolePolicy](#security-iam-awsmanpol-ComputeOptimizerAutomationServiceRolePolicy "#security-iam-awsmanpol-ComputeOptimizerAutomationServiceRolePolicy")
-- [Compute Optimizer updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Compute Optimizer updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed
-
-policy: ComputeOptimizerServiceRolePolicy
+## AWS managed policy: ComputeOptimizerServiceRolePolicy
 
 The `ComputeOptimizerServiceRolePolicy` managed policy is attached to a
 service-linked role that allows Compute Optimizer to perform actions on your behalf. For more
@@ -159,9 +154,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: ComputeOptimizerReadOnlyAccess
+## AWS managed policy: ComputeOptimizerReadOnlyAccess
 
 You can attach the `ComputeOptimizerReadOnlyAccess` policy to your IAM
 identities.
@@ -320,9 +313,7 @@ This policy includes the following permissions:
 To view the permissions for this policy, see [ComputeOptimizerAutomationServiceRolePolicy](../../../aws-managed-policy/latest/reference/ComputeOptimizerAutomationServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/ComputeOptimizerAutomationServiceRolePolicy.md") in the in the _AWS
 Managed Policy Reference_.
 
-## Compute Optimizer updates to AWS managed
-
-policies
+## Compute Optimizer updates to AWS managed policies
 
 View details about updates to AWS managed policies for Compute Optimizer since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to

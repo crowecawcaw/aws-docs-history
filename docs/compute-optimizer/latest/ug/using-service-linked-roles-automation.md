@@ -17,20 +17,14 @@ for that service.
 
 ###### Topics
 
-- [Service-linked role permissions for
-  Compute Optimizer Automation](#slr-permissions-automation "#slr-permissions-automation")
-- [Service-linked role
-  permissions](#service-linked-role-permissions-automation "#service-linked-role-permissions-automation")
-- [Creating a Service-Linked Role for
-  Compute Optimizer Automation](#create-slr-automation "#create-slr-automation")
+- [Service-linked role permissions for Compute Optimizer Automation](#slr-permissions-automation "#slr-permissions-automation")
+- [Service-linked role permissions](#service-linked-role-permissions-automation "#service-linked-role-permissions-automation")
+- [Creating a Service-Linked Role for Compute Optimizer Automation](#create-slr-automation "#create-slr-automation")
 - [Editing a Service-Linked Role for Compute Optimizer Automation](#edit-slr-automation "#edit-slr-automation")
-- [Deleting a Service-Linked Role for
-  Compute Optimizer Automation](#delete-slr-automation "#delete-slr-automation")
+- [Deleting a Service-Linked Role for Compute Optimizer Automation](#delete-slr-automation "#delete-slr-automation")
 - [Supported Regions for Compute Optimizer Automation service-linked Roles](#slr-regions "#slr-regions")
 
-## Service-linked role permissions for
-
-Compute Optimizer Automation
+## Service-linked role permissions for Compute Optimizer Automation
 
 Compute Optimizer Automation uses the service-linked role that's named **AWSServiceRoleForComputeOptimizerAutomation**
 which enables access to AWS services and resources used or managed by Compute Optimizer Automation. This
@@ -44,9 +38,7 @@ services to assume the role.
 The `AWSServiceRoleForComputeOptimizerAutomation` service-linked role uses the
 managed policy `AWSComputeOptimizerAutomationRolePolicy`.
 
-## Service-linked role
-
-permissions
+## Service-linked role permissions
 
 To create a service-linked role for Compute Optimizer Automation, configure permissions to allow an IAM
 entity (such as a user, group, or role) to create the service-linked role. For more
@@ -76,9 +68,7 @@ role.
 
 ```
 
-## Creating a Service-Linked Role for
-
-Compute Optimizer Automation
+## Creating a Service-Linked Role for Compute Optimizer Automation
 
 The AWSServiceRoleForComputeOptimizerAutomation service-linked role is created automatically when you enable Compute Optimizer Automation.
 You can enable the AWSServiceRoleForComputeOptimizerAutomation manually in the AWS CLI or the IAM API.
@@ -99,9 +89,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing
 a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a Service-Linked Role for
-
-Compute Optimizer Automation
+## Deleting a Service-Linked Role for Compute Optimizer Automation
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete the role. That way, you don't have an unused entity that isn't

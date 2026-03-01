@@ -43,11 +43,9 @@ Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../
 - [How an EC2 Auto Scaling group recommendation is generated](#asg-recommendations-generate "#asg-recommendations-generate")
 - [Finding classifications](#asg-recommendations-findings "#asg-recommendations-findings")
 - [Allocation strategy](#asg-recommendations-allocation "#asg-recommendations-allocation")
-- [Estimated monthly savings and savings
-  opportunity](#asg-savings-calculation "#asg-savings-calculation")
+- [Estimated monthly savings and savings opportunity](#asg-savings-calculation "#asg-savings-calculation")
 - [Idle](#asg-recommendations-idle "#asg-recommendations-idle")
-- [AWS Graviton-based instance
-  recommendations](#asg-graviton-recommendations "#asg-graviton-recommendations")
+- [AWS Graviton-based instance recommendations](#asg-graviton-recommendations "#asg-graviton-recommendations")
 - [Inferred workload types](#asg-inferred-workload-types "#asg-inferred-workload-types")
 - [Migration effort](#asg-migration-effort "#asg-migration-effort")
 - [Performance risk](#asg-performance-risk "#asg-performance-risk")
@@ -133,9 +131,7 @@ instances in an Auto Scaling group](../../../autoscaling/ec2/userguide/asg-insta
 For more information about allocation strategies, see [Allocation strategies
 for multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy "../../../autoscaling/ec2/userguide/allocation-strategies.md#on-demand-allocation-strategy") in the _Amazon EC2 Auto Scaling_ user guide.
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 **Estimated monthly savings (after discounts)**
 
@@ -163,9 +159,7 @@ Reserved Instances or Savings Plans pricing models that are active in your accou
 estimation mode isn’t activated, Compute Optimizer only uses On-Demand pricing information. For more information,
 see [Savings estimation mode](savings-estimation-mode.md "savings-estimation-mode.md").
 
-### Estimated monthly savings
-
-calculation
+### Estimated monthly savings calculation
 
 For each recommendation, we calculate the cost to operate a new instance using the
 recommended instance type. Estimated monthly savings are calculated based on the number of
@@ -192,9 +186,7 @@ If the group's instances meet the following criteria over the 14-day lookback pe
 - CPU maximum utilization is less than 5%
 - Network utilization is less than 5 MB/day
 
-## AWS Graviton-based instance
-
-recommendations
+## AWS Graviton-based instance recommendations
 
 When viewing EC2 Auto Scaling group recommendations, you can view the price and performance impact of
 running your workload on AWS Graviton-based instances. To do so, choose **Graviton

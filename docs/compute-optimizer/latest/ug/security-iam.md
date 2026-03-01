@@ -32,8 +32,7 @@ Account](../../../IAM/latest/UserGuide/getting-started_how-users-sign-in.md "../
 - To view current CloudWatch metrics data in the Compute Optimizer console, an IAM user requires
   the `cloudwatch:GetMetricData` permission.
 - To view recommendations commercial software licenses, certain Amazon EC2 instance
-  roles and IAM user permissions are required. For more information see, [Policies to enable commercial software license
-  recommendations](#license-access "#license-access").
+  roles and IAM user permissions are required. For more information see, [Policies to enable commercial software license recommendations](#license-access "#license-access").
 - To view recommendations for Amazon RDS, an IAM user requires the
   `rds:DescribeDBInstances` and `rds:DescribeDBClusters`
   permissions.
@@ -69,14 +68,10 @@ services](../../../organizations/latest/userguide/orgs_integrate_services.md "..
 ###### Topics
 
 - [Policy to opt in to Compute Optimizer](#opting-in-access "#opting-in-access")
-- [Policies to grant access to Compute Optimizer for
-  standalone AWS accounts](#standalone-account-access "#standalone-account-access")
-- [Policies to grant access to Compute Optimizer for a
-  management account of an organization](#organization-account-access "#organization-account-access")
-- [Policies to grant
-  access to manage Compute Optimizer recommendation preferences](#enhanced-infrastructure-metrics-permissions "#enhanced-infrastructure-metrics-permissions")
-- [Policies to enable commercial software license
-  recommendations](#license-access "#license-access")
+- [Policies to grant access to Compute Optimizer for standalone AWS accounts](#standalone-account-access "#standalone-account-access")
+- [Policies to grant access to Compute Optimizer for a management account of an organization](#organization-account-access "#organization-account-access")
+- [Policies to grant access to manage Compute Optimizer recommendation preferences](#enhanced-infrastructure-metrics-permissions "#enhanced-infrastructure-metrics-permissions")
+- [Policies to enable commercial software license recommendations](#license-access "#license-access")
 - [Policy to deny access to Compute Optimizer](#deny-access "#deny-access")
 
 ### Policy to opt in to Compute Optimizer
@@ -151,9 +146,7 @@ JSON
 
 ```
 
-### Policies to grant access to Compute Optimizer for
-
-standalone AWS accounts
+### Policies to grant access to Compute Optimizer for standalone AWS accounts
 
 The following policy statement grants full access to Compute Optimizer for standalone
 AWS accounts.
@@ -233,9 +226,7 @@ JSON
 
 ```
 
-### Policies to grant access to Compute Optimizer for a
-
-management account of an organization
+### Policies to grant access to Compute Optimizer for a management account of an organization
 
 The following policy statement grants full access to Compute Optimizer for a management account
 of your organization.
@@ -324,9 +315,7 @@ JSON
 
 ```
 
-### Policies to grant
-
-access to manage Compute Optimizer recommendation preferences
+### Policies to grant access to manage Compute Optimizer recommendation preferences
 
 The following policy statements grant access to view and edit recommendation
 preferences.
@@ -418,9 +407,7 @@ JSON
 
 ```
 
-### Policies to enable commercial software license
-
-recommendations
+### Policies to enable commercial software license recommendations
 
 For Compute Optimizer to generate license recommendations, attach the following Amazon EC2 instance
 roles and policies.
@@ -503,23 +490,14 @@ JSON
 
 ###### Topics
 
-- [Policy to enable Automation for your
-  account](#policy-automation-enable "#policy-automation-enable")
-- [Policy to enable Automation across your
-  organization](#automation-enable-org "#automation-enable-org")
-- [Policy to grant full access to Compute
-  Optimizer Automation for standalone AWS accounts](#automation-account-full "#automation-account-full")
-- [Policy to grant read-only access to
-  Compute Optimizer Automation for standalone AWS accounts](#automation-account-read "#automation-account-read")
-- [Policy to grant full access to Compute
-  Optimizer Automation for a management account of an organization](#automation-account-mgmt "#automation-account-mgmt")
-- [Policy to grant read-only access
-  to Compute Optimizer Automation for a management account of an
-  organization](#automation-account-mgmt-readonly "#automation-account-mgmt-readonly")
+- [Policy to enable Automation for your account](#policy-automation-enable "#policy-automation-enable")
+- [Policy to enable Automation across your organization](#automation-enable-org "#automation-enable-org")
+- [Policy to grant full access to Compute Optimizer Automation for standalone AWS accounts](#automation-account-full "#automation-account-full")
+- [Policy to grant read-only access to Compute Optimizer Automation for standalone AWS accounts](#automation-account-read "#automation-account-read")
+- [Policy to grant full access to Compute Optimizer Automation for a management account of an organization](#automation-account-mgmt "#automation-account-mgmt")
+- [Policy to grant read-only access to Compute Optimizer Automation for a management account of an organization](#automation-account-mgmt-readonly "#automation-account-mgmt-readonly")
 
-### Policy to enable Automation for your
-
-account
+### Policy to enable Automation for your account
 
 The following policy statement enables Automation for your account.
 
@@ -552,9 +530,7 @@ The following policy statement enables Automation for your account.
 
 ```
 
-### Policy to enable Automation across your
-
-organization
+### Policy to enable Automation across your organization
 
 The following policy statement enables Automation across your organization.
 
@@ -602,9 +578,7 @@ The following policy statement enables Automation across your organization.
 
 ```
 
-### Policy to grant full access to Compute
-
-Optimizer Automation for standalone AWS accounts
+### Policy to grant full access to Compute Optimizer Automation for standalone AWS accounts
 
 The following policy grants full access to Compute Optimizer Automation for
 standalone AWS accounts.
@@ -627,9 +601,7 @@ standalone AWS accounts.
 
 ```
 
-### Policy to grant read-only access to
-
-Compute Optimizer Automation for standalone AWS accounts
+### Policy to grant read-only access to Compute Optimizer Automation for standalone AWS accounts
 
 The following policy grants read-only access to Compute Optimizer Automation for
 standalone AWS accounts.
@@ -663,9 +635,7 @@ standalone AWS accounts.
 
 ```
 
-### Policy to grant full access to Compute
-
-Optimizer Automation for a management account of an organization
+### Policy to grant full access to Compute Optimizer Automation for a management account of an organization
 
 The following policy grants full access to Compute Optimizer Automation for a
 management account of an organization.
@@ -695,10 +665,7 @@ management account of an organization.
 
 ```
 
-### Policy to grant read-only access
-
-to Compute Optimizer Automation for a management account of an
-organization
+### Policy to grant read-only access to Compute Optimizer Automation for a management account of an organization
 
 The following policy grants read-only access to Compute Optimizer Automation for a
 management account of an organization.

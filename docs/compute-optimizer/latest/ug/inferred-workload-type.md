@@ -22,8 +22,7 @@ instances and EC2 Auto Scaling groups recommendations pages. For more informatio
 ## Required permissions
 
 You must have the appropriate permissions to activate the inferred workload type feature.
-For more information, see [Policies to grant
-access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+For more information, see [Policies to grant access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Organization and account level
 

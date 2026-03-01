@@ -101,8 +101,7 @@ For more information about how to enable CloudWatch Application Insights, see [S
 Amazon CloudWatch Application Insights for monitoring](../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md") in the _Amazon CloudWatch User Guide_.
 
 - Attach the required instance role and policy for CloudWatch Application Insights. For more information,
-  see [Policies to enable commercial software license
-  recommendations](security-iam.md#license-access "security-iam.md#license-access").
+  see [Policies to enable commercial software license recommendations](security-iam.md#license-access "security-iam.md#license-access").
 
 For more information about the metrics analyzed, see [Metrics for commercial software licenses](license-metrics-analyzed.md "license-metrics-analyzed.md").
 

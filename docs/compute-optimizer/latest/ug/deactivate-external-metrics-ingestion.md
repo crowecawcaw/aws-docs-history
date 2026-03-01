@@ -1,6 +1,4 @@
-# Opting out of external metrics
-
-ingestion
+# Opting out of external metrics ingestion
 
 This section provides you with instructions on how to opt out of external metric ingestion. You can
 opt out external metric ingestion using the Compute Optimizer console or the AWS CLI.
@@ -46,6 +44,5 @@ CLI
 
 ## Additional resources
 
-- [Configuring external metrics
-  ingestion](configure-external-metrics-ingestion.md "configure-external-metrics-ingestion.md")
+- [Configuring external metrics ingestion](configure-external-metrics-ingestion.md "configure-external-metrics-ingestion.md")
 - [External metrics ingestion](external-metrics-ingestion.md "external-metrics-ingestion.md")

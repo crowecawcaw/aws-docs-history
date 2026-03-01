@@ -28,9 +28,7 @@ information on service-linked roles, see [Using service-linked roles for AWS Com
 
 If you're enabling Automation for member accounts in your organization, the management account also needs permissions to associate and disassociate accounts. These permissions allow the management account to enable Automation for member accounts and configure whether the management account can implement optimizations on behalf of the member account. For more information, see [Enabling Automation for your organization](automation-org.md "automation-org.md").
 
-## Policy to enable Automation for your
-
-account
+## Policy to enable Automation for your account
 
 The following policy statement enables Automation for your account.
 

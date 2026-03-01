@@ -6,14 +6,11 @@ of an AWS Organization or an individual AWS account holder.
 ## Prerequisites
 
 Make sure that you have the appropriate permissions to activate the inferred workload type feature. For more
-information, see [Policies to grant
-access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
+information, see [Policies to grant access to manage Compute Optimizer recommendation preferences](security-iam.md#enhanced-infrastructure-metrics-permissions "security-iam.md#enhanced-infrastructure-metrics-permissions").
 
 ## Procedure
 
-###### To activate the inferred workload type feature for member accounts
-
-of an AWS Organization or an individual AWS account holder
+###### To activate the inferred workload type feature for member accounts of an AWS Organization or an individual AWS account holder
 
 1. Open the Compute Optimizer console at [https://console.aws.amazon.com/compute-optimizer/](https://console.aws.amazon.com/compute-optimizer/ "https://console.aws.amazon.com/compute-optimizer/").
 2. Choose **General** in the navigation pane. Then, choose the **Inferred
@@ -37,6 +34,5 @@ select the **Activate** checkbox. Then, choose **Save**.. 7. (Optional) To add a
 
 ## Additional resources
 
-- [Opting out of external metrics
-  ingestion](deactivate-external-metrics-ingestion.md "deactivate-external-metrics-ingestion.md")
+- [Opting out of external metrics ingestion](deactivate-external-metrics-ingestion.md "deactivate-external-metrics-ingestion.md")
 - [External metrics ingestion](external-metrics-ingestion.md "external-metrics-ingestion.md")

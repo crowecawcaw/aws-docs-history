@@ -153,8 +153,7 @@ JSON
 For instructions on how to export your AWS Compute Optimizer recommendations, see [Exporting your recommendations](exporting-your-recommendations.md "exporting-your-recommendations.md").
 
 Additionally, you can specify S3 buckets that are encrypted with either Amazon S3 customer managed keys or AWS Key Management Service (KMS)
-keys. For instructions on how to do this, see [Using encrypted S3 buckets for your
-recommendations export](using-encrypted-s3-buckets.md "using-encrypted-s3-buckets.md").
+keys. For instructions on how to do this, see [Using encrypted S3 buckets for your recommendations export](using-encrypted-s3-buckets.md "using-encrypted-s3-buckets.md").
 
 ## Additional resources
 

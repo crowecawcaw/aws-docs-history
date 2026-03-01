@@ -40,8 +40,7 @@ information for your license recommendation:
 
 - [Finding classifications](#license-recommendations-findings "#license-recommendations-findings")
 - [Finding reasons](#license-finding-reasons "#license-finding-reasons")
-- [Estimated monthly savings and savings
-  opportunity](#license-savings-calculation "#license-savings-calculation")
+- [Estimated monthly savings and savings opportunity](#license-savings-calculation "#license-savings-calculation")
 - [Inferred workload types](#license-inferred-workload-types "#license-inferred-workload-types")
 - [Compare current license edition with recommended license edition](#compare-license-table "#compare-license-table")
 - [Utilization graphs](#license-utilization-graphs "#license-utilization-graphs")
@@ -76,9 +75,7 @@ The following finding reasons apply to Microsoft SQL server license recommendati
 | `InvalidCloudwatchApplicationInsights` | The backend exporter of your CloudWatch Application Insights isn't configured properly. For more<br>information about how to configure CloudWatch Application Insights, see [Set up<br>Amazon CloudWatch Application Insights for monitoring](../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md "../../../AmazonCloudWatch/latest/monitoring/appinsights-setting-up.md") in the _Amazon CloudWatch User Guide_.                                                                                                                                                                                                                                                                                                                                                                                   |
 | `CloudwatchApplicationInsightsError`   | You have configured CloudWatch Application Insights but it hasn't identified the number of<br>Enterprise edition features in use. It can take a few hours to identify the features.<br>If the features aren't identified after a few hours, contact Support.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 The **Estimated monthly savings (On-Demand)** column lists the approximate
 monthly cost savings after you downgrade your license edition based on Compute Optimizer’s recommendations.
@@ -126,14 +123,14 @@ On the **License details** page, compare the configurations of your current lice
 with Compute Optimizer’s recommended license edition. The following table provides a description for
 each column section in the console.
 
-| Column                    | Description                                                                                                                                                                                                                                                                   |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| License edition           | The current license edtion and the recommended license edition. For example, Enterprise,<br>Standard, and Free.                                                                                                                                                               |
-| Instance On-Demand price  | The current and recommended On-Demand instance prices.                                                                                                                                                                                                                        |
-| BYOL price (hourly)       | The current and recommended Bring your own license (BYOL) hourly price.                                                                                                                                                                                                       |
-| Estimated monthly savings | The approximate monthly cost savings after you downgrade your license edition based<br>on Compute Optimizer’s recommendations. For more information, see [Estimated monthly savings and savings<br>opportunity](#license-savings-calculation "#license-savings-calculation"). |
-| Savings opportunity (%)   | The percentage difference between your current Microsoft SQL server license and Compute Optimizer’s<br>recommended license. For more information, see [Estimated monthly savings and savings<br>opportunity](#license-savings-calculation "#license-savings-calculation").    |
-| Instance cores            | The current and recommended number of physical cores for an instance. Number of instance<br>cores are used in licensing calculations.                                                                                                                                         |
+| Column                    | Description                                                                                                                                                                                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| License edition           | The current license edtion and the recommended license edition. For example, Enterprise,<br>Standard, and Free.                                                                                                                                                            |
+| Instance On-Demand price  | The current and recommended On-Demand instance prices.                                                                                                                                                                                                                     |
+| BYOL price (hourly)       | The current and recommended Bring your own license (BYOL) hourly price.                                                                                                                                                                                                    |
+| Estimated monthly savings | The approximate monthly cost savings after you downgrade your license edition based<br>on Compute Optimizer’s recommendations. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation "#license-savings-calculation"). |
+| Savings opportunity (%)   | The percentage difference between your current Microsoft SQL server license and Compute Optimizer’s<br>recommended license. For more information, see [Estimated monthly savings and savings opportunity](#license-savings-calculation "#license-savings-calculation").    |
+| Instance cores            | The current and recommended number of physical cores for an instance. Number of instance<br>cores are used in licensing calculations.                                                                                                                                      |
 
 ## Utilization graphs
 

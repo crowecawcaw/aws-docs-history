@@ -8,8 +8,7 @@ utilization metrics of your resources.
 ###### Topics
 
 - [Savings opportunity](#dashboard-savings-opportunities "#dashboard-savings-opportunities")
-- [Performance improvement
-  opportunity](#dashboard-performance-improvement-opportunities "#dashboard-performance-improvement-opportunities")
+- [Performance improvement opportunity](#dashboard-performance-improvement-opportunities "#dashboard-performance-improvement-opportunities")
 - [Optimization options per resource](#dashboard-optimization-options "#dashboard-optimization-options")
 - [Viewing the dashboard](#viewing-the-dashboard "#viewing-the-dashboard")
 
@@ -25,8 +24,7 @@ Using EC2 as an example, the estimated monthly savings and savings opportunity f
 listed in the EC2 instances recommendations page under the **Estimated monthly savings (after
 discounts)**, **Estimated monthly savings
 (On-Demand)**, and **Savings opportunity (%)** columns. For more information, including how
-estimated monthly savings is calculated, see [Estimated monthly savings and savings
-opportunity](view-ec2-recommendations.md#ec2-savings-calculation "view-ec2-recommendations.md#ec2-savings-calculation").
+estimated monthly savings is calculated, see [Estimated monthly savings and savings opportunity](view-ec2-recommendations.md#ec2-savings-calculation "view-ec2-recommendations.md#ec2-savings-calculation").
 
 ###### Important
 
@@ -38,9 +36,7 @@ Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../
 
 ![Performance risk reduction opportunity in the Compute Optimizer dashboard](images/dashboard-savings-opportunities.png)
 
-## Performance improvement
-
-opportunity
+## Performance improvement opportunity
 
 The performance improvement opportunity section displays a count and percentage of the
 resources in your account that Compute Optimizer found to be at risk of not meeting your workload performance

@@ -35,13 +35,11 @@ metric data must be accumulated for recommendations to be generated. For more in
 
 - [Finding classifications](#ec2-recommendations-findings "#ec2-recommendations-findings")
 - [Finding reasons](#ec2-finding-reasons "#ec2-finding-reasons")
-- [AWS Graviton-based instance
-  recommendations](#ec2-graviton-recommendations "#ec2-graviton-recommendations")
+- [AWS Graviton-based instance recommendations](#ec2-graviton-recommendations "#ec2-graviton-recommendations")
 - [Inferred workload types](#ec2-inferred-workload-types "#ec2-inferred-workload-types")
 - [Migration effort](#ec2-migration-effort "#ec2-migration-effort")
 - [Platform differences](#ec2-platform-differences "#ec2-platform-differences")
-- [Estimated monthly savings and savings
-  opportunity](#ec2-savings-calculation "#ec2-savings-calculation")
+- [Estimated monthly savings and savings opportunity](#ec2-savings-calculation "#ec2-savings-calculation")
 - [Performance risk](#ec2-performance-risk "#ec2-performance-risk")
 - [Utilization graphs](#ec2-utilization-graphs "#ec2-utilization-graphs")
 - [Accessing EC2 instance recommendations and details](ec2-view-recommendations.md "ec2-view-recommendations.md")
@@ -106,9 +104,7 @@ You can change an EBS volume's IOPS or throughput specifications by using Amazon
 Volumes. For more information, see [Amazon EBS
 Elastic Volumes](../../../AWSEC2/latest/UserGuide/ebs-modify-volume.md "../../../AWSEC2/latest/UserGuide/ebs-modify-volume.md") in the _Amazon Elastic Compute Cloud User Guide_.
 
-## AWS Graviton-based instance
-
-recommendations
+## AWS Graviton-based instance recommendations
 
 When viewing Amazon EC2 instance recommendations, you can view the price and performance impact
 of running your workload on AWS Graviton-based instances. To do so, choose **Graviton
@@ -186,9 +182,7 @@ The following platform differences apply to EC2 instances:
 | Storage interface           | The storage interface of the recommended instance type is different than that of the<br>current instance. For example, the recommended instance type uses an NVMe storage interface<br>and the current instance doesn't such this interface. To access NVMe volumes for the<br>recommended instance type, install or upgrade the NVMe driver. For more information, see<br>[Networking<br>and storage features](../../../AWSEC2/latest/UserGuide/instance-types.md#instance-networking-storage "../../../AWSEC2/latest/UserGuide/instance-types.md#instance-networking-storage") and [Amazon EBS and NVMe on Linux<br>instances](../../../AWSEC2/latest/UserGuide/nvme-ebs-volumes.md "../../../AWSEC2/latest/UserGuide/nvme-ebs-volumes.md") in the _Amazon EC2 User Guide for Linux_, or [Networking<br>and storage features](../../../AWSEC2/latest/WindowsGuide/instance-types.md#instance-networking-storage "../../../AWSEC2/latest/WindowsGuide/instance-types.md#instance-networking-storage") and [Amazon EBS and NVMe on Windows<br>instances](../../../AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.md "../../../AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.md") in the _Amazon EC2 User Guide for Windows_.                                                                                                                                                                                           |
 | Virtualization type         | The recommended instance type uses the hardware virtual machine (HVM) virtualization<br>type and the current instance uses the paravirtual (PV) virtualization type. For more<br>information about the differences between these virtualization types, see [Linux AMI<br>virtualization types](../../../AWSEC2/latest/UserGuide/virtualization_types.md "../../../AWSEC2/latest/UserGuide/virtualization_types.md") in the _Amazon EC2 User Guide for Linux_,<br>or [Windows AMI virtualization types](../../../AWSEC2/latest/WindowsGuide/windows-ami-version-history.md#virtualization-types "../../../AWSEC2/latest/WindowsGuide/windows-ami-version-history.md#virtualization-types") in the _Amazon EC2 User Guide for<br>Windows_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-## Estimated monthly savings and savings
-
-opportunity
+## Estimated monthly savings and savings opportunity
 
 **Estimated monthly savings (after discounts)**
 
@@ -224,9 +218,7 @@ uses Cost Explorer data and On-Demand pricing information to generate your recom
 information, see [Enabling
 Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") and [Cost Optimization Hub](../../../cost-management/latest/userguide/cost-optimization-hub.md "../../../cost-management/latest/userguide/cost-optimization-hub.md") in the in the _AWS Cost Management User Guide_.
 
-### Estimated monthly savings
-
-calculation
+### Estimated monthly savings calculation
 
 For each recommendation, the cost to operate a new instance using the recommended instance
 type is calculated. Estimated monthly savings are calculated based on the number of running
