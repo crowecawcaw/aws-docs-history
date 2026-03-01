@@ -1,6 +1,4 @@
-# Tutorial: Log Amazon S3 object-level operations using
-
-EventBridge
+# Tutorial: Log Amazon S3 object-level operations using EventBridge
 
 You can log the object-level API operations on your [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md") buckets. Before Amazon EventBridge can
 match these [events](eb-events.md "eb-events.md"), you must use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to set up and
@@ -13,8 +11,7 @@ that function in response to an S3 data event.
 ###### Steps:
 
 - [Step 1: Configure your AWS CloudTrail trail](#eb-configure-trail "#eb-configure-trail")
-- [Step 2: Create an AWS Lambda
-  function](#eb-log-s3-create-lambda-function "#eb-log-s3-create-lambda-function")
+- [Step 2: Create an AWS Lambda function](#eb-log-s3-create-lambda-function "#eb-log-s3-create-lambda-function")
 - [Step 3: Create a Rule](#eb-log-s3-create-rule "#eb-log-s3-create-rule")
 - [Step 4: Test the Rule](#eb-log-s3-test-rule "#eb-log-s3-test-rule")
 - [Step 5: Confirm success](#success "#success")
@@ -54,9 +51,7 @@ For more information, see [Data Events](../../../awscloudtrail/latest/userguide/
 10. Choose **Next**.
 11. Choose **Create trail**.
 
-## Step 2: Create an AWS Lambda
-
-function
+## Step 2: Create an AWS Lambda function
 
 Create a Lambda function to log data events for your S3 buckets.
 

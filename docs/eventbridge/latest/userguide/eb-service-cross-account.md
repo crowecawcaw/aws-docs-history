@@ -136,15 +136,11 @@ JSON
 
 For more information, see [Identity-based policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the _AWS Identity and Access Management User Guide_.
 
-## Creating rules that send events
-
-to AWS services in other accounts
+## Creating rules that send events to AWS services in other accounts
 
 Specifying an AWS service in another account as a target is part of creating the event bus rule.
 
-###### To create a rule that sends events to an AWS service in a different AWS account using the
-
-console
+###### To create a rule that sends events to an AWS service in a different AWS account using the console
 
 1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose a target type:

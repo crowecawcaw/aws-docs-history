@@ -1,6 +1,4 @@
-# Encrypting EventBridge connection authorization with
-
-AWS KMS keys
+# Encrypting EventBridge connection authorization with AWS KMS keys
 
 When you create or update a connection, you can specify authorization parameters for that
 connection. EventBridge then securely stores those parameters in a secret in
@@ -61,9 +59,7 @@ specified resource or account. For more information, see
 }
 ```
 
-## Connection encryption
-
-context
+## Connection encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs that contain arbitrary nonsecret
@@ -88,9 +84,7 @@ operations. The context includes a single key–value pair, which contains the s
 }
 ```
 
-## Using cross-account or cross-Region
-
-customer managed keys for connections
+## Using cross-account or cross-Region customer managed keys for connections
 
 You can allow users or roles in a different AWS account to use a KMS key in your
 account. Cross-account access requires permission in the key policy of the KMS key and
@@ -116,9 +110,7 @@ following policy:
 For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md") in the
 _AWS Key Management Service Developer Guide_.
 
-## Revoking customer managed key access to
-
-connections
+## Revoking customer managed key access to connections
 
 Be aware that when you revoke a customer managed key--through disabling, deleting, or rotating
 the key, or updating the key policy--EventBridge may have cached the key value, and so that key
@@ -129,9 +121,7 @@ delete the connection. For more information, see [De-authorizing
 connections](eb-target-connection-deauthorize.md "eb-target-connection-deauthorize.md") and [Deleting
 connections](eb-target-connection-delete.md "eb-target-connection-delete.md").
 
-## Connection de-authorization due to
-
-customer managed key errors
+## Connection de-authorization due to customer managed key errors
 
 EventBridge de-authorizes a connection if it encounters the following errors when attempting
 to encrypt or decrypt the connection's secret:

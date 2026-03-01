@@ -1,6 +1,4 @@
-# Using identity-based policies (IAM policies) for
-
-Amazon EventBridge
+# Using identity-based policies (IAM policies) for Amazon EventBridge
 
 Identity-based policies are permissions policies that you can attach to IAM identities.
 
@@ -86,7 +84,7 @@ Amazon EventBridge Scheduler is a serverless scheduler that allows you to create
 EventBridge Pipes connects event sources to targets. Pipes reduces the need for specialized knowledge and integration code when developing event driven architectures. This helps ensures consistency across your company’s applications. The following AWS managed policies
 specific to EventBridge Pipes are available:
 
-- [AmazonEventBridgePipesFullAccess](aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md "aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md")
+- [AmazonEventBridgePipesFullAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesFullAccess.md")
 
 You can attach the AmazonEventBridgePipesFullAccess policy to your IAM identities.
 
@@ -96,21 +94,19 @@ Provides full access to EventBridge Pipes.
 
 This policy provides `iam:PassRole` – EventBridge Pipes requires this permission to pass an invocation role to EventBridge to create, and start pipes.
 
-- [AmazonEventBridgePipesReadOnlyAccess](aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md "aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md")
+- [AmazonEventBridgePipesReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesReadOnlyAccess.md")
 
 You can attach the AmazonEventBridgePipesReadOnlyAccess policy to your IAM identities.
 
 Provides read-only access to EventBridge Pipes.
 
-- [AmazonEventBridgePipesOperatorAccess](aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md "aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md")
+- [AmazonEventBridgePipesOperatorAccess](../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md "../../../aws-managed-policy/latest/reference/AmazonEventBridgePipesOperatorAccess.md")
 
 You can attach the AmazonEventBridgePipesOperatorAccess policy to your IAM identities.
 
 Provides read-only and operator (that is, the ability to stop and start running Pipes) access to EventBridge Pipes.
 
-## Amazon EventBridge updates to AWS managed
-
-policies
+## Amazon EventBridge updates to AWS managed policies
 
 View details about updates to AWS managed policies for EventBridge since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

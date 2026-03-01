@@ -41,7 +41,7 @@ For more information about enriching event data, see [Event enrichment in Amazon
 
 ## Target
 
-After the event data has been filtered and enriched, you can specify the pipe send it to
+After the event data has been filtered and enriched, you can send it to
 a specific target, such as an Amazon Kinesis stream or an Amazon CloudWatch log group. For a list of the
 available targets, see [Amazon EventBridge Pipes targets](eb-pipes-event-target.md "eb-pipes-event-target.md").
 

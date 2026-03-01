@@ -1,6 +1,4 @@
-# Example policy: Deny sending events
-
-from specific Regions in Amazon EventBridge
+# Example policy: Deny sending events from specific Regions in Amazon EventBridge
 
 The following example policy attached to an event bus named `CrossRegionBus` in
 account 123456789012 grants permission for the event bus to receive events from the

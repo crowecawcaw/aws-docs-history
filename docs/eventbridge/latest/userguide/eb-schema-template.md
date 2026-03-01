@@ -77,9 +77,7 @@ Alternatively, you can copy the JSON template from the following code example.
    schema file to the text box, or paste the schema source.
 8. Select **Create**.
 
-## Edit a schema template directly in the
-
-console
+## Edit a schema template directly in the console
 
 You can create a schema directly in the EventBridge console.
 

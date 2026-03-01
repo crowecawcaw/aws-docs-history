@@ -45,9 +45,7 @@ If you have three event buses in the same account, and set up a rule on the firs
 
 The following video covers routing events between accounts:
 
-## Grant permissions to allow events
-
-from other AWS accounts
+## Grant permissions to allow events from other AWS accounts
 
 To receive events from other accounts or organizations, you must first edit the permissions on the event bus where you intend to receive events.
 The default event bus accepts events from AWS services, other authorized AWS accounts, and
@@ -73,9 +71,7 @@ of one or more accounts from which to receive events. Rules that have an event p
 containing an Account field do not match events sent from accounts that are not listed in
 the `Account` field. For more information, see [Events in Amazon EventBridge](eb-events.md "eb-events.md").
 
-## Rules for events
-
-between AWS accounts
+## Rules for events between AWS accounts
 
 If your account is set up to receive events from event buses in other AWS accounts, you can write rules
 that match those events. Set the [event
@@ -100,15 +96,11 @@ permissions to, do not specify \* in the `account` field of the rule. Doing so w
 not match any events, because \* never appears in the `account` field of an event.
 Instead, just omit the `account` field from the rule.
 
-## Creating rules that send events
-
-between AWS accounts
+## Creating rules that send events between AWS accounts
 
 Specifying an event bus in another account as a target is part of creating the rule.
 
-###### To create a rule that sends events to a different AWS account using the
-
-console
+###### To create a rule that sends events to a different AWS account using the console
 
 1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose a target type:

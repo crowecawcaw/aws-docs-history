@@ -114,11 +114,9 @@ matches the event pattern defined for a rule.
 
 A target can receive multiple events from multiple event buses.
 
-For more information, see [Event bus targets in Amazon EventBridge](eb-targets.md "eb-targets.md") .
+For more information, see [Event bus targets in Amazon EventBridge](eb-targets.md "eb-targets.md").
 
-## Advanced features for event
-
-buses
+## Advanced features for event buses
 
 EventBridge includes the following features to help you develop, manage, and use event
 buses.

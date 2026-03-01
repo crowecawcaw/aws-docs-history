@@ -1,6 +1,4 @@
-# Example policy: Send events
-
-from specific rules to an Amazon EventBridge bus in a different Region
+# Example policy: Send events from specific rules to an Amazon EventBridge bus in a different Region
 
 The following example policy grants the account 111122223333 permission to send
 events that match a rule named `SendToUSE1AnotherAccount` in the

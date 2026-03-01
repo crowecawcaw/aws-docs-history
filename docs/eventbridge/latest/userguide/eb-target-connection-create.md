@@ -1,16 +1,12 @@
-# Creating connections for API targets in
-
-EventBridge
+# Creating connections for API targets in EventBridge
 
 The following steps walk you through how to create a connection to an HTTPS endpoint.
 
 ###### Steps
 
 - [Define the connection](#eb-target-connection-create-define "#eb-target-connection-create-define")
-- [Configure the invocation
-  endpoint](#eb-target-connection-create-invocation "#eb-target-connection-create-invocation")
-- [Configure the endpoint
-  authorization](#eb-target-connection-create-auth "#eb-target-connection-create-auth")
+- [Configure the invocation endpoint](#eb-target-connection-create-invocation "#eb-target-connection-create-invocation")
+- [Configure the endpoint authorization](#eb-target-connection-create-auth "#eb-target-connection-create-auth")
 - [Configure encryption](#eb-target-connection-create-cmkms "#eb-target-connection-create-cmkms")
 
 ## Define the connection
@@ -22,9 +18,7 @@ The following steps walk you through how to create a connection to an HTTPS endp
 4. On the **Create connection** page, enter a
    **Connection name** and **Description**.
 
-## Configure the invocation
-
-endpoint
+## Configure the invocation endpoint
 
 Next, use the **Configure invocation** section to specify the API
 type you want the connection to invoke. EventBridge connections support public and private
@@ -45,9 +39,7 @@ Under **Private API**:
     You are taken to the Amazon VPC Lattice service console, where you can create a new configuration. for more information, see
      [Create a resource configuration](../../../vpc-lattice/latest/ug/create-resource-configuration.md "../../../vpc-lattice/latest/ug/create-resource-configuration.md") in the *Amazon VPC Lattice User Guide*.
 
-## Configure the endpoint
-
-authorization
+## Configure the endpoint authorization
 
 Next, specify the authorization settings to use to access the endpoint.
 

@@ -23,7 +23,7 @@ managed by the EventBridge Pipes service.
 
 These types of errors can include issues such as:
 
-- A HTTP connection failure when attempting to invoke the customer targer service
+- A HTTP connection failure when attempting to invoke the customer target service
 - A transient drop in availability on the pipe service itself.
 
 In general, EventBridge Pipes retries internal errors an indefinite number of times, and

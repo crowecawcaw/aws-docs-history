@@ -16,9 +16,7 @@ connections](eb-target-connection-create.md "eb-target-connection-create.md").
 4. On the **Create connection** page, enter a
    **Connection name** and **Description**.
 
-## Configure the invocation
-
-endpoint
+## Configure the invocation endpoint
 
 Next, use the **Configure invocation** section to specify the
 HTTPS endpoint you want the connection to invoke.
@@ -37,9 +35,7 @@ Under **Private API**:
     You are taken to the Amazon VPC Lattice; service console, where you can create a new configuration. for more information, see
      [Create a resource configuration](../../../vpc-lattice/latest/ug/create-resource-configuration.md "../../../vpc-lattice/latest/ug/create-resource-configuration.md") in the *Amazon VPC Lattice User Guide*.
 
-## Configure the endpoint
-
-authorization
+## Configure the endpoint authorization
 
 Lastly, specify the authorization settings to use to access the endpoint.
 

@@ -1,6 +1,4 @@
-# Creating replays of archived events in
-
-Amazon EventBridge
+# Creating replays of archived events in Amazon EventBridge
 
 When you start a new replay, you specify a time period for the event you want EventBridge to resend to the source event bus. You can also specify for EventBridge to send the events to specific rules.
 

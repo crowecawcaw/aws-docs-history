@@ -148,9 +148,7 @@ All Amazon ECS `runTask` parameters are configured explicitly through
 `EcsParameters`. As with all pipe parameters, these parameters can be dynamic
 when using a JSON path to your incoming event payload.
 
-## Lambda functions and Step Functions
-
-workflow target specifics
+## Lambda functions and Step Functions workflow target specifics
 
 Lambda and Step Functions do not have a batch API. To process batches of events from a pipe
 source, the batch is converted to a JSON array and passed to as input to the Lambda or Step Functions

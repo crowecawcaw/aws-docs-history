@@ -10,18 +10,14 @@ secure your resources by controlling who can access them.
 
 - [Authentication](#eb-authentication "#eb-authentication")
 - [Access control](#eb-access-control "#eb-access-control")
-- [Managing access permissions to your Amazon EventBridge
-  resources](eb-manage-iam-access.md "eb-manage-iam-access.md")
-- [Using identity-based policies (IAM policies) for
-  Amazon EventBridge](eb-use-identity-based.md "eb-use-identity-based.md")
+- [Managing access permissions to your Amazon EventBridge resources](eb-manage-iam-access.md "eb-manage-iam-access.md")
+- [Using identity-based policies (IAM policies) for Amazon EventBridge](eb-use-identity-based.md "eb-use-identity-based.md")
 - [Using resource-based policies for Amazon EventBridge](eb-use-resource-based.md "eb-use-resource-based.md")
-- [Cross-service confused deputy
-  prevention in Amazon EventBridge](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention in Amazon EventBridge](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Resource-based policies for Amazon EventBridge schemas](eb-resource-based-schemas.md "eb-resource-based-schemas.md")
 - [Amazon EventBridge permissions reference](eb-permissions-reference.md "eb-permissions-reference.md")
 - [Using IAM policy conditions in Amazon EventBridge](eb-use-conditions.md "eb-use-conditions.md")
-- [Using service-linked roles for
-  EventBridge](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for EventBridge](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Authentication
 

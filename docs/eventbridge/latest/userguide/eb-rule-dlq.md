@@ -21,8 +21,7 @@ When an event delivery fails, EventBridge publishes an event to Amazon CloudWatc
 target `invocation` failed. If you use a DLQ, additional metrics are sent to CloudWatch
 including `InvocationsSentToDLQ` and `InvocationsFailedToBeSentToDLQ`.
 
-You can also specify DLQs for event buses, if you use AWS KMS customer managed keys to encrypt events at rest. For more information, see [Using dead-letter queues to capture encrypted
-event errors in EventBridge](eb-encryption-event-bus-dlq.md "eb-encryption-event-bus-dlq.md").
+You can also specify DLQs for event buses, if you use AWS KMS customer managed keys to encrypt events at rest. For more information, see [Using dead-letter queues to capture encrypted event errors in EventBridge](eb-encryption-event-bus-dlq.md "eb-encryption-event-bus-dlq.md").
 
 Each message in your DLQ will include the following custom attributes:
 
@@ -32,11 +31,13 @@ Each message in your DLQ will include the following custom attributes:
 
 The following is a sample of the error codes a DLQ can return:
 
+    + `ACTION_DECRYPTION_FAILURE`
     + `CONNECTION_FAILURE`
     + `CROSS_ACCOUNT_INGESTION_FAILED`
     + `CROSS_REGION_INGESTION_FAILED`
     + `ERROR_FROM_TARGET`
-    + `EVENTS_IN_BATCH_REQUEST_REJECTED`
+    + `EVENT_DECRYPTION_FAILURE`
+    + `EVENT_ENCRYPTION_FAILURE`
     + `EVENTS_IN_BATCH_REQUEST_REJECTED`
     + `FAILED_TO_ASSUME_ROLE`
     + `INTERNAL_ERROR`
@@ -47,6 +48,7 @@ The following is a sample of the error codes a DLQ can return:
     + `RESOURCE_ALREADY_EXISTS`
     + `RESOURCE_LIMIT_EXCEEDED`
     + `RESOURCE_MODIFICATION_COLLISION`
+    + `RULE_DECRYPTION_FAILURE`
     + `SDK_CLIENT_ERROR`
     + `THIRD_ACCOUNT_HOP_DETECTED`
     + `THIRD_REGION_HOP_DETECTED`
@@ -65,7 +67,7 @@ The following conditions can be returned:
 
 - `RETRY_ATTEMPTS`
 
-The following video goes over settings up DLQs:
+The following video goes over setting up DLQs:
 
 ###### Topics
 
@@ -117,8 +119,7 @@ includes:
   AWS KMS
   customer managed key to encrypt events at rest.
 
-For more information, see [Using dead-letter queues to capture encrypted
-event errors in EventBridge](eb-encryption-event-bus-dlq.md "eb-encryption-event-bus-dlq.md").
+For more information, see [Using dead-letter queues to capture encrypted event errors in EventBridge](eb-encryption-event-bus-dlq.md "eb-encryption-event-bus-dlq.md").
 
 If you specify a DLQ using the API, or use a queue that is in a different AWS
 account, you must manually create a resource-based policy that grants the required

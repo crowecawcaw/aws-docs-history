@@ -37,8 +37,7 @@ enter the maximum number of invocations per second to send to the API
 destination endpoint.
 
 The rate limit you set may affect how EventBridge delivers events. For more
-information, see [How invocation rate affects event
-delivery](eb-api-destinations.md#eb-api-destination-event-delivery "eb-api-destinations.md#eb-api-destination-event-delivery"). 8. For **Connection**, do one of the following:
+information, see [How invocation rate affects event delivery](eb-api-destinations.md#eb-api-destination-event-delivery "eb-api-destinations.md#eb-api-destination-event-delivery"). 8. For **Connection**, do one of the following:
 
     * Choose **Use an existing connection**, and then
      select the connection to use for this API destination.

@@ -1,6 +1,4 @@
-# Managing access permissions to your Amazon EventBridge
-
-resources
+# Managing access permissions to your Amazon EventBridge resources
 
 You manage access to EventBridge resources such as [rules](eb-rules.md "eb-rules.md") or [events](eb-events.md "eb-events.md") by using [identity-based](eb-use-identity-based.md "eb-use-identity-based.md") or [resource-based](eb-use-resource-based.md "eb-use-resource-based.md")
 policies.
@@ -101,14 +99,10 @@ identity-based (IAM policies) and resource-based policies.
 
 ###### Topics
 
-- [Identity-based policies (IAM
-  policies)](#eb-identity-based-policies "#eb-identity-based-policies")
-- [Resource-based policies (IAM
-  policies)](#eb-resource-based-policies-overview "#eb-resource-based-policies-overview")
+- [Identity-based policies (IAM policies)](#eb-identity-based-policies "#eb-identity-based-policies")
+- [Resource-based policies (IAM policies)](#eb-resource-based-policies-overview "#eb-resource-based-policies-overview")
 
-### Identity-based policies (IAM
-
-policies)
+### Identity-based policies (IAM policies)
 
 You can attach policies to IAM identities. For example, you can do the
 following:
@@ -142,12 +136,9 @@ following:
 You can create specific IAM policies to restrict the calls and resources that
 users in your account have access to and then attach those policies to users.
 For more information about how to create IAM roles and to explore example IAM
-policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge
-resources](eb-manage-iam-access.md "eb-manage-iam-access.md").
+policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge resources](eb-manage-iam-access.md "eb-manage-iam-access.md").
 
-### Resource-based policies (IAM
-
-policies)
+### Resource-based policies (IAM policies)
 
 When a rule runs in EventBridge, all of the [targets](eb-targets.md "eb-targets.md")
 associated with the rule are invoked, which means invoking the AWS Lambda functions,
@@ -159,9 +150,7 @@ streams, EventBridge uses IAM roles.
 For more information about how to create IAM roles and to explore example
 resource-based policy statements for EventBridge, see [Using resource-based policies for Amazon EventBridge](eb-use-resource-based.md "eb-use-resource-based.md").
 
-## Specifying policy elements: actions,
-
-effects, and principals
+## Specifying policy elements: actions, effects, and principals
 
 For each EventBridge resource, EventBridge defines a set of API operations. To grant permissions for
 these API operations, EventBridge defines a set of actions that you can specify in a policy.

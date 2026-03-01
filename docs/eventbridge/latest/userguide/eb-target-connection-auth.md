@@ -21,7 +21,7 @@ Keep in mind the following when using OAuth as an authorization method for conne
 
 - EventBridge refreshes OAuth tokens:
   - When a `401` or `407` response is returned.
-  - Proactively during an HTTPS invocation, if the token is about to expire.
+  - Proactively during an HTTPS invocation, if the token expires within 60 seconds. This refresh only occurs when EventBridge processes an event for the API destination — it is not a background process. If no events arrive during this window, the next event triggers a synchronous token refresh, which may increase invocation latency or result in a failed invocation while the connection is reauthorizing.
 
 - You can use [Connection events](event-reference.md#event-reference-connections "event-reference.md#event-reference-connections") to be notified when a connection changes state, such as becoming deauthorized.
 - We recommend you set the retry policy to greater than 0 for rules using connections that

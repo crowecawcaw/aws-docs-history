@@ -1,6 +1,4 @@
-# Basic examples for
-
-EventBridge using AWS SDKs
+# Basic examples for EventBridge using AWS SDKs
 
 The following code examples show how to use the basics of Amazon EventBridge with AWS
 SDKs.

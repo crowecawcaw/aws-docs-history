@@ -16,9 +16,7 @@ Guide_.](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSClo
 
 For event buses, you can generate CloudFormation templates from [event buses](eb-generate-event-bus-template.md "eb-generate-event-bus-template.md") and [event bus rules](rule-generate-template.md "rule-generate-template.md").
 
-## Resources included in EventBridge Pipe
-
-templates
+## Resources included in EventBridge Pipe templates
 
 When EventBridge generates the CloudFormation template, it creates an
 [AWS::Pipes::Pipe](../../../AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.md") resource for each selected pipe. In addition, EventBridge includes the following resources under the described conditions:
@@ -40,9 +38,7 @@ If you had EventBridge create a new execution role when you [configured the pipe
 include that role in the template as an AWS::IAM::Role resource. EventBridge does not include roles you create. (In either case, the `RoleArn`
 property of the AWS::Pipes::Pipe resource contains the ARN of the role.)
 
-## Considerations when using
-
-CloudFormation templates generated from EventBridge Pipes
+## Considerations when using CloudFormation templates generated from EventBridge Pipes
 
 Consider the following factors when using a CloudFormation template you generated from
 EventBridge:
@@ -63,9 +59,7 @@ then edit the generated template to employ [dynamic parameters](../../../AWSClou
 Additionally, the generated template does not create the downstream targets
 automatically.
 
-## Generating a CloudFormation template from
-
-EventBridge Pipes
+## Generating a CloudFormation template from EventBridge Pipes
 
 To generate a CloudFormation template from one or more pipes using the EventBridge console, do
 the following:

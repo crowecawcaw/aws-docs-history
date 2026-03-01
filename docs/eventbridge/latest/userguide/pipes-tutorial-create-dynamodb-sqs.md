@@ -133,9 +133,7 @@ target. For more details, see [Event enrichment in Amazon EventBridge Pipes](pip
 
 EventBridge creates the pipe and displays the pipe detail page. The pipe is ready once its status updates to `Running`.
 
-## Step 2: Confirm the pipe
-
-filters events
+## Step 2: Confirm the pipe filters events
 
 Pipe is set up, but has yet to receive events from table.
 

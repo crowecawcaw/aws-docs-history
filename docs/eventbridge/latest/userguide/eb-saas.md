@@ -11,8 +11,7 @@ The following video covers SaaS integrations with EventBridge:
 ###### Topics
 
 - [Supported SaaS partner integrations](#eb-supported-integrations "#eb-supported-integrations")
-- [Configuring Amazon EventBridge to receive events from a SaaS
-  integration](#eb-saas-integration "#eb-saas-integration")
+- [Configuring Amazon EventBridge to receive events from a SaaS integration](#eb-saas-integration "#eb-saas-integration")
 - [Receiving SaaS events from AWS Lambda function URLs in Amazon EventBridge](eb-saas-furls.md "eb-saas-furls.md")
 - [Receiving events from Salesforce in Amazon EventBridge](eb-saas-salesforce.md "eb-saas-salesforce.md")
 
@@ -83,9 +82,7 @@ EventBridge supports the following SaaS partner integrations:
 - [Amazon Seller
   Partner API](https://console.aws.amazon.com/events/#/partners/sellingpartnerapi.amazon.com?page=overview "https://console.aws.amazon.com/events/#/partners/sellingpartnerapi.amazon.com?page=overview")
 
-## Configuring Amazon EventBridge to receive events from a SaaS
-
-integration
+## Configuring Amazon EventBridge to receive events from a SaaS integration
 
 Configuring EventBridge to receive partner events consists of two main steps:
 

@@ -107,8 +107,7 @@ A list of any execution data fields EventBridge has truncated to keep the record
 
 If EventBridge did not have to truncate any of the execution data fields, this field is present but `null`.
 
-For more information, see [Truncating execution data in EventBridge
-Pipes log records](eb-pipes-logs.md#eb-pipes-logs-execution-data-truncation "eb-pipes-logs.md#eb-pipes-logs-execution-data-truncation").
+For more information, see [Truncating execution data in EventBridge Pipes log records](eb-pipes-logs.md#eb-pipes-logs-execution-data-truncation "eb-pipes-logs.md#eb-pipes-logs-execution-data-truncation").
 
 **error**
 

@@ -59,8 +59,7 @@ way:
       + Target input information
       + Target request information
 
-  For more information, see [Including detail data in event bus
-  logs](#eb-event-logs-data "#eb-event-logs-data").
+  For more information, see [Including detail data in event bus logs](#eb-event-logs-data "#eb-event-logs-data").
 
 ### Log delivery considerations
 
@@ -93,6 +92,25 @@ For more information, see [Encrypting event bus logs](encryption-bus-logs.md "en
 
 To enable logging from an event bus, you must grant permissions for EventBridge to send logs from that bus. Add a policy that grants
 **AllowVendedLogDeliveryForResource** to the event bus.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ServiceLevelAccessForLogDelivery",
+ "Effect": "Allow",
+ "Action": [
+ "events:AllowVendedLogDeliveryForResource"
+ ],
+ "Resource": "arn:aws:events:`us-east-1`:`123456789012`:event-bus/`my-event-bus`*"
+ }
+ ]
+}`
+
+```
 
 For more information, see
 [Service-specific permissions](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-service-specific "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-V2-service-specific")
@@ -137,9 +155,7 @@ The following table lists the event processing steps included in each log level.
 | Rule Matched                          | x     | x    |       |     |
 | Rule Matching Started                 | x     |      |       |     |
 
-## Including detail data in event bus
-
-logs
+## Including detail data in event bus logs
 
 You can specify for EventBridge to include more granular information in the logs it generates.
 This data can be useful for troubleshooting and debugging. If you select this option, EventBridge includes this data in the relevant records for all the specified log destinations.

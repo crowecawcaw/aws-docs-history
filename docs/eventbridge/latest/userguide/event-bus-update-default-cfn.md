@@ -1,6 +1,4 @@
-# Updating a default event bus using
-
-AWS CloudFormation in EventBridge
+# Updating a default event bus using AWS CloudFormation in EventBridge
 
 CloudFormation enables you to configure and manage your AWS
 resources across accounts and regions in a centralized and repeatable manner by

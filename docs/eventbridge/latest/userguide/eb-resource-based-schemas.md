@@ -12,9 +12,7 @@ following.
 - [Identity-Based Policies and Resource-Based Policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the
   IAM User Guide
 
-## Supported APIs for resource-based
-
-policies
+## Supported APIs for resource-based policies
 
 You can use the following APIs with resource-based policies for the EventBridge schema
 registry.
@@ -34,9 +32,7 @@ registry.
 - `GetCodeBindingSource`
 - `PutCodeBinding`
 
-## Example policy granting all supported
-
-actions to an AWS account
+## Example policy granting all supported actions to an AWS account
 
 For the EventBridge schema registry, you must always attach a resource-based policy to a
 registry. To grant access to a schema, you specify the schema ARN and the registry ARN
@@ -73,9 +69,7 @@ JSON
 
 ```
 
-## Example policy granting read-only actions
-
-to an AWS account
+## Example policy granting read-only actions to an AWS account
 
 The following example grants access to an account for only the read-only APIs for EventBridge
 schemas.
@@ -113,9 +107,7 @@ JSON
 
 ```
 
-## Example policy granting all actions to an
-
-organization
+## Example policy granting all actions to an organization
 
 You can use resource-based policies with the EventBridge schema registry to grant access to
 an organization. For more information, see the [AWS Organizations User

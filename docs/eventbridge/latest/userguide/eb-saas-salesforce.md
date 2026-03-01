@@ -32,9 +32,7 @@ source in EventBridge in the pending state.
 5. [Create a Named Credential](https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.etec44jyv3og "https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.etec44jyv3og")
 6. [Create an Event Relay Configuration](https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.43rfyeehz0w5 "https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/Salesforce_Event_Bus_Relay_Pilot.pdf#h.43rfyeehz0w5")
 
-### Step 2: Activate Salesforce partner event source in the EventBridge console
-
-and start the event relay
+### Step 2: Activate Salesforce partner event source in the EventBridge console and start the event relay
 
 1. Open the [Partner event sources](https://console.aws.amazon.com/events/home?#/partners "https://console.aws.amazon.com/events/home?#/partners") page in the EventBridge console.
 2. Select the Salesforce partner event source that you created in Step 1.
@@ -85,9 +83,7 @@ example shows a Salesforce event received by an EventBridge partner event bus.
 }
 ```
 
-### Step 1: Configure Amazon AppFlow to use Salesforce as a partner
-
-event source
+### Step 1: Configure Amazon AppFlow to use Salesforce as a partner event source
 
 To send events to EventBridge, you first need to configure Amazon AppFlow to use Salesforce as a partner event
 source.
@@ -135,9 +131,7 @@ fields](../../../appflow/latest/userguide/getting-started.md#map-fields "../../.
 With the flow configured, Amazon AppFlow creates a new partner event source that you then need to associate
 with a partner event bus in your account.
 
-### Step 2: Configure EventBridge to receive Salesforce
-
-events
+### Step 2: Configure EventBridge to receive Salesforce events
 
 Ensure that the Amazon AppFlow flow that is triggered from Salesforce events with EventBridge as a
 destination is configured before following instructions in this section.

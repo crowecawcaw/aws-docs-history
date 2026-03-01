@@ -1,6 +1,4 @@
-# Using dead-letter queues to capture encrypted
-
-event errors in EventBridge
+# Using dead-letter queues to capture encrypted event errors in EventBridge
 
 If you configure customer managed key encryption on an event bus, we
 recommend that you specify a dead-letter queue (DLQ) for that event bus. EventBridge sends

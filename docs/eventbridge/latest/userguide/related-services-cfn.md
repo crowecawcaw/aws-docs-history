@@ -1,6 +1,4 @@
-# Including Amazon EventBridge resources in AWS CloudFormation
-
-stacks
+# Including Amazon EventBridge resources in AWS CloudFormation stacks
 
 CloudFormation enables you to configure and manage your AWS resources across accounts and regions
 in a centralized and repeatable manner by treating infrastructure as code. CloudFormation does
@@ -9,9 +7,7 @@ want to provision and manage. These resources can include EventBridge artifacts 
 and rules, pipes, schemas, and schedules, among others. Use these resources to include EventBridge
 functionality in the technology stacks you provision and manage through CloudFormation.
 
-## Amazon EventBridge resources available in
-
-AWS CloudFormation
+## Amazon EventBridge resources available in AWS CloudFormation
 
 EventBridge provides resources for use in CloudFormation templates in the following resource
 namespaces:
@@ -46,9 +42,7 @@ Template examples include:
 
 - [AWS::Scheduler](../../../AWSCloudFormation/latest/UserGuide/AWS_Scheduler.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Scheduler.md")
 
-## Generating Amazon EventBridge
-
-resource definitions for AWS CloudFormation templates
+## Generating Amazon EventBridge resource definitions for AWS CloudFormation templates
 
 As an aid to help you jumpstart developing CloudFormation templates, the EventBridge console
 enables you to create CloudFormation templates from the existing event buses, rules, and pipes in
@@ -68,8 +62,7 @@ first _import_ it into a stack. Once you have imported the
 default event bus into a stack, you can then update the event bus properties as
 desired.
 
-For more information, see [Updating a default event bus using
-AWS CloudFormation in EventBridge](event-bus-update-default-cfn.md "event-bus-update-default-cfn.md")
+For more information, see [Updating a default event bus using AWS CloudFormation in EventBridge](event-bus-update-default-cfn.md "event-bus-update-default-cfn.md")
 
 ## Managing CloudFormation stack events using EventBridge
 

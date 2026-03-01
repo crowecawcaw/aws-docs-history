@@ -174,9 +174,7 @@ JSON
 
 ```
 
-## Customer-managed policy example: Using tagging to control access to
-
-rules
+## Customer-managed policy example: Using tagging to control access to rules
 
 The following example shows a user policy that grant permissions for EventBridge actions. This
 policy works when you use the EventBridge API, AWS SDKs, or the AWS CLI.

@@ -135,8 +135,7 @@ To select an EventBridge event bus, select **EventBridge event bus**, then do th
     	 dropdown list.
 
 
-    	For more information, see [Sending events between event buses in
-    	 the same account and Region in Amazon EventBridge](eb-bus-to-bus.md "eb-bus-to-bus.md").
+    	For more information, see [Sending events between event buses in the same account and Region in Amazon EventBridge](eb-bus-to-bus.md "eb-bus-to-bus.md").
     * To use an event bus in a different AWS Region or account as this rule:
 
 
@@ -235,8 +234,7 @@ then do the following:
     ###### Note
 
     The fields displayed vary depending on the service selected. For more information about available targets, see
-     [Event bus targets available in the EventBridge
-     console](eb-targets.md#eb-console-targets "eb-targets.md#eb-console-targets").
+     [Event bus targets available in the EventBridge console](eb-targets.md#eb-console-targets "eb-targets.md#eb-console-targets").
 
 2. For many target types,
    EventBridge needs permissions to send events to the target.

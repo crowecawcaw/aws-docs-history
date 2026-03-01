@@ -14,8 +14,7 @@ To prevent these issues, write the event patterns for your rules to be as precis
 so they only match the events you actually want sent to the target.
 In the above example, you would create an event pattern to match events so that the triggered actions do not re-fire the same
 rule. For example, create an event pattern in your rule that would match events only if ACLs are found to be in a bad state, instead
-of after any change. For more information, see [Make event patterns precise as possible](#eb-patterns-best-practices-precision "#eb-patterns-best-practices-precision") and [Scope your event patterns
-to account for event source updates](#eb-patterns-best-practices-future-proof "#eb-patterns-best-practices-future-proof").
+of after any change. For more information, see [Make event patterns precise as possible](#eb-patterns-best-practices-precision "#eb-patterns-best-practices-precision") and [Scope your event patterns to account for event source updates](#eb-patterns-best-practices-future-proof "#eb-patterns-best-practices-future-proof").
 
 An infinite loop can quickly cause higher than expected charges. It can also lead to throttling and delayed event delivery.
 You can monitor the upper bound of your invocation rates to be warned about unexpected spikes in volume.
@@ -93,9 +92,7 @@ For example, matching based on a numeric range can be helpful instead of listing
 
 For more information, see [Using comparison operators in Amazon EventBridge event patterns](eb-create-pattern.md#eb-event-patterns-content-based-filtering "eb-create-pattern.md#eb-event-patterns-content-based-filtering").
 
-## Scope your event patterns
-
-to account for event source updates
+## Scope your event patterns to account for event source updates
 
 When creating event patterns, you should take into account that event schemas and
 event domains may evolve and expand over time. Here again, making your event patterns as

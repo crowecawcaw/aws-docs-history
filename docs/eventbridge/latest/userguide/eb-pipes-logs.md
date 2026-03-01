@@ -175,9 +175,7 @@ enrichment or target service and received a response. This includes the followin
 
 For a discussion of pipe execution steps, see [EventBridge Pipes execution steps](eb-pipes-logs-execution-steps.md "eb-pipes-logs-execution-steps.md").
 
-### Truncating execution data in EventBridge
-
-Pipes log records
+### Truncating execution data in EventBridge Pipes log records
 
 If you choose to have EventBridge include execution data in a pipe's log records, there is a
 possibility that a record may exceed the 256 KB size limit. To prevent this, EventBridge

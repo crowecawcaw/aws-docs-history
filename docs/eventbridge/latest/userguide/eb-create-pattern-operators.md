@@ -44,9 +44,7 @@ For example, the following event pattern would match any event where the
 }
 ```
 
-### Prefix matching while
-
-ignoring case
+### Prefix matching while ignoring case
 
 You can also match a prefix value regardless of the casing of the characters a
 value begins with, using `equals-ignore-case` in conjunction with
@@ -77,9 +75,7 @@ For example, the following event pattern would match any event where the
 }
 ```
 
-### Suffix matching while
-
-ignoring case
+### Suffix matching while ignoring case
 
 You can also match a suffix value regardless of the casing of the characters a
 value ends with, using `equals-ignore-case` in conjunction with
@@ -140,9 +136,7 @@ The following event pattern shows anything-but matching with a list of numbers.
 }
 ```
 
-### Anything-but matching while
-
-ignoring case
+### Anything-but matching while ignoring case
 
 You can also use `equals-ignore-case` in conjunction with
 `anything-but`, to match string values regardless of character
@@ -167,9 +161,7 @@ You can use `equals-ignore-case` in conjunction with
 }
 ```
 
-### Anything-but matching on
-
-prefixes
+### Anything-but matching on prefixes
 
 You can use `prefix` in conjunction with `anything-but` to match string values that do not start with the specified value.
 This includes single values, or a list of values.
@@ -199,9 +191,7 @@ field.
 }
 ```
 
-### Anything-but matching on
-
-suffixes
+### Anything-but matching on suffixes
 
 You can use `suffix` in conjunction with `anything-but` to
 match string values that do not end with the specified value.
@@ -230,9 +220,7 @@ that do not end with either `.txt` or `.rtf`.
 }
 ```
 
-### Anything-but matching using
-
-wildcards
+### Anything-but matching using wildcards
 
 You can use the wildcard character (\*) within the values you specify for
 anything-but matching. This includes single values, or a list of values.
@@ -350,9 +338,7 @@ a `detail.state` field.
 }
 ```
 
-## Equals-ignore-case
-
-matching
+## Equals-ignore-case matching
 
 _Equals-ignore-case_ matching works on string values regardless of
 case.
@@ -401,9 +387,7 @@ Considerations when using wildcards in your event patterns:
 
   Using the backslash to escape other characters is not supported.
 
-### Wildcards and event
-
-pattern complexity
+### Wildcards and event pattern complexity
 
 There is a limit to how complex a rule using wildcards can be. If a rule is too
 complex, EventBridge returns an `InvalidEventPatternException` when attempting
@@ -458,9 +442,7 @@ way:
 }
 ```
 
-## Complex example with multiple
-
-matching
+## Complex example with multiple matching
 
 You can combine multiple matching criteria into a more complex event pattern. For
 example, the following event pattern combines `anything-but` and
@@ -496,9 +478,7 @@ pattern:
 only `{ "anything-but": "us-east" }` will be taken into account when
 evaluating the `location`.
 
-## Complex example with `$or`
-
-matching
+## Complex example with `$or` matching
 
 You can also create complex event patterns that check to see if
 _any_ field values match, across multiple fields. Use

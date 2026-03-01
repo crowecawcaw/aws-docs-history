@@ -9,17 +9,13 @@ Choosing the AWS KMS key used for encryption is part of creating an
 event bus. The default is to use the AWS owned key provided by
 EventBridge.
 
-###### To specify a customer managed key for encryption when creating an event
-
-bus (console)
+###### To specify a customer managed key for encryption when creating an event bus (console)
 
 - Follow these instructions:
 
 [Creating an event bus](eb-create-event-bus.md "eb-create-event-bus.md").
 
-###### To specify a customer managed key for encryption when creating an event
-
-bus (CLI)
+###### To specify a customer managed key for encryption when creating an event bus (CLI)
 
 - When calling `create-event-bus`, use the
   `kms-key-identifier` option to specify the customer managed key for EventBridge to use for encryption on the event
@@ -40,9 +36,7 @@ When you update an event bus to use a different AWS KMS key,
 EventBridge decrypts any data stored on the event bus and then encrypts it using the new
 key.
 
-###### To update the KMS key used for encryption on an event
-
-bus (console)
+###### To update the KMS key used for encryption on an event bus (console)
 
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  In the navigation pane, choose **Event buses**.
@@ -81,9 +75,7 @@ bus (console)
          encrypted to the DLQ, if configured, so you can process them
          later.
 
-###### To update the KMS key used for encryption on an event
-
-bus (CLI)
+###### To update the KMS key used for encryption on an event bus (CLI)
 
 - When calling `update-event-bus`, use the
   `kms-key-identifier` option to specify the customer managed key for EventBridge to use for encryption on the event
@@ -91,9 +83,7 @@ bus (CLI)
 
 Optionally, use `dead-letter-config` to specify a dead-letter queue (DLQ).
 
-###### To update the KMS key used for encryption on the
-
-default event bus, using CloudFormation
+###### To update the KMS key used for encryption on the default event bus, using CloudFormation
 
 Because EventBridge provisions the default event bus into your account
 automatically, you cannot create it using a CloudFormation template, as

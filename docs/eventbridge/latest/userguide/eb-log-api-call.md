@@ -9,8 +9,7 @@ when an Amazon EC2 instance is stopped.
 ###### Steps:
 
 - [Step 1: Create an AWS CloudTrail trail](#eb-log-api-create-ct-trail "#eb-log-api-create-ct-trail")
-- [Step 2: Create an AWS Lambda
-  function](#eb-api-create-lambda-function "#eb-api-create-lambda-function")
+- [Step 2: Create an AWS Lambda function](#eb-api-create-lambda-function "#eb-api-create-lambda-function")
 - [Step 3: Create a rule](#eb-api-create-rule "#eb-api-create-rule")
 - [Step 4: Test the rule](#eb-api-test-rule "#eb-api-test-rule")
 - [Step 5: Confirm success](#success "#success")
@@ -33,9 +32,7 @@ If you already have a trail set up, skip to step 2.
 7. Choose **Next**.
 8. Choose **Create trail**.
 
-## Step 2: Create an AWS Lambda
-
-function
+## Step 2: Create an AWS Lambda function
 
 Create a Lambda function to log the API call events.
 

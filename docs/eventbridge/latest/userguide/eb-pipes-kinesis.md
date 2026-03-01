@@ -33,7 +33,7 @@ of the fields can be filtered. For more information about which fields you can f
     "partitionKey": "1",
     "sequenceNumber": "49590338271490256608559692538361571095921575989136588898",
     "data": "SGVsbG8sIHRoaXMgaXMgYSB0ZXN0Lg==",
-    "approximateArrivalTimestamp": 1545084650.987
+    "approximateArrivalTimestamp": 1545084650.987,
     "eventSource": "aws:kinesis",
     "eventVersion": "1.0",
     "eventID": "shardId-000000000006:49590338271490256608559692538361571095921575989136588898",
@@ -47,7 +47,7 @@ of the fields can be filtered. For more information about which fields you can f
     "partitionKey": "1",
     "sequenceNumber": "49590338271490256608559692540925702759324208523137515618",
     "data": "VGhpcyBpcyBvbmx5IGEgdGVzdC4=",
-    "approximateArrivalTimestamp": 1545084711.166
+    "approximateArrivalTimestamp": 1545084711.166,
     "eventSource": "aws:kinesis",
     "eventVersion": "1.0",
     "eventID": "shardId-000000000006:49590338271490256608559692540925702759324208523137515618",
@@ -61,7 +61,7 @@ of the fields can be filtered. For more information about which fields you can f
 
 ## Polling and batching streams
 
-EventBridge polls shards in your Kinesis stream for records at a base rate of four times per second.
+EventBridge polls shards in your Kinesis stream for records at a base rate of once per second.
 When records are available, EventBridge processes the event and waits for the result. If processing
 succeeds, EventBridge resumes polling until it receives more records.
 

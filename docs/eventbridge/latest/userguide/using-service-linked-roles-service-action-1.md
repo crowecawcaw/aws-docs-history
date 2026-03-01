@@ -2,9 +2,7 @@
 
 The following topic details usage of the \***\*AWSServiceRoleForAmazonEventBridgeApiDestinations\*\*** service-linked role.
 
-## Service-linked role
-
-permissions for EventBridge
+## Service-linked role permissions for EventBridge
 
 EventBridge uses the service-linked role named \***\*AWSServiceRoleForAmazonEventBridgeApiDestinations\*\***
 – Enables access to the Secrets Manager Secrets created by EventBridge.
@@ -24,9 +22,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-EventBridge
+## Creating a service-linked role for EventBridge
 
 You don't need to manually create a service-linked role. When you
 create a connection in the AWS Management Console, the AWS CLI, or the AWS API, EventBridge
@@ -47,9 +43,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 create a connection, EventBridge creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-EventBridge
+## Editing a service-linked role for EventBridge
 
 EventBridge does not allow you to edit the **AWSServiceRoleForAmazonEventBridgeApiDestinations** service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -57,18 +51,14 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-EventBridge
+## Deleting a service-linked role for EventBridge
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is not
 actively monitored or maintained. However, you must clean up your service-linked role before
 you can manually delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role.
@@ -93,17 +83,13 @@ operation again.
 
 - Use the following command: `DeleteConnection`.
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the **AWSServiceRoleForAmazonEventBridgeApiDestinations**
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for EventBridge
-
-service-linked roles
+## Supported Regions for EventBridge service-linked roles
 
 EventBridge supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

@@ -27,11 +27,9 @@ Supported syntax includes:
 
 - [Predefined variables](#eb-transform-input-predefined "#eb-transform-input-predefined")
 - [Input transform examples](#eb-transform-input-examples "#eb-transform-input-examples")
-- [Transforming input by using the EventBridge
-  API](#eb-transform-input-api "#eb-transform-input-api")
+- [Transforming input by using the EventBridge API](#eb-transform-input-api "#eb-transform-input-api")
 - [Transforming input by using AWS CloudFormation](#eb-transform-input-cfn "#eb-transform-input-cfn")
-- [Common Issues with transforming
-  input](#eb-transform-input-issues "#eb-transform-input-issues")
+- [Common Issues with transforming input](#eb-transform-input-issues "#eb-transform-input-issues")
 - [Configuring an input transformer when creating a rule in EventBridge](eb-transform-input-rule.md "eb-transform-input-rule.md")
 - [Testing a target input transformer using the EventBridge Sandbox](eb-sandbox-input-trans.md "eb-sandbox-input-trans.md")
 
@@ -130,9 +128,7 @@ output before routing it to a target.
 | **Including reserved variables in a<br>string**            | `<br>"<aws.events.rule-name> triggered"<br>`                                                                                                                                                 | `<br>"example triggered"<br>`                                                                                                                                                                                                       |
 | **Amazon CloudWatch log group**                            | `<br>{<br>"timestamp" : <timestamp>,<br>"message": "instance \"<instance>\" is in <state>"<br>}<br>`                                                                                         | `<br>{<br>"timestamp" : 2015-11-11T21:29:54Z,<br>"message": "instance "i-0123456789" is in RUNNING<br>}<br>`                                                                                                                        |
 
-## Transforming input by using the EventBridge
-
-API
+## Transforming input by using the EventBridge API
 
 For information about using the EventBridge API to transform input, see [Use Input Transformer to extract data from an event and input that data to the
 target](../APIReference/API_PutTargets.md#API_PutTargets_Example_2 "../APIReference/API_PutTargets.md#API_PutTargets_Example_2").
@@ -141,9 +137,7 @@ target](../APIReference/API_PutTargets.md#API_PutTargets_Example_2 "../APIRefere
 
 For information about using AWS CloudFormation to transform input, see [AWS::Events::Rule InputTransformer](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md").
 
-## Common Issues with transforming
-
-input
+## Common Issues with transforming input
 
 These are some common issues when transforming input in EventBridge:
 

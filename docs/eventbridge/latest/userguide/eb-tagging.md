@@ -44,9 +44,7 @@ then use the same convention for all tags.
 For more information on managing tags, see [Working with Tag Editor](../../../ARG/latest/userguide/tag-editor.md "../../../ARG/latest/userguide/tag-editor.md") in the
 _Resource Groups User Guide_.
 
-## Adding or removing tags on event
-
-buses
+## Adding or removing tags on event buses
 
 You can add or remove tags on event buses.
 

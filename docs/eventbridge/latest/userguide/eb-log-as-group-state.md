@@ -1,6 +1,4 @@
-# Tutorial: Log the state of an Auto Scaling group using
-
-EventBridge
+# Tutorial: Log the state of an Auto Scaling group using EventBridge
 
 You can run an [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") function that logs an [events](eb-events.md "eb-events.md")
 whenever an Auto Scaling group launches or terminates an Amazon EC2 instance that indicates whether an

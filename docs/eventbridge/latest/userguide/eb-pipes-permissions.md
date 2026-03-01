@@ -1,6 +1,6 @@
 # Event source permissions for Amazon EventBridge Pipes
 
-When settings up a pipe, you can use an existing execution role, or have EventBridge create one
+When setting up a pipe, you can use an existing execution role, or have EventBridge create one
 for you with the needed permissions. The permissions EventBridge Pipes requires vary based on the source type, and are listed below. If you’re setting up your own
 execution role, you must add these permissions yourself.
 

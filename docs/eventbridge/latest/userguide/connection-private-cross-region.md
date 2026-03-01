@@ -1,6 +1,4 @@
-# Connecting to
-
-private APIs in other AWS accounts
+# Connecting to private APIs in other AWS accounts
 
 EventBridge supports connections to private APIs across accounts in the same Region.
 

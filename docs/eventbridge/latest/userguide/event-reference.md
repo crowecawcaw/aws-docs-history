@@ -4,13 +4,13 @@ EventBridge itself emits the following events. These events are automatically se
 
 For definitions of the metadata fields that are included in all events, see [AWS service event metadata](../ref/events-structure.md "../ref/events-structure.md") in the _Events Reference_.
 
-| Event detail type                                                                                            | Description                                                                 |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| [Scheduled Event](#event-detail-scheduled-event "#event-detail-scheduled-event")                             | Represents a scheduled event.                                               |
-| [Schema Created](#event-detail-schema-created "#event-detail-schema-created")                                | Represents the creation of a new event schema.                              |
-| [Schema Version Created](#event-detail-schema-version-created "#event-detail-schema-version-created")        | Represents the creation of a new version of a new or existing event schema. |
-| [Connection state<br>events](#event-detail-connection-state "#event-detail-connection-state")                | Represents a change in the state of a connection.                           |
-| [API Destination state<br>events](#event-detail-api-destination-state "#event-detail-api-destination-state") | Represents a change in the state of an API destination.                     |
+| Event detail type                                                                                         | Description                                                                 |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [Scheduled Event](#event-detail-scheduled-event "#event-detail-scheduled-event")                          | Represents a scheduled event.                                               |
+| [Schema Created](#event-detail-schema-created "#event-detail-schema-created")                             | Represents the creation of a new event schema.                              |
+| [Schema Version Created](#event-detail-schema-version-created "#event-detail-schema-version-created")     | Represents the creation of a new version of a new or existing event schema. |
+| [Connection state events](#event-detail-connection-state "#event-detail-connection-state")                | Represents a change in the state of a connection.                           |
+| [API Destination state events](#event-detail-api-destination-state "#event-detail-api-destination-state") | Represents a change in the state of an API destination.                     |
 
 ## Schedule events
 
@@ -290,9 +290,7 @@ Required: Yes
 
 EventBridge sends the following connection events to the default event bus. For more information, see [Connections](eb-target-connection.md "eb-target-connection.md").
 
-### Connection state
-
-events
+### Connection state events
 
 These events each represent a change in the state of a new or existing
 connection.
@@ -390,9 +388,7 @@ Required: Yes
 
 EventBridge sends the following API destination events to the default event bus. For more information, see [API destinations](eb-api-destinations.md "eb-api-destinations.md").
 
-### API Destination state
-
-events
+### API Destination state events
 
 These events each represents a change in the state of an API destination.
 

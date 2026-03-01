@@ -15,9 +15,7 @@ This includes:
 If you specify a customer managed key for an archive, EventBridge encrypts events prior to sending it to
 the archive, ensuring encryption in transit and at rest.
 
-## Archive encryption
-
-context
+## Archive encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs that contain arbitrary nonsecret

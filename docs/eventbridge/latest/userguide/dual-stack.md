@@ -25,9 +25,7 @@ aws events describe-event-bus --region us-west-2 --endpoint-url https://events.u
 For a list of Region codes to use when specifying regional endpoints, see
 [Regional endpoints](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints") in the _AWS General Reference_.
 
-## Considerations when using dual-stack
-
-endpoints
+## Considerations when using dual-stack endpoints
 
 Keep the following considerations in mind when using dual-stack endpoints to access EventBridge
 resources.

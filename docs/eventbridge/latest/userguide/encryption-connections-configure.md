@@ -1,6 +1,4 @@
-# Configuring encryption on
-
-connections
+# Configuring encryption on connections
 
 You can specify the KMS key for EventBridge to use when you create or update a connection.
 
@@ -9,9 +7,7 @@ You can specify the KMS key for EventBridge to use when you create or update a c
 Choosing the AWS KMS key used for encryption is optional when creating a
 connection. By default, EventBridge uses an AWS owned key.
 
-###### To specify a customer managed key for encryption when creating a connection
-
-(console)
+###### To specify a customer managed key for encryption when creating a connection (console)
 
 - Follow these instructions:
 
@@ -24,9 +20,7 @@ connections](eb-target-connection-create.md "eb-target-connection-create.md").
   to specify the customer managed key for EventBridge to use for
   encryption of the connection's secret.
 
-## Updating AWS KMS keys for
-
-connections
+## Updating AWS KMS keys for connections
 
 You can update the KMS key being used for encrypting an existing connection. This
 includes:
@@ -40,9 +34,7 @@ connection's secret and then encrypts it using the new key. Make sure the
 KMS key you specify has the necessary permissions. For more information, see [Connection key
 policy](encryption-connections.md#encryption-connections-key-policy "encryption-connections.md#encryption-connections-key-policy").
 
-###### To update the KMS key used for encryption on a connection
-
-(console)
+###### To update the KMS key used for encryption on a connection (console)
 
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  In the navigation pane, choose **Integration**, and then
@@ -81,9 +73,7 @@ policy](encryption-connections.md#encryption-connections-key-policy "encryption-
          aliases that have been associated with the specified
          customer managed key.
 
-###### To update the KMS key used for encryption on a connection
-
-(CLI)
+###### To update the KMS key used for encryption on a connection (CLI)
 
 - When calling `update-connection`, use the `kms-key-identifier` option
   to specify the customer managed key for EventBridge to use for

@@ -34,9 +34,7 @@ EventBridge displays the template, generated in the selected format. 6. EventBri
    to [create stacks](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in
    CloudFormation.
 
-## Considerations when
-
-using CloudFormation templates generated from Amazon EventBridge
+## Considerations when using CloudFormation templates generated from Amazon EventBridge
 
 Consider the following factors when using a CloudFormation template you generated from EventBridge:
 

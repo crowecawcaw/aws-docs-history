@@ -1,6 +1,4 @@
-# Encryption in EventBridge when an
-
-event bus is the rule target
+# Encryption in EventBridge when an event bus is the rule target
 
 When a custom or partner event is sent to an event bus, EventBridge
 encrypts that event according to the encryption at rest KMS key configuration

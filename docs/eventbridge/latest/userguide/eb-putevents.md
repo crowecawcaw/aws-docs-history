@@ -82,9 +82,7 @@ order from the beginning to the end of the request and response. The response
 `Entries` array always includes the same number of entries as the request
 array.
 
-## Handling failures with
-
-`PutEvents`
+## Handling failures with `PutEvents`
 
 By default, if an individual entry within a request fails, EventBridge continues processing
 the rest of the entries in the request. A response `Entries` array can

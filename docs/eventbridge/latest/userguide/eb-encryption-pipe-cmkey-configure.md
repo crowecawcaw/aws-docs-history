@@ -8,9 +8,7 @@ Choosing the AWS KMS key used for encryption is an option creating a
 pipe. The default is to use the AWS owned key provided by
 EventBridge.
 
-###### To specify a customer managed key for encryption when creating a
-
-pipe (console)
+###### To specify a customer managed key for encryption when creating a pipe (console)
 
 - Follow these instructions:
 
@@ -35,9 +33,7 @@ When you update a pipe to use a different AWS KMS key, EventBridge
 decrypts any data stored on the pipe and then encrypts it using the new
 key.
 
-###### To update the KMS key used for encryption on a pipe
-
-(console)
+###### To update the KMS key used for encryption on a pipe (console)
 
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  In the navigation pane, choose **Pipes**.
@@ -72,9 +68,7 @@ key.
          aliases that have been associated with the specified
          customer managed key.
 
-###### To update the KMS key used for encryption on a pipe
-
-(CLI)
+###### To update the KMS key used for encryption on a pipe (CLI)
 
 - When calling `update-pipe`, use the
   `kms-key-identifier` option to specify the customer managed key for EventBridge to use for encrypting pipe

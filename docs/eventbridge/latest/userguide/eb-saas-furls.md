@@ -34,8 +34,7 @@ The following SaaS providers are currently available for use with EventBridge us
 
 - [Step 1: Create the CloudFormation stack](#create-gh-cfn-stack "#create-gh-cfn-stack")
 - [Step 2: Create a GitHub webhook](#create-gh-webhook "#create-gh-webhook")
-- [Set up a connection to a
-  Twilio](#furls-connection-twilio "#furls-connection-twilio")
+- [Set up a connection to a Twilio](#furls-connection-twilio "#furls-connection-twilio")
 - [Update webhook secret or auth token](#furls-update-secret "#furls-update-secret")
 - [Update Lambda function](#furls-update-function "#furls-update-function")
 - [Available event types](#furls-event-types "#furls-event-types")
@@ -81,13 +80,9 @@ Next, create the webhook on GitHub. You’ll need both the secure
 token and the Lambda function URL you created in step 2 to complete this step. For
 more information, see [Creating webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks "https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks") in the GitHub documentation.
 
-## Set up a connection to a
+## Set up a connection to a Twilio
 
-Twilio
-
-### Step 1: Find your Twilio auth
-
-token
+### Step 1: Find your Twilio auth token
 
 To set up a connection between Twilio and EventBridge, first set up the
 connection to Twilio with the auth token, or secret, for your
@@ -126,9 +121,7 @@ documentation.
 
 11. Choose **Create stack**.
 
-### Step 3: Create a Twilio
-
-webhook
+### Step 3: Create a Twilio webhook
 
 After you set up the Lambda function URL, you need to give it to Twilio so that
 event data can be sent. For more information, see [Configure your public URL with Twilio](https://www.twilio.com/docs/usage/webhooks/getting-started-twilio-webhooks#configure-your-public-url-with-twilio "https://www.twilio.com/docs/usage/webhooks/getting-started-twilio-webhooks#configure-your-public-url-with-twilio") in the

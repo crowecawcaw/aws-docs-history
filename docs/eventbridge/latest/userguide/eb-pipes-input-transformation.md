@@ -198,9 +198,7 @@ the fields listed below, with the exception of Amazon SQS.
 - Self managed Apache Kafka; – `key` and `value`
 - Amazon SQS – `body`
 
-## Common issues with transforming
-
-input
+## Common issues with transforming input
 
 These are some common issues when transforming input in EventBridge pipes:
 

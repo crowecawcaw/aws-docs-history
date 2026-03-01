@@ -1,6 +1,4 @@
-# Tutorial: Download code bindings for
-
-event schemas in EventBridge
+# Tutorial: Download code bindings for event schemas in EventBridge
 
 You can generate [code bindings](eb-schema-code-bindings.md "eb-schema-code-bindings.md") for [event schemas](eb-schema.md "eb-schema.md")
 to speed development for Golang, Java, Python, and TypeScript. You can get code bindings for existing AWS services, schemas you

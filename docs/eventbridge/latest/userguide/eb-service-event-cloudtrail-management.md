@@ -1,6 +1,4 @@
-# Receiving read-only management
-
-events from AWS services
+# Receiving read-only management events from AWS services
 
 You can set up rules on your default or custom event bus to receive read-only
 _management events_ from AWS services via CloudTrail. Management

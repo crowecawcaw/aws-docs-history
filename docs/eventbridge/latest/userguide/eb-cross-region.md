@@ -6,16 +6,12 @@ or events from specific sources. For more information, see [Introducing cross-Re
 
 The following video covers routing events between Regions using the [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/"), AWS CloudFormation, and AWS Serverless Application Model:
 
-## Creating rules that send events
-
-to a different AWS Region
+## Creating rules that send events to a different AWS Region
 
 Specifying an event bus in another AWS Region as a target is part of creating the
 rule.
 
-###### To create a rule that sends events to a different AWS account using the
-
-console
+###### To create a rule that sends events to a different AWS account using the console
 
 1. Follow the steps in the [Creating rules in Amazon EventBridge](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose a target type:

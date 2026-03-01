@@ -7,9 +7,7 @@ Once delivered,
 the record is decrypted and then re-encrypted with the KMS key specified for the log
 destination.
 
-## Event bus logs encryption
-
-context
+## Event bus logs encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs that contain arbitrary nonsecret
@@ -34,9 +32,7 @@ AWS KMS cryptographic operations.
 }
 ```
 
-## AWS KMS key policy permissions for event
-
-bus logging
+## AWS KMS key policy permissions for event bus logging
 
 For event buses using a customer managed key, you must add the following permissions to the key policy.
 

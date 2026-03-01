@@ -1,6 +1,4 @@
-# Getting started: Create an Amazon EventBridge event bus
-
-rule
+# Getting started: Create an Amazon EventBridge event bus rule
 
 To get familiar with EventBridge rules and their capabilities, we'll use a CloudFormation template to set
 up an event bus rule and associated components, including an event source, event pattern, and
@@ -127,9 +125,7 @@ Once the rule has been created, you can use the EventBridge console to observe r
 
 On the rule detail page, the **Rule details** section displays information about the rule, including its event pattern and targets.
 
-### Examining the event
-
-pattern
+### Examining the event pattern
 
 Before we test the rule operation, let's examine the event pattern we've specified
 to control which events are sent to the target. The rule will only send events that match

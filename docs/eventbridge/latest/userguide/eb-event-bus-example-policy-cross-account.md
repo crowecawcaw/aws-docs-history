@@ -1,6 +1,4 @@
-# Example policy: Send events to the
-
-default bus in a different account in Amazon EventBridge
+# Example policy: Send events to the default bus in a different account in Amazon EventBridge
 
 The following example policy grants the account 111122223333 permission to
 publish events to the default event bus in the account 123456789012.

@@ -3,12 +3,9 @@
 In general, APIs that generate management (or read-only) events start with the verbs
 `Describe`, `Get`, or `List`. The table below
 list AWS services and the management events they generate that do not follow
-this naming convention. For more information on management events, see [Receiving read-only management
-events from AWS services](eb-service-event-cloudtrail-management.md "eb-service-event-cloudtrail-management.md").
+this naming convention. For more information on management events, see [Receiving read-only management events from AWS services](eb-service-event-cloudtrail-management.md "eb-service-event-cloudtrail-management.md").
 
-## Management events that don't start
-
-with `Describe`, `Get`, or `List`
+## Management events that don't start with `Describe`, `Get`, or `List`
 
 The following table list AWS services and the management events they generate that do not follow typical naming conventions of starting with `Describe`, `Get`, or `List`.
 
@@ -363,16 +360,16 @@ The following table list AWS services and the management events they generate th
 | AWS Proton                                     | DeleteEnvironmentTemplateVersion                             | API call       |
 | AWS Proton                                     | DeleteServiceTemplateVersion                                 | API call       |
 | Amazon QLDB                                    | ShowCatalog                                                  | API call       |
-| Amazon Quick Suite                             | GenerateEmbedUrlForAnonymousUser                             | API call       |
-| Amazon Quick Suite                             | GenerateEmbedUrlForRegisteredUser                            | API call       |
-| Amazon Quick Suite                             | QueryDatabase                                                | Service event  |
-| Amazon Quick Suite                             | SearchAnalyses                                               | API call       |
-| Amazon Quick Suite                             | SearchDashboards                                             | API call       |
-| Amazon Quick Suite                             | SearchDataSets                                               | API call       |
-| Amazon Quick Suite                             | SearchDataSources                                            | API call       |
-| Amazon Quick Suite                             | SearchFolders                                                | API call       |
-| Amazon Quick Suite                             | SearchGroups                                                 | API call       |
-| Amazon Quick Suite                             | SearchUsers                                                  | API call       |
+| Amazon Quick                                   | GenerateEmbedUrlForAnonymousUser                             | API call       |
+| Amazon Quick                                   | GenerateEmbedUrlForRegisteredUser                            | API call       |
+| Amazon Quick                                   | QueryDatabase                                                | Service event  |
+| Amazon Quick                                   | SearchAnalyses                                               | API call       |
+| Amazon Quick                                   | SearchDashboards                                             | API call       |
+| Amazon Quick                                   | SearchDataSets                                               | API call       |
+| Amazon Quick                                   | SearchDataSources                                            | API call       |
+| Amazon Quick                                   | SearchFolders                                                | API call       |
+| Amazon Quick                                   | SearchGroups                                                 | API call       |
+| Amazon Quick                                   | SearchUsers                                                  | API call       |
 | Amazon Relational Database Service             | DownloadCompleteDBLogFile                                    | API call       |
 | Amazon Relational Database Service             | DownloadDBLogFilePortion                                     | API call       |
 | Amazon Rekognition                             | CompareFaces                                                 | API call       |

@@ -9,9 +9,7 @@ When you add targets to a rule and that rule runs soon after, any new or updated
 might not be immediately invoked. Allow a short period of time for changes to take
 effect.
 
-## Event bus targets available in the EventBridge
-
-console
+## Event bus targets available in the EventBridge console
 
 You can configure the following target types for rules in the EventBridge console:
 

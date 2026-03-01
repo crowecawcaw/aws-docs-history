@@ -33,9 +33,7 @@ Configuration properties differ based on the type of source you choose:
 
 Confluent
 
-###### To configure a Confluent Cloud stream as a source, by using
-
-the console
+###### To configure a Confluent Cloud stream as a source, by using the console
 
     1. For **Source**, choose
      **Confluent Cloud**.
@@ -114,7 +112,7 @@ DynamoDB
 
     	1. For **Batch size - optional**,
     	 enter a maximum number of records for each batch.
-    	 The default value is 100.
+    	 The default value is 10.
     	2. For **Batch window - optional**,
     	 enter a maximum number of seconds to gather records
     	 before proceeding.
@@ -172,7 +170,7 @@ Kinesis
 
     	1. For **Batch size - optional**,
     	 enter a maximum number of records for each batch.
-    	 The default value is 100.
+    	 The default value is 10.
     	2. (Optional) For **Batch window -
     	 optional**, enter a maximum number of
     	 seconds to gather records before proceeding.

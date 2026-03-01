@@ -6,9 +6,7 @@ If you create a pipe with Amazon SQS, Kinesis, or DynamoDB sources, pipe creatio
 
 If you create a pipe with Amazon MSK, self managed Apache Kafka, or Amazon MQ sources, pipes creation can take up to ten minutes.
 
-###### To
-
-create a pipe without processing events using the console
+###### To create a pipe without processing events using the console
 
 - Turn off the **Activate pipe** setting.
 

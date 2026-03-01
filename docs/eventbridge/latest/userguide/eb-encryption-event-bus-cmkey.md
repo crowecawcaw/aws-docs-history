@@ -38,9 +38,7 @@ Schema discovery is not supported for event buses encrypted
 using a customer managed key. To enable schema discovery on an
 event bus, choose to use an AWS owned key. For more information, see [KMS key options](eb-encryption-at-rest-key-options.md "eb-encryption-at-rest-key-options.md").
 
-## Event bus encryption
-
-context
+## Event bus encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs that contain arbitrary nonsecret
@@ -66,9 +64,7 @@ key–value pair, which contains the event bus ARN.
 }
 ```
 
-## AWS KMS key policy for event
-
-bus
+## AWS KMS key policy for event bus
 
 The following example key policy provides the required permissions for an
 event bus:

@@ -1,6 +1,4 @@
-# Updating archives on Amazon EventBridge event
-
-buses
+# Updating archives on Amazon EventBridge event buses
 
 You can update the following:
 

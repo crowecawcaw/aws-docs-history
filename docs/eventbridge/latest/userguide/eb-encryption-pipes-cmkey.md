@@ -1,6 +1,4 @@
-# Encrypting EventBridge Pipes data with
-
-AWS KMS keys
+# Encrypting EventBridge Pipes data with AWS KMS keys
 
 You can specify that EventBridge use a customer managed key to encrypt
 pipe data stored at rest, rather than use an
@@ -12,9 +10,7 @@ The pipe data EventBridge encrypts at rest includes:
 - [Input transformers](eb-pipes-input-transformation.md "eb-pipes-input-transformation.md")
   Events flowing through a pipe are never stored at rest.
 
-## EventBridge Pipes encryption
-
-context
+## EventBridge Pipes encryption context
 
 An [encryption
 context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is a set of key–value pairs that contain arbitrary nonsecret
@@ -48,9 +44,7 @@ For vended logs, EventBridge uses the following encryption context.
 }
 ```
 
-## AWS KMS key policy for EventBridge
-
-Pipes
+## AWS KMS key policy for EventBridge Pipes
 
 The following example key policy provides the required permissions for a
 pipe:
@@ -107,9 +101,7 @@ JSON
 
 ```
 
-### Permissions for
-
-pipe logs that include execution data
+### Permissions for pipe logs that include execution data
 
 If you have configured pipes logging to include execution data, the
 key policy must include the following permissions for the logging

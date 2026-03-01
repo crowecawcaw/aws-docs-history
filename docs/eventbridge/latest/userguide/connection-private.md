@@ -1,6 +1,4 @@
-# Connecting to private APIs in
-
-EventBridge
+# Connecting to private APIs in EventBridge
 
 You can create connections to private HTTPS endpoints, to provide secure
 point-to-point network access to resources in VPCs or on-premises without having to
@@ -162,9 +160,7 @@ connection, EventBridge deletes any corresponding resource associations.
 For more information, see [Manage resource associations](../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-resource-config-associations "../../../vpc-lattice/latest/ug/service-network-associations.md#service-network-resource-config-associations") in the _Amazon VPC Lattice User
 Guide_.
 
-## Connecting to on-premise
-
-private APIs
+## Connecting to on-premise private APIs
 
 Using access to VPC resources through
 AWS PrivateLink and VPC Lattice, you can connect to on-premise private APIs. To do so, you must configure a network route between your VPC and your on-premise environment. For example, you can

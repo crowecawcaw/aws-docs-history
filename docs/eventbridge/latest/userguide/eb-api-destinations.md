@@ -40,9 +40,7 @@ configured on your retry policy.
 The following video demonstrates the use of API
 destinations:
 
-## Service-linked role for API
-
-destinations
+## Service-linked role for API destinations
 
 When you create a connection for an API destination, the service-linked role [AmazonEventBridgeApiDestinationsServiceRolePolicy](eb-use-identity-based.md#api-destination-slr-policy "eb-use-identity-based.md#api-destination-slr-policy") is added to your account.
 EventBridge uses this service-linked role to create and store a secret
@@ -55,16 +53,12 @@ role can interact only with the connections in your account to manage the secret
 For more information about service-linked roles, see [Using service-linked
 roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_.
 
-## Headers in requests to API
-
-destinations
+## Headers in requests to API destinations
 
 The following section details how EventBridge handles HTTP headers in requests to API
 destinations.
 
-### Headers included in requests
-
-to API destinations
+### Headers included in requests to API destinations
 
 In addition to the authorization headers defined for the connection used for an
 API destination, EventBridge includes the following headers in each request.
@@ -79,18 +73,14 @@ API destination, EventBridge includes the following headers in each request.
 | Content-Length  | An entity header that indicates the size of the entity-body,<br>in bytes, sent to the recipient.                                                      |
 | Host            | A request header that specifies the host and port number of<br>the server where the request is being sent.                                            |
 
-### Headers that cannot be
-
-overridden in requests to API destinations
+### Headers that cannot be overridden in requests to API destinations
 
 EventBridge does not allow you to override the following headers:
 
 - User-Agent
 - Range
 
-### Headers EventBridge removes from
-
-requests to API destinations
+### Headers EventBridge removes from requests to API destinations
 
 EventBridge removes the following headers for all API destination requests:
 
@@ -143,9 +133,7 @@ chooses the more conservative value between the defined retry policy and the
 `Retry-After` header. If `Retry-After` value is negative, EventBridge
 stops retrying delivery for that event.
 
-## How invocation rate affects event
-
-delivery
+## How invocation rate affects event delivery
 
 If you set the invocation rate per second to a value much lower than the number of
 invocations generated, events may not be delivered within the 24 hour retry time for

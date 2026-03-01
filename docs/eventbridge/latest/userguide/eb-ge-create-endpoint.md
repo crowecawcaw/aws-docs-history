@@ -10,9 +10,7 @@ Complete the following steps to set up a global endpoint:
 3. Create your global endpoint.
    Once you have set up the Route 53 health check, you can create a global endpoint.
 
-## To create a global endpoint by using the
-
-console
+## To create a global endpoint by using the console
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Global endpoints**.
@@ -52,15 +50,11 @@ or treat missing data as 'missing' instead of 'breaching'. 8. (Optional) For **E
 
 9. Choose **Create**.
 
-## To create a global endpoint by using the
-
-API
+## To create a global endpoint by using the API
 
 To create a global endpoint using the EventBridge API, see [CreateEndpoint](../APIReference/API_CreateEndpoint.md "../APIReference/API_CreateEndpoint.md") in
 the Amazon EventBridge API Reference.
 
-## To create a global endpoint by using
-
-CloudFormation
+## To create a global endpoint by using CloudFormation
 
 To create a global endpoint using the AWS CloudFormation API, see [AWS::Events::Endpoints](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.md") in the AWS CloudFormation User Guide.

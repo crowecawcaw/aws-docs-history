@@ -53,39 +53,27 @@ policy in EventBridge.
 | events:source                           | `"events:source":"`source` "`<br>Use `source` for the literal string for the source field<br>of the event such as `"aws.ec2"` or `"aws.s3"`. For more<br>possible values for `source`, see the example events in [Events from AWS services](eb-events.md#eb-service-event "eb-events.md#eb-service-event"). | Source, Null                               |
 | events:TargetArn                        | `"events:TargetArn":"`target-arn` "`<br>For `target-arn`, use the ARN of the target for the rule,<br>for example `"arn:aws:lambda:*:*:function:*"`.                                                                                                                                                         | ArrayOfARN, Null                           |
 
-For example policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge
-resources](eb-manage-iam-access.md "eb-manage-iam-access.md").
+For example policy statements for EventBridge, see [Managing access permissions to your Amazon EventBridge resources](eb-manage-iam-access.md "eb-manage-iam-access.md").
 
 ###### Topics
 
 - [EventBridge Pipes specifics](#eb-pipes-condition-diff "#eb-pipes-condition-diff")
-- [Example: Using the creatorAccount
-  condition](#eb-events-creator-account "#eb-events-creator-account")
-- [Example: Using the eventBusInvocation
-  condition](#eb-events-bus-invocation "#eb-events-bus-invocation")
-- [Example: Limiting access to a specific
-  source](#eb-events-limit-access-control "#eb-events-limit-access-control")
-- [Example: Defining multiple sources that can be
-  used in an event pattern individually](#eb-events-pattern-sources "#eb-events-pattern-sources")
-- [Example: Ensuring that the source is
-  defined in the event pattern](#eb-source-defined-events-pattern "#eb-source-defined-events-pattern")
-- [Example: Defining a list of allowed
-  sources in an event pattern with multiple sources](#eb-allowed-sources-events-pattern "#eb-allowed-sources-events-pattern")
-- [Example: Limiting PutRule access by
-  detail.service](#eb-limit-rule-by-service "#eb-limit-rule-by-service")
-- [Example: Limiting PutRule access by
-  detail.eventTypeCode](#eb-limit-rule-by-type-code "#eb-limit-rule-by-type-code")
-- [Example: Ensuring that only AWS CloudTrail events for
-  API calls from a certain PrincipalId are allowed](#eb-consume-specific-events "#eb-consume-specific-events")
+- [Example: Using the creatorAccount condition](#eb-events-creator-account "#eb-events-creator-account")
+- [Example: Using the eventBusInvocation condition](#eb-events-bus-invocation "#eb-events-bus-invocation")
+- [Example: Limiting access to a specific source](#eb-events-limit-access-control "#eb-events-limit-access-control")
+- [Example: Defining multiple sources that can be used in an event pattern individually](#eb-events-pattern-sources "#eb-events-pattern-sources")
+- [Example: Ensuring that the source is defined in the event pattern](#eb-source-defined-events-pattern "#eb-source-defined-events-pattern")
+- [Example: Defining a list of allowed sources in an event pattern with multiple sources](#eb-allowed-sources-events-pattern "#eb-allowed-sources-events-pattern")
+- [Example: Limiting PutRule access by detail.service](#eb-limit-rule-by-service "#eb-limit-rule-by-service")
+- [Example: Limiting PutRule access by detail.eventTypeCode](#eb-limit-rule-by-type-code "#eb-limit-rule-by-type-code")
+- [Example: Ensuring that only AWS CloudTrail events for API calls from a certain PrincipalId are allowed](#eb-consume-specific-events "#eb-consume-specific-events")
 - [Example: Limiting access to targets](#eb-limiting-access-to-targets "#eb-limiting-access-to-targets")
 
 ## EventBridge Pipes specifics
 
 EventBridge Pipes does not support any additional IAM policy condition keys.
 
-## Example: Using the `creatorAccount`
-
-condition
+## Example: Using the `creatorAccount` condition
 
 The following example policy statement shows how to use the `creatorAccount`
 condition in a policy to only allow rules to be created if the account specified as the
@@ -113,9 +101,7 @@ JSON
 
 ```
 
-## Example: Using the `eventBusInvocation`
-
-condition
+## Example: Using the `eventBusInvocation` condition
 
 The `eventBusInvocation` indicates whether the invocation originates from a
 cross-account target or a `PutEvents` API request. The value is **true** when the invocation results from a rule that include a
@@ -145,9 +131,7 @@ JSON
 
 ```
 
-## Example: Limiting access to a specific
-
-source
+## Example: Limiting access to a specific source
 
 The following example policies can be attached to an IAM user. Policy A allows the
 `PutRule` API action for all events, whereas Policy B allows `PutRule`
@@ -229,9 +213,7 @@ See the following table for a comparison of Policy A and Policy B.
 | `<br>{<br>"source": [ "aws.ec2" ],<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>` | Yes                 | Yes                              |
 | `<br>{<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>`                             | Yes                 | No (Source must be specified)    |
 
-## Example: Defining multiple sources that can be
-
-used in an event pattern individually
+## Example: Defining multiple sources that can be used in an event pattern individually
 
 The following policy allows an IAM user or role to create a rule where the source in the
 `EventPattern` is either Amazon EC2 or Amazon ECS.
@@ -272,9 +254,7 @@ this policy.
 | `<br>{<br>"source": [ "aws.ec2", "aws.ecs" ]<br>}<br>`               | No                    |
 | `<br>{<br>"detail-type": [ "AWS API Call via CloudTrail" ]<br>}<br>` | No                    |
 
-## Example: Ensuring that the source is
-
-defined in the event pattern
+## Example: Ensuring that the source is defined in the event pattern
 
 The following policy allows users to only create rules with `EventPatterns`
 that have the source field. With this policy, an IAM user or role can't create a rule with
@@ -311,9 +291,7 @@ this policy.
 | `<br>{<br>"source": [ "aws.ecs", "aws.ec2" ]<br>}<br>`                                                      | Yes                   |
 | `<br>{<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>`                             | No                    |
 
-## Example: Defining a list of allowed
-
-sources in an event pattern with multiple sources
+## Example: Defining a list of allowed sources in an event pattern with multiple sources
 
 The following policy allows users to create rules with `EventPatterns` that
 have multiple sources in them. Each source in the event pattern must be a member of the list
@@ -355,9 +333,7 @@ this policy.
 | `<br>{<br>"source": [ "aws.ec2", "aws.autoscaling" ]<br>}<br>`                  | No                    |
 | `<br>{<br>"detail-type": [ "EC2 Instance State-change Notification" ]<br>}<br>` | No                    |
 
-## Example: Limiting `PutRule` access by
-
-`detail.service`
+## Example: Limiting `PutRule` access by `detail.service`
 
 You can restrict an IAM user or role to creating rules only for events that have a
 certain value in the `events:details.service` field. The value of
@@ -392,9 +368,7 @@ JSON
 
 ```
 
-## Example: Limiting `PutRule` access by
-
-`detail.eventTypeCode`
+## Example: Limiting `PutRule` access by `detail.eventTypeCode`
 
 You can restrict an IAM user or role to creating rules only for events that have a
 certain value in the `events:details.eventTypeCode` field. This policy condition is
@@ -428,9 +402,7 @@ JSON
 
 ```
 
-## Example: Ensuring that only AWS CloudTrail events for
-
-API calls from a certain `PrincipalId` are allowed
+## Example: Ensuring that only AWS CloudTrail events for API calls from a certain `PrincipalId` are allowed
 
 All AWS CloudTrail events have the PrincipalId of the user who made the API call in the
 `detail.userIdentity.principalId` path of an event. Using the

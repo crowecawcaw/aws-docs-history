@@ -28,9 +28,7 @@ that is encrypted and stored with the encrypted data.
 EventBridge uses this for event pattern matching; users never
 have access to the data.
 
-## Security when
-
-using customer managed keys for EventBridge encryption
+## Security when using customer managed keys for EventBridge encryption
 
 As a security best practice, add an `aws:SourceArn`,
 `aws:sourceAccount`, or
