@@ -1,6 +1,4 @@
-# Frequently asked questions about using Capacity Blocks with
-
-AWS PCS
+# Frequently asked questions about using Capacity Blocks with AWS PCS
 
 **I just paid for a Capacity Block and immediately attempted to use it with AWS PCS but compute
 node group creation failed. What happened?**

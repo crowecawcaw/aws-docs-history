@@ -1,6 +1,4 @@
-# Step 4 – Retrieve and
-
-store the cluster secret
+# Step 4 – Retrieve and store the cluster secret
 
 These instructions require the AWS CLI. For more information, see [Install or update to the latest version
 of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide for Version 2_.

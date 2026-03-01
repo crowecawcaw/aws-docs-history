@@ -1,6 +1,4 @@
-# Step 3 – Install Slurm
-
-on the instance
+# Step 3 – Install Slurm on the instance
 
 When the instance has launched and becomes active, connect to it using your preferred
 mechanism. Use the Slurm installer provided by AWS to install Slurm onto the instance. For more

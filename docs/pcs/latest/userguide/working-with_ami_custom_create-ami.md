@@ -1,6 +1,4 @@
-# Step 5 – Create an AMI compatible
-
-with AWS PCS
+# Step 5 – Create an AMI compatible with AWS PCS
 
 After you have installed the required software components, you create an AMI that you can
 reuse to launch instances in AWS PCS compute node groups.

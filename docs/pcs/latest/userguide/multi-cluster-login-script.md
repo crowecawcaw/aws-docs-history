@@ -1,6 +1,4 @@
-# Connecting a standalone login node to multiple
-
-clusters in AWS PCS
+# Connecting a standalone login node to multiple clusters in AWS PCS
 
 The `pcs-multi-cluster-login-configure.sh` script provides an automated way to
 configure multiple Slurm `sackd` daemons on a single standalone login node. It enables the
@@ -30,9 +28,6 @@ that users can use to configure their shell environment for cluster interaction.
 
 ###### Topics
 
-- [Prerequisites for the AWS PCS
-  multi-cluster login node configuration script](multi-cluster-login-script-prerequisites.md "multi-cluster-login-script-prerequisites.md")
-- [AWS PCS multi-cluster login node configuration
-  script code](multi-cluster-login-script-code.md "multi-cluster-login-script-code.md")
-- [Using the AWS PCS multi-cluster login
-  node configuration script](multi-cluster-login-script-usage.md "multi-cluster-login-script-usage.md")
+- [Prerequisites for the AWS PCS multi-cluster login node configuration script](multi-cluster-login-script-prerequisites.md "multi-cluster-login-script-prerequisites.md")
+- [AWS PCS multi-cluster login node configuration script code](multi-cluster-login-script-code.md "multi-cluster-login-script-code.md")
+- [Using the AWS PCS multi-cluster login node configuration script](multi-cluster-login-script-usage.md "multi-cluster-login-script-usage.md")

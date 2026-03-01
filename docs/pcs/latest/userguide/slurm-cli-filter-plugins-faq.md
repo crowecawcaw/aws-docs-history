@@ -1,6 +1,4 @@
-# Frequently asked questions about Slurm CLI Filter
-
-Plugins in AWS PCS
+# Frequently asked questions about Slurm CLI Filter Plugins in AWS PCS
 
 Review these frequently asked questions about CLI Filter Plugins.
 

@@ -1,6 +1,4 @@
-# Step 2 – Install the AWS PCS
-
-agent
+# Step 2 – Install the AWS PCS agent
 
 Install the agent that configures the instances launched by AWS PCS for use with
 Slurm. For more information about the AWS PCS agent, see [AWS PCS agent versions](pcs-agent-versions.md "pcs-agent-versions.md").

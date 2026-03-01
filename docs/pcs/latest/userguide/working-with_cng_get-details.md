@@ -1,6 +1,4 @@
-# Get compute node group details in
-
-AWS PCS
+# Get compute node group details in AWS PCS
 
 You can use the AWS Management Console or AWS CLI to get details about a compute node group, such as its
 compute node group ID, Amazon Resource Name (ARN), and Amazon Machine Image (AMI) ID. These

@@ -1,6 +1,4 @@
-# Using Amazon EC2 launch templates
-
-with AWS PCS
+# Using Amazon EC2 launch templates with AWS PCS
 
 In Amazon EC2, a launch template can store a set of preferences so that you don't have to
 specify them individually when you launch instances. AWS PCS incorporates launch templates as a
@@ -19,5 +17,4 @@ template](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWS
 - [Create a basic launch template](working-with_launch-templates_create.md "working-with_launch-templates_create.md")
 - [Working with Amazon EC2 user data for AWS PCS](working-with_ec2-user-data.md "working-with_ec2-user-data.md")
 - [Capacity Reservations in AWS PCS](working-with_capacity-reservations.md "working-with_capacity-reservations.md")
-- [Useful launch template
-  parameters](working-with_launch-templates_parameters.md "working-with_launch-templates_parameters.md")
+- [Useful launch template parameters](working-with_launch-templates_parameters.md "working-with_launch-templates_parameters.md")

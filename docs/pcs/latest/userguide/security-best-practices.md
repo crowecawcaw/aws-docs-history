@@ -16,8 +16,7 @@ for Security, Identity, and Compliance](https://aws.amazon.com/architecture/secu
   and update the compute nodes to use the updated AMI. Consider automating
   this process to minimize vulnerabilities.
 
-For more information, see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+For more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
 ## Slurm Workload Manager security
 

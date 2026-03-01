@@ -1,6 +1,4 @@
-# Step 4 – (Optional) Install
-
-additional drivers, libraries, and application software
+# Step 4 – (Optional) Install additional drivers, libraries, and application software
 
 Install additional drivers, libraries, and application software on the temporary instance.
 The installation procedures will vary depending on the specific applications and libraries. If

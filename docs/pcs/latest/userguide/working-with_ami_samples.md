@@ -92,5 +92,4 @@ AWS PCS sample AMIs, see [Release notes for AWS PCS sample AMIs](ami-release-not
 ## Build your own AMIs compatible with AWS PCS
 
 To learn how to build your own AMIs that work with AWS PCS,
-see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").

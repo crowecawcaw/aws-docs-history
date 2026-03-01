@@ -1,6 +1,4 @@
-# Creating a compute node group in
-
-AWS PCS
+# Creating a compute node group in AWS PCS
 
 This topic provides an overview of available options and describes what to consider when you
 create a compute node group in AWS Parallel Computing Service (AWS PCS). If this is your first time creating
@@ -18,8 +16,7 @@ You can configure custom Slurm settings on compute node groups to control resour
 
 AWS PCS currently requires a kernel with IPv4 support for local node
 communication, even when you use AWS PCS in an IPv6-only network. For more information,
-see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
 ## Prerequisites
 
@@ -29,8 +26,7 @@ AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 - An existing VPC and subnet(s) that meet AWS PCS networking requirements.
   We recommend that you thoroughly understand these requirements before you deploy a
   cluster for production use. For more information, see
-  [AWS PCS VPC and subnet requirements
-  and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md").
+  [AWS PCS VPC and subnet requirements and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md").
   You can also use a CloudFormation template to create a VPC and subnets. AWS provides
   an HPC recipe for the CloudFormation template. For more information, see
   [aws-hpc-recipes](https://github.com/aws-samples/aws-hpc-recipes/tree/main/recipes/net/hpc_large_scale "https://github.com/aws-samples/aws-hpc-recipes/tree/main/recipes/net/hpc_large_scale") on GitHub.
@@ -39,16 +35,13 @@ AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
   resources required for your node group instances. For more information,
   see [IAM instance profiles for AWS Parallel Computing Service](security-instance-profiles.md "security-instance-profiles.md").
 - A launch template for your node group instances. For more information, see
-  [Using Amazon EC2 launch templates
-  with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+  [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 - To create a compute node group that uses Amazon EC2 **Spot**
   instances, you must have the **AWSServiceRoleForEC2Spot**
   service-linked role in your AWS account. For more information, see
   [Amazon EC2 Spot role for AWS PCS](spot-role.md "spot-role.md").
 
-## Create a compute node group in
-
-AWS PCS
+## Create a compute node group in AWS PCS
 
 You can create a compute node group using the AWS Management Console or the AWS CLI.
 
@@ -68,8 +61,7 @@ AWS Management Console
    1. **EC2 launch template** – Select a custom launch template to
       use for this node group. Launch templates can be used to customize network settings such
       as subnet, and security groups, monitoring configuration, and instance-level storage. If
-      you don't have a launch template prepared, see [Using Amazon EC2 launch templates
-      with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") to learn how to
+      you don't have a launch template prepared, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") to learn how to
       create one.
 
    ###### Important
@@ -144,8 +136,7 @@ following replacements:
 4. Replace `subnet-ExampleID1` with one or more subnets IDs from
    your cluster VPC.
 5. Replace `lt-ExampleID1` with the ID for your custom launch
-   template. If you don't have one prepared, see [Using Amazon EC2 launch templates
-   with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") to learn how to create
+   template. If you don't have one prepared, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") to learn how to create
    one.
 
 ###### Important
@@ -155,8 +146,7 @@ These are named `pcs-`identifier`-do-not-delete`. Don't
 select these when you create or update a compute node group, or the node group won't function
 correctly. 6. Replace `launch-template-version` with a specific launch template version.
 AWS PCS associates your node group with that specific version of the launch template. 7. Replace `arn:InstanceProfile`with the ARN of your IAM instance
-profile. If you don't have one prepared, see [Using Amazon EC2 launch templates
-with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") for guidance. 8. Replace `min-instances` and
+profile. If you don't have one prepared, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md") for guidance. 8. Replace `min-instances` and
 `max-instances` with integer values. You can define either a
 static configuration, where there is a fixed number of nodes running, or a dynamic
 configuration, where up to the maximum count of nodes can run. For a static configuration,

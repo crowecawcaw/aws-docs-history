@@ -16,8 +16,7 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSC
 ###### Topics
 
 - [Use CloudFormation to create a sample AWS PCS cluster](get-started-cfn-create.md "get-started-cfn-create.md")
-- [Connect to a AWS PCS cluster created with
-  CloudFormation](get-started-cfn-connect.md "get-started-cfn-connect.md")
+- [Connect to a AWS PCS cluster created with CloudFormation](get-started-cfn-connect.md "get-started-cfn-connect.md")
 - [Clean up an AWS PCS cluster in CloudFormation](get-started-cfn-cleanup.md "get-started-cfn-cleanup.md")
 - [Parts of a CloudFormation template for AWS PCS](get-started-cfn-template-parts.md "get-started-cfn-template-parts.md")
 - [CloudFormation templates to create a sample AWS PCS cluster](get-started-cfn-sample-templates.md "get-started-cfn-sample-templates.md")

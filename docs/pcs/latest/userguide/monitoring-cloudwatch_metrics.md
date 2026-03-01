@@ -1,6 +1,4 @@
-# Monitoring AWS PCS metrics using
-
-CloudWatch
+# Monitoring AWS PCS metrics using CloudWatch
 
 You can monitor AWS PCS cluster health using Amazon CloudWatch, which collects data from your
 cluster and turns it into near real-time metrics. These statistics are retained for a period

@@ -29,9 +29,7 @@ it to a launch template. Here are the steps to do so:
    1. Set the `purchaseOption` of the compute node group
       to `ONDEMAND`.
 
-## Example:
-
-Reserve and use hpc6a.48xlarge instances with a targeted ODCR
+## Example: Reserve and use hpc6a.48xlarge instances with a targeted ODCR
 
 This example command creates a targeted ODCR for 32 hpc6a.48xlarge instances.
 To launch the reserved instances in a placement group, add

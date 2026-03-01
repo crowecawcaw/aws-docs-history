@@ -15,7 +15,5 @@ Explore the topics in this section to learn more about monitoring AWS PCS using 
 
 ###### Topics
 
-- [Monitoring AWS PCS metrics using
-  CloudWatch](monitoring-cloudwatch_metrics.md "monitoring-cloudwatch_metrics.md")
-- [Monitoring AWS PCS instances using
-  Amazon CloudWatch](monitoring-cloudwatch_instances.md "monitoring-cloudwatch_instances.md")
+- [Monitoring AWS PCS metrics using CloudWatch](monitoring-cloudwatch_metrics.md "monitoring-cloudwatch_metrics.md")
+- [Monitoring AWS PCS instances using Amazon CloudWatch](monitoring-cloudwatch_instances.md "monitoring-cloudwatch_instances.md")

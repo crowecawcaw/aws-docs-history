@@ -8,10 +8,8 @@ troubleshooting.
 
 - [Prerequisites](monitoring_scheduler-logs.md#monitoring_scheduler-logs_prereqs "monitoring_scheduler-logs.md#monitoring_scheduler-logs_prereqs")
 - [Set up scheduler logs](monitoring_scheduler-logs.md#monitoring_scheduler-logs_setup "monitoring_scheduler-logs.md#monitoring_scheduler-logs_setup")
-- [Scheduler log stream paths and
-  names](monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths "monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths")
-- [Example scheduler log
-  record](monitoring_scheduler-logs.md#monitoring_scheduler-logs_record "monitoring_scheduler-logs.md#monitoring_scheduler-logs_record")
+- [Scheduler log stream paths and names](monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths "monitoring_scheduler-logs.md#monitoring_scheduler-logs_paths")
+- [Example scheduler log record](monitoring_scheduler-logs.md#monitoring_scheduler-logs_record "monitoring_scheduler-logs.md#monitoring_scheduler-logs_record")
 
 ## Prerequisites
 
@@ -114,9 +112,7 @@ Replace:
 
 For more information, see [CreateDelivery](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.md") in the _Amazon CloudWatch Logs API Reference_.
 
-## Scheduler log stream paths and
-
-names
+## Scheduler log stream paths and names
 
 The path and name for AWS PCS scheduler logs depend on the destination type.
 
@@ -158,9 +154,7 @@ The path and name for AWS PCS scheduler logs depend on the destination type.
   PCS_slurmctld_24.05_2024-09-01-00_abcdef0123_0123abcdef.log
   ```
 
-## Example scheduler log
-
-record
+## Example scheduler log record
 
 AWS PCS scheduler logs are structured. They include fields such as the cluster
 identifier, scheduler type, major and patch versions, in addition to the log message

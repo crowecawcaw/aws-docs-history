@@ -4,8 +4,7 @@
 
 1. Create an Amazon EC2 launch template for AWS PCS that specifies your Capacity Block.
    For more information about creating a launch template for AWS PCS, see
-   [Using Amazon EC2 launch templates
-   with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+   [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 
 Your launch template must include:
 
@@ -15,8 +14,7 @@ Your launch template must include:
     * A valid `InstanceType` that matches the instance type of the Capacity Block you purchased.
 
 2. Create a compute node group that uses the launch template. For more information, see
-   [Creating a compute node group in
-   AWS PCS](working-with_cng_create.md "working-with_cng_create.md"). You can
+   [Creating a compute node group in AWS PCS](working-with_cng_create.md "working-with_cng_create.md"). You can
    also update an existing compute node group to use the launch template. For more information,
    see [Updating an AWS PCS compute node group](working-with_cng_update.md "working-with_cng_update.md").
 

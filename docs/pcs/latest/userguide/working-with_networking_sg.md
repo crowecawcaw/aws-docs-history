@@ -6,17 +6,14 @@ groups to its instances. If your launch template doesn't contain any network int
 `SecurityGroupIds` to provide a list of security groups. If your launch template
 defines network interfaces, you must use the `Groups` parameter to assign security
 groups to each network interface. For more information about launch templates, see
-[Using Amazon EC2 launch templates
-with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+[Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 
 ###### Note
 
 Changes to the security group configuration in the launch template only affects new
 instances launched after the compute node group is updated.
 
-## Security group requirements
-
-and considerations
+## Security group requirements and considerations
 
 AWS PCS creates a cross-account [Elastic Network Interface (ENI)](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the
 subnet you specify when creating a cluster. This provides the HPC scheduler, which is running in
@@ -28,9 +25,7 @@ A straightforward way to accomplish this is to create a permissive self-referenc
 group that permits TCP/IP traffic on all ports between all members of the group. You can attach
 this to both the cluster and to node group EC2 instances.
 
-### Example
-
-permissive security group configuration
+### Example permissive security group configuration
 
 IPv4
 

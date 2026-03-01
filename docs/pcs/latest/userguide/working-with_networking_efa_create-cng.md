@@ -1,6 +1,4 @@
-# Create or update compute node
-
-groups for EFA
+# Create or update compute node groups for EFA
 
 Your AWS PCS compute node groups must contain instances that have the same number of
 vCPUs, processor architecture, and EFA support. Configure the compute node

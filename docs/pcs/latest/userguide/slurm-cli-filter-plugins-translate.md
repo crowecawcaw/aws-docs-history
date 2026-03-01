@@ -1,6 +1,4 @@
-# Translate a Slurm Job Submit plugin script to
-
-use CLI Filter Plugin in AWS PCS
+# Translate a Slurm Job Submit plugin script to use CLI Filter Plugin in AWS PCS
 
 Translate your existing Job Submit Plugin Lua script to CLI Filter Plugin when you migrate
 from other Slurm environments. The translation process involves updating

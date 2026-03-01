@@ -14,17 +14,13 @@ AWS Management Console
 Navigate to **Additional scheduler settings** in the create
 or edit page for any resource type (cluster, queue, or compute node group).
 
-######
-
-To add a new setting
+###### To add a new setting
 
 1. Choose **Add new setting**.
 2. Select a **Parameter** name from the dropdown (which includes brief parameter descriptions).
 3. Provide the corresponding value.
 
-######
-
-To unset a custom setting
+###### To unset a custom setting
 
 1. Choose **Remove** next to the relevant parameter/value pair.
 2. Create or update the resource.

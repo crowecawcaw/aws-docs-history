@@ -51,8 +51,7 @@ have to be directly managed by the service:
   AWS PCS can configure instance networking for you. To configure multiple network cards
   or to enable Elastic Fabric Adapter on your instances, use `NetworkInterfaces`.
   Each network interface must have a list of security group IDs under `Groups`.
-  For more information, see [Multiple network interfaces in
-  AWS PCS](working-with_networking_multi-nic.md "working-with_networking_multi-nic.md").
+  For more information, see [Multiple network interfaces in AWS PCS](working-with_networking_multi-nic.md "working-with_networking_multi-nic.md").
 - **Advanced details/Capacity
   reservation**(`CapacityReservationSpecification`) – This can be
   set, but cannot reference a specific `CapacityReservationId` when working with

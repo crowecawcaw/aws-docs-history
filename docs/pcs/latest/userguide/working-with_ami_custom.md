@@ -1,6 +1,4 @@
-# Custom Amazon Machine Images (AMIs) for
-
-AWS PCS
+# Custom Amazon Machine Images (AMIs) for AWS PCS
 
 AWS PCS is designed to work with Amazon Machine Images (AMI) that you bring to the
 service. These AMIs can have arbitrary software and configurations installed on them, so long as
@@ -24,16 +22,10 @@ your HPC and AI/ML workloads.
 
 ###### Topics
 
-- [Step 1 – Launch a temporary
-  instance](working-with_ami_custom_launch-instance.md "working-with_ami_custom_launch-instance.md")
-- [Step 2 – Install the AWS PCS
-  agent](working-with_ami_custom_install-agent.md "working-with_ami_custom_install-agent.md")
+- [Step 1 – Launch a temporary instance](working-with_ami_custom_launch-instance.md "working-with_ami_custom_launch-instance.md")
+- [Step 2 – Install the AWS PCS agent](working-with_ami_custom_install-agent.md "working-with_ami_custom_install-agent.md")
 - [Step 3 – Install Slurm](working-with_ami_custom_install-slurm.md "working-with_ami_custom_install-slurm.md")
-- [Step 4 – (Optional) Install
-  additional drivers, libraries, and application software](working-with_ami_custom_install-software.md "working-with_ami_custom_install-software.md")
-- [Step 5 – Create an AMI compatible
-  with AWS PCS](working-with_ami_custom_create-ami.md "working-with_ami_custom_create-ami.md")
-- [Step 6 – Use the custom AMI with an
-  AWS PCS compute node group](working-with_ami_custom_use-ami.md "working-with_ami_custom_use-ami.md")
-- [Step 7 – Terminate the
-  temporary instance](working-with_ami_custom_terminate-instance.md "working-with_ami_custom_terminate-instance.md")
+- [Step 4 – (Optional) Install additional drivers, libraries, and application software](working-with_ami_custom_install-software.md "working-with_ami_custom_install-software.md")
+- [Step 5 – Create an AMI compatible with AWS PCS](working-with_ami_custom_create-ami.md "working-with_ami_custom_create-ami.md")
+- [Step 6 – Use the custom AMI with an AWS PCS compute node group](working-with_ami_custom_use-ami.md "working-with_ami_custom_use-ami.md")
+- [Step 7 – Terminate the temporary instance](working-with_ami_custom_terminate-instance.md "working-with_ami_custom_terminate-instance.md")

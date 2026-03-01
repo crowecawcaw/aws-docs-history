@@ -1,6 +1,4 @@
-# Working with cluster secrets in
-
-AWS PCS
+# Working with cluster secrets in AWS PCS
 
 As part of creating a cluster, AWS PCS creates a cluster secret that is required to
 connect to the job scheduler on the cluster. You also create AWS PCS compute node groups,
@@ -15,9 +13,7 @@ AWS Secrets Manager. The cost of the secret is included in the charge for using 
 
 ###### Topics
 
-- [Use AWS Secrets Manager to find the
-  cluster secret](working-with_clusters_secrets_find_secrets-manager.md "working-with_clusters_secrets_find_secrets-manager.md")
-- [Use AWS PCS to find the cluster
-  secret](working-with_clusters_secrets_find_pcs.md "working-with_clusters_secrets_find_pcs.md")
+- [Use AWS Secrets Manager to find the cluster secret](working-with_clusters_secrets_find_secrets-manager.md "working-with_clusters_secrets_find_secrets-manager.md")
+- [Use AWS PCS to find the cluster secret](working-with_clusters_secrets_find_pcs.md "working-with_clusters_secrets_find_pcs.md")
 - [Get the Slurm cluster secret](working-with_clusters_secrets_get.md "working-with_clusters_secrets_get.md")
 - [Rotating cluster secrets in AWS PCS](cluster-secret-rotation.md "cluster-secret-rotation.md")

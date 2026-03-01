@@ -4,11 +4,8 @@ An AWS PCS compute node group is a logical collection of nodes (Amazon EC2 insta
 
 ###### Topics
 
-- [Creating a compute node group in
-  AWS PCS](working-with_cng_create.md "working-with_cng_create.md")
+- [Creating a compute node group in AWS PCS](working-with_cng_create.md "working-with_cng_create.md")
 - [Updating an AWS PCS compute node group](working-with_cng_update.md "working-with_cng_update.md")
 - [Deleting a compute node group in AWS PCS](working-with_cng_delete.md "working-with_cng_delete.md")
-- [Get compute node group details in
-  AWS PCS](working-with_cng_get-details.md "working-with_cng_get-details.md")
-- [Finding compute node group instances in
-  AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md")
+- [Get compute node group details in AWS PCS](working-with_cng_get-details.md "working-with_cng_get-details.md")
+- [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md")

@@ -1,6 +1,4 @@
-# Software installers to build custom AMIs for
-
-AWS PCS
+# Software installers to build custom AMIs for AWS PCS
 
 AWS provides a downloadable file that can install the AWS PCS software on an instance.
 AWS also provides software that can download, compile, and install relevant versions of Slurm

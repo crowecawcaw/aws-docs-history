@@ -29,6 +29,5 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience in AWS Parallel Computing Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS Parallel Computing Service](infrastructure-security.md "infrastructure-security.md")
 - [Vulnerability analysis and management in AWS Parallel Computing Service](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices for AWS Parallel Computing Service](security-best-practices.md "security-best-practices.md")

@@ -1,6 +1,4 @@
-# Prerequisites for the AWS PCS
-
-multi-cluster login node configuration script
+# Prerequisites for the AWS PCS multi-cluster login node configuration script
 
 ## System requirements
 

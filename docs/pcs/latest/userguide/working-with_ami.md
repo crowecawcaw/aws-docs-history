@@ -9,8 +9,6 @@ build and use your own customized AMIs.
 ###### Topics
 
 - [Using sample Amazon Machine Images (AMIs) with AWS PCS](working-with_ami_samples.md "working-with_ami_samples.md")
-- [Custom Amazon Machine Images (AMIs) for
-  AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md")
-- [Software installers to build custom AMIs for
-  AWS PCS](working-with_ami_installers.md "working-with_ami_installers.md")
+- [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md")
+- [Software installers to build custom AMIs for AWS PCS](working-with_ami_installers.md "working-with_ami_installers.md")
 - [Release notes for AWS PCS sample AMIs](ami-release-notes.md "ami-release-notes.md")

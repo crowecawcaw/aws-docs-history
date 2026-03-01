@@ -1,6 +1,4 @@
-# Endpoints and service quotas for
-
-AWS PCS
+# Endpoints and service quotas for AWS PCS
 
 The following sections describe the endpoints and service quotas for AWS Parallel Computing Service
 (AWS PCS). Service quotas, formerly referred to as _limits_,

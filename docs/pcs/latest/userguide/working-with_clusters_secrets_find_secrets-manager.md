@@ -1,6 +1,4 @@
-# Use AWS Secrets Manager to find the
-
-cluster secret
+# Use AWS Secrets Manager to find the cluster secret
 
 AWS Management Console
 

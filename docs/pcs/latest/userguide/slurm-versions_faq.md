@@ -1,6 +1,4 @@
-# Frequently asked questions about Slurm versions in
-
-AWS PCS
+# Frequently asked questions about Slurm versions in AWS PCS
 
 AWS PCS maintains support for multiple Slurm versions. When a new Slurm version is
 introduced, AWS PCS provides technical support and security patches until that version
@@ -21,8 +19,7 @@ To address bugs and security fixes, AWS PCS is designed to automatically apply
 patches to cluster controllers that run in internal service-owned accounts. To install
 patches on EC2 instances in your AWS account, update the Amazon Machine Image (AMI) for
 your compute node groups and update the compute node groups to use the updated AMI. For
-more information, see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
 ###### Note
 
@@ -38,9 +35,7 @@ date. After the EOL date, we send monthly email messages for 12 months to custom
 running AWS PCS clusters with EOL Slurm versions. We might suspend a cluster with an EOL
 Slurm version if security vulnerabilities are identified for that version.
 
-###### How can I determine if the Slurm version used by my cluster is running an EOL Slurm
-
-version?
+###### How can I determine if the Slurm version used by my cluster is running an EOL Slurm version?
 
 We send you an email message to notify you that you have a running cluster with an EOL
 Slurm version. We post an alert to the AWS Health Dashboard alerts that contains the details
@@ -52,12 +47,9 @@ identify the clusters with EOL Slurm versions.
 Create a new cluster with a newer supported version of Slurm and update the Slurm
 version in your compute node group AMIs. The Slurm version in your AMIs and running EC2
 instances can’t be more than 2 versions behind the cluster’s Slurm version. For more
-information, see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
-###### What will happen if I don’t switch to a newer version of Slurm by the EOL
-
-date?
+###### What will happen if I don’t switch to a newer version of Slurm by the EOL date?
 
 You can’t create new clusters with an EOL Slurm version. Existing clusters can operate
 for up to 12 months without AWS support, and no immediate action is required to maintain
@@ -73,9 +65,7 @@ operational risks. Without SchedMD's active monitoring, security vulnerabilities
 remain undetected or unaddressed. If critical vulnerabilities are discovered, we might
 suspend your clusters immediately.
 
-###### What happens to my jobs, cluster compute, storage and networking resources when my
-
-cluster is suspended?
+###### What happens to my jobs, cluster compute, storage and networking resources when my cluster is suspended?
 
 All resources managed by AWS PCS are terminated. This includes the Slurm controller,
 compute node groups, and EC2 instances. Any jobs running on compute instances are

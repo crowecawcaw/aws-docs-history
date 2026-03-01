@@ -38,8 +38,7 @@ in the _AWS Managed Policy Reference_.
 
 You can't attach AWSPCSServiceRolePolicy to your IAM entities. This policy is attached to a
 service-linked role that allows AWS PCS to perform actions on your behalf. For more
-information, see [Service-linked roles for
-AWS PCS](service-linked-roles.md "service-linked-roles.md").
+information, see [Service-linked roles for AWS PCS](service-linked-roles.md "service-linked-roles.md").
 
 **Permissions details**
 
@@ -55,9 +54,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSPCSServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSPCSServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSPCSServiceRolePolicy.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS PCS updates to AWS managed
-
-policies
+## AWS PCS updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS PCS since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

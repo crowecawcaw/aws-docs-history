@@ -1,6 +1,4 @@
-# Step 1 – Retrieve the
-
-address and secret for the target AWS PCS cluster
+# Step 1 – Retrieve the address and secret for the target AWS PCS cluster
 
 Retrieve details about the target AWS PCS cluster using the AWS CLI with the command that
 follows. Before running the command, make the following replacements:

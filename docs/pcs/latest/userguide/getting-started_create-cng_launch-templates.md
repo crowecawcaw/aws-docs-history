@@ -9,9 +9,7 @@ One template will be used to create login nodes, and the other will be used to c
 nodes. The key difference between them is that the login nodes can be configured to allow inbound
 SSH access.
 
-## Access the
-
-CloudFormation template
+## Access the CloudFormation template
 
 Use the following URL to download the CloudFormation template, then upload the template in
 the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home#/stacks/create "https://console.aws.amazon.com/cloudformation/home#/stacks/create") to
@@ -22,9 +20,7 @@ in the _AWS CloudFormation User Guide_.
 https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/getting_started/assets/pcs-lt-efs-fsxl.yaml
 ```
 
-## Use the
-
-CloudFormation template to create EC2 launch templates
+## Use the CloudFormation template to create EC2 launch templates
 
 Use the following procedure to complete the CloudFormation template in the
 CloudFormation console

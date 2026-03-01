@@ -20,9 +20,7 @@ workloads.
 - [Sample AMIs for Arm64
   (AL2)](ami-release-notes.md#ami-release-notes_arm64 "ami-release-notes.md#ami-release-notes_arm64")
 
-## AWS PCS sample AMIs for x86_64 (Amazon
-
-Linux 2)
+## AWS PCS sample AMIs for x86_64 (Amazon Linux 2)
 
 ###### AMI name
 
@@ -111,9 +109,7 @@ information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accoun
 - NVIDIA Driver: 550.127.08
 - NVIDIA CUDA: 12.4.1_550.54.15
 
-## AWS PCS sample AMIs for Arm64 (Amazon
-
-Linux 2)
+## AWS PCS sample AMIs for Arm64 (Amazon Linux 2)
 
 ###### AMI name
 

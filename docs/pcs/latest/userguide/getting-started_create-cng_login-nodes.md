@@ -1,6 +1,4 @@
-# Create compute node group for login
-
-nodes in AWS PCS
+# Create compute node group for login nodes in AWS PCS
 
 A compute node group is virtual collection of compute nodes (EC2 instances) that AWS PCS
 launches and manages. When you define a compute node group, you specify common traits such as EC2

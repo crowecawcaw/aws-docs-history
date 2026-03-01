@@ -1,6 +1,4 @@
-# Using the AWS PCS multi-cluster login
-
-node configuration script
+# Using the AWS PCS multi-cluster login node configuration script
 
 ## Running the script
 

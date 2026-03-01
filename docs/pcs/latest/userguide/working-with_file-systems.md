@@ -12,9 +12,7 @@ You can also use self-managed file systems, such as NFS servers.
 This topic covers considerations for and examples of using network file systems with
 AWS PCS.
 
-## Considerations for using network
-
-file systems
+## Considerations for using network file systems
 
 The implementation details for various file systems are different, but there are some common
 considerations.
@@ -33,8 +31,7 @@ considerations.
 - File system mounts are done using EC2 launch templates. Errors or timeouts
   in mounting a network file system may prevent instances from becoming available to run jobs.
   This, in turn, may lead to unexpected costs. For more information about debugging launch
-  templates, see [Using Amazon EC2 launch templates
-  with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+  templates, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 
 ## Example network mounts
 

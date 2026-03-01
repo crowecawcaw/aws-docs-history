@@ -1,6 +1,4 @@
-# Multiple network interfaces in
-
-AWS PCS
+# Multiple network interfaces in AWS PCS
 
 Some EC2 instances have multiple network cards. This allows them to provide higher network
 performance, including bandwidth capabilities above 100 Gbps and improved packet handling.

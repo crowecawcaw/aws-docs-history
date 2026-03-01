@@ -1,6 +1,4 @@
-# Create a security group to support EFA
-
-communications
+# Create a security group to support EFA communications
 
 AWS CLI
 You can use the following AWS CLI command to create a security group that supports EFA. The

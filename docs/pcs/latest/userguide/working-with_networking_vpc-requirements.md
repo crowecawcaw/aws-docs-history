@@ -1,6 +1,4 @@
-# AWS PCS VPC and subnet requirements
-
-and considerations
+# AWS PCS VPC and subnet requirements and considerations
 
 When you create an AWS PCS cluster, you specify a VPC a subnet in that VPC. This topic
 provides an overview of AWS PCS specific requirements and considerations for the VPC and
@@ -9,9 +7,7 @@ you can create one using an AWS-provided CloudFormation template. For more infor
 [Virtual private
 clouds (VPC)](../../../vpc/latest/userguide/configure-your-vpc.md "../../../vpc/latest/userguide/configure-your-vpc.md") in the _Amazon VPC User Guide_.
 
-## VPC requirements and
-
-considerations
+## VPC requirements and considerations
 
 When you create a cluster, the VPC that you specify must meet the following requirements and
 considerations:
@@ -47,9 +43,7 @@ must use `default` instance tenancy. You can change the instance tenancy for an
 existing VPC. For more information, see [Change the instance tenancy of a VPC](../../../AWSEC2/latest/UserGuide/change-tenancy-vpc.md "../../../AWSEC2/latest/UserGuide/change-tenancy-vpc.md")
 in the _Amazon Elastic Compute Cloud User Guide_.
 
-## Subnet requirements and
-
-considerations
+## Subnet requirements and considerations
 
 When you create a Slurm cluster, AWS PCS creates an [Elastic Network Interface(ENI)](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the
 subnet you specified. This network interface enables communication between the scheduler
@@ -57,9 +51,7 @@ controller and the customer VPC. The network interface also enables Slurm to com
 components deployed in your account. You can only specify the subnet for a cluster at
 creation time.
 
-### Subnet requirements
-
-for clusters
+### Subnet requirements for clusters
 
 The [subnet](../../../vpc/latest/userguide/configure-subnets.md#subnet-types "../../../vpc/latest/userguide/configure-subnets.md#subnet-types") that you specify
 when you create a cluster must meet the following requirements:
@@ -82,9 +74,7 @@ see [Using sample Amazon Machine Images (AMIs) with AWS PCS](working-with_ami_sa
   gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md"); a private subnet is a subnet with a route table that doesn't include
   a route to an internet gateway.
 
-### Subnet requirements for
-
-nodes
+### Subnet requirements for nodes
 
 You can deploy nodes and other cluster resources to the subnet you specify
 when you create your AWS PCS cluster, and to other subnets in the same VPC.

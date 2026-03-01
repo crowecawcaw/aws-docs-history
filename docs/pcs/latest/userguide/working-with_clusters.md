@@ -20,5 +20,4 @@ An AWS PCS cluster consists of the following components:
 - [Updating a cluster in AWS PCS](working-with_clusters_update.md "working-with_clusters_update.md")
 - [Deleting a cluster in AWS PCS](working-with_clusters_delete.md "working-with_clusters_delete.md")
 - [Cluster size in AWS PCS](working-with_clusters_size.md "working-with_clusters_size.md")
-- [Working with cluster secrets in
-  AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md")
+- [Working with cluster secrets in AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md")

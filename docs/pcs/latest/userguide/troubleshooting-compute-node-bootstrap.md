@@ -1,6 +1,4 @@
-# Troubleshoot compute node bootstrap and
-
-registration problems in AWS PCS
+# Troubleshoot compute node bootstrap and registration problems in AWS PCS
 
 When compute nodes fail to bootstrap or register properly with your AWS PCS cluster, you might
 experience the following symptoms:
@@ -22,36 +20,26 @@ process of joining the AWS PCS cluster. The bootstrap process includes two main 
   [RegisterComputeNodeGroupInstance](../APIReference/API_RegisterComputeNodeGroupInstance.md "../APIReference/API_RegisterComputeNodeGroupInstance.md") AWS PCS API action to register with the AWS PCS service.
   Failures can occur due to problems in the following:
   - Permissions
-    - [Wrong instance
-      profile](#troubleshooting-compute-node-bootstrap-wrong-instance-profile "#troubleshooting-compute-node-bootstrap-wrong-instance-profile")
+    - [Wrong instance profile](#troubleshooting-compute-node-bootstrap-wrong-instance-profile "#troubleshooting-compute-node-bootstrap-wrong-instance-profile")
 
   - Networking
-    - [Can't
-      connect to AWS PCS endpoints](#troubleshooting-compute-node-bootstrap-connect-to-endpoints "#troubleshooting-compute-node-bootstrap-connect-to-endpoints")
+    - [Can't connect to AWS PCS endpoints](#troubleshooting-compute-node-bootstrap-connect-to-endpoints "#troubleshooting-compute-node-bootstrap-connect-to-endpoints")
     - [Misconfigured AWS PCS endpoint](#troubleshooting-compute-node-bootstrap-misconfigured-pcs-endpoint "#troubleshooting-compute-node-bootstrap-misconfigured-pcs-endpoint")
-    - [Instance in
-      a public subnet without public IP](#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip "#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip")
-    - [Multi-NIC
-      instance in a public subnet](#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet "#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet")
+    - [Instance in a public subnet without public IP](#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip "#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip")
+    - [Multi-NIC instance in a public subnet](#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet "#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet")
 
 - **Slurm integration** – The instance runs
   `slurmd` and joins the Slurm cluster. Failures can occur due to problems in the
   following:
   - Permissions
-    - [Security group
-      configuration](#troubleshooting-compute-node-bootstrap-security-groups "#troubleshooting-compute-node-bootstrap-security-groups")
-    - [Slurmctld unable
-      to ping compute node](#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue "#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue")
+    - [Security group configuration](#troubleshooting-compute-node-bootstrap-security-groups "#troubleshooting-compute-node-bootstrap-security-groups")
+    - [Slurmctld unable to ping compute node](#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue "#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue")
 
   - Custom AMI setup
-    - [Missing NVIDIA
-      drivers](#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers "#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers")
-    - [ResumeTimeout
-      reached](#troubleshooting-compute-node-bootstrap-resume-timeout "#troubleshooting-compute-node-bootstrap-resume-timeout")
+    - [Missing NVIDIA drivers](#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers "#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers")
+    - [ResumeTimeout reached](#troubleshooting-compute-node-bootstrap-resume-timeout "#troubleshooting-compute-node-bootstrap-resume-timeout")
 
-## How Slurm works on
-
-AWS PCS
+## How Slurm works on AWS PCS
 
 It might help you to compare the standard way Slurm works to the way Slurm works on
 AWS PCS.
@@ -79,9 +67,7 @@ The following steps occur in AWS PCS job processing:
    bootstrapped ones).
 5. `slurmd` daemons run jobs on allocated nodes.
 
-## Retrieve instance
-
-logs
+## Retrieve instance logs
 
 The first step in troubleshooting compute node bootstrap problems is to retrieve the
 instance logs. You can use one of the following methods:
@@ -114,14 +100,11 @@ approximately 20 minutes before you can connect to the instance. Systems Manager
 only after initialization is completed or when bootstrap execution reaches a timeout in case
 of failure.
 
-## Retrieve
-
-VPC/Subnet/Security Groups from an instance ID
+## Retrieve VPC/Subnet/Security Groups from an instance ID
 
 To troubleshoot problems with your compute nodes, you might need to retrieve information
 about the VPC, subnet, and security groups associated with your instances. If you don't know your
-instance IDs, see [Finding compute node group instances in
-AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
+instance IDs, see [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
 
 AWS Management Console
 
@@ -144,9 +127,7 @@ your instance:
 aws ec2 describe-instances --instance-ids `i-1234567890abcdef0` --query 'Reservations[*].Instances[*].{InstanceId:InstanceId,VpcId:VpcId,SubnetId:SubnetId,SecurityGroups:SecurityGroups[*].GroupId}' --output table
 ```
 
-## Node registration
-
-problems
+## Node registration problems
 
 Node registration is the first action executed by a compute node during bootstrap. The node
 calls the AWS PCS API endpoint to register itself with AWS PCS.
@@ -163,9 +144,7 @@ Registration failures usually show error messages similar to the following:
 <13>Nov 13 16:25:18 user-data: [2025-11-13T16:25:18.200+00:00] - /opt/aws/pcs/bin/pcs_bootstrap_init.sh: ERROR: Error: (2) occurred on line 1 when running /opt/aws/pcs/bin/pcs_bootstrap_init.sh. Shutting down instance.
 ```
 
-### Wrong instance
-
-profile
+### Wrong instance profile
 
 If the node is unable to register due to a wrong instance profile you will see the following error:
 
@@ -180,9 +159,7 @@ If the node is unable to register due to a wrong instance profile you will see t
 Verify that the instance profile associated with the
 compute node has the `pcs:RegisterComputeNodeGroupInstance` permission. For more information about how to create a valid instance profile, see [Create an instance profile for AWS PCS](getting-started_create-cng_instance-profile.md "getting-started_create-cng_instance-profile.md").
 
-### Can't
-
-connect to AWS PCS endpoints
+### Can't connect to AWS PCS endpoints
 
 If your compute nodes are in a private subnet, make sure that you have configured VPC
 endpoints for AWS PCS or that your subnet has a route to a NAT gateway for internet access.
@@ -190,8 +167,7 @@ For more information, see the following:
 
 - [Access
   an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon Virtual Private Cloud AWS PrivateLink_ guide.
-- [Endpoints and service quotas for
-  AWS PCS](service-endpoints-quotas.md "service-endpoints-quotas.md").
+- [Endpoints and service quotas for AWS PCS](service-endpoints-quotas.md "service-endpoints-quotas.md").
 - [Connect
   your VPC to other networks](../../../vpc/latest/userguide/extend-intro.md "../../../vpc/latest/userguide/extend-intro.md") in the _Amazon Virtual Private Cloud User Guide_
 - [AWS PCS Networking](working-with_networking.md "working-with_networking.md")
@@ -207,9 +183,7 @@ com.amazon.coral.security.AccessDeniedException: User: arn:aws:sts::xxx:assumed-
 
 For more information about how to configure VPC interface endpoints for AWS PCS, see [Access AWS Parallel Computing Service using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
-### Instance in
-
-a public subnet without public IP
+### Instance in a public subnet without public IP
 
 If your subnet doesn't have **auto-assign public IP** enabled
 and your route configuration uses an internet gateway, instances can't communicate with the
@@ -227,9 +201,7 @@ this issue, choose one of the following options:
   that instances can contact the API through the internet gateway. Note that this option is not
   valid for multi-network interface instances.
 
-### Multi-NIC
-
-instance in a public subnet
+### Multi-NIC instance in a public subnet
 
 You must use a private subnet if you use an instance type that has multiple network
 interfaces (NICs).
@@ -243,9 +215,7 @@ Multi-NIC instance types require a NAT gateway or an internal proxy in the subne
 the AWS PCS endpoint. Alternatively, you can add a VPC endpoint for AWS PCS to your cluster
 VPC.
 
-## Slurm cluster join
-
-problems
+## Slurm cluster join problems
 
 After successful node registration, the compute node attempts to join the Slurm cluster. The
 `slurmd` daemon on the node contacts the Slurm controller to register with the
@@ -259,9 +229,7 @@ cluster. Slurm join failures usually show error messages similar to the followin
 <13>Nov  5 17:20:29 user-data: ---- End output of ["/usr/bin/systemctl", "--system", "start", "slurmd"] ----
 ```
 
-### Security group
-
-configuration
+### Security group configuration
 
 Verify that your security groups are configured correctly to allow communication between
 compute nodes and the Slurm controller. The security groups must allow the following
@@ -274,8 +242,7 @@ For more information about security group requirements, see the following topics
 
 - [Create security groups for AWS PCS](getting-started_create-sg.md "getting-started_create-sg.md")
 - [Create launch templates for AWS PCS](getting-started_create-cng_launch-templates.md "getting-started_create-cng_launch-templates.md")
-- [Security group requirements
-  and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements")
+- [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements")
 
 ###### Important
 
@@ -283,9 +250,7 @@ The cluster security group that you associated with your cluster during cluster 
 must also be configured in your compute node group security groups to allow compute nodes to
 communicate with the controller.
 
-### Missing NVIDIA
-
-drivers
+### Missing NVIDIA drivers
 
 If the instance bootstraps correctly but jobs don't start, and you see error messages
 similar to the following in your instance logs, you might be missing NVIDIA drivers:
@@ -307,12 +272,9 @@ fatal: can't stat gres.conf file /dev/nvidia0: No such file or directory
 ```
 
 To resolve this issue, install NVIDIA drivers on your custom AMI. For more information, see
-[Step 4 – (Optional) Install
-additional drivers, libraries, and application software](working-with_ami_custom_install-software.md "working-with_ami_custom_install-software.md").
+[Step 4 – (Optional) Install additional drivers, libraries, and application software](working-with_ami_custom_install-software.md "working-with_ami_custom_install-software.md").
 
-### ResumeTimeout
-
-reached
+### ResumeTimeout reached
 
 If a compute node and its EC2 instance are terminated because the node is unhealthy, AWS PCS
 might not support the AMI or there might be network problems. The EC2 instance runs for
@@ -329,12 +291,9 @@ logs for error messages similar to the following:
 
 This error indicates that the AWS PCS bootstrap software is not part of the AMI. To resolve
 this issue, ensure that your custom AMI includes the AWS PCS bootstrap software. For more
-information, see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
-### Slurmctld unable
-
-to ping compute node
+### Slurmctld unable to ping compute node
 
 If the instance correctly executes the bootstrap procedure and is registered with AWS PCS,
 but `slurmctld` is unable to see it and submit jobs to it, the instance is set to
@@ -344,5 +303,4 @@ This might be caused by misconfigured security groups. For example, if port 6817
 to allow `slurmd` to communicate with `slurmctld`, but port 6818 is
 missing to allow `slurmctld` to ping `slurmd`.
 
-Verify that your security groups include all required rules as documented in [Security group requirements
-and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
+Verify that your security groups include all required rules as documented in [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").

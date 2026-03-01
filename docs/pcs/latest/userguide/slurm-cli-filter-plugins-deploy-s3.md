@@ -1,6 +1,4 @@
-# Use Amazon S3 to deploy a CLI Filter Plugin script
-
-in AWS PCS
+# Use Amazon S3 to deploy a CLI Filter Plugin script in AWS PCS
 
 Use S3 to deploy your CLI Filter Plugin script when you want to update job submission logic
 on a live cluster without rebuilding AMIs. This approach downloads the script from S3 during

@@ -18,8 +18,7 @@ You can configure custom Slurm settings to implement advanced scheduling policie
 
 - An existing VPC and subnet that meet [AWS PCS Networking](working-with_networking.md "working-with_networking.md") requirements. Before you deploy a cluster for
   production use, we recommend that you have a thorough understanding of the VPC and subnet
-  requirements. To create a VPC and subnet, see [Creating a VPC for your AWS PCS
-  cluster](working-with_networking_create-vpc.md "working-with_networking_create-vpc.md").
+  requirements. To create a VPC and subnet, see [Creating a VPC for your AWS PCS cluster](working-with_networking_create-vpc.md "working-with_networking_create-vpc.md").
 - An [IAM principal](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md") with
   permissions to create and manage AWS PCS resources. For more information, see [Identity and Access Management for AWS Parallel Computing Service](security-iam.md "security-iam.md").
 
@@ -54,19 +53,16 @@ AWS Management Console
      subnet. For more information, see [Subnet CIDR blocks](../../../vpc/latest/userguide/subnet-sizing.md "../../../vpc/latest/userguide/subnet-sizing.md")
      in the _Amazon VPC User Guide_.
    - VPC – Choose an existing VPC that meets AWS PCS
-     requirements. For more information, see [AWS PCS VPC and subnet requirements
-     and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md"). After you create the cluster,
+     requirements. For more information, see [AWS PCS VPC and subnet requirements and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md"). After you create the cluster,
      you can't change its VPC. If no VPCs are listed, you must create one first.
    - Subnet – All available subnets in the selected VPC
      are listed. Choose a subnet that meets the
-     AWS PCS subnet requirements. For more information, see [AWS PCS VPC and subnet requirements
-     and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md"). We recommend you select
+     AWS PCS subnet requirements. For more information, see [AWS PCS VPC and subnet requirements and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md"). We recommend you select
      a private subnet to avoid exposing your scheduler endpoints to the public internet.
    - Security groups – Specify the security group(s) that
      you want AWS PCS to associate with the network interfaces it creates for your cluster.
      You must select at least one security group that allows communication between your cluster
-     and its compute nodes. You can select **Quick create a security group** to have AWS PCS create one with the necessary configuration in your selected VPC, or select an existing security group. For more information, see [Security group requirements
-     and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
+     and its compute nodes. You can select **Quick create a security group** to have AWS PCS create one with the necessary configuration in your selected VPC, or select an existing security group. For more information, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
 
 4. (Optional) In the **Slurm accounting configuration** section, you can
    enable Slurm accounting and set accounting parameters. For more information, see
@@ -111,8 +107,7 @@ AWS CLI
      the network interfaces it creates for your cluster. The security groups must be in the
      same VPC as the cluster. You must select at least one security
      group that allows communication between your cluster and its compute nodes. For more
-     information, see [Security group requirements
-     and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
+     information, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
 
 ```
 aws pcs create-cluster --region `region` \

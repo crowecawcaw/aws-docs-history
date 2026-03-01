@@ -1,6 +1,4 @@
-# Monitoring AWS PCS instances using
-
-Amazon CloudWatch
+# Monitoring AWS PCS instances using Amazon CloudWatch
 
 AWS PCS launches Amazon EC2 instances as needed to meet the scaling requirements defined in
 your PCS compute node groups. You can monitor these instances while they are running using
@@ -22,21 +20,15 @@ cluster or compute node group. Then, in the EC2 console for a given instance, in
 **Status and alarms** and **Monitoring** sections. If
 login access is configured for those instances, you can connect to them and inspect various
 log files on the instances. For more information on identifying which instances are managed
-by PCS, see [Finding compute node group instances in
-AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
+by PCS, see [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
 
-### Enabling detailed
-
-metrics
+### Enabling detailed metrics
 
 By default, instance metrics are collected at 5-minute intervals. To collect metrics at
 one minute intervals, enable detailed CloudWatch monitoring in your compute node group
-launch template. For more information, see [Turn on detailed CloudWatch
-monitoring](working-with_launch-templates_parameters.md#working-with_launch-templates_parameters_cw "working-with_launch-templates_parameters.md#working-with_launch-templates_parameters_cw").
+launch template. For more information, see [Turn on detailed CloudWatch monitoring](working-with_launch-templates_parameters.md#working-with_launch-templates_parameters_cw "working-with_launch-templates_parameters.md#working-with_launch-templates_parameters_cw").
 
-## Configuring persistent
-
-instance metrics and logs
+## Configuring persistent instance metrics and logs
 
 You can retain the metrics and logs from your instances by installing and configuring the
 Amazon CloudWatch agent on them. This consists of three main steps:
@@ -48,12 +40,9 @@ Amazon CloudWatch agent on them. This consists of three main steps:
 
 For more information, see [Collect metrics,
 logs, and traces with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the _Amazon CloudWatch User
-Guide_, and [Using Amazon EC2 launch templates
-with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+Guide_, and [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 
-### Create a CloudWatch Agent
-
-configuration
+### Create a CloudWatch Agent configuration
 
 Before deploying the CloudWatch agent on your instances, you must generate a JSON
 configuration file that specifies the metrics, logs, and traces to collect. Configuration
@@ -221,9 +210,7 @@ log group has a retention time of 30 days.
 In addition, the file instructs CloudWatch agent to collect several common metrics,
 aggregating them by instance ID.
 
-### Store the
-
-configuration
+### Store the configuration
 
 The CloudWatch agent configuration file has to be stored where it can be accessed by
 PCS compute node instances. There are two common ways to do this. You can upload it to an
@@ -231,9 +218,7 @@ Amazon S3 bucket that your compute node group instances will have access to via 
 instance profile, Alternatively, you can store it as an SSM parameter in Amazon Systems
 Manager Parameter Store.
 
-#### Upload to an S3
-
-bucket
+#### Upload to an S3 bucket
 
 To store your file in S3, use the AWS CLI commands that follow. Before running the
 command, make these replacements:
@@ -254,9 +239,7 @@ Next, upload the file to the bucket.
 aws s3 cp ./config.json s3://`amzn-s3-demo-bucket`/
 ```
 
-#### Store as an SSM
-
-parameter
+#### Store as an SSM parameter
 
 To store your file as an SSM parameter, use the command that follows. Before running
 the command, make these replacements:
@@ -338,9 +321,7 @@ Also note that the instances must allow outbound traffic to the S3 and CloudWatc
 endpoints. This can be accomplished using security groups or VPC endpoints, depending on
 your cluster architecture.
 
-#### Use a configuration stored in
-
-SSM
+#### Use a configuration stored in SSM
 
 This script installs CloudWatch agent, imports a configuration file from an SSM
 parameter, and launches the CloudWatch agent with it. Replace the following values in this

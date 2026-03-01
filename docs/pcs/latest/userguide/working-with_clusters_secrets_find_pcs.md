@@ -1,6 +1,4 @@
-# Use AWS PCS to find the cluster
-
-secret
+# Use AWS PCS to find the cluster secret
 
 You can use the AWS CLI to find the ARN for an AWS PCS cluster secret. Enter the command
 that follows, making the following substitutions:

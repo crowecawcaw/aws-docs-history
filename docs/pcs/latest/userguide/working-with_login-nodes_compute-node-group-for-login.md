@@ -1,14 +1,10 @@
-# Using an AWS PCS
-
-compute node group to provide login nodes
+# Using an AWS PCS compute node group to provide login nodes
 
 This topic provides an overview of suggested configuration options and describes what to
 consider when you use an AWS PCS compute node group to provide persistent, interactive access to
 your cluster.
 
-## Creating an
-
-AWS PCS compute node group for login nodes
+## Creating an AWS PCS compute node group for login nodes
 
 Operationally, this is not much different from creating a regular compute node group.
 However, there are some key configuration choices make:
@@ -36,12 +32,9 @@ However, there are some key configuration choices make:
 ###### Access your login nodes
 
 Once your new compute node group reaches ACTIVE status, you can find the EC2 instance(s)
-it has created and log into them. For more information, see [Finding compute node group instances in
-AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
+it has created and log into them. For more information, see [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md").
 
-## Updating an
-
-AWS PCS compute node group for login nodes
+## Updating an AWS PCS compute node group for login nodes
 
 You can update a login node group using UpdateComputeNodeGroup. As part of the node group
 update process, running instances will be replaced. Note that this will interrupt any active
@@ -51,12 +44,9 @@ more information, see [Updating an AWS PCS compute node group](working-with_cng_
 You can also edit the launch template used by your compute node group. You must use
 UpdateComputeNodeGroup to apply the updated launch template to the compute node group.
 New EC2 instances launched in the compute node group use the updated launch template.
-For more information, see [Using Amazon EC2 launch templates
-with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
+For more information, see [Using Amazon EC2 launch templates with AWS PCS](working-with_launch-templates.md "working-with_launch-templates.md").
 
-## Deleting an
-
-AWS PCS compute node group for login nodes
+## Deleting an AWS PCS compute node group for login nodes
 
 You can update a login node group using the **delete compute node
 group** mechanism in AWS PCS. Running instances will be terminated as part of node

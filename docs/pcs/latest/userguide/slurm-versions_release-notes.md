@@ -1,6 +1,4 @@
-# Release notes for Slurm versions in
-
-AWS PCS
+# Release notes for Slurm versions in AWS PCS
 
 This topic describes important changes for each Slurm version currently supported in
 AWS PCS. We recommend you review the changes between the old and new versions when you upgrade

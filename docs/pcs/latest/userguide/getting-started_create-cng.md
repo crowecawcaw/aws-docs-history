@@ -13,7 +13,5 @@ cluster.
 
 - [Create an instance profile for AWS PCS](getting-started_create-cng_instance-profile.md "getting-started_create-cng_instance-profile.md")
 - [Create launch templates for AWS PCS](getting-started_create-cng_launch-templates.md "getting-started_create-cng_launch-templates.md")
-- [Create compute node group for login
-  nodes in AWS PCS](getting-started_create-cng_login-nodes.md "getting-started_create-cng_login-nodes.md")
-- [Create compute node group for running compute
-  jobs in AWS PCS](getting-started_create-cng_workers.md "getting-started_create-cng_workers.md")
+- [Create compute node group for login nodes in AWS PCS](getting-started_create-cng_login-nodes.md "getting-started_create-cng_login-nodes.md")
+- [Create compute node group for running compute jobs in AWS PCS](getting-started_create-cng_workers.md "getting-started_create-cng_workers.md")

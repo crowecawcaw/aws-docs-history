@@ -23,7 +23,7 @@ can be cancelled or requeued for immediate reboots.
 **How is this different from EC2 console reboot?**
 
 Slurm reboot preserves the EC2 instance and avoids replacement, while EC2 console
-reboots trigger NodeGroupManager to replace the instance due to failed health checks
+reboots trigger PCS to replace the instance due to failed health checks
 during the reboot process.
 
 **Can I configure custom reboot scripts?**
@@ -82,7 +82,6 @@ nextstate or use `nextstate=RESUME`.
 ## Additional resources
 
 - For basic reboot procedures, see [Reboot a compute node using Slurm in AWS PCS](slurm-reboot-procedure.md "slurm-reboot-procedure.md").
-- For troubleshooting reboot issues, see [Troubleshooting Slurm reboot issues in
-  AWS PCS](slurm-reboot-troubleshooting.md "slurm-reboot-troubleshooting.md").
+- For troubleshooting reboot issues, see [Troubleshooting Slurm reboot issues in AWS PCS](slurm-reboot-troubleshooting.md "slurm-reboot-troubleshooting.md").
 - For Slurm reboot documentation, see [Slurm scontrol
   documentation](https://slurm.schedmd.com/scontrol.html#OPT_reboot "https://slurm.schedmd.com/scontrol.html#OPT_reboot").

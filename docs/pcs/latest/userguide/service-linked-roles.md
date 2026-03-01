@@ -1,6 +1,4 @@
-# Service-linked roles for
-
-AWS PCS
+# Service-linked roles for AWS PCS
 
 AWS Parallel Computing Service uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS PCS. Service-linked roles are predefined by AWS PCS and

@@ -18,12 +18,9 @@ AWS managed key to protect the encrypted volumes in your account.
 
 - [Overview](security-key-policy-for-encrypted-volumes.md#overview "security-key-policy-for-encrypted-volumes.md#overview")
 - [Configure key policies](security-key-policy-for-encrypted-volumes.md#configuring-key-policies "security-key-policy-for-encrypted-volumes.md#configuring-key-policies")
-- [Example 1: Key policy sections that
-  allow access to the customer managed key](security-key-policy-for-encrypted-volumes.md#policy-example-cmk-access "security-key-policy-for-encrypted-volumes.md#policy-example-cmk-access")
-- [Example 2: Key policy
-  sections that allow cross-account access to the customer managed key](security-key-policy-for-encrypted-volumes.md#policy-example-cmk-cross-account-access "security-key-policy-for-encrypted-volumes.md#policy-example-cmk-cross-account-access")
-- [Edit key policies in the AWS KMS
-  console](security-key-policy-for-encrypted-volumes.md#eding-key-policies-console "security-key-policy-for-encrypted-volumes.md#eding-key-policies-console")
+- [Example 1: Key policy sections that allow access to the customer managed key](security-key-policy-for-encrypted-volumes.md#policy-example-cmk-access "security-key-policy-for-encrypted-volumes.md#policy-example-cmk-access")
+- [Example 2: Key policy sections that allow cross-account access to the customer managed key](security-key-policy-for-encrypted-volumes.md#policy-example-cmk-cross-account-access "security-key-policy-for-encrypted-volumes.md#policy-example-cmk-cross-account-access")
+- [Edit key policies in the AWS KMS console](security-key-policy-for-encrypted-volumes.md#eding-key-policies-console "security-key-policy-for-encrypted-volumes.md#eding-key-policies-console")
 
 ## Overview
 
@@ -82,15 +79,12 @@ For more information, see:
 - [Find the key ID and
   key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md")
   in the _AWS Key Management Service Developer Guide_
-- [Service-linked roles for
-  AWS PCS](service-linked-roles.md "service-linked-roles.md")
+- [Service-linked roles for AWS PCS](service-linked-roles.md "service-linked-roles.md")
 - [Amazon EBS encryption](../../../ebs/latest/userguide/ebs-encryption.md "../../../ebs/latest/userguide/ebs-encryption.md") in the _Amazon EBS User Guide_
 - [AWS Key Management Service](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md")
   in the _AWS Key Management Service Developer Guide_
 
-## Example 1: Key policy sections that
-
-allow access to the customer managed key
+## Example 1: Key policy sections that allow access to the customer managed key
 
 Add the following policy statements to the key policy of the customer managed key.
 Replace the example ARN with the ARN of the your `AWSServiceRoleForPCS`
@@ -139,9 +133,7 @@ permissions to use the customer managed key.
 }
 ```
 
-## Example 2: Key policy
-
-sections that allow cross-account access to the customer managed key
+## Example 2: Key policy sections that allow cross-account access to the customer managed key
 
 If you create a customer managed key in a different account than your AWS PCS cluster, you must
 use a **grant** in combination with the key policy to allow
@@ -252,9 +244,7 @@ be the name of an existing role. After creating the grant, to ensure
 that the grant allows AWS PCS to use the specified KMS key, do not
 delete and recreate the service-linked role.
 
-## Edit key policies in the AWS KMS
-
-console
+## Edit key policies in the AWS KMS console
 
 The examples in the previous sections show only how to add statements to a key
 policy, which is just one way of changing a key policy. The easiest way to change a

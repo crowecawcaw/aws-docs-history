@@ -1,6 +1,4 @@
-# AWS PCS multi-cluster login node configuration
-
-script code
+# AWS PCS multi-cluster login node configuration script code
 
 Save the following source code to a file with the following name:
 

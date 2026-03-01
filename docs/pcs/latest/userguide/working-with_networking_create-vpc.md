@@ -1,6 +1,4 @@
-# Creating a VPC for your AWS PCS
-
-cluster
+# Creating a VPC for your AWS PCS cluster
 
 You can create an Amazon Virtual Private Cloud (Amazon VPC) for your clusters within AWS Parallel Computing Service (AWS PCS).
 
@@ -13,8 +11,7 @@ mode._Amazon VPC User Guide_.
 
 An PCS cluster, nodes, and supporting resources (such as file systems and directory
 services) are deployed within your Amazon VPC. If you want to use an existing Amazon VPC with PCS,
-it must meet the requirements described in [AWS PCS VPC and subnet requirements
-and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md") . This topic describes how to create a
+it must meet the requirements described in [AWS PCS VPC and subnet requirements and considerations](working-with_networking_vpc-requirements.md "working-with_networking_vpc-requirements.md") . This topic describes how to create a
 VPC that meets PCS requirements using an AWS–provided CloudFormation template. Once
 you've deployed a template, you can view the resources created by the template to know exactly
 what resources it created, and the configuration of those resources.

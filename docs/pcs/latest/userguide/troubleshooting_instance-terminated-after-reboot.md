@@ -19,8 +19,7 @@ or a manual reboot by a person.
 You can check your `slurmctld` or `slurmd` logs to see if your instance was rebooted.
 For more information, see
 [Scheduler logs in AWS PCS](monitoring_scheduler-logs.md "monitoring_scheduler-logs.md")
-and [Monitoring AWS PCS instances using
-Amazon CloudWatch](monitoring-cloudwatch_instances.md "monitoring-cloudwatch_instances.md").
+and [Monitoring AWS PCS instances using Amazon CloudWatch](monitoring-cloudwatch_instances.md "monitoring-cloudwatch_instances.md").
 The following example `slurmctld` log entry indicates that the instance rebooted:
 
 ###### Example
@@ -35,5 +34,4 @@ A reboot is often required after you apply patches. Don't apply patches directly
 AWS PCS compute node group.
 If you must patch your EC2 instances, you should apply your patches to an updated Amazon Machine Image (AMI)
 and update your compute node groups to use the updated AMI. New EC2 instances that AWS PCS launches for those compute node groups
-will use the updated (patched) AMI. For more information, see [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+will use the updated (patched) AMI. For more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").

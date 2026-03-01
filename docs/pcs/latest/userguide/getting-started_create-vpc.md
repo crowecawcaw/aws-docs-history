@@ -76,9 +76,7 @@ use the default values provided in the template.
   `CREATE_COMPLETE`, find the ID for the default security group in the new VPC. You
   use the ID later in the tutorial.
 
-## Find the default security group for the
-
-cluster VPC
+## Find the default security group for the cluster VPC
 
 To find the ID for the default security group in the new VPC, follow this procedure:
 

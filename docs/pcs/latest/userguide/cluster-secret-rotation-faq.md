@@ -24,9 +24,7 @@ No, existing JWT tokens become invalid after rotation. Issue new tokens for REST
 
 **Where can I find my cluster secret?**
 
-You can find your cluster secret in the Secrets Manager console or through the AWS PCS console. For detailed instructions, see [Use AWS Secrets Manager to find the
-cluster secret](working-with_clusters_secrets_find_secrets-manager.md "working-with_clusters_secrets_find_secrets-manager.md") and [Use AWS PCS to find the cluster
-secret](working-with_clusters_secrets_find_pcs.md "working-with_clusters_secrets_find_pcs.md").
+You can find your cluster secret in the Secrets Manager console or through the AWS PCS console. For detailed instructions, see [Use AWS Secrets Manager to find the cluster secret](working-with_clusters_secrets_find_secrets-manager.md "working-with_clusters_secrets_find_secrets-manager.md") and [Use AWS PCS to find the cluster secret](working-with_clusters_secrets_find_pcs.md "working-with_clusters_secrets_find_pcs.md").
 
 **Why does rotation require scaling node groups to 0?**
 

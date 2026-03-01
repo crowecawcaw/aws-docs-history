@@ -1,6 +1,4 @@
-# Placement groups for EC2 instances in
-
-AWS PCS
+# Placement groups for EC2 instances in AWS PCS
 
 You can use a **placement group** to influence the placement of
 EC2 instances to suit the needs of the workload that runs on them.

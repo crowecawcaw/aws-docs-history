@@ -5,9 +5,7 @@ You include the agent in an Amazon Machine Images (AMI) that you specify when yo
 compute node groups for your cluster. The EC2 instances launched in those compute node
 groups use the specified AMI and its included AWS PCS agent software. The AWS PCS agent enables
 an EC2 instance to register itself as part of the cluster. To use the latest AWS PCS agent
-software, you must update your custom AMIs. For more information, see [Step 2 – Install the AWS PCS
-agent](working-with_ami_custom_install-agent.md "working-with_ami_custom_install-agent.md") in [Custom Amazon Machine Images (AMIs) for
-AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
+software, you must update your custom AMIs. For more information, see [Step 2 – Install the AWS PCS agent](working-with_ami_custom_install-agent.md "working-with_ami_custom_install-agent.md") in [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md "working-with_ami_custom.md").
 
 | AWS PCS agent version | Release date      | Release notes                                                                                                                                                                                                                                                                                                                                                                                              |
 | --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

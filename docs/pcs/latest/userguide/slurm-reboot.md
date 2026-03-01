@@ -41,5 +41,4 @@ Use Slurm reboot for common operational maintenance scenarios:
 - [Reboot a compute node using Slurm in AWS PCS](slurm-reboot-procedure.md "slurm-reboot-procedure.md")
 - [Cancel a pending reboot in AWS PCS](slurm-reboot-cancel.md "slurm-reboot-cancel.md")
 - [Slurm reboot frequently asked questions in AWS PCS](slurm-reboot-faq.md "slurm-reboot-faq.md")
-- [Troubleshooting Slurm reboot issues in
-  AWS PCS](slurm-reboot-troubleshooting.md "slurm-reboot-troubleshooting.md")
+- [Troubleshooting Slurm reboot issues in AWS PCS](slurm-reboot-troubleshooting.md "slurm-reboot-troubleshooting.md")

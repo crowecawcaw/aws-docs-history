@@ -1,6 +1,4 @@
-# Step 5 –
-
-Configure the connection to the AWS PCS cluster
+# Step 5 – Configure the connection to the AWS PCS cluster
 
 To establish a connection to the AWS PCS cluster, launch `sackd` as a system service
 by following these steps.
@@ -9,8 +7,7 @@ by following these steps.
 
 If you use Slurm 25.05 or later, you can use a script to set up your login node
 to connect to multiple clusters instead.
-For more information, see [Connecting a standalone login node to multiple
-clusters in AWS PCS](multi-cluster-login-script.md "multi-cluster-login-script.md").
+For more information, see [Connecting a standalone login node to multiple clusters in AWS PCS](multi-cluster-login-script.md "multi-cluster-login-script.md").
 
 1. Set up the environment file for the `sackd` service with the command that
    follows. Before running the command, replace `ip-address` and

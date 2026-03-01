@@ -3,9 +3,7 @@
 This topic provides an overview of available options and describes what to consider when you
 update an AWS PCS queue. For information about Slurm custom settings, see [Custom Slurm settings for AWS PCS queues](slurm-custom-settings-queue.md "slurm-custom-settings-queue.md").
 
-## Considerations when updating an AWS PCS
-
-queue
+## Considerations when updating an AWS PCS queue
 
 Queue updates will not impact running jobs but the cluster may not be able to accept new
 jobs while the queue is being updated.

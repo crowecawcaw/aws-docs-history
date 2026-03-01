@@ -1,6 +1,4 @@
-# (Optional) Use a CloudFormation
-
-template to create an EFA-enabled launch template
+# (Optional) Use a CloudFormation template to create an EFA-enabled launch template
 
 Because there are several dependencies to setting up EFA, a CloudFormation template has been
 provided that you can use to configure a compute node group. It supports instances with up to
@@ -49,5 +47,4 @@ their default values.
     resources**.
     Monitor the status of the CloudFormation stack. When it reaches
     `CREATE_COMPLETE` the launch template is ready to be used. Use it with an AWS PCS
-    compute node group, as described above in [Create or update compute node
-    groups for EFA](working-with_networking_efa_create-cng.md "working-with_networking_efa_create-cng.md").
+    compute node group, as described above in [Create or update compute node groups for EFA](working-with_networking_efa_create-cng.md "working-with_networking_efa_create-cng.md").

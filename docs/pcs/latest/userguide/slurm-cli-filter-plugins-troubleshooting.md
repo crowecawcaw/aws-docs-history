@@ -1,6 +1,4 @@
-# Troubleshooting Slurm CLI Filter Plugin
-
-issues in AWS PCS
+# Troubleshooting Slurm CLI Filter Plugin issues in AWS PCS
 
 Use this troubleshooting information to resolve common CLI Filter Plugin issues.
 

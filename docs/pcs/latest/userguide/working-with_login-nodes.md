@@ -7,9 +7,6 @@ login node.
 
 ###### Topics
 
-- [Using an AWS PCS
-  compute node group to provide login nodes](working-with_login-nodes_compute-node-group-for-login.md "working-with_login-nodes_compute-node-group-for-login.md")
-- [Using standalone instances as AWS PCS
-  login nodes](working-with_login-nodes_standalone.md "working-with_login-nodes_standalone.md")
-- [Connecting a standalone login node to multiple
-  clusters in AWS PCS](multi-cluster-login-script.md "multi-cluster-login-script.md")
+- [Using an AWS PCS compute node group to provide login nodes](working-with_login-nodes_compute-node-group-for-login.md "working-with_login-nodes_compute-node-group-for-login.md")
+- [Using standalone instances as AWS PCS login nodes](working-with_login-nodes_standalone.md "working-with_login-nodes_standalone.md")
+- [Connecting a standalone login node to multiple clusters in AWS PCS](multi-cluster-login-script.md "multi-cluster-login-script.md")

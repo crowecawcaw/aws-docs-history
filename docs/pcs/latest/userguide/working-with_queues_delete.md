@@ -2,9 +2,7 @@
 
 This topic provides an overview of how to delete an queue in AWS PCS.
 
-## Considerations when deleting a
-
-queue
+## Considerations when deleting a queue
 
 - If there are jobs running in the queue, they will be terminated by the scheduler when the
   queue is deleted. Pending jobs in the queue will be canceled. Consider waiting for jobs in the

@@ -1,6 +1,4 @@
-# Step 6 – (Optional) Test the
-
-connection
+# Step 6 – (Optional) Test the connection
 
 Confirm that the `sackd` service is running. Sample output follows. If there are
 errors, they will commonly show up here.

@@ -1,8 +1,7 @@
 # Create security groups for AWS PCS
 
 AWS PCS relies on security groups to manage network traffic into and out of a cluster and
-its compute node groups. For detailed information on this topic, see [Security group requirements
-and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
+its compute node groups. For detailed information on this topic, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
 
 In this step, you will use an CloudFormation template to create two security groups.
 

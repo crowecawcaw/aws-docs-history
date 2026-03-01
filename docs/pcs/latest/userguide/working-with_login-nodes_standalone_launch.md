@@ -1,6 +1,4 @@
-# Step 2 – Launch an EC2
-
-instance
+# Step 2 – Launch an EC2 instance
 
 ###### To launch an EC2 instance
 
@@ -23,8 +21,7 @@ instance
       2. For **Firewall (security groups)**, choose **Select existing
          security group**.
          1. Select a security group that permits traffic between the instance and the target AWS PCS
-            cluster’s Slurm controller. For more information, see [Security group requirements
-            and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
+            cluster’s Slurm controller. For more information, see [Security group requirements and considerations](working-with_networking_sg.md#working-with_networking_sg-requirements "working-with_networking_sg.md#working-with_networking_sg-requirements").
          2. (Optional) Select a security group that allows inbound SSH access to your
             instance.
 

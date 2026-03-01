@@ -53,23 +53,17 @@ You can enable or disable accounting on existing clusters without rebuilding you
 
 When you disable accounting, billing for the accounting feature stops as soon as the cluster enters the `UPDATING` state. When you enable accounting, billing begins when the cluster successfully returns to the `ACTIVE` state.
 
-## Key concepts for Slurm accounting in
-
-AWS PCS
+## Key concepts for Slurm accounting in AWS PCS
 
 The following concepts are specific to AWS PCS and control how AWS PCS implements Slurm
 accounting.
 
-### Accounting
-
-database
+### Accounting database
 
 AWS PCS stores your accounting data in a database created in an AWS account that
 AWS owns. You don't have access to the `slurmdbd.conf.`
 
-### Default purge
-
-time
+### Default purge time
 
 This AWS PCS setting specifies the retention period (in days) for all accounting
 record types (jobs, events, reservations, steps, suspensions, transactions, usage
@@ -97,9 +91,7 @@ When you use the AWS PCS API to create a cluster, the default value
 for `defaultPurgeTimeInDays` is `-1` and
 `0` isn't a valid value.
 
-### Accounting
-
-policy enforcement
+### Accounting policy enforcement
 
 This setting determines how strictly Slurm enforces job submission rules, resource
 limits, and accounting policies for your cluster. This setting corresponds to the

@@ -1,6 +1,4 @@
-# Create or update an EC2 launch
-
-template
+# Create or update an EC2 launch template
 
 EFA network interfaces are set up in the EC2 launch template for an AWS PCS compute node
 group. If there are multiple network cards, multiple EFAs can be configured. The EFA security

@@ -1,6 +1,4 @@
-# Identify EFA-enabled EC2
-
-instances
+# Identify EFA-enabled EC2 instances
 
 To use EFA, all instance types that are allowed for an AWS PCS compute group must
 support EFA, and must have the same number of vCPUs (and GPUs if appropriate). For a list of
@@ -23,5 +21,4 @@ aws ec2 describe-instance-types \
 Determine how many network
 interfaces are available –
 Some EC2 instances have multiple network cards. This allows them to have multiple EFAs. For
-more information, see [Multiple network interfaces in
-AWS PCS](working-with_networking_multi-nic.md "working-with_networking_multi-nic.md").
+more information, see [Multiple network interfaces in AWS PCS](working-with_networking_multi-nic.md "working-with_networking_multi-nic.md").

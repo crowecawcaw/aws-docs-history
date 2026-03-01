@@ -18,8 +18,7 @@ aws secretsmanager get-secret-value \
 ```
 
 For information about how to use the Slurm cluster secret, see
-[Using standalone instances as AWS PCS
-login nodes](working-with_login-nodes_standalone.md "working-with_login-nodes_standalone.md").
+[Using standalone instances as AWS PCS login nodes](working-with_login-nodes_standalone.md "working-with_login-nodes_standalone.md").
 
 ###### Permissions
 

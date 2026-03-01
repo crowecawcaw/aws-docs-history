@@ -2,9 +2,7 @@
 
 This topic provides an overview of how to delete an AWS PCS cluster.
 
-## Considerations when deleting an
-
-AWS PCS cluster
+## Considerations when deleting an AWS PCS cluster
 
 - All queues associated with the cluster must be deleted before the cluster can be deleted.
   For more information, see [Deleting a queue in AWS PCS](working-with_queues_delete.md "working-with_queues_delete.md").

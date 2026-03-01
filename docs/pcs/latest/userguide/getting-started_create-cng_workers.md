@@ -1,6 +1,4 @@
-# Create compute node group for running compute
-
-jobs in AWS PCS
+# Create compute node group for running compute jobs in AWS PCS
 
 In this step, you will launch a compute node group that scales elastically to run jobs
 submitted to the cluster.

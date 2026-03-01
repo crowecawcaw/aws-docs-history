@@ -38,8 +38,7 @@ For more information, see [Customer keys and AWS keys](../../../kms/latest/devel
 You can also use a customer managed key. For more information, see [Required KMS key policy for use with encrypted EBS volumes in AWS PCS](security-key-policy-for-encrypted-volumes.md "security-key-policy-for-encrypted-volumes.md").
 
 The **cluster secret** is stored in AWS Secrets Manager and is encrypted with the Secrets Manager managed KMS key.
-For more information, see [Working with cluster secrets in
-AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md").
+For more information, see [Working with cluster secrets in AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md").
 
 In an AWS PCS cluster, the following data is _at rest_:
 
@@ -82,8 +81,7 @@ For more information, see [Customer keys and AWS keys](../../../kms/latest/devel
 You can also use a customer managed key. For more information, see [Required KMS key policy for use with encrypted EBS volumes in AWS PCS](security-key-policy-for-encrypted-volumes.md "security-key-policy-for-encrypted-volumes.md").
 
 The **cluster secret** is stored in AWS Secrets Manager and is encrypted with the Secrets Manager managed KMS key.
-For more information, see [Working with cluster secrets in
-AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md").
+For more information, see [Working with cluster secrets in AWS PCS](working-with_clusters_secrets.md "working-with_clusters_secrets.md").
 
 ## Inter-network traffic privacy
 

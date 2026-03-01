@@ -2,9 +2,7 @@
 
 This topic provides an overview of available options and describes what to consider when you delete an compute node group in AWS PCS.
 
-## Considerations when deleting a
-
-compute node group
+## Considerations when deleting a compute node group
 
 Compute node groups define EC2 instances that are used to process jobs, provide interactive shell access, and other tasks. They are often associated with one or more AWS PCS queues. Before you delete a compute node group, consider the following:
 

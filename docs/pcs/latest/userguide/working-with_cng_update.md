@@ -3,9 +3,7 @@
 This topic provides an overview of available options and describes what to consider when you
 update an AWS PCS compute node group. For information about Slurm custom settings, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md "slurm-custom-settings-cng.md").
 
-## Options for updating an AWS PCS compute node
-
-group
+## Options for updating an AWS PCS compute node group
 
 Updating an AWS PCS compute node group enables you to change the properties of instances
 launched by AWS PCS, as well as the rules for how those instances are launched. For example, you
@@ -18,9 +16,7 @@ The following node group settings cannot be altered after creation:
 - Name
 - Instances
 
-## Considerations when updating an
-
-AWS PCS compute node group
+## Considerations when updating an AWS PCS compute node group
 
 Compute node groups define EC2 instances that are used to process jobs, provide interactive
 shell access, and other tasks. They are often associated with one or more AWS PCS queues. As
