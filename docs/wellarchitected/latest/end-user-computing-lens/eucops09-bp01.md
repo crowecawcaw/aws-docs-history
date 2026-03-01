@@ -1,6 +1,4 @@
-# EUCOPS09-BP01 Maintain an up to date matrix of all EUC
-
-service owners and quick access links to the support plans for each service
+# EUCOPS09-BP01 Maintain an up to date matrix of all EUC service owners and quick access links to the support plans for each service
 
 Amazon WorkSpaces and Amazon WorkSpaces Applications, although easier to implement and administer than
 traditional on-premises alternatives, still require specific knowledge to deploy, manage,

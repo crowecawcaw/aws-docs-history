@@ -1,6 +1,4 @@
-# EUCPERF05-BP01 Understand your existing storage requirements, policies, and
-
-solutions
+# EUCPERF05-BP01 Understand your existing storage requirements, policies, and solutions
 
 If your EUC workload already uses storage volumes, operations policies, and vendor
 solutions, make sure that you not only understand what products and services they are based

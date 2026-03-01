@@ -1,6 +1,4 @@
-# EUCOPS14-BP01 Ingest log file data from multiple data
-
-sources to correlate key problem identifiers and trends
+# EUCOPS14-BP01 Ingest log file data from multiple data sources to correlate key problem identifiers and trends
 
 Identify and implement mechanisms to maintain a centralized source of EUC service data
 that can be used for root cause analysis of cross service issues.

@@ -1,6 +1,4 @@
-# EUCPERF01-BP02 Consider the requirements of your Availability Zones when architecting
-
-your AWS EUC services
+# EUCPERF01-BP02 Consider the requirements of your Availability Zones when architecting your AWS EUC services
 
 Within each Region, only select Availability Zones support each AWS EUC service. This
 is important if you are architecting solutions with extreme performance or security

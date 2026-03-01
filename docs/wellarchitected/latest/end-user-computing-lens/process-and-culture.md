@@ -39,21 +39,14 @@ such as end-of-month or end-of-quarter reporting, annual updates, and holiday de
 
 ###### Best practices
 
-- [EUCPERF07-BP01 Conduct realistic end-to-end testing aligned with organizational
-  objectives](eucperf07-bp01.md "eucperf07-bp01.md")
+- [EUCPERF07-BP01 Conduct realistic end-to-end testing aligned with organizational objectives](eucperf07-bp01.md "eucperf07-bp01.md")
 - [EUCPERF08-BP01 Establish and monitor service metrics and KPIs](eucperf08-bp01.md "eucperf08-bp01.md")
 - [EUCPERF08-BP02 Monitor Amazon WorkSpaces Applications CloudWatch metrics](eucperf08-bp02.md "eucperf08-bp02.md")
 - [EUCPERF08-BP03 Monitor Amazon WorkSpaces Personal CloudWatch metrics](eucperf08-bp03.md "eucperf08-bp03.md")
-- [EUCPERF08-BP04 Monitor
-  operating system metrics](eucperf08-bp04.md "eucperf08-bp04.md")
-- [EUCPERF09-BP01 Follow AWS EUC
-  news sources](eucperf09-bp01.md "eucperf09-bp01.md")
-- [EUCPERF10-BP01 Align the instance type and instance size of a fleet with the
-  workload](eucperf10-bp01.md "eucperf10-bp01.md")
-- [EUCPERF10-BP02 Enable self-service WorkSpaces Personal management capabilities,
-  and allow users to request changes by an administrator](eucperf10-bp02.md "eucperf10-bp02.md")
+- [EUCPERF08-BP04 Monitor operating system metrics](eucperf08-bp04.md "eucperf08-bp04.md")
+- [EUCPERF09-BP01 Follow AWS EUC news sources](eucperf09-bp01.md "eucperf09-bp01.md")
+- [EUCPERF10-BP01 Align the instance type and instance size of a fleet with the workload](eucperf10-bp01.md "eucperf10-bp01.md")
+- [EUCPERF10-BP02 Enable self-service WorkSpaces Personal management capabilities, and allow users to request changes by an administrator](eucperf10-bp02.md "eucperf10-bp02.md")
 - [EUCPERF10-BP03 Install only the application features required by end users](eucperf10-bp03.md "eucperf10-bp03.md")
-- [EUCPERF10-BP04 Remove caches, temporary data, log files, and unneeded files such as
-  tutorials and sample data before creating an image](eucperf10-bp04.md "eucperf10-bp04.md")
-- [EUCPERF10-BP05 Tune application performance where possible to optimize compute resource
-  usage](eucperf10-bp05.md "eucperf10-bp05.md")
+- [EUCPERF10-BP04 Remove caches, temporary data, log files, and unneeded files such as tutorials and sample data before creating an image](eucperf10-bp04.md "eucperf10-bp04.md")
+- [EUCPERF10-BP05 Tune application performance where possible to optimize compute resource usage](eucperf10-bp05.md "eucperf10-bp05.md")

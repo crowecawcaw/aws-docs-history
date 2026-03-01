@@ -47,13 +47,8 @@ features have not been delivering the expected benefits.
 
 ###### Best practices
 
-- [EUCOPS01-BP01 Build a project team which includes executive
-  level sponsors and relevant business and technical communities](eucops01-bp01.md "eucops01-bp01.md")
-- [EUCOPS02-BP01 Engage technical stakeholders from all disciplines that affect your EUC
-  services](eucops02-bp01.md "eucops02-bp01.md")
-- [EUCOPS02-BP02 Build a matrix of all internal and external
-  stakeholders who may be affected by changes to the way you deliver EUC services](eucops02-bp02.md "eucops02-bp02.md")
-- [EUCOPS03-BP01 Identify the business goals and success
-  criteria for your EUC project](eucops03-bp01.md "eucops03-bp01.md")
-- [EUCOPS04-BP01 Identify the key capabilities and features
-  that deliver business value and drive project success](eucops04-bp01.md "eucops04-bp01.md")
+- [EUCOPS01-BP01 Build a project team which includes executive level sponsors and relevant business and technical communities](eucops01-bp01.md "eucops01-bp01.md")
+- [EUCOPS02-BP01 Engage technical stakeholders from all disciplines that affect your EUC services](eucops02-bp01.md "eucops02-bp01.md")
+- [EUCOPS02-BP02 Build a matrix of all internal and external stakeholders who may be affected by changes to the way you deliver EUC services](eucops02-bp02.md "eucops02-bp02.md")
+- [EUCOPS03-BP01 Identify the business goals and success criteria for your EUC project](eucops03-bp01.md "eucops03-bp01.md")
+- [EUCOPS04-BP01 Identify the key capabilities and features that deliver business value and drive project success](eucops04-bp01.md "eucops04-bp01.md")

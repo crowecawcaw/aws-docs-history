@@ -1,6 +1,4 @@
-# EUCOPS11-BP01 Create EUC health metrics that allow you to
-
-meet your operational goals
+# EUCOPS11-BP01 Create EUC health metrics that allow you to meet your operational goals
 
 Spend time reviewing the available metrics which provide quick and insightful
 information into the health of your end-to-end EUC deployment.

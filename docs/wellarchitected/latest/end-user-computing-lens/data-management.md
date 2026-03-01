@@ -19,8 +19,7 @@ overview, see the following resources:
 
 ###### Best practices
 
-- [EUCPERF05-BP01 Understand your existing storage requirements, policies, and
-  solutions](eucperf05-bp01.md "eucperf05-bp01.md")
+- [EUCPERF05-BP01 Understand your existing storage requirements, policies, and solutions](eucperf05-bp01.md "eucperf05-bp01.md")
 - [EUCPERF05-BP02 Understand integrated storage capabilities (AppStream)](eucperf05-bp02.md "eucperf05-bp02.md")
 - [EUCPERF05-BP03 Understand integrated storage capabilities (WorkSpaces)](eucperf05-bp03.md "eucperf05-bp03.md")
 - [EUCPERF05-BP04 Use instance storage when available and appropriate](eucperf05-bp04.md "eucperf05-bp04.md")

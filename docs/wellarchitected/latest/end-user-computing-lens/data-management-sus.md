@@ -12,5 +12,4 @@ compliance, and optimize overall performance.
 
 ###### Best practices
 
-- [EUCSUS07-BP01 Identify the volume and data
-  requirement for your user profiles](eucsus07-bp01.md "eucsus07-bp01.md")
+- [EUCSUS07-BP01 Identify the volume and data requirement for your user profiles](eucsus07-bp01.md "eucsus07-bp01.md")

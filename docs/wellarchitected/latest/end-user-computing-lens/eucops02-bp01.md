@@ -1,6 +1,4 @@
-# EUCOPS02-BP01 Engage technical stakeholders from all disciplines that affect your EUC
-
-services
+# EUCOPS02-BP01 Engage technical stakeholders from all disciplines that affect your EUC services
 
 The deployment of AWS EUC services typically requires integration with many diverse
 technology areas. Build a project team which includes experts from multiple technology

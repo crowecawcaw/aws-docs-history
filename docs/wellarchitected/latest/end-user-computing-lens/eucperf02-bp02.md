@@ -1,6 +1,4 @@
-# EUCPERF02-BP02 Scale your EUC environment to accommodate the required number of end
-
-users
+# EUCPERF02-BP02 Scale your EUC environment to accommodate the required number of end users
 
 The number of users accessing the selected AWS EUC service should not affect the
 performance of the service itself, as AWS provides both scale and resilience for the

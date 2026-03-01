@@ -45,6 +45,4 @@ future change management.
 - [EUCREL08-BP01 Test and validate changes to promote reliable deployment](eucrel08-bp01.md "eucrel08-bp01.md")
 - [EUCREL09-BP01 Implement and test rollback plan for every change you make in EUC environments](eucrel09-bp01.md "eucrel09-bp01.md")
 - [EUCREL10-BP01 Implement communication plans with EUC environment stakeholders](eucrel10-bp01.md "eucrel10-bp01.md")
-- [EUCREL11-BP01 Implement post-change
-  assessment to evaluate impact and optimize
-  performance](eucrel11-bp01.md "eucrel11-bp01.md")
+- [EUCREL11-BP01 Implement post-change assessment to evaluate impact and optimize performance](eucrel11-bp01.md "eucrel11-bp01.md")

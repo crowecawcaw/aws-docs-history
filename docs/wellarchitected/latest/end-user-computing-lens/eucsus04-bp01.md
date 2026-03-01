@@ -1,6 +1,4 @@
-# EUCSUS04-BP01
-
-Implement a scaling methodology in WorkSpaces Applications
+# EUCSUS04-BP01 Implement a scaling methodology in WorkSpaces Applications
 
 Scaling policies improve resource utilization and cost
 management for application streaming workloads.

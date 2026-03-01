@@ -1,6 +1,4 @@
-# EUCPERF04-BP02 Identify all user types, and deploy required fleet types and instance
-
-types as needed
+# EUCPERF04-BP02 Identify all user types, and deploy required fleet types and instance types as needed
 
 Not all end users necessarily require the same level of performance. Users who perform
 routine tasks such as data entry, document review, or customer service may need a low level

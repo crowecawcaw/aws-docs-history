@@ -1,6 +1,4 @@
-# EUCSUS07-BP01 Identify the volume and data
-
-requirement for your user profiles
+# EUCSUS07-BP01 Identify the volume and data requirement for your user profiles
 
 Each user persona may require different volume and performance to
 align with your business case.

@@ -1,6 +1,4 @@
-# EUCPERF02-BP03 Evaluate external data sources that your environment integrates with, and
-
-assess its impact on performance
+# EUCPERF02-BP03 Evaluate external data sources that your environment integrates with, and assess its impact on performance
 
 The location of user data and the services used to deliver access to this data are key
 to providing the best performance for consumers of an AWS EUC deployment. Latency incurred

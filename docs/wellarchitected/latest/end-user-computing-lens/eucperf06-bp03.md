@@ -1,6 +1,4 @@
-# EUCPERF06-BP03 Make sure that EUC network configurations don't interfere with service
-
-management connections
+# EUCPERF06-BP03 Make sure that EUC network configurations don't interfere with service management connections
 
 WorkSpaces Applications instances use a dedicated management network interface (eth0) for
 streaming and service management connections.

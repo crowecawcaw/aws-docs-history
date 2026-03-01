@@ -1,6 +1,4 @@
-# EUCPERF10-BP02 Enable self-service WorkSpaces Personal management capabilities,
-
-and allow users to request changes by an administrator
+# EUCPERF10-BP02 Enable self-service WorkSpaces Personal management capabilities, and allow users to request changes by an administrator
 
 The WorkSpaces Personal self-service options allow users to ramp up or down instance
 performance over time.

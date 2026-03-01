@@ -1,7 +1,4 @@
-# EUCREL11-BP01 Implement post-change
-
-assessment to evaluate impact and optimize
-performance
+# EUCREL11-BP01 Implement post-change assessment to evaluate impact and optimize performance
 
 After implementing changes, conduct a post-change assessment
 to assess their impact on the resiliency and performance of

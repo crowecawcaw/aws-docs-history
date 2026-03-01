@@ -1,6 +1,4 @@
-# EUCOPS05-BP02 Store and regularly analyze log files to detect anomalous
-
-activity and behaviors
+# EUCOPS05-BP02 Store and regularly analyze log files to detect anomalous activity and behaviors
 
 Maintaining a central store of log data and performance metrics is frequently a
 mandatory requirement if specific compliance standards need to be maintained. Even in the

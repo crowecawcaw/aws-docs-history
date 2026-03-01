@@ -1,6 +1,4 @@
-# EUCPERF02-BP01 Identify geographic distribution of end users and design to minimize
-
-latency
+# EUCPERF02-BP01 Identify geographic distribution of end users and design to minimize latency
 
 When migrating to or implementing AWS EUC services, consider the location of each
 group of users with respect to the service endpoints for AWS WorkSpaces, WorkSpaces Applications, or

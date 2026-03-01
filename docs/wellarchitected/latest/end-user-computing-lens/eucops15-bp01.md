@@ -1,6 +1,4 @@
-# EUCOPS15-BP01 Update your solution design documentation over
-
-time, and use version control to track changes
+# EUCOPS15-BP01 Update your solution design documentation over time, and use version control to track changes
 
 Keep key architectural designs, operations handbooks, and support guides up to date,
 maintaining a library of reference material that can be used by new personnel, partners, or

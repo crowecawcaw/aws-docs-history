@@ -1,7 +1,4 @@
-# EUCOPS16-BP01 Implement automated processes
-
-to verify that service updates can be repeatably deployed,
-updated, and rolled back
+# EUCOPS16-BP01 Implement automated processes to verify that service updates can be repeatably deployed, updated, and rolled back
 
 Selecting an automation toolset and defining the processes that facilitate repeatable,
 predictable delivery and maintenance of AWS EUC services is key to achieving simplified

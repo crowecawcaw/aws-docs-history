@@ -17,5 +17,4 @@ In an EUC architecture, there are two key networking configurations to consider:
 
 - [EUCPERF06-BP01 Minimize latency between end users and EUC services](eucperf06-bp01.md "eucperf06-bp01.md")
 - [EUCPERF06-BP02 Minimize latency between EUC instances and dependent services](eucperf06-bp02.md "eucperf06-bp02.md")
-- [EUCPERF06-BP03 Make sure that EUC network configurations don't interfere with service
-  management connections](eucperf06-bp03.md "eucperf06-bp03.md")
+- [EUCPERF06-BP03 Make sure that EUC network configurations don't interfere with service management connections](eucperf06-bp03.md "eucperf06-bp03.md")

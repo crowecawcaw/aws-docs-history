@@ -1,6 +1,4 @@
-# EUCPERF04-BP01 Evaluate available instance types (AppStream) and hardware bundles
-
-(WorkSpaces)
+# EUCPERF04-BP01 Evaluate available instance types (AppStream) and hardware bundles (WorkSpaces)
 
 WorkSpaces Applications groups instances into families, such as General Purpose (stream.standard).
 Within each family, there are different instance sizes, such as stream.standard.medium and

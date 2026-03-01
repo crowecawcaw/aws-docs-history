@@ -1,6 +1,4 @@
-# EUCOPS12-BP02 Define and maintain an alerting chain of
-
-command that quickly communicates issues in real time
+# EUCOPS12-BP02 Define and maintain an alerting chain of command that quickly communicates issues in real time
 
 As important as gathering relevant service metrics and alerts is expediting the
 propagation of those alerts to the right teams, individuals, or automated processes. This

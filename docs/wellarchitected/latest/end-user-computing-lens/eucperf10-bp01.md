@@ -1,6 +1,4 @@
-# EUCPERF10-BP01 Align the instance type and instance size of a fleet with the
-
-workload
+# EUCPERF10-BP01 Align the instance type and instance size of a fleet with the workload
 
 As needed, user environments can be updated on a pre-determined schedule or in response
 to periodic changes in performance to satisfy a change in the anticipated demand for

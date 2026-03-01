@@ -31,10 +31,6 @@ to your AWS EUC service delivery.
 
 ###### Best practices
 
-- [EUCOPS15-BP01 Update your solution design documentation over
-  time, and use version control to track changes](eucops15-bp01.md "eucops15-bp01.md")
-- [EUCOPS16-BP01 Implement automated processes
-  to verify that service updates can be repeatably deployed,
-  updated, and rolled back](eucops16-bp01.md "eucops16-bp01.md")
-- [EUCOPS17-BP01 Provide time and resources for your teams to
-  keep up to date with changes and feature updates](eucops17-bp01.md "eucops17-bp01.md")
+- [EUCOPS15-BP01 Update your solution design documentation over time, and use version control to track changes](eucops15-bp01.md "eucops15-bp01.md")
+- [EUCOPS16-BP01 Implement automated processes to verify that service updates can be repeatably deployed, updated, and rolled back](eucops16-bp01.md "eucops16-bp01.md")
+- [EUCOPS17-BP01 Provide time and resources for your teams to keep up to date with changes and feature updates](eucops17-bp01.md "eucops17-bp01.md")

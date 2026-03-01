@@ -1,6 +1,4 @@
-# EUCPERF04-BP03 Determine the running mode and size of hardware bundles needed to support
-
-each user type's applications
+# EUCPERF04-BP03 Determine the running mode and size of hardware bundles needed to support each user type's applications
 
 It's important to have a high degree of familiarity with the applications that need to
 be delivered using Amazon WorkSpaces Personal in terms of their compute resource requirements and

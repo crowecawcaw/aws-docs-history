@@ -24,7 +24,7 @@
 - [Amazon WorkSpaces FAQs → Windows Bring Your Own License (BYOL)](https://aws.amazon.com/workspaces/faqs/?nc1=h_ls#Windows_BYOL "https://aws.amazon.com/workspaces/faqs/?nc1=h_ls#Windows_BYOL")
 - [Microsoft
   Windows Performance Monitor Overview](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481 "https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481")
-- [Analyze your Amazon WorkSpaces Applications usage reports using Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/")
+- [Analyze your Amazon WorkSpaces Applications usage reports using Amazon Athena and Quick](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/")
 - [Build
   an enterprise cost and usage dashboard for Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/build-an-enterprise-cost-and-usage-dashboard-for-amazon-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/build-an-enterprise-cost-and-usage-dashboard-for-amazon-workspaces/")
 - [Creating

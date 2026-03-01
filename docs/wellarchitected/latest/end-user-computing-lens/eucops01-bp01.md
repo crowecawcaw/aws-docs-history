@@ -1,6 +1,4 @@
-# EUCOPS01-BP01 Build a project team which includes executive
-
-level sponsors and relevant business and technical communities
+# EUCOPS01-BP01 Build a project team which includes executive level sponsors and relevant business and technical communities
 
 When starting your AWS EUC project be sure to convene a project board which has
 sponsorship from a significant influencer or senior decision maker and buy in from both

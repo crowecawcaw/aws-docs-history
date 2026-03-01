@@ -59,20 +59,11 @@ efficiently use its capabilities.
 
 ###### Best practices
 
-- [EUCOPS05-BP01 Identify monitoring tools to provide the expected levels of insight into
-  operational performance](eucops05-bp01.md "eucops05-bp01.md")
-- [EUCOPS05-BP02 Store and regularly analyze log files to detect anomalous
-  activity and behaviors](eucops05-bp02.md "eucops05-bp02.md")
-- [EUCOPS06-BP01 Deploy test, development, and
-  pre-production environments to reduce risk to production services](eucops06-bp01.md "eucops06-bp01.md")
-- [EUCOPS07-BP01 Formalize the mandatory creation and
-  maintenance of all EUC service-related documentation](eucops07-bp01.md "eucops07-bp01.md")
-- [EUCOPS08-BP01 Adopt a mandatory and formalized process for
-  managing any changes to EUC services and dependent infrastructure](eucops08-bp01.md "eucops08-bp01.md")
-- [EUCOPS09-BP01 Maintain an up to date matrix of all EUC
-  service owners and quick access links to the support plans for each service](eucops09-bp01.md "eucops09-bp01.md")
-- [EUCOPS09-BP02 Allocate training time so your teams can build
-  and maintain their skills to deploy and manage your AWS EUC environment](eucops09-bp02.md "eucops09-bp02.md")
-- [EUCOPS10-BP01 Encourage user participation during
-  service development and rollout to maximize engagement and project
-  success](eucops10-bp01.md "eucops10-bp01.md")
+- [EUCOPS05-BP01 Identify monitoring tools to provide the expected levels of insight into operational performance](eucops05-bp01.md "eucops05-bp01.md")
+- [EUCOPS05-BP02 Store and regularly analyze log files to detect anomalous activity and behaviors](eucops05-bp02.md "eucops05-bp02.md")
+- [EUCOPS06-BP01 Deploy test, development, and pre-production environments to reduce risk to production services](eucops06-bp01.md "eucops06-bp01.md")
+- [EUCOPS07-BP01 Formalize the mandatory creation and maintenance of all EUC service-related documentation](eucops07-bp01.md "eucops07-bp01.md")
+- [EUCOPS08-BP01 Adopt a mandatory and formalized process for managing any changes to EUC services and dependent infrastructure](eucops08-bp01.md "eucops08-bp01.md")
+- [EUCOPS09-BP01 Maintain an up to date matrix of all EUC service owners and quick access links to the support plans for each service](eucops09-bp01.md "eucops09-bp01.md")
+- [EUCOPS09-BP02 Allocate training time so your teams can build and maintain their skills to deploy and manage your AWS EUC environment](eucops09-bp02.md "eucops09-bp02.md")
+- [EUCOPS10-BP01 Encourage user participation during service development and rollout to maximize engagement and project success](eucops10-bp01.md "eucops10-bp01.md")

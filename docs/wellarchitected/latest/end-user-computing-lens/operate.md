@@ -42,13 +42,8 @@ provides a broader view of the cause and effect of cross-service outages.
 
 ###### Best practices
 
-- [EUCOPS11-BP01 Create EUC health metrics that allow you to
-  meet your operational goals](eucops11-bp01.md "eucops11-bp01.md")
-- [EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify
-  anomalous metrics](eucops12-bp01.md "eucops12-bp01.md")
-- [EUCOPS12-BP02 Define and maintain an alerting chain of
-  command that quickly communicates issues in real time](eucops12-bp02.md "eucops12-bp02.md")
-- [EUCOPS13-BP01 Perform regular service reviews to identify significant trends in performance,
-  scalability, and availability](eucops13-bp01.md "eucops13-bp01.md")
-- [EUCOPS14-BP01 Ingest log file data from multiple data
-  sources to correlate key problem identifiers and trends](eucops14-bp01.md "eucops14-bp01.md")
+- [EUCOPS11-BP01 Create EUC health metrics that allow you to meet your operational goals](eucops11-bp01.md "eucops11-bp01.md")
+- [EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify anomalous metrics](eucops12-bp01.md "eucops12-bp01.md")
+- [EUCOPS12-BP02 Define and maintain an alerting chain of command that quickly communicates issues in real time](eucops12-bp02.md "eucops12-bp02.md")
+- [EUCOPS13-BP01 Perform regular service reviews to identify significant trends in performance, scalability, and availability](eucops13-bp01.md "eucops13-bp01.md")
+- [EUCOPS14-BP01 Ingest log file data from multiple data sources to correlate key problem identifiers and trends](eucops14-bp01.md "eucops14-bp01.md")

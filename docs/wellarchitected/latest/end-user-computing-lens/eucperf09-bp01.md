@@ -1,6 +1,4 @@
-# EUCPERF09-BP01 Follow AWS EUC
-
-news sources
+# EUCPERF09-BP01 Follow AWS EUC news sources
 
 Many customers can benefit from keeping up with news from software publishers and
 partners in the end user computing domain. Stay updated on developments by following news

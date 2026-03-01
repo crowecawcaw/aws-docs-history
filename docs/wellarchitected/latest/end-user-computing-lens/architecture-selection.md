@@ -32,15 +32,9 @@ delivery tiers.
 ###### Best practices
 
 - [EUCPERF01-BP01 Check Regional support for the required EUC services](eucperf01-bp01.md "eucperf01-bp01.md")
-- [EUCPERF01-BP02 Consider the requirements of your Availability Zones when architecting
-  your AWS EUC services](eucperf01-bp02.md "eucperf01-bp02.md")
-- [EUCPERF01-BP03 Consider disaster recovery (DR) requirements when architecting your AWS
-  EUC solution](eucperf01-bp03.md "eucperf01-bp03.md")
-- [EUCPERF02-BP01 Identify geographic distribution of end users and design to minimize
-  latency](eucperf02-bp01.md "eucperf02-bp01.md")
-- [EUCPERF02-BP02 Scale your EUC environment to accommodate the required number of end
-  users](eucperf02-bp02.md "eucperf02-bp02.md")
-- [EUCPERF02-BP03 Evaluate external data sources that your environment integrates with, and
-  assess its impact on performance](eucperf02-bp03.md "eucperf02-bp03.md")
-- [EUCPERF03-BP01 Consider modernization of backend services to use managed services from
-  AWS for best performance](eucperf03-bp01.md "eucperf03-bp01.md")
+- [EUCPERF01-BP02 Consider the requirements of your Availability Zones when architecting your AWS EUC services](eucperf01-bp02.md "eucperf01-bp02.md")
+- [EUCPERF01-BP03 Consider disaster recovery (DR) requirements when architecting your AWS EUC solution](eucperf01-bp03.md "eucperf01-bp03.md")
+- [EUCPERF02-BP01 Identify geographic distribution of end users and design to minimize latency](eucperf02-bp01.md "eucperf02-bp01.md")
+- [EUCPERF02-BP02 Scale your EUC environment to accommodate the required number of end users](eucperf02-bp02.md "eucperf02-bp02.md")
+- [EUCPERF02-BP03 Evaluate external data sources that your environment integrates with, and assess its impact on performance](eucperf02-bp03.md "eucperf02-bp03.md")
+- [EUCPERF03-BP01 Consider modernization of backend services to use managed services from AWS for best performance](eucperf03-bp01.md "eucperf03-bp01.md")

@@ -1,6 +1,4 @@
-# EUCPERF03-BP01 Consider modernization of backend services to use managed services from
-
-AWS for best performance
+# EUCPERF03-BP01 Consider modernization of backend services to use managed services from AWS for best performance
 
 By using AWS EUC services, you are already taking advantage of the reduced
 infrastructure and management overheads of maintaining your own environment. Taking the same

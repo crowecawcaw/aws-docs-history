@@ -1,6 +1,4 @@
-# EUCOPS08-BP01 Adopt a mandatory and formalized process for
-
-managing any changes to EUC services and dependent infrastructure
+# EUCOPS08-BP01 Adopt a mandatory and formalized process for managing any changes to EUC services and dependent infrastructure
 
 Create a new process or integrate with existing processes that track all changes that
 can affect the stability and security of your EUC deployment.

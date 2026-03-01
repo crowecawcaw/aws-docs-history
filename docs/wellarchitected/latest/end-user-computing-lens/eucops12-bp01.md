@@ -1,6 +1,4 @@
-# EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify
-
-anomalous metrics
+# EUCOPS12-BP01 Deploy alerting mechanisms that quickly identify anomalous metrics
 
 AWS EUC services provide access to desktops and applications which can be highly
 variable in their resource requirements over time. Weekly, monthly, quarterly, and year-end

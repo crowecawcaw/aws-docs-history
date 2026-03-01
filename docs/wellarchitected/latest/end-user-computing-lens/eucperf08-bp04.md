@@ -1,6 +1,4 @@
-# EUCPERF08-BP04 Monitor
-
-operating system metrics
+# EUCPERF08-BP04 Monitor operating system metrics
 
 Operating systems can add significant variations in performance to your Workload
 depending on the compute, storage, and memory resources required. Test with all operating

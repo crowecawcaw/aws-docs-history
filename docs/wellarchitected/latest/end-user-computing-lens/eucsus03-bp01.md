@@ -1,6 +1,4 @@
-# EUCSUS03-BP01 Adapt your
-
-WorkSpaces Applications fleet timeout
+# EUCSUS03-BP01 Adapt your WorkSpaces Applications fleet timeout
 
 Configure timeouts for WorkSpaces Applications fleets to minimize unnecessary resource consumption
 whilst also factoring in usability. Minimize resource consumption by verifying that

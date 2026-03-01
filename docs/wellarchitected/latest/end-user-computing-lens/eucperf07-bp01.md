@@ -1,6 +1,4 @@
-# EUCPERF07-BP01 Conduct realistic end-to-end testing aligned with organizational
-
-objectives
+# EUCPERF07-BP01 Conduct realistic end-to-end testing aligned with organizational objectives
 
 When planning to conduct testing, consider how your users interact with the EUC service
 and on an everyday basis. Create tests that align with the primary use of the service

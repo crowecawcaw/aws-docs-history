@@ -1,6 +1,4 @@
-# EUCPERF01-BP03 Consider disaster recovery (DR) requirements when architecting your AWS
-
-EUC solution
+# EUCPERF01-BP03 Consider disaster recovery (DR) requirements when architecting your AWS EUC solution
 
 Will a secondary Region support the latency that is acceptable to support the selected
 AWS EUC service in a DR scenario, or can you accept degraded performance and relaxed

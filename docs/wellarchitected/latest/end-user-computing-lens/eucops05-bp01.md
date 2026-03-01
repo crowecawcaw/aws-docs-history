@@ -1,6 +1,4 @@
-# EUCOPS05-BP01 Identify monitoring tools to provide the expected levels of insight into
-
-operational performance
+# EUCOPS05-BP01 Identify monitoring tools to provide the expected levels of insight into operational performance
 
 While existing, familiar tools can be used to monitor an AWS EUC deployment, there
 are many AWS services, such as automatic Amazon CloudWatch dashboards for Amazon WorkSpaces and Amazon

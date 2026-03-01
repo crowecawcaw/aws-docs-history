@@ -1,6 +1,4 @@
-# EUCOPS02-BP02 Build a matrix of all internal and external
-
-stakeholders who may be affected by changes to the way you deliver EUC services
+# EUCOPS02-BP02 Build a matrix of all internal and external stakeholders who may be affected by changes to the way you deliver EUC services
 
 To provide an initial starting point for building a project team, collate a list of all
 the technology areas which are directly or indirectly affected by an AWS EUC migration.
