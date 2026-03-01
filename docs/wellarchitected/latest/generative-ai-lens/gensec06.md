@@ -13,5 +13,4 @@ can be challenging to remediate.
 
 ###### Best practices
 
-- [GENSEC06-BP01 Implement data purification filters for model
-  training workflows](gensec06-bp01.md "gensec06-bp01.md")
+- [GENSEC06-BP01 Implement data purification filters for model training workflows](gensec06-bp01.md "gensec06-bp01.md")

@@ -1,6 +1,4 @@
-# GENOPS02-BP03 Implement solutions to
-
-mitigate the risk of system overload
+# GENOPS02-BP03 Implement solutions to mitigate the risk of system overload
 
 There are two primary ways to mitigate the risk of system
 overload for generative AI workloads. The first is to scale the

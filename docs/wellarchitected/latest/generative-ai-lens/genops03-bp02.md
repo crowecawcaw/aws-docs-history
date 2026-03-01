@@ -1,6 +1,4 @@
-# GENOPS03-BP02 Enable tracing for agents and RAG
-
-workflows
+# GENOPS03-BP02 Enable tracing for agents and RAG workflows
 
 Implement comprehensive tracing for generative AI agents and RAG
 workflows to enhance operational excellence and performance

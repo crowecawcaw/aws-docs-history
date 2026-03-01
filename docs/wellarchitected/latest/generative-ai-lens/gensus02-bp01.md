@@ -1,6 +1,4 @@
-# GENSUS02-BP01 Optimize data processing and storage to minimize
-
-energy consumption
+# GENSUS02-BP01 Optimize data processing and storage to minimize energy consumption
 
 Organizations should optimize data processing and storage, which
 aims to enhance the sustainability and cost-effectiveness of their

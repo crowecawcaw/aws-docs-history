@@ -1,6 +1,4 @@
-# GENREL03-BP01 Use logic to manage prompt flows and gracefully
-
-recover from failure
+# GENREL03-BP01 Use logic to manage prompt flows and gracefully recover from failure
 
 Leverage conditions, loops, and other logical structures at the
 prompt management or application layer to reduce the risk of an

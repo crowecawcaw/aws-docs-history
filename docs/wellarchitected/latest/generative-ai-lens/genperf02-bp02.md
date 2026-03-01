@@ -1,6 +1,4 @@
-# GENPERF02-BP02 Optimize inference parameters to improve
-
-response quality
+# GENPERF02-BP02 Optimize inference parameters to improve response quality
 
 Foundation model response quality can be affected by inference
 hyperparameters. Optimize inference hyperparameters for your use

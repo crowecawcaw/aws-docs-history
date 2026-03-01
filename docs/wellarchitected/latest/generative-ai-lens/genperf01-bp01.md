@@ -1,6 +1,4 @@
-# GENPERF01-BP01 Define a ground truth data set of prompts and
-
-responses
+# GENPERF01-BP01 Define a ground truth data set of prompts and responses
 
 _Ground truth data_ facilitates model testing
 for use case specific scenarios and should be developed and

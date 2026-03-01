@@ -1,6 +1,4 @@
-# GENOPS01-BP01 Periodically evaluate functional
-
-performance
+# GENOPS01-BP01 Periodically evaluate functional performance
 
 Implement periodic evaluations using stratified sampling and custom
 metrics to maintain the performance and reliability of large

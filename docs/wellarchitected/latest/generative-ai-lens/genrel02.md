@@ -8,5 +8,4 @@ Generative AI workloads often comprise several independent systems, including fo
 
 ###### Best practices
 
-- [GENREL02-BP01 Implement redundant network connections among
-  model endpoints and supporting infrastructure](genrel02-bp01.md "genrel02-bp01.md")
+- [GENREL02-BP01 Implement redundant network connections among model endpoints and supporting infrastructure](genrel02-bp01.md "genrel02-bp01.md")

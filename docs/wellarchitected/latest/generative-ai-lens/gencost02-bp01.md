@@ -1,6 +1,4 @@
-# GENCOST02-BP01 Balance cost and performance when selecting
-
-inference paradigms
+# GENCOST02-BP01 Balance cost and performance when selecting inference paradigms
 
 Hosting a foundation model for inference requires many choices, and
 many of these decisions can affect the cost of your workload. One of

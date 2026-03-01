@@ -12,5 +12,4 @@ achieving cost-aware model selection.
 
 ###### Best practices
 
-- [GENCOST01-BP01 Right-size model selection to optimize inference
-  costs](gencost01-bp01.md "gencost01-bp01.md")
+- [GENCOST01-BP01 Right-size model selection to optimize inference costs](gencost01-bp01.md "gencost01-bp01.md")

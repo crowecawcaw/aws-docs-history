@@ -14,5 +14,4 @@ utilization in generative AI applications.
 
 ###### Best practices
 
-- [GENSUS03-BP01 Leverage smaller models and optimized inference techniques to reduce carbon
-  footprint](gensus03-bp01.md "gensus03-bp01.md")
+- [GENSUS03-BP01 Leverage smaller models and optimized inference techniques to reduce carbon footprint](gensus03-bp01.md "gensus03-bp01.md")

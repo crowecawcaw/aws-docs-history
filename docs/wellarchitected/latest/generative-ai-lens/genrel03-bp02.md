@@ -1,6 +1,4 @@
-# GENREL03-BP02 Implement timeout mechanisms on agentic
-
-workflows
+# GENREL03-BP02 Implement timeout mechanisms on agentic workflows
 
 Implement controls to detect and terminate long-running unexpected
 workflows.

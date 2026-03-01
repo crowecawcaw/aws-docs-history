@@ -1,6 +1,4 @@
-# GENSEC01-BP04 Implement access monitoring to generative AI
-
-services and foundation models
+# GENSEC01-BP04 Implement access monitoring to generative AI services and foundation models
 
 Generative AI services and foundation models can be resource
 intensive to use and can be misused. Implementing access monitoring

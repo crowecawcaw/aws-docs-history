@@ -13,7 +13,5 @@ and should be done with cost in mind.
 
 ###### Best practices
 
-- [GENCOST02-BP01 Balance cost and performance when selecting
-  inference paradigms](gencost02-bp01.md "gencost02-bp01.md")
-- [GENCOST02-BP02 Optimize resource consumption to minimize
-  hosting costs](gencost02-bp02.md "gencost02-bp02.md")
+- [GENCOST02-BP01 Balance cost and performance when selecting inference paradigms](gencost02-bp01.md "gencost02-bp01.md")
+- [GENCOST02-BP02 Optimize resource consumption to minimize hosting costs](gencost02-bp02.md "gencost02-bp02.md")

@@ -1,6 +1,4 @@
-# GENCOST01-BP01 Right-size model selection to optimize inference
-
-costs
+# GENCOST01-BP01 Right-size model selection to optimize inference costs
 
 Foundation model costs vary greatly across the various foundation
 model providers, model families and sizes, and model hosting

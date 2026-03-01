@@ -1,6 +1,4 @@
-# GENSEC01-BP03 Implement least privilege access permissions for
-
-foundation models accessing data stores
+# GENSEC01-BP03 Implement least privilege access permissions for foundation models accessing data stores
 
 Foundation models can aggregate and generate rich insights from data
 they have been trained on or interact with from the APIs providing

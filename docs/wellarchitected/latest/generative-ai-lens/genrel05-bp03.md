@@ -1,6 +1,4 @@
-# GENREL05-BP03 Verify that agent capabilities are available
-
-across all regions of availability
+# GENREL05-BP03 Verify that agent capabilities are available across all regions of availability
 
 Agents require supporting infrastructure to service requests from
 foundation models. Using agents across a region of availability

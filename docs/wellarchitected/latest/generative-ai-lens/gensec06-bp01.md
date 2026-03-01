@@ -1,6 +1,4 @@
-# GENSEC06-BP01 Implement data purification filters for model
-
-training workflows
+# GENSEC06-BP01 Implement data purification filters for model training workflows
 
 Data poisoning is best handled at the data layer before training or
 customization has taken place. Data purification filters can be

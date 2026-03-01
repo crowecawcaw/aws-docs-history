@@ -8,5 +8,4 @@ To enhance the security and performance of generative AI systems, it's beneficia
 
 ###### Best practices
 
-- [GENSEC03-BP01 Implement control plane and data access monitoring
-  to generative AI services and foundation models](gensec03-bp01.md "gensec03-bp01.md")
+- [GENSEC03-BP01 Implement control plane and data access monitoring to generative AI services and foundation models](gensec03-bp01.md "gensec03-bp01.md")

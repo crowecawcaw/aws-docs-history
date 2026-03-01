@@ -1,6 +1,4 @@
-# GENPERF01-BP02 Collect performance metrics from generative AI
-
-workloads
+# GENPERF01-BP02 Collect performance metrics from generative AI workloads
 
 Foundation model performance on specific tasks is measured and
 quantified in different ways depending on the desired outcome.

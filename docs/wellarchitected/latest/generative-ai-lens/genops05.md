@@ -1,6 +1,4 @@
-#
-
-Model customization
+# Model customization
 
 | GENOPS05: How do you determine when to execute Gen AI model customization? |
 | -------------------------------------------------------------------------- |

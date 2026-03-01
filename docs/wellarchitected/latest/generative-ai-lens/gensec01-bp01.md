@@ -1,6 +1,4 @@
-# GENSEC01-BP01 Grant least privilege access to foundation model
-
-endpoints
+# GENSEC01-BP01 Grant least privilege access to foundation model endpoints
 
 Granting least privilege access to foundation model endpoints helps
 limit unintended access and encourages a zero-trust security

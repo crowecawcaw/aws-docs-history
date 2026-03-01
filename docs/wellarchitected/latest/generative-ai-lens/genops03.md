@@ -1,6 +1,4 @@
-#
-
-Observability in workloads
+# Observability in workloads
 
 | GENOPS03: How do you maintain traceability for your models, prompts, and assets? |
 | -------------------------------------------------------------------------------- |
@@ -17,5 +15,4 @@ optimizing based on defined metrics and ground truth data.
 ###### Best practices
 
 - [GENOPS03-BP01 Implement prompt template management](genops03-bp01.md "genops03-bp01.md")
-- [GENOPS03-BP02 Enable tracing for agents and RAG
-  workflows](genops03-bp02.md "genops03-bp02.md")
+- [GENOPS03-BP02 Enable tracing for agents and RAG workflows](genops03-bp02.md "genops03-bp02.md")

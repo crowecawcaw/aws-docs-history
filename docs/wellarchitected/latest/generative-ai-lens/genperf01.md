@@ -10,7 +10,5 @@ Task performance is evaluated using benchmarks built from ground truth data, and
 
 ###### Best practices
 
-- [GENPERF01-BP01 Define a ground truth data set of prompts and
-  responses](genperf01-bp01.md "genperf01-bp01.md")
-- [GENPERF01-BP02 Collect performance metrics from generative AI
-  workloads](genperf01-bp02.md "genperf01-bp02.md")
+- [GENPERF01-BP01 Define a ground truth data set of prompts and responses](genperf01-bp01.md "genperf01-bp01.md")
+- [GENPERF01-BP02 Collect performance metrics from generative AI workloads](genperf01-bp02.md "genperf01-bp02.md")

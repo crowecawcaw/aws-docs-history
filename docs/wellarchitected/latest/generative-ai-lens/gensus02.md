@@ -1,6 +1,4 @@
-# Consume sustainable data processing and storage
-
-services
+# Consume sustainable data processing and storage services
 
 | GENSUS02: How can you optimize data processing and storage to minimize energy consumption and maximize efficiency? |
 | ------------------------------------------------------------------------------------------------------------------ |
@@ -16,5 +14,4 @@ which promotes efficient resource utilization and sustainability.
 
 ###### Best practices
 
-- [GENSUS02-BP01 Optimize data processing and storage to minimize
-  energy consumption](gensus02-bp01.md "gensus02-bp01.md")
+- [GENSUS02-BP01 Optimize data processing and storage to minimize energy consumption](gensus02-bp01.md "gensus02-bp01.md")

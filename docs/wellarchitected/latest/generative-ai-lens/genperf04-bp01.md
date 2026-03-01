@@ -1,6 +1,4 @@
-# GENPERF04-BP01 Test vector embeddings for latency and
-
-relevant performance
+# GENPERF04-BP01 Test vector embeddings for latency and relevant performance
 
 Optimizing a data retrieval system for generative AI may have
 more to do with data architecture and meta-data than the

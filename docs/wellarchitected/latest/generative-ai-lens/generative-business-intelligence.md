@@ -52,7 +52,7 @@ around these key principles:
 3. Amazon Q in QuickSight is configured to retrieve data from
    AWS and third party data sources, using row level security
    and column level security definitions for granular access
-   control. Quick Suite Q topics are created from these
+   control. Quick Q topics are created from these
    datasets for performant and accurate natural language
    querying.
 4. Users explore and analyze data through natural language

@@ -12,5 +12,4 @@ their intended purpose.
 
 ###### Best practices
 
-- [GENSEC05-BP01 Implement least privilege access and permissions
-  boundaries for agentic workflows](gensec05-bp01.md "gensec05-bp01.md")
+- [GENSEC05-BP01 Implement least privilege access and permissions boundaries for agentic workflows](gensec05-bp01.md "gensec05-bp01.md")

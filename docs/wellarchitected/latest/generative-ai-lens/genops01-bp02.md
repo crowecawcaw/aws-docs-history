@@ -91,7 +91,7 @@ Consult your organization’s AI policy document for guidance on how to use user
      feedback processing pipeline
    - Consider Amazon Bedrock's large language models to
      analyze the feedback
-   - Consider Quick Suite to create dashboards and
+   - Consider Quick to create dashboards and
      visualizations of the feedback data
 
 4. Implement and test improvements.
@@ -114,7 +114,7 @@ Consult your organization’s AI policy document for guidance on how to use user
   AWS](https://aws.amazon.com/solutions/guidance/capturing-and-analyzing-unstructured-customer-feedback-on-aws/ "https://aws.amazon.com/solutions/guidance/capturing-and-analyzing-unstructured-customer-feedback-on-aws/")
 - [Build
   an automated insight extraction framework for customer
-  feedback analysis with Amazon Bedrock and Quick Suite](https://aws.amazon.com/blogs/machine-learning/build-an-automated-insight-extraction-framework-for-customer-feedback-analysis-with-amazon-bedrock-and-amazon-quicksight/ "https://aws.amazon.com/blogs/machine-learning/build-an-automated-insight-extraction-framework-for-customer-feedback-analysis-with-amazon-bedrock-and-amazon-quicksight/")
+  feedback analysis with Amazon Bedrock and Quick](https://aws.amazon.com/blogs/machine-learning/build-an-automated-insight-extraction-framework-for-customer-feedback-analysis-with-amazon-bedrock-and-amazon-quicksight/ "https://aws.amazon.com/blogs/machine-learning/build-an-automated-insight-extraction-framework-for-customer-feedback-analysis-with-amazon-bedrock-and-amazon-quicksight/")
 - [Guidance
   for Automated Customer Feedback Analysis with Amazon Bedrock](https://aws.amazon.com/solutions/guidance/automated-customer-feedback-analysis-with-amazon-bedrock/ "https://aws.amazon.com/solutions/guidance/automated-customer-feedback-analysis-with-amazon-bedrock/")
 
@@ -134,5 +134,5 @@ Consult your organization’s AI policy document for guidance on how to use user
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/ "https://aws.amazon.com/bedrock/")
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/")
 - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [AWS Step Functions](https://aws.amazon.com/step-functions/ "https://aws.amazon.com/step-functions/")

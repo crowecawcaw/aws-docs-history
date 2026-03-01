@@ -1,6 +1,4 @@
-# GENREL05-BP02 Replicate embedding data across all regions of
-
-availability
+# GENREL05-BP02 Replicate embedding data across all regions of availability
 
 Inference to a foundation model may be available over a local availability region, or could
 be a large region of availability. Make sure your data is available across all regions of

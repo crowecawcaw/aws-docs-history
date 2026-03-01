@@ -16,7 +16,5 @@ costs.
 
 ###### Best practices
 
-- [GENSUS01-BP01 Implement auto scaling and serverless
-  architectures to optimize resource utilization](gensus01-bp01.md "gensus01-bp01.md")
-- [GENSUS01-BP02 Use efficient model customization
-  services](gensus01-bp02.md "gensus01-bp02.md")
+- [GENSUS01-BP01 Implement auto scaling and serverless architectures to optimize resource utilization](gensus01-bp01.md "gensus01-bp01.md")
+- [GENSUS01-BP02 Use efficient model customization services](gensus01-bp02.md "gensus01-bp02.md")

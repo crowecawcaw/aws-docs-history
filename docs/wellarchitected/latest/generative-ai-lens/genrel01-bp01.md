@@ -1,6 +1,4 @@
-# GENREL01-BP01 Scale and balance foundation model throughput as a
-
-function of utilization
+# GENREL01-BP01 Scale and balance foundation model throughput as a function of utilization
 
 Collect information on the generative AI workload's utilization,
 and implement dynamic scaling strategies to match capacity with

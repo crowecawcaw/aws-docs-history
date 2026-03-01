@@ -14,5 +14,4 @@ harmful, biased or factually incorrect responses.
 
 ###### Best practices
 
-- [GENSEC02-BP01 Implement guardrails to mitigate harmful or
-  incorrect model responses](gensec02-bp01.md "gensec02-bp01.md")
+- [GENSEC02-BP01 Implement guardrails to mitigate harmful or incorrect model responses](gensec02-bp01.md "gensec02-bp01.md")

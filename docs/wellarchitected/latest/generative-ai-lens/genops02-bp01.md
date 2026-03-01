@@ -53,7 +53,7 @@ Endpoints can also log to CloudWatch. Evaluate different
 logging solutions that best suit your needs, and implement
 monitoring at each layer of your custom generative AI
 workflow. These considerations should also be applied to
-generative business intelligence (BI) solutions Quick Suite Q. Monitor the appropriate Quick Suite Q
+generative business intelligence (BI) solutions Quick Q. Monitor the appropriate Quick Q
 metrics to identify operational issues when serving generative
 BI insights.
 

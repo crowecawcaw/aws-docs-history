@@ -8,6 +8,5 @@ Data retrieval systems like vector databases support some of the most popular de
 
 ###### Best practices
 
-- [GENPERF04-BP01 Test vector embeddings for latency and
-  relevant performance](genperf04-bp01.md "genperf04-bp01.md")
+- [GENPERF04-BP01 Test vector embeddings for latency and relevant performance](genperf04-bp01.md "genperf04-bp01.md")
 - [GENPERF04-BP02 Optimize vector sizes for your use case](genperf04-bp02.md "genperf04-bp02.md")

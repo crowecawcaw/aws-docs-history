@@ -10,5 +10,4 @@ cost if misconfigured.
 
 ###### Best practices
 
-- [GENCOST05-BP01 Create stopping conditions to control
-  long-running workflows](gencost05-bp01.md "gencost05-bp01.md")
+- [GENCOST05-BP01 Create stopping conditions to control long-running workflows](gencost05-bp01.md "gencost05-bp01.md")

@@ -8,5 +8,4 @@ Foundation models require high processing power to customize and deliver inferen
 
 ###### Best practices
 
-- [GENPERF03-BP01 Use managed solutions for model hosting,
-  customization, and data access where appropriate](genperf03-bp01.md "genperf03-bp01.md")
+- [GENPERF03-BP01 Use managed solutions for model hosting, customization, and data access where appropriate](genperf03-bp01.md "genperf03-bp01.md")

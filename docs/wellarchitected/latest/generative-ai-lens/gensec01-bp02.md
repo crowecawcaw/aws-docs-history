@@ -1,6 +1,4 @@
-# GENSEC01-BP02 Implement private network communication between
-
-foundation models and applications
+# GENSEC01-BP02 Implement private network communication between foundation models and applications
 
 Implementing a scoped down data perimeter on foundation model
 endpoints helps reduce the surface-area of potential threat vectors

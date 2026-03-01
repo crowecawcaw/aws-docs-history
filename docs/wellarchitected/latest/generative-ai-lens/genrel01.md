@@ -8,5 +8,4 @@ Foundation models perform complex tasks over detailed input, and they have limit
 
 ###### Best practices
 
-- [GENREL01-BP01 Scale and balance foundation model throughput as a
-  function of utilization](genrel01-bp01.md "genrel01-bp01.md")
+- [GENREL01-BP01 Scale and balance foundation model throughput as a function of utilization](genrel01-bp01.md "genrel01-bp01.md")

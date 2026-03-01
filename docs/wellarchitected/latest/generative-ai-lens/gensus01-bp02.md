@@ -1,6 +1,4 @@
-# GENSUS01-BP02 Use efficient model customization
-
-services
+# GENSUS01-BP02 Use efficient model customization services
 
 To maximize efficiency and sustainability in large-scale generative
 AI model deployments, adopt best practices for distributed training

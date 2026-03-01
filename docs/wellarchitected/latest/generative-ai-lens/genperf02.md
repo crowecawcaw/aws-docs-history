@@ -11,7 +11,5 @@ Developing a methodology for maintaining consistent model performance in a rapid
 ###### Best practices
 
 - [GENPERF02-BP01 Load test model endpoints](genperf02-bp01.md "genperf02-bp01.md")
-- [GENPERF02-BP02 Optimize inference parameters to improve
-  response quality](genperf02-bp02.md "genperf02-bp02.md")
-- [GENPERF02-BP03 Select and customize the appropriate model for
-  your use case](genperf02-bp03.md "genperf02-bp03.md")
+- [GENPERF02-BP02 Optimize inference parameters to improve response quality](genperf02-bp02.md "genperf02-bp02.md")
+- [GENPERF02-BP03 Select and customize the appropriate model for your use case](genperf02-bp03.md "genperf02-bp03.md")

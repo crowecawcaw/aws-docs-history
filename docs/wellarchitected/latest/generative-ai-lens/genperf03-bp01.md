@@ -1,6 +1,4 @@
-# GENPERF03-BP01 Use managed solutions for model hosting,
-
-customization, and data access where appropriate
+# GENPERF03-BP01 Use managed solutions for model hosting, customization, and data access where appropriate
 
 There are several industry-leading model providers, with new
 model families, sizes, and capabilities being introduced

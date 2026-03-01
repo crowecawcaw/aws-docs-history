@@ -14,9 +14,6 @@ for this variability is a complex problem.
 
 ###### Best practices
 
-- [GENREL05-BP01 Load-balance inference requests across all regions of
-  availability](genrel05-bp01.md "genrel05-bp01.md")
-- [GENREL05-BP02 Replicate embedding data across all regions of
-  availability](genrel05-bp02.md "genrel05-bp02.md")
-- [GENREL05-BP03 Verify that agent capabilities are available
-  across all regions of availability](genrel05-bp03.md "genrel05-bp03.md")
+- [GENREL05-BP01 Load-balance inference requests across all regions of availability](genrel05-bp01.md "genrel05-bp01.md")
+- [GENREL05-BP02 Replicate embedding data across all regions of availability](genrel05-bp02.md "genrel05-bp02.md")
+- [GENREL05-BP03 Verify that agent capabilities are available across all regions of availability](genrel05-bp03.md "genrel05-bp03.md")

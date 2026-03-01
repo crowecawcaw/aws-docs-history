@@ -1,6 +1,4 @@
-# GENSEC05-BP01 Implement least privilege access and permissions
-
-boundaries for agentic workflows
+# GENSEC05-BP01 Implement least privilege access and permissions boundaries for agentic workflows
 
 Implementing least privilege and permissions bounded agents limits
 the scope of agentic workflows and helps stop them from taking

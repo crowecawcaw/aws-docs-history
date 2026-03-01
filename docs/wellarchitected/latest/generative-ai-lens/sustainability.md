@@ -34,6 +34,5 @@ represented by at least of one of the following principles:
 ###### Focus areas
 
 - [Energy-efficient infrastructure and services](gensus01.md "gensus01.md")
-- [Consume sustainable data processing and storage
-  services](gensus02.md "gensus02.md")
+- [Consume sustainable data processing and storage services](gensus02.md "gensus02.md")
 - [Consume energy efficient models](gensus03.md "gensus03.md")

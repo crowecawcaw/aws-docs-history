@@ -1,6 +1,4 @@
-# GENSEC02-BP01 Implement guardrails to mitigate harmful or
-
-incorrect model responses
+# GENSEC02-BP01 Implement guardrails to mitigate harmful or incorrect model responses
 
 Guardrails are powerful, expansive techniques associated with
 reducing the risk of harmful, biased or incorrect model responses.

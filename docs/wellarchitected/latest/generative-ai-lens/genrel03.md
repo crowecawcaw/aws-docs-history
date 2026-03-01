@@ -11,7 +11,5 @@ reliable and improves user experience.
 
 ###### Best practices
 
-- [GENREL03-BP01 Use logic to manage prompt flows and gracefully
-  recover from failure](genrel03-bp01.md "genrel03-bp01.md")
-- [GENREL03-BP02 Implement timeout mechanisms on agentic
-  workflows](genrel03-bp02.md "genrel03-bp02.md")
+- [GENREL03-BP01 Use logic to manage prompt flows and gracefully recover from failure](genrel03-bp01.md "genrel03-bp01.md")
+- [GENREL03-BP02 Implement timeout mechanisms on agentic workflows](genrel03-bp02.md "genrel03-bp02.md")

@@ -1,6 +1,4 @@
-# GENPERF02-BP03 Select and customize the appropriate model for
-
-your use case
+# GENPERF02-BP03 Select and customize the appropriate model for your use case
 
 There are several industry-leading model providers, and each
 offers different model families and sizes. When you select a

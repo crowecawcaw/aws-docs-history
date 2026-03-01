@@ -14,5 +14,4 @@ workloads.
 ###### Best practices
 
 - [GENSEC04-BP01 Implement a secure prompt catalog](gensec04-bp01.md "gensec04-bp01.md")
-- [GENSEC04-BP02 Sanitize and validate user inputs to foundation
-  models](gensec04-bp02.md "gensec04-bp02.md")
+- [GENSEC04-BP02 Sanitize and validate user inputs to foundation models](gensec04-bp02.md "gensec04-bp02.md")

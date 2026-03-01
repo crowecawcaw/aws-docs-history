@@ -13,5 +13,4 @@ trained in a timely manner.
 
 ###### Best practices
 
-- [GENREL06-BP01 Design for fault-tolerance for high-performance
-  distributed computation tasks](genrel06-bp01.md "genrel06-bp01.md")
+- [GENREL06-BP01 Design for fault-tolerance for high-performance distributed computation tasks](genrel06-bp01.md "genrel06-bp01.md")

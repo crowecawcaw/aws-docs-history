@@ -1,6 +1,4 @@
-# GENSEC03-BP01 Implement control plane and data access monitoring
-
-to generative AI services and foundation models
+# GENSEC03-BP01 Implement control plane and data access monitoring to generative AI services and foundation models
 
 Implement comprehensive monitoring across both control and data
 planes to enhance the protection of generative AI workloads against
@@ -48,7 +46,7 @@ well. A combination of these AWS services or the use of a
 third-party logging solution, if needed, improves visibility
 into application security. CloudWatch and CloudTrail integrate
 well with other managed AWS services powered by data, such
-Quick Suite Q, a generative business intelligence (BI)
+Quick Q, a generative business intelligence (BI)
 tool.
 
 ### Implementation steps

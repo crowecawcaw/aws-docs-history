@@ -1,6 +1,4 @@
-# GENREL02-BP01 Implement redundant network connections among
-
-model endpoints and supporting infrastructure
+# GENREL02-BP01 Implement redundant network connections among model endpoints and supporting infrastructure
 
 Implement network connection redundancy among components in your
 generative AI application.

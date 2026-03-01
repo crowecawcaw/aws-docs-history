@@ -1,6 +1,4 @@
-# GENCOST02-BP02 Optimize resource consumption to minimize
-
-hosting costs
+# GENCOST02-BP02 Optimize resource consumption to minimize hosting costs
 
 Hosting a foundation model for inference requires myriad choices,
 all of which affect cost. These cost dimensions can be optimized to

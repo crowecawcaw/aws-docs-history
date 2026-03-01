@@ -1,6 +1,4 @@
-# GENSEC04-BP02 Sanitize and validate user inputs to foundation
-
-models
+# GENSEC04-BP02 Sanitize and validate user inputs to foundation models
 
 Generative AI applications commonly request user input. This user
 input is often open, unstructured, and loosely formatted, creating a

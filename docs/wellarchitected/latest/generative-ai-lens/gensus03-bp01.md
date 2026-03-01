@@ -1,6 +1,4 @@
-# GENSUS03-BP01 Leverage smaller models and optimized inference techniques to reduce carbon
-
-footprint
+# GENSUS03-BP01 Leverage smaller models and optimized inference techniques to reduce carbon footprint
 
 To manage computational demands and costs of deploying large
 language models, implement model optimization techniques. This best

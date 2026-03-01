@@ -1,6 +1,4 @@
-# GENREL05-BP01 Load-balance inference requests across all regions of
-
-availability
+# GENREL05-BP01 Load-balance inference requests across all regions of availability
 
 Inference to a foundation model may be available over a local or
 large area of availability. Verify that you have resources

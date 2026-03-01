@@ -1,6 +1,4 @@
-# GENOPS04-BP02 Implement GenAIOps to optimize the
-
-application lifecycle
+# GENOPS04-BP02 Implement GenAIOps to optimize the application lifecycle
 
 To optimize generative AI workloads, organizations should implement
 [GenAIOps](https://genaiops.ai/ "https://genaiops.ai/"), a best
