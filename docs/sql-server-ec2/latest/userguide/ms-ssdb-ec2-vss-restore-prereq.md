@@ -38,16 +38,11 @@ Executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook to res
 databases needs permissions to perform necessary Amazon EC2 and Systems Manager operations. Follow these steps to grant
 the appropriate permissions.
 
-1. [Create an IAM policy to restore a
-   SQL Server database from AWS VSS solution based snapshots](#ms-ssdb-ec2-vss-restore-iam-policy "#ms-ssdb-ec2-vss-restore-iam-policy").
-2. [Attach the IAM policy to the
-   role that's used for the automation execution](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
-3. [Grant IAM permissions to the invoker
-   role for starting and managing automation executions](#ms-ssdb-ec2-vss-restore-iam-policy-add "#ms-ssdb-ec2-vss-restore-iam-policy-add").
+1. [Create an IAM policy to restore a SQL Server database from AWS VSS solution based snapshots](#ms-ssdb-ec2-vss-restore-iam-policy "#ms-ssdb-ec2-vss-restore-iam-policy").
+2. [Attach the IAM policy to the role that's used for the automation execution](#ms-ssdb-ec2-vss-restore-iam-policy-attach "#ms-ssdb-ec2-vss-restore-iam-policy-attach").
+3. [Grant IAM permissions to the invoker role for starting and managing automation executions](#ms-ssdb-ec2-vss-restore-iam-policy-add "#ms-ssdb-ec2-vss-restore-iam-policy-add").
 
-### Create an IAM policy to restore a
-
-SQL Server database from AWS VSS solution based snapshots
+### Create an IAM policy to restore a SQL Server database from AWS VSS solution based snapshots
 
 To create the IAM policy that grants the permissions needed to restore a Microsoft SQL Server
 database from VSS based snapshots in the AWS Management Console, follow these steps.
@@ -177,9 +172,7 @@ JSON
 6. Enter a unique name and optional description for your policy, then
    choose **Create policy**.
 
-### Attach the IAM policy to the
-
-role that's used for the automation execution
+### Attach the IAM policy to the role that's used for the automation execution
 
 You can choose from the following options to attach your policy to the role that
 Systems Manager uses for interacting with the Amazon EC2 and Systems Manager when executing the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation
@@ -269,9 +262,7 @@ for your role.
    runbook. Select the check box next to the name and then choose **Add
    permissions**.
 
-### Grant IAM permissions to the invoker
-
-role for starting and managing automation executions
+### Grant IAM permissions to the invoker role for starting and managing automation executions
 
 To attach necessary permissions to the role that starts and manages the
 `AWSEC2-RestoreSqlServerDatabaseWithVss` automation executions,

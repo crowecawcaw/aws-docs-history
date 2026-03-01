@@ -6,8 +6,7 @@ To get started with Amazon EC2 High Availability for SQL Server (SQL HA), perfor
 
 - [Step 1: Set up SSM Agent](#sql-high-availability-ssm "#sql-high-availability-ssm")
 - [Step 2: Attach AWS managed policy to instances](#sql-high-availability-role "#sql-high-availability-role")
-- [Step 3: (Optional) Store
-  SQL Server credentials in AWS Secrets Manager](#sql-high-availability-secret "#sql-high-availability-secret")
+- [Step 3: (Optional) Store SQL Server credentials in AWS Secrets Manager](#sql-high-availability-secret "#sql-high-availability-secret")
 - [Step 4: EnableSQL HA license savings](#sql-high-availability-register "#sql-high-availability-register")
 - [Windows user setup](sql-high-availability-windows-user-setup.md "sql-high-availability-windows-user-setup.md")
 
@@ -43,9 +42,7 @@ If needed, you can create and attach your own custom IAM role. However, at a min
 the role must include all of the permissions that are included in the
 **AWSEC2SqlHaInstancePolicy** AWS managed policy.
 
-## Step 3: (_Optional_) Store
-
-SQL Server credentials in AWS Secrets Manager
+## Step 3: (_Optional_) Store SQL Server credentials in AWS Secrets Manager
 
 **By default**, AWS Systems Manager uses the built-in `[NT AUTHORITY\SYSTEM]`
 user to access SQL Server HA metadata. If you choose to use the built-in `[NT AUTHORITY\SYSTEM]` user,

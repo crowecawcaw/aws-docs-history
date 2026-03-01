@@ -1,6 +1,4 @@
-# Windows to Linux replatforming assistant for
-
-Microsoft SQL Server Databases
+# Windows to Linux replatforming assistant for Microsoft SQL Server Databases
 
 The Windows to Linux replatforming assistant for Microsoft SQL Server Databases service is
 a scripting tool. It helps you move existing Microsoft SQL Server workloads from a Windows
@@ -16,12 +14,10 @@ testing.
 
 - [Concepts](#replatform-sql-server-concepts "#replatform-sql-server-concepts")
 - [Related services](#replatform-sql-server-related-services "#replatform-sql-server-related-services")
-- [How Windows to Linux replatforming
-  assistant for Microsoft SQL Server works](#replatform-sql-server-how-it-works "#replatform-sql-server-how-it-works")
+- [How Windows to Linux replatforming assistant for Microsoft SQL Server works](#replatform-sql-server-how-it-works "#replatform-sql-server-how-it-works")
 - [Components](#replatform-sql-server-components "#replatform-sql-server-components")
 - [Replatforming script prerequisites](replatform-sql-server-setting-up.md "replatform-sql-server-setting-up.md")
-- [Run the Windows to Linux replatforming
-  assistant for SQL Server script](replatform-sql-server-script.md "replatform-sql-server-script.md")
+- [Run the Windows to Linux replatforming assistant for SQL Server script](replatform-sql-server-script.md "replatform-sql-server-script.md")
 
 ## Concepts
 
@@ -53,9 +49,7 @@ replatforming assistant for Microsoft SQL Server Databases uses Systems Manager 
 Microsoft SQL databases to Microsoft SQL Server on EC2 Linux. For more information about
 Systems Manager, see the _[AWS Systems Manager User Guide](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md")_.
 
-## How Windows to Linux replatforming
-
-assistant for Microsoft SQL Server works
+## How Windows to Linux replatforming assistant for Microsoft SQL Server works
 
 Windows to Linux replatforming assistant for Microsoft SQL Server Databases allows you
 to migrate your Microsoft SQL Server databases from an on-premises environment or from

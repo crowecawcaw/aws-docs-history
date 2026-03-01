@@ -5,14 +5,10 @@ following tools.
 
 ###### Topics
 
-- [SQL Server Management Studio
-  (SSMS)](#connect-sql-server-on-ec2-instance-ssms "#connect-sql-server-on-ec2-instance-ssms")
-- [SQL Server
-  Configuration Manager](#connect-sql-server-on-ec2-instance-configuration-manager "#connect-sql-server-on-ec2-instance-configuration-manager")
+- [SQL Server Management Studio (SSMS)](#connect-sql-server-on-ec2-instance-ssms "#connect-sql-server-on-ec2-instance-ssms")
+- [SQL Server Configuration Manager](#connect-sql-server-on-ec2-instance-configuration-manager "#connect-sql-server-on-ec2-instance-configuration-manager")
 
-## SQL Server Management Studio
-
-(SSMS)
+## SQL Server Management Studio (SSMS)
 
 By default, only the built-in local administrator account can access a SQL Server instance
 launched from an AWS Windows AMI. You can use SQL Server Management Studio (SSMS) to add domain
@@ -48,8 +44,6 @@ Perform the following steps to access a SQL Server instance on Amazon EC2 as a d
       domain user account.
    9. Choose **Connect**.
 
-## SQL Server
-
-Configuration Manager
+## SQL Server Configuration Manager
 
 To connect to SQL Server using SQL Server Configuration Manager, see [SQL Server Configuration Manager](https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-configuration-manager?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/sql-server-configuration-manager?view=sql-server-ver15") in the Microsoft documentation.

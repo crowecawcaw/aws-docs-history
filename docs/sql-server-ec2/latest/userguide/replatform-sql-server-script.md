@@ -1,6 +1,4 @@
-# Run the Windows to Linux replatforming
-
-assistant for SQL Server script
+# Run the Windows to Linux replatforming assistant for SQL Server script
 
 This section contains the PowerShell parameter definitions and scripts for
 replatforming your databases. For more information about how to use PowerShell scripts,
@@ -8,14 +6,10 @@ see [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview 
 
 ###### Topics
 
-- [Replatforming script
-  examples](#replatform-sql-server-script-examples "#replatform-sql-server-script-examples")
-- [Replatforming script
-  parameters](#replatform-sql-server-parameters "#replatform-sql-server-parameters")
+- [Replatforming script examples](#replatform-sql-server-script-examples "#replatform-sql-server-script-examples")
+- [Replatforming script parameters](#replatform-sql-server-parameters "#replatform-sql-server-parameters")
 
-## Replatforming script
-
-examples
+## Replatforming script examples
 
 The following common scenarios and example PowerShell scripts demonstrate how to
 replatform your Microsoft SQL Server databases using Windows to Linux replatforming
@@ -57,9 +51,7 @@ PS C:\> ./MigrateSQLServerToEC2Linux.ps1 - SQLServerInstanceName `MSSQLSERVER` -
 IamInstanceProfileName `AmazonSSMManagedInstanceCore`
 ```
 
-###### Example 2: Move a database to an EC2 instance using the AWS credentials
-
-profile
+###### Example 2: Move a database to an EC2 instance using the AWS credentials profile
 
 The following example shows how to move the database in Example 1 using the
 AWS credentials profile: `DBMigration`.
@@ -97,9 +89,7 @@ PS C:\> ./MigrateSQLServerToEC2Linux.ps1 -EC2InstanceType `m5.large` -SubnetId `
 `DBMigration` -IamInstanceProfileName `AmazonSSMManagedInstanceCore`
 ```
 
-## Replatforming script
-
-parameters
+## Replatforming script parameters
 
 The following parameters are used by the PowerShell script to replatform your
 Microsoft SQL Server databases.

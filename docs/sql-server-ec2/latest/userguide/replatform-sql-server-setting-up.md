@@ -6,8 +6,7 @@ script.
 ###### Contents
 
 - [Prerequisites to run the replatforming script](#replatform-sql-server-prerequisites "#replatform-sql-server-prerequisites")
-- [Prerequisites for replatforming to an
-  existing EC2 instance](#existing-linux-prerequisites "#existing-linux-prerequisites")
+- [Prerequisites for replatforming to an existing EC2 instance](#existing-linux-prerequisites "#existing-linux-prerequisites")
 
 ## Prerequisites to run the replatforming script
 
@@ -18,8 +17,7 @@ Server Databases script, you must do the following:
 
 To install the AWS PowerShell module, follow the steps listed in [Installing the AWS Tools for PowerShell on Windows](../../../powershell/latest/userguide/pstools-getting-set-up-windows.md "../../../powershell/latest/userguide/pstools-getting-set-up-windows.md"). We
 recommend that you use PowerShell 3.0 or later for the backup script to work
-properly. 2. ###### Install the Windows to Linux replatforming assistant PowerShell backup
-script
+properly. 2. ###### Install the Windows to Linux replatforming assistant PowerShell backup script
 
 To run the Windows to Linux replatforming assistant,
 download the PowerShell backup script: [MigrateSQLServerToEC2Linux.ps1](https://awsec2-server-upgrade-prod.s3.us-west-1.amazonaws.com/MigrateSQLServerToEC2Linux.ps1 "https://awsec2-server-upgrade-prod.s3.us-west-1.amazonaws.com/MigrateSQLServerToEC2Linux.ps1"). 3. ###### Add an AWS user profile to the AWS SDK store
@@ -79,9 +77,7 @@ see the steps listed under [Create an IAM instance
 profile for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the
 _AWS Systems Manager User Guide_.
 
-## Prerequisites for replatforming to an
-
-existing EC2 instance
+## Prerequisites for replatforming to an existing EC2 instance
 
 To replatform to an existing instance running Microsoft SQL Server 2017 on Linux,
 you must:

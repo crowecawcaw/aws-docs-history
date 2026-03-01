@@ -1,6 +1,4 @@
-# Downgrade your SQL Server Enterprise
-
-edition
+# Downgrade your SQL Server Enterprise edition
 
 If you determine that you can downgrade your SQL Server Enterprise edition, you can follow
 this process to convert to SQL Server Standard or Developer edition. For information on how

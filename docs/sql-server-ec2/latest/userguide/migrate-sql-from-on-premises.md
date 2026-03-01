@@ -1,6 +1,4 @@
-# Migrating an on-premises database to
-
-Amazon EC2
+# Migrating an on-premises database to Amazon EC2
 
 You can migrate your on-premises Microsoft SQL Server database to Amazon Elastic Compute Cloud (Amazon EC2). If you select a
 migration method and perform these steps, your on-premises database will reside on an Amazon EC2
@@ -8,15 +6,11 @@ instance running Windows Server.
 
 ###### On-premises migration methods
 
-- [Automated SQL Server backup and
-  restore](#migrate-sql-from-on-premises-automated "#migrate-sql-from-on-premises-automated")
-- [Manual SQL Server backup and
-  restore](#migrate-sql-from-on-premises-manual "#migrate-sql-from-on-premises-manual")
+- [Automated SQL Server backup and restore](#migrate-sql-from-on-premises-automated "#migrate-sql-from-on-premises-automated")
+- [Manual SQL Server backup and restore](#migrate-sql-from-on-premises-manual "#migrate-sql-from-on-premises-manual")
 - [Server rehost](#migrate-sql-from-on-premises-rehost "#migrate-sql-from-on-premises-rehost")
 
-## Automated SQL Server backup and
-
-restore
+## Automated SQL Server backup and restore
 
 You can use AWS Migration Hub Orchestrator to orchestrate and automate the migration of SQL Server databases to
 Amazon EC2 using automated native backup and restore. This feature of AWS Migration Hub uses
@@ -25,9 +19,7 @@ error-prone manual tasks involved in the migration process, such as checking env
 readiness and connections. For more information, see [Rehost SQL Server on
 Amazon EC2](../../../migrationhub-orchestrator/latest/userguide/rehost-sql-ec2.md "../../../migrationhub-orchestrator/latest/userguide/rehost-sql-ec2.md") in the _Migration Hub Orchestrator User Guide_.
 
-## Manual SQL Server backup and
-
-restore
+## Manual SQL Server backup and restore
 
 You can use native backup files as a way to restore SQL Server databases without additional
 dependencies. You can back up and restore individual databases, or the entire database
@@ -36,14 +28,10 @@ instance, from on premises to your EC2 instance.
 ###### Manual migration topics
 
 - [Prerequisites](#migrate-sql-from-on-premises-manual-prerequisites "#migrate-sql-from-on-premises-manual-prerequisites")
-- [Step 1: Backing up your
-  database](#migrate-sql-from-on-premises-manual-backup "#migrate-sql-from-on-premises-manual-backup")
-- [Step 2: Uploading your
-  database backup files](#migrate-sql-from-on-premises-manual-upload "#migrate-sql-from-on-premises-manual-upload")
-- [Step 3: Downloading
-  your database backup files](#migrate-sql-from-on-premises-manual-download "#migrate-sql-from-on-premises-manual-download")
-- [Step 4: Restoring your
-  database backup files](#migrate-sql-from-on-premises-manual-restore "#migrate-sql-from-on-premises-manual-restore")
+- [Step 1: Backing up your database](#migrate-sql-from-on-premises-manual-backup "#migrate-sql-from-on-premises-manual-backup")
+- [Step 2: Uploading your database backup files](#migrate-sql-from-on-premises-manual-upload "#migrate-sql-from-on-premises-manual-upload")
+- [Step 3: Downloading your database backup files](#migrate-sql-from-on-premises-manual-download "#migrate-sql-from-on-premises-manual-download")
+- [Step 4: Restoring your database backup files](#migrate-sql-from-on-premises-manual-restore "#migrate-sql-from-on-premises-manual-restore")
 
 ### Prerequisites
 
@@ -67,9 +55,7 @@ Amazon EC2 using Amazon Simple Storage Service (Amazon S3):
   EC2 instance. For more information, see [Download SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16#download-ssms "https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16#download-ssms") in the Microsoft
   documentation.
 
-### Step 1: Backing up your
-
-database
+### Step 1: Backing up your database
 
 You will need to create a full backup of the database as well as back up the
 Transaction Log for the on-premises SQL Server to capture all of the necessary data for
@@ -87,9 +73,7 @@ with in an EC2 instance.
 3. Make a note of the backup file locations, because you will need to upload
    them to Amazon S3 in the next step.
 
-### Step 2: Uploading your
-
-database backup files
+### Step 2: Uploading your database backup files
 
 With the backup files created, you can now upload them to Amazon S3.
 
@@ -101,9 +85,7 @@ With the backup files created, you can now upload them to Amazon S3.
    For more information about how you can upload your database backup files to
    Amazon S3, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").
 
-### Step 3: Downloading
-
-your database backup files
+### Step 3: Downloading your database backup files
 
 Once the backup files have been uploaded to Amazon S3, you can restore them in an EC2
 instance.
@@ -117,9 +99,7 @@ instance.
 3. Make a note of the backup file locations, because you will need them to
    restore the database in the next step.
 
-### Step 4: Restoring your
-
-database backup files
+### Step 4: Restoring your database backup files
 
 After you download the backup files, you can connect to your instance and restore
 them using SSMS.

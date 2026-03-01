@@ -8,8 +8,7 @@ the costs of SQL Server editions, see [Compare SQL Server editions](../../../pre
 ###### Topics
 
 - [Licensing options](#sql-server-on-ec2-licensing-options "#sql-server-on-ec2-licensing-options")
-- [Licensing
-  considerations](#sql-server-on-ec2-licensing-considerations "#sql-server-on-ec2-licensing-considerations")
+- [Licensing considerations](#sql-server-on-ec2-licensing-considerations "#sql-server-on-ec2-licensing-considerations")
 - [Amazon EC2 High Availability for SQL Server on Amazon EC2](sql-high-availability.md "sql-high-availability.md")
 
 ## Licensing options
@@ -66,9 +65,7 @@ You can also bring your own SQL Server licenses with Active Software Assurance t
 information about how to sign up for Microsoft License Mobility, see [License
 Mobility](https://aws.amazon.com/windows/resources/licensemobility/ "https://aws.amazon.com/windows/resources/licensemobility/").
 
-## Licensing
-
-considerations
+## Licensing considerations
 
 There are many considerations for cost effectively licensing your Microsoft SQL Server on Amazon EC2
 workload. Your use case, and existing license agreements, will determine whether to bring
@@ -79,24 +76,16 @@ Services and Microsoft Frequently Asked Questions_ page.
 
 ###### Licensing considerations topics
 
-- [Choose a SQL Server
-  edition](#sql-server-on-ec2-licensing-considerations-editions "#sql-server-on-ec2-licensing-considerations-editions")
-- [Purchase SQL Server
-  from AWS](#sql-server-on-ec2-licensing-considerations-purchasing "#sql-server-on-ec2-licensing-considerations-purchasing")
-- [Use BYOL for SQL Server on
-  AWS](#sql-server-on-ec2-licensing-considerations-byol "#sql-server-on-ec2-licensing-considerations-byol")
+- [Choose a SQL Server edition](#sql-server-on-ec2-licensing-considerations-editions "#sql-server-on-ec2-licensing-considerations-editions")
+- [Purchase SQL Server from AWS](#sql-server-on-ec2-licensing-considerations-purchasing "#sql-server-on-ec2-licensing-considerations-purchasing")
+- [Use BYOL for SQL Server on AWS](#sql-server-on-ec2-licensing-considerations-byol "#sql-server-on-ec2-licensing-considerations-byol")
 - [Quantify license requirements](#sql-server-on-ec2-licensing-considerations-quantify "#sql-server-on-ec2-licensing-considerations-quantify")
-- [License Mobility
-  with SQL Server](#sql-server-on-ec2-licensing-considerations-mobility "#sql-server-on-ec2-licensing-considerations-mobility")
-- [Track BYOL license
-  consumption](#sql-server-on-ec2-licensing-considerations-track "#sql-server-on-ec2-licensing-considerations-track")
+- [License Mobility with SQL Server](#sql-server-on-ec2-licensing-considerations-mobility "#sql-server-on-ec2-licensing-considerations-mobility")
+- [Track BYOL license consumption](#sql-server-on-ec2-licensing-considerations-track "#sql-server-on-ec2-licensing-considerations-track")
 - [SQL Server CALs](#sql-server-on-ec2-licensing-considerations-cals "#sql-server-on-ec2-licensing-considerations-cals")
-- [Licensing for
-  passive failover](#sql-server-on-ec2-licensing-considerations-failover "#sql-server-on-ec2-licensing-considerations-failover")
+- [Licensing for passive failover](#sql-server-on-ec2-licensing-considerations-failover "#sql-server-on-ec2-licensing-considerations-failover")
 
-### Choose a SQL Server
-
-edition
+### Choose a SQL Server edition
 
 The edition of SQL Server that is used will determine the supported features your
 implementation will have available. For example, the edition determines the maximum
@@ -105,9 +94,7 @@ availability options you might implement. For a comparison of SQL Server edition
 supported features, see [Editions and supported features of SQL Server 2022](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver16") in the Microsoft
 documentation.
 
-### Purchase SQL Server
-
-from AWS
+### Purchase SQL Server from AWS
 
 You can utilize Microsoft SQL Server licenses included from AWS. You can choose any of the
 following editions for your use on Amazon EC2 instances.
@@ -125,9 +112,7 @@ following editions for your use on Amazon EC2 instances.
   Developer edition on Amazon EC2 instances in the AWS Cloud. Dedicated infrastructure is
   not required for SQL Server Developer edition. For more information, see [https://www.microsoft.com/en-us/sql-server/sql-server-downloads](https://www.microsoft.com/en-us/sql-server/sql-server-downloads "https://www.microsoft.com/en-us/sql-server/sql-server-downloads").
 
-### Use BYOL for SQL Server on
-
-AWS
+### Use BYOL for SQL Server on AWS
 
 You can use BYOL licenses for SQL Server on AWS. The requirements differ depending on if
 the licenses have active Software Assurance.
@@ -147,9 +132,7 @@ scenarios, the licenses can only be upgraded to versions that were available pri
 10/1/2019. For more information, see [Dedicated Hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") in
 the _Amazon EC2 User Guide_, and the [Amazon EC2 Dedicated Hosts FAQs](https://aws.amazon.com/ec2/dedicated-hosts/faqs/ "https://aws.amazon.com/ec2/dedicated-hosts/faqs/").
 
-### Quantify the
-
-required SQL Server licenses for BYOL
+### Quantify the required SQL Server licenses for BYOL
 
 If you are licensing SQL Server under Microsoft License Mobility through Software
 Assurance, the number of licenses required varies based on the instance type, version of
@@ -163,9 +146,7 @@ installed on the Dedicated Host. Using this information, you can calculate the n
 SQL Server licenses that you need to bring in. For more information, see [Amazon EC2 Dedicated
 Hosts Pricing](https://aws.amazon.com/ec2/dedicated-hosts/pricing/#host-configuration "https://aws.amazon.com/ec2/dedicated-hosts/pricing/#host-configuration") and the [SQL Server 2022 licensing guide](https://download.microsoft.com/download/9/3/d/93d32de6-f268-45ed-ba25-2f9a6756b6af/SQL_Server_2022_Licensing_guide.pdf "https://download.microsoft.com/download/9/3/d/93d32de6-f268-45ed-ba25-2f9a6756b6af/SQL_Server_2022_Licensing_guide.pdf").
 
-### License Mobility
-
-with SQL Server
+### License Mobility with SQL Server
 
 SQL Server licenses with active Software Assurance are eligible for Microsoft License
 Mobility and can be deployed on default or dedicated tenant Amazon EC2. For more information on
@@ -178,9 +159,7 @@ or added as a true-up under an active Enterprise Enrollment that was effective p
 October 1, 2019. For additional FAQs about Dedicated Hosts, see the [Dedicated Hosts](https://aws.amazon.com/windows/faq/#dedicated-hosts "https://aws.amazon.com/windows/faq/#dedicated-hosts") section of
 the _Amazon Web Services and Microsoft FAQ_.
 
-### Track BYOL license
-
-consumption
+### Track BYOL license consumption
 
 You can use AWS License Manager to manage your software licenses for SQL Server. With License Manager, you can
 create license configurations, take inventory of your license-consuming resources,
@@ -188,9 +167,7 @@ associate licenses with resources, and track inventory and compliance. For more
 information, see [What is AWS License Manager?](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md")
 in the _AWS License Manager User Guide_.
 
-### SQL Server client access
-
-licenses (CALs)
+### SQL Server client access licenses (CALs)
 
 When you are using SQL Server on Amazon EC2, license included instances do not require client
 access licenses (CALs) for SQL Server. An unlimited number of end users can access SQL Server on a
@@ -202,9 +179,7 @@ purchased SQL Server under the Server/CAL model, you still require CALs to meet 
 licensing requirements, but these CALs would remain on-premises and enable end user access
 SQL Server running on AWS.
 
-### Licensing for
-
-passive failover
+### Licensing for passive failover
 
 There are various factors to consider when licensing passive failover for SQL Server. The
 information in this section pertains only to the SQL Server licenses and not the Windows Server
@@ -215,9 +190,7 @@ licenses. In all cases, you must license Windows Server.
 When you purchase SQL Server license included instances on EC2, you must license passive
 failover instances.
 
-###### Bringing SQL Server licenses with active Software Assurance to default tenant
-
-Amazon EC2
+###### Bringing SQL Server licenses with active Software Assurance to default tenant Amazon EC2
 
 When you bring SQL Server 2014 and later versions with Software Assurance to
 default tenant EC2, you must license the virtual cores (vCPUs) on the active instance. In

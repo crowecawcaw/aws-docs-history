@@ -1,6 +1,4 @@
-# Best practices and recommendations for SQL Server
-
-clustering on Amazon EC2
+# Best practices and recommendations for SQL Server clustering on Amazon EC2
 
 You can configure Microsoft SQL Server on Amazon EC2 instances for high availability. SQL Server Always On availability
 groups offer high availability without the requirement for shared storage. The list of best
@@ -20,29 +18,22 @@ scenarios.
 
 - [Assign IP addresses](#sql-ip-assignment "#sql-ip-assignment")
 - [Cluster properties](#sql-clustering-cluster-properties "#sql-clustering-cluster-properties")
-- [Cluster quorum votes and 50/50 splits in a
-  multi-site cluster](#sql-clustering-quorum "#sql-clustering-quorum")
+- [Cluster quorum votes and 50/50 splits in a multi-site cluster](#sql-clustering-quorum "#sql-clustering-quorum")
 - [DNS registration](#sql-dns-registration "#sql-dns-registration")
-- [Elastic Network Adapters
-  (ENAs)](#sql-clustering-ena "#sql-clustering-ena")
-- [Multi-site clusters and EC2 instance
-  placement](#sql-multi-site-clusters "#sql-multi-site-clusters")
+- [Elastic Network Adapters (ENAs)](#sql-clustering-ena "#sql-clustering-ena")
+- [Multi-site clusters and EC2 instance placement](#sql-multi-site-clusters "#sql-multi-site-clusters")
 - [Instance type selection](#sql-clustering-instance-type "#sql-clustering-instance-type")
-- [Assign elastic network interfaces
-  and IPs to the instance](#sql-clustering-assigning-ENI-IP "#sql-clustering-assigning-ENI-IP")
+- [Assign elastic network interfaces and IPs to the instance](#sql-clustering-assigning-ENI-IP "#sql-clustering-assigning-ENI-IP")
 - [Heartbeat network](#sql-clustering-heartbeat "#sql-clustering-heartbeat")
-- [Configure the network adapter in
-  the OS](#sql-clustering-network-adapter "#sql-clustering-network-adapter")
+- [Configure the network adapter in the OS](#sql-clustering-network-adapter "#sql-clustering-network-adapter")
 - [IPv6](#sql-clustering-ipv6 "#sql-clustering-ipv6")
-- [Host record TTL for SQL Availability Group
-  Listeners](#sql-clustering-ttl "#sql-clustering-ttl")
+- [Host record TTL for SQL Availability Group Listeners](#sql-clustering-ttl "#sql-clustering-ttl")
 - [Logging](#sql-clustering-logging "#sql-clustering-logging")
 - [NetBIOS over TCP](#sql-clustering-2012r2-netbios "#sql-clustering-2012r2-netbios")
 - [NetFT Virtual Adapter](#sql-clustering-2012r2-netft "#sql-clustering-2012r2-netft")
 - [Set possible owners](#sql-owners "#sql-owners")
 - [Tune the failover thresholds](#sql-failover-thresholds "#sql-failover-thresholds")
-- [Witness importance and Dynamic
-  Quorum Architecture](#sql-clustering-file-share-witness "#sql-clustering-file-share-witness")
+- [Witness importance and Dynamic Quorum Architecture](#sql-clustering-file-share-witness "#sql-clustering-file-share-witness")
 - [Troubleshoot](#sql-troubleshooting "#sql-troubleshooting")
 
 ## Assign IP addresses
@@ -96,9 +87,7 @@ command.
 Get-Cluster | Format-List -Property *
 ```
 
-## Cluster quorum votes and 50/50 splits in a
-
-multi-site cluster
+## Cluster quorum votes and 50/50 splits in a multi-site cluster
 
 To learn how the cluster quorum works and what to expect if a failure occurs, see
 [Understanding Cluster and Pool Quorum](https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/understand-quorum "https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/understand-quorum").
@@ -143,9 +132,7 @@ entry for your cluster name.
 8. Select the check box for **Full Control**.
 9. Choose **OK**.
 
-## Elastic Network Adapters
-
-(ENAs)
+## Elastic Network Adapters (ENAs)
 
 AWS has identified known issues with some clustering workloads running on ENA
 driver version 1.2.3. We recommend upgrading to the latest version, and adjusting
@@ -165,9 +152,7 @@ Run the following command.
 Set-NetAdapterRss -name (Get-NetAdapter | Where-Object {$_.InterfaceDescription -like '*Elastic*'}).Name -Baseprocessorgroup 0 -BaseProcessorNumber 1
 ```
 
-## Multi-site clusters and EC2 instance
-
-placement
+## Multi-site clusters and EC2 instance placement
 
 Each cluster is considered a [multi-site cluster](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197575(v=ws.10)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd197575(v=ws.10)"). The EC2 service does not share IP addresses virtually.
 Each node must be in a unique [subnet](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md"). Though
@@ -181,9 +166,7 @@ workload. For production workloads, we recommend instances that support Amazon E
 optimization](../../../AWSEC2/latest/WindowsGuide/ebs-optimized.md "../../../AWSEC2/latest/WindowsGuide/ebs-optimized.md") and [Enhanced
 networking](../../../AWSEC2/latest/WindowsGuide/enhanced-networking.md "../../../AWSEC2/latest/WindowsGuide/enhanced-networking.md") in the _Amazon EC2 User Guide_.
 
-## Assign elastic network interfaces
-
-and IPs to the instance
+## Assign elastic network interfaces and IPs to the instance
 
 Each node in an EC2 cluster should have only one attached elastic network interface.
 The network interface should have a minimum of two assigned private IP addresses.
@@ -201,9 +184,7 @@ heartbeat network, it uses the same infrastructure and shares bandwidth with the
 network interface. Therefore, traffic within the infrastructure cannot be prioritized,
 and cannot benefit from a dedicated network interface.
 
-## Configure the network adapter in
-
-the OS
+## Configure the network adapter in the OS
 
 The NIC in the OS can keep using DHCP as long as the DNS servers that are being
 retrieved from the DHCP Options Set allow for the nodes to resolve each other. You can
@@ -223,9 +204,7 @@ Microsoft does not recommend disabling IPv6 in a Windows Cluster. While Failover
 Clustering works in an IPv4-only environment, Microsoft tests clusters with IPv6
 enabled. See [Failover Clustering and IPv6 in Windows Server 2012 R2](https://techcommunity.microsoft.com/t5/Failover-Clustering/Failover-Clustering-and-IPv6-in-Windows-Server-2012-R2/ba-p/371912 "https://techcommunity.microsoft.com/t5/Failover-Clustering/Failover-Clustering-and-IPv6-in-Windows-Server-2012-R2/ba-p/371912") for details.
 
-## Host record TTL for SQL Availability Group
-
-Listeners
+## Host record TTL for SQL Availability Group Listeners
 
 Set the host record TTL to **300** seconds instead of
 the default 20 minutes (1200 seconds). For legacy client comparability, set
@@ -365,9 +344,7 @@ that there is sufficient logging for troubleshooting. You can set the
 (Get-Cluster).RouteHistoryLength = 20
 ```
 
-## Witness importance and Dynamic
-
-Quorum Architecture
+## Witness importance and Dynamic Quorum Architecture
 
 There is a difference between Disk Witness and File Share Witness. Disk Witness
 keeps a backup of the cluster database while File Share Witness does not. Both add a

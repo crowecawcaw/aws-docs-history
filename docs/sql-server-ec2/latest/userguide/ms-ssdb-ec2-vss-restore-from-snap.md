@@ -200,9 +200,7 @@ If volume mapping metadata was not used for your restore operation, follow these
      or `unused`. To detach and delete the volumes, see [Detach an Amazon EBS volume from an
      Amazon EC2 instance](../../../ebs/latest/userguide/ebs-detaching-volume.md "../../../ebs/latest/userguide/ebs-detaching-volume.md") in the *Amazon EBS User Guide*.
 
-## Troubleshoot restoring your SQL Server database
-
-from AWS VSS solution snapshots using the Systems Manager console
+## Troubleshoot restoring your SQL Server database from AWS VSS solution snapshots using the Systems Manager console
 
 Before you try any troubleshooting steps, we recommend that you verify that you've met all
 [VSS snapshot restore prerequisites](ms-ssdb-ec2-vss-restore-prereq.md "ms-ssdb-ec2-vss-restore-prereq.md").

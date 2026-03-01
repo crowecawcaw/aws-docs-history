@@ -132,9 +132,7 @@ the following prerequisites.
   documentation.
 - Properly configure the SQL browser for SQL Server named instances.
 
-###### Configure the secondary IPs for each cluster node elastic network
-
-interface
+###### Configure the secondary IPs for each cluster node elastic network interface
 
 Two secondary IP addresses are required for each cluster node elastic network
 interface.

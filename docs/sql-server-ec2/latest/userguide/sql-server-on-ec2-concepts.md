@@ -13,9 +13,7 @@ Microsoft SQL Server on Amazon EC2 instances:
 - [Security](#sec "#sec")
 - [Storage](#storage "#storage")
 
-###### Amazon Machine Images
-
-(AMIs)
+###### Amazon Machine Images (AMIs)
 
 SQL Server on Amazon EC2 instances are created from Amazon Machine Images (AMIs). AMIs are similar to
 templates. SQL Server on Amazon EC2 AMIs are pre-installed with an operating system, typically Microsoft
@@ -54,9 +52,7 @@ are lost if your instance is stopped or terminated. You'll still incur costs for
 when your instance is stopped. For more information, see [Stop and start your instance](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md") in the
 _Amazon EC2 User Guide_.
 
-###### High
-
-availability and disaster recovery (HADR)
+###### High availability and disaster recovery (HADR)
 
 You can take advantage of Windows Server Failover Cluster for high availability and
 disaster recovery (HADR) with SQL Server on Amazon EC2. SQL Server on Amazon EC2 supports both failover cluster instances
