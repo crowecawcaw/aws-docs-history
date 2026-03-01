@@ -1,6 +1,4 @@
-# Disabling database
-
-backups
+# Disabling database backups
 
 Follow these steps to disable automatic backups in a AWS Elemental Conductor Live cluster.
 

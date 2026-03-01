@@ -1,14 +1,10 @@
-# Accessing the
-
-nodes
+# Accessing the nodes
 
 The procedures in this guide require you to access the AWS Elemental Conductor Live nodes and the worker
 nodes. You might need to work with a node using the web interface or using the CLI (command line
 interface).
 
-## Working from the web
-
-interface
+## Working from the web interface
 
 At your workstation, open a web browser and enter the IP address or
 hostname of the node.

@@ -1,6 +1,4 @@
-# Step D: Complete the Router Input
-
-Mappings
+# Step D: Complete the Router Input Mappings
 
 Perform this procedure on the primary Conductor Live node.
 

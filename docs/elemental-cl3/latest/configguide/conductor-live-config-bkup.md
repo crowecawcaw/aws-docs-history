@@ -1,6 +1,4 @@
-# Configuring for
-
-backup
+# Configuring for backup
 
 This section describes how to modify the backup configuration so that AWS Elemental Conductor Live creates
 database backups on a remote server. (The default configuration is to back up to a directory
@@ -14,8 +12,7 @@ primary node.
 
 1. Identify a server and directory on your network for backups. Make
    a note of the path.
-2. Mount the server to the Conductor Live nodes, as described in [Adding mount points to worker
-   nodes](config-wrkr-cf-config-mount.md "config-wrkr-cf-config-mount.md").
+2. Mount the server to the Conductor Live nodes, as described in [Adding mount points to worker nodes](config-wrkr-cf-config-mount.md "config-wrkr-cf-config-mount.md").
 3. On the Conductor Live web interface, go to the
    **Settings** page and choose
    **General**.

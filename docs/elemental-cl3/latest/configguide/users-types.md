@@ -5,15 +5,11 @@ following sections.
 
 ###### Topics
 
-- [Users on Conductor Live
-  nodes](#conductor-live-user-types-cl "#conductor-live-user-types-cl")
-- [Users on worker
-  nodes](#config-conductor-live-user-types-workers "#config-conductor-live-user-types-workers")
+- [Users on Conductor Live nodes](#conductor-live-user-types-cl "#conductor-live-user-types-cl")
+- [Users on worker nodes](#config-conductor-live-user-types-workers "#config-conductor-live-user-types-workers")
 - [Summary](#config-conductor-live-user-types-summary "#config-conductor-live-user-types-summary")
 
-## Users on Conductor Live
-
-nodes
+## Users on Conductor Live nodes
 
 You can set up several different types of users on Conductor Live
 nodes.
@@ -34,9 +30,7 @@ You are prompted to change the password for this user. Make sure
 that you assign the same password on every node. Otherwise, you
 won't be able to enable user authentication on some nodes.
 
-### The default user on
-
-Conductor Live
+### The default user on Conductor Live
 
 - Purpose: This user is the default administrator.
 - How created: You might have created this user when you
@@ -45,10 +39,7 @@ Conductor Live
   accepted the suggested name of _admin_ for the default user.
 
 Or you might have created this user when you followed the
-procedure in [Step 1: Enable
-the
-user authentication
-feature](conductor-live-config-auth.md "conductor-live-config-auth.md") to
+procedure in [Step 1: Enable the user authentication feature](conductor-live-config-auth.md "conductor-live-config-auth.md") to
 enable user authentication on Conductor Live. In this case, the default
 user has the role of the API admin. You should have called this
 user _api-admin_.
@@ -84,9 +75,7 @@ Conductor Live then creates this user on every worker node.
   commands between nodes in the cluster. To perform regular
   administration tasks, log in as a regular administrator.
 
-### Regular administrators on
-
-Conductor Live
+### Regular administrators on Conductor Live
 
 - Purpose: Regular administrators have the same access as the
   default admin user. They have full read-write access, including
@@ -122,17 +111,13 @@ Conductor Live
 - Username for this user: Typically, assign the person's name as
   the username.
 
-## Users on worker
-
-nodes
+## Users on worker nodes
 
 When workers are in a Conductor Live cluster, you only need to set up one or
 two users, to let you log on directly to the node in order to
 troubleshoot.
 
-### Regular
-
-administrators on worker nodes
+### Regular administrators on worker nodes
 
 - Purpose: Set up people as regular administrators only if they will perform
   troubleshooting on worker nodes.
@@ -146,9 +131,7 @@ administrators on worker nodes
 - Username for this user: Typically, assign the person's name as
   the username.
 
-### Regular users on
-
-worker nodes
+### Regular users on worker nodes
 
 Only standalone
 setups of Elemental Live have

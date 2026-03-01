@@ -1,6 +1,4 @@
-# Role policies for PAM
-
-authentication
+# Role policies for PAM authentication
 
 If you configure the cluster to use PAM authentication, then when you
 create a user on the LDAP server, you assign a role policy. The role

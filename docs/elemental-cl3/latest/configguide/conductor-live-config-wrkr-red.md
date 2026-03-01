@@ -1,6 +1,4 @@
-# Creating worker redundancy
-
-groups
+# Creating worker redundancy groups
 
 To set up worker nodes for failover resiliency, you create one or
 more redundancy groups, then you add worker nodes to each group.

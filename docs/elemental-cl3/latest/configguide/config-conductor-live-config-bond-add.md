@@ -18,17 +18,14 @@ Before you begin this process, make sure that you have done the following:
 - [Set up the individual
   Ethernet interfaces](config-conductor-live-config-ethernet-add.md "config-conductor-live-config-ethernet-add.md") that you want to bond together.
 - If HA is currently enabled, disable it now. Conductor Live redundancy (HA or _high availability_) must be disabled before you configure
-  Ethernet interfaces. For instructions, see [Disabling Conductor Live HA
-  (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
+  Ethernet interfaces. For instructions, see [Disabling Conductor Live HA (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
 
 ###### Warning
 
 Don't use the web interface to create or modify a bond because you will break the
 configuration.
 
-## Step A: Create bond
-
-configuration file
+## Step A: Create bond configuration file
 
 Create a configuration file for the bond interface and name it after the bond.
 
@@ -96,9 +93,7 @@ GATEWAY=192.168.1.1
 BONDING_OPTS="mode=5 miimon=100"
 ```
 
-## Step B: Edit Ethernet
-
-interface configuration files
+## Step B: Edit Ethernet interface configuration files
 
 Access the configuration files for each of the interfaces that are participating in the
 bond. Add the following lines.
@@ -110,9 +105,7 @@ SLAVE=yes
 
 For help with creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking Guide_.
 
-## Step C: Restart the
-
-AWS Elemental service configuration files
+## Step C: Restart the AWS Elemental service configuration files
 
 Restart the AWS Elemental service using the following command.
 
@@ -120,9 +113,7 @@ Restart the AWS Elemental service using the following command.
 sudo systemctl restart network
 ```
 
-## Step D: Verify the
-
-bond
+## Step D: Verify the bond
 
 Enter this command to display information about a specific bond:
 

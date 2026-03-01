@@ -1,6 +1,4 @@
-# Configuring user authentication in
-
-Conductor Live
+# Configuring user authentication in Conductor Live
 
 You can enable user authentication on the cluster, so that
 all users
@@ -23,14 +21,7 @@ User authentication has the following benefits:
 
 ###### Topics
 
-- [About
-  user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md")
-- [Step 1: Enable
-  the
-  user authentication
-  feature](conductor-live-config-auth.md "conductor-live-config-auth.md")
-- [Step 2:
-  Apply user
-  authentication on worker
-  nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md")
+- [About user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md")
+- [Step 1: Enable the user authentication feature](conductor-live-config-auth.md "conductor-live-config-auth.md")
+- [Step 2: Apply user authentication on worker nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md")
 - [Disabling user authentication](conductor-live-config-auth-chg.md "conductor-live-config-auth-chg.md")

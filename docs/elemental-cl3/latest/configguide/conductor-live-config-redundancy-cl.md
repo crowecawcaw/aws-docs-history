@@ -1,6 +1,4 @@
-# Creating a
-
-Conductor Live redundancy group
+# Creating a Conductor Live redundancy group
 
 If you are implementing Conductor Live redundancy, then you should have
 two Conductor Live nodes — a primary node and a secondary node. You must
@@ -31,8 +29,7 @@ that this node is now the primary node.
 ###### To create a Conductor Live redundancy group
 
 1. Make sure that the secondary Conductor Live node is in the
-   cluster [Adding (recruiting) worker nodes to
-   the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
+   cluster [Adding (recruiting) worker nodes to the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
 2. On the primary Conductor Live web interface, go to the
    **Cluster** page and choose
    **Redundancy**.

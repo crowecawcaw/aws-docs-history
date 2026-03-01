@@ -9,8 +9,7 @@ you ran it to enable user authentication. In other words, if authentication is e
 you include `--config-auth`, then the script disables authentication.
 
 1. [Check if HA redundancy](config-conductor-live-ha-current-state.md "config-conductor-live-ha-current-state.md")
-   is currently enabled on the Conductor Live. If it is, [disable it](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md") now[Disabling Conductor Live HA
-   (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
+   is currently enabled on the Conductor Live. If it is, [disable it](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md") now[Disabling Conductor Live HA (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
 2. At your workstation, [start a remote
    terminal session](ready-conductor-live-config-access.md "ready-conductor-live-config-access.md") to the primary Conductor Live node.
 3. At the Linux prompt, log in with the _elemental_ user

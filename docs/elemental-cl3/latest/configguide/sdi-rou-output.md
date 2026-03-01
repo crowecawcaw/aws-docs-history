@@ -1,6 +1,4 @@
-# Step E: Complete the Router Output
-
-Mappings
+# Step E: Complete the Router Output Mappings
 
 Perform this procedure on the Conductor Live node.
 
@@ -28,8 +26,7 @@ the router to the input side of the SDI card.
      that the router output is connected to. The node displays the
      cards that it has auto-detected.
 
-   If you added a 4 Quadrant-4k input in [Step D: Complete the Router Input
-   Mappings](sdi-rou-input.md "sdi-rou-input.md") and want to map those four
+   If you added a 4 Quadrant-4k input in [Step D: Complete the Router Input Mappings](sdi-rou-input.md "sdi-rou-input.md") and want to map those four
    inputs, choose the Quadrant 4k (HD-SDI) card. This maps all four inputs to the one
    output.
 

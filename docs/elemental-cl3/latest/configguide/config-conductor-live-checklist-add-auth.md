@@ -1,18 +1,14 @@
-# Adding user
-
-authentication to an existing cluster
+# Adding user authentication to an existing cluster
 
 The procedure to add user authentication to the AWS Elemental Conductor Livecluster includes multiple steps.
 You must remove the nodes from the cluster, enable user authentication, and then add the nodes
 back to the cluster:
 
 - On each worker node, perform these tasks in the specified order:
-  - Remove each worker node from the cluster. See [Removing a
-    worker node from the cluster](conductor-live-config-nodes-remove.md "conductor-live-config-nodes-remove.md")
+  - Remove each worker node from the cluster. See [Removing a worker node from the cluster](conductor-live-config-nodes-remove.md "conductor-live-config-nodes-remove.md")
   - [Enable HTTPS](ssl-config.md "ssl-config.md")
   - Recruit
-    (add) the node back into the cluster See [Adding (recruiting) worker nodes to
-    the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
+    (add) the node back into the cluster See [Adding (recruiting) worker nodes to the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
 
 - On the primary Conductor Live node, perform these tasks in the specified
   order:

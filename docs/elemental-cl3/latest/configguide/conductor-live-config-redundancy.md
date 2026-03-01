@@ -1,6 +1,4 @@
-# Creating redundancy
-
-groups
+# Creating redundancy groups
 
 You must create redundancy groups as follows:
 
@@ -18,7 +16,5 @@ You must create redundancy groups as follows:
 
 ###### Topics
 
-- [Creating a
-  Conductor Live redundancy group](conductor-live-config-redundancy-cl.md "conductor-live-config-redundancy-cl.md")
-- [Creating worker redundancy
-  groups](conductor-live-config-wrkr-red.md "conductor-live-config-wrkr-red.md")
+- [Creating a Conductor Live redundancy group](conductor-live-config-redundancy-cl.md "conductor-live-config-redundancy-cl.md")
+- [Creating worker redundancy groups](conductor-live-config-wrkr-red.md "conductor-live-config-wrkr-red.md")

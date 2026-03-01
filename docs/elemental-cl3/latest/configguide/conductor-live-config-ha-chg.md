@@ -1,6 +1,4 @@
-# Disabling Conductor Live HA
-
-(high availability)
+# Disabling Conductor Live HA (high availability)
 
 The main reason to disable HA is to make a change to the
 configuration of one or both Conductor Live nodes. You must disable HA to

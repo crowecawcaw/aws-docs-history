@@ -1,13 +1,10 @@
-# Adding SDI input
-
-devices
+# Adding SDI input devices
 
 Individual Elemental Live nodes in the AWS Elemental Conductor Live cluster might be set up with SDI cards. Each input
 on the card can have a direct cable connection to an SDI video input.
 
 If your cluster deployment includes a router for handling SDI (instead
-of, or in addition to, direct cable connections), see [Configuring SDI video
-routers](conductor-live-config-sdi-rou.md "conductor-live-config-sdi-rou.md").
+of, or in addition to, direct cable connections), see [Configuring SDI video routers](conductor-live-config-sdi-rou.md "conductor-live-config-sdi-rou.md").
 
 **Where to perform the configuration**
 
@@ -19,9 +16,7 @@ Make sure you perform the configuration on the correct nodes.
 | Secondary Conductor Live node | No                                             |
 | Each worker node              | Yes. You add the devices on these nodes.       |
 
-## Step A: Add the
-
-devices to each Elemental Live node
+## Step A: Add the devices to each Elemental Live node
 
 You don't configure these devices manually. Each Elemental Live automatically
 detects its SDI cards. It creates an _input
@@ -39,9 +34,7 @@ creating a profile, select this quad-link input to indicate to AWS
 Elemental Live that the four inputs on this SDI card are the four
 parts of a quad-link input.
 
-## Step B: Import
-
-the devices into the cluster
+## Step B: Import the devices into the cluster
 
 After you have added the devices on each Elemental Live node, you still need to
 import the devices so that primary Conductor Live detects the devices. You will

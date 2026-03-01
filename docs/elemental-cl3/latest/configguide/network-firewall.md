@@ -1,6 +1,4 @@
-# Configuring a firewall and opening
-
-ports
+# Configuring a firewall and opening ports
 
 You can enable the firewall on each node on the cluster. You can
 customize which ports are open on the firewall on a node.
@@ -16,10 +14,8 @@ customize which ports are open on the firewall on a node.
 ###### Topics
 
 - [Firewall recommendation](#firewall-recommendation "#firewall-recommendation")
-- [Enabling or disabling the
-  product firewall](#firewall-enable-disable "#firewall-enable-disable")
-- [Working with ports on the product
-  firewall](#firewall-open-ports "#firewall-open-ports")
+- [Enabling or disabling the product firewall](#firewall-enable-disable "#firewall-enable-disable")
+- [Working with ports on the product firewall](#firewall-open-ports "#firewall-open-ports")
 
 ## Firewall recommendation
 
@@ -52,9 +48,7 @@ you won't be able to add the secondary node to the cluster.
 
 Port 5432 (TCP) must be open (accepted) on both nodes.
 
-## Enabling or disabling the
-
-product firewall
+## Enabling or disabling the product firewall
 
 Make sure that all the nodes in the cluster are configured in the same
 way—with the firewall enabled (recommended) or with the firewall
@@ -77,9 +71,7 @@ For a worker node, choose **Firewall On** or
 **Firewall Off**. Then choose
 **Save**.
 
-## Working with ports on the product
-
-firewall
+## Working with ports on the product firewall
 
 Every node is configured by default with a list of ports that can be
 opened or closed. When you enable the product firewall on each node, each

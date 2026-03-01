@@ -1,6 +1,4 @@
-# Step B: Run cables from the router to each
-
-node
+# Step B: Run cables from the router to each node
 
 Perform this procedure on the Elemental Live node that is connected to the
 router.

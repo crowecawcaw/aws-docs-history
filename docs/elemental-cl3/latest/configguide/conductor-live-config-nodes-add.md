@@ -1,6 +1,4 @@
-# Adding (recruiting) worker nodes to
-
-the cluster
+# Adding (recruiting) worker nodes to the cluster
 
 You can add nodes into the
 cluster. Here are

@@ -1,8 +1,4 @@
-# Step 1: Enable
-
-the
-user authentication
-feature
+# Step 1: Enable the user authentication feature
 
 There are two steps to enabling user authentication in the cluster.
 

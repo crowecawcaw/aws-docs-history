@@ -26,8 +26,7 @@ the web interface.
 1. If the node is a Conductor Live node and if HA is currently enabled, disable
    it now. Conductor Live redundancy (HA, or _high
    availability_) must be disabled before you configure
-   Ethernet interfaces. For instructions, see [Disabling Conductor Live HA
-   (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
+   Ethernet interfaces. For instructions, see [Disabling Conductor Live HA (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
 2. For a Conductor Live node, on the Conductor Live web interface, go to the
    **Settings** page and choose
    **Network**. Then choose the **Domain Name
@@ -40,13 +39,10 @@ For a worker node, on the worker web interface, choose
 **Save**. Another line appears, for you to enter
 another DNS server, if you want.
 
-###### To configure DNS servers using the
-
-CLI
+###### To configure DNS servers using the CLI
 
 1. If the node is a Conductor Live node and if HA is currently enabled, disable
    it now. Conductor Live redundancy (HA, or _high
    availability_) must be disabled before you configure
-   Ethernet interface. For instructions, see [Disabling Conductor Live HA
-   (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
+   Ethernet interface. For instructions, see [Disabling Conductor Live HA (high availability)](conductor-live-config-ha-chg.md "conductor-live-config-ha-chg.md").
 2. To configure DNS, see the [Red Hat _Networking Guide_](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_ifcg_files "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_ifcg_files").

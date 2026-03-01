@@ -1,8 +1,4 @@
-# Step 2:
-
-Apply user
-authentication on worker
-nodes
+# Step 2: Apply user authentication on worker nodes
 
 The following steps describe how to enable _node
 authentication_ in the cluster. Before you enable node authentication, you must
@@ -26,10 +22,7 @@ Make sure you perform the configuration on the correct nodes.
 To enable user authentication on all the worker nodes, you log onto the primary Conductor Live
 node and display the **Cluster Nodes** page.
 
-1. Make sure you have followed the procedure in [Step 1: Enable
-   the
-   user authentication
-   feature](conductor-live-config-auth.md "conductor-live-config-auth.md").
+1. Make sure you have followed the procedure in [Step 1: Enable the user authentication feature](conductor-live-config-auth.md "conductor-live-config-auth.md").
 2. Go to the Conductor Live web interface by entering the IP address of the primary Conductor Live node
    in a web browser. Log into the web interface as the API admin (_apiadmin_). You created this user when you enabled user authentication on the
    Conductor Live node (in the [previous step](conductor-live-config-auth.md "conductor-live-config-auth.md")).

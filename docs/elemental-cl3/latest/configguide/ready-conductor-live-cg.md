@@ -40,14 +40,12 @@ We strongly recommend that you enable user authentication, and that you implemen
 HTTPS enabled.
 
 User authentication is a mode in the cluster. If user authentication is enabled, all users
-must always log on to any node in the cluster. See [About
-user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md").
+must always log on to any node in the cluster. See [About user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md").
 
 **Plan for backup of databases**
 
 Conductor Live is configured by default to back up the data for the Conductor Live nodes and all workers
-nodes. You can configure the Conductor Live to back up to a remote server. See [Configuring backup and
-restore on Conductor Live](config-conductor-live-backup.md "config-conductor-live-backup.md").
+nodes. You can configure the Conductor Live to back up to a remote server. See [Configuring backup and restore on Conductor Live](config-conductor-live-backup.md "config-conductor-live-backup.md").
 
 ###### Note
 
@@ -57,5 +55,4 @@ We strongly recommend that you back up data to a remote server.
 
 You can configure the nodes for notifications. Some types of notifications are always
 enabled, but you can customize the behavior. Other types of notifications work only if you
-enable them. See [Configuring
-notifications for messages](conductor-live-config-notifications.md "conductor-live-config-notifications.md").
+enable them. See [Configuring notifications for messages](conductor-live-config-notifications.md "conductor-live-config-notifications.md").

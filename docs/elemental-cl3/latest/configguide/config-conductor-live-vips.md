@@ -1,6 +1,4 @@
-# Configuring virtual input
-
-switching
+# Configuring virtual input switching
 
 On ECL3; node, you can configure the maximum number of virtual
 inputs allowed with the virtual input switching feature. The default is 8

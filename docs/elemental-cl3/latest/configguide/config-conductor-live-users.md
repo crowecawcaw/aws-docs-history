@@ -1,6 +1,4 @@
-# Managing users in
-
-Conductor Live
+# Managing users in Conductor Live
 
 If you have enabled user authentication, you must add users to the
 cluster. After you've added users, you can manage existing users and add new
@@ -23,7 +21,5 @@ The username of a user is case sensitive.
 
 - [Types of users](users-types.md "users-types.md")
 - [Adding users to Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")
-- [Adding users to
-  worker nodes](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md")
-- [Role policies for PAM
-  authentication](config-rpolicies.md "config-rpolicies.md")
+- [Adding users to worker nodes](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md")
+- [Role policies for PAM authentication](config-rpolicies.md "config-rpolicies.md")

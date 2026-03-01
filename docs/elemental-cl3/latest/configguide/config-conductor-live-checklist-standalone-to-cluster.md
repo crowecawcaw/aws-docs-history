@@ -1,6 +1,4 @@
-# Upgrading standalone
-
-nodes into a cluster
+# Upgrading standalone nodes into a cluster
 
 Read this section if your organization has already deployed one or more AWS Elemental Live nodes,
 and you now want to set them up in a AWS Elemental Conductor Live cluster.
@@ -58,8 +56,7 @@ nodes**
 
 We recommend that you set up the nodes so that users must log into the node.
 For an overview of how
-user authentication works, see [About
-user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md").
+user authentication works, see [About user authentication](config-conductor-live-user-auth-overview.md "config-conductor-live-user-auth-overview.md").
 
 If you do decide to set up in this way, you must enable
 the user
@@ -77,8 +74,7 @@ cluster:
 
 Recruit
 the secondary Conductor Live nodes and all the workers nodes into the cluster. See
-[Adding (recruiting) worker nodes to
-the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
+[Adding (recruiting) worker nodes to the cluster](conductor-live-config-nodes-add.md "conductor-live-config-nodes-add.md").
 
 The nodes get added to the cluster, but they don't yet belong to any redundancy
 group.
@@ -102,16 +98,12 @@ secondary Conductor Live node), and with worker node redundancy.
 If you enabled user authentication on the primary Conductor Live (earlier in this procedure), you
 must now apply user authentication on all the worker nodes in the cluster.
 
-- On the primary Conductor Live, apply user authentication. See [Step 2:
-  Apply user
-  authentication on worker
-  nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md").
+- On the primary Conductor Live, apply user authentication. See [Step 2: Apply user authentication on worker nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md").
   **Step 8: Add users to the nodes**
 
 If you enabled user authentication, you must now add
 users. For information
-about the types of users that you can add, see [Managing users in
-Conductor Live](config-conductor-live-users.md "config-conductor-live-users.md").
+about the types of users that you can add, see [Managing users in Conductor Live](config-conductor-live-users.md "config-conductor-live-users.md").
 
 Add these types of users:
 
@@ -122,8 +114,7 @@ Add these types of users:
 - One or two _regular administrators_ on each
   individual worker node. These administrators will access the worker node locally (by
   logging on directly on the web interface of the node) only in order to troubleshoot. For
-  information, see [Adding users to
-  worker nodes](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md").
+  information, see [Adding users to worker nodes](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md").
   **Step 9: Enable HA**
 
 [HA (high availability)](conductor-live-config-ha.md "conductor-live-config-ha.md") (HA) on the primary

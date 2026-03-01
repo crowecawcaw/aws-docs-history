@@ -16,9 +16,7 @@ of clock servers:
   If you don't plan to set up with SMPTE 2110 outputs, you can set up all
   the nodes to use NTP.
 
-## Configuring NTP
-
-servers
+## Configuring NTP servers
 
 **Where to perform the configuration for
 NTP**

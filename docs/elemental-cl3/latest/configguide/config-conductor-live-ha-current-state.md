@@ -1,6 +1,4 @@
-# Verifying
-
-the current HA state
+# Verifying the current HA state
 
 On the web interface for the primary Conductor Live node, go to the
 **Cluster** page and choose

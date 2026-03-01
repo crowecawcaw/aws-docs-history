@@ -1,6 +1,4 @@
-# Adding
-
-Conductor redundancy to an existing cluster
+# Adding Conductor redundancy to an existing cluster
 
 You might have originally deployed the cluster with only one AWS Elemental Conductor Live node. You might
 now want to add a secondary Conductor Live node, to implement node redundancy on the Conductor
@@ -31,8 +29,7 @@ Perform the following steps in the specified order:
     into
     the existing cluster.
 5.  Create a redundancy group for the two Conductor Live nodes, and add the nodes to that group.
-    See [Creating a
-    Conductor Live redundancy group](conductor-live-config-redundancy-cl.md "conductor-live-config-redundancy-cl.md").
+    See [Creating a Conductor Live redundancy group](conductor-live-config-redundancy-cl.md "conductor-live-config-redundancy-cl.md").
 6.  [Enable HA (high availability)](conductor-live-config-ha.md "conductor-live-config-ha.md") on the
     primary Conductor Live. When you enable HA, the secondary Conductor Live synchronizes itself with the
     primary Conductor Live.

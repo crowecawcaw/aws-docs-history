@@ -1,6 +1,4 @@
-# Adding users to
-
-worker nodes
+# Adding users to worker nodes
 
 Read this section if you've set up for [local user authentication](config-conductor-live-users.md#config-conductor-live-users.title "config-conductor-live-users.md#config-conductor-live-users.title").
 You
@@ -31,10 +29,7 @@ _myuser_.
 
 ###### To add users
 
-1. Log into the worker node as _apiadmin_. If you followed the procedure in [Step 2:
-   Apply user
-   authentication on worker
-   nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md"), then this user is the
+1. Log into the worker node as _apiadmin_. If you followed the procedure in [Step 2: Apply user authentication on worker nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md"), then this user is the
    only user that initially exists on the node.
 2. Hover over **Settings** and choose
    **Users**, then choose **New

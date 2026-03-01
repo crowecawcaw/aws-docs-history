@@ -1,6 +1,4 @@
-# Configuring backup and
-
-restore on Conductor Live
+# Configuring backup and restore on Conductor Live
 
 AWS Elemental Conductor Live is configured by default to create database backups to a directory on the node.
 We recommend that you modify the configuration to back up to a remote server. This section
@@ -20,8 +18,6 @@ as the failed primary. You don't have to manage two backup files.
 
 ###### Topics
 
-- [Configuring for
-  backup](conductor-live-config-bkup.md "conductor-live-config-bkup.md")
-- [Disabling database
-  backups](conductor-live-config-bkup-dis.md "conductor-live-config-bkup-dis.md")
+- [Configuring for backup](conductor-live-config-bkup.md "conductor-live-config-bkup.md")
+- [Disabling database backups](conductor-live-config-bkup-dis.md "conductor-live-config-bkup-dis.md")
 - [Restoring a backup](conductor-live-config-bkup-restore.md "conductor-live-config-bkup-restore.md")

@@ -1,6 +1,4 @@
-# Removing a
-
-Conductor Live node from the cluster
+# Removing a Conductor Live node from the cluster
 
 Generally, you remove a node only in these situations:
 

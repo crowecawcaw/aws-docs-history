@@ -1,6 +1,4 @@
-# Configuring for RTMP
-
-inputs
+# Configuring for RTMP inputs
 
 The Elemental Live nodes are configured by default to support RTMP inputs. In
 this mode, Elemental Live is using processing resources to continually poll for input

@@ -1,6 +1,4 @@
-# Removing a
-
-worker node from the cluster
+# Removing a worker node from the cluster
 
 Generally, you remove a node only in these situations:
 

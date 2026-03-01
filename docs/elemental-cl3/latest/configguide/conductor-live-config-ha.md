@@ -1,14 +1,10 @@
-# Enabling Conductor Live HA (high
-
-availability)
+# Enabling Conductor Live HA (high availability)
 
 If you have set up the cluster with a primary and a secondary
 Conductor Live node, you must enable HA before you start running channels
 and MPTSes in the cluster.
 
-## The results of
-
-enabling HA
+## The results of enabling HA
 
 When the enable HA (high availability), the following actions
 occurs:
@@ -75,9 +71,7 @@ following information that is copied over:
    Availability** field, choose
    **Enable**.
 
-###### To verify that HA is correctly enabled, follow these steps on
-
-each Conductor Live node.
+###### To verify that HA is correctly enabled, follow these steps on each Conductor Live node.
 
 1. At your workstation, [start a
    remote terminal session](ready-conductor-live-config-access.md "ready-conductor-live-config-access.md") to the Conductor Live

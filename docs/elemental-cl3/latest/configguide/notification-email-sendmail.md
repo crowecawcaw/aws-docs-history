@@ -1,12 +1,8 @@
-# Configure sendmail relay
-
-server
+# Configure sendmail relay server
 
 Use this procedure to set up a Sendmail relay server if your network doesn't accept open relay messages.
 
-## Step A: Gather the mail server
-
-information
+## Step A: Gather the mail server information
 
 To configure Conductor Live to relay
 the notification emails through a mail server, you need the following information:
@@ -14,9 +10,7 @@ the notification emails through a mail server, you need the following informatio
 - The hostname of the mail server
 - If your network doesn't have DNS configured, the IP address of the mail server
 
-## Step B: Install the
-
-sendmail configuration tool
+## Step B: Install the sendmail configuration tool
 
 ###### To install the configuration tool
 
@@ -39,9 +33,7 @@ sendmail configuration tool
 `Complete!`
 ```
 
-## Step C: Edit the
-
-license file
+## Step C: Edit the license file
 
 ###### To edit the file
 
@@ -71,9 +63,7 @@ license file
 5. Save and exit the file. For Nano, press Ctrl+O to save and Ctrl+X to
    exit.
 
-## Step D: Check the
-
-`hosts` file
+## Step D: Check the `hosts` file
 
 If your network isn't configured with DNS, add a static entry to the `hosts` file on Conductor Live.
 
@@ -115,9 +105,7 @@ make: Leaving directory `/etc/mail'`
 **sudo service sendmail restart**
 ```
 
-## Step F: Test the new
-
-configuration
+## Step F: Test the new configuration
 
 Test the relay by having the system email you an alert notification.
 

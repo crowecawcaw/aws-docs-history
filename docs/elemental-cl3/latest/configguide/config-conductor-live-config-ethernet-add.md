@@ -1,6 +1,4 @@
-# Configure Ethernet
-
-interfaces
+# Configure Ethernet interfaces
 
 When you installed the software on the individual nodes in an AWS Elemental Conductor Live cluster, you
 configured eth0. If you need to set up more Ethernet interfaces (network devices), read this
@@ -19,7 +17,6 @@ Make sure you perform the configuration on the correct nodes.
 ###### Topics
 
 - [Creating an Ethernet interface](config-conductor-live-ethernet-create.md "config-conductor-live-ethernet-create.md")
-- [Modifying an Ethernet
-  interface](config-conductor-live-ethernet-modify.md "config-conductor-live-ethernet-modify.md")
+- [Modifying an Ethernet interface](config-conductor-live-ethernet-modify.md "config-conductor-live-ethernet-modify.md")
 - [Creating or modifying a bond](config-conductor-live-config-bond-add.md "config-conductor-live-config-bond-add.md")
 - [Dedicating interfaces to MPTS](config-cluster-mpts.md "config-cluster-mpts.md")

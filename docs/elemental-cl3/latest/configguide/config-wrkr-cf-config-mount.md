@@ -1,6 +1,4 @@
-# Adding mount points to worker
-
-nodes
+# Adding mount points to worker nodes
 
 Create mount points if you need to make remote assets available on the
 Conductor Live cluster. Remote assets include scripts, image files, and video source

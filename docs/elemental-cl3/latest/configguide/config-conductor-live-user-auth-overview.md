@@ -1,6 +1,4 @@
-# About
-
-user authentication
+# About user authentication
 
 ## Summary of procedure
 
@@ -8,16 +6,10 @@ To set up for user authentication, you perform three steps:
 
 - Step 1 — Enable the feature. You must enable the user authentication feature. You
   perform this step on the primary Conductor Live node. This step configures enables user
-  authentication at the cluster level. See [Step 1: Enable
-  the
-  user authentication
-  feature](conductor-live-config-auth.md "conductor-live-config-auth.md").
+  authentication at the cluster level. See [Step 1: Enable the user authentication feature](conductor-live-config-auth.md "conductor-live-config-auth.md").
 - Step 2 — Apply user authentication on the nodes. You must enable user authentication
   on every node. You perform this step once for all nodes, on the primary Conductor Live node.
-  This step configures the individual nodes to require that users log in. See [Step 2:
-  Apply user
-  authentication on worker
-  nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md").
+  This step configures the individual nodes to require that users log in. See [Step 2: Apply user authentication on worker nodes](conductor-live-config-auth-wrkr.md "conductor-live-config-auth-wrkr.md").
 - Step 3 — Create users. You creates user on the primary Conductor Live. These users now work
   from the Conductor Live to perform any work on the cluster. These users can't work on the
   individual worker nodes.
@@ -36,8 +28,7 @@ different.
 
 With this authentication, you enable authentication on the Conductor Live node.
 
-You then create users for the entire cluster from the primary Conductor Live node. See [Managing users in
-Conductor Live](config-conductor-live-users.md "config-conductor-live-users.md"). Users are assigned a role that controls the
+You then create users for the entire cluster from the primary Conductor Live node. See [Managing users in Conductor Live](config-conductor-live-users.md "config-conductor-live-users.md"). Users are assigned a role that controls the
 user's permissions. These roles are built into Conductor Live. You can't modify the roles or
 create new roles.
 
