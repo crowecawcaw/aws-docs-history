@@ -72,9 +72,7 @@ if your model has steady throughput and your use case can tolerate 10–20
 minutes of downtime. An example would be if you want to batch calls to your
 model using a weekly schedule.
 
-#### Auto-scale inference
-
-units
+#### Auto-scale inference units
 
 If your model has to accommodate spikes in demand, Amazon Rekognition Custom Labels can
 automatically scale the number of inference units your model uses. As demand

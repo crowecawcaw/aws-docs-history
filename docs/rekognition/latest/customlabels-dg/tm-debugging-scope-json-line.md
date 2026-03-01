@@ -10,8 +10,7 @@ locations and JSON Line error counts. For more information, see [Understanding t
 ###### Note
 
 Validation results (Training and Testing Validation Result Manifests and Manifest Summary) are
-only created if there are no [List of terminal manifest file
-errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
+only created if there are no [List of terminal manifest file errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
 
 A manifest contains JSON Lines for each image in the dataset. Within the validation results manifests,
 JSON Line error information is added to the JSON Lines where errors occur.
@@ -52,8 +51,7 @@ see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-fi
 The following example shows the `Error` arrays in an image level JSON Line. There are two sets of errors.
 Errors related to label attribute metadata (in this example, sport-metadata) and errors related to the image.
 An error includes an error code (code), error message (message). For more information,
-see [Importing
-image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
+see [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
 
 ```
 {
@@ -94,8 +92,7 @@ object includes the error code and the error message.
 - _label attribute-metadata_ – Errors for the label attribute metadata. See `bounding-box-metadata` in the example.
 - _image_ – Errors not related to the label attribute, annotation, and label attribute metadata fields.
 
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ```
 {

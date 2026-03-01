@@ -11,9 +11,7 @@ The [CreateProject](../APIReference/API_CreateProject.md "../APIReference/API_Cr
 new project, providing the Tags as key-value pairs that you can use to categorize and manage
 your resources.
 
-## Creating an Amazon Rekognition Custom Labels Project
-
-(Console)
+## Creating an Amazon Rekognition Custom Labels Project (Console)
 
 You can use the Amazon Rekognition Custom Labels console to create a project. The first time you use the
 console in a new AWS Region, Amazon Rekognition Custom Labels asks to create an Amazon S3 bucket (console

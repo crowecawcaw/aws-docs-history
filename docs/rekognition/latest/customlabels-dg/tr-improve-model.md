@@ -29,9 +29,7 @@ localize the object.
 
 To add more images to a training or test dataset, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").
 
-## Reducing false positives (better
-
-precision)
+## Reducing false positives (better precision)
 
 - First, check if increasing the assumed threshold lets you keep the correct
   predictions, while decreasing false positives. At some point, this has
@@ -56,9 +54,7 @@ precision)
   to this type of confusion will help a retrained model better discriminate
   between A and B. To add images to a training dataset, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").
 
-## Reducing false negatives (better
-
-recall)
+## Reducing false negatives (better recall)
 
 - Use a lower value for the assumed threshold. You can't set the
   assumed threshold for a label, but you can achieve the same result

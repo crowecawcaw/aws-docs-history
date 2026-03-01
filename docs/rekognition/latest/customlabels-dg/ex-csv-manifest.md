@@ -1,6 +1,4 @@
-# Creating a manifest file from a CSV
-
-file
+# Creating a manifest file from a CSV file
 
 This example Python script simplifies the creation of a manifest file by
 using a Comma Separated Values (CSV) file to label images. You create the
@@ -18,8 +16,7 @@ A manifest file describes the images used to train a model. For example,
 image locations and labels assigned to images. A manifest file is made up of
 one or more JSON lines. Each JSON line describes a single image.
 
-For more information, see [Importing
-image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
+For more information, see [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
 
 A CSV file represents tabular data over multiple rows in a text file.
 Fields on a row are separated by commas. For more information, see [comma
@@ -327,10 +324,8 @@ Make sure Amazon Rekognition Custom Labels has access to the Amazon S3 bucket re
 in the `source-ref` field of the manifest file JSON
 lines. For more information, see [Accessing external Amazon S3 Buckets](su-console-policy.md#su-external-buckets "su-console-policy.md#su-external-buckets"). If your Ground Truth
 job stores images in the Amazon Rekognition Custom Labels Console Bucket, you don't
-need to add permissions. 7. Follow the instructions at [Creating a dataset with
-a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
+need to add permissions. 7. Follow the instructions at [Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
 create a dataset with the uploaded manifest file. For step 8, in
 **.manifest file location**, enter the Amazon S3 URL
 for the location of the manifest file. If you are using the AWS
-SDK, do [Creating a dataset with a
-SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+SDK, do [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").

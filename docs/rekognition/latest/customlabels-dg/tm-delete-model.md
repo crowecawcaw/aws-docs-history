@@ -8,13 +8,10 @@ A deleted model can't be undeleted.
 
 ###### Topics
 
-- [Deleting an Amazon Rekognition Custom Labels model
-  (Console)](#tm-delete-model-console "#tm-delete-model-console")
+- [Deleting an Amazon Rekognition Custom Labels model (Console)](#tm-delete-model-console "#tm-delete-model-console")
 - [Deleting an Amazon Rekognition Custom Labels model (SDK)](#tm-delete-model-sdk "#tm-delete-model-sdk")
 
-## Deleting an Amazon Rekognition Custom Labels model
-
-(Console)
+## Deleting an Amazon Rekognition Custom Labels model (Console)
 
 The following procedure shows how to delete a model from a project details page.
 You can also delete a model from a model's detail page.

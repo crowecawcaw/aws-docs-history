@@ -30,17 +30,13 @@ Use tags to:
 You can use the Rekognition console to add tags to models, view the tags attached to a
 model, and remove tags.
 
-### Adding or removing
-
-tags
+### Adding or removing tags
 
 This procedure explains how to add tags to, or remove tags from, an existing
 model. You can also add tags to a new model when it is trained. For more
 information, see [Training an Amazon Rekognition Custom Labels model](training-model.md "training-model.md").
 
-###### To add tags to, or remove tags from, an existing model using the
-
-console
+###### To add tags to, or remove tags from, an existing model using the console
 
 1. Open the Amazon Rekognition console at [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ " https://console.aws.amazon.com/rekognition/").
 2. Choose **Get started**.

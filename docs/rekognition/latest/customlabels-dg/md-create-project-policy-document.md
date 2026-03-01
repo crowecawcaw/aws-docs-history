@@ -1,6 +1,4 @@
-# Creating a project policy
-
-document
+# Creating a project policy document
 
 Rekognition Custom Labels uses a resource-based policy, known as _project
 policy_, to manage copy permissions for a model version. A project

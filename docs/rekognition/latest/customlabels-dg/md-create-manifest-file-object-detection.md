@@ -1,6 +1,4 @@
-# Object
-
-localization in manifest files
+# Object localization in manifest files
 
 You can import images labeled with object localization information by
 adding SageMaker AI Ground Truth [Bounding Box Job Output](../../../sagemaker/latest/dg/sms-data-output.md#sms-output-box "../../../sagemaker/latest/dg/sms-data-output.md#sms-output-box") format JSON lines to a manifest file.
@@ -28,12 +26,9 @@ information for a single image.
 3. Save the file. You can use the extension
    `.manifest`, but it is not required.
 4. Create a dataset using the file that you just created. For more
-   information, see [To create a dataset
-   using a SageMaker AI Ground Truth format manifest file (console)](md-create-manifest-file.md#create-dataset-procedure-manifest-file "md-create-manifest-file.md#create-dataset-procedure-manifest-file").
+   information, see [To create a dataset using a SageMaker AI Ground Truth format manifest file (console)](md-create-manifest-file.md#create-dataset-procedure-manifest-file "md-create-manifest-file.md#create-dataset-procedure-manifest-file").
 
-## Object bounding
-
-Box JSON lines
+## Object bounding Box JSON lines
 
 In this section, we show you how to create a JSON line for a single
 image. The following image shows bounding boxes around Amazon Echo and

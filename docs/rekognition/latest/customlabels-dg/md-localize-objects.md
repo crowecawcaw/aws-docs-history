@@ -78,15 +78,13 @@ For object localization, a JSON Line looks similar to the following.
 ```
 
 The `source-ref` field indicates the location of the image. The JSON line also includes labeled bounding boxes for each object on the image.
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ###### To assign bounding boxes to an image
 
 1. Get the get JSON Line for the existing image by using the `ListDatasetEntries`. For the `source-ref` field, specify
    the location of the image that you want to assign the image-level label to.
    For more information, see [Listing dataset entries (SDK)](md-listing-dataset-entries-sdk.md "md-listing-dataset-entries-sdk.md").
-2. Update the JSON Line returned in the previous step using the information at [Object
-   localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+2. Update the JSON Line returned in the previous step using the information at [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 3. Call `UpdateDatasetEntries` to update the image.
    For more information, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").

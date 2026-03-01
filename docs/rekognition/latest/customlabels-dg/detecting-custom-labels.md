@@ -32,12 +32,10 @@ The performance of your model is measured, in part, by the recall and precision 
 calculated during model training. For more information, see [Metrics for evaluating your model](im-metrics-use.md "im-metrics-use.md").
 
 To increase the precision of your model, set a higher value for `MinConfidence`.
-For more information, see [Reducing false positives (better
-precision)](tr-improve-model.md#im-reduce-false-positives "tr-improve-model.md#im-reduce-false-positives").
+For more information, see [Reducing false positives (better precision)](tr-improve-model.md#im-reduce-false-positives "tr-improve-model.md#im-reduce-false-positives").
 
 To increase the recall of your model, use a lower value for `MinConfidence`.
-For more information, see [Reducing false negatives (better
-recall)](tr-improve-model.md#im-reduce-false-negatives "tr-improve-model.md#im-reduce-false-negatives").
+For more information, see [Reducing false negatives (better recall)](tr-improve-model.md#im-reduce-false-negatives "tr-improve-model.md#im-reduce-false-negatives").
 
 If you don't specify a value for `MinConfidence`, Amazon Rekognition Custom Labels
 returns a label based on the assumed threshold for that label. For more

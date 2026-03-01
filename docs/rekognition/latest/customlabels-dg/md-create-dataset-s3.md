@@ -8,8 +8,7 @@ If you are using the console bucket, the required permissions are already set up
 
 You can't use the AWS SDK to create a dataset directly from images in an Amazon S3 bucket. Instead, create a
 manifest file that references the source locations of the images. For more information, see
-[Using a manifest file to import
-images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md")
+[Using a manifest file to import images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md")
 
 During dataset creation, you can choose to assign label names to images based on the
 name of the folder that contains the images. The folder(s) must be a child of the Amazon S3 folder path that you specify in

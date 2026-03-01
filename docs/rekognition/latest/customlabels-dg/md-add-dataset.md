@@ -7,13 +7,10 @@ new dataset.
 
 ###### Topics
 
-- [Adding a dataset to a project
-  (Console)](#md-add-dataset-console "#md-add-dataset-console")
+- [Adding a dataset to a project (Console)](#md-add-dataset-console "#md-add-dataset-console")
 - [Adding a dataset to a project (SDK)](#md-add-dataset-sdk "#md-add-dataset-sdk")
 
-## Adding a dataset to a project
-
-(Console)
+## Adding a dataset to a project (Console)
 
 You can add a training or test dataset to a project by using the Amazon Rekognition Custom Labels
 console.
@@ -59,8 +56,7 @@ console.
 You can add a train or test dataset to an existing project in the following
 ways:
 
-- Create a dataset using a manifest file. For more information, see [Creating a dataset with a
-  SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+- Create a dataset using a manifest file. For more information, see [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
 - Create an empty dataset and populate the dataset afterwards. The following
   example shows how to create an empty dataset. To add entries after you
   create an empty dataset, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").

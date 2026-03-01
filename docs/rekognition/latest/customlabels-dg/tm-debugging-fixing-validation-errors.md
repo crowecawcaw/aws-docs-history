@@ -1,9 +1,7 @@
 # Fixing training errors
 
-You use the manifest summary to identify [List of terminal manifest
-content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal") and
-[List of non-terminal
-JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors") encountered during training.
+You use the manifest summary to identify [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal") and
+[List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors") encountered during training.
 You must fix manifest content errors. We recommend that you also fix non-terminal JSON Line errors.
 For information about specific errors,
 see [Non-Terminal JSON Line Validation Errors](tm-debugging-json-line-errors.md "tm-debugging-json-line-errors.md")

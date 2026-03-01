@@ -1,6 +1,4 @@
-# Interpreting the evaluation
-
-manifest snapshot
+# Interpreting the evaluation manifest snapshot
 
 The evaluation manifest snapshot contains detailed information about the test
 results. The snapshot includes the confidence rating for each prediction. It also

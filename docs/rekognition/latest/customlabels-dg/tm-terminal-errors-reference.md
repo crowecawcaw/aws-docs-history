@@ -1,7 +1,6 @@
 # Terminal manifest file errors
 
-This topic describes the [List of terminal manifest file
-errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
+This topic describes the [List of terminal manifest file errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
 Manifest file errors do not have an associated error code. The validation results manifests are not created when
 a terminal manifest file error occurs.
 For more information, see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md").

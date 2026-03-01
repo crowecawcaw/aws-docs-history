@@ -1,6 +1,4 @@
-# Step 4: Analyze an image with your
-
-model
+# Step 4: Analyze an image with your model
 
 You analyze an image by calling the [DetectCustomLabels](../APIReference/API_DetectCustomLabels.md "../APIReference/API_DetectCustomLabels.md") API. In this step, you use the
 `detect-custom-labels` AWS Command Line Interface (AWS CLI) command to analyze an example
@@ -123,18 +121,14 @@ _Amazon Simple Storage Service User Guide_.
 
 ![Living room with fireplace, couch, armchair, end tables, lamps, and large windows.](images/image-classification.jpg)
 
-### Multi-label
+### Multi-label classification
 
-classification
-
-![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](images/multi-label-classification.jpg)
+![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](/images/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
 
 ### Brand detection
 
 ![Diagram showing user activity data flowing from Lambda to Amazon Personalize for recommendations, and to Amazon Pinpoint for recommendations.](images/brand-detection.png)
 
-### Object
-
-localization
+### Object localization
 
 ![Small circuit with various electronic components, and connector pins.](images/object-localization.jpg)

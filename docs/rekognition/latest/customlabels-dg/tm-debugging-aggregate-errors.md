@@ -1,11 +1,9 @@
 # Terminal manifest content errors
 
-This topic describes the [List of terminal manifest
-content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal")
+This topic describes the [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal")
 reported in the manifest summary. The manifest summary includes an error code and message for each detected error.
 For more information, see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md"). Terminal manifest content errors
-don't stop the reporting of [List of non-terminal
-JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
+don't stop the reporting of [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
 
 ## ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST
 
@@ -205,8 +203,7 @@ following example.
 ```
 
 You need to map the class map table to the bounding box annotations. For more information,
-see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ## ERROR_MANIFEST_TOO_MANY_LABELS
 
@@ -235,8 +232,7 @@ Manifests with object location JSON Lines – Remove the bounding box and associ
 label that you want to remove. Do this for each JSON Line that contains the desired label.
 You need to remove the label from the `class-map` array and corresponding objects in the
 `objects` and `annotations` array.
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ## ERROR_INSUFFICIENT_LABEL_OVERLAP
 
@@ -266,8 +262,7 @@ Manifests with object location JSON Lines – Remove the bounding box and associ
 label that you want to remove. Do this for each JSON Line that contains the desired label.
 You need to remove the label from the `class-map` array and corresponding objects in the
 `objects` and `annotations` array.
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ###### To fix ERROR_INSUFFICIENT_LABEL_OVERLAP by adding common labels to the testing dataset (JSON Line)
 
@@ -338,8 +333,7 @@ Datasets used to detects object locations – Remove the bounding box and associ
 label that you want to remove. Do this for each JSON Line that contains the desired label.
 You need to remove the label from the `class-map` array and corresponding objects in the
 `objects` and `annotations` array.
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ###### To fix ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP by adding common labels to the testing dataset (JSON Line)
 

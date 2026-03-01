@@ -10,15 +10,12 @@ from a local computer.
 
 ###### Topics
 
-- [Step 1: Create an AWS Lambda function
-  (console)](#example-lambda-create-function "#example-lambda-create-function")
+- [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function")
 - [Step 2: (Optional) Create a layer (console)](#example-lambda-create-layer "#example-lambda-create-layer")
 - [Step 3: Add Python code (console)](#example-lambda-add-code "#example-lambda-add-code")
 - [Step 4: Try your Lambda function](#example-lambda-test "#example-lambda-test")
 
-## Step 1: Create an AWS Lambda function
-
-(console)
+## Step 1: Create an AWS Lambda function (console)
 
 In this step, you create an empty AWS function and an IAM execution role that
 lets your function call the `DetectCustomLabels` operation. It also
@@ -30,9 +27,7 @@ environment variables for the following:
 
 Later you add the source code and optionally a layer to the Lambda function.
 
-###### To create an AWS Lambda function
-
-(console)
+###### To create an AWS Lambda function (console)
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -146,8 +141,7 @@ zip boto3-layer.zip -r python/
 10. Choose **Create** to create the layer.
 11. Choose the navigation pane menu icon.
 12. In the navigation pane, choose **Functions**.
-13. In the resources list, choose the function that you created in [Step 1: Create an AWS Lambda function
-    (console)](#example-lambda-create-function "#example-lambda-create-function").
+13. In the resources list, choose the function that you created in [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function").
 14. Choose the **Code** tab.
 15. In the **Layers** section, choose **Add a
     layer**.
@@ -170,8 +164,7 @@ image bytes.
    1. Open the AWS Lambda console at
       [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
    2. Open the Lambda function you created in
-      [Step 1: Create an AWS Lambda function
-      (console)](#example-lambda-create-function "#example-lambda-create-function").
+      [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function").
 
 2. Choose the **Code** tab.
 3. In **Code source**, replace the code in
@@ -328,8 +321,7 @@ To provide access, add permissions to your users, groups, or roles:
 2. Install and configure AWS SDK for Python. For more information,
    see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
 3. [Start the model](rm-start.md "rm-start.md") that you specified
-   in step 7 of [Step 1: Create an AWS Lambda function
-   (console)](#example-lambda-create-function "#example-lambda-create-function") .
+   in step 7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function") .
 4. Save the following code to a file named `client.py`.
 
 ```
@@ -450,12 +442,10 @@ python client.py `function_name s3://bucket/path/image.jpg`
 ```
 
 If the image is in an Amazon S3 bucket make sure it is the same bucket that you
-specified in step 15 of [Step 1: Create an AWS Lambda function
-(console)](#example-lambda-create-function "#example-lambda-create-function").
+specified in step 15 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function").
 
 If successful, the output is a list of labels found in the image. If no
 labels are returned, consider lowering the confidence value that you set in step
-7 of [Step 1: Create an AWS Lambda function
-(console)](#example-lambda-create-function "#example-lambda-create-function"). 6. If you have finished with the Lambda function and the model isn't used by other applications,
+7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function"). 6. If you have finished with the Lambda function and the model isn't used by other applications,
 [stop the model](rm-stop.md "rm-stop.md"). Remember to [start the model](rm-start.md "rm-start.md") the next
 time you want use the Lambda function.

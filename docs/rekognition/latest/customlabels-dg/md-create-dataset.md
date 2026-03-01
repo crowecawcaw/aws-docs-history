@@ -12,12 +12,9 @@ you start your project with separate training and test datasets.
 You can create training and test datasets for a project by importing images from one of the following locations:
 
 - [Importing images from an Amazon S3 bucket](md-create-dataset-s3.md "md-create-dataset-s3.md")
-- [Importing images from a local
-  computer](md-create-dataset-computer.md "md-create-dataset-computer.md")
-- [Using a manifest file to import
-  images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md")
-- [Copying content from an
-  existing dataset](md-create-dataset-existing-dataset.md "md-create-dataset-existing-dataset.md")
+- [Importing images from a local computer](md-create-dataset-computer.md "md-create-dataset-computer.md")
+- [Using a manifest file to import images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md")
+- [Copying content from an existing dataset](md-create-dataset-existing-dataset.md "md-create-dataset-existing-dataset.md")
   If you start your project with separate training and test datasets, you can use different source locations for each dataset.
 
 Depending on where you import your images from, your images might be unlabeled.
@@ -44,8 +41,7 @@ You can use the AWS SDK to create a training dataset in the following
 ways.
 
 - Use [CreateDataset](../APIReference/API_CreateDataset.md "../APIReference/API_CreateDataset.md") with an Amazon Sagemaker format manifest file
-  that you provide. For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md"). For example code, see [Creating a dataset with a
-  SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+  that you provide. For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md"). For example code, see [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
 - Use `CreateDataset` to copy an existing Amazon Rekognition
   Custom Labels dataset. For example code, see [Creating a dataset using an existing dataset (SDK)](md-create-dataset-existing-dataset-sdk.md "md-create-dataset-existing-dataset-sdk.md").
 - Create an empty dataset with `CreateDataset` and add
@@ -59,8 +55,7 @@ You can use the AWS SDK to create a test dataset in the following
 ways:
 
 - Use [CreateDataset](../APIReference/API_CreateDataset.md "../APIReference/API_CreateDataset.md") with an Amazon Sagemaker format manifest file
-  that you provide. For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md"). For example code, see [Creating a dataset with a
-  SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+  that you provide. For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md"). For example code, see [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
 - Use `CreateDataset` to copy an existing Amazon Rekognition
   Custom Labels dataset. For example code, see [Creating a dataset using an existing dataset (SDK)](md-create-dataset-existing-dataset-sdk.md "md-create-dataset-existing-dataset-sdk.md").
 - Create an empty dataset with `CreateDataset` and add

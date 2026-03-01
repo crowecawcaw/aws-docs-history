@@ -5,8 +5,7 @@ source project to a destination project. The destination project can be in a
 different AWS account but must be the same AWS Region. If the destination
 project is in a different AWS account (or if you want to grant specific
 permissions for a model version copied within an AWS account), you must attach a
-project policy to the source project. For more information, see [Creating a project policy
-document](md-create-project-policy-document.md "md-create-project-policy-document.md"). The
+project policy to the source project. For more information, see [Creating a project policy document](md-create-project-policy-document.md "md-create-project-policy-document.md"). The
 `CopyProjectVersion` API requires access to your Amazon S3 bucket.
 
 The copied model includes the training results for the source model, but doesn't

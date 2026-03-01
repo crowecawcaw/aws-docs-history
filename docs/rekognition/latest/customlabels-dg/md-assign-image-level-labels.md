@@ -51,13 +51,11 @@ For an image with an image-level label, the JSON Line looks similar to the follo
 ```
 
 The `source-ref` field indicates the location of the image. The JSON line also includes the image-level labels assigned to the image.
-For more information, see [Importing
-image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
+For more information, see [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
 
 ###### To assign image-level labels to an image
 
 1. Get the get JSON Line for the existing image by using the `ListDatasetEntries`. For the `source-ref` field, specify
    the location of the image that you want to assign the label to. For more information, see [Listing dataset entries (SDK)](md-listing-dataset-entries-sdk.md "md-listing-dataset-entries-sdk.md").
-2. Update the JSON Line returned in the previous step using the information at [Importing
-   image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
+2. Update the JSON Line returned in the previous step using the information at [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md").
 3. Call `UpdateDatasetEntries` to update the image. For more information, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").

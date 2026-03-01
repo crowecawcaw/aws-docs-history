@@ -5,8 +5,7 @@ You can delete the training and test datasets from a project.
 ###### Topics
 
 - [Deleting a dataset (Console)](#md-delete-dataset-console "#md-delete-dataset-console")
-- [Deleting an Amazon Rekognition Custom Labels dataset
-  (SDK)](#md-delete-dataset-sdk "#md-delete-dataset-sdk")
+- [Deleting an Amazon Rekognition Custom Labels dataset (SDK)](#md-delete-dataset-sdk "#md-delete-dataset-sdk")
 
 ## Deleting a dataset (Console)
 
@@ -46,9 +45,7 @@ dataset before training a model. For more information, see [Adding a dataset to 
 10. Choose **Delete _train or test_
     dataset** to delete the dataset.
 
-## Deleting an Amazon Rekognition Custom Labels dataset
-
-(SDK)
+## Deleting an Amazon Rekognition Custom Labels dataset (SDK)
 
 You delete an Amazon Rekognition Custom Labels dataset by calling [DeleteDataset](../APIReference/API_DeleteDataset.md "../APIReference/API_DeleteDataset.md") and supplying the
 Amazon Resource Name (ARN) of the dataset that you want to delete. To get the ARNs

@@ -139,8 +139,7 @@ Next you start the model. For more information, see
 
 After you start running your model, you can use it to analyze new images.
 For more information, see
-[Step 4: Analyze an image with your
-model](gs-step-get-a-prediction.md "gs-step-get-a-prediction.md").
+[Step 4: Analyze an image with your model](gs-step-get-a-prediction.md "gs-step-get-a-prediction.md").
 
 You are charged for the amount of time that your model runs. When you finish using
 the example model, you should stop the model. For more information,

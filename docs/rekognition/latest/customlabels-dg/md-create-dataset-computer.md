@@ -1,6 +1,4 @@
-# Importing images from a local
-
-computer
+# Importing images from a local computer
 
 The images are loaded directly from your computer. You can upload up to
 30 images at a time.
@@ -13,8 +11,7 @@ consider using an Amazon S3 bucket. For more information, see [Importing images 
 
 You can't use the AWS SDK to create a dataset with local images. Instead, create a
 manifest file and upload the images to an Amazon S3 bucket. For more information, see
-[Using a manifest file to import
-images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md").
+[Using a manifest file to import images](md-create-dataset-ground-truth.md "md-create-dataset-ground-truth.md").
 
 ###### To create a dataset using images on a local computer (console)
 

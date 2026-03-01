@@ -54,8 +54,7 @@ following:
 
 ###### Topics
 
-- [Creating a project policy
-  document](md-create-project-policy-document.md "md-create-project-policy-document.md")
+- [Creating a project policy document](md-create-project-policy-document.md "md-create-project-policy-document.md")
 - [Attaching a project policy (SDK)](md-attach-project-policy.md "md-attach-project-policy.md")
 - [Copying a model (SDK)](md-copy-model-sdk.md "md-copy-model-sdk.md")
 - [Listing project policies (SDK)](md-list-project-policies.md "md-list-project-policies.md")

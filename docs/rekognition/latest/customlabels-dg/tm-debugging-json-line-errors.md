@@ -244,8 +244,7 @@ The confidence key is missing for one or more object location bounding boxes. Th
 bounding box is in the label attribute metadata, as shown in the following example.
 A ERROR_MISSING_BOUNDING_BOX_CONFIDENCE error typically occurs in manually created manifest files.
 For more information,
-see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ```
 	"bounding-box-metadata": {
@@ -275,8 +274,7 @@ One of more class ids is missing from the class map.
 
 The `class_id` in an annotation (bounding box) object doesn't have a matching entry in the label attribute metadata
 class map (`class-map`).
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 A ERROR_MISSING_CLASS_MAP_ID error typically occurs in manually created manifest files.
 
 ###### To fix ERROR_MISSING_CLASS_MAP_ID
@@ -342,8 +340,7 @@ The JSON Line has an invalid format.
 An unexpected character was found in the JSON Line. The JSON Line is replaced with a new
 JSON Line that contains only the error information. An ERROR_INVALID_JSON_LINE
 error typically occurs in manually created manifest files. For more information,
-see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
@@ -505,8 +502,7 @@ None of the annotation objects in the JSON Line contain valid bounding box infor
 1. Update the `annotations` array to include valid bounding box objects. Also, check
    that corresponding bounding box information (`confidence` and `class_map`) in the label
    attribute metadata is correct. For more information,
-   see [Object
-   localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+   see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ```
 {
@@ -570,8 +566,7 @@ During training, Amazon Rekognition Custom Labels resizes an image if any of its
 (the source images aren't affected).
 The resulting bounding box heights and widths must be greater than 1 x 1 pixels. A bounding box location
 is stored in the `annotations` array of an object location JSON Line. For more information, see
-[Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md")
+[Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md")
 
 ```
 	"bounding-box": {
@@ -776,8 +771,7 @@ For more information, see [Understanding training and testing validation result 
 - Choose one of the following options.
   - Add the bounding box (`annotations`) information to the JSON Line.
     For more information, see
-    [Object
-    localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+    [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
   - Remove the image (JSON Line) from the manifest.
 
 ## WARNING_NO_ATTRIBUTE_ANNOTATIONS
@@ -840,8 +834,7 @@ For more information, see [Understanding training and testing validation result 
 - Choose one of the following options.
   - Add one or more bounding box `annotation` objects to the JSON Line.
     For more information, see
-    [Object
-    localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+    [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
   - Remove the bounding box attribute.
   - Remove the image (JSON Line) from the manifest. If other valid bounding box attributes
     exist in the JSON Line, you can instead remove just the invalid bounding box attribute from the JSON Line.

@@ -86,9 +86,7 @@ Amazon Rekognition Custom Labels manifest file.
 }
 ```
 
-## annotations (bounding boxes)
-
-list
+## annotations (bounding boxes) list
 
 Bounding box information for all objects on all images is stored
 the annotations list. A single annotation object contains bounding

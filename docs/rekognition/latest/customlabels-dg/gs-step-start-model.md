@@ -22,5 +22,4 @@ can restart your model at a later time. For more information, see [Running a tra
     section is **Running**.
 
 ![Model status showing as Running, with Stop button to stop the running model.](images/get-started-start-model-running.jpg) 4. Use your model to classify images. For more information, see
-[Step 4: Analyze an image with your
-model](gs-step-get-a-prediction.md "gs-step-get-a-prediction.md").
+[Step 4: Analyze an image with your model](gs-step-get-a-prediction.md "gs-step-get-a-prediction.md").

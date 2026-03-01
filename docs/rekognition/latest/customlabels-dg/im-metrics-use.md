@@ -57,9 +57,7 @@ predictions made by the model at the bounding box level, with the distinction th
 all metrics are calculated over each bounding box (prediction or ground truth) in
 each test image.
 
-### Intersection over
-
-Union (IoU) and object detection
+### Intersection over Union (IoU) and object detection
 
 Intersection over Union (IoU) measures the percentage of overlap between two
 object bounding boxes over their combined area. The range is 0 (lowest overlap)

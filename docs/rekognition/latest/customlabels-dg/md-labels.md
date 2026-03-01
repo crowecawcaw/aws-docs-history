@@ -95,9 +95,7 @@ dataset.
 1. Call `ListDatasetEntries` to get the dataset entries. For example code,
    see [Listing dataset entries (SDK)](md-listing-dataset-entries-sdk.md "md-listing-dataset-entries-sdk.md").
 2. In the file, remove any label annotations. For more information, see
-   [Importing
-   image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md") and
-   [Object
-   localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+   [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md") and
+   [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 3. Use the file to update the dataset with the `UpdateDatasetEntries` API. For more information,
    see [Adding more images (SDK)](md-add-images.md#md-add-images-sdk "md-add-images.md#md-add-images-sdk").

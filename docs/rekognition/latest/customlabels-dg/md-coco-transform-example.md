@@ -1,6 +1,4 @@
-# Transforming a COCO
-
-dataset
+# Transforming a COCO dataset
 
 Use the following Python example to transform bounding box information
 from a COCO format dataset into an Amazon Rekognition Custom Labels manifest file. The code
@@ -192,10 +190,8 @@ print ('\033[1m aws s3 sync ' + local_images_path + ' ' + s3_path + '\033[0m')
    synchronized with the S3 bucket.
 6. In the program output, note the S3 URL path to the manifest
    file. You need it in the next step.
-7. Follow the instruction at [Creating a dataset with
-   a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
+7. Follow the instruction at [Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
    create a dataset with the uploaded manifest file. For step 8, in
    **.manifest file location**, enter the Amazon S3
    URL you noted in the previous step. If you are using the AWS
-   SDK, do [Creating a dataset with a
-   SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+   SDK, do [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").

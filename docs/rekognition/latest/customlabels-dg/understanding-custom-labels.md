@@ -158,8 +158,8 @@ To create your training and test datasets, you use the `CreateDataset` API.
 
 You can create a dataset by using an Amazon Sagemaker format manifest file or by copying an
 existing Amazon Rekognition Custom Labels dataset. For more information,
-see [Create training and test datasets (SDK)](md-create-dataset.md#cd-create-dataset-sdk "md-create-dataset.md#cd-create-dataset-sdk")  
- If necessary, you can create your
+see [Create training and test datasets (SDK)](md-create-dataset.md#cd-create-dataset-sdk "md-create-dataset.md#cd-create-dataset-sdk")
+If necessary, you can create your
 own manifest file. For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
 ### Train your model
@@ -214,8 +214,7 @@ in the following formats:
   results, including the confidence ratings and the results of binary
   classification tests, such as false positives.
   `DescribeProjectVersions` returns the S3 bucket and
-  folder location of the snapshot files. For more information, see [Interpreting the evaluation
-  manifest snapshot](im-evaluation-manifest-snapshot-api.md "im-evaluation-manifest-snapshot-api.md").
+  folder location of the snapshot files. For more information, see [Interpreting the evaluation manifest snapshot](im-evaluation-manifest-snapshot-api.md "im-evaluation-manifest-snapshot-api.md").
 
 ### Improve your model
 

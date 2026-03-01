@@ -1,6 +1,4 @@
-# Viewing the confusion matrix for a
-
-model
+# Viewing the confusion matrix for a model
 
 A confusion matrix allows you to see the labels that your model confuses with
 other labels in your model. By using a confusion matrix, you can focus your

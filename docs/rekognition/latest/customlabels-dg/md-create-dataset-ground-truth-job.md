@@ -1,6 +1,4 @@
-#
-
-Labeling images with an Amazon SageMaker AI Ground Truth job
+# Labeling images with an Amazon SageMaker AI Ground Truth job
 
 With Amazon SageMaker AI Ground Truth, you can use workers from either Amazon Mechanical
 Turk, a vendor company that you choose, or an internal, private workforce along
@@ -20,17 +18,13 @@ stored. If you are using the console bucket set up for you by Amazon Rekognition
 required permissions are already set up. If you are not using the console
 bucket, see [Accessing external Amazon S3 Buckets](su-console-policy.md#su-external-buckets "su-console-policy.md#su-external-buckets").
 
-## Creating a
-
-manifest file with a SageMaker AI Ground Truth job (Console)
+## Creating a manifest file with a SageMaker AI Ground Truth job (Console)
 
 The following procedure shows you how to create a dataset by using images
 labeled by a SageMaker AI Ground Truth job. The job output files are stored in your
 Amazon Rekognition Custom Labels console bucket.
 
-###### To create a dataset
-
-using images labeled by a SageMaker AI Ground Truth job (console)
+###### To create a dataset using images labeled by a SageMaker AI Ground Truth job (console)
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -47,11 +41,9 @@ Ground Truth job. 5. Open the SageMaker AI console at [https://console.aws.amazo
 the folders you created in step 2 and step 4. For more information,
 see [Use Amazon SageMaker Ground Truth for Data Labeling](../../../sagemaker/latest/dg/sms.md "../../../sagemaker/latest/dg/sms.md"). 7. Note the location of the `output.manifest` file
 in the folder you created in step 4. It should be in the sub-folder
-``Ground-Truth-Job-Name`/manifests/output`. 8. Follow the instructions at [Creating a dataset with
-a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
+``Ground-Truth-Job-Name`/manifests/output`. 8. Follow the instructions at [Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
 create a dataset with the uploaded manifest file. For step 8, in
 **.manifest file location**, enter the Amazon S3 URL
 for the location you noted in the previous step. If you are using
-the AWS SDK, do [Creating a dataset with a
-SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk"). 9. Repeat steps 1 - 6 to create SageMaker AI Ground Truth job for your test
+the AWS SDK, do [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk"). 9. Repeat steps 1 - 6 to create SageMaker AI Ground Truth job for your test
 dataset.

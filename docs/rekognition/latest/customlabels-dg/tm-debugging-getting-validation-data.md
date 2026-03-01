@@ -1,9 +1,7 @@
 # Getting the validation results
 
-The validation results contain error information for [List of terminal manifest
-content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal") and
-[List of non-terminal
-JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
+The validation results contain error information for [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal") and
+[List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
 There are three validation results files.
 
 - _training_manifest_with_validation.json_ – A copy of the training dataset manifest file with JSON Line error information added.
@@ -14,8 +12,7 @@ There are three validation results files.
 
 ###### Note
 
-- The validation results are created only if no [List of terminal manifest file
-  errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal")
+- The validation results are created only if no [List of terminal manifest file errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal")
   are generated during training.
 - If a [service error](tm-debugging.md#tm-error-category-service "tm-debugging.md#tm-error-category-service") occurs after the training and testing manifest are validated, the validation
   results are created, but the response from [DescribeProjectVersions](../APIReference/API_DescribeProjectVersions.md "../APIReference/API_DescribeProjectVersions.md") doesn't include the validation

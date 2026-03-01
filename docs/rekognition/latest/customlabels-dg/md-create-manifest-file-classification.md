@@ -1,6 +1,4 @@
-# Importing
-
-image-level labels in manifest files
+# Importing image-level labels in manifest files
 
 To import image-level labels (images labeled with scenes, concepts, or
 objects that don't require localization information), you add SageMaker AI Ground
@@ -12,8 +10,7 @@ you want to import.
 
 To simplify creation of a manifest file, we provide a Python script
 that creates a manifest file from a CSV file. For more information, see
-[Creating a manifest file from a CSV
-file](ex-csv-manifest.md "ex-csv-manifest.md").
+[Creating a manifest file from a CSV file](ex-csv-manifest.md "ex-csv-manifest.md").
 
 ###### To create a manifest file for image-level labels
 
@@ -29,12 +26,9 @@ file](ex-csv-manifest.md "ex-csv-manifest.md").
 3. Save the file. You can use the extension
    `.manifest`, but it is not required.
 4. Create a dataset using the manifest file that you created. For
-   more information, see [To create a dataset
-   using a SageMaker AI Ground Truth format manifest file (console)](md-create-manifest-file.md#create-dataset-procedure-manifest-file "md-create-manifest-file.md#create-dataset-procedure-manifest-file").
+   more information, see [To create a dataset using a SageMaker AI Ground Truth format manifest file (console)](md-create-manifest-file.md#create-dataset-procedure-manifest-file "md-create-manifest-file.md#create-dataset-procedure-manifest-file").
 
-## Image-Level JSON
-
-Lines
+## Image-Level JSON Lines
 
 In this section, we show you how to create a JSON line for a single
 image. Consider the following image. A scene for the following image

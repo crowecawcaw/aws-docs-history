@@ -2,15 +2,12 @@
 
 The manifest summary contains the following information.
 
-- Error information about [List of terminal manifest
-  content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal")
+- Error information about [List of terminal manifest content errors](tm-debugging.md#tm-error-category-combined-terminal "tm-debugging.md#tm-error-category-combined-terminal")
   encountered during validation.
-- Error location information for [List of non-terminal
-  JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors")
+- Error location information for [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors")
   in the training and testing datasets.
 - Error statistics such as the total number of invalid JSON Lines found in the training and testing datasets.
-  The manifest summary is created during training if there are no [List of terminal manifest file
-  errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
+  The manifest summary is created during training if there are no [List of terminal manifest file errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
   To get the location of the manifest summary file (_manifest_summary.json_), see [Getting the validation results](tm-debugging-getting-validation-data.md "tm-debugging-getting-validation-data.md").
 
 ###### Note

@@ -1,6 +1,4 @@
-# Debugging non-terminal
-
-dataset errors
+# Debugging non-terminal dataset errors
 
 The following are non-terminal errors that can occur during dataset creation or update.
 These errors can invalidate an entire JSON Line or invalidate annotations within a JSON Line.

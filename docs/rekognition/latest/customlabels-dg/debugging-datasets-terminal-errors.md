@@ -1,6 +1,4 @@
-# Debugging terminal dataset
-
-errors
+# Debugging terminal dataset errors
 
 There are two types of terminal errors — file errors that cause dataset creation
 to fail, and content errors that Amazon Rekognition Custom Labels removes from the dataset. Dataset creation
@@ -134,8 +132,7 @@ Manifests with object location JSON Lines – Remove the bounding box and associ
 label that you want to remove. Do this for each JSON Line that contains the desired label.
 You need to remove the label from the `class-map` array and corresponding objects in the
 `objects` and `annotations` array.
-For more information, see [Object
-localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
 ### ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE
 

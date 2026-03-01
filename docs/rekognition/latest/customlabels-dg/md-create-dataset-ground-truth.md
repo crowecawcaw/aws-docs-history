@@ -1,6 +1,4 @@
-# Using a manifest file to import
-
-images
+# Using a manifest file to import images
 
 You can create a dataset using an Amazon SageMaker AI Ground Truth format manifest file. You
 can use the manifest file from an Amazon SageMaker AI Ground Truth job. If your images and
@@ -13,25 +11,17 @@ to categorize and manage your resources.
 
 ###### Topics
 
-- [Creating a dataset with
-  a SageMaker AI Ground Truth manifest file (Console)](#md-create-dataset-ground-truth-console "#md-create-dataset-ground-truth-console")
-- [Creating a dataset with a
-  SageMaker AI Ground Truth manifest file (SDK)](#md-create-dataset-ground-truth-sdk "#md-create-dataset-ground-truth-sdk")
+- [Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)](#md-create-dataset-ground-truth-console "#md-create-dataset-ground-truth-console")
+- [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](#md-create-dataset-ground-truth-sdk "#md-create-dataset-ground-truth-sdk")
 - [Create dataset request](#create-dataset-ground-truth-request "#create-dataset-ground-truth-request")
 - [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md")
 - [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md")
-- [Importing
-  image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md")
-- [Object
-  localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md")
-- [Validation rules
-  for manifest files](md-create-manifest-file-validation-rules.md "md-create-manifest-file-validation-rules.md")
-- [Converting other dataset formats to a
-  manifest file](md-converting-to-sm-format.md "md-converting-to-sm-format.md")
+- [Importing image-level labels in manifest files](md-create-manifest-file-classification.md "md-create-manifest-file-classification.md")
+- [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md")
+- [Validation rules for manifest files](md-create-manifest-file-validation-rules.md "md-create-manifest-file-validation-rules.md")
+- [Converting other dataset formats to a manifest file](md-converting-to-sm-format.md "md-converting-to-sm-format.md")
 
-## Creating a dataset with
-
-a SageMaker AI Ground Truth manifest file (Console)
+## Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)
 
 The following procedure shows you how to create a dataset by using a SageMaker AI
 Ground Truth format manifest file.
@@ -40,7 +30,7 @@ Ground Truth format manifest file.
     following:
 
         * Create a manifest file with a SageMaker AI GroundTruth Job by
-         following the instructions at [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
+         following the instructions at  [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
         * Create your own manifest file by following the instructions at
          [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
@@ -103,9 +93,7 @@ Separate training and test datasets
 9. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md").
 10. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
 
-## Creating a dataset with a
-
-SageMaker AI Ground Truth manifest file (SDK)
+## Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)
 
 The following procedure shows you how to create training or test datasets from
 a manifest file by using the [CreateDataset](../APIReference/API_CreateDataset.md "../APIReference/API_CreateDataset.md") API.
@@ -119,7 +107,7 @@ or create your own [manifest file](md-create-manifest-file.md "md-create-manifes
     following:
 
         * Create a manifest file with a SageMaker AI GroundTruth Job by
-         following the instructions at [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
+         following the instructions at  [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
         * Create your own manifest file by following the instructions at
          [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 

@@ -50,9 +50,7 @@ If a service error occurs, retry training of the model.
 If training continues to fail, contact _[AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/")_
 and include any error information reported with the service error.
 
-### List of terminal manifest file
-
-errors
+### List of terminal manifest file errors
 
 Manifest file errors are terminal errors, in the training and testing datasets, that happen at the file level,
 or across multiple files. Manifest file errors are detected before the contents of the training and testing datasets are
@@ -70,9 +68,7 @@ The following lists the manifest file errors.
 - [Unable to write to output S3 bucket.](tm-terminal-errors-reference.md#tm-error-message-ERROR_CANNOT_WRITE_OUTPUT_S3_BUCKET "tm-terminal-errors-reference.md#tm-error-message-ERROR_CANNOT_WRITE_OUTPUT_S3_BUCKET")
 - [The S3 bucket permissions are incorrect.](tm-terminal-errors-reference.md#tm-error-message-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET "tm-terminal-errors-reference.md#tm-error-message-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET")
 
-### List of terminal manifest
-
-content errors
+### List of terminal manifest content errors
 
 Manifest content errors are terminal errors that relate to the content within a manifest.
 For example, if you get the error
@@ -103,9 +99,7 @@ The following are the error messages for manifest content errors.
 - [Less than {}% usable label overlap between the training and testing manifest files.](tm-debugging-aggregate-errors.md#tm-error-message-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP "tm-debugging-aggregate-errors.md#tm-error-message-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP")
 - [Failed to copy images from S3 bucket.](tm-debugging-aggregate-errors.md#tm-error-message-ERROR_FAILED_IMAGES_S3_COPY "tm-debugging-aggregate-errors.md#tm-error-message-ERROR_FAILED_IMAGES_S3_COPY")
 
-## List of non-terminal
-
-JSON line validation errors
+## List of non-terminal JSON line validation errors
 
 JSON Line validation errors are non-terminal errors that don't require Amazon Rekognition Custom Labels to stop training a model.
 
@@ -117,8 +111,7 @@ validation manifests. Amazon Rekognition Custom Labels completes training using 
 JSON Lines that are in the manifest. For more information, see
 [Understanding training and testing validation result manifests](tm-debugging-scope-json-line.md "tm-debugging-scope-json-line.md").
 For information about validation rules,
-see [Validation rules
-for manifest files](md-create-manifest-file-validation-rules.md "md-create-manifest-file-validation-rules.md").
+see [Validation rules for manifest files](md-create-manifest-file-validation-rules.md "md-create-manifest-file-validation-rules.md").
 
 ###### Note
 

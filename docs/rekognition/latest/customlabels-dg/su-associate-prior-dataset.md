@@ -34,8 +34,7 @@ copy the training dataset of the new project to the test dataset of the existing
 1. Follow the instructions at [Step 6: (Optional) Associate prior datasets with new projects](su-associate-prior-dataset.md "su-associate-prior-dataset.md") to
    associate the prior dataset with a new project.
 2. Create the test dataset in the existing project by using copying the training dataset from the new project.
-   For more information, see [Copying content from an
-   existing dataset](md-create-dataset-existing-dataset.md "md-create-dataset-existing-dataset.md").
+   For more information, see [Copying content from an existing dataset](md-create-dataset-existing-dataset.md "md-create-dataset-existing-dataset.md").
 3. Follow the instructions at [Deleting an Amazon Rekognition Custom Labels project (Console)](mp-delete-project.md#mp-delete-project-console "mp-delete-project.md#mp-delete-project-console") to delete the new project.
 
 Alternatively, you can create the test dataset by using the manifest file for prior dataset. For more information, see

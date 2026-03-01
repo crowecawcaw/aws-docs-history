@@ -62,8 +62,7 @@ aws s3 cp s3://custom-labels-console-`region`-`numbers`/assets/rooms_`version nu
 ```
 
 4. Move two of the images from the training folder to a separate folder of your choosing. You'll
-   use the images to try your trained model in [Step 9: Analyze an image with your
-   model](#tutorial-step-get-a-prediction "#tutorial-step-get-a-prediction").
+   use the images to try your trained model in [Step 9: Analyze an image with your model](#tutorial-step-get-a-prediction "#tutorial-step-get-a-prediction").
 
 ## Step 2: Decide your classes
 
@@ -222,9 +221,7 @@ can restart your model at a later time. For more information, see [Running a tra
 
 ![Running status indicator with a green circle indicating the model is currently running, and options to stop the model or change the number of inference units.](images/get-started-start-model-running.jpg)
 
-## Step 9: Analyze an image with your
-
-model
+## Step 9: Analyze an image with your model
 
 You analyze an image by calling the [DetectCustomLabels](../APIReference/API_DetectCustomLabels.md "../APIReference/API_DetectCustomLabels.md") API. In this step, you use the
 `detect-custom-labels` AWS Command Line Interface (AWS CLI) command to analyze an example

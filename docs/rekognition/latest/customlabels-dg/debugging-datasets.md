@@ -5,7 +5,5 @@ Terminal errors can stop dataset creation or update. Non-terminal errors don't s
 
 ###### Topics
 
-- [Debugging terminal dataset
-  errors](debugging-datasets-terminal-errors.md "debugging-datasets-terminal-errors.md")
-- [Debugging non-terminal
-  dataset errors](debugging-datasets-non-terminal-errors.md "debugging-datasets-non-terminal-errors.md")
+- [Debugging terminal dataset errors](debugging-datasets-terminal-errors.md "debugging-datasets-terminal-errors.md")
+- [Debugging non-terminal dataset errors](debugging-datasets-non-terminal-errors.md "debugging-datasets-non-terminal-errors.md")

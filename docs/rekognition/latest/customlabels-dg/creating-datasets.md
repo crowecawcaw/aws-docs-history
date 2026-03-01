@@ -15,7 +15,7 @@ The steps creating training and tests datasets for a project are:
 1. Determine how you need to label your training and test datasets. For more information, [Purposing datasets](md-dataset-purpose.md "md-dataset-purpose.md").
 2. Collect the images for your training and test datasets. For more information, see [Preparing images](md-prepare-images.md "md-prepare-images.md").
 3. Create the training and test datasets. For more information, see [Creating training and test datasets with images](md-create-dataset.md "md-create-dataset.md").
-   If you're using the AWS SDK, see [Create training and test datasets (SDK)](md-create-dataset.md#cd-create-dataset-sdk "md-create-dataset.md#cd-create-dataset-sdk") .
+   If you're using the AWS SDK, see [Create training and test datasets (SDK)](md-create-dataset.md#cd-create-dataset-sdk "md-create-dataset.md#cd-create-dataset-sdk").
 4. If necesessary, add image-level labels or bounding boxes to your dataset images. For more information, see [Labeling images](md-labeling-images.md "md-labeling-images.md").
    After you create the datasets, you can [train](training-model.md "training-model.md") the model.
 

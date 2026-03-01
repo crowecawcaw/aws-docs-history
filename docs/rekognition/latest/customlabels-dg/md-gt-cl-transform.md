@@ -1,6 +1,4 @@
-# Transforming multi-label SageMaker AI Ground Truth
-
-manifest files
+# Transforming multi-label SageMaker AI Ground Truth manifest files
 
 This topic shows you how to transform a multi-label Amazon SageMaker AI Ground Truth
 manifest file to an Amazon Rekognition Custom Labels format manifest file.
@@ -15,9 +13,7 @@ _football_ and _ball_.
 For information about multi-label SageMaker AI Ground Truth jobs, see [Image Classification (Multi-label)](../../../sagemaker/latest/dg/sms-image-classification-multilabel.md "../../../sagemaker/latest/dg/sms-image-classification-multilabel.md"). For information about
 multi-label format Amazon Rekognition Custom Labels manifest files, see [Adding multiple image-level labels to an image](md-create-manifest-file-classification.md#md-dataset-purpose-classification-multiple-labels "md-create-manifest-file-classification.md#md-dataset-purpose-classification-multiple-labels").
 
-## Getting the manifest file for a
-
-SageMaker AI Ground Truth job
+## Getting the manifest file for a SageMaker AI Ground Truth job
 
 The following procedure shows you how to get the output manifest file
 (`output.manifest`) for an Amazon SageMaker AI Ground Truth
@@ -42,9 +38,7 @@ procedure.
    **Download** to download the manifest
    file.
 
-## Transforming a multi-label SageMaker AI
-
-manifest file
+## Transforming a multi-label SageMaker AI manifest file
 
 The following procedure creates a multi-label format Amazon Rekognition Custom Labels
 manifest file from an existing multi-label format SageMaker AI GroundTruth
@@ -54,13 +48,10 @@ manifest file.
 
 To run the code, you need Python version 3, or higher.
 
-###### To transform a
-
-multi-label SageMaker AI manifest file
+###### To transform a multi-label SageMaker AI manifest file
 
 1. Run the following python code. Supply the name of the manifest
-   file that you created in [Getting the manifest file for a
-   SageMaker AI Ground Truth job](#md-get-gt-manifest "#md-get-gt-manifest") as a command line
+   file that you created in [Getting the manifest file for a SageMaker AI Ground Truth job](#md-get-gt-manifest "#md-get-gt-manifest") as a command line
    argument.
 
 ```
@@ -181,10 +172,8 @@ Make sure Amazon Rekognition Custom Labels has access to the Amazon S3 bucket
 referenced in the `source-ref` field of the
 manifest file JSON lines. For more information, see [Accessing external Amazon S3 Buckets](su-console-policy.md#su-external-buckets "su-console-policy.md#su-external-buckets"). If your Ground
 Truth job stores images in the Amazon Rekognition Custom Labels Console Bucket,
-you don't need to add permissions. 4. Follow the instructions at [Creating a dataset with
-a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
+you don't need to add permissions. 4. Follow the instructions at [Creating a dataset with a SageMaker AI Ground Truth manifest file (Console)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-console") to
 create a dataset with the uploaded manifest file. For step 8, in
 **.manifest file location**, enter the Amazon S3
 URL for the location of the manifest file. If you are using the
-AWS SDK, do [Creating a dataset with a
-SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
+AWS SDK, do [Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)](md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk "md-create-dataset-ground-truth.md#md-create-dataset-ground-truth-sdk").
