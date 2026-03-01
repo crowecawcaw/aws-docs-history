@@ -45,8 +45,7 @@ prepare your VM for exporting.
 
 ###### To import a VM without modifications
 
-1. Prepare your VM for export. For more information, see [Configurations to export VMs from your virtualization
-   environment](prepare-vm-image.md "prepare-vm-image.md").
+1. Prepare your VM for export. For more information, see [Configurations to export VMs from your virtualization environment](prepare-vm-image.md "prepare-vm-image.md").
 2. Export the boot disk for your VM in one of the following file formats: VHD/VHDX,
    VMDK, or raw. For more information, refer to the documentation for your virtualization
    environment.

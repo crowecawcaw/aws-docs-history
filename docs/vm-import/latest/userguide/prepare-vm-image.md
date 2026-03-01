@@ -1,6 +1,4 @@
-# Configurations to export VMs from your virtualization
-
-environment
+# Configurations to export VMs from your virtualization environment
 
 Before you can import your VM to Amazon EC2, you need to export it from your virtualization
 environment. Use the following guidelines to configure your VM before exporting
@@ -101,9 +99,7 @@ reviewed [General configurations](#prepare-vm-image-general "#prepare-vm-image-g
     use EC2Launch (Windows Server 2016 and later) or EC2Config (through
     Windows Server 2012 R2) to run Sysprep.
 
-###### To include your own answer file instead of the default
-
-(`unattend.xml`)
+###### To include your own answer file instead of the default (`unattend.xml`)
 
     1. Copy the following sample file below and set the
      **processorArchitecture** parameter to

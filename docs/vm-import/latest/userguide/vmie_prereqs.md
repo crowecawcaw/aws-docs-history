@@ -8,10 +8,7 @@ take action as needed.
 
 ###### Topics
 
-- [Requirements for resources that you import with
-  VM Import/Export](prerequisites.md "prerequisites.md")
-- [Limitations for resources being imported
-  with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md")
-- [Configurations to export VMs from your virtualization
-  environment](prepare-vm-image.md "prepare-vm-image.md")
+- [Requirements for resources that you import with VM Import/Export](prerequisites.md "prerequisites.md")
+- [Limitations for resources being imported with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md")
+- [Configurations to export VMs from your virtualization environment](prepare-vm-image.md "prepare-vm-image.md")
 - [Required permissions for VM Import/Export](required-permissions.md "required-permissions.md")

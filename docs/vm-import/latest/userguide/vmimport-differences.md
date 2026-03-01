@@ -1,6 +1,4 @@
-# Compare image import and instance import
-
-processes in VM Import/Export
+# Compare image import and instance import processes in VM Import/Export
 
 The following table summarizes the key differences between image import and instance
 import.

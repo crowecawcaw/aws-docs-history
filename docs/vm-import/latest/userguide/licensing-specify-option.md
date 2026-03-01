@@ -1,6 +1,4 @@
-# Specify a licensing option for your
-
-import
+# Specify a licensing option for your import
 
 You can specify either a license type or a usage operation for the VMs that you
 migrate. Specifying a license option ensures your operating system is licensed
@@ -10,13 +8,10 @@ information on troubleshooting errors, see [Troubleshooting VM Import/Export](vm
 
 ###### Topics
 
-- [Specify a license
-  type](#licensing-specify-option-license-type "#licensing-specify-option-license-type")
+- [Specify a license type](#licensing-specify-option-license-type "#licensing-specify-option-license-type")
 - [Specify a usage operation](#licensing-specify-option-usage-operation "#licensing-specify-option-usage-operation")
 
-## Specify a license
-
-type
+## Specify a license type
 
 **Specify license type**
 

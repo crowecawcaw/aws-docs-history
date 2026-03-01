@@ -6,7 +6,6 @@ decide whether you will import your VMs as AMIs or instances.
 
 ###### Topics
 
-- [Compare image import and instance import
-  processes in VM Import/Export](vmimport-differences.md "vmimport-differences.md")
+- [Compare image import and instance import processes in VM Import/Export](vmimport-differences.md "vmimport-differences.md")
 - [Image import overview](image-import.md "image-import.md")
 - [Instance import overview](instance-import.md "instance-import.md")

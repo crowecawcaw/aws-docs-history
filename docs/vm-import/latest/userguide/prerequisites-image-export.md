@@ -1,6 +1,4 @@
-# Prerequisites for exporting an
-
-image from Amazon EC2
+# Prerequisites for exporting an image from Amazon EC2
 
 To export a VM from Amazon EC2, first meet the following prerequisites.
 

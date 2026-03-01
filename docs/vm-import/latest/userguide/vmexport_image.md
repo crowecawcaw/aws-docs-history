@@ -10,8 +10,7 @@ temporary use of an Amazon EBS snapshot. For more information about Amazon S3 pr
 
 ###### Contents
 
-- [Prerequisites for exporting an
-  image from Amazon EC2](prerequisites-image-export.md "prerequisites-image-export.md")
+- [Prerequisites for exporting an image from Amazon EC2](prerequisites-image-export.md "prerequisites-image-export.md")
 - [Considerations for image export](limits-image-export.md "limits-image-export.md")
 - [Start an export image task](start-image-export.md "start-image-export.md")
 - [Monitor an export image task](monitor-image-export.md "monitor-image-export.md")

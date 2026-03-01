@@ -14,11 +14,9 @@ AWS VM Import/Export strongly recommends specifying a value for either the
 create a new VM Import task. This ensures your operating system is licensed
 appropriately and your billing is optimized. If you choose a license type that is
 incompatible with your VM, the VM Import task fails with an error message. For more
-information, see [Specify a licensing option for your
-import](licensing-specify-option.md "licensing-specify-option.md").
+information, see [Specify a licensing option for your import](licensing-specify-option.md "licensing-specify-option.md").
 
 ###### Topics
 
 - [Licensing considerations](licensing-considerations.md "licensing-considerations.md")
-- [Specify a licensing option for your
-  import](licensing-specify-option.md "licensing-specify-option.md")
+- [Specify a licensing option for your import](licensing-specify-option.md "licensing-specify-option.md")

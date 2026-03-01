@@ -54,8 +54,7 @@ The VMDK file must be stream-optimized. For more information, see [Image formats
 VM Import/Export found duplicate files during the import task for at least one of
 the following: `grub.cfg`,
 `grub.conf`, or `menu.lst`. VMs with
-dual-boot configurations are not supported. For more information, see [Limitations for resources being imported
-with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md").
+dual-boot configurations are not supported. For more information, see [Limitations for resources being imported with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md").
 
 **The service role `vmimport` does not exist or does not have
 sufficient permissions for the service to continue**
@@ -143,8 +142,7 @@ where you want to import the VM.
 **ClientError: Unknown OS / Missing OS files**
 
 The operating system is not recognized. Verify that your OS is listed as
-support in the VM Import/Export [Requirements for resources that you import with
-VM Import/Export](prerequisites.md "prerequisites.md").
+support in the VM Import/Export [Requirements for resources that you import with VM Import/Export](prerequisites.md "prerequisites.md").
 
 ## VM export errors
 
@@ -180,19 +178,13 @@ _AWS Command Line Interface User Guide_.
 
 ## Windows VM errors
 
-### ClientError: Booter Networking
-
-failure/instance not reachable. Please retry after installation of .Net
-framework 3.5 SP1 or greater.
+### ClientError: Booter Networking failure/instance not reachable. Please retry after installation of .Net framework 3.5 SP1 or greater.
 
 The EC2 Config Service requires the Microsoft .NET Framework 3.5 Service Pack 1 or
 later. Install Microsoft .NET Framework 3.5 Service Pack 1 or later on your Windows
 VM and try again.
 
-### FirstBootFailure: This import request failed
-
-because the Windows instance failed to boot and establish network
-connectivity.
+### FirstBootFailure: This import request failed because the Windows instance failed to boot and establish network connectivity.
 
 When you receive the `FirstBootFailure` error message, it means that
 your virtual disk image was unable to perform one of the following steps:
@@ -347,8 +339,7 @@ directories are not supported.
 
 The kernel version used by the operating system is not supported. Confirm
 that your import meets the requirements listed for the operating system. For
-more information, see [Operating systems supported by
-VM Import/Export](prerequisites.md#vmimport-operating-systems "prerequisites.md#vmimport-operating-systems").
+more information, see [Operating systems supported by VM Import/Export](prerequisites.md#vmimport-operating-systems "prerequisites.md#vmimport-operating-systems").
 
 **Linux is not supported on the requested instance**
 

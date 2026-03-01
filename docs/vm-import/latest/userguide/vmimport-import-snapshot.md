@@ -6,9 +6,7 @@ instance.
 
 An imported snapshot has an arbitrary volume ID that should not be used for any purpose.
 
-## Prerequisites for importing a
-
-snapshot
+## Prerequisites for importing a snapshot
 
 - The following disk formats are supported: Virtual Hard Disk (VHD/VHDX), ESX
   Virtual Machine Disk (VMDK), and raw.

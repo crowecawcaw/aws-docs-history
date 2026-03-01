@@ -1,21 +1,14 @@
-# Limitations for resources being imported
-
-with VM Import/Export
+# Limitations for resources being imported with VM Import/Export
 
 Review the following limitations that apply when you import a VM into Amazon EC2.
 
 ###### Topics
 
-- [General limitations for your
-  resources](#limitations-image-importing-general "#limitations-image-importing-general")
-- [Limitations for Linux/Unix
-  resources](#limitations-image-importing-linux "#limitations-image-importing-linux")
-- [Limitations for Windows
-  resources](#limitations-image-importing-windows "#limitations-image-importing-windows")
+- [General limitations for your resources](#limitations-image-importing-general "#limitations-image-importing-general")
+- [Limitations for Linux/Unix resources](#limitations-image-importing-linux "#limitations-image-importing-linux")
+- [Limitations for Windows resources](#limitations-image-importing-windows "#limitations-image-importing-windows")
 
-## General limitations for your
-
-resources
+## General limitations for your resources
 
 The following limitations apply to any operating system that you can
 import.
@@ -57,9 +50,7 @@ import.
   - You can use the `ImportImage` operation to import VMs
     with disks less than 8 TiB in size.
 
-## Limitations for Linux/Unix
-
-resources
+## Limitations for Linux/Unix resources
 
 The following limitations apply to Linux operating systems that you can
 import.
@@ -84,9 +75,7 @@ import.
 - Predictable network interface names are not supported for virtual machine
   imports.
 
-## Limitations for Windows
-
-resources
+## Limitations for Windows resources
 
 The following limitations apply to Windows operating systems that you can
 import.

@@ -1,6 +1,4 @@
-# Requirements for resources that you import with
-
-VM Import/Export
+# Requirements for resources that you import with VM Import/Export
 
 Before you begin, you must be aware of the operating systems and image formats that
 VM Import/Export supports, and understand the limitations on importing instances and
@@ -9,11 +7,9 @@ volumes.
 ###### Topics
 
 - [Image formats supported by VM Import/Export](#vmimport-image-formats "#vmimport-image-formats")
-- [Operating systems supported by
-  VM Import/Export](#vmimport-operating-systems "#vmimport-operating-systems")
+- [Operating systems supported by VM Import/Export](#vmimport-operating-systems "#vmimport-operating-systems")
 - [Boot modes supported by VM Import/Export](#vmimport-boot-modes "#vmimport-boot-modes")
-- [Volume types and file systems supported by
-  VM Import/Export](#vmimport-volume-types "#vmimport-volume-types")
+- [Volume types and file systems supported by VM Import/Export](#vmimport-volume-types "#vmimport-volume-types")
 
 ## Image formats supported by VM Import/Export
 
@@ -33,12 +29,9 @@ VMs:
 ###### Important
 
 VMs that are created as the result of a physical-to-virtual (P2V) conversion
-are not supported. For more information, see [Limitations for resources being imported
-with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md").
+are not supported. For more information, see [Limitations for resources being imported with VM Import/Export](limitations-image-importing.md "limitations-image-importing.md").
 
-## Operating systems supported by
-
-VM Import/Export
+## Operating systems supported by VM Import/Export
 
 The following operating systems (OS) can be imported to and exported from Amazon EC2.
 VMs using `ARM64` architecture are not currently supported.
@@ -193,9 +186,7 @@ Refer to the [Boot Modes](../../../AWSEC2/latest/UserGuide/ami-boot.md "../../..
 _Amazon Elastic Compute Cloud User Guide_ for more information
 about specifying a boot mode, and UEFI variables.
 
-## Volume types and file systems supported by
-
-VM Import/Export
+## Volume types and file systems supported by VM Import/Export
 
 VM Import/Export supports importing Windows and Linux VMs with the following file
 systems.

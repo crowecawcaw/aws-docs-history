@@ -5,14 +5,10 @@ the operating system that you wish to import.
 
 ###### Topics
 
-- [Licensing considerations for
-  Linux/Unix](#licensing-considerations-linux "#licensing-considerations-linux")
-- [Licensing considerations for
-  Windows](#licensing-considerations-windows "#licensing-considerations-windows")
+- [Licensing considerations for Linux/Unix](#licensing-considerations-linux "#licensing-considerations-linux")
+- [Licensing considerations for Windows](#licensing-considerations-windows "#licensing-considerations-windows")
 
-## Licensing considerations for
-
-Linux/Unix
+## Licensing considerations for Linux/Unix
 
 Linux operating systems support only the `BYOL` license type for a VM
 import task.
@@ -24,9 +20,7 @@ Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-a
 Migrated SUSE Linux Enterprise Server VMs must use SUSE Public Cloud Program
 (BYOS) licenses. For more information, see [SUSE Public Cloud Program—Bring Your Own Subscription](https://www.suse.com/media/flyer/suse_subscription_portability_in_the_public_cloud_flyer.pdf "https://www.suse.com/media/flyer/suse_subscription_portability_in_the_public_cloud_flyer.pdf").
 
-## Licensing considerations for
-
-Windows
+## Licensing considerations for Windows
 
 Windows Server operating systems support either the `BYOL` or
 `AWS` license type. Windows client operating systems (such as Windows 10) support only BYOL licenses.
