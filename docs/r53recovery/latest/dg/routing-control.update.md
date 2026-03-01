@@ -1,6 +1,4 @@
-#
-
-Getting and updating routing control states in the AWS Management Console
+# Getting and updating routing control states in the AWS Management Console
 
 You can get and update routing control states in the AWS Management Console. Be aware, though, that you can't
 choose different Regional cluster endpoints in the console. That is, there isn't a process

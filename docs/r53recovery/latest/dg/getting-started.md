@@ -33,9 +33,7 @@ doing the following:
 2. Duplicate all the required stateful data for your application across the replicas.
    You can use AWS database services to help replicate your data.
 
-## Get
-
-started with routing control for traffic failover
+## Get started with routing control for traffic failover
 
 Routing control in Amazon Application Recovery Controller (ARC) enables you to trigger failover for your traffic
 to fail over between redundant application copies, or replicas, that are running in separate AWS Regions.

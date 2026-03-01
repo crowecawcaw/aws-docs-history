@@ -1,6 +1,4 @@
-# Examples of
-
-using the AWS CLI with zonal shift
+# Examples of using the AWS CLI with zonal shift
 
 This section provides application examples of using zonal shift, using the AWS Command Line Interface to work
 with the zonal shift capability in Amazon Application Recovery Controller (ARC) using API operations. The examples are

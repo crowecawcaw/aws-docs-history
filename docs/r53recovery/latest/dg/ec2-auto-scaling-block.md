@@ -93,8 +93,7 @@ percentage match of scale for the required capacity.
 
 Region switch also validates that the plan's IAM role has
 the correct permissions for Auto Scaling. For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
 If any of the checks fail, Region switch returns warning messages, which you can view in the console. Or, you can receive
 the validation warnings through EventBridge or by using API operations.

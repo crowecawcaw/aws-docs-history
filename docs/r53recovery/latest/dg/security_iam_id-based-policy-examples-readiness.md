@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for readiness check in ARC
+# Identity-based policy examples for readiness check in ARC
 
 By default, users and roles don't have permission to create or modify ARC
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by ARC, including the forma
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
-- [Example: Readiness check
-  console access](#security_iam_id-based-policy-examples-console-readiness "#security_iam_id-based-policy-examples-console-readiness")
-- [Examples: Readiness check
-  API actions for readiness check](#security_iam_id-based-policy-examples-api-readiness "#security_iam_id-based-policy-examples-api-readiness")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
+- [Example: Readiness check console access](#security_iam_id-based-policy-examples-console-readiness "#security_iam_id-based-policy-examples-console-readiness")
+- [Examples: Readiness check API actions for readiness check](#security_iam_id-based-policy-examples-api-readiness "#security_iam_id-based-policy-examples-api-readiness")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete ARC resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example: Readiness check
-
-console access
+## Example: Readiness check console access
 
 To access the Amazon Application Recovery Controller (ARC) console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the ARC resources
@@ -128,9 +119,7 @@ JSON
 
 ```
 
-## Examples: Readiness check
-
-API actions for readiness check
+## Examples: Readiness check API actions for readiness check
 
 To ensure that a user can use ARC API actions to work with the ARC readiness check control plane –
 for example, to create recovery groups, resource sets, and readiness checks – attach a policy that corresponds

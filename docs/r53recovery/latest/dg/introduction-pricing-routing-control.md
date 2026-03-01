@@ -1,6 +1,4 @@
-# Pricing
-
-for routing control in ARC
+# Pricing for routing control in ARC
 
 For routing control in ARC, you pay an hourly cost per cluster that you create. Each
 cluster can host multiple routing controls, which you use to trigger application

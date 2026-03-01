@@ -23,9 +23,7 @@ available to use with readiness check.
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for readiness check
+## Identity-based policies for readiness check
 
 **Supports identity-based policies:**
 
@@ -42,12 +40,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of ARC identity-based policies, see [Identity-based policy
-examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of ARC identity-based policies, see [Identity-based policy examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within readiness check
+## Resource-based policies within readiness check
 
 **Supports resource-based policies:**
 
@@ -57,9 +52,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that
 support resource-based policies, service administrators can use them to control access to a specific resource.
 
-## Policy actions
-
-for readiness check
+## Policy actions for readiness check
 
 **Supports policy actions:**
 
@@ -101,12 +94,9 @@ action:
 ```
 
 To view examples of ARC identity-based policies for readiness check, see
-[Identity-based policy
-examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
+[Identity-based policy examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
 
-## Policy
-
-resources for readiness check
+## Policy resources for readiness check
 
 **Supports policy resources:**
 
@@ -124,12 +114,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 To see a list of ARC actions for zonal shift, see [Actions defined by Amazon Route 53 Recovery Readiness](../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md#amazonroute53recoveryreadiness-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md#amazonroute53recoveryreadiness-actions-as-permissions").
 
 To view examples of ARC identity-based policies for readiness check, see
-[Identity-based policy
-examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
+[Identity-based policy examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
 
-## Policy
-
-condition keys for readiness check
+## Policy condition keys for readiness check
 
 **Supports service-specific policy condition keys:**
 
@@ -149,12 +136,9 @@ To see a list of ARC actions for readiness check, see [Condition keys for Amazon
 To see the actions and resources that you can use with a condition key with readiness check, see [Actions defined by Amazon Route 53 Recovery Readiness](../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md#amazonroute53recoveryreadiness-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md#amazonroute53recoveryreadiness-actions-as-permissions")
 
 To view examples of ARC identity-based policies for readiness check, see
-[Identity-based policy
-examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
+[Identity-based policy examples for readiness check in ARC](security_iam_id-based-policy-examples-readiness.md "security_iam_id-based-policy-examples-readiness.md").
 
-## Access control lists (ACLs) in
-
-readiness check
+## Access control lists (ACLs) in readiness check
 
 **Supports ACLs:**
 
@@ -163,9 +147,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with readiness check
+## Attribute-based access control (ABAC) with readiness check
 
 **Supports ABAC (tags in policies):**
 
@@ -184,9 +166,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 Recovery Readiness (readiness check) supports ABAC.
 
-## Using temporary
-
-credentials with readiness check
+## Using temporary credentials with readiness check
 
 **Supports temporary credentials:**
 
@@ -198,9 +178,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for readiness check
+## Cross-service principal permissions for readiness check
 
 **Supports forward access sessions (FAS):**
 
@@ -214,9 +192,7 @@ to perform both actions.
 
 To see whether an action in readiness check requires additional dependent actions in a policy, see [Amazon Route 53 Recovery Readiness](../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md "../../../service-authorization/latest/reference/list_amazonroute53recoveryreadiness.md")
 
-## Service roles for
-
-readiness check
+## Service roles for readiness check
 
 **Supports service roles:**
 
@@ -226,9 +202,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for readiness check
+## Service-linked roles for readiness check
 
 **Supports service-linked roles:**
 

@@ -1,6 +1,4 @@
-#
-
-How readiness checks, resource sets, and readiness scopes work together
+# How readiness checks, resource sets, and readiness scopes work together
 
 Readiness checks always audit groups of resources in _resource sets_. You create resource sets (separately, or while you're creating
 a readiness check) to group the resources that are in the cells (Availability Zones or AWS Regions) in your ARC recovery group, so that you can

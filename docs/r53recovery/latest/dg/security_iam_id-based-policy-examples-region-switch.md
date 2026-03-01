@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Region switch in ARC
+# Identity-based policy examples for Region switch in ARC
 
 By default, users and roles don't have permission to create or modify ARC
 resources. To grant users permission to perform actions on the
@@ -14,8 +12,7 @@ For details about actions and resource types defined by ARC, including the forma
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
 - [Plan execution role trust policy](security_iam_region_switch_trust_policy.md "security_iam_region_switch_trust_policy.md")
 - [Full access permissions](security_iam_region_switch_full_access.md "security_iam_region_switch_full_access.md")
 - [Read-only permissions](security_iam_region_switch_read_only.md "security_iam_region_switch_read_only.md")
@@ -25,9 +22,7 @@ For details about actions and resource types defined by ARC, including the forma
 - [Cross-account resource permissions](security_iam_region_switch_cross_account.md "security_iam_region_switch_cross_account.md")
 - [Complete plan execution role permissions](security_iam_region_switch_complete_policy.md "security_iam_region_switch_complete_policy.md")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete ARC resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

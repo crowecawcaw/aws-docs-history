@@ -1,6 +1,4 @@
-#
-
-List and update routing controls and states with the AWS CLI
+# List and update routing controls and states with the AWS CLI
 
 After you create your Amazon Application Recovery Controller (ARC) resources, such as cluster, routing controls, and control panels, you can
 interact with the cluster to list and update routing control states for failover.
@@ -13,7 +11,7 @@ or update routing control states, in addition to the Regional endpoint, you must
 
 You can use any of the Regional cluster endpoints. We recommend that your systems rotate through the regional
 endpoints, and be prepared to retry with each of the available endpoints. For code samples that illustrate trying cluster endpoints in sequence,
-see [Actions for Application Recovery Controller using AWS SDKs](service_code_examples_actions.md "service_code_examples_actions.md") .
+see [Actions for Application Recovery Controller using AWS SDKs](service_code_examples_actions.md "service_code_examples_actions.md").
 
 For more information about using the AWS CLI, see the AWS CLI Command Reference. For a list of routing control API actions and
 links to more information, see [Routing control API operations](actions.md "actions.md").
@@ -35,9 +33,7 @@ endpoint that you can use to get or update routing control states. _[DescribeClu
 recovery control configuration API operation. We recommend that you keep a local copy of your ARC
 Regional cluster endpoints, in bookmarks or hardcoded in automation code that you use to retry your endpoints._
 
-##
-
-1.  List routing controls
+## 1. List routing controls
 
 You can view your routing controls and routing control states using the highly reliable ARC data plane endpoints.
 
@@ -70,11 +66,9 @@ aws route53-recovery-cluster list-routing-controls --control-panel-arn \
 ]
 ```
 
-##
+## 2. Get routing controls
 
-2. Get routing controls
-
-3. Get a routing control state.
+2. Get a routing control state.
 
 ```
 aws route53-recovery-cluster get-routing-control-state --routing-control-arn \
@@ -90,9 +84,7 @@ aws route53-recovery-cluster get-routing-control-state --routing-control-arn \
 }
 ```
 
-##
-
-2.  Update routing controls
+## 2. Update routing controls
 
 To route traffic to the target endpoint controlled by the routing control, you update the routing control state to `On`.
 Update the routing control state by running the command `update-routing-control-state`.

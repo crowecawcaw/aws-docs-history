@@ -27,11 +27,8 @@ This policy is attached to a service-linked role that allows Amazon Application 
 For more information, see
 [Using the service-linked role for zonal autoshift in ARC](using-service-linked-roles-zonal-autoshift.md "using-service-linked-roles-zonal-autoshift.md").
 
-## Updates for AWS managed
-
-policies for zonal autoshift
+## Updates for AWS managed policies for zonal autoshift
 
 For details about updates to AWS managed policies for zonal autoshift in ARC since this service
-began tracking these changes, see [Updates to AWS managed
-policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
+began tracking these changes, see [Updates to AWS managed policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
 the RSS feed on the ARC [Document history page](doc-history.md "doc-history.md").

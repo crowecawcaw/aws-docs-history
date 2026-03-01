@@ -20,9 +20,7 @@ available to use with zonal autoshift.
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for ARC
+## Identity-based policies for ARC
 
 **Supports identity-based policies:**
 
@@ -39,12 +37,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of ARC identity-based policies, see [Identity-based policy
-examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of ARC identity-based policies, see [Identity-based policy examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within ARC
+## Resource-based policies within ARC
 
 **Supports resource-based policies:**
 
@@ -54,9 +49,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that
 support resource-based policies, service administrators can use them to control access to a specific resource.
 
-## Policy actions
-
-for ARC
+## Policy actions for ARC
 
 **Supports policy actions:**
 
@@ -98,12 +91,9 @@ action:
 ```
 
 To view examples of ARC identity-based policies for zonal autoshift, see
-[Identity-based policy
-examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
+[Identity-based policy examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
 
-## Policy
-
-resources for zonal autoshift in ARC
+## Policy resources for zonal autoshift in ARC
 
 **Supports policy resources:**
 
@@ -129,12 +119,9 @@ in the _Service Authorization Reference_:
 - [Condition keys defined by Amazon Route 53 - Zonal Shift](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53applicationrecoverycontroller-zonalshift-policy-keys "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53applicationrecoverycontroller-zonalshift-policy-keys")
 
 To view examples of ARC identity-based policies for zonal autoshift, see
-[Identity-based policy
-examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
+[Identity-based policy examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
 
-## Policy
-
-condition keys for zonal autoshift in ARC
+## Policy condition keys for zonal autoshift in ARC
 
 **Supports service-specific policy condition keys:**
 
@@ -160,12 +147,9 @@ in the _Service Authorization Reference_:
 - [Actions defined by Amazon Route 53 Zonal Shift](../../../service-authorization/latest/reference/list_amazonroute53applicationrecoverycontroller-zonalshift.md#amazonroute53applicationrecoverycontroller-zonalshift-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonroute53applicationrecoverycontroller-zonalshift.md#amazonroute53applicationrecoverycontroller-zonalshift-actions-as-permissions")
 
 To view examples of ARC identity-based policies for zonal autoshift, see
-[Identity-based policy
-examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
+[Identity-based policy examples for zonal autoshift in ARC](security_iam_id-based-policy-examples-zonalautoshift.md "security_iam_id-based-policy-examples-zonalautoshift.md").
 
-## Access control lists (ACLs) in
-
-ARC
+## Access control lists (ACLs) in ARC
 
 **Supports ACLs:**
 
@@ -174,9 +158,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with ARC
+## Attribute-based access control (ABAC) with ARC
 
 **Supports ABAC (tags in policies):**
 
@@ -198,9 +180,7 @@ Zonal autoshift in ARC includes the following partial support for ABAC:
 - Zonal autoshift supports ABAC for managed resources that are registered in ARC for zonal shift.
   For more information about ABAC for Network Load Balancer and Application Load Balancer managed resources, see [ABAC with Elastic Load Balancing](../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags "../../../elasticloadbalancing/latest/userguide/security_iam_service-with-iam.md#security_iam_service-with-iam-tags") in the Elastic Load Balancing User Guide.
 
-## Using temporary
-
-credentials with ARC
+## Using temporary credentials with ARC
 
 **Supports temporary credentials:**
 
@@ -212,9 +192,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for ARC
+## Cross-service principal permissions for ARC
 
 **Supports forward access sessions (FAS):**
 
@@ -231,9 +209,7 @@ in the _Service Authorization Reference_:
 
 - [Amazon Route 53 Zonal Shift](../../../service-authorization/latest/reference/list_amazonroute53applicationrecoverycontroller-zonalshift.md "../../../service-authorization/latest/reference/list_amazonroute53applicationrecoverycontroller-zonalshift.md")
 
-## Service roles for
-
-ARC
+## Service roles for ARC
 
 **Supports service roles:**
 
@@ -243,9 +219,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for ARC
+## Service-linked roles for ARC
 
 **Supports service-linked roles:**
 

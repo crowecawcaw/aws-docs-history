@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for zonal autoshift in ARC
+# Identity-based policy examples for zonal autoshift in ARC
 
 By default, users and roles don't have permission to create or modify ARC
 resources. To grant users permission to perform actions on the
@@ -14,16 +12,11 @@ For details about actions and resource types defined by ARC, including the forma
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
-- [Example: Zonal autoshift
-  console access](#security_iam_id-based-policy-examples-console-zonalautoshift "#security_iam_id-based-policy-examples-console-zonalautoshift")
-- [Examples: ARC
-  API actions](#security_iam_id-based-policy-examples-api-zonalautoshift "#security_iam_id-based-policy-examples-api-zonalautoshift")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
+- [Example: Zonal autoshift console access](#security_iam_id-based-policy-examples-console-zonalautoshift "#security_iam_id-based-policy-examples-console-zonalautoshift")
+- [Examples: ARC API actions](#security_iam_id-based-policy-examples-api-zonalautoshift "#security_iam_id-based-policy-examples-api-zonalautoshift")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete ARC resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -56,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example: Zonal autoshift
-
-console access
+## Example: Zonal autoshift console access
 
 To access the Amazon Application Recovery Controller (ARC) console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the ARC resources
@@ -115,9 +106,7 @@ JSON
 
 ```
 
-## Examples: ARC
-
-API actions
+## Examples: ARC API actions
 
 You can use a policy to ensure that a user can use ARC API actions for zonal autoshift to
 configure zonal autoshift so that AWS shifts away application resource

@@ -1,6 +1,6 @@
 # AWS Regions
 
-Region switch is available in all commercial AWS Regions.
+Region switch is available in all commercial AWS Regions, as well as AWS GovCloud (US) Regions.
 
 For detailed information about Regional support and service endpoints for Amazon Application Recovery Controller (ARC),
 see [Amazon Application Recovery Controller (ARC)

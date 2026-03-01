@@ -1,6 +1,4 @@
-#
-
-Support sharing plans across accounts for ARC Region switch
+# Support sharing plans across accounts for ARC Region switch
 
 Amazon Application Recovery Controller (ARC) integrates with AWS Resource Access Manager to enable resource sharing. AWS RAM is a
 service that enables you to share resources with other AWS accounts or
@@ -45,8 +43,7 @@ shared with you.
 - [Sharing a plan](#sharing-share-rs "#sharing-share-rs")
 - [Unsharing a shared plan](#sharing-unshare-rs "#sharing-unshare-rs")
 - [Identifying a shared plan](#sharing-identify-rs "#sharing-identify-rs")
-- [Responsibilities and permissions for shared
-  plans](#sharing-perms-rs "#sharing-perms-rs")
+- [Responsibilities and permissions for shared plans](#sharing-perms-rs "#sharing-perms-rs")
 - [Billing costs](#sharing-billing-rs "#sharing-billing-rs")
 - [Quotas](#sharing-quotas-rs "#sharing-quotas-rs")
 
@@ -161,9 +158,7 @@ In the AWS Management Console, on the details page for a plan, see the **plan sh
 As a participant, when a plan is shared with you, you typically must accept the share so that
 you can access the plan.
 
-## Responsibilities and permissions for shared
-
-plans
+## Responsibilities and permissions for shared plans
 
 ### Permissions for owners
 
@@ -188,8 +183,7 @@ The owner of a plan in ARC is billed for costs associated with the plan. There a
 additional costs, for plan owners or for participants, for creating resources hosted in a plan.
 
 For detailed pricing information and examples, see
-[Amazon Application Recovery Controller (ARC) Pricing](https://aws.amazon.com//route53/pricing/#application-recovery-controller "https://aws.amazon.com//route53/pricing/#application-recovery-controller") and scroll
-down to Amazon Application Recovery Controller (ARC).
+[Amazon Application Recovery Controller (ARC) Pricing](https://aws.amazon.com/application-recovery-controller/pricing/ "https://aws.amazon.com/application-recovery-controller/pricing/").
 
 ## Quotas
 

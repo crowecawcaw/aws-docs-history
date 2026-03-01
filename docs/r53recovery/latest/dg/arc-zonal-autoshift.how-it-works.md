@@ -1,16 +1,15 @@
-# Blocked windows and allowed windows (in UTC)
+# Stopping an active autoshift or practice run for a resource
 
-You have the option to _block_ or _allow_
-practice runs for specific calendar dates, or for specific time windows, that is, days and times, specified in UTC.
+To stop an in-progress autoshift for a resource you must cancel the zonal shift.
 
-For example, if you have an application update scheduled to launch on May 1, 2024, and
-you don't want practice runs to shift traffic away at that time, you could set a blocked date
-for `2024-05-01`.
+Regular practice runs still take place for the resource, on the same schedule. If you want to stop
+practice runs in addition to disabling autoshifts, you must delete the practice run configuration
+associated with the resource.
 
-Or, say you run business report summaries three days a week. For this scenario,
-you could set the following recurring days and times as blocked windows, for example, in UTC:
-`MON-20:30-21:30 WED-20:30-21:30 FRI-20:30-21:30`.
+When you delete a practice run configuration, AWS stops performing practice runs that shift
+traffic for the resource away from an Availability Zone each week. In addition, because zonal autoshift requires
+practice runs, when you delete a practice run configuration using the ARC console, this action
+also disables zonal autoshift for the resource. However, note that if you use the zonal autoshift API to delete
+a practice run, you must first disable zonal autoshift for the resource.
 
-Alternatively, you might decide that Wednesdays and Fridays from noon to 5:00 are the best times for ARC to
-start practice runs, to test your setup. For this scenario, you could set the following recurring days
-and times as allowed windows, for example, in UTC: `WED-12:00-17:00 FRI-12:00-17:00`.
+For more information, see [Canceling a zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md") and [Enabling and working with zonal autoshift](arc-zonal-autoshift.md "arc-zonal-autoshift.md").

@@ -1,15 +1,11 @@
-#
-
-Set up routing control components
+# Set up routing control components
 
 Our first step is to create a cluster. An ARC cluster is a set of five endpoints, one
 in each of five different AWS Regions. The ARC infrastructure supports these
 endpoints to work in coordination so that they guarantee high availability and
 sequential consistency of failover operations.
 
-##
-
-1.  Create a cluster
+## 1. Create a cluster
 
 1a. Create a cluster. The `network-type` is optional, and can either be
 `IPV4` or `DUALSTACK`. The default is
@@ -87,9 +83,7 @@ aws route53-recovery-control-config update-cluster \
 }
 ```
 
-##
-
-2.  Create a control panel
+## 2. Create a control panel
 
 A control panel is a logical grouping for organizing your ARC routing controls. When you create a
 cluster, ARC automatically provides a control panel for you called `DefaultControlPanel`. You can
@@ -168,9 +162,7 @@ aws route53-recovery-control-config --region us-west-2 describe-control-panel \
 }
 ```
 
-##
-
-3.  Create a routing control
+## 3. Create a routing control
 
 Now that you've set up the cluster and looked at control panels, you can begin creating routing controls. When you create a routing control, you must
 at least specify the Amazon Resource Name (ARN) of the cluster that you want the routing control to be in. You can also specify the ARN of a control
@@ -253,16 +245,14 @@ In the following example, where we work with routing control states, we assume t
 controls listed in this section (Rc1 and Rc2). In this example, each routing control represents an Availability
 Zone that your application is deployed in.
 
-##
-
-4.  Create safety rules
+## 4. Create safety rules
 
 When you work with several routing controls at the same time, you might decide that you want some safeguards
 in place when you enable and disable them, to avoid unintentional consequences, like turning both routing
 controls off and stopping all traffic flow. To create these safeguards, you create routing control safety rules.
 
 There are two types of safety rules: assertion rules and gating rules. To learn more about safety
-rules, see [Creating safety rules for routing control](routing-control.md "routing-control.md") .
+rules, see [Creating safety rules for routing control](routing-control.md "routing-control.md").
 
 The following call provides an example of creating an assertion rule that makes sure that at least
 one of two routing controls is set to `On` at any given time. To create the rule, you run `create-safety-rule`
@@ -376,9 +366,7 @@ After you set up one or more safety rules, you can continue to interact with the
 The first identifier is the control panel ARN concatenated with the routing control ARN. The second
 identifier is the control panel ARN concatenated with the safety rule ARN.
 
-##
-
-5.  Create health checks
+## 5. Create health checks
 
 To use routing controls to fail over traffic, you create health checks in Amazon Route 53, and then
 associate the health checks with your DNS records. To fail over traffic, a ARC routing control sets the

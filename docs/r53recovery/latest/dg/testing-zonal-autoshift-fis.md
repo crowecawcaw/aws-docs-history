@@ -1,6 +1,4 @@
-#
-
-Testing zonal autoshift with AWS FIS
+# Testing zonal autoshift with AWS FIS
 
 You can use AWS Fault Injection Service to set up and run experiments that help you simulate real-world conditions,
 such as the [AZ
@@ -20,9 +18,7 @@ be triggered when there is potentially widespread AZ impairment. When the experi
 ends and traffic begins flowing to all AZs again. This process demonstrates a complete recovery from a power
 event that impacts an AZ.
 
-## How experiments
-
-differ from zonal autoshift practice runs
+## How experiments differ from zonal autoshift practice runs
 
 AWS FIS experiments differ from zonal autoshift practice runs in that, during practice runs,
 ARC shifts traffic for your resource away from one AZ as part of a normal process to

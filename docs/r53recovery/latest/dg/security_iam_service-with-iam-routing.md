@@ -20,9 +20,7 @@ available to use with routing control.
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for ARC
+## Identity-based policies for ARC
 
 **Supports identity-based policies:**
 
@@ -40,12 +38,9 @@ policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elem
 _IAM User Guide_.
 
 To view examples of ARC identity-based policies for routing control, see
-[Identity-based policy
-examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
+[Identity-based policy examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
 
-## Resource-based
-
-policies within routing control
+## Resource-based policies within routing control
 
 **Supports resource-based policies:**
 
@@ -55,9 +50,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that
 support resource-based policies, service administrators can use them to control access to a specific resource.
 
-## Policy actions
-
-for routing control
+## Policy actions for routing control
 
 **Supports policy actions:**
 
@@ -104,12 +97,9 @@ action:
 ```
 
 To view examples of ARC identity-based policies for routing control, see
-[Identity-based policy
-examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
+[Identity-based policy examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
 
-## Policy
-
-resources for ARC
+## Policy resources for ARC
 
 **Supports policy resources:**
 
@@ -133,12 +123,9 @@ in the _Service Authorization Reference_:
 - [Actions defined by Amazon Route 53 Recovery Cluster](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycluster-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycluster-actions-as-permissions").
 
 To view examples of ARC identity-based policies for routing control, see
-[Identity-based policy
-examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
+[Identity-based policy examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md").
 
-## Policy
-
-condition keys for ARC
+## Policy condition keys for ARC
 
 **Supports service-specific policy condition keys:**
 
@@ -166,12 +153,9 @@ in the _Service Authorization Reference_:
 - To see a list of the actions that you can specify with the ARN of each resource, see [Resources defined by Amazon Route 53 Recovery Controls](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycontrols-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycontrols-resources-for-iam-policies") and [Resources defined by Amazon Route 53 Recovery Cluster](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycluster-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md#amazonroute53recoverycluster-resources-for-iam-policies").
 
 To view examples of ARC identity-based policies for routing control, see
-[Identity-based policy
-examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md")
+[Identity-based policy examples for routing control in ARC](security_iam_id-based-policy-examples-routing.md "security_iam_id-based-policy-examples-routing.md")
 
-## Access control lists (ACLs) in
-
-ARC
+## Access control lists (ACLs) in ARC
 
 **Supports ACLs:**
 
@@ -180,9 +164,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with ARC
+## Attribute-based access control (ABAC) with ARC
 
 **Supports ABAC (tags in policies):**
 
@@ -204,9 +186,7 @@ ARC routing control includes the following support for ABAC:
 - Recovery Control Config supports ABAC.
 - Recovery Cluster does not support ABAC.
 
-## Using temporary
-
-credentials with ARC
+## Using temporary credentials with ARC
 
 **Supports temporary credentials:**
 
@@ -218,9 +198,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for ARC
+## Cross-service principal permissions for ARC
 
 **Supports forward access sessions (FAS):**
 
@@ -238,9 +216,7 @@ in the _Service Authorization Reference_:
 - [Amazon Route 53 Recovery Cluster](../../../service-authorization/latest/reference/list_amazonroute53recoverycluster.md "../../../service-authorization/latest/reference/list_amazonroute53recoverycluster.md")
 - [Amazon Route 53 Recovery Controls](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md")
 
-## Service roles for
-
-ARC
+## Service roles for ARC
 
 **Supports service roles:**
 
@@ -250,9 +226,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for ARC
+## Service-linked roles for ARC
 
 **Supports service-linked roles:**
 

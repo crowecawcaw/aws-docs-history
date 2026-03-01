@@ -71,6 +71,8 @@ Required permissions:
   - The execution role's account as a trusted entity.
   - The external ID condition.
 
+- For more information on configuring a cross-account role, see [Cross-account resource permissions](security_iam_region_switch_cross_account.md "security_iam_region_switch_cross_account.md").
+
 Before executing the plan, Region switch will verify the following:
 
 - The execution role can assume the cross-account role.

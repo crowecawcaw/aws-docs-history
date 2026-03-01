@@ -1,6 +1,4 @@
-# How Region switch in ARC
-
-works with IAM
+# How Region switch in ARC works with IAM
 
 Before you use IAM to manage access to ARC, learn what IAM features are
 available to use with ARC.
@@ -25,9 +23,7 @@ available to use with Region switch.
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Region switch
+## Identity-based policies for Region switch
 
 **Supports identity-based policies:**
 
@@ -44,12 +40,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of ARC identity-based policies, see [Identity-based policy
-examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of ARC identity-based policies, see [Identity-based policy examples in Amazon Application Recovery Controller (ARC)](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Region switch
+## Resource-based policies within Region switch
 
 **Supports resource-based policies:**
 
@@ -59,9 +52,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 of resource-based policies are IAM role trust policies and Amazon S3 bucket policies. In services that
 support resource-based policies, service administrators can use them to control access to a specific resource.
 
-## Policy actions
-
-for Region switch
+## Policy actions for Region switch
 
 **Supports policy actions:**
 
@@ -98,12 +89,9 @@ action:
 ```
 
 To view examples of ARC identity-based policies for Region switch, see
-[Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+[Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
-## Policy
-
-resources for Region switch
+## Policy resources for Region switch
 
 **Supports policy resources:**
 
@@ -119,12 +107,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 ```
 
 To view examples of ARC identity-based policies for Region switch, see
-[Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+[Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
-## Policy
-
-condition keys for Region switch
+## Policy condition keys for Region switch
 
 **Supports service-specific policy condition keys:**
 
@@ -140,12 +125,9 @@ condition keys, see [AWS global condition context keys](../../../IAM/latest/User
 _IAM User Guide_.
 
 To view examples of ARC identity-based policies for Region switch, see
-[Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+[Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
-## Access control lists (ACLs) in
-
-Region switch
+## Access control lists (ACLs) in Region switch
 
 **Supports ACLs:**
 
@@ -154,9 +136,7 @@ Yes
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Region switch
+## Attribute-based access control (ABAC) with Region switch
 
 **Supports ABAC (tags in policies):**
 
@@ -175,9 +155,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 TODO Recovery Region Switch (Region switch) supports ABAC.
 
-## Using temporary
-
-credentials with Region switch
+## Using temporary credentials with Region switch
 
 **Supports temporary credentials:**
 
@@ -189,9 +167,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Region switch
+## Cross-service principal permissions for Region switch
 
 **Supports forward access sessions (FAS):**
 
@@ -203,9 +179,7 @@ When you use some services, you might perform an action that then triggers
 another action in a different service. In this case, you must have permissions
 to perform both actions.
 
-## Service roles for
-
-Region switch
+## Service roles for Region switch
 
 **Supports service roles:**
 
@@ -215,9 +189,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for Region switch
+## Service-linked roles for Region switch
 
 **Supports service-linked roles:**
 

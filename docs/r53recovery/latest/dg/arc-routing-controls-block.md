@@ -7,6 +7,10 @@ to redirect your application traffic to a destination AWS Region. ARC routing co
 redirects traffic by using health checks in Amazon Route 53 that are configured with the DNS records
 associated with the routing controls.
 
+###### Important
+
+Amazon Application Recovery Controller (ARC) routing control is only available in the AWS commercial partition.
+
 ## Configuration
 
 To configure a routing control execution block, enter the following values.
@@ -52,8 +56,7 @@ and permissions. Region switch verifies that the specified routing controls are 
 
 Region switch also validates that the plan's IAM role has the required permissions for accessing and updating routing
 control states. For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
 The correct IAM permissions are essential for the proper functioning of the routing control execution block. If
 any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help

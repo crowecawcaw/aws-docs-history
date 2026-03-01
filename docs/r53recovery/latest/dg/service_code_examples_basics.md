@@ -1,6 +1,4 @@
-# Basic examples for
-
-Application Recovery Controller using AWS SDKs
+# Basic examples for Application Recovery Controller using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Route 53 Application Recovery Controller with AWS
 SDKs.

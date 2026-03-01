@@ -1,6 +1,4 @@
-#
-
-Examples of using ARC readiness check API operations with the AWS CLI
+# Examples of using ARC readiness check API operations with the AWS CLI
 
 This section walks through simple application examples, using the AWS Command Line Interface to work with readiness check
 features in Amazon Application Recovery Controller (ARC) using API operations. The examples are intended to help you develop a basic
@@ -25,7 +23,7 @@ For a list of readiness API actions and links to more information, see [Readines
 _Cells_ in ARC represent fault boundaries (like Availability Zones or Regions) and are collected
 into _recovery groups_. A recovery group represents an application that you want to check
 failover readiness for. For more information about the components of readiness check, see
-[Readiness check components](introduction-components-readiness.md "introduction-components-readiness.md") .
+[Readiness check components](introduction-components-readiness.md "introduction-components-readiness.md").
 
 ###### Note
 
@@ -36,9 +34,7 @@ in most ARC CLI commands. For example, to create resources such as recovery grou
 For our application example, we'll start by creating one cell for each Region where we have resources. Then we'll
 create a recovery group, and then complete the setup for a readiness check.
 
-##
-
-1.  Create cells
+## 1. Create cells
 
 1a. Create a us-east-1 cell.
 
@@ -101,9 +97,7 @@ aws route53-recovery-readiness --region us-west-2 list-cells
 }
 ```
 
-##
-
-2.  Create a recovery group
+## 2. Create a recovery group
 
 Recovery groups are the top-level resource for recovery readiness in ARC. A recovery group represents an application
 as a whole. In this step, we'll create a recovery group to model an overall application, and then add the two cells
@@ -155,9 +149,7 @@ group of resources that you want to monitor is called a resource set. Resource s
 all of the same type. We compare the resources in a resource set to each other to help determine a cell's readiness
 for failover.
 
-##
-
-3.  Create a resource set
+## 3. Create a resource set
 
 Let’s assume our Simple-Service application is indeed very simple and only uses DynamoDB tables. It has a DynamoDB
 table in us-east-1 and another one in us-west-2. A resource set also contains a readiness scope, which identifies the
@@ -255,9 +247,7 @@ aws route53-recovery-readiness --region us-west-2 list-resource-sets
 Now we’ve created the cells, recovery group, and resource set to model the Simple-Service application in ARC.
 Next, we'll set up readiness checks to monitor the readiness of the resources for fail over.
 
-##
-
-4.  Create a readiness check
+## 4. Create a readiness check
 
 A readiness check applies a set of rules to each resource in the resource set that is attached to the check.
 Rules are specific to each resource type. That is, there are different rules for `AWS::DynamoDB::Table`,
@@ -309,9 +299,7 @@ aws route53-recovery-readiness --region us-west-2 list-readiness-checks
 }
 ```
 
-##
-
-5.  Monitor readiness checks
+## 5. Monitor readiness checks
 
 Now that we’ve modeled the application and added a readiness check, we’re ready to monitor
 resources. You can model the readiness of your application at four levels: the

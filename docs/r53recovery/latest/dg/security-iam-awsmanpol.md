@@ -7,9 +7,7 @@ managed policy for a service-linked role, see the following topics:
 - [Managed polices for routing control](security-iam-awsmanpol-routing.md "security-iam-awsmanpol-routing.md")
 - [Managed polices for readiness check](security-iam-awsmanpol-readiness.md "security-iam-awsmanpol-readiness.md")
 
-## Updates to AWS managed
-
-policies for Amazon Application Recovery Controller (ARC)
+## Updates to AWS managed policies for Amazon Application Recovery Controller (ARC)
 
 View details about updates to AWS managed policies for capabilities in ARC since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

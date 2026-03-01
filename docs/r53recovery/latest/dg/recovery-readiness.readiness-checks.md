@@ -1,6 +1,4 @@
-#
-
-DNS target resource readiness checks: Auditing resiliency readiness
+# DNS target resource readiness checks: Auditing resiliency readiness
 
 With DNS target resource readiness checks in ARC, you can audit the architectural and
 resiliency readiness of your application. This type of readiness check continually scans

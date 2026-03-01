@@ -77,8 +77,7 @@ After you have removed your readiness checks and your cross-account authorizatio
 delete the **Route53RecoveryReadinessServiceRolePolicy** service-linked role.
 For more information about readiness checks, see [Readiness check in ARC](recovery-readiness.md "recovery-readiness.md"). For more information about cross-account
 authorizations, see
-[Creating cross-account
-authorizations in ARC](recovery-readiness.md "recovery-readiness.md").
+[Creating cross-account authorizations in ARC](recovery-readiness.md "recovery-readiness.md").
 
 ###### Note
 

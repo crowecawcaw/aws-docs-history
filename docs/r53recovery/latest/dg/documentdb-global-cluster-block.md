@@ -61,8 +61,7 @@ and permissions. Region switch verifies that the following is correct:
 
 Region switch also validates that the plan's IAM role has the required permissions for Amazon DocumentDB failover and switchover.
 For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
 The correct IAM permissions are essential for the proper functioning of the Amazon DocumentDB execution block. If
 any of these validations fail, Region switch returns warnings that there are issues, and provides specific error messages to help

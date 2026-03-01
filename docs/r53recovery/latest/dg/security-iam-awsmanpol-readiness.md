@@ -39,11 +39,8 @@ users can't create, update, or delete recovery readiness resources.
 
 To view the permissions for this policy, see [AmazonRoute53RecoveryReadinessReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonRoute53RecoveryReadinessReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonRoute53RecoveryReadinessReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
-## Updates for AWS managed
-
-policies for readiness
+## Updates for AWS managed policies for readiness
 
 For details about updates to AWS managed policies for readiness check in ARC since this service
-began tracking these changes, see [Updates to AWS managed
-policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
+began tracking these changes, see [Updates to AWS managed policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
 the RSS feed on the ARC [Document history page](doc-history.md "doc-history.md").

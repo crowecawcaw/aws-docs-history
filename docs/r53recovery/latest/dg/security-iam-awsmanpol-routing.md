@@ -75,11 +75,8 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy](../../../aws-managed-policy/latest/reference/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## Updates for AWS managed
-
-policies for routing control
+## Updates for AWS managed policies for routing control
 
 For details about updates to AWS managed policies for routing control in ARC since this service
-began tracking these changes, see [Updates to AWS managed
-policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
+began tracking these changes, see [Updates to AWS managed policies for Amazon Application Recovery Controller (ARC)](security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-arc-updates"). For automatic alerts about changes to this page, subscribe to
 the RSS feed on the ARC [Document history page](doc-history.md "doc-history.md").

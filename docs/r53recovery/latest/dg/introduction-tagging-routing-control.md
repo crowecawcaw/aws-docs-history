@@ -1,6 +1,4 @@
-#
-
-Tagging for routing control in Amazon Application Recovery Controller (ARC)
+# Tagging for routing control in Amazon Application Recovery Controller (ARC)
 
 Tags are words or phrases (meta data) that you use to identify and organize your AWS resources. You can add multiple
 tags to each resource, and each tag includes a key and a value that you define. For example, the key might be environment

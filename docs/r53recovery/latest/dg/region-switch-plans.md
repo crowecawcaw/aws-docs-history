@@ -83,6 +83,10 @@ you can have the option to run an execution block with graceful (planned) or ung
 - Ungraceful execution: An unplanned execution. The ungraceful workflow mode
   uses only the necessary steps and actions. This mode either changes the behavior
   of the execution blocks in a workflow or skips specific execution blocks.
+- Post-recovery execution: A workflow that runs after a successful recovery to
+  prepare for future regional events. Post-recovery executions can create read replicas, run custom logic via Lambda functions,
+  add manual approval gates, and embed child plans for complex orchestration. These executions require both Regions to be healthy
+  and run in the Region that was previously impaired.
 
 Finally, you can also configure cross-account resources for an execution block. First, you must configure
 permissions, by following the guidance in [Cross-account support in Region switch](cross-account-resources-rs.md "cross-account-resources-rs.md"). After you've set up the required IAM roles,

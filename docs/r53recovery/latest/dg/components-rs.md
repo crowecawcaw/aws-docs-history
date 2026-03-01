@@ -68,6 +68,18 @@ plan execution. When the specified conditions are met, Region switch automatical
 distinct from application health alarms: triggers start plan execution, while application health alarms help
 Region switch calculate actual recovery time after a plan completes.
 
+**Post-recovery workflow**
+A post-recovery workflow is an optional workflow that runs after a successful recovery
+to prepare for future regional events. These workflows require both Regions to be healthy and run in the Region that was previously impaired.
+Post-recovery executions reference the recovery execution ID of the most recent recovery execution.
+
+Post-recovery workflows support the following execution blocks:
+
+- RDS Create Cross-Region Replica
+- Custom Action Lambda
+- Manual Approval
+- Region Switch Plan
+
 **Dashboards**
 Region switch includes dashboards where you can track details about plan executions in
 real time.

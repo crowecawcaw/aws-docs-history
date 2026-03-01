@@ -1,4 +1,4 @@
-# Pricing
+# Pricing for Region switch in ARC
 
 You pay a fixed monthly cost per Region switch plan that you configure.
 

@@ -78,8 +78,7 @@ and permissions. Region switch verifies that ECS services are present in both th
 checks to make sure that the maximum capacity set for the target Region's ECS service is sufficient to handle the specified
 percentage match of the target Region's capacity. Region switch also validates that the plan's IAM role has
 the correct permissions for ECS service. For more information about the required permissions for Region switch execution
-blocks, see [Identity-based policy
-examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
+blocks, see [Identity-based policy examples for Region switch in ARC](security_iam_id-based-policy-examples-region-switch.md "security_iam_id-based-policy-examples-region-switch.md").
 
 In addition, Region switch checks that the `ResourceMonitor` has successfully collected and stored the
 necessary monitoring data for the ECS services, and captures a count of the number of running tasks.
