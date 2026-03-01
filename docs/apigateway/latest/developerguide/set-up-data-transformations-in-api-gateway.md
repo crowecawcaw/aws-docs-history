@@ -1,6 +1,4 @@
-# Tutorial: Modify the integration request and response
-
-for integrations to AWS services
+# Tutorial: Modify the integration request and response for integrations to AWS services
 
 The following tutorial shows how to use mapping template transformations to set up mapping templates to transform integration requests and responses using the
 console and AWS CLI.
@@ -141,8 +139,7 @@ The CloudFormation template has populated some of the integration request fields
 The name of the DynamoDB table has not been specified. You will specify the name in the following steps. 3. For **Request body passthrough**, select **Never**.
 
 This means that the API will reject data with Content-Types that do not have a mapping template. 4. Choose **Mapping templates**. 5. The **Content type** is set to `application/json`. This means a content types that are not application/json will be rejected by the API. For more information about the
-integration passthrough behaviors, see [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md") 6. Enter the following code into the text editor.
+integration passthrough behaviors, see [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md") 6. Enter the following code into the text editor.
 
 ```
 {

@@ -17,9 +17,7 @@ Africa (Cape Town), Europe (Milan), Asia Pacific (Jakarta), Middle East (UAE), A
 Asia Pacific (Melbourne), Europe (Spain), Europe (Zurich), Israel (Tel Aviv),
 Canada West (Calgary), Asia Pacific (Malaysia), Asia Pacific (Thailand), and Mexico (Central).
 
-## API Gateway quotas for creating,
-
-deploying and managing an API
+## API Gateway quotas for creating, deploying and managing an API
 
 The following fixed quotas apply to creating, deploying, and managing an API in API Gateway,
 using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs. These quotas can't

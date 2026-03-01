@@ -1,6 +1,4 @@
-# Configure AWS X-Ray sampling
-
-rules for API Gateway APIs
+# Configure AWS X-Ray sampling rules for API Gateway APIs
 
 You can use AWS X-Ray console or SDK to configure sampling rules for your Amazon API Gateway API.
 A sampling rule specifies which requests X-Ray should record for your API. By customizing
@@ -16,14 +14,10 @@ Developer Guide:
 
 ###### Topics
 
-- [X-Ray sampling rule option
-  values for API Gateway APIs](#apigateway-xray-sampling-rule-options "#apigateway-xray-sampling-rule-options")
-- [X-Ray sampling rule
-  examples](#apigateway-xray-sampling-rules-examples "#apigateway-xray-sampling-rules-examples")
+- [X-Ray sampling rule option values for API Gateway APIs](#apigateway-xray-sampling-rule-options "#apigateway-xray-sampling-rule-options")
+- [X-Ray sampling rule examples](#apigateway-xray-sampling-rules-examples "#apigateway-xray-sampling-rules-examples")
 
-## X-Ray sampling rule option
-
-values for API Gateway APIs
+## X-Ray sampling rule option values for API Gateway APIs
 
 The following X-Ray sampling options are relevant for API Gateway. String values can use
 wildcards to match a single character (?) or zero or more characters (\*). For more
@@ -75,9 +69,7 @@ more information about ARN formats, see the [Amazon Web Services General Referen
   `Content-Type`. Each attribute value can be up to 32
   characters long.
 
-## X-Ray sampling rule
-
-examples
+## X-Ray sampling rule examples
 
 **Sampling rule example #1**
 

@@ -5,15 +5,12 @@ more information, see [Set up API keys for REST APIs in API Gateway](api-gateway
 
 ###### Topics
 
-- [Migrate your API to
-  default usage plans (if needed)](#api-gateway-usage-plan-migrate-to-default "#api-gateway-usage-plan-migrate-to-default")
+- [Migrate your API to default usage plans (if needed)](#api-gateway-usage-plan-migrate-to-default "#api-gateway-usage-plan-migrate-to-default")
 - [Create a usage plan](#api-gateway-usage-plan-create "#api-gateway-usage-plan-create")
 - [Add a stage to a usage plan](#api-gateway-usage-plan-add-stage "#api-gateway-usage-plan-add-stage")
 - [Add an API key to a usage plan](#api-gateway-usage-plan-add-key "#api-gateway-usage-plan-add-key")
 
-## Migrate your API to
-
-default usage plans (if needed)
+## Migrate your API to default usage plans (if needed)
 
 If you started to use API Gateway _after_ the usage plans feature was
 rolled out on August 11, 2016, you will automatically have usage plans enabled for

@@ -1,6 +1,4 @@
-# Deploy WebSocket APIs in
-
-API Gateway
+# Deploy WebSocket APIs in API Gateway
 
 After creating your WebSocket API, you must deploy it to make it available for your users
 to invoke.
@@ -38,8 +36,7 @@ wss://`{api-id}`.execute-api.`{region}`.amazonaws.com/`{stageName}`
 
 To make the WebSocket API's URL more user-friendly, you can create a custom domain name
 (e.g., `api.example.com`) to replace the default host name of the API. The
-configuration process is the same as for REST APIs. For more information, see [Custom domain name for public
-REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md").
+configuration process is the same as for REST APIs. For more information, see [Custom domain name for public REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md").
 
 Stages enable robust version control of your API. For example, you can deploy an API to a
 `test` stage and a `prod` stage, and use the `test`
@@ -50,14 +47,10 @@ stage. For more details about stages, see [Set up a stage for a REST API in API 
 
 ###### Topics
 
-- [Create a WebSocket
-  API deployment using the AWS CLI](#apigateway-create-websocket-deployment-using-awscli "#apigateway-create-websocket-deployment-using-awscli")
-- [Create a
-  WebSocket API deployment using the API Gateway console](#apigateway-create-websocket-deployment-using-console "#apigateway-create-websocket-deployment-using-console")
+- [Create a WebSocket API deployment using the AWS CLI](#apigateway-create-websocket-deployment-using-awscli "#apigateway-create-websocket-deployment-using-awscli")
+- [Create a WebSocket API deployment using the API Gateway console](#apigateway-create-websocket-deployment-using-console "#apigateway-create-websocket-deployment-using-console")
 
-## Create a WebSocket
-
-API deployment using the AWS CLI
+## Create a WebSocket API deployment using the AWS CLI
 
 The following [create-deployment](../../../cli/latest/reference/apigatewayv2/create-deployment.md "../../../cli/latest/reference/apigatewayv2/create-deployment.md") command creates a deployment:
 
@@ -114,9 +107,7 @@ aws apigatewayv2 update-stage --region `region` \
     --deployment-id `deployment-id`
 ```
 
-## Create a
-
-WebSocket API deployment using the API Gateway console
+## Create a WebSocket API deployment using the API Gateway console
 
 To use the API Gateway console to create a deployment for a WebSocket API:
 

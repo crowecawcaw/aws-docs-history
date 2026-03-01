@@ -1,6 +1,4 @@
-# Set up an
-
-integration response in API Gateway
+# Set up an integration response in API Gateway
 
 For a non-proxy integration, you must set up at least one integration response, and
 make it the default response, to pass the result returned from the backend to the

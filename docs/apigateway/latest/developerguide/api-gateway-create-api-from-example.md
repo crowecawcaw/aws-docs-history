@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API by importing an
-
-example
+# Tutorial: Create a REST API by importing an example
 
 You can use the Amazon API Gateway console to create and test a simple REST API with the HTTP
 integration for a PetStore website. The API definition is preconfigured as a OpenAPI 2.0
@@ -157,5 +155,4 @@ Invoking the API method as shown is possible because its
 `AWS_IAM` authorization were used, you would sign the request using
 the
 [Signature Version 4](../../../IAM/latest/UserGuide/create-signed-request.md "../../../IAM/latest/UserGuide/create-signed-request.md") (SigV4) or [Signature Version 4a](../../../IAM/latest/UserGuide/reference_sigv.md#how-sigv4a-works "../../../IAM/latest/UserGuide/reference_sigv.md#how-sigv4a-works") (SigV4a)
-protocols. For an example of such a request, see [Tutorial: Create a REST API with an HTTP non-proxy
-integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md").
+protocols. For an example of such a request, see [Tutorial: Create a REST API with an HTTP non-proxy integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md").

@@ -1,6 +1,4 @@
-# API Gateway resources that can be
-
-tagged
+# API Gateway resources that can be tagged
 
 Tags can be set on the following HTTP API or WebSocket API resources in the
 [Amazon API Gateway V2
@@ -91,9 +89,7 @@ following values:
 }
 ```
 
-## Tag restrictions and usage
-
-conventions
+## Tag restrictions and usage conventions
 
 The following restrictions and usage conventions apply to using tags with API Gateway
 resources:

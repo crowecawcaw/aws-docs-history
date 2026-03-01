@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API using
-
-AWS SDKs or the AWS CLI
+# Tutorial: Create a REST API using AWS SDKs or the AWS CLI
 
 Use the following tutorial to create a PetStore API supporting the `GET /pets` and `GET
  /pets/{petId}` methods. The methods are integrated with an HTTP endpoint. You can follow this tutorial using
@@ -323,8 +321,7 @@ The `/pets/{petId}` resource you created has a resource ID of `bbb222`. You use 
 set to `NONE`. To permit only authenticated users to call the
 method, you can use IAM roles and policies, a Lambda authorizer (formerly
 known as a custom authorizer), or an Amazon Cognito user pool. For more information,
-see [Control and manage access to
-REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md").
+see [Control and manage access to REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md").
 
 Use the following example to add the `GET` HTTP method on the `/pets` resource:
 
@@ -1231,8 +1228,7 @@ API Gateway using AWS SDKs](../../../code-library/latest/ug/api-gateway_code_exa
 Instead of creating your API step-by-step, you can automate the creation and cleanup of AWS resources by
 using OpenAPI, CloudFormation, or Terraform to create your API.
 
-You can import an OpenAPI defintion into API Gateway. For more information, see [Develop REST APIs using
-OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
+You can import an OpenAPI defintion into API Gateway. For more information, see [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
 
 ```
 {

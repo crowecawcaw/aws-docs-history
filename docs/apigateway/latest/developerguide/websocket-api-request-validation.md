@@ -6,9 +6,7 @@ calling your backend, sends a "Bad request body" gateway response to the client,
 publishes the validation results in CloudWatch Logs. Using validation this way reduces
 unnecessary calls to your API backend.
 
-## Model selection
-
-expressions
+## Model selection expressions
 
 You can use a model selection expression to dynamically validate requests within the same
 route. Model validation occurs if you provide a model selection expression for either
@@ -28,9 +26,7 @@ describes the data structure of the request body. The nature of this selection
 expression enables you to dynamically choose the model to validate against at runtime
 for a particular route. For information about how to create a model, see [Data models for REST APIs](models-mappings-models.md "models-mappings-models.md").
 
-## Set up request validation using the
-
-API Gateway console
+## Set up request validation using the API Gateway console
 
 The following example shows you how to set up request validation
 on a route.
@@ -39,8 +35,7 @@ First, you create a model, and then you create a route. Next, you configure requ
 test your API. To complete this tutorial, you need a WebSocket API with
 `$request.body.action` as the route selection expression and an integration endpoint for your new route.
 
-You also need `wscat` to connect to your API. For more information, see [Use wscat to
-connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
+You also need `wscat` to connect to your API. For more information, see [Use wscat to connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
 
 ###### To create a model
 
@@ -74,8 +69,7 @@ In this step, you create a route for your WebSocket API.
 1. In the main navigation pane, choose **Routes**.
 2. Choose **Create route**.
 3. For **Route key**, enter `sendMessage`.
-4. Choose an integration type and specify an integration endpoint. For more information see [Integrations for WebSocket APIs
-   in API Gateway](apigateway-websocket-api-integrations.md "apigateway-websocket-api-integrations.md").
+4. Choose an integration type and specify an integration endpoint. For more information see [Integrations for WebSocket APIs in API Gateway](apigateway-websocket-api-integrations.md "apigateway-websocket-api-integrations.md").
 5. Choose **Create route**.
 
 In this step, you set up request validation for the `sendMessage` route.

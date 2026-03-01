@@ -27,8 +27,7 @@ information, see [Log REST API calls to Amazon Data Firehose in API Gateway](api
 
 CloudTrail provides a record of actions taken by a user, role, or an AWS service in API Gateway. Using the information collected by
 CloudTrail, you can determine the request that was made to API Gateway, the IP address from which the request was made, who made the request,
-when it was made, and additional details. For more information, see [Logging Amazon API Gateway API calls using
-AWS CloudTrail](cloudtrail.md "cloudtrail.md").
+when it was made, and additional details. For more information, see [Logging Amazon API Gateway API calls using AWS CloudTrail](cloudtrail.md "cloudtrail.md").
 
 **AWS X-Ray**
 

@@ -27,7 +27,7 @@ For more information, see
 - [Data protection in Amazon API Gateway](data-protection.md "data-protection.md")
 - [Identity and access management for Amazon API Gateway](security-iam.md "security-iam.md")
 - [Logging and monitoring in Amazon API Gateway](security-monitoring.md "security-monitoring.md")
-- [Compliance validation for Amazon API Gateway](apigateway-compliance.md "apigateway-compliance.md")
+- [Compliance validation for Amazon API Gateway](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon API Gateway](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon API Gateway](infrastructure-security.md "infrastructure-security.md")
 - [Vulnerability analysis in Amazon API Gateway](vulnerability-analysis.md "vulnerability-analysis.md")

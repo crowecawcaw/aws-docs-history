@@ -1,6 +1,4 @@
-# Enabling binary
-
-support using the API Gateway console
+# Enabling binary support using the API Gateway console
 
 The section explains how to enable binary support using the API Gateway console. As an
 example, we use an API that is integrated with Amazon S3. We focus on the tasks to set the

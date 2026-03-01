@@ -1,6 +1,4 @@
-# Enable CORS on a
-
-resource using the API Gateway import API
+# Enable CORS on a resource using the API Gateway import API
 
 If you are using the [API Gateway Import API](api-gateway-import-api.md "api-gateway-import-api.md"),
 you can set up CORS support using an OpenAPI file. You must first define an

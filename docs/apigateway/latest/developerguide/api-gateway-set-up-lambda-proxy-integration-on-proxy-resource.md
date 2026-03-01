@@ -1,6 +1,4 @@
-# Set
-
-up a proxy resource with Lambda proxy integration with an OpenAPI definition
+# Set up a proxy resource with Lambda proxy integration with an OpenAPI definition
 
 To set up a proxy resource with the Lambda proxy integration type, create an API
 resource with a greedy path parameter (for example, `/parent/{proxy+}`)
@@ -122,11 +120,9 @@ OpenAPI 2.0
 In Lambda proxy integration, at run time, API Gateway maps an incoming request into the
 input `event` parameter of the Lambda function. The input includes the
 request method, path, headers, any query string parameters, any payload, associated
-context, and any defined stage variables. The input format is explained in [Input format of a
-Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format"). For API Gateway to
+context, and any defined stage variables. The input format is explained in [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format"). For API Gateway to
 map the Lambda output to HTTP responses successfully, the Lambda function must output
-the result in the format described in [Output format of
-a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format").
+the result in the format described in [Output format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-output-format").
 
 In Lambda proxy integration of a proxy resource through the `ANY`
 method, the single backend Lambda function serves as the event handler for all

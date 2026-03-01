@@ -5,14 +5,10 @@ The following section details notes that might impact your use of API Gateway.
 ###### Topics
 
 - [Amazon API Gateway important notes for HTTP APIs](#api-gateway-known-issues-http-apis "#api-gateway-known-issues-http-apis")
-- [Amazon API Gateway important notes for HTTP and WebSocket
-  APIs](#api-gateway-known-issues-http-and-websocket-apis "#api-gateway-known-issues-http-and-websocket-apis")
-- [Amazon API Gateway important notes for
-  REST and WebSocket APIs](#api-gateway-known-issues-rest-and-websocket-apis "#api-gateway-known-issues-rest-and-websocket-apis")
-- [Amazon API Gateway important notes
-  for WebSocket APIs](#api-gateway-known-issues-websocket-apis "#api-gateway-known-issues-websocket-apis")
-- [Amazon API Gateway important notes for
-  REST APIs](#api-gateway-known-issues-rest-apis "#api-gateway-known-issues-rest-apis")
+- [Amazon API Gateway important notes for HTTP and WebSocket APIs](#api-gateway-known-issues-http-and-websocket-apis "#api-gateway-known-issues-http-and-websocket-apis")
+- [Amazon API Gateway important notes for REST and WebSocket APIs](#api-gateway-known-issues-rest-and-websocket-apis "#api-gateway-known-issues-rest-and-websocket-apis")
+- [Amazon API Gateway important notes for WebSocket APIs](#api-gateway-known-issues-websocket-apis "#api-gateway-known-issues-websocket-apis")
+- [Amazon API Gateway important notes for REST APIs](#api-gateway-known-issues-rest-apis "#api-gateway-known-issues-rest-apis")
 
 ## Amazon API Gateway important notes for HTTP APIs
 
@@ -22,15 +18,11 @@ The following section details notes that might impact your use of API Gateway.
 
 0.
 
-## Amazon API Gateway important notes for HTTP and WebSocket
-
-APIs
+## Amazon API Gateway important notes for HTTP and WebSocket APIs
 
 - Signature Version 4A is not officially supported by Amazon API Gateway for HTTP and WebSocket APIs.
 
-## Amazon API Gateway important notes for
-
-REST and WebSocket APIs
+## Amazon API Gateway important notes for REST and WebSocket APIs
 
 - API Gateway does not support sharing a custom domain name across REST and
   WebSocket APIs.
@@ -49,18 +41,14 @@ REST and WebSocket APIs
   these names, be careful not to exceed CloudWatch Metrics limits.
 - The maximum size of a mapping template is 300 KB.
 
-## Amazon API Gateway important notes
-
-for WebSocket APIs
+## Amazon API Gateway important notes for WebSocket APIs
 
 - API Gateway supports message payloads up to 128 KB with a maximum frame size of
   32 KB. If a message exceeds 32 KB, you must split it into multiple frames,
   each 32 KB or smaller. If a larger message is received, the connection is
   closed with code 1009.
 
-## Amazon API Gateway important notes for
-
-REST APIs
+## Amazon API Gateway important notes for REST APIs
 
 - The plain text pipe character (`|`) and the curly brace character (`{` or
   `}`) are not supported for any request URL query string and must be URL-encoded.

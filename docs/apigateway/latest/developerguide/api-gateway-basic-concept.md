@@ -221,8 +221,7 @@ method.
 You can use quick create to simplify creating an HTTP API. Quick create creates an
 API with a Lambda or HTTP integration, a default catch-all route, and a default
 stage that is configured to automatically deploy changes. For more information,
-see [Create an HTTP API by using
-the AWS CLI](http-api-develop.md#http-api-examples.cli.quick-create "http-api-develop.md#http-api-examples.cli.quick-create").
+see [Create an HTTP API by using the AWS CLI](http-api-develop.md#http-api-examples.cli.quick-create "http-api-develop.md#http-api-examples.cli.quick-create").
 
 **Regional API endpoint**
 

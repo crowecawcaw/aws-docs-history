@@ -1,27 +1,17 @@
-# Lambda proxy integrations in
-
-API Gateway
+# Lambda proxy integrations in API Gateway
 
 The following section shows how to use a Lambda proxy integration.
 
 ###### Topics
 
-- [Understand API Gateway Lambda proxy
-  integration](#api-gateway-create-api-as-simple-proxy "#api-gateway-create-api-as-simple-proxy")
-- [Support for
-  multi-value headers and query string parameters](#apigateway-multivalue-headers-and-parameters "#apigateway-multivalue-headers-and-parameters")
-- [Input format of a
-  Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-input-format "#api-gateway-simple-proxy-for-lambda-input-format")
-- [Output format of
-  a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-output-format "#api-gateway-simple-proxy-for-lambda-output-format")
-- [Set up Lambda proxy
-  integration for API Gateway using the AWS CLI](set-up-lambda-proxy-integration-using-cli.md "set-up-lambda-proxy-integration-using-cli.md")
-- [Set
-  up a proxy resource with Lambda proxy integration with an OpenAPI definition](api-gateway-set-up-lambda-proxy-integration-on-proxy-resource.md "api-gateway-set-up-lambda-proxy-integration-on-proxy-resource.md")
+- [Understand API Gateway Lambda proxy integration](#api-gateway-create-api-as-simple-proxy "#api-gateway-create-api-as-simple-proxy")
+- [Support for multi-value headers and query string parameters](#apigateway-multivalue-headers-and-parameters "#apigateway-multivalue-headers-and-parameters")
+- [Input format of a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-input-format "#api-gateway-simple-proxy-for-lambda-input-format")
+- [Output format of a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-output-format "#api-gateway-simple-proxy-for-lambda-output-format")
+- [Set up Lambda proxy integration for API Gateway using the AWS CLI](set-up-lambda-proxy-integration-using-cli.md "set-up-lambda-proxy-integration-using-cli.md")
+- [Set up a proxy resource with Lambda proxy integration with an OpenAPI definition](api-gateway-set-up-lambda-proxy-integration-on-proxy-resource.md "api-gateway-set-up-lambda-proxy-integration-on-proxy-resource.md")
 
-## Understand API Gateway Lambda proxy
-
-integration
+## Understand API Gateway Lambda proxy integration
 
 Amazon API Gateway Lambda proxy integration is a simple, powerful, and nimble mechanism to build
 an API with a setup of a single API method. The Lambda proxy integration allows the client to
@@ -110,27 +100,20 @@ run time, the customer or the employee must select a particular product of a giv
 chosen department, a specific produce category in a chosen department, or a specific
 department.
 
-For more information about setting up API Gateway proxy integrations, see [Set up a proxy integration with a proxy
-resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md").
+For more information about setting up API Gateway proxy integrations, see [Set up a proxy integration with a proxy resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md").
 
 Proxy integration requires that the client have more detailed knowledge of the
 backend requirements. Therefore, to ensure optimal app performance and user experience, the
 backend developer must communicate clearly to the client developer the requirements of the
 backend, and provide a robust error feedback mechanism when the requirements are not met.
 
-## Support for
-
-multi-value headers and query string parameters
+## Support for multi-value headers and query string parameters
 
 API Gateway supports multiple headers and query string parameters that have the same
 name. Multi-value headers as well as single-value headers and parameters can be
-combined in the same requests and responses. For more information, see [Input format of a
-Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-input-format "#api-gateway-simple-proxy-for-lambda-input-format") and [Output format of
-a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-output-format "#api-gateway-simple-proxy-for-lambda-output-format").
+combined in the same requests and responses. For more information, see [Input format of a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-input-format "#api-gateway-simple-proxy-for-lambda-input-format") and [Output format of a Lambda function for proxy integration](#api-gateway-simple-proxy-for-lambda-output-format "#api-gateway-simple-proxy-for-lambda-output-format").
 
-## Input format of a
-
-Lambda function for proxy integration
+## Input format of a Lambda function for proxy integration
 
 In Lambda proxy integration, API Gateway maps the entire client request to the input
 `event` parameter of the backend Lambda function. The following example shows the structure of an event that API Gateway sends to a Lambda proxy integration.
@@ -256,9 +239,7 @@ follows:
   `$context.authorizer.principalId` and other applicable
   `$context.authorizer.*` properties.
 
-## Output format of
-
-a Lambda function for proxy integration
+## Output format of a Lambda function for proxy integration
 
 In Lambda proxy integration, API Gateway requires the backend Lambda function to return
 output according to the following JSON format:
@@ -297,10 +278,8 @@ To enable CORS for the Lambda proxy integration, you must add
 
 ###### Note
 
-For more information about enabling binary support, see [Enabling binary
-support using the API Gateway console](api-gateway-payload-encodings-configure-with-console.md "api-gateway-payload-encodings-configure-with-console.md"). For an
-example Lambda function, see [Return binary media from a Lambda proxy
-integration in API Gateway](lambda-proxy-binary-media.md "lambda-proxy-binary-media.md").
+For more information about enabling binary support, see [Enabling binary support using the API Gateway console](api-gateway-payload-encodings-configure-with-console.md "api-gateway-payload-encodings-configure-with-console.md"). For an
+example Lambda function, see [Return binary media from a Lambda proxy integration in API Gateway](lambda-proxy-binary-media.md "lambda-proxy-binary-media.md").
 
 If the function output is of a different format, API Gateway returns a `502 Bad
  Gateway` error response.

@@ -7,14 +7,10 @@ SDK.
 
 ###### Topics
 
-- [Turn off a canary release using the
-  API Gateway console](#delete-canary-release-console "#delete-canary-release-console")
-- [Turn off a canary release using the
-  AWS CLI](#delete-canary-release-cli "#delete-canary-release-cli")
+- [Turn off a canary release using the API Gateway console](#delete-canary-release-console "#delete-canary-release-console")
+- [Turn off a canary release using the AWS CLI](#delete-canary-release-cli "#delete-canary-release-cli")
 
-## Turn off a canary release using the
-
-API Gateway console
+## Turn off a canary release using the API Gateway console
 
 To use the API Gateway console to turn off a canary release deployment, use the following
 steps:
@@ -31,12 +27,9 @@ steps:
 
 As a result, the [`canarySettings`](../api/API_Stage.md#canarySettings "../api/API_Stage.md#canarySettings") property becomes `null` and
 is removed from the deployment [stage](../api/API_Stage.md "../api/API_Stage.md"). You can verify this using the AWS CLI. For
-example, see [Turn off a canary release using the
-AWS CLI](#delete-canary-release-cli "#delete-canary-release-cli").
+example, see [Turn off a canary release using the AWS CLI](#delete-canary-release-cli "#delete-canary-release-cli").
 
-## Turn off a canary release using the
-
-AWS CLI
+## Turn off a canary release using the AWS CLI
 
 The following [update-stage](../../../cli/latest/reference/apigateway/update-stage.md "../../../cli/latest/reference/apigateway/update-stage.md") command turns off
 the canary release deployment:

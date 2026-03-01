@@ -1,6 +1,4 @@
-# Quotas for configuring
-
-portals in API Gateway
+# Quotas for configuring portals in API Gateway
 
 The following quotas apply to creating portals in API Gateway. For more information, see [API Gateway portals](apigateway-portals.md "apigateway-portals.md").
 

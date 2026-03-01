@@ -14,11 +14,8 @@ of applications that depend on synchronous communication.
 ###### Topics
 
 - [Develop REST APIs in API Gateway](rest-api-develop.md "rest-api-develop.md")
-- [Publish REST APIs for customers to
-  invoke](rest-api-publish.md "rest-api-publish.md")
-- [Optimize performance of
-  REST APIs](rest-api-optimize.md "rest-api-optimize.md")
-- [Distribute your REST APIs to
-  clients in API Gateway](rest-api-distribute.md "rest-api-distribute.md")
+- [Publish REST APIs for customers to invoke](rest-api-publish.md "rest-api-publish.md")
+- [Optimize performance of REST APIs](rest-api-optimize.md "rest-api-optimize.md")
+- [Distribute your REST APIs to clients in API Gateway](rest-api-distribute.md "rest-api-distribute.md")
 - [Protect your REST APIs in API Gateway](rest-api-protect.md "rest-api-protect.md")
 - [Monitor REST APIs in API Gateway](rest-api-monitor.md "rest-api-monitor.md")

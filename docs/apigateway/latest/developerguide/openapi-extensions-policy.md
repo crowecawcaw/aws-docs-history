@@ -1,14 +1,10 @@
 # x-amazon-apigateway-policy
 
 Specifies a resource policy for a REST API. To learn more about resource
-policies, see [Control access to a REST API with API Gateway
-resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md"). For resource policy examples, see
-[API Gateway resource policy
-examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
+policies, see [Control access to a REST API with API Gateway resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md"). For resource policy examples, see
+[API Gateway resource policy examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
 
-## `x-amazon-apigateway-policy`
-
-example
+## `x-amazon-apigateway-policy` example
 
 The following example specifies a resource policy for a REST API. The
 resource policy denies (blocks) incoming traffic to an API from a specified source

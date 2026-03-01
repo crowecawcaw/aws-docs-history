@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API with a Lambda non-proxy
-
-integration
+# Tutorial: Create a REST API with a Lambda non-proxy integration
 
 In this walkthrough, we use the API Gateway console to build an API that enables a client to
 call Lambda functions through the Lambda non-proxy integration (also known as custom integration). For more information about
@@ -9,26 +7,21 @@ AWS Lambda and Lambda functions, see the [AWS Lambda Developer Guide](../../../l
 To facilitate learning, we chose a simple Lambda function with minimal API setup to walk
 you through the steps of building an API Gateway API with the Lambda custom integration. When
 necessary, we describe some of the logic. For a more detailed example of the Lambda custom
-integration, see [Tutorial: Create a
-calculator REST API with two AWS service integrations and one Lambda non-proxy integration](integrating-api-with-aws-services-lambda.md "integrating-api-with-aws-services-lambda.md").
+integration, see [Tutorial: Create a calculator REST API with two AWS service integrations and one Lambda non-proxy integration](integrating-api-with-aws-services-lambda.md "integrating-api-with-aws-services-lambda.md").
 
 Before creating the API, set up the Lambda backend by creating a Lambda function in
 AWS Lambda, described next.
 
 ###### Topics
 
-- [Create a Lambda function for Lambda
-  non-proxy integration](#getting-started-new-lambda "#getting-started-new-lambda")
-- [Create an API with Lambda non-proxy
-  integration](#getting-started-new-api "#getting-started-new-api")
+- [Create a Lambda function for Lambda non-proxy integration](#getting-started-new-lambda "#getting-started-new-lambda")
+- [Create an API with Lambda non-proxy integration](#getting-started-new-api "#getting-started-new-api")
 - [Test invoking the API method](#getting-started-new-get "#getting-started-new-get")
 - [Deploy the API](#getting-started-deploy-api "#getting-started-deploy-api")
 - [Test the API in a deployment stage](#getting-started-test "#getting-started-test")
 - [Clean up](#getting-started-clean-up "#getting-started-clean-up")
 
-## Create a Lambda function for Lambda
-
-non-proxy integration
+## Create a Lambda function for Lambda non-proxy integration
 
 ###### Note
 
@@ -163,9 +156,7 @@ create a mapping template and configure it on the API method when creating the A
 
 Now, create the `GetStartedLambdaIntegration` Lambda function.
 
-###### To create the `GetStartedLambdaIntegration` Lambda function for Lambda
-
-custom integration
+###### To create the `GetStartedLambdaIntegration` Lambda function for Lambda custom integration
 
 1. Open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -286,9 +277,7 @@ The combination of this trust relationship and the inline policy makes it possib
 for the Lambda function to invoke a `console.log()` function to log events to
 CloudWatch Logs.
 
-## Create an API with Lambda non-proxy
-
-integration
+## Create an API with Lambda non-proxy integration
 
 With the Lambda function (`GetStartedLambdaIntegration`) created and
 tested, you are ready to expose the function through an API Gateway API. For illustration

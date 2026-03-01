@@ -37,8 +37,7 @@ JSON
 Here, a policy statement specifies whether to allow or deny (`Effect`) the API Gateway execution service
 to invoke (`Action`) the specified API method (`Resource`). You might need to control access
 to multiple resources based on your authorizer. You can use a wild card (`*`) to specify a resource
-type (method). For information about setting valid policies for calling an API, see [Statement reference of IAM
-policies for executing API in API Gateway](api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-calling-api-permissions "api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-calling-api-permissions").
+type (method). For information about setting valid policies for calling an API, see [Statement reference of IAM policies for executing API in API Gateway](api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-calling-api-permissions "api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-calling-api-permissions").
 
 For an authorization-enabled method ARN, e.g.,
 `arn:aws:execute-api:`{regionId}`:`{accountId}`:`{apiId}`/`{stage}`/`{httpVerb}`/[`{resource}`/[`{child-resources}`]]`,

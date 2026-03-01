@@ -52,9 +52,7 @@ has higher priority than the `$default` route. As a result, it enables
 clients to submit `OPTIONS` requests to your API without authorization. For
 more information about routing priorities, see [Routing API requests](http-api-develop-routes.md#http-api-develop-routes.evaluation "http-api-develop-routes.md#http-api-develop-routes.evaluation").
 
-## Configure CORS for an HTTP API by using the
-
-AWS CLI
+## Configure CORS for an HTTP API by using the AWS CLI
 
 The following [update-api](../../../cli/latest/reference/apigatewayv2/update-api.md "../../../cli/latest/reference/apigatewayv2/update-api.md") command enables CORS requests from
 `https://www.example.com`:

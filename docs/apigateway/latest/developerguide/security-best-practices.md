@@ -8,9 +8,7 @@ for your environment, treat them as helpful considerations rather than prescript
 
 Use IAM policies to implement least privilege access for creating, reading,
 updating, or deleting API Gateway APIs. To learn more, see [Identity and access management for Amazon API Gateway](security-iam.md "security-iam.md"). API Gateway offers several
-options to control access to APIs that you create. To learn more, see [Control and manage access to
-REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md"), [Control and manage access to
-WebSocket APIs in API Gateway](apigateway-websocket-api-control-access.md "apigateway-websocket-api-control-access.md"), and [Control access to HTTP APIs with JWT authorizers in API Gateway](http-api-jwt-authorizer.md "http-api-jwt-authorizer.md").
+options to control access to APIs that you create. To learn more, see [Control and manage access to REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md"), [Control and manage access to WebSocket APIs in API Gateway](apigateway-websocket-api-control-access.md "apigateway-websocket-api-control-access.md"), and [Control access to HTTP APIs with JWT authorizers in API Gateway](http-api-jwt-authorizer.md "http-api-jwt-authorizer.md").
 
 **Implement logging**
 
@@ -30,8 +28,7 @@ a specified number of periods. For more information, see [Monitor REST API execu
 
 CloudTrail provides a record of actions taken by a user, role, or an AWS service in API Gateway. Using the information collected by
 CloudTrail, you can determine the request that was made to API Gateway, the IP address from which the request was made, who made the request,
-when it was made, and additional details. For more information, see [Logging Amazon API Gateway API calls using
-AWS CloudTrail](cloudtrail.md "cloudtrail.md").
+when it was made, and additional details. For more information, see [Logging Amazon API Gateway API calls using AWS CloudTrail](cloudtrail.md "cloudtrail.md").
 
 **Enable AWS Config**
 

@@ -22,10 +22,8 @@ see [template.yaml](samples/private-api-full-template.md "samples/private-api-fu
 - [Step 3: Create a method and integration](#private-api-tutorial-create-method "#private-api-tutorial-create-method")
 - [Step 4: Attach a resource policy](#private-api-tutorial-attach-resource-policy "#private-api-tutorial-attach-resource-policy")
 - [Step 5: Deploy your API](#private-api-tutorial-deploy-api "#private-api-tutorial-deploy-api")
-- [Step 6: Verify that your API isn't publicly
-  accessible](#private-api-tutorial-test-private-api "#private-api-tutorial-test-private-api")
-- [Step 7: Connect to an instance in your VPC and invoke
-  your API](#private-api-tutorial-connect-to-instance "#private-api-tutorial-connect-to-instance")
+- [Step 6: Verify that your API isn't publicly accessible](#private-api-tutorial-test-private-api "#private-api-tutorial-test-private-api")
+- [Step 7: Connect to an instance in your VPC and invoke your API](#private-api-tutorial-connect-to-instance "#private-api-tutorial-connect-to-instance")
 - [Step 8: Clean up](#private-api-tutorial-cleanup "#private-api-tutorial-cleanup")
 - [Next steps: Automate with CloudFormation](#private-api-tutorial-next-steps "#private-api-tutorial-next-steps")
 
@@ -151,9 +149,7 @@ Next, you deploy your API to make it available to clients in your Amazon VPC.
 
 Now you're ready to test your API.
 
-## Step 6: Verify that your API isn't publicly
-
-accessible
+## Step 6: Verify that your API isn't publicly accessible
 
 Use `curl` to verify that you can't invoke your API from outside of your Amazon VPC.
 
@@ -181,9 +177,7 @@ curl: (6) Could not resolve host: `abcdef123`.execute-api.`us-west-2`.amazonaws.
 
 Next, you connect to an Amazon EC2 instance in your VPC to invoke your API.
 
-## Step 7: Connect to an instance in your VPC and invoke
-
-your API
+## Step 7: Connect to an instance in your VPC and invoke your API
 
 Next, you test your API from within your Amazon VPC. To access your private API, you connect to an Amazon EC2 instance
 in your VPC and then use curl to invoke your API. You use Systems Manager Session Manager to connect to your instance in the

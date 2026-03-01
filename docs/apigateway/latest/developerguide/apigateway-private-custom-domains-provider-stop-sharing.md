@@ -58,9 +58,7 @@ aws apigateway reject-domain-name-access-association \
     --domain-name-arn arn:aws:apigateway:us-west-2:111122223333:/domainnames/private.example.com+abcd1234
 ```
 
-## Deny the API provider access to invoke your private custom
-
-domain name
+## Deny the API provider access to invoke your private custom domain name
 
 After you reject the domain name access association, you remove the API consumer's VPC endpoint from your `policy` for the
 `execute-api` service.
@@ -80,8 +78,7 @@ AWS CLI
 The following [update-domain-name](../../../cli/latest/reference/apigateway/update-domain-name.md "../../../cli/latest/reference/apigateway/update-domain-name.md") command uses a patch operation to update the `policy` for
 the `execute-api` service for a private custom domain name. This new
 `policy` removes an additional VPC endpoint ID added in
-[Allow other accounts to invoke your
-private custom domain name](apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update "apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update"):
+[Allow other accounts to invoke your private custom domain name](apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update "apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update"):
 
 ```
 aws apigateway update-domain-name

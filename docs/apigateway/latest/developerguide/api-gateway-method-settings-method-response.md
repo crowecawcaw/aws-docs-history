@@ -1,6 +1,4 @@
-# Set up a method response in
-
-API Gateway
+# Set up a method response in API Gateway
 
 An API method response encapsulates the output of an API method request that the
 client will receive. The output data includes an HTTP status code, some headers, and
@@ -31,9 +29,7 @@ responses as a server-side error. For instructional reasons, the API Gateway con
 
 To set up a method response, you must have created the method request.
 
-## Set up method response status
-
-code
+## Set up method response status code
 
 The status code of a method response defines a type of response. For example,
 responses of 200, 400, and 500 indicate successful, client-side error and
@@ -50,9 +46,7 @@ aws apigateway put-method-response \
     --status-code 200
 ```
 
-## Set up method response
-
-parameters
+## Set up method response parameters
 
 Method response parameters define which headers the client receives in response to
 the associated method request. Response parameters also specify a target to which

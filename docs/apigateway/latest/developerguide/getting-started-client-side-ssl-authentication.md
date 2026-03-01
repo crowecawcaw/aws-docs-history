@@ -18,8 +18,7 @@ of a certificate is visible in the API Gateway console or through the APIs.
 - [Generate a client certificate using the API Gateway console](#generate-client-certificate "#generate-client-certificate")
 - [Configure an API to use SSL certificates](#configure-api "#configure-api")
 - [Test invoke to verify the client certificate configuration](#test-invoke "#test-invoke")
-- [Configure a backend HTTPS server to verify the
-  client certificate](#certificate-validation "#certificate-validation")
+- [Configure a backend HTTPS server to verify the client certificate](#certificate-validation "#certificate-validation")
 - [Rotate an expiring client certificate](#certificate-rotation "#certificate-rotation")
 - [API Gateway-supported certificate authorities for HTTP and HTTP proxy integrations in API Gateway](api-gateway-supported-certificate-authorities-for-http-endpoints.md "api-gateway-supported-certificate-authorities-for-http-endpoints.md")
 
@@ -60,9 +59,7 @@ all calls to HTTP integrations in your API.
 
 API Gateway presents the chosen SSL certificate for the HTTP backend to authenticate the API.
 
-## Configure a backend HTTPS server to verify the
-
-client certificate
+## Configure a backend HTTPS server to verify the client certificate
 
 These instructions assume that you already completed [Generate a client certificate using the API Gateway console](#generate-client-certificate "#generate-client-certificate")
 and downloaded a copy of the client certificate. You can download a client certificate

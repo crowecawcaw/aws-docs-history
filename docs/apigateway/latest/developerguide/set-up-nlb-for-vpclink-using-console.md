@@ -1,6 +1,4 @@
-# Set up a Network Load Balancer
-
-for API Gateway private integrations (legacy)
+# Set up a Network Load Balancer for API Gateway private integrations (legacy)
 
 ###### Note
 
@@ -18,9 +16,7 @@ VPCLink to connect to the NLB. When creating the private integration in API Gate
 the specific port that is assigned for each service. For more information, see [Tutorial: Create a REST API with a private integration](getting-started-with-private-integration.md "getting-started-with-private-integration.md"). The Network Load Balancer and API must be owned by the
 same AWS account.
 
-###### To create a Network Load Balancer for private integration using the API Gateway
-
-console
+###### To create a Network Load Balancer for private integration using the API Gateway console
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

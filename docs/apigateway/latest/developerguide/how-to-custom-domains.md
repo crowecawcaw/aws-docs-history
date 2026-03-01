@@ -1,6 +1,4 @@
-# Custom domain name for public
-
-REST APIs in API Gateway
+# Custom domain name for public REST APIs in API Gateway
 
 _Custom domain names_ are simpler and more intuitive URLs that you can
 provide to your API users.
@@ -49,8 +47,7 @@ The following considerations might impact your use of a custom domain name:
 - You can support an almost infinite number of domain names without exceeding the default quota by using a
   wildcard certificate. For more information, see [Wildcard custom domain names](#wildcard-custom-domain-names "#wildcard-custom-domain-names").
 - You can choose a security policy for your custom domain name. For more
-  information, see [Choose a security policy for
-  your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+  information, see [Choose a security policy for your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 - To configure API mappings with multiple levels, you must use a Regional custom domain name and use the TLS
   1.2 security policy.
 
@@ -105,8 +102,7 @@ subdomains to different APIs, you can do either of the following:
 
 - Use routing rules to route incoming requests to `*.example.com` to different target REST APIs
   using the `Host` header. For more information, see
-  [Example 4: Routing rules for wildcard
-  domain names](rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-for-wildcard-domains "rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-for-wildcard-domains").
+  [Example 4: Routing rules for wildcard domain names](rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-for-wildcard-domains "rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-for-wildcard-domains").
 - Create a domain name for any subdomains that you want to route to a different endpoint. In a single AWS account, you can have both `*.example.com` and
   `a.example.com`.
 
@@ -134,19 +130,14 @@ The following are next steps for custom domain names.
 ###### Next steps
 
 - To learn how to set your SSL/TLS certificate, see [Get certificates ready in AWS Certificate Manager](how-to-specify-certificate-for-custom-domain-name.md "how-to-specify-certificate-for-custom-domain-name.md").
-- To learn how to create a Regional custom domain name, see [Set up a Regional custom
-  domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+- To learn how to create a Regional custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 - To learn how to create an edge-optimized custom domain name, see [Set up an edge-optimized custom domain name in API Gateway](how-to-edge-optimized-custom-domain-name.md "how-to-edge-optimized-custom-domain-name.md").
 - To learn how to migrate between Regional and edge-optimized custom domain names, see
-  [Migrate a custom domain name
-  to a different API endpoint type in API Gateway](apigateway-regional-api-custom-domain-migrate.md "apigateway-regional-api-custom-domain-migrate.md").
-- To learn how to connect API stages to a custom domain name, see [Send traffic
-  to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
-- To learn how to choose a security policy for your custom domain name, see [Choose a security policy for
-  your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+  [Migrate a custom domain name to a different API endpoint type in API Gateway](apigateway-regional-api-custom-domain-migrate.md "apigateway-regional-api-custom-domain-migrate.md").
+- To learn how to connect API stages to a custom domain name, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+- To learn how to choose a security policy for your custom domain name, see [Choose a security policy for your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 - To learn how to turn off the default endpoint for your custom domain name, see [Disable the default endpoint for REST APIs](rest-api-disable-default-endpoint.md "rest-api-disable-default-endpoint.md").
 - To learn how to use Route 53 health checks to control DNS failover from an API Gateway API, see
   [Configure custom health checks for DNS failover for an API Gateway API](dns-failover.md "dns-failover.md").
 
-If this is your first time creating a custom domain name, we recommend that you start with [Get certificates ready in AWS Certificate Manager](how-to-specify-certificate-for-custom-domain-name.md "how-to-specify-certificate-for-custom-domain-name.md"), to specify your certificate, and then [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md") to create a Regional custom domain name.
+If this is your first time creating a custom domain name, we recommend that you start with [Get certificates ready in AWS Certificate Manager](how-to-specify-certificate-for-custom-domain-name.md "how-to-specify-certificate-for-custom-domain-name.md"), to specify your certificate, and then [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md") to create a Regional custom domain name.

@@ -68,5 +68,4 @@ the [AWS CLI](../../../cli/latest/reference/apigateway.md "../../../cli/latest/r
 - [Create a deployment for a REST API in API Gateway](set-up-deployments.md "set-up-deployments.md")
 - [Set up a stage for a REST API in API Gateway](set-up-stages.md "set-up-stages.md")
 - [Set up an API Gateway canary release deployment](canary-release.md "canary-release.md")
-- [Updates to REST APIs that require
-  redeployment](updating-api.md "updating-api.md")
+- [Updates to REST APIs that require redeployment](updating-api.md "updating-api.md")

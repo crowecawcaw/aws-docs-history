@@ -1,23 +1,16 @@
-# Set up a
-
-WebSocket API integration response in API Gateway
+# Set up a WebSocket API integration response in API Gateway
 
 The following section provides a brief overview of integration responses for WebSocket API and how to set up
 an integration response for a WebSocket API.
 
 ###### Topics
 
-- [Overview of
-  integration responses](#apigateway-websocket-api-integration-response-overview "#apigateway-websocket-api-integration-response-overview")
+- [Overview of integration responses](#apigateway-websocket-api-integration-response-overview "#apigateway-websocket-api-integration-response-overview")
 - [Integration responses for two-way communication](#apigateway-websocket-api-integration-response-for-two-way-communication "#apigateway-websocket-api-integration-response-for-two-way-communication")
-- [Set up
-  an integration response using the API Gateway console](#apigateway-websocket-api-integration-response-using-console "#apigateway-websocket-api-integration-response-using-console")
-- [Set up
-  an integration response using the AWS CLI](#apigateway-websocket-api-integration-response-using-awscli "#apigateway-websocket-api-integration-response-using-awscli")
+- [Set up an integration response using the API Gateway console](#apigateway-websocket-api-integration-response-using-console "#apigateway-websocket-api-integration-response-using-console")
+- [Set up an integration response using the AWS CLI](#apigateway-websocket-api-integration-response-using-awscli "#apigateway-websocket-api-integration-response-using-awscli")
 
-## Overview of
-
-integration responses
+## Overview of integration responses
 
 API Gateway's integration response is a way of modeling and manipulating the response
 from a backend service. There are some differences in setup of a REST API versus a
@@ -34,8 +27,7 @@ WebSocket routes can be configured for two-way or one-way communication.
   WebSocket channel after the message is processed.
 
 API Gateway will not pass the backend response through to the route response, unless you set up a route
-response. To learn about setting up a route response, see [Set up route responses for
-WebSocket APIs in API Gateway](apigateway-websocket-api-route-response.md "apigateway-websocket-api-route-response.md").
+response. To learn about setting up a route response, see [Set up route responses for WebSocket APIs in API Gateway](apigateway-websocket-api-route-response.md "apigateway-websocket-api-route-response.md").
 
 ## Integration responses for two-way communication
 
@@ -72,12 +64,9 @@ For non-proxy HTTP integrations:
   - `$default`: Receive and transform all unexpected
     responses
 
-For more information about template selection expressions, see [Template
-selection expressions](websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions "websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions").
+For more information about template selection expressions, see [Template selection expressions](websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions "websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions").
 
-## Set up
-
-an integration response using the API Gateway console
+## Set up an integration response using the API Gateway console
 
 To set up a route integration response for a WebSocket API using the API Gateway
 console:
@@ -95,8 +84,7 @@ console:
 10. Choose **Create template**.
 11. Choose **Deploy API** to deploy your API.
 
-Use the following [wscat](https://www.npmjs.com/package/wscat "https://www.npmjs.com/package/wscat") command to connect to your API. For more information about `wscat`, see [Use wscat to
-connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
+Use the following [wscat](https://www.npmjs.com/package/wscat "https://www.npmjs.com/package/wscat") command to connect to your API. For more information about `wscat`, see [Use wscat to connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
 
 ```
 wscat -c wss://`api-id`.execute-api.`us-east-2`.amazonaws.com/`test`
@@ -104,9 +92,7 @@ wscat -c wss://`api-id`.execute-api.`us-east-2`.amazonaws.com/`test`
 
 When you call your route, the returned message payload should return.
 
-## Set up
-
-an integration response using the AWS CLI
+## Set up an integration response using the AWS CLI
 
 The following [create-integration-response](../../../cli/latest/reference/apigatewayv2/create-integration-response.md "../../../cli/latest/reference/apigatewayv2/create-integration-response.md") command creates a
 `$default` integration response:

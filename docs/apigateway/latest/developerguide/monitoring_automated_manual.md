@@ -1,15 +1,11 @@
-# Monitoring tools in
-
-AWS for API Gateway
+# Monitoring tools in AWS for API Gateway
 
 AWS provides various tools that you can use to monitor API Gateway. You can
 configure some of these tools to do the monitoring for you automatically, while
 other tools require manual intervention. We recommend that you automate monitoring
 tasks as much as possible.
 
-## Automated monitoring tools in
-
-AWS
+## Automated monitoring tools in AWS
 
 You can use the following automated monitoring tools to watch API Gateway
 and report when something is wrong:
@@ -71,9 +67,7 @@ API execution.
       + Search and browse all your AWS resource metrics
       + Create and edit alarms to be notified of problems
 
-## Creating CloudWatch alarms to monitor
-
-API Gateway
+## Creating CloudWatch alarms to monitor API Gateway
 
 You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes
 state. An alarm watches a single metric over a time period you specify, and

@@ -1,6 +1,4 @@
-# Set up an API Gateway API with private
-
-integrations using the AWS CLI (legacy)
+# Set up an API Gateway API with private integrations using the AWS CLI (legacy)
 
 ###### Note
 
@@ -10,12 +8,10 @@ that you use [VPC links V2 for REST APIs](apigateway-vpc-links-v2.md "apigateway
 The following tutorial shows how to use the AWS CLI to create a VPC link and a private integration. The following prerequisites are required:
 
 - You need an Network Load Balancer created and configured with your VPC source as the target. For more information, see
-  [Set up a Network Load Balancer
-  for API Gateway private integrations (legacy)](set-up-nlb-for-vpclink-using-console.md "set-up-nlb-for-vpclink-using-console.md").
+  [Set up a Network Load Balancer for API Gateway private integrations (legacy)](set-up-nlb-for-vpclink-using-console.md "set-up-nlb-for-vpclink-using-console.md").
   This must be in the same AWS account as your API. You need the Network Load Balancer ARN to create your VPC link.
 - To create and manage a `VpcLink`, you need the permissions to create a `VpcLink` in your API. You don't
-  need the permissions to use the `VpcLink`. For more information, see [Grant permissions for API Gateway to create a VPC
-  link (legacy)](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md").
+  need the permissions to use the `VpcLink`. For more information, see [Grant permissions for API Gateway to create a VPC link (legacy)](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md").
 
 ###### To set up an API with the private integration using AWS CLI
 

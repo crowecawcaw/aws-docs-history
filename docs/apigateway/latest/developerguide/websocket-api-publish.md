@@ -18,7 +18,6 @@ forgery attempts (CSRF). For more information see the [Set-Cookie](https://devel
 ###### Topics
 
 - [Create stages for WebSocket APIs in API Gateway](websocket-api-stages.md "websocket-api-stages.md")
-- [Deploy WebSocket APIs in
-  API Gateway](apigateway-set-up-websocket-deployment.md "apigateway-set-up-websocket-deployment.md")
+- [Deploy WebSocket APIs in API Gateway](apigateway-set-up-websocket-deployment.md "apigateway-set-up-websocket-deployment.md")
 - [Security policy for WebSocket APIs in API Gateway](websocket-api-ciphers.md "websocket-api-ciphers.md")
 - [Custom domain names for WebSocket APIs in API Gateway](websocket-api-custom-domain-names.md "websocket-api-custom-domain-names.md")

@@ -32,8 +32,7 @@ If you are an API provider, you must do the following:
 3. Create a private custom domain name.
 4. Update your private custom domain name's `policy` to grant your VPC endpoint access to your private custom domain name.
 5. Create a base path mapping or a routing rule to send traffic from your private API to your private
-   custom domain name. For more information, see [Send traffic
-   to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+   custom domain name. For more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 
 If you want to allow API consumers in other AWS accounts to access your private custom domain name, do the following:
 

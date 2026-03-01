@@ -9,8 +9,7 @@ can map the `production` stage of an API to `https://api.example.com/orders`.
 You can map HTTP and REST API stages to the same custom domain name.
 
 Before you create an API mapping, you must have an API, a stage, and a custom domain name. To learn more about
-creating a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 ## Routing API requests
 
@@ -58,8 +57,7 @@ mappings:
 ## Create an API mapping
 
 To create an API mapping, you must first create a custom domain name, API, and stage. For information about
-creating a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 For example AWS Serverless Application Model templates that create all resources, see
 [Sessions With

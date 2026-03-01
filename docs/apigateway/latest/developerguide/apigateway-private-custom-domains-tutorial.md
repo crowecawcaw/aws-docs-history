@@ -137,9 +137,7 @@ The output will like the following.
 }
 ```
 
-## Step 2: Create a base path mapping to map your
-
-private API to your private custom domain name
+## Step 2: Create a base path mapping to map your private API to your private custom domain name
 
 After you create your private custom domain name, you map a private API to it. A base path mapping makes an
 API accessible through the combination of the private custom domain name and an associated base path. We
@@ -183,17 +181,14 @@ The output will look like the following.
 
 For more flexibility on how you route traffic to your APIs, you can change the routing mode to
 `ROUTING_RULE_ONLY` or `ROUTING_RULE_THEN_API_MAPPING` and create a routing rule. For
-more information, see [Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 
 ###### Note
 
 If you want other AWS accounts to invoke your private custom domain name, after you complete this
 tutorial, follow the steps in [API provider: Share your private custom domain name using AWS RAM](apigateway-private-custom-domains-provider-share.md "apigateway-private-custom-domains-provider-share.md").
 
-## Step 3: Create a domain name
-
-access association between your custom domain name and a VPC endpoint
+## Step 3: Create a domain name access association between your custom domain name and a VPC endpoint
 
 Next, you create a domain name access association between your private custom domain name and your VPC
 endpoint. Your VPC endpoint uses the domain name access association to invoke your private custom domain name

@@ -1,6 +1,4 @@
-# Control
-
-access to API documentation in API Gateway
+# Control access to API documentation in API Gateway
 
 If you have a dedicated documentation team to write and edit your API documentation,
 you can configure separate access permissions for your developers (for API development)
@@ -38,5 +36,4 @@ JSON
 
 ```
 
-For information on setting permissions to access API Gateway resources, see [How Amazon API Gateway works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+For information on setting permissions to access API Gateway resources, see [How Amazon API Gateway works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").

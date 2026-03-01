@@ -17,14 +17,11 @@ For best practices to consider, see [Best practices for API keys and usage plans
 
 ###### Topics
 
-- [Require an API key
-  on a method](#api-gateway-usage-plan-configure-apikey-on-method "#api-gateway-usage-plan-configure-apikey-on-method")
+- [Require an API key on a method](#api-gateway-usage-plan-configure-apikey-on-method "#api-gateway-usage-plan-configure-apikey-on-method")
 - [Create an API key](#api-gateway-usage-plan-create-apikey "#api-gateway-usage-plan-create-apikey")
 - [Import API keys](#api-gateway-usage-pan-import-apikey "#api-gateway-usage-pan-import-apikey")
 
-## Require an API key
-
-on a method
+## Require an API key on a method
 
 The following procedure describes how to configure an API method to require an API
 key.

@@ -1,6 +1,4 @@
-# Control
-
-access for invoking an API
+# Control access for invoking an API
 
 In this section, you learn about the permissions model for controlling access to your API using IAM
 permissions. When IAM authorization is
@@ -13,19 +11,14 @@ For more information, see
 In this section, we show a template IAM policy statement and the policy statement reference. The policy statement
 reference includes the formats of `Action` and `Resource` fields related to the API execution service. Use these references to create your IAM policy
 statement. When you create your IAM policy statement, you might need to consider the how API Gateway resource policies
-affect the authorization workflow. For more information, see [How API Gateway resource policies affect
-authorization workflow](apigateway-authorization-flow.md "apigateway-authorization-flow.md").
+affect the authorization workflow. For more information, see [How API Gateway resource policies affect authorization workflow](apigateway-authorization-flow.md "apigateway-authorization-flow.md").
 
 For private APIs, you should use a combination of an API Gateway resource policy and a VPC endpoint policy. For more information, see the following topics:
 
-- [Control access to a REST API with API Gateway
-  resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md")
-- [Use VPC endpoint policies for private
-  APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md")
+- [Control access to a REST API with API Gateway resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md")
+- [Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md")
 
-##
-
-Control who can call an API Gateway API method with IAM policies
+## Control who can call an API Gateway API method with IAM policies
 
 To control who can or cannot call a deployed API with IAM permissions, create
 an IAM policy document with required permissions. A template for such a policy
@@ -59,8 +52,7 @@ replaced by the operations supported by the API execution service.
 `METHOD_HTTP_VERB` stands for a HTTP
 verb supported by the specified resources. `Resource-path` is the placeholder for the
 URL path of a deployed API `Resource` instance supporting the said `METHOD_HTTP_VERB`. For more
-information, see [Statement reference of IAM
-policies for executing API in API Gateway](#api-gateway-calling-api-permissions "#api-gateway-calling-api-permissions").
+information, see [Statement reference of IAM policies for executing API in API Gateway](#api-gateway-calling-api-permissions "#api-gateway-calling-api-permissions").
 
 ###### Note
 
@@ -126,16 +118,12 @@ JSON
 
 ```
 
-## Statement reference of IAM
-
-policies for executing API in API Gateway
+## Statement reference of IAM policies for executing API in API Gateway
 
 The following information describes the Action and Resource format of IAM policy
 statements of access permissions for executing an API.
 
-### Action
-
-format of permissions for executing API in API Gateway
+### Action format of permissions for executing API in API Gateway
 
 The API-executing `Action` expression has the following general
 format:
@@ -199,5 +187,4 @@ Some example resource expressions include:
   with the identifier of `api-id` in the AWS
   region of us-east-1.
 
-To learn more, see [API Gateway Amazon Resource Name (ARN)
-reference](arn-format-reference.md "arn-format-reference.md").
+To learn more, see [API Gateway Amazon Resource Name (ARN) reference](arn-format-reference.md "arn-format-reference.md").

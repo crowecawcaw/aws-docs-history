@@ -9,16 +9,12 @@ request body by verifying that required request parameters are valid and non-nul
 
 ###### Topics
 
-- [Overview of basic
-  request validation in API Gateway](#api-gateway-request-validation-basic-definitions "#api-gateway-request-validation-basic-definitions")
+- [Overview of basic request validation in API Gateway](#api-gateway-request-validation-basic-definitions "#api-gateway-request-validation-basic-definitions")
 - [Data models for REST APIs](models-mappings-models.md "models-mappings-models.md")
-- [Set up basic request validation
-  in API Gateway](api-gateway-request-validation-set-up.md "api-gateway-request-validation-set-up.md")
+- [Set up basic request validation in API Gateway](api-gateway-request-validation-set-up.md "api-gateway-request-validation-set-up.md")
 - [AWS CloudFormation template of a sample API with basic request validation](api-gateway-request-validation-sample-cloudformation.md "api-gateway-request-validation-sample-cloudformation.md")
 
-## Overview of basic
-
-request validation in API Gateway
+## Overview of basic request validation in API Gateway
 
 API Gateway can perform the basic request validation, so that you can focus on app-specific validation in the backend. For validation, API Gateway verifies
 either or both of the following conditions:
@@ -36,8 +32,6 @@ individual API methods.
 
 ###### Note
 
-Request body validation and [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md") are two separate topics. When a request payload does not
+Request body validation and [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md") are two separate topics. When a request payload does not
 have a matching model schema, you can choose to passthrough or block the original payload. For more information,
-see [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
+see [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").

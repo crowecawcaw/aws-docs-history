@@ -14,21 +14,15 @@ For more information about selling your API as a SaaS product on AWS Marketplace
 
 ###### Topics
 
-- [Initialize AWS Marketplace
-  integration with API Gateway](#sell-api-as-saas-on-aws-marketplace-initial-setup "#sell-api-as-saas-on-aws-marketplace-initial-setup")
-- [Handle customer
-  subscription to usage plans](#sell-api-as-saas-on-aws-marketplace-subscription-unsubscription "#sell-api-as-saas-on-aws-marketplace-subscription-unsubscription")
+- [Initialize AWS Marketplace integration with API Gateway](#sell-api-as-saas-on-aws-marketplace-initial-setup "#sell-api-as-saas-on-aws-marketplace-initial-setup")
+- [Handle customer subscription to usage plans](#sell-api-as-saas-on-aws-marketplace-subscription-unsubscription "#sell-api-as-saas-on-aws-marketplace-subscription-unsubscription")
 
-## Initialize AWS Marketplace
-
-integration with API Gateway
+## Initialize AWS Marketplace integration with API Gateway
 
 The following tasks are for one-time initialization of AWS Marketplace integration with API Gateway,
 which enables you to sell your APIs as a SaaS product.
 
-### List
-
-a product on AWS Marketplace
+### List a product on AWS Marketplace
 
 To list your usage plan as a SaaS product, submit a product load form through
 [AWS Marketplace](https://aws.amazon.com/marketplace/partners/management-tour "https://aws.amazon.com/marketplace/partners/management-tour"). The
@@ -106,9 +100,7 @@ Authorization: ...
 }
 ```
 
-## Handle customer
-
-subscription to usage plans
+## Handle customer subscription to usage plans
 
 The following tasks are handled by your developer portal application.
 

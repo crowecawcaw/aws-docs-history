@@ -1,6 +1,4 @@
-# Access policy
-
-language overview for Amazon API Gateway
+# Access policy language overview for Amazon API Gateway
 
 This page describes the basic elements used in Amazon API Gateway resource policies.
 
@@ -11,9 +9,7 @@ the _IAM User Guide_.
 For information about how an AWS service decides whether a given request should be
 allowed or denied, see [Determining Whether a Request is Allowed or Denied](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow").
 
-## Common elements in
-
-an access policy
+## Common elements in an access policy
 
 In its most basic sense, a resource policy contains the following elements:
 
@@ -22,8 +18,7 @@ In its most basic sense, a resource policy contains the following elements:
   the Amazon Resource Name (ARN) to identify the resource. You can also use
   abbreviated syntax, which API Gateway automatically expands to the full
   ARN when you save a resource policy. To learn more, see
-  [API Gateway resource policy
-  examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
+  [API Gateway resource policy examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
 
 For the format of the full `Resource` element, see [Resource format of permissions for executing API in API Gateway](api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-resource-format-for-executing-api "api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-resource-format-for-executing-api").
 
@@ -34,8 +29,7 @@ For the format of the full `Resource` element, see [Resource format of permissio
 For example, the `execute-api:Invoke` permission will allow the
 user permission to invoke an API upon a client request.
 
-For the format of the `Action` element, see [Action
-format of permissions for executing API in API Gateway](api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-action-format-for-executing-api "api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-action-format-for-executing-api").
+For the format of the `Action` element, see [Action format of permissions for executing API in API Gateway](api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-action-format-for-executing-api "api-gateway-control-access-using-iam-policies-to-invoke-api.md#api-gateway-iam-policy-action-format-for-executing-api").
 
 - **Effect** – What the effect is when
   the user requests the specific action—this can be either

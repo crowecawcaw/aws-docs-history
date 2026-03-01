@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API as an
-
-Amazon Kinesis proxy
+# Tutorial: Create a REST API as an Amazon Kinesis proxy
 
 This page describes how to create and configure a REST API with an integration of
 the `AWS` type to access Kinesis.
@@ -58,12 +56,9 @@ following:
 
 Instead of using the API Gateway console to create the sample API, you can import the sample
 API into API Gateway using the API Gateway [Import
-API](../api/API_ImportRestApi.md "../api/API_ImportRestApi.md"). For information on how to use the Import API, see [Develop REST APIs using
-OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
+API](../api/API_ImportRestApi.md "../api/API_ImportRestApi.md"). For information on how to use the Import API, see [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
 
-## Create an IAM role
-
-and policy for the API to access Kinesis
+## Create an IAM role and policy for the API to access Kinesis
 
 To allow the API to invoke Kinesis actions, you must have the appropriate IAM policies attached to an IAM role. In this step, you create a new IAM role.
 
@@ -88,9 +83,7 @@ To allow the API to invoke Kinesis actions, you must have the appropriate IAM po
 
 This tutorial uses a managed policy for simplicity. As a best practice, you should create your own IAM policy to grant the minimum permissions required. 11. Note the newly created **Role ARN**, you will use it later.
 
-## Create an API as a
-
-Kinesis proxy
+## Create an API as a Kinesis proxy
 
 Use the following steps to create the API in the API Gateway console.
 
@@ -230,9 +223,7 @@ OK response containing the following payload:
 
 ```
 
-## Create, describe, and delete
-
-a stream in Kinesis
+## Create, describe, and delete a stream in Kinesis
 
 Creating, describing, and deleting a stream in Kinesis involves making the following
 Kinesis REST API requests, respectively:
@@ -513,9 +504,7 @@ X-Amz-Date: 20160323T194451Z
 
 ```
 
-## Get records from and add
-
-records to a stream in Kinesis
+## Get records from and add records to a stream in Kinesis
 
 After you create a stream in Kinesis, you can add data records to the stream and read
 the data from the stream. Adding data records involves calling the [PutRecords](../../../kinesis/latest/APIReference/API_PutRecords.md#API_PutRecords_Examples "../../../kinesis/latest/APIReference/API_PutRecords.md#API_PutRecords_Examples") or [PutRecord](../../../kinesis/latest/APIReference/API_PutRecord.md#API_PutRecord_Examples "../../../kinesis/latest/APIReference/API_PutRecord.md#API_PutRecord_Examples") action in Kinesis. The former adds multiple records whereas the
@@ -636,10 +625,7 @@ method on a `ShardIterator` resource (`/sharditerator`).
 The following four procedures describe how to set up each of the methods, how to map
 data from the method requests to the integration requests, and how to test the methods.
 
-###### To
-
-set up and test the `PUT /streams/{stream-name}/record` method to invoke
-`PutRecord` in Kinesis:
+###### To set up and test the `PUT /streams/{stream-name}/record` method to invoke `PutRecord` in Kinesis:
 
 1. Choose the **/record**, and then choose **Create method**.
 2. For **Method type**, select **PUT**.
@@ -718,9 +704,7 @@ following format:
 
 ```
 
-###### To set up and test the `PUT /streams/{stream-name}/records` method to
-
-invoke `PutRecords` in Kinesis
+###### To set up and test the `PUT /streams/{stream-name}/records` method to invoke `PutRecords` in Kinesis
 
 1. Choose the **/records** resource, and then choose **Create method**.
 2. For **Method type**, select **PUT**.
@@ -836,9 +820,7 @@ following output:
 }
 ```
 
-###### To set up and test the `GET /streams/{stream-name}/sharditerator`
-
-method invoke `GetShardIterator` in Kinesis
+###### To set up and test the `GET /streams/{stream-name}/sharditerator` method invoke `GetShardIterator` in Kinesis
 
 The `GET /streams/{stream-name}/sharditerator` method is a helper
 method to acquire a required shard iterator before calling the `GET
@@ -897,9 +879,7 @@ The successful response payload is similar to the following output:
 Make note of the `ShardIterator` value. You need it to get records
 from a stream.
 
-###### To configure and test the `GET /streams/{stream-name}/records` method
-
-to invoke the `GetRecords` action in Kinesis
+###### To configure and test the `GET /streams/{stream-name}/records` method to invoke the `GetRecords` action in Kinesis
 
 1. Choose the **/records** resource, and then choose **Create method**.
 2. For **Method type**, select **GET**.

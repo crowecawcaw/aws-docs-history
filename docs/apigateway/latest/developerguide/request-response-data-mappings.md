@@ -3,9 +3,7 @@
 The following examples show how to create parameter mapping expressions using the API Gateway console, OpenAPI, and
 CloudFormation templates. For an example of how to use parameter mapping to create the required CORS headers, see [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md").
 
-## Example 1: Map a method request parameter to an
-
-integration request parameter
+## Example 1: Map a method request parameter to an integration request parameter
 
 The following example maps the method request header parameter `puppies` to the integration request header parameter
 `DogsAge0`.
@@ -143,9 +141,7 @@ OpenAPI
 }
 ```
 
-## Example 2: Map multiple method request parameters to
-
-different integration request parameters
+## Example 2: Map multiple method request parameters to different integration request parameters
 
 The following example maps the multi-value method request query string parameter
 `methodRequestQueryParam` to the integration request query

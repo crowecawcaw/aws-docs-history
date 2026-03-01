@@ -9,8 +9,7 @@ An API mapping specifies an API, a stage, and optionally a path to use for the m
 You can map HTTP and REST API stages to the same custom domain name.
 
 Before you create an API mapping, you must have an API, a stage, and a custom domain name. To learn more about
-creating a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 ## Incoming requests to your custom domain name
 

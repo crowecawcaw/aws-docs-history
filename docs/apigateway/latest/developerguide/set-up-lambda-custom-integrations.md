@@ -1,6 +1,4 @@
-# Set up Lambda custom integrations in
-
-API Gateway
+# Set up Lambda custom integrations in API Gateway
 
 To show how to set up the Lambda custom, or non-proxy,integration, we create an API Gateway API to expose
 the `GET /greeting?greeter={name}` method to invoke a Lambda function. Use one of the following example Lambda functions for you API.
@@ -76,9 +74,7 @@ arn:aws:lambda:us-east-1:123456789012:function:HelloWorld
 
 With the Lambda function set in the backend, proceed to set up the API.
 
-###### To set up the Lambda custom
-
-integration using the AWS CLI
+###### To set up the Lambda custom integration using the AWS CLI
 
 1. Use the following [create-rest-api](../../../cli/latest/reference/apigateway/create-rest-api.md "../../../cli/latest/reference/apigateway/create-rest-api.md")
    command to create an API:

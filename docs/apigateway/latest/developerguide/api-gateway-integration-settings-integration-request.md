@@ -1,6 +1,4 @@
-# Set up an
-
-integration request in API Gateway
+# Set up an integration request in API Gateway
 
 To set up an integration request, you perform the following required and optional
 tasks:
@@ -30,11 +28,7 @@ tasks:
 
 ###### Topics
 
-- [Basic tasks of an API integration
-  request](integration-request-basic-setup.md "integration-request-basic-setup.md")
-- [Choose an API Gateway API integration
-  type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md")
-- [Set up a proxy integration with a proxy
-  resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md")
-- [Set up an API integration request
-  using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md")
+- [Basic tasks of an API integration request](integration-request-basic-setup.md "integration-request-basic-setup.md")
+- [Choose an API Gateway API integration type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md")
+- [Set up a proxy integration with a proxy resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md")
+- [Set up an API integration request using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md")

@@ -1,6 +1,4 @@
-# WebSocket selection
-
-expressions
+# WebSocket selection expressions
 
 API Gateway uses selection expressions as a way to evaluate request and response context and
 produce a key. The key is then used to select from a set of possible values, typically
@@ -24,18 +22,12 @@ For all of the expressions, the language follows the same set of rules:
 
 ###### Topics
 
-- [Route
-  response selection expressions](#apigateway-websocket-api-route-response-selection-expressions "#apigateway-websocket-api-route-response-selection-expressions")
-- [API key
-  selection expressions](#apigateway-websocket-api-apikey-selection-expressions "#apigateway-websocket-api-apikey-selection-expressions")
-- [API mapping
-  selection expressions](#apigateway-websocket-api-mapping-selection-expressions "#apigateway-websocket-api-mapping-selection-expressions")
-- [WebSocket
-  selection expression summary](#apigateway-websocket-api-selection-expression-table "#apigateway-websocket-api-selection-expression-table")
+- [Route response selection expressions](#apigateway-websocket-api-route-response-selection-expressions "#apigateway-websocket-api-route-response-selection-expressions")
+- [API key selection expressions](#apigateway-websocket-api-apikey-selection-expressions "#apigateway-websocket-api-apikey-selection-expressions")
+- [API mapping selection expressions](#apigateway-websocket-api-mapping-selection-expressions "#apigateway-websocket-api-mapping-selection-expressions")
+- [WebSocket selection expression summary](#apigateway-websocket-api-selection-expression-table "#apigateway-websocket-api-selection-expression-table")
 
-## Route
-
-response selection expressions
+## Route response selection expressions
 
 A [route response](apigateway-websocket-api-route-response.md "apigateway-websocket-api-route-response.md") is
 used for modeling a response from the backend to the client. For WebSocket APIs, a route
@@ -46,9 +38,7 @@ Evaluation of the _route response selection expression_ produces a
 route response key. Eventually, this key will be used to choose from one of the [`RouteResponses`](../../../apigatewayv2/latest/api-reference/apis-apiid-routes-routeid-routeresponses.md "../../../apigatewayv2/latest/api-reference/apis-apiid-routes-routeid-routeresponses.md") associated with the API. However, currently
 only the `$default` key is supported.
 
-## API key
-
-selection expressions
+## API key selection expressions
 
 This expression is evaluated when the service determines the given request should
 proceed only if the client provides a valid [API key](api-gateway-basic-concept.md#apigateway-definition-api-key "api-gateway-basic-concept.md#apigateway-definition-api-key").
@@ -56,18 +46,14 @@ proceed only if the client provides a valid [API key](api-gateway-basic-concept.
 Currently the only two supported values are `$request.header.x-api-key` and
 `$context.authorizer.usageIdentifierKey`.
 
-## API mapping
-
-selection expressions
+## API mapping selection expressions
 
 This expression is evaluated to determine which API stage is selected when a request
 is made using a custom domain.
 
 Currently, the only supported value is `$request.basepath`.
 
-## WebSocket
-
-selection expression summary
+## WebSocket selection expression summary
 
 The following table summarizes the use cases for selection expressions in WebSocket
 APIs:

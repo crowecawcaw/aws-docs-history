@@ -1,13 +1,9 @@
-# Troubleshooting issues with HTTP API Lambda
-
-integrations
+# Troubleshooting issues with HTTP API Lambda integrations
 
 The following provides troubleshooting advice for errors and issues that you might
 encounter when using [AWS Lambda integrations](http-api-develop-integrations-lambda.md "http-api-develop-integrations-lambda.md") with HTTP APIs.
 
-## Issue: My API with a Lambda integration
-
-returns `{"message":"Internal Server Error"}`
+## Issue: My API with a Lambda integration returns `{"message":"Internal Server Error"}`
 
 To troubleshoot the internal server error, add the
 `$context.integrationErrorMessage`

@@ -1,6 +1,4 @@
-# Set up a method request in
-
-API Gateway
+# Set up a method request in API Gateway
 
 Setting up a method request involves performing the following tasks, after creating a
 [RestApi](../api/API_RestApi.md "../api/API_RestApi.md") resource:
@@ -29,13 +27,10 @@ Setting up a method request involves performing the following tasks, after creat
 
 - [Set up API resources](#setup-method-resources "#setup-method-resources")
 - [Set up an HTTP method](#setup-method-add-http-method "#setup-method-add-http-method")
-- [Set up method request
-  parameters](#setup-method-request-parameters "#setup-method-request-parameters")
+- [Set up method request parameters](#setup-method-request-parameters "#setup-method-request-parameters")
 - [Set up a method request model](#setup-method-request-model "#setup-method-request-model")
-- [Set up method request
-  authorization](#setup-method-request-authorization "#setup-method-request-authorization")
-- [Set up method request
-  validation](#setup-method-request-validation "#setup-method-request-validation")
+- [Set up method request authorization](#setup-method-request-authorization "#setup-method-request-authorization")
+- [Set up method request validation](#setup-method-request-validation "#setup-method-request-validation")
 
 ## Set up API resources
 
@@ -143,9 +138,7 @@ The output will look like the following:
 }
 ```
 
-### Use a proxy resource to streamline
-
-API setup
+### Use a proxy resource to streamline API setup
 
 As business grows, the PetStore owner may decide to add food, toys, and other
 pet-related items for sale. To support this, you can add `/food`,
@@ -271,12 +264,9 @@ aws apigateway put-method --rest-api-id vaz7da96z6 \
     --authorization-type AWS_IAM
 ```
 
-To create an API method request with a different authorization type, see [Set up method request
-authorization](#setup-method-request-authorization "#setup-method-request-authorization").
+To create an API method request with a different authorization type, see [Set up method request authorization](#setup-method-request-authorization "#setup-method-request-authorization").
 
-## Set up method request
-
-parameters
+## Set up method request parameters
 
 Method request parameters are a way for a client to provide input data or
 execution context necessary to complete the method request. A method parameter can
@@ -331,8 +321,7 @@ age:puppy
 ```
 
 For information on how to map method request parameters to integration request
-parameters, see [Integrations for REST APIs
-in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md").
+parameters, see [Integrations for REST APIs in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md").
 
 ## Set up a method request model
 
@@ -375,9 +364,7 @@ model, the input data in the generated SDK is cast into the `Empty`
 class, which is derived from the default `Empty` model. In this case, the
 client cannot instantiate the correct data class to provide the required input.
 
-## Set up method request
-
-authorization
+## Set up method request authorization
 
 To control who can call the API method, you can configure the [authorization type](../api/API_Method.md#authorizationType "../api/API_Method.md#authorizationType")
 on the method. You can use this type to enact one of the supported authorizers,
@@ -433,12 +420,9 @@ To use an Amazon Cognito user pool to authorize access to the API method, set th
 `authorization-type` input property to
 `COGNITO_USER_POOLS` and set the [`authorizer-id`](../api/API_Method.md#authorizerId "../api/API_Method.md#authorizerId") input property to the [`id`](../api/API_Authorizer.md#id "../api/API_Authorizer.md#id") property
 value of the `COGNITO_USER_POOLS` authorizer that was already created.
-For information about creating an Amazon Cognito user pool authorizer, see [Control access to REST APIs using
-Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
+For information about creating an Amazon Cognito user pool authorizer, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
 
-## Set up method request
-
-validation
+## Set up method request validation
 
 You can enable request validation when setting up an API method request. You need to first create a [request validator](../api/API_RequestValidator.md "../api/API_RequestValidator.md"). The following [create-request-validator](../../../cli/latest/reference/apigateway/create-request-validator.md "../../../cli/latest/reference/apigateway/create-request-validator.md") command creates a
 body-only request validator.

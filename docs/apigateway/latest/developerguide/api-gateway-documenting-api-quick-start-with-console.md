@@ -1,6 +1,4 @@
-# Document an API
-
-using the API Gateway console
+# Document an API using the API Gateway console
 
 In this section, we describe how to create and maintain documentation parts of an API
 using the API Gateway console.
@@ -8,8 +6,7 @@ using the API Gateway console.
 A prerequisite for creating and editing the documentation of an API is that you must
 have already created the API. In this section, we use the [PetStore](http://petstore-demo-endpoint.execute-api.com/petstore/pets "http://petstore-demo-endpoint.execute-api.com/petstore/pets")
 API as an example. To create an API using the API Gateway console, follow the instructions in
-[Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
+[Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
 
 ###### Topics
 

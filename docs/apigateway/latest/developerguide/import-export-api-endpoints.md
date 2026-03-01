@@ -7,19 +7,14 @@ When you export an API, the API endpoint configuration is not included in the ex
 definitions.
 
 For a tutorial on using the Import API feature
-from the API Gateway console, see [Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
+from the API Gateway console, see [Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
 
 ###### Topics
 
-- [Import a regional API using the API Gateway
-  console](#import-regional-api-with-console "#import-regional-api-with-console")
-- [Import a regional API using the
-  AWS CLI](#import-regional-api-with-awscli "#import-regional-api-with-awscli")
+- [Import a regional API using the API Gateway console](#import-regional-api-with-console "#import-regional-api-with-console")
+- [Import a regional API using the AWS CLI](#import-regional-api-with-awscli "#import-regional-api-with-awscli")
 
-## Import a regional API using the API Gateway
-
-console
+## Import a regional API using the API Gateway console
 
 To import an API of a regional endpoint using the API Gateway console, do the
 following:
@@ -35,9 +30,7 @@ following:
 6. Choose **Create API** to start importing the OpenAPI
    definitions.
 
-## Import a regional API using the
-
-AWS CLI
+## Import a regional API using the AWS CLI
 
 The following [import-rest-api](../../../cli/latest/reference/apigateway/import-rest-api.md "../../../cli/latest/reference/apigateway/import-rest-api.md") command
 imports an OpenAPI definition file and sets the endpoint type to Regional:

@@ -19,10 +19,8 @@ your API only by using a custom domain name with mutual TLS, disable the default
 ###### Topics
 
 - [Prerequisites for mutual TLS](#rest-api-mutual-tls-prerequisites "#rest-api-mutual-tls-prerequisites")
-- [Configuring mutual TLS for a custom domain
-  name](#rest-api-mutual-tls-configure "#rest-api-mutual-tls-configure")
-- [Invoke an API by using a custom domain
-  name that requires mutual TLS](#rest-api-mutual-tls-invoke "#rest-api-mutual-tls-invoke")
+- [Configuring mutual TLS for a custom domain name](#rest-api-mutual-tls-configure "#rest-api-mutual-tls-configure")
+- [Invoke an API by using a custom domain name that requires mutual TLS](#rest-api-mutual-tls-invoke "#rest-api-mutual-tls-invoke")
 - [Updating your truststore](#rest-api-mutual-tls-update-truststore "#rest-api-mutual-tls-update-truststore")
 - [Disable mutual TLS](#rest-api-mutual-tls-disable "#rest-api-mutual-tls-disable")
 - [Troubleshoot mutual TLS for your REST API](#rest-api-mutual-tls-troubleshooting "#rest-api-mutual-tls-troubleshooting")
@@ -40,8 +38,7 @@ To configure mutual TLS you need:
 To enable mutual TLS for a REST API, you must configure a custom domain name for your API. You
 can enable mutual TLS for a custom domain name, and then provide the custom domain name to clients. To access an
 API by using a custom domain name that has mutual TLS enabled, clients must present certificates that you trust
-in API requests. You can find more information at [Custom domain name for public
-REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md").
+in API requests. You can find more information at [Custom domain name for public REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md").
 
 ### Using AWS Certificate Manager issued certificates
 
@@ -116,14 +113,11 @@ The following [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/r
 aws s3 cp `certificates.pem` s3://`bucket-name`
 ```
 
-## Configuring mutual TLS for a custom domain
-
-name
+## Configuring mutual TLS for a custom domain name
 
 To configure mutual TLS for a REST API, you must use a Regional custom domain
 name for your API, with a `TLS_1_2` security policy. For more information about choosing a security policy,
-see [Choose a security policy for
-your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
+see [Choose a security policy for your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md").
 
 ###### Note
 
@@ -143,12 +137,9 @@ aws apigateway create-domain-name --region `us-east-2` \
 ```
 
 After you create the domain name, you must configure DNS records and basepath mappings for
-API operations. To learn more, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+API operations. To learn more, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
-## Invoke an API by using a custom domain
-
-name that requires mutual TLS
+## Invoke an API by using a custom domain name that requires mutual TLS
 
 To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When
 a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For

@@ -1,6 +1,4 @@
-# Optimize performance of
-
-REST APIs
+# Optimize performance of REST APIs
 
 After you've made your API available to be called, you might realize that it needs to be
 optimized to improve responsiveness. API Gateway provides a few strategies for optimizing your

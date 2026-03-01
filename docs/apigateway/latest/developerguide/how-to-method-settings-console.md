@@ -1,6 +1,4 @@
-# Set up an API integration request
-
-using the API Gateway console
+# Set up an API integration request using the API Gateway console
 
 An API method setup defines the method and describes its behaviors. To set up a
 method, you must specify a resource, including the root ("/"), on which the method
@@ -29,8 +27,7 @@ an `AWS_PROXY` integration type if you create a proxy integration.
 1. In the **Resources** pane, choose **Create method**.
 2. For **Method type**, select an HTTP method.
 3. For **Integration type**, choose **Lambda function**.
-4. To use a Lambda proxy integration, turn on **Lambda proxy integration**. To learn more about Lambda proxy integrations, see [Understand API Gateway Lambda proxy
-   integration](set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy "set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy").
+4. To use a Lambda proxy integration, turn on **Lambda proxy integration**. To learn more about Lambda proxy integrations, see [Understand API Gateway Lambda proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy "set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy").
 5. For **Lambda function**, enter the name of the Lambda function.
 
 If you are
@@ -38,8 +35,7 @@ using a Lambda function in a different Region than your API, select the Region f
 menu and enter the name of the Lambda function. If you are using a cross-account Lambda function, enter the function ARN. 6. To use the default timeout value of 29 seconds, keep
 **Default timeout** turned on. To
 set a custom timeout, choose **Default timeout** and enter a timeout value
-between `50` and `29000` milliseconds. 7. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method
-request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
+between `50` and `29000` milliseconds. 7. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
 
 You can also configure your method request settings after you create your method. 8. Choose **Create method**.
 
@@ -63,8 +59,7 @@ Use an HTTP integration to integrate your API with an HTTP endpoint. At the API 
    **Default timeout** turned on. To
    set a custom timeout, choose **Default timeout** and enter a timeout value
    between `50` and `29000` milliseconds.
-9. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method
-   request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
+9. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
 
 You can also configure your method request settings after you create your method. 10. Choose **Create method**.
 
@@ -110,11 +105,9 @@ You must choose
 10. For **Execution role**, enter the ARN of the IAM
     role that the method will use to call the action.
 
-To create the IAM role, you can adapt the instructions in [Step 1: Create the AWS service proxy
-execution role](getting-started-aws-proxy.md#getting-started-aws-proxy-add-roles "getting-started-aws-proxy.md#getting-started-aws-proxy-add-roles"). Specify an access policy
+To create the IAM role, you can adapt the instructions in [Step 1: Create the AWS service proxy execution role](getting-started-aws-proxy.md#getting-started-aws-proxy-add-roles "getting-started-aws-proxy.md#getting-started-aws-proxy-add-roles"). Specify an access policy
 with the desired number of action and resource
-statements. For more information, see [How Amazon API Gateway works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+statements. For more information, see [How Amazon API Gateway works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 For the action and resource statement syntax, see the
 documentation for the AWS service you chose for **AWS
@@ -147,8 +140,7 @@ JSON
     **Default timeout** turned on. To
     set a custom timeout, choose **Default timeout** and enter a timeout value
     between `50` and `29000` milliseconds.
-12. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method
-    request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
+12. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
 
 You can also configure your method request settings after you create your method. 13. Choose **Create method**.
 
@@ -168,7 +160,6 @@ headers for the applied API resource.
 1. In the **Resources** pane, choose **Create method**.
 2. For **Method type**, select an HTTP method.
 3. For **Integration type**, choose **Mock**.
-4. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method
-   request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
+4. (Optional) You can configure the method request settings using the following dropdown menus. Choose **Method request settings** and configure your method request. For more information, see step 3 of [Edit an API Gateway method request in the API Gateway console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console").
 
 You can also configure your method request settings after you create your method. 5. Choose **Create method**.

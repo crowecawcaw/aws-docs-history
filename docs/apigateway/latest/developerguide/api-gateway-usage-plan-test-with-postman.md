@@ -1,7 +1,6 @@
 # Test usage plans for REST APIs in API Gateway
 
-As an example, let's use the PetStore API, which was created in [Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md"). Assume that the API is
+As an example, let's use the PetStore API, which was created in [Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md"). Assume that the API is
 configured to use an API key of `Hiorr45VR...c4GJc`. The following steps
 describe how to test a usage plan.
 

@@ -205,10 +205,8 @@ model is provided, API Gateway uses the empty model to create a default UDT.
 You
 can follow the request validation tutorials:
 
-    + [Set up request validation using the
-     API Gateway console](api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-in-console "api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-in-console")
+    + [Set up request validation using the API Gateway console](api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-in-console "api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-in-console")
     + [Set up basic request validation using the AWS CLI](api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-cli "api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-cli")
-    + [Set up
-     basic request validation using an OpenAPI definition](api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-importing-swagger "api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-importing-swagger")
+    + [Set up basic request validation using an OpenAPI definition](api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-importing-swagger "api-gateway-request-validation-set-up.md#api-gateway-request-validation-setup-importing-swagger")
 
 - For more information about data transformation and mapping templates, [Mapping template transformations for REST APIs in API Gateway](models-mappings.md "models-mappings.md").

@@ -38,9 +38,7 @@ following table shows the default security policy for these resources.
 | Edge-optimized domain | TLS_1_2                          |
 | Private domain        | TLS_1_2                          |
 
-## Supported security policies for Regional and private
-
-APIs and custom domain names
+## Supported security policies for Regional and private APIs and custom domain names
 
 The following table describes the security policies that can be specified for Regional and private
 APIs and custom domain names:
@@ -54,9 +52,7 @@ APIs and custom domain names:
 | TLS_1_2                                 | TLS1.3<br>TLS1.2                     | TLS1.3<br>• TLS_AES_128_GCM_SHA256<br>• TLS_AES_256_GCM_SHA384<br>• TLS_CHACHA20_POLY1305_SHA256<br>TLS1.2<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• AES128-GCM-SHA256<br>• AES128-SHA256<br>• AES256-GCM-SHA384<br>• AES256-SHA256                                                                                                                                                    |
 | TLS_1_0                                 | TLS1.3<br>TLS1.2<br>TLS1.1<br>TLS1.0 | TLS1.3<br>• TLS_AES_128_GCM_SHA256<br>• TLS_AES_256_GCM_SHA384<br>• TLS_CHACHA20_POLY1305_SHA256<br>TLS1.0-TLS1.2<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-ECDSA-AES128-SHA<br>• ECDHE-RSA-AES128-SHA<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• ECDHE-ECDSA-AES256-SHA<br>• ECDHE-RSA-AES256-SHA<br>• AES128-GCM-SHA256<br>• AES128-SHA256<br>• AES128-SHA<br>• AES256-GCM-SHA384<br>• AES256-SHA256<br>• AES256-SHA |
 
-## Supported security policies for edge-optimized
-
-APIs and custom domain names
+## Supported security policies for edge-optimized APIs and custom domain names
 
 The following table describes the security policies that can be specified for edge-optimized
 APIs and edge-optimized custom domain names:
@@ -68,9 +64,7 @@ APIs and edge-optimized custom domain names:
 | SecurityPolicy_TLS12_2018_EDGE     | TLS1.3<br>TLS1.2                     | TLS1.3<br>• TLS_AES_128_GCM_SHA256<br>• TLS_AES_256_GCM_SHA384<br>• TLS_CHACHA20_POLY1305_SHA256<br>TLS1.2<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-CHACHA20-POLY1305<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-RSA-CHACHA20-POLY1305<br>• ECDHE-RSA-AES256-SHA384                                                                                   |
 | TLS_1_0                            | TLS1.3<br>TLS1.2<br>TLS1.1<br>TLS1.0 | TLS1.3<br>• TLS_AES_128_GCM_SHA256<br>• TLS_AES_256_GCM_SHA384<br>• TLS_CHACHA20_POLY1305_SHA256<br>TLS1.0-TLS1.2<br>• ECDHE-ECDSA-AES128-GCM-SHA256<br>• ECDHE-RSA-AES128-GCM-SHA256<br>• ECDHE-ECDSA-AES128-SHA256<br>• ECDHE-RSA-AES128-SHA256<br>• ECDHE-ECDSA-AES128-SHA<br>• ECDHE-RSA-AES128-SHA<br>• ECDHE-ECDSA-AES256-GCM-SHA384<br>• ECDHE-RSA-AES256-GCM-SHA384<br>• ECDHE-ECDSA-AES256-SHA384<br>• ECDHE-RSA-AES256-SHA384<br>• ECDHE-ECDSA-AES256-SHA<br>• ECDHE-RSA-AES256-SHA<br>• AES256-SHA256<br>• AES256-SHA |
 
-## OpenSSL and
-
-RFC cipher names
+## OpenSSL and RFC cipher names
 
 OpenSSL and IETF RFC 5246 use different names
 for the same ciphers. The following table maps the OpenSSL name to the RFC name for

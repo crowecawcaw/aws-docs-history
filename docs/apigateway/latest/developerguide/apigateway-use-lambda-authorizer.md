@@ -283,9 +283,7 @@ In production code, you might need to authenticate the user before granting auth
 add authentication logic in the Lambda function by calling an authentication provider as directed in
 the documentation for that provider.
 
-## Example `TOKEN` authorizer
-
-Lambda function
+## Example `TOKEN` authorizer Lambda function
 
 The following example code creates a `TOKEN` Lambda authorizer function that allows a caller to invoke a
 method if the client-supplied token value is `allow`. The caller is not allowed to invoke the request if the token

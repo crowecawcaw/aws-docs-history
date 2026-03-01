@@ -1,6 +1,4 @@
-# Set up asynchronous invocation of the
-
-backend Lambda function
+# Set up asynchronous invocation of the backend Lambda function
 
 In Lambda non-proxy (custom) integration, the backend Lambda
 function is invoked synchronously by default. This is the desired behavior for most REST

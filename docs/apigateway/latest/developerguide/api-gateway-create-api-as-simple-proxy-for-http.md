@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API with an HTTP
-
-proxy integration
+# Tutorial: Create a REST API with an HTTP proxy integration
 
 HTTP proxy integration is a simple, powerful, and versatile mechanism to build an API that
 allows a web application to access multiple resources or features of the integrated HTTP
@@ -29,21 +27,16 @@ placeholder of `ANY`.
 
 ###### Topics
 
-- [Create an API
-  with HTTP proxy integration using the API Gateway console](#api-gateway-create-api-as-simple-proxy-for-http-build "#api-gateway-create-api-as-simple-proxy-for-http-build")
-- [Test an API with
-  HTTP proxy integration](#api-gateway-create-api-as-simple-proxy-for-http-test "#api-gateway-create-api-as-simple-proxy-for-http-test")
+- [Create an API with HTTP proxy integration using the API Gateway console](#api-gateway-create-api-as-simple-proxy-for-http-build "#api-gateway-create-api-as-simple-proxy-for-http-build")
+- [Test an API with HTTP proxy integration](#api-gateway-create-api-as-simple-proxy-for-http-test "#api-gateway-create-api-as-simple-proxy-for-http-test")
 
-## Create an API
-
-with HTTP proxy integration using the API Gateway console
+## Create an API with HTTP proxy integration using the API Gateway console
 
 The following procedure walks you through the steps to create and test an API with a
 proxy resource for an HTTP backend using the API Gateway console. The HTTP backend is the
 `PetStore` website
 (`http://petstore-demo-endpoint.execute-api.com/petstore/pets`) from
-[Tutorial: Create a REST API with an HTTP non-proxy
-integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md"), in which screenshots are used
+[Tutorial: Create a REST API with an HTTP non-proxy integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md"), in which screenshots are used
 as visual aids to illustrate the API Gateway UI elements. If you are new to using the API Gateway
 console to create an API, you may want to follow that section first.
 
@@ -93,9 +86,7 @@ intervention from API Gateway.
 7. For **Endpoint URL**, enter `http://petstore-demo-endpoint.execute-api.com/{proxy}`.
 8. Choose **Save**.
 
-## Test an API with
-
-HTTP proxy integration
+## Test an API with HTTP proxy integration
 
 Whether a particular client request succeeds depends on the following:
 
@@ -111,9 +102,7 @@ In addition, the client must be able to handle the output format of the backend 
 order to parse the result correctly. API Gateway does not mediate to facilitate interactions
 between the client and backend.
 
-###### To test an API integrated with the PetStore website using HTTP proxy integration
-
-through the proxy resource
+###### To test an API integrated with the PetStore website using HTTP proxy integration through the proxy resource
 
 1. Select the **Test** tab. You might need to choose the right arrow button to show the tab.
 2. For **Method type**, select `GET`.

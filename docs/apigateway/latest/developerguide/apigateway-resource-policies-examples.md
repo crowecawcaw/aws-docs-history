@@ -1,6 +1,4 @@
-# API Gateway resource policy
-
-examples
+# API Gateway resource policy examples
 
 This page presents a few examples of typical use cases for API Gateway resource policies.
 
@@ -14,23 +12,16 @@ specify the resource
  Region, your AWS account ID, and the ID of the REST API that the resource
  policy is associated with. You can use`execute-api:/\*` to represent all
 stages, methods, and paths in the current API. For information about access policy
-language, see [Access policy
-language overview for Amazon API Gateway](apigateway-control-access-policy-language-overview.md "apigateway-control-access-policy-language-overview.md").
+language, see [Access policy language overview for Amazon API Gateway](apigateway-control-access-policy-language-overview.md "apigateway-control-access-policy-language-overview.md").
 
 ###### Topics
 
-- [Example: Allow
-  roles in another AWS account to use an API](#apigateway-resource-policies-cross-account-example "#apigateway-resource-policies-cross-account-example")
-- [Example:
-  Deny API traffic based on source IP address or range](#apigateway-resource-policies-source-ip-address-example "#apigateway-resource-policies-source-ip-address-example")
-- [Example: Deny API traffic based on source IP address or range when using a
-  private API](#apigateway-resource-policies-source-ip-address-vpc-example "#apigateway-resource-policies-source-ip-address-vpc-example")
-- [Example: Allow
-  private API traffic based on source VPC or VPC endpoint](#apigateway-resource-policies-source-vpc-example "#apigateway-resource-policies-source-vpc-example")
+- [Example: Allow roles in another AWS account to use an API](#apigateway-resource-policies-cross-account-example "#apigateway-resource-policies-cross-account-example")
+- [Example: Deny API traffic based on source IP address or range](#apigateway-resource-policies-source-ip-address-example "#apigateway-resource-policies-source-ip-address-example")
+- [Example: Deny API traffic based on source IP address or range when using a private API](#apigateway-resource-policies-source-ip-address-vpc-example "#apigateway-resource-policies-source-ip-address-vpc-example")
+- [Example: Allow private API traffic based on source VPC or VPC endpoint](#apigateway-resource-policies-source-vpc-example "#apigateway-resource-policies-source-vpc-example")
 
-## Example: Allow
-
-roles in another AWS account to use an API
+## Example: Allow roles in another AWS account to use an API
 
 The following example resource policy grants API access in one AWS account to two roles in a different
 AWS account via [Signature
@@ -63,9 +54,7 @@ JSON
 
 ```
 
-## Example:
-
-Deny API traffic based on source IP address or range
+## Example: Deny API traffic based on source IP address or range
 
 The following example resource policy denies (blocks)
 incoming traffic to an API from two specified source IP address blocks.
@@ -107,9 +96,7 @@ confirm that your policies are updated to include IPv6 address ranges. Policies 
 IPv6 addresses might impact client’s access to API Gateway when they start using the dualstack endpoint. For more
 information, see [Using IPv6 addresses in IAM policies](api-ref.md#api-reference-service-endpoints-dualstack-iam "api-ref.md#api-reference-service-endpoints-dualstack-iam").
 
-## Example: Deny API traffic based on source IP address or range when using a
-
-private API
+## Example: Deny API traffic based on source IP address or range when using a private API
 
 The following example resource policy denies (blocks) incoming traffic to a
 private API from two specified source IP address blocks. When using private APIs,
@@ -149,9 +136,7 @@ JSON
 
 ```
 
-## Example: Allow
-
-private API traffic based on source VPC or VPC endpoint
+## Example: Allow private API traffic based on source VPC or VPC endpoint
 
 The following example resource policies allow incoming traffic to a private API
 only from a specified virtual private cloud (VPC) or VPC endpoint.

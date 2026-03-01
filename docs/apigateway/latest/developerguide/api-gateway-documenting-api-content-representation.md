@@ -1,6 +1,4 @@
-# Representation of
-
-API documentation in API Gateway
+# Representation of API documentation in API Gateway
 
 API Gateway API documentation consists of individual documentation parts associated with
 specific API entities that include API, resource, method, request, response, message
@@ -140,9 +138,7 @@ This is the same as the following `DocumentationPart` instance:
 }
 ```
 
-### Inherit
-
-content from an API entity of more general specifications
+### Inherit content from an API entity of more general specifications
 
 The default value of an optional `location`
 field provides a patterned description of an API entity. Using the default value

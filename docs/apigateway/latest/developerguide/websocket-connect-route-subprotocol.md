@@ -1,6 +1,4 @@
-# Set up a `$connect`
-
-route that requires a WebSocket subprotocol
+# Set up a `$connect` route that requires a WebSocket subprotocol
 
 Clients can use the `Sec-WebSocket-Protocol` field to request a [WebSocket subprotocol](https://datatracker.ietf.org/doc/html/rfc6455#page-12 "https://datatracker.ietf.org/doc/html/rfc6455#page-12") during
 the connection to your WebSocket API. You can set up an integration for the

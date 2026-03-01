@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API with a Lambda proxy
-
-integration
+# Tutorial: Create a REST API with a Lambda proxy integration
 
 [Lambda proxy integration](set-up-lambda-proxy-integrations.md "set-up-lambda-proxy-integrations.md") is a
 lightweight, flexible API Gateway API integration type that allows you to integrate an API method
@@ -16,16 +14,11 @@ In this tutorial, you do the following:
 
 ###### Topics
 
-- [Create a "Hello,
-  World!" Lambda function](#api-gateway-proxy-integration-create-lambda-backend "#api-gateway-proxy-integration-create-lambda-backend")
-- [Create a
-  "Hello, World!" API](#api-gateway-create-api-as-simple-proxy-for-lambda-build "#api-gateway-create-api-as-simple-proxy-for-lambda-build")
-- [Deploy and test
-  the API](#api-gateway-create-api-as-simple-proxy-for-lambda-test "#api-gateway-create-api-as-simple-proxy-for-lambda-test")
+- [Create a "Hello, World!" Lambda function](#api-gateway-proxy-integration-create-lambda-backend "#api-gateway-proxy-integration-create-lambda-backend")
+- [Create a "Hello, World!" API](#api-gateway-create-api-as-simple-proxy-for-lambda-build "#api-gateway-create-api-as-simple-proxy-for-lambda-build")
+- [Deploy and test the API](#api-gateway-create-api-as-simple-proxy-for-lambda-test "#api-gateway-create-api-as-simple-proxy-for-lambda-test")
 
-## Create a "Hello,
-
-World!" Lambda function
+## Create a "Hello, World!" Lambda function
 
 ###### To create a "Hello, World!" Lambda function in the Lambda console
 
@@ -137,9 +130,7 @@ def lambda_handler(event, context):
 
 8. Choose **Deploy**.
 
-## Create a
-
-"Hello, World!" API
+## Create a "Hello, World!" API
 
 Now create an API for your "Hello, World!" Lambda function by using the API Gateway
 console.
@@ -189,9 +180,7 @@ of the supported HTTP methods: `DELETE`, `GET`,
    between `50` and `29000` milliseconds.
 7. Choose **Create method**.
 
-## Deploy and test
-
-the API
+## Deploy and test the API
 
 ###### To deploy your API
 
@@ -202,9 +191,7 @@ the API
 5. Choose **Deploy**.
 6. Under **Stage details**, choose the copy icon to copy your API's invoke URL.
 
-### Use
-
-browser and cURL to test an API with Lambda proxy integration
+### Use browser and cURL to test an API with Lambda proxy integration
 
 You can use a browser or [cURL](https://curl.se/ "https://curl.se/") to test
 your API.

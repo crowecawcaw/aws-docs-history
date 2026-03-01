@@ -1,6 +1,4 @@
-# AWS condition keys
-
-that can be used in API Gateway resource policies
+# AWS condition keys that can be used in API Gateway resource policies
 
 The following table contains AWS condition keys that can be used
 in resource policies for APIs in API Gateway for each authorization type.

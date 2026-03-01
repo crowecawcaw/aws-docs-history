@@ -12,17 +12,13 @@ Before you begin, make sure the following prerequisites are met:
 - You must have deployed the API at least once. Follow the instructions in [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to-deploy-api.md").
 - You must have created the first stage for a deployed API. Follow the instructions in [Create a new stage](set-up-stages.md#how-to-create-stage-console "set-up-stages.md#how-to-create-stage-console").
 
-## Invoke an HTTP endpoint through an API with a stage
-
-variable
+## Invoke an HTTP endpoint through an API with a stage variable
 
 This procedure describes how to create a stage variable for an HTTP endpoint and two stages for your API. In
 addition, you create the stage variables, `url`, `stageName`, and
 `function` that are used in the following procedures in this section.
 
-###### To invoke an HTTP endpoint through an API with a stage
-
-variable
+###### To invoke an HTTP endpoint through an API with a stage variable
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Create an API, and then create a `GET` method on the API's root resource. Set the integration type to
@@ -68,9 +64,7 @@ You can verify the result by using a browser to navigate to
 **http://petstore-demo-endpoint.execute-api.com/petstore/pets**. This value was assigned
 to the `url` variable in the **prod** stage. The two responses are identical.
 
-## Pass
-
-stage-specific metadata into an HTTP backend
+## Pass stage-specific metadata into an HTTP backend
 
 This procedure describes how to use a stage variable value in a query parameter expression to pass
 stage-specific metadata into an HTTP backend. We will use the `stageName` stage variable declared in
@@ -106,13 +100,10 @@ variable, is passed in the backend as the `stageName` argument.
 
 ![Response from the API's GET method with an HTTP endpoint using the url stage variable.](images/stageVariables-new-console-invoke-beta-stage-with-url-and-stageName-response.png)
 
-## Invoke a Lambda function through an API
-
-with a stage variable
+## Invoke a Lambda function through an API with a stage variable
 
 This procedure describes how to use a stage variable to call a Lambda function as a backend of your API. You
-use the `function` stage variable declared in [Invoke an HTTP endpoint through an API with a stage
-variable](#how-to-set-stage-variables-aws-console-http-endpoint "#how-to-set-stage-variables-aws-console-http-endpoint").
+use the `function` stage variable declared in [Invoke an HTTP endpoint through an API with a stage variable](#how-to-set-stage-variables-aws-console-http-endpoint "#how-to-set-stage-variables-aws-console-http-endpoint").
 
 When setting a Lambda function as the value of a stage variable, use the function's local name, possibly
 including its alias or version specification, as in `HelloWorld`,
@@ -121,9 +112,7 @@ ARN (for example, `arn:aws:lambda:us-east-1:123456789012:function:HelloWorld`). 
 console assumes the stage variable value for a Lambda function as the unqualified function name and expands the
 given stage variable into an ARN.
 
-###### To invoke a Lambda function through an API
-
-with a stage variable
+###### To invoke a Lambda function through an API with a stage variable
 
 1. Create a Lambda function named `HelloWorld` using the default Node.js runtime. The code must contain the following:
 
@@ -187,17 +176,13 @@ You get the following response.
 "Hello, World! I'm not sure where I'm calling from..."
 ```
 
-## Pass stage-specific metadata to a
-
-Lambda function through a stage variable
+## Pass stage-specific metadata to a Lambda function through a stage variable
 
 This procedure describes how to use a stage variable to pass stage-specific configuration metadata into a
 Lambda function. You create a `POST` method and an input mapping template to generate payload using
 the `stageName` stage variable you declared earlier.
 
-###### To pass stage-specific metadata to a
-
-Lambda function through a stage variable
+###### To pass stage-specific metadata to a Lambda function through a stage variable
 
 1. Choose the **/lambdav1** resource, and then choose **Create method**.
 

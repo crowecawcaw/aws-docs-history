@@ -1,6 +1,4 @@
-# Configure cross-account
-
-Amazon Cognito authorizer for a REST API using the API Gateway console
+# Configure cross-account Amazon Cognito authorizer for a REST API using the API Gateway console
 
 You can now also use a Amazon Cognito user pool from a different AWS account as your API
 authorizer. The Amazon Cognito
@@ -14,9 +12,7 @@ Amazon API Gateway console.
 These instructions assume that you already have an API Gateway API in one AWS account and
 a Amazon Cognito user pool in another account.
 
-## Create
-
-a cross-account Amazon Cognito authorizer for a REST API
+## Create a cross-account Amazon Cognito authorizer for a REST API
 
 Log in to the Amazon API Gateway console in the account that has your API in it, and then do the following:
 

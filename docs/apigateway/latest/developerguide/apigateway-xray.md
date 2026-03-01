@@ -21,9 +21,6 @@ API or CLI.
 ###### Topics
 
 - [Set up AWS X-Ray with API Gateway REST APIs](apigateway-enabling-xray.md "apigateway-enabling-xray.md")
-- [Use AWS X-Ray service maps and trace views
-  with API Gateway](apigateway-using-xray-maps.md "apigateway-using-xray-maps.md")
-- [Configure AWS X-Ray sampling
-  rules for API Gateway APIs](apigateway-configuring-xray-sampling-rules.md "apigateway-configuring-xray-sampling-rules.md")
-- [AWS X-Ray traces for
-  Amazon API Gateway APIs](apigateway-understanding-xray-traces.md "apigateway-understanding-xray-traces.md")
+- [Use AWS X-Ray service maps and trace views with API Gateway](apigateway-using-xray-maps.md "apigateway-using-xray-maps.md")
+- [Configure AWS X-Ray sampling rules for API Gateway APIs](apigateway-configuring-xray-sampling-rules.md "apigateway-configuring-xray-sampling-rules.md")
+- [AWS X-Ray traces for Amazon API Gateway APIs](apigateway-understanding-xray-traces.md "apigateway-understanding-xray-traces.md")

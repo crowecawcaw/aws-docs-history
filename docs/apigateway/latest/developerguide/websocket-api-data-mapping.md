@@ -1,6 +1,4 @@
-# Set up data mapping for
-
-WebSocket APIs in API Gateway
+# Set up data mapping for WebSocket APIs in API Gateway
 
 _Data mapping_ enables you to map data from a [route request](api-gateway-basic-concept.md#apigateway-definition-route-request "api-gateway-basic-concept.md#apigateway-definition-route-request") to a backend
 integration.
@@ -12,13 +10,10 @@ AWS CLI, AWS CloudFormation, or an SDK to configure data mapping.
 
 ###### Topics
 
-- [Map route request data to integration
-  request parameters](#websocket-mapping-request-parameters "#websocket-mapping-request-parameters")
+- [Map route request data to integration request parameters](#websocket-mapping-request-parameters "#websocket-mapping-request-parameters")
 - [Examples](#websocket-data-mapping-examples "#websocket-data-mapping-examples")
 
-## Map route request data to integration
-
-request parameters
+## Map route request data to integration request parameters
 
 Integration request parameters can be mapped from any defined route request
 parameters, the request body, [context or](api-gateway-mapping-template-reference.md#context-variable-reference "api-gateway-mapping-template-reference.md#context-variable-reference") [stage](api-gateway-mapping-template-reference.md#stagevariables-template-reference "api-gateway-mapping-template-reference.md#stagevariables-template-reference") variables, and static values.
@@ -47,9 +42,7 @@ strings in the AWS CLI. For more information, see [Using quotation marks and lit
 The following AWS CLI examples configure data mappings. For an example CloudFormation template,
 see [`websocket-data-mapping.yaml`](samples/websocket-data-mapping.md "samples/websocket-data-mapping.md").
 
-### Map a client's
-
-connectionId to a header in an integration request
+### Map a client's connectionId to a header in an integration request
 
 The following [update-integration](../../../cli/latest/reference/apigatewayv2/update-integration.md "../../../cli/latest/reference/apigatewayv2/update-integration.md")
 command maps a client's `connectionId` to a `connectionId` header in the request to a
@@ -62,9 +55,7 @@ aws apigatewayv2 update-integration \
     --request-parameters 'integration.request.header.connectionId'='context.connectionId'
 ```
 
-### Map a query string
-
-parameter to a header in an integration request
+### Map a query string parameter to a header in an integration request
 
 The following example
 maps an `authToken` query string parameter to an `authToken` header in the integration

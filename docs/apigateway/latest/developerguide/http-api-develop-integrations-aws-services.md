@@ -1,6 +1,4 @@
-# Create AWS service
-
-integrations for HTTP APIs in API Gateway
+# Create AWS service integrations for HTTP APIs in API Gateway
 
 You can integrate your HTTP API with AWS services by using _first-class
 integrations_. A first-class integration connects an HTTP API route to an
@@ -9,9 +7,7 @@ API Gateway invokes an AWS service API for you. For example, you can use first-c
 to send a message to an Amazon Simple Queue Service queue, or to start an AWS Step Functions state machine. For
 supported service actions, see [Integration subtype reference](http-api-develop-integrations-aws-services-reference.md "http-api-develop-integrations-aws-services-reference.md").
 
-## Mapping
-
-request parameters
+## Mapping request parameters
 
 First-class integrations have required and optional parameters. You must configure all
 required parameters to create an integration. You can use static values or map
@@ -31,9 +27,7 @@ The following table describes the supported mapping request parameters.
 | Stage variable           | $stageVariables.`variableName` | The value of a [stage<br>variable](http-api-stages.md "http-api-stages.md").                                                                                                                                                                                                                                                                                                                                                                                  |
 | Static value             | `string`                       | A constant value.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-## Create a
-
-first-class integration
+## Create a first-class integration
 
 Before you create a first-class integration, you must create an IAM role that grants
 API Gateway permissions to invoke the AWS service action that you're integrating with. To
@@ -59,9 +53,7 @@ aws apigatewayv2 create-integration \
     --request-parameters '{"QueueUrl": "$request.header.queueUrl", "MessageBody": "$request.body.message"}'
 ```
 
-## Create a
-
-first-class integration using CloudFormation
+## Create a first-class integration using CloudFormation
 
 The following example shows an CloudFormation snippet that creates a `/{source}/{detailType}` route with a first-class integration with Amazon EventBridge.
 

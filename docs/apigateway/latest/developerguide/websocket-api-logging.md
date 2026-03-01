@@ -13,8 +13,7 @@ the API. You can create your own log group or choose an existing log group that 
 specify the access details, you select `$context`
 variables (expressed in a format of your choosing) and choose a log group as the destination.
 
-For instructions on how to set up CloudWatch logging, see [Set up CloudWatch API logging using the
-API Gateway console](set-up-logging.md#set-up-access-logging-using-console "set-up-logging.md#set-up-access-logging-using-console").
+For instructions on how to set up CloudWatch logging, see [Set up CloudWatch API logging using the API Gateway console](set-up-logging.md#set-up-access-logging-using-console "set-up-logging.md#set-up-access-logging-using-console").
 
 When you specify the **Log Format**, you can choose which context
 variables to log. The following variables are supported.

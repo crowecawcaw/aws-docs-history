@@ -14,12 +14,9 @@ APIs](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gatewa
 
 Resource policies aren't currently supported for HTTP APIs.
 
-For examples of IAM policies that grant clients the permission to invoke APIs, see [Control
-access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
+For examples of IAM policies that grant clients the permission to invoke APIs, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
 
-## Enable IAM authorization for a
-
-route
+## Enable IAM authorization for a route
 
 The following [update-route](../../../cli/latest/reference/apigatewayv2/update-route.md "../../../cli/latest/reference/apigatewayv2/update-route.md") command enables
 IAM authorization for an HTTP API route:

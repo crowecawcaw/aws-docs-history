@@ -1,6 +1,4 @@
-# Data transformations for
-
-WebSocket APIs in API Gateway
+# Data transformations for WebSocket APIs in API Gateway
 
 In API Gateway, a WebSocket API's method request can take a payload in a different format from the
 corresponding integration request payload, as required in the backend. Similarly, the
@@ -13,12 +11,9 @@ method response. You create a mapping template and You specify a template select
 use to perform the necessary data transformations.
 
 You can use data mappings to map data from a [route request](api-gateway-basic-concept.md#apigateway-definition-route-request "api-gateway-basic-concept.md#apigateway-definition-route-request") to a backend
-integration. To learn more, see [Set up data mapping for
-WebSocket APIs in API Gateway](websocket-api-data-mapping.md "websocket-api-data-mapping.md").
+integration. To learn more, see [Set up data mapping for WebSocket APIs in API Gateway](websocket-api-data-mapping.md "websocket-api-data-mapping.md").
 
-## Mapping templates
-
-and models
+## Mapping templates and models
 
 A _mapping template_ is a script expressed in [Velocity Template
 Language (VTL)](https://velocity.apache.org/engine/devel/vtl-reference.html "https://velocity.apache.org/engine/devel/vtl-reference.html") and applied to the payload using [JSONPath expressions](https://goessner.net/articles/JsonPath/ "https://goessner.net/articles/JsonPath/"). For more
@@ -29,9 +24,7 @@ You do not have to define a model to create a mapping template. However, a model
 you create a template because API Gateway generates a template blueprint based on a provided
 model. For more information about API Gateway models, see [Data models for REST APIs](models-mappings-models.md "models-mappings-models.md").
 
-## Template
-
-selection expressions
+## Template selection expressions
 
 To transform a payload with a mapping template, you specify a WebSocket API template
 selection expression in an [integration request](apigateway-websocket-api-integration-requests.md "apigateway-websocket-api-integration-requests.md") or [integration

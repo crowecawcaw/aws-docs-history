@@ -23,9 +23,7 @@ create a greedy path variable, add `+` to the variable name—for
 example, `{proxy+}`. The greedy path variable must be at the end of the
 resource path.
 
-## Working with query string
-
-parameters
+## Working with query string parameters
 
 By default, API Gateway sends query string parameters to your backend integration if they
 are included in a request to an HTTP API.
@@ -35,9 +33,7 @@ For example, when a client sends a request to
  the query string parameters `?id=4&type=dog` are sent to your
 integration.
 
-## Working with the `$default`
-
-route
+## Working with the `$default` route
 
 The `$default` route catches requests that don't explicitly match other
 routes in your API.
@@ -51,8 +47,7 @@ send a request to
 API Gateway sends a request to
 `https://petstore-demo-endpoint.execute-api.com/store/checkout`.
 
-To learn more about HTTP integrations, see [Create HTTP proxy integrations
-for HTTP APIs](http-api-develop-integrations-http.md "http-api-develop-integrations-http.md").
+To learn more about HTTP integrations, see [Create HTTP proxy integrations for HTTP APIs](http-api-develop-integrations-http.md "http-api-develop-integrations-http.md").
 
 ## Routing API requests
 

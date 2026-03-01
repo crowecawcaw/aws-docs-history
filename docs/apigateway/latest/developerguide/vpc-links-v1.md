@@ -14,10 +14,7 @@ API must be owned by the same AWS account.
 
 ###### Topics
 
-- [Set up a Network Load Balancer
-  for API Gateway private integrations (legacy)](set-up-nlb-for-vpclink-using-console.md "set-up-nlb-for-vpclink-using-console.md")
-- [Grant permissions for API Gateway to create a VPC
-  link (legacy)](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md")
-- [Set up an API Gateway API with private
-  integrations using the AWS CLI (legacy)](set-up-api-with-vpclink-cli.md "set-up-api-with-vpclink-cli.md")
+- [Set up a Network Load Balancer for API Gateway private integrations (legacy)](set-up-nlb-for-vpclink-using-console.md "set-up-nlb-for-vpclink-using-console.md")
+- [Grant permissions for API Gateway to create a VPC link (legacy)](grant-permissions-to-create-vpclink.md "grant-permissions-to-create-vpclink.md")
+- [Set up an API Gateway API with private integrations using the AWS CLI (legacy)](set-up-api-with-vpclink-cli.md "set-up-api-with-vpclink-cli.md")
 - [API Gateway accounts used for private integrations (legacy)](set-up-api-with-vpclink-accounts.md "set-up-api-with-vpclink-accounts.md")

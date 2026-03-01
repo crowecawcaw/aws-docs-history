@@ -33,13 +33,11 @@ You need the following prerequisites:
 
 - An AWS account and an AWS Identity and Access Management user with console access. For more
   information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
-- `wscat` to connect to your API. For more information, see [Use wscat to
-  connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
+- `wscat` to connect to your API. For more information, see [Use wscat to connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
 
 We recommend that you complete the WebSocket chat app
 tutorial before you start this tutorial. To complete the WebSocket chat app tutorial, see
-[Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and
-DynamoDB](websocket-api-chat-app.md "websocket-api-chat-app.md").
+[Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and DynamoDB](websocket-api-chat-app.md "websocket-api-chat-app.md").
 
 ## Step 1: Create resources
 

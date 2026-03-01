@@ -19,8 +19,7 @@ information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
 - [Step 1: Create a Lambda function](#getting-started-rest-new-console-create-function "#getting-started-rest-new-console-create-function")
 - [Step 2: Create a REST API](#getting-started-rest-new-console-create-api "#getting-started-rest-new-console-create-api")
-- [Step 3: Create a Lambda proxy
-  integration](#getting-started-rest-new-console-create-integration "#getting-started-rest-new-console-create-integration")
+- [Step 3: Create a Lambda proxy integration](#getting-started-rest-new-console-create-integration "#getting-started-rest-new-console-create-integration")
 - [Step 4: Deploy your API](#getting-started-rest-new-console-deploy "#getting-started-rest-new-console-deploy")
 - [Step 5: Invoke your API](#getting-started-rest-new-console-invoke-api "#getting-started-rest-new-console-invoke-api")
 - [(Optional) Step 6: Clean up](#getting-started-cleanup-rest "#getting-started-cleanup-rest")
@@ -77,9 +76,7 @@ Next, you create a REST API with a root resource (`/`).
 6. For **IP address type**, select **IPv4**.
 7. Choose **Create API**.
 
-## Step 3: Create a Lambda proxy
-
-integration
+## Step 3: Create a Lambda proxy integration
 
 Next, you create an API method for your REST API on the root resource (`/`) and integrate
 the method with your Lambda function using a proxy integration. In a Lambda proxy integration, API Gateway passes the

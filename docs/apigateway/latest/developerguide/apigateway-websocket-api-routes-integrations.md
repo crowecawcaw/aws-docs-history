@@ -1,24 +1,17 @@
-# Invoke your backend
-
-integration with the `$default` Route and custom routes in API Gateway
+# Invoke your backend integration with the `$default` Route and custom routes in API Gateway
 
 The following section describes how to invoke your backend integration using either the `$default`
 route or a custom route for a WebSocket API.
 
 ###### Topics
 
-- [Using routes to process
-  messages](#apigateway-websocket-api-overview-routes "#apigateway-websocket-api-overview-routes")
-- [The
-  $default route](#apigateway-websocket-api-routes-about-default "#apigateway-websocket-api-routes-about-default")
+- [Using routes to process messages](#apigateway-websocket-api-overview-routes "#apigateway-websocket-api-overview-routes")
+- [The $default route](#apigateway-websocket-api-routes-about-default "#apigateway-websocket-api-routes-about-default")
 - [Custom routes](#apigateway-websocket-api-routes-about-custom "#apigateway-websocket-api-routes-about-custom")
-- [Using API Gateway
-  WebSocket API integrations to connect to your business logic](#apigateway-websocket-api-overview-integrations "#apigateway-websocket-api-overview-integrations")
+- [Using API Gateway WebSocket API integrations to connect to your business logic](#apigateway-websocket-api-overview-integrations "#apigateway-websocket-api-overview-integrations")
 - [Important differences between WebSocket APIs and REST APIs](#apigateway-websocket-api-overview-integrations-differences "#apigateway-websocket-api-overview-integrations-differences")
 
-## Using routes to process
-
-messages
+## Using routes to process messages
 
 In API Gateway WebSocket APIs, messages can be sent from the client to your backend
 service and vice versa. Unlike HTTP's request/response model, in WebSocket the
@@ -74,9 +67,7 @@ backend without receiving a response (one-way communication). However, if you do
 provide a route response, API Gateway won't send any information about the result of your
 integration to your clients.
 
-## The
-
-`$default` route
+## The `$default` route
 
 Every API Gateway WebSocket API can have a `$default` route. This is a
 special routing value that can be used in the following ways:
@@ -116,9 +107,7 @@ as the following:
 {"action":"sendmessage","message":"Hello everyone"}
 ```
 
-## Using API Gateway
-
-WebSocket API integrations to connect to your business logic
+## Using API Gateway WebSocket API integrations to connect to your business logic
 
 After setting up a route for an API Gateway WebSocket API, you must specify the
 integration you'd like to use. As with a route, which can have a route request and a
@@ -130,8 +119,7 @@ response_ contains the data that your backend returns to API Gateway, and
 that may be used to construct a message to send to the client (if a route response
 is defined).
 
-For more information about setting up integrations, see [Integrations for WebSocket APIs
-in API Gateway](apigateway-websocket-api-integrations.md "apigateway-websocket-api-integrations.md").
+For more information about setting up integrations, see [Integrations for WebSocket APIs in API Gateway](apigateway-websocket-api-integrations.md "apigateway-websocket-api-integrations.md").
 
 ## Important differences between WebSocket APIs and REST APIs
 

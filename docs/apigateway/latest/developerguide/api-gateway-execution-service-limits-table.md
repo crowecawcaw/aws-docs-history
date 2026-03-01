@@ -1,6 +1,4 @@
-# Quotas for configuring
-
-and running a REST API in API Gateway
+# Quotas for configuring and running a REST API in API Gateway
 
 The following quotas apply to configuring and running a REST API in Amazon API Gateway. If the quota is per-API, it can
 only be increased on specific APIs, not for all the APIs in an account.
@@ -73,8 +71,7 @@ To reduce the number of stages per API, split up your API into multiple APIs.
 
 **Resources per API**
 
-Use `{proxy+}` paths to reduce the number of resources. For more information, see [Set up a proxy integration with a proxy
-resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md").
+Use `{proxy+}` paths to reduce the number of resources. For more information, see [Set up a proxy integration with a proxy resource](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md").
 
 **API mappings**
 
@@ -87,13 +84,11 @@ To reduce the number of authorizers per API, reuse authorizers across API method
 **Documentation parts per API**
 
 To reduce the number of documentation parts per API, use `ignore=documentation` when you
-import your API. For more information, see [Import API
-documentation](api-gateway-documenting-api-quick-start-import-export.md "api-gateway-documenting-api-quick-start-import-export.md").
+import your API. For more information, see [Import API documentation](api-gateway-documenting-api-quick-start-import-export.md "api-gateway-documenting-api-quick-start-import-export.md").
 
 You can also use content inheritance to
 allow some documentation parts to inherit content from an API entity of a more general specification. For more
-information, see [Representation of
-API documentation in API Gateway](api-gateway-documenting-api-content-representation.md "api-gateway-documenting-api-content-representation.md").
+information, see [Representation of API documentation in API Gateway](api-gateway-documenting-api-content-representation.md "api-gateway-documenting-api-content-representation.md").
 
 **Length, in characters, of API Gateway resource policy**
 

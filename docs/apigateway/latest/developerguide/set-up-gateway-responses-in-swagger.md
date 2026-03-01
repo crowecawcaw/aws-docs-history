@@ -1,6 +1,4 @@
-# Set up gateway response
-
-customization in OpenAPI
+# Set up gateway response customization in OpenAPI
 
 You can use the `x-amazon-apigateway-gateway-responses` extension at the
 API root level to customize gateway responses in OpenAPI. The following OpenAPI

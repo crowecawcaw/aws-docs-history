@@ -1,6 +1,4 @@
-# Use VPC endpoint policies for private
-
-APIs in API Gateway
+# Use VPC endpoint policies for private APIs in API Gateway
 
 To improve the security of your private API, you can create a VPC endpoint policy. A VPC endpoint policy is an
 IAM resource policy that you attach to a VPC endpoint. For more
@@ -56,9 +54,7 @@ To attach the policy to the VPC endpoint, you'll need to use the VPC console. Fo
 information, see [Controlling Access to Services
 with VPC Endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md").
 
-## Example 1: VPC endpoint
-
-policy granting access to two APIs
+## Example 1: VPC endpoint policy granting access to two APIs
 
 The following example policy grants access to only two specific APIs via the VPC endpoint that the policy is attached to.
 
@@ -84,9 +80,7 @@ JSON
 
 ```
 
-## Example 2: VPC endpoint
-
-policy granting access to GET methods
+## Example 2: VPC endpoint policy granting access to GET methods
 
 The following example policy grants users access to `GET` methods for a
 specific API via the VPC endpoint that the policy is attached to.
@@ -112,9 +106,7 @@ JSON
 
 ```
 
-## Example 3: VPC endpoint
-
-policy granting a specific user access to a specific API
+## Example 3: VPC endpoint policy granting a specific user access to a specific API
 
 The following example policy grants a specific user access to a specific API via
 the VPC endpoint that the policy is attached to.
@@ -147,9 +139,7 @@ JSON
 
 ```
 
-## Example 4: VPC endpoint policy granting users access to a
-
-specific custom domain name and every API mapped to the domain
+## Example 4: VPC endpoint policy granting users access to a specific custom domain name and every API mapped to the domain
 
 The following example policy grants users access to a specific custom domain name for private APIs via the VPC endpoint that
 the policy is attached to. With this policy, as long as a user has created a domain name access association
@@ -183,9 +173,7 @@ JSON
 
 ```
 
-## Example 5: VPC endpoint policy granting or denying access
-
-to specific APIs and domain resources
+## Example 5: VPC endpoint policy granting or denying access to specific APIs and domain resources
 
 The following example policy grants users access to specific APIs and domain resources. With this policy, as
 long as a user has created a domain name access association between the VPC endpoint and the custom domain name
@@ -225,9 +213,7 @@ JSON
 
 ```
 
-## Example 6: VPC endpoint policy granting or denying access by
-
-principals and resources belonging to an organization
+## Example 6: VPC endpoint policy granting or denying access by principals and resources belonging to an organization
 
 The following example policy grants access to principals and resources that belong to an organization.
 

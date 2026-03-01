@@ -1,6 +1,4 @@
-# Integrations for REST APIs
-
-in API Gateway
+# Integrations for REST APIs in API Gateway
 
 After setting up an API method, you must integrate it with an endpoint in the backend. A
 backend endpoint is also referred to as an integration endpoint and can be a Lambda function,
@@ -35,10 +33,8 @@ method response. You then configure how to map backend output to the method resp
 
 ###### Topics
 
-- [Set up an
-  integration request in API Gateway](api-gateway-integration-settings-integration-request.md "api-gateway-integration-settings-integration-request.md")
-- [Set up an
-  integration response in API Gateway](api-gateway-integration-settings-integration-response.md "api-gateway-integration-settings-integration-response.md")
+- [Set up an integration request in API Gateway](api-gateway-integration-settings-integration-request.md "api-gateway-integration-settings-integration-request.md")
+- [Set up an integration response in API Gateway](api-gateway-integration-settings-integration-response.md "api-gateway-integration-settings-integration-response.md")
 - [Lambda integrations for REST APIs in API Gateway](set-up-lambda-integrations.md "set-up-lambda-integrations.md")
 - [HTTP integrations for REST APIs in API Gateway](setup-http-integrations.md "setup-http-integrations.md")
 - [Stream the integration response for your proxy integrations in API Gateway](response-transfer-mode.md "response-transfer-mode.md")

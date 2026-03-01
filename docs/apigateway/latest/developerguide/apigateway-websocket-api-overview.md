@@ -16,8 +16,7 @@ A _route_ includes a _route key_, which is the value
 that is expected once a _route selection expression_ is evaluated. The
 `routeSelectionExpression` is an attribute defined at the API level. It
 specifies a JSON property that is expected to be present in the message payload. For more
-information about route selection expressions, see [Route selection
-expressions](websocket-api-develop-routes.md#apigateway-websocket-api-route-selection-expressions "websocket-api-develop-routes.md#apigateway-websocket-api-route-selection-expressions").
+information about route selection expressions, see [Route selection expressions](websocket-api-develop-routes.md#apigateway-websocket-api-route-selection-expressions "websocket-api-develop-routes.md#apigateway-websocket-api-route-selection-expressions").
 
 For example, if your JSON messages contain an `action` property, and you want
 to perform different actions based on this property, your route selection expression might
@@ -42,12 +41,9 @@ routes.
   cannot be evaluated against the message or if no matching route is found.
 
 For more information about the `$connect` and `$disconnect` routes,
-see [Manage
-connected users and client apps: $connect and $disconnect
-routes](apigateway-websocket-api-route-keys-connect-disconnect.md "apigateway-websocket-api-route-keys-connect-disconnect.md").
+see [Manage connected users and client apps: $connect and $disconnect routes](apigateway-websocket-api-route-keys-connect-disconnect.md "apigateway-websocket-api-route-keys-connect-disconnect.md").
 
-For more information about the `$default` route and custom routes, see [Invoke your backend
-integration with the $default Route and custom routes in API Gateway](apigateway-websocket-api-routes-integrations.md "apigateway-websocket-api-routes-integrations.md").
+For more information about the `$default` route and custom routes, see [Invoke your backend integration with the $default Route and custom routes in API Gateway](apigateway-websocket-api-routes-integrations.md "apigateway-websocket-api-routes-integrations.md").
 
 ## Send data to connected client apps
 
@@ -56,8 +52,7 @@ Backend services can send data to connected client apps. You can send data by do
 - Use an integration to send a response, which is returned to the client by a route
   response that you have defined.
 - You can use the `@connections` API to send a POST request. For more
-  information, see [Use @connections commands in your
-  backend service](apigateway-how-to-call-websocket-api-connections.md "apigateway-how-to-call-websocket-api-connections.md").
+  information, see [Use @connections commands in your backend service](apigateway-how-to-call-websocket-api-connections.md "apigateway-how-to-call-websocket-api-connections.md").
 
 ## WebSocket API status codes
 

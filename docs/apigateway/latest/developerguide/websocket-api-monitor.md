@@ -14,6 +14,5 @@ API Gateway might not generate logs and metrics in the following cases:
 
 ###### Topics
 
-- [Monitor WebSocket API execution
-  with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md")
+- [Monitor WebSocket API execution with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md")
 - [Configure logging for WebSocket APIs in API Gateway](websocket-api-logging.md "websocket-api-logging.md")

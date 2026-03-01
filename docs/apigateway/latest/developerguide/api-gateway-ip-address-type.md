@@ -11,8 +11,7 @@ AWS](../../../whitepapers/latest/ipv6-on-aws/internet-protocol-version-6.md "../
 To restrict your API to only IPv6 traffic, you can create a resource policy and restrict the source IP
 addresses to only IPv6 ranges. You can change the IP address type by updating
 the API’s configuration. This change will take effect immediately, and you don't need to redeploy your API. For more information, see
-[Example:
-Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example")
+[Example: Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example")
 
 ## Considerations for IP address types
 
@@ -23,12 +22,10 @@ The following considerations might impact your use of IP address types:
 - If you change the IP address type for an existing API from IPv4 to dualstack, confirm that any policies controlling access to your APIs
   have been updated to account for IPv6 calls. When you change the IP address type, the change takes effect immediately.
 - If you migrate the endpoint type of an API from Regional or edge-optimized to private, API Gateway changes the IP address type to
-  dualstack. For more information, see [Change a public or private API endpoint type in
-  API Gateway](apigateway-api-migration.md "apigateway-api-migration.md").
+  dualstack. For more information, see [Change a public or private API endpoint type in API Gateway](apigateway-api-migration.md "apigateway-api-migration.md").
 - If you migrate the endpoint type of an API from private to Regional, you must set the IP address type to
   dualstack. After the endpoint migration is complete, you can change the IP address type to IPv4. For more
-  information, see [Change a public or private API endpoint type in
-  API Gateway](apigateway-api-migration.md "apigateway-api-migration.md").
+  information, see [Change a public or private API endpoint type in API Gateway](apigateway-api-migration.md "apigateway-api-migration.md").
 - Your API can be mapped to a custom domain name with a different IP address type than your API. If you
   disable your default API endpoint, this might affect how callers can invoke your API.
 - You can't use an external definition file to configure your API's IP address type.

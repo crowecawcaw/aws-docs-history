@@ -19,17 +19,14 @@ or an AWS SDK.
 ###### Topics
 
 - [Create a canary deployment using the API Gateway console](#create-canary-deployment-using-console "#create-canary-deployment-using-console")
-- [Create a canary deployment
-  using the AWS CLI](#create-canary-deployment-using-cli "#create-canary-deployment-using-cli")
+- [Create a canary deployment using the AWS CLI](#create-canary-deployment-using-cli "#create-canary-deployment-using-cli")
 
 ## Create a canary deployment using the API Gateway console
 
 To use the API Gateway console to create a canary release deployment, follow the
 instructions below:
 
-###### To create the initial
-
-canary release deployment
+###### To create the initial canary release deployment
 
 1. Sign in to the API Gateway console.
 2. Choose an existing REST API or create a new REST API.
@@ -41,8 +38,7 @@ canary release deployment
 So far, you have deployed the API to a production release stage. Next, you
 configure canary settings on the stage and, if needed, also enable caching,
 set stage variables, or configure API execution or access logs. 4. To enable API caching or associate an AWS WAF web ACL with the stage, in the **Stage details** section, choose **Edit**.
-For more information, see [Cache settings for REST APIs in API Gateway](api-gateway-caching.md "api-gateway-caching.md") or [To associate an AWS WAF
-web ACL with an API Gateway API stage using the API Gateway console](apigateway-control-access-aws-waf.md#apigateway-control-access-aws-waf-console "apigateway-control-access-aws-waf.md#apigateway-control-access-aws-waf-console"). 5. To configure execution or access logging, in the **Logs and tracing** section, choose
+For more information, see [Cache settings for REST APIs in API Gateway](api-gateway-caching.md "api-gateway-caching.md") or [To associate an AWS WAF web ACL with an API Gateway API stage using the API Gateway console](apigateway-control-access-aws-waf.md#apigateway-control-access-aws-waf-console "apigateway-control-access-aws-waf.md#apigateway-control-access-aws-waf-console"). 5. To configure execution or access logging, in the **Logs and tracing** section, choose
 **Edit** and follow the on-screen instructions. For more information, see [Set up CloudWatch logging for REST APIs in API Gateway](set-up-logging.md "set-up-logging.md"). 6. To set stage variables, choose the **Stage variables**
 tab and follow the on-screen
 instructions to add or modify stage variables. For more information, see
@@ -57,9 +53,7 @@ API and want to test the changes. You can redeploy the API to the same stage so 
 both the updated version and the base version are accessible through the same stage.
 The following steps describe how to do that.
 
-###### To deploy the latest API
-
-version to a canary
+###### To deploy the latest API version to a canary
 
 1. With each update of the API, choose **Deploy API**.
 2. In **Deploy API**, choose the stage that contains a canary from the
@@ -69,8 +63,7 @@ version to a canary
 4. Choose **Deploy** to push the latest API version to the
    canary release.
 5. If desired, reconfigure the stage settings, logs, or canary settings, as
-   describe in [To create the initial
-   canary release deployment](#to-create-canary-release-on-new-deployment "#to-create-canary-release-on-new-deployment").
+   describe in [To create the initial canary release deployment](#to-create-canary-release-on-new-deployment "#to-create-canary-release-on-new-deployment").
 
 As a result, the canary release points to the latest version while the production
 release still points to the initial version of the API. The [**canarySettings**](../api/API_Stage.md#canarySettings "../api/API_Stage.md#canarySettings") now has a new
@@ -78,9 +71,7 @@ release still points to the initial version of the API. The [**canarySettings**]
 [**deploymentId**](../api/API_Stage.md#deploymentId "../api/API_Stage.md#deploymentId") value. Behind the scenes, the
 console calls [**stage:update**](../api/API_UpdateStage.md "../api/API_UpdateStage.md").
 
-## Create a canary deployment
-
-using the AWS CLI
+## Create a canary deployment using the AWS CLI
 
 ###### To create a canary deployment for a new stage
 

@@ -1,6 +1,4 @@
-# Disable the default endpoint for
-
-WebSocket APIs
+# Disable the default endpoint for WebSocket APIs
 
 By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for
 your API. To ensure that clients can access your API only by using a custom domain name, disable the default

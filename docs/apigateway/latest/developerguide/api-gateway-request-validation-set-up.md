@@ -1,20 +1,14 @@
-# Set up basic request validation
-
-in API Gateway
+# Set up basic request validation in API Gateway
 
 This section shows how to set up request validation for API Gateway using the console, AWS CLI, and an OpenAPI definition.
 
 ###### Topics
 
-- [Set up request validation using the
-  API Gateway console](#api-gateway-request-validation-setup-in-console "#api-gateway-request-validation-setup-in-console")
+- [Set up request validation using the API Gateway console](#api-gateway-request-validation-setup-in-console "#api-gateway-request-validation-setup-in-console")
 - [Set up basic request validation using the AWS CLI](#api-gateway-request-validation-setup-cli "#api-gateway-request-validation-setup-cli")
-- [Set up
-  basic request validation using an OpenAPI definition](#api-gateway-request-validation-setup-importing-swagger "#api-gateway-request-validation-setup-importing-swagger")
+- [Set up basic request validation using an OpenAPI definition](#api-gateway-request-validation-setup-importing-swagger "#api-gateway-request-validation-setup-importing-swagger")
 
-## Set up request validation using the
-
-API Gateway console
+## Set up request validation using the API Gateway console
 
 You can use the API Gateway console to validate a request by selecting one of three validators for an API
 request:
@@ -443,9 +437,7 @@ The result will return a `400` error, as the price of the dog is over the maximu
 aws cloudformation delete-stack  --stack-name request-validation-tutorial-cli
 ```
 
-## Set up
-
-basic request validation using an OpenAPI definition
+## Set up basic request validation using an OpenAPI definition
 
 You can declare a request validator at the API level by specifying a set of the [x-amazon-apigateway-request-validators.requestValidator object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") objects in the [x-amazon-apigateway-request-validators object](api-gateway-swagger-extensions-request-validators.md "api-gateway-swagger-extensions-request-validators.md") map to select what part of the request
 will be validated. In the example OpenAPI definition, there are two validators:

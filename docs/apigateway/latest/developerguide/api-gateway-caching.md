@@ -206,9 +206,7 @@ The contents of `patch.json` are the following:
 }]
 ```
 
-## Use method or integration parameters as cache keys to index cached
-
-responses
+## Use method or integration parameters as cache keys to index cached responses
 
 You can use a method or integration parameter as cache keys to index cached responses. This includes custom
 headers, URL paths, or query strings. You can specify some or all of these parameters as the cache key, but you

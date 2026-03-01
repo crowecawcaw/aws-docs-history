@@ -36,9 +36,7 @@ example.
 
 - `arn:aws:apigateway:<region>:<service>:${stageVariables.<variable_name>}`
 
-## AWS integration URIs (Lambda
-
-functions)
+## AWS integration URIs (Lambda functions)
 
 A stage variable can be used in place of a Lambda function name, or version/alias, as shown in the following
 examples.

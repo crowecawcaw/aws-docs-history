@@ -105,9 +105,7 @@ settings to make sure that AWS STS is enabled in the Region that you're using. F
 information about enabling AWS STS, see [Managing AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md#sts-regions-activate-deactivate "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md#sts-regions-activate-deactivate") in the
 _IAM User Guide_.
 
-## Set up CloudWatch API logging using the
-
-API Gateway console
+## Set up CloudWatch API logging using the API Gateway console
 
 To set up CloudWatch API logging, you must have deployed the API to a stage. You must also have
 configured [an appropriate CloudWatch Logs

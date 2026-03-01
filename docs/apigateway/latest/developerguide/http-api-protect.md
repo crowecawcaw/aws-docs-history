@@ -8,5 +8,4 @@ these capabilities using API Gateway.
 ###### Topics
 
 - [Throttle requests to your HTTP APIs for better throughput in API Gateway](http-api-throttling.md "http-api-throttling.md")
-- [How to turn on mutual TLS authentication for your
-  HTTP APIs in API Gateway](http-api-mutual-tls.md "http-api-mutual-tls.md")
+- [How to turn on mutual TLS authentication for your HTTP APIs in API Gateway](http-api-mutual-tls.md "http-api-mutual-tls.md")

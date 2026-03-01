@@ -1,6 +1,4 @@
-# Distribute your REST APIs to
-
-clients in API Gateway
+# Distribute your REST APIs to clients in API Gateway
 
 This section provides details about distributing your API Gateway APIs to your customers.
 Distributing your API includes generating SDKs for your customers to download and integrate

@@ -1,6 +1,4 @@
-# Generate the Java SDK of an
-
-API in API Gateway
+# Generate the Java SDK of an API in API Gateway
 
 The following procedure shows how to generate the Java SDK of an API in API Gateway.
 

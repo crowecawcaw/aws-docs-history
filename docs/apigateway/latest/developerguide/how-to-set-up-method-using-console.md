@@ -1,6 +1,4 @@
-# Set up a method using the API Gateway
-
-console
+# Set up a method using the API Gateway console
 
 When you create a method using the REST API console, you configure both the integration request and the
 method request. By default, API Gateway creates the `200` method response for your method.
@@ -9,18 +7,13 @@ The following instructions show how to edit the method request settings and how 
 
 ###### Topics
 
-- [Edit an API Gateway method
-  request in the API Gateway console](#how-to-method-settings-callers-console "#how-to-method-settings-callers-console")
-- [Set up an API Gateway method
-  response using the API Gateway console](#how-to-method-response-settings-console "#how-to-method-response-settings-console")
+- [Edit an API Gateway method request in the API Gateway console](#how-to-method-settings-callers-console "#how-to-method-settings-callers-console")
+- [Set up an API Gateway method response using the API Gateway console](#how-to-method-response-settings-console "#how-to-method-response-settings-console")
 
-## Edit an API Gateway method
-
-request in the API Gateway console
+## Edit an API Gateway method request in the API Gateway console
 
 These instructions assume you have already created your method request. For more information on how to
-create a method, see [Set up an API integration request
-using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
+create a method, see [Set up an API integration request using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
 
 1. In the **Resources** pane, choose your method, and then
    choose the **Method request** tab.
@@ -63,15 +56,13 @@ using the API Gateway console](how-to-method-settings-console.md "how-to-method-
    can find the ARN of your method by selecting the method on the **Resources** page. For
    more information about setting the IAM permissions, see [Control access to a REST API with IAM permissions](permissions.md "permissions.md").
 
-   To create the IAM role, you can adapt the instructions in the following tutorial, [Create a Lambda function for Lambda
-   non-proxy integration](getting-started-lambda-non-proxy-integration.md#getting-started-new-lambda "getting-started-lambda-non-proxy-integration.md#getting-started-new-lambda"). 3. To use a Lambda authorizer, select a token or a request authorizer.
+   To create the IAM role, you can adapt the instructions in the following tutorial, [Create a Lambda function for Lambda non-proxy integration](getting-started-lambda-non-proxy-integration.md#getting-started-new-lambda "getting-started-lambda-non-proxy-integration.md#getting-started-new-lambda"). 3. To use a Lambda authorizer, select a token or a request authorizer.
    Create the Lambda authorizer
    to have this choice displayed in the dropdown menu. For information
    on how to create a Lambda authorizer, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md "apigateway-use-lambda-authorizer.md"). 4. To use an Amazon Cognito user pool, choose an available user pool under **Cognito user pool
    authorizers**. Create a user pool in Amazon Cognito and an Amazon Cognito user pool authorizer in API Gateway to
    have this choice displayed in the dropdown menu. For information on how to create an Amazon Cognito user
-   pool authorizer, see [Control access to REST APIs using
-   Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
+   pool authorizer, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
 
 4. To specify request validation, select a value from the **Request Validator**
    dropdown menu. To turn off request validation, select **None**. For more information
@@ -97,8 +88,7 @@ using the API Gateway console](how-to-method-settings-console.md "how-to-method-
       For more information about the request validation, see [Request validation for REST APIs in API Gateway](api-gateway-method-request-validation.md "api-gateway-method-request-validation.md").
    4. Select **Caching** if the newly created query string parameter is to be used as part
       of a caching key. For more
-      information about caching, see [Use method or integration parameters as cache keys to index cached
-      responses](api-gateway-caching.md#enable-api-gateway-cache-keys "api-gateway-caching.md#enable-api-gateway-cache-keys").To remove the query string parameter, choose **Remove**.
+      information about caching, see [Use method or integration parameters as cache keys to index cached responses](api-gateway-caching.md#enable-api-gateway-cache-keys "api-gateway-caching.md#enable-api-gateway-cache-keys").To remove the query string parameter, choose **Remove**.
 
 8. To add a header parameter to the method, do the following:
    1. Choose **HTTP request headers**, and then choose **Add header**.
@@ -108,8 +98,7 @@ using the API Gateway console](how-to-method-settings-console.md "how-to-method-
       For more information about the request validation, see [Request validation for REST APIs in API Gateway](api-gateway-method-request-validation.md "api-gateway-method-request-validation.md").
    4. Select **Caching** if the newly created header is to be used as part
       of a caching key. For more
-      information about caching, see [Use method or integration parameters as cache keys to index cached
-      responses](api-gateway-caching.md#enable-api-gateway-cache-keys "api-gateway-caching.md#enable-api-gateway-cache-keys").To remove the header, choose **Remove**.
+      information about caching, see [Use method or integration parameters as cache keys to index cached responses](api-gateway-caching.md#enable-api-gateway-cache-keys "api-gateway-caching.md#enable-api-gateway-cache-keys").To remove the header, choose **Remove**.
 
 9. To declare the payload format of a method request with the
    `POST`, `PUT`, or `PATCH` HTTP verb,
@@ -131,9 +120,7 @@ using the API Gateway console](how-to-method-settings-console.md "how-to-method-
 
 10. Choose **Save**.
 
-## Set up an API Gateway method
-
-response using the API Gateway console
+## Set up an API Gateway method response using the API Gateway console
 
 An API method can have one or more responses. Each response is indexed by its
 HTTP status code. By default, the API Gateway console adds `200` response to

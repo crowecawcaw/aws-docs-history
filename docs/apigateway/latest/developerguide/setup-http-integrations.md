@@ -17,8 +17,7 @@ response.
 ###### Topics
 
 - [Set up HTTP proxy integrations in API Gateway](#api-gateway-set-up-http-proxy-integration-on-proxy-resource "#api-gateway-set-up-http-proxy-integration-on-proxy-resource")
-- [Set up HTTP custom
-  integrations in API Gateway](#set-up-http-custom-integrations "#set-up-http-custom-integrations")
+- [Set up HTTP custom integrations in API Gateway](#set-up-http-custom-integrations "#set-up-http-custom-integrations")
 
 ## Set up HTTP proxy integrations in API Gateway
 
@@ -32,8 +31,7 @@ resource path.
 As with a non-proxy resource, you can set up a proxy resource with the HTTP proxy
 integration by using the API Gateway console, importing an OpenAPI definition file, or calling
 the API Gateway REST API directly. For detailed instructions about using the API Gateway console to
-configure a proxy resource with the HTTP integration, see [Tutorial: Create a REST API with an HTTP
-proxy integration](api-gateway-create-api-as-simple-proxy-for-http.md "api-gateway-create-api-as-simple-proxy-for-http.md").
+configure a proxy resource with the HTTP integration, see [Tutorial: Create a REST API with an HTTP proxy integration](api-gateway-create-api-as-simple-proxy-for-http.md "api-gateway-create-api-as-simple-proxy-for-http.md").
 
 The following OpenAPI definition file shows an example of an API with a proxy resource
 that is integrated with the [PetStore](http://petstore-demo-endpoint.execute-api.com/petstore/pets "http://petstore-demo-endpoint.execute-api.com/petstore/pets")
@@ -308,9 +306,7 @@ For any client request, if the targeted endpoint URL is invalid or the HTTP verb
 valid but not supported, the backend returns a `404 Not Found` response. For
 an unsupported HTTP method, a `403 Forbidden` response is returned.
 
-## Set up HTTP custom
-
-integrations in API Gateway
+## Set up HTTP custom integrations in API Gateway
 
 With the HTTP custom integration, also known as the non-proxy integration, you have more control of which
 data to pass between an API method and an API integration and how to pass the data. You do this using data

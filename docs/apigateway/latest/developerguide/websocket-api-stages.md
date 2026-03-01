@@ -25,8 +25,7 @@ different AWS Lambda function integration for each stage of your API.
 
 Stage variables are not intended to be used for sensitive data, such as credentials. To pass sensitive data to
 integrations, use an AWS Lambda authorizer. You can pass sensitive data to integrations in the output of the Lambda
-authorizer. To learn more, see [Lambda authorizer
-response format](http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response "http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response").
+authorizer. To learn more, see [Lambda authorizer response format](http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response "http-api-lambda-authorizer.md#http-api-lambda-authorizer.payload-format-response").
 
 ### Examples
 
@@ -48,13 +47,9 @@ Lambda function manually. The following [add-permission](../../../cli/latest/ref
 aws lambda add-permission --function-name arn:aws:lambda:XXXXXX:your-lambda-function-name --source-arn arn:aws:execute-api:us-east-1:YOUR_ACCOUNT_ID:api_id/*/HTTP_METHOD/resource --principal apigateway.amazonaws.com --statement-id apigateway-access --action lambda:InvokeFunction
 ```
 
-## API Gateway stage
+## API Gateway stage variables reference
 
-variables reference
-
-### HTTP
-
-integration URIs
+### HTTP integration URIs
 
 You can use a stage variable as part of an HTTP integration URI, as shown in
 the following examples.

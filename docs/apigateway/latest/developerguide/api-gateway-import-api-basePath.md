@@ -1,6 +1,4 @@
-# Set the OpenAPI
-
-`basePath` property
+# Set the OpenAPI `basePath` property
 
 In [OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md "https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md"), you can use the `basePath` property to provide one
 or more path parts that precede each path defined in the `paths` property.

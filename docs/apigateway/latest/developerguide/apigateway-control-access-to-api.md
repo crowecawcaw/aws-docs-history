@@ -1,6 +1,4 @@
-# Control and manage access to
-
-REST APIs in API Gateway
+# Control and manage access to REST APIs in API Gateway
 
 API Gateway supports multiple mechanisms for controlling and managing access to your API.
 
@@ -8,8 +6,7 @@ You can use the following mechanisms for authentication and authorization:
 
 - **Resource policies** let you create resource-based
   policies to allow or deny access to your APIs and methods from specified source IP
-  addresses or VPC endpoints. For more information, see [Control access to a REST API with API Gateway
-  resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md").
+  addresses or VPC endpoints. For more information, see [Control access to a REST API with API Gateway resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md").
 - **Standard AWS IAM roles and policies** offer flexible and
   robust access controls that can be applied to an entire API or individual methods.
   IAM roles and policies can be used for controlling who can create and manage your
@@ -19,8 +16,7 @@ You can use the following mechanisms for authentication and authorization:
 - **Endpoint policies for interface VPC endpoints** allow you to
   attach IAM resource policies to interface VPC endpoints to improve the security of
   your [private
-  APIs](apigateway-private-apis.md "apigateway-private-apis.md"). For more information, see [Use VPC endpoint policies for private
-  APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
+  APIs](apigateway-private-apis.md "apigateway-private-apis.md"). For more information, see [Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
 - **Lambda authorizers** are Lambda functions that control access
   to REST API methods using bearer token authentication—as well as information
   described by headers, paths, query strings, stage variables, or context variables
@@ -28,8 +24,7 @@ You can use the following mechanisms for authentication and authorization:
   methods. For more information, see [Use API Gateway Lambda authorizers](apigateway-use-lambda-authorizer.md "apigateway-use-lambda-authorizer.md").
 - **Amazon Cognito user pools** let you create customizable
   authentication and authorization solutions for your REST APIs. Amazon Cognito user pools are
-  used to control who can invoke REST API methods. For more information, see [Control access to REST APIs using
-  Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
+  used to control who can invoke REST API methods. For more information, see [Control access to REST APIs using Amazon Cognito user pools as an authorizer](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md").
   You can use the following mechanisms for performing other tasks related to access
   control:
 

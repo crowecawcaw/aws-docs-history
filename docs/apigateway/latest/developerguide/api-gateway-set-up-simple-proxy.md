@@ -1,6 +1,4 @@
-# Set up a proxy integration with a proxy
-
-resource
+# Set up a proxy integration with a proxy resource
 
 To set up a proxy integration in an API Gateway API with a [proxy resource](api-gateway-method-settings-method-request.md#api-gateway-proxy-resource "api-gateway-method-settings-method-request.md#api-gateway-proxy-resource"), you perform the
 following tasks:
@@ -29,9 +27,7 @@ payload is unspecified.
 A proxy resource is most powerful when it is integrated with a backend using either HTTP proxy
 integration or Lambda proxy [integration](../api/API_Integration.md "../api/API_Integration.md").
 
-## HTTP proxy integration with a proxy
-
-resource
+## HTTP proxy integration with a proxy resource
 
 The HTTP proxy integration, designated by `HTTP_PROXY` in the API Gateway REST API,
 is for integrating a method request with a backend HTTP endpoint. With this integration type,
@@ -58,9 +54,7 @@ request can support any HTTP operations (GET, POST, etc.) on any of
 HTTP method, for example, `GET`, instead, the resulting integration request works
 with the specified (that is, `GET`) operations on any of those backend nodes.
 
-## Lambda proxy integration with a
-
-proxy resource
+## Lambda proxy integration with a proxy resource
 
 The Lambda proxy integration, designated by `AWS_PROXY` in the API Gateway REST API,
 is for integrating a method request with a Lambda function in the backend. With this

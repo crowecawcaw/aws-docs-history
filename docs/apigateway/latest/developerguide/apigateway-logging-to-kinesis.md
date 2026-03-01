@@ -10,18 +10,14 @@ However, you can enable CloudWatch for execution logging and Firehose for access
 ###### Topics
 
 - [Firehose log formats for API Gateway](#apigateway-kinesis-log-formats "#apigateway-kinesis-log-formats")
-- [Permissions for Firehose
-  logging](#set-up-kinesis-access-logging-permissions "#set-up-kinesis-access-logging-permissions")
-- [Set up Firehose access
-  logging by using the API Gateway console](#set-up-kinesis-access-logging-using-console "#set-up-kinesis-access-logging-using-console")
+- [Permissions for Firehose logging](#set-up-kinesis-access-logging-permissions "#set-up-kinesis-access-logging-permissions")
+- [Set up Firehose access logging by using the API Gateway console](#set-up-kinesis-access-logging-using-console "#set-up-kinesis-access-logging-using-console")
 
 ## Firehose log formats for API Gateway
 
 Firehose logging uses the same format as [CloudWatch logging](set-up-logging.md "set-up-logging.md").
 
-## Permissions for Firehose
-
-logging
+## Permissions for Firehose logging
 
 When Firehose access logging is enabled on a stage, API Gateway creates a service-linked role
 in your account if the role doesn't exist already. The role is named
@@ -35,9 +31,7 @@ Roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM
 The name of your Firehose stream must be
 `amazon-apigateway-`{your-stream-name}``.
 
-## Set up Firehose access
-
-logging by using the API Gateway console
+## Set up Firehose access logging by using the API Gateway console
 
 To set up API logging, you must have deployed the API to a stage. You must also have
 created a Firehose stream.

@@ -1,6 +1,4 @@
-# Create and attach an API Gateway
-
-resource policy to an API
+# Create and attach an API Gateway resource policy to an API
 
 To allow a user to access your API by calling the API execution service, you must create an API Gateway resource
 policy and attach the policy to the API. When you attach a policy to your API, it applies
@@ -10,8 +8,7 @@ the API.
 ###### Topics
 
 - [Prerequisites](#apigateway-resource-policies-prerequisites "#apigateway-resource-policies-prerequisites")
-- [Attach a resource policy to an API Gateway
-  API](#apigateway-resource-policies-create-attach-procedure "#apigateway-resource-policies-create-attach-procedure")
+- [Attach a resource policy to an API Gateway API](#apigateway-resource-policies-create-attach-procedure "#apigateway-resource-policies-create-attach-procedure")
 - [Troubleshoot your resource policy](#apigateway-resource-policies-troubleshoot "#apigateway-resource-policies-troubleshoot")
 
 ## Prerequisites
@@ -23,9 +20,7 @@ For an edge-optimized or Regional API, you can attach your resource policy to yo
 it, or after it has been deployed. For a private API, you can't deploy your API without a resource policy. For
 more information, see [Private REST APIs in API Gateway](apigateway-private-apis.md "apigateway-private-apis.md").
 
-## Attach a resource policy to an API Gateway
-
-API
+## Attach a resource policy to an API Gateway API
 
 The following procedure shows you how to attach a resource policy to an API Gateway API.
 
@@ -79,13 +74,11 @@ aws apigateway create-rest-api \
 ```
 
 `policy.json` is an API Gateway resource policy, such as
-[Example:
-Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
+[Example: Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
 
 AWS CloudFormation
 You can use CloudFormation to create an API with a resource policy. The following example creates a REST API
-with the example resource policy, [Example:
-Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
+with the example resource policy, [Example: Deny API traffic based on source IP address or range](apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example "apigateway-resource-policies-examples.md#apigateway-resource-policies-source-ip-address-example").
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -147,10 +140,7 @@ Resources:
 
 The following troubleshooting guidance might help resolve issues with your resource policy.
 
-### My API returns {"Message":"User: anonymous is
-
-not authorized to perform: execute-api:Invoke on resource:
-arn:aws:execute-api:us-east-1:\*\*\*\*\*\*\*\*/\*\*\*\*/\*\*\*\*/"}
+### My API returns {"Message":"User: anonymous is not authorized to perform: execute-api:Invoke on resource: arn:aws:execute-api:us-east-1:\*\*\*\*\*\*\*\*/\*\*\*\*/\*\*\*\*/"}
 
 In your resource policy, if you set the Principal to an AWS principal, such as the following:
 
@@ -188,13 +178,10 @@ If you update the resource policy after the API is created, you'll need to deplo
 the changes after you've attached the updated policy. Updating or saving the policy alone won't change the
 runtime behavior of the API. For more information about deploying your API, see [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to-deploy-api.md").
 
-### My resource policy returns the following error: Invalid policy document. Please
-
-check the policy syntax and ensure that Principals are valid.
+### My resource policy returns the following error: Invalid policy document. Please check the policy syntax and ensure that Principals are valid.
 
 To troubleshoot this error, we first recommend that you check the policy syntax. For more information, see
-[Access policy
-language overview for Amazon API Gateway](apigateway-control-access-policy-language-overview.md "apigateway-control-access-policy-language-overview.md"). We also recommend that you check
+[Access policy language overview for Amazon API Gateway](apigateway-control-access-policy-language-overview.md "apigateway-control-access-policy-language-overview.md"). We also recommend that you check
 that all the principals specified are valid and haven’t been deleted.
 
 In addition, if your API is in an [opt-in

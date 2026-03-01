@@ -1,6 +1,4 @@
-# Invoke a private
-
-API
+# Invoke a private API
 
 You can only invoke a private API from within a VPC using a VPC endpoint. Your private API must have a resource policy that allows
 specific VPCs and VPC endpoints to invoke your API.
@@ -28,9 +26,7 @@ command to invoke your private custom domain name:
 curl https://private.example.com
 ```
 
-### Use endpoint-specific private DNS
-
-hostnames
+### Use endpoint-specific private DNS hostnames
 
 You can invoke your API using the custom domain name and the endpoint-specific private DNS
 hostname.
@@ -74,8 +70,7 @@ for your API. The other two are the private DNS names for it.
 
 ### Invoke a private API using a Route53 alias
 
-You can associate or disassociate a VPC endpoint with your private API. For more information, see [(Optional) Associate or disassociate a VPC endpoint
-with a private API](apigateway-private-api-create.md#associate-private-api-with-vpc-endpoint "apigateway-private-api-create.md#associate-private-api-with-vpc-endpoint").
+You can associate or disassociate a VPC endpoint with your private API. For more information, see [(Optional) Associate or disassociate a VPC endpoint with a private API](apigateway-private-api-create.md#associate-private-api-with-vpc-endpoint "apigateway-private-api-create.md#associate-private-api-with-vpc-endpoint").
 
 After you associate your VPC endpoints with your private API, you can use the following base URL to invoke the API:
 
@@ -136,9 +131,7 @@ up an Amazon Route 53 Resolver inbound endpoint and forwarding it all DNS queri
 For more information, see [Forwarding inbound DNS queries to
 your VPCs](../../../Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.md "../../../Route53/latest/DeveloperGuide/resolver-forwarding-inbound-queries.md") in the _Amazon Route 53 Developer Guide_.
 
-### Invoke a private API using endpoint-specific public DNS
-
-hostnames
+### Invoke a private API using endpoint-specific public DNS hostnames
 
 You can access your private API using endpoint-specific DNS hostnames. These are
 public DNS hostnames containing the VPC endpoint ID or API ID for your private

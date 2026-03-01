@@ -69,14 +69,12 @@ To set stage-level throttling targets for all of the methods associated with
 this API, turn on **Throttling**.
 
 For **Rate**, enter a target rate. This is the rate, in requests per second, that
-tokens are added to the token bucket. The stage-level rate must not be more than the [account-level](api-gateway-request-throttling.md#apig-request-throttling-account-level-limits "api-gateway-request-throttling.md#apig-request-throttling-account-level-limits") rate as specified in [Quotas for configuring
-and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
+tokens are added to the token bucket. The stage-level rate must not be more than the [account-level](api-gateway-request-throttling.md#apig-request-throttling-account-level-limits "api-gateway-request-throttling.md#apig-request-throttling-account-level-limits") rate as specified in [Quotas for configuring and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
 
 For **Burst**, enter a target burst rate. The burst rate, is the capacity of the
 token bucket. This allows more requests through for a period of time than the target rate. This
 stage-level burst rate must not be more than the [account-level](api-gateway-request-throttling.md#apig-request-throttling-account-level-limits "api-gateway-request-throttling.md#apig-request-throttling-account-level-limits") burst rate as specified in
-[Quotas for configuring
-and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
+[Quotas for configuring and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
 
 ###### Note
 

@@ -1,6 +1,4 @@
-#
-
-API endpoint types for REST APIs in API Gateway
+# API endpoint types for REST APIs in API Gateway
 
 An _[API
 endpoint](api-gateway-basic-concept.md#apigateway-definition-api-endpoints "api-gateway-basic-concept.md#apigateway-definition-api-endpoints")_ type refers to the hostname of the API. The API endpoint
@@ -8,9 +6,7 @@ type can be _edge-optimized_, _Regional_, or
 _private_, depending on where the majority of your API traffic
 originates from.
 
-## Edge-optimized API
-
-endpoints
+## Edge-optimized API endpoints
 
 An _[edge-optimized API endpoint](api-gateway-basic-concept.md#apigateway-definition-edge-optimized-api-endpoint "api-gateway-basic-concept.md#apigateway-definition-edge-optimized-api-endpoint")_ typically routes requests to the nearest CloudFront Point of Presence
 (POP), which could help in cases where your clients are geographically distributed. This is the default endpoint type for API Gateway REST APIs.
@@ -26,9 +22,7 @@ Cookies](../../../AmazonCloudFront/latest/DeveloperGuide/Cookies.md "../../../Am
 Any custom domain name that you use for an edge-optimized API applies across all
 regions.
 
-## Regional API
-
-endpoints
+## Regional API endpoints
 
 A _[Regional
 API endpoint](api-gateway-basic-concept.md#apigateway-definition-regional-api-endpoint "api-gateway-basic-concept.md#apigateway-definition-regional-api-endpoint")_ is intended for clients in the same Region.
@@ -40,8 +34,7 @@ For a Regional API, any custom domain name that you use is specific to the Regio
 where the API is deployed. If you deploy a Regional API in multiple Regions, it can
 have the same custom domain name in all Regions. You can use custom domains together
 with Amazon Route 53 to perform tasks such as [latency-based
-routing](../../../Route53/latest/DeveloperGuide/routing-policy.md#routing-policy-latency "../../../Route53/latest/DeveloperGuide/routing-policy.md#routing-policy-latency"). For more information, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md") and [Set up an edge-optimized custom domain name in API Gateway](how-to-edge-optimized-custom-domain-name.md "how-to-edge-optimized-custom-domain-name.md").
+routing](../../../Route53/latest/DeveloperGuide/routing-policy.md#routing-policy-latency "../../../Route53/latest/DeveloperGuide/routing-policy.md#routing-policy-latency"). For more information, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md") and [Set up an edge-optimized custom domain name in API Gateway](how-to-edge-optimized-custom-domain-name.md "how-to-edge-optimized-custom-domain-name.md").
 
 Regional API endpoints pass all header names through as-is.
 
@@ -52,9 +45,7 @@ use a Regional API endpoint, together with your own Amazon CloudFront distributi
 API Gateway does not associate the API with service-controlled CloudFront distributions. For more
 information about this use case, see [How do I set up API Gateway with my own CloudFront distribution?](https://repost.aws/knowledge-center/api-gateway-cloudfront-distribution "https://repost.aws/knowledge-center/api-gateway-cloudfront-distribution").
 
-## Private API
-
-endpoints
+## Private API endpoints
 
 A _[private API
 endpoint](api-gateway-basic-concept.md#apigateway-definition-private-api-endpoint "api-gateway-basic-concept.md#apigateway-definition-private-api-endpoint")_ is an API endpoint that can only be accessed from

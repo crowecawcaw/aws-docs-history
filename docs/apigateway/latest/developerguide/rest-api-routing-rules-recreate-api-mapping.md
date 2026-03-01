@@ -64,8 +64,7 @@ curl "https://`api.example.com`/orders/v2/items/categories/5"
 ```
 
 After you have successfully invoked your custom domain name, confirm that CloudWatch Logs shows the
-`routingRuleIdMatched`. To learn how to use the CloudWatch Logs console to view a log group, see [View API Gateway log
-events in the CloudWatch console](view-cloudwatch-log-events-in-cloudwatch-console.md "view-cloudwatch-log-events-in-cloudwatch-console.md").
+`routingRuleIdMatched`. To learn how to use the CloudWatch Logs console to view a log group, see [View API Gateway log events in the CloudWatch console](view-cloudwatch-log-events-in-cloudwatch-console.md "view-cloudwatch-log-events-in-cloudwatch-console.md").
 
 AWS CLI
 

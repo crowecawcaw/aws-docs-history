@@ -1,6 +1,4 @@
-# Publish API
-
-documentation using the API Gateway REST API
+# Publish API documentation using the API Gateway REST API
 
 To publish the documentation for an API, create, update, or get a documentation
 snapshot, and then associate the documentation snapshot with an API stage. When creating
@@ -13,8 +11,7 @@ time.
 - [Create a documentation snapshot](#api-gateway-documenting-api-publishing-create-documentation-version "#api-gateway-documenting-api-publishing-create-documentation-version")
 - [Update a documentation snapshot](#api-gateway-documenting-api-publishing-update-documentation-version "#api-gateway-documenting-api-publishing-update-documentation-version")
 - [Get a documentation snapshot](#api-gateway-documenting-api-publishing-get-documentation-version "#api-gateway-documenting-api-publishing-get-documentation-version")
-- [Associate
-  a documentation snapshot with an API stage](#api-gateway-documenting-api-publishing-stage-association "#api-gateway-documenting-api-publishing-stage-association")
+- [Associate a documentation snapshot with an API stage](#api-gateway-documenting-api-publishing-stage-association "#api-gateway-documenting-api-publishing-stage-association")
 - [Download a documentation snapshot associated with a stage](#api-gateway-documenting-api-publishing-export-documentation-version "#api-gateway-documenting-api-publishing-export-documentation-version")
 
 ## Create a documentation snapshot and associate it with an API stage
@@ -104,9 +101,7 @@ X-Amz-Date: `YYYYMMDDTttttttZ`
 Authorization: AWS4-HMAC-SHA256 Credential=`access_key_id`/`YYYYMMDD`/`region`/apigateway/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date, Signature=`sigv4_secret`
 ```
 
-## Associate
-
-a documentation snapshot with an API stage
+## Associate a documentation snapshot with an API stage
 
 To publish the API documentation, associate a documentation snapshot with an API
 stage. You must have already created an API stage before associating the
@@ -415,5 +410,4 @@ Authorization: AWS4-HMAC-SHA256 Credential=`access_key_id`/`YYYYMMDD`/`region`/a
 ```
 
 To use the API Gateway console to export and download the published documentation of an
-API, follow the instructions in [Export REST API using the API Gateway
-console](api-gateway-export-api.md#api-gateway-export-api-from-console "api-gateway-export-api.md#api-gateway-export-api-from-console").
+API, follow the instructions in [Export REST API using the API Gateway console](api-gateway-export-api.md#api-gateway-export-api-from-console "api-gateway-export-api.md#api-gateway-export-api-from-console").

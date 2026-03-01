@@ -4,8 +4,7 @@
 
 This section explains features that you use with a non-proxy integration. However, we recommend that when possible, you
 use a proxy integration for your REST API. A proxy integration has a streamlined integration setup and can evolve
-with the backend without having to tear down the existing setup. For more information, see [Choose an API Gateway API integration
-type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md").
+with the backend without having to tear down the existing setup. For more information, see [Choose an API Gateway API integration type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md").
 
 If you use a non-proxy integration, you can use two features of API Gateway to transform your method request and your
 integration response. You might transform your method request if it takes a different payload format than the
@@ -45,15 +44,13 @@ payload based on the `Content-type` header.
 With a mapping template, you can do the following:
 
 - Select which data to send using integration with AWS services, such as Amazon DynamoDB or Lambda functions,
-  or HTTP endpoints. For more information, see [Tutorial: Modify the integration request and response
-  for integrations to AWS services](set-up-data-transformations-in-api-gateway.md "set-up-data-transformations-in-api-gateway.md").
+  or HTTP endpoints. For more information, see [Tutorial: Modify the integration request and response for integrations to AWS services](set-up-data-transformations-in-api-gateway.md "set-up-data-transformations-in-api-gateway.md").
 - Conditionally override an API's integration request and integration response parameters, create new
   header values, and override status codes. For more information, see [Override your API's request and response parameters and status codes for REST APIs in API Gateway](apigateway-override-request-response-parameters.md "apigateway-override-request-response-parameters.md").
 
 You can also specify the behavior of your API when an integration request body has
 `Content-type` header with no matching mapping templates. This is called integration passthrough
-behavior. For more information, see [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
+behavior. For more information, see [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
 
 ## Choose between parameter mapping and mapping template transformations
 

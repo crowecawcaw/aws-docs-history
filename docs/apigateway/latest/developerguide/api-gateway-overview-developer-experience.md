@@ -8,8 +8,7 @@ more detailed information about the difference between REST APIs and HTTP APIs, 
 
 - [Use API Gateway to create REST APIs](#api-gateway-overview-rest "#api-gateway-overview-rest")
 - [Use API Gateway to create HTTP APIs](#api-gateway-overview-http "#api-gateway-overview-http")
-- [Use API Gateway to create WebSocket
-  APIs](#api-gateway-overview-websocket "#api-gateway-overview-websocket")
+- [Use API Gateway to create WebSocket APIs](#api-gateway-overview-websocket "#api-gateway-overview-websocket")
 - [Who uses API Gateway?](#apigateway-who-uses-api-gateway "#apigateway-who-uses-api-gateway")
 
 ## Use API Gateway to create REST APIs
@@ -71,9 +70,7 @@ authorization. They come with built-in support for cross-origin resource sharing
 
 To learn more, see [Choose between REST APIs and HTTP APIs](http-api-vs-rest.md "http-api-vs-rest.md").
 
-## Use API Gateway to create WebSocket
-
-APIs
+## Use API Gateway to create WebSocket APIs
 
 In a WebSocket API, the client and the server can both send messages to each other
 at any time. Backend servers can easily push data to connected users and devices,
@@ -133,9 +130,7 @@ can enable API creation with [AWS CloudFormation templates](../../../AWSCloudFor
 For a list of Regions where API Gateway is available, as well as the associated
 control service endpoints, see [Amazon API Gateway Endpoints and Quotas](../../../general/latest/gr/apigateway.md "../../../general/latest/gr/apigateway.md").
 
-### Calling
-
-an API Gateway API
+### Calling an API Gateway API
 
 An app developer works with the API Gateway service component for API execution,
 named `execute-api`, to invoke an API that was created or deployed in

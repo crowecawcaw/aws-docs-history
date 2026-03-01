@@ -1,6 +1,4 @@
-# Receive an API
-
-response with a compressed payload in API Gateway
+# Receive an API response with a compressed payload in API Gateway
 
 When making a request on a compression-enabled API, the client can choose to receive a
 compressed response payload of a specific format by specifying an

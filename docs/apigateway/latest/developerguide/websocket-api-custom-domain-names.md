@@ -114,5 +114,4 @@ To set up a custom domain name for an HTTP API, you use documentation from the R
 Developer Guide.
 
 First, specify a certificate for your custom domain name. For more information, see [Get certificates ready in AWS Certificate Manager](how-to-specify-certificate-for-custom-domain-name.md "how-to-specify-certificate-for-custom-domain-name.md"). Next, you create a Regional custom domain name.
-For more information, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+For more information, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").

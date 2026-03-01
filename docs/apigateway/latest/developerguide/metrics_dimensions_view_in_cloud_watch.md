@@ -1,6 +1,4 @@
-# View API Gateway metrics in the
-
-CloudWatch console
+# View API Gateway metrics in the CloudWatch console
 
 Metrics are grouped first by the service namespace, and then by the various dimension combinations within each
 namespace. To view the metrics at the method-level for your API, turn on detailed metrics. For more information,

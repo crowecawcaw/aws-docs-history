@@ -32,6 +32,5 @@ The following sections provide more information about tags for Amazon API Gatewa
 
 ###### Topics
 
-- [API Gateway resources that can be
-  tagged](apigateway-tagging-supported-resources.md "apigateway-tagging-supported-resources.md")
+- [API Gateway resources that can be tagged](apigateway-tagging-supported-resources.md "apigateway-tagging-supported-resources.md")
 - [Using tags to control access to API Gateway REST API resources](apigateway-tagging-iam-policy.md "apigateway-tagging-iam-policy.md")

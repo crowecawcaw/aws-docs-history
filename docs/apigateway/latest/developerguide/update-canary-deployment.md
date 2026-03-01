@@ -10,14 +10,10 @@ SDK.
 
 ###### Topics
 
-- [Update a canary release
-  using the API Gateway console](#update-canary-deployment-using-console "#update-canary-deployment-using-console")
-- [Update a canary release using
-  the AWS CLI](#update-canary-deployment-using-cli "#update-canary-deployment-using-cli")
+- [Update a canary release using the API Gateway console](#update-canary-deployment-using-console "#update-canary-deployment-using-console")
+- [Update a canary release using the AWS CLI](#update-canary-deployment-using-cli "#update-canary-deployment-using-cli")
 
-## Update a canary release
-
-using the API Gateway console
+## Update a canary release using the API Gateway console
 
 To use the API Gateway console to update existing canary settings on a stage, do the
 following:
@@ -35,9 +31,7 @@ following:
 6. Add, remove, or modify **Canary stage variables**.
 7. Choose **Save**.
 
-## Update a canary release using
-
-the AWS CLI
+## Update a canary release using the AWS CLI
 
 To use the AWS CLI to update a canary, use the [`update-stage`](../../../cli/latest/reference/apigateway/update-stage.md "../../../cli/latest/reference/apigateway/update-stage.md") command and modify the patch operation for each parameter of the
 canary.

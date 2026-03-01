@@ -1,13 +1,9 @@
-# Troubleshooting issues with HTTP API JWT
-
-authorizers
+# Troubleshooting issues with HTTP API JWT authorizers
 
 The following provides troubleshooting advice for errors and issues that you might
 encounter when using JSON Web Token (JWT) authorizers with HTTP APIs.
 
-## Issue: My API returns `401
-
-{"message":"Unauthorized"}`
+## Issue: My API returns `401 {"message":"Unauthorized"}`
 
 Check the `www-authenticate` header in the response from the API.
 

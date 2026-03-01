@@ -1,6 +1,4 @@
-# Control and manage access to
-
-WebSocket APIs in API Gateway
+# Control and manage access to WebSocket APIs in API Gateway
 
 API Gateway supports multiple mechanisms for controlling and managing access to your
 WebSocket API.

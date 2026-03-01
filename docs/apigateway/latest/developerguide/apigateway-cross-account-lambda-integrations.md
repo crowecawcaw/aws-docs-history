@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API
-
-with a cross-account Lambda proxy integration
+# Tutorial: Create a REST API with a cross-account Lambda proxy integration
 
 You can now use an AWS Lambda function from a different AWS account as your API
 integration backend. Each account can be in any region where Amazon API Gateway is available. This
@@ -10,9 +8,7 @@ APIs.
 In this section, we show how to configure cross-account Lambda proxy integration using the
 Amazon API Gateway console.
 
-## Create API for
-
-API Gateway cross-account Lambda integration
+## Create API for API Gateway cross-account Lambda integration
 
 ###### To create an API
 
@@ -45,8 +41,7 @@ created the example API.
    5. Choose **Create function** to continue.
 
 5. Scroll down to the **Function code** pane.
-6. Enter the Node.js function implementation from [Tutorial: Create a REST API with a Lambda proxy
-   integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md").
+6. Enter the Node.js function implementation from [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md").
 7. Choose **Deploy**.
 8. Note the full ARN for your function (in the upper right corner of the Lambda
    function pane). You'll need it when you create your cross-account Lambda

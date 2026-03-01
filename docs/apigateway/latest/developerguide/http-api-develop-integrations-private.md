@@ -1,6 +1,4 @@
-# Create private integrations
-
-for HTTP APIs in API Gateway
+# Create private integrations for HTTP APIs in API Gateway
 
 Private integrations enable you to create API integrations with private resources in a
 VPC, such as Application Load Balancers or Amazon ECS container-based applications.
@@ -30,9 +28,7 @@ The following considerations might impact your use of private integrations:
   includes `test/`route-path``in the request to your private integration. To
 remove the stage name from the request to your backend resources, use [parameter mapping](http-api-parameter-mapping.md "http-api-parameter-mapping.md") to overwrite the request path to`$request.path`.
 
-## Create a private integration
-
-using an Application Load Balancer or Network Load Balancer
+## Create a private integration using an Application Load Balancer or Network Load Balancer
 
 Before you create a private integration, you must create a VPC link V2. To learn more
 about VPC links V2, see [Set up VPC links V2 in API Gateway](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").
@@ -52,9 +48,7 @@ aws apigatewayv2 create-integration --api-id `api-id` --integration-type HTTP_PR
     --payload-format-version 1.0
 ```
 
-## Create a private
-
-integration using AWS Cloud Map service discovery
+## Create a private integration using AWS Cloud Map service discovery
 
 Before you create a private integration, you must create a VPC link V2. To learn more
 about VPC links, see [Set up VPC links V2 in API Gateway](apigateway-vpc-links-v2.md "apigateway-vpc-links-v2.md").

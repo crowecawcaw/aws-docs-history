@@ -20,17 +20,10 @@ blog.
 
 ###### Topics
 
-- [Representation of
-  API documentation in API Gateway](api-gateway-documenting-api-content-representation.md "api-gateway-documenting-api-content-representation.md")
-- [Document an API
-  using the API Gateway console](api-gateway-documenting-api-quick-start-with-console.md "api-gateway-documenting-api-quick-start-with-console.md")
-- [Publish API
-  documentation using the API Gateway console](apigateway-documenting-api-with-console.md "apigateway-documenting-api-with-console.md")
-- [Document an API
-  using the API Gateway REST API](api-gateway-documenting-api-quick-start-with-restapi.md "api-gateway-documenting-api-quick-start-with-restapi.md")
-- [Publish API
-  documentation using the API Gateway REST API](api-gateway-documenting-api-quick-start-publishing.md "api-gateway-documenting-api-quick-start-publishing.md")
-- [Import API
-  documentation](api-gateway-documenting-api-quick-start-import-export.md "api-gateway-documenting-api-quick-start-import-export.md")
-- [Control
-  access to API documentation in API Gateway](api-gateway-documenting-api-content-provision-and-consumption.md "api-gateway-documenting-api-content-provision-and-consumption.md")
+- [Representation of API documentation in API Gateway](api-gateway-documenting-api-content-representation.md "api-gateway-documenting-api-content-representation.md")
+- [Document an API using the API Gateway console](api-gateway-documenting-api-quick-start-with-console.md "api-gateway-documenting-api-quick-start-with-console.md")
+- [Publish API documentation using the API Gateway console](apigateway-documenting-api-with-console.md "apigateway-documenting-api-with-console.md")
+- [Document an API using the API Gateway REST API](api-gateway-documenting-api-quick-start-with-restapi.md "api-gateway-documenting-api-quick-start-with-restapi.md")
+- [Publish API documentation using the API Gateway REST API](api-gateway-documenting-api-quick-start-publishing.md "api-gateway-documenting-api-quick-start-publishing.md")
+- [Import API documentation](api-gateway-documenting-api-quick-start-import-export.md "api-gateway-documenting-api-quick-start-import-export.md")
+- [Control access to API documentation in API Gateway](api-gateway-documenting-api-content-provision-and-consumption.md "api-gateway-documenting-api-content-provision-and-consumption.md")

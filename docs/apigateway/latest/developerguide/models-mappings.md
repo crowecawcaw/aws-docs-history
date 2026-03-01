@@ -36,8 +36,7 @@ This request body is not in the correct format to be used by the integration end
 mapping template transformation. API Gateway only performs a mapping template transformation because there is a mapping
 template defined for the Content-Type `application/json`. If you don't define a mapping template for
 the Content-Type, by default, API Gateway passes the body through the integration request to the integration endpoint.
-To modify this behavior, see [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
+To modify this behavior, see [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
 
 The following mapping template transforms the method request data in the integration request before it's sent to
 the integration endpoint:
@@ -80,8 +79,7 @@ The method response expects a different payload than what is returned by the int
 performs a mapping template transformation. API Gateway only performs a mapping template transformation because there is
 a mapping template defined for the Content-Type `application/json`. If you don't define a mapping
 template for the Content-Type, by default, API Gateway passes the body through the integration response to the method
-response. To modify this behavior, see [Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
+response. To modify this behavior, see [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
 
 ```
 #set($inputRoot = $input.path('$'))
@@ -98,5 +96,4 @@ The following output is sent to the method response:
 ```
 
 This completes the example mapping template transformation. We recommend that when possible, instead of using
-mapping template transformations, you use a proxy integration to transform your data. For more information, see [Choose an API Gateway API integration
-type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md").
+mapping template transformations, you use a proxy integration to transform your data. For more information, see [Choose an API Gateway API integration type](api-gateway-api-integration-types.md "api-gateway-api-integration-types.md").

@@ -1,6 +1,4 @@
-# Amazon API Gateway identity-based
-
-policy examples
+# Amazon API Gateway identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 API Gateway resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -16,25 +14,17 @@ Tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_cre
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Simple read
-  permissions](#api-gateway-policy-example-apigateway-general "#api-gateway-policy-example-apigateway-general")
-- [Create only REQUEST or JWT
-  authorizers](#security_iam_id-based-policy-examples-v2-import "#security_iam_id-based-policy-examples-v2-import")
-- [Require that the
-  default execute-api endpoint is disabled](#security_iam_id-based-policy-examples-v2-endpoint-status "#security_iam_id-based-policy-examples-v2-endpoint-status")
-- [Allow users
-  to create or update only private REST APIs](#security_iam_id-based-policy-examples-private-api "#security_iam_id-based-policy-examples-private-api")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Simple read permissions](#api-gateway-policy-example-apigateway-general "#api-gateway-policy-example-apigateway-general")
+- [Create only REQUEST or JWT authorizers](#security_iam_id-based-policy-examples-v2-import "#security_iam_id-based-policy-examples-v2-import")
+- [Require that the default execute-api endpoint is disabled](#security_iam_id-based-policy-examples-v2-endpoint-status "#security_iam_id-based-policy-examples-v2-endpoint-status")
+- [Allow users to create or update only private REST APIs](#security_iam_id-based-policy-examples-private-api "#security_iam_id-based-policy-examples-private-api")
 - [Require that API routes have authorization](#security_iam_id-based-policy-examples-require-authorization "#security_iam_id-based-policy-examples-require-authorization")
 - [Prevent a user from creating or updating a VPC link](#security_iam_id-based-policy-examples-deny-vpc-link "#security_iam_id-based-policy-examples-deny-vpc-link")
 - [Example policies for using routing rules](#security_iam_id-based-policy-examples-routing-mode "#security_iam_id-based-policy-examples-routing-mode")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete API Gateway resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -67,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -109,9 +97,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Simple read
-
-permissions
+## Simple read permissions
 
 This example policy gives a user permission to get information about all of the resources of an HTTP or
 WebSocket API with the identifier of `a123456789` in the AWS Region of
@@ -139,9 +125,7 @@ JSON
 
 ```
 
-## Create only REQUEST or JWT
-
-authorizers
+## Create only REQUEST or JWT authorizers
 
 This example policy allows a user to create APIs with only `REQUEST` or `JWT`
 authorizers, including through [import](../../../apigatewayv2/latest/api-reference/apis.md#ImportApi "../../../apigatewayv2/latest/api-reference/apis.md#ImportApi"). In the `Resource`
@@ -184,9 +168,7 @@ JSON
 
 ```
 
-## Require that the
-
-default `execute-api` endpoint is disabled
+## Require that the default `execute-api` endpoint is disabled
 
 This example policy allows users to create, update or import an API, with the
 requirement that `DisableExecuteApiEndpoint` is `true`. When
@@ -241,9 +223,7 @@ JSON
 
 ```
 
-## Allow users
-
-to create or update only private REST APIs
+## Allow users to create or update only private REST APIs
 
 This example policy uses condition keys to require that a user creates only `PRIVATE`
 APIs, and to prevent updates that might change an API from `PRIVATE` to another type, such as

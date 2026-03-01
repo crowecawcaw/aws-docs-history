@@ -15,9 +15,7 @@ For instructions on how to share a private custom domain name with another AWS a
 
 For instructions on how to consume a private custom domain name in another AWS account, see [API consumer: Associate your VPC endpoint with a private custom domain name shared with you](apigateway-private-custom-domains-consumer-create.md "apigateway-private-custom-domains-consumer-create.md").
 
-## Best practices for working with
-
-cross-account private custom domain names
+## Best practices for working with cross-account private custom domain names
 
 We recommend the following best practices for working with cross-account private custom domain names:
 

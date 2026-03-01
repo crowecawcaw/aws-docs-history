@@ -1,7 +1,4 @@
-# OpenAPI definitions of the
-
-sample API as an Amazon S3
-proxy
+# OpenAPI definitions of the sample API as an Amazon S3 proxy
 
 The following OpenAPI definitions describes an API that works as an Amazon S3 proxy. This API contains more Amazon S3
 operations than the API you created in the tutorial. The following methods are exposed in the OpenAPI definitions:
@@ -23,8 +20,7 @@ operations than the API you created in the tutorial. The following methods are e
 - Expose DELETE on a Folder/Item resource to [remove an
   object from an Amazon S3 bucket](../../../AmazonS3/latest/API/API_DeleteObject.md "../../../AmazonS3/latest/API/API_DeleteObject.md").
   For instructions on how to import an API using
-  the OpenAPI definition, see [Develop REST APIs using
-  OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
+  the OpenAPI definition, see [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
 
 For instructions on how to create a similar API, see [Tutorial: Create a REST API as an Amazon S3 proxy](integrating-api-with-aws-services-s3.md "integrating-api-with-aws-services-s3.md").
 

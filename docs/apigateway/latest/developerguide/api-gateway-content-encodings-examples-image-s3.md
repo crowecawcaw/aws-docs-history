@@ -1,6 +1,4 @@
-# Access binary
-
-files in Amazon S3 through an API Gateway API
+# Access binary files in Amazon S3 through an API Gateway API
 
 The following examples show the OpenAPI file used to access images in Amazon S3, how to
 download an image from Amazon S3, and how to upload an image to Amazon S3.

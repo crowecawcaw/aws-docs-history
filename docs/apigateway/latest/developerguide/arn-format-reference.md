@@ -1,10 +1,7 @@
-# API Gateway Amazon Resource Name (ARN)
-
-reference
+# API Gateway Amazon Resource Name (ARN) reference
 
 The following tables list the Amazon Resource Names (ARNs) for API Gateway resources. To learn
-more about using ARNs in AWS Identity and Access Management policies, see [How Amazon API Gateway works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") and
+more about using ARNs in AWS Identity and Access Management policies, see [How Amazon API Gateway works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") and
 [Control access to a REST API with IAM permissions](permissions.md "permissions.md").
 
 ## HTTP API and WebSocket API resources
@@ -94,9 +91,7 @@ IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") and
 | DomainNames                  | `arn:`partition`:apigateway:`region`::/domainnames`                                                                                   |
 | RoutingRule                  | `arn:`partition`:apigateway:`region`:`account-id`:/domainnames/`domain-name`/routingrules/`routing-rule-id``                          |
 
-## `execute-api`
-
-(HTTP APIs, WebSocket APIs, and REST APIs)
+## `execute-api` (HTTP APIs, WebSocket APIs, and REST APIs)
 
 | Resource                          | ARN                                                                                                |
 | --------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -108,5 +103,4 @@ IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md") and
 
 \*\* This ARN is applicable only when setting the `SourceArn` condition in the
 [resource policy](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md")
-for a Lambda authorizer function. For an example, see [Create a Lambda
-authorizer](http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create "http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create").
+for a Lambda authorizer function. For an example, see [Create a Lambda authorizer](http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create "http-api-lambda-authorizer.md#http-api-lambda-authorizer.example-create").

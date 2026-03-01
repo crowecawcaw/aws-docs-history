@@ -18,14 +18,10 @@ stage. To promote a canary, do the following.
 
 ###### Topics
 
-- [Promote a canary release
-  using the API Gateway console](#promote-canary-release-deployment-console "#promote-canary-release-deployment-console")
-- [Promote a canary release using the
-  AWS CLI](#promote-canary-release-cli "#promote-canary-release-cli")
+- [Promote a canary release using the API Gateway console](#promote-canary-release-deployment-console "#promote-canary-release-deployment-console")
+- [Promote a canary release using the AWS CLI](#promote-canary-release-cli "#promote-canary-release-cli")
 
-## Promote a canary release
-
-using the API Gateway console
+## Promote a canary release using the API Gateway console
 
 To use the API Gateway console to promote a canary release deployment, do the
 following:
@@ -41,12 +37,9 @@ following:
 
 After the promotion, the production release references the same API version
 (**deploymentId**) as the canary release. You can verify this
-using the AWS CLI. For example, see [Promote a canary release using the
-AWS CLI](#promote-canary-release-cli "#promote-canary-release-cli").
+using the AWS CLI. For example, see [Promote a canary release using the AWS CLI](#promote-canary-release-cli "#promote-canary-release-cli").
 
-## Promote a canary release using the
-
-AWS CLI
+## Promote a canary release using the AWS CLI
 
 To promote a canary release to the production release using the AWS CLI commands,
 call the `update-stage` command to copy the canary-associated

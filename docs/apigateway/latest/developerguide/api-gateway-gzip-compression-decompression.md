@@ -33,9 +33,6 @@ the mapped payload, and returns the compressed payload to the client.
 
 ###### Topics
 
-- [Enable payload compression for an
-  API in API Gateway](api-gateway-enable-compression.md "api-gateway-enable-compression.md")
-- [Call an API method
-  with a compressed payload in API Gateway](api-gateway-make-request-with-compressed-payload.md "api-gateway-make-request-with-compressed-payload.md")
-- [Receive an API
-  response with a compressed payload in API Gateway](api-gateway-receive-response-with-compressed-payload.md "api-gateway-receive-response-with-compressed-payload.md")
+- [Enable payload compression for an API in API Gateway](api-gateway-enable-compression.md "api-gateway-enable-compression.md")
+- [Call an API method with a compressed payload in API Gateway](api-gateway-make-request-with-compressed-payload.md "api-gateway-make-request-with-compressed-payload.md")
+- [Receive an API response with a compressed payload in API Gateway](api-gateway-receive-response-with-compressed-payload.md "api-gateway-receive-response-with-compressed-payload.md")

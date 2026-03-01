@@ -1,6 +1,4 @@
-# Tutorial: Create a REST API with an HTTP non-proxy
-
-integration
+# Tutorial: Create a REST API with an HTTP non-proxy integration
 
 In this tutorial, you create an API from scratch using the Amazon API Gateway console. You can
 think of the console as an API design studio and use it to scope the API features, to
@@ -8,13 +6,10 @@ experiment with its behaviors, to build the API, and to deploy your API in stage
 
 ###### Topics
 
-- [Create an API with HTTP
-  custom integration](#api-gateway-create-resource-and-methods "#api-gateway-create-resource-and-methods")
+- [Create an API with HTTP custom integration](#api-gateway-create-resource-and-methods "#api-gateway-create-resource-and-methods")
 - [(Optional) Map request parameters](#api-gateway-create-resources-and-methods-next-steps "#api-gateway-create-resources-and-methods-next-steps")
 
-## Create an API with HTTP
-
-custom integration
+## Create an API with HTTP custom integration
 
 This section walks you through the steps to create resources, expose methods on a
 resource, configure a method to achieve the desired API behaviors, and to test and
@@ -155,9 +150,7 @@ integration request URL, and send the request to the HTTP endpoint.
 If you enter the incorrect case of a letter, such as lowercase letter instead of an uppercase letter, this will cause
 errors later in the walkthrough.
 
-#### Step 1: Create
-
-resources
+#### Step 1: Create resources
 
 In this step, you create a resource with a path parameter {petId}.
 
@@ -173,9 +166,7 @@ Use the curly braces
 **/pets/{petId}**
 is displayed. 5. Keep **CORS (Cross Origin Resource Sharing)** turned off. 6. Choose **Create resource**.
 
-#### Step 2: Create and test the
-
-methods
+#### Step 2: Create and test the methods
 
 In this step, you create a `GET` method with a `{petId}` path parameter.
 
@@ -270,9 +261,6 @@ You can further customize your API by turning on request validation, transformin
 
 To explore more ways to customize your API, see the following tutorials:
 
-- For more information about request validation, see [Set up basic request validation
-  in API Gateway](api-gateway-request-validation-set-up.md "api-gateway-request-validation-set-up.md").
-- For information about how to transform request and response payloads, see [Tutorial: Modify the integration request and response
-  for integrations to AWS services](set-up-data-transformations-in-api-gateway.md "set-up-data-transformations-in-api-gateway.md").
-- For information about how to create custom gateway responses see, [Set up a gateway response
-  for a REST API using the API Gateway console](set-up-gateway-response-using-the-console.md "set-up-gateway-response-using-the-console.md").
+- For more information about request validation, see [Set up basic request validation in API Gateway](api-gateway-request-validation-set-up.md "api-gateway-request-validation-set-up.md").
+- For information about how to transform request and response payloads, see [Tutorial: Modify the integration request and response for integrations to AWS services](set-up-data-transformations-in-api-gateway.md "set-up-data-transformations-in-api-gateway.md").
+- For information about how to create custom gateway responses see, [Set up a gateway response for a REST API using the API Gateway console](set-up-gateway-response-using-the-console.md "set-up-gateway-response-using-the-console.md").

@@ -19,18 +19,13 @@ request submissions based on specified requests rates and quotas.
 
 ###### Topics
 
-- [How throttling limit settings are applied in
-  API Gateway](#apigateway-how-throttling-limits-are-applied "#apigateway-how-throttling-limits-are-applied")
+- [How throttling limit settings are applied in API Gateway](#apigateway-how-throttling-limits-are-applied "#apigateway-how-throttling-limits-are-applied")
 - [Account-level throttling per Region](#apig-request-throttling-account-level-limits "#apig-request-throttling-account-level-limits")
-- [Configuring API-level and stage-level throttling
-  targets in a usage plan](#apigateway-api-level-throttling-in-usage-plan "#apigateway-api-level-throttling-in-usage-plan")
+- [Configuring API-level and stage-level throttling targets in a usage plan](#apigateway-api-level-throttling-in-usage-plan "#apigateway-api-level-throttling-in-usage-plan")
 - [Configuring stage-level throttling targets](#apigateway-stage-level-throttling "#apigateway-stage-level-throttling")
-- [Configuring method-level throttling targets in a usage
-  plan](#apigateway-method-level-throttling-in-usage-plan "#apigateway-method-level-throttling-in-usage-plan")
+- [Configuring method-level throttling targets in a usage plan](#apigateway-method-level-throttling-in-usage-plan "#apigateway-method-level-throttling-in-usage-plan")
 
-## How throttling limit settings are applied in
-
-API Gateway
+## How throttling limit settings are applied in API Gateway
 
 Before you configure throttle and quota settings for your API, it's useful to understand the types of
 throttling-related settings for your API and how API Gateway applies them.
@@ -67,9 +62,7 @@ account, per Region. In API Gateway, the burst limit represents the target maxim
 submissions that API Gateway will fulfill before returning `429 Too Many Requests` error responses. For more
 information on throttling quotas, see [Amazon API Gateway quotas](limits.md "limits.md").
 
-## Configuring API-level and stage-level throttling
-
-targets in a usage plan
+## Configuring API-level and stage-level throttling targets in a usage plan
 
 In a [usage plan](api-gateway-api-usage-plans.md "api-gateway-api-usage-plans.md"), you can set a per-method throttling target
 for all methods at the API or stage level. You can specify a _throttling rate_, which is the rate, in requests per second, that tokens are added to the token bucket.
@@ -85,9 +78,7 @@ For more
 information about how to use the AWS Management Console to create stage-level throttling targets, see [Modify stage settings](set-up-stages.md#how-to-stage-settings "set-up-stages.md#how-to-stage-settings"). For more information
 about how to use the AWS CLI to create stage-level throttling targets, see [create-stage](../../../cli/latest/reference/apigateway/create-stage.md "../../../cli/latest/reference/apigateway/create-stage.md").
 
-## Configuring method-level throttling targets in a usage
-
-plan
+## Configuring method-level throttling targets in a usage plan
 
 You can set additional throttling targets at the method level in **Usage Plans** as shown in
 [Create a usage plan](api-gateway-create-usage-plans.md#api-gateway-usage-plan-create "api-gateway-create-usage-plans.md#api-gateway-usage-plan-create"). In the API Gateway

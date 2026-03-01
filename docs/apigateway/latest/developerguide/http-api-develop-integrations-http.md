@@ -1,6 +1,4 @@
-# Create HTTP proxy integrations
-
-for HTTP APIs
+# Create HTTP proxy integrations for HTTP APIs
 
 An HTTP proxy integration enables you to connect an API route to a publicly routable HTTP
 endpoint. With this integration type, API Gateway passes the entire request and response between
@@ -9,9 +7,7 @@ the frontend and the backend.
 To create an HTTP proxy integration, provide the URL of a publicly routable HTTP
 endpoint.
 
-## HTTP proxy integration with
-
-path variables
+## HTTP proxy integration with path variables
 
 You can use path variables in HTTP API routes.
 

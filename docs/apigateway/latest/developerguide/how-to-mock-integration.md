@@ -6,8 +6,7 @@ As an API developer, you can use this feature to unblock dependent teams that ne
 with an API before the project development is complete. You can also use this feature to
 provision a landing page for your API, which can provide an overview of and navigation to
 your API. For an example of such a landing page, see the integration request and response of
-the GET method on the root resource of the example API discussed in [Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
+the GET method on the root resource of the example API discussed in [Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
 
 As an API developer, you decide how API Gateway responds to a mock integration request. For
 this, you configure the method's integration request and integration response to associate a
@@ -79,5 +78,4 @@ API method.
 
 ###### Topics
 
-- [Enable mock integration using the
-  API Gateway console](how-to-mock-integration-console.md "how-to-mock-integration-console.md")
+- [Enable mock integration using the API Gateway console](how-to-mock-integration-console.md "how-to-mock-integration-console.md")

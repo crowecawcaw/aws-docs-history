@@ -1,6 +1,4 @@
-# Use `wscat` to
-
-connect to a WebSocket API and send messages to it
+# Use `wscat` to connect to a WebSocket API and send messages to it
 
 The `wscat`
 utility is a convenient tool for testing a WebSocket API that you have created and

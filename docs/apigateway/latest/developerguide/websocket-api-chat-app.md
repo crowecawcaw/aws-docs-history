@@ -1,6 +1,4 @@
-# Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and
-
-DynamoDB
+# Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and DynamoDB
 
 In this tutorial, you'll create a serverless chat application with a WebSocket API. With a WebSocket API,
 you can support two-way communication between clients. Clients can receive messages without having to poll for
@@ -15,21 +13,17 @@ verify that messages are sent and received.
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more
 information, see [Set up to use API Gateway](setting-up.md "setting-up.md").
 
-You also need `wscat` to connect to your API. For more information, see [Use wscat to
-connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
+You also need `wscat` to connect to your API. For more information, see [Use wscat to connect to a WebSocket API and send messages to it](apigateway-how-to-call-websocket-api-wscat.md "apigateway-how-to-call-websocket-api-wscat.md").
 
 ###### Topics
 
-- [Step 1: Create Lambda functions and a DynamoDB
-  table](#websocket-api-chat-app-create-dependencies "#websocket-api-chat-app-create-dependencies")
+- [Step 1: Create Lambda functions and a DynamoDB table](#websocket-api-chat-app-create-dependencies "#websocket-api-chat-app-create-dependencies")
 - [Step 2: Create a WebSocket API](#websocket-api-chat-app-create-api "#websocket-api-chat-app-create-api")
 - [Step 3: Test your API](#websocket-api-chat-app-invoke-api "#websocket-api-chat-app-invoke-api")
 - [Step 4: Clean up](#websocket-api-chat-app-cleanup "#websocket-api-chat-app-cleanup")
 - [Next steps: Automate with CloudFormation](#websocket-api-chat-app-next-steps "#websocket-api-chat-app-next-steps")
 
-## Step 1: Create Lambda functions and a DynamoDB
-
-table
+## Step 1: Create Lambda functions and a DynamoDB table
 
 Download and unzip [the app creation template
 for CloudFormation](samples/ws-chat-app-starter.md "samples/ws-chat-app-starter.md"). You'll use this template to create a Amazon DynamoDB table to store your app's

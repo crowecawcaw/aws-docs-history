@@ -13,9 +13,7 @@ code. You use a mapping template to do the following:
   parameter multiple times throughout the template, we recommend creating a variable and applying the override at
   the end of the template. The template is applied only after the entire template is parsed.
 
-## Example 1: Override the status code based on the integration
-
-body
+## Example 1: Override the status code based on the integration body
 
 The following example use the [example API](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md") to
 override the status code based on the integration response body.
@@ -228,15 +226,12 @@ status code based on the integration body.
 }
 ```
 
-## Example 2: Override the request header and create new
-
-headers
+## Example 2: Override the request header and create new headers
 
 The following example uses the [example API](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md") to
 override the request header and create new headers.
 
-AWS Management Console###### To override a method's
-request header by creating a new header
+AWS Management Console###### To override a method's request header by creating a new header
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Choose the example API you created in the previous tutorial. The name of the API should be **PetStore**.

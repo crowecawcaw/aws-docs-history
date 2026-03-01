@@ -1,6 +1,4 @@
-# Call an API method
-
-with a compressed payload in API Gateway
+# Call an API method with a compressed payload in API Gateway
 
 To make an API request with a compressed payload, the client must set the
 `Content-Encoding` header with one of the [supported content

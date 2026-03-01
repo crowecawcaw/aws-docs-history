@@ -1,12 +1,9 @@
-# Enable CORS on a resource using the API Gateway
-
-console
+# Enable CORS on a resource using the API Gateway console
 
 You can use the API Gateway console to enable CORS support for one or all methods on a REST
 API resource that you have created. After you enable COR support, set the integration passthrough behavior to `NEVER`. In this case, the method request of an
 unmapped content type will be rejected with an HTTP 415 Unsupported Media Type response. For more information, see
-[Method request behavior for payloads without mapping
-templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md")
+[Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md")
 
 ###### Important
 
@@ -66,5 +63,4 @@ for the new settings to take effect. For more information, see [Create a deploym
 ###### Note
 
 If you cannot enable CORS support on your resource after following the procedure, we recommend that you compare your CORS configuration to the
-example API `/pets` resource. To learn how to create the example API, see [Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
+example API `/pets` resource. To learn how to create the example API, see [Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").

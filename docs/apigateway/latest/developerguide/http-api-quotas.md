@@ -1,6 +1,4 @@
-# Quotas for configuring
-
-and running an HTTP API in API Gateway
+# Quotas for configuring and running an HTTP API in API Gateway
 
 The following quotas apply to configuring and running an HTTP API in Amazon API Gateway. If the quota is per-API, it can
 only be increased on specific APIs, not for all the APIs in an account. For information about account-level quotas
@@ -8,7 +6,7 @@ see [Amazon API Gateway quotas](limits.md "limits.md")
 
 | Resource or operation                                   | Default quota                                                                                    | Can be increased                                                                                                                                                                         |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Routes per API                                          | 300                                                                                              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-01C8A9E0 "https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-01C8A9E0") |
+| Routes per API                                          | 300                                                                                              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-65B5C802 "https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-65B5C802") |
 | Integrations per API                                    | 300                                                                                              | No                                                                                                                                                                                       |
 | Maximum integration timeout                             | 30 seconds                                                                                       | No                                                                                                                                                                                       |
 | Stages per API                                          | 10                                                                                               | [Yes](https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-379E48B0 "https://console.aws.amazon.com/servicequotas/home/services/apigateway/quotas/L-379E48B0") |

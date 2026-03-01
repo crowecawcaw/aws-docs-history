@@ -9,11 +9,8 @@ configure a REST API to expose the following Amazon S3 operations:
   objects in an Amazon S3 bucket](../../../AmazonS3/latest/API/API_ListObjects.md "../../../AmazonS3/latest/API/API_ListObjects.md").
 - Expose GET on a Folder/Item resource to [view or download an
   object from an Amazon S3 bucket](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md").
-  You might want to import the sample API as an Amazon S3 proxy, as shown in [OpenAPI definitions of the
-  sample API as an Amazon S3
-  proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md"). This sample contains more exposed methods. For instructions on how to import an API using
-  the OpenAPI definition, see [Develop REST APIs using
-  OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
+  You might want to import the sample API as an Amazon S3 proxy, as shown in [OpenAPI definitions of the sample API as an Amazon S3 proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md"). This sample contains more exposed methods. For instructions on how to import an API using
+  the OpenAPI definition, see [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md").
 
 ###### Note
 
@@ -23,21 +20,15 @@ Endpoints and Quotas](../../../general/latest/gr/apigateway.md "../../../general
 
 ###### Topics
 
-- [Set up IAM permissions for the API to invoke Amazon S3
-  actions](#api-as-s3-proxy-iam-permissions "#api-as-s3-proxy-iam-permissions")
+- [Set up IAM permissions for the API to invoke Amazon S3 actions](#api-as-s3-proxy-iam-permissions "#api-as-s3-proxy-iam-permissions")
 - [Create API resources to represent Amazon S3 resources](#api-as-s3-proxy-create-resources "#api-as-s3-proxy-create-resources")
 - [Expose an API method to list the caller's Amazon S3 buckets](#api-root-get-as-s3-get-service "#api-root-get-as-s3-get-service")
 - [Expose API methods to access an Amazon S3 bucket](#api-folder-operations-as-s3-bucket-actions "#api-folder-operations-as-s3-bucket-actions")
-- [Expose API methods to access an Amazon S3 object in a
-  bucket](#api-items-in-folder-as-s3-objects-in-bucket "#api-items-in-folder-as-s3-objects-in-bucket")
-- [OpenAPI definitions of the
-  sample API as an Amazon S3
-  proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md")
+- [Expose API methods to access an Amazon S3 object in a bucket](#api-items-in-folder-as-s3-objects-in-bucket "#api-items-in-folder-as-s3-objects-in-bucket")
+- [OpenAPI definitions of the sample API as an Amazon S3 proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md")
 - [Call the API using a REST API client](api-as-s3-proxy-test-using-postman.md "api-as-s3-proxy-test-using-postman.md")
 
-## Set up IAM permissions for the API to invoke Amazon S3
-
-actions
+## Set up IAM permissions for the API to invoke Amazon S3 actions
 
 To allow the API to invoke Amazon S3 actions, you must have the appropriate IAM policies attached to an IAM role. In this step, you create a new IAM role.
 
@@ -171,9 +162,7 @@ As a good practice, you can test the API you have configured so far.
 
 To work with an Amazon S3 bucket, you expose the `GET` method on the /{folder} resource to list
 objects in a bucket. The instructions are similar to those
-described in [Expose an API method to list the caller's Amazon S3 buckets](#api-root-get-as-s3-get-service "#api-root-get-as-s3-get-service"). For more methods, you can import the sample API here, [OpenAPI definitions of the
-sample API as an Amazon S3
-proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md").
+described in [Expose an API method to list the caller's Amazon S3 buckets](#api-root-get-as-s3-get-service "#api-root-get-as-s3-get-service"). For more methods, you can import the sample API here, [OpenAPI definitions of the sample API as an Amazon S3 proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md").
 
 ###### To expose the GET method on a folder resource
 
@@ -213,15 +202,11 @@ The test result will contain a list of object in your bucket.
 
 ![Test the GET method to create an Amazon S3 bucket.](images/aws_proxy_s3_test_api_folder_get_new_console.png)
 
-## Expose API methods to access an Amazon S3 object in a
-
-bucket
+## Expose API methods to access an Amazon S3 object in a bucket
 
 Amazon S3 supports GET, DELETE, HEAD, OPTIONS, POST and PUT actions to access and manage objects in a given bucket.
 In this tutorial, you expose a `GET` method on the `{folder}/{item}` resource to get an
-image from a bucket. For more applications of the `{folder}/{item}` resource, see the sample API, [OpenAPI definitions of the
-sample API as an Amazon S3
-proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md").
+image from a bucket. For more applications of the `{folder}/{item}` resource, see the sample API, [OpenAPI definitions of the sample API as an Amazon S3 proxy](api-as-s3-proxy-export-swagger-with-extensions.md "api-as-s3-proxy-export-swagger-with-extensions.md").
 
 ###### To expose the GET method on a item resource
 
@@ -295,11 +280,9 @@ content, additional API settings are necessary. This is outlined as follows:
    upload) and in a integration response (for download). Make sure that no mapping template is defined for the
    affected content type. For more information, see [Data transformations for REST APIs in API Gateway](rest-api-data-transformations.md "rest-api-data-transformations.md").
 
-The payload size limit is 10 MB. See [Quotas for configuring
-and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
+The payload size limit is 10 MB. See [Quotas for configuring and running a REST API in API Gateway](api-gateway-execution-service-limits-table.md "api-gateway-execution-service-limits-table.md").
 
 Make sure that files on Amazon S3 have the correct content types added as the files' metadata. For streamable media
 content, `Content-Disposition:inline` may also need to be added to the metadata.
 
-For more information about the binary support in API Gateway, see [Content type conversions in
-API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").
+For more information about the binary support in API Gateway, see [Content type conversions in API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").

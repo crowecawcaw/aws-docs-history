@@ -1,6 +1,4 @@
-# Use `@connections` commands in your
-
-backend service
+# Use `@connections` commands in your backend service
 
 Your backend service can use the following WebSocket connection HTTP requests to send a callback message to a
 connected client, get connection information, or disconnect the client.

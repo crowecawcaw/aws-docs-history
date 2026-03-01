@@ -16,9 +16,7 @@ exceptions, the client can resubmit the failed requests in a way that is rate li
 As an API developer, you can set the target limits for individual API stages or routes to improve overall
 performance across all APIs in your account.
 
-## Account-level
-
-throttling per Region
+## Account-level throttling per Region
 
 By default, API Gateway limits the steady-state requests per second (RPS) across all APIs within an AWS
 account, per Region. It also limits the burst (that is, the maximum bucket size) across all APIs within an AWS

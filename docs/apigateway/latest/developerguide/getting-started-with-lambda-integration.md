@@ -1,6 +1,4 @@
-# Choose an AWS Lambda
-
-integration tutorial
+# Choose an AWS Lambda integration tutorial
 
 To build an API with Lambda integrations, you can use Lambda proxy integration or
 Lambda non-proxy integration.
@@ -22,9 +20,6 @@ the account where you created your API.
 
 ###### Topics
 
-- [Tutorial: Create a REST API with a Lambda proxy
-  integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md")
-- [Tutorial: Create a REST API with a Lambda non-proxy
-  integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md")
-- [Tutorial: Create a REST API
-  with a cross-account Lambda proxy integration](apigateway-cross-account-lambda-integrations.md "apigateway-cross-account-lambda-integrations.md")
+- [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md")
+- [Tutorial: Create a REST API with a Lambda non-proxy integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md")
+- [Tutorial: Create a REST API with a cross-account Lambda proxy integration](apigateway-cross-account-lambda-integrations.md "apigateway-cross-account-lambda-integrations.md")

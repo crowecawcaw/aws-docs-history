@@ -19,8 +19,7 @@ API Gateway creates WebSocket APIs that:
   protocol, which enables stateful, full-duplex communication between client and
   server.
 - Route incoming messages based on message content.
-  For more information about API Gateway WebSocket APIs, see [Use API Gateway to create WebSocket
-  APIs](api-gateway-overview-developer-experience.md#api-gateway-overview-websocket "api-gateway-overview-developer-experience.md#api-gateway-overview-websocket") and [Overview of WebSocket APIs in API Gateway](apigateway-websocket-api-overview.md "apigateway-websocket-api-overview.md").
+  For more information about API Gateway WebSocket APIs, see [Use API Gateway to create WebSocket APIs](api-gateway-overview-developer-experience.md#api-gateway-overview-websocket "api-gateway-overview-developer-experience.md#api-gateway-overview-websocket") and [Overview of WebSocket APIs in API Gateway](apigateway-websocket-api-overview.md "apigateway-websocket-api-overview.md").
 
 ###### Topics
 
@@ -28,8 +27,7 @@ API Gateway creates WebSocket APIs that:
 - [Features of API Gateway](#api-gateway-overview-features "#api-gateway-overview-features")
 - [API Gateway use cases](api-gateway-overview-developer-experience.md "api-gateway-overview-developer-experience.md")
 - [Accessing API Gateway](#introduction-accessing-apigateway "#introduction-accessing-apigateway")
-- [Part of AWS serverless
-  infrastructure](#api-gateway-overview-a-serverless-pillar "#api-gateway-overview-a-serverless-pillar")
+- [Part of AWS serverless infrastructure](#api-gateway-overview-a-serverless-pillar "#api-gateway-overview-a-serverless-pillar")
 - [How to get started with Amazon API Gateway](#welcome-how-to-get-started "#welcome-how-to-get-started")
 - [Amazon API Gateway concepts](api-gateway-basic-concept.md "api-gateway-basic-concept.md")
 - [Choose between REST APIs and HTTP APIs](http-api-vs-rest.md "http-api-vs-rest.md")
@@ -67,8 +65,7 @@ Amazon API Gateway offers features such as the following:
   API changes.
 - CloudWatch access logging and execution logging, including the ability to set
   alarms. For more information, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md") and
-  [Monitor WebSocket API execution
-  with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md").
+  [Monitor WebSocket API execution with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md").
 - Ability to use CloudFormation templates to enable API creation. For more information,
   see [Amazon API Gateway Resource
   Types Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md") and [Amazon API Gateway V2 Resource
@@ -104,9 +101,7 @@ You can access Amazon API Gateway in the following ways:
   [Setting Up the AWS Tools for Windows PowerShell](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md") in the
   _AWS Tools for PowerShell User Guide_.
 
-## Part of AWS serverless
-
-infrastructure
+## Part of AWS serverless infrastructure
 
 Together with [AWS Lambda](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md"), API Gateway forms the app-facing
 part of the AWS serverless infrastructure. To learn more about getting started with serverless, see the

@@ -1,6 +1,4 @@
-# Set up a Regional custom
-
-domain name in API Gateway
+# Set up a Regional custom domain name in API Gateway
 
 Use a Regional custom domain name to create a user-friendly API base URL. With a Regional custom domain name,
 you can map HTTP and REST API stages to the same custom domain name and use mutual TLS authentication.
@@ -36,8 +34,7 @@ AWS Management Console1. Sign in to the API Gateway console at [https://console.
 pane. 3. Choose **Create**. 4. For **Domain name**, enter a domain name. 5. For **Routing mode**, choose **Routing rules only**.
 
 In this routing mode, you can only send traffic from your custom domain name to your APIs by using
-routing rules. For more information, see [Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md"). 6. For **Minimum TLS version**, select a version. 7. Under **Endpoint configuration**, for **API endpoint type**, choose **Regional**. 8. Choose an ACM certificate. The certificate must be in the same Region as the API. 9. Choose **Create**.
+routing rules. For more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md"). 6. For **Minimum TLS version**, select a version. 7. Under **Endpoint configuration**, for **API endpoint type**, choose **Regional**. 8. Choose an ACM certificate. The certificate must be in the same Region as the API. 9. Choose **Create**.
 
 AWS CLI
 The following [create-domain-name](../../../cli/latest/reference/apigatewayv2/create-domain-name.md "../../../cli/latest/reference/apigatewayv2/create-domain-name.md")
@@ -107,8 +104,7 @@ aws apigatewayv2 create-routing-rule \
   }]'
 ```
 
-You can change the routing mode and create new rules at any time. For more information, see [Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+You can change the routing mode and create new rules at any time. For more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 
 ## Create a DNS record for your Regional custom domain name
 

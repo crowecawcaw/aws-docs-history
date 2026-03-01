@@ -1,6 +1,4 @@
-# Return binary media from a Lambda proxy
-
-integration in API Gateway
+# Return binary media from a Lambda proxy integration in API Gateway
 
 To return binary media from an [AWS Lambda proxy
 integration](set-up-lambda-proxy-integrations.md "set-up-lambda-proxy-integrations.md"), base64 encode the response from your Lambda function. You must also [configure your API's binary media types](api-gateway-payload-encodings-configure-with-console.md "api-gateway-payload-encodings-configure-with-console.md").
@@ -96,5 +94,4 @@ def lambda_handler(event, context):
         }
 ```
 
-To learn more about binary media types, see [Binary media types for
-REST APIs in API Gateway](api-gateway-payload-encodings.md "api-gateway-payload-encodings.md").
+To learn more about binary media types, see [Binary media types for REST APIs in API Gateway](api-gateway-payload-encodings.md "api-gateway-payload-encodings.md").

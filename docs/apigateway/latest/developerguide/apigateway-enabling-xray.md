@@ -6,10 +6,8 @@ In this section you can find detailed information on how to set up [AWS X-Ray](.
 
 - [X-Ray tracing modes for API Gateway](#apigateway-tracing-modes "#apigateway-tracing-modes")
 - [Permissions for X-Ray tracing](#set-up-xray-tracing-permissions "#set-up-xray-tracing-permissions")
-- [Enabling X-Ray tracing in the API Gateway
-  console](#apigateway-xray-console-setup "#apigateway-xray-console-setup")
-- [Enabling AWS X-Ray tracing using the API Gateway
-  CLI](#apigateway-xray-cli-setup "#apigateway-xray-cli-setup")
+- [Enabling X-Ray tracing in the API Gateway console](#apigateway-xray-console-setup "#apigateway-xray-console-setup")
+- [Enabling AWS X-Ray tracing using the API Gateway CLI](#apigateway-xray-cli-setup "#apigateway-xray-cli-setup")
 
 ## X-Ray tracing modes for API Gateway
 
@@ -53,9 +51,7 @@ will have the `APIGatewayServiceRolePolicy` managed policy attached to it.
 For more information about service-linked roles, see [Using Service-Linked
 Roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md").
 
-## Enabling X-Ray tracing in the API Gateway
-
-console
+## Enabling X-Ray tracing in the API Gateway console
 
 You can use the Amazon API Gateway console to enable active tracing on an API stage.
 
@@ -74,9 +70,7 @@ These steps assume that you have already deployed the API to a stage.
 Once you've enabled X-Ray for your API stage, you can use the X-Ray management
 console to view the traces and service maps.
 
-## Enabling AWS X-Ray tracing using the API Gateway
-
-CLI
+## Enabling AWS X-Ray tracing using the API Gateway CLI
 
 The following [create-stage](../../../cli/latest/reference/apigateway/create-stage.md "../../../cli/latest/reference/apigateway/create-stage.md") command creates a stage with active X-Ray tracing:
 

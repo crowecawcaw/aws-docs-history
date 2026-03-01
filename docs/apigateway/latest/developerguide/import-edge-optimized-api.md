@@ -5,19 +5,14 @@ specifying the `EDGE` endpoint type as an additional input, besides the OpenAPI
 file, to the import operation. You can do so using the API Gateway console, AWS CLI, or an AWS SDK.
 
 For a tutorial on using the Import API feature
-from the API Gateway console, see [Tutorial: Create a REST API by importing an
-example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
+from the API Gateway console, see [Tutorial: Create a REST API by importing an example](api-gateway-create-api-from-example.md "api-gateway-create-api-from-example.md").
 
 ###### Topics
 
-- [Import an edge-optimized API
-  using the API Gateway console](#import-edge-optimized-api-with-console "#import-edge-optimized-api-with-console")
-- [Import an edge-optimized API
-  using the AWS CLI](#import-edge-optimized-api-with-awscli "#import-edge-optimized-api-with-awscli")
+- [Import an edge-optimized API using the API Gateway console](#import-edge-optimized-api-with-console "#import-edge-optimized-api-with-console")
+- [Import an edge-optimized API using the AWS CLI](#import-edge-optimized-api-with-awscli "#import-edge-optimized-api-with-awscli")
 
-## Import an edge-optimized API
-
-using the API Gateway console
+## Import an edge-optimized API using the API Gateway console
 
 To import an edge-optimized API using the API Gateway console, do
 the following:
@@ -33,9 +28,7 @@ the following:
 6. Choose **Create API** to start importing the OpenAPI
    definitions.
 
-## Import an edge-optimized API
-
-using the AWS CLI
+## Import an edge-optimized API using the AWS CLI
 
 The following [import-rest-api](../../../cli/latest/reference/apigateway/import-rest-api.md "../../../cli/latest/reference/apigateway/import-rest-api.md") command
 imports an API from an OpenAPI definition file to create a new edge-optimized API:

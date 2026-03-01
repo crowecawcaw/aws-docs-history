@@ -7,8 +7,7 @@ An API mapping specifies an API, a stage, and optionally a path to use for the m
 can map the `production` stage of an API to `wss://api.example.com/orders`.
 
 Before you create an API mapping, you must have an API, a stage, and a custom domain name. To learn more about
-creating a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 ## Restrictions
 
@@ -22,8 +21,7 @@ domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "api
 ## Create an API mapping
 
 To create an API mapping, you must first create a custom domain name, API, and stage. For information about
-creating a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+creating a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 AWS Management Console
 

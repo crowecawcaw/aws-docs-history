@@ -37,16 +37,12 @@ The following table describes the TLS ciphers that are available for the TLS 1_2
 | AES256-GCM-SHA384             | Yes                         |
 | AES256-SHA256                 | Yes                         |
 
-## OpenSSL and
-
-RFC cipher names
+## OpenSSL and RFC cipher names
 
 OpenSSL and IETF RFC 5246, use different names for the same ciphers. For a list of the cipher names, see
-[OpenSSL and
-RFC cipher names](apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names").
+[OpenSSL and RFC cipher names](apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names "apigateway-security-policies-list.md#apigateway-secure-connections-openssl-rfc-cipher-names").
 
 ## Information about REST APIs and HTTP APIs
 
-For more information about REST APIs and HTTP APIs, see [Choose a security policy for
-your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and
+For more information about REST APIs and HTTP APIs, see [Choose a security policy for your custom domain in API Gateway](apigateway-custom-domain-tls-version.md "apigateway-custom-domain-tls-version.md") and
 [Security policy for HTTP APIs in API Gateway](http-api-ciphers.md "http-api-ciphers.md").

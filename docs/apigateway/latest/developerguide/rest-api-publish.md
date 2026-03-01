@@ -1,6 +1,4 @@
-# Publish REST APIs for customers to
-
-invoke
+# Publish REST APIs for customers to invoke
 
 Simply creating and developing an API Gateway API doesn't automatically make it callable by your
 users. To make it callable, you must deploy your API to a stage. In addition, you might want
@@ -20,5 +18,4 @@ forgery attempts (CSRF). For more information see the [Set-Cookie](https://devel
 ###### Topics
 
 - [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to-deploy-api.md")
-- [Custom domain name for public
-  REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md")
+- [Custom domain name for public REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md")

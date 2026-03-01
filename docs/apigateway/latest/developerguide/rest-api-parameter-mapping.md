@@ -14,8 +14,7 @@ header parameter `DogsAge0`. Then, if a client sends the header `puppies:true` t
 the integration request sends the request header `DogsAge0:true` to the integration endpoint. The following diagram shows the request lifecycle of this example.
 
 ![Diagram of API Gateway parameter mapping example for a request](images/parameter-mapping-example1.png)
-To create this example using API Gateway, see [Example 1: Map a method request parameter to an
-integration request parameter](request-response-data-mappings.md#request-response-data-mappings-example-1 "request-response-data-mappings.md#request-response-data-mappings-example-1").
+To create this example using API Gateway, see [Example 1: Map a method request parameter to an integration request parameter](request-response-data-mappings.md#request-response-data-mappings-example-1 "request-response-data-mappings.md#request-response-data-mappings-example-1").
 
 As another
 example, you can also map the integration response header parameter `kittens` to the method response

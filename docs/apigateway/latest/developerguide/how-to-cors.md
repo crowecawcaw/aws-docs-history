@@ -4,9 +4,7 @@
 sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS") is a browser security feature that restricts cross-origin HTTP
 requests that are initiated from scripts running in the browser. For more information, see [What is CORS?](https://aws.amazon.com/what-is/cross-origin-resource-sharing/ "https://aws.amazon.com/what-is/cross-origin-resource-sharing/").
 
-## Determining whether to enable CORS
-
-support
+## Determining whether to enable CORS support
 
 A _cross-origin_ HTTP request is one that is made to:
 
@@ -67,8 +65,7 @@ To create a preflight response:
 
 3. Set the integration passthrough behavior to `NEVER`. In this case, the method request of an
    unmapped content type will be rejected with an HTTP 415 Unsupported Media Type response. For more information, see
-   [Method request behavior for payloads without mapping
-   templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
+   [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
 4. Enter values for the response headers. To allow all origins, all methods, and common headers, use the following header values:
    - `Access-Control-Allow-Headers: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'`
    - `Access-Control-Allow-Methods: 'DELETE,GET,HEAD,OPTIONS,PUT,POST,PATCH'`
@@ -157,8 +154,6 @@ def lambda_handler(event, context):
 
 ###### Topics
 
-- [Enable CORS on a resource using the API Gateway
-  console](how-to-cors-console.md "how-to-cors-console.md")
-- [Enable CORS on a
-  resource using the API Gateway import API](enable-cors-for-resource-using-swagger-importer-tool.md "enable-cors-for-resource-using-swagger-importer-tool.md")
+- [Enable CORS on a resource using the API Gateway console](how-to-cors-console.md "how-to-cors-console.md")
+- [Enable CORS on a resource using the API Gateway import API](enable-cors-for-resource-using-swagger-importer-tool.md "enable-cors-for-resource-using-swagger-importer-tool.md")
 - [Test CORS for an API Gateway API](apigateway-test-cors.md "apigateway-test-cors.md")

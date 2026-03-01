@@ -15,9 +15,7 @@ to the API caller.
 In the following section, we show how to set up gateway responses by using the API Gateway
 console and the API Gateway REST API.
 
-## Setting up gateway responses to customize
-
-error responses
+## Setting up gateway responses to customize error responses
 
 If API Gateway fails to process an incoming request, it returns to the client an error
 response without forwarding the request to the integration backend. By default, the
@@ -56,10 +54,7 @@ method request parameters, see [Input variables](api-gateway-mapping-template-re
 
 ###### Topics
 
-- [Set up a gateway response
-  for a REST API using the API Gateway console](set-up-gateway-response-using-the-console.md "set-up-gateway-response-using-the-console.md")
-- [Set up a gateway response using
-  the API Gateway REST API](set-up-gateway-response-using-the-api.md "set-up-gateway-response-using-the-api.md")
-- [Set up gateway response
-  customization in OpenAPI](set-up-gateway-responses-in-swagger.md "set-up-gateway-responses-in-swagger.md")
+- [Set up a gateway response for a REST API using the API Gateway console](set-up-gateway-response-using-the-console.md "set-up-gateway-response-using-the-console.md")
+- [Set up a gateway response using the API Gateway REST API](set-up-gateway-response-using-the-api.md "set-up-gateway-response-using-the-api.md")
+- [Set up gateway response customization in OpenAPI](set-up-gateway-responses-in-swagger.md "set-up-gateway-responses-in-swagger.md")
 - [Gateway response types for API Gateway](supported-gateway-response-types.md "supported-gateway-response-types.md")

@@ -94,5 +94,4 @@ The following example shows an input to a `REQUEST` authorizer for an API method
 The `requestContext` is a map of key-value pairs and corresponds to the [$context](api-gateway-mapping-template-reference.md#context-variable-reference "api-gateway-mapping-template-reference.md#context-variable-reference") variable. Its outcome is API-dependent.
 
 API Gateway might add new
-keys to the map. For more information about Lambda function input in Lambda proxy integration, see [Input format of a
-Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format").
+keys to the map. For more information about Lambda function input in Lambda proxy integration, see [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format").

@@ -1,6 +1,4 @@
-# Control access to REST APIs using
-
-Amazon Cognito user pools as an authorizer
+# Control access to REST APIs using Amazon Cognito user pools as an authorizer
 
 As an alternative to using [IAM roles and policies](permissions.md "permissions.md") or
 [Lambda authorizers](apigateway-use-lambda-authorizer.md "apigateway-use-lambda-authorizer.md") (formerly
@@ -53,10 +51,7 @@ the user pool, and how to invoke an API that's integrated with the user pool.
 ###### Topics
 
 - [Create an Amazon Cognito user pool for a REST API](apigateway-create-cognito-user-pool.md "apigateway-create-cognito-user-pool.md")
-- [Integrate a REST API with an Amazon Cognito user
-  pool](apigateway-enable-cognito-user-pool.md "apigateway-enable-cognito-user-pool.md")
-- [Call a REST API
-  integrated with an Amazon Cognito user pool](apigateway-invoke-api-integrated-with-cognito-user-pool.md "apigateway-invoke-api-integrated-with-cognito-user-pool.md")
-- [Configure cross-account
-  Amazon Cognito authorizer for a REST API using the API Gateway console](apigateway-cross-account-cognito-authorizer.md "apigateway-cross-account-cognito-authorizer.md")
+- [Integrate a REST API with an Amazon Cognito user pool](apigateway-enable-cognito-user-pool.md "apigateway-enable-cognito-user-pool.md")
+- [Call a REST API integrated with an Amazon Cognito user pool](apigateway-invoke-api-integrated-with-cognito-user-pool.md "apigateway-invoke-api-integrated-with-cognito-user-pool.md")
+- [Configure cross-account Amazon Cognito authorizer for a REST API using the API Gateway console](apigateway-cross-account-cognito-authorizer.md "apigateway-cross-account-cognito-authorizer.md")
 - [Create an Amazon Cognito authorizer for a REST API using CloudFormation](apigateway-cognito-authorizer-cfn.md "apigateway-cognito-authorizer-cfn.md")

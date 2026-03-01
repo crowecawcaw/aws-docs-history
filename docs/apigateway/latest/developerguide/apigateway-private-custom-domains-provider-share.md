@@ -4,9 +4,7 @@ You can provide API consumers in other AWS accounts access to your private custo
 section, you learn how to share your private custom domain name using AWS RAM and how to control access to
 your private custom domain name.
 
-## Considerations for sharing
-
-your private custom domain name
+## Considerations for sharing your private custom domain name
 
 The following considerations might impact how you provide access to your private custom domain name using
 AWS RAM. To learn how to share your private custom domain name without using AWS RAM, see [API provider: Share your private custom domain name using the API Gateway AWS CLI](apigateway-private-custom-domains-provider-share-cli.md "apigateway-private-custom-domains-provider-share-cli.md").
@@ -74,9 +72,7 @@ associations with your private custom domain name, by adding the following:
 You can still use the principal in the AWS account who created the private custom domain name to
 create domain name access associations.
 
-## Allow other accounts to
-
-create domain name access associations with your private custom domain name
+## Allow other accounts to create domain name access associations with your private custom domain name
 
 First, you grant access to another AWS account to create domain name access associations with your private
 custom domain name.
@@ -106,12 +102,9 @@ aws ram create-resource-share \
 
 After you have provided access to another AWS account, API consumers in that account must create a
 domain name access association between their VPC endpoint with your private custom domain name. You can't
-create the domain name access association for them. For more information, see [Associate your VPC endpoint with a shared private
-custom domain name](apigateway-private-custom-domains-consumer-create.md#apigateway-private-custom-domains-consumer-associate "apigateway-private-custom-domains-consumer-create.md#apigateway-private-custom-domains-consumer-associate").
+create the domain name access association for them. For more information, see [Associate your VPC endpoint with a shared private custom domain name](apigateway-private-custom-domains-consumer-create.md#apigateway-private-custom-domains-consumer-associate "apigateway-private-custom-domains-consumer-create.md#apigateway-private-custom-domains-consumer-associate").
 
-## Allow other accounts to invoke your
-
-private custom domain name
+## Allow other accounts to invoke your private custom domain name
 
 Next, you grant access for the API consumer's VPC endpoint to invoke your private custom domain
 name and any private APIs mapped to it.

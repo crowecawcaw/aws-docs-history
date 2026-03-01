@@ -1,6 +1,4 @@
-# Enable payload compression for an
-
-API in API Gateway
+# Enable payload compression for an API in API Gateway
 
 You can enable compression for an API using the API Gateway console, the AWS CLI, or an AWS
 SDK.
@@ -16,16 +14,11 @@ not, compression is not applied to the response payload.
 
 ###### Topics
 
-- [Enable payload compression
-  for an API using the API Gateway console](#api-gateway-enable-compression-console "#api-gateway-enable-compression-console")
-- [Enable payload compression for
-  an API using the AWS CLI](#api-gateway-enable-compression-cli "#api-gateway-enable-compression-cli")
-- [Content codings supported
-  by API Gateway](#api-gateway-supported-content-encodings "#api-gateway-supported-content-encodings")
+- [Enable payload compression for an API using the API Gateway console](#api-gateway-enable-compression-console "#api-gateway-enable-compression-console")
+- [Enable payload compression for an API using the AWS CLI](#api-gateway-enable-compression-cli "#api-gateway-enable-compression-cli")
+- [Content codings supported by API Gateway](#api-gateway-supported-content-encodings "#api-gateway-supported-content-encodings")
 
-## Enable payload compression
-
-for an API using the API Gateway console
+## Enable payload compression for an API using the API Gateway console
 
 The following procedure describes how to enable payload compression for an API.
 
@@ -43,9 +36,7 @@ The following procedure describes how to enable payload compression for an API.
    encoding** option.
 6. Choose **Save changes**.
 
-## Enable payload compression for
-
-an API using the AWS CLI
+## Enable payload compression for an API using the AWS CLI
 
 The following [create-rest-api](../../../cli/latest/reference/apigateway/create-rest-api.md "../../../cli/latest/reference/apigateway/create-rest-api.md") command creates an API with payload compression:
 
@@ -81,9 +72,7 @@ aws apigateway update-rest-api \
 You can also set `value` to an empty string `""` or omit the
 `value` property altogether in the preceding call.
 
-## Content codings supported
-
-by API Gateway
+## Content codings supported by API Gateway
 
 API Gateway supports the following content codings:
 

@@ -12,7 +12,5 @@ request data for the backend or transform the backend response data for the clie
 
 ###### Topics
 
-- [Tutorial: Create a REST API with an HTTP
-  proxy integration](api-gateway-create-api-as-simple-proxy-for-http.md "api-gateway-create-api-as-simple-proxy-for-http.md")
-- [Tutorial: Create a REST API with an HTTP non-proxy
-  integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md")
+- [Tutorial: Create a REST API with an HTTP proxy integration](api-gateway-create-api-as-simple-proxy-for-http.md "api-gateway-create-api-as-simple-proxy-for-http.md")
+- [Tutorial: Create a REST API with an HTTP non-proxy integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md")

@@ -1,8 +1,6 @@
 # Tutorial: Create a REST API with an AWS integration
 
-Both the [Tutorial: Create a REST API with a Lambda proxy
-integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md") and [Tutorial: Create a REST API with a Lambda non-proxy
-integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md") topics describe how to
+Both the [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md") and [Tutorial: Create a REST API with a Lambda non-proxy integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md") topics describe how to
 create an API Gateway API to expose the integrated Lambda function. In addition, you can create an
 API Gateway API to expose other AWS services, such as Amazon SNS, Amazon S3, Amazon Kinesis, and even AWS Lambda.
 This is made possible by the `AWS` integration. The Lambda integration or the
@@ -26,21 +24,16 @@ API Gateway does not retry when the endpoint times out. The API caller must impl
 logic to handle endpoint timeouts.
 
 This walkthrough builds on the instructions and concepts in
-[Tutorial: Create a REST API with a Lambda non-proxy
-integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md"). If you have not yet
+[Tutorial: Create a REST API with a Lambda non-proxy integration](getting-started-lambda-non-proxy-integration.md "getting-started-lambda-non-proxy-integration.md"). If you have not yet
 completed that walkthrough, we suggest that you do it first.
 
 ###### Topics
 
 - [Prerequisites](#getting-started-aws-proxy-prerequisites "#getting-started-aws-proxy-prerequisites")
-- [Step 1: Create the AWS service proxy
-  execution role](#getting-started-aws-proxy-add-roles "#getting-started-aws-proxy-add-roles")
-- [Step 2: Create the
-  resource](#getting-started-aws-proxy-add-resources "#getting-started-aws-proxy-add-resources")
-- [Step 3: Create the GET
-  method](#getting-started-aws-proxy-add-methods "#getting-started-aws-proxy-add-methods")
-- [Step 4: Specify method settings and
-  test the method](#getting-started-aws-proxy-set-methods "#getting-started-aws-proxy-set-methods")
+- [Step 1: Create the AWS service proxy execution role](#getting-started-aws-proxy-add-roles "#getting-started-aws-proxy-add-roles")
+- [Step 2: Create the resource](#getting-started-aws-proxy-add-resources "#getting-started-aws-proxy-add-resources")
+- [Step 3: Create the GET method](#getting-started-aws-proxy-add-methods "#getting-started-aws-proxy-add-methods")
+- [Step 4: Specify method settings and test the method](#getting-started-aws-proxy-set-methods "#getting-started-aws-proxy-set-methods")
 - [Step 5: Deploy the API](#getting-started-aws-proxy-deploy "#getting-started-aws-proxy-deploy")
 - [Step 6: Test the API](#getting-started-aws-proxy-test "#getting-started-aws-proxy-test")
 - [Step 7: Clean up](#getting-started-aws-proxy-clean-up "#getting-started-aws-proxy-clean-up")
@@ -51,19 +44,14 @@ Before you begin this walkthrough, do the following:
 
 1. Complete the steps in [Set up to use API Gateway](setting-up.md "setting-up.md").
 2. Create a new API named `MyDemoAPI`.
-   For more information, see [Tutorial: Create a REST API with an HTTP non-proxy
-   integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md").
-3. Deploy the API at least once to a stage named `test`. For more information, see [Deploy the API](getting-started-lambda-non-proxy-integration.md#getting-started-deploy-api "getting-started-lambda-non-proxy-integration.md#getting-started-deploy-api") in [Choose an AWS Lambda
-   integration tutorial](getting-started-with-lambda-integration.md "getting-started-with-lambda-integration.md").
-4. Complete the rest of the steps in [Choose an AWS Lambda
-   integration tutorial](getting-started-with-lambda-integration.md "getting-started-with-lambda-integration.md").
+   For more information, see [Tutorial: Create a REST API with an HTTP non-proxy integration](api-gateway-create-api-step-by-step.md "api-gateway-create-api-step-by-step.md").
+3. Deploy the API at least once to a stage named `test`. For more information, see [Deploy the API](getting-started-lambda-non-proxy-integration.md#getting-started-deploy-api "getting-started-lambda-non-proxy-integration.md#getting-started-deploy-api") in [Choose an AWS Lambda integration tutorial](getting-started-with-lambda-integration.md "getting-started-with-lambda-integration.md").
+4. Complete the rest of the steps in [Choose an AWS Lambda integration tutorial](getting-started-with-lambda-integration.md "getting-started-with-lambda-integration.md").
 5. Create at least one topic in Amazon Simple Notification Service (Amazon SNS). You will use the deployed API to get a list of topics in
    Amazon SNS that are associated with your AWS account. To learn how to create a topic in Amazon SNS, see [Create a Topic](../../../sns/latest/dg/sns-create-topic.md "../../../sns/latest/dg/sns-create-topic.md"). (You do not need to
    copy the topic ARN mentioned in step 5.)
 
-## Step 1: Create the AWS service proxy
-
-execution role
+## Step 1: Create the AWS service proxy execution role
 
 To allow the API to invoke Amazon SNS actions, you must have the appropriate IAM policies attached to an IAM role. In this step, you create a new IAM role.
 
@@ -88,9 +76,7 @@ To allow the API to invoke Amazon SNS actions, you must have the appropriate IAM
 
 This tutorial uses a managed policy for simplicity. As a best practice, you should create your own IAM policy to grant the minimum permissions required. 11. Note the newly created **Role ARN**, you will use it later.
 
-## Step 2: Create the
-
-resource
+## Step 2: Create the resource
 
 In this step, you create a resource that enables the AWS service proxy to interact
 with the AWS service.
@@ -107,9 +93,7 @@ with the AWS service.
 7. Keep **CORS (Cross Origin Resource Sharing)** turned off.
 8. Choose **Create resource**.
 
-## Step 3: Create the GET
-
-method
+## Step 3: Create the GET method
 
 In this step, you create a GET method that enables the AWS service proxy to interact
 with the AWS service.
@@ -128,9 +112,7 @@ with the AWS service.
 10. For **Execution role**, enter the role ARN for `APIGatewaySNSProxyPolicy`.
 11. Choose **Create method**.
 
-## Step 4: Specify method settings and
-
-test the method
+## Step 4: Specify method settings and test the method
 
 You can now test your `GET` method to verify that it has been
 properly set up to list your Amazon SNS topics.
@@ -237,6 +219,4 @@ re-create it.
    prompted, choose **Delete**.
 
 You have reached the end of this walkthrough. For more detailed discussions about
-creating API as an AWS service proxy, see [Tutorial: Create a REST API as an Amazon S3 proxy](integrating-api-with-aws-services-s3.md "integrating-api-with-aws-services-s3.md"), [Tutorial: Create a
-calculator REST API with two AWS service integrations and one Lambda non-proxy integration](integrating-api-with-aws-services-lambda.md "integrating-api-with-aws-services-lambda.md"), or [Tutorial: Create a REST API as an
-Amazon Kinesis proxy](integrating-api-with-aws-services-kinesis.md "integrating-api-with-aws-services-kinesis.md").
+creating API as an AWS service proxy, see [Tutorial: Create a REST API as an Amazon S3 proxy](integrating-api-with-aws-services-s3.md "integrating-api-with-aws-services-s3.md"), [Tutorial: Create a calculator REST API with two AWS service integrations and one Lambda non-proxy integration](integrating-api-with-aws-services-lambda.md "integrating-api-with-aws-services-lambda.md"), or [Tutorial: Create a REST API as an Amazon Kinesis proxy](integrating-api-with-aws-services-kinesis.md "integrating-api-with-aws-services-kinesis.md").

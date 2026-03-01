@@ -1,6 +1,4 @@
-# Access binary files in Lambda using an
-
-API Gateway API
+# Access binary files in Lambda using an API Gateway API
 
 The following OpenAPI example demonstrates how to access a binary file in AWS Lambda through an API Gateway API.
 This API exposes the `GET /lambda?key={file-name}` and the `PUT /lambda?key={file-name}`
@@ -14,16 +12,11 @@ must return a base64-encoded string with the `Content-Type` header of `applicati
 
 ###### Topics
 
-- [OpenAPI file of a sample API
-  to access images in Lambda](#api-gateway-content-encodings-example-image-lambda-swagger-file "#api-gateway-content-encodings-example-image-lambda-swagger-file")
-- [Download an image from
-  Lambda](#api-gateway-content-encodings-example-download-image-from-lambda "#api-gateway-content-encodings-example-download-image-from-lambda")
-- [Upload an image to
-  Lambda](#api-gateway-content-encodings-example-upload-image-to-lambda "#api-gateway-content-encodings-example-upload-image-to-lambda")
+- [OpenAPI file of a sample API to access images in Lambda](#api-gateway-content-encodings-example-image-lambda-swagger-file "#api-gateway-content-encodings-example-image-lambda-swagger-file")
+- [Download an image from Lambda](#api-gateway-content-encodings-example-download-image-from-lambda "#api-gateway-content-encodings-example-download-image-from-lambda")
+- [Upload an image to Lambda](#api-gateway-content-encodings-example-upload-image-to-lambda "#api-gateway-content-encodings-example-upload-image-to-lambda")
 
-## OpenAPI file of a sample API
-
-to access images in Lambda
+## OpenAPI file of a sample API to access images in Lambda
 
 The following OpenAPI file shows an example API that illustrates downloading an image file from Lambda and
 uploading an image file to Lambda.
@@ -278,9 +271,7 @@ OpenAPI 2.0
 }
 ```
 
-## Download an image from
-
-Lambda
+## Download an image from Lambda
 
 To download an image file (`image.jpg`) as a binary blob from Lambda:
 
@@ -321,9 +312,7 @@ The successful response looks like the following:
 }
 ```
 
-## Upload an image to
-
-Lambda
+## Upload an image to Lambda
 
 To upload an image file (`image.jpg`) as a binary blob to Lambda:
 

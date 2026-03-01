@@ -39,8 +39,7 @@ JSON
   US East (N. Virginia) – `us-east-1` Region.
 - The CloudFront distribution created by API Gateway is owned by a Region-specific account affiliated
   with API Gateway. When tracing operations to create and update such a CloudFront distribution in CloudTrail, you must use
-  this API Gateway account ID. For more information, see [Log custom domain name
-  creation in CloudTrail](#how-to-custom-domain-log-cloudfront-distribution-update-in-cloudtrail "#how-to-custom-domain-log-cloudfront-distribution-update-in-cloudtrail").
+  this API Gateway account ID. For more information, see [Log custom domain name creation in CloudTrail](#how-to-custom-domain-log-cloudfront-distribution-update-in-cloudtrail "#how-to-custom-domain-log-cloudfront-distribution-update-in-cloudtrail").
 - API Gateway supports edge-optimized custom domain names by leveraging Server Name Indication (SNI) on the
   CloudFront distribution. For more information on using custom domain names on a CloudFront distribution, including the
   required certificate format and the maximum size of a certificate key length, see [Using Alternate Domain Names and HTTPS](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-alternate-domain-names.md")
@@ -72,9 +71,7 @@ displays the associated CloudFront distribution domain name, in the form of
 the meantime, you can create a base path mapping or a routing rule and then configure the DNS record alias to map the custom
 domain name to the associated CloudFront distribution domain name.
 
-## Configure base path mapping of an API with a custom
-
-domain name as its hostname
+## Configure base path mapping of an API with a custom domain name as its hostname
 
 Because you set the routing mode to `API_MAPPING_ONLY`, you can use base path mapping to use a
 single custom domain name as the hostname of multiple APIs. This makes an API accessible through the combination
@@ -110,12 +107,9 @@ For code examples of the REST API call, see [basepathmapping:create](../api/API_
 
 For more flexibility on how you route traffic to your APIs, you can change the routing mode to
 `ROUTING_RULE_ONLY` or `ROUTING_RULE_THEN_API_MAPPING` and create a routing rule. For
-more information, see [Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+more information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 
-## Create a DNS record for your
-
-edge-optimized custom domain name
+## Create a DNS record for your edge-optimized custom domain name
 
 After you initiate the creation of your edge-optimized custom domain name, set up the DNS record alias.
 
@@ -127,9 +121,7 @@ Resource Record Sets](../../../Route53/latest/DeveloperGuide/resource-record-set
 For instructions for Amazon Route 53, see [Routing traffic to an Amazon API Gateway API by
 using your domain name](../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md "../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md") in the _Amazon Route 53 Developer Guide_.
 
-## Log custom domain name
-
-creation in CloudTrail
+## Log custom domain name creation in CloudTrail
 
 When CloudTrail is enabled for logging API Gateway calls made by your account, API Gateway logs the associated CloudFront
 distribution updates when a custom domain name is created or updated for an API. These logs are available in `us-east-1`. Because these CloudFront
@@ -227,8 +219,7 @@ The following examples compare and contrast a set of default URLs and correspond
 | qf3duz | tst   | https://qf3duz.execute-api.us-east-1.amazonaws.com/tst  | /bookstand | https://api.example.com/bookstand |
 
 For more flexibility on how you route traffic to your APIs, you can create a routing rule. For more
-information, see [Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+information, see [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 
 API Gateway supports custom domain names for an API by using [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication "https://en.wikipedia.org/wiki/Server_Name_Indication"). You can
 invoke the API with a custom domain name using a browser or a client library that supports SNI.

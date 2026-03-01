@@ -1,6 +1,4 @@
-# Import and export
-
-content encodings for API Gateway
+# Import and export content encodings for API Gateway
 
 To import the `binaryMediaTypes` list on a [RestApi](../api/API_RestApi.md "../api/API_RestApi.md"), use the following API Gateway
 extension to the API's OpenAPI definition file. The extension is also used to export the

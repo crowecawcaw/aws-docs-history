@@ -26,8 +26,7 @@ REQUEST authorizer
 7. Keep **Lambda invoke role** blank to let the API Gateway REST API console set a resource-based policy.
    The policy grants API Gateway permissions to invoke the Lambda authorizer function. You can also choose to enter the
    name of an IAM role to allow API Gateway to invoke the Lambda authorizer function. For an example role,
-   see [Create an assumable IAM
-   role](integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies "integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies").
+   see [Create an assumable IAM role](integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies "integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies").
 8. For **Lambda event payload**, select **Request**.
 9. For **Identity source type**, select a parameter type. Supported parameter types are `Header`,
    `Query string`, `Stage
@@ -53,8 +52,7 @@ TOKEN authorizer###### To configure a `TOKEN` Lambda authorizer
 7. Keep **Lambda invoke role** blank to let the API Gateway REST API console set a resource-based policy.
    The policy grants API Gateway permissions to invoke the Lambda authorizer function. You can also choose to enter the
    name of an IAM role to allow API Gateway to invoke the Lambda authorizer function. For an example role,
-   see [Create an assumable IAM
-   role](integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies "integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies").
+   see [Create an assumable IAM role](integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies "integrating-api-with-aws-services-lambda.md#api-as-lambda-proxy-setup-iam-role-policies").
 8. For **Lambda event payload**, select **Token**.
 9. For **Token source**, enter the header name that contains the authorization token. The caller must include a
    header of this name to send the authorization token to the Lambda authorizer.
@@ -100,8 +98,7 @@ TOKEN authorizer###### To test a `TOKEN` Lambda authorizer
 2. Select the name of your authorizer.
 3. Under **Test authorizer**, enter a value for your token.
 
-If you are using the [Example TOKEN authorizer
-Lambda function](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-token-lambda-function-create "apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-token-lambda-function-create"), do the following:
+If you are using the [Example TOKEN authorizer Lambda function](apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-token-lambda-function-create "apigateway-use-lambda-authorizer.md#api-gateway-lambda-authorizer-token-lambda-function-create"), do the following:
 
     1. For the **authorizationToken**, enter `allow`.
 

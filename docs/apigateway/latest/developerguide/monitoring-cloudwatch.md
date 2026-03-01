@@ -21,12 +21,8 @@ started:
 
 ###### Topics
 
-- [Amazon API Gateway dimensions and
-  metrics](api-gateway-metrics-and-dimensions.md "api-gateway-metrics-and-dimensions.md")
+- [Amazon API Gateway dimensions and metrics](api-gateway-metrics-and-dimensions.md "api-gateway-metrics-and-dimensions.md")
 - [View CloudWatch metrics with the API dashboard in API Gateway](how-to-api-dashboard.md "how-to-api-dashboard.md")
-- [View API Gateway metrics in the
-  CloudWatch console](metrics_dimensions_view_in_cloud_watch.md "metrics_dimensions_view_in_cloud_watch.md")
-- [View API Gateway log
-  events in the CloudWatch console](view-cloudwatch-log-events-in-cloudwatch-console.md "view-cloudwatch-log-events-in-cloudwatch-console.md")
-- [Monitoring tools in
-  AWS for API Gateway](monitoring_automated_manual.md "monitoring_automated_manual.md")
+- [View API Gateway metrics in the CloudWatch console](metrics_dimensions_view_in_cloud_watch.md "metrics_dimensions_view_in_cloud_watch.md")
+- [View API Gateway log events in the CloudWatch console](view-cloudwatch-log-events-in-cloudwatch-console.md "view-cloudwatch-log-events-in-cloudwatch-console.md")
+- [Monitoring tools in AWS for API Gateway](monitoring_automated_manual.md "monitoring_automated_manual.md")

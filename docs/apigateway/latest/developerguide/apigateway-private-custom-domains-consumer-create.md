@@ -44,9 +44,7 @@ aws ram accept-resource-share-invitation \
     --region us-west-2
 ```
 
-## Associate your VPC endpoint with a shared private
-
-custom domain name
+## Associate your VPC endpoint with a shared private custom domain name
 
 Because private custom domain names aren't unique, you associate your VPC endpoint with the unique custom
 domain name ARN. After you create your domain name access association, it can take up to 15 minutes for your
@@ -117,8 +115,7 @@ The output will look like the following.
 
 After you associate your VPC endpoint with the private custom domain name, confirm that your API provider has updated
 the policy of their private custom domain name to allow your VPC endpoint to invoke their domain name. For more
-information, see [Allow other accounts to invoke your
-private custom domain name](apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update "apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update").
+information, see [Allow other accounts to invoke your private custom domain name](apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update "apigateway-private-custom-domains-provider-share.md#apigateway-private-custom-domains-provider-policy-update").
 
 ## Create a Route 53 hosted zone
 

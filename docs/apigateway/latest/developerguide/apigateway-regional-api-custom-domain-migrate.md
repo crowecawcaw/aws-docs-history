@@ -1,6 +1,4 @@
-# Migrate a custom domain name
-
-to a different API endpoint type in API Gateway
+# Migrate a custom domain name to a different API endpoint type in API Gateway
 
 You can migrate your custom domain name between edge-optimized and Regional endpoints. You can't migrate a
 public custom domain name to a private custom domain name. You first add the new endpoint configuration type to the
@@ -29,9 +27,7 @@ The following are considerations for migrating your custom domain between a Regi
   you must choose a security policy that starts with `SecurityPolicy_` for the new endpoint
   configuration type.
 
-## Migrate custom
-
-domain names
+## Migrate custom domain names
 
 ###### Note
 

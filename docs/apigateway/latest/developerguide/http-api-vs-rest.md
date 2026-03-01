@@ -34,9 +34,7 @@ traffic. To learn more, see [Protect your REST APIs in API Gateway](rest-api-pro
 ## Authorization
 
 API Gateway supports multiple mechanisms for controlling and managing access to your API. For more information, see
-[Control and manage access to
-REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md") and [Control and manage access to
-HTTP APIs in API Gateway](http-api-access-control.md "http-api-access-control.md").
+[Control and manage access to REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md") and [Control and manage access to HTTP APIs in API Gateway](http-api-access-control.md "http-api-access-control.md").
 
 | Authorization options                                                                                                         | REST API                                                                         | HTTP API                                                               |
 | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -53,9 +51,7 @@ HTTP APIs in API Gateway](http-api-access-control.md "http-api-access-control.md
 ## API management
 
 Choose REST APIs if you need API management capabilities such as API keys and per-client rate limiting.
-For more information, see [Distribute your REST APIs to
-clients in API Gateway](rest-api-distribute.md "rest-api-distribute.md"), [Custom domain name for public
-REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md"), and
+For more information, see [Distribute your REST APIs to clients in API Gateway](rest-api-distribute.md "rest-api-distribute.md"), [Custom domain name for public REST APIs in API Gateway](how-to-custom-domains.md "how-to-custom-domains.md"), and
 [Custom domain names for HTTP APIs in API Gateway](http-api-custom-domain-names.md "http-api-custom-domain-names.md").
 
 | Features                                                                                          | REST API                                                   | HTTP API                                                                 |
@@ -99,8 +95,7 @@ API Gateway supports several options to log API requests and monitor your APIs. 
 
 ## Integrations
 
-Integrations connect your API Gateway API to backend resources. For more information, see [Integrations for REST APIs
-in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md") and [Create integrations for HTTP APIs in API Gateway](http-api-develop-integrations.md "http-api-develop-integrations.md").
+Integrations connect your API Gateway API to backend resources. For more information, see [Integrations for REST APIs in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md") and [Create integrations for HTTP APIs in API Gateway](http-api-develop-integrations.md "http-api-develop-integrations.md").
 
 | Feature                                                                                                                                     | REST API                                                                           | HTTP API                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |

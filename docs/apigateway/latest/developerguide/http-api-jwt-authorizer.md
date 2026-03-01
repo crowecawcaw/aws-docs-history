@@ -55,8 +55,7 @@ After validating the JWT, API Gateway passes the claims in the token to the API 
 resources, such as Lambda functions, can access the JWT claims. For example, if the JWT includes an identity claim
 `emailID`, it's available to a Lambda integration in
 `$event.requestContext.authorizer.jwt.claims.emailID`. For more information about the payload that
-API Gateway sends to Lambda integrations, see [Create AWS Lambda proxy integrations for
-HTTP APIs in API Gateway](http-api-develop-integrations-lambda.md "http-api-develop-integrations-lambda.md").
+API Gateway sends to Lambda integrations, see [Create AWS Lambda proxy integrations for HTTP APIs in API Gateway](http-api-develop-integrations-lambda.md "http-api-develop-integrations-lambda.md").
 
 ## Create a JWT authorizer
 
@@ -225,15 +224,11 @@ Outputs:
     Value: !Sub https://${HostedUI}.auth.${AWS::Region}.amazoncognito.com/login?client_id=${AppClient}&response_type=token&scope=email+profile&redirect_uri=https://${MyAPI}.execute-api.${AWS::Region}.amazonaws.com
 ```
 
-## Update a route to use a JWT
-
-authorizer
+## Update a route to use a JWT authorizer
 
 You can use the console, the AWS CLI, or an AWS SDK to update a route to use a JWT authorizer.
 
-### Update a route to use a JWT
-
-authorizer by using the console
+### Update a route to use a JWT authorizer by using the console
 
 The following steps show how to update a route to use JWT authorizer using the console.
 
@@ -245,9 +240,7 @@ The following steps show how to update a route to use JWT authorizer using the c
 4. Choose a method, and then select your authorizer from the dropdown menu, and choose **Attach
    authorizer**.
 
-#### Update a route to use a JWT
-
-authorizer by using the AWS CLI
+#### Update a route to use a JWT authorizer by using the AWS CLI
 
 The following
 [update-route](../../../cli/latest/reference/apigatewayv2/update-route.md "../../../cli/latest/reference/apigatewayv2/update-route.md") command updates a route to use a JWT authorizer:

@@ -1,6 +1,4 @@
-# OpenAPI
-
-definitions of a sample API as a Kinesis proxy
+# OpenAPI definitions of a sample API as a Kinesis proxy
 
 Following are OpenAPI definitions for the sample API as a Kinesis proxy used in this
 tutorial.

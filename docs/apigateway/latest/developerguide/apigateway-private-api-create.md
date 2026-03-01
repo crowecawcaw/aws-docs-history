@@ -26,8 +26,7 @@ you specify the `execute-api` domain for the AWS Region where you create your pr
 `execute-api` domain is the API Gateway component service for API execution.
 
 When you create your VPC endpoint for API Gateway, you specify the DNS settings. If you turn off private DNS, you
-can only access your API using public DNS. For more information, see [Issue: I can't
-connect to my public API from an API Gateway VPC endpoint](#apigateway-private-api-troubleshooting-public-access "#apigateway-private-api-troubleshooting-public-access").
+can only access your API using public DNS. For more information, see [Issue: I can't connect to my public API from an API Gateway VPC endpoint](#apigateway-private-api-troubleshooting-public-access "#apigateway-private-api-troubleshooting-public-access").
 
 AWS Management Console###### To create an interface VPC endpoint for API Gateway
 
@@ -59,8 +58,7 @@ security group in your VPC. 11. For **Policy**, do one of the following:
 
     * If you have not created your private API or you don't want to configure a custom VPC endpoint policy, choose **Full access**.
     * If you have already created a private API and want to configure a custom VPC endpoint policy,
-     you can enter a custom VPC endpoint policy. For more information, see [Use VPC endpoint policies for private
-     APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").You can update the VPC endpoint policy after you create your VPC endpoint. For more information,
+     you can enter a custom VPC endpoint policy. For more information, see [Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").You can update the VPC endpoint policy after you create your VPC endpoint. For more information,
 
 see [Update a VPC
 endpoint policy](../../../vpc/latest/privatelink/vpc-endpoints-access.md#update-vpc-endpoint-policy "../../../vpc/latest/privatelink/vpc-endpoints-access.md#update-vpc-endpoint-policy"). 12. Choose **Create endpoint**. 13. Copy the resulting VPC endpoint ID, as you might use it in future steps.
@@ -94,8 +92,7 @@ AWS Management Console###### To create a private API
 7. (Optional) For **VPC endpoint IDs**, enter a VPC endpoint ID.
 
 If you associate a VPC endpoint ID with your private API, you can invoke your API from within your VPC without overriding a `Host` header or passing an
-`x-apigw-api-id header` For more information, see [(Optional) Associate or disassociate a VPC endpoint
-with a private API](#associate-private-api-with-vpc-endpoint "#associate-private-api-with-vpc-endpoint"). 8. For **IP address type**, choose **Dualstack**. 9. Choose **Create API**.
+`x-apigw-api-id header` For more information, see [(Optional) Associate or disassociate a VPC endpoint with a private API](#associate-private-api-with-vpc-endpoint "#associate-private-api-with-vpc-endpoint"). 8. For **IP address type**, choose **Dualstack**. 9. Choose **Create API**.
 
 After completing the preceding steps, you can follow the instructions in [Get started with the REST API console](getting-started-rest-new-console.md "getting-started-rest-new-console.md") to set up methods and integrations for this API, but you
 can't deploy your API. To deploy your API, follow step 3 and attach a resource policy to your API.
@@ -127,8 +124,7 @@ A successful call returns output similar to the following:
 }
 ```
 
-After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using
-AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
+After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
 can't deploy your API. To deploy your API, follow step 3 and attach a resource policy to your API.
 
 SDK JavaScript v3The following example shows how to create a private API by using the AWS SDK for JavaScript v3:
@@ -173,8 +169,7 @@ A successful call returns output similar to the following:
 }
 ```
 
-After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using
-AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
+After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
 can't deploy your API. To deploy your API, follow step 3 and attach a resource policy to your API.
 
 Python SDK
@@ -215,13 +210,10 @@ A successful call returns output similar to the following:
 "{\"apiKeySource\": \"HEADER\", \"createdDate\": \"2024-04-03 17:27:05+00:00\", \"description\": \"Demo private API created using the AWS SDK for \", \"endpointConfiguration\": {\"types\": [\"PRIVATE\"]}, \"id\": \"abcd1234\", \"name\": \"Simple PetStore (Python SDK, private)\", \"version\": \"0.00.001\"}"
 ```
 
-After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using
-AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
+After completing the preceding steps, you can follow the instructions in [Tutorial: Create a REST API using AWS SDKs or the AWS CLI](api-gateway-create-api-cli-sdk.md "api-gateway-create-api-cli-sdk.md") to set up methods and integrations for this API, but you
 can't deploy your API. To deploy your API, follow step 3 and attach a resource policy to your API.
 
-## Step 3: Set up a resource policy
-
-for a private API
+## Step 3: Set up a resource policy for a private API
 
 Your current private API is inaccessible to all VPCs. Use a resource policy to grant your VPCs and VPC endpoints access
 to your private APIs. You can grant access to a VPC endpoint in any AWS account.
@@ -253,12 +245,9 @@ aws apigateway update-rest-api \
 
 You might also want to control which resources have access to your VPC endpoint. To control which resources
 have access to your VPC endpoint, attach an endpoint policy to your VPC endpoint. For more information, see
-[Use VPC endpoint policies for private
-APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
+[Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
 
-## (Optional) Associate or disassociate a VPC endpoint
-
-with a private API
+## (Optional) Associate or disassociate a VPC endpoint with a private API
 
 When you associate a VPC endpoint with your private API, API Gateway generates a new Route 53 alias DNS record. You
 can use this record to invoke your private APIs just as you do your public APIs without overriding a
@@ -432,9 +421,7 @@ aws apigateway create-deployment --rest-api-id a1b2c3 \
 The following provides troubleshooting advice for errors and issues that you might encounter when
 creating a private API.
 
-### Issue: I can't
-
-connect to my public API from an API Gateway VPC endpoint
+### Issue: I can't connect to my public API from an API Gateway VPC endpoint
 
 When you create your VPC, you can configure the DNS settings. We recommend that you turn on private DNS
 for your VPC. If you choose turn off private DNS, you're only able to access your API via public
@@ -448,10 +435,7 @@ edge-optimized custom domain name, there are no restrictions for your record typ
 these public APIs with private DNS enabled. For more information, see [Issue: I
 connect to my public API from an API Gateway VPC endpoint](https://repost.aws/knowledge-center/api-gateway-vpc-connections "https://repost.aws/knowledge-center/api-gateway-vpc-connections").
 
-### Issue: My API returns `{"Message":"User:
-
-anonymous is not authorized to perform: execute-api:Invoke on resource:
-arn:aws:execute-api:us-east-1:**\*\*\*\***/\***\*/\*\***/"}`
+### Issue: My API returns `{"Message":"User: anonymous is not authorized to perform: execute-api:Invoke on resource: arn:aws:execute-api:us-east-1:********/****/****/"}`
 
 In your resource policy, if you set the Principal to an AWS principal, such as the following:
 

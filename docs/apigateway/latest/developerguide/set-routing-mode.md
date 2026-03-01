@@ -1,8 +1,7 @@
 # Set the routing mode for your custom domain name
 
 You can choose which routing mode API Gateway uses to route traffic to your APIs. For more information, see
-[Send traffic
-to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md"). This section discusses routing modes for custom domain names.
+[Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md"). This section discusses routing modes for custom domain names.
 You must set a routing mode for your custom domain name to route traffic to your APIs. The following routing modes
 are supported:
 

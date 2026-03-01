@@ -5,9 +5,7 @@ HTTP API. Then, when a client calls your API, API Gateway invokes your Lambda fu
 uses the response from your Lambda function to determine whether the client can access your
 API.
 
-## Payload format
-
-version
+## Payload format version
 
 The authorizer payload format version specifies the format of the data that API Gateway
 sends to a Lambda authorizer, and how API Gateway interprets the response from Lambda. If you
@@ -133,21 +131,16 @@ The following examples show the structure of each payload format version.
 }
 ```
 
-## Lambda authorizer
-
-response format
+## Lambda authorizer response format
 
 The payload format version also determines the structure of the response that you must
 return from your Lambda function.
 
-### Lambda function response
-
-for format 1.0
+### Lambda function response for format 1.0
 
 If you choose the `1.0` format version, Lambda authorizers must return an IAM policy that allows
 or denies access to your API route. You can use standard IAM policy syntax in the policy. For examples of
-IAM policies, see [Control
-access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md"). You can pass
+IAM policies, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md"). You can pass
 context properties to Lambda integrations or access logs by using
 `$context.authorizer.`property``. The `context`object is
  optional and`claims` is a reserved placeholder and cannot be used as the context object. To learn
@@ -177,9 +170,7 @@ JSON
 
 ```
 
-### Lambda function response
-
-for format 2.0
+### Lambda function response for format 2.0
 
 If you choose the `2.0` format version, you can return a Boolean value
 or an IAM policy that uses standard IAM policy syntax from your Lambda function.
@@ -223,9 +214,7 @@ IAM policy
 
 ```
 
-## Example Lambda authorizer
-
-functions
+## Example Lambda authorizer functions
 
 The following example Node.js Lambda functions demonstrate the required response
 formats you need to return from your Lambda function for the `2.0` payload
@@ -438,9 +427,7 @@ You can also directly return `{"errorMessage" : "Unauthorized"}` from your Lambd
 function to return a `401` error to your clients. If you directly return a `401` error from
 your Lambda function to your clients, don't specify any identity sources when you create your Lambda authorizer.
 
-## Caching authorizer
-
-responses
+## Caching authorizer responses
 
 You can enable caching for a Lambda authorizer by specifying an [authorizerResultTtlInSeconds](../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds "../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers.md#apis-apiid-authorizers-prop-createauthorizerinput-authorizerresultttlinseconds"). When caching is enabled for an authorizer,
 API Gateway uses the authorizer's identity sources as the cache key. If a client specifies the
@@ -457,9 +444,7 @@ By default, API Gateway uses the cached authorizer response for all routes of an
 use the authorizer. To cache responses per route, add `$context.routeKey` to
 your authorizer's identity sources.
 
-## Create a Lambda
-
-authorizer
+## Create a Lambda authorizer
 
 When you create a Lambda authorizer, you specify the Lambda function for API Gateway to use. You must grant API Gateway
 permission to invoke the Lambda function by using either the function's resource policy or an IAM role. The

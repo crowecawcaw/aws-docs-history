@@ -112,8 +112,7 @@ model these features are configured.
 ![Diagram of API Gateway features](images/develop-features.png)
 
 For an introduction on how to create an API, see
-[Tutorial: Create a REST API with a Lambda proxy
-integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md"). To learn more information about the capabilities of API Gateway that you might use while
+[Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md"). To learn more information about the capabilities of API Gateway that you might use while
 developing a REST API, see the following topics. These topics contain conceptual information and procedures that you
 can perform using the API Gateway console, the API Gateway REST API, the AWS CLI, or one of the AWS SDKs.
 
@@ -123,16 +122,12 @@ can perform using the API Gateway console, the API Gateway REST API, the AWS CLI
 - [Security policies for REST APIs in API Gateway](apigateway-security-policies.md "apigateway-security-policies.md")
 - [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md "api-gateway-ip-address-type.md")
 - [Methods for REST APIs in API Gateway](how-to-method-settings.md "how-to-method-settings.md")
-- [Control and manage access to
-  REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md")
-- [Integrations for REST APIs
-  in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md")
+- [Control and manage access to REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md")
+- [Integrations for REST APIs in API Gateway](how-to-integration-settings.md "how-to-integration-settings.md")
 - [Request validation for REST APIs in API Gateway](api-gateway-method-request-validation.md "api-gateway-method-request-validation.md")
 - [Data transformations for REST APIs in API Gateway](rest-api-data-transformations.md "rest-api-data-transformations.md")
 - [Gateway responses for REST APIs in API Gateway](api-gateway-gatewayResponse-definition.md "api-gateway-gatewayResponse-definition.md")
 - [CORS for REST APIs in API Gateway](how-to-cors.md "how-to-cors.md")
-- [Binary media types for
-  REST APIs in API Gateway](api-gateway-payload-encodings.md "api-gateway-payload-encodings.md")
+- [Binary media types for REST APIs in API Gateway](api-gateway-payload-encodings.md "api-gateway-payload-encodings.md")
 - [Invoke REST APIs in API Gateway](how-to-call-api.md "how-to-call-api.md")
-- [Develop REST APIs using
-  OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md")
+- [Develop REST APIs using OpenAPI in API Gateway](api-gateway-import-api.md "api-gateway-import-api.md")

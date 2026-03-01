@@ -1,6 +1,4 @@
-# Set up a
-
-WebSocket API integration request in API Gateway
+# Set up a WebSocket API integration request in API Gateway
 
 Setting up an integration request involves the following:
 
@@ -20,13 +18,9 @@ Setting up an integration request involves the following:
 - Configuring how to transform the route request data, if necessary, into
   integration request data by specifying one or more request templates.
 
-## Set up
+## Set up a WebSocket API integration request using the API Gateway console
 
-a WebSocket API integration request using the API Gateway console
-
-###### To add an integration request to a route in a WebSocket API using the API Gateway
-
-console
+###### To add an integration request to a route in a WebSocket API using the API Gateway console
 
 1. Sign in to the API Gateway console, choose the API, and choose
    **Routes**.
@@ -79,13 +73,11 @@ console
       between `50` and `29000` milliseconds.
 
 6. If you chose **HTTP**, follow the instructions in step 4
-   of [Set up an API integration request
-   using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
+   of [Set up an API integration request using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
 7. If you chose **Mock**, proceed to the **Request
    Templates** step.
 8. If you chose **AWS service**, follow the instructions
-   in step 6 of [Set up an API integration request
-   using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
+   in step 6 of [Set up an API integration request using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
 9. If you chose **VPC link**, do the following:
    1. For **VPC proxy integration**, choose the check
       box if you want your requests to be proxied to your
@@ -116,12 +108,9 @@ console
     3. Choose **Create template** to create the data mapping template. For **Template key**, enter a template key value that is used to select the data mapping template to be applied to the data in the message
        payload. Then, enter a mapping template. Choose **Create template**.
 
-    For information about template selection expressions, see [Template
-    selection expressions](websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions "websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions").
+    For information about template selection expressions, see [Template selection expressions](websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions "websocket-api-data-transformations.md#apigateway-websocket-api-template-selection-expressions").
 
-## Set up
-
-an integration request using the AWS CLI
+## Set up an integration request using the AWS CLI
 
 You can set up an integration request for a route in a WebSocket API by using the
 AWS CLI as in the following example, which creates a mock integration:
@@ -181,9 +170,7 @@ The output will look like the following:
 }
 ```
 
-## Input format of a
-
-Lambda function for proxy integration for WebSocket APIs
+## Input format of a Lambda function for proxy integration for WebSocket APIs
 
 In Lambda proxy integration, API Gateway maps the entire client request to the input `event` parameter
 of the backend Lambda function. The following example shows the structure of the input event from the

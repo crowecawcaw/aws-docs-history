@@ -5,8 +5,7 @@ private custom domain name to provide API
 callers with a simpler and more intuitive URL. With a private custom domain name, you can reduce complexity,
 configure security measures during the TLS handshake, and control the certificate lifecycle of your domain name
 using AWS Certificate Manager (ACM). For more information, see
-[Securing your certificate's private key
-for your custom domain name](#apigateway-private-custom-domains-secure-certificate-private-key "#apigateway-private-custom-domains-secure-certificate-private-key").
+[Securing your certificate's private key for your custom domain name](#apigateway-private-custom-domains-secure-certificate-private-key "#apigateway-private-custom-domains-secure-certificate-private-key").
 
 Custom domain names for private APIs don’t need to be unique across multiple accounts. You can create
 `example.private.com` in account 111122223333 and in account 555555555555, as long as
@@ -25,9 +24,7 @@ name, you create a domain name access association between a VPC endpoint and a p
 domain name access association, API consumers can invoke your private custom domain name while isolated from the
 public internet. For more information, see [Tasks of API providers and API consumers for custom domain names for private APIs](apigateway-private-custom-domains-associations.md "apigateway-private-custom-domains-associations.md").
 
-## Securing your certificate's private key
-
-for your custom domain name
+## Securing your certificate's private key for your custom domain name
 
 When you request an SSL/TLS certificate using ACM to create your custom domain name for private APIs, ACM generates a
 public/private key pair. When you import a certificate, you generate the key pair.
@@ -85,13 +82,11 @@ permissions to allow access to a private domain name after you create it.
   support for your VPC](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md").
 - Multi-level base path mapping, such as mapping your private API to `/developers/feature`, isn't
   supported, but you can use a routing rule to create a multi-level path condition. For more information, see
-  [Send traffic
-  to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
+  [Send traffic to your APIs through your custom domain name in API Gateway](rest-api-routing-mode.md "rest-api-routing-mode.md").
 - You can’t set a minimum TLS version for your private custom domain name. All private custom domain names
   have the security policy of `TLS-1-2`.
 - You can use VPC endpoint policy to control access to a private custom domain name. For more information,
-  see examples 4 and 5 in [Use VPC endpoint policies for private
-  APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
+  see examples 4 and 5 in [Use VPC endpoint policies for private APIs in API Gateway](apigateway-vpc-endpoint-policies.md "apigateway-vpc-endpoint-policies.md").
 - You must create a separate resource policy for your private API and for your private custom domain name.
   To invoke a private custom domain name, an API consumer needs access from the private custom domain name
   resource policy, the private API resource policy, and any VPC endpoint policies or authorization on the

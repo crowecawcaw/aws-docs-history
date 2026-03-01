@@ -1,6 +1,4 @@
-# Use OpenAPI definitions for
-
-HTTP APIs in API Gateway
+# Use OpenAPI definitions for HTTP APIs in API Gateway
 
 You can define your HTTP API by using an OpenAPI 3.0 definition file. Then you can
 import the definition into API Gateway to create an API. To learn more about API Gateway extensions to

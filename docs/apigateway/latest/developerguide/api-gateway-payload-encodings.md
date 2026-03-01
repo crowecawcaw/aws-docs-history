@@ -1,6 +1,4 @@
-# Binary media types for
-
-REST APIs in API Gateway
+# Binary media types for REST APIs in API Gateway
 
 In API Gateway, the API request and response have a text or binary payload. A text payload is a
 `UTF-8`-encoded JSON string. A binary payload is anything other than a text payload. The binary payload
@@ -22,8 +20,7 @@ API Gateway uses the first `Accept` header from clients to determine if a
 response should return binary media. To return binary media when you can't control the order of `Accept` header
 values, such as requests from a browser, set your API's binary media types to `*/*`.
 
-For example code, see [Return binary media from a Lambda proxy
-integration in API Gateway](lambda-proxy-binary-media.md "lambda-proxy-binary-media.md").
+For example code, see [Return binary media from a Lambda proxy integration in API Gateway](lambda-proxy-binary-media.md "lambda-proxy-binary-media.md").
 
 If you use a Lambda proxy integration with payload response streaming, you don't need to configure your binary
 media types. For more information, see [Set up a Lambda proxy integration with payload response streaming in API Gateway](response-transfer-mode-lambda.md "response-transfer-mode-lambda.md").
@@ -72,8 +69,7 @@ You must configure the API as follows to support binary payloads for your API in
 - Set the `contentHandling` property of the [IntegrationResponse](../api/API_IntegrationResponse.md "../api/API_IntegrationResponse.md") resource. The `contentHandling`
   property, `Accept` header in client requests, and your API's
   `binaryMediaTypes` combined determine how API Gateway handles content
-  type conversions. For details, see [Content type conversions in
-  API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").
+  type conversions. For details, see [Content type conversions in API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").
 
 ###### Important
 
@@ -84,5 +80,4 @@ list of your API. API Gateway handles all content types in this list as binary.
 For example, to send a JPEG file using an `<img>`
 element in a browser, the browser might send `Accept:image/webp,image/*,*/*;q=0.8` in a request. By adding `image/webp` to the `binaryMediaTypes` list, the endpoint receives the JPEG file as binary.
 
-For detailed information about how API Gateway handles the text and binary payloads, see [Content type conversions in
-API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").
+For detailed information about how API Gateway handles the text and binary payloads, see [Content type conversions in API Gateway](api-gateway-payload-encodings-workflow.md "api-gateway-payload-encodings-workflow.md").

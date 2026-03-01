@@ -5,9 +5,7 @@ API from API Gateway. You can either choose a stage to export, or export the lat
 of your API. You can also import an exported API definition into API Gateway to create another,
 identical API. To learn more about importing API definitions, see [Importing an HTTP API](http-api-open-api.md#http-api-import "http-api-open-api.md#http-api-import").
 
-## Export an OpenAPI 3.0 definition of a
-
-stage by using the AWS CLI
+## Export an OpenAPI 3.0 definition of a stage by using the AWS CLI
 
 The following
 [export-api](../../../cli/latest/reference/apigatewayv2/export-api.md "../../../cli/latest/reference/apigatewayv2/export-api.md") command exports an OpenAPI definition of an API stage named

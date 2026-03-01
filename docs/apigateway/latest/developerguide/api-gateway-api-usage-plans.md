@@ -5,9 +5,7 @@ offerings for your customers. You can configure usage plans and API keys to allo
 and begin throttling requests to those APIs based on defined limits and quotas. These can be set at the API, or API
 method level.
 
-## What are usage plans and API
-
-keys?
+## What are usage plans and API keys?
 
 A _usage plan_ specifies who can access one or more deployed API stages and
 methods—and optionally sets the target request rate to start throttling requests. The plan uses API keys to

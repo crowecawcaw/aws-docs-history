@@ -1,6 +1,4 @@
-# AWS X-Ray traces for
-
-Amazon API Gateway APIs
+# AWS X-Ray traces for Amazon API Gateway APIs
 
 This section discusses AWS X-Ray trace segments, subsegments, and other trace fields for
 Amazon API Gateway APIs.
@@ -14,14 +12,10 @@ Guide:
 
 ###### Topics
 
-- [Examples of
-  trace objects for an API Gateway API](#apigateway-understanding-xray-traces-example-segments "#apigateway-understanding-xray-traces-example-segments")
-- [Understanding the
-  trace](#apigateway-understanding-xray-traces-segments "#apigateway-understanding-xray-traces-segments")
+- [Examples of trace objects for an API Gateway API](#apigateway-understanding-xray-traces-example-segments "#apigateway-understanding-xray-traces-example-segments")
+- [Understanding the trace](#apigateway-understanding-xray-traces-segments "#apigateway-understanding-xray-traces-segments")
 
-## Examples of
-
-trace objects for an API Gateway API
+## Examples of trace objects for an API Gateway API
 
 This section discusses some of the objects you may see in a trace for an API Gateway
 API.
@@ -69,9 +63,7 @@ rules](../../../xray/latest/devguide/aws-xray-interface-console.md#xray-console-
 For more information about the `aws` object, see
 [X-Ray segment documents](../../../xray/latest/devguide/aws-xray-interface-api.md#xray-api-segmentdocuments "../../../xray/latest/devguide/aws-xray-interface-api.md#xray-api-segmentdocuments"), and then choose **X-Ray segment documents**, **AWS resource data**.
 
-## Understanding the
-
-trace
+## Understanding the trace
 
 Following is a trace segment for an API Gateway stage. For a detailed explanation of the
 fields that make up the trace segment, see [X-Ray segment documents](../../../xray/latest/devguide/aws-xray-interface-api.md#xray-api-segmentdocuments "../../../xray/latest/devguide/aws-xray-interface-api.md#xray-api-segmentdocuments").

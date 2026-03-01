@@ -1,6 +1,4 @@
-# Use AWS X-Ray service maps and trace views
-
-with API Gateway
+# Use AWS X-Ray service maps and trace views with API Gateway
 
 In this section you can find detailed information on how to use [AWS X-Ray](../../../xray/latest/devguide/xray-services-apigateway.md "../../../xray/latest/devguide/xray-services-apigateway.md") service maps and
 trace views with API Gateway.
@@ -8,8 +6,7 @@ trace views with API Gateway.
 ###### Topics
 
 - [Example X-Ray service map](#apigateway-using-xray-maps-active "#apigateway-using-xray-maps-active")
-- [Example X-Ray trace
-  view](#apigateway-using-xray-trace-view-active "#apigateway-using-xray-trace-view-active")
+- [Example X-Ray trace view](#apigateway-using-xray-trace-view-active "#apigateway-using-xray-trace-view-active")
 
 ## Example X-Ray service map
 
@@ -45,9 +42,7 @@ Latency Histograms](../../../xray/latest/devguide/aws-xray-interface-console.md#
 
 ![X-Ray histogram of an API Gateway API stage](images/apigateway-xray-histogram-1.png)
 
-## Example X-Ray trace
-
-view
+## Example X-Ray trace view
 
 The following diagram shows a trace view generated for the example API described
 above, with a Lambda backend function. A successful API

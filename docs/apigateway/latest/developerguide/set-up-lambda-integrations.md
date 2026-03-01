@@ -13,10 +13,7 @@ resulting integration response data is mapped to the method response.
 
 ###### Topics
 
-- [Lambda proxy integrations in
-  API Gateway](set-up-lambda-proxy-integrations.md "set-up-lambda-proxy-integrations.md")
-- [Set up Lambda custom integrations in
-  API Gateway](set-up-lambda-custom-integrations.md "set-up-lambda-custom-integrations.md")
-- [Set up asynchronous invocation of the
-  backend Lambda function](set-up-lambda-integration-async.md "set-up-lambda-integration-async.md")
+- [Lambda proxy integrations in API Gateway](set-up-lambda-proxy-integrations.md "set-up-lambda-proxy-integrations.md")
+- [Set up Lambda custom integrations in API Gateway](set-up-lambda-custom-integrations.md "set-up-lambda-custom-integrations.md")
+- [Set up asynchronous invocation of the backend Lambda function](set-up-lambda-integration-async.md "set-up-lambda-integration-async.md")
 - [Handle Lambda errors in API Gateway](handle-errors-in-lambda-integration.md "handle-errors-in-lambda-integration.md")

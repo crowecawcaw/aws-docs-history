@@ -1,11 +1,8 @@
-# Set up Lambda proxy
-
-integration for API Gateway using the AWS CLI
+# Set up Lambda proxy integration for API Gateway using the AWS CLI
 
 In this section, we show how to set up an API with the Lambda proxy
 integration using the AWS CLI. For detailed instructions for using the API Gateway console to configure a proxy
-resource with the Lambda proxy integration, see [Tutorial: Create a REST API with a Lambda proxy
-integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md").
+resource with the Lambda proxy integration, see [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md "api-gateway-create-api-as-simple-proxy-for-lambda.md").
 
 As an example, we use the following sample Lambda function as the backend of the
 API:
@@ -39,8 +36,7 @@ export const handler = async(event, context) => {
 };
 ```
 
-Comparing this to the Lambda custom integration setup in [Set up Lambda custom integrations in
-API Gateway](set-up-lambda-custom-integrations.md "set-up-lambda-custom-integrations.md"), the input to this Lambda function can be expressed
+Comparing this to the Lambda custom integration setup in [Set up Lambda custom integrations in API Gateway](set-up-lambda-custom-integrations.md "set-up-lambda-custom-integrations.md"), the input to this Lambda function can be expressed
 in the request parameters and body. You have more latitude to allow the client to pass the same input data.
 Here, the client can pass the greeter's name in as a query string parameter, a header, or a body property. The
 function can also support the Lambda custom integration. The API setup is simpler. You do not configure the

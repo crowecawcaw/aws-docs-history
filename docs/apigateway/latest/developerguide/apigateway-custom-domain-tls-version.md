@@ -1,6 +1,4 @@
-# Choose a security policy for
-
-your custom domain in API Gateway
+# Choose a security policy for your custom domain in API Gateway
 
 A _security policy_ is a predefined combination of minimum TLS version and cipher suites
 offered by API Gateway. When your clients establish a TLS handshake to your API or custom domain name, the security
@@ -51,9 +49,7 @@ To monitor which TLS protocol and ciphers clients used to access your API Gatewa
 To see the default security policies for all REST APIs and custom domain names, see [Default security policies](apigateway-security-policies-list.md#apigateway-security-policies-default "apigateway-security-policies-list.md#apigateway-security-policies-default"). To see the supported security policies for all REST APIs and
 custom domain names, see [Supported security policies](apigateway-security-policies-list.md "apigateway-security-policies-list.md").
 
-## Change your custom domain name's
-
-security policy
+## Change your custom domain name's security policy
 
 If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor the
 `lastUpdateStatus` of your custom domain name. As your custom domain name updates, the

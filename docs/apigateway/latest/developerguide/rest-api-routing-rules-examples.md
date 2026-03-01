@@ -83,9 +83,7 @@ The following table shows how API Gateway applies the previous routing rules and
 | `https://petstore.example.com/PetStoreShopper/cats -h "Hello:World"`              | Target API 1 | The request matches routing rule `abc123`. If the routing mode is set to<br>`ROUTING_RULE_THEN_API_MAPPING`, routing rules always take priority over API<br>mappings.                                                             |
 | `https://petstore.example.com/Admin -h "Pet:Dog-Bella"`                           | None         | The request doesn't match any routing rules or API mappings. Since there is no default routing<br>rule, API Gateway rejects the call and sends the caller a `403 Forbidden` status code.                                          |
 
-## Example 4: Routing rules for wildcard
-
-domain names
+## Example 4: Routing rules for wildcard domain names
 
 In this example, the custom domain name `https://*.example.com` is a wildcard domain name. The
 wildcard supports all subdomains which route back to the same domain. The following example routing rules change this

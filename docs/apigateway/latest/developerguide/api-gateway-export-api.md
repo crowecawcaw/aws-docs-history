@@ -55,9 +55,7 @@ Otherwise, API Gateway throws an exception with the "Only found non-JSON body mo
 
 Models must contain properties or be defined as a particular JSONSchema type.
 
-## Download REST API OpenAPI
-
-definition in JSON
+## Download REST API OpenAPI definition in JSON
 
 To export and download a REST API in OpenAPI definitions in JSON format:
 
@@ -87,9 +85,7 @@ Here, `<region>` could be, for
 example, `us-east-1`. For all the regions where API Gateway is available, see
 [Regions and Endpoints](../../../general/latest/gr/rande.md#apigateway_region "../../../general/latest/gr/rande.md#apigateway_region").
 
-## Download REST API OpenAPI
-
-definition in YAML
+## Download REST API OpenAPI definition in YAML
 
 To export and download a REST API in OpenAPI definitions in YAML format:
 
@@ -115,9 +111,7 @@ Accept: application/yaml
 
 ```
 
-## Download REST API
-
-OpenAPI definition with Postman extensions in JSON
+## Download REST API OpenAPI definition with Postman extensions in JSON
 
 To export and download a REST API in OpenAPI definitions with Postman in
 JSON format:
@@ -144,9 +138,7 @@ Accept: application/json
 
 ```
 
-## Download REST API
-
-OpenAPI definition with API Gateway integration in YAML
+## Download REST API OpenAPI definition with API Gateway integration in YAML
 
 To export and download a REST API in OpenAPI definitions with API Gateway integration in YAML
 format:
@@ -173,9 +165,7 @@ Accept: application/yaml
 
 ```
 
-## Export REST API using the API Gateway
-
-console
+## Export REST API using the API Gateway console
 
 After [deploying your REST API to a stage](set-up-deployments.md#create-deployment "set-up-deployments.md#create-deployment"), you can proceed to export the API in the stage to an OpenAPI file using the API Gateway console.
 

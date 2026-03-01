@@ -1,6 +1,4 @@
-# Integrate a REST API with an Amazon Cognito user
-
-pool
+# Integrate a REST API with an Amazon Cognito user pool
 
 After creating an Amazon Cognito user pool, in API Gateway, you must then create a
 `COGNITO_USER_POOLS` authorizer that uses the user pool.
@@ -19,9 +17,7 @@ After performing any of the procedures below, you'll need to deploy or redeploy
 your API to propagate the changes. For more information about deploying your API,
 see [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to-deploy-api.md").
 
-###### To create a `COGNITO_USER_POOLS` authorizer by using the API Gateway
-
-console
+###### To create a `COGNITO_USER_POOLS` authorizer by using the API Gateway console
 
 1. Create a new API, or select an existing API in API Gateway.
 2. In the main navigation pane, choose **Authorizers**.

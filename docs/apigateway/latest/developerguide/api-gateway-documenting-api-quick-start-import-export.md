@@ -1,6 +1,4 @@
-# Import API
-
-documentation
+# Import API documentation
 
 As with importing API entity definitions, you can import documentation parts from an
 external OpenAPI file into an API in API Gateway. You specify the to-be-imported documentation
@@ -236,9 +234,7 @@ parameters.
 
 The following instructions describe how to import documentation parts.
 
-###### To use the console to import documentation parts of an API from an external
-
-file
+###### To use the console to import documentation parts of an API from an external file
 
 1. In the main navigation pane, choose **Documentation**.
 2. Choose **Import**.

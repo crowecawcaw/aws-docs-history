@@ -5,9 +5,7 @@ variables in mapping templates. You can use a mock integration or a Lambda non-p
 input event back to API Gateway. For a list of all supported variables for data transformations, see
 [Variables for data transformations for API Gateway](api-gateway-mapping-template-reference.md "api-gateway-mapping-template-reference.md").
 
-## Example 1: Pass multiple `$context`
-
-variables to the integration endpoint
+## Example 1: Pass multiple `$context` variables to the integration endpoint
 
 The following example shows a mapping template that maps incoming
 `$context` variables to backend variables with slightly different names
@@ -53,9 +51,7 @@ The output of this mapping template should look like the following:
 
 One of the variables is an API key. This example assumes that the method requires an API key.
 
-## Example 2: Pass all request parameters to
-
-the integration endpoint via a JSON payload
+## Example 2: Pass all request parameters to the integration endpoint via a JSON payload
 
 The following example passes all request parameters, including
 `path`, `querystring`, and `header` parameters, through to
@@ -92,9 +88,7 @@ The output of this mapping template should look like the following:
 
 ```
 
-## Example 3: Pass a subsection of a method request to the
-
-integration endpoint
+## Example 3: Pass a subsection of a method request to the integration endpoint
 
 The following example uses the input parameter `name` to retrieve only the `name`
 parameter and the input parameter `input.json('$')` to retrieve the entire body of the method
@@ -150,9 +144,7 @@ In this case, the output of this mapping template should look like the following
 }
 ```
 
-## Example 4: Use JSONPath expression to pass a subsection of
-
-a method request to the integration endpoint
+## Example 4: Use JSONPath expression to pass a subsection of a method request to the integration endpoint
 
 The following example uses the JSONPath expressions to retrieve only the input parameter
 `name` and the `Age` from the request body:
@@ -208,9 +200,7 @@ In this case, the output of this mapping template should look like the following
 }
 ```
 
-## Example 5: Use a JSONPath expression to pass information
-
-about a method request to the integration endpoint
+## Example 5: Use a JSONPath expression to pass information about a method request to the integration endpoint
 
 The following example uses `$input.params()`, `$input.path()`, and
 `$input.json()` to send information about a method request to the integration endpoint. This mapping

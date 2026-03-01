@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-API Gateway
+# Using service-linked roles for API Gateway
 
 Amazon API Gateway uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to API Gateway. Service-linked roles are predefined by API Gateway and
@@ -21,9 +19,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-API Gateway
+## Service-linked role permissions for API Gateway
 
 API Gateway uses the service-linked role named **AWSServiceRoleForAPIGateway**
 – Allows API Gateway to access Elastic Load Balancing, Amazon Data Firehose, and other service resources on your behalf.
@@ -185,9 +181,7 @@ Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md
 API Gateway supports using service-linked roles in all of the Regions where the service
 is available. For more information, see [AWS Service Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
 
-## API Gateway updates to AWS managed
-
-policies
+## API Gateway updates to AWS managed policies
 
 View details about updates to AWS managed policies for API Gateway since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

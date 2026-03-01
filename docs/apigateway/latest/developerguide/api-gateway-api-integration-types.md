@@ -1,6 +1,4 @@
-# Choose an API Gateway API integration
-
-type
+# Choose an API Gateway API integration type
 
 You choose an API integration type according to the types of integration endpoint
 you work with and how you want data to pass to and from the integration endpoint.

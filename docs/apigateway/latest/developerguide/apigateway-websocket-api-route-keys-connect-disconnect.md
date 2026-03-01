@@ -1,23 +1,15 @@
-# Manage
-
-connected users and client apps: `$connect` and `$disconnect`
-routes
+# Manage connected users and client apps: `$connect` and `$disconnect` routes
 
 The following section describes how to use the `$connect` and `$disconnect`
 routes for your WebSocket API.
 
 ###### Topics
 
-- [The
-  $connect route](#apigateway-websocket-api-routes-about-connect "#apigateway-websocket-api-routes-about-connect")
-- [Passing connection information from
-  the $connect route](#apigateway-websocket-api-passing-connectionId-on-connect "#apigateway-websocket-api-passing-connectionId-on-connect")
-- [The
-  $disconnect route](#apigateway-websocket-api-routes-about-disconnect "#apigateway-websocket-api-routes-about-disconnect")
+- [The $connect route](#apigateway-websocket-api-routes-about-connect "#apigateway-websocket-api-routes-about-connect")
+- [Passing connection information from the $connect route](#apigateway-websocket-api-passing-connectionId-on-connect "#apigateway-websocket-api-passing-connectionId-on-connect")
+- [The $disconnect route](#apigateway-websocket-api-routes-about-disconnect "#apigateway-websocket-api-routes-about-disconnect")
 
-## The
-
-`$connect` route
+## The `$connect` route
 
 Client apps connect to your WebSocket API by sending a WebSocket upgrade request.
 If the request succeeds, the `$connect` route is executed while the
@@ -44,8 +36,7 @@ Setting up an integration for `$connect` is optional. You
 should consider setting up a `$connect` integration if:
 
 - You want to enable clients to specify subprotocols by using the
-  `Sec-WebSocket-Protocol` field. For example code, see [Set up a $connect
-  route that requires a WebSocket subprotocol](websocket-connect-route-subprotocol.md "websocket-connect-route-subprotocol.md").
+  `Sec-WebSocket-Protocol` field. For example code, see [Set up a $connect route that requires a WebSocket subprotocol](websocket-connect-route-subprotocol.md "websocket-connect-route-subprotocol.md").
 - You want to be notified when clients connect.
 - You want to throttle connections or control who connects.
 - You want your backend to send messages back to clients using a callback
@@ -53,9 +44,7 @@ should consider setting up a `$connect` integration if:
 - You want to store each connection ID and other information into a database
   (for example, Amazon DynamoDB).
 
-## Passing connection information from
-
-the `$connect` route
+## Passing connection information from the `$connect` route
 
 You can use both proxy and non-proxy integrations to pass information from the `$connect` route
 to a database or other AWS service.
@@ -130,16 +119,12 @@ def lambda_handler(event, context):
 }
 ```
 
-For more information about setting up data transformations, see [Data transformations for
-WebSocket APIs in API Gateway](websocket-api-data-transformations.md "websocket-api-data-transformations.md").
+For more information about setting up data transformations, see [Data transformations for WebSocket APIs in API Gateway](websocket-api-data-transformations.md "websocket-api-data-transformations.md").
 
 To complete the integration request, set `StatusCode: 200` for the integration response. To
-learn more about setting up an integration response, see [Set up
-an integration response using the API Gateway console](apigateway-websocket-api-integration-responses.md#apigateway-websocket-api-integration-response-using-console "apigateway-websocket-api-integration-responses.md#apigateway-websocket-api-integration-response-using-console").
+learn more about setting up an integration response, see [Set up an integration response using the API Gateway console](apigateway-websocket-api-integration-responses.md#apigateway-websocket-api-integration-response-using-console "apigateway-websocket-api-integration-responses.md#apigateway-websocket-api-integration-response-using-console").
 
-## The
-
-`$disconnect` route
+## The `$disconnect` route
 
 The `$disconnect` route is executed after the connection is
 closed.
@@ -150,5 +135,4 @@ API Gateway will try its best to deliver the `$disconnect` event to your
 integration, but it cannot guarantee delivery.
 
 The backend can initiate disconnection by using the `@connections` API.
-For more information, see [Use @connections commands in your
-backend service](apigateway-how-to-call-websocket-api-connections.md "apigateway-how-to-call-websocket-api-connections.md").
+For more information, see [Use @connections commands in your backend service](apigateway-how-to-call-websocket-api-connections.md "apigateway-how-to-call-websocket-api-connections.md").

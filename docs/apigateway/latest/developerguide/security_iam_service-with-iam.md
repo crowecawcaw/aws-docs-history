@@ -1,6 +1,4 @@
-# How Amazon API Gateway works with
-
-IAM
+# How Amazon API Gateway works with IAM
 
 Before you use IAM to manage access to API Gateway, you should understand what
 IAM features are available to use with API Gateway. To get a high-level view of how
@@ -9,18 +7,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [API Gateway
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [API Gateway
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  API Gateway tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [API Gateway IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [API Gateway identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [API Gateway resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on API Gateway tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [API Gateway IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## API Gateway
-
-identity-based policies
+## API Gateway identity-based policies
 
 With IAM identity-based policies, you can specify which actions and resources are allowed or denied as
 well as the conditions under which actions are allowed or denied. API Gateway supports specific actions,
@@ -31,8 +23,7 @@ resources, and condition keys, see
 _IAM User Guide_.
 
 The following example shows an identity-based policy that allows a user to create or update only private
-REST APIs. For more examples, see [Amazon API Gateway identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+REST APIs. For more examples, see [Amazon API Gateway identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 JSON
 
@@ -106,8 +97,7 @@ To specify multiple actions in a single statement, separate them with commas as 
 For information about HTTP verbs to use for specific API Gateway operations, see [Amazon API Gateway Version 1 API Reference](../../api-reference.md "../../api-reference.md") (REST APIs) and [Amazon API Gateway Version 2 API
 Reference](../../../apigatewayv2/latest/api-reference/api-reference.md "../../../apigatewayv2/latest/api-reference/api-reference.md") (WebSocket and HTTP APIs).
 
-For more information, see [Amazon API Gateway identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For more information, see [Amazon API Gateway identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ### Resources
 
@@ -140,8 +130,7 @@ To specify all REST APIs and sub-resources that belong to a specific account, us
 "Resource": "arn:aws:apigateway:us-east-2::/restapis/*"
 ```
 
-For a list of API Gateway resource types and their ARNs, see [API Gateway Amazon Resource Name (ARN)
-reference](arn-format-reference.md "arn-format-reference.md").
+For a list of API Gateway resource types and their ARNs, see [API Gateway Amazon Resource Name (ARN) reference](arn-format-reference.md "arn-format-reference.md").
 
 ### Condition keys
 
@@ -163,27 +152,20 @@ For information about tagging, including attribute-based access control, see [Ta
 
 ### Examples
 
-For examples of API Gateway identity-based policies, see [Amazon API Gateway identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For examples of API Gateway identity-based policies, see [Amazon API Gateway identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## API Gateway
-
-resource-based policies
+## API Gateway resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a specified principal can
 perform on the API Gateway resource and under what conditions. API Gateway supports resource-based permissions
 policies for REST APIs. You use resource policies to control who can invoke a REST API. For
-more information, see [Control access to a REST API with API Gateway
-resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md").
+more information, see [Control access to a REST API with API Gateway resource policies](apigateway-resource-policies.md "apigateway-resource-policies.md").
 
 ### Examples
 
-For examples of API Gateway resource-based policies, see [API Gateway resource policy
-examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
+For examples of API Gateway resource-based policies, see [API Gateway resource policy examples](apigateway-resource-policies-examples.md "apigateway-resource-policies-examples.md").
 
-## Authorization based on
-
-API Gateway tags
+## Authorization based on API Gateway tags
 
 You can attach tags to API Gateway resources or pass tags in a request to
 API Gateway. To control access based on tags, you provide tag information in the
@@ -197,16 +179,12 @@ API Gateway resources, see [Using tags to control access to API Gateway REST API
 For an examples of identity-based policies for limiting access to a resource based on the tags on that
 resource, see [Using tags to control access to API Gateway REST API resources](apigateway-tagging-iam-policy.md "apigateway-tagging-iam-policy.md").
 
-## API Gateway IAM
-
-roles
+## API Gateway IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with API Gateway
+### Using temporary credentials with API Gateway
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -214,9 +192,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 API Gateway supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -224,8 +200,7 @@ IAM account and are owned by the service. An IAM administrator can view but not
 edit the permissions for service-linked roles.
 
 API Gateway supports service-linked roles. For information about creating or managing
-API Gateway service-linked roles, see [Using service-linked roles for
-API Gateway](using-service-linked-roles.md "using-service-linked-roles.md").
+API Gateway service-linked roles, see [Using service-linked roles for API Gateway](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ### Service roles
 

@@ -13,8 +13,7 @@ applications such as chat applications, collaboration platforms, multiplayer gam
 financial trading platforms.
 
 For an example app to get started with, see
-[Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and
-DynamoDB](websocket-api-chat-app.md "websocket-api-chat-app.md").
+[Tutorial: Create a WebSocket chat app with a WebSocket API, Lambda and DynamoDB](websocket-api-chat-app.md "websocket-api-chat-app.md").
 
 In this section, you can learn how to develop, publish, protect, and
 monitor your WebSocket APIs using API Gateway.

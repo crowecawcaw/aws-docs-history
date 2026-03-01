@@ -30,14 +30,10 @@ property.
 
 ###### Topics
 
-- [Handle standard Lambda
-  errors in API Gateway](#handle-standard-errors-in-lambda-integration "#handle-standard-errors-in-lambda-integration")
-- [Handle custom Lambda errors
-  in API Gateway](#handle-custom-errors-in-lambda-integration "#handle-custom-errors-in-lambda-integration")
+- [Handle standard Lambda errors in API Gateway](#handle-standard-errors-in-lambda-integration "#handle-standard-errors-in-lambda-integration")
+- [Handle custom Lambda errors in API Gateway](#handle-custom-errors-in-lambda-integration "#handle-custom-errors-in-lambda-integration")
 
-## Handle standard Lambda
-
-errors in API Gateway
+## Handle standard Lambda errors in API Gateway
 
 A standard AWS Lambda error has the following format:
 
@@ -155,9 +151,7 @@ To set the `selectionPattern` expression using the API Gateway console, enter th
 expression in the **Lambda error regex** text box when setting up or
 updating an integration response of a specified HTTP status code.
 
-## Handle custom Lambda errors
-
-in API Gateway
+## Handle custom Lambda errors in API Gateway
 
 Instead of the standard error described in the preceding section, AWS Lambda allows
 you to return a custom error object as JSON string. The error can be any valid JSON

@@ -1,6 +1,4 @@
-# How API Gateway resource policies affect
-
-authorization workflow
+# How API Gateway resource policies affect authorization workflow
 
 When API Gateway evaluates the resource policy attached to your API, the result is affected by
 the authentication type that you have defined for the API, as illustrated in the flowcharts
@@ -8,20 +6,13 @@ in the following sections.
 
 ###### Topics
 
-- [API Gateway resource
-  policy only](#apigateway-authorization-flow-resource-policy-only "#apigateway-authorization-flow-resource-policy-only")
-- [Lambda authorizer and resource
-  policy](#apigateway-authorization-flow-lambda "#apigateway-authorization-flow-lambda")
-- [IAM authentication and resource
-  policy](#apigateway-authorization-flow-iam "#apigateway-authorization-flow-iam")
-- [Amazon Cognito authentication and
-  resource policy](#apigateway-authorization-flow-cognito "#apigateway-authorization-flow-cognito")
-- [Policy
-  evaluation outcome tables](#apigateway-resource-policies-iam-policies-interaction "#apigateway-resource-policies-iam-policies-interaction")
+- [API Gateway resource policy only](#apigateway-authorization-flow-resource-policy-only "#apigateway-authorization-flow-resource-policy-only")
+- [Lambda authorizer and resource policy](#apigateway-authorization-flow-lambda "#apigateway-authorization-flow-lambda")
+- [IAM authentication and resource policy](#apigateway-authorization-flow-iam "#apigateway-authorization-flow-iam")
+- [Amazon Cognito authentication and resource policy](#apigateway-authorization-flow-cognito "#apigateway-authorization-flow-cognito")
+- [Policy evaluation outcome tables](#apigateway-resource-policies-iam-policies-interaction "#apigateway-resource-policies-iam-policies-interaction")
 
-## API Gateway resource
-
-policy only
+## API Gateway resource policy only
 
 In this workflow, an API Gateway resource policy is attached to the API, but no
 authentication type is defined for the API. Evaluation of the policy involves seeking an
@@ -54,9 +45,7 @@ JSON
 
 ```
 
-## Lambda authorizer and resource
-
-policy
+## Lambda authorizer and resource policy
 
 In this workflow, a Lambda authorizer is configured for the API in addition to a resource policy. The resource
 policy is evaluated in two phases. Before calling the Lambda authorizer, API Gateway first evaluates the policy and
@@ -97,9 +86,7 @@ JSON
 
 ```
 
-## IAM authentication and resource
-
-policy
+## IAM authentication and resource policy
 
 In this workflow, you configure IAM authentication for the API in addition to a resource policy. After
 you authenticate the user with the IAM service, the API evaluates both the policies attached to the user and the
@@ -144,9 +131,7 @@ JSON
 
 ```
 
-## Amazon Cognito authentication and
-
-resource policy
+## Amazon Cognito authentication and resource policy
 
 In this workflow, an [Amazon Cognito user
 pool](apigateway-integrate-with-cognito.md "apigateway-integrate-with-cognito.md") is configured for the API in addition to a resource policy. API Gateway first
@@ -183,9 +168,7 @@ JSON
 
 ```
 
-## Policy
-
-evaluation outcome tables
+## Policy evaluation outcome tables
 
 Table A lists the resulting behavior when access to an API Gateway API is controlled by an IAM policy or a Lambda
 authorizer and an API Gateway resource policy, both of which are in the same AWS account.

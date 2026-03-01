@@ -1,6 +1,4 @@
-# Configure a cross-account API Gateway Lambda
-
-authorizer
+# Configure a cross-account API Gateway Lambda authorizer
 
 You can now also use an AWS Lambda function from a different AWS account as your API authorizer function.
 Each account can be in any region where Amazon API Gateway is available. The Lambda authorizer function can use bearer token
@@ -13,9 +11,7 @@ console.
 These instructions assume that you already have an API Gateway API in one AWS account and a Lambda authorizer
 function in another account.
 
-## Configure a
-
-cross-account Lambda authorizer using the API Gateway console
+## Configure a cross-account Lambda authorizer using the API Gateway console
 
 Log in to the Amazon API Gateway console in the account that has your API in it, and then do the
 following:

@@ -7,9 +7,7 @@ incoming request data to determine the response that it returns. In order for AP
 Lambda function must output the
 [format](#response-transfer-mode-lambda-format "#response-transfer-mode-lambda-format") required by API Gateway.
 
-## Differences in Lambda proxy integrations between
-
-stream and buffered response transfer mode
+## Differences in Lambda proxy integrations between stream and buffered response transfer mode
 
 The following list describes the differences between a Lambda proxy integration and a Lambda proxy integration for response streaming:
 
@@ -37,8 +35,7 @@ URI for you.
 ## Lambda proxy integration format for response streaming
 
 When API Gateway invokes a Lambda function with response streaming, the input format is the same as the input format
-of a Lambda function for proxy integration. For more information, see [Input format of a
-Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format").
+of a Lambda function for proxy integration. For more information, see [Input format of a Lambda function for proxy integration](set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format "set-up-lambda-proxy-integrations.md#api-gateway-simple-proxy-for-lambda-input-format").
 
 When Lambda streams a response to API Gateway, the response must adhere to the following format. This format uses a
 delimiter to separate the metadata JSON and the raw payload. In this case, the payload data is streamed as it is

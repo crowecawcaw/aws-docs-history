@@ -12,9 +12,7 @@ access to the following two API Gateway component processes:
   The access control for the two processes involves different permissions models, explained
   next.
 
-##
-
-API Gateway permissions model for creating and managing an API
+## API Gateway permissions model for creating and managing an API
 
 To allow an API developer to create and manage an API in API Gateway, you must [create IAM permissions
 policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") that allow a specified API developer to create, update, deploy,
@@ -36,12 +34,9 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-For more information on how to use this permissions model, see [API Gateway
-identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+For more information on how to use this permissions model, see [API Gateway identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
-##
-
-API Gateway permissions model for invoking an API
+## API Gateway permissions model for invoking an API
 
 To allow an API caller to invoke the API or refresh its caching, you must create IAM policies that permit a
 specified API caller to invoke the API method for which user authentication is enabled. The API developer sets the
@@ -55,8 +50,7 @@ HTTP verbs and API Gateway [resource paths](../api/API_Resource.md "../api/API_R
 IAM `Action` element contains the required API Gateway API
 executing actions. These actions include `execute-api:Invoke` or `execute-api:InvalidateCache`, where `execute-api` designates the underlying API execution component of API Gateway.
 
-For more information on how to use this permissions model, see [Control
-access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
+For more information on how to use this permissions model, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
 
 When an API is integrated with an AWS service (for example, AWS Lambda) in the back
 end, API Gateway must also have permissions to access integrated AWS resources (for example,

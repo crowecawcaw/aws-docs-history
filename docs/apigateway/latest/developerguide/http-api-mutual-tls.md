@@ -1,6 +1,4 @@
-# How to turn on mutual TLS authentication for your
-
-HTTP APIs in API Gateway
+# How to turn on mutual TLS authentication for your HTTP APIs in API Gateway
 
 Mutual TLS authentication requires two-way authentication between the client and the
 server. With mutual TLS, clients must present X.509 certificates to verify their identity to
@@ -104,14 +102,11 @@ The following [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/r
 aws s3 cp `certificates.pem` s3://`bucket-name`
 ```
 
-## Configuring mutual TLS for a custom
-
-domain name
+## Configuring mutual TLS for a custom domain name
 
 To configure mutual TLS for a HTTP API, you must use a Regional custom domain name for
 your API, with a minimum TLS version of 1.2. To learn more about creating and
-configuring a custom domain name, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+configuring a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
 ###### Note
 
@@ -129,12 +124,9 @@ aws apigatewayv2 create-domain-name \
 ```
 
 After you create the domain name, you must configure DNS records and basepath mappings
-for API operations. To learn more, see [Set up a Regional custom
-domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
+for API operations. To learn more, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md "apigateway-regional-api-custom-domain-create.md").
 
-## Invoke an API by using a custom domain
-
-name that requires mutual TLS
+## Invoke an API by using a custom domain name that requires mutual TLS
 
 To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When
 a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For

@@ -33,19 +33,13 @@ AWS GovCloud (US). For the full list of supported Regions, see [Amazon API Gatew
 
 ###### Topics
 
-- [Supported resource
-  types](#apigateway-config-resources-rules "#apigateway-config-resources-rules")
+- [Supported resource types](#apigateway-config-resources-rules "#apigateway-config-resources-rules")
 - [Setting up AWS Config](#apigateway-config-setup "#apigateway-config-setup")
-- [Configuring AWS Config to record API Gateway
-  resources](#apigateway-config-configuring "#apigateway-config-configuring")
-- [Viewing API Gateway configuration details in the
-  AWS Config console](#apigateway-config-console "#apigateway-config-console")
-- [Evaluating API Gateway resources using AWS Config
-  rules](#apigateway-config-rules "#apigateway-config-rules")
+- [Configuring AWS Config to record API Gateway resources](#apigateway-config-configuring "#apigateway-config-configuring")
+- [Viewing API Gateway configuration details in the AWS Config console](#apigateway-config-console "#apigateway-config-console")
+- [Evaluating API Gateway resources using AWS Config rules](#apigateway-config-rules "#apigateway-config-rules")
 
-## Supported resource
-
-types
+## Supported resource types
 
 The following API Gateway resource types are integrated with AWS Config and are documented in
 [AWS Config Supported AWS
@@ -84,9 +78,7 @@ To initially set up AWS Config, see the following topics in the [AWS Config Deve
 - [Setting Up AWS Config with the
   AWS CLI](../../../config/latest/developerguide/gs-cli.md "../../../config/latest/developerguide/gs-cli.md")
 
-## Configuring AWS Config to record API Gateway
-
-resources
+## Configuring AWS Config to record API Gateway resources
 
 By default, AWS Config records configuration changes for all supported types of regional
 resources that it discovers in the region in which your environment is running. You can
@@ -97,9 +89,7 @@ To learn about regional vs. global resources and learn how to customize your AWS
 configuration, see [Selecting which
 Resources AWS Config Records](../../../config/latest/developerguide/select-resources.md "../../../config/latest/developerguide/select-resources.md").
 
-## Viewing API Gateway configuration details in the
-
-AWS Config console
+## Viewing API Gateway configuration details in the AWS Config console
 
 You can use the AWS Config console to look for API Gateway resources and get current and
 historical details about their configurations. The following procedure shows how to find
@@ -123,9 +113,7 @@ information about an API Gateway API.
 To learn more ways to find a resource and view information on this page, see [Viewing AWS Resource Configurations and
 History](../../../config/latest/developerguide/view-manage-resource.md "../../../config/latest/developerguide/view-manage-resource.md") in the AWS Config Developer Guide.
 
-## Evaluating API Gateway resources using AWS Config
-
-rules
+## Evaluating API Gateway resources using AWS Config rules
 
 You can create AWS Config rules, which represent the ideal configuration settings for your
 API Gateway resources. You can use predefined [AWS Config Managed Rules](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md"), or

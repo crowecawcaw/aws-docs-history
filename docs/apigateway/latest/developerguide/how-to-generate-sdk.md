@@ -19,11 +19,9 @@ instructions, see [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to
 - [Simple calculator Lambda function](simple-calc-nodejs-lambda-function.md "simple-calc-nodejs-lambda-function.md")
 - [Simple calculator API in API Gateway](simple-calc-lambda-api.md "simple-calc-lambda-api.md")
 - [Simple calculator API OpenAPI definition](simple-calc-lambda-api-swagger-definition.md "simple-calc-lambda-api-swagger-definition.md")
-- [Generate the Java SDK of an
-  API in API Gateway](generate-java-sdk-of-an-api.md "generate-java-sdk-of-an-api.md")
+- [Generate the Java SDK of an API in API Gateway](generate-java-sdk-of-an-api.md "generate-java-sdk-of-an-api.md")
 - [Generate the Android SDK of an API in API Gateway](generate-android-sdk-of-an-api.md "generate-android-sdk-of-an-api.md")
 - [Generate the iOS SDK of an API in API Gateway](generate-ios-sdk-of-an-api.md "generate-ios-sdk-of-an-api.md")
 - [Generate the JavaScript SDK of a REST API in API Gateway](generate-javascript-sdk-of-an-api.md "generate-javascript-sdk-of-an-api.md")
-- [Generate the Ruby SDK of an
-  API in API Gateway](generate-ruby-sdk-of-an-api.md "generate-ruby-sdk-of-an-api.md")
+- [Generate the Ruby SDK of an API in API Gateway](generate-ruby-sdk-of-an-api.md "generate-ruby-sdk-of-an-api.md")
 - [Generate SDKs for an API using AWS CLI commands in API Gateway](how-to-generate-sdk-cli.md "how-to-generate-sdk-cli.md")

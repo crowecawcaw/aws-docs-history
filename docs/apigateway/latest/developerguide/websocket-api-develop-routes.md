@@ -8,8 +8,7 @@ A _route_ includes a _route key_, which is the value
 that is expected once a _route selection expression_ is evaluated. The
 `routeSelectionExpression` is an attribute defined at the API level. It
 specifies a JSON property that is expected to be present in the message payload. For more
-information about route selection expressions, see [Route selection
-expressions](#apigateway-websocket-api-route-selection-expressions "#apigateway-websocket-api-route-selection-expressions").
+information about route selection expressions, see [Route selection expressions](#apigateway-websocket-api-route-selection-expressions "#apigateway-websocket-api-route-selection-expressions").
 
 For example, if your JSON messages contain an `action` property and you want to
 perform different actions based on this property, your route selection expression might be
@@ -31,9 +30,7 @@ routes.
 - API Gateway calls the `$default` route if the route selection expression
   cannot be evaluated against the message or if no matching route is found.
 
-## Route selection
-
-expressions
+## Route selection expressions
 
 A _route selection expression_ is evaluated when the service is
 selecting the route to follow for an incoming message. The service uses the route whose
@@ -88,9 +85,7 @@ route key, the route is selected to process the message. If no matching route is
 then API Gateway tries to find the `$default` route if available. If the
 `$default` route is not defined, then API Gateway returns an error.
 
-## Set up routes for a WebSocket API in
-
-API Gateway
+## Set up routes for a WebSocket API in API Gateway
 
 When you first create a new WebSocket API, there are three predefined routes:
 `$connect`, `$disconnect`, and `$default`. You can
@@ -102,9 +97,7 @@ routes. For more information, see [Overview of WebSocket APIs in API Gateway](ap
 In the CLI, you can create routes before or after you create integrations, and you
 can reuse the same integration for multiple routes.
 
-### Create a route using
-
-the API Gateway console
+### Create a route using the API Gateway console
 
 ###### To create a route using the API Gateway console
 
@@ -118,12 +111,9 @@ the API Gateway console
 
 When you create a custom route, do not use the `$` prefix
 in the route key name. This prefix is reserved for predefined
-routes. 4. Select and configure the integration type for the route. For more information, see [Set up
-a WebSocket API integration request using the API Gateway console](apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console "apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console").
+routes. 4. Select and configure the integration type for the route. For more information, see [Set up a WebSocket API integration request using the API Gateway console](apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console "apigateway-websocket-api-integration-requests.md#apigateway-websocket-api-integration-request-using-console").
 
-### Create a route using
-
-the AWS CLI
+### Create a route using the AWS CLI
 
 The following [create-route](../../../cli/latest/reference/apigatewayv2/create-route.md "../../../cli/latest/reference/apigatewayv2/create-route.md") command creates a route:
 
@@ -142,14 +132,11 @@ The output will look like a following:
 }
 ```
 
-### Specify route
-
-request settings for `$connect`
+### Specify route request settings for `$connect`
 
 When you set up the `$connect` route for your API, the following
 optional settings are available to enable authorization for your API. For more
-information, see [The
-$connect route](apigateway-websocket-api-route-keys-connect-disconnect.md#apigateway-websocket-api-routes-about-connect "apigateway-websocket-api-route-keys-connect-disconnect.md#apigateway-websocket-api-routes-about-connect").
+information, see [The $connect route](apigateway-websocket-api-route-keys-connect-disconnect.md#apigateway-websocket-api-routes-about-connect "apigateway-websocket-api-route-keys-connect-disconnect.md#apigateway-websocket-api-routes-about-connect").
 
 - **Authorization**: If no authorization is needed, you can
   specify `NONE`. Otherwise, you can specify:
@@ -179,17 +166,14 @@ called on every connection.
   with usage plans to control and track access to your APIs. For more
   information, see [Usage plans and API keys for REST APIs in API Gateway](api-gateway-api-usage-plans.md "api-gateway-api-usage-plans.md").
 
-### Set
-
-up the `$connect` route request using the API Gateway console
+### Set up the `$connect` route request using the API Gateway console
 
 To set up the `$connect` route request for a WebSocket API using the
 API Gateway console:
 
 1. Sign in to the API Gateway console, choose the API, and choose
    **Routes**.
-2. Under **Routes**, choose `$connect`, or create a `$connect` route by following [Create a route using
-   the API Gateway console](#apigateway-websocket-api-route-using-console "#apigateway-websocket-api-route-using-console").
+2. Under **Routes**, choose `$connect`, or create a `$connect` route by following [Create a route using the API Gateway console](#apigateway-websocket-api-route-using-console "#apigateway-websocket-api-route-using-console").
 3. In the **Route request settings** section, choose **Edit**.
 4. For **Authorization**, select an authorization type.
 5. To require an API for the `$connect` route, select **Require API key**.

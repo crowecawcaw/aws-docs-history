@@ -1,9 +1,6 @@
-# IAM policy
+# IAM policy examples for API execution permissions
 
-examples for API execution permissions
-
-For permissions model and other background information, see [Control
-access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
+For permissions model and other background information, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md").
 
 The following policy statement gives the user permission to call any POST method along
 the path of `mydemoresource`, in the stage of
