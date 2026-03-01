@@ -1,6 +1,4 @@
-# Update custom tags in your
-
-private re:Post
+# Update custom tags in your private re:Post
 
 As an AWS re:Post Private administrator, you can update the custom tags in your
 private re:Post.

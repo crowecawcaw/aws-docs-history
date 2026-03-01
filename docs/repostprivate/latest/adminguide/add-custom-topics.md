@@ -1,6 +1,4 @@
-# Add custom topics in your
-
-private re:Post
+# Add custom topics in your private re:Post
 
 As an private re:Post administrator, you can add custom topics that the users in your
 private re:Post can use.

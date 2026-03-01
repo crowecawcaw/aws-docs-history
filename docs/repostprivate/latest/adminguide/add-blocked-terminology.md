@@ -1,6 +1,4 @@
-# Add blocked terminologies in your
-
-private re:Post
+# Add blocked terminologies in your private re:Post
 
 As an private re:Post administrator, you can block terms that you want to restrict your
 users from using in their content.

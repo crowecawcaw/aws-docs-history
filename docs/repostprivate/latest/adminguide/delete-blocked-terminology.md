@@ -1,6 +1,4 @@
-# Delete blocked terminology from your
-
-private re:Post
+# Delete blocked terminology from your private re:Post
 
 As an AWS re:Post Private administrator, you can delete blocked terminologies from your
 private re:Post.

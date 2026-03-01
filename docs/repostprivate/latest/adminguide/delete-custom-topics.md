@@ -1,6 +1,4 @@
-# Delete custom topics from your
-
-private re:Post
+# Delete custom topics from your private re:Post
 
 As an AWS re:Post Private administrator, you can delete existing custom topics from your
 private re:Post.

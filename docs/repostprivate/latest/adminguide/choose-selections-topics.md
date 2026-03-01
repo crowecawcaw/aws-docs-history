@@ -1,6 +1,4 @@
-# Choose your topics of interest for selections
-
-in your private re:Post
+# Choose your topics of interest for selections in your private re:Post
 
 To choose your topics of interest for selections, follow these steps:
 

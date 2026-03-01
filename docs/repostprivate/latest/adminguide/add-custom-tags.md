@@ -1,6 +1,4 @@
-# Add custom tags in your
-
-private re:Post
+# Add custom tags in your private re:Post
 
 As an private re:Post administrator, you can add custom tags that the users in your
 private re:Post can use.

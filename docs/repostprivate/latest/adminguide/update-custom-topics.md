@@ -1,6 +1,4 @@
-# Update custom topics in your
-
-private re:Post
+# Update custom topics in your private re:Post
 
 As an AWS re:Post Private administrator, you can update the custom topics in your
 private re:Post.

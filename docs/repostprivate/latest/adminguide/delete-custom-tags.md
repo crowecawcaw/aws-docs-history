@@ -1,6 +1,4 @@
-# Delete custom tags from your
-
-private re:Post
+# Delete custom tags from your private re:Post
 
 As an AWS re:Post Private administrator, you can delete the custom tags from your
 private re:Post.
