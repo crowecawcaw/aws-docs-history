@@ -1,6 +1,4 @@
-# Creating HLS rendition
-
-groups
+# Creating HLS rendition groups
 
 The key to creating rendition groups is that each output you create must contain only one
 stream. Therefore, for each video to include in the output group, you create a stream assembly
@@ -13,9 +11,6 @@ types.)
 
 ###### Topics
 
-- [Getting ready
-  to create HLS rendition groups](hls-rendition-groups-getting-ready-to-create.md "hls-rendition-groups-getting-ready-to-create.md")
-- [Creating
-  HLS rendition groups (web interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md")
-- [Creating HLS
-  rendition groups (REST API)](hls-rendition-groups-create-using-rest-api.md "hls-rendition-groups-create-using-rest-api.md")
+- [Getting ready to create HLS rendition groups](hls-rendition-groups-getting-ready-to-create.md "hls-rendition-groups-getting-ready-to-create.md")
+- [Creating HLS rendition groups (web interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md")
+- [Creating HLS rendition groups (REST API)](hls-rendition-groups-create-using-rest-api.md "hls-rendition-groups-create-using-rest-api.md")

@@ -1,6 +1,4 @@
-# How Elemental Live
-
-works
+# How Elemental Live works
 
 From the point of view of Elemental Live, a live streaming workflow that includes Elemental Live involves three systems:
 

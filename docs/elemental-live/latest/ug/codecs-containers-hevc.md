@@ -1,6 +1,4 @@
-# Video: HEVC (H.265)
-
-support
+# Video: HEVC (H.265) support
 
 HEVC is supported in the following variations.
 

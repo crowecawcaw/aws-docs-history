@@ -1,6 +1,4 @@
-# Ingesting from VSF
-
-TR-01 in a TS input
+# Ingesting from VSF TR-01 in a TS input
 
 Elemental Live supports VSF TR-01
 ingest over a transport stream (TS). Support for TR-01 provides a solution to migrating
@@ -53,9 +51,7 @@ Elemental Live enforces the rule about the contents of the SMPTE-302 as follows:
   message, displays an alert on the web interface, and inserts silence. Elemental Live
   continues monitoring the source and detecting the format.
 
-## Setting up a new
-
-event
+## Setting up a new event
 
 Perform the following steps to set up a new event.
 

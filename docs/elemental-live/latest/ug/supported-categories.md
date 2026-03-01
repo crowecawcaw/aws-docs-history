@@ -1,6 +1,4 @@
-# Definitions of captions
-
-categories
+# Definitions of captions categories
 
 Elemental Live groups captions formats into several categories. You
 set up captions differently, depending on the category.
@@ -24,5 +22,4 @@ The categories are the following:
   example, one for each language. For example, TTML are sidecar
   captions.
   For more information the category for each captions format, see
-  [Step 4: Match formats to
-  categories](categories-captions.md "categories-captions.md").
+  [Step 4: Match formats to categories](categories-captions.md "categories-captions.md").

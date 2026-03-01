@@ -7,8 +7,7 @@ Follow this procedure to convert to one of these color spaces:
 - SDR2020
 - HLG
   For information about the source color spaces that you can convert to one
-  of these color spaces, see [Support for conversion and
-  passthrough](color-space-conversions.md "color-space-conversions.md").
+  of these color spaces, see [Support for conversion and passthrough](color-space-conversions.md "color-space-conversions.md").
 
 For information about the results of conversion, see [The results of different types of conversions](color-space-conversion-results.md "color-space-conversion-results.md").
 

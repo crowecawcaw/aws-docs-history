@@ -17,8 +17,7 @@ characteristics:
 - You can optionally modify the playlist of inputs without stopping the
   event. This ability to dynamically change at runtime the playlist is
   particularly useful when you can't identify in advance (before starting the
-  For more information about dynamic input switching, see [Dynamic input
-  switching](dynamic-content-switching.md "dynamic-content-switching.md").
+  For more information about dynamic input switching, see [Dynamic input switching](dynamic-content-switching.md "dynamic-content-switching.md").
 
 ## Virtual input switching
 

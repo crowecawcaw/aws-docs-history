@@ -1,6 +1,4 @@
-# Activate
-
-dynamic playlist input
+# Activate dynamic playlist input
 
 In the specified event (which must be currently running),
 activate the specified dynamic playlist input either at the
@@ -47,9 +45,7 @@ Or
 The entire <input> element for the specified
 input.
 
-## Example
-
-1
+## Example 1
 
 ### Request
 

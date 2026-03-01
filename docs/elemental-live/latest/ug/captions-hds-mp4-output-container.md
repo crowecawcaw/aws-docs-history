@@ -1,6 +1,4 @@
-# Supported
-
-source captions and output captions in an MP4 output container
+# Supported source captions and output captions in an MP4 output container
 
 To read this table, find the type of container and captions from your
 input. The supported captions formats for this _output_ container are then shown in the last column.

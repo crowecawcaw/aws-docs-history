@@ -38,9 +38,7 @@ SDP files, see [About SDP files](2110-sdp-about.md "2110-sdp-about.md").
 Elemental Live supports NMOS IS-04 and IS-05 with both SMPTE 2110 inputs and outputs.
 
 You can use NMOS to manage SMPTE 2110 streams. You can't use NMOS to manage other types of
-streams. For more information about NMOS, see [Support for NMOS IS-04
-stream
-discovery](2110-and-nmos.md "2110-and-nmos.md").
+streams. For more information about NMOS, see [Support for NMOS IS-04 stream discovery](2110-and-nmos.md "2110-and-nmos.md").
 
 **Conductor Live and SMPTE 2110 inputs with NMOS**
 
@@ -61,20 +59,15 @@ Elemental Live supports seamless protection switching (conforming with SMPTE 202
 2110 inputs and SMPTE 2110 outputs. Elemental Live uses SMPTE 2022-7 to implement resiliency via
 redundant streams.
 
-For more information about SMPTE 2022-7, see [Support for SMPTE 2022-7 – seamless protection
-switching](2110-options.md "2110-options.md").
+For more information about SMPTE 2022-7, see [Support for SMPTE 2022-7 – seamless protection switching](2110-options.md "2110-options.md").
 
 ###### Topics
 
 - [Requirements for the appliance and network](2110-appliance-reqs.md "2110-appliance-reqs.md")
 - [Supported content](2110-supported-content.md "2110-supported-content.md")
 - [About SDP files](2110-sdp-about.md "2110-sdp-about.md")
-- [Support for SMPTE 2022-7 – seamless protection
-  switching](2110-options.md "2110-options.md")
-- [Support for NMOS IS-04
-  stream
-  discovery](2110-and-nmos.md "2110-and-nmos.md")
-- [Setup: Remove bonded
-  interfaces](s2110-setup-bonded-if.md "s2110-setup-bonded-if.md")
+- [Support for SMPTE 2022-7 – seamless protection switching](2110-options.md "2110-options.md")
+- [Support for NMOS IS-04 stream discovery](2110-and-nmos.md "2110-and-nmos.md")
+- [Setup: Remove bonded interfaces](s2110-setup-bonded-if.md "s2110-setup-bonded-if.md")
 - [Setup: Reserve cores for SMPTE 2110](enable-2110.md "enable-2110.md")
 - [Setup: Enable precision time protocol (PTP)](enable-ptp.md "enable-ptp.md")

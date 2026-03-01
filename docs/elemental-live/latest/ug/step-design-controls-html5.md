@@ -4,9 +4,7 @@ You must speak to the operator of the authoring system and decide
 how the overlay will be controlled. There are several
 options.
 
-## Authoring system
-
-control
+## Authoring system control
 
 The authoring system might set up the asset so that it
 controls how and when the motion overlay appears. In the output

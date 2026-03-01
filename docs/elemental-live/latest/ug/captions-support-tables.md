@@ -1,6 +1,4 @@
-# Rules
-
-for converting source captions to output captions
+# Rules for converting source captions to output captions
 
 This section helps you to ensure that when creating an event or profile,
 you select a format that is valid for your output captions.
@@ -31,27 +29,15 @@ in your content:
 
 ###### Topics
 
-- [Supported source captions
-  and output captions in a GPP output container](captions-gpp-output-container.md "captions-gpp-output-container.md")
-- [Supported source captions
-  and output captions in a DASH output container](captions-dash-output-container.md "captions-dash-output-container.md")
-- [Supported source captions
-  and output captions in an HLS output container](captions-hls-output-container.md "captions-hls-output-container.md")
-- [Supported source
-  captions and output captions in an fMP4 output container](captions-hls-fmp4-output-container.md "captions-hls-fmp4-output-container.md")
-- [Supported
-  source captions and output captions in an MP4 output container](captions-hds-mp4-output-container.md "captions-hds-mp4-output-container.md")
-- [Supported source captions and output captions in MPEG2-TS or
-  MPEG2-UDP](captions-mpeg2-ts-file-mpeg2-udp-streaming-output-container.md "captions-mpeg2-ts-file-mpeg2-udp-streaming-output-container.md")
-- [Supported source captions
-  and output captions in an MSS output container](captions-mss-output-container.md "captions-mss-output-container.md")
-- [Supported source captions
-  and output captions in an MXF output container](captions-mxf-output-container.md "captions-mxf-output-container.md")
-- [Supported source
-  captions and output captions in a QuickTime output container](captions-quicktime-output-container.md "captions-quicktime-output-container.md")
-- [Supported source captions
-  and output captions in a raw output container](captions-raw-output-container.md "captions-raw-output-container.md")
-- [Supported source captions
-  and output captions in an RTMP output container](captions-rtmp-output-container.md "captions-rtmp-output-container.md")
-- [Supported source
-  captions and output captions in a captions-only output container](captions-captions-only-output-container.md "captions-captions-only-output-container.md")
+- [Supported source captions and output captions in a GPP output container](captions-gpp-output-container.md "captions-gpp-output-container.md")
+- [Supported source captions and output captions in a DASH output container](captions-dash-output-container.md "captions-dash-output-container.md")
+- [Supported source captions and output captions in an HLS output container](captions-hls-output-container.md "captions-hls-output-container.md")
+- [Supported source captions and output captions in an fMP4 output container](captions-hls-fmp4-output-container.md "captions-hls-fmp4-output-container.md")
+- [Supported source captions and output captions in an MP4 output container](captions-hds-mp4-output-container.md "captions-hds-mp4-output-container.md")
+- [Supported source captions and output captions in MPEG2-TS or MPEG2-UDP](captions-mpeg2-ts-file-mpeg2-udp-streaming-output-container.md "captions-mpeg2-ts-file-mpeg2-udp-streaming-output-container.md")
+- [Supported source captions and output captions in an MSS output container](captions-mss-output-container.md "captions-mss-output-container.md")
+- [Supported source captions and output captions in an MXF output container](captions-mxf-output-container.md "captions-mxf-output-container.md")
+- [Supported source captions and output captions in a QuickTime output container](captions-quicktime-output-container.md "captions-quicktime-output-container.md")
+- [Supported source captions and output captions in a raw output container](captions-raw-output-container.md "captions-raw-output-container.md")
+- [Supported source captions and output captions in an RTMP output container](captions-rtmp-output-container.md "captions-rtmp-output-container.md")
+- [Supported source captions and output captions in a captions-only output container](captions-captions-only-output-container.md "captions-captions-only-output-container.md")

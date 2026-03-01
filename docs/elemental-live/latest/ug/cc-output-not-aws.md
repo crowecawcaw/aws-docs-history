@@ -1,6 +1,4 @@
-# Output types for delivery to
-
-non-AWS destinations
+# Output types for delivery to non-AWS destinations
 
 This table describes options that you can use to send output from
 Elemental Live to a destination that is not an AWS service. Each row

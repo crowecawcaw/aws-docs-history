@@ -1,13 +1,9 @@
-# Live outputs: Supported
-
-codecs
+# Live outputs: Supported codecs
 
 This table specifies the audio codecs that are supported in output
 groups that support live outputs.
 
-Use this table if you identified a use case in [Output types for delivery to an AWS
-service](cc-outputs-aws.md "cc-outputs-aws.md") or [Output types for delivery to
-non-AWS destinations](cc-output-not-aws.md "cc-output-not-aws.md")
+Use this table if you identified a use case in [Output types for delivery to an AWS service](cc-outputs-aws.md "cc-outputs-aws.md") or [Output types for delivery to non-AWS destinations](cc-output-not-aws.md "cc-output-not-aws.md")
 and your output is live output.
 
 In the table, find the output group and container (if applicable)

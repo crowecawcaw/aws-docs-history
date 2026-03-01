@@ -1,20 +1,15 @@
-# Delete dynamic
-
-playlist input
+# Delete dynamic playlist input
 
 In the specified event (which must be currently running),
 delete the specified non-Active input from the dynamic playlist.
 
 You can also delete the dynamic playlist using Replace Dynamic
 Playlist with an empty inputs in the Body. For more information,
-see [Replace dynamic
-playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
+see [Replace dynamic playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
 
 ## HTTP Request and Response
 
-### HTTP
-
-URL
+### HTTP URL
 
 To specify the input by its REST ID:
 

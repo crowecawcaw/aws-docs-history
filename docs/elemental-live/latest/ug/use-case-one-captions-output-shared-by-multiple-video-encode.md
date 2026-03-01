@@ -1,6 +1,4 @@
-# Use case 4: One captions output shared by multiple video
-
-encodes
+# Use case 4: One captions output shared by multiple video encodes
 
 This example shows how to set up captions in an ABR workflow. The first setup shows how
 to set up an ABR workflow when the captions are in the same output as the video, meaning
@@ -9,9 +7,7 @@ that the captions are either embedded or captions style.
 The second setup shows how to set up an ABR workflow when the captions belong to the
 sidecar category, in which case each captions encode is in its own output.
 
-## Event setup with
-
-embedded or object-style captions
+## Event setup with embedded or object-style captions
 
 This example shows how to implement [the fourth use
 case](typical-scenarios.md#use-case-one-captions-output-multiple-video-encodes "typical-scenarios.md#use-case-one-captions-output-multiple-video-encodes") from the typical scenarios. For example, you want to produce an HLS output
@@ -56,9 +52,7 @@ associate them with all three video encodes.
 
 9. Finish setting up the event and save it.
 
-## Event setup with
-
-sidecar captions
+## Event setup with sidecar captions
 
 This example shows an ABR workflow where the captions are in sidecars. For example,
 you want to produce an MS Smooth output with three video encodes (one for low-resolution

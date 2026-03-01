@@ -1,6 +1,4 @@
-# Step A:
-
-Prepare the overlay asset
+# Step A: Prepare the overlay asset
 
 1.  Create a file with the following characteristics:
     - File type: A BMP, PNG, or TGA file.

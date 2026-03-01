@@ -1,6 +1,4 @@
-# Rules for ingesting Apple
-
-HLS TS sources
+# Rules for ingesting Apple HLS TS sources
 
 For video, each AWS Elemental Live event can extract only one video from
 only one rendition. Elemental Live will not reject inputs that contain

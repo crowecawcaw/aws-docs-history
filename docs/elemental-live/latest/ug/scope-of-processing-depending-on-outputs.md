@@ -1,6 +1,4 @@
-# Scope of
-
-processing depending on outputs
+# Scope of processing depending on outputs
 
 The following table summarizes which options apply to which kind
 of output. Following the table are details for each output
@@ -19,10 +17,8 @@ type.
 
 ###### Topics
 
-- [Archive
-  output with MPEG-2 container](archive-output-with-mpeg-2-container.md "archive-output-with-mpeg-2-container.md")
-- [Archive
-  output with other containers](archive-output-with-other-containers.md "archive-output-with-other-containers.md")
+- [Archive output with MPEG-2 container](archive-output-with-mpeg-2-container.md "archive-output-with-mpeg-2-container.md")
+- [Archive output with other containers](archive-output-with-other-containers.md "archive-output-with-other-containers.md")
 - [Apple HLS output](apple-hls-output.md "apple-hls-output.md")
 - [DASH output](dash-output.md "dash-output.md")
 - [MS Smooth output](ms-smooth-output.md "ms-smooth-output.md")

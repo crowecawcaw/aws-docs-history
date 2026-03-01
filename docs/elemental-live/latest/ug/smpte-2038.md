@@ -14,10 +14,7 @@ data.
 ###### Topics
 
 - [Supported ancillary data](s2038-data-supported.md "s2038-data-supported.md")
-- [Well-formed SMPTE 2038
-  source](s2038-data-well-formed.md "s2038-data-well-formed.md")
+- [Well-formed SMPTE 2038 source](s2038-data-well-formed.md "s2038-data-well-formed.md")
 - [Enable SMPTE 2038](s2038-data-enable.md "s2038-data-enable.md")
-- [Setting up the event to use the
-  ancillary data](s2038-data-use-data.md "s2038-data-use-data.md")
-- [Setting up the
-  event to pass through custom data](s2038-data-passthrough-custom-data.md "s2038-data-passthrough-custom-data.md")
+- [Setting up the event to use the ancillary data](s2038-data-use-data.md "s2038-data-use-data.md")
+- [Setting up the event to pass through custom data](s2038-data-passthrough-custom-data.md "s2038-data-passthrough-custom-data.md")

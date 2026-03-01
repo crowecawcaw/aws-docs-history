@@ -1,6 +1,4 @@
-# Setup: Remove bonded
-
-interfaces
+# Setup: Remove bonded interfaces
 
 Read this section if you plan to implement redundant inputs and/or outputs with SMPTE 2110.
 

@@ -5,16 +5,11 @@ locking, you must obtain information about the sources.
 
 ###### Topics
 
-- [Determine the
-  resources](#opl-step-get-ready-resources "#opl-step-get-ready-resources")
-- [Decide how to
-  produce the sources](#opl-step-get-ready-produce-source "#opl-step-get-ready-produce-source")
-- [Obtain information
-  about the sources](#opl-step-get-ready-source-info "#opl-step-get-ready-source-info")
+- [Determine the resources](#opl-step-get-ready-resources "#opl-step-get-ready-resources")
+- [Decide how to produce the sources](#opl-step-get-ready-produce-source "#opl-step-get-ready-produce-source")
+- [Obtain information about the sources](#opl-step-get-ready-source-info "#opl-step-get-ready-source-info")
 
-## Determine the
-
-resources
+## Determine the resources
 
 Identify the number of sources, output encodes, and events that
 you need.
@@ -46,9 +41,7 @@ events—one event per appliance.
 - The number of sources: You need one source for each
   event.
 
-## Decide how to
-
-produce the sources
+## Decide how to produce the sources
 
 Decide how you will produce the sources:
 
@@ -60,9 +53,7 @@ Decide how you will produce the sources:
 Make sure that the [sources are
 identical](output-locking-requirements.md#output-locking-input-requirements "output-locking-requirements.md#output-locking-input-requirements").
 
-## Obtain information
-
-about the sources
+## Obtain information about the sources
 
 Obtain the following information:
 

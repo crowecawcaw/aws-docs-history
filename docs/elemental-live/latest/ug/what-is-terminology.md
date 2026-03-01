@@ -1,6 +1,4 @@
-# Elemental Live
-
-terminology
+# Elemental Live terminology
 
 CDN
 

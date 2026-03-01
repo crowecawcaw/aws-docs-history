@@ -1,6 +1,4 @@
-# Step 4: Match formats to
-
-categories
+# Step 4: Match formats to categories
 
 There are different procedures to follow to create captions encodes in the output. The
 correct procedure depends on the "category" that the output captions belong to. There are
@@ -59,9 +57,7 @@ asset (file), meaning that it is a "captions-only" output. The output group migh
 several "captions-only" outputs, for example, one for each language in the output
 group.
 
-## TTML captions wrapped in ID3
-
-data
+## TTML captions wrapped in ID3 data
 
 The captions are converted to TTML and included in ID3 data. (The other way to
 produce TTML output is as a sidecar.)

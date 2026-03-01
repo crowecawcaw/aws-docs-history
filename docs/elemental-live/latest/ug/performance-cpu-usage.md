@@ -3,9 +3,7 @@
 CPU usage is the percentage of CPU power being used. CPU usage is
 affected primarily by the complexity of the output encode.
 
-## Measuring CPU usage from the command
-
-line
+## Measuring CPU usage from the command line
 
 To measure CPU usage, use one of these utilities:
 
@@ -13,17 +11,13 @@ To measure CPU usage, use one of these utilities:
   Linux operating system.
 - `htop`, which is a Linux utility that you must install.
 
-## Measuring CPU usage on the
-
-web interface
+## Measuring CPU usage on the web interface
 
 The status bar at the top of the Elemental Live web interface includes a CPU usage
 indicator. Hover over the indicator to view the percentage of CPU power that's being
 used.
 
-## Expected CPU usage for 4K
-
-workflows
+## Expected CPU usage for 4K workflows
 
 4K workflows can be run only on specific L8xx appliances. Don't run 4K
 workflows on unsupported appliances.
@@ -43,9 +37,7 @@ showing under the following CPU usage:
 
 - 40% to 45% per CPU.
 
-## Expected usage for SD and HD
-
-workflows in L8xx appliances
+## Expected usage for SD and HD workflows in L8xx appliances
 
 With these workflows, the measured CPU usage is a good guide to the
 possible number of events. You might be able to add one or more events if
@@ -55,5 +47,4 @@ the appliance is showing under the following CPU usage:
 - 70% on CPU only encoders (L8xxx)
 
 If you add more events, consider refining the encoding on the existing
-events. See [Encoding parameters that affect
-performance](performance-encoding-params.md "performance-encoding-params.md").
+events. See [Encoding parameters that affect performance](performance-encoding-params.md "performance-encoding-params.md").

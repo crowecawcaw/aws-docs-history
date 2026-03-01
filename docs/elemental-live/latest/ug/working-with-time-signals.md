@@ -1,6 +1,4 @@
-# Working with time
-
-signals
+# Working with time signals
 
 Time signals inserted by the REST API can be one of the “ad avail” types, or some
 other type, depending on what you specify in the segmentation descriptor in the
@@ -16,9 +14,7 @@ chapters of this guide. So it depends on the Ad Avail mode,
 whether manifest decoration is enabled, blanking and blackout are
 enabled, and whether passthrough is enabled.
 
-## Insert a new
-
-time signal message
+## Insert a new time signal message
 
 Inserts a SCTE-35 message of type time_signal in the stream either immediately or
 at a specified time. The command always includes a start time (in the time tag) and a
@@ -81,9 +77,7 @@ The following shows an example message:
 | duration                | The duration of the ad avail, if specified, in 24-hour<br>format.                                                                                                                                                                                                                                                       |
 | Current NTP             | The network time protocol (NTP) when the SCTE-35 message insertion<br>request was received by Elemental Live.                                                                                                                                                                                                           |
 
-## Insert a
-
-new time signal message example
+## Insert a new time signal message example
 
 The following shows a request to insert a SCTE-35 message immediately into the
 event that has ID 3.

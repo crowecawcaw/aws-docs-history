@@ -23,25 +23,22 @@ tag:
 The body of the response contains one **response**
 element containing the following tags:
 
-| Tag           | Sub-tag | Type    | Value                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tag           |         | integer | A unique ID that could be used in the event_id in a new request to<br>insert a splice_insert. See the explanation below this table.                                                                                                                                                                                                                                   |
-| splice_time   | hours   | integer | The time (and frame) associated with the event at the<br>moment that the API request was processed. Time is in 24-hour format. For<br>general information about timecodes in events, see [About<br>timecode configuration and timers](processing-options.md#about-timecode-configuration-and-timers "processing-options.md#about-timecode-configuration-and-timers"). |
+| Tag           | Sub-tag | Type    | Value                                                                                                                                                                                                                                                                                                                                                              |
+| ------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| tag           |         | integer | A unique ID that could be used in the event_id in a new request to<br>insert a splice_insert. See the explanation below this table.                                                                                                                                                                                                                                |
+| splice_time   | hours   | integer | The time (and frame) associated with the event at the<br>moment that the API request was processed. Time is in 24-hour format. For<br>general information about timecodes in events, see [About timecode configuration and timers](processing-options.md#about-timecode-configuration-and-timers "processing-options.md#about-timecode-configuration-and-timers"). |
 |               | minutes | integer |
 |               | seconds | integer |
 |               | frames  | integer |
-| message       |         | string  | A description of the time: the presentation timestamp (PTS) of the<br>time and the time in NTP.                                                                                                                                                                                                                                                                       |
-| splice_offset |         |         | Always 0. See the explanation below this table.                                                                                                                                                                                                                                                                                                                       |
-| value         |         | string  | Always “cue_point.”                                                                                                                                                                                                                                                                                                                                                   |
+| message       |         | string  | A description of the time: the presentation timestamp (PTS) of the<br>time and the time in NTP.                                                                                                                                                                                                                                                                    |
+| splice_offset |         |         | Always 0. See the explanation below this table.                                                                                                                                                                                                                                                                                                                    |
+| value         |         | string  | Always “cue_point.”                                                                                                                                                                                                                                                                                                                                                |
 
 The response is provided in this format so that you could take the entire
 response, clean it up a bit (for example, changing the “tag” tag to “event_id”), and
-use it as the body of a request to insert a spliceinsert (see [Insert a new
-splice insert message](insert-a-new-splice-insert-message.md "insert-a-new-splice-insert-message.md").
+use it as the body of a request to insert a spliceinsert (see [Insert a new splice insert message](insert-a-new-splice-insert-message.md "insert-a-new-splice-insert-message.md").
 
-## Get current time
-
-example
+## Get current time example
 
 The following shows a request for the current timecode in the event that has
 the ID 15:

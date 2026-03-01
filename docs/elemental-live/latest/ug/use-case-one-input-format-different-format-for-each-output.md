@@ -1,6 +1,4 @@
-# Use case 3: One input format converted to different formats, one
-
-format for each output
+# Use case 3: One input format converted to different formats, one format for each output
 
 This example shows how to implement [the third use case](typical-scenarios.md#use-case-one-input-format-to-several-output-formats "typical-scenarios.md#use-case-one-input-format-to-several-output-formats")
 from the typical scenarios. The input is set up with one format of captions and two or more

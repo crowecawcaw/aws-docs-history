@@ -1,6 +1,4 @@
-# Adaptive
-
-field frame controls
+# Adaptive field frame controls
 
 ## Description
 

@@ -1,7 +1,4 @@
-# Purchasing
-
-and
-licensing an add-on package
+# Purchasing and licensing an add-on package
 
 To purchase an add-on package, contact your AWS Elemental sales person.
 

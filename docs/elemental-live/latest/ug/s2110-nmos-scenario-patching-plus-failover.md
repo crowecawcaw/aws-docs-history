@@ -1,6 +1,4 @@
-# Resiliency scenario B:
-
-Supporting NMOS patching and failover
+# Resiliency scenario B: Supporting NMOS patching and failover
 
 This scenario adds failover to the patching capabilities of scenario A.
 

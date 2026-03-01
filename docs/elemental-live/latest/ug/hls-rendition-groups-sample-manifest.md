@@ -1,10 +1,6 @@
-# Sample HLS output
+# Sample HLS output group with audio rendition group event manifest
 
-group with audio rendition group event manifest
-
-## Video information for an HLS output group with audio rendition group
-
-event
+## Video information for an HLS output group with audio rendition group event
 
 - There are two video streams, as indicated by the presence of two EXT-STREAM-INF
   lines.
@@ -30,9 +26,7 @@ event
   - URI: from the combined Destination field (in Output Group) and Name Modifier field (in
     Stream).
 
-## Captions information for an HLS output group with audio rendition group
-
-event
+## Captions information for an HLS output group with audio rendition group event
 
 - There are two captions streams, as indicated by the presence of two EXT-X-MEDIA lines
   with TYPE=SUBTITLES.

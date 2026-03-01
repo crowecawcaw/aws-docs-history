@@ -1,6 +1,4 @@
-# Converting to Dolby Digital Plus with
-
-Atmos
+# Converting to Dolby Digital Plus with Atmos
 
 The following handling is supported:
 
@@ -13,9 +11,7 @@ The following handling is supported:
   that is Dolby Digital Plus with Atmos.
 
 Conversion to Dolby Digital Plus with Atmos requires the Advanced Audio
-Pack. For information about purchasing this package, see [Purchasing
-and
-licensing an add-on package](ref-licenses-purchase.md "ref-licenses-purchase.md"). Note that passthrough of Dolby
+Pack. For information about purchasing this package, see [Purchasing and licensing an add-on package](ref-licenses-purchase.md "ref-licenses-purchase.md"). Note that passthrough of Dolby
 Digital Plus with Atmos doesn't require a license.
 
 ## Supported sources
@@ -46,12 +42,9 @@ The source must have these characteristics:
   supports.
 
 For information about the types of inputs that support Dolby Digital
-Plus and Dolby Digital Plus with Atmos, see [Reference: Supported live
-inputs](ref-inputs-and-codecs.md "ref-inputs-and-codecs.md").
+Plus and Dolby Digital Plus with Atmos, see [Reference: Supported live inputs](ref-inputs-and-codecs.md "ref-inputs-and-codecs.md").
 
-## Supported
-
-outputs
+## Supported outputs
 
 **Audio encoding**
 
@@ -104,9 +97,7 @@ to convert the audio to Dolby Digital Plus with Atmos.
    **Add Audio Selector**.
 3. Complete the fields to extract the Dolby Digital Plus audio.
 
-###### To set up the output if the source audio is Dolby Digital
-
-Plus
+###### To set up the output if the source audio is Dolby Digital Plus
 
 1. In the event, go to the output group where you want to add the
    audio. Or create a new group.
@@ -115,13 +106,13 @@ Plus
    section for the output, choose the **Audio** section**.** Complete
    the fields as follows.
 
-| Field                        | Description                                                                                                                                                          |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Audio Source**             | Choose the audio selector that you set up in the<br>input.                                                                                                           |
-| **Audio Codec**              | Choose Dolby Digital Plus with Atmos.                                                                                                                                |
-| **Coding mode**              | Choose the coding mode you want. For more<br>information, see [Supported<br>outputs](#dolby-atmos-output-supported-outputs "#dolby-atmos-output-supported-outputs"). |
-| **Bitrate**                  | Choose a value that is applicable to the coding<br>mode. For information, choose the<br>\*_?_<br>• icon above the<br>field.                                          |
-| **Dialnorm**                 | Complete these fields to specify<br>values for the metadata. For information about a<br>field, click the question mark icon above the field<br>in Elemental Live.    |
+| Field                        | Description                                                                                                                                                       |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Audio Source**             | Choose the audio selector that you set up in the<br>input.                                                                                                        |
+| **Audio Codec**              | Choose Dolby Digital Plus with Atmos.                                                                                                                             |
+| **Coding mode**              | Choose the coding mode you want. For more<br>information, see [Supported outputs](#dolby-atmos-output-supported-outputs "#dolby-atmos-output-supported-outputs"). |
+| **Bitrate**                  | Choose a value that is applicable to the coding<br>mode. For information, choose the<br>\*_?_<br>• icon above the<br>field.                                       |
+| **Dialnorm**                 | Complete these fields to specify<br>values for the metadata. For information about a<br>field, click the question mark icon above the field<br>in Elemental Live. |
 | **DRC Line Mode<br>Profile** |
 | **DRC RF Mode Profile**      |
 | **Surround Trim**            |
@@ -130,9 +121,7 @@ Plus
 4. Complete the fields in the **Advanced** section as desired. Ignore **ARIB
    Dynamic Audio**, it doesn’t apply.
 
-###### To pass through Dolby Digital Plus with Atmos from the input to
-
-the output
+###### To pass through Dolby Digital Plus with Atmos from the input to the output
 
 Follow this procedure if the source audio is already Dolby
 Digital Plus with Atmos.

@@ -37,11 +37,7 @@ rendition group to hold all caption stream assemblies in a given output.
 ###### Topics
 
 - [How video is associated with audio rendition groups](hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md "hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md")
-- [Rules for rendition
-  groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md")
-- [Examples of HLS rendition
-  groups](hls-rendition-groups-examples.md "hls-rendition-groups-examples.md")
-- [Creating HLS rendition
-  groups](hls-rendition-groups-create.md "hls-rendition-groups-create.md")
-- [Sample HLS output
-  group with audio rendition group event manifest](hls-rendition-groups-sample-manifest.md "hls-rendition-groups-sample-manifest.md")
+- [Rules for rendition groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md")
+- [Examples of HLS rendition groups](hls-rendition-groups-examples.md "hls-rendition-groups-examples.md")
+- [Creating HLS rendition groups](hls-rendition-groups-create.md "hls-rendition-groups-create.md")
+- [Sample HLS output group with audio rendition group event manifest](hls-rendition-groups-sample-manifest.md "hls-rendition-groups-sample-manifest.md")

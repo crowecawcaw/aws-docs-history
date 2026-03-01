@@ -1,6 +1,4 @@
-# Use case 1:
-
-one input format to one output
+# Use case 1: one input format to one output
 
 This example shows how to implement [the first use
 case](typical-scenarios.md#use-case-one-input-format-to-one-output-format-not-converted "typical-scenarios.md#use-case-one-input-format-to-one-output-format-not-converted") from the typical scenarios. The input is set up with one format of captions

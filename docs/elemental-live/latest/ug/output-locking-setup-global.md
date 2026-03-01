@@ -1,6 +1,4 @@
-# Step 3: Set up the global
-
-controls
+# Step 3: Set up the global controls
 
 This section shows how to set up global controls to enable output locking and epoch
 locking in an Elemental Live event. You must set up the controls that apply to the entire
@@ -15,14 +13,10 @@ see [Output locking pairs](opl-redundant-pairs.md "opl-redundant-pairs.md").
 
 ###### Topics
 
-- [Set up the
-  timecode](#output-locking-event-global-tcode "#output-locking-event-global-tcode")
-- [Enable output
-  locking](#output-locking-event-global-comms "#output-locking-event-global-comms")
+- [Set up the timecode](#output-locking-event-global-tcode "#output-locking-event-global-tcode")
+- [Enable output locking](#output-locking-event-global-comms "#output-locking-event-global-comms")
 
-## Set up the
-
-timecode
+## Set up the timecode
 
 In the **Timecode Configuration** section that
 appears after the **Inputs** section of the event: Set
@@ -35,9 +29,7 @@ the timecode for use in all outputs.
 | **Sync Threshold**           | Deselect this field.                                                                  |                                                                                                                                                                                                                                                                  |
 | **Require Initial Timecode** | Select the check box to ensure that the first source does<br>in fact have a timecode. | If you select this check box, the event will fail to start<br>if the first input has no embedded timecode. The event<br>will also fail to start if you stop and restart the event, and<br>the input that is active when you restart has no embedded<br>timecode. |
 
-## Enable output
-
-locking
+## Enable output locking
 
 You must enable output locking.
 

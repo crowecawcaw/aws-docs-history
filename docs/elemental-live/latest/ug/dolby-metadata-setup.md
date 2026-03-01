@@ -1,12 +1,8 @@
-# Setting up the profile or event using
-
-the web interface
+# Setting up the profile or event using the web interface
 
 This section describes how to set up the project or event using the web interface. To
-set up using the REST API, see [Output with the
-Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and
-[Output with
-Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md") to map the fields to their XML
+set up using the REST API, see [Output with the Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and
+[Output with Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md") to map the fields to their XML
 tags according to the following steps.
 
 1. In the Output > Stream section, click the Audio tab to display the fields for
@@ -34,9 +30,7 @@ Note that the Surround Mode field appears only when Coding Mode is 2/0.
 **Dolby Digital Passthrough**
 There are no fields for metadata.
 
-## Use the metadata in the audio
-
-source – case 1
+## Use the metadata in the audio source – case 1
 
 | Input codec                         | Output codec                        | Handling of audio              |
 | ----------------------------------- | ----------------------------------- | ------------------------------ |
@@ -51,15 +45,11 @@ source – case 1
 
 Elemental Live Control parameters from the profile are applied during transcoding (given that
 the input does not include these parameters). If a given parameter is not exposed in the
-profile, a default value is always applied; see [Output with the
-Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with
-Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
+profile, a default value is always applied; see [Output with the Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
 
 The Delivery parameters from the input metadata are included in the output.
 
-## Use the metadata in the audio
-
-source – case 2
+## Use the metadata in the audio source – case 2
 
 | Input codec                         | Output codec                                      | Handling of audio                  |
 | ----------------------------------- | ------------------------------------------------- | ---------------------------------- |
@@ -73,9 +63,7 @@ source – case 2
 
 The Delivery parameters from the input metadata will be included in the output.
 
-## Use the metadata in the audio
-
-source – case 3
+## Use the metadata in the audio source – case 3
 
 | Input codec                                 | Output codec       | Handling of audio                                                                                                               |
 | ------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -96,9 +84,7 @@ source – case 3
 - The Delivery parameters from the audio source will be used for the passed-through Dolby
   Digital audio.
 
-## Use the metadata in the audio
-
-source – case 4
+## Use the metadata in the audio source – case 4
 
 | Input codec | Output codec                        | Handling of audio              |
 | ----------- | ----------------------------------- | ------------------------------ |
@@ -112,9 +98,7 @@ source – case 4
 - Elemental Live Control parameters from the input metadata are applied during transcoding.
 - The Delivery parameters from the input metadata are included in the output.
 
-## Override the metadata with new
-
-values – case 5
+## Override the metadata with new values – case 5
 
 | Input codec | Output codec                        | Desired effect                                |
 | ----------- | ----------------------------------- | --------------------------------------------- |
@@ -128,15 +112,11 @@ values – case 5
 The values from the profile are used.
 
 - With all parameters except Dialnorm, the values from the profile are used. If a given
-  parameter is not exposed in the profile, a default value is always applied; see [Output with the
-  Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with
-  Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
+  parameter is not exposed in the profile, a default value is always applied; see [Output with the Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
 - With Dialnorm, the value from the profile is used. If the profile has no value and the
   source is a Dolby file, the value from the input metadata is used. If the profile has no value
   and the source is _not_ a Dolby file, a default value is
-  used; see [Output with the
-  Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with
-  Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
+  used; see [Output with the Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md") and [Output with Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md").
 
 Elemental Live Control parameters are applied during transcoding. The Delivery parameters are
 included in the output.

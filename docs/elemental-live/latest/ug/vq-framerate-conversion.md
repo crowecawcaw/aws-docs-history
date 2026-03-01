@@ -31,9 +31,7 @@ parameters:
   Recommendation: Enable the **Interpolated** parameter if input and output frame rates are
   close. For example, 24 fps inputs to 25 fps outputs.
 
-## Location of
-
-parameters
+## Location of parameters
 
 This table shows where the parameters mentioned in this section are
 located. The first column shows the location on the web interface. The

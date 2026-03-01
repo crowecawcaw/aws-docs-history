@@ -1,6 +1,4 @@
-# Step A: Prepare the MOV
-
-asset
+# Step A: Prepare the MOV asset
 
 1. Create a file – Use a third-party process to create
    a MOV file encoded with Apple QuickTime Run Length Encoding.

@@ -1,8 +1,6 @@
 # Audio requirements
 
-## Supported
-
-audio
+## Supported audio
 
 The audio must meet the following requirements:
 

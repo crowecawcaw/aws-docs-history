@@ -1,6 +1,4 @@
-# Elemental Live features that require an
-
-add-on package
+# Elemental Live features that require an add-on package
 
 Some Elemental Live features require that you purchase an add-on
 package. The following table lists these features in alphabetical order, and

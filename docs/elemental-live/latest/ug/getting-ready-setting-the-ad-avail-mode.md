@@ -1,6 +1,4 @@
-# Getting
-
-ready: Setting the ad avail mode
+# Getting ready: Setting the ad avail mode
 
 Read this section if you want to support any of the following
 features:
@@ -29,8 +27,7 @@ the Ad Avail Mode, do the following.
    mode from the drop-down menu. This mode identifies which of all
    possible “ad avail” events are treated as “ad avails.” This
    distinction comes into play in manifest decoration and ad avail
-   blanking. For more information, see [Manifest decoration](manifest-decoration.md "manifest-decoration.md") and [Ad avail blanking and
-   blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md").
+   blanking. For more information, see [Manifest decoration](manifest-decoration.md "manifest-decoration.md") and [Ad avail blanking and blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md").
 
 Typically, you select the mode to match the type ID that you
 already know the input is using to indicate “ad avail” events.

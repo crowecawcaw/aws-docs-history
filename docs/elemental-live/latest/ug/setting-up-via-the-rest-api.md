@@ -1,12 +1,9 @@
-# Setting up using the REST
-
-API
+# Setting up using the REST API
 
 This topic lists the parameters found on the Elemental Live event or profile and
 specifies the location of those parameters in the XML for an event or profile. This
 topic does not cover control of SCTE-35 message via the REST API at runtime; that
-information is in [SCTE-35 message insertion
-into currently running events](scte-35-message-insertion.md "scte-35-message-insertion.md").
+information is in [SCTE-35 message insertion into currently running events](scte-35-message-insertion.md "scte-35-message-insertion.md").
 
 | Set the Ad Avail Mode                      | Field      | XML Tag |
 | ------------------------------------------ | ---------- | ------- |

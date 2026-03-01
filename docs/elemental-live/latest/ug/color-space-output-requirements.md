@@ -1,6 +1,4 @@
-# Requirements for
-
-outputs
+# Requirements for outputs
 
 **Supported output types**
 

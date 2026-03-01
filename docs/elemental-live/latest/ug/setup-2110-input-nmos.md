@@ -17,15 +17,11 @@ represented in Elemental Live by an SDI device that is used by an SDI input.
 ###### Topics
 
 - [Enable NMOS](s2110-nmos-configure.md "s2110-nmos-configure.md")
-- [Obtain information from the NMOS
-  operator](s2110-nmos-obtain-info.md "s2110-nmos-obtain-info.md")
+- [Obtain information from the NMOS operator](s2110-nmos-obtain-info.md "s2110-nmos-obtain-info.md")
 - [Determine the SDPs to create](s2110-nmos-design-sdps.md "s2110-nmos-design-sdps.md")
 - [Create the receiver group](s2110-nmos-create-receiver-group.md "s2110-nmos-create-receiver-group.md")
 - [Create a receiver group input](s2110-nmos-create-input.md "s2110-nmos-create-input.md")
 - [Choose the resiliency scenario](s2110-nmos-scenarios.md "s2110-nmos-scenarios.md")
-- [Resiliency scenario A: Supporting NMOS
-  patching](s2110-nmos-scenario-patching.md "s2110-nmos-scenario-patching.md")
-- [Resiliency scenario B:
-  Supporting NMOS patching and failover](s2110-nmos-scenario-patching-plus-failover.md "s2110-nmos-scenario-patching-plus-failover.md")
-- [Resiliency scenario C:
-  Supporting NMOS patching and network failover](s2110-nmos-scenario-patching-nw-failover.md "s2110-nmos-scenario-patching-nw-failover.md")
+- [Resiliency scenario A: Supporting NMOS patching](s2110-nmos-scenario-patching.md "s2110-nmos-scenario-patching.md")
+- [Resiliency scenario B: Supporting NMOS patching and failover](s2110-nmos-scenario-patching-plus-failover.md "s2110-nmos-scenario-patching-plus-failover.md")
+- [Resiliency scenario C: Supporting NMOS patching and network failover](s2110-nmos-scenario-patching-nw-failover.md "s2110-nmos-scenario-patching-nw-failover.md")

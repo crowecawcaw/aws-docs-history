@@ -1,6 +1,4 @@
-# Support for SMPTE 2022-7 – seamless protection
-
-switching
+# Support for SMPTE 2022-7 – seamless protection switching
 
 Elemental Live supports seamless protection switching (conforming with SMPTE 2022-7) for both
 SMPTE 2110 inputs and SMPTE 2110 outputs. The Elemental Live implementation of SMPTE 2022-7 provides

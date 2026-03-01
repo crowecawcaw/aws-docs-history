@@ -1,6 +1,4 @@
-# Key fields for converting scan
-
-type
+# Key fields for converting scan type
 
 ## Description
 

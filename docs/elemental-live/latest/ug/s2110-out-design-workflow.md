@@ -110,8 +110,7 @@ captions and SCTE 104 messages.
 
     In both cases, Elemental Live converts the messages to SCTE 104 messages in the
     SMPTE 2110 output. For general information about ad avail handling in
-    Elemental Live, see [SCTE-35 and SCTE-104 message
-    processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").
+    Elemental Live, see [SCTE-35 and SCTE-104 message processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").
 
 2.  If you decide to include ad avail messages, identify the line where you want
     them to appear in the VANC of the video stream.

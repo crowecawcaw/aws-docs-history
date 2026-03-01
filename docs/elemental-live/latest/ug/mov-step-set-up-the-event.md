@@ -1,6 +1,4 @@
-# Step B: Set up the
-
-event
+# Step B: Set up the event
 
 You configure the event with information about the first motion
 overlay. You can configure this information when creating an event.

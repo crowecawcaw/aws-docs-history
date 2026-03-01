@@ -43,8 +43,7 @@ following:
 - Programs in one MPTS. You can set up a maximum of 11
   programs.
 - Any type of input that Elemental Live considers to be a file input.
-  See [Supported upstream systems
-  for file inputs](supported-inputs-file-types.md "supported-inputs-file-types.md").
+  See [Supported upstream systems for file inputs](supported-inputs-file-types.md "supported-inputs-file-types.md").
 
 There is no limit to the number of inputs of this type.
 

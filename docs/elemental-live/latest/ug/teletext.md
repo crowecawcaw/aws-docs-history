@@ -3,8 +3,7 @@
 This section provides information specific to Teletext input captions. It describes
 the fields that appear when you choose `SCC` in the
 **Source** field in the **Caption Selector** section
-of the event. For more context, see [Step 1: Identify the
-source captions that you want](identify-captions-in-the-input.md "identify-captions-in-the-input.md").
+of the event. For more context, see [Step 1: Identify the source captions that you want](identify-captions-in-the-input.md "identify-captions-in-the-input.md").
 
 Teletext is a form of data that can contain several types of information, not just
 captions. Teletext can be present in SDI input, in MXF input, and in TS input, in which

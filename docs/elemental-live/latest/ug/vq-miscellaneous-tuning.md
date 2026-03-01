@@ -1,6 +1,4 @@
-# Miscellaneous video tuning
-
-parameters
+# Miscellaneous video tuning parameters
 
 ## Description
 

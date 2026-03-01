@@ -30,16 +30,10 @@ source color space and metadata to the output.
 
 ###### Topics
 
-- [Color space versus video
-  resolution](color-space-vs-resolution.md "color-space-vs-resolution.md")
-- [General information about color
-  space](about-color-metadata.md "about-color-metadata.md")
-- [Configuring the handling in the
-  input](hdr-input-handling.md "hdr-input-handling.md")
-- [Configuring color space handling in each
-  output](hdr-output.md "hdr-output.md")
+- [Color space versus video resolution](color-space-vs-resolution.md "color-space-vs-resolution.md")
+- [General information about color space](about-color-metadata.md "about-color-metadata.md")
+- [Configuring the handling in the input](hdr-input-handling.md "hdr-input-handling.md")
+- [Configuring color space handling in each output](hdr-output.md "hdr-output.md")
 - [The results of different types of conversions](color-space-conversion-results.md "color-space-conversion-results.md")
-- [Location of HDR
-  fields on the web interface](hdr-location-of-fields-on-the-web-interface.md "hdr-location-of-fields-on-the-web-interface.md")
-- [Location of HDR fields in
-  the XML](hdr-location-of-fields-in-the-xml.md "hdr-location-of-fields-in-the-xml.md")
+- [Location of HDR fields on the web interface](hdr-location-of-fields-on-the-web-interface.md "hdr-location-of-fields-on-the-web-interface.md")
+- [Location of HDR fields in the XML](hdr-location-of-fields-in-the-xml.md "hdr-location-of-fields-in-the-xml.md")

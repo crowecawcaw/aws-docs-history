@@ -1,6 +1,4 @@
-# HLS output with Apple
-
-FairPlay
+# HLS output with Apple FairPlay
 
 Encryption mode: Always AES CBC (Sample AES)
 

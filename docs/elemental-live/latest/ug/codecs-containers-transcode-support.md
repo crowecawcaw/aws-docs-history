@@ -1,7 +1,4 @@
-# Audio:
-
-Transcode support and passthrough support for Dolby audio
-codecs
+# Audio: Transcode support and passthrough support for Dolby audio codecs
 
 Three Dolby codecs are supported and can be transcoded or passed
 through as follows:

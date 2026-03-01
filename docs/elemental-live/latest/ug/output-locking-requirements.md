@@ -1,6 +1,4 @@
-# Requirements for inputs
-
-and outputs
+# Requirements for inputs and outputs
 
 This section describes the requirements for source inputs and outputs, their
 characteristics, and which work for output locking.
@@ -14,20 +12,13 @@ see [Output locking pairs](opl-redundant-pairs.md "opl-redundant-pairs.md").
 
 ###### Topics
 
-- [Supported input
-  types](#opl-requirements-input-types "#opl-requirements-input-types")
-- [Input
-  requirements](#output-locking-input-requirements "#output-locking-input-requirements")
-- [Supported output
-  types](#opl-requirements-output-types "#opl-requirements-output-types")
-- [Output encode
-  requirements](#output-locking-output-requirements "#output-locking-output-requirements")
-- [Output locking and SCTE
-  35](#opl-requirements-scte35 "#opl-requirements-scte35")
+- [Supported input types](#opl-requirements-input-types "#opl-requirements-input-types")
+- [Input requirements](#output-locking-input-requirements "#output-locking-input-requirements")
+- [Supported output types](#opl-requirements-output-types "#opl-requirements-output-types")
+- [Output encode requirements](#output-locking-output-requirements "#output-locking-output-requirements")
+- [Output locking and SCTE 35](#opl-requirements-scte35 "#opl-requirements-scte35")
 
-## Supported input
-
-types
+## Supported input types
 
 Elemental Live supports output locking with the following types of
 inputs:
@@ -42,9 +33,7 @@ inputs:
 
 - RTSP inputs.
 
-## Input
-
-requirements
+## Input requirements
 
 For output locking to be successful, the video sources must meet
 strict requirements.
@@ -93,9 +82,7 @@ in all sources. Other characteristics, including resolution and GOP
 structure (I-frame, B-frame, and P-frame patterns) can be
 different.
 
-## Supported output
-
-types
+## Supported output types
 
 Elemental Live supports output locking with the following types of
 outputs:
@@ -114,9 +101,7 @@ Even when an output group doesn't support output locking, you
 can't include it in the output locking event. For example, the event
 can't include a DASH output group.
 
-## Output encode
-
-requirements
+## Output encode requirements
 
 For output locking to be successful, the video outputs must meet
 strict requirements.
@@ -181,9 +166,7 @@ must be whole number multiples of each other.
 
 ![Three appliances showing HLS output groups with varying video resolution streams.](images/outputs_opl-framerates.png)
 
-## Output locking and SCTE
-
-35
+## Output locking and SCTE 35
 
 **Epoch locking and SCTE 35**
 

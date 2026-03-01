@@ -1,6 +1,4 @@
-# Assessing performance by
-
-measuring
+# Assessing performance by measuring
 
 There are several features of the appliance that affect
 performance:

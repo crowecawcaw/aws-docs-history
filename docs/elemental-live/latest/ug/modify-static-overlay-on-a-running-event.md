@@ -1,6 +1,4 @@
-# Modify
-
-static overlay on a running event
+# Modify static overlay on a running event
 
 In a running event, you can use the REST API to add more static overlays, modify
 the behavior of an existing static overlay, or delete an existing static
@@ -13,9 +11,7 @@ the XML and create a new event with it, the new event will have any overlays set
 up as they were set during the course of the event, not as they were when the
 event was created.
 
-## HTTP
-
-request and response
+## HTTP request and response
 
 **HTTP URL - one input**
 
@@ -77,11 +73,9 @@ XML content consisting of:
 
 - One or more image_inserter elements that each contains:
   - 1 to 8 <image> elements that each contains the tags in the table
-    in the section [Create or modify a non-running event with static graphic
-    overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md").
+    in the section [Create or modify a non-running event with static graphic overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md").
 
-For information about the tags to include for different actions, see [Types of
-changes](step-c-manage-overlays-on-a-running-event.md#static-overlay-types-of-changes "step-c-manage-overlays-on-a-running-event.md#static-overlay-types-of-changes").
+For information about the tags to include for different actions, see [Types of changes](step-c-manage-overlays-on-a-running-event.md#static-overlay-types-of-changes "step-c-manage-overlays-on-a-running-event.md#static-overlay-types-of-changes").
 
 **Response**
 

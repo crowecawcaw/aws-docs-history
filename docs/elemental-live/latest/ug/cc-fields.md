@@ -1,6 +1,4 @@
-# Completing the fields in the CC channel
-
-number
+# Completing the fields in the CC channel number
 
 - **CC Channel number**: This field specifies the language to
   extract. Complete as follows:

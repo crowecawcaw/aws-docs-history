@@ -1,6 +1,4 @@
-# Requirements for
-
-inputs
+# Requirements for inputs
 
 **Supported input types**
 

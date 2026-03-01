@@ -13,16 +13,10 @@ Digital (also known as AC3) or Dolby Digital Plus (also known as Enhanced AC3).
 
 ###### Topics
 
-- [Categories of metadata: Delivered
-  and encoder control](dolby-metadata-categories.md "dolby-metadata-categories.md")
-- [Source of Elemental Live
-  metadata](dolby-metadata-source.md "dolby-metadata-source.md")
-- [Impact of the metadata on the output
-  audio](dolby-metadata-impact.md "dolby-metadata-impact.md")
+- [Categories of metadata: Delivered and encoder control](dolby-metadata-categories.md "dolby-metadata-categories.md")
+- [Source of Elemental Live metadata](dolby-metadata-source.md "dolby-metadata-source.md")
+- [Impact of the metadata on the output audio](dolby-metadata-impact.md "dolby-metadata-impact.md")
 - [Combinations of input and output codec](dolby-metadata-impact-combination-input-output-codec.md "dolby-metadata-impact-combination-input-output-codec.md")
-- [Setting up the profile or event using
-  the web interface](dolby-metadata-setup.md "dolby-metadata-setup.md")
-- [Output with the
-  Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md")
-- [Output with
-  Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md")
+- [Setting up the profile or event using the web interface](dolby-metadata-setup.md "dolby-metadata-setup.md")
+- [Output with the Dolby Digital codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md")
+- [Output with Dolby Digital Plus (EC2, EAC3) codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md")

@@ -1,6 +1,4 @@
-# Archive
-
-procedure
+# Archive procedure
 
 You enable or disable passthrough at the output level: only in
 outputs that have an MPEG-2 TS container.

@@ -1,6 +1,4 @@
-# SCTE-35 and SCTE-104 message
-
-processing options
+# SCTE-35 and SCTE-104 message processing options
 
 ## The options
 
@@ -13,9 +11,7 @@ SCTE-104 messages in the input are automatically converted
 to SCTE-35 messages during processing of the input. No setup
 is required for this processing.
 
-###### Line up SCTE Messages to use blanking and blackout of
-
-output content
+###### Line up SCTE Messages to use blanking and blackout of output content
 
 The “cue out” and “cue in” instructions in SCTE-35 messages
 line up with specific content in the video, audio, and closed
@@ -62,9 +58,7 @@ and passthrough).
 
 POIS and ESAM conditioning are described in [POIS conditioning](pois-conditioning.md "pois-conditioning.md").
 
-###### Insert SCTE-35 messages into content during an
-
-event
+###### Insert SCTE-35 messages into content during an event
 
 The Elemental Live REST API includes commands to insert
 SCTE-35 messages into the content while the Elemental Live
@@ -76,9 +70,7 @@ in the original input. So, for example, if manifest decoration is
 enabled and you insert a message during encoding, that new
 message is represented in the manifest.
 
-## Default behavior of SCTE-35
-
-and SCTE-104 messages
+## Default behavior of SCTE-35 and SCTE-104 messages
 
 The default handling of SCTE-35 and SCTE-104 messages in
 Elemental Live includes the following:
@@ -95,9 +87,7 @@ If you desire the default behavior as described , you have the
 information you need for processing SCTE messages and do not need
 to read the remainder of this guide.
 
-## About
-
-timecode configuration and timers
+## About timecode configuration and timers
 
 The event or profile includes a timecode configuration field
 that identifies the source for timecode stamps to be inserted in

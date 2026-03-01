@@ -33,9 +33,7 @@ processing and before encoding and creation of individual streams and outputs.
 
 ![images/static_GloPro_option.png](images/static_GloPro_option.png)
 
-## In
-
-the Output section: Insert in one stream
+## In the Output section: Insert in one stream
 
 The static overlay can be inserted in individual streams.
 

@@ -1,6 +1,4 @@
-# Use case 1: Enhancing
-
-output redundancy
+# Use case 1: Enhancing output redundancy
 
 You can implement output locking to enhance output redundancy. You can
 set up output redundancy to work on the same or different

@@ -1,6 +1,4 @@
-# Step 2: Create captions
-
-selectors
+# Step 2: Create captions selectors
 
 After you have created a list of captions selectors, you can create the captions
 selectors in the event.

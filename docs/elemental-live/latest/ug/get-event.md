@@ -25,9 +25,7 @@ tags:
   That information cannot be retrieved from Elemental Live; you
   must maintain the schedule outside of Elemental Live.
 
-## HTTP
-
-Request and Response
+## HTTP Request and Response
 
 ### HTTP URL
 

@@ -1,6 +1,4 @@
-# Source of Elemental Live
-
-metadata
+# Source of Elemental Live metadata
 
 The metadata that Elemental Live emits can come from one of two sources:
 

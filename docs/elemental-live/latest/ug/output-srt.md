@@ -11,8 +11,7 @@ than AWS Elemental MediaConnect.
 
 To send to an SRT flow on MediaConnect, we recommend that you use the
 Reliable TS output group with the AWS Elemental MediaConnect option.
-See [Setting up
-Elemental Live as a Contribution Encoder for AWS Elemental MediaConnect](setting-up-live-as-contribution-encoder-for-mediaconnect.md "setting-up-live-as-contribution-encoder-for-mediaconnect.md").
+See [Setting up Elemental Live as a Contribution Encoder for AWS Elemental MediaConnect](setting-up-live-as-contribution-encoder-for-mediaconnect.md "setting-up-live-as-contribution-encoder-for-mediaconnect.md").
 
 There are two ways to configure the transmission, one with
 Elemental Live as the SRT caller, one with Elemental Live as the SRT

@@ -1,6 +1,4 @@
-# Video: MPEG-2 (H.262)
-
-support
+# Video: MPEG-2 (H.262) support
 
 MPEG-2 is supported in the following variations.
 

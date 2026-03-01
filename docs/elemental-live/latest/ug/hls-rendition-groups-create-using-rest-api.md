@@ -1,9 +1,6 @@
-# Creating HLS
+# Creating HLS rendition groups (REST API)
 
-rendition groups (REST API)
-
-The following information assumes that you have read [Creating
-HLS rendition groups (web interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md") and are therefore familiar with the
+The following information assumes that you have read [Creating HLS rendition groups (web interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md") and are therefore familiar with the
 construction and association of an output containing video and rendition groups.
 
 Via the REST API, create or modify the event to include the elements and tags in the
@@ -12,11 +9,9 @@ XML body as described in the following sections.
 ###### Topics
 
 - [Creating streams for HLS rendition groups using the REST API](#hls-rendition-groups-create-using-rest-api-streams "#hls-rendition-groups-create-using-rest-api-streams")
-- [Creating output groups for HLS rendition groups using the REST
-  API](#hls-rendition-groups-create-using-rest-api-output-groups "#hls-rendition-groups-create-using-rest-api-output-groups")
+- [Creating output groups for HLS rendition groups using the REST API](#hls-rendition-groups-create-using-rest-api-output-groups "#hls-rendition-groups-create-using-rest-api-output-groups")
 - [Creating outputs for HLS output groups using the REST API](#hls-rendition-groups-create-using-rest-api-outputs "#hls-rendition-groups-create-using-rest-api-outputs")
-- [Sample XML body for an HLS output group with audio rendition group
-  event](#hls-rendition-groups-create-using-rest-api-sample-xml "#hls-rendition-groups-create-using-rest-api-sample-xml")
+- [Sample XML body for an HLS output group with audio rendition group event](#hls-rendition-groups-create-using-rest-api-sample-xml "#hls-rendition-groups-create-using-rest-api-sample-xml")
 
 ## Creating streams for HLS rendition groups using the REST API
 
@@ -28,9 +23,7 @@ XML body as described in the following sections.
     or
   - One caption_description element (plus an optional preset_id tag and name tag).
 
-## Creating output groups for HLS rendition groups using the REST
-
-API
+## Creating output groups for HLS rendition groups using the REST API
 
 - Create as many HLS output groups as desired by creating one output group that has the
   value “apple_live_group_settings” in its type tag and that contains one
@@ -78,9 +71,7 @@ API
     stream_assembly_name element.
   - apple_live_settings element that contains the usual tags as required.
 
-## Sample XML body for an HLS output group with audio rendition group
-
-event
+## Sample XML body for an HLS output group with audio rendition group event
 
 This example shows the XML body for an event that contains an HLS output group that
 includes audio rendition groups.

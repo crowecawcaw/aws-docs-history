@@ -1,18 +1,13 @@
-# Encoding parameters that affect
-
-performance
+# Encoding parameters that affect performance
 
 You can tune the quality, speed, and density of the video encodes in
 each event.
 
 ## CABAC
 
-For information about this parameter, see [Miscellaneous video tuning
-parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
+For information about this parameter, see [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
 
-## Codec of the output
-
-encode
+## Codec of the output encode
 
 Some codecs make more demands on the CPU than other codes. Here is a
 comparison of the processing demands of codecs, from least to most
@@ -25,17 +20,14 @@ demanding:
 
 For more information, see [Controlling video quality](video-quality.md "video-quality.md").
 
-## Density versus quality
-
-(SVQ)
+## Density versus quality (SVQ)
 
 You can modify the density and quality balance of each individual
 encode by setting the **Density vs Quality** field. You can
 favor quality at the cost of density, or you can favor density at the cost
 of quality.
 
-For more information, see [Miscellaneous video tuning
-parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
+For more information, see [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
 
 ## Encode order
 
@@ -50,21 +42,19 @@ Starting
 with version 2.24.4, Elemental Live automatically assigns resources to the most
 difficult encodes.
 
-## Frame rate, resolution, bitrate, and color
-
-depth
+## Frame rate, resolution, bitrate, and color depth
 
 A key factor in performance is the pixels per second being produced by
 all outputs in all events.
 
 The following characteristics of each video encode affect pixels per second:
 
-| Characteristic               | Field in the Video section of the Output section                                              | Comment                                                                                                        |
-| ---------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Resolution                   | **Resolution**                                                                                |                                                                                                                |
-| Frame rate                   | **Frame Rate**                                                                                |                                                                                                                |
-| Bitrate                      | **Rate Control Mode**                                                                         | See [Setting up QVBR and rate<br>control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md"). |
-| Color depth: 8-bit or 10-bit | Part of the profile of the codec: **Video<br>Stream**, then **Advanced**, then<br>**Profile** |                                                                                                                |
+| Characteristic               | Field in the Video section of the Output section                                              | Comment                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Resolution                   | **Resolution**                                                                                |                                                                                                             |
+| Frame rate                   | **Frame Rate**                                                                                |                                                                                                             |
+| Bitrate                      | **Rate Control Mode**                                                                         | See [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md"). |
+| Color depth: 8-bit or 10-bit | Part of the profile of the codec: **Video<br>Stream**, then **Advanced**, then<br>**Profile** |                                                                                                             |
 
 ## Group of pictures
 
@@ -72,8 +62,7 @@ For more information, see [Group of pictures (GOP) configuration](vq-gop.md "vq-
 
 ## Lookahead
 
-For more information, see [Miscellaneous video tuning
-parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
+For more information, see [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
 
 ## Quantization
 
@@ -87,5 +76,4 @@ The number of slices in each video frame affects the CPU usage. You must balance
 desired quality against the processing demands of that quality.
 
 We recommend that you set the slices to automatic, to let Elemental Live set the value that works
-best for the video resolution. For more information, see [Miscellaneous video tuning
-parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").
+best for the video resolution. For more information, see [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md").

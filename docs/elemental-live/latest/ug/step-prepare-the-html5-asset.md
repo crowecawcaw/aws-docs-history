@@ -1,6 +1,4 @@
-# Step B: Prepare the
-
-HTML5 asset
+# Step B: Prepare the HTML5 asset
 
 You use an authoring system to create the asset and to manage the
 content, including implementation of features such as fade or

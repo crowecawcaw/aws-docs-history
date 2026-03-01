@@ -1,6 +1,4 @@
-# SCTE-35 and SCTE-104 message
-
-processing in Elemental Live
+# SCTE-35 and SCTE-104 message processing in Elemental Live
 
 You can use Elemental Live to manipulate the SCTE-35 messages in a TS input and to
 manipulate the SCTE-104 messages in an HD-SDI input. You can also use Elemental Live to remove
@@ -33,19 +31,12 @@ API.
 
 ###### Topics
 
-- [Eligible messages and
-  streams](eligible-messages-and-streams.md "eligible-messages-and-streams.md")
-- [Getting
-  ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")
+- [Eligible messages and streams](eligible-messages-and-streams.md "eligible-messages-and-streams.md")
+- [Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")
 - [Manifest decoration](manifest-decoration.md "manifest-decoration.md")
-- [Ad avail blanking and
-  blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md")
-- [Passthrough or removal of
-  SCTE messages](pass-through-or-removal.md "pass-through-or-removal.md")
-- [SCTE-35 message insertion
-  into currently running events](scte-35-message-insertion.md "scte-35-message-insertion.md")
+- [Ad avail blanking and blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md")
+- [Passthrough or removal of SCTE messages](pass-through-or-removal.md "pass-through-or-removal.md")
+- [SCTE-35 message insertion into currently running events](scte-35-message-insertion.md "scte-35-message-insertion.md")
 - [POIS conditioning](pois-conditioning.md "pois-conditioning.md")
-- [Setting up using the REST
-  API](setting-up-via-the-rest-api.md "setting-up-via-the-rest-api.md")
-- [Example manifests for Apple
-  HLS](example-manifests-hls.md "example-manifests-hls.md")
+- [Setting up using the REST API](setting-up-via-the-rest-api.md "setting-up-via-the-rest-api.md")
+- [Example manifests for Apple HLS](example-manifests-hls.md "example-manifests-hls.md")

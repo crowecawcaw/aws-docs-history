@@ -1,6 +1,4 @@
-# Modify one
-
-dynamic playlist input
+# Modify one dynamic playlist input
 
 In the specified event (which must be currently running),
 modify the specified dynamic playlist input (which must be
@@ -12,9 +10,7 @@ the rules for inputs in a dynamic playlist, as described in
 
 ## HTTP Request and Response
 
-### HTTP
-
-URL
+### HTTP URL
 
 To specify the input by its REST ID:
 

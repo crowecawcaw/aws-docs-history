@@ -1,13 +1,9 @@
-# Details on
-
-preparing inputs
+# Details on preparing inputs
 
 Read this section if your inputs are not being prepared as
 expected.
 
-## File inputs vs
-
-live streaming inputs
+## File inputs vs live streaming inputs
 
 - Preparing a live input involves a one-time
   inspection of the stream to determine what audio,
@@ -29,9 +25,7 @@ in terms of processing power.
   Due-to-be-processed. Preparation of file inputs is
   not expensive.
 
-## Rules for
-
-preparing
+## Rules for preparing
 
 - The input must not be currently Active.
 - Only one input can be in the Prepared state at a

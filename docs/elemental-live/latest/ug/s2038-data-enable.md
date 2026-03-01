@@ -8,9 +8,7 @@ data.
 The information in this section assumes that you are familiar
 with the general steps for creating an event.
 
-###### To set up the event to look for ancillary data in SMPTE
-
-2038
+###### To set up the event to look for ancillary data in SMPTE 2038
 
 Follow these steps for both types of handling—extract and use,
 and passthrough.

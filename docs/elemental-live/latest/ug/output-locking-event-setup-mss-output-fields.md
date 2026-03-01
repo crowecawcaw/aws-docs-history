@@ -1,8 +1,4 @@
-# Setting
-
-up an
-MS
-Smooth output group
+# Setting up an MS Smooth output group
 
 This section shows how to set up an MS Smooth output group to
 implement Elemental Live output locking.

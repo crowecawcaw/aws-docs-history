@@ -1,6 +1,4 @@
-# Supported source
-
-captions and output captions in a captions-only output container
+# Supported source captions and output captions in a captions-only output container
 
 This table describes the caption formats that can be included on their
 own in an output. With this option, _the container is always a raw

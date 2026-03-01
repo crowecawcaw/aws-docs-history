@@ -1,6 +1,4 @@
-# Support for multiple
-
-languages
+# Support for multiple languages
 
 If the source includes captions in multiple languages, you can
 include multiple languages in the output as follows:

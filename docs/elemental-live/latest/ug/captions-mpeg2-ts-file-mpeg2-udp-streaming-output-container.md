@@ -1,6 +1,4 @@
-# Supported source captions and output captions in MPEG2-TS or
-
-MPEG2-UDP
+# Supported source captions and output captions in MPEG2-TS or MPEG2-UDP
 
 The table provides information about captions in an MPEG2-TS file
 output container or MPEG2-UDP streaming output container.

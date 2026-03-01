@@ -1,9 +1,6 @@
-# SCTE-35 ad marker
+# SCTE-35 ad marker EXT-X-DATERANGE
 
-EXT-X-DATERANGE
-
-This section is an addendum to [SCTE-35 and SCTE-104 message
-processing in Elemental Live](scte-message-processing.md "scte-message-processing.md"). Elemental Live supports the
+This section is an addendum to [SCTE-35 and SCTE-104 message processing in Elemental Live](scte-message-processing.md "scte-message-processing.md"). Elemental Live supports the
 EXT-X-DATERANGE ad marker style in the manifest created for an HLS
 output.
 

@@ -1,6 +1,4 @@
-# Rules for ingesting
-
-MPEG-TS programs
+# Rules for ingesting MPEG-TS programs
 
 For video, each AWS Elemental Live event can extract only one video from
 only one program. Elemental Live will not reject MPTS inputs, but it will

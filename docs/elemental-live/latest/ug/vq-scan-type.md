@@ -7,9 +7,6 @@ incoming scan types) to another single type.
 
 ###### Topics
 
-- [Key fields for converting scan
-  type](vq-scan-type-key.md "vq-scan-type-key.md")
-- [Secondary fields for converting scan
-  type](vq-scan-type-secondary.md "vq-scan-type-secondary.md")
-- [Adaptive
-  field frame controls](vq-scan-type-paff.md "vq-scan-type-paff.md")
+- [Key fields for converting scan type](vq-scan-type-key.md "vq-scan-type-key.md")
+- [Secondary fields for converting scan type](vq-scan-type-secondary.md "vq-scan-type-secondary.md")
+- [Adaptive field frame controls](vq-scan-type-paff.md "vq-scan-type-paff.md")

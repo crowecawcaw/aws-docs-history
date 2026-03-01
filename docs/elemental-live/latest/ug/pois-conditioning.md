@@ -11,9 +11,7 @@ Elemental Live also supports handling of “out-of-band” SCTE-35 messages from
 the POIS – messages that are not a response to a message originally sent by Elemental Live. If such a message is received, Elemental Live accepts and
 processes it.
 
-## POIS conditioning and
-
-other SCTE 35 features
+## POIS conditioning and other SCTE 35 features
 
 This section describes how POIS conditioning interacts with other
 SCTE 35 features that you can set up.
@@ -23,8 +21,7 @@ SCTE 35 features that you can set up.
 When POIS conditioning is enabled, the ad avail mode is always
 set to _splice insert_. For
 information about how this value affects the behavior of manifest
-decoration and ad avail blanking see [Getting
-ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md").
+decoration and ad avail blanking see [Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md").
 
 ###### SCTE-35 messages inserted by REST API
 
@@ -78,8 +75,7 @@ If Elemental Live cannot find the file, it uses a black slate.
   ESAM mode, the Override restriction flags in the Elemental Live
   event (**Ignore Web Delivery Allowed** flag and **Ignore No Regional
   Blackout** flag) are always cleared (not selected).
-  See [Ad avail blanking and
-  blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md").
+  See [Ad avail blanking and blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md").
 - **Passthrough or Removal**
   – Without POIS conditoin, if passthrough is enabled in the
   Elemental Live event, then the rule is that all SCTE-35 message
@@ -90,9 +86,7 @@ this rule: if the POIS instruction is to remove a given SCTE-35
 message, then that message is removed and is not passed through,
 even though passthrough is enabled in Elemental Live.
 
-## Procedure to
-
-enable POIS conditioning
+## Procedure to enable POIS conditioning
 
 1. In the **Profile** or **Event** screen, select **Advanced Avail
    Controls** (in the Input section towards the top

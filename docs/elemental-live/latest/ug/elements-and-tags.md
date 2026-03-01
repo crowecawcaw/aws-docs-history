@@ -1,12 +1,9 @@
-# Elements and tags in an event
-
-input XML
+# Elements and tags in an event input XML
 
 This section lists all the elements and tags that could appear in
 the input element of an event XML. This section does not include
 exhaustive information about rules for if and when an element or tag
-can be included. For tips on some tags, see [Add dynamic
-playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
+can be included. For tips on some tags, see [Add dynamic playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
 
 ```
 <href></href>

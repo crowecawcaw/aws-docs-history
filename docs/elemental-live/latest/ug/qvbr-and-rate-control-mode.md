@@ -1,6 +1,4 @@
-# Setting up QVBR and rate
-
-control mode
+# Setting up QVBR and rate control mode
 
 The Rate Control Mode fields in the Video section of each output on the Elemental Live
 web interface let you control the quality and bitrate of the video.

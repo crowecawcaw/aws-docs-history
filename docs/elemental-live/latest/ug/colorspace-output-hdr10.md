@@ -5,8 +5,7 @@ Follow this procedure to convert to one of these color spaces:
 - HDR10
 - Dolby Vision
   For information about the source color spaces that you can convert to one
-  of these color spaces, see [Support for conversion and
-  passthrough](color-space-conversions.md "color-space-conversions.md").
+  of these color spaces, see [Support for conversion and passthrough](color-space-conversions.md "color-space-conversions.md").
 
 For information about the results of conversion, see [The results of different types of conversions](color-space-conversion-results.md "color-space-conversion-results.md").
 
@@ -29,18 +28,16 @@ Follow this procedure in each output.
 4. Complete fields in the **Video** section as
    described in the following table.
 
-| Field                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Video Codec**                                                                                        | If you are converting to HDR10, choose **MPEG-4 AVC<br>(H.264)\*<br>• or **HEVC (H.265)**.<br>If you are<br>converting<br>to Dolby Vision, choose **HEVC (H.265)\*\*.                                                                                                                                                                                                  |
-| **Advanced**, then **Insert Color<br>Metadata**                                                        | Leave this field checked.<br>You should never remove the color metadata if you are converting<br>the color space.                                                                                                                                                                                                                                                      |
-| **Advanced**, then<br>**Profile**<br>This field is towards the end of the<br>\*_Advanced_<br>• section | Choose a profile that includes the term **Main10**.                                                                                                                                                                                                                                                                                                                    |
-| **Preprocessors**, then **Video<br>Range**                                                             | Choose the correct option, according to the information you [obtained from the content provider](color-space-input-procedure.md "color-space-input-procedure.md"):<br>• If the video input is full range, choose **Passthrough**.<br>• If the video input is video range, choose **Full Swing**.                                                                       |
-| **Preprocessors**, then **Color Space<br>Conversion**                                                  | Choose the correct conversion:<br>**Force HDR10**<br>**Dolby Vision Profile 5**<br>**Dolby Vision Profile 8.1**                                                                                                                                                                                                                                                        |
-| **Preprocessors**, then **HDR Master<br>Display Information**                                          | These fields appear after you complete the **Color Space<br>Conversion**.<br>You can optionally complete the \*_HDR Master Display<br>Information_<br>• fields. For information about<br>master<br>display information, see [Tips for HDR<br>master display information](#hdr-tips-for-hdr-master-display-information "#hdr-tips-for-hdr-master-display-information"). |
+| Field                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Video Codec**                                                                                        | If you are converting to HDR10, choose **MPEG-4 AVC<br>(H.264)\*<br>• or **HEVC (H.265)**.<br>If you are<br>converting<br>to Dolby Vision, choose **HEVC (H.265)\*\*.                                                                                                                                                                                               |
+| **Advanced**, then **Insert Color<br>Metadata**                                                        | Leave this field checked.<br>You should never remove the color metadata if you are converting<br>the color space.                                                                                                                                                                                                                                                   |
+| **Advanced**, then<br>**Profile**<br>This field is towards the end of the<br>\*_Advanced_<br>• section | Choose a profile that includes the term **Main10**.                                                                                                                                                                                                                                                                                                                 |
+| **Preprocessors**, then **Video<br>Range**                                                             | Choose the correct option, according to the information you [obtained from the content provider](color-space-input-procedure.md "color-space-input-procedure.md"):<br>• If the video input is full range, choose **Passthrough**.<br>• If the video input is video range, choose **Full Swing**.                                                                    |
+| **Preprocessors**, then **Color Space<br>Conversion**                                                  | Choose the correct conversion:<br>**Force HDR10**<br>**Dolby Vision Profile 5**<br>**Dolby Vision Profile 8.1**                                                                                                                                                                                                                                                     |
+| **Preprocessors**, then **HDR Master<br>Display Information**                                          | These fields appear after you complete the **Color Space<br>Conversion**.<br>You can optionally complete the \*_HDR Master Display<br>Information_<br>• fields. For information about<br>master<br>display information, see [Tips for HDR master display information](#hdr-tips-for-hdr-master-display-information "#hdr-tips-for-hdr-master-display-information"). |
 
-## Tips for HDR
-
-master display information
+## Tips for HDR master display information
 
 The HDR Master Display Information fields appear if you are converting to HDR10 or Dolby
 Vision. Take the appropriate action:
@@ -58,9 +55,7 @@ mark next to the field.
   It's better to set the fields to null values, rather than to make up
   values or to use the default values.
 
-### Red, green, blue, white point x and
-
-y
+### Red, green, blue, white point x and y
 
 Your color grader might provide numbers like this for X and Y
 points:
@@ -80,9 +75,7 @@ per the HEVC specification.
 
 For example, 0.265 divided by 0.00002 is 13250.
 
-### Max luminance and min
-
-luminance
+### Max luminance and min luminance
 
 The maximum and minimum luminance are given in units of **0.0001 candelas per square meter**. Your color
 grader might provide this value in candelas per square meter instead. If

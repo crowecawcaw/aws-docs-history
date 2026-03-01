@@ -6,12 +6,7 @@ the audio and video codecs that require an add-on package.
 
 ###### Topics
 
-- [Purchasing
-  and
-  licensing an add-on package](ref-licenses-purchase.md "ref-licenses-purchase.md")
-- [Elemental Live features that require an
-  add-on package](ref-license-features.md "ref-license-features.md")
-- [Add-on packages for video
-  codecs](ref-license-codecs-video.md "ref-license-codecs-video.md")
-- [Add-on packages for audio
-  codecs](ref-license-codecs-audio.md "ref-license-codecs-audio.md")
+- [Purchasing and licensing an add-on package](ref-licenses-purchase.md "ref-licenses-purchase.md")
+- [Elemental Live features that require an add-on package](ref-license-features.md "ref-license-features.md")
+- [Add-on packages for video codecs](ref-license-codecs-video.md "ref-license-codecs-video.md")
+- [Add-on packages for audio codecs](ref-license-codecs-audio.md "ref-license-codecs-audio.md")

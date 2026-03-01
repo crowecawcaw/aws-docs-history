@@ -50,8 +50,7 @@ Follow this procedure for each input.
     If the content provider can't provide accurate information about the
     color space or its metadata, you might choose at this point to remove the
     color space metadata. Move on to the next input. Or if this is the only
-    input, stop reading this section and go to [Configuring color space handling in each
-    output](hdr-output.md "hdr-output.md").
+    input, stop reading this section and go to [Configuring color space handling in each output](hdr-output.md "hdr-output.md").
 
 2.  Make a note of the information:
     - The names of the color spaces.

@@ -1,6 +1,4 @@
-# UDP/TS
-
-procedure
+# UDP/TS procedure
 
 Passthrough is enabled or disabled individually for each output,
 which means it can be applied differently for different outputs in

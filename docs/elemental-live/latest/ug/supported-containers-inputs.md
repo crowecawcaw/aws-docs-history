@@ -1,7 +1,4 @@
-# Rules
-
-for extracting captions from
-sources
+# Rules for extracting captions from sources
 
 To
 use captions in a source, Elemental Live must be able to extract the captions.

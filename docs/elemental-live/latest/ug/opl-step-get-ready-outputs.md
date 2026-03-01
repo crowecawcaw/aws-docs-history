@@ -10,10 +10,8 @@ This section covers considerations that affect your design.
 ###### Topics
 
 - [Number of outputs in an output group](#opl-design-outputs-opg "#opl-design-outputs-opg")
-- [Number of encodes: video encode
-  sharing](#opl-design-outputs-number-encodes "#opl-design-outputs-number-encodes")
-- [Encodes across the locked
-  events](#opl-design-outputs-number-encodes-event "#opl-design-outputs-number-encodes-event")
+- [Number of encodes: video encode sharing](#opl-design-outputs-number-encodes "#opl-design-outputs-number-encodes")
+- [Encodes across the locked events](#opl-design-outputs-number-encodes-event "#opl-design-outputs-number-encodes-event")
 - [Features in an output](#opl-design-output-features "#opl-design-output-features")
 - [Motion graphic overlay](#opl-design-output-features-motion-gx "#opl-design-output-features-motion-gx")
 
@@ -28,9 +26,7 @@ several one lower-resolution output encodes. To set up these encodes, create an 
 group (for example, create an HLS output group), and create two outputs. Each output
 contains one of the encodes.
 
-## Number of encodes: video encode
-
-sharing
+## Number of encodes: video encode sharing
 
 If you have multiple output group types in one event, several different output groups
 might be able to use the same video encode.
@@ -45,9 +41,7 @@ use the same encode.
 
 ![Diagram showing two output groups sharing a high resolution video stream.](images/opl-shared-encode.png)
 
-## Encodes across the locked
-
-events
+## Encodes across the locked events
 
 You must set up the video encodes in the locked events as follows:
 

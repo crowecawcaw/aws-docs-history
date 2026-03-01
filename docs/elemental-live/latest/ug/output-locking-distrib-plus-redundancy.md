@@ -1,6 +1,4 @@
-# Use case 3:
-
-Distributed encoding with output redundancy
+# Use case 3: Distributed encoding with output redundancy
 
 You might combine distributed encoding with output redundancy, and
 also include output locking. For example, you might create three events,

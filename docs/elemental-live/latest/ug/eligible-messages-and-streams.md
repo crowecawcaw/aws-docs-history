@@ -1,6 +1,4 @@
-# Eligible messages and
-
-streams
+# Eligible messages and streams
 
 Elemental Live can extract SCTE-35 messages and SCTE-104 messages
 from input sources.

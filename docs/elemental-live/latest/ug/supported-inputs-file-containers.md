@@ -1,6 +1,4 @@
-# Supported
-
-containers
+# Supported containers
 
 This table specifies the types of containers that are supported for
 file inputs. These containers apply to all the types of upstream systems.

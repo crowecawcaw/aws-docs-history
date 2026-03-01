@@ -1,6 +1,4 @@
-# How output locking
-
-works
+# How output locking works
 
 This section shows how Elemental Live locks outputs when an event first
 starts, and how resync works when an event is running.

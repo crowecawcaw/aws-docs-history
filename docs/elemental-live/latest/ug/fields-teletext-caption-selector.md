@@ -1,6 +1,4 @@
-# Completing the
-
-fields in the Captions Selector Group
+# Completing the fields in the Captions Selector Group
 
 - **Source**: Choose **Teletext**.
 - **Page**: This field specifies the page of the desired language.

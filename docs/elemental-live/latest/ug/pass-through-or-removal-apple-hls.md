@@ -1,12 +1,9 @@
-# Apple HLS
-
-passthrough procedure
+# Apple HLS passthrough procedure
 
 Passthrough is enabled or disabled individually for each output, which means it can
 be applied differently for different outputs in the same group.
 
-1. If you have not already set up for manifest decoration, do so now; see [Procedure to enable
-   manifest decoration](manifest-decoration.md#procedure-to-enable-decoration "manifest-decoration.md#procedure-to-enable-decoration").
+1. If you have not already set up for manifest decoration, do so now; see [Procedure to enable manifest decoration](manifest-decoration.md#procedure-to-enable-decoration "manifest-decoration.md#procedure-to-enable-decoration").
 2. In the Profile or Event screen, go to the Output Groups section at the bottom
    of the screen and display the tab for **Apple HLS Output
    Group**.

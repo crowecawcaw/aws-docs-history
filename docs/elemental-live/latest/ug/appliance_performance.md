@@ -26,14 +26,9 @@ The density is affected by the following:
 
 ###### Topics
 
-- [Recommended testing
-  procedure](performance-recommended-procedure.md "performance-recommended-procedure.md")
-- [Recommendation: Continually
-  upgrade Elemental Live](performance-recommended-upgrade.md "performance-recommended-upgrade.md")
-- [Assessing performance by
-  measuring](performance-measures.md "performance-measures.md")
+- [Recommended testing procedure](performance-recommended-procedure.md "performance-recommended-procedure.md")
+- [Recommendation: Continually upgrade Elemental Live](performance-recommended-upgrade.md "performance-recommended-upgrade.md")
+- [Assessing performance by measuring](performance-measures.md "performance-measures.md")
 - [Assessing performance with logging messages](performance-via-logs.md "performance-via-logs.md")
-- [Encoding parameters that affect
-  performance](performance-encoding-params.md "performance-encoding-params.md")
-- [Features that affect
-  performance](performance-features.md "performance-features.md")
+- [Encoding parameters that affect performance](performance-encoding-params.md "performance-encoding-params.md")
+- [Features that affect performance](performance-features.md "performance-features.md")

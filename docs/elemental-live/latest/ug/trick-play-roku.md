@@ -1,6 +1,4 @@
-# Trick-play track via the Image
-
-Media Playlist specification
+# Trick-play track via the Image Media Playlist specification
 
 In an HLS output group, you can support a trick-play track by
 providing an asset that follows the Image Media Playlist
@@ -13,9 +11,7 @@ located here:
 Roku is one example of a platform that implements this
 specification.
 
-## How the method
-
-works
+## How the method works
 
 When you create the output group, you create standard outputs
 in the usual way for the video, audio, and captions encodes.
@@ -48,9 +44,7 @@ The information in this section assumes that you are
 familiar with the general steps for creating an
 event.
 
-###### To set up the frame capture encode in an HLS output
-
-group
+###### To set up the frame capture encode in an HLS output group
 
 To create a frame capture encode in an HLS output group,
 you create an output, and set up the video stream to use the

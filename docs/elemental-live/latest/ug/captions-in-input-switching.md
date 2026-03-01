@@ -1,6 +1,4 @@
-# Captions and input
-
-switching setups
+# Captions and input switching setups
 
 Your input might include a backup input that is only switched to if
 the first input fails. (This feature is called Input Switching or Input

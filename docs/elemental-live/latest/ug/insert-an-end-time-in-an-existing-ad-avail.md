@@ -23,9 +23,7 @@ tags:
 | event_id      |         | integer | The event ID of the original POST cue_point (the request that did not<br>include a duration). |
 | return_offset | integer |         | The number of milliseconds to wait before inserting the ad<br>avail.                          |
 
-## Insert an End Time in an Existing Ad
-
-Avail Example
+## Insert an End Time in an Existing Ad Avail Example
 
 Insert an end time immediately into the event with the ID 4. The original
 SCTE-35 ad avail has an ID of 38.

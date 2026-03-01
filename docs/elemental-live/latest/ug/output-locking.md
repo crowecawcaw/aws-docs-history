@@ -24,22 +24,15 @@ general steps for creating an event.
 
 ###### Topics
 
-- [About output locking and frame
-  accuracy](opl-frame-accuracy.md "opl-frame-accuracy.md")
+- [About output locking and frame accuracy](opl-frame-accuracy.md "opl-frame-accuracy.md")
 - [Output locking use cases](output-locking-general.md "output-locking-general.md")
-- [How output locking
-  works](opl-standard-how-it-works.md "opl-standard-how-it-works.md")
+- [How output locking works](opl-standard-how-it-works.md "opl-standard-how-it-works.md")
 - [How epoch locking works](opl-epoch-how-it-works.md "opl-epoch-how-it-works.md")
 - [Output locking pools](opl-pools.md "opl-pools.md")
 - [Output locking pairs](opl-redundant-pairs.md "opl-redundant-pairs.md")
-- [Requirements for inputs
-  and outputs](output-locking-requirements.md "output-locking-requirements.md")
+- [Requirements for inputs and outputs](output-locking-requirements.md "output-locking-requirements.md")
 - [Step 1: Design the workflow](opl-step-get-ready.md "opl-step-get-ready.md")
-- [Step 2: Set up inputs in the
-  events](output-locking-setup-inputs.md "output-locking-setup-inputs.md")
-- [Step 3: Set up the global
-  controls](output-locking-setup-global.md "output-locking-setup-global.md")
-- [Step 4: Set up the output
-  groups and outputs](opl-setup-output-groups.md "opl-setup-output-groups.md")
-- [Step 5:
-  Set up the video encodes](output-locking-event-setup-stream-video-fields.md "output-locking-event-setup-stream-video-fields.md")
+- [Step 2: Set up inputs in the events](output-locking-setup-inputs.md "output-locking-setup-inputs.md")
+- [Step 3: Set up the global controls](output-locking-setup-global.md "output-locking-setup-global.md")
+- [Step 4: Set up the output groups and outputs](opl-setup-output-groups.md "opl-setup-output-groups.md")
+- [Step 5: Set up the video encodes](output-locking-event-setup-stream-video-fields.md "output-locking-event-setup-stream-video-fields.md")

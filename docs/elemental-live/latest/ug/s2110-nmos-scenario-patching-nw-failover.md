@@ -1,6 +1,4 @@
-# Resiliency scenario C:
-
-Supporting NMOS patching and network failover
+# Resiliency scenario C: Supporting NMOS patching and network failover
 
 You can set up inputs in a configuration that combines NMOS patching with hot backup
 and network redundancy. In this scenario, the hot backup configuration allows failover
@@ -29,11 +27,9 @@ sources:
 
 - [Setup steps](#s2110-nmos-c-steps "#s2110-nmos-c-steps")
 - [Result of the setup](#s2110-nmos-c-result "#s2110-nmos-c-result")
-- [Set up the sources on the NMOS
-  controller](#s2110-nmos-c-controller-setup "#s2110-nmos-c-controller-setup")
+- [Set up the sources on the NMOS controller](#s2110-nmos-c-controller-setup "#s2110-nmos-c-controller-setup")
 - [How patching works at runtime](#s2110-nmos-c-patch-in-action "#s2110-nmos-c-patch-in-action")
-- [How failover works at
-  runtime](#s2110-nmos-c-failover-in-action "#s2110-nmos-c-failover-in-action")
+- [How failover works at runtime](#s2110-nmos-c-failover-in-action "#s2110-nmos-c-failover-in-action")
 
 ## Setup steps
 
@@ -107,9 +103,7 @@ To summarize:
 - Input C. Its hot backup is input D. Its patching pair in input A.
 - Input D. Its hot backup is input C. Its patching pair is input B.
 
-## Set up the sources on the NMOS
-
-controller
+## Set up the sources on the NMOS controller
 
 Tell the operator of the NMOS controller to set up the four sources as follows, to
 be ready when the event starts:
@@ -163,9 +157,7 @@ The following diagram illustrates this undesirable setup.
 
 ![](images/2110-input-scenario-C-7.png)
 
-## How failover works at
-
-runtime
+## How failover works at runtime
 
 The following table describes how Elemental Live handles input failures, depending on which
 input is currently active. Read across each row.

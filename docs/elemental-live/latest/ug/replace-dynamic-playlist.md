@@ -1,6 +1,4 @@
-# Replace dynamic
-
-playlist
+# Replace dynamic playlist
 
 In the specified event (which must be currently running),
 remove all non-Active inputs from the dynamic playlist and
@@ -25,9 +23,7 @@ playlist: create a Body consisting of an empty inputs element.
 
 ## HTTP request and response
 
-### HTTP
-
-URL
+### HTTP URL
 
 ```
 POST http://<Live IP address>/live_events/<event ID>/playlist
@@ -40,8 +36,7 @@ XML content consisting of:
 - One inputs element that contains:
   - One or more input elements that each
     contains one or more of the regular
-    input tags. See [Elements and tags in an event
-    input XML](elements-and-tags.md "elements-and-tags.md").
+    input tags. See [Elements and tags in an event input XML](elements-and-tags.md "elements-and-tags.md").
 
 ### Response
 

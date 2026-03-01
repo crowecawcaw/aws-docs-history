@@ -1,6 +1,4 @@
-# Converting Nielsen watermarks to
-
-ID3
+# Converting Nielsen watermarks to ID3
 
 If one or more inputs in an event includes Nielsen watermarks in the
 audio, you have the option to set up the event to convert those watermarks

@@ -1,6 +1,4 @@
-# Output with the
-
-Dolby Digital codec
+# Output with the Dolby Digital codec
 
 | Named metadata parameters    | Category | Field                                                                                                                 | API tag (at stream_assembly\audio_description\ac3_settings) | Default            |
 | ---------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------ |

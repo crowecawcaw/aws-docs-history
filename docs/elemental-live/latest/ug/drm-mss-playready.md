@@ -1,6 +1,4 @@
-# Microsoft smooth output with
-
-PlayReady
+# Microsoft smooth output with PlayReady
 
 Encryption mode: Always AES CTR (AES-128)
 

@@ -1,6 +1,4 @@
-# Well-formed SMPTE 2038
-
-source
+# Well-formed SMPTE 2038 source
 
 For Elemental Live to handle the ancillary data, the SMPTE 2038 must
 meet certain criteria:

@@ -1,6 +1,4 @@
-# Output types for delivery to an AWS
-
-service
+# Output types for delivery to an AWS service
 
 This table describes options that you can use to send output from
 Elemental Live to a downstream system that is an AWS service. Each row

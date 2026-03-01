@@ -1,6 +1,4 @@
-# Prepare dynamic
-
-playlist input
+# Prepare dynamic playlist input
 
 In the specified event (which must be currently running),
 manually prepare the specified dynamic playlist input either at
@@ -10,9 +8,7 @@ The input being prepared must not be already Active.
 
 ## HTTP Request and Response
 
-### HTTP
-
-URL
+### HTTP URL
 
 ```
 POST http://<Live IP address>/live_events/<event ID>/prepare_input
@@ -49,9 +45,7 @@ Or
 The entire <input> element for the specified
 input.
 
-## Example
-
-1
+## Example 1
 
 ### Request
 
@@ -106,9 +100,7 @@ this example, this input has the ID 194.
 
 ```
 
-## Example
-
-2
+## Example 2
 
 In the event with the ID 31, prepare the input with the ID
 103 and activate the input at 2015123T235959.999:

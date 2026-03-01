@@ -9,9 +9,7 @@ corresponding instructions into the output manifest for the following outputs:
 - RTMP (the instructions are inserted into the data stream,
   given that RTMP does not support manifests).
 
-## How
-
-SCTE-35 events are handled in manifests
+## How SCTE-35 events are handled in manifests
 
 Based on your criteria for creating the event, you
 can
@@ -19,11 +17,11 @@ insert the following information
 into
 the manifest.
 
-| Type of instruction | When inserted                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Base-64             | Information about all SCTE-35 messages in the output is incorporated<br>into the manifest; the entire SCTE-35 message is added in base-64<br>format.                                                                                                                                                                                                                                                                           |
-| Cue-out, Cue-in     | SCTE-35 messages that are ad avails (see [Getting<br>ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) result in the<br>insertion of “cue-out, cue-in” instructions.                                                                                                                                                                                 |
-| Blackout            | Only applies to the SCTE-35 Enhanced ad marker style (for HLS output;<br>see below).<br>SCTE-35 messages that are \*not<br>• ad<br>avails result in the insertion of “blackout start/end” instructions,<br>assuming that blackout is enabled ([Ad avail blanking and<br>blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md")). If blackout is not<br>enabled, these instructions are not inserted. |
+| Type of instruction | When inserted                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Base-64             | Information about all SCTE-35 messages in the output is incorporated<br>into the manifest; the entire SCTE-35 message is added in base-64<br>format.                                                                                                                                                                                                                                                                        |
+| Cue-out, Cue-in     | SCTE-35 messages that are ad avails (see [Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) result in the<br>insertion of “cue-out, cue-in” instructions.                                                                                                                                                                                 |
+| Blackout            | Only applies to the SCTE-35 Enhanced ad marker style (for HLS output;<br>see below).<br>SCTE-35 messages that are \*not<br>• ad<br>avails result in the insertion of “blackout start/end” instructions,<br>assuming that blackout is enabled ([Ad avail blanking and blackout](ad-avail-blanking-and-blackout.md "ad-avail-blanking-and-blackout.md")). If blackout is not<br>enabled, these instructions are not inserted. |
 
 ###### Splice insert mode
 
@@ -58,9 +56,7 @@ manifest.
 | Placement opportunity              | X                      | X       |                 |
 | Other type (e.g. Chapter, Program) | X                      |         | X               |
 
-## Procedure to enable
-
-manifest decoration
+## Procedure to enable manifest decoration
 
 ###### Apple HLS
 
@@ -75,8 +71,7 @@ fields:
 - **Ad Markers**: Click to select a marker
   type. You can select more than one type.
 
-See [Example manifests for Apple
-HLS](example-manifests-hls.md "example-manifests-hls.md") for information about the
+See [Example manifests for Apple HLS](example-manifests-hls.md "example-manifests-hls.md") for information about the
 different of markers.
 
 The manifest for each output includes a separate set of tags for

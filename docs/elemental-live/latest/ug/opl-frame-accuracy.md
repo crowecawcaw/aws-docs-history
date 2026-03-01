@@ -1,6 +1,4 @@
-# About output locking and frame
-
-accuracy
+# About output locking and frame accuracy
 
 You can implement output locking to produce video outputs that are _frame accurate_ with each other. The frames from several outputs are _locked_ together.
 

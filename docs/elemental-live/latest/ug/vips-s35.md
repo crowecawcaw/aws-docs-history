@@ -1,6 +1,4 @@
-# Virtual input switching using SCTE-35
-
-messages
+# Virtual input switching using SCTE-35 messages
 
 This type of input switching works with SCTE-35 messages that are in a transport stream
 source. When Elemental Live encounters an SCTE 35 message in the source, it sends the message to

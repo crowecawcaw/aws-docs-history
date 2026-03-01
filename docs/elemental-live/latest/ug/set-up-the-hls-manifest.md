@@ -1,9 +1,6 @@
-# Set up the HLS Manifest
+# Set up the HLS Manifest (embedded captions)
 
-(embedded captions)
-
-This section applies when you set up the captions encode as described in [Step 1: Identify the
-source captions that you want](identify-captions-in-the-input.md "identify-captions-in-the-input.md"), if the output group is HLS and the output
+This section applies when you set up the captions encode as described in [Step 1: Identify the source captions that you want](identify-captions-in-the-input.md "identify-captions-in-the-input.md"), if the output group is HLS and the output
 captions format is embedded. It describes how to include captions language information
 in the manifest.
 

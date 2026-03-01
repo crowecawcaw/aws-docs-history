@@ -1,13 +1,9 @@
-# VOD outputs: Supported
-
-codecs
+# VOD outputs: Supported codecs
 
 This table specifies the codecs that are supported in output groups
 that support VOD outputs.
 
-Use this table if you identified a use case in [Output types for delivery to an AWS
-service](cc-outputs-aws.md "cc-outputs-aws.md") or [Output types for delivery to
-non-AWS destinations](cc-output-not-aws.md "cc-output-not-aws.md")
+Use this table if you identified a use case in [Output types for delivery to an AWS service](cc-outputs-aws.md "cc-outputs-aws.md") or [Output types for delivery to non-AWS destinations](cc-output-not-aws.md "cc-output-not-aws.md")
 where your output is VOD output.
 
 In the table, find the output group and container (if applicable)

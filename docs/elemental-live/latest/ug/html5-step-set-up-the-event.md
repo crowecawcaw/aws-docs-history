@@ -1,6 +1,4 @@
-# Step C: Set up the
-
-event
+# Step C: Set up the event
 
 You configure the event with all the information about the motion
 overlay. After you start the event, you won't be able to change any

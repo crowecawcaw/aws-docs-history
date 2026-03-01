@@ -1,6 +1,4 @@
-# Scope of ad avail
-
-blanking of SCTE-35 messages
+# Scope of ad avail blanking of SCTE-35 messages
 
 For Ad avail blanking (but not for Blackout), the ad avail mode you set controls
 which SCTE-35 events result in blanking of the content.
@@ -9,8 +7,7 @@ which SCTE-35 events result in blanking of the content.
 
 This table describes which message type/segmentation type
 combination is blanked by Ad avail blanking when the Ad Avail
-mode ([Getting
-ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is
+mode ([Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is
 **Splice Insert mode**.
 
 | Message type ID                    | Segmentation type ID               | Blanked | Not blanked |
@@ -29,8 +26,7 @@ ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "ge
 
 This table describes which message type/segmentation type
 combination is blanked out by Ad avail blanking when the Ad Avail
-mode ([Getting
-ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is
+mode ([Getting ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is
 **Timesignal with APOS mode**.
 
 | Message type ID                    | Segmentation type ID   | Blanked | Not blanked |
@@ -41,9 +37,7 @@ ready: Setting the ad avail mode](getting-ready-setting-the-ad-avail-mode.md "ge
 | Placement opportunity              | X                      |         |
 | Other type (e.g. Chapter, Program) |                        | X       |
 
-###### Ad avail blanking and restriction flags: restrictions in the
-
-input
+###### Ad avail blanking and restriction flags: restrictions in the input
 
 SCTE-35 messages of type **time_signal** always
 contain segmentation descriptors.
@@ -94,9 +88,7 @@ event that is encountered:
 | S3  | True                                                             | False                                                                    | Blanking will occur.     |                                                                                                                     |
 | S4  | False                                                            | True                                                                     | Blanking will occur.     |                                                                                                                     |
 
-###### Ad avail blanking and restriction flags: Elemental Live
-
-handling of restrictions
+###### Ad avail blanking and restriction flags: Elemental Live handling of restrictions
 
 You can modify this default blanking behavior by instructing Elemental Live to ignore a restriction flag that is set to "false", so that blanking will
 not occur for this ad avail event. In other words, to use this logic: “Even if the
@@ -125,9 +117,7 @@ table:
 | S3  | True                                                             | False                                                                    | Ignore “regional delivery” restriction | Blanking will \*not<br>• occur. |
 | S4  | False                                                            | True                                                                     | Ignore “web delivery” restriction      | Blanking will \*not<br>• occur. |
 
-###### Ad avail blanking and restriction flags: restriction flags
-
-with “splice insert”
+###### Ad avail blanking and restriction flags: restriction flags with “splice insert”
 
 If you selected Splice Insert as the Ad Avail mode, then you can assume that the
 SCTE-35 ad avail message not include the two restriction flags described above.

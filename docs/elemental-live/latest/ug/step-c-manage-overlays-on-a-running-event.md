@@ -1,6 +1,4 @@
-# Step
-
-C: Manage overlays on a running event
+# Step C: Manage overlays on a running event
 
 Once the event has started, you can work with static overlays only via the REST
 API. You cannot work with static overlays on a running event via the web interface.
@@ -9,10 +7,8 @@ Change the static overlay or overlays on a running event:
 
 1. If you did not set the `<enable_rest>` element to
    `true` when you created the event, modify the event (PUT Event)
-   and set this value. For the location of this element, see [Modify
-   static overlay on a running event](modify-static-overlay-on-a-running-event.md "modify-static-overlay-on-a-running-event.md").
-2. Send the Modify Static Overlay command (see [Using the REST
-   API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md")) to make the desired
+   and set this value. For the location of this element, see [Modify static overlay on a running event](modify-static-overlay-on-a-running-event.md "modify-static-overlay-on-a-running-event.md").
+2. Send the Modify Static Overlay command (see [Using the REST API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md")) to make the desired
    change to the static overlays in the event.
 
 ###### Runtime REST commands change the event XML
@@ -67,9 +63,7 @@ If you include a start time in the XML body, the overlay will be inserted
 at that at start time. If that start time is in the past, the overlay will
 be inserted immediately.
 
-## Types of
-
-changes
+## Types of changes
 
 ###### Add an overlay in a layer
 
@@ -78,8 +72,7 @@ layers when creating the event, you can add more static overlays, up to a total
 of 8 for the event. Or if you already deleted a layer (as described below), you
 can fill it with a new static overlay.
 
-You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic
-overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
+You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
 and include the following tags in the XML body:
 
 - layer: The (unused) layer where you want to add the static overlay.
@@ -101,8 +94,7 @@ following:
 You can change the static overlay’s start time or duration. Or you can change
 its position. Or you can change the actual overlay that runs.
 
-You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic
-overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
+You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
 and include the following tags in the XML body:
 
 - layer: The layer whose static overlay you want to modify.
@@ -119,8 +111,7 @@ not yet run, it will not run. If the static overlay is currently running, it
 will be removed. If the static overlay has already run, there is not really any
 need to delete the content.
 
-You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic
-overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
+You must enter a Modify Static Overlay command ([Create or modify a non-running event with static graphic overlay](create-or-modify-a-non-running-event-with-static-graphic-overlay.md "create-or-modify-a-non-running-event-with-static-graphic-overlay.md"))
 and include the following tags in the XML body:
 
 - layer: The layer to delete.

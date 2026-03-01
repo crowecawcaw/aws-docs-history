@@ -1,6 +1,4 @@
-# Rules for rendition
-
-groups
+# Rules for rendition groups
 
 Rules exist for associating both audio and video streams in their respective rendition
 groups. These are described following.
@@ -19,5 +17,4 @@ must contain the same audio streams (perhaps English, French and Spanish)).
   low.” You do not need to create two rendition groups, one for each video.)
 - Any video stream can be associated with more than one output group. (For example, “video
   high” can appear in two different HLS output groups).
-  You can use a combination of these rules. For more information, see [Examples of HLS rendition
-  groups](hls-rendition-groups-examples.md "hls-rendition-groups-examples.md").
+  You can use a combination of these rules. For more information, see [Examples of HLS rendition groups](hls-rendition-groups-examples.md "hls-rendition-groups-examples.md").

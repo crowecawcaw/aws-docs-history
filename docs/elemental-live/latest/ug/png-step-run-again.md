@@ -1,6 +1,4 @@
-# Step D: Run the event
-
-again
+# Step D: Run the event again
 
 You might want to run the same event again. If you do so, make
 sure that the motion overlay is set up correctly. You must do this

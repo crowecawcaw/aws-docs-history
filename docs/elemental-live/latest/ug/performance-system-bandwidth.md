@@ -3,9 +3,7 @@
 System bandwidth is the rate at which network and data traffic moves
 between process on each core, and between those cores and memory.
 
-## Impact of system
-
-bandwidth issues
+## Impact of system bandwidth issues
 
 Typically, system bandwidth rates don't create performance problems on
 Elemental Live appliances.
@@ -17,9 +15,7 @@ see [Assessing performance with logging messages](performance-via-logs.md "perfo
 If you suspect that system bandwidth is causing these problems, reduce
 density on the appliance.
 
-## Measuring system
-
-bandwidth
+## Measuring system bandwidth
 
 The `amd_bandwidth` utility is included in Elemental Live
 versions 2.18.6 and later.

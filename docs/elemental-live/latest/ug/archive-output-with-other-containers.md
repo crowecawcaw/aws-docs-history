@@ -1,6 +1,4 @@
-# Archive
-
-output with other containers
+# Archive output with other containers
 
 Other archive outputs do not support passthrough of the
 SCTE-35 messages or manifest decoration. Therefore, the only

@@ -1,6 +1,4 @@
-# Archive
-
-output with MPEG-2 container
+# Archive output with MPEG-2 container
 
 A transport stream (TS) in an MPEG-2 container supports
 passthrough of the SCTE-35 messages, but it does not support

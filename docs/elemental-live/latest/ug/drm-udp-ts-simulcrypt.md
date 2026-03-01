@@ -1,6 +1,4 @@
-# UDP/TS outputs with DVB Simulcrypt
-
-Standard
+# UDP/TS outputs with DVB Simulcrypt Standard
 
 Encryption mode: Always AES CBC as described in ATIS-0800006
 

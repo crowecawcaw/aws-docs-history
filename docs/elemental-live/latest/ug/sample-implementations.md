@@ -1,10 +1,6 @@
-# Sample
+# Sample implementations
 
-implementations
-
-## Implementing use
-
-case 1
+## Implementing use case 1
 
 Use case 1 is described [here](typical-use-cases.md#use-case-1 "typical-use-cases.md#use-case-1").
 
@@ -32,9 +28,7 @@ activate time for the fourth input. The third input
 will be interrupted by the fourth input at this
 time.
 
-## Implementing use
-
-case 2
+## Implementing use case 2
 
 Use case 2 is described [here](typical-use-cases.md#use-case-2 "typical-use-cases.md#use-case-2").
 
@@ -66,9 +60,7 @@ completed. 3. When the last file input becomes Active:
     * Prepare the live input you are returning
      to.
 
-## Implementing use
-
-case 3
+## Implementing use case 3
 
 Use case 3 is described [here](typical-use-cases.md#use-case-3 "typical-use-cases.md#use-case-3").
 
@@ -95,9 +87,7 @@ Use case 3 is described [here](typical-use-cases.md#use-case-3 "typical-use-case
 5. If another unanticipated event occurs, you can
    switch again to the second input.
 
-## Implementing use
-
-case 4
+## Implementing use case 4
 
 Use case 4 is described [here](typical-use-cases.md#use-case-4 "typical-use-cases.md#use-case-4").
 
@@ -118,9 +108,7 @@ Use case 4 is described [here](typical-use-cases.md#use-case-4 "typical-use-case
      input using the web interface control.
    - Prepare the live input you are returning to.
 
-## Implementing use
-
-case 5
+## Implementing use case 5
 
 Use case 5 is described [here](typical-use-cases.md#use-case-5 "typical-use-cases.md#use-case-5").
 
@@ -154,9 +142,7 @@ Use case 5 is described [here](typical-use-cases.md#use-case-5 "typical-use-case
 
 5.  Repeat as required.
 
-## Implementing use
-
-case 6
+## Implementing use case 6
 
 Use case 6 is described [here](typical-use-cases.md#use-case-6 "typical-use-cases.md#use-case-6").
 

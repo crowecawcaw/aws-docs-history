@@ -16,22 +16,17 @@ parameter.
 - **B-Frames** [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
 
 - **Bitrate**
-  [Setting up QVBR and rate
-  control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
+  [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
 - **Buffer Size**
-  [Setting up QVBR and rate
-  control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
+  [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
 - **Initial Buffer Fill %**
-  [Setting up QVBR and rate
-  control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
+  [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
 - **CABAC**
-  [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+  [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - **Closed GOP Cadence**
   [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
 - **Density vs Quality**
-  [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+  [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - **Flicker AQ**
   [Quantization controls](vq-quantization.md "vq-quantization.md")
 - **Framerate** [Frame rate conversion](vq-framerate-conversion.md "vq-framerate-conversion.md")
@@ -46,27 +41,22 @@ parameter.
 - **Interpolated**
   [Frame rate conversion](vq-framerate-conversion.md "vq-framerate-conversion.md")
 - **Lookahead**
-  [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+  [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - **Max Bitrate**
-  [Setting up QVBR and rate
-  control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
+  [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
 - **Min I-interval**
   [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
 - **Noise Reducer**
   [Noise reduction](vq-noise-reduction.md "vq-noise-reduction.md")
 - **Profile**
-  [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+  [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - **Rate Control Mode**
-  [Setting up QVBR and rate
-  control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
+  [Setting up QVBR and rate control mode](qvbr-and-rate-control-mode.md "qvbr-and-rate-control-mode.md")
 - **Reference Frames** [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
 - **Scene Change Detect**
   [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
 - **Slices**
-  [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+  [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - **Softness**
   [Quantization controls](vq-quantization.md "vq-quantization.md")
 - **Spatial AQ**
@@ -78,8 +68,7 @@ parameter.
 
 - [Frame rate conversion](vq-framerate-conversion.md "vq-framerate-conversion.md")
 - [Group of pictures (GOP) configuration](vq-gop.md "vq-gop.md")
-- [Miscellaneous video tuning
-  parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
+- [Miscellaneous video tuning parameters](vq-miscellaneous-tuning.md "vq-miscellaneous-tuning.md")
 - [Noise reduction](vq-noise-reduction.md "vq-noise-reduction.md")
 - [Quantization controls](vq-quantization.md "vq-quantization.md")
 - [Rate control mode](vq-rate-control-mode.md "vq-rate-control-mode.md")

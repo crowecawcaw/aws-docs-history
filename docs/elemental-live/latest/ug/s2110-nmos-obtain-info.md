@@ -1,6 +1,4 @@
-# Obtain information from the NMOS
-
-operator
+# Obtain information from the NMOS operator
 
 Speak to the NMOS operator in your organization to make sure that you are aligned on
 the content of the streams.

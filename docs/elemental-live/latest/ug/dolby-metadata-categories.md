@@ -1,6 +1,4 @@
-# Categories of metadata: Delivered
-
-and encoder control
+# Categories of metadata: Delivered and encoder control
 
 There are two categories of parameters in the Dolby metadata, characterized by how
 Elemental Live uses it:

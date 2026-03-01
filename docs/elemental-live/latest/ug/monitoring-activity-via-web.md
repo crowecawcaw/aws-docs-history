@@ -1,6 +1,4 @@
-# Monitoring
-
-activity through the web interface
+# Monitoring activity through the web interface
 
 The operator can monitor dynamic playlist activity through the
 Elemental Live web interface.
@@ -15,9 +13,7 @@ Elemental Live web interface.
 
 ![GUI input controls.](images/playlist_GUI_input_controls.png)
 
-## Status
-
-information
+## Status information
 
 | Input background | Icon in control column | State          |
 | ---------------- | ---------------------- | -------------- |

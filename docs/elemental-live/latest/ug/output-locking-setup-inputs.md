@@ -1,6 +1,4 @@
-# Step 2: Set up inputs in the
-
-events
+# Step 2: Set up inputs in the events
 
 After you have identified the sources and ensured that they [support output
 locking](output-locking-requirements.md#output-locking-output-requirements "output-locking-requirements.md#output-locking-output-requirements"), you can set them up in the event as inputs.

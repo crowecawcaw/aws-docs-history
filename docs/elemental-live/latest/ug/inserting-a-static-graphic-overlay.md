@@ -8,8 +8,7 @@
 
 You can implement all features described in this section via REST as well as the web
 interface. This section describes how to use the web interface to insert a graphic
-overlay. For instructions on doing so via REST, see [Using the REST
-API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md").
+overlay. For instructions on doing so via REST, see [Using the REST API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md").
 
 The following are valid web interface and REST API combinations:
 
@@ -24,9 +23,6 @@ The following are valid web interface and REST API combinations:
 
 ###### Topics
 
-- [Step A:
-  Prepare the overlay asset](step-a-prepare-the-overlay-asset.md "step-a-prepare-the-overlay-asset.md")
-- [Step B: Initial
-  setup](step-b-initial-setup.md "step-b-initial-setup.md")
-- [Step
-  C: Manage overlays on a running event](step-c-manage-overlays-on-a-running-event.md "step-c-manage-overlays-on-a-running-event.md")
+- [Step A: Prepare the overlay asset](step-a-prepare-the-overlay-asset.md "step-a-prepare-the-overlay-asset.md")
+- [Step B: Initial setup](step-b-initial-setup.md "step-b-initial-setup.md")
+- [Step C: Manage overlays on a running event](step-c-manage-overlays-on-a-running-event.md "step-c-manage-overlays-on-a-running-event.md")

@@ -1,6 +1,4 @@
-# Examples of HLS rendition
-
-groups
+# Examples of HLS rendition groups
 
 ## Example 1
 

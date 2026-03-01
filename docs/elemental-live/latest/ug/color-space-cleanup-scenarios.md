@@ -1,6 +1,4 @@
-# Step 2: Choose a clean-up
-
-scenario
+# Step 2: Choose a clean-up scenario
 
 Read the following scenarios to decide if you need to clean up the
 color space metadata in each input.

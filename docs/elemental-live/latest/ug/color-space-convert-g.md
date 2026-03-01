@@ -11,8 +11,7 @@ values:
   See [the sections](color-space-conversion-results.md "color-space-conversion-results.md")
   that describe the other conversions.
 - It doesn't change the pixel values for video in unsupported color
-  spaces, or video that has no color space metadata. See [Handling of unsupported
-  color spaces](color-space-conversions.md#color-space-unsupported-handling "color-space-conversions.md#color-space-unsupported-handling") for more information.
+  spaces, or video that has no color space metadata. See [Handling of unsupported color spaces](color-space-conversions.md#color-space-unsupported-handling "color-space-conversions.md#color-space-unsupported-handling") for more information.
 - It doesn't change the pixel values for Dolby Vision 8.1 video because
   Elemental Live doesn't read the color space metadata for Dolby Vision. On
   the input side, Elemental Live treats Dolby Vision 8.1 as an unknown color

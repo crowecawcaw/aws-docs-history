@@ -1,7 +1,4 @@
-# Support for NMOS IS-04
-
-stream
-discovery
+# Support for NMOS IS-04 stream discovery
 
 Elemental Live supports NMOS IS-04
 with

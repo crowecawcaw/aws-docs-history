@@ -1,6 +1,4 @@
-# Procedure to enable
-
-blackout
+# Procedure to enable blackout
 
 ###### To enable blackout
 

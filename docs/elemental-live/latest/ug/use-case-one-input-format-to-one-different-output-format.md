@@ -1,7 +1,4 @@
-#
-
-Use case 2: One input format converted to one different output
-format
+# Use case 2: One input format converted to one different output format
 
 This example shows how to implement [the second use case](typical-scenarios.md#use-case-one-input-format-to-different-output-formats "typical-scenarios.md#use-case-one-input-format-to-different-output-formats")
 from the typical scenarios. The input includes two captions languages, and the single output

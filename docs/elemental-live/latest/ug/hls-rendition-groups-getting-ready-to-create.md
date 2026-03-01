@@ -1,14 +1,9 @@
-# Getting ready
+# Getting ready to create HLS rendition groups
 
-to create HLS rendition groups
-
-## Step 1.
-
-Create a mapping
+## Step 1. Create a mapping
 
 Identify the video, audio, audio rendition groups and captions you require. Review the
-[Rules for rendition
-groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md") to ensure you design an output that is valid. For
+[Rules for rendition groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md") to ensure you design an output that is valid. For
 example:
 
 - Video “high definition.”

@@ -1,6 +1,4 @@
-# Setting up the event to use the
-
-ancillary data
+# Setting up the event to use the ancillary data
 
 After you have enabled SMPTE 2038, you should specify how you want
 Elemental Live to use the timecode, captions, AFD signals, and SCTE 104
@@ -61,5 +59,4 @@ with the general steps for creating an event.
   - If you don't want to include the SCTE 35 messages in the
     output – There is nothing you need to do because omitting
     the messages is the default behavior.
-  - If you want to work with the messages – See [SCTE-35 and SCTE-104 message
-    processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").
+  - If you want to work with the messages – See [SCTE-35 and SCTE-104 message processing in Elemental Live](scte-message-processing.md "scte-message-processing.md").

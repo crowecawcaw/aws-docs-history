@@ -1,6 +1,4 @@
-# Implementing a trick-play
-
-track
+# Implementing a trick-play track
 
 Trick-play is used in digital video players to mimic some capabilities
 of analog players, including fast-forward and rewind capabilities. These
@@ -17,9 +15,7 @@ Elemental Live provides two methods for including these assets:
 - A trick-play track that conforms with the Image Media Playlist
   specification, version 0.4.
 
-## Choosing an implementation of
-
-trick-play track
+## Choosing an implementation of trick-play track
 
 You can follow one or both trick-play methods in the same output
 group.
@@ -54,7 +50,5 @@ these implementations to be optional.
 
 ###### Topics
 
-- [Trick-play track via
-  I-frames](trick-play-i-frames.md "trick-play-i-frames.md")
-- [Trick-play track via the Image
-  Media Playlist specification](trick-play-roku.md "trick-play-roku.md")
+- [Trick-play track via I-frames](trick-play-i-frames.md "trick-play-i-frames.md")
+- [Trick-play track via the Image Media Playlist specification](trick-play-roku.md "trick-play-roku.md")

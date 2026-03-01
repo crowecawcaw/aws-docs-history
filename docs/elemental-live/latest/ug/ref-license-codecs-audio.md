@@ -1,6 +1,4 @@
-# Add-on packages for audio
-
-codecs
+# Add-on packages for audio codecs
 
 Some audio codecs require an add-on package. This table lists audio
 codecs in alphabetical order. Each row identifies whether Elemental Live

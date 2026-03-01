@@ -1,9 +1,6 @@
-# Font styles for
+# Font styles for Burn-in or DVB-Sub Captions
 
-Burn-in or DVB-Sub Captions
-
-When you set up the captions encode as described in [All captions except sidecar
-or SMPTE-TT in MS Smooth](output-embedded-and-more.md "output-embedded-and-more.md"), you can specify the appearance of the captions
+When you set up the captions encode as described in [All captions except sidecar or SMPTE-TT in MS Smooth](output-embedded-and-more.md "output-embedded-and-more.md"), you can specify the appearance of the captions
 if the output captions are Burn-in or DVB-Sub. In the following table, the first column
 shows the field name, the third column specifies how to complete the field, and the
 third column specifies whether the description applies to Burn-in or DVB-Sub.

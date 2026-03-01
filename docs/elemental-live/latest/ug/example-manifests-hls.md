@@ -1,13 +1,9 @@
-# Example manifests for Apple
-
-HLS
+# Example manifests for Apple HLS
 
 This section lists example manifests for the Apple HLS manifest styles that AWS
 Elemental supports.
 
-## Example manifest
-
-for Adobe ad marker
+## Example manifest for Adobe ad marker
 
 This does not insert any CUE-OUT CONT (continuation tags) to indicate to a player
 joining mid-break that there is a current avail. This does not insert a CUE-IN tag at
@@ -35,9 +31,7 @@ The following is the tag for an ad avail lasting 414.171 PTS.
 #EXT-X-CUE:DURATION="201.467",ID="0",TYPE="SpliceOut",TIME="414.171"
 ```
 
-## Example
-
-manifest for AWS Elemental ad marker
+## Example manifest for AWS Elemental ad marker
 
 **Structure**
 

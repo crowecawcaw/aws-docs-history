@@ -2,32 +2,19 @@
 
 ###### Topics
 
-- [Step A: Design the dynamic
-  playlist](#step-design "#step-design")
-- [Step B: Create and start the
-  event](#step-create "#step-create")
-- [Step C: Add more
-  inputs](#step-add-more-inputs "#step-add-more-inputs")
-- [Step D: Prepare
-  inputs](#step-prepare "#step-prepare")
-- [Step E: Activate
-  inputs](#step-active "#step-active")
-- [Step F: Continue adding to
-  the dynamic playlist](#step-add-more "#step-add-more")
-- [Step G: Interrupt the
-  currently active input](#step-interrupt "#step-interrupt")
-- [Step H: Clean up the
-  playlist](#step-clean "#step-clean")
-- [Step I:
-  Troubleshoot](#step-troubleshoot "#step-troubleshoot")
+- [Step A: Design the dynamic playlist](#step-design "#step-design")
+- [Step B: Create and start the event](#step-create "#step-create")
+- [Step C: Add more inputs](#step-add-more-inputs "#step-add-more-inputs")
+- [Step D: Prepare inputs](#step-prepare "#step-prepare")
+- [Step E: Activate inputs](#step-active "#step-active")
+- [Step F: Continue adding to the dynamic playlist](#step-add-more "#step-add-more")
+- [Step G: Interrupt the currently active input](#step-interrupt "#step-interrupt")
+- [Step H: Clean up the playlist](#step-clean "#step-clean")
+- [Step I: Troubleshoot](#step-troubleshoot "#step-troubleshoot")
 
-## Step A: Design the dynamic
+## Step A: Design the dynamic playlist
 
-playlist
-
-### Identify
-
-inputs
+### Identify inputs
 
 1. Identify the inputs and the order in which they are
    to play.
@@ -69,9 +56,7 @@ below), you will need a placeholder input. Read the
 procedure in Step E: so that you can prepare this input
 now.
 
-## Step B: Create and start the
-
-event
+## Step B: Create and start the event
 
 4. Create the event with only the first input. (If the
    event contains more than one input, the others will be
@@ -84,9 +69,7 @@ the different use cases.
 5. Start the event. Use the REST API or the web interface.
    Processing starts on that single input.
 
-## Step C: Add more
-
-inputs
+## Step C: Add more inputs
 
 6. Once the event has been started, you can create the
    dynamic playlist in order to add more inputs to the event.
@@ -98,23 +81,18 @@ playlist:
   create an array of inputs that are appended to the
   inputs currently in the event. Up to 29 inputs can
   be added in this way. For more information, see
-  [Add dynamic
-  playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
+  [Add dynamic playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
 - Use the Replace Dynamic List command to create an
   array of inputs that replaces the existing dynamic
   playlist (except for the currently running input).
   You can add any number of inputs this way. For more
-  information, see [Replace dynamic
-  playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
+  information, see [Replace dynamic playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
 
-## Step D: Prepare
-
-inputs
+## Step D: Prepare inputs
 
 7. If you have identified inputs that must be manually
    prepared, then as soon as one of those inputs becomes “next
-   in line”, you prepare it by calling [Prepare dynamic
-   playlist input](prepare-dynamic-playlist-input.md "prepare-dynamic-playlist-input.md").
+   in line”, you prepare it by calling [Prepare dynamic playlist input](prepare-dynamic-playlist-input.md "prepare-dynamic-playlist-input.md").
 
 - Time the preparation correctly: For a live input,
   you must prepare enough time in advance to allow
@@ -142,12 +120,9 @@ obviously uses processing resources.
   prepare the next input until input A is active. If
   you do, input A may not start as expected.
 
-For more information about the rules around preparation, see [Details on
-preparing inputs](details-on-preparing-inputs.md "details-on-preparing-inputs.md").
+For more information about the rules around preparation, see [Details on preparing inputs](details-on-preparing-inputs.md "details-on-preparing-inputs.md").
 
-## Step E: Activate
-
-inputs
+## Step E: Activate inputs
 
 8. For each input that must start at a specific time, set
    the activate time when the input is next in line.
@@ -186,9 +161,7 @@ placeholder will play. When the activate time for input
 B arrives, the placeholder will be interrupted by input
 B. Input B will start at the scheduled time.
 
-## Step F: Continue adding to
-
-the dynamic playlist
+## Step F: Continue adding to the dynamic playlist
 
 9. As inputs are run, add more inputs to the event.
 
@@ -200,13 +173,10 @@ the dynamic playlist
   [Replace
   Dynamic List](replace-dynamic-playlist.md "replace-dynamic-playlist.md") command.
 
-## Step G: Interrupt the
-
-currently active input
+## Step G: Interrupt the currently active input
 
 Occasionally, you may need to interrupt the current active
-input and start a different input (input B). See [Implementing use
-case 3](sample-implementations.md#implementing-use-case-3 "sample-implementations.md#implementing-use-case-3") for an example
+input and start a different input (input B). See [Implementing use case 3](sample-implementations.md#implementing-use-case-3 "sample-implementations.md#implementing-use-case-3") for an example
 of an unanticipated interruption.
 
 - If necessary, add input B to the dynamic playlist.
@@ -215,29 +185,23 @@ of an unanticipated interruption.
     inserted at the top, using the Replace
     Dynamic Playlist command. The currently
     active input will not be removed when you do
-    this. For more information, see [Replace dynamic
-    playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
+    this. For more information, see [Replace dynamic playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
   - Append input B to the end of the playlist,
     using the Add Dynamic Playlist Inputs
     command. The drawback to this method is that
     the input appears at the end of the playlist
     on the web interface, but then gets
     activated, which may confuse your operators.
-    For more information, see [Add dynamic
-    playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
+    For more information, see [Add dynamic playlist inputs](add-dynamic-playlist-inputs.md "add-dynamic-playlist-inputs.md").
 
 - If input B is a live input, prepare it using the
   Prepare Dynamic Playlist command. For more
-  information, see [Prepare dynamic
-  playlist input](prepare-dynamic-playlist-input.md "prepare-dynamic-playlist-input.md").
+  information, see [Prepare dynamic playlist input](prepare-dynamic-playlist-input.md "prepare-dynamic-playlist-input.md").
 - Use the Activate Dynamic List Input command
   (without an activate time) to immediately activate
-  the input. For more information, see [Activate
-  dynamic playlist input](activate-dynamic-playlist-input.md "activate-dynamic-playlist-input.md").
+  the input. For more information, see [Activate dynamic playlist input](activate-dynamic-playlist-input.md "activate-dynamic-playlist-input.md").
 
-## Step H: Clean up the
-
-playlist
+## Step H: Clean up the playlist
 
 10. The dynamic playlist is never automatically cleaned
     up; even after an input has been processed, it remains on
@@ -246,17 +210,13 @@ playlist
 - If you use the Replace Dynamic Playlist command,
   the entire playlist is replaced, which effectively
   cleans up old inputs. Fore more information, see
-  [Replace dynamic
-  playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
+  [Replace dynamic playlist](replace-dynamic-playlist.md "replace-dynamic-playlist.md").
 - If you use the Add Dynamic Playlist Inputs
   command, then you may want to occasionally use the
   Delete Dynamic Playlist Input command. For more
-  information, see [Delete dynamic
-  playlist input](delete-dynamic-playlist-input.md "delete-dynamic-playlist-input.md").
+  information, see [Delete dynamic playlist input](delete-dynamic-playlist-input.md "delete-dynamic-playlist-input.md").
 
-## Step I:
-
-Troubleshoot
+## Step I: Troubleshoot
 
 If the dynamic playlist is not behaving as expected, see the information about
 preparation and activation, starting [here](details-on-preparing-inputs.md "details-on-preparing-inputs.md"). You may have broken a preparation or activation rule.

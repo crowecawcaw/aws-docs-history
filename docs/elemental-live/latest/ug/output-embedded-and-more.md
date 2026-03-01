@@ -1,14 +1,10 @@
-# All captions except sidecar
-
-or SMPTE-TT in MS Smooth
+# All captions except sidecar or SMPTE-TT in MS Smooth
 
 Follow this procedure if the format of the captions asset that you want to add belongs
 to the category of embedded, burn-in, or object. You will
 set up the captions and video and audio in the same output.
 
-###### To create captions (_not_ sidecar or
-
-SMPTE-TT)
+###### To create captions (_not_ sidecar or SMPTE-TT)
 
 1. On the web interface, on the **Event** screen, click the
    appropriate output group.
@@ -30,12 +26,11 @@ SMPTE-TT)
 | Font style fields          | Destination type is Burn-in or DVB-Sub                                                                                                                                                                  | For tips about font styles in DVB-Sub or burn-in, see [Font Styles for Burn-in or<br>DVB-Sub Output](font-styles-for-burn-in-or-dvbsub.md "font-styles-for-burn-in-or-dvbsub.md").                                                                                                                                                                                           |
 | Language                   | All captions except not for embedded-to-embedded or<br>teletext-to-teletext.                                                                                                                            | Complete if desired. This information may be useful to or required by a<br>downstream system.<br>For embedded-to-embedded or teletext-to-teletext, leave as<br>Undefined.                                                                                                                                                                                                    |
 | Description                | All captions except not for embedded-to-embedded.                                                                                                                                                       | This field is auto-completed after you specify the language.                                                                                                                                                                                                                                                                                                                 |
-| Use ID3 as Caption Content | Destination type is TTML<br>And if this stream is associated with an MS Smooth output.                                                                                                                  | Leave unchecked.<br>This field applies only when wrapping TTML captions in ID3; see [TTML captions wrapped in ID3<br>data](output-ttml-in-id3.md "output-ttml-in-id3.md").                                                                                                                                                                                                   |
+| Use ID3 as Caption Content | Destination type is TTML<br>And if this stream is associated with an MS Smooth output.                                                                                                                  | Leave unchecked.<br>This field applies only when wrapping TTML captions in ID3; see [TTML captions wrapped in ID3 data](output-ttml-in-id3.md "output-ttml-in-id3.md").                                                                                                                                                                                                      |
 
 6. If the output format is embedded and the output group is HLS, you can include
    captions language information in the manifest. You perform this setup in the output
-   settings (separate from the captions encode). See [Set up the HLS Manifest
-   (embedded captions)](set-up-the-hls-manifest.md "set-up-the-hls-manifest.md").
+   settings (separate from the captions encode). See [Set up the HLS Manifest (embedded captions)](set-up-the-hls-manifest.md "set-up-the-hls-manifest.md").
 7. If the output format is ARIB or DVB-Sub or SCTE-27, you must perform some extra
    setup in the output settings (separate from the captions encode). See [PIDS for ARIB output](complete-the-pids-for-arib.md "complete-the-pids-for-arib.md") or [PIDs for DVB-Sub output](complete-the-pids-for-dvb-sub.md "complete-the-pids-for-dvb-sub.md")
    or
@@ -47,12 +42,9 @@ SMPTE-TT)
     field in that output to match the stream you created.
 11. When you are ready, save the event.
 
-If the “Caption Stream Incompatible” message appears, see ["Caption
-Stream Incompatible" message](#embedded-caption-incompatible-message "#embedded-caption-incompatible-message").
+If the “Caption Stream Incompatible” message appears, see ["Caption Stream Incompatible" message](#embedded-caption-incompatible-message "#embedded-caption-incompatible-message").
 
-## "Caption
-
-Stream Incompatible" message
+## "Caption Stream Incompatible" message
 
 When you save the event, this validation message might appear:
 

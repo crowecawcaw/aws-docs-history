@@ -29,8 +29,6 @@ to enable OCR conversion.
 **Using OCR conversion**
 
 For more information about setting up to convert captions using OCR,
-see [Sidecar captions or
-SMPTE-TT captions in MS Smooth](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md").
+see [Sidecar captions or SMPTE-TT captions in MS Smooth](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md").
 
-For a list of languages supported with OCR conversion, see [Reference: Languages supported
-with OCR captions](captions-ocr-languages.md "captions-ocr-languages.md").
+For a list of languages supported with OCR conversion, see [Reference: Languages supported with OCR captions](captions-ocr-languages.md "captions-ocr-languages.md").

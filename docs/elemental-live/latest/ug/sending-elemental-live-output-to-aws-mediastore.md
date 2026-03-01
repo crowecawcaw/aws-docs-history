@@ -1,6 +1,4 @@
-# Sending
-
-Elemental Live output to AWS Elemental MediaStore
+# Sending Elemental Live output to AWS Elemental MediaStore
 
 In AWS Elemental Live , you can set up a container on AWS Elemental MediaStore as the destination for Apple HLS and DASH outputs.
 
@@ -98,9 +96,7 @@ Follow this procedure to create a user:
    instead of sending the user name and password. These IDs provide authorization to AWS for
    the Elemental Live node to make requests to MediaStore.
 
-## Step
-
-B: Create the Elemental Live output group
+## Step B: Create the Elemental Live output group
 
 To set up MediaStore as the destination in the HLS or DASH output group:
 

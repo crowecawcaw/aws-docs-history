@@ -1,6 +1,4 @@
-# Get ready: Remove bonded
-
-interfaces
+# Get ready: Remove bonded interfaces
 
 Read this section if you plan to implement redundant outputs with SMPTE 2022-6.
 

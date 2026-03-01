@@ -1,6 +1,4 @@
-# Procedure to
-
-enable ad avail blanking
+# Procedure to enable ad avail blanking
 
 ###### To enable ad avail blanking
 

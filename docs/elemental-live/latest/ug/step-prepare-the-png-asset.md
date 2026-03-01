@@ -1,6 +1,4 @@
-# Step A: Prepare the png
-
-asset
+# Step A: Prepare the png asset
 
 1. Create a file – Use a third-party process to convert
    an animation asset to a series of PNG files.

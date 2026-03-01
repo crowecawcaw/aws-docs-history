@@ -4,9 +4,7 @@ I/O bandwidth is the rate at which the CPU reads from input or writes
 to output through a network interface card. Therefore, network inputs and
 outputs affect I/O bandwidth. SDI inputs don't affect I/O bandwidth.
 
-## Impact of I/O bandwidth
-
-issues
+## Impact of I/O bandwidth issues
 
 Lack of the required input bandwidth typically results in dropped
 frames in the output encodes.
@@ -43,9 +41,7 @@ Following are the expected bandwidths on the Mellanox card:
     + For SMPTE 2110 workflows, expect approximately 24.5 Gbps per
      Mellanox port.
 
-## Expected bandwidth for
-
-individual workflows
+## Expected bandwidth for individual workflows
 
 The following table illustrates the difference in bandwidth that's required for two
 different inputs (SMPTE 2110 and SMPTE 2022-6) with two different output resolutions (HD and

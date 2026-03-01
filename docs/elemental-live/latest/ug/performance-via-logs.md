@@ -7,9 +7,7 @@ When there are encoding problems, the first recourse of Elemental Live is to aut
 lower the output quality. The next recourse is to drop or repeat frames. Elemental Live never
 chooses to slow down output, because then it would not be running in real time.
 
-## Viewing relevant logging
-
-messages
+## Viewing relevant logging messages
 
 You can parse the log files for information that is useful for
 identifying density, speed, or quality issues.
@@ -26,9 +24,7 @@ the following table. The command searches in the specified path on the
 appliance. Note that `10000` is the name of the folder where logs are
 stored.
 
-## Messages and their
-
-meaning
+## Messages and their meaning
 
 The following table lists the Elemental Live messages that relate to
 performance, and identifies possible causes of the message.
@@ -43,5 +39,4 @@ performance, and identifies possible causes of the message.
 ## Dealing with issues
 
 The solution to dropped or repeated frames is typically to decrease density on the
-appliance. You might also fine tune the video quality. See [Encoding parameters that affect
-performance](performance-encoding-params.md "performance-encoding-params.md").
+appliance. You might also fine tune the video quality. See [Encoding parameters that affect performance](performance-encoding-params.md "performance-encoding-params.md").

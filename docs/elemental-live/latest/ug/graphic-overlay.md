@@ -1,6 +1,4 @@
-# Overview of graphic overlay
-
-solutions
+# Overview of graphic overlay solutions
 
 You can insert a graphic onto the video in an Elemental Live event
 using the graphic overlay feature. There are two types of graphic overlay
@@ -10,8 +8,7 @@ available — static and motion.
 
 - [Static overlay](#about-static-overlay "#about-static-overlay")
 - [Motion graphic overlay](#about-motion-overlay "#about-motion-overlay")
-- [Inserting both
-  types of overlay](#supported-combinations-of-features "#supported-combinations-of-features")
+- [Inserting both types of overlay](#supported-combinations-of-features "#supported-combinations-of-features")
 
 ## Static overlay
 
@@ -59,12 +56,9 @@ You can insert an animation in one of the following ways:
   `.png` files to be inserted one after the other to
   create an animation.
 
-For more information, see [Insert a motion graphic overlay
-in Elemental Live](motion-graphic-overlay.md "motion-graphic-overlay.md").
+For more information, see [Insert a motion graphic overlay in Elemental Live](motion-graphic-overlay.md "motion-graphic-overlay.md").
 
-## Inserting both
-
-types of overlay
+## Inserting both types of overlay
 
 You can insert both static overlays and one motion overlay onto the
 underlying video.

@@ -1,13 +1,9 @@
-# Trick-play track via
-
-I-frames
+# Trick-play track via I-frames
 
 In an HLS output group, you can support a trick-play track by
 providing an I-frame-only manifest.
 
-## How the method
-
-works
+## How the method works
 
 When you create the HLS output group, you create one or more video outputs,
 in

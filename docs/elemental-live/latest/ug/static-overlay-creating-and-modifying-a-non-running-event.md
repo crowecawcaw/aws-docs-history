@@ -1,10 +1,6 @@
-# Static overlay, creating and modifying a non-running
+# Static overlay, creating and modifying a non-running event
 
-event
-
-## Overlays at top
-
-level
+## Overlays at top level
 
 |                   |                     |                         |                  |
 | ----------------- | ------------------- | ----------------------- | ---------------- |
@@ -31,9 +27,7 @@ level
 |                   | </insertable_image> |                         |                  |
 | </image_inserter> |                     |                         |                  |
 
-## Overlays in input
-
-section
+## Overlays in input section
 
 **Data in <input> element**
 
@@ -62,9 +56,7 @@ section
 |         |                  |                     | </image_inserter_input> |                  |
 |         |                  | </insertable_image> |                         |                  |
 
-## Overlays in
-
-Ssream assembly section
+## Overlays in Ssream assembly section
 
 **Data in <stream_assembly>**
 

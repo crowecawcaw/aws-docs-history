@@ -1,6 +1,4 @@
-# Resiliency scenario A: Supporting NMOS
-
-patching
+# Resiliency scenario A: Supporting NMOS patching
 
 With this setup, the NMOS controller can send SDP content that provides patching
 instructions to Elemental Live. For example, in a curling match, it can send a patch that

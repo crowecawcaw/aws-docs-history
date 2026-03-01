@@ -1,6 +1,4 @@
-# Completing the
-
-fields in the captions selector group
+# Completing the fields in the captions selector group
 
 - **Source**:
   - Choose embedded if the source captions are embedded (EIA-608 or CEA-708),

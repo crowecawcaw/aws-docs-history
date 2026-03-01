@@ -1,11 +1,8 @@
-# Supported source captions
-
-and output captions in a raw output container
+# Supported source captions and output captions in a raw output container
 
 This table describes the caption formats that can be included in a _raw output
 container that contains video_. For information about support when the captions are
-in a raw container on their own (independent of video), see [Supported source
-captions and output captions in a captions-only output container](captions-captions-only-output-container.md "captions-captions-only-output-container.md").
+in a raw container on their own (independent of video), see [Supported source captions and output captions in a captions-only output container](captions-captions-only-output-container.md "captions-captions-only-output-container.md").
 
 To read this table, find the type of container and captions from your
 input. The supported caption formats for this _output_ container are then shown in the last column.

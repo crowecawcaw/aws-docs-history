@@ -1,6 +1,4 @@
-# Reference: Languages supported
-
-with OCR captions
+# Reference: Languages supported with OCR captions
 
 Following is a list of world languages that are supported in source
 captions when Elemental Live uses [OCR

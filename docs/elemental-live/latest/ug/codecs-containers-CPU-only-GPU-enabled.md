@@ -1,6 +1,4 @@
-# Codec
-
-support for CPU-only and GPU-enabled deployments
+# Codec support for CPU-only and GPU-enabled deployments
 
 The codecs listed in the table below are supported with
 equivalent video quality at equivalent operating points on both

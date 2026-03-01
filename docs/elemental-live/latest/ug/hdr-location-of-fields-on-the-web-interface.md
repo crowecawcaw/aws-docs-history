@@ -1,6 +1,4 @@
-# Location of HDR
-
-fields on the web interface
+# Location of HDR fields on the web interface
 
 - Input > Video Selector > Color Space
 - Input > Video Selector > Force Color

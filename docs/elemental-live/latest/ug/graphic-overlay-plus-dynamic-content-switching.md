@@ -1,16 +1,11 @@
-# Static
-
-overlay plus dynamic content switching
+# Static overlay plus dynamic content switching
 
 You can combine the static overlays with the dynamic content switching feature. You can
 use dynamic content switching to continually add and modify inputs in an event that is
 running. As you add inputs, you can insert static or motion overlays, as desired. For
-information about dynamic content switching, see [Dynamic input
-switching](dynamic-content-switching.md "dynamic-content-switching.md").
+information about dynamic content switching, see [Dynamic input switching](dynamic-content-switching.md "dynamic-content-switching.md").
 
-## Scheduling inputs
-
-and overlays
+## Scheduling inputs and overlays
 
 The scheduling of the inputs and the overlays is completely
 decoupled.
@@ -25,9 +20,7 @@ input X plays, there is no logic to play the same overlay again
 because 2:10 p.m. has passed. Therefore, if you want the overlay to
 appear again on input X, you must send a Modify Overlay call again.
 
-## Behavior with different insertion options for static
-
-overlays
+## Behavior with different insertion options for static overlays
 
 Following are points to remember when using static overlay with
 dynamic content switching:
@@ -44,13 +37,11 @@ remove it.
 
 - If you want to include the overlay in a given repetition of the input, you
   might need to change the start time of the overlay. See the information about the
-  Start Time in the table under [Step B: Initial
-  setup](step-b-initial-setup.md "step-b-initial-setup.md").
+  Start Time in the table under [Step B: Initial setup](step-b-initial-setup.md "step-b-initial-setup.md").
 - If you do not want to include the overlay in a given
   repetition of that input, you must use the REST interface to
   enter a Modify Static Overlay command and delete the overlay.
-  See [Static graphic
-  overlay commands](static-graphic-overlay-commands.md "static-graphic-overlay-commands.md").
+  See [Static graphic overlay commands](static-graphic-overlay-commands.md "static-graphic-overlay-commands.md").
 
   **Playlist input plus overlay at the global
   processing stage**

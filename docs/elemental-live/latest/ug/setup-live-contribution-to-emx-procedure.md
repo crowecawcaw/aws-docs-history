@@ -1,6 +1,4 @@
-# Setup
-
-procedure
+# Setup procedure
 
 ## Step A: Create a role in IAM and attach policies
 
@@ -10,9 +8,7 @@ You must use AWS Identity and Access Management (IAM) to set up AWS Elemental Li
 - Create the "Elemental Live user" in your AWS account. The user must be in the same AWS account as the user who is operating MediaConnect.
 - Associate the Elemental Live user with those policies, which gives the user the permissions of those policies.
 
-### Create a policy for Elemental Live to make requests to
-
-MediaConnect
+### Create a policy for Elemental Live to make requests to MediaConnect
 
 Elemental Live must have permissions on MediaConnect. Follow this procedure to set up these permissions:
 
@@ -28,9 +24,7 @@ Elemental Live must have permissions on MediaConnect. Follow this procedure to s
 
 For more information about how to create and manage IAM policies, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-### Create a policy for Elemental Live to make requests to
-
-Secrets Manager
+### Create a policy for Elemental Live to make requests to Secrets Manager
 
 If you plan to encrypt the output from Elemental Live when you send it to MediaConnect, then Elemental Live must have permissions on AWS Secrets Manager. Follow this procedure to set up these permissions:
 

@@ -1,6 +1,4 @@
-# Virtual input switching using asynchronous
-
-ESAM messages
+# Virtual input switching using asynchronous ESAM messages
 
 ## Input types
 
@@ -10,8 +8,7 @@ sources:
 - MPTS programs, from an MPTS input. MPTS programs are typically live
   sources.
 - File inputs—any type of input that Elemental Live considers to be a
-  file input. See [Supported upstream systems
-  for file inputs](supported-inputs-file-types.md "supported-inputs-file-types.md")
+  file input. See [Supported upstream systems for file inputs](supported-inputs-file-types.md "supported-inputs-file-types.md")
 
 If your event doesn't include these types of inputs, you can't set up
 for asynchronous input switching.

@@ -1,14 +1,11 @@
-# Configuring color space handling in each
-
-output
+# Configuring color space handling in each output
 
 After you have set up each input in the event, you must configure the
 outputs for the desired handling of color space. You can do the
 following:
 
 - Convert the color space in the content to a different color space in
-  the output. See [Color space
-  standards](color-space-standards.md "color-space-standards.md") for the supported
+  the output. See [Color space standards](color-space-standards.md "color-space-standards.md") for the supported
   conversions.
 - Remove the color space metadata. Elemental Live doesn't touch the color
   space itself, it only removes the color space metadata.
@@ -38,8 +35,7 @@ Elemental Live converts from one color space to another based on the
 metadata in the content. Elemental Live doesn't examine the video to try to
 determine whether it actually matches the color space identified in the
 metadata. Therefore, to successfully convert, the metadata must be as
-accurate as possible. To correct the metadata, see [Configuring the handling in the
-input](hdr-input-handling.md "hdr-input-handling.md").
+accurate as possible. To correct the metadata, see [Configuring the handling in the input](hdr-input-handling.md "hdr-input-handling.md").
 
 ###### Topics
 

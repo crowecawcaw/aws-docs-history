@@ -1,6 +1,4 @@
-# Cancel a pending ad
-
-avail
+# Cancel a pending ad avail
 
 If you inserted an ad avail the start time has not yet passed, you can cancel the
 insertion. No SCTE-35 message will be inserted.
@@ -25,9 +23,7 @@ tag:
 The response includes a message that identifies the event ID of the original
 request.
 
-## Cancel a Pending Ad Avail
-
-Example
+## Cancel a Pending Ad Avail Example
 
 The following shows a request to cancel the insertion of a pending ad avail in
 the event with the ID 4. The original SCTE-35 ad avail has an ID of 38:

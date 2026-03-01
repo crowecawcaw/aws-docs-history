@@ -1,6 +1,4 @@
-# Configuring the handling in the
-
-input
+# Configuring the handling in the input
 
 You must decide what you need to do with _color
 space metadata_ in the input. You might need to clean up the
@@ -14,8 +12,7 @@ changing the color space metadata, not changing the color space itself. It
 is about changing the metadata to correctly identify the color space in the
 input, in preparation for planned handling in the outputs.
 
-The conversion of the video to a different color space occurs in [Configuring color space handling in each
-output](hdr-output.md "hdr-output.md").
+The conversion of the video to a different color space occurs in [Configuring color space handling in each output](hdr-output.md "hdr-output.md").
 
 If you plan to _pass through_ the color
 space to the outputs, you should do one of the following:
@@ -54,6 +51,5 @@ three steps.
 ###### Topics
 
 - [Step 1: Decide on the input handling](color-space-input-procedure.md "color-space-input-procedure.md")
-- [Step 2: Choose a clean-up
-  scenario](color-space-cleanup-scenarios.md "color-space-cleanup-scenarios.md")
+- [Step 2: Choose a clean-up scenario](color-space-cleanup-scenarios.md "color-space-cleanup-scenarios.md")
 - [Step 3: Set up each input](color-space-event-input-setup.md "color-space-event-input-setup.md")

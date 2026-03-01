@@ -23,5 +23,4 @@ general steps for creating an event.
 - [Setting up for captions](setting-up-for-captions.md "setting-up-for-captions.md")
 - [Examples of implementing use cases](examples.md "examples.md")
 - [Passing through VBI data](captions-in-vbi-data.md "captions-in-vbi-data.md")
-- [Reference: Languages supported
-  with OCR captions](captions-ocr-languages.md "captions-ocr-languages.md")
+- [Reference: Languages supported with OCR captions](captions-ocr-languages.md "captions-ocr-languages.md")

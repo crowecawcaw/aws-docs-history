@@ -1,6 +1,4 @@
-# How to
-
-insert a motion overlay with HTML5
+# How to insert a motion overlay with HTML5
 
 You can insert a motion overlay with HTML5. The overlay could be an
 animated overlay such as a sports scoreboard, a stock price ticker
@@ -19,8 +17,6 @@ of the overlay.
 ###### Topics
 
 - [Step A: Choose the method for show/hide](step-design-controls-html5.md "step-design-controls-html5.md")
-- [Step B: Prepare the
-  HTML5 asset](step-prepare-the-html5-asset.md "step-prepare-the-html5-asset.md")
-- [Step C: Set up the
-  event](html5-step-set-up-the-event.md "html5-step-set-up-the-event.md")
+- [Step B: Prepare the HTML5 asset](step-prepare-the-html5-asset.md "step-prepare-the-html5-asset.md")
+- [Step C: Set up the event](html5-step-set-up-the-event.md "html5-step-set-up-the-event.md")
 - [Step D: Showing and hiding the motion overlay](html5-step-manage-the-overlay-on-a-running-event.md "html5-step-manage-the-overlay-on-a-running-event.md")

@@ -1,6 +1,4 @@
-# Video: H.264 (AVC)
-
-support
+# Video: H.264 (AVC) support
 
 H.264 is supported in the following variations.
 

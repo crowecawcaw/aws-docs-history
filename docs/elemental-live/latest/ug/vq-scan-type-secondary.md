@@ -1,6 +1,4 @@
-# Secondary fields for converting scan
-
-type
+# Secondary fields for converting scan type
 
 ## Description
 

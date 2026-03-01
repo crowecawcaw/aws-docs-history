@@ -13,9 +13,7 @@ application/json and Content-type:application/json
 
 ## HTTP request and response
 
-### HTTP
-
-URL
+### HTTP URL
 
 ```
 GET http://<Live IP address>/live_events/<event ID>/status
@@ -43,9 +41,7 @@ contains:
 | input_label | String  | The input label, if one was<br>created.                                                                                                                                                                                                                                                                                           |
 | uri         | String  | The URI for a file input.                                                                                                                                                                                                                                                                                                         |
 
-### Stage
-
-and state
+### Stage and state
 
 The state tag and active_input tag can provide some
 information about the stage and state of each input:

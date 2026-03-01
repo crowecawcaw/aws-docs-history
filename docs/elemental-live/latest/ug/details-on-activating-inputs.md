@@ -1,10 +1,6 @@
-# Details on
+# Details on activating inputs
 
-activating inputs
-
-## Dynamic
-
-playlist order rules
+## Dynamic playlist order rules
 
 When an input starts to be processed (it is “playing”),
 that input becomes “active”.
@@ -78,9 +74,7 @@ becomes active as follows:
 - If the input is a file input, it will be
   prepared and activated.
 
-## Rules for
-
-activating
+## Rules for activating
 
 The rules apply to activating an input.
 

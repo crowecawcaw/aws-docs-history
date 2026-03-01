@@ -1,6 +1,4 @@
-# Step 1: Identify the
-
-source captions that you want
+# Step 1: Identify the source captions that you want
 
 You must identify the captions that you want to use and assign each to a captions
 selector. If you don't create any captions selectors, you will not be able to include
@@ -15,7 +13,7 @@ captions in the output. All the captions will be removed from the media.
 3.  Determine how many captions selectors to create in the input in the event, using the
     following guidance:
     - For embedded passthrough, create a single captions selector for all languages.
-      All languages are passed through; there is no other option. For details, see [Information for embedded](embedded.md "embedded.md") .
+      All languages are passed through; there is no other option. For details, see [Information for embedded](embedded.md "embedded.md").
     - For embedded-to-other-format, create one captions selector for each
       language.
     - For teletext passthrough, create a single captions selector for all languages

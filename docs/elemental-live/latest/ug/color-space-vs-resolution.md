@@ -1,6 +1,4 @@
-# Color space versus video
-
-resolution
+# Color space versus video resolution
 
 Color space refers to the range of color. Elemental Live supports the
 following color spaces:

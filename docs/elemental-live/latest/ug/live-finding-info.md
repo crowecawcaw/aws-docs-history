@@ -1,6 +1,4 @@
-# Information about using
-
-Elemental Live
+# Information about using Elemental Live
 
 Information about AWS Elemental Live is available in the following guides and resources.
 

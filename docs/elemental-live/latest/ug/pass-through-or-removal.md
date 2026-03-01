@@ -1,6 +1,4 @@
-# Passthrough or removal of
-
-SCTE messages
+# Passthrough or removal of SCTE messages
 
 SCTE-35 messages from the input can be passed through (included) in the data stream for
 the following outputs.
@@ -22,9 +20,6 @@ the following outputs.
 
 ###### Topics
 
-- [Archive
-  procedure](pass-through-or-removal-archive.md "pass-through-or-removal-archive.md")
-- [Apple HLS
-  passthrough procedure](pass-through-or-removal-apple-hls.md "pass-through-or-removal-apple-hls.md")
-- [UDP/TS
-  procedure](pass-through-or-removal-udp-ts.md "pass-through-or-removal-udp-ts.md")
+- [Archive procedure](pass-through-or-removal-archive.md "pass-through-or-removal-archive.md")
+- [Apple HLS passthrough procedure](pass-through-or-removal-apple-hls.md "pass-through-or-removal-apple-hls.md")
+- [UDP/TS procedure](pass-through-or-removal-udp-ts.md "pass-through-or-removal-udp-ts.md")

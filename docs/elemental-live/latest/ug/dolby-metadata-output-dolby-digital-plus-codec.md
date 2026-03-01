@@ -1,6 +1,4 @@
-# Output with
-
-Dolby Digital Plus (EC2, EAC3) codec
+# Output with Dolby Digital Plus (EC2, EAC3) codec
 
 | Named metadata parameters    | Category | Field                                                                                      | API tag (stream_assembly\ audio_description\ac3_settings) | Default            |
 | ---------------------------- | -------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ------------------ |

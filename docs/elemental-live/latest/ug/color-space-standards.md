@@ -1,6 +1,4 @@
-# Color space
-
-standards
+# Color space standards
 
 To read this table, find a color space in the first column, then read
 across to identify the three sets of color data for that color space.

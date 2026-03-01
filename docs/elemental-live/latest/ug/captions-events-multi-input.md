@@ -1,6 +1,4 @@
-# Captions in events with
-
-multiple inputs
+# Captions in events with multiple inputs
 
 If your event includes multiple inputs, these rules apply to
 Elemental Live handling of captions:

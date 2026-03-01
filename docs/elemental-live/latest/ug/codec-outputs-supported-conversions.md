@@ -1,6 +1,4 @@
-# Audio
-
-codecs and supported conversions
+# Audio codecs and supported conversions
 
 Generally, Elemental Live can convert any audio codec that is
 supported as a source to any audio codec that is supported as an

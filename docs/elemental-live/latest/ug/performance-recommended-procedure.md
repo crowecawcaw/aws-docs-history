@@ -1,6 +1,4 @@
-# Recommended testing
-
-procedure
+# Recommended testing procedure
 
 We strongly recommend that you perform this performance testing before you deploy a new
 appliance into production.
@@ -16,14 +14,12 @@ appliance into production.
 
    - Set up the events with the most complex outputs that you expect to
      run on the appliance. Include any high-demand features that you plan to
-     implement. See [Features that affect
-     performance](performance-features.md "performance-features.md").
+     implement. See [Features that affect performance](performance-features.md "performance-features.md").
    - Run the events for several days.
 
 2. Monitor the events as described in this section:
    - Frequently measure the CPU usage, RAM usage, I/O bandwidth, and
-     system bandwidth. See [Assessing performance by
-     measuring](performance-measures.md "performance-measures.md").
+     system bandwidth. See [Assessing performance by measuring](performance-measures.md "performance-measures.md").
    - Continually monitor the logs that Elemental Live produces. See [Assessing performance with logging messages](performance-via-logs.md "performance-via-logs.md").
 
 3. Revise the workflows in terms of density and video quality, and

@@ -1,11 +1,8 @@
-# TTML captions wrapped in ID3
-
-data
+# TTML captions wrapped in ID3 data
 
 Follow this procedure to produce an output that includes TTML captions wrapped in ID3
 data. This format is supported only in an MSS output. Unlike unwrapped TTML captions
-(which you create as described in [Sidecar captions or
-SMPTE-TT captions in MS Smooth](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md")), these
+(which you create as described in [Sidecar captions or SMPTE-TT captions in MS Smooth](output-sidecar-and-smptett-mss.md "output-sidecar-and-smptett-mss.md")), these
 captions are included as an ID3 object in the same stream as the video.
 
 ###### To produce TTML captions wrapped in ID3 data
@@ -24,8 +21,7 @@ captions are included as an ID3 object in the same stream as the video.
    field in that output to match the stream you created. For example:
 9. When you are ready, save the event.
 
-If the “Caption Stream Incompatible” message appears, see ["Caption
-Stream Incompatible" message](output-sidecar-and-smptett-mss.md#sidecar-caption-incompatible-message "output-sidecar-and-smptett-mss.md#sidecar-caption-incompatible-message").
+If the “Caption Stream Incompatible” message appears, see ["Caption Stream Incompatible" message](output-sidecar-and-smptett-mss.md#sidecar-caption-incompatible-message "output-sidecar-and-smptett-mss.md#sidecar-caption-incompatible-message").
 
 | Field                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

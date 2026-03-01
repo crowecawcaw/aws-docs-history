@@ -1,6 +1,4 @@
-# Add dynamic
-
-playlist inputs
+# Add dynamic playlist inputs
 
 In the specified event (which must be currently running), add
 the specified input or inputs (maximum 29 inputs for a total of
@@ -9,25 +7,20 @@ playlist.
 
 ## HTTP request and response
 
-### HTTP
-
-URL
+### HTTP URL
 
 ```
 POST http://<Live IP address>/live_events/<event ID>/inputs
 ```
 
-### Body
-
-of HTTP
+### Body of HTTP
 
 XML content consisting of one:
 
 - One inputs element that contains:
   - One or more input elements that each
     contains one or more of the regular
-    input tags. See [Elements and tags in an event
-    input XML](elements-and-tags.md "elements-and-tags.md").
+    input tags. See [Elements and tags in an event input XML](elements-and-tags.md "elements-and-tags.md").
 
 ### Tips for elements and tags
 
