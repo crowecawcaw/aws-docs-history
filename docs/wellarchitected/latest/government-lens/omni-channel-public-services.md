@@ -39,9 +39,7 @@ more time on what is unique to their service and users.
   measure, monitor, and model the intended and unintended
   impacts of government services.
 
-## Conceptual architecture for omni-channel
-
-public services
+## Conceptual architecture for omni-channel public services
 
 ![A diagram that demonstrates an omni-channel architectural framework for government services.](images/omni-channel-concept.jpg)
 

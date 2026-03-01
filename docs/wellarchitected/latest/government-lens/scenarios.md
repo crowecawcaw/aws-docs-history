@@ -11,5 +11,4 @@ architectures where applicable. 
 - [Classified information systems](classified-information-systems.md "classified-information-systems.md")
 - [Omni-channel public services](omni-channel-public-services.md "omni-channel-public-services.md")
 - [Open government methods, infrastructure, and tools](open-government-methods-infrastructure-and-tools.md "open-government-methods-infrastructure-and-tools.md")
-- [Verifiable credentials (claims)
-  for government](verifiable-credentials-claims-for-government.md "verifiable-credentials-claims-for-government.md")
+- [Verifiable credentials (claims) for government](verifiable-credentials-claims-for-government.md "verifiable-credentials-claims-for-government.md")

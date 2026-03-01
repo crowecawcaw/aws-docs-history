@@ -1,6 +1,4 @@
-# Verifiable credentials (claims)
-
-for government
+# Verifiable credentials (claims) for government
 
 There are several scenarios where verifiable credentials (VCs) make sense in a government
 context.  Verifiable credentials provide a repeatable pattern in scenarios where assertions
