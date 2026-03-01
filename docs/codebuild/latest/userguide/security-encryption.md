@@ -16,8 +16,7 @@ build.
       + You can store the identifier of the AWS KMS key that CodeBuild uses to
        encrypt the build output artifact in the
        `CODEBUILD_KMS_KEY_ID` environment variable. For more
-       information, see [Environment variables in build
-       environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
+       information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
       + You can specify a customer managed key when you create a build
        project. For more information, see [Set the Encryption Key Using the Console](create-project.md#encryptionkey-console "create-project.md#encryptionkey-console") and [Set the encryption key using the
        CLI](create-project.md#cli.encryptionkey "create-project.md#cli.encryptionkey").

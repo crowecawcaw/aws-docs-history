@@ -16,8 +16,7 @@ To add a GitLab or GitLab Self Managed source provider in CodeBuild, you can cho
 
 - Use the CodeBuild console **Create build project** wizard or
   **Edit Source** page to choose the **GitLab**
-  or **GitLab Self Managed** provider option. See [Create a connection to GitLab
-  (console)](#connections-gitlab-console "#connections-gitlab-console") to add the source provider. The console helps you create a connections
+  or **GitLab Self Managed** provider option. See [Create a connection to GitLab (console)](#connections-gitlab-console "#connections-gitlab-console") to add the source provider. The console helps you create a connections
   resource.
 - Use the CLI to create your connections resources, see [Create a connection to GitLab (CLI)](#connections-gitlab-cli "#connections-gitlab-cli") to
   create a connections resource with the CLI.
@@ -59,13 +58,10 @@ in groups, you do not need to be the group owner.
 
 ###### Topics
 
-- [Create a connection to GitLab
-  (console)](#connections-gitlab-console "#connections-gitlab-console")
+- [Create a connection to GitLab (console)](#connections-gitlab-console "#connections-gitlab-console")
 - [Create a connection to GitLab (CLI)](#connections-gitlab-cli "#connections-gitlab-cli")
 
-#### Create a connection to GitLab
-
-(console)
+#### Create a connection to GitLab (console)
 
 Use these steps to use the CodeBuild console to add a connection for your project
 (repository) in GitLab.

@@ -18,9 +18,7 @@ environments (IDEs).
 To learn more about the CodeBuild sandbox pricing, visit the [CodeBuild pricing
 documentation](https://aws.amazon.com/codebuild/pricing/#Sandbox "https://aws.amazon.com/codebuild/pricing/#Sandbox"). For detailed instructions, visit the [Debug builds with CodeBuild sandbox](sandbox.md "sandbox.md") documentation.
 
-## Debug builds with Session
-
-Manager
+## Debug builds with Session Manager
 
 AWS Systems Manager Session Manager enables direct access to running builds in their
 actual execution environment. This approach allows you to connect to active build

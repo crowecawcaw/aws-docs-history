@@ -21,8 +21,7 @@ In the preceding command, replace the following placeholder:
   to delete. To specify multiple builds, separate each build ID with a
   space. To get a list of build IDs, see the following topics:
   - [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli")
-  - [View a list of build IDs for a build
-    project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
+  - [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
 
 If successful, a `buildsDeleted` array appears in the output, containing
 the Amazon Resource Name (ARN) of each build that was successfully deleted. Information

@@ -45,8 +45,7 @@ Shows how to specify runtimes and their versions in the buildspec file.
 Shows how to use a specific version of your source in a CodeBuild build
 project.
 
-[Third-party source repository samples for
-CodeBuild](sample-third-party-source.md "sample-third-party-source.md")
+[Third-party source repository samples for CodeBuild](sample-third-party-source.md "sample-third-party-source.md")
 
 Shows how to create BitBucket, GitHub Enterprise Server, and GitHub pull requests
 with webhooks using CodeBuild.

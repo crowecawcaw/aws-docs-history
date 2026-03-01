@@ -13,7 +13,5 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 
 ###### Topics
 
-- [About AWS CodeBuild information in
-  CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
-- [About AWS CodeBuild log file
-  entries](understanding-service-name-entries.md "understanding-service-name-entries.md")
+- [About AWS CodeBuild information in CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
+- [About AWS CodeBuild log file entries](understanding-service-name-entries.md "understanding-service-name-entries.md")

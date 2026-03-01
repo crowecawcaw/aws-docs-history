@@ -2,12 +2,9 @@
 
 Tags can help you identify and organize your AWS resources and manage access to
 them. For more information about using tags, see the [Tagging best
-practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf "https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf") whitepaper. For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf "https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf") whitepaper. For examples of tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
-## View tags for a project
-
-(console)
+## View tags for a project (console)
 
 You can use the CodeBuild console to view the tags associated with a CodeBuild project.
 
@@ -18,9 +15,7 @@ You can use the CodeBuild console to view the tags associated with a CodeBuild p
 3. In the navigation pane, choose **Settings**. Choose
    **Build project tags**.
 
-## View tags for a project
-
-(AWS CLI)
+## View tags for a project (AWS CLI)
 
 To view tags for a build project, run the following command. Use the name of your
 project for the `--names` parameter.

@@ -27,7 +27,5 @@ repositories that your AWS account has permissions to access.
 - [Docker images provided by CodeBuild](build-env-ref-available.md "build-env-ref-available.md")
 - [Build environment compute modes and types](build-env-ref-compute-types.md "build-env-ref-compute-types.md")
 - [Shells and commands in build environments](build-env-ref-cmd.md "build-env-ref-cmd.md")
-- [Environment variables in build
-  environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
-- [Background tasks in build
-  environments](build-env-ref-background-tasks.md "build-env-ref-background-tasks.md")
+- [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md")
+- [Background tasks in build environments](build-env-ref-background-tasks.md "build-env-ref-background-tasks.md")

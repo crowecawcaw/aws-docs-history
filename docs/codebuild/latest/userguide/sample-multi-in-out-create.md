@@ -58,8 +58,7 @@ Your primary source is defined under the `source` attribute. All other sources a
 secondary sources and appear under `secondarySources`. All secondary sources are installed in
 their own directory. This directory is stored in the built-in environment variable
 `CODEBUILD_SRC_DIR_`sourceIdentifer``. For more information, see
-[Environment variables in build
-environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+[Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
 The `secondaryArtifacts` attribute contains a list of artifact definitions.
 These artifacts use the `secondary-artifacts` block of the buildspec file that is

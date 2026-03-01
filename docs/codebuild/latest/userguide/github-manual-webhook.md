@@ -39,7 +39,6 @@ and choose **Add webhook**.
      would you like to trigger this webhook?**, choose **Let me select individual events**, and
      then choose from the following events: **Pushes**, **Pull requests**, and
      **Releases**. If you want to start builds for `WORKFLOW_JOB_QUEUED` events, choose
-     **Workflow jobs**. To learn more about GitHub Actions runners, see [Tutorial: Configure a CodeBuild-hosted GitHub
-     Actions runner](action-runner.md "action-runner.md"). To learn more about event types supported by CodeBuild, see [GitHub webhook events](github-webhook.md "github-webhook.md").
+     **Workflow jobs**. To learn more about GitHub Actions runners, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md"). To learn more about event types supported by CodeBuild, see [GitHub webhook events](github-webhook.md "github-webhook.md").
 
 5. Choose **Add webhook**.

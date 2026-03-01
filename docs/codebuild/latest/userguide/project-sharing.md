@@ -8,8 +8,7 @@ with other accounts (consumers). A consumer cannot edit or run a project.
 
 - [Share a project](#project-sharing-share "#project-sharing-share")
 - [Related services](#project-sharing-related "#project-sharing-related")
-- [Access CodeBuild projects shared with
-  you](project-sharing-access-prereqs.md "project-sharing-access-prereqs.md")
+- [Access CodeBuild projects shared with you](project-sharing-access-prereqs.md "project-sharing-access-prereqs.md")
 - [Unshare a shared project](project-sharing-unshare.md "project-sharing-unshare.md")
 - [Identify a shared project](project-sharing-identify.md "project-sharing-identify.md")
 - [Shared project permissions](project-sharing-perms.md "project-sharing-perms.md")

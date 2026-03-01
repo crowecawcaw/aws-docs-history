@@ -1,6 +1,4 @@
-# Label overrides
-
-supported with the CodeBuild-hosted GitHub Actions runner
+# Label overrides supported with the CodeBuild-hosted GitHub Actions runner
 
 In your GitHub Actions workflow YAML, you can provide a variety of label overrides that
 modify your self-hosted runner build. Any builds not recognized by CodeBuild will be ignored but
@@ -44,8 +42,7 @@ If your workflow job is hanging on GitHub, see
 
 - Example: `image:arm-3.0`
 - Overrides the image and environment type used when starting the self-hosted runner build with a curated image. To learn about supported values, see
-  [Compute images
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
+  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
 
       + To override the image and environment type used with a custom image, use
        `image:custom-`<environment-type>`-`<custom-image-identifier>``
@@ -55,15 +52,13 @@ If your workflow job is hanging on GitHub, see
       ###### Note
 
       If the custom image resides in a private registry, see
-       [Configure a private registry
-       credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
+       [Configure a private registry credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
 
   `instance-size:`<instance-size>``
 
 - Example: `instance-size:medium`
 - Overrides the instance type used when starting the self-hosted runner build. To learn about supported values, see
-  [Compute images
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
+  [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md").
   `fleet:`<fleet-name>``
 
 - Example: `fleet:myFleet`

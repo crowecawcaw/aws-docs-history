@@ -1,6 +1,4 @@
-# AWS CodeBuild permissions
-
-reference
+# AWS CodeBuild permissions reference
 
 You can use AWS-wide condition keys in your AWS CodeBuild policies to express
 conditions. For a list, see [Available
@@ -26,9 +24,7 @@ names that begin with `my`:
 arn:aws:codebuild:us-east-2:123456789012:project/my*
 ```
 
-###### CodeBuild API operations and required permissions for
-
-actions
+###### CodeBuild API operations and required permissions for actions
 
 BatchDeleteBuilds
 

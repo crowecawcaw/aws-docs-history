@@ -5,15 +5,12 @@ CodeBuild sandbox SSH connection issues.
 
 ###### Topics
 
-- [StartSandboxConnectionInvalidInputException error when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.invalid-input "#sandbox-troubleshooting.invalid-input")
-- [Error: "Unable to locate credentials"
-  when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.credentials "#sandbox-troubleshooting.credentials")
-- [StartSandboxConnectionAccessDeniedException
-  error when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.access-denied "#sandbox-troubleshooting.access-denied")
-- [Error: "ssh: Could not resolve hostname"
-  when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.hostname "#sandbox-troubleshooting.hostname")
+- [StartSandboxConnection InvalidInputException error when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.invalid-input "#sandbox-troubleshooting.invalid-input")
+- [Error: "Unable to locate credentials" when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.credentials "#sandbox-troubleshooting.credentials")
+- [StartSandboxConnection AccessDeniedException error when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.access-denied "#sandbox-troubleshooting.access-denied")
+- [Error: "ssh: Could not resolve hostname" when SSH into CodeBuild sandbox environment](#sandbox-troubleshooting.hostname "#sandbox-troubleshooting.hostname")
 
-## `StartSandboxConnection``InvalidInputException` error when SSH into CodeBuild sandbox environment
+## `StartSandboxConnection` `InvalidInputException` error when SSH into CodeBuild sandbox environment
 
 **Issue:** When attempting to connect to a CodeBuild sandbox
 environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``, 
@@ -69,9 +66,7 @@ sandbox `<sandbox-arn>`: codebuild:`<UUID>` is not connected.
  }
 ```
 
-## Error: "Unable to locate credentials"
-
-when SSH into CodeBuild sandbox environment
+## Error: "Unable to locate credentials" when SSH into CodeBuild sandbox environment
 
 **Issue:** When attempting to connect to a CodeBuild sandbox
 environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``,
@@ -87,9 +82,7 @@ Unable to locate credentials. You can configure credentials by running
 **Recommended solution:** Configure your AWS CLI credentials by following the official documentation:
 [Configuring settings for the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the _AWS Command Line Interface User Guide for Version 2_.
 
-## `StartSandboxConnection``AccessDeniedException`
-
-error when SSH into CodeBuild sandbox environment
+## `StartSandboxConnection` `AccessDeniedException` error when SSH into CodeBuild sandbox environment
 
 **Issue:** When attempting to connect to a CodeBuild sandbox
 environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``,
@@ -122,9 +115,7 @@ with your AWS CLI credentials has the following permissions:
 }
 ```
 
-## Error: "ssh: Could not resolve hostname"
-
-when SSH into CodeBuild sandbox environment
+## Error: "ssh: Could not resolve hostname" when SSH into CodeBuild sandbox environment
 
 **Issue:** When attempting to connect to a CodeBuild sandbox
 environment using the command `ssh codebuild-sandbox-ssh=`<sandbox-arn>``,

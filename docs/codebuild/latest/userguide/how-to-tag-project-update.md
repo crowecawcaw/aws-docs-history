@@ -11,12 +11,9 @@ see [Tags](limits.md#tag-limits "limits.md#tag-limits").
 Editing tags for a project can impact access to that project. Before you edit the
 name (key) or value of a tag for a project, make sure to review any IAM policies
 that might use the key or value for a tag to control access to resources such as
-build projects. For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+build projects. For examples of tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
-## Edit a tag for a project
-
-(console)
+## Edit a tag for a project (console)
 
 You can use the CodeBuild console to edit the tags associated with a CodeBuild project.
 
@@ -38,9 +35,7 @@ You can use the CodeBuild console to edit the tags associated with a CodeBuild p
 6. When you have finished editing tags, choose
    **Submit**.
 
-## Edit tags for a project
-
-(AWS CLI)
+## Edit tags for a project (AWS CLI)
 
 To add, change, or delete tags from a build project, see [Change a build project's settings (AWS CLI)](change-project.md#change-project-cli "change-project.md#change-project-cli"). Update the
 `tags` section in the JSON-formatted data you use to update the

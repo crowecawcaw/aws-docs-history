@@ -1,6 +1,4 @@
-# Filter GitHub webhook events
-
-(console)
+# Filter GitHub webhook events (console)
 
 Use the following instructions to filter GitHub webhook events using the AWS Management Console.
 For more information about GitHub webhook events, see [GitHub webhook events](github-webhook.md "github-webhook.md").

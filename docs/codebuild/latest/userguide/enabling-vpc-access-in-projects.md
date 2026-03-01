@@ -1,6 +1,4 @@
-# Allow Amazon VPC access in your CodeBuild
-
-projects
+# Allow Amazon VPC access in your CodeBuild projects
 
 Include these settings in your VPC configuration:
 
@@ -15,8 +13,7 @@ Include these settings in your VPC configuration:
 
 To use the AWS CLI to create a build project, see [Create a build project (AWS CLI)](create-project.md#create-project-cli "create-project.md#create-project-cli"). If you are using the AWS CLI with CodeBuild, the
 service role used by CodeBuild to interact with services on behalf of the IAM user must have
-a policy attached. For information, see [Allow CodeBuild access to AWS services required to create a VPC network
-interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface "auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface").
+a policy attached. For information, see [Allow CodeBuild access to AWS services required to create a VPC network interface](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface "auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface").
 
 The `vpcConfig` object should include your
 `vpcId`, `securityGroupIds`, and

@@ -11,5 +11,4 @@ from multiple repositories within a single project.
 
 - [Set up a group GitLab webhook](gitlab-group-webhook-setup.md "gitlab-group-webhook-setup.md")
 - [Filter GitLab group webhook events (console)](gitlab-group-webhook-events-console.md "gitlab-group-webhook-events-console.md")
-- [Filter GitLab group
-  webhook events (CloudFormation)](gitlab-group-webhook-events-cfn.md "gitlab-group-webhook-events-cfn.md")
+- [Filter GitLab group webhook events (CloudFormation)](gitlab-group-webhook-events-cfn.md "gitlab-group-webhook-events-cfn.md")

@@ -11,14 +11,11 @@ created in opt-in regions, cannot be used in other regions. For more information
 
 ###### Topics
 
-- [Step 1: Create a connection to Bitbucket
-  (console)](#connections-bitbucket-console "#connections-bitbucket-console")
+- [Step 1: Create a connection to Bitbucket (console)](#connections-bitbucket-console "#connections-bitbucket-console")
 - [Step 2: Grant CodeBuild project IAM role access to use the connection](#connections-bitbucket-role-access "#connections-bitbucket-role-access")
 - [Step 3: Configure CodeBuild to use the new connection](#connections-bitbucket-account-credential "#connections-bitbucket-account-credential")
 
-## Step 1: Create a connection to Bitbucket
-
-(console)
+## Step 1: Create a connection to Bitbucket (console)
 
 Use these steps to use the CodeBuild console to add a connection for your project in Bitbucket.
 
@@ -38,8 +35,7 @@ You can grant CodeBuild project IAM role access to use the Bitbucket tokens vend
 
 ###### To grant CodeBuild project IAM role access
 
-1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS
-   services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
+1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
 2. While following the instructions, add the following IAM policy to your CodeBuild project role to grant access to the connection.
 
 JSON

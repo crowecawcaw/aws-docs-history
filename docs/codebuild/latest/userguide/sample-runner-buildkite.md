@@ -1,6 +1,4 @@
-# Tutorial: Configure a CodeBuild-hosted Buildkite
-
-runner
+# Tutorial: Configure a CodeBuild-hosted Buildkite runner
 
 This tutorial shows you how to configure your CodeBuild projects to run Buildkite jobs. For
 more information about using Buildkite with CodeBuild see [Self-managed Buildkite runner in AWS CodeBuild](buildkite-runner.md "buildkite-runner.md").
@@ -34,9 +32,7 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
 
 ![Agent tokens in Buildkite](images/buildkite-createtoken.png)
 
-## Step 2: Create a CodeBuild project
-
-with a webhook
+## Step 2: Create a CodeBuild project with a webhook
 
 ###### To create a CodeBuild project with a webhook
 
@@ -62,8 +58,7 @@ with a webhook
    ###### Note
 
    Buildkite requires source credentials within the build environment
-   in order to pull your job’s source. See [Authenticating Buildkite to a Private
-   Repository](#sample-runner-buildkite-config "#sample-runner-buildkite-config") for available
+   in order to pull your job’s source. See [Authenticating Buildkite to a Private Repository](#sample-runner-buildkite-config "#sample-runner-buildkite-config") for available
    source credential options.
    - (Optional) In **Environment**:
      - Choose a supported **Environment image** and
@@ -71,8 +66,7 @@ with a webhook
 
      Note that you have the option to override the image and
      instance settings by using a label in your Buildkite YAML steps.
-     For more information, see [Step 4: Update your Buildkite
-     pipeline steps](#sample-runner-buildkite-update-pipeline "#sample-runner-buildkite-update-pipeline").
+     For more information, see [Step 4: Update your Buildkite pipeline steps](#sample-runner-buildkite-update-pipeline "#sample-runner-buildkite-update-pipeline").
 
    - (Optional) In **Buildspec**:
      - Your buildspec will be ignored by default unless
@@ -94,9 +88,7 @@ with a webhook
    follow the instructions in the popup to create a new Buildkite organization
    webhook or continue to the next section.
 
-## Step 3: Create a CodeBuild
-
-webhook within Buildkite
+## Step 3: Create a CodeBuild webhook within Buildkite
 
 In this step, you will use the **Payload URL** and
 **Secret** values from the CodeBuild webhook to create a new webhook
@@ -129,14 +121,11 @@ Buildkite job starts.
 
 4. Choose **Add Webhook Notification**.
 
-## Step 4: Update your Buildkite
-
-pipeline steps
+## Step 4: Update your Buildkite pipeline steps
 
 In this step, you will update your Buildkite pipeline’s steps in order to add
 necessary labels and optional overrides. For the full list of supported label overrides,
-see [Label overrides supported with the
-CodeBuild-hosted Buildkite runner](buildkite-runner-update-labels.md "buildkite-runner-update-labels.md").
+see [Label overrides supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-labels.md "buildkite-runner-update-labels.md").
 
 ###### Update your pipeline steps
 
@@ -167,8 +156,7 @@ steps:
   - command: "echo \"Hello World\""
 ```
 
-You can also override your image and compute type in the label. See [Compute images supported with the
-CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md") for a list of
+You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md") for a list of
 available images. The compute type and image in the label will override the
 environment settings on your project. To override your environment settings for
 a CodeBuild EC2 or Lambda compute build, use the following syntax:
@@ -229,8 +217,7 @@ steps:
 ```
 
 3. You can choose to run inline buildspec commands during the self-hosted
-   Buildkite runner build (see [Run buildspec commands for the
-   INSTALL, PRE_BUILD, and POST_BUILD phases](sample-runner-buildkite-buildspec.md "sample-runner-buildkite-buildspec.md") for more details). To
+   Buildkite runner build (see [Run buildspec commands for the INSTALL, PRE_BUILD, and POST_BUILD phases](sample-runner-buildkite-buildspec.md "sample-runner-buildkite-buildspec.md") for more details). To
    specify that the CodeBuild build should run buildspec commands during your Buildkite
    self-hosted runner build, use the following syntax:
 
@@ -273,9 +260,7 @@ picks up the job, you should see logs for the job within the Buildkite console
 
 ![Review results.](images/buildkite-log.png)
 
-## Authenticating Buildkite to a Private
-
-Repository
+## Authenticating Buildkite to a Private Repository
 
 If you have a private repository configured within your Buildkite pipeline, Buildkite
 requires [additional
@@ -291,8 +276,7 @@ use CodeBuild source credentials to pull your job’s source repository, you can
 following steps:
 
 1. In the CodeBuild console, navigate to **Edit project** or create
-   a new CodeBuild project using the steps in [Step 2: Create a CodeBuild project
-   with a webhook](#sample-runner-buildkite-create-project "#sample-runner-buildkite-create-project").
+   a new CodeBuild project using the steps in [Step 2: Create a CodeBuild project with a webhook](#sample-runner-buildkite-create-project "#sample-runner-buildkite-create-project").
 2. Under **Buildkite source credential options**, select your
    job’s source repository provider.
    1. If you would like to use account-level CodeBuild credentials, verify that

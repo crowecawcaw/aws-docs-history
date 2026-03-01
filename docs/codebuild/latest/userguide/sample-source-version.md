@@ -52,7 +52,5 @@ of your repository.
 
 ###### Topics
 
-- [Specify a GitHub
-  repository version with a commit ID](sample-source-version-github.md "sample-source-version-github.md")
-- [Specify a GitHub
-  repository version with a reference and commit ID](sample-source-version-github-ref.md "sample-source-version-github-ref.md")
+- [Specify a GitHub repository version with a commit ID](sample-source-version-github.md "sample-source-version-github.md")
+- [Specify a GitHub repository version with a reference and commit ID](sample-source-version-github-ref.md "sample-source-version-github-ref.md")

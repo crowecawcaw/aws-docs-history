@@ -7,22 +7,14 @@ configurations and compute restrictions.
 
 ###### Topics
 
-- [Enforce VPC connectivity
-  settings on your projects and fleets](#action-context-keys-example-overrideVPC "#action-context-keys-example-overrideVPC")
-- [Prevent unauthorized
-  modifications to project buildspec](#action-context-keys-example-overridebuildspec "#action-context-keys-example-overridebuildspec")
-- [Restrict compute types for
-  your builds](#action-context-keys-example-computechoice "#action-context-keys-example-computechoice")
-- [Control environment variable
-  settings](#action-context-keys-example-env-variables "#action-context-keys-example-env-variables")
-- [Use variables in condition key
-  names](#action-context-keys-example-variables "#action-context-keys-example-variables")
-- [Check
-  the existence of attributes in API requests](#action-context-keys-example-env-denyoverride "#action-context-keys-example-env-denyoverride")
+- [Enforce VPC connectivity settings on your projects and fleets](#action-context-keys-example-overrideVPC "#action-context-keys-example-overrideVPC")
+- [Prevent unauthorized modifications to project buildspec](#action-context-keys-example-overridebuildspec "#action-context-keys-example-overridebuildspec")
+- [Restrict compute types for your builds](#action-context-keys-example-computechoice "#action-context-keys-example-computechoice")
+- [Control environment variable settings](#action-context-keys-example-env-variables "#action-context-keys-example-env-variables")
+- [Use variables in condition key names](#action-context-keys-example-variables "#action-context-keys-example-variables")
+- [Check the existence of attributes in API requests](#action-context-keys-example-env-denyoverride "#action-context-keys-example-env-denyoverride")
 
-## Enforce VPC connectivity
-
-settings on your projects and fleets
+## Enforce VPC connectivity settings on your projects and fleets
 
 This policy allows the caller to use the selected VPCs, subnets, and security groups
 when creating CodeBuild projects and fleets. For more information about multivalued
@@ -61,9 +53,7 @@ JSON
 
 ```
 
-## Prevent unauthorized
-
-modifications to project buildspec
+## Prevent unauthorized modifications to project buildspec
 
 This policy does not allow the caller to override the buildspec in the
 `buildspecOverride` field.
@@ -97,9 +87,7 @@ JSON
 
 ```
 
-## Restrict compute types for
-
-your builds
+## Restrict compute types for your builds
 
 This policy allows creating fleets that can build with only `c5.large` or
 `m5.large`
@@ -124,9 +112,7 @@ JSON
 
 ```
 
-## Control environment variable
-
-settings
+## Control environment variable settings
 
 This policy allows the caller to override the `STAGE` environment variable
 to be either `BETA` or `GAMMA`. It also explicitly denies
@@ -177,9 +163,7 @@ JSON
 
 ```
 
-## Use variables in condition key
-
-names
+## Use variables in condition key names
 
 You can use variables in condition key names like
 `secondarySources/${sourceIdentifier}.location` and
@@ -209,9 +193,7 @@ JSON
 
 ```
 
-## Check
-
-the existence of attributes in API requests
+## Check the existence of attributes in API requests
 
 CodeBuild supports condition keys to check the existence of some fields in the API
 request. The policy enforces the VPC requirement when creating or updating

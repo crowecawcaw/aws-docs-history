@@ -1,6 +1,4 @@
-# Use AWS CodeBuild with AWS CodePipeline to test code and run
-
-builds
+# Use AWS CodeBuild with AWS CodePipeline to test code and run builds
 
 You can automate your release process by using AWS CodePipeline to test your code and run your
 builds with AWS CodeBuild.
@@ -16,14 +14,10 @@ AWS SDKs to accomplish these tasks is outside the scope of this topic.
 ###### Topics
 
 - [Prerequisites](#how-to-create-pipeline-prerequisites "#how-to-create-pipeline-prerequisites")
-- [Create a pipeline that uses CodeBuild (CodePipeline
-  console)](how-to-create-pipeline-console.md "how-to-create-pipeline-console.md")
-- [Create a pipeline that uses CodeBuild
-  (AWS CLI)](how-to-create-pipeline-cli.md "how-to-create-pipeline-cli.md")
-- [Add a CodeBuild build action to a pipeline (CodePipeline
-  console)](how-to-create-pipeline-add.md "how-to-create-pipeline-add.md")
-- [Add a CodeBuild test action to a pipeline
-  (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md")
+- [Create a pipeline that uses CodeBuild (CodePipeline console)](how-to-create-pipeline-console.md "how-to-create-pipeline-console.md")
+- [Create a pipeline that uses CodeBuild (AWS CLI)](how-to-create-pipeline-cli.md "how-to-create-pipeline-cli.md")
+- [Add a CodeBuild build action to a pipeline (CodePipeline console)](how-to-create-pipeline-add.md "how-to-create-pipeline-add.md")
+- [Add a CodeBuild test action to a pipeline (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md")
 
 ## Prerequisites
 

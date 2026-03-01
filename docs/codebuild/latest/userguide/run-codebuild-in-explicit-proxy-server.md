@@ -1,6 +1,4 @@
-# Run CodeBuild in an explicit proxy
-
-server
+# Run CodeBuild in an explicit proxy server
 
 To run AWS CodeBuild in an explicit proxy server, you must configure the proxy server to
 allow or deny traffic to and from external sites, and then configure the
@@ -8,16 +6,11 @@ allow or deny traffic to and from external sites, and then configure the
 
 ###### Topics
 
-- [Configure Squid as an
-  explicit proxy server](#use-proxy-server-explicit-squid-configure "#use-proxy-server-explicit-squid-configure")
-- [Create a CodeBuild
-  project](#use-proxy-server-explicit-create-acb-project "#use-proxy-server-explicit-create-acb-project")
-- [Explicit proxy server
-  sample squid.conf file](#use-proxy-server-explicit-sample-squid-conf "#use-proxy-server-explicit-sample-squid-conf")
+- [Configure Squid as an explicit proxy server](#use-proxy-server-explicit-squid-configure "#use-proxy-server-explicit-squid-configure")
+- [Create a CodeBuild project](#use-proxy-server-explicit-create-acb-project "#use-proxy-server-explicit-create-acb-project")
+- [Explicit proxy server sample squid.conf file](#use-proxy-server-explicit-sample-squid-conf "#use-proxy-server-explicit-sample-squid-conf")
 
-## Configure Squid as an
-
-explicit proxy server
+## Configure Squid as an explicit proxy server
 
 To configure the Squid proxy server to be explicit, you must make the following
 modifications to its `/etc/squid/squid.conf` file:
@@ -110,16 +103,12 @@ http_access allow localnet download_src
 
 ###### Note
 
-If you receive a RequestError timeout error, see [RequestError timeout error when running
-CodeBuild in a proxy server](troubleshooting.md#code-request-timeout-error "troubleshooting.md#code-request-timeout-error").
+If you receive a RequestError timeout error, see [RequestError timeout error when running CodeBuild in a proxy server](troubleshooting.md#code-request-timeout-error "troubleshooting.md#code-request-timeout-error").
 
-For more information, see [Explicit proxy server
-sample squid.conf file](#use-proxy-server-explicit-sample-squid-conf "#use-proxy-server-explicit-sample-squid-conf") later in this
+For more information, see [Explicit proxy server sample squid.conf file](#use-proxy-server-explicit-sample-squid-conf "#use-proxy-server-explicit-sample-squid-conf") later in this
 topic.
 
-## Create a CodeBuild
-
-project
+## Create a CodeBuild project
 
 To run AWS CodeBuild with your explicit proxy server, set its `HTTP_PROXY`
 and `HTTPS_PROXY` environment variables with the private IP address of
@@ -134,9 +123,7 @@ Use the following command to view the Squid proxy access log:
 sudo tail -f /var/log/squid/access.log
 ```
 
-## Explicit proxy server
-
-sample `squid.conf` file
+## Explicit proxy server sample `squid.conf` file
 
 The following is an example of a `squid.conf` file that is
 configured for an explicit proxy server.

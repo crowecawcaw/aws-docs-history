@@ -20,8 +20,7 @@ Use the following instructions to run the Amazon ECR sample for CodeBuild.
 ###### To run this sample
 
 1.  To create and push the Docker image to your image repository in Amazon ECR,
-    complete the steps in the [Run the 'Publish Docker image to Amazon ECR'
-    sample](sample-docker.md#sample-docker-running "sample-docker.md#sample-docker-running") section of the ['Publish Docker image to Amazon ECR'
+    complete the steps in the [Run the 'Publish Docker image to Amazon ECR' sample](sample-docker.md#sample-docker-running "sample-docker.md#sample-docker-running") section of the ['Publish Docker image to Amazon ECR'
     sample](sample-docker.md "sample-docker.md").
 2.  Create a Go project:
     1. Create the files as described in the [Go project structure](#ecr-sample-go-project-file-structure "#ecr-sample-go-project-file-structure") and [Go project files](#sample-ecr-go-project-files "#sample-ecr-go-project-files") sections of this topic, and

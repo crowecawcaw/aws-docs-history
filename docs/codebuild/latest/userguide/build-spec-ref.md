@@ -7,16 +7,13 @@ spec works, see [How CodeBuild works](concepts.md#concepts-how-it-works "concept
 
 ###### Topics
 
-- [Buildspec file name and storage
-  location](#build-spec-ref-name-storage "#build-spec-ref-name-storage")
+- [Buildspec file name and storage location](#build-spec-ref-name-storage "#build-spec-ref-name-storage")
 - [Buildspec syntax](#build-spec-ref-syntax "#build-spec-ref-syntax")
 - [Buildspec example](#build-spec-ref-example "#build-spec-ref-example")
 - [Buildspec versions](#build-spec-ref-versions "#build-spec-ref-versions")
 - [Batch build buildspec reference](batch-build-buildspec.md "batch-build-buildspec.md")
 
-## Buildspec file name and storage
-
-location
+## Buildspec file name and storage location
 
 If you include a buildspec as part of the source code, by default, the buildspec
 file must be named `buildspec.yml` and placed in the root of
@@ -317,8 +314,7 @@ in the _Amazon EC2 Systems Manager User Guide_.
 To allow CodeBuild to retrieve custom environment variables stored in
 Amazon EC2 Systems Manager Parameter Store, you must add the
 `ssm:GetParameters` action to your CodeBuild service
-role. For more information, see [Allow CodeBuild to interact with other AWS
-services](setting-up-service-role.md "setting-up-service-role.md").
+role. For more information, see [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md").
 
 Any environment variables you retrieve from Amazon EC2 Systems Manager Parameter
 Store replace existing environment variables. For example, if the
@@ -452,8 +448,7 @@ are triggered by a webhook for a public Git repository.
 ### proxy
 
 Optional sequence. Used to represent settings if you run your build in an explicit
-proxy server. For more information, see [Run CodeBuild in an explicit proxy
-server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md").
+proxy server. For more information, see [Run CodeBuild in an explicit proxy server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md").
 
 proxy/**upload-artifacts**
 
@@ -818,8 +813,7 @@ artifacts:
 ```
 
 - This is an example of an artifact name that uses a CodeBuild environment
-  variable. For more information, see [Environment variables in build
-  environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+  variable. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
 ```
 version: 0.2

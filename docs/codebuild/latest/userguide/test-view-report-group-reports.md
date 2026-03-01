@@ -1,6 +1,4 @@
-# View test reports for a report
-
-group
+# View test reports for a report group
 
 ###### To view test reports in a report group
 

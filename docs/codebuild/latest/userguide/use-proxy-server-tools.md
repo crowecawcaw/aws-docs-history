@@ -1,6 +1,4 @@
-# Run a package manager and other tools in a
-
-proxy server
+# Run a package manager and other tools in a proxy server
 
 Use the following procedures to run a package manager and other tools in a proxy server.
 

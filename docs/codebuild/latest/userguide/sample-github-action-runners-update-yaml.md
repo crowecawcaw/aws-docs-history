@@ -1,9 +1,6 @@
-# Compute images
+# Compute images supported with the CodeBuild-hosted GitHub Actions runner
 
-supported with the CodeBuild-hosted GitHub Actions runner
-
-In the label you configured in [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md"), you can override your Amazon EC2
+In the label you configured in [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md"), you can override your Amazon EC2
 environment settings by using the values in the first three columns. CodeBuild provides the
 following Amazon EC2 compute images. For more information about
 

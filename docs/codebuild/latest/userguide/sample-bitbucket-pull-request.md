@@ -1,6 +1,4 @@
-# Run the 'Bitbucket pull request and webhook filter'
-
-sample for CodeBuild
+# Run the 'Bitbucket pull request and webhook filter' sample for CodeBuild
 
 AWS CodeBuild supports webhooks when the source repository is Bitbucket. This means that for a
 CodeBuild build project that has its source code stored in a Bitbucket repository, webhooks can
@@ -20,10 +18,8 @@ webhooks](webhooks.md#webhook-best-practices "webhooks.md#webhook-best-practices
 ###### Topics
 
 - [Prerequisites](#sample-bitbucket-pull-request-prerequisites "#sample-bitbucket-pull-request-prerequisites")
-- [Step 1: Create a build
-  project with Bitbucket and enable webhooks](#sample-bitbucket-pull-request-create "#sample-bitbucket-pull-request-create")
-- [Step 2: Trigger a build with
-  a Bitbucket webhook](#sample-bitbucket-pull-request-trigger "#sample-bitbucket-pull-request-trigger")
+- [Step 1: Create a build project with Bitbucket and enable webhooks](#sample-bitbucket-pull-request-create "#sample-bitbucket-pull-request-create")
+- [Step 2: Trigger a build with a Bitbucket webhook](#sample-bitbucket-pull-request-trigger "#sample-bitbucket-pull-request-trigger")
 
 ## Prerequisites
 
@@ -36,9 +32,7 @@ CodeBuild has updated its permissions with Bitbucket. If you previously connecte
 your project to Bitbucket and now receive a Bitbucket connection error, you must
 reconnect to grant CodeBuild permission to manage your webhooks.
 
-## Step 1: Create a build
-
-project with Bitbucket and enable webhooks
+## Step 1: Create a build project with Bitbucket and enable webhooks
 
 The following steps describe how to create an AWS CodeBuild project with Bitbucket as
 a source repository and enable webhooks.
@@ -207,9 +201,7 @@ options as appropriate. 10. Choose **Create build project**. On the
 **Review** page, choose **Start
 build** to run the build.
 
-## Step 2: Trigger a build with
-
-a Bitbucket webhook
+## Step 2: Trigger a build with a Bitbucket webhook
 
 For a project that uses Bitbucket webhooks, AWS CodeBuild creates a build when the
 Bitbucket repository detects a change in your source code.
@@ -217,8 +209,7 @@ Bitbucket repository detects a change in your source code.
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. On the navigation pane, choose **Build projects**, and
    then choose a project associated with a Bitbucket repository with webhooks.
-   For information about creating a Bitbucket webhook project, see [Step 1: Create a build
-   project with Bitbucket and enable webhooks](#sample-bitbucket-pull-request-create "#sample-bitbucket-pull-request-create").
+   For information about creating a Bitbucket webhook project, see [Step 1: Create a build project with Bitbucket and enable webhooks](#sample-bitbucket-pull-request-create "#sample-bitbucket-pull-request-create").
 3. Make some changes in the code in your project's Bitbucket repository.
 4. Create a pull request on your Bitbucket repository. For more information,
    see [Making a pull request](https://www.atlassian.com/git/tutorials/making-a-pull-request "https://www.atlassian.com/git/tutorials/making-a-pull-request").

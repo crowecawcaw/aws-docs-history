@@ -1,6 +1,4 @@
-# About AWS CodeBuild information in
-
-CloudTrail
+# About AWS CodeBuild information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in CodeBuild, that activity is recorded in a CloudTrail event along with other AWS

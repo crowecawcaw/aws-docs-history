@@ -1,6 +1,4 @@
-# Background tasks in build
-
-environments
+# Background tasks in build environments
 
 You can run background tasks in build environments. To do this, in your buildspec,
 use the `nohup` command to run a command as a task in the background, even if

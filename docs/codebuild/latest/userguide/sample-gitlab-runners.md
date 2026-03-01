@@ -1,6 +1,4 @@
-# Tutorial: Configure a CodeBuild-hosted GitLab
-
-runner
+# Tutorial: Configure a CodeBuild-hosted GitLab runner
 
 This tutorial shows you how to configure your CodeBuild projects to run GitLab CI/CD pipeline jobs.
 For more information about using GitLab or GitLab Self Managed with CodeBuild, see [Self-managed GitLab runners in AWS CodeBuild](gitlab-runner.md "gitlab-runner.md").
@@ -25,9 +23,7 @@ To do so, you can go to the CodeConnections console and create a dummy connectio
 to trigger the reauthorization to get the additional prmissions. With this, all the existing
 connections can use the runner feature. Once complete, you can delete the dummy connection.
 
-## Step 1: Create a CodeBuild
-
-project with a webhook
+## Step 1: Create a CodeBuild project with a webhook
 
 In this step, you will create a CodeBuild project with a webhook and review it in the
 GitLab console.
@@ -148,10 +144,8 @@ build-job:       # This job runs in the build stage, which runs first.
     - codebuild-myProject-$CI_PROJECT_ID-$CI_PIPELINE_IID-$CI_JOB_NAME
 ```
 
-- You can also override your image and compute type in the tag. See [Compute images
-  supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")
-  for a list of curated images. For using custom images, see [Label overrides
-  supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md").
+- You can also override your image and compute type in the tag. See [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")
+  for a list of curated images. For using custom images, see [Label overrides supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md").
   The compute type and image in the tag will override
   the environment settings on your project. To override your
   environment settings for an Amazon EC2 compute build, use the following
@@ -249,9 +243,7 @@ There are several limitations when using a buildspec override in a self-managed 
 - CodeBuild fetches the runner token during the `DOWNLOAD_SOURCE` phase, which has an expiration time of one hour.
   If your `PRE_BUILD` or `INSTALL` phases exceed an hour, the runner token may expire before the GitLab self-managed runner starts.
 
-## Step 3: Review your
-
-results
+## Step 3: Review your results
 
 Whenever a GitLab CI/CD pipeline run occurs, CodeBuild would receive the CI/CD pipeline job
 events through the webhook. For each job in the CI/CD pipeline, CodeBuild starts a build to run an

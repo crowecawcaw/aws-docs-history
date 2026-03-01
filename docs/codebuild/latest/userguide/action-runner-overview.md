@@ -14,8 +14,7 @@ follows:
    set up your webhook filters.
 3. Update your GitHub Actions workflow YAML in GitHub to configure your build
    environment.
-   For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted GitHub
-   Actions runner](action-runner.md "action-runner.md").
+   For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").
 
 This feature allows your GitHub Actions workflow jobs to get native integration with
 AWS, which provides security and convenience through features like IAM, AWS Secrets Manager
@@ -24,12 +23,8 @@ instances.
 
 ###### Topics
 
-- [About the CodeBuild-hosted GitHub Actions
-  runner](action-runner-questions.md "action-runner-questions.md")
-- [Tutorial: Configure a CodeBuild-hosted GitHub
-  Actions runner](action-runner.md "action-runner.md")
+- [About the CodeBuild-hosted GitHub Actions runner](action-runner-questions.md "action-runner-questions.md")
+- [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md")
 - [Troubleshoot the webhook](action-runner-troubleshoot-webhook.md "action-runner-troubleshoot-webhook.md")
-- [Label overrides
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md")
-- [Compute images
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")
+- [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md")
+- [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")

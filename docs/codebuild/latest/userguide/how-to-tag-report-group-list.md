@@ -5,9 +5,7 @@ them. For more information about using tags, see the [Tagging best
 practices](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf "https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf") whitepaper. For examples of tag-based access
 policies, see [Deny or allow actions on report groups based on resource tags](auth-and-access-control-using-tags.md#report-group-tag-policy-example "auth-and-access-control-using-tags.md#report-group-tag-policy-example").
 
-## View tags for a report group
-
-(console)
+## View tags for a report group (console)
 
 You can use the CodeBuild console to view the tags associated with a CodeBuild report
 group.
@@ -18,9 +16,7 @@ group.
    where you want to view tags.
 3. In the navigation pane, choose **Settings**.
 
-## View tags for a report group
-
-(AWS CLI)
+## View tags for a report group (AWS CLI)
 
 Follow these steps to use the AWS CLI to view the AWS tags for a report group. If
 no tags have been added, the returned tags list is empty.

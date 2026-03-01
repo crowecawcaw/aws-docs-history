@@ -20,11 +20,7 @@ There are two primary use cases for running CodeBuild in a proxy server:
 
 ###### Topics
 
-- [Set up components required to run
-  CodeBuild in a proxy server](use-proxy-server-transparent-components.md "use-proxy-server-transparent-components.md")
-- [Run CodeBuild in an explicit proxy
-  server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md")
-- [Run CodeBuild in a transparent
-  proxy server](run-codebuild-in-transparent-proxy-server.md "run-codebuild-in-transparent-proxy-server.md")
-- [Run a package manager and other tools in a
-  proxy server](use-proxy-server-tools.md "use-proxy-server-tools.md")
+- [Set up components required to run CodeBuild in a proxy server](use-proxy-server-transparent-components.md "use-proxy-server-transparent-components.md")
+- [Run CodeBuild in an explicit proxy server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md")
+- [Run CodeBuild in a transparent proxy server](run-codebuild-in-transparent-proxy-server.md "run-codebuild-in-transparent-proxy-server.md")
+- [Run a package manager and other tools in a proxy server](use-proxy-server-tools.md "use-proxy-server-tools.md")

@@ -1,6 +1,4 @@
-# Create a static website with build output
-
-hosted in an S3 bucket
+# Create a static website with build output hosted in an S3 bucket
 
 You can disable the encryption of artifacts in a build. You might want to do this so that
 you can publish artifacts to a location that is configured to host a website. (You cannot

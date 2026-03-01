@@ -9,15 +9,12 @@ authentication.
 
 ###### Topics
 
-- [Create a build project with build
-  badges](#sample-build-badges-request-running "#sample-build-badges-request-running")
+- [Create a build project with build badges](#sample-build-badges-request-running "#sample-build-badges-request-running")
 - [Access AWS CodeBuild build badges](access-badges.md "access-badges.md")
 - [Publish CodeBuild build badges](publish-badges.md "publish-badges.md")
 - [CodeBuild badge statuses](badge-statuses.md "badge-statuses.md")
 
-## Create a build project with build
-
-badges
+## Create a build project with build badges
 
 Use the following one of the following procedures to create a build project with build
 badges enabled. You can use AWS CLI or the AWS Management Console.

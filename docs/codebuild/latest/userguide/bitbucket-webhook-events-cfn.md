@@ -1,6 +1,4 @@
-# Filter Bitbucket webhook events
-
-(CloudFormation)
+# Filter Bitbucket webhook events (CloudFormation)
 
 To use an CloudFormation template to filter webhook events, use the AWS CodeBuild project's
 `FilterGroups` property. The following YAML-formatted portion of an CloudFormation

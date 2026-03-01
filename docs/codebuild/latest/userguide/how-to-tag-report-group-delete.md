@@ -1,6 +1,4 @@
-# Remove tags from a report
-
-group
+# Remove tags from a report group
 
 You can remove one or more tags associated with a report group. Removing a tag does
 not delete the tag from other AWS resources that are associated with that tag.
@@ -10,12 +8,9 @@ not delete the tag from other AWS resources that are associated with that tag.
 Removing tags for a report group can impact access to that report group. Before
 you remove a tag from a report group, make sure to review any IAM policies that
 might use the key or value for a tag to control access to resources such as report
-groups. For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+groups. For examples of tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
-## Remove a tag from a report
-
-group (console)
+## Remove a tag from a report group (console)
 
 You can use the CodeBuild console to remove the association between a tag and a CodeBuild
 report group.
@@ -31,9 +26,7 @@ report group.
 6. When you have finished removing tags, choose
    **Submit**.
 
-## Remove a tag from a report group
-
-(AWS CLI)
+## Remove a tag from a report group (AWS CLI)
 
 Follow these steps to use the AWS CLI to remove a tag from a CodeBuild report group.
 Removing a tag does not delete it, but simply removes the association between the
@@ -45,8 +38,7 @@ If you delete a CodeBuild report group, all tag associations are removed from th
 deleted report group. You do not have to remove tags before you delete a report
 group.
 
-To delete one or more tags from a report group, see [Edit tags for a report group
-(AWS CLI)](how-to-tag-report-group-update.md#how-to-tag-report-group-update-cli "how-to-tag-report-group-update.md#how-to-tag-report-group-update-cli"). Update the
+To delete one or more tags from a report group, see [Edit tags for a report group (AWS CLI)](how-to-tag-report-group-update.md#how-to-tag-report-group-update-cli "how-to-tag-report-group-update.md#how-to-tag-report-group-update-cli"). Update the
 `tags` section in the JSON-formatted data with an updated list of
 tags that does not contain the ones you want to delete. If you want to delete all
 tags, update the `tags` section to:

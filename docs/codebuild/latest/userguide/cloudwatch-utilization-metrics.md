@@ -1,6 +1,4 @@
-# CodeBuild CloudWatch resource utilization
-
-metrics
+# CodeBuild CloudWatch resource utilization metrics
 
 ###### Note
 

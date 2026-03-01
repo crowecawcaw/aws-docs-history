@@ -1,6 +1,4 @@
-# Filter Bitbucket webhook events
-
-(console)
+# Filter Bitbucket webhook events (console)
 
 To use the AWS Management Console to filter webhook events:
 

@@ -1,6 +1,4 @@
-# Run buildspec commands for the
-
-INSTALL, PRE_BUILD, and POST_BUILD phases
+# Run buildspec commands for the INSTALL, PRE_BUILD, and POST_BUILD phases
 
 By default, CodeBuild ignores any buildspec commands when running a self-hosted Buildkite
 runner build. To run buildspec commands during the build,

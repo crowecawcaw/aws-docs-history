@@ -1,6 +1,4 @@
-# Create a CodeBuild project with a
-
-private registry
+# Create a CodeBuild project with a private registry
 
 1. For information about how to create a free private repository, see [Repositories on Docker
    Hub](https://docs.docker.com/docker-hub/repos/ "https://docs.docker.com/docker-hub/repos/"). You can also run the following commands in a terminal to pull

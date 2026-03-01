@@ -2,14 +2,12 @@
 
 This section describes sample integrations between CodePipeline and CodeBuild.
 
-| Sample                                                                                                                                                                          | Description                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Samples of CodePipeline/CodeBuild integrations and batch<br>builds](#sample-pipeline-batch "#sample-pipeline-batch")                                                           | These samples demonstrate how to use AWS CodePipeline to create a build<br>project that uses batch builds.                                                 |
-| [Sample of a CodePipeline/CodeBuild integration with multiple<br>input sources and output artifacts](#sample-pipeline-multi-input-output "#sample-pipeline-multi-input-output") | This sample demonstrates how to<br>use AWS CodePipeline to create a build project that uses multiple input sources<br>to create multiple output artifacts. |
+| Sample                                                                                                                                                                       | Description                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Samples of CodePipeline/CodeBuild integrations and batch builds](#sample-pipeline-batch "#sample-pipeline-batch")                                                           | These samples demonstrate how to use AWS CodePipeline to create a build<br>project that uses batch builds.                                                 |
+| [Sample of a CodePipeline/CodeBuild integration with multiple input sources and output artifacts](#sample-pipeline-multi-input-output "#sample-pipeline-multi-input-output") | This sample demonstrates how to<br>use AWS CodePipeline to create a build project that uses multiple input sources<br>to create multiple output artifacts. |
 
-## Samples of CodePipeline/CodeBuild integrations and batch
-
-builds
+## Samples of CodePipeline/CodeBuild integrations and batch builds
 
 AWS CodeBuild supports batch builds. The following samples demonstrate how to use AWS CodePipeline to
 create a build project that uses batch builds.
@@ -18,9 +16,7 @@ You can use a JSON-formatted file that defines the structure of your pipeline, a
 use it with the AWS CLI to create the pipeline. For more information, see [AWS CodePipeline Pipeline
 structure reference](../../../codepipeline/latest/userguide/reference-pipeline-structure.md "../../../codepipeline/latest/userguide/reference-pipeline-structure.md") in the _AWS CodePipeline User Guide_.
 
-### Batch build with individual
-
-artifacts
+### Batch build with individual artifacts
 
 Use the following JSON file as an example of a pipeline structure that creates a batch
 build with separate artifacts. To enable batch builds in CodePipeline, set the
@@ -182,9 +178,7 @@ After you create the JSON file, you can create your pipeline. Use the AWS CLI to
 `--cli-input-json` parameter. For more information, see [Create a pipeline
 (CLI)](../../../codepipeline/latest/userguide/pipelines-create.md#pipelines-create-cli "../../../codepipeline/latest/userguide/pipelines-create.md#pipelines-create-cli") in the _AWS CodePipeline User Guide_.
 
-### Batch build with combined
-
-artifacts
+### Batch build with combined artifacts
 
 Use the following JSON file as an example of a pipeline structure that creates a batch
 build with combined artifacts. To enable batch builds in CodePipeline, set the
@@ -321,9 +315,7 @@ After you create the JSON file, you can create your pipeline. Use the AWS CLI to
 `--cli-input-json` parameter. For more information, see [Create a pipeline
 (CLI)](../../../codepipeline/latest/userguide/pipelines-create.md#pipelines-create-cli "../../../codepipeline/latest/userguide/pipelines-create.md#pipelines-create-cli") in the _AWS CodePipeline User Guide_.
 
-## Sample of a CodePipeline/CodeBuild integration with multiple
-
-input sources and output artifacts
+## Sample of a CodePipeline/CodeBuild integration with multiple input sources and output artifacts
 
 An AWS CodeBuild project can take more than one input source. It can also create more than one output artifact. This sample demonstrates
 how to use AWS CodePipeline to create a build project that uses multiple input sources to create multiple output artifacts.
@@ -444,8 +436,7 @@ In this JSON file:
   source and `$CODEBUILD_SRC_DIR_yourInputArtifactName` for all other
   sources. For the pipeline in this sample, the two input source directories are
   `$CODEBUILD_SRC_DIR` and `$CODEBUILD_SRC_DIR_source2`. For
-  more information, see [Environment variables in build
-  environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+  more information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 - The names of the output artifacts specified in the pipeline's JSON file must match
   the names of the secondary artifacts defined in your buildspec file. This pipeline
   uses the following buildspec file. For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").

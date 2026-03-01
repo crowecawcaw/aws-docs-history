@@ -7,8 +7,7 @@ your GitHub Enterprise Server repository.
 ###### Topics
 
 - [Prerequisites](#sample-github-enterprise-prerequisites "#sample-github-enterprise-prerequisites")
-- [Step 1: Create a build project with GitHub
-  Enterprise Server and enable webhooks](#sample-github-enterprise-running "#sample-github-enterprise-running")
+- [Step 1: Create a build project with GitHub Enterprise Server and enable webhooks](#sample-github-enterprise-running "#sample-github-enterprise-running")
 
 ## Prerequisites
 
@@ -66,9 +65,7 @@ upload files and folders to a bucket?](../../../AmazonS3/latest/userguide/upload
 This bucket must be in the same AWS region as your builds. For example, if you instruct CodeBuild to run a build in the US East (Ohio)
 Region, the bucket must be in the US East (Ohio) Region.
 
-## Step 1: Create a build project with GitHub
-
-Enterprise Server and enable webhooks
+## Step 1: Create a build project with GitHub Enterprise Server and enable webhooks
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. If a CodeBuild information page is displayed, choose **Create build project**. Otherwise, on the navigation pane, expand **Build**,

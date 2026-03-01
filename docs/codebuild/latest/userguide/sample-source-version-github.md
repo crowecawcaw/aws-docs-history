@@ -1,6 +1,4 @@
-# Specify a GitHub
-
-repository version with a commit ID
+# Specify a GitHub repository version with a commit ID
 
 You can specify a source version with only a commit ID, such as
 `12345678901234567890123467890123456789`. If you do this, CodeBuild must

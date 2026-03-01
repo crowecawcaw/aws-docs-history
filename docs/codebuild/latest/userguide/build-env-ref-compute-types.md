@@ -576,8 +576,7 @@ To choose a compute type:
   **Environment** expand **Additional
   configuration**, and then choose one of the options from
   **Compute type**. For more information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console") or
-  [Change a build project's settings
-  (console)](change-project.md#change-project-console "change-project.md#change-project-console").
+  [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 - For the AWS CLI, run the `create-project` or
   `update-project` command, specifying the
   `computeType` value of the `environment` object. For more

@@ -19,12 +19,9 @@ Use the following steps to run the trest report sample.
 ###### Topics
 
 - [Prerequisites](#sample-test-report-cli-prerequisites "#sample-test-report-cli-prerequisites")
-- [Step 1: Create a report
-  group](#sample-test-report-cli-create-report "#sample-test-report-cli-create-report")
-- [Step 2:
-  Configure a project with a report group](#sample-test-report-cli-create-project-with-report "#sample-test-report-cli-create-project-with-report")
-- [Step 3: Run and
-  view results of a report](#sample-test-report-cli-run-and-view-report-results "#sample-test-report-cli-run-and-view-report-results")
+- [Step 1: Create a report group](#sample-test-report-cli-create-report "#sample-test-report-cli-create-report")
+- [Step 2: Configure a project with a report group](#sample-test-report-cli-create-project-with-report "#sample-test-report-cli-create-project-with-report")
+- [Step 3: Run and view results of a report](#sample-test-report-cli-run-and-view-report-results "#sample-test-report-cli-run-and-view-report-results")
 
 ### Prerequisites
 
@@ -68,12 +65,9 @@ or Cucumber).
 }
 ```
 
-For more information, see [Permissions for test
-reporting operations](test-permissions.md#test-permissions-related-to-reporting "test-permissions.md#test-permissions-related-to-reporting").
+For more information, see [Permissions for test reporting operations](test-permissions.md#test-permissions-related-to-reporting "test-permissions.md#test-permissions-related-to-reporting").
 
-### Step 1: Create a report
-
-group
+### Step 1: Create a report group
 
 1. Create a file named `CreateReportGroupInput.json`.
 2. Create a folder in your S3 bucket where your test results are exported.
@@ -130,9 +124,7 @@ this report group.
 }
 ```
 
-### Step 2:
-
-Configure a project with a report group
+### Step 2: Configure a project with a report group
 
 To run a report, you first create a CodeBuild build project that is configured with
 your report group. Test cases specified for your report group are run when you run a
@@ -211,9 +203,7 @@ the role you are using.
 aws codebuild create-project --cli-input-json file://project.json
 ```
 
-### Step 3: Run and
-
-view results of a report
+### Step 3: Run and view results of a report
 
 In this section, you run a build of the project you created earlier. During the
 build process, CodeBuild creates a report with the results of the test cases. The report

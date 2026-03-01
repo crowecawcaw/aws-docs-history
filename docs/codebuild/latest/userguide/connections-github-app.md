@@ -4,8 +4,7 @@ You can use GitHub App to connect with CodeBuild. GitHub App connections are
 supported through [AWS CodeConnections](../../../dtconsole/latest/userguide/welcome-connections.md "../../../dtconsole/latest/userguide/welcome-connections.md").
 
 The source provider access enables you to trigger a build by subscribing
-to [GitHub webhook events](github-webhook.md "github-webhook.md") using [CreateWebhook](../APIReference/API_CreateWebhook.md "../APIReference/API_CreateWebhook.md"), or to use [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md") in CodeBuild.
+to [GitHub webhook events](github-webhook.md "github-webhook.md") using [CreateWebhook](../APIReference/API_CreateWebhook.md "../APIReference/API_CreateWebhook.md"), or to use [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md") in CodeBuild.
 
 ###### Note
 
@@ -15,15 +14,12 @@ created in opt-in regions, cannot be used in other regions. For more information
 
 ###### Topics
 
-- [Step 1: Create a connection to GitHub App
-  (console)](#connections-github-console "#connections-github-console")
+- [Step 1: Create a connection to GitHub App (console)](#connections-github-console "#connections-github-console")
 - [Step 2: Grant CodeBuild project IAM role access to use the connection](#connections-github-role-access "#connections-github-role-access")
 - [Step 3: Configure CodeBuild to use the new connection](#connections-github-account-credential "#connections-github-account-credential")
 - [Troubleshooting the GitHub App](#connections-github-troubleshooting "#connections-github-troubleshooting")
 
-## Step 1: Create a connection to GitHub App
-
-(console)
+## Step 1: Create a connection to GitHub App (console)
 
 Use these steps to use the CodeBuild console to add a connection for your project in GitHub.
 
@@ -43,8 +39,7 @@ You can grant CodeBuild project IAM role access to use the GitHub tokens vended 
 
 ###### To grant CodeBuild project IAM role access
 
-1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS
-   services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
+1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
 2. While following the instructions, add the following IAM policy to your CodeBuild project role to grant access to the connection.
 
 JSON

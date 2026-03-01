@@ -48,10 +48,8 @@ A file system created in Amazon EFS is supported on Linux platforms only.
 ###### Topics
 
 - [Step 1: Create a VPC using CloudFormation](#sample-efs-create-vpc "#sample-efs-create-vpc")
-- [Step 2: Create an Amazon Elastic File System file system with
-  your VPC](#sample-efs-create-efs "#sample-efs-create-efs")
-- [Step 3: Create a CodeBuild project to use with
-  Amazon EFS](#sample-efs-create-acb "#sample-efs-create-acb")
+- [Step 2: Create an Amazon Elastic File System file system with your VPC](#sample-efs-create-efs "#sample-efs-create-efs")
+- [Step 3: Create a CodeBuild project to use with Amazon EFS](#sample-efs-create-acb "#sample-efs-create-acb")
 - [Step 4: Review the build project](#sample-efs-summary "#sample-efs-summary")
 
 ### Step 1: Create a VPC using CloudFormation
@@ -71,9 +69,7 @@ of the public subnets, the build fails. 2. Sign in to the AWS Management Console
 your VPC and its ID. Both are required when you create your AWS CodeBuild
 project later in this sample.
 
-### Step 2: Create an Amazon Elastic File System file system with
-
-your VPC
+### Step 2: Create an Amazon Elastic File System file system with your VPC
 
 Create a simple Amazon EFS file system for this sample using the VPC you created
 earlier.
@@ -101,9 +97,7 @@ earlier.
     in-transit encryption for all clients**, and then choose
     **Save**.
 
-### Step 3: Create a CodeBuild project to use with
-
-Amazon EFS
+### Step 3: Create a CodeBuild project to use with Amazon EFS
 
 Create a AWS CodeBuild project that uses the VPC you created earlier in this sample.
 When the build is run, it mounts the Amazon EFS file system created earlier. Next, it

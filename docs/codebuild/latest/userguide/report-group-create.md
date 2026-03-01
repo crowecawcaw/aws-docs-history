@@ -6,18 +6,12 @@ For more information, see [Test report permissions](test-permissions.md "test-pe
 
 ###### Topics
 
-- [Create a report group
-  (buildspec)](#test-report-group-create-buildspec "#test-report-group-create-buildspec")
-- [Create a report group
-  (console)](#test-report-group-create-console "#test-report-group-create-console")
-- [Create a report group
-  (CLI)](#test-report-group-create-cli "#test-report-group-create-cli")
-- [Create a report group
-  (CloudFormation)](#test-report-group-create-cfn "#test-report-group-create-cfn")
+- [Create a report group (buildspec)](#test-report-group-create-buildspec "#test-report-group-create-buildspec")
+- [Create a report group (console)](#test-report-group-create-console "#test-report-group-create-console")
+- [Create a report group (CLI)](#test-report-group-create-cli "#test-report-group-create-cli")
+- [Create a report group (CloudFormation)](#test-report-group-create-cfn "#test-report-group-create-cfn")
 
-## Create a report group
-
-(buildspec)
+## Create a report group (buildspec)
 
 A report group created using the buildspec does not export raw test result
 files. You can view your report group and specify export settings. For more
@@ -61,14 +55,12 @@ reports:
 ```
 
 For more information, see [Specify test files](report-group-test-cases.md "report-group-test-cases.md") and [Reports syntax in the buildspec file](build-spec-ref.md#reports-buildspec-file "build-spec-ref.md#reports-buildspec-file"). 3. In the `commands` section, specify the command to run your
-tests. For more information, see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md") . 4. Run the build. When the build is complete, a new report group is
+tests. For more information, see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md"). 4. Run the build. When the build is complete, a new report group is
 created with a name that uses the format
 `project-name-report-group-name`. For more
 information, see [Report group naming](test-report-group-naming.md "test-report-group-naming.md").
 
-## Create a report group
-
-(console)
+## Create a report group (console)
 
 Use the following procedure to create a report group using the AWS Management Console.
 
@@ -115,9 +107,7 @@ Use the following procedure to create a report group using the AWS Management Co
 The CodeBuild service role specified in the project is used for permissions to upload to the S3
 bucket. 7. Choose **Create report group**.
 
-## Create a report group
-
-(CLI)
+## Create a report group (CLI)
 
 Use the following procedure to create a report group using the AWS CLI.
 
@@ -191,9 +181,7 @@ bucket. 3. Run the following command:
 aws codebuild create-report-group --cli-input-json file://CreateReportGroupInput.json
 ```
 
-## Create a report group
-
-(CloudFormation)
+## Create a report group (CloudFormation)
 
 Use the following instructions to create a report group using the CloudFormation
 template

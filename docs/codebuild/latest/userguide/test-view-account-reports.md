@@ -1,6 +1,4 @@
-# View test reports in your AWS
-
-account
+# View test reports in your AWS account
 
 ###### To view test reports in your AWS account
 

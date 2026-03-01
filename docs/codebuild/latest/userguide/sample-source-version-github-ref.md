@@ -1,6 +1,4 @@
-# Specify a GitHub
-
-repository version with a reference and commit ID
+# Specify a GitHub repository version with a reference and commit ID
 
 You can specify a source version with a reference and a commit ID in this format:
 ``refs`/`heads`/`branchname`^{`full-commit-SHA`}` (for example,`refs/heads/main^{12345678901234567890123467890123456789}`). If
@@ -8,8 +6,7 @@ you do this, CodeBuild downloads only the specified branch to find the version.
 
 ###### To specify a GitHub repository version with a reference and commit ID.
 
-1. Complete the steps in [Specify a GitHub
-   repository version with a commit ID](sample-source-version-github.md "sample-source-version-github.md").
+1. Complete the steps in [Specify a GitHub repository version with a commit ID](sample-source-version-github.md "sample-source-version-github.md").
 2. From the left navigation pane, choose **Build projects**,
    and then choose the project you created earlier.
 3. Choose **Start build**.

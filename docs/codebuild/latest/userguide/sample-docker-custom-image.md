@@ -18,12 +18,9 @@ pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwa
 
 ###### Topics
 
-- [Run the Docker in custom image
-  sample](#sample-docker-custom-image-running "#sample-docker-custom-image-running")
+- [Run the Docker in custom image sample](#sample-docker-custom-image-running "#sample-docker-custom-image-running")
 
-## Run the Docker in custom image
-
-sample
+## Run the Docker in custom image sample
 
 Use the following procedure to run the Docker in custom image sample. For more
 information about this sample, see [Docker in custom image sample for CodeBuild](sample-docker-custom-image.md "sample-docker-custom-image.md").

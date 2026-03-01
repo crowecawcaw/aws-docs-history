@@ -97,7 +97,6 @@ You can find the webhook payload in the webhook settings of your GitLab reposito
 
 ###### Topics
 
-- [Filter GitLab webhook events
-  (console)](gitlab-webhook-events-console.md "gitlab-webhook-events-console.md")
+- [Filter GitLab webhook events (console)](gitlab-webhook-events-console.md "gitlab-webhook-events-console.md")
 - [Filter GitLab webhook events (SDK)](gitlab-webhook-events-sdk.md "gitlab-webhook-events-sdk.md")
 - [Filter GitLab webhook events (CloudFormation)](gitlab-webhook-events-cfn.md "gitlab-webhook-events-cfn.md")

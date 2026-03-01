@@ -1,6 +1,4 @@
-# Label overrides supported with the
-
-CodeBuild-hosted Buildkite runner
+# Label overrides supported with the CodeBuild-hosted Buildkite runner
 
 In your Buildkite pipeline steps agent tag labels, you can provide a variety of label
 overrides that modify your self-hosted runner build. Any builds not recognized by CodeBuild
@@ -47,8 +45,7 @@ steps:
 
 - Example: `image: "arm-3.0"`
 - Overrides the image and environment type used when starting the self-hosted
-  runner build with a curated image. To learn about supported values, see [Compute images supported with the
-  CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
+  runner build with a curated image. To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
   1.  To override the image and environment type used with a custom image,
       use `image:
 "custom-`<environment-type>`-`<custom-image-identifier>`"`
@@ -67,8 +64,7 @@ appropriate registry credentials in your CodeBuild project.
 
 - Example: `instance-size: "medium"`
 - Overrides the instance type used when starting the self-hosted runner build.
-  To learn about supported values, see [Compute images supported with the
-  CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
+  To learn about supported values, see [Compute images supported with the CodeBuild-hosted Buildkite runner](buildkite-runner-update-yaml.md "buildkite-runner-update-yaml.md").
   `fleet: "`<fleet-name>`"`
 
 - Example: `fleet: "myFleet"`

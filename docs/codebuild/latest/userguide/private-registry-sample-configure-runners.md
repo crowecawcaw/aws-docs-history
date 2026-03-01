@@ -1,6 +1,4 @@
-# Configure a private registry
-
-credential for self-hosted runners
+# Configure a private registry credential for self-hosted runners
 
 Use the following instructions to configure a registry credential for a self-hosted runner.
 
@@ -13,8 +11,7 @@ AWS Management Console
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a build project or select an existing project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
-   and [Change a build project's settings
-   (console)](change-project.md#change-project-console "change-project.md#change-project-console").
+   and [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 3. In **Environment**, choose
    **Additional configuration**.
 4. In **Additional configuration**, enter the name or ARN of

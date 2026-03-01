@@ -16,14 +16,10 @@ pricing](http://aws.amazon.com/sns/pricing "http://aws.amazon.com/sns/pricing").
 
 ###### Topics
 
-- [Run the build notifications
-  sample](#sample-build-notifications-running "#sample-build-notifications-running")
-- [Build notifications input format
-  reference](sample-build-notifications-ref.md "sample-build-notifications-ref.md")
+- [Run the build notifications sample](#sample-build-notifications-running "#sample-build-notifications-running")
+- [Build notifications input format reference](sample-build-notifications-ref.md "sample-build-notifications-ref.md")
 
-## Run the build notifications
-
-sample
+## Run the build notifications sample
 
 Use the following procedure to run the build notifications sample.
 
@@ -314,8 +310,7 @@ For a rule with a `detail-type` value of `CodeBuild Build
 {"build-id":"$.detail.build-id","project-name":"$.detail.project-name","completed-phase":"$.detail.completed-phase","completed-phase-status":"$.detail.completed-phase-status"}
 ```
 
-To get other types of information, see the [Build notifications input format
-reference](sample-build-notifications-ref.md "sample-build-notifications-ref.md"). 16. In the **Input Template** box, enter one of the following
+To get other types of information, see the [Build notifications input format reference](sample-build-notifications-ref.md "sample-build-notifications-ref.md"). 16. In the **Input Template** box, enter one of the following
 input templates.
 
 For a rule with a `detail-type` value of `CodeBuild Build

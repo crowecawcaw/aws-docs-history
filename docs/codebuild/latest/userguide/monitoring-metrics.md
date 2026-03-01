@@ -20,20 +20,14 @@ You can't customize the metrics or the graphs used to display them in the CodeBu
 console. If you want to customize the display, use the Amazon CloudWatch console to view your
 build metrics.
 
-### Account-level
+### Account-level metrics
 
-metrics
-
-###### To view AWS
-
-account-level metrics
+###### To view AWS account-level metrics
 
 1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. In the navigation pane, choose **Account metrics**.
 
-### Project-level
-
-metrics
+### Project-level metrics
 
 ###### To view project-level metrics
 
@@ -48,9 +42,7 @@ metrics
 You can customize the metrics and the graphs used to display them with the CloudWatch
 console.
 
-### Account-level
-
-metrics
+### Account-level metrics
 
 ###### To view account-level metrics
 
@@ -66,9 +58,7 @@ the **SucceededBuilds**, **FailedBuilds**,
 All selected project and metric combinations are displayed in the graph on
 the page.
 
-### Project-level
-
-metrics
+### Project-level metrics
 
 ###### To view project-level metrics
 

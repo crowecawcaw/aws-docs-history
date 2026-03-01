@@ -1,11 +1,8 @@
-# 'Publish Docker image to an Amazon ECR image repository' sample
-
-for CodeBuild
+# 'Publish Docker image to an Amazon ECR image repository' sample for CodeBuild
 
 This sample produces as build output a Docker image and then pushes the Docker image to an
 Amazon Elastic Container Registry (Amazon ECR) image repository. You can adapt this sample to push the Docker image to
-Docker Hub. For more information, see [Adapt the 'Publish Docker image to Amazon ECR'
-sample to push to Docker Hub](sample-docker-docker-hub.md "sample-docker-docker-hub.md").
+Docker Hub. For more information, see [Adapt the 'Publish Docker image to Amazon ECR' sample to push to Docker Hub](sample-docker-docker-hub.md "sample-docker-docker-hub.md").
 
 To learn how to build a Docker image by using a custom Docker build image
 (`docker:dind` in Docker Hub), see our [Docker in custom image
@@ -27,18 +24,13 @@ AWS KMS, CloudWatch Logs, and Amazon ECR. For more information, see [CodeBuild p
 
 ###### Topics
 
-- [Run the 'Publish Docker image to Amazon ECR'
-  sample](#sample-docker-running "#sample-docker-running")
-- [Adapt the 'Publish Docker image to Amazon ECR'
-  sample to push to Docker Hub](sample-docker-docker-hub.md "sample-docker-docker-hub.md")
+- [Run the 'Publish Docker image to Amazon ECR' sample](#sample-docker-running "#sample-docker-running")
+- [Adapt the 'Publish Docker image to Amazon ECR' sample to push to Docker Hub](sample-docker-docker-hub.md "sample-docker-docker-hub.md")
 
-## Run the 'Publish Docker image to Amazon ECR'
-
-sample
+## Run the 'Publish Docker image to Amazon ECR' sample
 
 Use the following procedure to run the sample that publishes a Docker image to Amazon ECR.
-For more infomration about this sample, see ['Publish Docker image to an Amazon ECR image repository' sample
-for CodeBuild](sample-docker.md "sample-docker.md").
+For more infomration about this sample, see ['Publish Docker image to an Amazon ECR image repository' sample for CodeBuild](sample-docker.md "sample-docker.md").
 
 ###### To run this sample
 

@@ -1,6 +1,4 @@
-# GitHub and GitHub Enterprise Server access
-
-token
+# GitHub and GitHub Enterprise Server access token
 
 ## Access token prerequisites
 
@@ -34,8 +32,7 @@ access token might need the following permissions:
 - **Pull requests: Read-only**: Grants permission to access pull requests.
   This permission is required if your webhook has a `FILE_PATH` filter on pull request events.
 - **Administration: Read and write**: This permission is required if you are using the
-  self-hosted GitHub Actions runner feature with CodeBuild. For more details, see [Create a registration token for a repository](https://docs.github.com/en/rest/actions/self-hosted-runners?apiVersion=2022-11-28#create-a-registration-token-for-a-repository "https://docs.github.com/en/rest/actions/self-hosted-runners?apiVersion=2022-11-28#create-a-registration-token-for-a-repository") and [Tutorial: Configure a CodeBuild-hosted GitHub
-  Actions runner](action-runner.md "action-runner.md").
+  self-hosted GitHub Actions runner feature with CodeBuild. For more details, see [Create a registration token for a repository](https://docs.github.com/en/rest/actions/self-hosted-runners?apiVersion=2022-11-28#create-a-registration-token-for-a-repository "https://docs.github.com/en/rest/actions/self-hosted-runners?apiVersion=2022-11-28#create-a-registration-token-for-a-repository") and [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").
 
 ###### Note
 
@@ -43,9 +40,7 @@ If you want to access organization repositories, make sure you specify the organ
 
 For more information, see [Permissions required for fine-grained personal access tokens](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28 "https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens?apiVersion=2022-11-28") on the GitHub website.
 
-## Connect GitHub with an access token
-
-(console)
+## Connect GitHub with an access token (console)
 
 To use the console to connect your project to GitHub using an access token, do the
 following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
@@ -66,9 +61,7 @@ following when you create a project. For information, see [Create a build projec
      1. From the populated credential list, choose one of the options under **Personal access token**.
      2. You can also create new personal access token by selecting **create a new personal access token connection** in the description.
 
-## Connect GitHub with an access token
-
-(CLI)
+## Connect GitHub with an access token (CLI)
 
 Follow these steps to use the AWS CLI to connect your project to GitHub using an
 access token. For information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md "cmd-ref.md").

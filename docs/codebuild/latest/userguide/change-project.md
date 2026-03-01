@@ -8,15 +8,11 @@ permissions described in [Test report permissions](test-permissions.md "test-per
 
 ###### Topics
 
-- [Change a build project's settings
-  (console)](#change-project-console "#change-project-console")
+- [Change a build project's settings (console)](#change-project-console "#change-project-console")
 - [Change a build project's settings (AWS CLI)](#change-project-cli "#change-project-cli")
-- [Change a build project's settings (AWS
-  SDKs)](#change-project-sdks "#change-project-sdks")
+- [Change a build project's settings (AWS SDKs)](#change-project-sdks "#change-project-sdks")
 
-## Change a build project's settings
-
-(console)
+## Change a build project's settings (console)
 
 To change the settings for a build project, perform the following procedure:
 
@@ -1096,8 +1092,7 @@ The `project-info.json` file contains an array of projects, so it
 cannot be used directly to update a project. You can, however, copy the properties that you
 want to modify from the `project-info.json` file and paste them
 into your update file as a baseline for the properties you want to modify. For more
-information, see [View a build project's details
-(AWS CLI)](view-project-details.md#view-project-details-cli "view-project-details.md#view-project-details-cli").
+information, see [View a build project's details (AWS CLI)](view-project-details.md#view-project-details-cli "view-project-details.md#view-project-details-cli").
 
 Modify the update JSON file as described in [Create a build project (AWS CLI)](create-project.md#create-project-cli "create-project.md#create-project-cli"), and save your results. When you are finished
 modifying the update JSON file, run the [`update-project`](../../../cli/latest/reference/codebuild/update-project.md "../../../cli/latest/reference/codebuild/update-project.md") command, passing the update JSON file.
@@ -1118,8 +1113,6 @@ Parameter validation failed:
 Missing required parameter in environment: "type"
 ```
 
-## Change a build project's settings (AWS
-
-SDKs)
+## Change a build project's settings (AWS SDKs)
 
 For information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md "sdk-ref.md").

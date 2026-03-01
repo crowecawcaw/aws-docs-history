@@ -11,14 +11,10 @@ For more information, see [https://aws.amazon.com/codebuild/pricing/](https://aw
 
 ###### Topics
 
-- [Configure a managed proxy
-  configuration for reserved capacity fleets](#run-codebuild-in-managed-proxy-server-configure "#run-codebuild-in-managed-proxy-server-configure")
-- [Run a CodeBuild
-  reserved capacity fleet](#use-managed-server-run-acb-fleet "#use-managed-server-run-acb-fleet")
+- [Configure a managed proxy configuration for reserved capacity fleets](#run-codebuild-in-managed-proxy-server-configure "#run-codebuild-in-managed-proxy-server-configure")
+- [Run a CodeBuild reserved capacity fleet](#use-managed-server-run-acb-fleet "#use-managed-server-run-acb-fleet")
 
-## Configure a managed proxy
-
-configuration for reserved capacity fleets
+## Configure a managed proxy configuration for reserved capacity fleets
 
 To configure a managed proxy server for your reserved capacity fleet, you must
 enable this feature when creating your fleet in your console or using the AWS CLI. There
@@ -79,9 +75,7 @@ Your JSON file may look similar to the following:
 }
 ```
 
-## Run a CodeBuild
-
-reserved capacity fleet
+## Run a CodeBuild reserved capacity fleet
 
 When running AWS CodeBuild reserved capacity fleets with your managed proxy
 server, CodeBuild will automatically set its `HTTP_PROXY`

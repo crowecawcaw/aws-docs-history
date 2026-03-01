@@ -10,8 +10,7 @@ compiling your source code). There are several ways to specify these commands:
 - Use the CodeBuild console to create a build project. In **Insert build commands**, for **Build commands**,
   enter the commands you want to run in the `build` phase. For more information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
 - Use the CodeBuild console to change the settings of a build project. In **Insert build commands**, for **Build
-  commands**, enter the commands you want to run in the `build` phase. For more information, see [Change a build project's settings
-  (console)](change-project.md#change-project-console "change-project.md#change-project-console").
+  commands**, enter the commands you want to run in the `build` phase. For more information, see [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 - Use the AWS CLI or AWS SDKs to create a build project or change the settings
   of a build project. Reference the source code that contains a buildspec file
   with your commands, or specify a single string that includes the contents of an

@@ -5,16 +5,11 @@ in CodeBuild.
 
 ###### Topics
 
-- [View a list of build project names
-  (console)](#view-project-list-console "#view-project-list-console")
-- [View a list of build project names
-  (AWS CLI)](#view-project-list-cli "#view-project-list-cli")
-- [View a list of build project names (AWS
-  SDKs)](#view-project-list-sdks "#view-project-list-sdks")
+- [View a list of build project names (console)](#view-project-list-console "#view-project-list-console")
+- [View a list of build project names (AWS CLI)](#view-project-list-cli "#view-project-list-cli")
+- [View a list of build project names (AWS SDKs)](#view-project-list-sdks "#view-project-list-sdks")
 
-## View a list of build project names
-
-(console)
+## View a list of build project names (console)
 
 You can view a list of build projects in an AWS Region in the console. Information
 includes the name, source provider, repository, latest build status, and description, if
@@ -30,9 +25,7 @@ more build projects, choose the gear icon, and then choose a different value
 for **Projects per page** or use the back and forward
 arrows.
 
-## View a list of build project names
-
-(AWS CLI)
+## View a list of build project names (AWS CLI)
 
 Run the **list-projects** command:
 
@@ -102,8 +95,6 @@ A result similar to the following might appear in the output:
 }
 ```
 
-## View a list of build project names (AWS
-
-SDKs)
+## View a list of build project names (AWS SDKs)
 
 For more information about using AWS CodeBuild with the AWS SDKs, see the [AWS SDKs and tools reference](sdk-ref.md "sdk-ref.md").

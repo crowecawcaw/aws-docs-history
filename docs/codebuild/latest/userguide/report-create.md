@@ -24,7 +24,7 @@ test report is generated for each subsequent build that uses the same buildspec 
    time your build project runs. For more information, see [Specify test files](report-group-test-cases.md "report-group-test-cases.md"). 3. In the `commands` section of the `build` or
    `post_build` sequence, specify the commands that run the
    tests cases you specified for your report groups. For more information,
-   see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md") .The following is an example of a buildspec `reports`
+   see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md").The following is an example of a buildspec `reports`
    section:
 
 ```

@@ -6,76 +6,40 @@ learn how to log and monitor CodeBuild builds to troubleshoot issues, see
 
 ###### Topics
 
-- [Apache Maven builds reference artifacts
-  from the wrong repository](#troubleshooting-maven-repos "#troubleshooting-maven-repos")
-- [Build commands run as root by
-  default](#troubleshooting-root-build-commands "#troubleshooting-root-build-commands")
-- [Builds might fail when file names have non-U.S.
-  English characters](#troubleshooting-utf-8 "#troubleshooting-utf-8")
-- [Builds might fail when getting
-  parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store "#troubleshooting-parameter-store")
-- [Cannot access branch filter in the
-  CodeBuild console](#troubleshooting-webhook-filter "#troubleshooting-webhook-filter")
+- [Apache Maven builds reference artifacts from the wrong repository](#troubleshooting-maven-repos "#troubleshooting-maven-repos")
+- [Build commands run as root by default](#troubleshooting-root-build-commands "#troubleshooting-root-build-commands")
+- [Builds might fail when file names have non-U.S. English characters](#troubleshooting-utf-8 "#troubleshooting-utf-8")
+- [Builds might fail when getting parameters from Amazon EC2 Parameter Store](#troubleshooting-parameter-store "#troubleshooting-parameter-store")
+- [Cannot access branch filter in the CodeBuild console](#troubleshooting-webhook-filter "#troubleshooting-webhook-filter")
 - [Cannot view build success or failure](#no-status-when-build-triggered "#no-status-when-build-triggered")
-- [Build status not reported to source
-  provider](#build-status-not-reported "#build-status-not-reported")
-- [Cannot find and select the base image of
-  the Windows Server Core 2019 platform](#windows-image-not-available "#windows-image-not-available")
-- [Earlier commands in buildspec
-  files are not recognized by later commands](#troubleshooting-build-spec-commands "#troubleshooting-build-spec-commands")
-- [Error: "Access denied" when
-  attempting to download cache](#troubleshooting-dependency-caching "#troubleshooting-dependency-caching")
-- [Error:
-  "BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image "#troubleshooting-unable-to-pull-image")
-- [Error: "Build container found dead before
-  completing the build. build container died because it was out of memory, or the
-  Docker image is not supported. ErrorCode: 500"](#windows-server-core-version "#windows-server-core-version")
+- [Build status not reported to source provider](#build-status-not-reported "#build-status-not-reported")
+- [Cannot find and select the base image of the Windows Server Core 2019 platform](#windows-image-not-available "#windows-image-not-available")
+- [Earlier commands in buildspec files are not recognized by later commands](#troubleshooting-build-spec-commands "#troubleshooting-build-spec-commands")
+- [Error: "Access denied" when attempting to download cache](#troubleshooting-dependency-caching "#troubleshooting-dependency-caching")
+- [Error: "BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image](#troubleshooting-unable-to-pull-image "#troubleshooting-unable-to-pull-image")
+- [Error: "Build container found dead before completing the build. build container died because it was out of memory, or the Docker image is not supported. ErrorCode: 500"](#windows-server-core-version "#windows-server-core-version")
 - [Error: "Cannot connect to the Docker daemon" when running a build](#troubleshooting-cannot-connect-to-docker-daemon "#troubleshooting-cannot-connect-to-docker-daemon")
-- [Error: "CodeBuild is not authorized
-  to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role "#troubleshooting-assume-role")
-- [Error: "Error calling
-  GetBucketAcl: Either the bucket owner has changed or the service role no longer has
-  permission to called s3:GetBucketAcl"](#troubleshooting-calling-bucket-error "#troubleshooting-calling-bucket-error")
-- [Error: "Failed to
-  upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region "#troubleshooting-output-bucket-different-region")
-- [Error: "Git clone failed:
-  Unable to access 'your-repository-URL': SSL certificate
-  problem: Self signed certificate"](#troubleshooting-self-signed-certificate "#troubleshooting-self-signed-certificate")
-- [Error: "The bucket you
-  are attempting to access must be addressed using the specified endpoint" when
-  running a build](#troubleshooting-input-bucket-different-region "#troubleshooting-input-bucket-different-region")
-- [Error: "This build image
-  requires selecting at least one runtime version."](#troubleshooting-build-must-specify-runtime "#troubleshooting-build-must-specify-runtime")
-- [Error: "QUEUED: INSUFFICIENT_SUBNET"
-  when a build in a build queue fails](#queued-insufficient-subnet-error "#queued-insufficient-subnet-error")
-- [Error: "Unable to download cache:
-  RequestError: Send request failed caused by: x509: Failed to load system roots and
-  no roots provided"](#troubleshooting-cache-image "#troubleshooting-cache-image")
-- [Error: "Unable to download
-  certificate from S3. AccessDenied"](#troubleshooting-certificate-in-S3 "#troubleshooting-certificate-in-S3")
+- [Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project](#troubleshooting-assume-role "#troubleshooting-assume-role")
+- [Error: "Error calling GetBucketAcl: Either the bucket owner has changed or the service role no longer has permission to called s3:GetBucketAcl"](#troubleshooting-calling-bucket-error "#troubleshooting-calling-bucket-error")
+- [Error: "Failed to upload artifacts: Invalid arn" when running a build](#troubleshooting-output-bucket-different-region "#troubleshooting-output-bucket-different-region")
+- [Error: "Git clone failed: Unable to access 'your-repository-URL': SSL certificate problem: Self signed certificate"](#troubleshooting-self-signed-certificate "#troubleshooting-self-signed-certificate")
+- [Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build](#troubleshooting-input-bucket-different-region "#troubleshooting-input-bucket-different-region")
+- [Error: "This build image requires selecting at least one runtime version."](#troubleshooting-build-must-specify-runtime "#troubleshooting-build-must-specify-runtime")
+- [Error: "QUEUED: INSUFFICIENT_SUBNET" when a build in a build queue fails](#queued-insufficient-subnet-error "#queued-insufficient-subnet-error")
+- [Error: "Unable to download cache: RequestError: Send request failed caused by: x509: Failed to load system roots and no roots provided"](#troubleshooting-cache-image "#troubleshooting-cache-image")
+- [Error: "Unable to download certificate from S3. AccessDenied"](#troubleshooting-certificate-in-S3 "#troubleshooting-certificate-in-S3")
 - [Error: "Unable to locate credentials"](#troubleshooting-versions "#troubleshooting-versions")
-- [RequestError timeout error when running
-  CodeBuild in a proxy server](#code-request-timeout-error "#code-request-timeout-error")
-- [The bourne shell (sh) must exist in
-  build images](#troubleshooting-sh-build-images "#troubleshooting-sh-build-images")
-- [Warning: "Skipping
-  install of runtimes. runtime version selection is not supported by this build image"
-  when running a build](#troubleshooting-skipping-all-runtimes-warning "#troubleshooting-skipping-all-runtimes-warning")
-- [Error: "Unable to verify
-  JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker "#troubleshooting-unable-to-verify-jobworker")
+- [RequestError timeout error when running CodeBuild in a proxy server](#code-request-timeout-error "#code-request-timeout-error")
+- [The bourne shell (sh) must exist in build images](#troubleshooting-sh-build-images "#troubleshooting-sh-build-images")
+- [Warning: "Skipping install of runtimes. runtime version selection is not supported by this build image" when running a build](#troubleshooting-skipping-all-runtimes-warning "#troubleshooting-skipping-all-runtimes-warning")
+- [Error: "Unable to verify JobWorker identity" when opening the CodeBuild console](#troubleshooting-unable-to-verify-jobworker "#troubleshooting-unable-to-verify-jobworker")
 - [Build failed to start](#troubleshooting-build-failed-to-start "#troubleshooting-build-failed-to-start")
-- [Accessing GitHub metadata in locally
-  cached builds](#troubleshooting-github-metadata "#troubleshooting-github-metadata")
-- [AccessDenied: The bucket owner for the
-  report group does not match the owner of the S3 bucket...](#troubleshooting-bucket-owner "#troubleshooting-bucket-owner")
-- [Error: "Your credentials lack one or
-  more required privilege scopes" when creating a CodeBuild project with CodeConnections](#troubleshooting-permission-bitbucket "#troubleshooting-permission-bitbucket")
-- [Error: "Sorry, no terminal at all requested - can't get input"
-  when building with the Ubuntu install command](#troubleshooting-nvidia-container-toolkit "#troubleshooting-nvidia-container-toolkit")
+- [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata "#troubleshooting-github-metadata")
+- [AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket...](#troubleshooting-bucket-owner "#troubleshooting-bucket-owner")
+- [Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with CodeConnections](#troubleshooting-permission-bitbucket "#troubleshooting-permission-bitbucket")
+- [Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command](#troubleshooting-nvidia-container-toolkit "#troubleshooting-nvidia-container-toolkit")
 
-## Apache Maven builds reference artifacts
-
-from the wrong repository
+## Apache Maven builds reference artifacts from the wrong repository
 
 **Issue:** When you use Maven with an AWS CodeBuild-provided
 Java build environment, Maven pulls build and plugin dependencies from the secure
@@ -143,9 +107,7 @@ phases:
       - cp ./settings.xml /root/.m2/settings.xml
 ```
 
-## Build commands run as root by
-
-default
+## Build commands run as root by default
 
 **Issue:** AWS CodeBuild runs your build commands as the root
 user. This happens even if your related build image's Dockerfile sets the
@@ -156,9 +118,7 @@ the root user.
 
 **Recommended solution:** None.
 
-## Builds might fail when file names have non-U.S.
-
-English characters
+## Builds might fail when file names have non-U.S. English characters
 
 **Issue:** When you run a build that uses files with file
 names that contain non-U.S. English characters (for example, Chinese characters), the
@@ -192,9 +152,7 @@ pre_build:
     - export LC_ALL="en_US.utf8"
 ```
 
-## Builds might fail when getting
-
-parameters from Amazon EC2 Parameter Store
+## Builds might fail when getting parameters from Amazon EC2 Parameter Store
 
 **Issue:** When a build tries to get the value of one or
 more parameters stored in Amazon EC2 Parameter Store, the build fails in the
@@ -253,9 +211,7 @@ JSON
 
 ```
 
-## Cannot access branch filter in the
-
-CodeBuild console
+## Cannot access branch filter in the CodeBuild console
 
 **Issue:** The branch filter option is not available in
 the console when you create or update an AWS CodeBuild project.
@@ -271,8 +227,7 @@ with a `HEAD_REF` filter with the regular expression
 your branch filter regular expression was `^branchName$`, then the updated
 regular expression you put in the `HEAD_REF` filter is
 `^refs/heads/branchName$`. For more information, see [Bitbucket webhook events](bitbucket-webhook.md "bitbucket-webhook.md") and
-[Filter GitHub webhook events
-(console)](github-webhook-events-console.md "github-webhook-events-console.md").
+[Filter GitHub webhook events (console)](github-webhook-events-console.md "github-webhook-events-console.md").
 
 ## Cannot view build success or failure
 
@@ -287,9 +242,7 @@ status** when you create or update a CodeBuild project. This option tells CodeBu
 to report back the status when you trigger a build. For more information, see [reportBuildStatus](../APIReference/API_ProjectSource.md#CodeBuild-Type-ProjectSource-reportBuildStatus "../APIReference/API_ProjectSource.md#CodeBuild-Type-ProjectSource-reportBuildStatus") in the _AWS CodeBuild API
 Reference_.
 
-## Build status not reported to source
-
-provider
+## Build status not reported to source provider
 
 **Issue:** After allowing build status reporting to a
 source provider, such as GitHub or Bitbucket, the build status is not updated.
@@ -301,9 +254,7 @@ provider does not have write access to the repo.
 have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see
 [Source provider access](access-tokens.md "access-tokens.md").
 
-## Cannot find and select the base image of
-
-the Windows Server Core 2019 platform
+## Cannot find and select the base image of the Windows Server Core 2019 platform
 
 **Issue:** You cannot find or select the base image of
 the Windows Server Core 2019 platform.
@@ -320,9 +271,7 @@ supported:
 - US West (Oregon)
 - Europe (Ireland)
 
-## Earlier commands in buildspec
-
-files are not recognized by later commands
+## Earlier commands in buildspec files are not recognized by later commands
 
 **Issue:** The results of one or more commands in your
 buildspec file are not recognized by later commands in the same buildspec file. For
@@ -342,12 +291,9 @@ we recommend that you use the shell command chaining operator (for example,
 command. Or include a shell script in your source code that contains multiple commands,
 and then call that shell script from a single command in the buildspec file. For more
 information, see [Shells and commands in build environments](build-env-ref-cmd.md "build-env-ref-cmd.md")
-and [Environment variables in build
-environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+and [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
-## Error: "Access denied" when
-
-attempting to download cache
+## Error: "Access denied" when attempting to download cache
 
 **Issue:** When attempting to download the cache on a
 build project that has cache enabled, you receive an `Access denied`
@@ -370,9 +316,7 @@ For more information, see [Specifying
 S3 permissions](../../../AmazonS3/latest/userguide/using-with-s3-actions.md "../../../AmazonS3/latest/userguide/using-with-s3-actions.md") in the _Amazon S3 Developer
 Guide_.
 
-## Error:
-
-"BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image
+## Error: "BUILD_CONTAINER_UNABLE_TO_PULL_IMAGE" when using a custom build image
 
 **Issue:** When you try to run a build that uses a custom
 build image, the build fails with the error
@@ -417,12 +361,9 @@ has been reached.\*
 **Recommended solution:** Use a Docker Hub
 private registry, or obtain your image from Amazon ECR. For more information
 about using a private registry, see [Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md "sample-private-registry.md"). For more information about
-using Amazon ECR, see [Amazon ECR sample for CodeBuild](sample-ecr.md "sample-ecr.md") .
+using Amazon ECR, see [Amazon ECR sample for CodeBuild](sample-ecr.md "sample-ecr.md").
 
-## Error: "Build container found dead before
-
-completing the build. build container died because it was out of memory, or the
-Docker image is not supported. ErrorCode: 500"
+## Error: "Build container found dead before completing the build. build container died because it was out of memory, or the Docker image is not supported. ErrorCode: 500"
 
 **Issue:** When you try to use a Microsoft Windows or Linux
 container in AWS CodeBuild, this error occurs during the PROVISIONING phase.
@@ -490,9 +431,7 @@ If the base operating system is Alpine Linux, in the
 
 To learn more about how to build and run a Docker image by using AWS CodeBuild, see [Docker in custom image sample for CodeBuild](sample-docker-custom-image.md "sample-docker-custom-image.md").
 
-## Error: "CodeBuild is not authorized
-
-to perform: sts:AssumeRole" when creating or updating a build project
+## Error: "CodeBuild is not authorized to perform: sts:AssumeRole" when creating or updating a build project
 
 **Issue:** When you try to create or update a build
 project, you receive the error `Code:InvalidInputException,
@@ -521,13 +460,9 @@ project, you receive the error `Code:InvalidInputException,
   of the IAM role is correct.
 - Make sure the target CodeBuild service role has sufficient permissions to trust
   CodeBuild. For more information, see the trust relationship policy statement in
-  [Allow CodeBuild to interact with other AWS
-  services](setting-up-service-role.md "setting-up-service-role.md").
+  [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md").
 
-## Error: "Error calling
-
-GetBucketAcl: Either the bucket owner has changed or the service role no longer has
-permission to called s3:GetBucketAcl"
+## Error: "Error calling GetBucketAcl: Either the bucket owner has changed or the service role no longer has permission to called s3:GetBucketAcl"
 
 **Issue:** When you run a build, you receive an error
 about a change in ownership of an S3 bucket and `GetBucketAcl`
@@ -543,9 +478,7 @@ changed.
 S3 bucket, and then add permissions to your IAM role again. For more information,
 see [Secure access to S3 buckets](auth-and-access-control-iam-access-control-identity-based.md#secure-s3-buckets "auth-and-access-control-iam-access-control-identity-based.md#secure-s3-buckets").
 
-## Error: "Failed to
-
-upload artifacts: Invalid arn" when running a build
+## Error: "Failed to upload artifacts: Invalid arn" when running a build
 
 **Issue:** When you run a build, the
 `UPLOAD_ARTIFACTS` build phase fails with the error `Failed to
@@ -559,10 +492,7 @@ the CodeBuild build project.
 settings to point to an output bucket that is in the same AWS Region as the build
 project.
 
-## Error: "Git clone failed:
-
-Unable to access `'your-repository-URL'`: SSL certificate
-problem: Self signed certificate"
+## Error: "Git clone failed: Unable to access `'your-repository-URL'`: SSL certificate problem: Self signed certificate"
 
 **Issue:** When you try to run a build project, the build
 fails with this error.
@@ -586,10 +516,7 @@ bucket as part of your build project.
 We recommend that you use **Insecure SSL** for testing
 only. It should not be used in a production environment.
 
-## Error: "The bucket you
-
-are attempting to access must be addressed using the specified endpoint" when
-running a build
+## Error: "The bucket you are attempting to access must be addressed using the specified endpoint" when running a build
 
 **Issue:** When you run a build, the
 `DOWNLOAD_SOURCE` build phase fails with the error `The bucket you
@@ -604,9 +531,7 @@ build project.
 settings to point to a bucket that contains your pre-built source code. Make sure that
 bucket is in the same AWS Region as the build project.
 
-## Error: "This build image
-
-requires selecting at least one runtime version."
+## Error: "This build image requires selecting at least one runtime version."
 
 **Issue:** When you run a build, the
 `DOWNLOAD_SOURCE` build phase fails with the error `YAML_FILE_ERROR:
@@ -644,9 +569,7 @@ or the Amazon Linux 2 (AL2) standard image 1.0 or later, the build issues the wa
 
 For more information, see [Specify runtime versions in the buildspec file](build-spec-ref.md#runtime-versions-buildspec-file "build-spec-ref.md#runtime-versions-buildspec-file").
 
-## Error: "QUEUED: INSUFFICIENT_SUBNET"
-
-when a build in a build queue fails
+## Error: "QUEUED: INSUFFICIENT_SUBNET" when a build in a build queue fails
 
 **Issue:** A build in a build queue fails with an error
 similar to `QUEUED: INSUFFICIENT_SUBNET`.
@@ -674,10 +597,7 @@ reserved IP address. Replace any reserved IP address with one that is not reserv
 more information, see [VPC and subnet sizing](../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing "../../../vpc/latest/userguide/VPC_Subnets.md#VPC_Sizing")
 in the _Amazon VPC User Guide_.
 
-## Error: "Unable to download cache:
-
-RequestError: Send request failed caused by: x509: Failed to load system roots and
-no roots provided"
+## Error: "Unable to download cache: RequestError: Send request failed caused by: x509: Failed to load system roots and no roots provided"
 
 **Issue:** When you try to run a build project, the build
 fails with this error.
@@ -689,9 +609,7 @@ certificate.
 **Recommended solution:** Update the Docker image that is
 being used in your AWS CodeBuild the project. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md "build-env-ref-available.md").
 
-## Error: "Unable to download
-
-certificate from S3. AccessDenied"
+## Error: "Unable to download certificate from S3. AccessDenied"
 
 **Issue:** When you try to run a build project, the build
 fails with this error.
@@ -772,9 +690,7 @@ docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI `your
   docker build --build-arg AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION --build-arg AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI -t `your-image-tag` .
   ```
 
-## RequestError timeout error when running
-
-CodeBuild in a proxy server
+## RequestError timeout error when running CodeBuild in a proxy server
 
 **Issue:** You receive a `RequestError` error similar to one
 of the following:
@@ -797,8 +713,7 @@ connect: connection refused` from Amazon S3.
 **Recommended solutions:**
 
 - Make sure `ssl-bump` is configured properly. If you use Squid for
-  your proxy server, see [Configure Squid as an
-  explicit proxy server](run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure "run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure").
+  your proxy server, see [Configure Squid as an explicit proxy server](run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure "run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure").
 - Follow these steps to use private endpoints for Amazon S3 and CloudWatch Logs:
   1.  In your private subnet routing table, remove the rule you added that
       routes traffic destined for the internet to your proxy server. For
@@ -811,8 +726,7 @@ connect: connection refused` from Amazon S3.
       your Amazon VPC is selected. For more information, see [Creating an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") in the _Amazon VPC User Guide_.
 
 - If you do not use `ssl-bump` for an explicit proxy server, add a proxy configuration to your buildspec file using
-  a `proxy` element. For more information, see [Run CodeBuild in an explicit proxy
-  server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md") and [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
+  a `proxy` element. For more information, see [Run CodeBuild in an explicit proxy server](run-codebuild-in-explicit-proxy-server.md "run-codebuild-in-explicit-proxy-server.md") and [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
 
 ```
 version: 0.2
@@ -824,9 +738,7 @@ phases:
     commands:
 ```
 
-## The bourne shell (sh) must exist in
-
-build images
+## The bourne shell (sh) must exist in build images
 
 **Issue:** You are using a build image that is not
 provided by AWS CodeBuild, and your builds fail with the message `Build container found
@@ -840,10 +752,7 @@ scripts.
 present in your build image, be sure to include it before you start any more builds that
 use your image. (CodeBuild already includes `sh` in its build images.)
 
-## Warning: "Skipping
-
-install of runtimes. runtime version selection is not supported by this build image"
-when running a build
+## Warning: "Skipping install of runtimes. runtime version selection is not supported by this build image" when running a build
 
 **Issue:** When you run a build, the build log contains
 this warning.
@@ -858,9 +767,7 @@ does not contain a `runtime-versions` section. The
 `runtime-versions` section is only required if you use the Amazon Linux 2 (AL2) standard image or later or the Ubuntu
 standard image version 2.0 or later.
 
-## Error: "Unable to verify
-
-JobWorker identity" when opening the CodeBuild console
+## Error: "Unable to verify JobWorker identity" when opening the CodeBuild console
 
 **Issue:** When you open the CodeBuild console, an "Unable to
 verify JobWorker identity" error message is displayed.
@@ -885,9 +792,7 @@ been reached.
 complete, or increase the concurrrent build limit for the project, and start the build
 again. For more information, see [Project configuration](create-project.md#create-project-console-project-config "create-project.md#create-project-console-project-config").
 
-## Accessing GitHub metadata in locally
-
-cached builds
+## Accessing GitHub metadata in locally cached builds
 
 **Issue:** In some cases, the .git directory in a cached
 build is a text file and not a directory.
@@ -905,9 +810,7 @@ the format of `.git`:
 git rev-parse --git-dir
 ```
 
-## AccessDenied: The bucket owner for the
-
-report group does not match the owner of the S3 bucket...
+## AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket...
 
 **Issue:** When uploading test data to an Amazon S3 bucket,
 CodeBuild is unable to write the test data to the bucket.
@@ -924,9 +827,7 @@ CodeBuild is unable to write the test data to the bucket.
   bucket.
 - Modify the service role to allow write access to the Amazon S3 bucket.
 
-## Error: "Your credentials lack one or
-
-more required privilege scopes" when creating a CodeBuild project with CodeConnections
+## Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with CodeConnections
 
 **Issue:** When creating a CodeBuild project with CodeConnections,
 you don't have permission to install a Bitbucket webhook.
@@ -947,9 +848,7 @@ you don't have permission to install a Bitbucket webhook.
 
 ![Grant the webhook permission to your workspace.](images/bitbucket-csc.png)
 
-## Error: "Sorry, no terminal at all requested - can't get input"
-
-when building with the Ubuntu install command
+## Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command
 
 **Issue:** If you're running GPU container privileged builds, you may be installing the
 NVIDIA Container Toolkit following this

@@ -8,8 +8,7 @@ more information, see [Encrypt build outputs using a customer managed key](setti
 retrieving a secret](../../../secretsmanager/latest/userguide/tutorials_basic.md "../../../secretsmanager/latest/userguide/tutorials_basic.md").
 
 Use the `CODEBUILD_KMS_KEY_ID` environment variable in a build command to
-obtain the AWS KMS key identifier. For more information, see [Environment variables in build
-environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+obtain the AWS KMS key identifier. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
 You can use Secrets Manager to protect credentials to a private registry that stores a
 Docker image used for your runtime environment. For more information, see [Private registry with AWS Secrets Manager sample for CodeBuild](sample-private-registry.md "sample-private-registry.md").

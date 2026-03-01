@@ -1,11 +1,8 @@
-# Filter GitHub global
-
-or organization webhook events (console)
+# Filter GitHub global or organization webhook events (console)
 
 When creating a GitHub project through the console, select the following options to
 create a GitHub global or organization webhook within the project. For more information
-about global and organization GitHub webhooks, see [GitHub global and organization
-webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
+about global and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
@@ -73,8 +70,7 @@ webhooks](github-global-organization-webhook.md "github-global-organization-webh
 
      You can also set the event type to
      `WORKFLOW_JOB_QUEUED` to set up self-hosted
-     GitHub Actions runners. For more information, see [Tutorial: Configure a CodeBuild-hosted GitHub
-     Actions runner](action-runner.md "action-runner.md").
+     GitHub Actions runners. For more information, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").
 
 3. Continue with the default values and then choose **Create build
    project**.

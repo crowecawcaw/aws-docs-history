@@ -1,10 +1,7 @@
-# Set up a global or
-
-organization GitHub webhook
+# Set up a global or organization GitHub webhook
 
 The high-level steps to set up a global or organization GitHub webhook are as follows.
-For more information about global and organization GitHub webhooks, see [GitHub global and organization
-webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
+For more information about global and organization GitHub webhooks, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
 
 1. Set your project's source location to
    `CODEBUILD_DEFAULT_WEBHOOK_SOURCE_LOCATION`.
@@ -25,8 +22,7 @@ repositories within your organization or enterprise, you can specify
 `REPOSITORY_NAME` as a filter when creating the webhook. 5. If you are creating an organization webhook, ensure that CodeBuild has permissions
 to create organization level webhooks within GitHub. You can create a GitHub
 personal access token with organization webhook permissions, or use CodeBuild OAuth.
-For more information, see [GitHub and GitHub Enterprise Server access
-token](access-tokens-github.md "access-tokens-github.md").
+For more information, see [GitHub and GitHub Enterprise Server access token](access-tokens-github.md "access-tokens-github.md").
 
 Note that organization webhooks work with any of the existing GitHub webhook
 event types. 6. If you are creating a global webhook, the webhook will need to be created
@@ -34,5 +30,4 @@ manually. For more information about how to manually create a webhook within
 GitHub, see [GitHub manual webhooks](github-manual-webhook.md "github-manual-webhook.md").
 
 Note that global webhooks only support the `WORKFLOW_JOB_QUEUED`
-event type. For more information, see [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md").
+event type. For more information, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").

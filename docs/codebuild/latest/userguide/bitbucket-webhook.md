@@ -102,8 +102,6 @@ You can find the webhook payload in the webhook settings of your Bitbucket repos
 
 ###### Topics
 
-- [Filter Bitbucket webhook events
-  (console)](bitbucket-webhook-events-console.md "bitbucket-webhook-events-console.md")
+- [Filter Bitbucket webhook events (console)](bitbucket-webhook-events-console.md "bitbucket-webhook-events-console.md")
 - [Filter Bitbucket webhook events (SDK)](bitbucket-webhook-events-sdk.md "bitbucket-webhook-events-sdk.md")
-- [Filter Bitbucket webhook events
-  (CloudFormation)](bitbucket-webhook-events-cfn.md "bitbucket-webhook-events-cfn.md")
+- [Filter Bitbucket webhook events (CloudFormation)](bitbucket-webhook-events-cfn.md "bitbucket-webhook-events-cfn.md")

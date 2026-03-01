@@ -1,6 +1,4 @@
-# Create a pipeline that uses CodeBuild (CodePipeline
-
-console)
+# Create a pipeline that uses CodeBuild (CodePipeline console)
 
 Use the following procedure to create a pipeline that uses CodeBuild to build and deploy your
 source code.
@@ -8,17 +6,13 @@ source code.
 To create a pipeline that only tests your source code:
 
 - Use the following procedure to create the pipeline, and then delete the Build and
-  Beta stages from the pipeline. Then use the [Add a CodeBuild test action to a pipeline
-  (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md") procedure in this topic to add
+  Beta stages from the pipeline. Then use the [Add a CodeBuild test action to a pipeline (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md") procedure in this topic to add
   to the pipeline a test action that uses CodeBuild.
 - Use one of the other procedures in this topic to create the pipeline, and then use
-  the [Add a CodeBuild test action to a pipeline
-  (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md") procedure in this topic to add
+  the [Add a CodeBuild test action to a pipeline (CodePipeline console)](how-to-create-pipeline-add-test.md "how-to-create-pipeline-add-test.md") procedure in this topic to add
   to the pipeline a test action that uses CodeBuild.
 
-###### To use the create pipeline wizard in CodePipeline to create a pipeline that uses
-
-CodeBuild
+###### To use the create pipeline wizard in CodePipeline to create a pipeline that uses CodeBuild
 
 1. Sign in to the AWS Management Console by using:
    - Your AWS root account. This is not recommended. For more information,
@@ -119,8 +113,7 @@ return to this procedure.
 
 If you choose an existing build project, it must have build output artifact
 settings already defined (even though CodePipeline overrides them). For more information,
-see [Change a build project's settings
-(console)](change-project.md#change-project-console "change-project.md#change-project-console").
+see [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 
 ###### Important
 
@@ -130,8 +123,7 @@ is triggered through webhooks, and one through CodePipeline. Because billing is 
 per-build basis, you are billed for both builds. Therefore, if you are using
 CodePipeline, we recommend that you disable webhooks in CodeBuild. In the AWS CodeBuild
 console, clear the **Webhook** box. For more information, see
-[Change a build project's settings
-(console)](change-project.md#change-project-console "change-project.md#change-project-console"). 12. On the **Step 4: Add deploy stage** page, do one of the
+[Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console"). 12. On the **Step 4: Add deploy stage** page, do one of the
 following:
 
     * If you do not want to deploy the build output artifact, choose

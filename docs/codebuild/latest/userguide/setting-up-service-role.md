@@ -1,6 +1,4 @@
-# Allow CodeBuild to interact with other AWS
-
-services
+# Allow CodeBuild to interact with other AWS services
 
 If you follow the steps in [Getting started using the
 console](getting-started-overview.md#getting-started "getting-started-overview.md#getting-started") to access AWS CodeBuild for the first time, you
@@ -13,12 +11,9 @@ AWS CodeBuild service role. You can create a CodeBuild service role by using the
 AWS CodePipeline consoles. For information, see:
 
 - [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
-- [Create a pipeline that uses CodeBuild (CodePipeline
-  console)](how-to-create-pipeline-console.md "how-to-create-pipeline-console.md")
-- [Add a CodeBuild build action to a pipeline (CodePipeline
-  console)](how-to-create-pipeline-add.md "how-to-create-pipeline-add.md")
-- [Change a build project's settings
-  (console)](change-project.md#change-project-console "change-project.md#change-project-console")
+- [Create a pipeline that uses CodeBuild (CodePipeline console)](how-to-create-pipeline-console.md "how-to-create-pipeline-console.md")
+- [Add a CodeBuild build action to a pipeline (CodePipeline console)](how-to-create-pipeline-add.md "how-to-create-pipeline-add.md")
+- [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console")
   If you do not plan to use these consoles, this section describes how to create a CodeBuild
   service role with the IAM console or the AWS CLI.
 
@@ -33,9 +28,7 @@ The service role described on this page contains a policy that grants the minimu
 permissions required to use CodeBuild. You may need to add additional permissions,
 depending on your use case.
 
-###### To create a CodeBuild service role
-
-(console)
+###### To create a CodeBuild service role (console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -175,9 +168,7 @@ name**, enter a name for the role (for example,
 `CodeBuildServiceRole`), and then choose
 **Create role**.
 
-###### To create a CodeBuild service role
-
-(AWS CLI)
+###### To create a CodeBuild service role (AWS CLI)
 
 1. Make sure you have configured the AWS CLI with the AWS access key and AWS
    secret access key that correspond to one of the IAM entities, as described in

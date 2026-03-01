@@ -4,15 +4,11 @@ The following are errors you might encounter when setting up Amazon EFS with Cod
 
 ###### Topics
 
-- [CLIENT_ERROR:
-  mounting '127.0.0.1:/' failed. permission denied](#sample-efs-troubleshooting.permission-denied "#sample-efs-troubleshooting.permission-denied")
-- [CLIENT_ERROR: mounting
-  '127.0.0.1:/' failed. connection reset by peer](#sample-efs-troubleshooting.connection-reset "#sample-efs-troubleshooting.connection-reset")
+- [CLIENT_ERROR: mounting '127.0.0.1:/' failed. permission denied](#sample-efs-troubleshooting.permission-denied "#sample-efs-troubleshooting.permission-denied")
+- [CLIENT_ERROR: mounting '127.0.0.1:/' failed. connection reset by peer](#sample-efs-troubleshooting.connection-reset "#sample-efs-troubleshooting.connection-reset")
 - [VPC_CLIENT_ERROR: Unexpected EC2 error: UnauthorizedOperation](#sample-efs-troubleshooting.unauthorized-operation "#sample-efs-troubleshooting.unauthorized-operation")
 
-## CLIENT_ERROR:
-
-mounting '127.0.0.1:/' failed. permission denied
+## CLIENT_ERROR: mounting '127.0.0.1:/' failed. permission denied
 
 IAM authorization is not supported for mounting Amazon EFS with CodeBuild. If you are
 using a custom Amazon EFS file system policy, you will need to grant read and write
@@ -24,9 +20,7 @@ access to all IAM principals. For example:
 }
 ```
 
-## CLIENT_ERROR: mounting
-
-'127.0.0.1:/' failed. connection reset by peer
+## CLIENT_ERROR: mounting '127.0.0.1:/' failed. connection reset by peer
 
 There are two possible causes for this error:
 

@@ -30,8 +30,7 @@ CodeBuild commands include:
 - `batch-get-builds`: Gets
   information about multiple builds in CodeBuild. For more information, see [View build details (AWS CLI)](view-build-details.md#view-build-details-cli "view-build-details.md#view-build-details-cli").
 - `batch-get-projects`: Gets information about one or more
-  specified build projects. For more information, see [View a build project's details
-  (AWS CLI)](view-project-details.md#view-project-details-cli "view-project-details.md#view-project-details-cli").
+  specified build projects. For more information, see [View a build project's details (AWS CLI)](view-project-details.md#view-project-details-cli "view-project-details.md#view-project-details-cli").
 - `create-project`: Creates a build project. For more information,
   see [Create a build project (AWS CLI)](create-project.md#create-project-cli "create-project.md#create-project-cli").
 - `delete-project`: Deletes a build project. For more information,
@@ -39,13 +38,11 @@ CodeBuild commands include:
 - `list-builds`: Lists Amazon
   Resource Names (ARNs) for builds in CodeBuild. For more information, see [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli").
 - `list-builds-for-project`: Gets a list of build IDs that are
-  associated with a specified build project. For more information, see [View a list of build IDs for a build
-  project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli").
+  associated with a specified build project. For more information, see [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli").
 - `list-curated-environment-images`: Gets a list of Docker images
   managed by CodeBuild that you can use for your builds. For more information, see [Docker images provided by CodeBuild](build-env-ref-available.md "build-env-ref-available.md").
 - `list-projects`: Gets a list of build project names. For more
-  information, see [View a list of build project names
-  (AWS CLI)](view-project-list.md#view-project-list-cli "view-project-list.md#view-project-list-cli").
+  information, see [View a list of build project names (AWS CLI)](view-project-list.md#view-project-list-cli "view-project-list.md#view-project-list-cli").
 - `start-build`: Starts running a build. For more information, see
   [Run a build (AWS CLI)](run-build-cli.md "run-build-cli.md").
 - `stop-build`: Attempts to stop the specified build from running.

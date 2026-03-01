@@ -1,6 +1,4 @@
-# Set up components required to run
-
-CodeBuild in a proxy server
+# Set up components required to run CodeBuild in a proxy server
 
 You need these components to run AWS CodeBuild in a transparent or explicit proxy server:
 
@@ -13,9 +11,7 @@ You need these components to run AWS CodeBuild in a transparent or explicit prox
 
 ![The diagram shows how the components interact.](images/codebuild-proxy-transparent.png)
 
-## Set up a VPC, subnets, and a network
-
-gateway
+## Set up a VPC, subnets, and a network gateway
 
 The following steps are required to run AWS CodeBuild in a transparent or explicit
 proxy server.
@@ -58,9 +54,7 @@ this route table with your private subnet. This is required so that outbound
 requests from instances in your private subnet, where CodeBuild runs, are always
 routed through the proxy server.
 
-## Install and configure a proxy
-
-server
+## Install and configure a proxy server
 
 There are many proxy servers from which to choose. An open-source proxy server,
 Squid, is used here to demonstrate how AWS CodeBuild runs in a proxy server. You can
@@ -76,9 +70,7 @@ sudo yum install -y squid
 After you install Squid, edit its `squid.conf` file using the
 instructions later in this topic.
 
-## Configure Squid for HTTPS
-
-traffic
+## Configure Squid for HTTPS traffic
 
 For HTTPS, the HTTP traffic is encapsulated in a Transport Layer Security (TLS)
 connection. Squid uses a feature called [SslPeekAndSplice](https://wiki.squid-cache.org/Features/SslPeekAndSplice "https://wiki.squid-cache.org/Features/SslPeekAndSplice") to retrieve the Server Name Indication (SNI) from the

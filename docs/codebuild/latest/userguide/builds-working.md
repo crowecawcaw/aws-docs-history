@@ -47,5 +47,4 @@ You can perform these tasks when working with builds:
 - [Trigger AWS CodeBuild builds automatically](build-triggers.md "build-triggers.md")
 - [View build details in AWS CodeBuild](view-build-details.md "view-build-details.md")
 - [View a list of build IDs in AWS CodeBuild](view-build-list.md "view-build-list.md")
-- [View a list of build IDs for a build project in
-  AWS CodeBuild](view-builds-for-project.md "view-builds-for-project.md")
+- [View a list of build IDs for a build project in AWS CodeBuild](view-builds-for-project.md "view-builds-for-project.md")

@@ -67,7 +67,7 @@ is generated for each subsequent build that uses the same buildspec file.
 
    3. In the `commands` section of the `build` or
       `post_build` sequence, specify the commands that run the
-      code coverage analysis. For more information, see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md") .
+      code coverage analysis. For more information, see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md").
 
 3. Run a build of the build project. For more information, see [Run AWS CodeBuild builds manually](run-build.md "run-build.md").
 4. When the build is complete, choose the new build run from **Build

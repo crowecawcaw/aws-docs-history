@@ -6,9 +6,7 @@ is used to send notifications. For more information, see [What are notifications
 
 You can use the console or the AWS CLI to create notification rules for AWS CodeBuild.
 
-# To create a notification rule
-
-(console)
+# To create a notification rule (console)
 
 1. Sign in to the AWS Management Console and open the CodeBuild console at
    [https://console.aws.amazon.com/codebuild/](https://console.aws.amazon.com/codebuild/ "https://console.aws.amazon.com/codebuild/").

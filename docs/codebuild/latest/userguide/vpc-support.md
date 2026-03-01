@@ -12,8 +12,7 @@ Guide](../../../vpc/latest/userguide/VPC_Introduction.md "../../../vpc/latest/us
 - [Use cases](#use-cases "#use-cases")
 - [Best practices for VPCs](#best-practices-for-vpcs "#best-practices-for-vpcs")
 - [Limitations of VPCs](#vpc-limitations "#vpc-limitations")
-- [Allow Amazon VPC access in your CodeBuild
-  projects](enabling-vpc-access-in-projects.md "enabling-vpc-access-in-projects.md")
+- [Allow Amazon VPC access in your CodeBuild projects](enabling-vpc-access-in-projects.md "enabling-vpc-access-in-projects.md")
 - [Troubleshoot your VPC setup](troubleshooting-vpc.md "troubleshooting-vpc.md")
 - [Use VPC endpoints](use-vpc-endpoints-with-codebuild.md "use-vpc-endpoints-with-codebuild.md")
 - [Use AWS CodeBuild with a managed proxy server](run-codebuild-in-managed-proxy-server.md "run-codebuild-in-managed-proxy-server.md")

@@ -1,6 +1,4 @@
-#
-
-Resilience in AWS CodeBuild
+# Resilience in AWS CodeBuild
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple physically separated and isolated
 Availability Zones, which are connected with low-latency, high-throughput, and highly redundant networking. With Availability Zones, you can design and

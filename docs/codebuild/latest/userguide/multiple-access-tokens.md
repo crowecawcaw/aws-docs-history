@@ -42,8 +42,7 @@ To grant CodeBuild project IAM role access to Secrets Manager or CodeConnections
 
 ###### To grant CodeBuild project IAM role access
 
-1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS
-   services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
+1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
 2. Do one of the following:
    - Add the following IAM policy to your CodeBuild project role to grant access to your secret.
 

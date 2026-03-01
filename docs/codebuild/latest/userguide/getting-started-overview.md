@@ -44,16 +44,12 @@ pricing](http://aws.amazon.com/codebuild/pricing "http://aws.amazon.com/codebuil
 - [Step 2: Create the buildspec file](#getting-started-create-build-spec-console "#getting-started-create-build-spec-console")
 - [Step 3: Create two S3 buckets](#getting-started-input-bucket-console "#getting-started-input-bucket-console")
 - [Step 4: Upload the source code and the buildspec file](#getting-started-upload-source-code-console "#getting-started-upload-source-code-console")
-- [Step 5: Create the build
-  project](#getting-started-create-build-project-console "#getting-started-create-build-project-console")
+- [Step 5: Create the build project](#getting-started-create-build-project-console "#getting-started-create-build-project-console")
 - [Step 6: Run the build](#getting-started-run-build-console "#getting-started-run-build-console")
-- [Step 7: View summarized build
-  information](#getting-started-monitor-build-console "#getting-started-monitor-build-console")
-- [Step 8: View detailed build
-  information](#getting-started-build-log-console "#getting-started-build-log-console")
+- [Step 7: View summarized build information](#getting-started-monitor-build-console "#getting-started-monitor-build-console")
+- [Step 8: View detailed build information](#getting-started-build-log-console "#getting-started-build-log-console")
 - [Step 9: Get the build output artifact](#getting-started-output-console "#getting-started-output-console")
-- [Step 10: Delete the S3
-  buckets](#getting-started-clean-up-console "#getting-started-clean-up-console")
+- [Step 10: Delete the S3 buckets](#getting-started-clean-up-console "#getting-started-clean-up-console")
 - [Wrapping up](#getting-started-next-steps-console "#getting-started-next-steps-console")
 
 ### Step 1: Create the source code
@@ -363,12 +359,9 @@ spec declaration as part of the build project definition.
 If you want to use a different name for your build spec file, or you want to
 reference a build spec in a location other than the root, you can specify a build
 spec override as part of the build project definition. For more information, see
-[Buildspec file name and storage
-location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
+[Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
 
-### Step 5: Create the build
-
-project
+### Step 5: Create the build project
 
 (Previous step: [Step 4: Upload the source code and the buildspec file](#getting-started-upload-source-code-console "#getting-started-upload-source-code-console"))
 
@@ -380,9 +373,7 @@ Docker Docs website.
 For this build environment, you instruct CodeBuild to use a Docker image that contains a
 version of the Java Development Kit (JDK) and Apache Maven.
 
-###### To create the
-
-build project
+###### To create the build project
 
 1. Sign in to the AWS Management Console and open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Use the AWS region selector to choose an AWS Region where CodeBuild is
@@ -418,13 +409,11 @@ entities:
      you do not have an user or group in your AWS account with
      these permissions, and you cannot add these permissions to your
      user or group, contact your AWS account administrator for
-     assistance. For more information, see [AWS managed (predefined) policies for
-     AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").Both options include administrator permissions that allow you to create a
+     assistance. For more information, see [AWS managed (predefined) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").Both options include administrator permissions that allow you to create a
 
 build project so you can complete this tutorial. We recommend that you
 always use the minimum permissions required to accomplish your task. For
-more information, see [AWS CodeBuild permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). 5. In **Source**, for **Source provider**,
+more information, see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md"). 5. In **Source**, for **Source provider**,
 choose **Amazon S3**. 6. For **Bucket**, choose
 **codebuild-`region-ID`-`account-ID`-input-bucket**. 7. For **S3 object key**, enter
 `MessageUtil.zip`. 8. In **Environment**, for **Environment
@@ -439,14 +428,11 @@ file** selected. 14. In **Artifacts**, for **Type**, choose
 
 ### Step 6: Run the build
 
-(Previous step: [Step 5: Create the build
-project](#getting-started-create-build-project-console "#getting-started-create-build-project-console"))
+(Previous step: [Step 5: Create the build project](#getting-started-create-build-project-console "#getting-started-create-build-project-console"))
 
 In this step, you instruct AWS CodeBuild to run the build with the settings in the build project.
 
-###### To run the
-
-build
+###### To run the build
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. In the navigation pane, choose **Build projects**.
@@ -454,17 +440,13 @@ build
    **codebuild-demo-project**, and then choose
    **Start build**. The build starts immediately.
 
-### Step 7: View summarized build
-
-information
+### Step 7: View summarized build information
 
 (Previous step: [Step 6: Run the build](#getting-started-run-build-console "#getting-started-run-build-console"))
 
 In this step, you view summarized information about the status of your build.
 
-#### To view summarized
-
-build information
+#### To view summarized build information
 
 1.  If the
     **codebuild-demo-project:`<build-ID>`**
@@ -499,12 +481,9 @@ button. 3. Next to each build phase, the **Duration** value
 indicates how long the build phase lasted. The **End time**
 value indicates when that build phase ended.
 
-### Step 8: View detailed build
+### Step 8: View detailed build information
 
-information
-
-(Previous step: [Step 7: View summarized build
-information](#getting-started-monitor-build-console "#getting-started-monitor-build-console"))
+(Previous step: [Step 7: View summarized build information](#getting-started-monitor-build-console "#getting-started-monitor-build-console"))
 
 In this step, you view detailed information about your build in CloudWatch Logs.
 
@@ -520,9 +499,7 @@ To protect sensitive information, the following are hidden in CodeBuild logs:
 - Strings specified using AWS Secrets Manager. For more information, see
   [Key management](security-key-management.md "security-key-management.md").
 
-###### To view detailed build
-
-information
+###### To view detailed build information
 
 1. With the build details page still displayed from the previous step, the last
    10,000 lines of the build log are displayed in **Build logs**.
@@ -542,8 +519,7 @@ information
 
 ### Step 9: Get the build output artifact
 
-(Previous step: [Step 8: View detailed build
-information](#getting-started-build-log-console "#getting-started-build-log-console"))
+(Previous step: [Step 8: View detailed build information](#getting-started-build-log-console "#getting-started-build-log-console"))
 
 In this step, you get the `messageUtil-1.0.jar` file that CodeBuild built and uploaded to the output bucket.
 
@@ -573,9 +549,7 @@ location**. This link opens the folder in Amazon S3 where you find the
 4. Open the `target` folder, where you find the
    `messageUtil-1.0.jar` build output artifact file.
 
-### Step 10: Delete the S3
-
-buckets
+### Step 10: Delete the S3 buckets
 
 (Previous step: [Step 9: Get the build output artifact](#getting-started-output-console "#getting-started-output-console"))
 
@@ -643,28 +617,19 @@ pricing](http://aws.amazon.com/codebuild/pricing "http://aws.amazon.com/codebuil
 
 ###### Topics
 
-- [Step 1: Create the source
-  code](#getting-started-cli-create-source-code "#getting-started-cli-create-source-code")
-- [Step 2: Create the buildspec
-  file](#getting-started-cli-create-build-spec "#getting-started-cli-create-build-spec")
+- [Step 1: Create the source code](#getting-started-cli-create-source-code "#getting-started-cli-create-source-code")
+- [Step 2: Create the buildspec file](#getting-started-cli-create-build-spec "#getting-started-cli-create-build-spec")
 - [Step 3: Create two S3 buckets](#getting-started-cli-input-bucket "#getting-started-cli-input-bucket")
-- [Step 4: Upload the source code
-  and the buildspec file](#getting-started-cli-upload-source-code "#getting-started-cli-upload-source-code")
-- [Step 5: Create the build
-  project](#getting-started-cli-create-build-project "#getting-started-cli-create-build-project")
+- [Step 4: Upload the source code and the buildspec file](#getting-started-cli-upload-source-code "#getting-started-cli-upload-source-code")
+- [Step 5: Create the build project](#getting-started-cli-create-build-project "#getting-started-cli-create-build-project")
 - [Step 6: Run the build](#getting-started-cli-run-build "#getting-started-cli-run-build")
-- [Step 7: View summarized build
-  information](#getting-started-cli-monitor-build "#getting-started-cli-monitor-build")
-- [Step 8: View detailed build
-  information](#getting-started-cli-build-log "#getting-started-cli-build-log")
-- [Step 9: Get the build output
-  artifact](#getting-started-cli-output "#getting-started-cli-output")
+- [Step 7: View summarized build information](#getting-started-cli-monitor-build "#getting-started-cli-monitor-build")
+- [Step 8: View detailed build information](#getting-started-cli-build-log "#getting-started-cli-build-log")
+- [Step 9: Get the build output artifact](#getting-started-cli-output "#getting-started-cli-output")
 - [Step 10: Delete the S3 buckets](#getting-started-cli-clean-up "#getting-started-cli-clean-up")
 - [Wrapping up](#getting-started-cli-next-steps "#getting-started-cli-next-steps")
 
-### Step 1: Create the source
-
-code
+### Step 1: Create the source code
 
 (Part of: [Getting started with AWS CodeBuild using the AWS CLI](#getting-started-cli "#getting-started-cli"))
 
@@ -794,12 +759,9 @@ At this point, your directory structure should look like this.
                      `-- TestMessageUtil.java
 ```
 
-### Step 2: Create the buildspec
+### Step 2: Create the buildspec file
 
-file
-
-(Previous step: [Step 1: Create the source
-code](#getting-started-cli-create-source-code "#getting-started-cli-create-source-code"))
+(Previous step: [Step 1: Create the source code](#getting-started-cli-create-source-code "#getting-started-cli-create-source-code"))
 
 In this step, you create a build specification (build spec) file. A _buildspec_ is a collection of build commands and related settings, in YAML format, that CodeBuild uses to run a build.
 Without a build spec, CodeBuild cannot successfully convert your build input into build output
@@ -894,8 +856,7 @@ At this point, your directory structure should look like this.
 
 ### Step 3: Create two S3 buckets
 
-(Previous step: [Step 2: Create the buildspec
-file](#getting-started-cli-create-build-spec "#getting-started-cli-create-build-spec"))
+(Previous step: [Step 2: Create the buildspec file](#getting-started-cli-create-build-spec "#getting-started-cli-create-build-spec"))
 
 Although you can use a single bucket for this tutorial, two buckets makes it easier to see
 where the build input is coming from and where the build output is going.
@@ -924,9 +885,7 @@ Bucket](../../../AmazonS3/latest/userguide/create-bucket.md "../../../AmazonS3/l
 Although CodeBuild also supports build input stored in CodeCommit, GitHub, and Bitbucket
 repositories, this tutorial does not show you how to use them. For more information, see [Plan a build](planning.md "planning.md").
 
-### Step 4: Upload the source code
-
-and the buildspec file
+### Step 4: Upload the source code and the buildspec file
 
 (Previous step: [Step 3: Create two S3 buckets](#getting-started-cli-input-bucket "#getting-started-cli-input-bucket"))
 
@@ -977,15 +936,11 @@ spec declaration as part of the build project definition.
 If you want to use a different name for your build spec file, or you want to
 reference a build spec in a location other than the root, you can specify a build
 spec override as part of the build project definition. For more information, see
-[Buildspec file name and storage
-location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
+[Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
 
-### Step 5: Create the build
+### Step 5: Create the build project
 
-project
-
-(Previous step: [Step 4: Upload the source code
-and the buildspec file](#getting-started-cli-upload-source-code "#getting-started-cli-upload-source-code"))
+(Previous step: [Step 4: Upload the source code and the buildspec file](#getting-started-cli-upload-source-code "#getting-started-cli-upload-source-code"))
 
 In this step, you create a build project that AWS CodeBuild uses to run the build.
 A _build project_ includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output. A _build environment_ represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build. The build environment is expressed as a
@@ -995,9 +950,7 @@ Docker Docs website.
 For this build environment, you instruct CodeBuild to use a Docker image that contains a
 version of the Java Development Kit (JDK) and Apache Maven.
 
-###### To create the build
-
-project
+###### To create the build project
 
 1. Use the AWS CLI to run the **create-project**
    command:
@@ -1037,8 +990,7 @@ results:
 Replace `serviceIAMRole` with the Amazon Resource
 Name (ARN) of a CodeBuild service role (for example,
 `arn:aws:iam::`account-ID`:role/`role-name``).
-To create one, see [Allow CodeBuild to interact with other AWS
-services](setting-up-service-role.md "setting-up-service-role.md").
+To create one, see [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md").
 
 In this data:
 
@@ -1176,13 +1128,11 @@ with credentials belonging to one of the following IAM entities:
   belongs to. If you do not have an user or group in your AWS account with
   these permissions, and you cannot add these permissions to your user or
   group, contact your AWS account administrator for assistance. For more
-  information, see [AWS managed (predefined) policies for
-  AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").
+  information, see [AWS managed (predefined) policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md#managed-policies "auth-and-access-control-iam-identity-based-access-control.md#managed-policies").
 
 ### Step 6: Run the build
 
-(Previous step: [Step 5: Create the build
-project](#getting-started-cli-create-build-project "#getting-started-cli-create-build-project"))
+(Previous step: [Step 5: Create the build project](#getting-started-cli-create-build-project "#getting-started-cli-create-build-project"))
 
 In this step, you instruct AWS CodeBuild to run the build with the settings in the build
 project.
@@ -1255,17 +1205,13 @@ from the previous step (for example,
 
 Make a note of the `id` value. You need it in the next step.
 
-### Step 7: View summarized build
-
-information
+### Step 7: View summarized build information
 
 (Previous step: [Step 6: Run the build](#getting-started-cli-run-build "#getting-started-cli-run-build"))
 
 In this step, you view summarized information about the status of your build.
 
-###### To view summarized build
-
-information
+###### To view summarized build information
 
 - Use the AWS CLI to run the **batch-get-builds**
   command.
@@ -1408,12 +1354,9 @@ Amazon S3. The `buildArn` is added to allow source tracking for
 notifications and to reference which build the artifact is generated
 from.
 
-### Step 8: View detailed build
+### Step 8: View detailed build information
 
-information
-
-(Previous step: [Step 7: View summarized build
-information](#getting-started-cli-monitor-build "#getting-started-cli-monitor-build"))
+(Previous step: [Step 7: View summarized build information](#getting-started-cli-monitor-build "#getting-started-cli-monitor-build"))
 
 In this step, you view detailed information about your build in CloudWatch Logs.
 
@@ -1429,9 +1372,7 @@ To protect sensitive information, the following are hidden in CodeBuild logs:
 - Strings specified using AWS Secrets Manager. For more information, see
   [Key management](security-key-management.md "security-key-management.md").
 
-###### To view detailed build
-
-information
+###### To view detailed build information
 
 1. Use your web browser to go to the `deepLink` location that appeared
    in the output in the previous step (for example,
@@ -1503,12 +1444,9 @@ In this example, CodeBuild successfully completed the pre-build, build, and post
 build phases. It ran the unit tests and successfully built the
 `messageUtil-1.0.jar` file.
 
-### Step 9: Get the build output
+### Step 9: Get the build output artifact
 
-artifact
-
-(Previous step: [Step 8: View detailed build
-information](#getting-started-cli-build-log "#getting-started-cli-build-log"))
+(Previous step: [Step 8: View detailed build information](#getting-started-cli-build-log "#getting-started-cli-build-log"))
 
 In this step, you get the `messageUtil-1.0.jar` file that CodeBuild built and uploaded to the output bucket.
 
@@ -1540,8 +1478,7 @@ location**. This link opens the folder in Amazon S3 where you find the
 
 ### Step 10: Delete the S3 buckets
 
-(Previous step: [Step 9: Get the build output
-artifact](#getting-started-cli-output "#getting-started-cli-output"))
+(Previous step: [Step 9: Get the build output artifact](#getting-started-cli-output "#getting-started-cli-output"))
 
 To prevent ongoing charges to your AWS account, you can delete the input and output
 buckets used in this tutorial. For instructions, see [Deleting or Emptying a Bucket](../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md "../../../AmazonS3/latest/userguide/delete-or-empty-bucket.md") in

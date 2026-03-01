@@ -14,9 +14,7 @@ IAM policies that might use the key or value for a tag to control access to
 resources such as report groups. For examples of tag-based access policies, see
 [Deny or allow actions on report groups based on resource tags](auth-and-access-control-using-tags.md#report-group-tag-policy-example "auth-and-access-control-using-tags.md#report-group-tag-policy-example").
 
-## Edit a tag for a report
-
-group (console)
+## Edit a tag for a report group (console)
 
 You can use the CodeBuild console to edit the tags associated with a CodeBuild report
 group.
@@ -38,9 +36,7 @@ group.
 6. When you have finished editing tags, choose
    **Submit**.
 
-## Edit tags for a report group
-
-(AWS CLI)
+## Edit tags for a report group (AWS CLI)
 
 To add, change, or delete tags from a report group, see [Update a report group (CLI)](report-group-export-settings.md#update-report-group-cli "report-group-export-settings.md#update-report-group-cli"). Update the tags in
 `UpdateReportGroupInput.json`.

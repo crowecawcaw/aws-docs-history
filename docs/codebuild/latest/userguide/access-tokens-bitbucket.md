@@ -18,9 +18,7 @@ For Bitbucket, your app password or access token must have the following scopes.
 
 For more information, see [Scopes for Bitbucket Cloud REST API](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/ "https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/") and [OAuth on Bitbucket Cloud](https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html "https://confluence.atlassian.com/bitbucket/oauth-on-bitbucket-cloud-238027431.html") on the Bitbucket website.
 
-## Connect Bitbucket with an app
-
-password (console)
+## Connect Bitbucket with an app password (console)
 
 To use the console to connect your project to Bitbucket using an app password, do
 the following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
@@ -41,9 +39,7 @@ the following when you create a project. For information, see [Create a build pr
      1. From the populated credential list, choose one of the options under **App password**.
      2. You can also create new App password token by selecting **create a new app password connection** in the description.
 
-## Connect Bitbucket with an access
-
-token (console)
+## Connect Bitbucket with an access token (console)
 
 To use the console to connect your project to Bitbucket using an access token, do
 the following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
@@ -64,9 +60,7 @@ the following when you create a project. For information, see [Create a build pr
      1. From the populated credential list, choose one of the options under **Personal access token**.
      2. You can also create new personal access token by selecting **create a new personal access token connection** in the description.
 
-## Connect Bitbucket with an app
-
-password or access token(CLI)
+## Connect Bitbucket with an app password or access token(CLI)
 
 Follow these steps to use the AWS CLI to connect your project to Bitbucket using an
 app password or access token. For information about using the AWS CLI with AWS CodeBuild, see the [Command line reference](cmd-ref.md "cmd-ref.md").

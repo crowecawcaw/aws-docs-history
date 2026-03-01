@@ -13,8 +13,7 @@ follows:
 - Add a `job.scheduled` webhook to your Buildkite organization.
 - Update your Buildkite pipeline YAML steps in Buildkite to configure your build
   environment.
-  For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted Buildkite
-  runner](sample-runner-buildkite.md "sample-runner-buildkite.md"). This feature allows your Buildkite jobs to
+  For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted Buildkite runner](sample-runner-buildkite.md "sample-runner-buildkite.md"). This feature allows your Buildkite jobs to
   get native integration with AWS, which provides security and convenience through features
   like IAM, AWS Secrets Manager, AWS CloudTrail, and Amazon VPC. You can access the latest instance types,
   including ARM-based instances.

@@ -19,8 +19,7 @@ VPC error: `Build does not have internet connectivity. Please check subnet netwo
    that the route table for private subnets points to the NAT
    gateway](../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-nat "../../../vpc/latest/userguide/VPC_Route_Tables.md#route-tables-nat").
 7. Make sure that the service role used by CodeBuild to interact with services on
-   behalf of the IAM user has the permissions in [this policy](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface "auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface"). For more information, see [Allow CodeBuild to interact with other AWS
-   services](setting-up-service-role.md "setting-up-service-role.md").
+   behalf of the IAM user has the permissions in [this policy](auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface "auth-and-access-control-iam-identity-based-access-control.md#customer-managed-policies-example-create-vpc-network-interface"). For more information, see [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md").
 
 If CodeBuild is missing permissions, you might receive an error that says,
 `Unexpected EC2 error: UnauthorizedOperation`. This error can

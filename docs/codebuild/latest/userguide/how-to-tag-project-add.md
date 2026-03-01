@@ -14,25 +14,20 @@ When using the reserved capacity feature, data cached on fleet instances, includ
 Docker layers, and cached directories specified in the buildspec, can be accessible to other projects
 within the same account. This is by design and allows projects within the same account to share fleet instances.
 
-For more information about adding tags to a project when you create it, see [Add a tag to a project
-(console)](#how-to-tag-project-add-console "#how-to-tag-project-add-console").
+For more information about adding tags to a project when you create it, see [Add a tag to a project (console)](#how-to-tag-project-add-console "#how-to-tag-project-add-console").
 
 ###### Important
 
 Before you add a tag to a project, make sure to review any IAM policies that
 might use tags to control access to resources such as build projects. For examples of
-tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
 ###### Topics
 
-- [Add a tag to a project
-  (console)](#how-to-tag-project-add-console "#how-to-tag-project-add-console")
+- [Add a tag to a project (console)](#how-to-tag-project-add-console "#how-to-tag-project-add-console")
 - [Add a tag to a project (AWS CLI)](#how-to-tag-project-add-cli "#how-to-tag-project-add-cli")
 
-## Add a tag to a project
-
-(console)
+## Add a tag to a project (console)
 
 You can use the CodeBuild console to add one or more tags to a CodeBuild project.
 

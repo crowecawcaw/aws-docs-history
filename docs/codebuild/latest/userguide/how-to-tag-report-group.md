@@ -23,13 +23,11 @@ In CodeBuild, the primary resources are the report group and the project. You ca
 CodeBuild console, the AWS CLI, CodeBuild APIs, or AWS SDKs to add, manage, and remove tags for a
 report group. In addition to identifying, organizing, and tracking your report group with
 tags, you can use tags in IAM policies to help control who can view and interact with your
-report group. For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+report group. For examples of tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
 ###### Topics
 
 - [Add tags to a report group](how-to-tag-report-group-add.md "how-to-tag-report-group-add.md")
 - [View tags for a report group](how-to-tag-report-group-list.md "how-to-tag-report-group-list.md")
 - [Edit tags for a report group](how-to-tag-report-group-update.md "how-to-tag-report-group-update.md")
-- [Remove tags from a report
-  group](how-to-tag-report-group-delete.md "how-to-tag-report-group-delete.md")
+- [Remove tags from a report group](how-to-tag-report-group-delete.md "how-to-tag-report-group-delete.md")

@@ -13,8 +13,7 @@ follows:
    set up your webhook filters.
 3. Update your GitLab CI/CD pipeline YAML in GitLab to configure your build
    environment.
-   For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted GitLab
-   runner](sample-gitlab-runners.md "sample-gitlab-runners.md").
+   For a more detailed procedure, see [Tutorial: Configure a CodeBuild-hosted GitLab runner](sample-gitlab-runners.md "sample-gitlab-runners.md").
 
 This feature allows your GitLab CI/CD pipeline jobs to get native integration with
 AWS, which provides security and convenience through features like IAM,
@@ -23,11 +22,7 @@ instances.
 
 ###### Topics
 
-- [About the CodeBuild-hosted GitLab
-  runner](gitlab-runner-questions.md "gitlab-runner-questions.md")
-- [Tutorial: Configure a CodeBuild-hosted GitLab
-  runner](sample-gitlab-runners.md "sample-gitlab-runners.md")
-- [Label overrides
-  supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md")
-- [Compute images
-  supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")
+- [About the CodeBuild-hosted GitLab runner](gitlab-runner-questions.md "gitlab-runner-questions.md")
+- [Tutorial: Configure a CodeBuild-hosted GitLab runner](sample-gitlab-runners.md "sample-gitlab-runners.md")
+- [Label overrides supported with the CodeBuild-hosted GitLab runner](gitlab-runners-update-labels.md "gitlab-runners-update-labels.md")
+- [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md")

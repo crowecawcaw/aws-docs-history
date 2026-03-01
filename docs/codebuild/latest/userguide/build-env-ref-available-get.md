@@ -9,8 +9,7 @@ of the following:
   **Operating system**, **Runtime**, and
   **Runtime version** drop-down lists. For more information, see
   [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
-  or [Change a build project's settings
-  (console)](change-project.md#change-project-console "change-project.md#change-project-console").
+  or [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 - For the AWS CLI, run the `list-curated-environment-images`
   command:
 

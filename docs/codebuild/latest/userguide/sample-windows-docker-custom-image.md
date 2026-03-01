@@ -4,12 +4,9 @@ The following sample builds and runs a Windows Docker image by using CodeBuild.
 
 ###### Topics
 
-- [Run Windows Docker builds
-  sample](#sample-windows-docker-build-running "#sample-windows-docker-build-running")
+- [Run Windows Docker builds sample](#sample-windows-docker-build-running "#sample-windows-docker-build-running")
 
-## Run Windows Docker builds
-
-sample
+## Run Windows Docker builds sample
 
 Use the following procedure to run the Windows Docker builds.
 

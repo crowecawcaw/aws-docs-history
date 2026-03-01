@@ -1,6 +1,4 @@
-# Add a CodeBuild build action to a pipeline (CodePipeline
-
-console)
+# Add a CodeBuild build action to a pipeline (CodePipeline console)
 
 1. Sign in to the AWS Management Console by using:
    - Your AWS root account. This is not recommended. For more information,
@@ -89,8 +87,7 @@ return to this procedure.
 If you choose an existing build project, it must have build output artifact
 settings already defined (even though CodePipeline overrides them). For more information,
 see the description of **Artifacts** in [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console") or
-[Change a build project's settings
-(console)](change-project.md#change-project-console "change-project.md#change-project-console").
+[Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console").
 
 ###### Important
 
@@ -99,8 +96,7 @@ step in CodePipeline, then two identical builds are created for each commit. One
 is triggered through webhooks and one through CodePipeline. Because billing is on a
 per-build basis, you are billed for both builds. Therefore, if you are using
 CodePipeline, we recommend that you disable webhooks in CodeBuild. In the CodeBuild console,
-clear the **Webhook** box. For more information, see [Change a build project's settings
-(console)](change-project.md#change-project-console "change-project.md#change-project-console") 13. For **Input artifacts**, choose the output artifact that you
+clear the **Webhook** box. For more information, see [Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console") 13. For **Input artifacts**, choose the output artifact that you
 noted earlier in this procedure. 14. For **Output artifacts**, enter a name for the output artifact
 (for example, `MyAppBuild`). 15. Choose **Add action**. 16. Choose **Save**, and then choose **Save** to
 save your changes to the pipeline. 17. Choose **Release change**. 18. After the pipeline runs successfully, you can get the build output artifact. With

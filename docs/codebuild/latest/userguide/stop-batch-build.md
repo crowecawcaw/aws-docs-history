@@ -54,10 +54,8 @@ In the preceding command, replace the following placeholder:
 
 
 
-    	- [View a list of batch build IDs
-    	 (AWS CLI)](view-build-list.md#view-batch-build-list-cli "view-build-list.md#view-batch-build-list-cli")
-    	- [View a list of batch build IDs for a
-    	 build project (AWS CLI)](view-builds-for-project.md#view-batch-builds-for-project-cli "view-builds-for-project.md#view-batch-builds-for-project-cli")
+    	- [View a list of batch build IDs (AWS CLI)](view-build-list.md#view-batch-build-list-cli "view-build-list.md#view-batch-build-list-cli")
+    	- [View a list of batch build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-batch-builds-for-project-cli "view-builds-for-project.md#view-batch-builds-for-project-cli")
 
 ## Stop a batch build (AWS SDKs)
 

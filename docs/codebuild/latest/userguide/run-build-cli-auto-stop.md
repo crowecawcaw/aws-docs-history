@@ -1,11 +1,8 @@
-# Stop running builds automatically
-
-(AWS CLI)
+# Stop running builds automatically (AWS CLI)
 
 If your source code is stored in a GitHub or a GitHub Enterprise Server repository,
 you can set up GitHub webhooks to have AWS CodeBuild rebuild your source code whenever a
-code change is pushed to the repository. For more information, see [Start running builds automatically
-(AWS CLI)](run-build-cli-auto-start.md "run-build-cli-auto-start.md").
+code change is pushed to the repository. For more information, see [Start running builds automatically (AWS CLI)](run-build-cli-auto-start.md "run-build-cli-auto-start.md").
 
 If you have enabled this behavior, you can turn it off by running the
 `delete-webhook` command as follows:

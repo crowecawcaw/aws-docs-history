@@ -23,13 +23,10 @@ bucket.
 
 ###### Topics
 
-- [Update a report group
-  (console)](#update-report-group-console "#update-report-group-console")
+- [Update a report group (console)](#update-report-group-console "#update-report-group-console")
 - [Update a report group (CLI)](#update-report-group-cli "#update-report-group-cli")
 
-## Update a report group
-
-(console)
+## Update a report group (console)
 
 Use the following procedure to update a report group using the AWS Management Console.
 

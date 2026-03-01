@@ -1,6 +1,4 @@
-# Build notifications input format
-
-reference
+# Build notifications input format reference
 
 CloudWatch delivers notifications in JSON format.
 

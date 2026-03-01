@@ -1,6 +1,4 @@
-# Setting up a Buildkite runner
-
-programmatically
+# Setting up a Buildkite runner programmatically
 
 In order to configure a Buildkite runner project programatically, you will need to
 configure the following resources:
@@ -54,6 +52,5 @@ aws codebuild create-webhook \
 4. Save the **Payload URL** and **Secret**
    values returned by the `create-webhook` call and use the credentials
    to create a webhook within the Buildkite console. You can reference Step 3:
-   Create a CodeBuild webhook within Buildkite in [Tutorial: Configure a CodeBuild-hosted Buildkite
-   runner](sample-runner-buildkite.md "sample-runner-buildkite.md")
+   Create a CodeBuild webhook within Buildkite in [Tutorial: Configure a CodeBuild-hosted Buildkite runner](sample-runner-buildkite.md "sample-runner-buildkite.md")
    for a guide on how to set up this resource.

@@ -9,8 +9,7 @@ cannot edit a report group. A report expires 30 days after it is created.
 
 - [Share a report group](#report-groups-sharing-share "#report-groups-sharing-share")
 - [Related services](#report-groups-sharing-related "#report-groups-sharing-related")
-- [Access
-  report groups shared with you](report-groups-sharing-access-prereqs.md "report-groups-sharing-access-prereqs.md")
+- [Access report groups shared with you](report-groups-sharing-access-prereqs.md "report-groups-sharing-access-prereqs.md")
 - [Unshare a shared report group](report-groups-sharing-unshare.md "report-groups-sharing-unshare.md")
 - [Identify a shared report group](report-groups-sharing-identify.md "report-groups-sharing-identify.md")
 - [Shared report group permissions](report-groups-sharing-perms.md "report-groups-sharing-perms.md")

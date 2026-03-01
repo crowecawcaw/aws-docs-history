@@ -53,8 +53,7 @@ In the preceding command, replace the following placeholder:
 
 
     	- [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli")
-    	- [View a list of build IDs for a build
-    	 project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
+    	- [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
 
 If AWS CodeBuild successfully stops the build, the `buildStatus` value
 in the `build` object in the output is `STOPPED`.

@@ -8,12 +8,9 @@ delete the tag from other AWS resources that are associated with that tag.
 Removing tags for a project can impact access to that project. Before you remove a
 tag from a project, make sure to review any IAM policies that might use the key or
 value for a tag to control access to resources such as build projects. For examples of
-tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
-## Remove a tag from a project
-
-(console)
+## Remove a tag from a project (console)
 
 You can use the CodeBuild console to remove the association between a tag and a CodeBuild
 project.
@@ -30,9 +27,7 @@ project.
 6. When you have finished removing tags, choose
    **Submit**.
 
-## Remove a tag from a project
-
-(AWS CLI)
+## Remove a tag from a project (AWS CLI)
 
 To delete one or more tags from a build project, see [Change a build project's settings (AWS CLI)](change-project.md#change-project-cli "change-project.md#change-project-cli"). Update the
 `tags` section in the JSON-formatted data with an updated list of

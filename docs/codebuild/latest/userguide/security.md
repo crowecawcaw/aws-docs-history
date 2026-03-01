@@ -26,5 +26,4 @@ To learn how to secure your CodeBuild resources, see the following topics.
 - [Resilience in AWS CodeBuild](codebuild-disaster-recovery-resiliency.md "codebuild-disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS CodeBuild](infrastructure-security.md "infrastructure-security.md")
 - [Access your source provider in CodeBuild](access-tokens.md "access-tokens.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

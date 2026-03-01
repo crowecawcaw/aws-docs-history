@@ -1,6 +1,4 @@
-# Label overrides
-
-supported with the CodeBuild-hosted GitLab runner
+# Label overrides supported with the CodeBuild-hosted GitLab runner
 
 In your GitLab CI/CD pipeline YAML, you can provide a variety of label overrides that
 modify your self-managed runner build. Any builds not recognized by CodeBuild will be ignored but
@@ -34,8 +32,7 @@ build-job:
 
 - Example: `image:arm-3.0`
 - Overrides the image and environment type used when starting the self-managed runner build. To learn about supported values, see
-  [Compute images
-  supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
+  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
 
       + To override the image and environment type used with a custom image, use
        `image:custom-`<environment-type>`-`<custom-image-identifier>``
@@ -45,15 +42,13 @@ build-job:
       ###### Note
 
       If the custom image resides in a private registry, see
-       [Configure a private registry
-       credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
+       [Configure a private registry credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md").
 
   `instance-size:`<instance-size>``
 
 - Example: `instance-size:small`
 - Overrides the instance type used when starting the self-managed runner build. To learn about supported values, see
-  [Compute images
-  supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
+  [Compute images supported with the CodeBuild-hosted GitLab runner](sample-gitlab-runners-gitlab-ci.md "sample-gitlab-runners-gitlab-ci.md").
   `fleet:`<fleet-name>``
 
 - Example: `fleet:myFleet`

@@ -1,6 +1,4 @@
-# Tutorial: Apple code signing with Fastlane in CodeBuild using
-
-S3 for certificate storage
+# Tutorial: Apple code signing with Fastlane in CodeBuild using S3 for certificate storage
 
 [fastlane](https://docs.fastlane.tools/ "https://docs.fastlane.tools/") is a popular open source
 automation tool to automate beta deployments and releases for your iOS and Android apps. It
@@ -17,9 +15,7 @@ To complete this tutorial, you must first have set up the following:
 - fastlane installed in your project - [Guide](https://docs.fastlane.tools/getting-started/ios/setup/ "https://docs.fastlane.tools/getting-started/ios/setup/")
   to install fastlane
 
-## Step 1: Set up Fastlane
-
-Match with S3 on your local machine
+## Step 1: Set up Fastlane Match with S3 on your local machine
 
 [Fastlane Match](https://docs.fastlane.tools/actions/match/ "https://docs.fastlane.tools/actions/match/") is one
 of the [Fastlane tools](https://fastlane.tools/ "https://fastlane.tools/"), and it allows for
@@ -49,9 +45,7 @@ storage_mode("s3")
 
 ```
 
-## Step 2: Set up your
-
-Fastfile
+## Step 2: Set up your Fastfile
 
 Create or update your `Fastfile` with the following lane.
 
@@ -85,9 +79,7 @@ Make sure to add `setup_ci` to the `before_all` section in
 a temporary Fastlane keychain with the appropriate permissions is used. Without
 using this you may see build failures or inconsistent results.
 
-## Step 3: Run the `fastlane match` command to generate respective
-
-certificates and profiles
+## Step 3: Run the `fastlane match` command to generate respective certificates and profiles
 
 The fastlane match command for the given type (i.e., development, appstore, adhoc,
 enterprise) will generate the certificate and profile if not available in remote store.

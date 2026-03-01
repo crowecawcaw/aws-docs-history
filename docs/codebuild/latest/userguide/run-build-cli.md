@@ -3,8 +3,7 @@
 ###### Note
 
 To use CodePipeline to run a build with AWS CodeBuild, skip these steps and follow the
-instructions in [Create a pipeline that uses CodeBuild
-(AWS CLI)](how-to-create-pipeline-cli.md "how-to-create-pipeline-cli.md").
+instructions in [Create a pipeline that uses CodeBuild (AWS CLI)](how-to-create-pipeline-cli.md "how-to-create-pipeline-cli.md").
 
 For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md "cmd-ref.md").
 
@@ -152,8 +151,7 @@ Replace the following placeholders:
      `arn:aws:s3:::`<my-codebuild-sample2>`/buildspec.yml`).
      If this value is not provided or is set to an empty string, the source
      code must contain a `buildspec.yml` file in its
-     root directory. For more information, see [Buildspec file name and storage
-     location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
+     root directory. For more information, see [Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
     * The following placeholders are for `cacheOverride`.
 
 

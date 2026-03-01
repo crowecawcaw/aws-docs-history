@@ -1,6 +1,4 @@
-# Environment variables in build
-
-environments
+# Environment variables in build environments
 
 AWS CodeBuild provides several environment variables that you can use in your build
 commands:
@@ -201,8 +199,7 @@ This environment variable is always set to
 `/root`.
 
 AWS CodeBuild also supports a set of environment variables for self-hosted runner builds. To learn more about CodeBuild
-self-hosted runner, see [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md").
+self-hosted runner, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").
 
 CODEBUILD_RUNNER_OWNER
 

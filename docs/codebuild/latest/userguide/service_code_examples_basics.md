@@ -1,6 +1,4 @@
-# Basic examples for
-
-CodeBuild using AWS SDKs
+# Basic examples for CodeBuild using AWS SDKs
 
 The following code examples show how to use the basics of AWS CodeBuild with AWS
 SDKs.

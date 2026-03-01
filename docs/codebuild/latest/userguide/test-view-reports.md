@@ -11,7 +11,5 @@ they are created. You cannot view an expired report in CodeBuild.
 ###### Topics
 
 - [View test reports for a build](test-view-project-reports.md "test-view-project-reports.md")
-- [View test reports for a report
-  group](test-view-report-group-reports.md "test-view-report-group-reports.md")
-- [View test reports in your AWS
-  account](test-view-account-reports.md "test-view-account-reports.md")
+- [View test reports for a report group](test-view-report-group-reports.md "test-view-report-group-reports.md")
+- [View test reports in your AWS account](test-view-account-reports.md "test-view-account-reports.md")

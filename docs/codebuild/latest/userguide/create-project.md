@@ -1302,8 +1302,7 @@ directory of your primary source, or the path to an S3 bucket. The
 bucket must be in the same AWS Region as the build project. Specify
 the buildspec file using its ARN (for example,
 `arn:aws:s3:::`<my-codebuild-sample2>`/buildspec.yml`).
-For more information, see [Buildspec file name and storage
-location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
+For more information, see [Buildspec file name and storage location](build-spec-ref.md#build-spec-ref-name-storage "build-spec-ref.md#build-spec-ref-name-storage").
 
 source/**auth**
 
@@ -1973,8 +1972,7 @@ later. For more information, see [Change a build project's settings (AWS CLI)](c
 To start running a build, see [Run a build (AWS CLI)](run-build-cli.md "run-build-cli.md").
 
 If your source code is stored in a GitHub repository, and you want CodeBuild to rebuild the
-source code every time a code change is pushed to the repository, see [Start running builds automatically
-(AWS CLI)](run-build-cli-auto-start.md "run-build-cli-auto-start.md").
+source code every time a code change is pushed to the repository, see [Start running builds automatically (AWS CLI)](run-build-cli-auto-start.md "run-build-cli-auto-start.md").
 
 ## Create a build project (AWS SDKs)
 

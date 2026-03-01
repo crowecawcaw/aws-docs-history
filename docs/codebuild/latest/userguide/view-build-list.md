@@ -7,8 +7,7 @@ builds managed by CodeBuild.
 
 - [View a list of build IDs (console)](#view-build-list-console "#view-build-list-console")
 - [View a list of build IDs (AWS CLI)](#view-build-list-cli "#view-build-list-cli")
-- [View a list of batch build IDs
-  (AWS CLI)](#view-batch-build-list-cli "#view-batch-build-list-cli")
+- [View a list of batch build IDs (AWS CLI)](#view-batch-build-list-cli "#view-batch-build-list-cli")
 - [View a list of build IDs (AWS SDKs)](#view-build-list-sdks "#view-build-list-sdks")
 
 ## View a list of build IDs (console)
@@ -85,9 +84,7 @@ A result similar to the following might appear in the output:
 }
 ```
 
-## View a list of batch build IDs
-
-(AWS CLI)
+## View a list of batch build IDs (AWS CLI)
 
 For more information about using the AWS CLI with CodeBuild, see the [Command line reference](cmd-ref.md "cmd-ref.md").
 

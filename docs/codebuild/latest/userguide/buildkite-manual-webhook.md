@@ -32,8 +32,7 @@ In **Runner**:
      - Choose a supported **Environment image** and
        **Compute**. Note that you have the option to
        override the image and instance settings by using a label in your
-       GitHub Actions workflow YAML. For more information, see [Step 2: Update your GitHub
-       Actions workflow YAML](action-runner.md#sample-github-action-runners-update-yaml "action-runner.md#sample-github-action-runners-update-yaml")
+       GitHub Actions workflow YAML. For more information, see [Step 2: Update your GitHub Actions workflow YAML](action-runner.md#sample-github-action-runners-update-yaml "action-runner.md#sample-github-action-runners-update-yaml")
 
    - In **Buildspec**:
      - Note that your buildspec will be ignored unless

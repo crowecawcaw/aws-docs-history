@@ -1,6 +1,4 @@
-# Using
-
-identity-based policies for AWS CodeBuild
+# Using identity-based policies for AWS CodeBuild
 
 This topic provides examples of identity-based policies that demonstrate how an
 account administrator can attach permissions policies to IAM identities (that is,
@@ -11,22 +9,16 @@ AWS CodeBuild resources.
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available to manage access to your CodeBuild resources. For more
-information, see [Overview of
-managing access permissions to your AWS CodeBuild resources](auth-and-access-control-iam-access-control-identity-based.md "auth-and-access-control-iam-access-control-identity-based.md").
+information, see [Overview of managing access permissions to your AWS CodeBuild resources](auth-and-access-control-iam-access-control-identity-based.md "auth-and-access-control-iam-access-control-identity-based.md").
 
 ###### Topics
 
-- [Permissions required to use the AWS CodeBuild
-  console](#console-permissions "#console-permissions")
+- [Permissions required to use the AWS CodeBuild console](#console-permissions "#console-permissions")
 - [Permissions required for AWS CodeBuild to connect to Amazon Elastic Container Registry](#ecr-policies "#ecr-policies")
-- [Permissions required for the AWS CodeBuild console to
-  connect to source providers](#console-policies "#console-policies")
-- [AWS managed (predefined) policies for
-  AWS CodeBuild](#managed-policies "#managed-policies")
-- [CodeBuild managed policies and
-  notifications](#notifications-permissions "#notifications-permissions")
-- [CodeBuild updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Permissions required for the AWS CodeBuild console to connect to source providers](#console-policies "#console-policies")
+- [AWS managed (predefined) policies for AWS CodeBuild](#managed-policies "#managed-policies")
+- [CodeBuild managed policies and notifications](#notifications-permissions "#notifications-permissions")
+- [CodeBuild updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 - [Customer-managed policy examples](#customer-managed-policies "#customer-managed-policies")
   The following shows an example of a permissions policy that allows a user to get
   information about build projects only in the `us-east-2` region for account
@@ -49,9 +41,7 @@ JSON
 
 ```
 
-## Permissions required to use the AWS CodeBuild
-
-console
+## Permissions required to use the AWS CodeBuild console
 
 A user who uses the AWS CodeBuild console must have a minimum set of permissions that
 allows the user to describe other AWS resources for the AWS account. You must
@@ -98,12 +88,9 @@ For CodeBuild projects that were created before July 26, 2022, we recommend you 
 ]
 ```
 
-For more information on updating your policy, see [Allow users to interact with
-CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md").
+For more information on updating your policy, see [Allow users to interact with CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md").
 
-## Permissions required for the AWS CodeBuild console to
-
-connect to source providers
+## Permissions required for the AWS CodeBuild console to connect to source providers
 
 The AWS CodeBuild console uses the following API actions to connect to source
 providers (for example, GitHub repositories).
@@ -123,9 +110,7 @@ The `ListConnectedOAuthAccounts`, `ListRepositories`, and
 code. Therefore, these API actions are not included in the AWS CLI and AWS
 SDKs.
 
-## AWS managed (predefined) policies for
-
-AWS CodeBuild
+## AWS managed (predefined) policies for AWS CodeBuild
 
 AWS addresses many common use cases by providing standalone IAM policies that are created and
 administered by AWS. These AWS managed policies grant necessary permissions for common use cases so
@@ -207,9 +192,7 @@ For the full managed policy, see
 [AWSCodeBuildReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCodeBuildReadOnlyAccess.md")
 in the IAM managed policy reference.
 
-## CodeBuild managed policies and
-
-notifications
+## CodeBuild managed policies and notifications
 
 CodeBuild supports notifications, which can notify users of important changes to
 build projects.
@@ -217,9 +200,7 @@ Managed policies for CodeBuild include policy statements for notification
 functionality. For more information, see [What are
 notifications?](../../../codestar-notifications/latest/userguide/welcome.md "../../../codestar-notifications/latest/userguide/welcome.md").
 
-### Permissions related to notifications in read-only managed
-
-policies
+### Permissions related to notifications in read-only managed policies
 
 The
 `AWSCodeBuildReadOnlyAccess` managed policy includes the following
@@ -250,9 +231,7 @@ subscribe to them.
     }
 ```
 
-### Permissions related to notifications in other managed
-
-policies
+### Permissions related to notifications in other managed policies
 
 The
 `AWSCodeBuildDeveloperAccess` managed policy includes the following
@@ -307,13 +286,11 @@ delete notification rules or manage tags for resources.
 
 For more information about IAM and notifications, see [Identity and Access Management for AWS CodeStar Notifications](../../../codestar-notifications/latest/userguide/security-iam.md "../../../codestar-notifications/latest/userguide/security-iam.md").
 
-## CodeBuild updates to AWS managed
-
-policies
+## CodeBuild updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodeBuild since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
-the RSS feed on [AWS CodeBuild User Guide document history](history.md "history.md") .
+the RSS feed on [AWS CodeBuild User Guide document history](history.md "history.md").
 
 | Change                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                     | Date              |
 | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
@@ -328,71 +305,45 @@ the RSS feed on [AWS CodeBuild User Guide document history](history.md "history.
 In this section, you can find example user policies that grant permissions for
 AWS CodeBuild actions. These policies work when you are using the CodeBuild API, AWS SDKs,
 or AWS CLI. When you are using the console, you must grant additional,
-console-specific permissions. For information, see [Permissions required to use the AWS CodeBuild
-console](#console-permissions "#console-permissions").
+console-specific permissions. For information, see [Permissions required to use the AWS CodeBuild console](#console-permissions "#console-permissions").
 
 You can use the following sample IAM policies to limit CodeBuild access for your
 users and roles.
 
 ###### Topics
 
-- [Allow a
-  user to get information about build projects](#customer-managed-policies-example-batch-get-projects "#customer-managed-policies-example-batch-get-projects")
-- [Allow
-  a user to get information about fleets](#customer-managed-policies-get-information-about-fleets "#customer-managed-policies-get-information-about-fleets")
+- [Allow a user to get information about build projects](#customer-managed-policies-example-batch-get-projects "#customer-managed-policies-example-batch-get-projects")
+- [Allow a user to get information about fleets](#customer-managed-policies-get-information-about-fleets "#customer-managed-policies-get-information-about-fleets")
 - [Allow a user to get information about report groups](#customer-managed-policies-get-information-about-report-group "#customer-managed-policies-get-information-about-report-group")
-- [Allow
-  a user to get information about reports](#customer-managed-policies-get-information-about-reports "#customer-managed-policies-get-information-about-reports")
-- [Allow a user
-  to create build projects](#customer-managed-policies-example-create-project "#customer-managed-policies-example-create-project")
-- [Allow a
-  user to create a fleet](#customer-managed-policies-example-create-fleet "#customer-managed-policies-example-create-fleet")
-- [Allow a
-  user to create a report group](#customer-managed-policies-example-create-report-group "#customer-managed-policies-example-create-report-group")
-- [Allow a user
-  to delete a fleet](#customer-managed-policies-example-delete-fleet "#customer-managed-policies-example-delete-fleet")
-- [Allow a
-  user to delete a report group](#customer-managed-policies-example-delete-report-group "#customer-managed-policies-example-delete-report-group")
-- [Allow a user
-  to delete a report](#customer-managed-policies-example-delete-report "#customer-managed-policies-example-delete-report")
-- [Allow a user
-  to delete build projects](#customer-managed-policies-example-delete-project "#customer-managed-policies-example-delete-project")
-- [Allow a user
-  to get a list of build project names](#customer-managed-policies-example-list-projects "#customer-managed-policies-example-list-projects")
-- [Allow a user
-  to change information about build projects](#customer-managed-policies-example-update-project "#customer-managed-policies-example-update-project")
-- [Allow a
-  user to change a fleet](#customer-managed-policies-example-change-fleet "#customer-managed-policies-example-change-fleet")
-- [Allow a
-  user to change a report group](#customer-managed-policies-example-change-report-group "#customer-managed-policies-example-change-report-group")
-- [Allow a
-  user to get information about builds](#customer-managed-policies-example-batch-get-builds "#customer-managed-policies-example-batch-get-builds")
+- [Allow a user to get information about reports](#customer-managed-policies-get-information-about-reports "#customer-managed-policies-get-information-about-reports")
+- [Allow a user to create build projects](#customer-managed-policies-example-create-project "#customer-managed-policies-example-create-project")
+- [Allow a user to create a fleet](#customer-managed-policies-example-create-fleet "#customer-managed-policies-example-create-fleet")
+- [Allow a user to create a report group](#customer-managed-policies-example-create-report-group "#customer-managed-policies-example-create-report-group")
+- [Allow a user to delete a fleet](#customer-managed-policies-example-delete-fleet "#customer-managed-policies-example-delete-fleet")
+- [Allow a user to delete a report group](#customer-managed-policies-example-delete-report-group "#customer-managed-policies-example-delete-report-group")
+- [Allow a user to delete a report](#customer-managed-policies-example-delete-report "#customer-managed-policies-example-delete-report")
+- [Allow a user to delete build projects](#customer-managed-policies-example-delete-project "#customer-managed-policies-example-delete-project")
+- [Allow a user to get a list of build project names](#customer-managed-policies-example-list-projects "#customer-managed-policies-example-list-projects")
+- [Allow a user to change information about build projects](#customer-managed-policies-example-update-project "#customer-managed-policies-example-update-project")
+- [Allow a user to change a fleet](#customer-managed-policies-example-change-fleet "#customer-managed-policies-example-change-fleet")
+- [Allow a user to change a report group](#customer-managed-policies-example-change-report-group "#customer-managed-policies-example-change-report-group")
+- [Allow a user to get information about builds](#customer-managed-policies-example-batch-get-builds "#customer-managed-policies-example-batch-get-builds")
 - [Allow a user to get a list of build IDs for a build project](#customer-managed-policies-example-list-builds-for-project "#customer-managed-policies-example-list-builds-for-project")
-- [Allow a user to
-  get a list of build IDs](#customer-managed-policies-example-list-builds "#customer-managed-policies-example-list-builds")
+- [Allow a user to get a list of build IDs](#customer-managed-policies-example-list-builds "#customer-managed-policies-example-list-builds")
 - [Allow a user to get a list of fleets](#customer-managed-policies-example-get-list-of-fleets "#customer-managed-policies-example-get-list-of-fleets")
 - [Allow a user to get a list of report groups](#customer-managed-policies-example-get-list-of-report-groups "#customer-managed-policies-example-get-list-of-report-groups")
-- [Allow a
-  user to get a list of reports](#customer-managed-policies-example-get-list-of-reports "#customer-managed-policies-example-get-list-of-reports")
+- [Allow a user to get a list of reports](#customer-managed-policies-example-get-list-of-reports "#customer-managed-policies-example-get-list-of-reports")
 - [Allow a user to get a list of reports for a report group](#customer-managed-policies-example-get-list-of-reports-for-report-group "#customer-managed-policies-example-get-list-of-reports-for-report-group")
 - [Allow a user to get a list of test cases for a report](#customer-managed-policies-example-get-list-of-test-cases-for-report "#customer-managed-policies-example-get-list-of-test-cases-for-report")
-- [Allow a user to
-  start running builds](#customer-managed-policies-example-start-build "#customer-managed-policies-example-start-build")
-- [Allow a user to
-  attempt to stop builds](#customer-managed-policies-example-stop-build "#customer-managed-policies-example-stop-build")
-- [Allow a user
-  to attempt to delete builds](#customer-managed-policies-example-delete-builds "#customer-managed-policies-example-delete-builds")
-- [Allow a user to get information about Docker images that are managed by
-  CodeBuild](#customer-managed-policies-example-list-curated-environment-images "#customer-managed-policies-example-list-curated-environment-images")
+- [Allow a user to start running builds](#customer-managed-policies-example-start-build "#customer-managed-policies-example-start-build")
+- [Allow a user to attempt to stop builds](#customer-managed-policies-example-stop-build "#customer-managed-policies-example-stop-build")
+- [Allow a user to attempt to delete builds](#customer-managed-policies-example-delete-builds "#customer-managed-policies-example-delete-builds")
+- [Allow a user to get information about Docker images that are managed by CodeBuild](#customer-managed-policies-example-list-curated-environment-images "#customer-managed-policies-example-list-curated-environment-images")
 - [Allow a user to add a permission policy for a fleet service role](#customer-managed-policies-example-permission-policy-fleet-service-role "#customer-managed-policies-example-permission-policy-fleet-service-role")
-- [Allow CodeBuild access to AWS services required to create a VPC network
-  interface](#customer-managed-policies-example-create-vpc-network-interface "#customer-managed-policies-example-create-vpc-network-interface")
-- [Use a deny
-  statement to prevent AWS CodeBuild from disconnecting from source providers](#customer-managed-policies-example-deny-disconnect "#customer-managed-policies-example-deny-disconnect")
+- [Allow CodeBuild access to AWS services required to create a VPC network interface](#customer-managed-policies-example-create-vpc-network-interface "#customer-managed-policies-example-create-vpc-network-interface")
+- [Use a deny statement to prevent AWS CodeBuild from disconnecting from source providers](#customer-managed-policies-example-deny-disconnect "#customer-managed-policies-example-deny-disconnect")
 
-### Allow a
-
-user to get information about build projects
+### Allow a user to get information about build projects
 
 The following example policy statement allows a user to get information about
 build projects in the `us-east-2` Region for account
@@ -415,9 +366,7 @@ JSON
 
 ```
 
-### Allow
-
-a user to get information about fleets
+### Allow a user to get information about fleets
 
 The following example policy statement allows a user to get information about
 fleets in the `us-east-2` Region for account
@@ -461,9 +410,7 @@ JSON
 
 ```
 
-### Allow
-
-a user to get information about reports
+### Allow a user to get information about reports
 
 The following example policy statement allows a user to get information about
 reports in the `us-east-2` Region for account
@@ -485,9 +432,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to create build projects
+### Allow a user to create build projects
 
 The following example policy statement allows a user to create build projects
 with any name but only in the `us-east-2` Region for account
@@ -545,9 +490,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to create a fleet
+### Allow a user to create a fleet
 
 The following example policy statement allows a user to create a fleet
 in the `us-east-2` Region for account
@@ -569,9 +512,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to create a report group
+### Allow a user to create a report group
 
 The following example policy statement allows a user to create a report group
 in the `us-east-2` Region for account
@@ -593,9 +534,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to delete a fleet
+### Allow a user to delete a fleet
 
 The following example policy statement allows a user to delete a fleet in the
 `us-east-2` Region for account
@@ -617,9 +556,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to delete a report group
+### Allow a user to delete a report group
 
 The following example policy statement allows a user to delete a report group
 in the `us-east-2` Region for account
@@ -641,9 +578,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to delete a report
+### Allow a user to delete a report
 
 The following example policy statement allows a user to delete a report in the
 `us-east-2` Region for account
@@ -665,9 +600,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to delete build projects
+### Allow a user to delete build projects
 
 The following example policy statement allows a user to delete build projects
 in the `us-east-2` Region for account
@@ -690,9 +623,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to get a list of build project names
+### Allow a user to get a list of build project names
 
 The following example policy statement allows a user to get a list of build
 project names for the same account:
@@ -713,9 +644,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to change information about build projects
+### Allow a user to change information about build projects
 
 The following example policy statement allows a user to change information
 about build projects with any name but only in the `us-east-2` Region
@@ -743,9 +672,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to change a fleet
+### Allow a user to change a fleet
 
 The following example policy statement allows a user to change a fleet
 in the `us-east-2` Region for account
@@ -767,9 +694,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to change a report group
+### Allow a user to change a report group
 
 The following example policy statement allows a user to change a report group
 in the `us-east-2` Region for account
@@ -791,9 +716,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to get information about builds
+### Allow a user to get information about builds
 
 The following example policy statement allows a user to get information about
 builds in the `us-east-2` Region for account
@@ -847,9 +770,7 @@ JSON
 
 ```
 
-### Allow a user to
-
-get a list of build IDs
+### Allow a user to get a list of build IDs
 
 The following example policy statement allows a user to get a list of all
 build IDs for the same account:
@@ -914,9 +835,7 @@ JSON
 
 ```
 
-### Allow a
-
-user to get a list of reports
+### Allow a user to get a list of reports
 
 The following example policy statement allows a user to get a list of reports
 in the `us-east-2` Region for account
@@ -982,9 +901,7 @@ JSON
 
 ```
 
-### Allow a user to
-
-start running builds
+### Allow a user to start running builds
 
 The following example policy statement allows a user to run builds in the
 `us-east-2` Region for account `123456789012`
@@ -1006,9 +923,7 @@ JSON
 
 ```
 
-### Allow a user to
-
-attempt to stop builds
+### Allow a user to attempt to stop builds
 
 The following example policy statement allows a user to attempt to stop
 running builds only in the `us-east-2` region for account
@@ -1031,9 +946,7 @@ JSON
 
 ```
 
-### Allow a user
-
-to attempt to delete builds
+### Allow a user to attempt to delete builds
 
 The following example policy statement allows a user to attempt to delete
 builds only in the `us-east-2` Region for account
@@ -1056,9 +969,7 @@ JSON
 
 ```
 
-### Allow a user to get information about Docker images that are managed by
-
-CodeBuild
+### Allow a user to get information about Docker images that are managed by CodeBuild
 
 The following example policy statement allows a user to get information about
 all Docker images that are managed by CodeBuild:
@@ -1182,9 +1093,7 @@ JSON
 
 ```
 
-### Allow CodeBuild access to AWS services required to create a VPC network
-
-interface
+### Allow CodeBuild access to AWS services required to create a VPC network interface
 
 The following example policy statement grants AWS CodeBuild permission to create a
 network interface in a VPC with two subnets:
@@ -1231,17 +1140,14 @@ JSON
 
 ```
 
-### Use a deny
-
-statement to prevent AWS CodeBuild from disconnecting from source providers
+### Use a deny statement to prevent AWS CodeBuild from disconnecting from source providers
 
 The following example policy statement uses a deny statement to prevent
 AWS CodeBuild from disconnecting from source providers. It uses
 `codebuild:DeleteOAuthToken`, which is the inverse of
 `codebuild:PersistOAuthToken` and
 `codebuild:ImportSourceCredentials`, to connect with source
-providers. For more information, see [Permissions required for the AWS CodeBuild console to
-connect to source providers](#console-policies "#console-policies").
+providers. For more information, see [Permissions required for the AWS CodeBuild console to connect to source providers](#console-policies "#console-policies").
 
 JSON
 

@@ -1,7 +1,6 @@
 # Troubleshoot the webhook
 
-**Issue:** The webhook you set up in [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md") isn't working or your
+**Issue:** The webhook you set up in [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md") isn't working or your
 workflow job is hanging on GitHub.
 
 **Possible causes:**

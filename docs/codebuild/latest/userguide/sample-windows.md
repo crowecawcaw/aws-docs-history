@@ -76,9 +76,7 @@ placeholders with your own values.)
 
 These samples assume the following directory structures.
 
-### F# and the .NET
-
-Framework
+### F# and the .NET Framework
 
 ```
 `(root directory name)`
@@ -91,9 +89,7 @@ Framework
     └── Program.fs
 ```
 
-### Visual Basic and the .NET
-
-Framework
+### Visual Basic and the .NET Framework
 
 ```
 `(root directory name)`
@@ -117,9 +113,7 @@ Framework
 
 These samples use the following files.
 
-### F# and the .NET
-
-Framework
+### F# and the .NET Framework
 
 `buildspec.yml` (in `(root directory
  name)`):
@@ -325,9 +319,7 @@ let main argv =
   0 // return an integer exit code
 ```
 
-### Visual Basic and the
-
-.NET Framework
+### Visual Basic and the .NET Framework
 
 `buildspec.yml` (in `(root directory
  name)`):

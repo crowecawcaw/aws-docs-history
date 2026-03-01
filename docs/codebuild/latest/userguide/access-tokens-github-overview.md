@@ -7,6 +7,5 @@ source provider.
 ###### Topics
 
 - [GitHub App connections for GitHub and GitHub Enterprise Server](connections-github-app.md "connections-github-app.md")
-- [GitHub and GitHub Enterprise Server access
-  token](access-tokens-github.md "access-tokens-github.md")
+- [GitHub and GitHub Enterprise Server access token](access-tokens-github.md "access-tokens-github.md")
 - [GitHub OAuth app](oauth-app-github.md "oauth-app-github.md")

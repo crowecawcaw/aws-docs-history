@@ -1,8 +1,6 @@
 # GitHub OAuth app
 
-## Connect GitHub using OAuth
-
-(console)
+## Connect GitHub using OAuth (console)
 
 To use the console to connect your project to GitHub using an OAuth app, do the
 following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").

@@ -45,8 +45,7 @@ Replace the following placeholder:
     * `name`: Required string. The name of the
      build project to delete. To get a list of available build projects, run
      the `list-projects` command. For more information, see
-     [View a list of build project names
-     (AWS CLI)](view-project-list.md#view-project-list-cli "view-project-list.md#view-project-list-cli").
+     [View a list of build project names (AWS CLI)](view-project-list.md#view-project-list-cli "view-project-list.md#view-project-list-cli").
 
 2. If successful, no data and no errors appear in the output.
 

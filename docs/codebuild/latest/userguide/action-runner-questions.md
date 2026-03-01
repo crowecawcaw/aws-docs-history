@@ -1,13 +1,9 @@
-# About the CodeBuild-hosted GitHub Actions
-
-runner
+# About the CodeBuild-hosted GitHub Actions runner
 
 The following are some common questions about the CodeBuild-hosted GitHub Actions
 runner.
 
-## When should I include the image and
-
-instance overrides in the label?
+## When should I include the image and instance overrides in the label?
 
 You can include the image and instance overrides in the label in order to specify
 different build environment for each of your GitHub Actions workflow jobs. This can
@@ -57,9 +53,7 @@ For more information, see [Filter GitHub webhook events (CloudFormation)](github
 If you need help setting up project credentials in your CloudFormation template, see [AWS::CodeBuild::SourceCredential](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-sourcecredential.md") in the
 _AWS CloudFormation User Guide_ for more information.
 
-## How can I mask secrets when using this
-
-feature?
+## How can I mask secrets when using this feature?
 
 By default, secrets that are printed in the log is not masked. If you would like
 to mask your secrets, you can use the following syntax:
@@ -83,19 +77,14 @@ For more information, see [Masking a value in a log](https://docs.github.com/en/
 ## Can I receive GitHub Actions webhook events from multiple repositories within a single project?
 
 CodeBuild supports organization and global level webhooks, which receive events from a specified organization or enterprise.
-For more information, see [GitHub global and organization
-webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
+For more information, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md").
 
-## Which regions support using a
-
-CodeBuild-hosted GitHub Actions runner?
+## Which regions support using a CodeBuild-hosted GitHub Actions runner?
 
 CodeBuild-hosted GitHub Actions runners are supported in all CodeBuild regions. For more
 information about AWS Regions where CodeBuild is available, see [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
 
-## Which platforms support using a
-
-CodeBuild-hosted GitHub Actions runner?
+## Which platforms support using a CodeBuild-hosted GitHub Actions runner?
 
 CodeBuild-hosted GitHub Actions runners are supported on both Amazon EC2 and [AWS Lambda](lambda.md "lambda.md") compute. You can use the following platforms:
 Amazon Linux 2, Amazon Linux 2023, Ubuntu, and Windows Server Core 2019. For more information,

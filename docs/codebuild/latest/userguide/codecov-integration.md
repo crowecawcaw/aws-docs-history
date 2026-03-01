@@ -27,8 +27,7 @@ Use the following procedure to integration Codecov into a build project.
 
 ![The token information is displayed.](images/codecov-token.png) 4. Add the copied token as an environment variable named
 `CODECOV_TOKEN` to your build project. For more information, see
-[Change a build project's settings
-(console)](change-project.md#change-project-console "change-project.md#change-project-console"). 5. Create a text file named `my_script.sh` in your repository. Enter the following into the file:
+[Change a build project's settings (console)](change-project.md#change-project-console "change-project.md#change-project-console"). 5. Create a text file named `my_script.sh` in your repository. Enter the following into the file:
 
 ```
 #/bin/bash

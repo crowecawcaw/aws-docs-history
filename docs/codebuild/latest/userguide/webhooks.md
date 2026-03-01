@@ -5,11 +5,9 @@ Bitbucket.
 
 ###### Topics
 
-- [Best practices for using webhooks with
-  AWS CodeBuild](#webhook-best-practices "#webhook-best-practices")
+- [Best practices for using webhooks with AWS CodeBuild](#webhook-best-practices "#webhook-best-practices")
 - [Bitbucket webhook events](bitbucket-webhook.md "bitbucket-webhook.md")
-- [GitHub global and organization
-  webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md")
+- [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md")
 - [GitHub manual webhooks](github-manual-webhook.md "github-manual-webhook.md")
 - [GitHub webhook events](github-webhook.md "github-webhook.md")
 - [GitLab group webhooks](gitlab-group-webhook.md "gitlab-group-webhook.md")
@@ -18,9 +16,7 @@ Bitbucket.
 - [Buildkite manual webhooks](buildkite-manual-webhook.md "buildkite-manual-webhook.md")
 - [Pull request comment approval](pull-request-build-policy.md "pull-request-build-policy.md")
 
-## Best practices for using webhooks with
-
-AWS CodeBuild
+## Best practices for using webhooks with AWS CodeBuild
 
 For projects that use public repositories to setup webhooks, we recommend the following
 options:

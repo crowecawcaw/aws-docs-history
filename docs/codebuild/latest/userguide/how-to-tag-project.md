@@ -22,8 +22,7 @@ In CodeBuild, the primary resources are the project and the report group. You ca
 CodeBuild console, the AWS CLI, CodeBuild APIs, or AWS SDKs to add, manage, and remove tags for a
 project. In addition to identifying, organizing, and tracking your project with tags, you
 can use tags in IAM policies to help control who can view and interact with your project.
-For examples of tag-based access policies, see [Using tags to control access to
-AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+For examples of tag-based access policies, see [Using tags to control access to AWS CodeBuild resources](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
 ###### Important
 

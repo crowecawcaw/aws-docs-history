@@ -1,6 +1,4 @@
-# Overview of
-
-managing access permissions to your AWS CodeBuild resources
+# Overview of managing access permissions to your AWS CodeBuild resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access
 a resource are governed by permissions policies. An account administrator can attach
@@ -17,11 +15,9 @@ they can access, and the actions that can be performed on those resources.
 ###### Topics
 
 - [AWS CodeBuild resources and operations](#arn-formats "#arn-formats")
-- [Understanding resource
-  ownership](#understanding-resource-ownership "#understanding-resource-ownership")
+- [Understanding resource ownership](#understanding-resource-ownership "#understanding-resource-ownership")
 - [Managing access to resources](#managing-access-resources "#managing-access-resources")
-- [Specifying policy elements: Actions,
-  effects, and principals](#actions-effects-principals "#actions-effects-principals")
+- [Specifying policy elements: Actions, effects, and principals](#actions-effects-principals "#actions-effects-principals")
 
 ## AWS CodeBuild resources and operations
 
@@ -82,12 +78,9 @@ single statement, separate their ARNs with commas, as follows:
 ```
 
 CodeBuild provides a set of operations to work with the CodeBuild resources. For a list,
-see [AWS CodeBuild permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in the account, regardless
 of who created the resources. Specifically, the resource owner is the AWS account
@@ -137,19 +130,14 @@ roles. You must add them yourself.
 
 If the owner of an S3 bucket used by your project changes, you must verify you
 still own the bucket and update permissions in your IAM role if not. For more
-information, see [Allow users to interact with
-CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md") and [Allow CodeBuild to interact with other AWS
-services](setting-up-service-role.md "setting-up-service-role.md").
+information, see [Allow users to interact with CodeBuild](setting-up-service-permissions-group.md "setting-up-service-permissions-group.md") and [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md").
 
-## Specifying policy elements: Actions,
-
-effects, and principals
+## Specifying policy elements: Actions, effects, and principals
 
 For each AWS CodeBuild resource, the service defines a set of API operations. To grant
 permissions for these API operations, CodeBuild defines a set of actions that you can
 specify in a policy. Some API operations can require permissions for more than one
-action in order to perform the API operation. For more information, see [AWS CodeBuild resources and operations](#arn-formats "#arn-formats") and [AWS CodeBuild permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+action in order to perform the API operation. For more information, see [AWS CodeBuild resources and operations](#arn-formats "#arn-formats") and [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 The following are the basic policy elements:
 
@@ -177,5 +165,4 @@ To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Refe
 in the _IAM User Guide_.
 
 For a table showing all of the CodeBuild API actions and the resources they apply to,
-see the [AWS CodeBuild permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see the [AWS CodeBuild permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").

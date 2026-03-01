@@ -1,10 +1,7 @@
-# Tutorial: Configure a CodeBuild-hosted GitHub
-
-Actions runner
+# Tutorial: Configure a CodeBuild-hosted GitHub Actions runner
 
 This tutorial shows you how to configure your CodeBuild projects to run GitHub Actions jobs.
-For more information about using GitHub Actions with CodeBuild see Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner.
+For more information about using GitHub Actions with CodeBuild see Tutorial: Configure a CodeBuild-hosted GitHub Actions runner.
 
 To complete this tutorial, you must first:
 
@@ -18,17 +15,14 @@ To complete this tutorial, you must first:
     instructions, see [GitHub and GitHub Enterprise Server access in CodeBuild](access-tokens-github-overview.md "access-tokens-github-overview.md").
   - You can import your GitHub credentials via the [ImportSourceCredentials API](../../../cli/latest/reference/codebuild/import-source-credentials.md "../../../cli/latest/reference/codebuild/import-source-credentials.md"). This can only be done with a
     personal access token. If you connect using an OAuth app, you must
-    connect using the console instead. For instructions, see [Connect GitHub with an access token
-    (CLI)](access-tokens-github.md#access-tokens-github-cli "access-tokens-github.md#access-tokens-github-cli") .
+    connect using the console instead. For instructions, see [Connect GitHub with an access token (CLI)](access-tokens-github.md#access-tokens-github-cli "access-tokens-github.md#access-tokens-github-cli").
 
 ###### Note
 
 This only needs to be done if you haven't connected to GitHub for your
 account.
 
-## Step 1: Create a CodeBuild
-
-project with a webhook
+## Step 1: Create a CodeBuild project with a webhook
 
 In this step, you will create a CodeBuild project with a webhook and review it in the
 GitHub console. You can also choose GitHub Enterprise as your source provider. To learn
@@ -54,13 +48,11 @@ In **Runner**:
 By default, your project will only receive
 `WORKFLOW_JOB_QUEUED` events for a single repository. If you
 would like to receive events for all repositories within an organization or
-enterprise, see [GitHub global and organization
-webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md"). 4. _ In **Environment**: + Choose a supported **Environment image** and
+enterprise, see [GitHub global and organization webhooks](github-global-organization-webhook.md "github-global-organization-webhook.md"). 4. _ In **Environment**: + Choose a supported **Environment image** and
 **Compute**. Note that you have the option
 to override the image and instance settings by using a label in
 your GitHub Actions workflow YAML. For more information, see
-[Step 2: Update your GitHub
-Actions workflow YAML](#sample-github-action-runners-update-yaml "#sample-github-action-runners-update-yaml")
+[Step 2: Update your GitHub Actions workflow YAML](#sample-github-action-runners-update-yaml "#sample-github-action-runners-update-yaml")
 _ In **Buildspec**: + Note that your buildspec will be ignored unless
 `buildspec-override:true` is added as a label.
 Instead, CodeBuild will override it to use commands that will setup
@@ -70,18 +62,13 @@ project**. 6. Open the GitHub console at
 to verify that a webhook has been created and is enabled to deliver
 **Workflow jobs** events.
 
-## Step 2: Update your GitHub
-
-Actions workflow YAML
+## Step 2: Update your GitHub Actions workflow YAML
 
 In this step, you will update your GitHub Actions workflow YAML file in [`GitHub`](https://github.com/ "https://github.com/") to configure your build
 environment and use GitHub Actions self-hosted runners in CodeBuild. For more information,
-see [Using labels with self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners") and [Label overrides
-supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md").
+see [Using labels with self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners") and [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md").
 
-### Update your GitHub
-
-Actions workflow YAML
+### Update your GitHub Actions workflow YAML
 
 Navigate to [`GitHub`](https://github.com/ "https://github.com/") and
 update the [`runs-on`](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners "https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners") setting in your GitHub Actions workflow YAML
@@ -121,10 +108,8 @@ jobs:
       - run: echo "Hello World!"
 ```
 
-- You can also override your image and compute type in the label. See [Compute images
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")
-  for a list of curated images. For using custom images, see [Label overrides
-  supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md").
+- You can also override your image and compute type in the label. See [Compute images supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-yaml.md "sample-github-action-runners-update-yaml.md")
+  for a list of curated images. For using custom images, see [Label overrides supported with the CodeBuild-hosted GitHub Actions runner](sample-github-action-runners-update-labels.md "sample-github-action-runners-update-labels.md").
   The compute type and image in the label will override
   the environment settings on your project. To override your
   environment settings for an CodeBuild EC2 or Lambda compute build, use the following
@@ -226,9 +211,7 @@ There are several limitations when using a buildspec override in a self-hosted G
 - CodeBuild fetches the runner token during the `DOWNLOAD_SOURCE` phase, which has an expiration time of one hour.
   If your `PRE_BUILD` or `INSTALL` phases exceed an hour, the runner token may expire before the GitHub self-hosted runner starts.
 
-## Step 3: Review your
-
-results
+## Step 3: Review your results
 
 Whenever a GitHub Actions workflow run occurs, CodeBuild would receive the workflow job
 events through the webhook. For each job in the workflow, CodeBuild starts a build to run an
@@ -399,9 +382,7 @@ resource "aws_codebuild_webhook" "example" {
 }
 ```
 
-## Filter GitHub Actions
-
-webhook events (AWS CLI)
+## Filter GitHub Actions webhook events (AWS CLI)
 
 The following AWS CLI commands create a self-hosted GitHub Actions runner project with a
 GitHub Actions workflow job request filter group that triggers a build when it evaluates

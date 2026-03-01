@@ -48,8 +48,7 @@ Replace the following placeholder:
   space. You can specify up to 100 build IDs. To get a list of build IDs, see the
   following topics:
   - [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli")
-  - [View a list of build IDs for a build
-    project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
+  - [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
 
 For example, if you run this command:
 
@@ -57,8 +56,7 @@ For example, if you run this command:
 aws codebuild batch-get-builds --ids codebuild-demo-project:e9c4f4df-3f43-41d2-ab3a-60fe2EXAMPLE codebuild-demo-project:815e755f-bade-4a7e-80f0-efe51EXAMPLE my-other-project:813bb6c6-891b-426a-9dd7-6d8a3EXAMPLE
 ```
 
-If the command is successful, data similar to that described in [To view summarized build
-information](getting-started-overview.md#getting-started-cli-monitor-build-cli "getting-started-overview.md#getting-started-cli-monitor-build-cli") appears in the
+If the command is successful, data similar to that described in [To view summarized build information](getting-started-overview.md#getting-started-cli-monitor-build-cli "getting-started-overview.md#getting-started-cli-monitor-build-cli") appears in the
 output.
 
 ## View build details (AWS SDKs)

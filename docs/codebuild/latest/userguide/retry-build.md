@@ -50,12 +50,9 @@ In the preceding command, replace the following placeholder:
 
 
     	- [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli")
-    	- [View a list of batch build IDs
-    	 (AWS CLI)](view-build-list.md#view-batch-build-list-cli "view-build-list.md#view-batch-build-list-cli")
-    	- [View a list of build IDs for a build
-    	 project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
-    	- [View a list of batch build IDs for a
-    	 build project (AWS CLI)](view-builds-for-project.md#view-batch-builds-for-project-cli "view-builds-for-project.md#view-batch-builds-for-project-cli")
+    	- [View a list of batch build IDs (AWS CLI)](view-build-list.md#view-batch-build-list-cli "view-build-list.md#view-batch-build-list-cli")
+    	- [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
+    	- [View a list of batch build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-batch-builds-for-project-cli "view-builds-for-project.md#view-batch-builds-for-project-cli")
     + `--idempotency-token`: Optional. If you run the
      **retry-build** command with the option, a unique
      case-sensitive identifier, or token, is included with the

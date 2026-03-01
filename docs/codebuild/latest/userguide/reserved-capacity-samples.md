@@ -1,17 +1,12 @@
-# Reserved capacity samples with
-
-AWS CodeBuild
+# Reserved capacity samples with AWS CodeBuild
 
 These samples can be used to experiment with reserved capacity fleets in CodeBuild.
 
 ###### Topics
 
-- [Caching with reserved capacity
-  sample](#reserved-capacity-samples.caching "#reserved-capacity-samples.caching")
+- [Caching with reserved capacity sample](#reserved-capacity-samples.caching "#reserved-capacity-samples.caching")
 
-## Caching with reserved capacity
-
-sample
+## Caching with reserved capacity sample
 
 A cache can store reusable pieces of your build environment and use them across
 multiple builds. This sample demonstrated how to enable caching within your build

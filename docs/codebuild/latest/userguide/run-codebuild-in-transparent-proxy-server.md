@@ -1,20 +1,14 @@
-# Run CodeBuild in a transparent
-
-proxy server
+# Run CodeBuild in a transparent proxy server
 
 To run AWS CodeBuild in a transparent proxy server, you must configure the proxy server
 with access to the websites and domains it interacts with.
 
 ###### Topics
 
-- [Configure Squid as a
-  transparent proxy server](#use-proxy-server-transparent-squid-configure "#use-proxy-server-transparent-squid-configure")
-- [Create a CodeBuild
-  project](#use-proxy-server-transparent-create-acb-project "#use-proxy-server-transparent-create-acb-project")
+- [Configure Squid as a transparent proxy server](#use-proxy-server-transparent-squid-configure "#use-proxy-server-transparent-squid-configure")
+- [Create a CodeBuild project](#use-proxy-server-transparent-create-acb-project "#use-proxy-server-transparent-create-acb-project")
 
-## Configure Squid as a
-
-transparent proxy server
+## Configure Squid as a transparent proxy server
 
 To configure a proxy server to be transparent, you must grant it access to the
 domains and websites you want it to access. To run AWS CodeBuild with a transparent
@@ -66,9 +60,7 @@ sudo service iptables save
 sudo service squid start
 ```
 
-## Create a CodeBuild
-
-project
+## Create a CodeBuild project
 
 After you configure your proxy server, you can use it with AWS CodeBuild in a private
 subnet without more configuration. Every HTTP and HTTPS request goes through the

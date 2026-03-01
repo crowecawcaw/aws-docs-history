@@ -127,9 +127,7 @@ current directory. To specify the location of the build project, add the
 `-s `<build project directory>``
 option to the script command.
 
-## Receive notifications for new
-
-CodeBuild agent versions
+## Receive notifications for new CodeBuild agent versions
 
 You can subscribe to Amazon SNS notifications so you will be notified when new versions of
 the AWS CodeBuild agent are released.

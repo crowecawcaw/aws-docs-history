@@ -42,8 +42,7 @@ The `PULL_REQUEST_REOPENED` event type can be used with GitHub
 and GitHub Enterprise Server only. The `RELEASED` and
 `PRERELEASED` event
 type can be used with GitHub only. For more information on
-`WORKFLOW_JOB_QUEUED`, see [Tutorial: Configure a CodeBuild-hosted GitHub
-Actions runner](action-runner.md "action-runner.md").
+`WORKFLOW_JOB_QUEUED`, see [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md "action-runner.md").
 
 **One or more optional filters**
 
@@ -132,7 +131,6 @@ You can find the webhook payload in the webhook settings of your GitHub reposito
 
 ###### Topics
 
-- [Filter GitHub webhook events
-  (console)](github-webhook-events-console.md "github-webhook-events-console.md")
+- [Filter GitHub webhook events (console)](github-webhook-events-console.md "github-webhook-events-console.md")
 - [Filter GitHub webhook events (SDK)](github-webhook-events-sdk.md "github-webhook-events-sdk.md")
 - [Filter GitHub webhook events (CloudFormation)](github-webhook-events-cfn.md "github-webhook-events-cfn.md")

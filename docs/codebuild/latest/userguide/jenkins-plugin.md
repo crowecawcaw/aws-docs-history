@@ -24,9 +24,7 @@ AWS CodeBuild plugin, on your Jenkins instance, in the Plugin Manager, search fo
 
 ## Use the plugin
 
-###### To use AWS CodeBuild with sources
-
-from outside of a VPC
+###### To use AWS CodeBuild with sources from outside of a VPC
 
 1. Create a project in the CodeBuild console. For more information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").
    - Choose the AWS Region where you want to run the build.
@@ -121,9 +119,7 @@ from outside of a VPC
      - Choose **Use Jenkins source**.
      - Save the configuration and run a build from Jenkins.
 
-###### To use the AWS CodeBuild plugin with the Jenkins
-
-pipeline plugin
+###### To use the AWS CodeBuild plugin with the Jenkins pipeline plugin
 
 - On your Jenkins pipeline project page, use the snippet generator to generate a
   pipeline script that adds CodeBuild as a step in your pipeline. It should generate a

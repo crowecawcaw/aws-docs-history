@@ -1,8 +1,6 @@
 # Bitbucket OAuth app
 
-## Connect Bitbucket using OAuth
-
-(console)
+## Connect Bitbucket using OAuth (console)
 
 To use the console to connect your project to Bitbucket using an OAuth app, do the
 following when you create a project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").

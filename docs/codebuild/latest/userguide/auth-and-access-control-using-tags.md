@@ -1,6 +1,4 @@
-# Using tags to control access to
-
-AWS CodeBuild resources
+# Using tags to control access to AWS CodeBuild resources
 
 Conditions in IAM policy statements are part of the syntax that you can use to
 specify permissions to CodeBuild project-based actions. You can create a policy that allows

@@ -1,6 +1,4 @@
-# Allow users to interact with
-
-CodeBuild
+# Allow users to interact with CodeBuild
 
 If you follow the steps in [Getting started using the
 console](getting-started-overview.md#getting-started "getting-started-overview.md#getting-started") to access AWS CodeBuild for the first time, you most
@@ -19,9 +17,7 @@ instructions.
 For information about AWS root accounts and administrator users, see [The AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") and [Creating Your First
 AWS account root user and Group](../../../IAM/latest/UserGuide/getting-started_create-admin-group.md "../../../IAM/latest/UserGuide/getting-started_create-admin-group.md") in the _user Guide_.
 
-###### To add CodeBuild access
-
-permissions to an IAM group or user (console)
+###### To add CodeBuild access permissions to an IAM group or user (console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -176,9 +172,7 @@ For a user, on the **Add permissions** page, choose
 Review**, and then choose **Add
 permissions**.
 
-###### To add CodeBuild access
-
-permissions to an IAM group or user (AWS CLI)
+###### To add CodeBuild access permissions to an IAM group or user (AWS CLI)
 
 1. Make sure you have configured the AWS CLI with the AWS access key and AWS
    secret access key that correspond to one of the IAM entities, as described in

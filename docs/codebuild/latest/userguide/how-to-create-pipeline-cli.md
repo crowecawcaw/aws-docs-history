@@ -1,6 +1,4 @@
-# Create a pipeline that uses CodeBuild
-
-(AWS CLI)
+# Create a pipeline that uses CodeBuild (AWS CLI)
 
 Use the following procedure to create a pipeline that uses CodeBuild to build your source
 code.

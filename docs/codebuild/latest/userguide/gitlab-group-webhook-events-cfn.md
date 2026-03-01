@@ -1,6 +1,4 @@
-# Filter GitLab group
-
-webhook events (CloudFormation)
+# Filter GitLab group webhook events (CloudFormation)
 
 To use an CloudFormation template to filter group webhook events, use the AWS CodeBuild
 project's `ScopeConfiguration` property. For more information about group

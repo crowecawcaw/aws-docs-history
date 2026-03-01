@@ -1,6 +1,4 @@
-# Run the GitHub pull request and webhook filter sample
-
-for CodeBuild
+# Run the GitHub pull request and webhook filter sample for CodeBuild
 
 AWS CodeBuild supports webhooks when the source repository is GitHub. This means that for a
 CodeBuild build project that has its source code stored in a GitHub repository, webhooks can be
@@ -15,13 +13,10 @@ webhooks](webhooks.md#webhook-best-practices "webhooks.md#webhook-best-practices
 
 ###### Topics
 
-- [Step 1: Create a build project with GitHub
-  and enable webhooks](#sample-github-pull-request-running "#sample-github-pull-request-running")
+- [Step 1: Create a build project with GitHub and enable webhooks](#sample-github-pull-request-running "#sample-github-pull-request-running")
 - [Step 2: Verify that webhooks are enabled](#verification-checks "#verification-checks")
 
-## Step 1: Create a build project with GitHub
-
-and enable webhooks
+## Step 1: Create a build project with GitHub and enable webhooks
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. If a CodeBuild information page is displayed, choose **Create build project**. Otherwise, on the navigation pane, expand **Build**,

@@ -1,11 +1,8 @@
-# Troubleshoot the webhook for
-
-failed builds or a hanging job
+# Troubleshoot the webhook for failed builds or a hanging job
 
 **Issue:**
 
-The webhook you set up in [Tutorial: Configure a CodeBuild-hosted Buildkite
-runner](sample-runner-buildkite.md "sample-runner-buildkite.md") isn't working or your workflow job is
+The webhook you set up in [Tutorial: Configure a CodeBuild-hosted Buildkite runner](sample-runner-buildkite.md "sample-runner-buildkite.md") isn't working or your workflow job is
 hanging in Buildkite.
 
 **Possible causes:**

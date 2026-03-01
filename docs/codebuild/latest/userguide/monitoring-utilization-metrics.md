@@ -1,6 +1,4 @@
-# View CodeBuild resource utilization
-
-metrics
+# View CodeBuild resource utilization metrics
 
 AWS CodeBuild monitors build resource utilization on your behalf and reports metrics through
 Amazon CloudWatch. These include metrics such as CPU, memory, and storage utilization.
@@ -36,14 +34,10 @@ CodeBuild resource utilization metrics are only available in the following regio
 
 ###### Topics
 
-- [Access resource utilization
-  metrics (CodeBuild console)](#utilization-metrics-codebuild-console "#utilization-metrics-codebuild-console")
-- [Access resource utilization
-  metrics (Amazon CloudWatch console)](#utilization-metrics-cloudwatch-console "#utilization-metrics-cloudwatch-console")
+- [Access resource utilization metrics (CodeBuild console)](#utilization-metrics-codebuild-console "#utilization-metrics-codebuild-console")
+- [Access resource utilization metrics (Amazon CloudWatch console)](#utilization-metrics-cloudwatch-console "#utilization-metrics-cloudwatch-console")
 
-## Access resource utilization
-
-metrics (CodeBuild console)
+## Access resource utilization metrics (CodeBuild console)
 
 ###### Note
 
@@ -51,9 +45,7 @@ You can't customize the metrics or the graphs used to display them in the CodeBu
 console. If you want to customize the display, use the Amazon CloudWatch console to view your
 build metrics.
 
-### Project-level resource
-
-utilization metrics
+### Project-level resource utilization metrics
 
 ###### To access project-level resource utilization metrics
 
@@ -68,9 +60,7 @@ utilization metrics
    console, choose **View in CloudWatch** in the
    **Resource utilization metrics** section.
 
-### Build-level resource
-
-utilization metrics
+### Build-level resource utilization metrics
 
 ###### To access build-level resource utilization metrics
 
@@ -83,19 +73,13 @@ utilization metrics
    choose **View in CloudWatch** in the **Resource
    utilization metrics** section.
 
-## Access resource utilization
-
-metrics (Amazon CloudWatch console)
+## Access resource utilization metrics (Amazon CloudWatch console)
 
 The Amazon CloudWatch console can be used to access CodeBuild resource utilization metrics.
 
-### Project-level
+### Project-level resource utilization metrics
 
-resource utilization metrics
-
-###### To access project-level resource
-
-utilization metrics
+###### To access project-level resource utilization metrics
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -116,9 +100,7 @@ For more information, see [Graphing metrics](../../../AmazonCloudWatch/latest/mo
 available metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") in the _Amazon CloudWatch User
 Guide_.
 
-### Build-level resource
-
-utilization metrics
+### Build-level resource utilization metrics
 
 ###### To access build-level resource utilization metrics
 

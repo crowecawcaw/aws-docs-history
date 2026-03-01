@@ -43,8 +43,7 @@ artifacts:
 ```
 
 This Linux example shows you how to specify an artifact name that uses a CodeBuild
-environment variable. For more information, see [Environment variables in build
-environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+environment variable. For more information, see [Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
 ```
 version: 0.2
@@ -80,8 +79,7 @@ artifacts:
 
 This Windows example shows you how to specify an artifact name that uses a variable
 declared in the buildspec file and a CodeBuild environment variable. For more information, see
-[Environment variables in build
-environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
+[Environment variables in build environments](build-env-ref-env-vars.md "build-env-ref-env-vars.md").
 
 ```
 version: 0.2

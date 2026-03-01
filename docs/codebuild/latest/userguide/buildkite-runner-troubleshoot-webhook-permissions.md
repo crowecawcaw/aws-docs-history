@@ -1,6 +1,4 @@
-# Troubleshoot the
-
-webhook permission issues
+# Troubleshoot the webhook permission issues
 
 **Issue:**
 

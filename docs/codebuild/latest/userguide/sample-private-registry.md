@@ -11,14 +11,10 @@ Secrets are visible to actions and are not masked when written to a file.
 ###### Topics
 
 - [Private registry sample requirements](#sample-private-registry-requirements "#sample-private-registry-requirements")
-- [Create a CodeBuild project with a
-  private registry](private-registry-sample-create-project.md "private-registry-sample-create-project.md")
-- [Configure a private registry
-  credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md")
+- [Create a CodeBuild project with a private registry](private-registry-sample-create-project.md "private-registry-sample-create-project.md")
+- [Configure a private registry credential for self-hosted runners](private-registry-sample-configure-runners.md "private-registry-sample-configure-runners.md")
 
-##
-
-Private registry sample requirements
+## Private registry sample requirements
 
 To use a private registry with AWS CodeBuild, you must have the following:
 

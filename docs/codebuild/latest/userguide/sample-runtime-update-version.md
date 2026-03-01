@@ -1,6 +1,4 @@
-#
-
-Update the runtime version in the buildspec file
+# Update the runtime version in the buildspec file
 
 You can modify the runtime used by your project to a new version by updating the
 `runtime-versions` section of your buildspec file. The following examples
