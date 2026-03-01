@@ -1,6 +1,4 @@
-# Scheduling and running visual jobs in
-
-IAM-based domains
+# Scheduling and running visual jobs in IAM-based domains
 
 There are two ways to schedule visual ETL jobs in Amazon SageMaker Unified Studio IAM-based
 domains:

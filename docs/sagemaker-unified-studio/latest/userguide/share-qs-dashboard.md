@@ -1,12 +1,12 @@
-# Share Amazon Quick Suite dashboards
+# Share Amazon Quick dashboards
 
-Quick Suite dashboards that have been published to the Amazon SageMaker Catalog can be shared with users
+Quick dashboards that have been published to the Amazon SageMaker Catalog can be shared with users
 and groups outside of the project enabling broader access while maintaining centralized
 governance and control.
 
 ###### Note
 
-To share an Amazon Quick Suite dashboard with an IAM Identity Center user or group, they must also be part of
+To share an Amazon Quick dashboard with an IAM Identity Center user or group, they must also be part of
 your Amazon SageMaker unified domain.
 
 1. Go to your Amazon SageMaker project and choose **Assets** in the left

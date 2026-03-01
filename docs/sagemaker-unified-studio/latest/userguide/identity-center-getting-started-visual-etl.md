@@ -1,6 +1,4 @@
-# Creating a Visual ETL
-
-job in Identity Center-based domains
+# Creating a Visual ETL job in Identity Center-based domains
 
 To create a job using Visual ETL in Amazon SageMaker Unified Studio Identity Center-based
 domains:
@@ -38,5 +36,4 @@ option that supports the data you will be using in the job.
 13. To make the job accessible for all project members to view and edit, select "Save to
     project".
 14. Select "Run" to execute it immediately or run it on a schedule with the instructions
-    at [Scheduling and running visual jobs in
-    Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md").
+    at [Scheduling and running visual jobs in Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md").

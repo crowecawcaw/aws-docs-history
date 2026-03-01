@@ -1,6 +1,4 @@
-# Create and monitor custom training
-
-jobs
+# Create and monitor custom training jobs
 
 You can use Jupyter Notebooks or SageMaker AI Notebooks to train your ML jobs. Refer to
 SageMaker AI documents on how to train ML jobs.

@@ -1,6 +1,4 @@
-# Machine learning in Identity
-
-Center-based domains
+# Machine learning in Identity Center-based domains
 
 ###### Topics
 

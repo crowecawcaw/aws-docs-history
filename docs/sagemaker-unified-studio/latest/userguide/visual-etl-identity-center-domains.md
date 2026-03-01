@@ -1,14 +1,10 @@
-# Visual ETL for Identity Center-based
-
-domains
+# Visual ETL for Identity Center-based domains
 
 Identity Center-based domains use the original Amazon SageMaker Unified Studio interface and user experience
 that continues to be supported and maintained. The following sections describe how to use
 Visual ETL in Identity Center-based domains.
 
-## Key features for Identity Center-based
-
-domains
+## Key features for Identity Center-based domains
 
 Visual ETL offers several capabilities to streamline your data workflows:
 

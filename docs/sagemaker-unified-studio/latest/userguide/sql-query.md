@@ -3,8 +3,7 @@
 You can use the query editor to perform analysis using SQL. The query editor tool provides a
 place to write and run queries, view results, and share your work with your team.
 
-For information about getting started with the query editor, see [Get started with the query editor in
-Amazon SageMaker Unified Studio](getting-started-querying.md "getting-started-querying.md").
+For information about getting started with the query editor, see [Get started with the query editor in Amazon SageMaker Unified Studio](getting-started-querying.md "getting-started-querying.md").
 
 ###### Topics
 

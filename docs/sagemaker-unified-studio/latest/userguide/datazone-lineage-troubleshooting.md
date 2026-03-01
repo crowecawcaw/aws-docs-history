@@ -1,6 +1,4 @@
-# Troubleshooting data
-
-lineage
+# Troubleshooting data lineage
 
 This comprehensive troubleshooting guide helps you resolve common data lineage
 visibility issues in Amazon SageMaker Unified Studio. The guide covers programmatically published events,
@@ -8,22 +6,13 @@ data source configurations, and tool-specific lineage capture problems.
 
 ###### Topics
 
-- [Not seeing lineage
-  graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events")
-- [Not seeing lineage for
-  assets even though importLineage is shown as true in AWS Glue
-  datasource](#lineage-troubleshooting-glue-datasource "#lineage-troubleshooting-glue-datasource")
-- [Not seeing lineage
-  for assets even though importLineage is shown as true in Amazon Redshift
-  datasource](#lineage-troubleshooting-redshift-datasource "#lineage-troubleshooting-redshift-datasource")
-- [Troubleshooting lineage for
-  lineage events published from AWS Glue ETL jobs/vETL/Notebooks](#lineage-troubleshooting-glue-etl-jobs "#lineage-troubleshooting-glue-etl-jobs")
-- [Troubleshooting lineage for
-  lineage events published from EMR-S/EC2/EKS](#lineage-troubleshooting-emr "#lineage-troubleshooting-emr")
+- [Not seeing lineage graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events")
+- [Not seeing lineage for assets even though importLineage is shown as true in AWS Glue datasource](#lineage-troubleshooting-glue-datasource "#lineage-troubleshooting-glue-datasource")
+- [Not seeing lineage for assets even though importLineage is shown as true in Amazon Redshift datasource](#lineage-troubleshooting-redshift-datasource "#lineage-troubleshooting-redshift-datasource")
+- [Troubleshooting lineage for lineage events published from AWS Glue ETL jobs/vETL/Notebooks](#lineage-troubleshooting-glue-etl-jobs "#lineage-troubleshooting-glue-etl-jobs")
+- [Troubleshooting lineage for lineage events published from EMR-S/EC2/EKS](#lineage-troubleshooting-emr "#lineage-troubleshooting-emr")
 
-## Not seeing lineage
-
-graph for events published programmatically
+## Not seeing lineage graph for events published programmatically
 
 **Primary requirement:** Lineage graphs are only
 visible in Amazon SageMaker Unified Studio if at least one node of the graph is an asset. You must
@@ -34,10 +23,8 @@ sourceIdentifier attribute.
 
 1. Create assets for any of the dataset nodes involved in your lineage
    events. Refer to the following sections for proper linking:
-   - [The importance of
-     the sourceIdentifier attribute to lineage nodes](datazone-data-lineage-sourceIdentifier-attribute.md "datazone-data-lineage-sourceIdentifier-attribute.md")
-   - [Linking dataset lineage nodes
-     with assets imported into Amazon SageMaker Unified Studio](datazone-data-lineage-linking-nodes.md "datazone-data-lineage-linking-nodes.md")
+   - [The importance of the sourceIdentifier attribute to lineage nodes](datazone-data-lineage-sourceIdentifier-attribute.md "datazone-data-lineage-sourceIdentifier-attribute.md")
+   - [Linking dataset lineage nodes with assets imported into Amazon SageMaker Unified Studio](datazone-data-lineage-linking-nodes.md "datazone-data-lineage-linking-nodes.md")
 
 2. Once the asset is created, verify that you can see the lineage on the
    asset details page.
@@ -108,7 +95,7 @@ to the event.json file:
 ```
 
 5. If the GetLineageEvent response's processingStatus is FAILED, contact
-   AWS support by providing the GetLineageEvent response for the
+   AWS Support by providing the GetLineageEvent response for the
    appropriate event and the response from GetAsset.
 6. If the GetLineageEvent response's processingStatus is SUCCESS,
    double-check that the sourceIdentifier of the dataset node from the
@@ -192,10 +179,7 @@ will see the lineage graph on the asset.
 
 ```
 
-## Not seeing lineage for
-
-assets even though importLineage is shown as true in AWS Glue
-datasource
+## Not seeing lineage for assets even though importLineage is shown as true in AWS Glue datasource
 
 Open the datasource run(s) associated with the AWS Glue datasource and you
 can see the assets imported as part of the run and the lineage import status
@@ -206,10 +190,7 @@ along with error message in case of failure.
 - Lineage for crawler run importing more than 250 tables isn't
   supported.
 
-## Not seeing lineage
-
-for assets even though importLineage is shown as true in Amazon Redshift
-datasource
+## Not seeing lineage for assets even though importLineage is shown as true in Amazon Redshift datasource
 
 Lineage on Amazon Redshift tables is captured by retrieving user queries
 performed on the Amazon Redshift database, from the system tables.
@@ -267,7 +248,7 @@ The response appears as follows:
 ```
 
 3. If no job-runs are returned, check your job run schedule on the Amazon
-   Redshift connection details. Reach out to AWS support providing the
+   Redshift connection details. Reach out to AWS Support providing the
    lineageJobId, connectionId, projectId and domainId if job runs are not
    executed per given schedule.
 4. If job-runs are returned, pick the relevant jobRunId and invoke
@@ -306,9 +287,7 @@ The response appears as follows:
    if all queries are successfully processed and response also contains
    start and end times of processed queries.
 
-## Troubleshooting lineage for
-
-lineage events published from AWS Glue ETL jobs/vETL/Notebooks
+## Troubleshooting lineage for lineage events published from AWS Glue ETL jobs/vETL/Notebooks
 
 **Limitations:**
 
@@ -320,6 +299,9 @@ lineage events published from AWS Glue ETL jobs/vETL/Notebooks
 - Lineage event has a size limit of 300KB.
   **Common Issues:**
 
+- Your spark job working with S3 files would produce lineage events with s3 datasets,
+  even when they are catalog'ed in AWS Glue. To generate events including AWS Glue tables and build proper lineage graph with AWS Glue assets,
+  your spark job should instead work with glue tables.
 - If the AWS Glue ETL is in VPC, make sure the Amazon DataZone
   VPC endpoint is deployed in that VPC.
 - In case your domain is using a CMK, make sure that the AWS
@@ -344,6 +326,9 @@ lineage events published from AWS Glue ETL jobs/vETL/Notebooks
     to set up account association
   - Ensure that RAM policy is using the latest
     policy
+
+- If your Amazon SageMaker Unified Studio domain is in different region from that of job
+  - Add this spark parameter: `"spark.openlineage.transport.region":"{region of your domain}"`
 
 - When the same DataFrame is written to multiple destinations or
   formats in sequence, Lineage SparkListener may only capture the
@@ -378,46 +363,30 @@ lineage events published from AWS Glue ETL jobs/vETL/Notebooks
 
    ```
 
-   - Following is the AWS CloudWatch log insights query to inspect generated events:
-
-   Pass `--conf spark.log.level=DEBUG` while submitting the spark job.
+   - Following is the AWS CloudWatch log insights query to confirm events are submitted:
 
    ```
 
    fields @timestamp, @message
-   | filter @message like /Emitting lineage completed successfully/
+   | filter @message like /Successfully posted a LineageEvent:/
    | sort @timestamp desc
 
    ```
 
-4. Enable Spark UI to see if Spark Logical Plans and Spark Confs
-   are generated properly: [https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui-jobs.html#monitor-spark-ui-jobs-cli](../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli "../../../glue/latest/dg/monitor-spark-ui-jobs.md#monitor-spark-ui-jobs-cli")
+4. Fetch the lineage events generated from this job by executing the python script:[retrieve_lineage_events.py](https://github.com/aws-samples/amazon-datazone-examples/tree/main/data_lineage "https://github.com/aws-samples/amazon-datazone-examples/tree/main/data_lineage")
+5. Check if the dataset on which you expected lineage is present in any of the events
+   - You can ignore empty events without any input/output nodes
+   - Check if your dataset node has glue arn prefix in the namespace of the node or in the "symlink" facet of the node.
+     If you don't see any node with glue arn prefix, it means your script is not using glue tables directly and
+     hence lineage is not linked to glue asset. One way to workaround this is to update the script to work with glue tables.
 
-Under Environment, all the spark configurations passed could
-be found. Verify the following are there:
-
-```
-
-spark.extraListeners  io.openlineage.spark.agent.OpenLineageSparkListener
-spark.openlineage.transport.domainId  <domain-id>
-spark.openlineage.transport.type  amazon_datazone_api
-
-```
-
-5. After verifying lineage events are successfully processed in AWS
-   CloudWatch logs, follow the steps in [Not seeing lineage
-   graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events") to
-   troubleshoot.
 6. If you are still unable to see lineage and it doesn't fall under the
-   limitations category, reach out to AWS support by providing:
+   limitations category, reach out to AWS Support by providing:
    - Spark config parameters
-   - Lineage event from GetLineageEvent response for successfully
-     processed events to which lineage isn't visible
+   - Lineage events file from executing retrieve_lineage_events.py script
    - GetAsset response
 
-## Troubleshooting lineage for
-
-lineage events published from EMR-S/EC2/EKS
+## Troubleshooting lineage for lineage events published from EMR-S/EC2/EKS
 
 **Notes:**
 
@@ -448,6 +417,9 @@ lineage events published from EMR-S/EC2/EKS
   - Ensure that RAM policy is using the latest
     policy
 
+- If your Amazon SageMaker Unified Studio domain is in different region from that of job
+  - Add this spark parameter: `"spark.openlineage.transport.region":"{region of your domain}"`
+
 - When the same DataFrame is written to multiple destinations or
   formats in sequence, Lineage SparkListener may only capture the
   lineage for the first write operation:
@@ -469,7 +441,7 @@ lineage events published from EMR-S/EC2/EKS
    if any exceptions are thrown from the Amazon DataZone Lineage
    lib:
    - **EC2:**
-     - You can enable provide the CloudWatch log group or log
+     - You can provide the CloudWatch log group or log
        destination for S3 path at the time of creating EC2
        cluster. Refer [https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html](../../../emr/latest/ManagementGuide/emr-plan-debugging.md "../../../emr/latest/ManagementGuide/emr-plan-debugging.md")
      - You will see logs in stderr file within
@@ -498,23 +470,24 @@ lineage events published from EMR-S/EC2/EKS
 
    - Following is the AWS CloudWatch log insights query to inspect generated events:
 
-   Pass `--conf spark.log.level=DEBUG` while submitting the spark job.
-
    ```
 
    fields @timestamp, @message
-   | filter @message like /Emitting lineage completed successfully/
+   | filter @message like /Successfully posted a LineageEvent:/
    | sort @timestamp desc
 
    ```
 
-4. After verifying lineage events are successfully processed in AWS
-   CloudWatch logs, follow the steps in [Not seeing lineage
-   graph for events published programmatically](#lineage-troubleshooting-programmatic-events "#lineage-troubleshooting-programmatic-events") to
-   troubleshoot.
-5. If you are still unable to see lineage and it doesn't fall under the
-   limitations category, reach out to AWS Support by providing:
+4. Fetch the lineage events generated from this job by executing the python script:[retrieve_lineage_events.py](https://github.com/aws-samples/amazon-datazone-examples/tree/main/data_lineage "https://github.com/aws-samples/amazon-datazone-examples/tree/main/data_lineage")
+5. Check if dataset on which you expected lineage is present in any of the events
+   - You can ignore empty events without any input/output nodes
+   - Check if your dataset node has namespace/name matching with the sourceIdentifier of the asset.
+     If you don't see any node with asset's sourceIdentifier, refer to following docs on how to fix it:
+     - [The importance of the sourceIdentifier attribute to lineage nodes](datazone-data-lineage-sourceIdentifier-attribute.md "datazone-data-lineage-sourceIdentifier-attribute.md")
+     - [Linking dataset lineage nodes with assets imported into Amazon SageMaker Unified Studio](datazone-data-lineage-linking-nodes.md "datazone-data-lineage-linking-nodes.md")
+
+6. If you are still unable to see lineage and it doesn't fall under the
+   limitations category, reach out to AWS Support team by providing:
    - Spark config parameters
-   - Lineage event from GetLineageEvent response for successfully
-     processed events to which lineage isn't visible
+   - Lineage events file from executing retrieve_lineage_events.py script
    - GetAsset response

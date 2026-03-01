@@ -1,6 +1,4 @@
-# Plan a video with
-
-the storyboard
+# Plan a video with the storyboard
 
 To create more a more complex video, you can use the storyboard to plan the video that
 you want to create. In the storyboard you connect a sequence of shots, which the model

@@ -1,6 +1,4 @@
-# Find serverless models with the Amazon Bedrock model
-
-catalog
+# Find serverless models with the Amazon Bedrock model catalog
 
 The Amazon Bedrock in SageMaker Unified Studio model catalog is where you can find the serverless Amazon Bedrock foundation
 models that you have access to. You can group models by their modality or by their provider. The

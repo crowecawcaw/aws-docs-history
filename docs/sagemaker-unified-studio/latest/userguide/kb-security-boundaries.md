@@ -1,6 +1,4 @@
-# Understanding security boundaries with structured data sources in an Amazon Bedrock knowledge
-
-base
+# Understanding security boundaries with structured data sources in an Amazon Bedrock knowledge base
 
 Use the following information to understand how security boundaries affect structured data sources
 in an Amazon Bedrock knowledge base.
@@ -8,8 +6,7 @@ in an Amazon Bedrock knowledge base.
 ###### Topics
 
 - [Accessing structured data in an Amazon Bedrock knowledge base](#kb-data-access "#kb-data-access")
-- [Database and table selection as query
-  guidelines](#kb-query-guidelines "#kb-query-guidelines")
+- [Database and table selection as query guidelines](#kb-query-guidelines "#kb-query-guidelines")
 - [Reliable security boundaries](#kb-reliable-boundaries "#kb-reliable-boundaries")
 - [Best practices for sensitive data](#kb-best-practices "#kb-best-practices")
 
@@ -22,9 +19,7 @@ permission to access. This includes all databases accessible to your project and
 within those databases (both owned by your project and subscribed from other projects
 through the Business Data Catalog).
 
-## Database and table selection as query
-
-guidelines
+## Database and table selection as query guidelines
 
 Configure your knowledge base by selecting a database and specifying which tables and
 columns to use. Customize your selection by including or excluding tables and columns
@@ -57,9 +52,7 @@ If your project contains both sensitive and non-sensitive data, and you want to 
 the knowledge base only accesses specific non-sensitive data, consider these
 approaches:
 
-### Create a Dedicated \*knowledge
-
-base-safe\* project
+### Create a Dedicated _knowledge base-safe_ project
 
 - Create a separate project specifically for knowledge base usage
 - Use the Business Data Catalog to publish only non-sensitive tables from

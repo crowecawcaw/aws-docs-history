@@ -10,14 +10,10 @@ in the _Amazon SageMaker AI Developer Guide_.
 
 ###### Topics
 
-- [Use MLflow Apps for experiment
-  tracking](#sagemaker-experiments-mlflow-apps "#sagemaker-experiments-mlflow-apps")
-- [Use MLflow Tracking Servers for
-  experiment tracking](#sagemaker-experiments-tracking-servers "#sagemaker-experiments-tracking-servers")
+- [Use MLflow Apps for experiment tracking](#sagemaker-experiments-mlflow-apps "#sagemaker-experiments-mlflow-apps")
+- [Use MLflow Tracking Servers for experiment tracking](#sagemaker-experiments-tracking-servers "#sagemaker-experiments-tracking-servers")
 
-## Use MLflow Apps for experiment
-
-tracking
+## Use MLflow Apps for experiment tracking
 
 Use MLflow Apps in Amazon SageMaker Unified Studio to track, manage, analyze, and compare machine
 learning experiments. MLflow Apps are the latest managed MLflow offering and provide
@@ -35,30 +31,22 @@ storage, and artifact storage in Amazon S3.
 MLflow Apps are different from MLflow Tracking Servers. MLflow Apps offer
 additional features such as faster startup time, cross-account sharing, and
 automatic model registration. For information about MLflow Tracking Servers, see
-[Use MLflow Tracking Servers for
-experiment tracking](#sagemaker-experiments-tracking-servers "#sagemaker-experiments-tracking-servers").
+[Use MLflow Tracking Servers for experiment tracking](#sagemaker-experiments-tracking-servers "#sagemaker-experiments-tracking-servers").
 
 For more information about MLflow Apps, see [MLflow App Setup](../../../sagemaker/latest/dg/mlflow-app-setup.md "../../../sagemaker/latest/dg/mlflow-app-setup.md") in the
 _Amazon SageMaker AI Developer Guide_.
 
 ###### Topics
 
-- [MLflow Apps
-  overview](#sagemaker-experiments-mlflow-apps-overview "#sagemaker-experiments-mlflow-apps-overview")
+- [MLflow Apps overview](#sagemaker-experiments-mlflow-apps-overview "#sagemaker-experiments-mlflow-apps-overview")
 - [Prerequisites](#sagemaker-experiments-mlflow-apps-prerequisites "#sagemaker-experiments-mlflow-apps-prerequisites")
-- [Create an MLflow
-  App](#sagemaker-experiments-mlflow-apps-create "#sagemaker-experiments-mlflow-apps-create")
+- [Create an MLflow App](#sagemaker-experiments-mlflow-apps-create "#sagemaker-experiments-mlflow-apps-create")
 - [Edit an MLflow App](#sagemaker-experiments-mlflow-apps-edit "#sagemaker-experiments-mlflow-apps-edit")
-- [Delete an MLflow
-  App](#sagemaker-experiments-mlflow-apps-delete "#sagemaker-experiments-mlflow-apps-delete")
-- [Launch the MLflow
-  UI](#sagemaker-experiments-mlflow-apps-launch-ui "#sagemaker-experiments-mlflow-apps-launch-ui")
-- [Integrate MLflow with
-  your environment](#sagemaker-experiments-mlflow-apps-integrate "#sagemaker-experiments-mlflow-apps-integrate")
+- [Delete an MLflow App](#sagemaker-experiments-mlflow-apps-delete "#sagemaker-experiments-mlflow-apps-delete")
+- [Launch the MLflow UI](#sagemaker-experiments-mlflow-apps-launch-ui "#sagemaker-experiments-mlflow-apps-launch-ui")
+- [Integrate MLflow with your environment](#sagemaker-experiments-mlflow-apps-integrate "#sagemaker-experiments-mlflow-apps-integrate")
 
-### MLflow Apps
-
-overview
+### MLflow Apps overview
 
 An MLflow App is a stand-alone HTTP server that serves multiple REST API endpoints
 for tracking runs and experiments. MLflow Apps provide the following
@@ -100,9 +88,7 @@ Before you create an MLflow App, ensure you have the following:
 
 For more information about IAM permissions, see the Security chapter.
 
-### Create an MLflow
-
-App
+### Create an MLflow App
 
 After you create a project, you can create an MLflow App for the project if it was
 not created automatically during project creation.
@@ -138,9 +124,7 @@ edit an MLflow App, perform the following steps:
    artifact storage.
 5. Choose **Save changes** to update the MLflow App.
 
-### Delete an MLflow
-
-App
+### Delete an MLflow App
 
 You can delete an MLflow App when you no longer need it. Deleting an MLflow App
 removes the compute resources but does not delete the artifacts stored in
@@ -168,9 +152,7 @@ creating, pending deletion, or other transitional states.
 Deleting an MLflow App is permanent and cannot be undone. Ensure you have
 backed up any important experiment data before deleting the MLflow App.
 
-### Launch the MLflow
-
-UI
+### Launch the MLflow UI
 
 You can launch the MLflow UI to view and manage your experiments, models, and
 traces. To launch the MLflow UI, perform the following steps:
@@ -185,9 +167,7 @@ traces. To launch the MLflow UI, perform the following steps:
 For more information about using the MLflow UI, see [Launch the MLflow UI using a
 presigned URL](../../../sagemaker/latest/dg/mlflow-launch-ui.md "../../../sagemaker/latest/dg/mlflow-launch-ui.md") in the _Amazon SageMaker AI Developer Guide_.
 
-### Integrate MLflow with
-
-your environment
+### Integrate MLflow with your environment
 
 After you create an MLflow App, you can integrate it with your development
 environment to track experiments and log metrics.
@@ -199,9 +179,7 @@ For detailed information about integrating MLflow with your environment, includi
 code examples for Python notebooks, see [Integrate MLflow with
 your environment](../../../sagemaker/latest/dg/mlflow-track-experiments.md "../../../sagemaker/latest/dg/mlflow-track-experiments.md") in the _Amazon SageMaker AI Developer Guide_.
 
-## Use MLflow Tracking Servers for
-
-experiment tracking
+## Use MLflow Tracking Servers for experiment tracking
 
 Use MLflow Tracking Servers in Amazon SageMaker Unified Studio to track, manage, analyze, and compare
 machine learning experiments. MLflow Tracking Servers provide compute and storage
@@ -214,8 +192,7 @@ Tracking Server on demand for the project.
 
 MLflow Tracking Servers are different from MLflow Apps. MLflow Apps offer
 additional features such as faster startup time, cross-account sharing, and
-automatic model registration. For information about MLflow Apps, see [Use MLflow Apps for experiment
-tracking](#sagemaker-experiments-mlflow-apps "#sagemaker-experiments-mlflow-apps").
+automatic model registration. For information about MLflow Apps, see [Use MLflow Apps for experiment tracking](#sagemaker-experiments-mlflow-apps "#sagemaker-experiments-mlflow-apps").
 
 When you delete a project, Amazon SageMaker Unified Studio automatically deletes the tracking
 server.
@@ -227,9 +204,7 @@ For more information about project profiles for AI-ML projects, see [Project
 profiles](../adminguide/project-profiles.md "../adminguide/project-profiles.md") in the _Amazon SageMaker Unified Studio Admin
 Guide_.
 
-### Create an MLflow
-
-Tracking Server
+### Create an MLflow Tracking Server
 
 After you create a project, you can create an MLflow Tracking Server for the
 project, if it wasn't created automatically during project creation.
@@ -250,9 +225,7 @@ To create an MLflow Tracking Server, perform the following steps:
 
 7. Choose **Create** to create the server.
 
-### Edit an MLflow
-
-Tracking Server
+### Edit an MLflow Tracking Server
 
 After you create a tracking server, you can change the configured server size, if
 the current size isn't sufficient for the project.
@@ -269,9 +242,7 @@ To edit a tracking server, perform the following steps from your project's
 2. Choose **Save changes** to update the tracking
    server.
 
-### Start or stop an
-
-MLflow Tracking Server
+### Start or stop an MLflow Tracking Server
 
 You can stop a running server or start a stopped server. While the tracking server
 is starting or stopping, it's not available for MLflow to use.
@@ -286,15 +257,11 @@ project's **Project details** page:
    **Stop** to stop a running server. Choose
    **Start** to start a stopped server.
 
-### Integrate MLflow
-
-with your environment
+### Integrate MLflow with your environment
 
 For information about how to integrate MLflow with your environment, see [Integrate MLflow with your environment](../../../sagemaker/latest/dg/mlflow-track-experiments.md "../../../sagemaker/latest/dg/mlflow-track-experiments.md") in the _Amazon SageMaker AI Developer Guide_.
 
-### Launch the MLflow
-
-UI
+### Launch the MLflow UI
 
 You can launch the MLflow Tracking Server UI from the **MLflow**
 tab under **Compute**, by performing the following steps:

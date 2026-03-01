@@ -1,6 +1,4 @@
-# Metadata enforcement rules for subscription
-
-requests
+# Metadata enforcement rules for subscription requests
 
 The metadata enforcement rules for subscription requests in Amazon SageMaker Unified Studio strengthen data
 governance by enabling domain unit owners to establish clear metadata requirements for data

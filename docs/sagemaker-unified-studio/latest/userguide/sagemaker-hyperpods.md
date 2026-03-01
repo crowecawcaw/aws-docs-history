@@ -14,8 +14,7 @@ can also view details about the HyperPod clusters.
 
 - [Connect to a HyperPod cluster](#sagemaker-hyperpods-add-connection "#sagemaker-hyperpods-add-connection")
 - [View the HyperPod clusters](#sagemaker-hyperpods-view "#sagemaker-hyperpods-view")
-- [View details about a HyperPod
-  cluster](#sagemaker-hyperpods-view-details "#sagemaker-hyperpods-view-details")
+- [View details about a HyperPod cluster](#sagemaker-hyperpods-view-details "#sagemaker-hyperpods-view-details")
 - [HyperPod task governance](#sagemaker-hyperpods-task-gov "#sagemaker-hyperpods-task-gov")
 - [Open the HyperPod in JupyterLab](#sagemaker-hyperpods-jupyterlab "#sagemaker-hyperpods-jupyterlab")
 
@@ -46,9 +45,7 @@ To view the HyperPod clusters in your project, follow these steps:
 The portal opens the **HyperPod clusters** tab of the **Compute** page.
 The HyperPod clusters table provides a summary view of each cluster, including the ARN, status, and creation time.
 
-## View details about a HyperPod
-
-cluster
+## View details about a HyperPod cluster
 
 To view the details page for a HyperPod cluster, choose the HyperPod from the table of
 HyperPod clusters. The page displays tabs for tasks, metrics, settings, and metadata

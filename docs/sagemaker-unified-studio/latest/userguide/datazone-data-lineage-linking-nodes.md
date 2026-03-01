@@ -1,6 +1,4 @@
-# Linking dataset lineage nodes
-
-with assets imported into Amazon SageMaker Unified Studio
+# Linking dataset lineage nodes with assets imported into Amazon SageMaker Unified Studio
 
 **Linking dataset lineage nodes with assets imported into
 Amazon SageMaker Unified Studio**

@@ -1,6 +1,4 @@
-# Get started with
-
-Amazon Bedrock in SageMaker Unified Studio
+# Get started with Amazon Bedrock in SageMaker Unified Studio
 
 Get started with Amazon Bedrock in SageMaker Unified Studio by experimenting with a model in a [playground](bedrock-playgrounds.md "bedrock-playgrounds.md").
 
@@ -19,9 +17,7 @@ responses. To create a chat agent app, see [Build a chat agent app with Amazon B
 
 You can also create a [flows app](create-flows-app.md "create-flows-app.md") that lets you visually design the flow of an app.
 
-## Chat with a model in
-
-the chat playground
+## Chat with a model in the chat playground
 
 In these instructions, you use the Amazon Bedrock in SageMaker Unified Studio chat playground to chat with an Amazon Bedrock in SageMaker Unified Studio model. You
 chat by sending a prompt to the model and answering the response that the model
@@ -40,8 +36,7 @@ If you don't have access to a model, contact your administrator.
 ![Open Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-discover.png) 5. In **Type** select **Model** and then select a model
 to use in **Model**. For full information about the model, choose
 **View full model details** in the information panel. For more
-information, see [Find serverless models with the Amazon Bedrock model
-catalog](model-catalog.md "model-catalog.md"). If you
+information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md"). If you
 don't have access to an appropriate model, contact your administrator. Different models
 might not support all features. 6. In the **Enter prompt** text box, enter `What is Avebury stone
  circle?`. 7. (Optional) If the model you chose is a reasoning model, you can choose

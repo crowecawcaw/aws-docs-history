@@ -71,9 +71,7 @@ These permissions allow you to retrieve and update the asset metadata export con
 For KMS related permission requirements, see [KMS permissions for exporting asset metadata in Amazon SageMaker Unified
 Studio](../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "../adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md").
 
-## Start exporting asset
-
-metadata
+## Start exporting asset metadata
 
 To get started, activate dataset export by invoking the
 `PutDataExportConfiguration` API action. In response, the DataZone

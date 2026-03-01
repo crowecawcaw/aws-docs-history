@@ -1,6 +1,4 @@
-# Manage inventory and curate assets in
-
-Amazon SageMaker Unified Studio
+# Manage inventory and curate assets in Amazon SageMaker Unified Studio
 
 In order to use Amazon SageMaker Unified Studio to catalog your data, you must first bring your data
 (assets) as inventory of your project in Amazon SageMaker Unified Studio. Creating inventory for a particular

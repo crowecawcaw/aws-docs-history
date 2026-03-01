@@ -1,6 +1,4 @@
-# Request subscription to assets in
-
-Amazon SageMaker Unified Studio
+# Request subscription to assets in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio allows you to find, access and consume the assets in the Amazon SageMaker Unified Studio catalog. When
 you find an asset in the catalog that you want to access, you need to

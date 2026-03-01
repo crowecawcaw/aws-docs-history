@@ -1,6 +1,4 @@
-# Create a Visual ETL job in IAM-based
-
-domains
+# Create a Visual ETL job in IAM-based domains
 
 To create a job using Visual ETL in Amazon SageMaker Unified Studio IAM-based domains:
 

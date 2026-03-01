@@ -1,6 +1,4 @@
-# Cancel a subscription request in
-
-Amazon SageMaker Unified Studio
+# Cancel a subscription request in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio allows you to find, access and consume the assets in the Amazon SageMaker Unified Studio catalog. When
 you find an asset in the catalog that you want to access, you need to _subscribe_ to the asset, which creates a subscription request. An approver can
@@ -26,5 +24,4 @@ contributor.
    pending.
 6. Locate the request and choose **View request**.
 7. Review the subscription request and choose **Cancel request**.
-   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to assets in
-   Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md").
+   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to assets in Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md").

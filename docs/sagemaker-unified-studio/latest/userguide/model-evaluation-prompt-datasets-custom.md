@@ -1,6 +1,4 @@
-# Use custom prompt
-
-dataset for model evaluation in Amazon Bedrock in SageMaker Unified Studio
+# Use custom prompt dataset for model evaluation in Amazon Bedrock in SageMaker Unified Studio
 
 You can use a custom prompt dataset in model evaluation jobs.
 

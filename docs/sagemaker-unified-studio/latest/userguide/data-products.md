@@ -21,14 +21,11 @@ literacy maturity. For more information, see [Amazon SageMaker Unified Studio te
 
 ###### Topics
 
-- [Create
-  new data products in Amazon SageMaker Unified Studio](create-new-data-product.md "create-new-data-product.md")
+- [Create new data products in Amazon SageMaker Unified Studio](create-new-data-product.md "create-new-data-product.md")
 - [Publish data products in Amazon SageMaker Unified Studio](publish-data-product.md "publish-data-product.md")
 - [Edit data products in Amazon SageMaker Unified Studio](edit-data-product.md "edit-data-product.md")
 - [Unpublish data products in Amazon SageMaker Unified Studio](unpublish-data-product.md "unpublish-data-product.md")
 - [Delete data products in Amazon SageMaker Unified Studio](delete-data-product.md "delete-data-product.md")
-- [Subscribe to a data product in
-  Amazon SageMaker Unified Studio](subscribe-data-product.md "subscribe-data-product.md")
-- [Review a subscription
-  request and grant a subscription to a data product in Amazon SageMaker Unified Studio](review-grant-subscription-to-data-product.md "review-grant-subscription-to-data-product.md")
+- [Subscribe to a data product in Amazon SageMaker Unified Studio](subscribe-data-product.md "subscribe-data-product.md")
+- [Review a subscription request and grant a subscription to a data product in Amazon SageMaker Unified Studio](review-grant-subscription-to-data-product.md "review-grant-subscription-to-data-product.md")
 - [Republish data products in Amazon SageMaker Unified Studio](republish-data-product.md "republish-data-product.md")

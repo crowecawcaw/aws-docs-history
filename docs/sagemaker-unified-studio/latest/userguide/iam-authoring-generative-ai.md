@@ -1,6 +1,4 @@
-# Authoring a Visual ETL job using generative AI
-
-in IAM-based domains
+# Authoring a Visual ETL job using generative AI in IAM-based domains
 
 To author a Visual ETL job using generative AI in Amazon SageMaker Unified Studio IAM-based
 domains:

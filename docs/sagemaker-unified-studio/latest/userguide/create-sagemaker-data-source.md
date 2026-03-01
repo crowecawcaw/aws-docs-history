@@ -1,6 +1,4 @@
-# Create an Amazon SageMaker Unified Studio data source for
-
-Amazon SageMaker AI in the project catalog
+# Create an Amazon SageMaker Unified Studio data source for Amazon SageMaker AI in the project catalog
 
 In the current release of Amazon SageMaker Unified Studio, creating an Amazon Sagemaker AI data source is
 not supported via the UI and can only be done by envoking API or CLI actions.

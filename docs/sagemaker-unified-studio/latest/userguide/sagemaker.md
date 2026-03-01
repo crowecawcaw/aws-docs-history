@@ -99,7 +99,5 @@ removed from your ECR repositories. For more information about ECR repositories,
 
 ###### Topics
 
-- [Machine learning in Identity
-  Center-based domains](sagemaker-identity-center-based-domains.md "sagemaker-identity-center-based-domains.md")
-- [Machine Learning Workflows in IAM-based
-  domains](sagemaker-iam-based-domains.md "sagemaker-iam-based-domains.md")
+- [Machine learning in Identity Center-based domains](sagemaker-identity-center-based-domains.md "sagemaker-identity-center-based-domains.md")
+- [Machine Learning Workflows in IAM-based domains](sagemaker-iam-based-domains.md "sagemaker-iam-based-domains.md")

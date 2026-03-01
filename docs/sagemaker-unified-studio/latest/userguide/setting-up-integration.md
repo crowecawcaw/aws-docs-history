@@ -1,6 +1,4 @@
-# Setting up the Amazon SageMaker Unified Studio integration in VS
-
-Code
+# Setting up the Amazon SageMaker Unified Studio integration in VS Code
 
 Follow the steps described in these sections to integrate Amazon SageMaker Unified Studio in VS code:
 

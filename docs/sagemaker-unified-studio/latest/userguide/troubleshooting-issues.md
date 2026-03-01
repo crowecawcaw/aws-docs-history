@@ -1,8 +1,6 @@
 # Troubleshooting in Amazon SageMaker Unified Studio
 
-## Troubleshooting issues related to
-
-subscriptions in Amazon SageMaker Unified Studio
+## Troubleshooting issues related to subscriptions in Amazon SageMaker Unified Studio
 
 This topic contains troubleshooting instructions for issues that you might have
 when subscribing to assets in Amazon SageMaker Unified Studio.
@@ -28,9 +26,7 @@ instructing the user to delete files from the jobs folder."
 2. In the Jobs folder, select the folder and files
 3. Select delete
 
-##
-
-Domain
+## Domain
 
 **Question**
 
@@ -41,9 +37,7 @@ I clicked on SIGN IN WITH SSO, it failed due to Invalid redirectUri provided.
 
 Visit DAmazon DataZone console, choose your domain, then click the Amazon SageMaker Unified Studio URL.
 
-##
-
-SAML Identity Provider Email Issue
+## SAML Identity Provider Email Issue
 
 **Question**
 
@@ -53,9 +47,7 @@ When using 3rd party SAML identity providers, the domain creation flow does not 
 
 This happens because during the user provisioning step, the email field was not populated in your local SSO instance. When sync-ing with 3rd party SAML identity providers, modify the default mapping to ensure it includes the "email" field and re-do the sync.
 
-##
-
-Project Creation Failure
+## Project Creation Failure
 
 **Question**
 
@@ -69,9 +61,7 @@ Make sure that you complete following configurations:
 2. Target account: In the Associated domains menu, choose the associated domain. Choose your blueprint. Under the Regions tab, verify that the target region is added. Under the Authorization tab, verify that the target domain unit is shown.
 3. Domain owner account: In the Domain details, under the Project profiles tab, choose your project profile. Under the Blueprint deployment settings tab, choose Name of your blueprint, under Deployment order, verify that Account ID and Region are configured correctly. Under the Authorized users and groups, verify that your SSO user is added.
 
-##
-
-Data Explorer Visibility Issue
+## Data Explorer Visibility Issue
 
 **Question**
 
@@ -81,9 +71,7 @@ On the data explorer, I cannot see my existing databases and tables on Glue Data
 
 Amazon SageMaker Unified Studio configures AWS IAM permissions and permission boundaries. You can optionally remove the permission boundaries to allow access to the existing databases and tables.
 
-##
-
-Data Catalog Visibility Issue
+## Data Catalog Visibility Issue
 
 **Question**
 
@@ -97,9 +85,7 @@ On the data catalog, I cannot see my existing databases and tables on Glue Data 
 4. Configure how to select your databases and tables here.
 5. Once everything is filled, choose NEXT and go ahead to register the data sources.
 
-##
-
-Connection to Amazon RDS MySQL in Existing VPC
+## Connection to Amazon RDS MySQL in Existing VPC
 
 **Question**
 
@@ -109,9 +95,7 @@ I want to connect to my Amazon RDS MySQL database instance that exists in my exi
 
 Amazon SageMaker Unified Studio uses the VPC and subnets that are specified in the domain creation. If you have the data source in a separate VPC, you can configure network reachability between the domain VPC and the data source VPC using VPC peering or Transit Gateway, or alternatively you can create a new domain using the data source VPC.
 
-##
-
-Visual ETL Flow Column Selection
+## Visual ETL Flow Column Selection
 
 **Question**
 
@@ -145,9 +129,7 @@ For more information, see the following sites:
 - For Chrome, see [Delete, allow and manage cookies in Chrome](https://support.google.com/chrome/answer/95647?sjid=9420235265489401566-NC "https://support.google.com/chrome/answer/95647?sjid=9420235265489401566-NC").
 - For Edge, see [Manage cookies in Microsoft Edge: View, allow, block, delete and use](https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_blockthirdpartycookies "https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d#bkmk_blockthirdpartycookies").
 
-##
-
-JupyterLab Configure Magic Error
+## JupyterLab Configure Magic Error
 
 **Question**
 

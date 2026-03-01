@@ -1,6 +1,4 @@
-# Using a project with trusted identity propagation
-
-enabled
+# Using a project with trusted identity propagation enabled
 
 Trusted identity propagation in IAM Identity Center enables administrators of AWS
 services to grant permissions based on user attributes, such as user ID or group associations.
@@ -25,15 +23,11 @@ cases:
 
 ###### Topics
 
-- [Create a new project with trusted identity
-  propagation](#create-new-project-tip "#create-new-project-tip")
+- [Create a new project with trusted identity propagation](#create-new-project-tip "#create-new-project-tip")
 - [Working with Amazon Athena with trusted identity propagation](#athena-workgroup-tip "#athena-workgroup-tip")
-- [Connect to existing Amazon Redshift
-  clusters or Serverless endpoints with trusted identity propagation](#create-redshift-connection-tip "#create-redshift-connection-tip")
+- [Connect to existing Amazon Redshift clusters or Serverless endpoints with trusted identity propagation](#create-redshift-connection-tip "#create-redshift-connection-tip")
 
-## Create a new project with trusted identity
-
-propagation
+## Create a new project with trusted identity propagation
 
 First, you need to create a new project in your trusted identity propagation-enabled
 domain. In the current release of Amazon SageMaker Unified Studio, trusted identity propagation is only supported
@@ -79,9 +73,7 @@ case:**
   supported, data explorer displays the default project database and users are authorized
   to access this data based on the project role.
 
-## Connect to existing Amazon Redshift
-
-clusters or Serverless endpoints with trusted identity propagation
+## Connect to existing Amazon Redshift clusters or Serverless endpoints with trusted identity propagation
 
 Within trusted identity propagation-enabled project, you can connect to an existing
 Amazon Redshift provisioned cluster or Amazon Redshift Serverless endpoint and then run
@@ -97,8 +89,7 @@ case:**
 - When trusted identity propagation is enabled in a project, there is no default
   connection for Amazon Redshift. Users have to explicitly create a connection to an
   existing Amazon Redshift cluster or serverless endpoint that supports IdC with trusted
-  identity propagation. For more information, see Connect to existing Amazon Redshift
-  clusters or Serverless endpoints with trusted identity propagation
+  identity propagation. For more information, see Connect to existing Amazon Redshift clusters or Serverless endpoints with trusted identity propagation
 - Currently, users cannot use their SSO credentials via trusted identity propagation
   to subscribe to or publish data products.
 - Trusted identity propagation is only supported if your Amazon SageMaker Unified Studio project and your

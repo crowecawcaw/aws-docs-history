@@ -1,6 +1,4 @@
-# Data Sharing Across Compute
-
-Environments
+# Data Sharing Across Compute Environments
 
 Amazon SageMaker Unified Studio provides magic commands to facilitate data sharing across different compute
 environments. This section outlines three key commands: `%push`, `%pop`,
@@ -94,9 +92,7 @@ remote compute environment.
 - Python
 - Scala
 
-## Security
-
-considerations
+## Security considerations
 
 Remember that variables uploaded using `%push` are accessible to all project members
 within your Amazon SageMaker Unified Studio project. Ensure that sensitive data is handled

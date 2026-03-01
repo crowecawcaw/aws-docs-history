@@ -1,6 +1,4 @@
-# Create
-
-row filters in Amazon SageMaker Unified Studio
+# Create row filters in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio allows you to create row filters that you can use when approving
 subscriptions to make sure that the subscriber can only access rows of data as defined

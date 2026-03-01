@@ -67,8 +67,7 @@ show` as the name for your app.
       model tells you the components that a model supports. For full
       information about the model, choose **View full model
       details** in the information panel. For more information,
-      see [Find serverless models with the Amazon Bedrock model
-      catalog](model-catalog.md "model-catalog.md").
+      see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md").
       If you don't have
       access to an appropriate model, contact your administrator.
       Different models might not support all features.

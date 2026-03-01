@@ -2,13 +2,10 @@
 
 ###### Topics
 
-- [Configure automated lineage capture for AWS Glue (Lakehouse)
-  connections](#datazone-data-lineage-automate-capture-from-data-connections-glue "#datazone-data-lineage-automate-capture-from-data-connections-glue")
+- [Configure automated lineage capture for AWS Glue (Lakehouse) connections](#datazone-data-lineage-automate-capture-from-data-connections-glue "#datazone-data-lineage-automate-capture-from-data-connections-glue")
 - [Configure automated lineage capture for Amazon Redshift connections](#datazone-data-lineage-automate-capture-from-data-connections-redshift "#datazone-data-lineage-automate-capture-from-data-connections-redshift")
 
-## Configure automated lineage capture for AWS Glue (Lakehouse)
-
-connections
+## Configure automated lineage capture for AWS Glue (Lakehouse) connections
 
 As databases and tables are added to the Amazon SageMaker Unified Studio’s catalog, the lineage
 extraction can be automated from source for those assets using data source runs

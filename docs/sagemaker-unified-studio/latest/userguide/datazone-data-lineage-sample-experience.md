@@ -1,6 +1,4 @@
-# Test drive data
-
-lineage
+# Test drive data lineage
 
 You can use the data lineage sample experience to browse and understand data
 lineage in Amazon SageMaker Unified Studio, including traversing upstream or downstream in your data

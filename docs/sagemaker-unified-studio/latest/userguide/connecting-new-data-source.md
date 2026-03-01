@@ -1,8 +1,6 @@
 # Connecting to a new data source
 
-## Domain and project VPC
-
-configuration
+## Domain and project VPC configuration
 
 Data sources Amazon DocumentDB, Amazon Redshift, Aurora MySQL, Aurora PostgreSQL, Azure SQL,
 PostgreSQL, Oracle, Microsoft SQL Server require your project to be configured with a VPC

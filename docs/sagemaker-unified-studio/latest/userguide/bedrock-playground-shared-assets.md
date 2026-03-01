@@ -1,6 +1,4 @@
-# Access shared generative AI assets in an Amazon Bedrock
-
-playground
+# Access shared generative AI assets in an Amazon Bedrock playground
 
 Other Amazon Bedrock in SageMaker Unified Studio users can share [chat agent app](create-chat-app.md "create-chat-app.md") and [prompts](prompt-mgmt.md "prompt-mgmt.md") with you as
 _Shared generative AI assets_. You access assets from the

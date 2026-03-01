@@ -1,6 +1,4 @@
-# Grant access to managed Amazon Redshift assets in
-
-Amazon SageMaker Unified Studio
+# Grant access to managed Amazon Redshift assets in Amazon SageMaker Unified Studio
 
 When a subscription to an Amazon Redshift table or view is approved, Amazon SageMaker Unified Studio can
 automatically add the subscribed asset to the Amazon Redshift Serverless workgroup

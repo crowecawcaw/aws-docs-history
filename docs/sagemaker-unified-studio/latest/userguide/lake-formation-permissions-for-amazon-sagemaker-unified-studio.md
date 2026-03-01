@@ -1,6 +1,4 @@
-# Configure
-
-Lake Formation permissions for Amazon SageMaker Unified Studio
+# Configure Lake Formation permissions for Amazon SageMaker Unified Studio
 
 When you create a project in Amazon SageMaker Unified Studio, an AWS Glue database is added as part of this
 project. If you want to publish assets from this AWS Glue database, no additional

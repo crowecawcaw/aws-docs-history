@@ -10,8 +10,7 @@ following ways:
 - By using your AWS IAM credentials. For more information, see [Sign up for an AWS account](#getting-started-sign-up "#getting-started-sign-up").
 - If your admin has configured single sign-on (SSO) access, you can also sign in
   to Amazon SageMaker Unified Studio using SSO credentials that you configure with IAM Identity Center
-  or through an identity provider. For more information, see [Configure SSO credentials with IAM Identity
-  Center](#set-up-SSO-IDC "#set-up-SSO-IDC").
+  or through an identity provider. For more information, see [Configure SSO credentials with IAM Identity Center](#set-up-SSO-IDC "#set-up-SSO-IDC").
 
 ###### Note
 
@@ -26,9 +25,7 @@ Amazon SageMaker Unified Studio supports the following browsers:
 JupyterLab IDE requires third-party cookies to be allowed in your Amazon SageMaker
 Unified Studio domain. For more information, see [Invalid or expired auth token when accessing an IDE](troubleshooting-issues.md#invalid-auth-token-ide "troubleshooting-issues.md#invalid-auth-token-ide").
 
-## Configure
-
-credentials
+## Configure credentials
 
 If you want to sign in to Amazon SageMaker Unified Studio using AWS IAM user or SSO credentials
 using IAM Identity Center, follow the instructions in the optional prerequiste
@@ -43,8 +40,7 @@ received from your admin, you can skip the steps in this section.
 ###### Topics
 
 - [Sign up for an AWS account](#getting-started-sign-up "#getting-started-sign-up")
-- [Configure SSO credentials with IAM Identity
-  Center](#set-up-SSO-IDC "#set-up-SSO-IDC")
+- [Configure SSO credentials with IAM Identity Center](#set-up-SSO-IDC "#set-up-SSO-IDC")
 
 ### Sign up for an AWS account
 
@@ -61,9 +57,7 @@ administrative access to an administrative user](../../../singlesignon/latest/us
 root user to perform [tasks that
 require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
-### Configure SSO credentials with IAM Identity
-
-Center
+### Configure SSO credentials with IAM Identity Center
 
 You can use SSO with IAM Identity Center or with an identity provider. To
 use SSO with IAM Identity Center, work with your admin to get added to their

@@ -1,6 +1,4 @@
-# Publish assets to the Amazon SageMaker Unified Studio catalog from the
-
-project inventory
+# Publish assets to the Amazon SageMaker Unified Studio catalog from the project inventory
 
 You can publish Amazon SageMaker Unified Studio assets and their metadata from project inventories into the
 Amazon SageMaker Unified Studio catalog. You can only publish the most recent version of an asset to the

@@ -7,22 +7,17 @@ traditional MLflow functionality.
 
 ###### Topics
 
-- [Use MLflow Apps for experiment
-  tracking](#use-mlflow-apps "#use-mlflow-apps")
-- [Use MLflow Tracking Servers to
-  track experiments](#use-mlflow-tracking-servers "#use-mlflow-tracking-servers")
+- [Use MLflow Apps for experiment tracking](#use-mlflow-apps "#use-mlflow-apps")
+- [Use MLflow Tracking Servers to track experiments](#use-mlflow-tracking-servers "#use-mlflow-tracking-servers")
 
-## Use MLflow Apps for experiment
-
-tracking
+## Use MLflow Apps for experiment tracking
 
 ###### Note
 
 MLflow Apps are different from MLflow Tracking Servers. MLflow Apps offer
 additional features such as faster startup time and cross-account sharing.
 For information about connecting to existing MLflow Tracking Servers, see
-[Use MLflow Tracking Servers to
-track experiments](#use-mlflow-tracking-servers "#use-mlflow-tracking-servers").
+[Use MLflow Tracking Servers to track experiments](#use-mlflow-tracking-servers "#use-mlflow-tracking-servers").
 
 MLflow Apps are the latest managed MLflow offering in Amazon SageMaker Unified Studio and
 provide faster startup times, cross-account sharing, and integration with SageMaker AI
@@ -60,9 +55,7 @@ from the **MLflow** page:
 To access the **MLflow** page, choose
 **MLflow** from the left navigation menu.
 
-## Use MLflow Tracking Servers to
-
-track experiments
+## Use MLflow Tracking Servers to track experiments
 
 To get started, you should have an existing MLflow server created in SageMaker AI
 Studio. Make sure that you have the ARN to get started.

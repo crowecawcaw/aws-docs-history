@@ -1,6 +1,4 @@
-# Grant access for approved subscriptions to
-
-unmanaged assets in Amazon SageMaker Unified Studio
+# Grant access for approved subscriptions to unmanaged assets in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio enables users to publish any type of asset in the Amazon SageMaker Catalog. For some of
 these assets, Amazon SageMaker Unified Studio can can automatically manage access grants. These assets are called

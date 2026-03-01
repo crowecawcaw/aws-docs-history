@@ -1,6 +1,4 @@
-# Getting started with Amazon Q Developer generative AI chat and
-
-command line tools
+# Getting started with Amazon Q Developer generative AI chat and command line tools
 
 ###### Note
 
@@ -27,10 +25,8 @@ For reference information about implementing Amazon Q Developer in Amazon SageMa
 ###### Topics
 
 - [Discover Amazon Q Developer in Amazon SageMaker Unified Studio](#qdeveloper-integration-overview "#qdeveloper-integration-overview")
-- [Considerations for using the
-  Amazon Q Developer feature](#qdeveloper-integration-considerations "#qdeveloper-integration-considerations")
-- [Prerequisites for using the
-  Amazon Q Developer feature](#qdeveloper-integration-prerequisites "#qdeveloper-integration-prerequisites")
+- [Considerations for using the Amazon Q Developer feature](#qdeveloper-integration-considerations "#qdeveloper-integration-considerations")
+- [Prerequisites for using the Amazon Q Developer feature](#qdeveloper-integration-prerequisites "#qdeveloper-integration-prerequisites")
 - [Getting started using Q chat](qdeveloper-integration-start-chat.md "qdeveloper-integration-start-chat.md")
 - [Getting started with Q CLI](qdeveloper-integration-start-CLI.md "qdeveloper-integration-start-CLI.md")
 
@@ -42,9 +38,7 @@ or Code Editor, you can use the Amazon Q chat and Amazon Q CLI tools to understa
 your Amazon SageMaker Unified Studio project files. For more information about Amazon Q Developer, see [What is
 Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md") in the _Amazon Q Developer User Guide_.
 
-## Considerations for using the
-
-Amazon Q Developer feature
+## Considerations for using the Amazon Q Developer feature
 
 The following considerations apply for working with Amazon Q Developer in Amazon SageMaker Unified Studio.
 
@@ -75,9 +69,7 @@ one customer can potentially use up all requests. The Pro Tier of Amazon Q is ch
 user level, with limits set at the user level as well. The Pro Tier also lets you manage
 users and policies with enterprise access control.
 
-## Prerequisites for using the
-
-Amazon Q Developer feature
+## Prerequisites for using the Amazon Q Developer feature
 
 The following prerequisities are required for this getting started procedure.
 

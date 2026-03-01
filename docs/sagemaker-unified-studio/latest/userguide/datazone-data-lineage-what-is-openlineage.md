@@ -1,6 +1,4 @@
-# What is
-
-OpenLineage?
+# What is OpenLineage?
 
 [OpenLineage](https://openlineage.io/ "https://openlineage.io/") is an open platform for
 collection and analysis of data lineage. It tracks metadata about datasets, jobs,

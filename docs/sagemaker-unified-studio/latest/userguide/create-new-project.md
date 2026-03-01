@@ -64,9 +64,7 @@ you can choose a Git repository to connect to your project. You can choose to co
 project to an existing third-party Git repository or create a new Git repository to
 connect to.
 
-#### To connect to an existing 3P Git
-
-repository
+#### To connect to an existing 3P Git repository
 
 1. In the Git connection dropdown, select a connection from
    AWS CodeConnections that is enabled for Amazon SageMaker Unified Studio. Available Git

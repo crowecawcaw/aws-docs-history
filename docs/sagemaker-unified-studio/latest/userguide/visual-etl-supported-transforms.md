@@ -1,6 +1,4 @@
-# Supported transforms for
-
-Visual ETL
+# Supported transforms for Visual ETL
 
 The following section contains information on the supported transforms for
 Visual ETL in Amazon SageMaker Unified Studio :

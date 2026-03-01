@@ -1,6 +1,4 @@
-# Grant access to managed AWS Glue Data Catalog assets in
-
-Amazon SageMaker Unified Studio
+# Grant access to managed AWS Glue Data Catalog assets in Amazon SageMaker Unified Studio
 
 ###### Note
 

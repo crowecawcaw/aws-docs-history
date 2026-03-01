@@ -1,6 +1,4 @@
-# Create a visual workflow in IAM-based
-
-domains
+# Create a visual workflow in IAM-based domains
 
 Use visual workflows to orchestrate tasks in your project. With visual workflows, you can
 define a collection of tasks organized as a directed acyclic graph (DAG) that can run on a

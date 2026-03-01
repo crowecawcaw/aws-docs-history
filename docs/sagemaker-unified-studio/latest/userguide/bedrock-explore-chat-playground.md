@@ -43,8 +43,7 @@ shared apps.
 ![Open Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-discover.png) 5. In **Type** select **Model** and then select a model
 to use in **Model**. For full information about the model, choose
 **View full model details** in the information panel. For more
-information, see [Find serverless models with the Amazon Bedrock model
-catalog](model-catalog.md "model-catalog.md"). If you
+information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md"). If you
 don't have access to an appropriate model, contact your administrator. Different models
 might not support all features. 6. In the **Enter prompt** text box, enter `What is Avebury stone
  circle?`. 7. (Optional) If the model you chose is a reasoning model, you can choose

@@ -1,6 +1,4 @@
-# Scheduling and running visual jobs in
-
-Identity Center-based domains
+# Scheduling and running visual jobs in Identity Center-based domains
 
 There are two ways to schedule visual ETL jobs in Amazon SageMaker Unified Studio Identity Center-based
 domains.
@@ -10,9 +8,7 @@ domains.
 - You can schedule your visual job using a DAG and the workflows interface. This way
   you can combine multiple elements in the same schedule.
 
-## Scheduling visual jobs from
-
-the editor
+## Scheduling visual jobs from the editor
 
 You can schedule your visual jobs to run from within the Visual ETL editor. To do
 this, use a project with the **All capabilities** project profile or
@@ -52,9 +48,7 @@ You can enable project repository auto sync flag when creating or updating the p
 to ensure the schedules always execute the latest ETL notebook saved to repository. It is
 recommendede that you test the ETL in draft mode before saving.
 
-## Reviewing scheduled visual
-
-jobs in the editor
+## Reviewing scheduled visual jobs in the editor
 
 You can review scheduled visual jobs in the Visual ETL interface in Amazon SageMaker Unified Studio. On the
 schedules page, you can pause, edit, and delete schedules. You can also view the status
@@ -77,9 +71,7 @@ To view information about different times the schedule has run, choose the name 
 schedule to view the **Runs** section for that schedule. You can choose
 the name of a run to see a log and other details for that run.
 
-## Scheduling visual jobs
-
-with workflows
+## Scheduling visual jobs with workflows
 
 You can schedule the Visual ETL jobs you authored to run based on a schedule
 using Workflows. The following is an example of how to do this:

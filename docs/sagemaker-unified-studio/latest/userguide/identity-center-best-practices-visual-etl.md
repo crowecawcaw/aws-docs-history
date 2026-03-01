@@ -1,6 +1,4 @@
-# Best practices for Visual ETL in
-
-Identity Center-based domains
+# Best practices for Visual ETL in Identity Center-based domains
 
 To get the most out of Visual ETL in Amazon SageMaker Unified Studio Identity Center-based
 domains:

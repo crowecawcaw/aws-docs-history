@@ -31,5 +31,4 @@ you must create a project yourself or be added to a project by a project owner.
 - [Delete a project](delete-project.md "delete-project.md")
 - [Add project members](add-project-members.md "add-project-members.md")
 - [Remove project members](remove-project-members.md "remove-project-members.md")
-- [Using a project with trusted identity propagation
-  enabled](using-project-tip.md "using-project-tip.md")
+- [Using a project with trusted identity propagation enabled](using-project-tip.md "using-project-tip.md")

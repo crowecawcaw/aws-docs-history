@@ -1,6 +1,4 @@
-# What
-
-is Amazon SageMaker Unified Studio?
+# What is Amazon SageMaker Unified Studio?
 
 As a part of the next generation of Amazon SageMaker, the Amazon SageMaker Unified Studio is a unified development
 experience that brings together AWS data, analytics, artificial intelligence (AI), and machine

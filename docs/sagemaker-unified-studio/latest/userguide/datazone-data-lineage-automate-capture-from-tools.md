@@ -1,17 +1,12 @@
-# Automate lineage
-
-capture from tools
+# Automate lineage capture from tools
 
 ###### Topics
 
-- [Capture
-  lineage for Spark executions in Visual ETL](#datazone-data-lineage-automate-capture-from-tools-vetl "#datazone-data-lineage-automate-capture-from-tools-vetl")
+- [Capture lineage for Spark executions in Visual ETL](#datazone-data-lineage-automate-capture-from-tools-vetl "#datazone-data-lineage-automate-capture-from-tools-vetl")
 - [Capture lineage for AWS Glue Spark executions in Notebooks](#datazone-data-lineage-automate-capture-from-tools-gluenotebook "#datazone-data-lineage-automate-capture-from-tools-gluenotebook")
 - [Capture lineage from EMR Spark executions](#datazone-data-lineage-automate-capture-from-tools-emrnotebook "#datazone-data-lineage-automate-capture-from-tools-emrnotebook")
 
-## Capture
-
-lineage for Spark executions in Visual ETL
+## Capture lineage for Spark executions in Visual ETL
 
 When a new job is created in Visual ETL in Amazon SageMaker Unified Studio, lineage is automatically
 enabled. When a Visual ETL flow is created, lineage capture for that ETL flow is
@@ -124,10 +119,14 @@ Here are these parameters and what they configure, in detail:
     which Glue interactive session populates, will be added to the
     LineageEvent
 
-- spark.glue.accountId=<ACCOUNT_ID>
+- spark.glue.accountId={ACCOUNT_ID}
   - Account Id of the Glue Data Catalog where the metadata
     resides. This account id is used to construct Glue ARN in
     lineage event.
+
+- [optional] spark.openlineage.transport.region={DOMAIN_REGION}
+  - If domain region is different from that of the job's execution region,
+    pass this parameter with value as domain's region
 
 - spark.glue.JOB_NAME
   - Job name of the lineage event. For example, the job name can
@@ -148,10 +147,11 @@ run.
 {
     "conf": {
          "spark.extraListeners": "io.openlineage.spark.agent.OpenLineageSparkListener",
+         "spark.openlineage.columnLineage.datasetLineageEnabled":"True",
          "spark.openlineage.transport.type":"amazon_datazone_api",
          "spark.openlineage.transport.domainId":"{DOMAIN_ID}",
+         "spark.openlineage.transport.region":"{DOMAIN_REGION}" // Only needed if the domain is in different region than that of the job
          "spark.glue.accountId":"{ACCOUNT_ID}", // needed if AWS Glue is being used as the Hive metastore
-         "spark.openlineage.columnLineage.datasetLineageEnabled":"True",
          "spark.jars":"/usr/share/aws/datazone-openlineage-spark/lib/DataZoneOpenLineageSpark-1.0.jar" // Only needed incase of EMR-S
     }
 }
@@ -165,6 +165,6 @@ run.
 
 - The JOB_NAME is the Spark application name that is automatically
   set
-- Replace {DOMAIN_ID} and {ACCOUNT_ID}
+- Replace {DOMAIN_ID}, {ACCOUNT_ID}, {DOMAIN_REGION}
 - Amazon SageMaker Unified Studio VPC endpoint is deployed to EMR VPC
   endpoint

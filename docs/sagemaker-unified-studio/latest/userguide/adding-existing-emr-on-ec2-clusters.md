@@ -18,9 +18,7 @@ prerequisites:
   prerequisite steps to grant you access to the resource.
   More details on each of these steps is found in the sections below.
 
-## Prerequisite steps for you and
-
-your Amazon SageMaker Unified Studio admin
+## Prerequisite steps for you and your Amazon SageMaker Unified Studio admin
 
 Amazon EMR on EC2 clusters can be runtime-role enabled or not runtime-role enabled. You can
 connect to both kinds of Amazon EMR on EC2 clusters in Amazon SageMaker Unified Studio. However, to use clusters that
@@ -76,9 +74,7 @@ Additionally, all project resources are inaccessible to the cluster unless addit
 permissions are granted to the IAM instance profile role attached to the Amazon EC2
 instance.
 
-## Prerequisite steps for Amazon EMR
-
-admins
+## Prerequisite steps for Amazon EMR admins
 
 Before you can add an existing Amazon EMR on EC2 resource to your project in Amazon SageMaker Unified Studio, the
 admin that owns that resource must grant access to you by completing the following
@@ -243,9 +239,7 @@ according to the project information you received in step 1.
 After the Amazon EMR admin has completed these steps, project members are able to add a
 connection to the Amazon EMR on EC2 cluster as a compute resource in Amazon SageMaker Unified Studio.
 
-## Adding the Amazon EMR on EC2 compute
-
-resource
+## Adding the Amazon EMR on EC2 compute resource
 
 1. From inside the project management view in Amazon SageMaker Unified Studio, select
    **Compute** from the navigation bar.

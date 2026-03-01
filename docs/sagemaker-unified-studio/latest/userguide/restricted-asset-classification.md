@@ -1,6 +1,4 @@
-# Restricted asset classification
-
-Amazon SageMaker Unified Studio
+# Restricted asset classification Amazon SageMaker Unified Studio
 
 Restricted classification allows domain unit owners and glossary project owners to control
 who can apply specific classification terms to assets in the Amazon SageMaker Catalog. This feature

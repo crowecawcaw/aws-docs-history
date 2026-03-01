@@ -1,6 +1,4 @@
-# Cross-region processing in the SageMaker Data Agent
-
-for Notebook
+# Cross-region processing in the SageMaker Data Agent for Notebook
 
 ## Cross-region inference
 
@@ -29,9 +27,7 @@ encrypted in transit across Amazon's secure network.
 
 There is no additional cost for using cross-region inference.
 
-## Supported regions for cross-region
-
-inference
+## Supported regions for cross-region inference
 
 **Regions Using Geographic cross-region inference**
 
@@ -47,9 +43,7 @@ originated:
 | United States       | US East (N. Virginia) (us-east-1), US West (Oregon) (us-west-2), US East<br>(Ohio) (us-east-2)                                  |
 | Europe              | Europe (Frankfurt) (eu-central-1), Europe (Ireland) (eu-west-1), Europe<br>(Paris) (eu-west-3), Europe (Stockholm) (eu-north-1) |
 
-## Regions Using Global Cross-Region
-
-Inference
+## Regions Using Global Cross-Region Inference
 
 ###### Important
 

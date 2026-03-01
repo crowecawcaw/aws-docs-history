@@ -1,6 +1,4 @@
-# Best Practices for the SageMaker Data
-
-Agent
+# Best Practices for the SageMaker Data Agent
 
 Be specific about your data sources
 

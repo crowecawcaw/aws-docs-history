@@ -47,9 +47,7 @@ using in Amazon SageMaker Unified Studio.
    resources in a different AWS account. See [Gaining access to Amazon Redshift resources](compute-prerequisite-redshift.md "compute-prerequisite-redshift.md").
 8. Choose **Create connection**.
 
-## Steps to connect to Amazon SageMaker Unified Studio from Amazon
-
-Redshift console pages
+## Steps to connect to Amazon SageMaker Unified Studio from Amazon Redshift console pages
 
 These steps describe how Amazon Redshift customers can automatically create an Amazon
 Redshift connection within the Amazon SageMaker Unified Studio environment from the Amazon
@@ -70,9 +68,7 @@ will then issue temporary credentials and provision the session, redirecting the
 the Amazon SageMaker Unified Studio environment where they can begin querying data
 immediately.
 
-## Steps to connect to Amazon SageMaker Unified Studio from Amazon Redshift Query Editor
-
-v2
+## Steps to connect to Amazon SageMaker Unified Studio from Amazon Redshift Query Editor v2
 
 These steps describe how Amazon Redshift customers can automatically create an Amazon
 Redshift connection within the Amazon SageMaker Unified Studio environment from the Amazon Redshift
@@ -86,9 +82,7 @@ If the connection selected is using IAM authentication then when the user clicks
 in Amazon SageMaker Unified Studio" button, the query currently typed in the active editor (SQL or
 notebook cell) will be executed directly in the Amazon SageMaker Unified Studio environment.
 
-## Redshift Access using IAM
-
-Authentication
+## Redshift Access using IAM Authentication
 
 IAM authentication generates temporary database credentials based on your AWS
 identity, eliminating the need to manage database passwords. When you connect using IAM

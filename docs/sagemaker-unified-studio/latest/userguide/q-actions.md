@@ -5,8 +5,7 @@ resources through a conversational interface. You can ask questions about your a
 Amazon SageMaker Unified Studio using simple, natural language queries within the Amazon Q Developer chat interface.
 
 For getting started flows that walk you through implementing Amazon Q Developer in Amazon SageMaker Unified Studio, see
-[Getting started with Amazon Q Developer generative AI chat and
-command line tools](qdeveloper-integration.md "qdeveloper-integration.md").
+[Getting started with Amazon Q Developer generative AI chat and command line tools](qdeveloper-integration.md "qdeveloper-integration.md").
 
 Amazon Q Developer provides contextual generative AI assistance through Amazon Q chat or Amazon Q CLI.
 It helps data engineers, ML data developers, and other users in Amazon SageMaker Unified Studio with:

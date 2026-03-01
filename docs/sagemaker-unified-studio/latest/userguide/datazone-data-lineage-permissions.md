@@ -1,10 +1,6 @@
-# Permissions required for data
+# Permissions required for data lineage
 
-lineage
-
-## Read permissions to
-
-view lineage
+## Read permissions to view lineage
 
 Permissions on following actions are needed to view lineage graph:
 
@@ -25,13 +21,9 @@ User must have an IAM role with a policy that includes "Allow" action on
 these APIs to view lineage events posted to Amazon SageMaker Unified
 Studio.
 
-## Write permissions to
+## Write permissions to publish lineage
 
-publish lineage
-
-### Lineage for
-
-AWS Glue crawler
+### Lineage for AWS Glue crawler
 
 The project user role is used to fetch required data from AWS Glue. The
 project user role should contain the following permissions on Glue
@@ -45,9 +37,7 @@ operations:
 `SageMakerStudioProjectUserRolePolicy` already contains above
 permissions.
 
-### Lineage for
-
-Amazon Redshift
+### Lineage for Amazon Redshift
 
 The project user role is used to execute queries on the cluster/workgroup
 defined in the connection. The project user role should contain the following
@@ -71,9 +61,7 @@ SageMaker Unified Studio should contain following permissions:
   cluster/workgroup
 - Has "SELECT" grant on all the tables
 
-### Lineage for
-
-AWS Glue, EMR jobs
+### Lineage for AWS Glue, EMR jobs
 
 The IAM role used to execute the job should contain following permissions
 to publish lineage events to Amazon SageMaker Unified Studio:

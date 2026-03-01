@@ -1,6 +1,4 @@
-# Authoring a Visual ETL job using
-
-generative AI in Identity Center-based domains
+# Authoring a Visual ETL job using generative AI in Identity Center-based domains
 
 To author a Visual ETL job using generative AI in Amazon SageMaker Unified Studio Identity Center-based
 domains:

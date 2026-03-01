@@ -32,8 +32,7 @@ and how to specify your own dataset.
 
 ###### Topics
 
-- [Create a model evaluation
-  job with Amazon Bedrock](model-evaluation-jobs-management-create.md "model-evaluation-jobs-management-create.md")
+- [Create a model evaluation job with Amazon Bedrock](model-evaluation-jobs-management-create.md "model-evaluation-jobs-management-create.md")
 - [Model evaluation task types in Amazon Bedrock](model-evaluation-tasks.md "model-evaluation-tasks.md")
 - [Use prompt datasets for model evaluation in Amazon Bedrock](model-evaluation-prompt-datasets.md "model-evaluation-prompt-datasets.md")
 - [Review a model model evaluation job in Amazon Bedrock](model-evaluation-report.md "model-evaluation-report.md")

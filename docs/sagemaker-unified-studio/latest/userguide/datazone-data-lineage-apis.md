@@ -1,6 +1,4 @@
-# Publishing data lineage
-
-programmatically
+# Publishing data lineage programmatically
 
 You can also publish data lineage programmatically using [PostLineageEvent](../../../datazone/latest/APIReference/API_PostLineageEvent.md "../../../datazone/latest/APIReference/API_PostLineageEvent.md") API. The API takes in open lineage run event as the
 payload. Additionally, the following APIs support lineage events and traversing

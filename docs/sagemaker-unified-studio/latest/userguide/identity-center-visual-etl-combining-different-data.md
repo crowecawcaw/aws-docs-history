@@ -1,6 +1,4 @@
-# Using both external
-
-data and fine-grained data in Amazon SageMaker Unified Studio visual ETL jobs
+# Using both external data and fine-grained data in Amazon SageMaker Unified Studio visual ETL jobs
 
 When you use visual ETL, you must select a permission mode to use with your visual ETL
 flow.
@@ -77,8 +75,7 @@ configured for that data. There are two configuration options for permission mod
     **project.spark.compatibility** to verify correctness of the
     results.
 13. Orchestrate these two visual ETL jobs using Amazon SageMaker Unified Studio workflows. For more
-    information, see [Scheduling and running visual jobs in
-    Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md") and [Create a code workflow](create-workflow.md#workflow-create "create-workflow.md#workflow-create").
+    information, see [Scheduling and running visual jobs in Identity Center-based domains](identity-center-schedule-visual-etl.md "identity-center-schedule-visual-etl.md") and [Create a code workflow](create-workflow.md#workflow-create "create-workflow.md#workflow-create").
 
 Make sure that the workflow is configured so that the first visual ETL job finishes
 running before the second visual ETL job runs. By default, they'll run in succession,

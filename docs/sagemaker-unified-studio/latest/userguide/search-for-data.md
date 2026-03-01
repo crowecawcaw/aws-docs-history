@@ -1,6 +1,4 @@
-# Search
-
-for and view assets in the Amazon SageMaker Unified Studio catalog
+# Search for and view assets in the Amazon SageMaker Unified Studio catalog
 
 Amazon SageMaker Unified Studio provides a streamlined way to search for data. Any Amazon SageMaker Unified Studio user with
 permissions to access Amazon SageMaker Unified Studio can search for assets in the Amazon SageMaker Unified Studio catalog and view asset

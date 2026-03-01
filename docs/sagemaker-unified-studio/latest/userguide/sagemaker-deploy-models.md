@@ -9,13 +9,10 @@ For more information about using endpoints for real-time inference, see [Deploy 
 
 ###### Topics
 
-- [Create an endpoint and deploy a
-  model](#sagemaker-create-endpoint "#sagemaker-create-endpoint")
+- [Create an endpoint and deploy a model](#sagemaker-create-endpoint "#sagemaker-create-endpoint")
 - [View your endpoints](#sagemaker-view-endpoints "#sagemaker-view-endpoints")
 
-## Create an endpoint and deploy a
-
-model
+## Create an endpoint and deploy a model
 
 To create an endpoint, follow these steps:
 

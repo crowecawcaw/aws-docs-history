@@ -1,6 +1,4 @@
-# Using the SageMaker Data Agent for data analytics
-
-tasks
+# Using the SageMaker Data Agent for data analytics tasks
 
 ## Data exploration and discovery
 
@@ -40,9 +38,7 @@ ORDER BY month DESC, total_revenue DESC
 
 ```
 
-## Building multi-step analytical
-
-workflows
+## Building multi-step analytical workflows
 
 For complex analysis, the agent proposes step-by-step plans that break down your
 objective into discrete operations, requesting approval before executing each step.
@@ -156,9 +152,7 @@ print(spending_data['total_spent'].describe())
 
 ```
 
-## Error handling and fix with the SageMaker Data
-
-Agent
+## Error handling and fix with the SageMaker Data Agent
 
 When code execution fails, the SageMaker Data Agent can analyze error messages and
 suggest corrections. Use the fix with agent capability to automatically generate corrected

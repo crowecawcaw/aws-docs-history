@@ -1,6 +1,4 @@
-# Data in Identity Center-based
-
-domains
+# Data in Identity Center-based domains
 
 ###### Topics
 

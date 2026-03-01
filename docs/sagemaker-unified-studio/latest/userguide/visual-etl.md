@@ -34,9 +34,7 @@ Amazon SageMaker Unified Studio supports Visual ETL in two domain types:
 ###### Topics
 
 - [Supported connectors for Visual ETL](connectors-visual-etl.md "connectors-visual-etl.md")
-- [Supported transforms for
-  Visual ETL](visual-etl-supported-transforms.md "visual-etl-supported-transforms.md")
+- [Supported transforms for Visual ETL](visual-etl-supported-transforms.md "visual-etl-supported-transforms.md")
 - [Visual ETL for IAM-based domains](visual-etl-iam-domains.md "visual-etl-iam-domains.md")
-- [Visual ETL for Identity Center-based
-  domains](visual-etl-identity-center-domains.md "visual-etl-identity-center-domains.md")
+- [Visual ETL for Identity Center-based domains](visual-etl-identity-center-domains.md "visual-etl-identity-center-domains.md")
 - [Data preview](visual-etl-data-previews.md "visual-etl-data-previews.md")

@@ -32,9 +32,7 @@ Can you tell me about my project?
 
 The response returns where Q asks follow-up questions and shows your files.
 
-## Example 2: Create and run a data
-
-pipeline
+## Example 2: Create and run a data pipeline
 
 This example shows how Q chat can perform complex tasks for you, such as creating and
 running a data pipeline in your project.

@@ -15,8 +15,7 @@ Amazon Bedrock in SageMaker Unified Studio provides the following playgrounds:
   chat agent apps.
 
 If you want to know more about a model, use the model catalog to find information such as
-supported use cases and model attributes. For more information, see [Find serverless models with the Amazon Bedrock model
-catalog](model-catalog.md "model-catalog.md").
+supported use cases and model attributes. For more information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md").
 
 ###### Warning
 
@@ -24,8 +23,7 @@ Generative AI may give inaccurate responses. Avoid sharing sensitive information
 Chats may be visible to others in your organization.
 
 Other Amazon Bedrock in SageMaker Unified Studio users can share apps and prompts so that you can experiment with them
-in a playground. For more information, see [Access shared generative AI assets in an Amazon Bedrock
-playground](bedrock-playground-shared-assets.md "bedrock-playground-shared-assets.md").
+in a playground. For more information, see [Access shared generative AI assets in an Amazon Bedrock playground](bedrock-playground-shared-assets.md "bedrock-playground-shared-assets.md").
 
 After you familiarize yourself with a model in a playground, you can try creating
 your own Amazon Bedrock in SageMaker Unified Studio app, such as a [chat agent app](create-chat-app.md "create-chat-app.md").
@@ -36,5 +34,4 @@ your own Amazon Bedrock in SageMaker Unified Studio app, such as a [chat agent a
 - [Chat with an app in the Amazon Bedrock chat playground](bedrock-explore-chat-playground-app.md "bedrock-explore-chat-playground-app.md")
 - [Generate an image with the Amazon Bedrock image and video playground](explore-image-playground.md "explore-image-playground.md")
 - [Generate a video with the Amazon Bedrock image and video playground](bedrock-explore-video-playground.md "bedrock-explore-video-playground.md")
-- [Access shared generative AI assets in an Amazon Bedrock
-  playground](bedrock-playground-shared-assets.md "bedrock-playground-shared-assets.md")
+- [Access shared generative AI assets in an Amazon Bedrock playground](bedrock-playground-shared-assets.md "bedrock-playground-shared-assets.md")

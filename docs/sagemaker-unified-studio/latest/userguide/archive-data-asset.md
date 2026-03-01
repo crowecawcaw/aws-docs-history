@@ -1,6 +1,4 @@
-# Unpublish an asset from the
-
-Amazon SageMaker Catalog
+# Unpublish an asset from the Amazon SageMaker Catalog
 
 When you unpublish an Amazon SageMaker Unified Studio asset from the catalog, it no longer appears in global
 search results. New users won't be able to find or subscribe to the asset listing in the

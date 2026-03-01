@@ -20,5 +20,4 @@ the playground. For more information, contact your administrator.
 
 - [Configure video generation](bedrock-explore-video-playground-configuration.md "bedrock-explore-video-playground-configuration.md")
 - [Generate a video from a prompt](bedrock-explore-video-playground-procedure.md "bedrock-explore-video-playground-procedure.md")
-- [Plan a video with
-  the storyboard](bedrock-explore-video-playground-storyboard.md "bedrock-explore-video-playground-storyboard.md")
+- [Plan a video with the storyboard](bedrock-explore-video-playground-storyboard.md "bedrock-explore-video-playground-storyboard.md")

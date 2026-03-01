@@ -1,6 +1,4 @@
-# Using the Amazon Q data integration in
-
-AWS Glue
+# Using the Amazon Q data integration in AWS Glue
 
 Amazon SageMaker Unified Studio supports the [Amazon Q data integration](../../../glue/latest/dg/q.md "../../../glue/latest/dg/q.md") in AWS Glue. It helps data engineers and ETL
 developers create data integration jobs using natural language letting you automate aspects of

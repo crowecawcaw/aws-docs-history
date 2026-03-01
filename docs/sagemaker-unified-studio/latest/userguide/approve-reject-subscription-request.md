@@ -1,6 +1,4 @@
-# Approve or reject a subscription request
-
-in Amazon SageMaker Unified Studio
+# Approve or reject a subscription request in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio allows you to find, access and consume the assets in the Amazon SageMaker Unified Studio catalog. When
 you find an asset in the catalog that you want to access, you must
@@ -35,8 +33,7 @@ approve or reject a subscription request.
      - Select **Choose filters**, and then from the drop down select
        one or more available filters you want to apply to the subscription.
      - To create a new filter you can choose Create new filter option, which opens a
-       new page to create a new row or column filter. For more information, see [Create column filters in Amazon SageMaker Unified Studio](create-column-filter.md "create-column-filter.md") and [Create
-       row filters in Amazon SageMaker Unified Studio](create-row-filter.md "create-row-filter.md").
+       new page to create a new row or column filter. For more information, see [Create column filters in Amazon SageMaker Unified Studio](create-column-filter.md "create-column-filter.md") and [Create row filters in Amazon SageMaker Unified Studio](create-row-filter.md "create-row-filter.md").
 
 8. (Optional) Enter a response that explains your reason for accepting or rejecting the
    request.
@@ -49,9 +46,7 @@ approve or reject a subscription request.
 Amazon SageMaker Unified Studio supports fine-grained access control for AWS Glue tables, Amazon Redshift
 tables, and Amazon Redshift views.
 
-## Automatic approval of
-
-subscription requests
+## Automatic approval of subscription requests
 
 By default, subscription requests to a published asset require manual approval by a data
 owner. However, Amazon SageMaker Unified Studio supports two scenarios where subscription requests can be
@@ -60,8 +55,7 @@ automatically approved:
 - Approval disabled during asset publishing - when publishing a data asset, you can
   choose to not require subscription approval. In this case, all incoming subscription
   requests to that asset are automatically approved. To learn how to disable approval for
-  an asset, see [Publish assets to the Amazon SageMaker Unified Studio catalog from the
-  project inventory](publishing-data-asset.md "publishing-data-asset.md") .
+  an asset, see [Publish assets to the Amazon SageMaker Unified Studio catalog from the project inventory](publishing-data-asset.md "publishing-data-asset.md") .
 - Requester is an owner or contributor in the project that published the asset - a
   subscription request is also automatically approved if the requester is already
   authorized to approve it manually. Specifically, if they are a member of both the

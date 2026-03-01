@@ -1,6 +1,4 @@
-# Metadata enforcement rules for
-
-publishing
+# Metadata enforcement rules for publishing
 
 The metadata enforcement rules for publishing in Amazon SageMaker Unified Studio strengthen data governance
 by enabling domain unit owners to establish clear metadata requirements for data

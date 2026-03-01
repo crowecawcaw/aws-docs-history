@@ -1,6 +1,4 @@
-# Machine Learning Workflows in IAM-based
-
-domains
+# Machine Learning Workflows in IAM-based domains
 
 Amazon SageMaker Unified Studio provides a comprehensive machine learning environment within IAM-based
 domains that enables you to discover, deploy, and manage machine learning models through

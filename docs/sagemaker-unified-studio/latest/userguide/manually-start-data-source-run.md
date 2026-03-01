@@ -1,6 +1,4 @@
-# Manually start a data source run in
-
-Amazon SageMaker Unified Studio
+# Manually start a data source run in Amazon SageMaker Unified Studio
 
 When you run a data source, Amazon SageMaker Unified Studio pulls all any new or modified metadata from the
 source and updates the associated assets in the inventory. When you add a data source to

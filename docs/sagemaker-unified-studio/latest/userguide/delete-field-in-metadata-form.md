@@ -1,6 +1,4 @@
-# Delete a field in a metadata
-
-form in Amazon SageMaker Unified Studio
+# Delete a field in a metadata form in Amazon SageMaker Unified Studio
 
 In Amazon SageMaker Unified Studio, metadata forms are simple forms to augment additional business context to
 the asset metadata in the catalog. They serve as extensible mechanisms for data owners to

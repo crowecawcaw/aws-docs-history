@@ -42,9 +42,7 @@ In all semantic robustness related metrics, Amazon Bedrock in SageMaker Unified 
 ways: convert text to all lower cases, keyboard typos, converting numbers to words,
 random changes to upper case and random addition/deletion of whitespaces.
 
-###### How each available metric is calculated when applied to the general text
-
-generation task type
+###### How each available metric is calculated when applied to the general text generation task type
 
 - **Accuracy**: For this metric, the value is
   calculated using real world knowledge score (RWK score). RWK score examines
@@ -70,9 +68,7 @@ automatically.
   content. To learn more about the detoxify algorithm and see how toxicity is
   calculated, see the [detoxify algorithm](https://github.com/unitaryai/detoxify "https://github.com/unitaryai/detoxify") on GitHub.
 
-###### How each available metric is calculated when applied to the text
-
-summarization task type
+###### How each available metric is calculated when applied to the text summarization task type
 
 - **Accuracy**: For this metric, the value is
   calculated using BERT Score. BERT Score is calculated using pre-trained
@@ -92,9 +88,7 @@ summarization task type
   content. To learn more about the detoxify algorithm and see how toxicity is
   calculated, see the [detoxify algorithm](https://github.com/unitaryai/detoxify "https://github.com/unitaryai/detoxify") on GitHub.
 
-###### How each available metric is calculated when applied to the question and
-
-answer task type
+###### How each available metric is calculated when applied to the question and answer task type
 
 - **Accuracy**: For this metric, the value
   calculated is F1 score. F1 score is calculated by dividing the precision
@@ -117,9 +111,7 @@ answer task type
   content. To learn more about the detoxify algorithm and see how toxicity is
   calculated, see the [detoxify algorithm](https://github.com/unitaryai/detoxify "https://github.com/unitaryai/detoxify") on GitHub.
 
-###### How each available metric is calculated when applied to the text
-
-classification task type
+###### How each available metric is calculated when applied to the text classification task type
 
 - **Accuracy**: For this metric, the value
   calculated is accuracy. Accuracy is a score that compares the predicted

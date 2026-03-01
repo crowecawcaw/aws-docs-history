@@ -27,8 +27,7 @@ permitted by the filters you applied at the time of subscription approval.
 ###### Topics
 
 - [Limitations](#fine-grained-data-limitations "#fine-grained-data-limitations")
-- [Create
-  row filters in Amazon SageMaker Unified Studio](create-row-filter.md "create-row-filter.md")
+- [Create row filters in Amazon SageMaker Unified Studio](create-row-filter.md "create-row-filter.md")
 - [Create column filters in Amazon SageMaker Unified Studio](create-column-filter.md "create-column-filter.md")
 - [Delete row or column filters in Amazon SageMaker Unified Studio](delete-row-column-filter.md "delete-row-column-filter.md")
 - [Edit row or column filters in Amazon SageMaker Unified Studio](edit-row-column-filter.md "edit-row-column-filter.md")

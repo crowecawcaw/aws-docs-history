@@ -1,6 +1,4 @@
-# Create a model evaluation
-
-job with Amazon Bedrock
+# Create a model evaluation job with Amazon Bedrock
 
 When you create a model
 evaluation job, you specify the model, task type, and prompt dataset that you want to the job

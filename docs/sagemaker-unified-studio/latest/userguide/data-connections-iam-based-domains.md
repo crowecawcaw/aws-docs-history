@@ -1,6 +1,4 @@
-# Data and catalog connections in IAM-based
-
-domains
+# Data and catalog connections in IAM-based domains
 
 Amazon SageMaker Unified Studio notebooks can connect to multiple data sources including Amazon S3, AWS Glue Data
 Catalog, Amazon Athena, Amazon Redshift, and third-party sources. You can query data directly from
@@ -37,9 +35,7 @@ Amazon SageMaker Unified Studio supports the following data connections for IAM-
 
 - Amazon S3
 
-## AWS resources created by
-
-connections
+## AWS resources created by connections
 
 When you create a connection in Amazon SageMaker Unified Studio, the following resources are created in your
 AWS account(s) behind the scenes:

@@ -30,8 +30,6 @@ more information, see [Data discovery, subscription, and consumption](discover-d
 
 ###### Topics
 
-- [Data in Identity Center-based
-  domains](data-identity-center-based-domains.md "data-identity-center-based-domains.md")
+- [Data in Identity Center-based domains](data-identity-center-based-domains.md "data-identity-center-based-domains.md")
 - [Working with Catalog in IAM-based domains](data-iam-based-domains.md "data-iam-based-domains.md")
-- [Data and catalog connections in IAM-based
-  domains](data-connections-iam-based-domains.md "data-connections-iam-based-domains.md")
+- [Data and catalog connections in IAM-based domains](data-connections-iam-based-domains.md "data-connections-iam-based-domains.md")

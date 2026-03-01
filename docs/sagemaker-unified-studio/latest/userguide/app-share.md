@@ -18,7 +18,7 @@ When sharing occurs, Amazon Bedrock [deploys](app-deploy.md "app-deploy.md") the
 the chat agent app. When you first share a snapshot, Amazon Bedrock creates a new alias for the chat agent app and a new
 version of the chat agent app that represents the snapshot. On subsequent shares, Amazon Bedrock creates a
 new version of the app, and associates the alias with the new version. If necessary, You can
-change the version that is associated with an alias. For more information, see [Modify the version of an Amazon Bedrock chat agent app](app-change-alias-version.md "app-change-alias-version.md") .
+change the version that is associated with an alias. For more information, see [Modify the version of an Amazon Bedrock chat agent app](app-change-alias-version.md "app-change-alias-version.md").
 
 ###### To share a chat agent app snapshot
 

@@ -18,9 +18,7 @@ q chat
 
 You can get started using Q CLI with the following examples.
 
-## Example 1: Create a Glue table and
-
-create a python notebook for analysis
+## Example 1: Create a Glue table and create a python notebook for analysis
 
 This example shows how Q CLI can perform complex command line procedures for you, such
 as creating and visualizing data for a sample python notebook for a data engineer analyzing
@@ -56,9 +54,7 @@ purpose.
 
 ![An example image with the terminal window Q CLI page.](images/q-dev/q_cli_notebook-5.png)
 
-## Example 2: Ask Q CLI to list
-
-project information
+## Example 2: Ask Q CLI to list project information
 
 This example shows how Q CLI can provide context aware and complex command line help for
 your projects and data.

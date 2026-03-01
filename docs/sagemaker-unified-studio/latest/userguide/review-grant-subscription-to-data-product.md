@@ -1,6 +1,4 @@
-# Review a subscription
-
-request and grant a subscription to a data product in Amazon SageMaker Unified Studio
+# Review a subscription request and grant a subscription to a data product in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio enables data producers to group data assets into well-defined,
 self-contained packages called data products that are tailored for specific business use

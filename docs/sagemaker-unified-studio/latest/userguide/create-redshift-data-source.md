@@ -1,6 +1,4 @@
-# Create an Amazon SageMaker Unified Studio data source for
-
-Amazon Redshift in the project catalog
+# Create an Amazon SageMaker Unified Studio data source for Amazon Redshift in the project catalog
 
 In Amazon SageMaker Unified Studio, you can create an Amazon Redshift data source in order to import technical
 metadata of database tables and views from the Amazon Redshift data warehouse. To add a

@@ -1,13 +1,10 @@
-# Create an Amazon SageMaker Unified Studio data source for
-
-AWS Glue in the project catalog
+# Create an Amazon SageMaker Unified Studio data source for AWS Glue in the project catalog
 
 In Amazon SageMaker Unified Studio, you can create an AWS Glue Data Catalog data source in order to import technical
 metadata of database tables from AWS Glue. To add a data source for the AWS Glue Data Catalog, the
 source database must already exist in AWS Glue. Your Amazon SageMaker Unified Studio project’s IAM role also
 needs certain permissions to be able to create a data source, as described in the
-section [Configure
-Lake Formation permissions for Amazon SageMaker Unified Studio](lake-formation-permissions-for-amazon-sagemaker-unified-studio.md "lake-formation-permissions-for-amazon-sagemaker-unified-studio.md").
+section [Configure Lake Formation permissions for Amazon SageMaker Unified Studio](lake-formation-permissions-for-amazon-sagemaker-unified-studio.md "lake-formation-permissions-for-amazon-sagemaker-unified-studio.md").
 
 When you create and run an AWS Glue data source, you add assets from the source AWS Glue
 database to your Amazon SageMaker Unified Studio project's inventory. You can run your AWS Glue data sources on a

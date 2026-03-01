@@ -22,21 +22,13 @@ Amazon SageMaker Unified Studio.
 
 ###### Topics
 
-- [Search
-  for and view assets in the Amazon SageMaker Unified Studio catalog](search-for-data.md "search-for-data.md")
-- [Request subscription to assets in
-  Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md")
-- [Approve or reject a subscription request
-  in Amazon SageMaker Unified Studio](approve-reject-subscription-request.md "approve-reject-subscription-request.md")
+- [Search for and view assets in the Amazon SageMaker Unified Studio catalog](search-for-data.md "search-for-data.md")
+- [Request subscription to assets in Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md")
+- [Approve or reject a subscription request in Amazon SageMaker Unified Studio](approve-reject-subscription-request.md "approve-reject-subscription-request.md")
 - [Revoke an existing subscription in Amazon SageMaker Unified Studio](revoke-subscription.md "revoke-subscription.md")
-- [Cancel a subscription request in
-  Amazon SageMaker Unified Studio](cancel-subscription-request.md "cancel-subscription-request.md")
+- [Cancel a subscription request in Amazon SageMaker Unified Studio](cancel-subscription-request.md "cancel-subscription-request.md")
 - [Unsubscribe from an asset in Amazon SageMaker Unified Studio](unsubscribe-from-subscription.md "unsubscribe-from-subscription.md")
-- [Grant access to managed AWS Glue Data Catalog assets in
-  Amazon SageMaker Unified Studio](grant-access-to-glue-asset.md "grant-access-to-glue-asset.md")
-- [Grant access to managed Amazon Redshift assets in
-  Amazon SageMaker Unified Studio](grant-access-to-redshift-asset.md "grant-access-to-redshift-asset.md")
-- [Grant access for approved subscriptions to
-  unmanaged assets in Amazon SageMaker Unified Studio](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md")
-- [Metadata enforcement rules for subscription
-  requests](metadata-rules-subscription.md "metadata-rules-subscription.md")
+- [Grant access to managed AWS Glue Data Catalog assets in Amazon SageMaker Unified Studio](grant-access-to-glue-asset.md "grant-access-to-glue-asset.md")
+- [Grant access to managed Amazon Redshift assets in Amazon SageMaker Unified Studio](grant-access-to-redshift-asset.md "grant-access-to-redshift-asset.md")
+- [Grant access for approved subscriptions to unmanaged assets in Amazon SageMaker Unified Studio](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md")
+- [Metadata enforcement rules for subscription requests](metadata-rules-subscription.md "metadata-rules-subscription.md")

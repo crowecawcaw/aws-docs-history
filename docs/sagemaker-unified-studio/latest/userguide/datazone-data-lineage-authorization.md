@@ -1,6 +1,4 @@
-# Data lineage
-
-authorization
+# Data lineage authorization
 
 **Write permissions** - to publish lineage events
 into Amazon SageMaker Unified Studio, you must have an IAM role with a policy that includes an ALLOW

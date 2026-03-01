@@ -1,6 +1,4 @@
-# Compute-specific
-
-configuration
+# Compute-specific configuration
 
 Amazon SageMaker Unified Studio provides a set of Jupyter magic commands. Magic commands, or magics,
 enhance the functionality of the IPython environment. For more information about the
@@ -12,9 +10,7 @@ specify the compute name in the argument -n. Include —f will restart the sessi
 forcefully apply the new configuration, otherwise this configuration will apply only when
 next session starts.
 
-## Configure an EMR Spark
-
-session
+## Configure an EMR Spark session
 
 When working with EMR on EC2 or EMR Serverless, %%configure command can be used to
 configure the Spark session creation parameters. Using conf settings, you can configure
@@ -32,9 +28,7 @@ Spark.
 
 ```
 
-## Configure a Glue interactive
-
-session
+## Configure a Glue interactive session
 
 Use the `--` prefix for run arguments specified for Glue.
 

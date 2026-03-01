@@ -42,9 +42,7 @@ The following library configurations are available:
 
 - **Other paths**
 
-## Adding JupyterLab library
-
-configurations
+## Adding JupyterLab library configurations
 
 1. Navigate to the JupyterLab library management page.
 2. Select the configuration method you would like to add from the left navigation

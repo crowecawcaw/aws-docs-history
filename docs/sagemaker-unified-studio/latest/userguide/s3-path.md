@@ -24,9 +24,7 @@ proj.s3.emr_ec2_log_bootstrap
 
 ```
 
-## Other
-
-Environment S3 Paths
+## Other Environment S3 Paths
 
 You can also access the S3 path of a different environment by providing an
 environment ID.

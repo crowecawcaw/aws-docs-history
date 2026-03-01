@@ -18,9 +18,7 @@ required permissions to interoperate with supported services, you must update th
 policies attached to these roles to enable support for reading the AWS Glue data quality
 information.
 
-## Enabling data quality for AWS Glue
-
-assets
+## Enabling data quality for AWS Glue assets
 
 Amazon SageMaker Unified Studio pulls the data quality metrics from AWS Glue in order to provide context
 during a point in time, for example, during a business data catalog search. Data
@@ -56,9 +54,7 @@ Subsequently, each new addition of metrics to the asset is automatically added t
 the listing. There is no need to republish the asset to make the latest scores
 available to consumers.
 
-## Enabling data quality for custom
-
-asset types
+## Enabling data quality for custom asset types
 
 You can use the Amazon SageMaker Unified Studio APIs to enable data quality for any of your custom type
 assets. For more information, see the following:

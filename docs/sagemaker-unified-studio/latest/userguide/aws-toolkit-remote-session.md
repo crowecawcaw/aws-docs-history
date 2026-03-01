@@ -1,6 +1,4 @@
-# AWS Toolkit Experience in Remote
-
-Session
+# AWS Toolkit Experience in Remote Session
 
 AWS Toolkit is also available in the remote IDE session. In the remote session,
 since you are already authenticated and are in a specific project, you are directly

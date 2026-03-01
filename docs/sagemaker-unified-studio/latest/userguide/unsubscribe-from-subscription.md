@@ -23,5 +23,4 @@ You must be a member of a project in order to unsubscribe from one of its assets
    approved.
 6. Locate the request and choose **View subscription**.
 7. Review the subscription and choose **Unsubscribe**.
-   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to assets in
-   Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md").
+   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to assets in Amazon SageMaker Unified Studio](subscribe-to-data-assets-managed.md "subscribe-to-data-assets-managed.md").

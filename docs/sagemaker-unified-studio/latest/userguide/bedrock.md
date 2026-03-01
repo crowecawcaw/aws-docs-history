@@ -18,8 +18,7 @@ Amazon Bedrock in SageMaker Unified Studio provides various options for discover
 Amazon Bedrock models and apps.
 
 With the model catalog you can find information about the Amazon Bedrock models that are available to you and decide which model is
-suitable for your use case. Different models have different capabilities and modalities. For more information, see [Find serverless models with the Amazon Bedrock model
-catalog](model-catalog.md "model-catalog.md").
+suitable for your use case. Different models have different capabilities and modalities. For more information, see [Find serverless models with the Amazon Bedrock model catalog](model-catalog.md "model-catalog.md").
 
 Amazon Bedrock in SageMaker Unified Studio offers two playgrounds for you to experiment with Amazon Bedrock models in: the [chat](bedrock-explore-chat-playground.md "bedrock-explore-chat-playground.md") playground and the [image and video](explore-image-playground.md "explore-image-playground.md") playground. With the chat playground,
 you can generate text responses from a model by sending text and image prompts. You can also interact with chat agent apps that have been shared with you.

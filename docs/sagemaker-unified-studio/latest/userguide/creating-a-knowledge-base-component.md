@@ -13,8 +13,7 @@ a knowledge base component.
 - [Use a Local file as a data source](data-source-document.md "data-source-document.md")
 - [Use a web crawler as a data source](data-source-document-web-crawler.md "data-source-document-web-crawler.md")
 - [Use project data as a data source](data-source-project.md "data-source-project.md")
-- [Understanding security boundaries with structured data sources in an Amazon Bedrock knowledge
-  base](kb-security-boundaries.md "kb-security-boundaries.md")
+- [Understanding security boundaries with structured data sources in an Amazon Bedrock knowledge base](kb-security-boundaries.md "kb-security-boundaries.md")
 - [Chunking and parsing with knowledge bases](kb-chunking-parsing.md "kb-chunking-parsing.md")
   You can create a Knowledge base as a component in an Amazon Bedrock in SageMaker Unified Studio project. If you are
   creating an app, you can also create a Knowledge Base when you configure the app. When you create

@@ -1,6 +1,4 @@
-# Retrieving AWS client with
-
-SDK for Python (Boto3)
+# Retrieving AWS client with SDK for Python (Boto3)
 
 You can retrieve an SDK for Python (Boto3) AWS client initialized with the connection's
 credentials.

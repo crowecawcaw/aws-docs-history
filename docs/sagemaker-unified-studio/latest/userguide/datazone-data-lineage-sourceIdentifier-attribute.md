@@ -1,6 +1,4 @@
-# The importance of
-
-the sourceIdentifier attribute to lineage nodes
+# The importance of the sourceIdentifier attribute to lineage nodes
 
 Every lineage node is uniquely identified by its sourceIdentifier (usually
 provided as part of open-lineage event) in addition to system generated nodeId.

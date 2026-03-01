@@ -23,34 +23,23 @@ For more information, see [Amazon SageMaker Unified Studio terminology and conce
 
 ###### Topics
 
-- [Configure
-  Lake Formation permissions for Amazon SageMaker Unified Studio](lake-formation-permissions-for-amazon-sagemaker-unified-studio.md "lake-formation-permissions-for-amazon-sagemaker-unified-studio.md")
+- [Configure Lake Formation permissions for Amazon SageMaker Unified Studio](lake-formation-permissions-for-amazon-sagemaker-unified-studio.md "lake-formation-permissions-for-amazon-sagemaker-unified-studio.md")
 - [Create custom asset types in Amazon SageMaker Unified Studio](create-asset-types.md "create-asset-types.md")
-- [Create an Amazon SageMaker Unified Studio data source for
-  AWS Glue in the project catalog](data-source-glue.md "data-source-glue.md")
-- [Create an Amazon SageMaker Unified Studio data source for
-  Amazon Redshift in the project catalog](create-redshift-data-source.md "create-redshift-data-source.md")
-- [Create an Amazon SageMaker Unified Studio data source for
-  Amazon SageMaker AI in the project catalog](create-sagemaker-data-source.md "create-sagemaker-data-source.md")
+- [Create an Amazon SageMaker Unified Studio data source for AWS Glue in the project catalog](data-source-glue.md "data-source-glue.md")
+- [Create an Amazon SageMaker Unified Studio data source for Amazon Redshift in the project catalog](create-redshift-data-source.md "create-redshift-data-source.md")
+- [Create an Amazon SageMaker Unified Studio data source for Amazon SageMaker AI in the project catalog](create-sagemaker-data-source.md "create-sagemaker-data-source.md")
 - [Edit a data source in Amazon SageMaker Unified Studio](editing-a-data-source.md "editing-a-data-source.md")
 - [Delete a data source in Amazon SageMaker Unified Studio](removing-a-data-source.md "removing-a-data-source.md")
-- [Publish assets to the Amazon SageMaker Unified Studio catalog from the
-  project inventory](publishing-data-asset.md "publishing-data-asset.md")
+- [Publish assets to the Amazon SageMaker Unified Studio catalog from the project inventory](publishing-data-asset.md "publishing-data-asset.md")
 - [Share assets](share-assets.md "share-assets.md")
-- [Manage inventory and curate assets in
-  Amazon SageMaker Unified Studio](update-metadata.md "update-metadata.md")
-- [Manually create an asset in
-  Amazon SageMaker Unified Studio](create-data-asset-manually.md "create-data-asset-manually.md")
-- [Unpublish an asset from the
-  Amazon SageMaker Catalog](archive-data-asset.md "archive-data-asset.md")
+- [Manage inventory and curate assets in Amazon SageMaker Unified Studio](update-metadata.md "update-metadata.md")
+- [Manually create an asset in Amazon SageMaker Unified Studio](create-data-asset-manually.md "create-data-asset-manually.md")
+- [Unpublish an asset from the Amazon SageMaker Catalog](archive-data-asset.md "archive-data-asset.md")
 - [Delete an Amazon SageMaker Unified Studio asset](delete-data-asset.md "delete-data-asset.md")
-- [Manually start a data source run in
-  Amazon SageMaker Unified Studio](manually-start-data-source-run.md "manually-start-data-source-run.md")
+- [Manually start a data source run in Amazon SageMaker Unified Studio](manually-start-data-source-run.md "manually-start-data-source-run.md")
 - [Asset revisions in Amazon SageMaker Unified Studio](asset-versioning.md "asset-versioning.md")
 - [Data quality in Amazon SageMaker Unified Studio](data-quality.md "data-quality.md")
 - [Using machine learning and generative AI in Amazon SageMaker Unified Studio](autodoc.md "autodoc.md")
 - [Data lineage in Amazon SageMaker Unified Studio](datazone-data-lineage.md "datazone-data-lineage.md")
-- [Analyze Amazon SageMaker Unified Studio data with external analytics
-  applications via JDBC connection](query-with-jdbc.md "query-with-jdbc.md")
-- [Metadata enforcement rules for
-  publishing](metadata-rules-publishing.md "metadata-rules-publishing.md")
+- [Analyze Amazon SageMaker Unified Studio data with external analytics applications via JDBC connection](query-with-jdbc.md "query-with-jdbc.md")
+- [Metadata enforcement rules for publishing](metadata-rules-publishing.md "metadata-rules-publishing.md")

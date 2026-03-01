@@ -1,6 +1,4 @@
-# Create
-
-new data products in Amazon SageMaker Unified Studio
+# Create new data products in Amazon SageMaker Unified Studio
 
 Amazon SageMaker Unified Studio enables data producers to group data assets into well-defined,
 self-contained packages called data products that are tailored for specific business use

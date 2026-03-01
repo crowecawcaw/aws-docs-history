@@ -21,9 +21,7 @@ includes:
 3. Under **Your projects**, choose your project.
 4. If not open already, choose the **Project details** tab.
 
-## View the SageMaker AI domain details associated
-
-with your project
+## View the SageMaker AI domain details associated with your project
 
 A SageMaker AI domain is created for your Amazon SageMaker Unified Studio Project. You may need to update your
 SageMaker AI domain to update your Amazon SageMaker Unified Studio Project. Use the following instructions to get the
