@@ -30,7 +30,7 @@ partner a dedicated staging account and the associated, unique AWS endpoint
 
 `12.1.2.1`   The assigned staging account endpoint
 is set as the "factory default" for the Endpoint configuration parameter (see
-[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ).
+[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")).
 
 ### 12.1.3 ExpressLink Birth Certificate
 
@@ -140,18 +140,15 @@ Steps 1 and 2 are facilitated by the staging account assigned to each manufactur
 and managed by AWS. Steps 3 and 4 require the customer to implement a claim
 mechanism that interacts with the AWS managed staging account. Step 5 is
 facilitated by a specific device feature as described in
-[21.3.2 ExpressLink onboarding
-states and transitions](#elpg-provisioning-onboarding-states "#elpg-provisioning-onboarding-states").
+[21.3.2 ExpressLink onboarding states and transitions](#elpg-provisioning-onboarding-states "#elpg-provisioning-onboarding-states").
 
 Additional steps to register the user, create an end-user (application) account,
 collect user identifiable information (user name and password) and bind it to the
 ExpressLink thing are left to the OEM application.
 
-### 21.3.2 ExpressLink onboarding
+### 21.3.2 ExpressLink onboarding states and transitions
 
-states and transitions
-
-The configuration parameter Endpoint (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ) controls the onboarding state of the device. The
+The configuration parameter Endpoint (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")) controls the onboarding state of the device. The
 device is in the _staging_ state when the Endpoint parameter
 (string) matches the factory default value that corresponds to an AWS-managed
 staging account assigned to each manufacturer. The device is in the

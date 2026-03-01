@@ -17,7 +17,7 @@ between two devices. Devices can assume one of two roles:
    set of commands described in this chapter. Additionally, a set of events is available
    to support asynchronous communication with the host (see the BLE specific events in
    [Table 4 - ExpressLink event codes](elpg-event-handling.md#elpg-table4 "elpg-event-handling.md#elpg-table4")) and the configuration
-   parameters in the ExpressLink configuration dictionary (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") ).
+   parameters in the ExpressLink configuration dictionary (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")).
 
 **BLE Central Device Configuration**
 
@@ -72,7 +72,7 @@ Where _type_ is:
 
 ###### Note
 
-If the peer address was found using AT+BLE GET DISCOVER (see [13.2.2 BLE GET DISCOVER   »Retrieve the collected advertising information«](#elpg-ble-get-discover-command "#elpg-ble-get-discover-command") ), the address
+If the peer address was found using AT+BLE GET DISCOVER (see [13.2.2 BLE GET DISCOVER   »Retrieve the collected advertising information«](#elpg-ble-get-discover-command "#elpg-ble-get-discover-command")), the address
 type should match the type reported as the last response item..
 
 - **customFilters** (JSON object) – additional
@@ -232,7 +232,7 @@ Details:
   will be rejected since this pairing method does not provide MITM protection.
 - **Authorize**:
   If set, will generate an Authorize event (see [Table 4 - ExpressLink event codes](elpg-event-handling.md#elpg-table4 "elpg-event-handling.md#elpg-table4") - ExpressLink event codes).
-  The host is required to approve or deny access to the characteristic (see [13.3.6 BLE AUTH[#] [0/1]   »Authorize access to a characteristic«](#elpg-ble-auth-command "#elpg-ble-auth-command") )
+  The host is required to approve or deny access to the characteristic (see [13.3.6 BLE AUTH[#] [0/1]   »Authorize access to a characteristic«](#elpg-ble-auth-command "#elpg-ble-auth-command"))
 - **Write-Without-Response**:
   (this applies only to the write property) If set,
   a write command will not generate a response (shortening the transaction).
@@ -395,7 +395,7 @@ version of the ExpressLink specification allows a device to be configured as Cen
 or Peripheral but not both. Once a BLE interface is initialized, the only way to
 terminate it or change its mode of operation is to use the RESET command. However,
 doing so will disconnect the device (if it is connected) and will reset all internal
-state. Non-persistent configuration parameters (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") ) will be reinitialized, all subscriptions will be
+state. Non-persistent configuration parameters (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")) will be reinitialized, all subscriptions will be
 terminated, and the message queues will also be emptied.
 
 _For Central Mode:_

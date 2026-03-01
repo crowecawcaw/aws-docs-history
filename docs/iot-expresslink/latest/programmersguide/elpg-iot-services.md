@@ -23,7 +23,7 @@ to 0 after each periodic update (or set to 1 upon a device reset/reboot for the
 corresponding events).
 
 The device defender feature is activated by setting the _DefenderPeriod_
-configuration parameter (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") )
+configuration parameter (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2"))
 to a value greater than 0 in the configuration dictionary (using the AT+CONF command).
 
 The _DefenderPeriod_ configuration parameter value indicates the
@@ -45,14 +45,13 @@ command, power cycle or the RST pin).
 Module manufacturers can offer additional custom metrics specific to their model.
 They must prefix the metric with the distinctive **Model**
 name and document the feature in the device datasheet. (See the "About" Configuration
-parameter in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") .
+parameter in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2").
 
 ###### Note
 
 Access to the AWS IoT Device Defender service is available only when the device
 is in the _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")) and the customer/OEM AWS IoT account
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")) and the customer/OEM AWS IoT account
 is properly configured.
 
 Examples:
@@ -71,7 +70,7 @@ AT+CONF DefenderPeriod=3600  # Device Defender metrics are updated every hour
 
 SHADOW commands are provided to facilitate use of the [AWS IoT Device
 Shadow service](../../../iot/latest/developerguide/iot-device-shadows.md "../../../iot/latest/developerguide/iot-device-shadows.md"). Set the **EnableShadow** configuration
-parameter to 1 to enable support for these commands. (See [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") .) To provide Shadow support, a module automatically handles
+parameter to 1 to enable support for these commands. (See [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3").) To provide Shadow support, a module automatically handles
 subscriptions to the various Device Shadow MQTT topics, and parses and reports
 the responses provided by the service to the device in the form of SHADOW events.
 
@@ -79,8 +78,7 @@ the responses provided by the service to the device in the form of SHADOW events
 
 Access to the AWS IoT Device Shadow service is allowed only when the module
 is in the _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), that is, when the module is
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), that is, when the module is
 connected to the customer's AWS account.
 
 The SHADOW INIT# command manages subscriptions to Shadow topics. It must be invoked,
@@ -102,7 +100,7 @@ documented in the manufacturer's module datasheet.
 The corresponding list of non-persistent parameters,
 **Shadow1 .. Shadow\***{MaxShadow}\*,
 will be pre-populated in the Configuration Dictionary and initialized to empty strings.
-(See [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") .)
+(See [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3").)
 
 Device Shadow support requires a continuous connection with the AWS IoT Core Service.
 Such a connection must be established before any SHADOW commands are issued and must
@@ -178,8 +176,7 @@ performed.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0 or the device is not in the
 _onboarded_ state, see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 ### 10.2.4 SHADOW*[#]* DOC   »Request a Device Shadow document«
 
@@ -222,8 +219,7 @@ Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the maximum number of simultaneous
 asynchronous requests was exceeded, or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 ### 10.2.5 SHADOW*[#]* GET DOC   »Retrieve a device shadow document«
 
@@ -266,8 +262,7 @@ dictionary is empty.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 Example:
 
@@ -290,7 +285,7 @@ OK 0 {…} {EOL}              # The Device Shadow document request was rejected!
 Send a request to the Device Shadow service to update a device shadow. The
 _{new state}_ is a JSON document and should NOT contain a
 "client-token" unless the _ShadowToken_ configuration parameter
-is set to empty (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ),
+is set to empty (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")),
 in which case all shadow notifications are left for the host to manage.
 
 `10.2.6.1`   If the numerical shadow parameter
@@ -339,8 +334,7 @@ configuration parameter set to 0).
 If a client-token was present in the update document but
 _ShadowToken_ is NOT empty (SHADOW notifications are
 managed), or if the device is not in the _onboarded_
-state (see [21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), then the module
+state (see [21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), then the module
 returns 'SHADOW ERROR'.
 
 ### 10.2.7 SHADOW*[#]* GET UPDATE   »Retrieve a device shadow update response«
@@ -382,8 +376,7 @@ dictionary is empty.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 Example:
 
@@ -445,8 +438,7 @@ performed.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 Example:
 
@@ -503,8 +495,7 @@ The device is currently not connected and the request cannot be performed.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 Example:
 
@@ -553,8 +544,7 @@ dictionary is empty.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 ### 10.2.11 SHADOW*[#]* DELETE   »Request the deletion of a Shadow document«
 
@@ -597,8 +587,7 @@ Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the maximum number of simultaneous
 asynchronous requests was exceeded, or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 ### 10.2.12 SHADOW*[#]* GET DELETE   »Request a Shadow delete response«
 
@@ -638,8 +627,7 @@ dictionary is empty.
 Shadow support is disabled (the _EnableShadow_
 configuration parameter set to 0), or the device is not in the
 _onboarded_ state (see
-[21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 
 ### 10.2.13 SHADOW EVENTS
 

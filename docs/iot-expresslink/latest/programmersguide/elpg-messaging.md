@@ -3,7 +3,7 @@
 ## 5.1 Messaging topic model
 
 The ExpressLink messaging system relies on a list of topics defined in the
-configuration dictionary (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ). Each topic is assigned an index that can be used to
+configuration dictionary (see [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")). Each topic is assigned an index that can be used to
 dereference the assigned string value. Index 0 has a special meaning, while all
 other index values up to an implementation-specific maximum index can be used by the
 host to define additional topics. Messaging topics defined in this list are managed
@@ -28,7 +28,7 @@ Topics are defined to be compatible with the MQTT 3.1.1 standard
 ### 5.1.3 SEND*[#] message*   »Publish msg on a topic selected from topic list«
 
 Send a message on a topic provided in the configuration dictionary. The
-configuration parameter QoS value (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") ) at the time the command is issued determines the
+configuration parameter QoS value (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")) at the time the command is issued determines the
 applicable Quality of Service (only QoS levels 0 and 1 are supported!).
 
 ###### Where:

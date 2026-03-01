@@ -37,8 +37,7 @@ Command. (See [9.2 OTA commands](#elpg-ota-commands "#elpg-ota-commands").)
 ###### Note
 
 The OTA service is supported only when the device is in the
-_onboarded_ state (see [21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), that is, only when the module is
+_onboarded_ state (see [21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")), that is, only when the module is
 connected to the customer's AWS account.
 
 ## 9.1 ExpressLink module support of Host Processor OTA

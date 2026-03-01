@@ -222,7 +222,7 @@ lines expected if this suffix is omitted.
 
 Indicates the command was invalid or an error occurred while running
 it. The required numerical suffix is an error code as defined in
-[Table 1 - Error codes](#elpg-table1 "#elpg-table1") .
+[Table 1 - Error codes](#elpg-table1 "#elpg-table1").
 
 _{separator}_
 
@@ -317,14 +317,13 @@ module returns 'OK'.
 ### 4.7.1 CONNECT?   »Request the connection status«
 
 Requests the current status of the connection to the AWS cloud and the device
-onboarding state (see [21.3.2 ExpressLink onboarding
-states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
+onboarding state (see [21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")).
 The connection status indicates the completion of the entire sequence of actions
 required for the module to connect and authenticate with the AWS cloud. The
 onboarding state is determined by comparing the current Endpoint configuration
 parameter (string) against the module default Endpoint (staging account) string
 that is hardcoded as the factory reset value for the parameter (see the Endpoint
-entry in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ).
+entry in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")).
 
 ###### Returns:
 
@@ -356,7 +355,7 @@ Request a connection to the AWS IoT Core account, indicated by the endpoint conf
 This command activates the (wireless) connectivity features of the ExpressLink module and,
 if successful, will bring the device to a higher power consumptions state.
 If the configuration parameter LWTConfig is set (not empty) in the
-[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") ,
+[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2"),
 a “last will and testament” is requested upon connecting to the MQTT broker using the LWTConfig options and the LWTMessage.
 
 ###### Note
@@ -364,7 +363,7 @@ a “last will and testament” is requested upon connecting to the MQTT broker 
 This command is blocking. The connection process can require a long time during
 which no further communication is possible with the module until one of the following
 responses is returned to the host. (For a non-blocking option, see the asynchronous
-command [4.7.8 CONNECT!   »Non-blocking request to connect to IoT Core«](#elpg-connect-nonblocking-command "#elpg-connect-nonblocking-command") .
+command [4.7.8 CONNECT!   »Non-blocking request to connect to IoT Core«](#elpg-connect-nonblocking-command "#elpg-connect-nonblocking-command").
 
 ###### Returns:
 
@@ -632,7 +631,7 @@ a new CONNECT command to attempt to establish a connection using the newly enter
 ### 4.7.6 RESET   »Request a full reset of the ExpressLink internal state«
 
 This command disconnects the device (if connected) and resets its internal state. Non-persistent
-configuration parameters (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") ) are
+configuration parameters (see [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")) are
 reinitialized, all subscriptions are terminated, and the message queue is emptied.
 
 ###### Returns:
@@ -648,9 +647,9 @@ is added to the event queue when the process is completed.
 
 This command performs a full factory reset of the ExpressLink module, including
 re-initializing all non-persistent configuration parameters (see
-[Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3") ) and selected persistent
-parameters (as indicated in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")  
- in the Factory Reset column), and the message queue is emptied.
+[Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")) and selected persistent
+parameters (as indicated in [Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2")
+in the Factory Reset column), and the message queue is emptied.
 
 ###### Returns:
 
@@ -667,7 +666,7 @@ Request a connection to the AWS IoT Core account indicated by the endpoint confi
 This command activates the (wireless) connectivity features of the ExpressLink module and,
 if successful, brings the device to a higher power consumptions state.
 If the LWTConfig configuration parameter (see
-[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2") )
+[Table 2 - Configuration Dictionary Persistent Keys](elpg-configuration-dictionary.md#elpg-table2 "elpg-configuration-dictionary.md#elpg-table2"))
 is set (not empty), the “last will and testament” is requested
 upon connecting to the MQTT broker using the LWTConfig options and LWTMessage.
 
@@ -677,7 +676,7 @@ This command is non-blocking and immediately returns OK or an error as documente
 below. However, it can take a long time for the connection process to complete, and until
 it is complete, other power and connection control commands are rejected. Once the
 connection is established, a CONNECT event is issued. (For a blocking option, see the
-synchronous command [4.7.2 CONNECT   »Establish a connection to an AWS IoT Core Endpoint«](#elpg-connect-command "#elpg-connect-command") .
+synchronous command [4.7.2 CONNECT   »Establish a connection to an AWS IoT Core Endpoint«](#elpg-connect-command "#elpg-connect-command").
 
 ###### Returns:
 
