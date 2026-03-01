@@ -122,8 +122,7 @@ type. Not all instance types are available in all locations.
    default, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md") for managed
    hosting. Also review Amazon GameLift Servers [quotas](../../../general/latest/gr/gamelift.md#limits_gamelift "../../../general/latest/gr/gamelift.md#limits_gamelift") on locations per fleet. 2. Choose to use either **On-demand** or
    **Spot** instances for this fleet. For
-   more information about fleet types, see [On-Demand Instances versus Spot
-   Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
+   more information about fleet types, see [On-Demand Instances versus Spot Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 
 2. Choose an Amazon EC2 **Instance configuration**
    that meets your needs and is available in all your selected

@@ -1,6 +1,4 @@
-# Integrate Amazon GameLift Servers into a Unity
-
-project
+# Integrate Amazon GameLift Servers into a Unity project
 
 Learn how to integrate the Amazon GameLift Servers SDK for Unity into your game projects to access the full
 server SDK feature set.
@@ -13,13 +11,10 @@ try out your game components in action. See [Amazon GameLift Servers plugin for
 
 Additional resources:
 
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
 - [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md")
 
-## Install the server SDK for
-
-Unity
+## Install the server SDK for Unity
 
 Get the open-source Amazon GameLift Servers for Unity from [GitHub](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity").
 The repository's readme files contain prerequisites and installation
@@ -47,9 +42,7 @@ to complete the following steps:
    your workstation compute so that your running game server processes can access
    it.
 
-## Add Amazon GameLift Servers server code to your Unity
-
-project
+## Add Amazon GameLift Servers server code to your Unity project
 
 Your game server communicates with the Amazon GameLift Servers service to receive instructions and
 report ongoing status. To accomplish this, you add game server code that uses the Amazon GameLift Servers
@@ -73,12 +66,10 @@ testing. It includes code to:
 The sample code provided establishes communication with the Amazon GameLift Servers service.
 It also implements a set of callback functions that respond to requests from the Amazon GameLift Servers service. For
 more information on each function and what the code does, see [Initialize the server process](gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "gamelift-sdk-server-api.md#gamelift-sdk-server-initialize"). For more information on the SDK actions and
-data types used in this code, read [C# server SDK 5.x for Amazon GameLift Servers --
-Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
+data types used in this code, read [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
 
 The sample code shows how to add the required functionality, as described in [Add Amazon GameLift Servers to your
-game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). For more information on server SDK actions, see the [C# server SDK 5.x for Amazon GameLift Servers --
-Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
+game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). For more information on server SDK actions, see the [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
 
 ```
 using System.Collections.Generic;
@@ -223,10 +214,8 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
   example, you might want to add player sessions with unique player IDs, set up
   matchmaking backfill, or manage game server access to your other AWS resources
   (such as a database or content storage service). See these topics for guidance:
-  - [Add Amazon GameLift Servers to your game server with the server
-    SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-  - [C++ (Unreal) server SDK 5.x for
-    Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+  - [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+  - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 - Customize your game client component to request game sessions, receive
   connection information, and connect directly to a game server to play a game.

@@ -1,6 +1,4 @@
-# Plugin for Unreal: Deploy your game to a
-
-managed container fleet
+# Plugin for Unreal: Deploy your game to a managed container fleet
 
 Use this guided plugin workflow to create a container image for your game server and
 deploy it to a container-based hosting solution. If you haven't yet integrated your game
@@ -18,8 +16,7 @@ This workflow assumes that you’ve completed the following tasks.
   start new game sessions and report game session status. If you haven’t
   completed this task, we recommend that you follow the plugin workflow Host
   with Anywhere first. For guidance on preparing your game server code, see
-  [Update your game server
-  code](unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-server "unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-server"). For a
+  [Update your game server code](unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-server "unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-server"). For a
   managed container fleet, you must integrate your game with server SDK
   version 5.2 or higher.
 
@@ -64,7 +61,7 @@ On Linux:
 - **Integrate your game client code with
   Amazon GameLift Servers.** One way to complete this task is to add a sample asset
   (included with the plugin) that’s already integrated. For guidance on
-  preparing your game client code, see [Integrate your client game map](unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-client "unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-client") .
+  preparing your game client code, see [Integrate your client game map](unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-client "unreal-plugin-integrate.md#unreal-plugin-anywhere-integrate-simple-client").
 - **Install Docker on your local
   machine.**
   You need this tool installed if you want the plugin to create

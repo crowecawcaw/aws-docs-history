@@ -17,14 +17,10 @@ Some example scenarios include:
 - Access custom resources that are deployed and running on Amazon Elastic Compute Cloud (Amazon EC2).
   Amazon GameLift Servers supports these methods for establishing access:
 
-- [Access AWS resources with an
-  IAM role](#gamelift-sdk-server-resources-roles "#gamelift-sdk-server-resources-roles")
-- [Access AWS resources with VPC
-  peering](#gamelift-sdk-server-resources-vpc "#gamelift-sdk-server-resources-vpc")
+- [Access AWS resources with an IAM role](#gamelift-sdk-server-resources-roles "#gamelift-sdk-server-resources-roles")
+- [Access AWS resources with VPC peering](#gamelift-sdk-server-resources-vpc "#gamelift-sdk-server-resources-vpc")
 
-## Access AWS resources with an
-
-IAM role
+## Access AWS resources with an IAM role
 
 Use an IAM role to specify who can access your resources and set limits on that
 access. Trusted parties can "assume" a role and get temporary security credentials that
@@ -34,10 +30,8 @@ related to the resource, they must include the credentials.
 To set up access controlled by an IAM role, do the following tasks:
 
 1. [Create the IAM role](#gamelift-sdk-server-resources-roles-create "#gamelift-sdk-server-resources-roles-create")
-2. [Modify applications to acquire
-   credentials](#gamelift-sdk-server-resources-roles-apps "#gamelift-sdk-server-resources-roles-apps")
-3. [Associate a fleet with the IAM
-   role](#gamelift-sdk-server-resources-roles-fleet "#gamelift-sdk-server-resources-roles-fleet")
+2. [Modify applications to acquire credentials](#gamelift-sdk-server-resources-roles-apps "#gamelift-sdk-server-resources-roles-apps")
+3. [Associate a fleet with the IAM role](#gamelift-sdk-server-resources-roles-fleet "#gamelift-sdk-server-resources-roles-fleet")
 
 ### Create the IAM role
 
@@ -53,9 +47,7 @@ permissions as much as possible.
 After you create the role, take note of the role's Amazon Resource Name (ARN). You
 need the role ARN during fleet creation.
 
-### Modify applications to acquire
-
-credentials
+### Modify applications to acquire credentials
 
 In this step, you configure your applications to acquire security credentials for
 the IAM role and use them when interacting with your AWS resources . See the
@@ -133,9 +125,7 @@ application to access to the AWS resource. For more information, see
 temporary credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the
 _IAM User Guide_.
 
-### Associate a fleet with the IAM
-
-role
+### Associate a fleet with the IAM role
 
 After you've created the IAM role and updated the applications in your game server
 build to get and use the access credentials, you can deploy a fleet. When you configure
@@ -150,9 +140,7 @@ the new fleet, set the following parameters:
 You must set these values when you create the fleet. They can't be updated
 later.
 
-## Access AWS resources with VPC
-
-peering
+## Access AWS resources with VPC peering
 
 You can use Amazon Virtual Private Cloud (Amazon VPC) peering to communicate between applications running on a
 Amazon GameLift Servers instance and another AWS resource. A VPC is a virtual private network that you

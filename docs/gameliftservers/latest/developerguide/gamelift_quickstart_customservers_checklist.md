@@ -10,16 +10,12 @@ months before conducting your first load test.
 
 ###### Topics
 
-- [Get your
-  game ready](#gamelift_quickstart_customservers_prepgameserver_checklist "#gamelift_quickstart_customservers_prepgameserver_checklist")
+- [Get your game ready](#gamelift_quickstart_customservers_prepgameserver_checklist "#gamelift_quickstart_customservers_prepgameserver_checklist")
 - [Prepare for testing](#gamelift_quickstart_customservers_test_checklist "#gamelift_quickstart_customservers_test_checklist")
 - [Prepare for launch](#gamelift_quickstart_customservers_launch_checklist "#gamelift_quickstart_customservers_launch_checklist")
-- [Plan for
-  post-launch updates](#gamelift_quickstart_customservers_launch_postchecklist "#gamelift_quickstart_customservers_launch_postchecklist")
+- [Plan for post-launch updates](#gamelift_quickstart_customservers_launch_postchecklist "#gamelift_quickstart_customservers_launch_postchecklist")
 
-## Get your
-
-game ready
+## Get your game ready
 
 - **[Critical]** Verify that you've completed all the
   [development roadmap steps](getting-started-intro.md "getting-started-intro.md")  
@@ -81,9 +77,7 @@ game ready
   monitor your game launch in a launch room.
 - Monitor player latency and player experience.
 
-## Plan for
-
-post-launch updates
+## Plan for post-launch updates
 
 - [Tune scaling policy](fleets-manage-capacity.md "fleets-manage-capacity.md") to minimize
   idle capacity based on player usage.

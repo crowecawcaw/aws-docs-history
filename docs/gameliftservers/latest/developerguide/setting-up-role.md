@@ -19,9 +19,7 @@ you use Amazon GameLift Servers FleetIQ to optimize game hosting on your Amazon
 In the following procedure, create a role with a custom permissions policy and a trust
 policy that allows Amazon GameLift Servers to assume the role.
 
-## Create an IAM service role for an Amazon GameLift Servers managed EC2
-
-fleet
+## Create an IAM service role for an Amazon GameLift Servers managed EC2 fleet
 
 **Step 1: Create a permissions policy.**
 
@@ -96,9 +94,7 @@ JSON
    entities** and **Added permissions**.
 6. Choose **Create role** to save your new role.
 
-## Create an IAM role for Amazon GameLift Servers managed
-
-containers
+## Create an IAM role for Amazon GameLift Servers managed containers
 
 If you're using Amazon GameLift Servers managed containers, you need to create an IAM service role for
 use with a container fleet. This role grants limited permissions that Amazon GameLift Servers needs to

@@ -69,9 +69,7 @@ aws gamelift update-game-session-queue \
     --priority-configuration PriorityOrder="COST','LOCATION","DESTINATION",LocationOrder="us-east-1","us-east-2","ca-central-1","us-west-2" \
 ```
 
-## Prioritize placements by player
-
-latency
+## Prioritize placements by player latency
 
 If you want to give your players the best possible player experience and ensure minimal latency, take the following steps when setting up your game session placement
 system:

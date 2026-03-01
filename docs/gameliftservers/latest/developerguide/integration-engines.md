@@ -10,8 +10,7 @@ In addition to the engine-specific information provided in this topic, find addi
 help with integrating Amazon GameLift Servers into your game servers, clients and services in the following
 topics:
 
-- [Add Amazon GameLift Servers to your game server with the server
-  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
   – Detailed instructions on integrating Amazon GameLift Servers into a game server.
 - [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")
   – Detailed instructions on integrating into a game client or service,
@@ -24,8 +23,7 @@ topics:
 Prepare your game servers for hosting on Amazon GameLift Servers by adding the [server SDK for Amazon GameLift Servers for Unreal
 Engine](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md") to your project and implementing the required server
 functionality. For help setting up the Unreal Engine plugin and adding Amazon GameLift Servers code,
-see [Integrate Amazon GameLift Servers into an Unreal Engine
-project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
+see [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
 
 ###### Game clients and services
 
@@ -40,8 +38,7 @@ integrate Amazon GameLift Servers into your Unreal Engine game project, see [Int
 
 Prepare your game servers for hosting on Amazon GameLift Servers by adding the [server SDK for Amazon GameLift Servers for C#](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md") to
 your project and implementing the required server functionality. For help setting up
-with Unity and adding Amazon GameLift Servers code, see [Integrate Amazon GameLift Servers into a Unity
-project](integration-engines-unity-using.md "integration-engines-unity-using.md").
+with Unity and adding Amazon GameLift Servers code, see [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md").
 
 ###### Game clients and services
 

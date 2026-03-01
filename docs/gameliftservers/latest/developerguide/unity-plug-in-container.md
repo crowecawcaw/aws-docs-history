@@ -1,6 +1,4 @@
-# Plugin for Unity: Deploy your game to a
-
-managed container fleet
+# Plugin for Unity: Deploy your game to a managed container fleet
 
 Use this guided plugin workflow to create a container image for your game server and
 deploy it to a container-based hosting solution. When you’ve successfully completed this
@@ -22,7 +20,7 @@ This workflow assumes that you’ve completed the following tasks.
 
 ###### Note
 
-If you're using the startup game map, this task is already
+If you imported the sample game, this task is already
 done for you.
 
 - **Package your game server executable to run on
@@ -109,6 +107,108 @@ Use the assessment questions to tell the plugin what steps it needs to take:
     image from a list. The list includes all Amazon ECR repositories for the
     AWS account and default AWS Region in your selected user
     profile. You can select a public or private repository.
+  - Unity 6.3 on Linux requires glibc 2.35. Amazon Linux 2023 includes glibc 2.34. A Dockerfile template is provided below which handles
+    building glibc 2.35 from source and configuring the Unity binaries to use glibc 2.35.
+
+This template contains the minimum instructions that a game server container needs to
+usable in an Amazon GameLift Servers fleet. Modify the content as needed for your game server.
+
+```
+# Base image
+# ----------
+  # Add the base image that you want to use over here,
+  # Make sure to use an image with the same architecture as the
+  # Instance type you are planning to use on your fleets.
+FROM public.ecr.aws/amazonlinux/amazonlinux
+
+# Game build directory
+# --------------------
+  # Add your game build directory in the 'GAME_BUILD_DIRECTORY' env variable below.
+  #
+# Game executable
+# ---------------
+  # Add the relative path to your executable in the 'GAME_EXECUTABLE' env variable below.
+  # The game build provided over here needs to be integrated with gamelift server sdk.
+  # This template assumes that the executable path is relative to the game build directory.
+  #
+# Launch parameters
+# -----------------
+  # Add any launch parameters to pass into your executable in the 'LAUNCH_PARAMS' env variable below.
+  #
+# Default directory
+# -----------------
+  # The value provided in 'HOME_DIR' below will be where the game executable and logs exist.
+  #
+ARG GAME_BUILD_DIRECTORY
+ARG GAME_EXECUTABLE
+ARG LAUNCH_PARAMS
+
+ENV GAME_BUILD_DIRECTORY=$GAME_BUILD_DIRECTORY \
+    GAME_EXECUTABLE=$GAME_EXECUTABLE \
+    LAUNCH_PARAMS=$LAUNCH_PARAMS \
+    HOME_DIR="/local/game"
+
+# install dependencies as necessary
+RUN yum install -y shadow-utils bison wget gcc make patchelf tar gzip && \
+    yum clean all && rm -fr /var/cache
+
+RUN mkdir -p $HOME_DIR
+COPY .$GAME_BUILD_DIRECTORY/ $HOME_DIR
+
+# Change directory to home
+WORKDIR $HOME_DIR
+
+# Build glibc 2.35 and patch Unity binaries
+RUN GLIBC_VERSION="2.35" && \
+    INSTALL_PREFIX="/opt/glibc-${GLIBC_VERSION}" && \
+    ARCH=$(uname -m) && \
+    if [ "$ARCH" = "x86_64" ]; then \
+        INTERPRETER="${INSTALL_PREFIX}/lib/ld-linux-x86-64.so.2"; \
+        MONO_ARCH="x86_64"; \
+    elif [ "$ARCH" = "aarch64" ]; then \
+        INTERPRETER="${INSTALL_PREFIX}/lib/ld-linux-aarch64.so.1"; \
+        MONO_ARCH="aarch64"; \
+    else \
+        echo "ERROR: Unsupported architecture: $ARCH"; exit 1; \
+    fi && \
+    cd /tmp && \
+    wget -q "https://ftp.gnu.org/gnu/glibc/glibc-${GLIBC_VERSION}.tar.gz" && \
+    tar -xzf "glibc-${GLIBC_VERSION}.tar.gz" && \
+    cd "glibc-${GLIBC_VERSION}" && mkdir glibc-build && cd glibc-build && \
+    touch /etc/ld.so.conf && \
+    ../configure --prefix="${INSTALL_PREFIX}" && \
+    make -s all && make -s install && \
+    cd / && rm -rf /tmp/glibc-* && \
+    GLIBC_LIB="${INSTALL_PREFIX}/lib" && \
+    EXECUTABLE_NAME=$(echo "$GAME_EXECUTABLE" | sed 's/\.[^.]*$//') && \
+    DATA_DIR="$HOME_DIR/${EXECUTABLE_NAME}_Data" && \
+    patchelf --set-interpreter "$INTERPRETER" "$HOME_DIR/$GAME_EXECUTABLE" && \
+    patchelf --set-rpath "$GLIBC_LIB:$HOME_DIR:/lib64:$DATA_DIR/MonoBleedingEdge/$MONO_ARCH" "$HOME_DIR/$GAME_EXECUTABLE" && \
+    patchelf --set-rpath "$GLIBC_LIB:/lib64" "$HOME_DIR/UnityPlayer.so" && \
+    MONO_LIB="$DATA_DIR/MonoBleedingEdge/$MONO_ARCH/libmonobdwgc-2.0.so" && \
+    if [ -f "$MONO_LIB" ]; then patchelf --set-rpath "$GLIBC_LIB:/lib64" "$MONO_LIB"; fi && \
+    GAME_ASSEMBLY="$HOME_DIR/GameAssembly.so" && \
+    if [ -f "$GAME_ASSEMBLY" ]; then patchelf --set-rpath "$GLIBC_LIB:/lib64" "$GAME_ASSEMBLY"; fi
+
+RUN useradd -m gamescale && \
+    echo "gamescale ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    chown -R gamescale:gamescale $HOME_DIR
+
+# Add permissions to game build
+RUN chmod +x ./$GAME_EXECUTABLE
+
+USER gamescale
+
+# Check directory before starting the container
+RUN ls -lhrt .
+
+# Check path before starting the container
+RUN echo $PATH
+
+# Start the game build
+ENTRYPOINT ["/bin/sh", "-c", "./$GAME_EXECUTABLE $LAUNCH_PARAMS"]
+
+```
 
 ## Step 2: Configure image deployment
 

@@ -1,6 +1,4 @@
-# Development roadmap for hosting with Amazon GameLift Servers managed
-
-containers
+# Development roadmap for hosting with Amazon GameLift Servers managed containers
 
 This roadmap guides you through how to develop an Amazon GameLift Servers managed hosting solution for your
 containerized game servers. Managed containers is just one hosting solution that is offered
@@ -106,8 +104,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
 
 - **Create container group definitions.** Container
   group definitions describe the container architecture for a fleet. and
-  identify which container images to deploy. See [Create a container group definition for an Amazon GameLift Servers
-  container fleet](containers-create-groups.md "containers-create-groups.md"). Create your container group
+  identify which container images to deploy. See [Create a container group definition for an Amazon GameLift Servers container fleet](containers-create-groups.md "containers-create-groups.md"). Create your container group
   definition in the same AWS Region where the container images are stored.
   For more on choosing a fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location"). At a minimum, do the
   following:
@@ -200,8 +197,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   for game session status using a call to
   `DescribeGameSessionPlacement`. Before using a queue to
   process high volumes, however, you'll need to enable event notifications.
-  See [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md").
+  See [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 - **Add FlexMatch matchmaking (optional).** Build a
   matchmaking rule set and create a matchmaking configuration to work with
   your game session queue. For guidance on setting up a matchmaking system,
@@ -217,7 +213,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
 
 - Optimize your container fleet configuration.
   See [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md "containers-design-fleet.md").
-- Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
+- Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
 - If your game server needs to communicate other AWS resources, set up
   IAM roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add remote locations to your

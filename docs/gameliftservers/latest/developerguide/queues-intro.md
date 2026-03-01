@@ -21,8 +21,7 @@ finds an available game server and prompts it to start a game session.
 - [Queue characteristics](#queues-intro-characteristics "#queues-intro-characteristics")
 - [Best practices for Amazon GameLift Servers game session queues](#queues-best-practices "#queues-best-practices")
 - [Create a game session queue](queues-creating.md "queues-creating.md")
-- [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md")
+- [Set up event notification for game session placement](queue-notification.md "queue-notification.md")
 
 ## Queue characteristics
 
@@ -65,8 +64,7 @@ To get started by creating a basic starter queue, see [Create a game session que
 
 - [Best practices for Amazon GameLift Servers game session queues](#queues-best-practices "#queues-best-practices")
 - [Create a game session queue](queues-creating.md "queues-creating.md")
-- [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md")
+- [Set up event notification for game session placement](queue-notification.md "queue-notification.md")
 
 ## Best practices for Amazon GameLift Servers game session queues
 

@@ -18,10 +18,8 @@ GitHub.
 
 ###### Topics
 
-- [Integrate Amazon GameLift Servers with a Unity game server
-  project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
-- [Integrate Amazon GameLift Servers with a Unity game client
-  project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
+- [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
+- [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
 - [Install and set up the plugin](#unity-plug-in-sdk4-install "#unity-plug-in-sdk4-install")
 - [Test your game locally](#unity-plug-in-sdk4-test "#unity-plug-in-sdk4-test")
 - [Deploy a scenario](#unity-plug-in-sdk4-scenario "#unity-plug-in-sdk4-scenario")
@@ -183,8 +181,7 @@ together the oldest players in the waiting pool. It creates the following
 resources:
 
 - An Amazon Simple Notification Service topic that Amazon GameLift Servers publishes messages to. For more information on
-  SNS topics and notifications, see [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md").
+  SNS topics and notifications, see [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 - A Lambda function that's invoked by the message that communicates placement and
   game connection details.
 - An Amazon DynamoDB table to store placement and game connection details.
@@ -216,9 +213,7 @@ resources:
 To avoid unnecessary charges on your AWS account, remove the resources created by
 each scenario after you are done using them. Delete the corresponding CloudFormation stack.
 
-### Update AWS
-
-credentials
+### Update AWS credentials
 
 ###### Note
 
@@ -326,9 +321,7 @@ Client ID**. Choose the same AWS Region you used for the
 scenario deployment. You can then rebuild and run the game client using the
 deployed scenario resources.
 
-### Deleting resources created by the
-
-scenario
+### Deleting resources created by the scenario
 
 ###### Note
 
@@ -358,10 +351,8 @@ which uses server SDK 4.x or earlier.
 Integrate your Unity game with Amazon GameLift Servers by completing the following
 tasks:
 
-- [Integrate Amazon GameLift Servers with a Unity game server
-  project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
-- [Integrate Amazon GameLift Servers with a Unity game client
-  project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
+- [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
+- [Integrate Amazon GameLift Servers with a Unity game client project](integration-unity-client-sdk4.md "integration-unity-client-sdk4.md")
 
 The following diagram shows an example flow of integrating a game. In the diagram, a
 fleet with the game server is deployed to Amazon GameLift Servers. The game client communicates with the

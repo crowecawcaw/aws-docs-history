@@ -1,6 +1,4 @@
-# Set up event notification for game session
-
-placement
+# Set up event notification for game session placement
 
 You can use event notifications to monitor the status of individual placement requests. We
 recommend setting up event notifications for all games with high-volume placement

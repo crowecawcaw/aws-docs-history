@@ -7,8 +7,7 @@ game sessions and it provides regular game session status updates to the service
 your game servers with the server SDK before you deploy them for hosting.
 
 Use this server SDK reference to integrate your custom multiplayer game servers
-for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 The latest major version of the server SDK for Amazon GameLift Servers is 5.x. The following hosting features require
 the use of version 5.x:
@@ -18,22 +17,16 @@ the use of version 5.x:
 
 ###### Note
 
-If you need to use server SDK version 4.x or earlier, see [Server SDK for Amazon GameLift Servers version 4 and
-earlier](reference-serversdk4.md "reference-serversdk4.md") for documentation and download information.
+If you need to use server SDK version 4.x or earlier, see [Server SDK for Amazon GameLift Servers version 4 and earlier](reference-serversdk4.md "reference-serversdk4.md") for documentation and download information.
 
 ###### Topics
 
 - [Updates in server SDK 5 for Amazon GameLift Servers](#reference-serversdk5-about "#reference-serversdk5-about")
-- [Migrate to server SDK 5.x for
-  Amazon GameLift Servers](reference-serversdk5-migration.md "reference-serversdk5-migration.md")
-- [C++ server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
-- [Go server SDK for Amazon GameLift Servers --
-  Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
-- [C++ (Unreal) server SDK 5.x for
-  Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+- [Migrate to server SDK 5.x for Amazon GameLift Servers](reference-serversdk5-migration.md "reference-serversdk5-migration.md")
+- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
+- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 ## Updates in server SDK 5 for Amazon GameLift Servers
 
@@ -58,8 +51,7 @@ Amazon GameLift Servers server SDK version 5.0.0 and above includes these update
   hosting resources to use Amazon GameLift Servers features (including matchmaking). Add the
   Amazon GameLift Servers Agent to automate game session life cycle management. Use Anywhere
   fleets for production hosting with on- premises hardware, or set up test
-  environments for fast iterative game development. See [Anywhere
-  hosting](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere") and the [Amazon GameLift Servers
+  environments for fast iterative game development. See [Anywhere hosting](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere") and the [Amazon GameLift Servers
   Agent](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent").
 - Updated testing tools – The Amazon GameLift Servers Anywhere feature lets you set up local or cloud-based
   test environments for your games. Set up testing with or without the Amazon GameLift Servers

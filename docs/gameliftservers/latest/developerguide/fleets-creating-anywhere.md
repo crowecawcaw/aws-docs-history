@@ -27,8 +27,7 @@ fleets into a game hosting solution:
 ## Before you start
 
 Before creating an Anywhere fleet, do the following tasks. For more detailed guidance, see the
-[Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md "gamelift-roadmap-anywhere.md") or [Development roadmap for hybrid hosting
-with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md").
+[Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md "gamelift-roadmap-anywhere.md") or [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md").
 
 - **Integrate your game server code with the Amazon GameLift Servers server
   SDK version 5.x (or higher).** You don't need to complete all game

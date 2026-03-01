@@ -68,13 +68,11 @@ Key-value pairs of custom data associated with a game session. Used to pass conf
 
 **Game server**
 
-Your custom server software that manages game state, processes player actions, and synchronizes gameplay across multiple connected players. Integrates with the Amazon GameLift Servers Server SDK to communicate with the service. See [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Your custom server software that manages game state, processes player actions, and synchronizes gameplay across multiple connected players. Integrates with the Amazon GameLift Servers Server SDK to communicate with the service. See [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 **Game server activation**
 
-The process of starting and initializing a game server process on a hosting resource. Includes loading the game server executable, establishing communication with Amazon GameLift Servers, and preparing to host game sessions. See [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+The process of starting and initializing a game server process on a hosting resource. Includes loading the game server executable, establishing communication with Amazon GameLift Servers, and preparing to host game sessions. See [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 **Game server container**
 
@@ -86,8 +84,7 @@ A type of container group that manages containers running game server applicatio
 
 **Game server process**
 
-A running instance of your game server executable on a hosting resource. Each process can host one game session at a time and communicates directly with Amazon GameLift Servers to report status and receive instructions. See [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+A running instance of your game server executable on a hosting resource. Each process can host one game session at a time and communicates directly with Amazon GameLift Servers to report status and receive instructions. See [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 **Game session**
 
@@ -179,8 +176,7 @@ Rules that define when and how to automatically adjust fleet capacity. Can be ta
 
 **Server SDK**
 
-Software development kit that provides the tools and libraries needed to integrate your game server with Amazon GameLift Servers. Enables communication between your game server and the service for session management, health reporting, and status updates. See [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Software development kit that provides the tools and libraries needed to integrate your game server with Amazon GameLift Servers. Enables communication between your game server and the service for session management, health reporting, and status updates. See [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 **Session-based multiplayer**
 

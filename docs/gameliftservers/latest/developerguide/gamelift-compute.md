@@ -17,8 +17,7 @@ design managed fleets to supplement your own self-managed resources. See
 - [Geographic locations](#gamelift-compute-location "#gamelift-compute-location")
 - [Operating systems](#gamelift-compute-os "#gamelift-compute-os")
 - [Instance types](#gamelift-compute-instance "#gamelift-compute-instance")
-- [On-Demand Instances versus Spot
-  Instances](#gamelift-compute-spot "#gamelift-compute-spot")
+- [On-Demand Instances versus Spot Instances](#gamelift-compute-spot "#gamelift-compute-spot")
 - [Service quotas](#gamelift-service-limits "#gamelift-service-limits")
 
 ## Geographic locations
@@ -131,9 +130,7 @@ These instances do not provide out-of-the-box support for Mono installation on A
 
 For more information about instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
-## On-Demand Instances versus Spot
-
-Instances
+## On-Demand Instances versus Spot Instances
 
 Amazon EC2 On-Demand Instances and Spot Instances offer the same hardware and performance,
 but they differ in availability and cost.

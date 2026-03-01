@@ -7,8 +7,7 @@ This topic walks through the steps for doing a minimal integration. For server
 integration, use the provided code sample to update your project's game mode.
 
 - [Set up build targets and module rules](#unreal-plugin-anywhere-integrate-setup "#unreal-plugin-anywhere-integrate-setup")
-- [Update your game server
-  code](#unreal-plugin-anywhere-integrate-simple-server "#unreal-plugin-anywhere-integrate-simple-server")
+- [Update your game server code](#unreal-plugin-anywhere-integrate-simple-server "#unreal-plugin-anywhere-integrate-simple-server")
 - [Integrate your client game map](#unreal-plugin-anywhere-integrate-simple-client "#unreal-plugin-anywhere-integrate-simple-client")
 - [Package your game components](#unreal-plugin-anywhere-integrate-build "#unreal-plugin-anywhere-integrate-build")
 
@@ -101,9 +100,7 @@ using UnrealBuildTool;
 3. After creating the new target files and modifying the module rules, rebuild your game
    project.
 
-## Update your game server
-
-code
+## Update your game server code
 
 Update your game server code to enable communication between a game server
 process and the Amazon GameLift Servers service. Your game server must be able to respond to requests
@@ -468,7 +465,8 @@ Unreal Projects/[project-name]/Plugins/Amazon GameLift Servers Plugin
 Content/Maps`.
 3. For **Game Default Map**, select the same "StartupMap" from the dropdown
    list.
-4. For **Server Default Map**, select "ThirdPersonMap". This is a default map
+4. For **Server Default Map**, select "Lv1_ThirdPerson" for Unreal Engine 5.6
+   or later, or "ThirdPersonMap" for earlier versions. This is a default map
    included in your game project. This map is designed for two players
    in the game.
 5. Open the details panel for the server default map. Set **GameMode Override**
@@ -479,12 +477,22 @@ Content/Maps`.
 
 After you've made these changes to your project, you're ready to build your game components.
 
+###### Note
+
+For Unreal Engine 5.6 or later, if you cannot move the character after connecting to the game
+server, update the BP_ThirdPersonCharacter blueprint to add input mapping context for
+`IMC_Default` and `IMC_MouseLook` as shown below:
+
+![](images/unreal-enhanced-input-blueprint.png)
+
 ## Package your game components
 
 ###### To package your game server and game client builds
 
 1. Open your game project in a source-built version of the Unreal Engine editor.
-2. Use the editor to package your game client and server builds.
+2. If using Unreal Engine 5.6 or later, go to **Edit, Project Settings, Packaging**.
+   Find **Cook everything in the project content directory** and enable it.
+3. Use the editor to package your game client and server builds.
    1. Choose a target. Go to **Platforms, Windows** and select one of the
       following:
       - Server: `[your-application-name]Server`

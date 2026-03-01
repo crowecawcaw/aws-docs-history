@@ -1,6 +1,4 @@
-# Plugin for Unity: Set up local testing with
-
-Amazon GameLift Servers Anywhere
+# Plugin for Unity: Set up local testing with Amazon GameLift Servers Anywhere
 
 In this workflow, you add client and server game code for Amazon GameLift Servers
 functionality and use the plugin to designate your local workstation as a test game
@@ -28,9 +26,7 @@ actions.
 2. If bootstrap status is not “Active“, choose **Bootstrap
    profile** and wait for the status to change to “Active“.
 
-## Integrate your game code with the C# server
-
-SDK
+## Integrate your game code with the C# server SDK
 
 ###### Note
 
@@ -39,7 +35,7 @@ have the necessary server and client code in place.
 
 For this step in the workflow, you make updates to the client and server code in your game project.
 
-- \* Game servers must be able to communicate with the Amazon GameLift Servers service to receive
+- Game servers must be able to communicate with the Amazon GameLift Servers service to receive
   prompts to start a game session, provide game session connection information, and report status.
 - Game clients must be able to get information about game sessions, join or start game
   sessions, and get connection information to join a game.
@@ -72,10 +68,8 @@ The sample code includes these minimum required elements, which use Amazon GameL
 
 If you want to customize the sample server code, see these resources:
 
-- [Add Amazon GameLift Servers to your game server with the server
-  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
 
 ### Integrate your client code
 

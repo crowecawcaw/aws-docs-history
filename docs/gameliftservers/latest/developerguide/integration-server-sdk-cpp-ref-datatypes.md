@@ -1,23 +1,18 @@
-# C++ server SDK for Amazon GameLift Servers 4.x --
-
-Data types
+# C++ server SDK for Amazon GameLift Servers 4.x -- Data types
 
 Use the server SDK reference to integrate your multiplayer game for hosting with Amazon GameLift Servers.
-For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This reference is for an earlier version of the server SDK for Amazon GameLift Servers. For the latest
 version, see
-[C++ server SDK 5.x for Amazon GameLift Servers -- Data
-types](integration-server-sdk5-cpp-datatypes.md "integration-server-sdk5-cpp-datatypes.md").
+[C++ server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-cpp-datatypes.md "integration-server-sdk5-cpp-datatypes.md").
 
 This API is defined in `GameLiftServerAPI.h`,
 `LogParameters.h`, and `ProcessParameters.h`.
 
-[C++ server SDK for Amazon GameLift Servers 4.x --
-Actions](integration-server-sdk-cpp-ref-actions.md "integration-server-sdk-cpp-ref-actions.md")
+[C++ server SDK for Amazon GameLift Servers 4.x -- Actions](integration-server-sdk-cpp-ref-actions.md "integration-server-sdk-cpp-ref-actions.md")
 
 ## DescribePlayerSessionsRequest
 

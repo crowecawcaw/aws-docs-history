@@ -20,9 +20,7 @@ suspended, the desired number of instances in the fleet location remains the sam
 manually changed. When you suspend auto scaling for a location, it affects the fleet's
 current policies and any policies that you may define in the future.
 
-## To manually set fleet
-
-capacity
+## To manually set fleet capacity
 
 Console
 

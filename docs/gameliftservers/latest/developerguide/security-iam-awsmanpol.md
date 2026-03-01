@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-GameLiftContainerFleetPolicy
+## AWS managed policy: GameLiftContainerFleetPolicy
 
 You can attach `GameLiftContainerFleetPolicy` to your IAM roles.
 
@@ -47,9 +45,7 @@ This policy includes the following permissions.
   that allows a hosted game server to communicate with the Amazon GameLift Servers service through your
   AWS account.
 
-## Amazon GameLift Servers updates to AWS managed
-
-policies
+## Amazon GameLift Servers updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon GameLift Servers since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

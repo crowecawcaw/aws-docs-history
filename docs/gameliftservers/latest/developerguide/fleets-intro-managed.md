@@ -41,8 +41,7 @@ don't have to:
 - Reports performance metrics for the fleet's EC2 instances.
   See these topics about how to set up and maintain managed EC2 fleets:
 
-- [Development roadmap for hosting with Amazon GameLift Servers
-  managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
 - [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md")
 - [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md")
 - [Hosting resource customizations](fleets-design.md "fleets-design.md")

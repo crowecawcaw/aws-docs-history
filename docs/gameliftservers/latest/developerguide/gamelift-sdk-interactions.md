@@ -1,6 +1,4 @@
-# Game client/server interactions with
-
-Amazon GameLift Servers
+# Game client/server interactions with Amazon GameLift Servers
 
 The components in your Amazon GameLift Servers hosting solution interact with each other in specific
 ways to run game sessions in response to player demand. This topic describes how components
@@ -34,9 +32,7 @@ sessions in response to player demands.
 The following sections describe the sequence of events in each of the key
 interactions.
 
-### Initializing a game server
-
-process
+### Initializing a game server process
 
 On startup, a game server process establishes communication with the Amazon GameLift Servers service and
 reports its status as ready to host a game session.
@@ -80,8 +76,7 @@ play the game.
    `GameSessionPlacement` ticket with status
    `PENDING`. It returns ticket information to the backend
    service, so that it can track the placement ticket status and determine when
-   the game session is ready for players. For more information, see [Set up event notification for game session
-   placement](queue-notification.md "queue-notification.md").
+   the game session is ready for players. For more information, see [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 4. The Amazon GameLift Servers service starts the game session placement process. It identifies
    which fleets to look at and searches those fleets for an active server
    process that's not hosting a game session. On locating an available server
@@ -162,9 +157,7 @@ player slots in a game session and can allow new players to use open slots.
 3. The Amazon GameLift Servers service changes the player session status to `COMPLETED`
    and reopens the player slot in the game session.
 
-### Shutting down the game
-
-session
+### Shutting down the game session
 
 At the end of a game session, or when shutting down the game session, the server
 process notifies the Amazon GameLift Servers service of game session status.

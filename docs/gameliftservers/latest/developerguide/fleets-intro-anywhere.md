@@ -28,8 +28,7 @@ management tasks. See [Work with the Amazon GameLift Servers Agent](integration-
 See these topics about how to set up and maintain Anywhere fleets:
 
 - [Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md "gamelift-roadmap-anywhere.md")
-- [Development roadmap for hybrid hosting
-  with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
+- [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
 - [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
 - [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md "fleets-creating-anywhere.md")
 - [Update an Amazon GameLift Servers fleet configuration](fleets-editing.md "fleets-editing.md")

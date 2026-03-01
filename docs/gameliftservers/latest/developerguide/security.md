@@ -36,6 +36,5 @@ cloud and security _in_ the cloud:
 - [Compliance validation for Amazon GameLift Servers](gamelift-compliance.md "gamelift-compliance.md")
 - [Resilience in Amazon GameLift Servers](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon GameLift Servers](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability analysis
-  in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md")
+- [Configuration and vulnerability analysis in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md")
 - [Security best practices for Amazon GameLift Servers](security-best-practices.md "security-best-practices.md")

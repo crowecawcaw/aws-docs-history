@@ -82,8 +82,7 @@ instances maintains 20 idle instances.
 Amazon GameLift Servers fleets can use a combination of On-Demand Instances and Spot Instances. While
 On-Demand Instances offer more reliable availability, Spot Instances offer a highly
 cost-efficient alternative. We recommend using a combination to optimize both cost savings and
-availability. For information about how Amazon GameLift Servers uses Spot Instances, see [On-Demand Instances versus Spot
-Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
+availability. For information about how Amazon GameLift Servers uses Spot Instances, see [On-Demand Instances versus Spot Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 
 For this field, enter the percentage of Spot Instances to maintain in a fleet. We
 recommend a Spot Instance percentage between 50 and 85 percent. The default value is

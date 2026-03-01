@@ -1,8 +1,7 @@
 # Build a queue for Spot Instances
 
 You can achieve of potentially significant savings in hosting costs by using Spot fleets.
-For more details about Spot fleets and how to use them, see [On-Demand Instances versus Spot
-Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
+For more details about Spot fleets and how to use them, see [On-Demand Instances versus Spot Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 
 If your game hosting solution includes Spot fleets, you must use a game session placement
 queue. Amazon GameLift Servers uses queues to search across multiple game hosting resources and select the
@@ -19,7 +18,7 @@ session placements for your matches.
 
 When creating or updating your game hosting solution to use Spot fleets, complete the
 following tasks. For more detailed guidance on how to build a queue that optimizes Spot
-availability and resiliency, see [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
+availability and resiliency, see [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
 
 1. **Choose and create a set of fleet destinations for your game
    session queue.**

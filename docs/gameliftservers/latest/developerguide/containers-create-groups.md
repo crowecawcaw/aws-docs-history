@@ -1,6 +1,4 @@
-# Create a container group definition for an Amazon GameLift Servers
-
-container fleet
+# Create a container group definition for an Amazon GameLift Servers container fleet
 
 A container group definition describes how to deploy your containerized game server
 applications to a container fleet. It's a blueprint that tells Amazon GameLift Servers what container images to
@@ -123,8 +121,7 @@ status before you can create a container fleet with it.
 AWS CLI
 When you use the AWS CLI to create a container group definition, maintain your
 container definition configurations in a separate `JSON` file. You can
-reference the file in your CLI command. See [Create a container definition JSON
-file](#containers-definitions-create "#containers-definitions-create") for schema examples.
+reference the file in your CLI command. See [Create a container definition JSON file](#containers-definitions-create "#containers-definitions-create") for schema examples.
 
 **Create a container group definition**
 
@@ -147,9 +144,7 @@ aws gamelift create-container-group-definition \
     --game-server-container-definition file://MyAdventureGameContainers.json
 ```
 
-## Create a container definition `JSON`
-
-file
+## Create a container definition `JSON` file
 
 When you create a container group definition, you also define the containers for the
 group. A container definition specifies the Amazon ECR repository where the container image is

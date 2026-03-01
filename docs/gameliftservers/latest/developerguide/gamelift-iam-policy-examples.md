@@ -31,9 +31,7 @@ JSON
 
 ```
 
-###### Example Syntax for Amazon GameLift Servers resource permissions with support for Regions that aren't enabled by
-
-default
+###### Example Syntax for Amazon GameLift Servers resource permissions with support for Regions that aren't enabled by default
 
 The following example extends access to all Amazon GameLift Servers resources and AWS Regions that
 aren't enabled by default. For more
@@ -122,8 +120,7 @@ JSON
 
 These examples allow a backend service or other entity to make API calls to the Amazon GameLift Servers API.
 They cover the common scenarios for managing game sessions, player sessions, and matchmaking.
-For more details, see [Set up programmatic access for your
-game](setting-up-aws-login.md#getting-started-iam-player-user "setting-up-aws-login.md#getting-started-iam-player-user").
+For more details, see [Set up programmatic access for your game](setting-up-aws-login.md#getting-started-iam-player-user "setting-up-aws-login.md#getting-started-iam-player-user").
 
 ###### Example Syntax for game session placement permissions
 

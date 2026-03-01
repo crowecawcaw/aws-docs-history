@@ -1,6 +1,4 @@
-# Build a cloud-based test
-
-environment
+# Build a cloud-based test environment
 
 ###### Note
 
@@ -100,9 +98,7 @@ then connect directly to the game session.
   them to the EC2 test environment for testing. Upload them to the Amazon S3 bucket
   and then use the workflow scripts to update the test environment.
 
-## Transition your game to Amazon GameLift Servers managed
-
-fleets
+## Transition your game to Amazon GameLift Servers managed fleets
 
 After you've completed development testing and you're ready to prepare for launch,
 this is a good time to switch over to Amazon GameLift Servers managed fleets. Use managed fleets to

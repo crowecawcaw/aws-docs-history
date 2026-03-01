@@ -1,6 +1,4 @@
-# Plugin for Unreal: Set up an AWS user
-
-profile
+# Plugin for Unreal: Set up an AWS user profile
 
 After installing the plugin, set up a user profile with a valid AWS account. You can
 maintain multiple profiles in the plugin, but you can have only one profile selected at

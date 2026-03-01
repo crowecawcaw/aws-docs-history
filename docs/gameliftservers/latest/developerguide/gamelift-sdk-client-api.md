@@ -9,8 +9,7 @@ functionality is built into the backend service component. Add functionality for
 - Create a new game session for a group of players.
 - Request matchmaking for one or more players.
 - Provide updated data for existing game sessions.
-  See [Game client/server interactions with
-  Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md") for additional details on how game hosting components interact through the Amazon GameLift Servers SDKs.
+  See [Game client/server interactions with Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md") for additional details on how game hosting components interact through the Amazon GameLift Servers SDKs.
 
 ## Set up the Amazon GameLift Servers API
 
@@ -42,8 +41,7 @@ identifier for each player. For more information, see [Generate player IDs](play
     * **AWS credentials** – All calls
      to Amazon GameLift Servers must provide credentials for the AWS account that hosts the
      game. You can acquire these credentials by creating a player user, as
-     described in [Set up programmatic access for your
-     game](setting-up-aws-login.md#getting-started-iam-player-user "setting-up-aws-login.md#getting-started-iam-player-user"). Depending on how
+     described in [Set up programmatic access for your game](setting-up-aws-login.md#getting-started-iam-player-user "setting-up-aws-login.md#getting-started-iam-player-user"). Depending on how
      you manage access for the player user, do the following:
 
 

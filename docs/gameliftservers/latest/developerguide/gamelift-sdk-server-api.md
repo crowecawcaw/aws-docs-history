@@ -1,6 +1,4 @@
-# Add Amazon GameLift Servers to your game server with the server
-
-SDK
+# Add Amazon GameLift Servers to your game server with the server SDK
 
 This topic provides general guidance on the server SDK functionality that you need to add
 to your game server code/ This functionality enables game server processes to communicate
@@ -10,8 +8,7 @@ onto Amazon GameLift Servers managed EC2 fleets, managed container fleets, or An
 Game server processes communicate with the Amazon GameLift Servers service to receive instructions from
 the service and to report server process health and game session status. For detailed
 information on interactions between your game hosting solution components (game server,
-backend service, game client, and Amazon GameLift Servers), see [Game client/server interactions with
-Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md").
+backend service, game client, and Amazon GameLift Servers), see [Game client/server interactions with Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md").
 
 **Get the server SDK**
 
@@ -32,14 +29,10 @@ The server SDK is built in and ready to use. See these links for additional info
 - Unity ([Download plugin](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity")) ([Integration guide](integration-engines-unity-using.md "integration-engines-unity-using.md"))
   Server SDK API references:
 
-- [C++ server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
-- [C++ (Unreal) server SDK 5.x for
-  Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
-- [Go server SDK for Amazon GameLift Servers --
-  Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
+- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
 
 ## Initialize the server process
 
@@ -54,9 +47,7 @@ code.
    with no parameters. The API client handles
    connection to the Amazon GameLift Servers service for you.
 
-###### If you're preparing your game server for use on an Amazon GameLift Servers Anywhere
-
-fleet:
+###### If you're preparing your game server for use on an Amazon GameLift Servers Anywhere fleet:
 
 Initialize the Amazon GameLift Servers API client by calling `InitSdk()` with the
 following `ServerParameters`:
@@ -119,9 +110,7 @@ following `ServerParameters`:
     You can also set up a game server so that it can securely access other AWS
     resources that you own or control. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
-## (Optional) Report server process
-
-health
+## (Optional) Report server process health
 
 Add code to your game server to implement the callback function
 `onHealthCheck()`. Amazon GameLift Servers invokes this callback method periodically to
@@ -143,9 +132,7 @@ resources. If a server process continues to report as unhealthy or doesn't respo
 three consecutive health checks, then the service might shut down the process and start
 a new one. The service collects metrics on a fleet's server process health.
 
-## (Optional) Get a TLS
-
-certificate
+## (Optional) Get a TLS certificate
 
 If the server process is running on a fleet that has TLS certificate generation
 activated, then you can retrieve the TLS certificate to establish a secure connection
@@ -183,9 +170,7 @@ implementation should do the following tasks:
   . In response to a successful call, the service
   changes the game session status to `ACTIVE`.
 
-## (Optional) Validate a new
-
-player
+## (Optional) Validate a new player
 
 If you're tracking the status of player sessions, then add code to validate a new
 player when they connect to a game server. Amazon GameLift Servers tracks current players and available
@@ -210,9 +195,7 @@ player session ID, the server process accepts the connection. The player can the
 the game session. If Amazon GameLift Servers doesn't validate the player session ID, then the server
 process denies the connection.
 
-## (Optional) Report a player session
-
-ending
+## (Optional) Report a player session ending
 
 If you're tracking the status of player sessions, add code to notify Amazon GameLift Servers when a
 player leaves the game session. This code should run whenever the server process detects
@@ -243,9 +226,7 @@ This call notifies Amazon GameLift Servers that the server process is shutting d
 status and server process status to `TERMINATED`. After calling
 `ProcessEnding()`, it's safe for the process to shut down.
 
-## Respond to a server process shutdown
-
-notification
+## Respond to a server process shutdown notification
 
 Add code to shut down the server process in response to a notification from the Amazon GameLift Servers
 service. The service sends this notification when the server process consistently

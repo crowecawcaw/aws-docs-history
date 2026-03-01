@@ -76,8 +76,7 @@ Possible issues include:
     `ProcessReady()` in time.
 
 - A VPC peering connection request failed. For fleets that are created with
-  a VPC peering connection (see [To set up VPC peering with a new
-  fleet](vpc-peering.md#fleets-creating-aws-cli-vpc "vpc-peering.md#fleets-creating-aws-cli-vpc")), VPC peering is
+  a VPC peering connection (see [To set up VPC peering with a new fleet](vpc-peering.md#fleets-creating-aws-cli-vpc "vpc-peering.md#fleets-creating-aws-cli-vpc")), VPC peering is
   done during this **Activating** phases.
   If a VPC peering fails for any reason, the new fleet will fail to
   move to **Active** status. You can

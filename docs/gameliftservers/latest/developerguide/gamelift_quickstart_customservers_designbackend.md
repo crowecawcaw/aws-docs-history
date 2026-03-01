@@ -12,9 +12,7 @@ can:
   Using a game client service also reduces security risks introduced by game clients
   interacting directly with your Amazon GameLift Servers API.
 
-## Authenticating
-
-your players
+## Authenticating your players
 
 You can use Amazon Cognito and player session IDs to authenticate your game clients. To
 manage the lifecycle and properties of your player identities, use Amazon Cognito user pools.

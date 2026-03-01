@@ -1,6 +1,4 @@
-# Logging server messages (custom
-
-servers)
+# Logging server messages (custom servers)
 
 You can capture custom server messages from your Amazon GameLift Servers custom servers in log files.
 
@@ -13,9 +11,7 @@ logs to Amazon Simple Storage Service (Amazon S3). Amazon GameLift Servers will 
 quickly and exceed the size limit. You should monitor your logs and limit the log output to
 necessary messages only.
 
-## Configuring logging for custom
-
-servers
+## Configuring logging for custom servers
 
 With Amazon GameLift Servers custom servers, you write your own code to perform logging, which you
 configure as part of your server process configuration. Amazon GameLift Servers uses your logging

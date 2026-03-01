@@ -148,8 +148,7 @@ service when it's deployed for hosting.
   session is ready to join.** While in development, you can poll for
   game session status using a call to DescribeGameSessionPlacement. Before using a
   queue to process high volumes, however, you'll need to enable event
-  notifications. See [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md").
+  notifications. See [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 - (Optional) **Add FlexMatch matchmaking components.**
   For guidance, see the [Amazon GameLift Servers FlexMatch
   developer guide](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md").

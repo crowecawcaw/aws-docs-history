@@ -1,6 +1,4 @@
-# Development roadmap for hybrid hosting
-
-with Amazon GameLift Servers
+# Development roadmap for hybrid hosting with Amazon GameLift Servers
 
 This roadmap guides you through how to develop a hosting solution for your multiplayer
 game. Amazon GameLift Servers offers several game hosting options; for more information on these
@@ -183,8 +181,7 @@ such as minimum latency, cost, and availability.
   poll for game session status using a call to
   DescribeGameSessionPlacement. Before using a queue
   to process high volumes, however, you'll need to
-  enable event notifications. See [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md").
+  enable event notifications. See [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 - (Optional) **Add FlexMatch
   matchmaking components.** For guidance,
   see the [Amazon GameLift Servers FlexMatch developer guide](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md").
@@ -313,7 +310,7 @@ more on choosing a fleet location, see [Geographic locations](gamelift-compute.m
   game servers. Add remote locations to your managed
   fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - For managed fleets, consider using Spot fleets for
-  cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
+  cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
 - Optimize fleet performance by selecting compute
   resource configurations, then configure your the
   runtime instructions to run the optimal number of

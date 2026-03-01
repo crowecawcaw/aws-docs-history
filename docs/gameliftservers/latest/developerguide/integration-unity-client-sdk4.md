@@ -1,6 +1,4 @@
-# Integrate Amazon GameLift Servers with a Unity game client
-
-project
+# Integrate Amazon GameLift Servers with a Unity game client project
 
 ###### Note
 
@@ -29,12 +27,9 @@ A backend server handles the following game client tasks:
 
 - [Prerequisites](#integration-unity-client-sdk4-prereq "#integration-unity-client-sdk4-prereq")
 - [Initialize a game client](#integration-unity-client-sdk4-initialize "#integration-unity-client-sdk4-initialize")
-- [Create game session on a
-  specific fleet](#integration-unity-client-sdk4-game-session "#integration-unity-client-sdk4-game-session")
-- [Add players to game
-  sessions](#integration-unity-client-sdk4-add-player "#integration-unity-client-sdk4-add-player")
-- [Remove a player from a game
-  session](#integration-unity-client-sdk4-remove-player "#integration-unity-client-sdk4-remove-player")
+- [Create game session on a specific fleet](#integration-unity-client-sdk4-game-session "#integration-unity-client-sdk4-game-session")
+- [Add players to game sessions](#integration-unity-client-sdk4-add-player "#integration-unity-client-sdk4-add-player")
+- [Remove a player from a game session](#integration-unity-client-sdk4-remove-player "#integration-unity-client-sdk4-remove-player")
 
 ## Prerequisites
 
@@ -43,8 +38,7 @@ following tasks:
 
 - [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
 - [Install and set up the plugin](unity-plug-in-sdk4.md#unity-plug-in-sdk4-install "unity-plug-in-sdk4.md#unity-plug-in-sdk4-install")
-- [Integrate Amazon GameLift Servers with a Unity game server
-  project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
+- [Integrate Amazon GameLift Servers with a Unity game server project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
 - [Deploy hosting fleets for Amazon GameLift Servers](fleets-intro.md "fleets-intro.md")
 
 ## Initialize a game client
@@ -98,9 +92,7 @@ public class GameLiftClient
 
 ```
 
-## Create game session on a
-
-specific fleet
+## Create game session on a specific fleet
 
 ###### Note
 
@@ -139,9 +131,7 @@ public Amazon.GameLift.Model.GameSession()
 }
 ```
 
-## Add players to game
-
-sessions
+## Add players to game sessions
 
 ###### Note
 
@@ -190,9 +180,7 @@ public bool ConnectPlayer(int playerIdx, string playerSessionId)
 }
 ```
 
-## Remove a player from a game
-
-session
+## Remove a player from a game session
 
 ###### Note
 

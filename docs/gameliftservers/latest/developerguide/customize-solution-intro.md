@@ -9,8 +9,7 @@ that best fit your game's requirements and player base.
 
 - [Game server build customizations](customize-game-server-builds.md "customize-game-server-builds.md")
   - [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md")
-  - [Let your game server access Amazon GameLift Servers fleet
-    data](gamelift-sdk-server-fleetinfo.md "gamelift-sdk-server-fleetinfo.md")
+  - [Let your game server access Amazon GameLift Servers fleet data](gamelift-sdk-server-fleetinfo.md "gamelift-sdk-server-fleetinfo.md")
   - [Set up VPC peering for Amazon GameLift Servers](vpc-peering.md "vpc-peering.md")
 
 - [Player sessions and matchmaking customizations](customize-player-sessions-matchmaking.md "customize-player-sessions-matchmaking.md")

@@ -22,9 +22,7 @@ API operations when hosting game servers with Amazon GameLift Servers, including
 in [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/") for most resource management tasks, or you can make calls with the
 AWS Command Line Interface (AWS CLI) tool.
 
-### Prepare game servers for
-
-deployment
+### Prepare game servers for deployment
 
 Upload and configure your game's game server code in preparation for deployment
 and launching on hosting resources.
@@ -60,9 +58,7 @@ and launching on hosting resources.
 - [DeleteScript](../../../gamelift/latest/apireference/API_DeleteScript.md "../../../gamelift/latest/apireference/API_DeleteScript.md")
   – Remove a Realtime script from Amazon GameLift Servers.
 
-### Set up computing resources for
-
-hosting
+### Set up computing resources for hosting
 
 Configure hosting resources and deploy them with your game server build or
 Realtime configuration script.
@@ -134,9 +130,7 @@ Realtime configuration script.
 - [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeGameSessions.md "../../../gamelift/latest/apireference/API_DescribeGameSessions.md") – Retrieve game session metadata,
   including a game's running time and current player count.
 
-### Set up queues for game session
-
-placement
+### Set up queues for game session placement
 
 Set up multi-fleet, multi-region queues to place game sessions with the best
 available hosting resources for cost, latency, and resiliency.
@@ -170,9 +164,7 @@ as during game server build updates.
 - [ResolveAlias](../../../gamelift/latest/apireference/API_ResolveAlias.md "../../../gamelift/latest/apireference/API_ResolveAlias.md")
   – Get the fleet ID that a specified alias points to.
 
-### Connect to managed hosting
-
-instances
+### Connect to managed hosting instances
 
 View information on individual instances in a fleet, or request remote access to a
 specified fleet instance for troubleshooting.

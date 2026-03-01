@@ -61,9 +61,7 @@ We recommend the following structures to use when setting up CloudFormation stac
 resources. Your optimal stack structure varies depending on if you are deploying your
 game in one location or multiple locations.
 
-### Stacks for a
-
-single location
+### Stacks for a single location
 
 To manage Amazon GameLift Servers resources in a single location, we recommend a two-stack
 structure:
@@ -90,9 +88,7 @@ single AWS Region.
 
 ![Diagram with 2 CloudFormation stacks for Amazon GameLift Servers resources and supporting AWS services.](images/resources-cf_single_vsd.png)
 
-### Stacks for
-
-multiple regions
+### Stacks for multiple regions
 
 When deploying your game in more than one Region, keep in mind how resources can
 interact across Regions. Some resources, such as Amazon GameLift Servers fleets, can only reference
@@ -147,9 +143,7 @@ following need to happen:
 For more information, see [Update
 behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md") in the _AWS CloudFormation User Guide_.
 
-### Deploy build updates
-
-automatically
+### Deploy build updates automatically
 
 When updating a stack containing related build, fleet and alias resources, the
 default CloudFormation behavior is to automatically perform these steps in sequence. You
@@ -177,9 +171,7 @@ for the switch and enable auto scaling later.
 You can also have CloudFormation retain resources instead of deleting them. For more
 information, see [RetainResources](../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md "../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md") in the _AWS CloudFormation API Reference_.
 
-### Deploy build updates
-
-manually
+### Deploy build updates manually
 
 If you want to have more control over when new fleets go live for players, you
 have some options. You can choose to manage aliases manually using the Amazon GameLift Servers console
@@ -199,9 +191,7 @@ The following diagram illustrates this process.
 
 ![Diagram shows how to you can use CloudFormation stacks to update game server builds.](images/resources-cf_updating_vsd.png)
 
-### How rollbacks
-
-work
+### How rollbacks work
 
 When executing a resource update, if any step is not completed successfully, CloudFormation
 automatically initiates a rollback. This process reverses each step in sequence,

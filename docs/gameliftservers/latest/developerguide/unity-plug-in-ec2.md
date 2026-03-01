@@ -1,6 +1,4 @@
-# Plugin for Unity: Deploy your game to a managed EC2
-
-fleet
+# Plugin for Unity: Deploy your game to a managed EC2 fleet
 
 In this workflow, you use the plugin to prepare your game for hosting on cloud-based
 compute resources that are managed by Amazon GameLift Servers. You add client and server game code for
@@ -75,10 +73,8 @@ The sample code includes these minimum required elements, which use Amazon GameL
 
 If you want to customize the sample server code, see these resources:
 
-- [Add Amazon GameLift Servers to your game server with the server
-  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
 
 ### Integrate your client code
 
@@ -111,6 +107,17 @@ Use the following resources as a guide.
 - To view the sample game integrations go to the GitHub repo
   [aws/amazon-gamelift-plugin-unity](https://github.com/aws/amazon-gamelift-plugin-unity "https://github.com/aws/amazon-gamelift-plugin-unity") , `Samples~/SampleGame/Assets/Scripts/Client/GameLiftClient.cs`.
 - [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
+
+### (Unity 6.3+ Only) Integrate install.sh script
+
+Unity 6.3 on Linux requires glibc 2.35. Amazon Linux 2023 includes glibc 2.34. An install.sh script is provided which handles
+building glibc 2.35 from source and configuring the Unity binaries to use glibc 2.35.
+
+1. Go to the GitHub repo [aws/amazon-gamelift-plugin-unity](https://github.com/aws/amazon-gamelift-plugin-unity "https://github.com/aws/amazon-gamelift-plugin-unity") and open the path
+   `ExtraServerResources`.
+2. Locate the file `install.sh` and copy it
+   into the folder containing your server build.
+3. If you have an existing `install.sh`, merge the contents of both scripts into a single `install.sh`.
 
 ## Select deployment scenario
 

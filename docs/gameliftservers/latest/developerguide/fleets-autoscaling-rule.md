@@ -11,9 +11,7 @@ value for a certain length of time, then change the fleet's capacity by a specif
 This topic describes the syntax used to construct a policy statement and provides help with
 creating and managing your rule-based policies.
 
-## Manage rule-based
-
-policies
+## Manage rule-based policies
 
 Create, update, or delete rule-based policies using an AWS SDK or the AWS Command Line Interface
 (AWS CLI) with the [Service API for Amazon GameLift Servers](../apireference/Welcome.md "../apireference/Welcome.md"). You can
@@ -161,9 +159,7 @@ adjustment types:
 The following suggestions can help you get the most out of auto scaling with
 rule-based policies.
 
-### Use multiple
-
-policies
+### Use multiple policies
 
 You can have multiple auto scaling policies for a fleet at the same time. The most
 common scenario is to have a target-based policy manage most scaling needs and use
@@ -177,9 +173,7 @@ events simultaneously. Avoid policies that start each other. For example, you co
 create an infinite loop if you create scale-up and scale-down policies that set
 capacity beyond the threshold of each other.
 
-### Set maximum and minimum
-
-capacity
+### Set maximum and minimum capacity
 
 Each fleet has a maximum and minimum capacity limit. This feature is important
 when using auto scaling. Auto scaling never sets capacity to a value outside of this
@@ -191,9 +185,7 @@ Fleet capacity is also constrained by limits on the fleet's instance type and by
 service quotas in your AWS account. You can't set a minimum and maximum outside
 these limits and account quotas.
 
-### Track metrics after a
-
-change in capacity
+### Track metrics after a change in capacity
 
 After changing capacity in response to an auto scaling policy, Amazon GameLift Servers waits 10
 minutes before responding to triggers from the same policy. This wait gives Amazon GameLift Servers

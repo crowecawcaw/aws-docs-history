@@ -1,8 +1,7 @@
 # Amazon GameLift Servers AMI versions
 
 The following table identifies the latest Amazon machine images (AMIs) that Amazon GameLift Servers uses for
-managed EC2 hosting. As described in [Configuration and vulnerability analysis
-in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md"), you must regularly create new Amazon GameLift Servers
+managed EC2 hosting. As described in [Configuration and vulnerability analysis in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md"), you must regularly create new Amazon GameLift Servers
 managed EC2 fleets to deploy the latest AMI version updates.
 
 **AMIs for use with server SDK for Amazon GameLift Servers 5+**

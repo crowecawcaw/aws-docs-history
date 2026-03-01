@@ -3,9 +3,7 @@
 You can set up an managed EC2 fleet's runtime configuration to run multiple game server
 processes per instance. This uses your hosting resources more efficiently.
 
-## How a fleet manages multiple
-
-processes
+## How a fleet manages multiple processes
 
 Amazon GameLift Servers uses a fleet's runtime configuration to determine the type and number of
 processes to run on each instance. A runtime configuration contains at least one server
@@ -45,9 +43,7 @@ configuration changes:
      case, the instance launches new server processes as existing processes
      end.
 
-## Optimize a fleet for multiple
-
-processes
+## Optimize a fleet for multiple processes
 
 To use multiple processes on a fleet, do the following:
 
@@ -77,9 +73,7 @@ To optimize fleet performance, we recommend that you do the following:
   then Amazon GameLift Servers assumes that a server process is healthy, unless the process fails to
   respond to a communication.
 
-## Choose the number of processes per
-
-instance
+## Choose the number of processes per instance
 
 When deciding on the number of concurrent processes to run on an instance, keep in
 mind the following:

@@ -1,6 +1,4 @@
-# Create a build with
-
-files in Amazon S3
+# Create a build with files in Amazon S3
 
 You can store your build files in Amazon S3 and upload them to Amazon GameLift Servers from there. When
 you create you build, you specify the S3 bucket location, and Amazon GameLift Servers retrieves the
@@ -13,8 +11,7 @@ build files directly from Amazon S3.
    in your AWS account. Take note of the bucket label and the file name,
    you'll need these when creating an Amazon GameLift Servers build.
 2. **Give Amazon GameLift Servers access to your build files.**
-   Create an IAM role by following the instructions in [Access a
-   game build file in Amazon S3](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc"). After you've created the role, take note of the new role's Amazon
+   Create an IAM role by following the instructions in [Access a game build file in Amazon S3](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc"). After you've created the role, take note of the new role's Amazon
    Resource Name (ARN), you'll need this when creating a build.
 3. **Create a build.** Use the Amazon GameLift Servers console or
    the AWS CLI to create a new build record. You must have the
@@ -107,8 +104,7 @@ aws gamelift create-build \
     	 assigned to the IAM role that you created. For
     	 example,
     	 "arn:aws:iam::111122223333:role/GameLiftAccess".
-    	 For an example policy, see [Access a
-    	 game build file in Amazon S3](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc").
+    	 For an example policy, see [Access a game build file in Amazon S3](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-storage-loc").
     * **region** – Create the build in
      the AWS Region where you plan to deploy fleets. If
      you're deploying your game in multiple Regions, create a

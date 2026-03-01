@@ -20,9 +20,7 @@ game traffic conditions between a player's device and potential hosting location
 endpoints are permanent and remain available as long as Amazon GameLift Servers supports game hosting in
 that location.
 
-## Common use cases for
-
-UDP ping beacons
+## Common use cases for UDP ping beacons
 
 You can use UDP ping beacons in several ways to optimize your game's networking
 experience.
@@ -99,9 +97,7 @@ Cache the ping beacon information rather than calling `ListLocations`
 before each latency measurement. The domain and port information are static and
 the API isn't designed for high-volume requests.
 
-## Implementing latency
-
-measurements
+## Implementing latency measurements
 
 Follow these best practices when implementing latency measurements using
 UDP ping beacons:

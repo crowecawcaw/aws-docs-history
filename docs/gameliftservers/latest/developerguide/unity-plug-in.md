@@ -13,18 +13,12 @@ connections.
 ###### Topics
 
 - [Install the plugin for your Unity game project](#unity-plugin-install "#unity-plugin-install")
-- [Plugin for Unity: Set up an AWS user
-  profile](unity-plug-in-profiles.md "unity-plug-in-profiles.md")
-- [Plugin for Unity: Set up local testing with
-  Amazon GameLift Servers Anywhere](unity-plug-in-anywhere.md "unity-plug-in-anywhere.md")
-- [Plugin for Unity: Deploy your game to a managed EC2
-  fleet](unity-plug-in-ec2.md "unity-plug-in-ec2.md")
-- [Plugin for Unity: Deploy your game to a
-  managed container fleet](unity-plug-in-container.md "unity-plug-in-container.md")
+- [Plugin for Unity: Set up an AWS user profile](unity-plug-in-profiles.md "unity-plug-in-profiles.md")
+- [Plugin for Unity: Set up local testing with Amazon GameLift Servers Anywhere](unity-plug-in-anywhere.md "unity-plug-in-anywhere.md")
+- [Plugin for Unity: Deploy your game to a managed EC2 fleet](unity-plug-in-ec2.md "unity-plug-in-ec2.md")
+- [Plugin for Unity: Deploy your game to a managed container fleet](unity-plug-in-container.md "unity-plug-in-container.md")
 
-##
-
-Install the plugin for your Unity game project
+## Install the plugin for your Unity game project
 
 **[Get the Amazon GameLift Servers plugin for Unity from GitHub](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity")**
 

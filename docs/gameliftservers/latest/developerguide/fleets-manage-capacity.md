@@ -21,17 +21,14 @@ AWS SDK or the AWS Command Line Interface (AWS CLI) with the [service API for Am
 
 ###### Topics
 
-- [To manage fleet capacity in the
-  console](#fleet-manage-capacity-howto "#fleet-manage-capacity-howto")
+- [To manage fleet capacity in the console](#fleet-manage-capacity-howto "#fleet-manage-capacity-howto")
 - [Set Amazon GameLift Servers capacity limits](fleets-capacity-limits.md "fleets-capacity-limits.md")
 - [Manually set capacity for an Amazon GameLift Servers fleet](fleets-updating-capacity.md "fleets-updating-capacity.md")
 - [Auto-scale fleet capacity with Amazon GameLift Servers](fleets-autoscaling.md "fleets-autoscaling.md")
 - [Manage Scaling an Amazon GameLift Servers Fleet To/From Zero](fleets_scale-to-from-zero.md "fleets_scale-to-from-zero.md")
 - [Scale Amazon GameLift Servers container fleets](containers-scaling.md "containers-scaling.md")
 
-## To manage fleet capacity in the
-
-console
+## To manage fleet capacity in the console
 
 1. Open the
    [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/").

@@ -141,9 +141,7 @@ aws gamelift describe-build /
 }
 ```
 
-## Connect to an instance (server SDK
-
-5.
+## Connect to an instance (server SDK 5)
 
 If the instance you want to connect to is running a game build with server SDK version
 5.x, connect to the instance using Amazon EC2 Systems Manager (SSM). You can access remote instances
@@ -220,9 +218,7 @@ create a custom AWS profile for your remote access credentials and add the
 `--profile` command line parameter to your
 `start-session` request.
 
-## Connect to an instance (server SDK
-
-4.x or earlier)
+## Connect to an instance (server SDK 4.x or earlier)
 
 If the instance you want to connect to is running a game build with server SDK version
 4 or earlier, use the following instructions. You can connect to instances that are
@@ -312,9 +308,7 @@ SSH example:
 ssh -i MyPrivateKey.pem gl-user-remote@192.0.2.0
 ```
 
-## View files on remote
-
-instances
+## View files on remote instances
 
 Regardless of whether you have connected to an instance remotely through the console or the AWS CLI, you have full user and administrative access to it.
 This means you also have the ability to cause errors or failures with game hosting. If

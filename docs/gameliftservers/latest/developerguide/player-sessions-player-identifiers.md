@@ -17,5 +17,4 @@ bool includeDashes = true;
 string playerId = AZ::Uuid::CreateRandom().ToString<string>(includeBrackets, includeDashes);
 ```
 
-For more information about player sessions, see [Game and player sessions in
-the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md").
+For more information about player sessions, see [Game and player sessions in the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md").

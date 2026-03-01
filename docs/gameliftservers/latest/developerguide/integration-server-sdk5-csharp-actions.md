@@ -1,14 +1,10 @@
-# C# server SDK 5.x for Amazon GameLift Servers --
-
-Actions
+# C# server SDK 5.x for Amazon GameLift Servers -- Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
 using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
-[C# server SDK 5.x for Amazon GameLift Servers --
-Data types](integration-server-sdk5-csharp-datatypes.md "integration-server-sdk5-csharp-datatypes.md")
+[C# server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-csharp-datatypes.md "integration-server-sdk5-csharp-datatypes.md")
 
 ###### Topics
 
@@ -41,9 +37,7 @@ Returns the current version number of the SDK built into the server process.
 AwsStringOutcome GetSdkVersion();
 ```
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as an [AwsStringOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome") object. The
 returned string includes the version number (example `5.0.0`). If not
@@ -201,9 +195,7 @@ GenericOutcome ProcessReady(ProcessParameters processParameters)
 A `ProcessParameters` object holds information about the
 server process.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -245,9 +237,7 @@ terminates with an error, the fleet event generated is
 GenericOutcome ProcessEnding()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -284,9 +274,7 @@ initialization.
 GenericOutcome ActivateGameSession()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -356,9 +344,7 @@ For idle processes that aren't activated with a game session, the call returns a
 AwsStringOutcome GetGameSessionId()
 ```
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an [AwsStringOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome") object.
 If not successful, returns an error message."
@@ -421,9 +407,7 @@ playerSessionId
 Unique ID issued by GameLift when a new player session is
 created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -465,9 +449,7 @@ GenericOutcome RemovePlayerSession(String playerSessionId)
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -549,9 +531,7 @@ StartMatchBackfillOutcome StartMatchBackfill (StartMatchBackfillRequest startBac
 A `StartMatchBackfillRequest` object holds information
 about the backfill request.
 
-### Return
-
-value
+### Return value
 
 Returns a [StartMatchBackfillOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-startmatchbackfilloutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-startmatchbackfilloutcome") object with the match backfill ticket ID, or
 failure with an error message.
@@ -599,9 +579,7 @@ GenericOutcome StopMatchBackfill (StopMatchBackfillRequest stopBackfillRequest);
 A `StopMatchBackfillRequest` object that provides details
 about the matchmaking ticket you are stopping.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -630,9 +608,7 @@ see, [RegisterCompute](../apireference/API_RegisterCompute.md "../apireference/A
 GetComputeCertificateOutcome GetComputeCertificate();
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a GetComputeCertificateResponse object that contains the following:
 

@@ -18,11 +18,12 @@ GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/am
 | Service release                                                 | AWS SDK                                                                                                                                  | Server SDK | Plugin for Unreal | Plugin for Unity | Realtime client SDK |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | ---------------- | ------------------- | ----- | ----- | ----- | ----- |
 |                                                                 | C++                                                                                                                                      | C#         | Unity (C#)        | C++              | Unreal (C++)        | Go    |       |       |       |
-| [2025-10-28](#release-notes-10282025 "#release-notes-10282025") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0      | 5.4.0             | 5.4.0            | 5.4.0               | 5.4.0 | 3.1.0 | 3.2.0 | 1.2.0 |
+| [2026-02-24](#release-notes-02242026 "#release-notes-02242026") | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0      | 5.4.0             | 5.4.0            | 5.4.0               | 5.4.0 | 3.1.1 | 3.2.1 | 1.2.0 |
 
 | Service release                                                                                                                                                       | AWS SDK                                                                                                                                  | Server SDK            | Plugin for Unreal | Plugin for Unity | Realtime client SDK |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------- | ---------------- | ------------------- | ----- | ----- | ----- | ----- |
 |                                                                                                                                                                       | C++                                                                                                                                      | C#                    | C# Unity          | C++              | C++ Unreal          | Go    |       |       |       |
+| [2025-10-28](#release-notes-10282025 "#release-notes-10282025")                                                                                                       | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0                 | 5.4.0             | 5.4.0            | 5.4.0               | 5.4.0 | 3.1.0 | 3.2.0 | 1.2.0 |
 | 2025-10-03                                                                                                                                                            | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.3.0                 | 5.3.0             | 5.3.0            | 5.3.2               | 5.3.0 | 3.0.2 | 3.1.0 | 1.2.0 |
 | [2025-08-12](#release-notes-08122025 "#release-notes-08122025")                                                                                                       | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.3.0                 | 5.3.0             | 5.3.0            | 5.3.1               | 5.3.0 | 3.0.1 | 3.1.0 | 1.2.0 |
 | [2025-06-24](#release-notes-06242025-2 "#release-notes-06242025-2")                                                                                                   | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.3.0                 | 5.3.0             | 5.3.0            | 5.3.0               | 5.3.0 | 3.0.0 | 3.1.0 | 1.2.0 |
@@ -93,9 +94,33 @@ The following release notes are in chronological order, with the latest updates 
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
 
-Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity.
-Fleets scale down to zero following a defined period of no game session activity and scale up from
-zero when game sessions are requested, providing an option for cost optimization.
+**Updated plugin versions:**
+
+- [Plugin for
+  Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity"), version 3.2.1 (includes the server SDK for Unity,
+  version 5.4.0)
+- [Plugin for
+  Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"), version 3.1.1 (includes the server SDK for Unreal,
+  version 5.4.0)
+  Amazon GameLift Servers releases new versions of the plugin and server SDK for Unreal Engine and Unity. These latest versions include the following updates:
+
+- They now support use with Unreal Engine 5.7 and Unity 6.3.
+
+###### **Learn more:**
+
+- [Integrating
+  games with the Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer
+  Guide_
+- [Integrate
+  Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
+- [Integrating
+  games with the Amazon GameLift Servers plugin for Unity](unity-plug-in.md "unity-plug-in.md"), _Amazon GameLift Servers Developer
+  Guide_
+- [Integrate
+  Amazon GameLift Servers into a Unity Engine project](integration-engines-unity-using.md "integration-engines-unity-using.md"), _Amazon GameLift Servers Developer Guide_
+  Amazon GameLift Servers now supports automatic scaling to and from zero instances based on game session activity.
+  Fleets scale down to zero following a defined period of no game session activity and scale up from
+  zero when game sessions are requested, providing an option for cost optimization.
 
 Amazon GameLift Servers API Reference links:
 
@@ -305,10 +330,8 @@ location.
 - [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md"), _Amazon GameLift Servers Developer Guide_
 - [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md"), _Amazon GameLift Servers Developer Guide_
 - [Server SDK 5.x for Amazon GameLift Servers](reference-serversdk.md "reference-serversdk.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate Amazon GameLift Servers into an Unreal Engine
-  project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
-- [Integrate Amazon GameLift Servers into a Unity
-  project](integration-engines-unity-using.md "integration-engines-unity-using.md"), _Amazon GameLift Servers Developer Guide_
+- [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"), _Amazon GameLift Servers Developer Guide_
+- [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md"), _Amazon GameLift Servers Developer Guide_
   **Updated SDK versions:**
 
 - C# Server SDK, version 5.2.1
@@ -550,8 +573,7 @@ containers. Other features for container fleets include:
   overview, _Amazon GameLift Servers Developer
   Guide_
 - [How containers work in Amazon GameLift Servers](containers-howitworks.md "containers-howitworks.md"), _Amazon GameLift Servers Developer Guide_
-- [Development roadmap for hosting with Amazon GameLift Servers managed
-  containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md"),
+- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md"),
   _Amazon GameLift Servers Developer Guide_
 - [CreateContainerFleet](../apireference/API_CreateContainerFleet.md "../apireference/API_CreateContainerFleet.md"), _Amazon GameLift Servers API Reference_
   **Updated SDK versions:**
@@ -657,8 +679,7 @@ session detail page.
 
 ###### **Learn more:**
 
-- [Game and player sessions in
-  the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md"),
+- [Game and player sessions in the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md"),
   _Amazon GameLift Servers Developer Guide_
   Amazon GameLift Servers is now offering a preview of container fleets, which give you improved portability, scalability, fault tolerance, and agility.
 
@@ -967,19 +988,14 @@ number of customer requests:
 - **Expanded server SDK 5.x documentation**
   - Updated server SDK reference guides for C++, C#/Unity, and
     Unreal including expanded coverage of all data types.
-    - [C# server SDK 5.x for Amazon GameLift Servers --
-      Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
-    - [C++ server SDK 5.x for Amazon GameLift Servers --
-      Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
-    - [C++ (Unreal) server SDK 5.x for
-      Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+    - [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+    - [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
+    - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
   - New versions of the server SDK 5 integration guides for Unity
     and Unreal plugins
-    - [Integrate Amazon GameLift Servers into a Unity
-      project](integration-engines-unity-using.md "integration-engines-unity-using.md")
-    - [Integrate Amazon GameLift Servers into an Unreal Engine
-      project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
+    - [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md")
+    - [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
 
 - **Additional documentation
   updates**
@@ -1098,12 +1114,9 @@ environment with Amazon GameLift Servers see the following links.
 
 ###### **Learn more:**
 
-- [Integrate Amazon GameLift Servers into an Unreal Engine
-  project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
-- [Add Amazon GameLift Servers to your game server with the server
-  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-- [C++ server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
+- [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
+- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
   The new Amazon GameLift Servers console includes these improvements:
 
 - **Improved navigation** – The new
@@ -1128,8 +1141,7 @@ environment with Amazon GameLift Servers see the following links.
 
 **Learn more:**
 
-- [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md")
+- [Set up event notification for game session placement](queue-notification.md "queue-notification.md")
 - [FlexMatch
   matchmaking events](../flexmatchguide/match-notification.md "../flexmatchguide/match-notification.md")
 - [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md")
@@ -1143,8 +1155,7 @@ server SDK 5.0.0 with .NET 4.6. Unity doesn't support .NET 6.
 
 - Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting
   started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started")
-- [C# server SDK 5.x for Amazon GameLift Servers --
-  Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
   **Updated SDK versions:** Server SDK 5.0.0 for
   Go
 
@@ -1152,8 +1163,7 @@ server SDK 5.0.0 with .NET 4.6. Unity doesn't support .NET 6.
 
 - Download the latest version of the Amazon GameLift Servers server SDK at [Amazon GameLift Servers getting
   started](https://aws.amazon.com/gamelift/getting-started "https://aws.amazon.com/gamelift/getting-started")
-- [Go server SDK for Amazon GameLift Servers --
-  Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
+- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
   **Updated SDK versions:** AWS SDK 1.10.21,
   Server SDK 5.0.0 for C++ and C#
 
@@ -1343,8 +1353,7 @@ Highlights:
   **Learn more:**
 
 - Amazon GameLift Servers Developer Guide:
-  - [Set up event notification for game session
-    placement](queue-notification.md "queue-notification.md") (new)
+  - [Set up event notification for game session placement](queue-notification.md "queue-notification.md") (new)
   - [Game session placement events](queue-events.md "queue-events.md")
     (new)
 

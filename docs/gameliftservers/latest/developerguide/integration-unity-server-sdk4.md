@@ -1,6 +1,4 @@
-# Integrate Amazon GameLift Servers with a Unity game server
-
-project
+# Integrate Amazon GameLift Servers with a Unity game server project
 
 ###### Note
 
@@ -11,8 +9,7 @@ latest plugin version, which uses server SDK 5.x and supports newer features suc
 
 This topic helps you prepare your custom game server for hosting on Amazon GameLift Servers. The game server
 must be able to notify Amazon GameLift Servers about its status, to start and stop game sessions when
-prompted, and to perform other tasks. For more information, see  [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+prompted, and to perform other tasks. For more information, see  [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ## Prerequisites
 
@@ -102,8 +99,7 @@ After game initialization is complete, you can start a game session.
    this method to start a new game session on the server process and receive player
    connections.
 2. To activate a game session, call `ActivateGameSession()`. For more
-   information about the SDK, see [C# server SDK for Amazon GameLift Servers 4.x --
-   Actions](integration-server-sdk-csharp-ref-actions.md "integration-server-sdk-csharp-ref-actions.md").
+   information about the SDK, see [C# server SDK for Amazon GameLift Servers 4.x -- Actions](integration-server-sdk-csharp-ref-actions.md "integration-server-sdk-csharp-ref-actions.md").
 
 The following code example illustrates how to start a game session with Amazon GameLift Servers.
 

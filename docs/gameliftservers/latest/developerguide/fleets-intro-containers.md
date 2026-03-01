@@ -55,8 +55,7 @@ don't have to:
   processes.
   See these topics about how to set up and maintain managed container fleets:
 
-- [Development roadmap for hosting with Amazon GameLift Servers managed
-  containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
 - [Create an Amazon GameLift Servers managed container fleet](containers-build-fleet.md "containers-build-fleet.md")
 - [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md "containers-design-fleet.md")
 - [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md")

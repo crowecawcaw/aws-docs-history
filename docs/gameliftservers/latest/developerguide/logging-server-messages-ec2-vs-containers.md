@@ -21,8 +21,7 @@ For managed EC2 fleets, Amazon GameLift Servers provides automatic log managemen
 - **14-day retention:** Logs are retained in Amazon S3 for 14 days before automatic deletion
 - **Size limits:** Log files have size limits per game session (see [Amazon GameLift Servers endpoints and quotas](../../../general/latest/gr/gamelift.md "../../../general/latest/gr/gamelift.md"))
 
-For more information, see [Logging server messages (custom
-servers)](logging-server-messages-custom.md "logging-server-messages-custom.md") and the [GetGameSessionLogUrl API reference](../apireference/API_GetGameSessionLogUrl.md "../apireference/API_GetGameSessionLogUrl.md").
+For more information, see [Logging server messages (custom servers)](logging-server-messages-custom.md "logging-server-messages-custom.md") and the [GetGameSessionLogUrl API reference](../apireference/API_GetGameSessionLogUrl.md "../apireference/API_GetGameSessionLogUrl.md").
 
 ## Container fleet logging
 

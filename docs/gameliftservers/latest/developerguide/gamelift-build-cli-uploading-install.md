@@ -1,6 +1,4 @@
-# Add a build install
-
-script
+# Add a build install script
 
 Create an install script for the operating system (OS) of your game build:
 

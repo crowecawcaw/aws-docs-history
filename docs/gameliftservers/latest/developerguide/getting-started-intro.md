@@ -58,13 +58,10 @@ Follow one of these development roadmaps to get started building a full-featured
 custom hosting solution for your game. The roadmaps provide detailed guidance on how to
 create, test, and customize each component in your hosting solution.
 
-- [Development roadmap for hosting with Amazon GameLift Servers
-  managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
-- [Development roadmap for hosting with Amazon GameLift Servers managed
-  containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
 - [Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md "gamelift-roadmap-anywhere.md")
-- [Development roadmap for hybrid hosting
-  with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
+- [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
 
 ## Recommended learning path
 

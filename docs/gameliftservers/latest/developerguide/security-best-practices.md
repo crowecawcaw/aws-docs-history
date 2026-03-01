@@ -9,17 +9,14 @@ represent a complete security solution. Because these best practices might not b
 appropriate or sufficient for your environment, treat them as helpful considerations rather
 than prescriptions.
 
-## Keep fleet runtime environments up to
-
-date
+## Keep fleet runtime environments up to date
 
 Amazon GameLift Servers highly recommends that you regularly replace managed fleets (including
 managed EC2 and managed container fleets) to maintain secure runtime environments for your
 game servers. Fleets that run for extended periods without runtime updates can contain
 outdated dependencies and security vulnerabilities that could compromise your game servers.
 For details on how responsibility is shared for software deployed to Amazon GameLift Servers fleets, see
-[Configuration and vulnerability analysis
-in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md").
+[Configuration and vulnerability analysis in Amazon GameLift Servers](vulnerability-analysis-management.md "vulnerability-analysis-management.md").
 
 A managed fleet's runtime environment is determined by its Amazon Machine Image (AMI)
 version. When a new fleet is created, Amazon GameLift Servers assigns the latest available AMI version to

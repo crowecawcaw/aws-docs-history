@@ -43,10 +43,8 @@ You **don't** need an AWS account to:
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Set user permissions for Amazon GameLift Servers](#getting-started-create-iam-user "#getting-started-create-iam-user")
-- [Set up programmatic access for
-  users](#getting-started-iam-user-access-keys "#getting-started-iam-user-access-keys")
-- [Set up programmatic access for your
-  game](#getting-started-iam-player-user "#getting-started-iam-player-user")
+- [Set up programmatic access for users](#getting-started-iam-user-access-keys "#getting-started-iam-user-access-keys")
+- [Set up programmatic access for your game](#getting-started-iam-player-user "#getting-started-iam-player-user")
 - [IAM permission examples for Amazon GameLift Servers](gamelift-iam-policy-examples.md "gamelift-iam-policy-examples.md")
 - [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md")
 
@@ -136,9 +134,7 @@ in the _IAM User Guide_.
 When working with IAM users, as a best practice always attach permissions to roles or
 user groups, not individual users.
 
-## Set up programmatic access for
-
-users
+## Set up programmatic access for users
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
@@ -154,9 +150,7 @@ To grant users programmatic access, choose one of the following options.
 If you use access keys, see [Best
 practices for managing AWS access keys](../../../accounts/latest/reference/credentials-access-keys-best-practices.md "../../../accounts/latest/reference/credentials-access-keys-best-practices.md").
 
-## Set up programmatic access for your
-
-game
+## Set up programmatic access for your game
 
 Most games use backend services to communicate with Amazon GameLift Servers using the AWS SDKs. Use a
 backend service (acting for a game client) to request game sessions, place players into

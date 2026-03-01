@@ -1,6 +1,4 @@
-# Delete a container group definition for an Amazon GameLift Servers
-
-container fleet
+# Delete a container group definition for an Amazon GameLift Servers container fleet
 
 You have several options for deleting a container group definition. When you delete a
 container group definition, this action also deletes all the container definitions in the

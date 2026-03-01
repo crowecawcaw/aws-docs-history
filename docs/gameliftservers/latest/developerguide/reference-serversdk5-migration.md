@@ -1,13 +1,10 @@
-# Migrate to server SDK 5.x for
-
-Amazon GameLift Servers
+# Migrate to server SDK 5.x for Amazon GameLift Servers
 
 To update a game project to use server SDK version 5.x, make the following changes:
 
 ###### Note
 
-If you need to continue using server SDK version 4.x or earlier, see [Server SDK for Amazon GameLift Servers version 4 and
-earlier](reference-serversdk4.md "reference-serversdk4.md") for documentation and download information.
+If you need to continue using server SDK version 4.x or earlier, see [Server SDK for Amazon GameLift Servers version 4 and earlier](reference-serversdk4.md "reference-serversdk4.md") for documentation and download information.
 For SDK version 4.0.2 specifically, you can download it from the [official GitHub releases](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk/releases "https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk/releases").
 
 1. Get the latest server SDK for Amazon GameLift Servers package for your development environment

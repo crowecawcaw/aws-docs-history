@@ -1,6 +1,4 @@
-# How Amazon GameLift Servers works with
-
-IAM
+# How Amazon GameLift Servers works with IAM
 
 Before you use IAM to manage access to Amazon GameLift Servers, learn what IAM features are
 available to use with Amazon GameLift Servers.
@@ -24,9 +22,7 @@ IAM features, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon GameLift Servers
+## Identity-based policies for Amazon GameLift Servers
 
 **Supports identity-based policies:**
 
@@ -43,12 +39,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon GameLift Servers
 
-Identity-based policy examples for Amazon GameLift Servers
-
-To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples
-for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon GameLift Servers
 
@@ -66,9 +59,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Amazon GameLift Servers
+## Policy actions for Amazon GameLift Servers
 
 **Supports policy actions:**
 
@@ -107,12 +98,9 @@ action:
 "Action": "gamelift:Describe*"
 ```
 
-To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples
-for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon GameLift Servers
+## Policy resources for Amazon GameLift Servers
 
 **Supports policy resources:**
 
@@ -158,8 +146,7 @@ To specify all fleets that belong to a specific account, use a wildcard
 "Resource": "arn:aws:gamelift:us-west-2:123456789012:fleet/*"
 ```
 
-To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples
-for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Amazon GameLift Servers
 
@@ -181,8 +168,7 @@ For a list of Amazon GameLift Servers condition keys, see
 which actions and resources you can use a condition key, see
 [Actions defined by Amazon GameLift Servers](../../../service-authorization/latest/reference/list_amazongamelift.md#amazongamelift-actions-as-permissions "../../../service-authorization/latest/reference/list_amazongamelift.md#amazongamelift-actions-as-permissions").
 
-To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples
-for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon GameLift Servers identity-based policies, see [Identity-based policy examples for Amazon GameLift Servers](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon GameLift Servers
 
@@ -212,12 +198,9 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For an
 example identity-based policy that limits access to a resource based on the tags on
-that resource, see [View
-Amazon GameLift Servers fleets based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-fleet-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-fleet-tags").
+that resource, see [View Amazon GameLift Servers fleets based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-fleet-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-fleet-tags").
 
-## Using temporary
-
-credentials with Amazon GameLift Servers
+## Using temporary credentials with Amazon GameLift Servers
 
 **Supports temporary credentials:**
 
@@ -229,9 +212,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon GameLift Servers
+## Cross-service principal permissions for Amazon GameLift Servers
 
 **Supports forward access sessions (FAS):**
 
@@ -240,9 +221,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon GameLift Servers
+## Service roles for Amazon GameLift Servers
 
 **Supports service roles:**
 
@@ -263,9 +242,7 @@ AWS Lambda function or an Amazon DynamoDB database. Because game servers are hos
 fleets that Amazon GameLift Servers manages, you need a service role that gives Amazon GameLift Servers limited access
 to your other AWS resources. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
-## Service-linked
-
-roles for Amazon GameLift Servers
+## Service-linked roles for Amazon GameLift Servers
 
 **Supports service-linked roles:**
 

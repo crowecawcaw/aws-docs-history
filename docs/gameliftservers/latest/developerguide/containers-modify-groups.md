@@ -1,6 +1,4 @@
-# Update a container group definition for an Amazon GameLift Servers
-
-container fleet
+# Update a container group definition for an Amazon GameLift Servers container fleet
 
 You can update most of the properties of a container group definition, including the
 individual container definitions. Container group definitions have a version number. When you
@@ -68,8 +66,7 @@ before you can create a container fleet with it.
 AWS CLI
 When you use the AWS CLI to create or update a container group definition,
 maintain your container definition configurations in a separate `JSON` file.
-You can reference the file in your CLI command. See [Create a container definition JSON
-file](containers-create-groups.md#containers-definitions-create "containers-create-groups.md#containers-definitions-create") for schema examples.
+You can reference the file in your CLI command. See [Create a container definition JSON file](containers-create-groups.md#containers-definitions-create "containers-create-groups.md#containers-definitions-create") for schema examples.
 
 When updating a definition, you only need to specify the values you want to update.
 Amazon GameLift Servers retains any values that you don't include in your update request. If you're

@@ -76,8 +76,7 @@ When designing your solution to use Spot fleets, consider the following issues:
   interruption. When AWS reclaims a Spot instance, Amazon GameLift Servers passes the termination
   notification to all affected server processes using the server SDK callback
   function `onProcessTerminate()`. Your game needs to implement this
-  callback to end the game session gracefully. For more information, see [Respond to a server process shutdown
-  notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
+  callback to end the game session gracefully. For more information, see [Respond to a server process shutdown notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
 
 ###### Note
 

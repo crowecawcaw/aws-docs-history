@@ -9,6 +9,5 @@ game projects.
 
 ###### Topics
 
-- [Add Amazon GameLift Servers to your game server with the server
-  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
 - [Integrate the server SDK for game engines](integration-engines.md "integration-engines.md")

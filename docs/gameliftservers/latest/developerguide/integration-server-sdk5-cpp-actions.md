@@ -1,18 +1,14 @@
-# C++ server SDK 5.x for Amazon GameLift Servers --
-
-Actions
+# C++ server SDK 5.x for Amazon GameLift Servers -- Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This topic describes the Amazon GameLift Servers C++ API that you can use when you build with the C++ Standard Library (`std`).
 Specifically, this documentation applies to code that you compile with the `-DDGAMELIFT_USE_STD=1` option.
 
-[C++ server SDK 5.x for Amazon GameLift Servers -- Data
-types](integration-server-sdk5-cpp-datatypes.md "integration-server-sdk5-cpp-datatypes.md")
+[C++ server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-cpp-datatypes.md "integration-server-sdk5-cpp-datatypes.md")
 
 ###### Topics
 
@@ -46,9 +42,7 @@ Returns the current version number of the SDK built into the server process.
 Aws::GameLift::AwsStringOutcome Server::GetSdkVersion();
 ```
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as an [AwsStringOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-awsstringoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-awsstringoutcome") object. The
 returned object includes the version number (example `5.0.0`). If not
@@ -222,9 +216,7 @@ process:
 - Path to any game session-specific files that you want Amazon GameLift Servers to
   capture and store.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -309,9 +301,7 @@ process:
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -368,9 +358,7 @@ terminates with an error, the fleet event generated is
 Aws::GameLift::GenericOutcome processEndingOutcome = Aws::GameLift::Server::ProcessEnding();
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -406,9 +394,7 @@ initialization.
 Aws::GameLift::GenericOutcome activateGameSessionOutcome = Aws::GameLift::Server::ActivateGameSession();
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -477,9 +463,7 @@ AwsStringOutcome GetGameSessionId()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an [AwsStringOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-awsstringoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-awsstringoutcome") object.
 If not successful, returns an error message.
@@ -522,8 +506,7 @@ termination time is available, returns an error message.
 
 If the process hasn't received a ProcessParameters.OnProcessTerminate() callback,
 an error message is returned. For more information about shutting down a server
-process, see [Respond to a server process shutdown
-notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
+process, see [Respond to a server process shutdown notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
 
 ### Example
 
@@ -550,9 +533,7 @@ playerSessionId
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -594,9 +575,7 @@ GenericOutcome RemovePlayerSession(String playerSessionId)
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -628,9 +607,7 @@ DescribePlayerSessionsOutcome DescribePlayerSessions(DescribePlayerSessionsReque
 A [DescribePlayerSessionsRequest](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-playersessions "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-dataypes-playersessions") object that describes which player
 sessions to retrieve.
 
-### Return
-
-value
+### Return value
 
 If successful, returns a [DescribePlayerSessionsOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-describeplayersessionsoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-describeplayersessionsoutcome") object
 containing a set of player session objects that fit the request parameters.
@@ -689,9 +666,7 @@ information:
 - The available matchmaking data for the game session's current
   players.
 
-### Return
-
-value
+### Return value
 
 Returns a [StartMatchBackfillOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-startmatchbackfilloutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-startmatchbackfilloutcome") object with the match backfill ticket ID, or
 failure with an error message.
@@ -741,9 +716,7 @@ to cancel:
 - The matchmaker the backfill request was sent to.
 - The game session associated with the backfill request.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -775,9 +748,7 @@ see, [RegisterCompute](../apireference/API_RegisterCompute.md "../apireference/A
 GetComputeCertificateOutcome Server::GetComputeCertificate()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a [GetComputeCertificateOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-getcomputecertificateoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-getcomputecertificateoutcome").
 

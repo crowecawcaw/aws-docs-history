@@ -70,8 +70,7 @@ the included readme files in each package.
 
 
     	- [Plugin guide for Unreal Engine](unreal-plugin.md "unreal-plugin.md")
-    	- [C++ (Unreal) server SDK 5.x for
-    	 Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+    	- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
     + [Plugin for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity") – Built for use with LTS
      versions of Unity Editor 6.0, 2022.3, or
      2021.3. It supports Unity's .NET Framework and .NET
@@ -82,8 +81,7 @@ the included readme files in each package.
 
 
     	- [Plugin guide for Unity](unity-plug-in.md "unity-plug-in.md")
-    	- [C# server SDK 5.x for Amazon GameLift Servers --
-    	 Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")C# server SDK
+    	- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")C# server SDK
     	 reference
     + [Server SDK for Unreal](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")
 
@@ -118,8 +116,7 @@ Amazon Linux 2 (AL2) will reach end of support on June 30, 2026. See more detail
 in the [Amazon Linux 2
 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/"). For game servers that are hosted on AL2 and use Amazon GameLift Servers server
 SDK 4.x, first update the game server build to server SDK 5.x, and then deploy
-to AL2023 instances. See [Migrate to server SDK 5.x for
-Amazon GameLift Servers](reference-serversdk5-migration.md "reference-serversdk5-migration.md").
+to AL2023 instances. See [Migrate to server SDK 5.x for Amazon GameLift Servers](reference-serversdk5-migration.md "reference-serversdk5-migration.md").
 
 ### Additional tools
 

@@ -24,9 +24,7 @@ local machine, as well as events and logging data.
 
 Are you using the Amazon GameLift Servers plugin for Unreal Engine or Unity? These tools include guided
 workflows for setting up local testing with an Anywhere fleet. Follow the
-documentation for [Plugin for Unity: Set up local testing with
-Amazon GameLift Servers Anywhere](unity-plug-in-anywhere.md "unity-plug-in-anywhere.md") or [Plugin for Unreal: Host your game locally with
-Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md").
+documentation for [Plugin for Unity: Set up local testing with Amazon GameLift Servers Anywhere](unity-plug-in-anywhere.md "unity-plug-in-anywhere.md") or [Plugin for Unreal: Host your game locally with Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md").
 
 ###### Topics
 

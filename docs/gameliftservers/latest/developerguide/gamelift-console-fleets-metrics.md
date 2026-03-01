@@ -169,5 +169,4 @@ tab.
 The **Game sessions** tab lists past and present game
 sessions hosted on the fleet, including some detail information. Choose a game session
 ID to access additional game session information, including player sessions. For more
-information about player sessions, see [Game and player sessions in
-the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md").
+information about player sessions, see [Game and player sessions in the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md").

@@ -18,9 +18,7 @@ buffer, you minimize wait time, but you also pay for extra resources that you ma
 If your players are more tolerant of wait times, you can lower costs by setting a small
 buffer.
 
-## To set target-based auto
-
-scaling
+## To set target-based auto scaling
 
 Console
 

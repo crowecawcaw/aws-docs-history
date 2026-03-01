@@ -5,8 +5,7 @@ with Amazon GameLift Servers. A game server container image includes the game se
 dependencies it needs to run. Game server container images are used with an Amazon GameLift Servers managed
 containers hosting solution. For details on building the complete solution, see:
 
-- [Development roadmap for hosting with Amazon GameLift Servers managed
-  containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
 - [How containers work in Amazon GameLift Servers](containers-howitworks.md "containers-howitworks.md")
   Complete the following tasks to get your game server container image ready for deployment to
   an Amazon GameLift Servers container fleet. Before starting these tasks, finish integrating your game server

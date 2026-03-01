@@ -24,8 +24,7 @@ console offers a graphical interface for most of the functionality of the servic
 
 ###### Topics
 
-- [Hosting dashboard in the Amazon GameLift Servers
-  console](gamelift-console-dashboard.md "gamelift-console-dashboard.md")
+- [Hosting dashboard in the Amazon GameLift Servers console](gamelift-console-dashboard.md "gamelift-console-dashboard.md")
 - [Game server builds](gamelift-console-builds.md "gamelift-console-builds.md")
 - [Fleets in the Amazon GameLift Servers console](gamelift-console-fleets.md "gamelift-console-fleets.md")
 - [Aliases in the Amazon GameLift Servers console](gamelift-console-aliases.md "gamelift-console-aliases.md")

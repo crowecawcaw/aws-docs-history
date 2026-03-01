@@ -14,19 +14,13 @@ connections.
 
 - [Install the plugin for your Unreal game project](#unreal-plugin-install "#unreal-plugin-install")
 - [Next steps: Customize your game hosting solution](#unreal-plugin-next-steps "#unreal-plugin-next-steps")
-- [Plugin for Unreal: Set up an AWS user
-  profile](unreal-plugin-profiles.md "unreal-plugin-profiles.md")
+- [Plugin for Unreal: Set up an AWS user profile](unreal-plugin-profiles.md "unreal-plugin-profiles.md")
 - [Plugin for Unreal: Integrate your game code](unreal-plugin-integrate.md "unreal-plugin-integrate.md")
-- [Plugin for Unreal: Host your game locally with
-  Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md")
-- [Plugin for Unreal: Deploy your game to a managed EC2
-  fleet](unreal-plugin-ec2.md "unreal-plugin-ec2.md")
-- [Plugin for Unreal: Deploy your game to a
-  managed container fleet](unreal-plugin-container.md "unreal-plugin-container.md")
+- [Plugin for Unreal: Host your game locally with Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md")
+- [Plugin for Unreal: Deploy your game to a managed EC2 fleet](unreal-plugin-ec2.md "unreal-plugin-ec2.md")
+- [Plugin for Unreal: Deploy your game to a managed container fleet](unreal-plugin-container.md "unreal-plugin-container.md")
 
-##
-
-Install the plugin for your Unreal game project
+## Install the plugin for your Unreal game project
 
 **[Get the Amazon GameLift Servers plugin for Unreal Engine from GitHub](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")**
 
@@ -76,12 +70,8 @@ and fine-tuning your solution as you prepare for game launch. Consider these opt
 
 ###### Topics
 
-- [Plugin for Unreal: Set up an AWS user
-  profile](unreal-plugin-profiles.md "unreal-plugin-profiles.md")
+- [Plugin for Unreal: Set up an AWS user profile](unreal-plugin-profiles.md "unreal-plugin-profiles.md")
 - [Plugin for Unreal: Integrate your game code](unreal-plugin-integrate.md "unreal-plugin-integrate.md")
-- [Plugin for Unreal: Host your game locally with
-  Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md")
-- [Plugin for Unreal: Deploy your game to a managed EC2
-  fleet](unreal-plugin-ec2.md "unreal-plugin-ec2.md")
-- [Plugin for Unreal: Deploy your game to a
-  managed container fleet](unreal-plugin-container.md "unreal-plugin-container.md")
+- [Plugin for Unreal: Host your game locally with Amazon GameLift Servers Anywhere](unreal-plugin-anywhere.md "unreal-plugin-anywhere.md")
+- [Plugin for Unreal: Deploy your game to a managed EC2 fleet](unreal-plugin-ec2.md "unreal-plugin-ec2.md")
+- [Plugin for Unreal: Deploy your game to a managed container fleet](unreal-plugin-container.md "unreal-plugin-container.md")

@@ -1,26 +1,20 @@
-# Server SDK (Unreal) for Amazon GameLift Servers --
-
-Actions
+# Server SDK (Unreal) for Amazon GameLift Servers -- Actions
 
 Use the server SDK for Unreal to integrate your multiplayer game for hosting with Amazon GameLift Servers.
-For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This reference is for an earlier version of the server SDK for Amazon GameLift Servers. For the latest
 version, see
-[C++ (Unreal) server SDK 5.x for
-Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md").
+[C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md").
 
 This API is defined in `GameLiftServerSDK.h` and
 `GameLiftServerSDKModels.h`.
 
-To set up the Unreal Engine plugin and see code examples [Integrate Amazon GameLift Servers into an Unreal Engine
-project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
+To set up the Unreal Engine plugin and see code examples [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
 
-[Server SDK (Unreal) for Amazon GameLift Servers
--- Data types](integration-server-sdk-unreal-ref-datatypes.md "integration-server-sdk-unreal-ref-datatypes.md")
+[Server SDK (Unreal) for Amazon GameLift Servers -- Data types](integration-server-sdk-unreal-ref-datatypes.md "integration-server-sdk-unreal-ref-datatypes.md")
 
 ###### Topics
 
@@ -133,9 +127,7 @@ FGameLiftStringOutcome GetGameSessionId()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an
 `FGameLiftStringOutcome` object. If not successful, returns an error
@@ -183,9 +175,7 @@ FGameLiftStringOutcome GetSdkVersion();
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as an
 `FGameLiftStringOutcome` object. The returned string includes the
@@ -214,9 +204,7 @@ FGameLiftGenericOutcome InitSDK()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -237,9 +225,7 @@ FGameLiftGenericOutcome ProcessEnding()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -273,9 +259,7 @@ process:
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -351,9 +335,7 @@ A [FStartMatchBackfillRequest](integration-server-sdk-unreal-ref-datatypes.md#in
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 If successful, returns the match backfill ticket as a
 `FGameLiftStringOutcome` object. If not successful, returns an error
@@ -383,9 +365,7 @@ A [FStopMatchBackfillRequest](integration-server-sdk-unreal-ref-datatypes.md#int
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 

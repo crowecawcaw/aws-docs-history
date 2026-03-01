@@ -1,6 +1,4 @@
-# Create a build from a
-
-file directory
+# Create a build from a file directory
 
 To create a game build stored in any location, including a local directory, use
 the [`upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md") AWS CLI command. This command creates a new

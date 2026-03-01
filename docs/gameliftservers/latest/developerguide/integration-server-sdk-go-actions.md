@@ -1,15 +1,11 @@
-# Go server SDK for Amazon GameLift Servers --
-
-Actions
+# Go server SDK for Amazon GameLift Servers -- Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 `GameLiftServerAPI.go` defines the Go server SDK actions.
 
-[Go server SDK for Amazon GameLift Servers -- Data
-types](integration-server-sdk-go-datatypes.md "integration-server-sdk-go-datatypes.md")
+[Go server SDK for Amazon GameLift Servers -- Data types](integration-server-sdk-go-datatypes.md "integration-server-sdk-go-datatypes.md")
 
 ###### Actions
 
@@ -42,9 +38,7 @@ Returns the current version number of the SDK built into the server process.
 func GetSdkVersion() (string, error)
 ```
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as a string. The returned string
 includes the version number (example `5.0.0`). If not successful, returns
@@ -281,9 +275,7 @@ terminates with an error, the fleet event generated is
 func ProcessEnding() error
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a 0 error code or a defined error code.
 
@@ -316,9 +308,7 @@ initialization.
 func ActivateGameSession() error
 ```
 
-### Return
-
-value
+### Return value
 
 Returns an error with an error message if the method fails.
 
@@ -387,9 +377,7 @@ func GetGameSessionID() (string, error)
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID and nil error. For idle processes that
 aren't yet activated with a game session, the call returns an empty string and
@@ -453,9 +441,7 @@ func AcceptPlayerSession(playerSessionID string) error
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -492,9 +478,7 @@ func RemovePlayerSession(playerSessionID string) error
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -528,9 +512,7 @@ func DescribePlayerSessions(req request.DescribePlayerSessionsRequest) (result.D
 A `DescribePlayerSessionsRequest` object describes which
 player sessions to retrieve.
 
-### Return
-
-value
+### Return value
 
 If successful, returns a `DescribePlayerSessionsResult` object that
 contains a set of player session objects that fit the request parameters.
@@ -588,9 +570,7 @@ information:
 - The available matchmaking data for the game session's current
   players.
 
-### Return
-
-value
+### Return value
 
 Returns a `StartMatchBackfillResult` object with the match backfill
 ticket ID, or failure with an error message.
@@ -637,9 +617,7 @@ ticket to cancel:
 - The matchmaker the backfill request was sent to.
 - The game session associated with the backfill request.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -668,9 +646,7 @@ see [RegisterCompute](../apireference/API_RegisterCompute.md "../apireference/AP
 func GetComputeCertificate() (result.GetComputeCertificateResult, error)
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a `GetComputeCertificateResult` object that contains the
 following:
@@ -713,9 +689,7 @@ func GetFleetRoleCredentials(
 Role credentials that extend limited access to your AWS resources to
 the game server.
 
-### Return
-
-value
+### Return value
 
 Returns a `GetFleetRoleCredentialsResult` object that contains the
 following:

@@ -153,9 +153,7 @@ The game hosting management system is the operational backbone that coordinates 
 
 ## How the components work together
 
-###### When a game hosting
-
-compute is deployed
+###### When a game hosting compute is deployed
 
 - **Game server software installed**: The compute is installed with
   a runtime environment and your game server build

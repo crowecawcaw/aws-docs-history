@@ -1,20 +1,15 @@
-# C# server SDK for Amazon GameLift Servers 4.x --
-
-Actions
+# C# server SDK for Amazon GameLift Servers 4.x -- Actions
 
 Use the server SDK reference to integrate your multiplayer game for hosting with Amazon GameLift Servers.
-For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This reference is for an earlier version of the server SDK for Amazon GameLift Servers. For the latest
 version, see
-[C# server SDK 5.x for Amazon GameLift Servers --
-Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
+[C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md").
 
-[C# server SDK for Amazon GameLift Servers 4.x --
-Data types](integration-server-sdk-csharp-ref-datatypes.md "integration-server-sdk-csharp-ref-datatypes.md")
+[C# server SDK for Amazon GameLift Servers 4.x -- Data types](integration-server-sdk-csharp-ref-datatypes.md "integration-server-sdk-csharp-ref-datatypes.md")
 
 ###### Topics
 
@@ -183,9 +178,7 @@ AwsStringOutcome GetGameSessionId()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an `AwsStringOutcome` object.
 If not successful, returns an error message.
@@ -244,9 +237,7 @@ AwsStringOutcome GetSdkVersion()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as an `AwsStringOutcome`
 object. The returned string includes the version number only (ex. "3.1.5"). If not
@@ -284,9 +275,7 @@ AwsDateTimeOutcome GetTerminationTime()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the termination time as an `AwsDateTimeOutcome`
 object. The value is the termination time, expressed in elapsed ticks since 0001
@@ -315,9 +304,7 @@ InitSDKOutcome InitSDK()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns an InitSdkOutcome object indicating that the server process
 is ready to call [ProcessReady()](#integration-server-sdk-csharp-ref-processready "#integration-server-sdk-csharp-ref-processready").
@@ -350,9 +337,7 @@ GenericOutcome ProcessEnding()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -397,9 +382,7 @@ process:
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -521,9 +504,7 @@ A [StartMatchBackfillRequest](integration-server-sdk-csharp-ref-datatypes.md#int
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a StartMatchBackfillOutcome object with the match backfill ticket ID or
 failure with an error message.
@@ -579,9 +560,7 @@ A [StopMatchBackfillRequest](integration-server-sdk-csharp-ref-datatypes.md#inte
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 

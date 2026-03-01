@@ -32,8 +32,7 @@ usage patterns. If you have pricing-related questions, reach out to your
   (50-85% Spot usage recommended). Use Spot instances for non-critical game
   modes or during off-peak hours. To monitor Spot instance viability, track
   metrics such as `InstanceInterruptions` and
-  `GameServerInterruptions`. See [On-Demand Instances versus Spot
-  Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
+  `GameServerInterruptions`. See [On-Demand Instances versus Spot Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 - **Run servers on Linux** – Build your game
   server runtime for Linux. Instances that are deployed with Linux are
   generally more cost-efficient than those with Windows.

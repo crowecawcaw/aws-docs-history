@@ -1,6 +1,4 @@
-# Integrate Amazon GameLift Servers into an Unreal Engine
-
-project
+# Integrate Amazon GameLift Servers into an Unreal Engine project
 
 Learn how to integrate the Amazon GameLift Servers SDK for Unreal Engine into your game projects to access
 the full server SDK feature set.
@@ -13,13 +11,10 @@ try out your game components in action. See [Amazon GameLift Servers plugin for
 
 Additional resources:
 
-- [C++ (Unreal) server SDK 5.x for
-  Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 - [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md")
 
-## Install the server SDK for
-
-Unreal
+## Install the server SDK for Unreal
 
 Get the open-source Amazon GameLift Servers SDK for Unreal Engine from [GitHub](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal"). The repository's readme files contain prerequisites and
 installation instructions.
@@ -113,9 +108,7 @@ using UnrealBuildTool;
 3. After creating the new target files and modifying the module rules, rebuild your game
    project.
 
-## Add game hosting functionality
-
-to your server code
+## Add game hosting functionality to your server code
 
 After server SDK installation and setup, the next step is to integrate game hosting
 functionality into your server code. The server SDK enables your game server to
@@ -170,8 +163,7 @@ private:
 ###### Step 2: Add required server SDK calls to your game server code
 
 Use the sample code in this section to integrate your game server code for use with
-Amazon GameLift Servers. For details on what the code does, see [Initialize the server process](gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "gamelift-sdk-server-api.md#gamelift-sdk-server-initialize") and [C++ (Unreal) server SDK 5.x for
-Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md").
+Amazon GameLift Servers. For details on what the code does, see [Initialize the server process](gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "gamelift-sdk-server-api.md#gamelift-sdk-server-initialize") and [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md").
 
 ###### Note
 
@@ -470,9 +462,7 @@ the `/Games/` folder for your app. Otherwise, Visual
 Studio will rebuild the entire UE5 project, which can take up to an
 hour.
 
-## Package your game server for
-
-hosting
+## Package your game server for hosting
 
 With your game server code now integrated with the minimum required server SDK
 functionality, you're ready to package your game server build using the Unreal Editor.
@@ -535,10 +525,8 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
 
 - Customize your game server integration by adding optional features. For example, you might want to add player sessions with unique player IDs, set up
   matchmaking backfill, or manage game server access to your other AWS resources (such as a database or content storage service). See these topics for guidance:
-  - [Add Amazon GameLift Servers to your game server with the server
-    SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-  - [C++ (Unreal) server SDK 5.x for
-    Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
+  - [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+  - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 - Customize your game client component to request game sessions, receive connection information, and connect directly to a game server to play a game.
   See these topics for guidance:

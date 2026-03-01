@@ -22,9 +22,7 @@ Amazon GameLift Servers to request the VPC peering that you just authorized. Ama
 creating the peering connection, setting up the route tables, and configuring the
 connection.
 
-## To set up VPC peering for an existing
-
-fleet
+## To set up VPC peering for an existing fleet
 
 1. ###### Get AWS account ID(s) and credentials.
 
@@ -120,9 +118,7 @@ operations:
 - [DeleteVpcPeeringConnection()](../../../gamelift/latest/apireference/API_DeleteVpcPeeringConnection.md "../../../gamelift/latest/apireference/API_DeleteVpcPeeringConnection.md") (AWS CLI
   `delete-vpc-peering-connection`).
 
-## To set up VPC peering with a new
-
-fleet
+## To set up VPC peering with a new fleet
 
 You can create a new Amazon GameLift Servers fleet and request a VPC peering connection at the same
 time.
@@ -137,7 +133,7 @@ settings. To get credentials, go to the IAM console.
     * AWS account that you use to manage your non-Amazon GameLift Servers resources.
 
 If you're using the same account for Amazon GameLift Servers and non-Amazon GameLift Servers resources, you need
-ID and credentials for that account only. 2. ###### Get the VPC ID for your non-Amazon GameLift ServersAWS resources.
+ID and credentials for that account only. 2. ###### Get the VPC ID for your non-Amazon GameLift Servers AWS resources.
 
 If you haven't already created a VPC for these resources, do so now (see
 [Getting started with

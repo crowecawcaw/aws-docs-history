@@ -11,9 +11,7 @@ it.
 You can update a build's metadata, including the name and description. For these
 tasks, use the Amazon GameLift Servers console or the [`update-build`](../../../cli/latest/reference/gamelift/update-build.md "../../../cli/latest/reference/gamelift/update-build.md") AWS CLI command.
 
-## Automate your game build
-
-updates
+## Automate your game build updates
 
 Follow these tips to help automate and streamline the process of updating game
 server builds for Amazon GameLift Servers managed fleets:

@@ -10,8 +10,7 @@ solution looks like, see [How hosting with Amazon GameLift Servers works](gameli
 
 - [Managed EC2](#gamelift-intro-flavors-hosting-managed-ec2 "#gamelift-intro-flavors-hosting-managed-ec2")
 - [Managed containers](#gamelift-intro-flavors-hosting-managed-containers "#gamelift-intro-flavors-hosting-managed-containers")
-- [Anywhere
-  hosting](#gamelift-intro-flavors-hosting-anywhere "#gamelift-intro-flavors-hosting-anywhere")
+- [Anywhere hosting](#gamelift-intro-flavors-hosting-anywhere "#gamelift-intro-flavors-hosting-anywhere")
 - [Hybrid hosting](#gamelift-intro-flavors-hosting-hybrid "#gamelift-intro-flavors-hosting-hybrid")
 
 ## Managed EC2
@@ -71,9 +70,7 @@ hosting solution for your containerized game server.](gamelift-roadmap-container
   metrics.
 - Manage container fleet resources using AWS CloudFormation templates for Amazon GameLift Servers.
 
-## Anywhere
-
-hosting
+## Anywhere hosting
 
 With Anywhere hosting, you can take advantage of Amazon GameLift Servers game session management
 features, including matchmaking and game session metrics, to host game servers wherever

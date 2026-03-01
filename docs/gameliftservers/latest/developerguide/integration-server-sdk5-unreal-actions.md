@@ -1,10 +1,7 @@
-# C++ (Unreal) server SDK 5.x for
-
-Amazon GameLift Servers -- Actions
+# C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions
 
 Use the Amazon GameLift Servers Unreal server SDK 5.x reference to help you prepare your multiplayer
-game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
+game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
 using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md").
 
 ###### Note
@@ -12,8 +9,7 @@ using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift S
 This topic describes the Amazon GameLift Servers C++ API that you can use when you build for the Unreal Engine.
 Specifically, this documentation applies to code that you compile with the `-DBUILD_FOR_UNREAL=1` option.
 
-[C++ (Unreal) server SDK 5.x for
-Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md "integration-server-sdk5-unreal-datatypes.md")
+[C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md "integration-server-sdk5-unreal-datatypes.md")
 
 ###### Topics
 
@@ -45,9 +41,7 @@ Returns the current version number of the SDK built into the server process.
 FGameLiftStringOutcome GetSdkVersion();
 ```
 
-### Return
-
-value
+### Return value
 
 If successful, returns the current SDK version as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome")
 object. The returned object includes the version number (example
@@ -168,9 +162,7 @@ process:
 - Path to any game session-specific files that you want Amazon GameLift Servers to
   capture and store.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -200,9 +192,7 @@ terminates with an error, the fleet event generated is
 FGameLiftGenericOutcome ProcessEnding()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -231,9 +221,7 @@ initialization.
 FGameLiftGenericOutcome ActivateGameSession()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -308,9 +296,7 @@ FGameLiftStringOutcome GetGameSessionId()
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome") object.
 If not successful, returns an error message."
@@ -360,8 +346,7 @@ object. The value is the termination time, expressed in elapsed ticks since
 termination time is available, returns an error message.
 
 If the process hasn't received a`ProcessParameters.OnProcessTerminate()` callback, an error message is
-returned. For more information about shutting down a server process, see [Respond to a server process shutdown
-notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
+returned. For more information about shutting down a server process, see [Respond to a server process shutdown notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate").
 
 ### Example
 
@@ -388,9 +373,7 @@ playerSessionId
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -442,9 +425,7 @@ FGameLiftGenericOutcome RemovePlayerSession(const FString& playerSessionId)
 
 Unique ID issued by Amazon GameLift Servers when a new player session is created.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -499,9 +480,7 @@ FGameLiftDescribePlayerSessionsOutcome DescribePlayerSessions(const FGameLiftDes
 A [FGameLiftDescribePlayerSessionsRequest](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-playersessions") object that describes which player
 sessions to retrieve.
 
-### Return
-
-value
+### Return value
 
 If successful, returns a [FGameLiftDescribePlayerSessionsOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-describeplayersessionsoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-describeplayersessionsoutcome") object
 containing a set of player session objects that fit the request parameters.
@@ -571,9 +550,7 @@ information:
 - The available matchmaking data for the game session's current
   players.
 
-### Return
-
-value
+### Return value
 
 Returns a `StartMatchBackfillOutcome` object with the match backfill
 ticket ID, or failure with an error message.
@@ -659,9 +636,7 @@ to cancel:
 - The matchmaker the backfill request was sent to.
 - The game session associated with the backfill request.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -701,9 +676,7 @@ see, [RegisterCompute](../apireference/API_RegisterCompute.md "../apireference/A
 FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertificate()
 ```
 
-### Return
-
-value
+### Return value
 
 Returns a `GetComputeCertificateResponse` object containing the
 following:

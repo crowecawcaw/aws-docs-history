@@ -1,6 +1,4 @@
-# Development roadmap for hosting with Amazon GameLift Servers
-
-managed EC2
+# Development roadmap for hosting with Amazon GameLift Servers managed EC2
 
 This roadmap guides you through how to develop an Amazon GameLift Servers managed EC2 hosting solution for
 your multiplayer game. Amazon GameLift Servers offers several game hosting options; for more information on
@@ -137,8 +135,7 @@ minimum latency, cost, and availability.
   session is ready to join.** While in development, you can poll for
   game session status using a call to DescribeGameSessionPlacement. Before using a
   queue to process high volumes, however, you'll need to enable event
-  notifications. See [Set up event notification for game session
-  placement](queue-notification.md "queue-notification.md").
+  notifications. See [Set up event notification for game session placement](queue-notification.md "queue-notification.md").
 - (Optional) **Add FlexMatch matchmaking components.**
   For guidance, see the [Amazon GameLift Servers FlexMatch
   developer guide](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md").
@@ -181,7 +178,7 @@ fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-
   As you prepare for game launch, you'll need to fine-tune your managed hosting
   resources. Some of the decisions to consider include:
 
-- Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
+- Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
 - If your game server needs to communicate other AWS resources, set up
   IAM roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add remote locations to your

@@ -1,20 +1,15 @@
-# C++ server SDK for Amazon GameLift Servers 4.x --
-
-Actions
+# C++ server SDK for Amazon GameLift Servers 4.x -- Actions
 
 Use the server SDK reference to integrate your multiplayer game for hosting with Amazon GameLift Servers.
-For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This reference is for an earlier version of the server SDK for Amazon GameLift Servers. For the latest
 version, see
-[C++ server SDK 5.x for Amazon GameLift Servers --
-Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md").
+[C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md").
 
-[C++ server SDK for Amazon GameLift Servers 4.x --
-Data types](integration-server-sdk-cpp-ref-datatypes.md "integration-server-sdk-cpp-ref-datatypes.md")
+[C++ server SDK for Amazon GameLift Servers 4.x -- Data types](integration-server-sdk-cpp-ref-datatypes.md "integration-server-sdk-cpp-ref-datatypes.md")
 
 ###### Topics
 
@@ -62,9 +57,7 @@ Type: std::string
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -106,9 +99,7 @@ GenericOutcome ActivateGameSession();
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -192,9 +183,7 @@ AwsStringOutcome GetGameSessionId();
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 If successful, returns the game session ID as an `AwsStringOutcome`
 object. If not successful, returns an error message.
@@ -358,9 +347,7 @@ GenericOutcome ProcessEnding();
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -408,9 +395,7 @@ process:
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -494,9 +479,7 @@ process:
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -567,9 +550,7 @@ Type: std::string
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -620,9 +601,7 @@ A [StartMatchBackfillRequest](integration-server-sdk-cpp-ref-datatypes.md#integr
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a StartMatchBackfillOutcome object with the match backfill ticket or
 failure with an error message. Ticket status can be tracked using the AWS SDK
@@ -676,9 +655,7 @@ A [StopMatchBackfillRequest](integration-server-sdk-cpp-ref-datatypes.md#integra
 
 Required: Yes
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 
@@ -722,9 +699,7 @@ GenericOutcome TerminateGameSession();
 
 This action has no parameters.
 
-### Return
-
-value
+### Return value
 
 Returns a generic outcome consisting of success or failure with an error message.
 

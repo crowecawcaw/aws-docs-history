@@ -1,26 +1,20 @@
-# Server SDK (Unreal) for Amazon GameLift Servers
-
--- Data types
+# Server SDK (Unreal) for Amazon GameLift Servers -- Data types
 
 Use the Amazon GameLift Servers server SDK for Unreal reference to integrate your multiplayer game for hosting
-with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
 This reference is for an earlier version of the server SDK for Amazon GameLift Servers. For the latest
 version, see
-[C++ (Unreal) server SDK 5.x for
-Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md "integration-server-sdk5-unreal-datatypes.md").
+[C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Data types](integration-server-sdk5-unreal-datatypes.md "integration-server-sdk5-unreal-datatypes.md").
 
 This API is defined in `GameLiftServerSDK.h` and
 `GameLiftServerSDKModels.h`.
 
-To set up the Unreal Engine plugin and see code examples [Integrate Amazon GameLift Servers into an Unreal Engine
-project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
+To set up the Unreal Engine plugin and see code examples [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md").
 
-[Server SDK (Unreal) for Amazon GameLift Servers --
-Actions](integration-server-sdk-unreal-ref-actions.md "integration-server-sdk-unreal-ref-actions.md")
+[Server SDK (Unreal) for Amazon GameLift Servers -- Actions](integration-server-sdk-unreal-ref-actions.md "integration-server-sdk-unreal-ref-actions.md")
 
 ###### Topics
 

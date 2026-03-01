@@ -1,15 +1,11 @@
-# Go server SDK for Amazon GameLift Servers -- Data
-
-types
+# Go server SDK for Amazon GameLift Servers -- Data types
 
 Use the server SDK reference to integrate your multiplayer game for hosting with Amazon GameLift Servers.
-For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 `GameLiftServerAPI.go` defines the Go server SDK actions.
 
-[Go server SDK for Amazon GameLift Servers --
-Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
+[Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md")
 
 ###### Data types
 

@@ -1,14 +1,10 @@
-# C# server SDK 5.x for Amazon GameLift Servers --
-
-Data types
+# C# server SDK 5.x for Amazon GameLift Servers -- Data types
 
 Use the Amazon GameLift Servers C# server SDK 5.x reference to integrate your multiplayer game for
-hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
-SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
+hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
 using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
-[C# server SDK 5.x for Amazon GameLift Servers --
-Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
+[C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
 
 ###### Data types
 

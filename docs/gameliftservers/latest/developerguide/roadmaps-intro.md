@@ -6,10 +6,7 @@ Choose the roadmap that best matches your hosting requirements and technical con
 
 ###### Topics
 
-- [Development roadmap for hosting with Amazon GameLift Servers
-  managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
-- [Development roadmap for hosting with Amazon GameLift Servers managed
-  containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
+- [Development roadmap for hosting with Amazon GameLift Servers managed containers](gamelift-roadmap-containers.md "gamelift-roadmap-containers.md")
 - [Development roadmap for hosting with Amazon GameLift Servers Anywhere](gamelift-roadmap-anywhere.md "gamelift-roadmap-anywhere.md")
-- [Development roadmap for hybrid hosting
-  with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
+- [Development roadmap for hybrid hosting with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
