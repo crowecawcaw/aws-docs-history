@@ -4,9 +4,7 @@ Publication date: **September 16, 2022 ([Diagram history](#diagram-history "#dia
 
 This architecture shows you how computer vision wafer inspection accelerates defect detection and reduces human error in detecting (ring/scratch and so on), improving fab productivity.
 
-## Wafer Inspection with Machine Learning
-
-Diagram
+## Wafer Inspection with Machine Learning Diagram
 
 ![Reference architecture diagram showing how computer vision wafer inspection accelerates defect detection and reduces human error in detecting (ring/scratch and so on), improving fab productivity.](images/wafer-inspection-with-machine-learning-architecture.png)
 
