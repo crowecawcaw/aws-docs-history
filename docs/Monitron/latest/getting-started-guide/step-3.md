@@ -24,8 +24,7 @@ time and connect to your project.
 
 - [Step 1: Understanding asset health](#gsg-asset-list "#gsg-asset-list")
 - [Step 2: Viewing asset conditions](#gsg-monitoring "#gsg-monitoring")
-- [Step 3: Viewing and acknowledging a machine
-  abnormality](#gsg-acknowledging "#gsg-acknowledging")
+- [Step 3: Viewing and acknowledging a machine abnormality](#gsg-acknowledging "#gsg-acknowledging")
 - [Step 4: Resolving a machine abnormality](#gs-resolving-anomalies "#gs-resolving-anomalies")
 - [Step 5: Muting alerts](#gs-muting-alerts "#gs-muting-alerts")
 
@@ -86,9 +85,7 @@ month, and so on).
 | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | Two graphs showing total vibration and single axis vibration measurements over time with ISO warning and alarm levels indicated. | Pump monitoring interface showing vibration and temperature alarms with graphical data. |
 
-## Step 3: Viewing and acknowledging a machine
-
-abnormality
+## Step 3: Viewing and acknowledging a machine abnormality
 
 The longer Amazon Monitron monitors a position, the more it fine-tunes its baseline and increases
 its accuracy.

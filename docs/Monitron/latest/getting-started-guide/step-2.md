@@ -204,7 +204,7 @@ can later determine abnormalities.
 
 ###### To pair a sensor with an asset
 
-1. Attach your sensor in the correct position, as described in [Step 3: Attach Sensors](#gsg-sensors "#gsg-sensors") . You can also attach the sensor after pairing it to the asset
+1. Attach your sensor in the correct position, as described in [Step 3: Attach Sensors](#gsg-sensors "#gsg-sensors"). You can also attach the sensor after pairing it to the asset
    in this step 4.
 2. Make sure that the NFC feature on your smartphone is on and functioning.
 3. From the **Assets** list, choose the asset that you just created.
