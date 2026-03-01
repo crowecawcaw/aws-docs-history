@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Monitoring metrics in Incident Manager with
-
-Amazon CloudWatch
+# Monitoring metrics in Incident Manager with Amazon CloudWatch
 
 Incident Manager provides aggregate metrics that you can monitor in Amazon CloudWatch. You can use these
 metrics to identify incident and response plan trends.
@@ -45,9 +43,7 @@ Incident Manager sends the following metrics to CloudWatch.
 | `TimeToFirstAcknowledgement` | Time difference between the incident create time and the time the<br>first acknowledgment was made to the incident.<br>Valid Dimensions: [](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Seconds |
 | `TimeToResolveIncident`      | Time difference between when the incident was created and when it was<br>resolved.<br>Valid Dimensions: ](Empty dimension), [`ResponsePlan`],<br>[`Impact`], [`Source`],<br>[`ResponsePlan`, `Impact`],<br>[`ResponsePlan`, `Source`]<br>Unit: Seconds                                   |
 
-## Viewing Incident Manager metrics on the CloudWatch
-
-console
+## Viewing Incident Manager metrics on the CloudWatch console
 
 ###### To view Incident Manager metrics in the CloudWatch console
 
@@ -65,9 +61,7 @@ _Amazon CloudWatch User Guide_:
 - [Using
   Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
 
-## Dimensions for
-
-Metrics
+## Dimensions for Metrics
 
 Incident Manager metrics use the `IncidentManager` namespace and provide metrics
 for the following dimension(s):

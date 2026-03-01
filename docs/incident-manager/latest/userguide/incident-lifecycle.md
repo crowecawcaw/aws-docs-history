@@ -38,11 +38,9 @@ the time needed to evaluate potential causes, which can reduce the mean time to 
 
 Now that you are monitoring for incidents in your applications, you can define an
 incident _response plan_ to use during an incident. To learn more
-about creating response plans, see [Creating and configuring response plans in
-Incident Manager](response-plans.md "response-plans.md"). Amazon EventBridge events or CloudWatch Alarms can automatically
+about creating response plans, see [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md"). Amazon EventBridge events or CloudWatch Alarms can automatically
 create an incident using with response plans as the template. To learn more about
-incident creation, see [Creating incidents automatically or manually in
-Incident Manager](incident-creation.md "incident-creation.md").
+incident creation, see [Creating incidents automatically or manually in Incident Manager](incident-creation.md "incident-creation.md").
 
 Response plans launch related _escalation plans_ and
 _engagement plans_ to bring first responders into the incident.

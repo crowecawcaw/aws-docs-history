@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Creating incidents automatically or manually in
-
-Incident Manager
+# Creating incidents automatically or manually in Incident Manager
 
 Incident Manager, a tool in AWS Systems Manager, helps you manage and quickly respond to incidents. You
 can configure Amazon CloudWatch and Amazon EventBridge to automatically create incidents based on CloudWatch alarms
@@ -16,8 +14,7 @@ For incidents automatically created by CloudWatch alarms or EventBridge events, 
 create an incident in the same AWS Region as the event rule or alarm. In the event that
 Incident Manager is not available in the AWS Region, CloudWatch or EventBridge automatically create the
 incident in one of the available Regions specified in your replication set. For more
-information, see [Managing incidents across
-AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
+information, see [Managing incidents across AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
 
 When the system creates an incident, Incident Manager automatically collects information about
 the AWS resources involved in the incident and adds this information to the
@@ -41,9 +38,7 @@ Note the following important details.
   set, see [Getting started with Incident Manager](getting-started.md "getting-started.md").
 - Incidents created by a cross-Region failover don't invoke runbooks specified in response plans.
 
-## Creating incidents automatically with
-
-CloudWatch alarms
+## Creating incidents automatically with CloudWatch alarms
 
 CloudWatch uses your CloudWatch metrics to alert you about changes in your environment and to
 automatically perform the start incident action. CloudWatch works with Systems Manager and Incident Manager
@@ -54,8 +49,7 @@ This requires the following prerequisites:
   Incident Manager service linked role in your account, providing the necessary
   permissions.
 - A configured Incident Manager response plan. To learn how to configure Incident Manager
-  response plans, see [Creating and configuring response plans in
-  Incident Manager](response-plans.md "response-plans.md") in the _Incident
+  response plans, see [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md") in the _Incident
   preparation_ section of this guide.
 - Configured CloudWatch metrics monitoring your application. For monitoring best
   practices, see [Monitoring](incident-response.md#incident-response-monitoring "incident-response.md#incident-response-monitoring") in the _Incident
@@ -75,16 +69,12 @@ This requires the following prerequisites:
 
 You can also add the create incident action to any existing alarm.
 
-## Creating incidents automatically
-
-with EventBridge events
+## Creating incidents automatically with EventBridge events
 
 EventBridge rules watch for event patterns. If the event matches the defined pattern,
 Incident Manager creates an incident using the chosen response plan.
 
-### Creating incidents using
-
-SaaS partners events
+### Creating incidents using SaaS partners events
 
 You can configure EventBridge to receive events from software as a service (SaaS) partner
 applications and services, allowing for third-party integration. After configuring
@@ -153,9 +143,7 @@ plan** dropdown list. 15. EventBridge can create the IAM role needed for your ru
 18. Choose **Next**.
 19. Review your rule then choose **Create rule**.
 
-### Creating incidents using
-
-AWS service events
+### Creating incidents using AWS service events
 
 EventBridge also receives events from the AWS services listed in [Events
 from Supported AWS Services](../../../eventbridge/latest/userguide/event-types.md "../../../eventbridge/latest/userguide/event-types.md"). Similar to how you configure rules for
@@ -218,9 +206,7 @@ predefined response plan. Use the following steps to create an incident.
 5. (Optional) To override the impact provided by the defined response plan, enter
    the **Impact** of the incident.
 
-### Required IAM permissions
-
-for manually starting incidents
+### Required IAM permissions for manually starting incidents
 
 To manually start incidents, users need permissions to access the Incident Manager
 console, view response plans, and start incidents. When a user starts an incident,

@@ -9,7 +9,5 @@ response.
 
 ###### Topics
 
-- [Tutorial: Using Systems Manager Automation runbooks with
-  Incident Manager](tutorials-runbooks.md "tutorials-runbooks.md")
-- [Tutorial: Managing security incidents in
-  Incident Manager](tutorials-security.md "tutorials-security.md")
+- [Tutorial: Using Systems Manager Automation runbooks with Incident Manager](tutorials-runbooks.md "tutorials-runbooks.md")
+- [Tutorial: Managing security incidents in Incident Manager](tutorials-security.md "tutorials-security.md")

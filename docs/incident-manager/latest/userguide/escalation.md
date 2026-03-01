@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Creating an escalation plan for responder engagement in
-
-Incident Manager
+# Creating an escalation plan for responder engagement in Incident Manager
 
 AWS Systems Manager Incident Manager provides escalation paths through your defined contacts or on-call
 schedules, collectively known as _escalation channels_. You can
@@ -33,8 +31,7 @@ has the following information:
   escalation plan before it continues to the next stage. Each stage can have multiple escalation
   channels.
 
-For information about setting up individual contacts, see [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md"). For information about creating on-call schedules, see [Managing responder rotations with
-on-call schedules in Incident Manager](incident-manager-on-call-schedule.md "incident-manager-on-call-schedule.md").
+For information about setting up individual contacts, see [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md"). For information about creating on-call schedules, see [Managing responder rotations with on-call schedules in Incident Manager](incident-manager-on-call-schedule.md "incident-manager-on-call-schedule.md").
 
 ## Create an escalation plan
 

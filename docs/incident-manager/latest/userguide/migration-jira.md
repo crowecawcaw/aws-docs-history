@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Migrating to Jira Service
-
-Management
+# Migrating to Jira Service Management
 
 [Jira Service Management (JSM)](https://www.atlassian.com/software/jira/service-management/features/itsm#incident-management "https://www.atlassian.com/software/jira/service-management/features/itsm#incident-management") is an IT service management (ITSM) solution that helps
 teams receive, track, manage, and resolve employee and customer requests through multiple

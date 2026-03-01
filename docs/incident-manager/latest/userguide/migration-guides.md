@@ -17,7 +17,6 @@ requirements.
 You can also explore the following migration guides for integrating with partner solutions:
 
 - [Migrating to AWS Systems Manager OpsCenter](migration-opscenter.md "migration-opscenter.md")
-- [Migrating to Jira Service
-  Management](migration-jira.md "migration-jira.md")
+- [Migrating to Jira Service Management](migration-jira.md "migration-jira.md")
 - [Migrating to ServiceNow](migration-servicenow.md "migration-servicenow.md")
 - [Migrating to PagerDuty](migration-pagerduty.md "migration-pagerduty.md")

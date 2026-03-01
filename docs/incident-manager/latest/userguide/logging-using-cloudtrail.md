@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Logging AWS Systems Manager Incident Manager API calls using
-
-AWS CloudTrail
+# Logging AWS Systems Manager Incident Manager API calls using AWS CloudTrail
 
 AWS Systems Manager Incident Manager is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
 that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures

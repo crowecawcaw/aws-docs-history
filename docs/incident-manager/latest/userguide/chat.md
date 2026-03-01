@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Creating and integrating chat channels for responders in
-
-Incident Manager
+# Creating and integrating chat channels for responders in Incident Manager
 
 Incident Manager, a tool in AWS Systems Manager, gives incident responders the ability to communicate
 directly through _chat channels_ during an incident. A
@@ -25,16 +23,12 @@ Amazon Q Developer in chat applications and Incident Manager support chat channe
 
 ###### Tasks
 
-- [Task 1: Create or update Amazon SNS topics for your chat
-  channel](#sns-topic "#sns-topic")
+- [Task 1: Create or update Amazon SNS topics for your chat channel](#sns-topic "#sns-topic")
 - [Task 2: Create a chat channel in Amazon Q Developer in chat applications](#chat-create "#chat-create")
-- [Task 3: Add the chat channel to a response plan in
-  Incident Manager](#response-plan "#response-plan")
+- [Task 3: Add the chat channel to a response plan in Incident Manager](#response-plan "#response-plan")
 - [Interacting through the chat channel](#chat-interact "#chat-interact")
 
-## Task 1: Create or update Amazon SNS topics for your chat
-
-channel
+## Task 1: Create or update Amazon SNS topics for your chat channel
 
 Amazon SNS is a managed service that provides message delivery from publishers to subscribers
 (also known as _producers_ and _consumers_). Publishers communicate asynchronously with subscribers by sending
@@ -200,15 +194,12 @@ Amazon Chime
 Chat commands, which incident responders can use in Slack and
 Microsoft Teams chat channels, are not supported in Amazon Chime.
 
-## Task 3: Add the chat channel to a response plan in
-
-Incident Manager
+## Task 3: Add the chat channel to a response plan in Incident Manager
 
 When you create or update a response plan, you can add chat channels for responders to
 communicate and receive updates through.
 
-When following the steps in [Creating a response plan](response-plans.md#response-plans-create "response-plans.md#response-plans-create"), for the section **[(Optional) Specifying an incident response chat
-channel](response-plans.md#chat-channel "response-plans.md#chat-channel")**, select the channel you
+When following the steps in [Creating a response plan](response-plans.md#response-plans-create "response-plans.md#response-plans-create"), for the section **[(Optional) Specifying an incident response chat channel](response-plans.md#chat-channel "response-plans.md#chat-channel")**, select the channel you
 want to use for incidents related to this response plan.
 
 ## Interacting through the chat channel

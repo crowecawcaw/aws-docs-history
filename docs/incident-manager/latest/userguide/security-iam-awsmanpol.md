@@ -46,14 +46,11 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSIncidentManagerIncidentAccessServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSIncidentManagerIncidentAccessServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSIncidentManagerIncidentAccessServiceRolePolicy.md") in the
 _AWS Managed Policy Reference Guide_.
 
-## AWS
-
-managed policy: `AWSIncidentManagerServiceRolePolicy`
+## AWS managed policy: `AWSIncidentManagerServiceRolePolicy`
 
 You can't attach `AWSIncidentManagerServiceRolePolicy` to your IAM
 entities. This policy is attached to a service-linked role that allows Incident Manager to
-perform actions on your behalf. For more information, see [Using service-linked roles for
-Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").
+perform actions on your behalf. For more information, see [Using service-linked roles for Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants Incident Manager permissions to list incidents, create timeline events,
 create OpsItems, associate related items to OpsItems, start engagements, and publish CloudWatch
@@ -79,9 +76,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSIncidentManagerServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSIncidentManagerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSIncidentManagerServiceRolePolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS managed
-
-policy: `AWSIncidentManagerResolverAccess`
+## AWS managed policy: `AWSIncidentManagerResolverAccess`
 
 You can attach `AWSIncidentManagerResolverAccess` to your IAM entities to
 allow them to start, view, and update incidents. This also allows them to create customer
@@ -104,9 +99,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSIncidentManagerResolverAccess](../../../aws-managed-policy/latest/reference/AWSIncidentManagerResolverAccess.md "../../../aws-managed-policy/latest/reference/AWSIncidentManagerResolverAccess.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## Incident Manager updates to AWS managed
-
-policies
+## Incident Manager updates to AWS managed policies
 
 View details about updates to AWS managed policies for Incident Manager since this
 service began tracking these changes. For automatic alerts about changes to this page,

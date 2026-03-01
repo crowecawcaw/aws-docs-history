@@ -10,15 +10,10 @@ of the following information, or if they persist after you've tried to resolve t
 
 ###### Topics
 
-- [Error message:
-  ValidationException – We were unable to validate the AWS Secrets Manager
-  secret](#troubleshooting-response-plans-pagerduty "#troubleshooting-response-plans-pagerduty")
+- [Error message: ValidationException – We were unable to validate the AWS Secrets Manager secret](#troubleshooting-response-plans-pagerduty "#troubleshooting-response-plans-pagerduty")
 - [Other troubleshooting issues](#troubleshooting-problem3 "#troubleshooting-problem3")
 
-## Error message:
-
-`ValidationException – We were unable to validate the AWS Secrets Manager
- secret`
+## Error message: `ValidationException – We were unable to validate the AWS Secrets Manager secret`
 
 **Problem 1**: The AWS Identity and Access Management (IAM) identity (user, role, or
 group) that creates the response plan doesn't have the `secretsmanager:GetSecretValue`
@@ -66,8 +61,7 @@ principal. Alternately, the IAM identity that creates the response plan may not 
 permission [`GetSecretValue`](../../../secretsmanager/latest/apireference/API_GetSecretValue.md "../../../secretsmanager/latest/apireference/API_GetSecretValue.md").
 
 - **Solution**: Ensure that you meet the requirements described
-  under **Prerequisites** in the topic [Storing
-  PagerDuty access credentials in an AWS Secrets Manager secret](integrations-pagerduty-secret.md "integrations-pagerduty-secret.md").
+  under **Prerequisites** in the topic [Storing PagerDuty access credentials in an AWS Secrets Manager secret](integrations-pagerduty-secret.md "integrations-pagerduty-secret.md").
 
 **Problem 5**: The ID of the secret that contains the
 General Access REST API Key or User Token REST API Key isn't valid.
@@ -89,8 +83,7 @@ If the previous steps didn't resolve your issue, you can find additional help fr
 following resources:
 
 - For IAM issues specific to Incident Manager when you access the [Incident Manager console](https://console.aws.amazon.com/systems-manager/incidents/home "https://console.aws.amazon.com/systems-manager/incidents/home"), see
-  [Troubleshooting AWS Systems Manager Incident Manager identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
+  [Troubleshooting AWS Systems Manager Incident Manager identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
 - For general authentication and authorization issues when you access the AWS Management Console, see
   [Troubleshooting
   IAM](../../../IAM/latest/UserGuide/troubleshoot.md "../../../IAM/latest/UserGuide/troubleshoot.md") in the _IAM User Guide_

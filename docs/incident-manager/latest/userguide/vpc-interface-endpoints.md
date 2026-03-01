@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Working with AWS Systems Manager Incident Manager and interface VPC
-
-endpoints (AWS PrivateLink)
+# Working with AWS Systems Manager Incident Manager and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS Systems Manager Incident Manager by creating an
 _interface VPC endpoint_. Interface endpoints are powered by
@@ -19,9 +17,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Incident Manager VPC
-
-endpoints
+## Considerations for Incident Manager VPC endpoints
 
 Before you set up an interface VPC endpoint for Incident Manager, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md") in the
@@ -31,9 +27,7 @@ Incident Manager supports making calls to all of its API actions from your VPC. 
 Incident Manager, you must create two VPC endpoints: one for `ssm-incidents` and one
 for `ssm-contacts`.
 
-## Creating an interface VPC endpoint for
-
-Incident Manager
+## Creating an interface VPC endpoint for Incident Manager
 
 You can create a VPC endpoint for Incident Manager using either the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Creating an interface

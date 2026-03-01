@@ -48,8 +48,7 @@ unavailable, incident-related activities can still be routed to the other Region
 ###### Note
 
 Creating the replication set creates the `AWSServiceRoleforIncidentManager`
-service-linked role in your account. To learn more about this role, see [Using service-linked roles for
-Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md"). 4. To set up encryption for your replication set, do one of the following:
+service-linked role in your account. To learn more about this role, see [Using service-linked roles for Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md"). 4. To set up encryption for your replication set, do one of the following:
 
 ###### Note
 
@@ -150,8 +149,7 @@ preceding steps.
 
 An escalation plan escalates through your contacts during an incident, ensuring that
 Incident Manager engages the correct responders during an incident. For more information about
-escalation plans, see [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md"). 2. For **Name**, enter a unique name for the escalation plan. 3. For **Alias**, enter a unique alias to help you identify the escalation
+escalation plans, see [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md"). 2. For **Name**, enter a unique name for the escalation plan. 3. For **Alias**, enter a unique alias to help you identify the escalation
 plan. 4. In the **Stage 1** area, do the following:
 
     1. For **Escalation channels**, choose contact channels to engage.
@@ -223,5 +221,4 @@ see [Tagging resources in Incident Manager](tagging.md "tagging.md"). 9. Select 
 
 After you've created a response plan, you can associate Amazon CloudWatch alarms or Amazon EventBridge events
 with the response plan. This will automatically create an incident based on an alarm or event.
-For more information, see [Creating incidents automatically or manually in
-Incident Manager](incident-creation.md "incident-creation.md").
+For more information, see [Creating incidents automatically or manually in Incident Manager](incident-creation.md "incident-creation.md").

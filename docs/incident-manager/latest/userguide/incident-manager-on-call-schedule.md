@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Managing responder rotations with
-
-on-call schedules in Incident Manager
+# Managing responder rotations with on-call schedules in Incident Manager
 
 An on-call schedule in Incident Manager defines who is notified when an incident occurs that
 requires operator intervention. An on-call schedule consists of one or more rotations you
@@ -14,8 +12,7 @@ escalation plan. When an incident associated with that escalation plan occurs, I
 notifies the operator (or operators) who are on call according to the schedule. This contact
 can then acknowledge the engagement. In your escalation plan, you can designate one or more
 on-call schedules, as well as one or more individual contacts, across multiple stages of
-escalation. For more information, see [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md").
+escalation. For more information, see [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md").
 
 ###### Tip
 
@@ -35,7 +32,5 @@ incident response operations.
 
 ###### Topics
 
-- [Creating an on-call schedule
-  and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md")
-- [Managing an existing on-call schedule
-  in Incident Manager](incident-manager-on-call-schedule-manage.md "incident-manager-on-call-schedule-manage.md")
+- [Creating an on-call schedule and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md")
+- [Managing an existing on-call schedule in Incident Manager](incident-manager-on-call-schedule-manage.md "incident-manager-on-call-schedule-manage.md")

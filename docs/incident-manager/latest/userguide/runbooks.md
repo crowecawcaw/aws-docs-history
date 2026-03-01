@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Integrating Systems Manager Automation runbooks in Incident Manager for incident
-
-remediation
+# Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation
 
 You can use runbooks from [AWS Systems Manager
 Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md"), a tool in AWS Systems Manager, to automate common application and infrastructure
@@ -28,8 +26,7 @@ Incidents created by a cross-Region failover don't invoke runbooks specified in 
 For more information about Systems Manager Automation, runbooks, and using runbooks with Incident Manager,
 see the following topics:
 
-- To add a runbook to a response plan, see [Creating and configuring response plans in
-  Incident Manager](response-plans.md "response-plans.md").
+- To add a runbook to a response plan, see [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md").
 - To learn more about runbooks, see [AWS Systems Manager
   Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") in the _AWS Systems Manager User Guide_ and the _[AWS Systems Manager Automation runbook reference](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md")_.
 - For information about the cost of using runbooks, see [Systems Manager pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
@@ -39,15 +36,12 @@ see the following topics:
 
 ###### Topics
 
-- [IAM permissions required to start and run runbook
-  workflows](#runbook-permissions "#runbook-permissions")
+- [IAM permissions required to start and run runbook workflows](#runbook-permissions "#runbook-permissions")
 - [Working with runbook parameters](#runbooks-parameters "#runbooks-parameters")
 - [Define a runbook](#runbook-create "#runbook-create")
 - [Incident Manager runbook template](#runbooks-template "#runbooks-template")
 
-## IAM permissions required to start and run runbook
-
-workflows
+## IAM permissions required to start and run runbook workflows
 
 Incident Manager requires permissions to run runbooks as part of your incident response. To
 provide these permissions, you use AWS Identity and Access Management (IAM) roles, the _Runbook service

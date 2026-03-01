@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Resource-based policy examples
-
-for AWS Systems Manager Incident Manager
+# Resource-based policy examples for AWS Systems Manager Incident Manager
 
 AWS Systems Manager Incident Manager supports resource-based permissions policies for Incident Manager response
 plans and contacts.
@@ -11,8 +9,7 @@ plans and contacts.
 Incident Manager doesn't support resource-based policies that deny access to resources shared
 using AWS RAM.
 
-To learn how to create a response plan or contact, see [Creating and configuring response plans in
-Incident Manager](response-plans.md "response-plans.md") and [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md").
+To learn how to create a response plan or contact, see [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md") and [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md").
 
 ## Restricting Incident Manager response plan access by organization
 

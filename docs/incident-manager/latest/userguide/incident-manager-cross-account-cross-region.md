@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Managing incidents across
-
-AWS accounts and Regions in Incident Manager
+# Managing incidents across AWS accounts and Regions in Incident Manager
 
 You can configure Incident Manager, a tool in AWS Systems Manager, to work with multiple AWS Regions
 and accounts. This section describes cross-Region and cross-account best practices, set up
@@ -12,8 +10,7 @@ steps, and known limitations.
 ###### Topics
 
 - [Cross-Region incident management](#incident-manager-cross-region "#incident-manager-cross-region")
-- [Cross-account incident
-  management](#incident-manager-cross-account "#incident-manager-cross-account")
+- [Cross-account incident management](#incident-manager-cross-account "#incident-manager-cross-account")
 
 ## Cross-Region incident management
 
@@ -39,9 +36,7 @@ Note the following important details.
 For more information about on-boarding with Incident Manager and specifying additional
 Regions, see [Getting started with Incident Manager](getting-started.md "getting-started.md").
 
-## Cross-account incident
-
-management
+## Cross-account incident management
 
 Incident Manager uses AWS Resource Access Manager (AWS RAM) to share Incident Manager resources across management
 and application accounts. This section describes cross-account best practices, how to
@@ -76,9 +71,7 @@ accounts:
 - Set up Incident Manager, runbooks, and chat channels in your management
   account.
 
-### Set up and configure
-
-cross-account incident management
+### Set up and configure cross-account incident management
 
 The following steps describe how to set up and configure Incident Manager resources and
 use them for cross-account functionality. You may have configured some services and
@@ -128,8 +121,7 @@ resources.
    permissions that Incident Manager needs to access information about AWS CodeDeploy
    deployments and CloudFormation stack updates. This information is reported as
    _findings_ for an incident if the
-   Findings feature is enabled. For more information, see [Identifying potential causes of incidents from other services as
-   "findings" in Incident Manager](findings.md "findings.md").
+   Findings feature is enabled. For more information, see [Identifying potential causes of incidents from other services as "findings" in Incident Manager](findings.md "findings.md").
 5. To set up and create contacts, escalation plans, chat channels, and
    response plans, follow the steps detailed in [Preparing for incidents in Incident Manager](incident-response.md "incident-response.md").
 6. Add your contacts and response plan resources to either your existing

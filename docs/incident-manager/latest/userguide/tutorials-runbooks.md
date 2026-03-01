@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Tutorial: Using Systems Manager Automation runbooks with
-
-Incident Manager
+# Tutorial: Using Systems Manager Automation runbooks with Incident Manager
 
 You can use [AWS Systems Manager
 Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") runbooks to simplify common maintenance, deployment, and
@@ -31,8 +29,7 @@ information, see the following topics:
   _Amazon EC2 User Guide_
 - [Amazon EC2
   instances](../../../AWSEC2/latest/UserGuide/Instances.md "../../../AWSEC2/latest/UserGuide/Instances.md") in the _Amazon EC2 User Guide_
-- [Creating and configuring response plans in
-  Incident Manager](response-plans.md "response-plans.md")
+- [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md")
 
 ###### Important
 
@@ -44,10 +41,8 @@ pricing](https://aws.amazon.com/pricing "https://aws.amazon.com/pricing").
 
 - [Task 1: Creating the runbook](#tutorials-runbook-create "#tutorials-runbook-create")
 - [Task 2: Creating an IAM role](#tutorials-runbook-IAM-role "#tutorials-runbook-IAM-role")
-- [Task 3: Connecting the runbook to
-  your response plan](#tutorials-runbook-response-plan "#tutorials-runbook-response-plan")
-- [Task 4: Assigning a CloudWatch alarm to your
-  response plan](#tutorials-runbook-alarm "#tutorials-runbook-alarm")
+- [Task 3: Connecting the runbook to your response plan](#tutorials-runbook-response-plan "#tutorials-runbook-response-plan")
+- [Task 4: Assigning a CloudWatch alarm to your response plan](#tutorials-runbook-alarm "#tutorials-runbook-alarm")
 - [Task 5: Verifying the results](#tutorials-runbook-verify "#tutorials-runbook-verify")
 
 ## Task 1: Creating the runbook
@@ -272,9 +267,7 @@ JSON
 20. Review the role details, add tags if needed, and choose **Create
     role**.
 
-## Task 3: Connecting the runbook to
-
-your response plan
+## Task 3: Connecting the runbook to your response plan
 
 By connecting the runbook to your Incident Manager response plan, you ensure a
 consistent, repeatable, and timely mitigation process. The runbook also serves as a
@@ -307,9 +300,7 @@ Complete the following fields:
 
 4. Save your changes.
 
-## Task 4: Assigning a CloudWatch alarm to your
-
-response plan
+## Task 4: Assigning a CloudWatch alarm to your response plan
 
 Use the following procedure to assign a CloudWatch alarm for an Amazon EC2 instance to your
 response plan.
@@ -329,8 +320,7 @@ response plan.
 6. For **Configure actions wizard**, choose **Add
    Systems Manager action**.
 7. Choose **Create incident**.
-8. Choose the response plan you created in [Task 3: Connecting the runbook to
-   your response plan](#tutorials-runbook-response-plan "#tutorials-runbook-response-plan").
+8. Choose the response plan you created in [Task 3: Connecting the runbook to your response plan](#tutorials-runbook-response-plan "#tutorials-runbook-response-plan").
 9. Choose **Update alarm**.
 
 ## Task 5: Verifying the results

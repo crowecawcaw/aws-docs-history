@@ -75,8 +75,7 @@ To deactivate a device, reply **UNSUBSCRIBE**. Replying
 Engagement plans define when Incident Manager engages the contact channels. You can engage
 contact channels multiple times at different stages from the start of an engagement. You can use
 engagement plans in an escalation plan or response plan. To learn more about escalation plans,
-see [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md").
+see [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md").
 
 ## Create a contact
 
@@ -114,10 +113,8 @@ To engage a contact, you must define an engagement plan.
 10. Choose **Finish**.
 
 After you define a contact and activate its contact channels, you can add contacts to
-escalation plans to form a chain of escalation. To learn more about escalation plans, see [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md"). You can add contacts to a response plan for
-direct engagement. To learn more about creating response plans, see [Creating and configuring response plans in
-Incident Manager](response-plans.md "response-plans.md").
+escalation plans to form a chain of escalation. To learn more about escalation plans, see [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md"). You can add contacts to a response plan for
+direct engagement. To learn more about creating response plans, see [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md").
 
 ## Import contact details to your address book
 

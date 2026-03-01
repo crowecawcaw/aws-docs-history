@@ -11,8 +11,7 @@ tasks:
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [Grant programmatic
-  access](#getting-started-grant-programmatic-access "#getting-started-grant-programmatic-access")
+- [Grant programmatic access](#getting-started-grant-programmatic-access "#getting-started-grant-programmatic-access")
 - [Required role for Incident Manager setup](#iam-prereq-service-role "#iam-prereq-service-role")
 
 ## Sign up for an AWS account
@@ -73,9 +72,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Grant programmatic
-
-access
+## Grant programmatic access
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
@@ -92,5 +89,4 @@ To grant users programmatic access, choose one of the following options.
 
 Before you begin, your account must have the IAM permission
 `iam:CreateServiceLinkedRole`. Incident Manager uses this permission to create
-the `AWSServiceRoleforIncidentManager` in your account. For more information, see [Using service-linked roles for
-Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").
+the `AWSServiceRoleforIncidentManager` in your account. For more information, see [Using service-linked roles for Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Managing an existing on-call schedule
-
-in Incident Manager
+# Managing an existing on-call schedule in Incident Manager
 
 Use the content in this section to help you work with on-call schedules you have
 already created.
@@ -13,8 +11,7 @@ already created.
 - [Viewing on-call schedule details](#on-call-schedule-details "#on-call-schedule-details")
 - [Editing an on-call schedule](#on-call-schedule-edit "#on-call-schedule-edit")
 - [Copying an on-call schedule](#on-call-schedule-copy "#on-call-schedule-copy")
-- [Creating an override for an on-call
-  schedule rotation](#on-call-schedule-override "#on-call-schedule-override")
+- [Creating an override for an on-call schedule rotation](#on-call-schedule-override "#on-call-schedule-override")
 - [Deleting an on-call schedule](#on-call-schedule-delete "#on-call-schedule-delete")
 
 ## Viewing on-call schedule details
@@ -79,8 +76,7 @@ change these values, you can copy the calendar instead. For information, see [Co
    schedule as needed. The calendar preview reflects your changes as you make
    them.
 
-For information about working with the options on the page, see [Creating an on-call schedule
-and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md"). 5. Choose **Update**.
+For information about working with the options on the page, see [Creating an on-call schedule and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md"). 5. Choose **Update**.
 
 ###### Important
 
@@ -111,12 +107,9 @@ When you copy an existing schedule, you must specify new start dates
 for each rotation. Copied schedules don't support rotations with start
 dates in the past.
 
-For information about working with the options on the page, see [Creating an on-call schedule
-and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md"). 6. Choose **Create copy**.
+For information about working with the options on the page, see [Creating an on-call schedule and rotation in Incident Manager](incident-manager-on-call-schedule-create.md "incident-manager-on-call-schedule-create.md"). 6. Choose **Create copy**.
 
-## Creating an override for an on-call
-
-schedule rotation
+## Creating an override for an on-call schedule rotation
 
 If you need to make one-off changes to an existing rotation schedule, you can
 create an override. An override lets you replace all or part of a contact's shift

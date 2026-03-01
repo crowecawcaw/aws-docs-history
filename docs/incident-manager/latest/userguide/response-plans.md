@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Creating and configuring response plans in
-
-Incident Manager
+# Creating and configuring response plans in Incident Manager
 
 Response plans let you plan for how to respond to an incident that impacts your users.
 A response plan works as a template that includes information about who to engage, the
@@ -96,9 +94,7 @@ record resource to set incident tags within the response plan. 6. Continue by [s
 channel](#chat-channel "#chat-channel") for resolvers to communicate with one another about
 incidents.
 
-### (Optional) Specifying an incident response chat
-
-channel
+### (Optional) Specifying an incident response chat channel
 
 When you include a chat channel in a response plan, responders receive
 incident updates through the channel. They can interact with the incident
@@ -115,8 +111,7 @@ Incident Manager must have permissions to publish to a chat channel's Amazon Sim
 add it to the response plan. Incident Manager publishes a test notification to
 the SNS topic to verify permissions.
 
-For more information about chat channels, see [Creating and integrating chat channels for responders in
-Incident Manager](chat.md "chat.md").
+For more information about chat channels, see [Creating and integrating chat channels for responders in Incident Manager](chat.md "chat.md").
 
 ###### To specify an incident response chat channel
 
@@ -133,9 +128,7 @@ the time of the incident. 3. Continue by [selecting the contacts,
 on-call schedules, and escalation plans](#engagements "#engagements") to be engaged during
 an incident.
 
-### (Optional) Select resources to engage in incident
-
-response
+### (Optional) Select resources to engage in incident response
 
 It's important to identify the most appropriate responders when an incident
 occurs. As a best practice, we recommend that you do the following:
@@ -148,8 +141,7 @@ occurs. As a best practice, we recommend that you do the following:
 Currently, the ability to add a contact that’s shared from another
 account to a response plan is not supported. 2. Choose an escalation plan as the engagement in a response plan.
 
-For more information about contacts and escalation plans, see [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md") and [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md").
+For more information about contacts and escalation plans, see [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md") and [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md").
 
 ###### To select resources to engage in incident response
 
@@ -158,9 +150,7 @@ Incident Manager](escalation.md "escalation.md").
 2. Continue by optionally [specifying a runbook to
    run](#runbook "#runbook") as part of your incident mitigation.
 
-### (Optional) Specifying a runbook for incident
-
-mitigation
+### (Optional) Specifying a runbook for incident mitigation
 
 You can use runbooks from [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md"), a tool in AWS Systems Manager, to automate common
 application and infrastructure tasks in your AWS Cloud environment.
@@ -170,8 +160,7 @@ runbook workflow includes the actions that Systems Manager performs on your mana
 or other AWS resource types. In Incident Manager, a runbook drives incident
 response and mitigation.
 
-For more information about using runbooks in response plans, [Integrating Systems Manager Automation runbooks in Incident Manager for incident
-remediation](runbooks.md "runbooks.md").
+For more information about using runbooks in response plans, [Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation](runbooks.md "runbooks.md").
 
 To specify a runbook for incident mitigation:
 
@@ -189,8 +178,7 @@ To specify a runbook for incident mitigation:
    To create a runbook from scratch, choose
    **Configure new runbook**.
 
-   For information about creating runbooks, see [Integrating Systems Manager Automation runbooks in Incident Manager for incident
-   remediation](runbooks.md "runbooks.md").
+   For information about creating runbooks, see [Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation](runbooks.md "runbooks.md").
 
 2. In the **Parameters** area, supply any parameters
    requested for the runbook you selected.
@@ -249,8 +237,7 @@ At minimum, the role must allow the
 runbook. For the runbook to work across accounts, the role must also
 allow the `sts:AssumeRole` action for the
 `AWS-SystemsManager-AutomationExecutionRole` role that
-you created during [Managing incidents across
-AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
+you created during [Managing incidents across AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
 
 Choose from the following:
 
@@ -292,9 +279,7 @@ Choose from the following:
 6. Continue by optionally [integrating a
    PagerDuty service into the response plan](#integrations "#integrations").
 
-### (Optional) Integrating a PagerDuty service into
-
-the response plan
+### (Optional) Integrating a PagerDuty service into the response plan
 
 ###### To integrate a PagerDuty service into the response plan
 
@@ -310,8 +295,7 @@ from Incident Manager as notes on your incident.
    where you store the credentials to access your PagerDuty account.
 
 For information about storing your PagerDuty credentials in a Secrets Manager
-secret, see [Storing
-PagerDuty access credentials in an AWS Secrets Manager secret](integrations-pagerduty-secret.md "integrations-pagerduty-secret.md"). 3. For **PagerDuty service**, select the service from your
+secret, see [Storing PagerDuty access credentials in an AWS Secrets Manager secret](integrations-pagerduty-secret.md "integrations-pagerduty-secret.md"). 3. For **PagerDuty service**, select the service from your
 PagerDuty account where you want to create the PagerDuty incident. 4. Continue by [adding optional tags and creating the
 response plan](#tags "#tags").
 

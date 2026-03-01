@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Working with shared contacts and response plans in
-
-Incident Manager
+# Working with shared contacts and response plans in Incident Manager
 
 With contact sharing, as a contact owner, you can share contact information, escalation
 plans, and engagements with other AWS accounts or within an AWS
@@ -20,8 +18,7 @@ A contact or response plan owner can share contacts and response plans with:
 
 ###### Contents
 
-- [Prerequisites for sharing contacts and response
-  plans](#sharing-prereqs "#sharing-prereqs")
+- [Prerequisites for sharing contacts and response plans](#sharing-prereqs "#sharing-prereqs")
 - [Related services](#sharing-related "#sharing-related")
 - [Sharing a contact or response plan](#sharing-share "#sharing-share")
 - [Stop sharing a shared contact or response plan](#sharing-unshare "#sharing-unshare")
@@ -30,9 +27,7 @@ A contact or response plan owner can share contacts and response plans with:
 - [Billing and metering](#sharing-billing "#sharing-billing")
 - [Instance limits](#sharing-limits "#sharing-limits")
 
-## Prerequisites for sharing contacts and response
-
-plans
+## Prerequisites for sharing contacts and response plans
 
 To share a contact or response plan with your organization or organizational unit in
 AWS Organizations:
@@ -99,15 +94,11 @@ they refresh the page or navigate away from the page.
 To stop sharing a shared contact or response plan that you own, you must remove it from
 the resource share. You can do this by using the AWS RAM console or the AWS CLI.
 
-###### To stop sharing a shared contact or response plan that you own by using the AWS RAM
-
-console
+###### To stop sharing a shared contact or response plan that you own by using the AWS RAM console
 
 See [Updating a Resource Share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update") in the _AWS RAM User Guide_.
 
-###### To stop sharing a shared contact or response plan that you own by using the
-
-AWS CLI
+###### To stop sharing a shared contact or response plan that you own by using the AWS CLI
 
 Use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command.
 

@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Storing
-
-PagerDuty access credentials in an AWS Secrets Manager secret
+# Storing PagerDuty access credentials in an AWS Secrets Manager secret
 
 After you turn on integration with PagerDuty for a response plan, Incident Manager works with
 PagerDuty in the following ways:

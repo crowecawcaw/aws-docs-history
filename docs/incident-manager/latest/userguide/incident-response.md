@@ -16,21 +16,14 @@ future incidents.
 ###### Topics
 
 - [Monitoring](#incident-response-monitoring "#incident-response-monitoring")
-- [Configuring replication sets and Findings in
-  Incident Manager](general-settings.md "general-settings.md")
+- [Configuring replication sets and Findings in Incident Manager](general-settings.md "general-settings.md")
 - [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md")
-- [Managing responder rotations with
-  on-call schedules in Incident Manager](incident-manager-on-call-schedule.md "incident-manager-on-call-schedule.md")
-- [Creating an escalation plan for responder engagement in
-  Incident Manager](escalation.md "escalation.md")
-- [Creating and integrating chat channels for responders in
-  Incident Manager](chat.md "chat.md")
-- [Integrating Systems Manager Automation runbooks in Incident Manager for incident
-  remediation](runbooks.md "runbooks.md")
-- [Creating and configuring response plans in
-  Incident Manager](response-plans.md "response-plans.md")
-- [Identifying potential causes of incidents from other services as
-  "findings" in Incident Manager](findings.md "findings.md")
+- [Managing responder rotations with on-call schedules in Incident Manager](incident-manager-on-call-schedule.md "incident-manager-on-call-schedule.md")
+- [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md")
+- [Creating and integrating chat channels for responders in Incident Manager](chat.md "chat.md")
+- [Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation](runbooks.md "runbooks.md")
+- [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md")
+- [Identifying potential causes of incidents from other services as "findings" in Incident Manager](findings.md "findings.md")
 
 ## Monitoring
 

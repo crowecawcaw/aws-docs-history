@@ -11,14 +11,10 @@ prescriptions.
 
 ###### Topics
 
-- [Preventative security best practices for
-  Incident Manager](#security-best-practices-prevent "#security-best-practices-prevent")
-- [Detective security best practices for
-  Incident Manager](#security-best-practices-detect "#security-best-practices-detect")
+- [Preventative security best practices for Incident Manager](#security-best-practices-prevent "#security-best-practices-prevent")
+- [Detective security best practices for Incident Manager](#security-best-practices-detect "#security-best-practices-detect")
 
-## Preventative security best practices for
-
-Incident Manager
+## Preventative security best practices for Incident Manager
 
 ###### Implement least privilege access
 
@@ -84,9 +80,7 @@ tools.
 [Security best
 practices for Systems Manager](../../../systems-manager/latest/userguide/security-best-practices.md "../../../systems-manager/latest/userguide/security-best-practices.md")
 
-## Detective security best practices for
-
-Incident Manager
+## Detective security best practices for Incident Manager
 
 ###### Identify and audit all your Incident Manager resources
 
@@ -101,8 +95,7 @@ Guide_.
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS service in
 Incident Manager. Using the information collected by AWS CloudTrail, you can determine the request
 that was made to Incident Manager, the IP address from which the request was made, who made the
-request, when it was made, and additional details. For more information, see [Logging AWS Systems Manager Incident Manager API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+request, when it was made, and additional details. For more information, see [Logging AWS Systems Manager Incident Manager API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Monitor AWS security advisories
 

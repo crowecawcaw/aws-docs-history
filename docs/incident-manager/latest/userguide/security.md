@@ -29,13 +29,10 @@ _in_ the cloud:
 
 - [Data protection in Incident Manager](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS Systems Manager Incident Manager](security-iam.md "security-iam.md")
-- [Working with shared contacts and response plans in
-  Incident Manager](sharing.md "sharing.md")
+- [Working with shared contacts and response plans in Incident Manager](sharing.md "sharing.md")
 - [Compliance validation for AWS Systems Manager Incident Manager](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
 - [Resilience in AWS Systems Manager Incident Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Systems Manager Incident Manager](infrastructure-security.md "infrastructure-security.md")
-- [Working with AWS Systems Manager Incident Manager and interface VPC
-  endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
-- [Configuration and vulnerability analysis in
-  Incident Manager](vulnerability.md "vulnerability.md")
+- [Working with AWS Systems Manager Incident Manager and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Configuration and vulnerability analysis in Incident Manager](vulnerability.md "vulnerability.md")
 - [Security best practices in AWS Systems Manager Incident Manager](security-best-practices.md "security-best-practices.md")

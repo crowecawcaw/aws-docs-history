@@ -27,9 +27,7 @@ _IAM User Guide_.
 Incident Manager doesn't support policies that deny access to resources shared using
 AWS RAM.
 
-## Identity-based policies
-
-for Incident Manager
+## Identity-based policies for Incident Manager
 
 **Supports identity-based policies:**
 
@@ -46,16 +44,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Incident Manager
 
-Identity-based policy examples for Incident Manager
+To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for
-AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Incident Manager
+## Resource-based policies within Incident Manager
 
 **Supports resource-based policies:**
 
@@ -81,17 +74,13 @@ Incident Manager doesn't support policies that deny access to resources shared u
 AWS RAM.
 
 To learn how to attach a resource-based policy to a response plan or contact, see
-[Managing incidents across
-AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
+[Managing incidents across AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
 
 ### Resource-based policy examples within Incident Manager
 
-To view examples of Incident Manager resource-based policies, see [Resource-based policy examples
-for AWS Systems Manager Incident Manager](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of Incident Manager resource-based policies, see [Resource-based policy examples for AWS Systems Manager Incident Manager](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for Incident Manager
+## Policy actions for Incident Manager
 
 **Supports policy actions:**
 
@@ -129,8 +118,7 @@ actions that begin with the word `Get`, include the following action:
 "Action": "ssm-incidents:Get*"
 ```
 
-To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for
-AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 Incident Manager uses actions in two different namespaces, ssm-incidents and ssm-contacts.
 When creating policies for Incident Manager make sure to use the namespace correct for the
@@ -140,9 +128,7 @@ is used for actions related to contacts and contact engagement. For example:
 - `ssm-contacts:GetContact`
 - `ssm-incidents:GetResponsePlan`
 
-## Policy
-
-resources for Incident Manager
+## Policy resources for Incident Manager
 
 **Supports policy resources:**
 
@@ -161,17 +147,14 @@ To see a list of Incident Manager resource types and their ARNs, see [Resources 
 in the _Service Authorization Reference_. To learn with which actions you can specify
 the ARN of each resource, see [Actions defined by AWS Systems Manager Incident Manager](../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.md#awssystemsmanagerincidentmanager-actions-as-permissions "../../../service-authorization/latest/reference/list_awssystemsmanagerincidentmanager.md#awssystemsmanagerincidentmanager-actions-as-permissions").
 
-To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for
-AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Incident Manager identity-based policies, see [Identity-based policy examples for AWS Systems Manager Incident Manager](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 Incident Manager resources are used to create incidents, collaborate in chat channels,
 resolve incidents, and engage responders. If a user has access to a response plan they
 have access to all incidents created from it. If a user has access to a contact or
 escalation plan they can engage the contact or contacts in the escalation plan.
 
-## Policy
-
-condition keys for Incident Manager
+## Policy condition keys for Incident Manager
 
 **Supports service-specific policy condition keys:**
 
@@ -186,9 +169,7 @@ policy with values in the request. To see all AWS global
 condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-## Access control lists (ACLs) in
-
-Incident Manager
+## Access control lists (ACLs) in Incident Manager
 
 **Supports ACLs:**
 
@@ -197,9 +178,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control (ABAC)
-
-with Incident Manager
+## Attribute-based access control (ABAC) with Incident Manager
 
 **Supports ABAC (tags in policies):**
 
@@ -216,9 +195,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Incident Manager
+## Using temporary credentials with Incident Manager
 
 **Supports temporary credentials:**
 
@@ -230,9 +207,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Incident Manager
+## Cross-service principal permissions for Incident Manager
 
 **Supports forward access sessions (FAS):**
 
@@ -241,9 +216,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Incident Manager
+## Service roles for Incident Manager
 
 **Supports service roles:**
 
@@ -258,26 +231,20 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Incident Manager functionality.
 Edit service roles only when Incident Manager provides guidance to do so.
 
-### Choosing an IAM role in
-
-Incident Manager
+### Choosing an IAM role in Incident Manager
 
 When you create a response plan resource in Incident Manager, you must choose a role to
 allow Incident Manager to run a Systems Manager automation document on your behalf. If you have
 previously created a service role or service-linked role, then Incident Manager provides you
 with a list of roles to choose from. It's important to choose a role that allows access
-to run your automation document instances. For more information, see [Integrating Systems Manager Automation runbooks in Incident Manager for incident
-remediation](runbooks.md "runbooks.md"). When you create a Amazon Q Developer in chat applications chat
+to run your automation document instances. For more information, see [Integrating Systems Manager Automation runbooks in Incident Manager for incident remediation](runbooks.md "runbooks.md"). When you create a Amazon Q Developer in chat applications chat
 channel to be used during an incident you can select a service role that allows you to
 use commands directly from chat. To learn more about creating chat channels for incident
-collaboration, see [Creating and integrating chat channels for responders in
-Incident Manager](chat.md "chat.md"). To learn more about
+collaboration, see [Creating and integrating chat channels for responders in Incident Manager](chat.md "chat.md"). To learn more about
 IAM policies in Amazon Q Developer in chat applications, see [Managing permissions for running commands using Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/chatbot-cli-commands.md#iam-policies-for-slack-channels-cli-support "../../../chatbot/latest/adminguide/chatbot-cli-commands.md#iam-policies-for-slack-channels-cli-support") in the _Amazon Q Developer in chat applications
 Administrator guide_.
 
-## Service-linked roles
-
-for Incident Manager
+## Service-linked roles for Incident Manager
 
 **Supports service-linked roles:**
 
@@ -287,5 +254,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For information about creating or managing Incident Manager service-linked roles, see [Using service-linked roles for
-Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").
+For information about creating or managing Incident Manager service-linked roles, see [Using service-linked roles for Incident Manager](using-service-linked-roles.md "using-service-linked-roles.md").

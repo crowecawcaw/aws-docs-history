@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Creating an on-call schedule
-
-and rotation in Incident Manager
+# Creating an on-call schedule and rotation in Incident Manager
 
 Create an on-call schedule with one or more rotations of contacts to engage to respond
 to incidents during their shifts.
@@ -62,9 +60,7 @@ in which it runs, the types of operators it contains, or the escalation plan it
 supports. For more information about tagging Incident Manager resources, see [Tagging resources in Incident Manager](tagging.md "tagging.md"). 7. Continue by [adding one or more
 rotations to the on-call schedule](#on-call-schedule-rotation-times "#on-call-schedule-rotation-times").
 
-## Creating a rotation for an on-call
-
-schedule in Incident Manager
+## Creating a rotation for an on-call schedule in Incident Manager
 
 A rotation in an on-call schedule specifies when the shift is in effect. It also
 specifies the contacts that shifts rotate through. You can include up to eight
@@ -128,9 +124,7 @@ example, select all the days except **Sunday** and
 **Saturday**. 8. Continue by [adding
 contacts to the rotation](#on-call-schedule-rotation-contacts "#on-call-schedule-rotation-contacts").
 
-## Adding contacts to a rotation
-
-in an on-call schedule in Incident Manager
+## Adding contacts to a rotation in an on-call schedule in Incident Manager
 
 For each rotation in your on-call schedule, you can add one or more contacts, up
 to a total of 30. You choose from contacts who are set up in your Incident Manager
@@ -161,9 +155,7 @@ that user and use the Up (
 ) buttons to update the contact order. 5. Continue by [specifying individual shift recurrence and length](#on-call-schedule-rotation-recurrence-and-tags "#on-call-schedule-rotation-recurrence-and-tags") for the
 rotation.
 
-## Specifying shift
-
-recurrence and length and adding tags to a rotation in Incident Manager
+## Specifying shift recurrence and length and adding tags to a rotation in Incident Manager
 
 Shift recurrence specifies how frequently the contacts in a rotation rotate in and
 out of being on call. Recurrence lengths can be specified in a number of days,

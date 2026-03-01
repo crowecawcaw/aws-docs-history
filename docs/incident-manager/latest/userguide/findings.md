@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Identifying potential causes of incidents from other services as
-
-"findings" in Incident Manager
+# Identifying potential causes of incidents from other services as "findings" in Incident Manager
 
 In Incident Manager, a _finding_ is information about an
 AWS CodeDeploy deployments or AWS CloudFormation stack update that occurred around the time of an
@@ -31,8 +29,7 @@ Refer to the following topics to help you use the Findings feature.
 ###### Topics
 
 - [Enable and create a service role for findings](#create-findings-role "#create-findings-role")
-- [Configure permissions for cross-account findings
-  support](#findings-role-permissions "#findings-role-permissions")
+- [Configure permissions for cross-account findings support](#findings-role-permissions "#findings-role-permissions")
 
 ## Enable and create a service role for findings
 
@@ -48,8 +45,7 @@ If you are using Incident Manager with an organization, the service role is crea
 the management account. To work with findings across other accounts in the
 organization, the service role must be created in each application account. For
 information about using a CloudFormation template to create this role in your
-application accounts, see step 4 in [Set up and configure
-cross-account incident management](incident-manager-cross-account-cross-region.md#cross-account-cross-region-setup "incident-manager-cross-account-cross-region.md#cross-account-cross-region-setup").
+application accounts, see step 4 in [Set up and configure cross-account incident management](incident-manager-cross-account-cross-region.md#cross-account-cross-region-setup "incident-manager-cross-account-cross-region.md#cross-account-cross-region-setup").
 
 This service role is associated with an AWS managed policy. For information about
 the permissions in this policy, see [AWS managed policy: AWSIncidentManagerIncidentAccessServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSIncidentManagerIncidentAccessServiceRolePolicy").
@@ -60,9 +56,7 @@ For information about enabling findings during the Incident Manager onboarding p
 For information about enabling findings after you have completed the onboarding
 process, see [Managing the Findings feature](general-settings.md#settings-findings "general-settings.md#settings-findings").
 
-## Configure permissions for cross-account findings
-
-support
+## Configure permissions for cross-account findings support
 
 To use the Findings feature across accounts with an organization set up in AWS RAM, each
 application account must configure permissions for Incident Manager to assume the management
@@ -73,5 +67,4 @@ template provided by AWS, which creates the role
 `IncidentManagerIncidentAccessServiceRole`.
 
 For information about downloading and deploying this template in an application
-account, see step 4 in [Managing incidents across
-AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").
+account, see step 4 in [Managing incidents across AWS accounts and Regions in Incident Manager](incident-manager-cross-account-cross-region.md "incident-manager-cross-account-cross-region.md").

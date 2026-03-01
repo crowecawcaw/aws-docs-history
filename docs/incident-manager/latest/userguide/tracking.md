@@ -191,9 +191,7 @@ To remove metrics, choose **Remove**, and then choose the
 metrics you want to remove from the provided **Metrics**
 dropdown.
 
-#### Viewing findings from AWS CodeDeploy and
-
-CloudFormation
+#### Viewing findings from AWS CodeDeploy and CloudFormation
 
 After Findings is enabled and all required permissions configured, any
 findings that might be related to a specific incident are attached to the
@@ -266,13 +264,11 @@ The **Engagements** tab of the incident details drives the
 engagement of responders and teams. From this tab, you can see who has been engaged,
 who has responded, as well as which responders are going to be engaged as part of an
 escalation plan. Responders can engage other contacts directly from this tab. To
-learn more about creating contacts and escalation plans, see the [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md") and [Creating an escalation plan for responder engagement in
-Incident Manager](escalation.md "escalation.md") sections of this guide.
+learn more about creating contacts and escalation plans, see the [Creating and configuring contacts in Incident Manager](contacts.md "contacts.md") and [Creating an escalation plan for responder engagement in Incident Manager](escalation.md "escalation.md") sections of this guide.
 
 You can configure response plans with contacts and escalation plans to
 automatically start engagement at the beginning of an incident. To learn more about
-configuring response plans, see the [Creating and configuring response plans in
-Incident Manager](response-plans.md "response-plans.md") section of this guide.
+configuring response plans, see the [Creating and configuring response plans in Incident Manager](response-plans.md "response-plans.md") section of this guide.
 
 You can find information about each contact in the table. This table includes the
 following information:

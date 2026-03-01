@@ -1,9 +1,7 @@
 AWS Systems Manager Incident Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
 [AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
 
-# Using service-linked roles for
-
-Incident Manager
+# Using service-linked roles for Incident Manager
 
 AWS Systems Manager Incident Manager uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Incident Manager. Service-linked roles are predefined by Incident Manager and
@@ -25,9 +23,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Incident Manager
+## Service-linked role permissions for Incident Manager
 
 Incident Manager uses the service-linked role named **AWSServiceRoleforIncidentManager**.
 This role allows Incident Manager to manage Incident Manager incident records and related resources on your behalf.
@@ -110,9 +106,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRolefor
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for Incident Manager service-linked
-
-roles
+## Supported Regions for Incident Manager service-linked roles
 
 Incident Manager supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
