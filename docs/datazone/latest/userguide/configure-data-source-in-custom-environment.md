@@ -1,6 +1,4 @@
-# Configure a data source in
-
-an AWS service environment
+# Configure a data source in an AWS service environment
 
 Complete the following procedure to configure a data source in an AWS service
 environment.

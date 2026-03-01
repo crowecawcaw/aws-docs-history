@@ -12,23 +12,15 @@ APIs.
 
 ###### Topics
 
-- [Types of lineage nodes in
-  Amazon DataZone](#datazone-data-lineage-node-types "#datazone-data-lineage-node-types")
-- [Key attributes in lineage
-  nodes](#datazone-data-lineage-key-attributes "#datazone-data-lineage-key-attributes")
+- [Types of lineage nodes in Amazon DataZone](#datazone-data-lineage-node-types "#datazone-data-lineage-node-types")
+- [Key attributes in lineage nodes](#datazone-data-lineage-key-attributes "#datazone-data-lineage-key-attributes")
 - [Visualizing data lineage](#datazone-data-lineage-history "#datazone-data-lineage-history")
-- [Data lineage authorization in
-  Amazon DataZone](#datazone-data-lineage-authorization "#datazone-data-lineage-authorization")
-- [Data lineage sample
-  experience in Amazon DataZone](#datazone-data-lineage-sample-experience "#datazone-data-lineage-sample-experience")
-- [Enable data lineage in the management
-  console](#enable-data-lineage "#enable-data-lineage")
-- [Using Amazon DataZone data lineage
-  programmatically](#datazone-data-lineage-apis "#datazone-data-lineage-apis")
-- [Automate lineage for the AWS Glue
-  catalog](#datazone-data-lineage-automate "#datazone-data-lineage-automate")
-- [Automate lineage from
-  Amazon Redshift](#datazone-data-lineage-automate-redshift "#datazone-data-lineage-automate-redshift")
+- [Data lineage authorization in Amazon DataZone](#datazone-data-lineage-authorization "#datazone-data-lineage-authorization")
+- [Data lineage sample experience in Amazon DataZone](#datazone-data-lineage-sample-experience "#datazone-data-lineage-sample-experience")
+- [Enable data lineage in the management console](#enable-data-lineage "#enable-data-lineage")
+- [Using Amazon DataZone data lineage programmatically](#datazone-data-lineage-apis "#datazone-data-lineage-apis")
+- [Automate lineage for the AWS Glue catalog](#datazone-data-lineage-automate "#datazone-data-lineage-automate")
+- [Automate lineage from Amazon Redshift](#datazone-data-lineage-automate-redshift "#datazone-data-lineage-automate-redshift")
   Lineage can be setup to be automatically captured from AWS Glue and Amazon Redshift
   databases when added to Amazon DataZone. Additionally, Spark ETL job runs in AWS Glue (v5.0
   and higher) console or notebooks can be configured to send lineage events to Amazon DataZone
@@ -68,9 +60,7 @@ With data lineage, you can accomplish the following in Amazon DataZone:
   example, column-level lineage can be used to show where sensitive data (such as
   PII) is stored and how it is processed in downstream activities.
 
-## Types of lineage nodes in
-
-Amazon DataZone
+## Types of lineage nodes in Amazon DataZone
 
 in Amazon DataZone, data lineage information is presented in nodes that represent
 tables and views. Depending on the context of the project, for example, a project
@@ -100,9 +90,7 @@ Amazon DataZone:
   in the **History** tab of the node details. You can view
   node details by choosing the node icon.
 
-## Key attributes in lineage
-
-nodes
+## Key attributes in lineage nodes
 
 The `sourceIdentifier` attribute in a lineage node represents the
 events happening on a dataset. The `sourceIdentifier` of the lineage node
@@ -181,9 +169,7 @@ graph:
   identify what has changed overtime. Each version opens a new tab in the
   lineage page to help compare or contrast.
 
-## Data lineage authorization in
-
-Amazon DataZone
+## Data lineage authorization in Amazon DataZone
 
 **Write permissions** - to publish lineage data into
 Amazon DataZone, you must have an IAM role with a permissions policy that includes an
@@ -196,9 +182,7 @@ included in the `AmazonDataZoneDomainExecutionRolePolicy` managed policy
 and therefore every user in the Amazon DataZone domain can invoke these to traverse the
 data lineage graph.
 
-## Data lineage sample
-
-experience in Amazon DataZone
+## Data lineage sample experience in Amazon DataZone
 
 You can use the data lineage sample experience to browse and understand data
 lineage in Amazon DataZone, including traversing upstream or downstream in your data
@@ -226,9 +210,7 @@ downstream. You can expand the graph upstream or downstream. The columns
 information is also available for you to choose and see how lineage flows
 through the nodes.
 
-## Enable data lineage in the management
-
-console
+## Enable data lineage in the management console
 
 You can enable data lineage as part of configuring your Default Data Lake and
 Default Data Warehouse blueprints.
@@ -284,9 +266,7 @@ following procedure.
    - Under **Import data lineage**, check the
      **Enable importing data lineage**.
 
-## Using Amazon DataZone data lineage
-
-programmatically
+## Using Amazon DataZone data lineage programmatically
 
 To use the data lineage functionality in Amazon DataZone, you can invoke the following
 APIs:
@@ -295,9 +275,7 @@ APIs:
 - [ListLineageNodeHistory](../APIReference/API_ListLineageNodeHistory.md "../APIReference/API_ListLineageNodeHistory.md")
 - [PostLineageEvent](../APIReference/API_PostLineageEvent.md "../APIReference/API_PostLineageEvent.md")
 
-## Automate lineage for the AWS Glue
-
-catalog
+## Automate lineage for the AWS Glue catalog
 
 As and when AWS Glue databases and tables are added to the Amazon DataZone catalog,
 the lineage extraction is automated for those tables using data source runs. There
@@ -307,8 +285,7 @@ are few ways lineage is automated for this source:
   configure blueprints to capture lineage automatically. This enables the
   administrators to define which data sources are important for lineage
   capture rather than relying on data producers cataloguing data. For more
-  information, see [Enable data lineage in the management
-  console](#enable-data-lineage "#enable-data-lineage").
+  information, see [Enable data lineage in the management console](#enable-data-lineage "#enable-data-lineage").
 - Data source configuration - data producers, as they configure data source
   runs for AWS Glue databases, are presented with a view along with Data
   Quality to inform about automated data lineage for that data source.
@@ -404,9 +381,7 @@ replace <SessionId> and <SessionId> with the right values
 
 ```
 
-## Automate lineage from
-
-Amazon Redshift
+## Automate lineage from Amazon Redshift
 
 Capturing lineage from Amazon Redshift service with data warehouse blueprint
 configuration setup by administrators, lineage is automatically captured by Amazon
@@ -420,8 +395,7 @@ Lineage can be automated using the following configurations:
   configure blueprints to capture lineage automatically. This enables the
   administrators to define which data sources are important for lineage
   capture rather than relying on data producers cataloguing data. To setup, go
-  to [Enable data lineage in the management
-  console](#enable-data-lineage "#enable-data-lineage").
+  to [Enable data lineage in the management console](#enable-data-lineage "#enable-data-lineage").
 - Data source configuration: data producers, as they configure data source
   runs for Amazon Redshift databases, are presented with automated data
   lineage setting for that data source.

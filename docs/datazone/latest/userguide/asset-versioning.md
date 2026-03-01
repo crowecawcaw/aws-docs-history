@@ -8,8 +8,7 @@ generates a new asset revision any time you make an edit to the asset.
 
 After you update an asset and a new revision is generated, you must publish the new
 revision to the catalog for it to be updated and available to subscribers. For more
-information, see [Publish assets to the Amazon DataZone catalog from
-the project inventory](publishing-data-asset.md "publishing-data-asset.md"). You can only publish the most
+information, see [Publish assets to the Amazon DataZone catalog from the project inventory](publishing-data-asset.md "publishing-data-asset.md"). You can only publish the most
 recent version of an asset to the catalog.
 
 ###### To view past revisions of an asset

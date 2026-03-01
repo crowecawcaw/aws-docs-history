@@ -17,16 +17,11 @@ configuration steps and these managed policies are automatically updated to supp
 quality. If you are using your own policies for the roles that grant Amazon DataZone the
 required permissions to interoperate with supported services, you must update the
 policies attached to these roles to enable support for reading the AWS Glue data
-quality information in the [AWS managed policy:
-AmazonDataZoneGlueManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md")
-and enable support for the time series APIs in the [AWS managed policy:
-AmazonDataZoneDomainExecutionRolePolicy](security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md") and
-the [AWS managed
-policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md").
+quality information in the [AWS managed policy: AmazonDataZoneGlueManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md")
+and enable support for the time series APIs in the [AWS managed policy: AmazonDataZoneDomainExecutionRolePolicy](security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md") and
+the [AWS managed policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md").
 
-## Enabling data quality for AWS Glue
-
-assets
+## Enabling data quality for AWS Glue assets
 
 Amazon DataZone pulls the data quality metrics from AWS Glue in order to provide
 context during a point in time, for example, during a business data catalog search.
@@ -45,8 +40,7 @@ ways:
   new or editing existing AWS Glue data source.
 
 For more information on enabling data quality for a data source via the
-portal, see [Create and run an Amazon DataZone data source for
-the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md").
+portal, see [Create and run an Amazon DataZone data source for the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md").
 
 ###### Note
 
@@ -68,9 +62,7 @@ listing for the consumers. Subsequently, each new addition of metrics to the
 asset, is automatically added to the listing. There is no need to republish
 the asset to make the latest scores available to consumers.
 
-## Enabling data quality for custom
-
-asset types
+## Enabling data quality for custom asset types
 
 You can use the Amazon DataZone APIs to enable data quality for any of your custom type
 assets. For more information, see the following:

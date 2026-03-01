@@ -1,6 +1,4 @@
-# Configure Lake Formation
-
-permissions for Amazon DataZone
+# Configure Lake Formation permissions for Amazon DataZone
 
 When you create an environment using the built-in data lake blueprint
 (**DefaultDataLake**), an AWS Glue database is added in
@@ -32,8 +30,6 @@ Grantable`, `Select Grantable` permissions on the
 Amazon DataZone supports the AWS Lake Formation Hybrid mode. Lake Formation hybrid
 mode enables you to start managing permissions on you AWS Glue databases and
 tables through Lake Formation, while continuing to maintain any existing IAM
-permissions on these tables and databases. For more information, see [Amazon DataZone integration with AWS Lake Formation
-hybrid mode](hybrid-mode.md "hybrid-mode.md")
+permissions on these tables and databases. For more information, see [Amazon DataZone integration with AWS Lake Formation hybrid mode](hybrid-mode.md "hybrid-mode.md")
 
-For more information, see [Troubleshooting AWS Lake
-Formation permissions for Amazon DataZone](troubleshooting-datazone.md#troubleshooting-lake-formation-permissions "troubleshooting-datazone.md#troubleshooting-lake-formation-permissions").
+For more information, see [Troubleshooting AWS Lake Formation permissions for Amazon DataZone](troubleshooting-datazone.md#troubleshooting-lake-formation-permissions "troubleshooting-datazone.md#troubleshooting-lake-formation-permissions").

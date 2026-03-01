@@ -1,6 +1,4 @@
-# Fine-grained access control to data in
-
-Amazon DataZone
+# Fine-grained access control to data in Amazon DataZone
 
 In the current release of Amazon DataZone, fine-grained access control of your data is
 supported, enabling you to have granular access control over your sensitive data. You can

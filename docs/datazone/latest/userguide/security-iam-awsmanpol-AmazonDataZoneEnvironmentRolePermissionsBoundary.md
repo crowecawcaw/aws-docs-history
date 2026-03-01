@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneEnvironmentRolePermissionsBoundary
+# AWS managed policy: AmazonDataZoneEnvironmentRolePermissionsBoundary
 
 ###### Note
 

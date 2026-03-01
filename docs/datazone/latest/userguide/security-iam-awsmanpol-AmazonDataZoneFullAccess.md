@@ -1,6 +1,4 @@
-# AWS managed
-
-policy: AmazonDataZoneFullAccess
+# AWS managed policy: AmazonDataZoneFullAccess
 
 You can attach the `AmazonDataZoneFullAccess` policy to your IAM
 identities.

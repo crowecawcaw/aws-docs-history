@@ -17,8 +17,7 @@ more.
 ###### Topics
 
 - [What Can I Do with Amazon DataZone?](#use-service-for-what "#use-service-for-what")
-- [How Amazon DataZone supports and
-  integrates with other AWS services?](#support-integration-with-other-services "#support-integration-with-other-services")
+- [How Amazon DataZone supports and integrates with other AWS services?](#support-integration-with-other-services "#support-integration-with-other-services")
 - [How can I access Amazon DataZone?](#accessing-datazone "#accessing-datazone")
 
 ## What Can I Do with Amazon DataZone?
@@ -44,9 +43,7 @@ With Amazon DataZone, you can do the following:
   manual entry of data attributes into the business data catalog. Richer data in
   the data catalog also improves the searching experience.
 
-## How Amazon DataZone supports and
-
-integrates with other AWS services?
+## How Amazon DataZone supports and integrates with other AWS services?
 
 Amazon DataZone supports three types of integrations with other AWS services:
 

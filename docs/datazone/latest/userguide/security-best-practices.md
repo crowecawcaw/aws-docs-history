@@ -6,9 +6,7 @@ represent a complete security solution. Because these best practices might not b
 appropriate or sufficient for your environment, treat them as helpful considerations rather
 than prescriptions.
 
-## Implement least privilege
-
-access
+## Implement least privilege access
 
 When granting permissions, you decide who is getting what permissions to which
 Amazon DataZone resources. You enable specific actions that you want to allow on those
@@ -38,15 +36,11 @@ Guide_:
 - [Common Scenarios
   for Roles: Users, Applications, and Services](../../../IAM/latest/UserGuide/id_roles_common-scenarios.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios.md")
 
-## Implement Server-Side Encryption in
-
-Dependent Resources
+## Implement Server-Side Encryption in Dependent Resources
 
 Data at rest and data in transit can be encrypted in Amazon DataZone.
 
-## Use CloudTrail to Monitor API
-
-Calls
+## Use CloudTrail to Monitor API Calls
 
 Amazon DataZone is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon DataZone.

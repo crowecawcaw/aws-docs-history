@@ -1,6 +1,4 @@
-# Add project members to a
-
-custom AWS service environment
+# Add project members to a custom AWS service environment
 
 Complete the following procedure to add project members to an AWS service
 environment.

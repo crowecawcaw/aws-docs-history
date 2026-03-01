@@ -18,13 +18,9 @@ governance by enabling domain unit owners to establish clear metadata requiremen
 consumers, streamlining access requests and enhancing data governance. This feature enables
 organizations to align with organization’s metadata standards, implement custom workflows, and
 provide a consistent, governed data access experience. For more information,
-see [Metadata enforcement rules for subscription
-requests](metadata-rules.md "metadata-rules.md").
+see [Metadata enforcement rules for subscription requests](metadata-rules.md "metadata-rules.md").
 
-### Amazon DataZone custom AWS service blueprints now enable
-
-Amazon SageMaker with a new set up experience for Amazon DataZone
-projects
+### Amazon DataZone custom AWS service blueprints now enable Amazon SageMaker with a new set up experience for Amazon DataZone projects
 
 Released on 11/15/2024
 
@@ -35,9 +31,7 @@ configurations, and policies from Amazon SageMaker domains. For more information
 see [Set
 up SageMaker Assets (administrator guide)](../../../sagemaker/latest/dg/sm-assets-set-up.md "../../../sagemaker/latest/dg/sm-assets-set-up.md").
 
-### Amazon DataZone launches AWS CloudFormation support for
-
-custom AWS service blueprints
+### Amazon DataZone launches AWS CloudFormation support for custom AWS service blueprints
 
 Released on 9/12/2024
 
@@ -49,9 +43,7 @@ IAM roles to publish data assets to the Amazon DataZone catalog, facilitating go
 sharing of those assets and enhancing governance across the entire infrastructure.
 For more information, see [Amazon DataZone resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_DataZone.md "../../../AWSCloudFormation/latest/UserGuide/AWS_DataZone.md").
 
-### Amazon DataZone launches domain units and authorization
-
-policies
+### Amazon DataZone launches domain units and authorization policies
 
 Released on 08/12/2024
 
@@ -61,8 +53,7 @@ level organization and manage policies per their business needs. With the additi
 of domain units, users can organize, create, search, and find data assets and
 projects associated with business units or teams. With authorization policies, those
 domain unit users can set access policies for creating projects, glossaries, and
-using compute resources within Amazon DataZone. For more information, see [Domain units and authorization policies in
-Amazon DataZone](working-with-domain-units.md "working-with-domain-units.md").
+using compute resources within Amazon DataZone. For more information, see [Domain units and authorization policies in Amazon DataZone](working-with-domain-units.md "working-with-domain-units.md").
 
 ### Amazon DataZone launches data products
 
@@ -74,11 +65,9 @@ example, a marketing analysis data product can bundle various data assets, such 
 marketing campaign data, pipeline data, and customer data. With data products,
 customers can simplify discovery and subscription processes, aligning them with
 business objectives and reducing redundancy in handling individual assets. For more
-information , see [Amazon DataZone data products](working-with-data-products.md "working-with-data-products.md") .
+information , see [Amazon DataZone data products](working-with-data-products.md "working-with-data-products.md").
 
-### Amazon DataZone launches fine-grained access control
-
-functionality
+### Amazon DataZone launches fine-grained access control functionality
 
 Released on 07/02/2024
 
@@ -91,8 +80,7 @@ sensitive information such as Personally Identifiable Information (PII), you can
 restrict access to only the necessary columns, ensuring that sensitive information
 is protected while still allowing access to non-sensitive data. Similarly, you can
 control access at the row level, allowing users to see only the records that are
-relevant to their role or task. For more information, see [Fine-grained access control to data in
-Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md")
+relevant to their role or task. For more information, see [Fine-grained access control to data in Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md")
 
 ### Amazon DataZone launches data lineage functionality
 
@@ -109,9 +97,7 @@ asset’s or job’s history. This historical lineage provides a deeper understa
 how data has evolved, essential for troubleshooting, auditing, and validating the
 integrity of data assets. For more information, see [Data lineage in Amazon DataZone](datazone-data-lineage.md "datazone-data-lineage.md")
 
-### Amazon DataZone launches custom AWS service
-
-blueprints
+### Amazon DataZone launches custom AWS service blueprints
 
 Released on 06/17/2024
 
@@ -127,7 +113,7 @@ resources. They can also configure subscription targets and data sources in thes
 custom AWS service environments. Administrators can set up AWS service
 environments in their own Amazon DataZone domain account or in any associated accounts
 from which they want to publish, subscribe to, discover, or govern data. For more
-information, see [Amazon DataZone custom AWS service blueprints](working-with-custom-blueprint.md "working-with-custom-blueprint.md") .
+information, see [Amazon DataZone custom AWS service blueprints](working-with-custom-blueprint.md "working-with-custom-blueprint.md").
 
 ### Enhancements to the data source creation flow
 
@@ -141,10 +127,8 @@ AWS Glue data source, Amazon DataZone automatically grants 'read-only' permissio
 the IAM role of the environment used to create the data source, allowing access to
 all tables in the associated AWS Glue databases. Similarly, for Amazon Redshift
 data sources, Amazon DataZone grants 'read-only' access to all tables in the Amazon
-Redshift schemas used in the data source. For more information, see [Create and run an Amazon DataZone data source for
-the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md") and
-[Create and run an Amazon DataZone data source
-for Amazon Redshift](create-redshift-data-source.md "create-redshift-data-source.md").
+Redshift schemas used in the data source. For more information, see [Create and run an Amazon DataZone data source for the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md") and
+[Create and run an Amazon DataZone data source for Amazon Redshift](create-redshift-data-source.md "create-redshift-data-source.md").
 
 ### Amazon DataZone launches integration with Amazon SageMaker
 
@@ -158,9 +142,7 @@ data consumers and producers can streamline ML governance across infrastructure
 setup, collaborate on business initiatives, and easily govern data and ML assets.
 For more information, see [Amazon DataZone built-in blueprints](working-with-blueprints.md "working-with-blueprints.md") and [Associated accounts in Amazon DataZone](working-with-associated-accounts.md "working-with-associated-accounts.md").
 
-### Amazon DataZone launches integration with AWS Lake Formation
-
-hybrid access mode
+### Amazon DataZone launches integration with AWS Lake Formation hybrid access mode
 
 Released on 04/03/2024
 
@@ -174,12 +156,9 @@ permissions, Amazon DataZone first registers the Amazon S3 locations of this tab
 hybrid mode, and then grants access to the data consumer by managing permissions on
 the table through AWS Lake Formation. This ensures that IAM permissions on the
 table continue to exist with newly-granted AWS Lake Formation permissions, without
-disrupting any existing workflows. For more information, see the [Amazon DataZone integration with AWS Lake Formation
-hybrid mode](hybrid-mode.md "hybrid-mode.md") .
+disrupting any existing workflows. For more information, see the [Amazon DataZone integration with AWS Lake Formation hybrid mode](hybrid-mode.md "hybrid-mode.md").
 
-### Amazon DataZone launches integration with AWS Glue Data
-
-Quality
+### Amazon DataZone launches integration with AWS Glue Data Quality
 
 Released on 04/03/2024
 
@@ -192,9 +171,7 @@ for data assets, view granular quality metrics, and identify failed checks and r
 
 - empowering business decisions. For more information, see the [Data quality in Amazon DataZone](datazone-data-quality.md "datazone-data-quality.md").
 
-### General availability release of AI recommendations for
-
-descriptions in Amazon DataZone
+### General availability release of AI recommendations for descriptions in Amazon DataZone
 
 Released on 03/27/2024
 
@@ -206,9 +183,7 @@ columns, and include recommendations on analytical use cases. The launch adds
 support for APIs that data producers can use to programmatically generate
 descriptions for assets. For more information, see [Using machine learning and generative AI in Amazon DataZone](autodoc.md "autodoc.md").
 
-### Amazon DataZone launches enhancements to Amazon Redshift
-
-integration
+### Amazon DataZone launches enhancements to Amazon Redshift integration
 
 Released on 03/21/2024
 
@@ -267,9 +242,7 @@ infrastructure as code practices. With custom templates, you can precisely defin
 your required resources and their interdependencies. For more information, see the
 [Amazon DataZone resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_DataZone.md "../../../AWSCloudFormation/latest/UserGuide/AWS_DataZone.md").
 
-### Add IAM principals directly as members of Amazon DataZone
-
-projects
+### Add IAM principals directly as members of Amazon DataZone projects
 
 Released on 01/05/2024
 
@@ -282,9 +255,7 @@ of the IAM role or IAM user. The IAM principal still must have the IAM permissio
 required to access Amazon DataZone and those can be configured in the IAM console. For
 more information, see [Add members to a project](add-members-to-project.md "add-members-to-project.md").
 
-### Support for custom asset types from the Data
-
-Portal
+### Support for custom asset types from the Data Portal
 
 Released on 01/05/2024
 
@@ -316,8 +287,7 @@ registered in Lake Formation under hybrid mode, Amazon DataZone treats this tabl
 managed assets and can manage the subscription grants to this table. Prior to this
 feature release, Amazon DataZone would treat this table as an unmanaged asset i.e.,
 Amazon DataZone would not be able to grant subscriptions to this table. For more
-information, see [Configure Lake Formation
-permissions for Amazon DataZone](lake-formation-permissions-for-datazone.md "lake-formation-permissions-for-datazone.md").
+information, see [Configure Lake Formation permissions for Amazon DataZone](lake-formation-permissions-for-datazone.md "lake-formation-permissions-for-datazone.md").
 
 ### HIPAA eligibility
 
@@ -327,9 +297,7 @@ Amazon DataZone is now U.S. Health Insurance Portability and Accountability Act 
 (HIPAA) compliant. To view the list of AWS services with HIPAA compliance see
 [https://aws.amazon.com/compliance/hipaa-eligible-services-reference/](https://aws.amazon.com/compliance/hipaa-eligible-services-reference/ "https://aws.amazon.com/compliance/hipaa-eligible-services-reference/").
 
-### AI recommendations for descriptions in Amazon DataZone
-
-(Preview)
+### AI recommendations for descriptions in Amazon DataZone (Preview)
 
 Released on 11/28/2023
 

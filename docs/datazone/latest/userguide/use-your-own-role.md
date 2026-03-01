@@ -1,6 +1,4 @@
-# Using existing IAM roles to fulfill Amazon DataZone
-
-subscriptions
+# Using existing IAM roles to fulfill Amazon DataZone subscriptions
 
 In the current release, Amazon DataZone supports you using your existing IAM roles to get
 access to the data. To achieve this, you can create a subscription target in the
@@ -8,9 +6,7 @@ Amazon DataZone environment that you're using to fulfill your subscription. To c
 subscription target for an environment in one of the associated AWS accounts, you can
 use the following steps:
 
-###### Step 1: Ensure that your Amazon DataZone domain is using version 2 or higher of the
-
-RAM policy
+###### Step 1: Ensure that your Amazon DataZone domain is using version 2 or higher of the RAM policy
 
 1. Navigate to the **Shared by me : Resource shares** page in
    the AWS RAM console.
@@ -99,9 +95,7 @@ Example of subscription target for Amazon Redshift:
      role that was provided as the authorized principal while creating
      the subscription target.
 
-###### Step 3: Subscribe to a new table and fulfill subscription to the new
-
-target
+###### Step 3: Subscribe to a new table and fulfill subscription to the new target
 
 - Once you have created the subscription target, you can subscribe to a new
   table and Amazon DataZone will fulfill it to the above target.

@@ -6,8 +6,7 @@ users, and their projects. For more information, see [Amazon DataZone terminolog
 After you create an Amazon DataZone domain, you can later edit the domain to: change the
 description, enable IAM Identity Center, and add, edit, or remove tag keys and their
 values. To edit an Amazon DataZone domain, you must assume an IAM role in the account with
-administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
+administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
 edit a domain.
 
 To edit a domain, complete the following steps:

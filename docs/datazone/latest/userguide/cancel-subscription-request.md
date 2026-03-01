@@ -1,6 +1,4 @@
-# Cancel a subscription request in
-
-Amazon DataZone
+# Cancel a subscription request in Amazon DataZone
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone
 catalog. When you find an asset in the catalog that you want to access, you need to
@@ -28,8 +26,7 @@ contributor.
    pending. Locate the request and choose **View request**.
 5. Review the subscription request and choose **Cancel
    request**.
-   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to
-   assets in Amazon DataZone](subscribe-to-data-assets-managed-by-datazone.md "subscribe-to-data-assets-managed-by-datazone.md").
+   If you want to re-subscribe to the asset (or to a different asset), see [Request subscription to assets in Amazon DataZone](subscribe-to-data-assets-managed-by-datazone.md "subscribe-to-data-assets-managed-by-datazone.md").
 
 ###### Note
 

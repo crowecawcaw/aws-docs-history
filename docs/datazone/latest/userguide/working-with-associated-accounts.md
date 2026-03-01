@@ -15,16 +15,11 @@ association.
   databases and Amazon Redshift clusters.
   Complete the following step to associate an account with Amazon DataZone:
 
-- Step 1 - [Request association with other AWS
-  accounts](#invite-account-to-associate "#invite-account-to-associate")
-- Step 2 - [Accept an account association request from an
-  Amazon DataZone domain and enable an environment blueprint](#accept-invitation-to-associate "#accept-invitation-to-associate")
-- Step 3 - [Enable an environment blueprint in an
-  associated AWS account](#enable-blueprint-in-associated-account "#enable-blueprint-in-associated-account")
+- Step 1 - [Request association with other AWS accounts](#invite-account-to-associate "#invite-account-to-associate")
+- Step 2 - [Accept an account association request from an Amazon DataZone domain and enable an environment blueprint](#accept-invitation-to-associate "#accept-invitation-to-associate")
+- Step 3 - [Enable an environment blueprint in an associated AWS account](#enable-blueprint-in-associated-account "#enable-blueprint-in-associated-account")
 
-## Request association with other AWS
-
-accounts
+## Request association with other AWS accounts
 
 ###### Note
 
@@ -34,8 +29,7 @@ accuracy of the account ID that you enter.
 
 To request association with other AWS accounts in the Amazon DataZone console for an
 Amazon DataZone domain, you must assume an IAM role in the account with administrative permissions.
-[Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
+[Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
 permissions necessary to request an account association.
 
 Complete the following procedure to request association with other AWS accounts.
@@ -59,9 +53,7 @@ Complete the following procedure to request association with other AWS accounts.
 6. You must notify the owner of the other AWS account(s) to accept your request.
    Invitations expire after seven (7) days.
 
-### Provide
-
-account access to your customer-managed KMS key
+### Provide account access to your customer-managed KMS key
 
 Amazon DataZone domains and their metadata are encrypted, either (by default) using a key
 held by AWS, or (optionally) a customer-managed key from AWS Key Management Service
@@ -82,13 +74,10 @@ permission to use the KMS key.
    cryptographic operations, such as encrypting, decrypting, re-encrypting, and generating
    data keys.
 
-## Accept an account association request from an
-
-Amazon DataZone domain and enable an environment blueprint
+## Accept an account association request from an Amazon DataZone domain and enable an environment blueprint
 
 To accept association in the Amazon DataZone management console with an Amazon DataZone domain, you
-must assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
+must assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
 permissions.
 
 Complete the following to accept association with an Amazon DataZone domain.
@@ -125,13 +114,10 @@ Complete the following to accept association with an Amazon DataZone domain.
 5. When you are satisfied with your configurations, choose **Accept and configure
    association**.
 
-## Enable an environment blueprint in an
-
-associated AWS account
+## Enable an environment blueprint in an associated AWS account
 
 To enable an environment blueprint in the Amazon DataZone management console, you must assume
-an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions.
+an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions.
 
 Complete the following to enable a blueprint in an associated domain.
 
@@ -150,8 +136,7 @@ Complete the following to enable a blueprint in an associated domain.
 If you are enabling the **Custom AWS service** blueprint, you do
 not need to specify a manage access role. The permissions and the authorization
 mechanism for the **Custom AWS service** bluerpint are handled when
-you're creating environments using this blueprint. For more information, see [Create an environment using a custom AWS
-service blueprint](create-custom-environment.md "create-custom-environment.md"). 5. On the chosen blueprint's details page, choose **Enable in this
+you're creating environments using this blueprint. For more information, see [Create an environment using a custom AWS service blueprint](create-custom-environment.md "create-custom-environment.md"). 5. On the chosen blueprint's details page, choose **Enable in this
 account**. 6. On the Permissions and resources page, specify the following:
 
     * If you're enabling the **DefaultDataLake** blueprint, for
@@ -205,9 +190,7 @@ Once you enable the chose blueprint(s), you can control which projects can use t
 blueprint(s) in your account to create environment profiles. You can do this by assigning
 managing projects to the blueprint’s configuration.
 
-###### Specify managing projects on enabled
-
-DefaultDataLake or DefaultDataWarehouse blueprint
+###### Specify managing projects on enabled DefaultDataLake or DefaultDataWarehouse blueprint
 
 1. Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your account
    credentials.
@@ -235,9 +218,7 @@ means that any Amazon DataZone user can create profiles for an environment bluep
 it is strongly recommended that you always specify managing projects for your environment
 blueprints to ensure stronger governance.
 
-###### Adding parameter sets to the DefaultDataWarehouse
-
-blueprint
+###### Adding parameter sets to the DefaultDataWarehouse blueprint
 
 1. Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your account
    credentials.

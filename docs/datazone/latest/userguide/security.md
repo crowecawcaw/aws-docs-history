@@ -24,14 +24,11 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in Amazon DataZone](data-protection.md "data-protection.md")
 - [Authorization in Amazon DataZone](security-authorization.md "security-authorization.md")
-- [Controlling access to Amazon DataZone resources using
-  IAM](security-iam.md "security-iam.md")
+- [Controlling access to Amazon DataZone resources using IAM](security-iam.md "security-iam.md")
 - [Compliance validation for Amazon DataZone](compliance-validation.md "compliance-validation.md")
 - [Security Best Practices for Amazon DataZone](security-best-practices.md "security-best-practices.md")
 - [Resilience in Amazon DataZone](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon DataZone](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy prevention in
-  Amazon DataZone](crossservicedeputy.md "crossservicedeputy.md")
-- [Configuration and vulnerability
-  analysis for Amazon DataZone](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Cross-service confused deputy prevention in Amazon DataZone](crossservicedeputy.md "crossservicedeputy.md")
+- [Configuration and vulnerability analysis for Amazon DataZone](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Domains to add to your allow list](datazone-networking.md "datazone-networking.md")

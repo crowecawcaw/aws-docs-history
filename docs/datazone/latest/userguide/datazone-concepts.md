@@ -18,10 +18,8 @@ terminology, and components.
 - [What are Amazon DataZone domains?](#what-are-domains "#what-are-domains")
 - [What are Amazon DataZone projects and environments?](#what-are-projects "#what-are-projects")
 - [What are Amazon DataZone blueprints?](#what-are-environment-blueprints "#what-are-environment-blueprints")
-- [What are Amazon DataZone inventory and publishing
-  workflows?](#what-are-inventory-publish "#what-are-inventory-publish")
-- [What are Amazon DataZone subscription and fulfillment
-  workflows?](#what-are-subscribe-fulfill "#what-are-subscribe-fulfill")
+- [What are Amazon DataZone inventory and publishing workflows?](#what-are-inventory-publish "#what-are-inventory-publish")
+- [What are Amazon DataZone subscription and fulfillment workflows?](#what-are-subscribe-fulfill "#what-are-subscribe-fulfill")
 - [The user personas of Amazon DataZone](#datazone-users "#datazone-users")
 - [Amazon DataZone terminology](#datazone-terms "#datazone-terms")
 
@@ -112,9 +110,7 @@ In the current release of Amazon DataZone, the following default blueprints are 
 | Data Warehouse blueprint   | As a _consumer_, this blueprint enables Amazon DataZone project members<br>to connect to their own Amazon Redshift clusters to query remote data stores and to create and<br>store new data sets.<br>As a _producer_, this blueprint enables Amazon DataZone project members<br>to connect to their own Amazon Redshift clusters to query remote data stores, to create new<br>datasets, and to publish them to the Amazon DataZone catalog.                                                                                    | Access to the Amazon Redshift query editor, 'read' access to the subscribed data sources from<br>the Amazon DataZone catalog, the ability to create local assets in the configured Amazon Redshift<br>cluster. Access to the Amazon Redshift query editor, 'read' access to the subscribed data sources<br>from the Amazon DataZone catalog, the ability to create and publish assets from the configured<br>Amazon Redshift cluster.                         |
 | Amazon Sagemaker blueprint | This blueprint help data producers and consumers to seamlessly switch to Amazon<br>SageMaker to collaborate on machine learning (ML) projects while enforcing access governance<br>to data and ML assets. With the new built-in integration between Amazon DataZone and Amazon<br>SageMaker, data consumers and producers can streamline ML governance across infrastructure<br>setup, collaborate on business initiatives, and easily govern data and ML assets.                                                               | You can create an Amazon SageMaker domain that can search, subscribe and publish data<br>and ML assets in Amazon DataZone. Also can subscribe and publish to AWS Glue databases and lake<br>formation as configured.                                                                                                                                                                                                                                          |
 
-## What are Amazon DataZone inventory and publishing
-
-workflows?
+## What are Amazon DataZone inventory and publishing workflows?
 
 ### Creating project inventory assets
 
@@ -144,9 +140,7 @@ schema), read me, glossary terms (asset and schema), and metadata forms. You can
 data portal or by using the Amazon DataZone APIs. Each edit to your asset creates a new inventory
 version.
 
-### Publishing project inventory assets to the Amazon DataZone
-
-catalog
+### Publishing project inventory assets to the Amazon DataZone catalog
 
 The next step of using Amazon DataZone to catalog your data, is to make your project’s inventory
 assets discoverable by the domain users. You can do this by publishing the inventory assets to
@@ -168,9 +162,7 @@ Amazon DataZone catalog in the following ways:
   discoverable to all domain users. You can use this setting on your data sources either via the
   data portal or by using the Amazon DataZone APIs.
 
-## What are Amazon DataZone subscription and fulfillment
-
-workflows?
+## What are Amazon DataZone subscription and fulfillment workflows?
 
 Once your assets are published to the Amazon DataZone catalog, your domain users can discover
 these assets, request and gain access to these assets, and continue to use Amazon DataZone to govern,
@@ -250,8 +242,7 @@ catalog. Domain units can also be used to enable resource owners, such as AWS ac
 owners, to set up Amazon DataZone authorization permissions on their resources. Domain units
 provide a delegated authority from account owners to domain unit owners and they can set up
 authorization permissions on environment profiles (created using blueprint configurations), on
-behalf of account owners. For more information, see [Domain units and authorization policies in
-Amazon DataZone](working-with-domain-units.md "working-with-domain-units.md").
+behalf of account owners. For more information, see [Domain units and authorization policies in Amazon DataZone](working-with-domain-units.md "working-with-domain-units.md").
 
 **Authorization policy**
 
@@ -269,8 +260,7 @@ your users and groups to grant them specific permissions:
 - Domain unit ownership assumption policy
 - Project ownership assumption policy
 
-For more information, see [Assign
-authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md").
+For more information, see [Assign authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md").
 
 Within an Amazon DataZone domain unit, you can assign the following authorization policies to
 your projects to grant them specific permissions:
@@ -279,8 +269,7 @@ your projects to grant them specific permissions:
 - Metadata forms creation policy
 - Custom asset type creation policy
 
-For more information, see [Assign
-authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md").
+For more information, see [Assign authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md").
 
 Within a specific blueprint configuration, you can assign the following authorization
 policies to projects and domain unit owners:
@@ -292,8 +281,7 @@ policies to projects and domain unit owners:
   be assigned to domain unit owners and it authorizes them to grant permissions to projects to
   create environment profiles using this blueprint.
 
-For more information, see [Assign authorization
-policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md").
+For more information, see [Assign authorization policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md").
 
 **Associated account**
 

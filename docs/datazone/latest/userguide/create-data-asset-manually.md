@@ -1,6 +1,4 @@
-# Manually create an asset in
-
-Amazon DataZone
+# Manually create an asset in Amazon DataZone
 
 In Amazon DataZone, an asset is an entity that presents a single physical data object (for
 example, a table, a dashboard, a file) or virtual data object (for example, a view). For

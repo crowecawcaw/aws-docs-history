@@ -23,8 +23,6 @@ providing valuable insights into data literacy maturity. For more information, s
 - [Edit data products in Amazon DataZone](edit-data-product.md "edit-data-product.md")
 - [Unpublish data products in Amazon DataZone](unpublish-data-product.md "unpublish-data-product.md")
 - [Delete data products in Amazon DataZone](delete-data-product.md "delete-data-product.md")
-- [Subscribe to a data product in
-  Amazon DataZone](subscribe-data-product.md "subscribe-data-product.md")
-- [Review a subscription
-  request and grant a subscription to a data product in Amazon DataZone](review-grant-subscription-to-data-product.md "review-grant-subscription-to-data-product.md")
+- [Subscribe to a data product in Amazon DataZone](subscribe-data-product.md "subscribe-data-product.md")
+- [Review a subscription request and grant a subscription to a data product in Amazon DataZone](review-grant-subscription-to-data-product.md "review-grant-subscription-to-data-product.md")
 - [Republish data products in Amazon DataZone](republish-data-product.md "republish-data-product.md")

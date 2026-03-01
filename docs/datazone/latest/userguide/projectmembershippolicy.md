@@ -1,6 +1,4 @@
-# Project membership policy in the hierarchy
-
-of domain units in Amazon DataZone
+# Project membership policy in the hierarchy of domain units in Amazon DataZone
 
 The project membership policy defines the individuals or groups that are eligible
 to be added as members to projects within a domain unit. This topic describes

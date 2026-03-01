@@ -1,6 +1,4 @@
-# Subscribe to a data product in
-
-Amazon DataZone
+# Subscribe to a data product in Amazon DataZone
 
 Amazon DataZone enables data producers to group data assets into well-defined,
 self-contained packages called data products that are tailored for specific business

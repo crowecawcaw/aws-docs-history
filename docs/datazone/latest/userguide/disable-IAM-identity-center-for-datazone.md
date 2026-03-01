@@ -1,6 +1,4 @@
-# Disable IAM Identity Center
-
-for Amazon DataZone
+# Disable IAM Identity Center for Amazon DataZone
 
 Disabling AWS IAM Identity Center for an Amazon DataZone domain will remove access for
 all SSO users.
@@ -16,9 +14,7 @@ AWS IAM Identity Center. If you have enabled AWS IAM Identity Center for Amazon 
 you can later disable access for all users.
 
 To disable AWS IAM Identity Center for use with your Amazon DataZone domain, you must
-assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") and [Create a custom policy for IAM
-permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ") to obtain the minimum permissions
+assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") and [Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ") to obtain the minimum permissions
 necessary to disable IAM Identity Center from use with Amazon DataZone.
 
 Complete the following procedure to disable the AWS IAM Identity Center for

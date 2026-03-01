@@ -1,6 +1,4 @@
-# Approve or reject a subscription
-
-request in Amazon DataZone
+# Approve or reject a subscription request in Amazon DataZone
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone
 catalog. When you find an asset in the catalog that you want to access, you must
@@ -32,8 +30,7 @@ approve or reject a subscription request.
      all the rows and columns in your data asset.
    - **Approve with row and column filters**: To limit
      access to specific rows and columns of data, you can choose the option
-     to approve with row and column filters. For more information, see [Fine-grained access control to data in
-     Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md").
+     to approve with row and column filters. For more information, see [Fine-grained access control to data in Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md").
      - Select **Choose filters**, and then from the
        drop down select one or more available filters you want to apply
        to the subscription.
@@ -46,20 +43,16 @@ approve or reject a subscription request.
 8. Choose either **Approve** or
    **Reject**.
    As the project owner, you can revoke the subscription at any time. For more
-   information, see [Revoke an existing subscription in
-   Amazon DataZone](revoke-subscription.md "revoke-subscription.md").
+   information, see [Revoke an existing subscription in Amazon DataZone](revoke-subscription.md "revoke-subscription.md").
 
-To view all subscription requests, see [Amazon DataZone events and
-notifications](working-with-events-and-notifications.md "working-with-events-and-notifications.md").
+To view all subscription requests, see [Amazon DataZone events and notifications](working-with-events-and-notifications.md "working-with-events-and-notifications.md").
 
 ###### Note
 
 Amazon DataZone supports fine-grained access control for AWS Glue tables, Amazon
 Redshift tables, and Amazon Redshift views.
 
-## Automatic approval of
-
-subscription requests
+## Automatic approval of subscription requests
 
 By default, subscription requests to a published asset require manual approval by
 a data owner. However, Amazon DataZone supports two scenarios where subscription requests
@@ -68,8 +61,7 @@ can be automatically approved:
 - Approval disabled during asset publishing - when publishing a data asset,
   you can choose to not require subscription approval. In this case, all
   incoming subscription requests to that asset are automatically approved. To
-  learn how to disable approval for an asset, see [Publish assets to the Amazon DataZone catalog from
-  the project inventory](publishing-data-asset.md "publishing-data-asset.md")
+  learn how to disable approval for an asset, see [Publish assets to the Amazon DataZone catalog from the project inventory](publishing-data-asset.md "publishing-data-asset.md")
   .
 - Requester is an owner or contributor in the project that published the
   asset - a subscription request is also automatically approved if the

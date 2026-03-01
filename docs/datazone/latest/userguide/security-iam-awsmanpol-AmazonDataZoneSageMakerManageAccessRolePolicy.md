@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneSageMakerManageAccessRolePolicy
+# AWS managed policy: AmazonDataZoneSageMakerManageAccessRolePolicy
 
 This policy gives Amazon DataZone permissions to publish Amazon SageMaker assets to the
 catalog. It also gives Amazon DataZone permissions to grant access or revoke access to

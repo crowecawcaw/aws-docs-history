@@ -1,6 +1,4 @@
-# Enable IAM Identity Center for
-
-Amazon DataZone
+# Enable IAM Identity Center for Amazon DataZone
 
 ###### Note
 
@@ -12,9 +10,7 @@ AWS IAM Identity Center. After completing [Setting up AWS IAM Identity Center fo
 Amazon DataZone domain data portal.
 
 To enable AWS IAM Identity Center for use with your Amazon DataZone domain, you must
-assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") and [Create a custom policy for IAM
-permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ") to obtain the minimum permissions
+assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") and [Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ") to obtain the minimum permissions
 necessary to enable IAM Identity Center for use with Amazon DataZone.
 
 Complete the following procedure to enable the AWS IAM Identity Center for

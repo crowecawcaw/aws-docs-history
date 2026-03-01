@@ -17,9 +17,7 @@ Amazon DataZone's data portal is designed to be used principally by AWS IAM Iden
 Center-authenticated users to manage access to data and perform data publishing, discovery,
 subscription, and analytics tasks.
 
-## Authorization in the Amazon DataZone
-
-console
+## Authorization in the Amazon DataZone console
 
 The Amazon DataZone console authorization model uses IAM authorization. The console is used
 by administrators primarily for setup. Amazon DataZone uses the concept of a domain
@@ -27,9 +25,7 @@ administrator AWS account, and member AWS accounts, and the console is used from
 of these accounts to build the trust relationships while respecting AWS Organization
 boundaries.
 
-## Authorization in the Amazon DataZone
-
-portal
+## Authorization in the Amazon DataZone portal
 
 The Amazon DataZone data portal authorization model is a hierarchical ACL with static role
 archetypes (profiles) that include administrators and viewers. For

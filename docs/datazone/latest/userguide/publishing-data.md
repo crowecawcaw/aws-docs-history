@@ -25,29 +25,20 @@ For more information, see [Amazon DataZone terminology and concepts](datazone-co
 
 ###### Topics
 
-- [Configure Lake Formation
-  permissions for Amazon DataZone](lake-formation-permissions-for-datazone.md "lake-formation-permissions-for-datazone.md")
+- [Configure Lake Formation permissions for Amazon DataZone](lake-formation-permissions-for-datazone.md "lake-formation-permissions-for-datazone.md")
 - [Create custom asset types in Amazon DataZone](create-asset-types.md "create-asset-types.md")
-- [Create and run an Amazon DataZone data source for
-  the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md")
-- [Create and run an Amazon DataZone data source
-  for Amazon Redshift](create-redshift-data-source.md "create-redshift-data-source.md")
+- [Create and run an Amazon DataZone data source for the AWS Glue Data Catalog](create-glue-data-source.md "create-glue-data-source.md")
+- [Create and run an Amazon DataZone data source for Amazon Redshift](create-redshift-data-source.md "create-redshift-data-source.md")
 - [Edit a data source in Amazon DataZone](edit-data-source.md "edit-data-source.md")
 - [Delete a data source in Amazon DataZone](delete-data-source.md "delete-data-source.md")
-- [Publish assets to the Amazon DataZone catalog from
-  the project inventory](publishing-data-asset.md "publishing-data-asset.md")
-- [Manage inventory and curate assets in
-  Amazon DataZone](update-metadata.md "update-metadata.md")
-- [Manually create an asset in
-  Amazon DataZone](create-data-asset-manually.md "create-data-asset-manually.md")
-- [Unpublish an asset from the Amazon DataZone
-  catalog](archive-data-asset.md "archive-data-asset.md")
+- [Publish assets to the Amazon DataZone catalog from the project inventory](publishing-data-asset.md "publishing-data-asset.md")
+- [Manage inventory and curate assets in Amazon DataZone](update-metadata.md "update-metadata.md")
+- [Manually create an asset in Amazon DataZone](create-data-asset-manually.md "create-data-asset-manually.md")
+- [Unpublish an asset from the Amazon DataZone catalog](archive-data-asset.md "archive-data-asset.md")
 - [Delete an Amazon DataZone asset](delete-data-asset.md "delete-data-asset.md")
-- [Manually start a data source run in
-  Amazon DataZone](manually-start-data-source-run.md "manually-start-data-source-run.md")
+- [Manually start a data source run in Amazon DataZone](manually-start-data-source-run.md "manually-start-data-source-run.md")
 - [Asset revisions in Amazon DataZone](asset-versioning.md "asset-versioning.md")
 - [Data quality in Amazon DataZone](datazone-data-quality.md "datazone-data-quality.md")
 - [Using machine learning and generative AI in Amazon DataZone](autodoc.md "autodoc.md")
 - [Data lineage in Amazon DataZone](datazone-data-lineage.md "datazone-data-lineage.md")
-- [Metadata enforcement rules for
-  publishing](metadata-rules-publishing.md "metadata-rules-publishing.md")
+- [Metadata enforcement rules for publishing](metadata-rules-publishing.md "metadata-rules-publishing.md")

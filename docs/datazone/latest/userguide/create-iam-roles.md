@@ -1,6 +1,4 @@
-# Configure the IAM permissions required to use the
-
-Amazon DataZone management console
+# Configure the IAM permissions required to use the Amazon DataZone management console
 
 In order to access and conﬁgure your Amazon DataZone domains, blueprints, and users, and
 to create the Amazon DataZone data portal, you must use the Amazon DataZone management
@@ -14,22 +12,13 @@ management console.
 
 console
 
-- [Attach required and optional policies to a user, group,
-  or role for Amazon DataZone console access](#attach-managed "#attach-managed")
-- [Create a custom policy for IAM
-  permissions to enable the Amazon DataZone service console simplified role creation](#create-custom-to-manage-EZCRZ "#create-custom-to-manage-EZCRZ")
-- [Create a custom policy for
-  permissions to manage an account associated with an Amazon DataZone domain](#create-custom-to-manage-associated-account "#create-custom-to-manage-associated-account")
-- [(Optional) Create a custom
-  policy for AWS Identity Center permissions to add and remove SSO user and SSO group
-  access to Amazon DataZone domains](#create-custom-to-manage-add-remove-sso "#create-custom-to-manage-add-remove-sso")
-- [(Optional) Add your IAM principal as a key
-  user to create your Amazon DataZone domain with a customer-managed key from AWS Key
-  Management Service (KMS)](#create-custom-to-manage-kms "#create-custom-to-manage-kms")
+- [Attach required and optional policies to a user, group, or role for Amazon DataZone console access](#attach-managed "#attach-managed")
+- [Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation](#create-custom-to-manage-EZCRZ "#create-custom-to-manage-EZCRZ")
+- [Create a custom policy for permissions to manage an account associated with an Amazon DataZone domain](#create-custom-to-manage-associated-account "#create-custom-to-manage-associated-account")
+- [(Optional) Create a custom policy for AWS Identity Center permissions to add and remove SSO user and SSO group access to Amazon DataZone domains](#create-custom-to-manage-add-remove-sso "#create-custom-to-manage-add-remove-sso")
+- [(Optional) Add your IAM principal as a key user to create your Amazon DataZone domain with a customer-managed key from AWS Key Management Service (KMS)](#create-custom-to-manage-kms "#create-custom-to-manage-kms")
 
-## Attach required and optional policies to a user, group,
-
-or role for Amazon DataZone console access
+## Attach required and optional policies to a user, group, or role for Amazon DataZone console access
 
 Complete the following procedure to attach the required and optional custom policies
 to a user, group, or a role. For more information, see [AWS managed policies for Amazon DataZone](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
@@ -40,8 +29,7 @@ to a user, group, or a role. For more information, see [AWS managed policies for
    - In the list of policies, select the check box next to the
      **AmazonDataZoneFullAccess**. You can use the
      **Filter** menu and the search box to filter the list of
-     policies. For more information, see [AWS managed
-     policy: AmazonDataZoneFullAccess](security-iam-awsmanpol-AmazonDataZoneFullAccess.md "security-iam-awsmanpol-AmazonDataZoneFullAccess.md").
+     policies. For more information, see [AWS managed policy: AmazonDataZoneFullAccess](security-iam-awsmanpol-AmazonDataZoneFullAccess.md "security-iam-awsmanpol-AmazonDataZoneFullAccess.md").
    - [(Optional) Create a custom
      policy for IAM permissions to enable the Amazon DataZone service console
      simplified role creation.](#create-custom-to-manage-EZCRZ "#create-custom-to-manage-EZCRZ")
@@ -56,9 +44,7 @@ to a user, group, or a role. For more information, see [AWS managed policies for
    principal entities. After choosing the user, group, or role, choose
    **Attach policy**.
 
-## Create a custom policy for IAM
-
-permissions to enable the Amazon DataZone service console simplified role creation
+## Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation
 
 Complete the following procedure to create a custom inline policy to have the
 necessary permissions to enable Amazon DataZone to create the necessary roles in the AWS
@@ -123,16 +109,13 @@ JSON
    Ensure that no errors appear in a red box at the top of the screen. Correct any
    that are reported.
 
-## Create a custom policy for
-
-permissions to manage an account associated with an Amazon DataZone domain
+## Create a custom policy for permissions to manage an account associated with an Amazon DataZone domain
 
 Complete the following procedure to create a custom inline policy to have the
 necessary permissions in an associated AWS account to list, accept, and reject
 resource shares of a domain, and then enable, configure, and disable environment
 blueprints in the associated account. To enable the optional Amazon DataZone service console
-simplified role creation available during blueprint configuration, you must also [Create a custom policy for IAM
-permissions to enable the Amazon DataZone service console simplified role creation](#create-custom-to-manage-EZCRZ "#create-custom-to-manage-EZCRZ") .
+simplified role creation available during blueprint configuration, you must also [Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation](#create-custom-to-manage-EZCRZ "#create-custom-to-manage-EZCRZ").
 
 ###### Note
 
@@ -248,10 +231,7 @@ JSON
    Ensure that no errors appear in a red box at the top of the screen. Correct any
    that are reported.
 
-## (Optional) Create a custom
-
-policy for AWS Identity Center permissions to add and remove SSO user and SSO group
-access to Amazon DataZone domains
+## (Optional) Create a custom policy for AWS Identity Center permissions to add and remove SSO user and SSO group access to Amazon DataZone domains
 
 Complete the following procedure to create a custom inline policy to have the
 necessary permissions to add and remove SSO user and SSO group access to your Amazon DataZone
@@ -298,10 +278,7 @@ JSON
    Ensure that no errors appear in a red box at the top of the screen. Correct any
    that are reported.
 
-## (Optional) Add your IAM principal as a key
-
-user to create your Amazon DataZone domain with a customer-managed key from AWS Key
-Management Service (KMS)
+## (Optional) Add your IAM principal as a key user to create your Amazon DataZone domain with a customer-managed key from AWS Key Management Service (KMS)
 
 Before you can optionally create your Amazon DataZone domain with a customer-managed key
 (CMK) from the AWS Key Management Service (KMS), complete the following procedure to

@@ -24,8 +24,7 @@ For more information, see [Amazon DataZone terminology and concepts](datazone-co
 
 ###### Topics
 
-- [Create a business glossary in
-  Amazon DataZone](create-maintain-business-glossary.md "create-maintain-business-glossary.md")
+- [Create a business glossary in Amazon DataZone](create-maintain-business-glossary.md "create-maintain-business-glossary.md")
 - [Edit a business glossary in Amazon DataZone](edit-business-glossary.md "edit-business-glossary.md")
 - [Delete a business glossary in Amazon DataZone](delete-business-glossary.md "delete-business-glossary.md")
 - [Create a term in a glossary in Amazon DataZone](create-maintain-term.md "create-maintain-term.md")
@@ -34,9 +33,6 @@ For more information, see [Amazon DataZone terminology and concepts](datazone-co
 - [Create a metadata form in Amazon DataZone](create-metadata-form.md "create-metadata-form.md")
 - [Edit a metadata form in Amazon DataZone](edit-metadata-form.md "edit-metadata-form.md")
 - [Delete a metadata form in Amazon DataZone](delete-metadata-form.md "delete-metadata-form.md")
-- [Create a field in a metadata form in
-  Amazon DataZone](create-field-in-metadata-form.md "create-field-in-metadata-form.md")
-- [Edit a field in a metadata form in
-  Amazon DataZone](edit-field-in-metadata-form.md "edit-field-in-metadata-form.md")
-- [Delete a field in a metadata form in
-  Amazon DataZone](delete-field-in-metadata-form.md "delete-field-in-metadata-form.md")
+- [Create a field in a metadata form in Amazon DataZone](create-field-in-metadata-form.md "create-field-in-metadata-form.md")
+- [Edit a field in a metadata form in Amazon DataZone](edit-field-in-metadata-form.md "edit-field-in-metadata-form.md")
+- [Delete a field in a metadata form in Amazon DataZone](delete-field-in-metadata-form.md "delete-field-in-metadata-form.md")

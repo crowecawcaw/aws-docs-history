@@ -1,6 +1,4 @@
-# Query data in Amazon Athena or
-
-Amazon Redshift in Amazon DataZone
+# Query data in Amazon Athena or Amazon Redshift in Amazon DataZone
 
 In Amazon DataZone, once a subscriber has access to an asset in the catalog, they can
 consume it (query and analyze) using Amazon Athena or Amazon Redshift query editor v2. You must be
@@ -31,8 +29,7 @@ created.
 ###### Topics
 
 - [Query data using Amazon Athena](#query-athena-with-deep-link "#query-athena-with-deep-link")
-- [Query data using Amazon
-  Redshift](#query-redshift-with-deep-link "#query-redshift-with-deep-link")
+- [Query data using Amazon Redshift](#query-redshift-with-deep-link "#query-redshift-with-deep-link")
 
 ## Query data using Amazon Athena
 
@@ -44,20 +41,15 @@ editor.
 In the Amazon Athena query editor, write and run your queries. Some common tasks
 include:
 
-- [Query and analyze your
-  subscribed assets](#query-analyze-subscribed-data "#query-analyze-subscribed-data")
+- [Query and analyze your subscribed assets](#query-analyze-subscribed-data "#query-analyze-subscribed-data")
 - [Create new tables](#create-new-tables "#create-new-tables")
-- [Create a table from query
-  results (CTAS) from an external S3 bucket](#create-tables-external-s3-bucket "#create-tables-external-s3-bucket")
+- [Create a table from query results (CTAS) from an external S3 bucket](#create-tables-external-s3-bucket "#create-tables-external-s3-bucket")
 
-### Query and analyze your
-
-subscribed assets
+### Query and analyze your subscribed assets
 
 If access to the assets that your project is subscribed to is not granted
 automatically by Amazon DataZone, you must be authorized to access the underlying
-data. For more information on how to grant access to these assets, see [Grant access for approved
-subscriptions to unmanaged assets in Amazon DataZone](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md").
+data. For more information on how to grant access to these assets, see [Grant access for approved subscriptions to unmanaged assets in Amazon DataZone](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md").
 
 If access to the assets that your project is subscribed to is [granted automatically by
 Amazon DataZone](grant-access-to-glue-asset.md "grant-access-to-glue-asset.md"), you can run SQL queries on the tables and see the results
@@ -114,9 +106,7 @@ LOCATION 's3://bucketname/folder/'
 
 For more information, see [Table location in Amazon S3](../../../athena/latest/ug/tables-location-format.md "../../../athena/latest/ug/tables-location-format.md").
 
-### Create a table from query
-
-results (CTAS) from an external S3 bucket
+### Create a table from query results (CTAS) from an external S3 bucket
 
 When you subscribe to an asset, access to the underlying data is read-only.
 You can use Amazon Athena to create a copy of the table. In Amazon Athena, `A
@@ -174,9 +164,7 @@ These newly created tables are now a part of your projects’ AWS Glue database,
 and can be made discoverable by others and shared with other Amazon DataZone projects
 by publishing the data as an asset to the Amazon DataZone catalog.
 
-## Query data using Amazon
-
-Redshift
+## Query data using Amazon Redshift
 
 In the Amazon DataZone data portal, open an environment that uses the data warehouse
 blueprint. Choose the **Amazon Redshift** link in the right-hand

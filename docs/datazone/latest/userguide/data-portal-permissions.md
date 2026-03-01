@@ -1,6 +1,4 @@
-# Configure the IAM permissions required to use the
-
-Amazon DataZone data portal
+# Configure the IAM permissions required to use the Amazon DataZone data portal
 
 Amazon DataZone data portal (outside the AWS Management Console) is a browser-based web
 application where users can go to catalog, discover, govern, share, and analyze data in a
@@ -15,17 +13,11 @@ catalog:
 
 portal
 
-- [Attach required policy to a user,
-  group, or role for Amazon DataZone data portal access](#data-portal-permissions-portal "#data-portal-permissions-portal")
-- [Attach required policy to a user,
-  group, or role for Amazon DataZone catalog access](#data-portal-permissions-catalog "#data-portal-permissions-catalog")
-- [Attach optional policy to a user, group,
-  or role for Amazon DataZone data portal or catalog access if your domain is encrypted with
-  a customer-managed key from AWS Key Management Service (KMS)](#data-portal-permissions-kms "#data-portal-permissions-kms")
+- [Attach required policy to a user, group, or role for Amazon DataZone data portal access](#data-portal-permissions-portal "#data-portal-permissions-portal")
+- [Attach required policy to a user, group, or role for Amazon DataZone catalog access](#data-portal-permissions-catalog "#data-portal-permissions-catalog")
+- [Attach optional policy to a user, group, or role for Amazon DataZone data portal or catalog access if your domain is encrypted with a customer-managed key from AWS Key Management Service (KMS)](#data-portal-permissions-kms "#data-portal-permissions-kms")
 
-## Attach required policy to a user,
-
-group, or role for Amazon DataZone data portal access
+## Attach required policy to a user, group, or role for Amazon DataZone data portal access
 
 You can access the Amazon DataZone data portal by using either your AWS credentials or
 your single sign-on (SSO) credentials. Follow the instructions in the section below to
@@ -80,9 +72,7 @@ JSON
    Ensure that no errors appear in a red box at the top of the screen. Correct any
    that are reported.
 
-## Attach required policy to a user,
-
-group, or role for Amazon DataZone catalog access
+## Attach required policy to a user, group, or role for Amazon DataZone catalog access
 
 ###### Note
 
@@ -93,16 +83,14 @@ catalog.
 You can grant your IAM identities access to your Amazon DataZone domain’s catalog via
 API and the SDK with the following procedure. If you want these IAM identities to also
 have access to the Amazon DataZone data portal, then additionally follow the procedure
-above to [Attach required policy to a user,
-group, or role for Amazon DataZone data portal access](#data-portal-permissions-portal "#data-portal-permissions-portal"). For more information, see [AWS managed policies for Amazon DataZone](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+above to [Attach required policy to a user, group, or role for Amazon DataZone data portal access](#data-portal-permissions-portal "#data-portal-permissions-portal"). For more information, see [AWS managed policies for Amazon DataZone](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**.
 3. In the list of policies, select the radio button next to the
    **AmazonDataZoneFullUserAccess** policy. You can use the
    **Filter** menu and the search box to filter the list of
-   policies. For more information, see [AWS managed
-   policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md")
+   policies. For more information, see [AWS managed policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md")
 4. Choose **Actions**, and then choose
    **Attach**.
 5. Choose the user, group, or role to which you want to attach the policy by
@@ -111,10 +99,7 @@ group, or role for Amazon DataZone data portal access](#data-portal-permissions-
    principal entities. After choosing the user, group, or role, choose
    **Attach policy**.
 
-## Attach optional policy to a user, group,
-
-or role for Amazon DataZone data portal or catalog access if your domain is encrypted with
-a customer-managed key from AWS Key Management Service (KMS)
+## Attach optional policy to a user, group, or role for Amazon DataZone data portal or catalog access if your domain is encrypted with a customer-managed key from AWS Key Management Service (KMS)
 
 If you create your Amazon DataZone domain with your own KMS key for data encryption, you
 must also create an inline policy with the following permissions and attach it to your

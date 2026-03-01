@@ -17,25 +17,14 @@ _IAM User Guide_.
 
 ###### Contents
 
-- [AWS managed
-  policy: AmazonDataZoneFullAccess](security-iam-awsmanpol-AmazonDataZoneFullAccess.md "security-iam-awsmanpol-AmazonDataZoneFullAccess.md")
-- [AWS managed
-  policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md")
-- [AWS managed policy:
-  AmazonDataZoneEnvironmentRolePermissionsBoundary](security-iam-awsmanpol-AmazonDataZoneEnvironmentRolePermissionsBoundary.md "security-iam-awsmanpol-AmazonDataZoneEnvironmentRolePermissionsBoundary.md")
-- [AWS managed policy:
-  AmazonDataZoneRedshiftGlueProvisioningPolicy](security-iam-awsmanpol-AmazonDataZoneRedshiftGlueProvisioningPolicy.md "security-iam-awsmanpol-AmazonDataZoneRedshiftGlueProvisioningPolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneGlueManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneRedshiftManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneRedshiftManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneRedshiftManageAccessRolePolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneDomainExecutionRolePolicy](security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneSageMakerProvisioningRolePolicy](security-iam-awsmanpol-AmazonDataZoneSageMakerProvisioningRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneSageMakerProvisioningRolePolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneSageMakerManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneSageMakerManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneSageMakerManageAccessRolePolicy.md")
-- [AWS managed policy:
-  AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary](security-iam-awsmanpol-AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary.md "security-iam-awsmanpol-AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary.md")
-- [Amazon DataZone updates to AWS managed
-  policies](security-iam-awsmanpol-updates.md "security-iam-awsmanpol-updates.md")
+- [AWS managed policy: AmazonDataZoneFullAccess](security-iam-awsmanpol-AmazonDataZoneFullAccess.md "security-iam-awsmanpol-AmazonDataZoneFullAccess.md")
+- [AWS managed policy: AmazonDataZoneFullUserAccess](security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md "security-iam-awsmanpol-AmazonDataZoneFullUserAccess.md")
+- [AWS managed policy: AmazonDataZoneEnvironmentRolePermissionsBoundary](security-iam-awsmanpol-AmazonDataZoneEnvironmentRolePermissionsBoundary.md "security-iam-awsmanpol-AmazonDataZoneEnvironmentRolePermissionsBoundary.md")
+- [AWS managed policy: AmazonDataZoneRedshiftGlueProvisioningPolicy](security-iam-awsmanpol-AmazonDataZoneRedshiftGlueProvisioningPolicy.md "security-iam-awsmanpol-AmazonDataZoneRedshiftGlueProvisioningPolicy.md")
+- [AWS managed policy: AmazonDataZoneGlueManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneGlueManageAccessRolePolicy.md")
+- [AWS managed policy: AmazonDataZoneRedshiftManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneRedshiftManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneRedshiftManageAccessRolePolicy.md")
+- [AWS managed policy: AmazonDataZoneDomainExecutionRolePolicy](security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneDomainExecutionRolePolicy.md")
+- [AWS managed policy: AmazonDataZoneSageMakerProvisioningRolePolicy](security-iam-awsmanpol-AmazonDataZoneSageMakerProvisioningRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneSageMakerProvisioningRolePolicy.md")
+- [AWS managed policy: AmazonDataZoneSageMakerManageAccessRolePolicy](security-iam-awsmanpol-AmazonDataZoneSageMakerManageAccessRolePolicy.md "security-iam-awsmanpol-AmazonDataZoneSageMakerManageAccessRolePolicy.md")
+- [AWS managed policy: AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary](security-iam-awsmanpol-AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary.md "security-iam-awsmanpol-AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary.md")
+- [Amazon DataZone updates to AWS managed policies](security-iam-awsmanpol-updates.md "security-iam-awsmanpol-updates.md")

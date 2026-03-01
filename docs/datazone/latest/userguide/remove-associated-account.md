@@ -1,8 +1,7 @@
 # Remove an associated account in Amazon DataZone
 
 To remove an associated AWS account in the Amazon DataZone management console, you must
-assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
+assume an IAM role in the account with administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum
 permissions.
 
 Complete the following procedure to remove an associated account from your domain.

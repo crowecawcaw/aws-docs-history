@@ -1,6 +1,4 @@
-# Grant access to managed AWS Glue Data Catalog assets
-
-in Amazon DataZone
+# Grant access to managed AWS Glue Data Catalog assets in Amazon DataZone
 
 In Amazon DataZone, subscription requests and approved or granted subscriptions for
 **read** access to the assets are managed by asset owners.

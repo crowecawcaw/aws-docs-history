@@ -1,6 +1,4 @@
-# Create actions in a custom AWS
-
-service environment
+# Create actions in a custom AWS service environment
 
 Complete the following procedure to create actions in a custom AWS service
 environment. By creating actions in a custom AWS service environment, you're adding

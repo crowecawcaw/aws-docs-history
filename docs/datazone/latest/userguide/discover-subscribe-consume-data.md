@@ -1,6 +1,4 @@
-# Amazon DataZone data discovery, subscription,
-
-and consumption
+# Amazon DataZone data discovery, subscription, and consumption
 
 In Amazon DataZone, once an asset is published to a domain, subscribers can discover and
 request a subscription to this asset. The subscription process begins with a subscriber
@@ -24,29 +22,16 @@ by Amazon DataZone.
 
 ###### Topics
 
-- [Search for and view assets in the Amazon DataZone
-  catalog](search-for-data.md "search-for-data.md")
-- [Request subscription to
-  assets in Amazon DataZone](subscribe-to-data-assets-managed-by-datazone.md "subscribe-to-data-assets-managed-by-datazone.md")
-- [Approve or reject a subscription
-  request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md")
-- [Revoke an existing subscription in
-  Amazon DataZone](revoke-subscription.md "revoke-subscription.md")
-- [Cancel a subscription request in
-  Amazon DataZone](cancel-subscription-request.md "cancel-subscription-request.md")
-- [Unsubscribe from an asset in
-  Amazon DataZone](unsubscribe-from-subscription.md "unsubscribe-from-subscription.md")
-- [Using existing IAM roles to fulfill Amazon DataZone
-  subscriptions](use-your-own-role.md "use-your-own-role.md")
-- [Grant access to managed AWS Glue Data Catalog assets
-  in Amazon DataZone](grant-access-to-glue-asset.md "grant-access-to-glue-asset.md")
-- [Grant access to managed Amazon Redshift
-  assets in Amazon DataZone](grant-access-to-redshift-asset.md "grant-access-to-redshift-asset.md")
-- [Grant access for approved
-  subscriptions to unmanaged assets in Amazon DataZone](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md")
-- [Query data in Amazon Athena or
-  Amazon Redshift in Amazon DataZone](query-athena-with-deep-link-in-project.md "query-athena-with-deep-link-in-project.md")
-- [Metadata enforcement rules for subscription
-  requests](metadata-rules.md "metadata-rules.md")
-- [Analyze Amazon DataZone subscribed data with external
-  analytics applications via JDBC connection](query-with-jdbc.md "query-with-jdbc.md")
+- [Search for and view assets in the Amazon DataZone catalog](search-for-data.md "search-for-data.md")
+- [Request subscription to assets in Amazon DataZone](subscribe-to-data-assets-managed-by-datazone.md "subscribe-to-data-assets-managed-by-datazone.md")
+- [Approve or reject a subscription request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md")
+- [Revoke an existing subscription in Amazon DataZone](revoke-subscription.md "revoke-subscription.md")
+- [Cancel a subscription request in Amazon DataZone](cancel-subscription-request.md "cancel-subscription-request.md")
+- [Unsubscribe from an asset in Amazon DataZone](unsubscribe-from-subscription.md "unsubscribe-from-subscription.md")
+- [Using existing IAM roles to fulfill Amazon DataZone subscriptions](use-your-own-role.md "use-your-own-role.md")
+- [Grant access to managed AWS Glue Data Catalog assets in Amazon DataZone](grant-access-to-glue-asset.md "grant-access-to-glue-asset.md")
+- [Grant access to managed Amazon Redshift assets in Amazon DataZone](grant-access-to-redshift-asset.md "grant-access-to-redshift-asset.md")
+- [Grant access for approved subscriptions to unmanaged assets in Amazon DataZone](grant-access-to-unmanaged-asset.md "grant-access-to-unmanaged-asset.md")
+- [Query data in Amazon Athena or Amazon Redshift in Amazon DataZone](query-athena-with-deep-link-in-project.md "query-athena-with-deep-link-in-project.md")
+- [Metadata enforcement rules for subscription requests](metadata-rules.md "metadata-rules.md")
+- [Analyze Amazon DataZone subscribed data with external analytics applications via JDBC connection](query-with-jdbc.md "query-with-jdbc.md")

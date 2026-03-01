@@ -1,6 +1,4 @@
-# Revoke an existing subscription in
-
-Amazon DataZone
+# Revoke an existing subscription in Amazon DataZone
 
 Amazon DataZone allows you to find, access and consume the assets in the Amazon DataZone
 catalog. When you find an asset in the catalog that you want to access, you need to

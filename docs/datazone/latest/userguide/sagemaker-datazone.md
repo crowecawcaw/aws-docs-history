@@ -1,6 +1,4 @@
-# Amazon SageMaker and when to use Amazon SageMaker vs
-
-Amazon DataZone
+# Amazon SageMaker and when to use Amazon SageMaker vs Amazon DataZone
 
 [Amazon SageMaker Catalog](../../../sagemaker-unified-studio/latest/userguide/working-with-business-catalog.md "../../../sagemaker-unified-studio/latest/userguide/working-with-business-catalog.md"), built on Amazon DataZone, allows users to centrally manage
 their data assets. You can catalog your data assets, search and discover the data, use

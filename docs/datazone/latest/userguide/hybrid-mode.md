@@ -1,6 +1,4 @@
-# Amazon DataZone integration with AWS Lake Formation
-
-hybrid mode
+# Amazon DataZone integration with AWS Lake Formation hybrid mode
 
 Amazon DataZone is integrated with AWS Lake Formation hybrid mode. This integration
 enables you to easily publish and share your AWS Glue tables through Amazon DataZone
@@ -23,8 +21,7 @@ management console.
 4. From the **Blueprints** list, choose the
    **DefaultDataLake** blueprint.
 5. Make sure that the DefaultDataLake blueprint is enabled. If it’s not
-   enabled, follow the steps in [Enable built-in blueprints in the AWS
-   account that owns the Amazon DataZone domain](working-with-blueprints.md#enable-default-blueprint "working-with-blueprints.md#enable-default-blueprint") to enable it in your AWS
+   enabled, follow the steps in [Enable built-in blueprints in the AWS account that owns the Amazon DataZone domain](working-with-blueprints.md#enable-default-blueprint "working-with-blueprints.md#enable-default-blueprint") to enable it in your AWS
    Account.
 6. On the DefaultDataLake details page, open the
    **Provisioning** tab and choose the
@@ -58,10 +55,7 @@ management console.
      table continue to exist with newly granted AWS Lake Formation permissions, without
      disrupting any existing workflows.
 
-## How to handle encrypted Amazon S3
-
-locations when enabling AWS Lake Formation hybrid mode integration in
-Amazon DataZone
+## How to handle encrypted Amazon S3 locations when enabling AWS Lake Formation hybrid mode integration in Amazon DataZone
 
 If you are using an Amazon S3 location encrypted with an Customer managed or
 AWS Managed KMS key, the **AmazonDataZoneS3Manage** role must

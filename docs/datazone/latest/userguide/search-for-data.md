@@ -1,6 +1,4 @@
-# Search for and view assets in the Amazon DataZone
-
-catalog
+# Search for and view assets in the Amazon DataZone catalog
 
 Amazon DataZone provides a streamlined way to search for data. Any Amazon DataZone user with
 permissions to access the data portal can search for assets in the Amazon DataZone catalog

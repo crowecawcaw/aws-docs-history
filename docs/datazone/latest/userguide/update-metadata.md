@@ -1,6 +1,4 @@
-# Manage inventory and curate assets in
-
-Amazon DataZone
+# Manage inventory and curate assets in Amazon DataZone
 
 In order to use Amazon DataZone to catalog your data, you must first bring your data
 (assets) as inventory of your project in Amazon DataZone. Creating inventory for a particular
@@ -54,17 +52,14 @@ project to which the asset belongs.
 5. On the asset details page, under **Metadata forms**, choose
    **Edit** and edit the existing forms as needed. You can
    also attach additional metadata forms to the asset. For more information, see
-   [Attach additional metadata forms to
-   assets](#update-metadata-data-steward "#update-metadata-data-steward").
+   [Attach additional metadata forms to assets](#update-metadata-data-steward "#update-metadata-data-steward").
 6. When you're done making updates, choose **Save form**.
 
 When you save the form, Amazon DataZone generates a new inventory version of the
 asset. To publish the updated version to the catalog, choose
 **Re-publish asset**.
 
-## Attach additional metadata forms to
-
-assets
+## Attach additional metadata forms to assets
 
 By default, metadata forms attached to a domain are attached to all assets
 published to that domain. Data publishers can associate additional metadata forms to
@@ -95,9 +90,7 @@ When you save the form, Amazon DataZone generates a new inventory version of
 the asset. To publish the updated version to the catalog, choose
 **Re-publish asset**.
 
-## Publish asset to the catalog after
-
-curation in Amazon DataZone
+## Publish asset to the catalog after curation in Amazon DataZone
 
 Once satisfied with the asset curation, the data owner can publish an asset
 version to the Amazon DataZone catalog and thus make it discoverable by all domain users.

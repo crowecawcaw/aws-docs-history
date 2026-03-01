@@ -7,24 +7,17 @@ you can use to complete the following common tasks:
 
 ###### Sample scripts
 
-- [Create an Amazon DataZone domain and data
-  portal](#create-domain-gs-glue-api "#create-domain-gs-glue-api")
+- [Create an Amazon DataZone domain and data portal](#create-domain-gs-glue-api "#create-domain-gs-glue-api")
 - [Create a publishing project](#create-publishing-project-gs-glue-api "#create-publishing-project-gs-glue-api")
-- [Create an environment
-  profile](#create-environment-profile-gs-glue-api "#create-environment-profile-gs-glue-api")
+- [Create an environment profile](#create-environment-profile-gs-glue-api "#create-environment-profile-gs-glue-api")
 - [Create an environment](#create-environment-gs-glue-api "#create-environment-gs-glue-api")
-- [Gather metadata from AWS
-  Glue](#gather-metadata-from-glue-gs-glue-api "#gather-metadata-from-glue-gs-glue-api")
+- [Gather metadata from AWS Glue](#gather-metadata-from-glue-gs-glue-api "#gather-metadata-from-glue-gs-glue-api")
 - [Curate and publish a data asset](#curate-data-asset-gs-glue-api "#curate-data-asset-gs-glue-api")
-- [Search the data catalog and subscribe
-  to data](#search-catalog-subscribe-gs-glue-api "#search-catalog-subscribe-gs-glue-api")
-- [Search for assets in the data
-  catalog](#search-catalog-subscribe-gs-glue-api "#search-catalog-subscribe-gs-glue-api")
+- [Search the data catalog and subscribe to data](#search-catalog-subscribe-gs-glue-api "#search-catalog-subscribe-gs-glue-api")
+- [Search for assets in the data catalog](#search-catalog-subscribe-gs-glue-api "#search-catalog-subscribe-gs-glue-api")
 - [Other useful sample scripts](#other-useful-scripts-api "#other-useful-scripts-api")
 
-## Create an Amazon DataZone domain and data
-
-portal
+## Create an Amazon DataZone domain and data portal
 
 You can use the following sample script to create an Amazon DataZone domain. For more
 information about Amazon DataZone domains, see [Amazon DataZone terminology and concepts](datazone-concepts.md "datazone-concepts.md").
@@ -64,9 +57,7 @@ def create_project(domainId):
 
 ```
 
-## Create an environment
-
-profile
+## Create an environment profile
 
 You can use the following sample scripts to create an environment profile in
 Amazon DataZone.
@@ -218,9 +209,7 @@ def create_environment(domain_id, project_id,blueprint_account_region ):
 
 ```
 
-## Gather metadata from AWS
-
-Glue
+## Gather metadata from AWS Glue
 
 You can use this sample script to gather metadata from AWS Glue. This script runs on a
 standard schedule. You can retrieve the parameters from the sample script and make them
@@ -461,9 +450,7 @@ def publish_asset(domainId, assetId):
 
 ```
 
-## Search the data catalog and subscribe
-
-to data
+## Search the data catalog and subscribe to data
 
 You can use the following sample scripts to search the data catalog and subscribe to
 data:
@@ -535,9 +522,7 @@ def accept_subscription_request(domainId, subscriptionRequestId):
 
 ```
 
-## Search for assets in the data
-
-catalog
+## Search for assets in the data catalog
 
 You can use the following sample scripts that utilize free text search to look up your
 published data assets (listings) in the Amazon DataZone catalog.

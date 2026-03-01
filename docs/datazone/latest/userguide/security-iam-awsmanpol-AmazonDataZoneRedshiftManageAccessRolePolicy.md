@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneRedshiftManageAccessRolePolicy
+# AWS managed policy: AmazonDataZoneRedshiftManageAccessRolePolicy
 
 This policy gives Amazon DataZone permissions to publish Amazon Redshift data to the
 catalog. It also gives Amazon DataZone permissions to grant access or revoke access to

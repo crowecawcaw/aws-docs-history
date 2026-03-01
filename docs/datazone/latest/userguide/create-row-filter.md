@@ -38,5 +38,4 @@ in the row filters. To create a row filter, follow the steps below:
     **And** or **Or** to link the
     conditions.
 11. Choose **Create filter**.
-    For information on how to apply row filters to a subscription, see [Approve or reject a subscription
-    request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md") .
+    For information on how to apply row filters to a subscription, see [Approve or reject a subscription request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md") .

@@ -1,6 +1,4 @@
-# Grant access for approved
-
-subscriptions to unmanaged assets in Amazon DataZone
+# Grant access for approved subscriptions to unmanaged assets in Amazon DataZone
 
 In Amazon DataZone, subscription requests and approved or granted subscriptions for
 **read** access to the assets are managed by asset owners.
@@ -20,5 +18,4 @@ grants between the source and the target. When you receive this event, you can t
 custom handler which can use the information in the event to create necessary grants or
 permissions. Once you have granted the access, you can report back and update the status
 of the subscription in Amazon DataZone so that it can notify the user(s) who subscribed to
-the asset that they can start consuming the asset. For more information, see [Amazon DataZone events and
-notifications](working-with-events-and-notifications.md "working-with-events-and-notifications.md").
+the asset that they can start consuming the asset. For more information, see [Amazon DataZone events and notifications](working-with-events-and-notifications.md "working-with-events-and-notifications.md").

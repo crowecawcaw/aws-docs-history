@@ -17,9 +17,7 @@ then use those temporary credentials to access AWS. AWS recommends that you
 dynamically generate temporary credentials instead of using long-term access keys. For
 more information, see [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md").
 
-## Amazon DataZone portal temporary
-
-credentials
+## Amazon DataZone portal temporary credentials
 
 When you sign into the Amazon DataZone portal, you receive temporary credentials for
 the AmazonDataZoneDomainExecutionRole. While you are using the

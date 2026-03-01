@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary
+# AWS managed policy: AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary
 
 ###### Note
 

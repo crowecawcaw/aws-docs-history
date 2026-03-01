@@ -10,16 +10,14 @@ Amazon DataZone, a domain is an organizing entity for connecting together your a
 users, and their projects. For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md "datazone-concepts.md").
 
 To create an Amazon DataZone domain, you must assume an IAM role in the account with
-administrative permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
+administrative permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
 create a domain.
 
 Additional IAM roles are needed by Amazon DataZone to perform actions on behalf of domain
 users with a default configuration. You can create these IAM roles in advance, or have
 Amazon DataZone create them for you. If you want Amazon DataZone to create these IAM roles for you
 during the domain creation process, then for domain creation you must assume an IAM role
-with role creation permissions. See [Create a custom policy for IAM
-permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ") . Depending on your domain creation
+with role creation permissions. See [Create a custom policy for IAM permissions to enable the Amazon DataZone service console simplified role creation](create-iam-roles.md#create-custom-to-manage-EZCRZ "create-iam-roles.md#create-custom-to-manage-EZCRZ"). Depending on your domain creation
 choices, Amazon DataZone will create up to four new IAM roles for you:
 **AmazonDataZoneDomainExecutionRole**,
 **AmazonDataZoneGlueManageAccessRole**,

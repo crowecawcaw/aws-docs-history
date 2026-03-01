@@ -67,9 +67,7 @@ descriptions in Amazon DataZone:
   and then choose the project that contains the asset for which you want to
   generate AI recommendations for descriptions.
 
-### Generating Business
-
-Descriptions and Summaries
+### Generating Business Descriptions and Summaries
 
 - Navigate to the **Data** tab for the project.
 - In the left navigation pane, choose **Inventory
@@ -93,9 +91,7 @@ Descriptions and Summaries
   asset by enabling the businessNameGeneration flag under
   predictionConfiguration in the [CreateAsset API](../APIReference/API_CreateAsset.md "../APIReference/API_CreateAsset.md") payload.
 
-### Accepting/Rejecting
-
-Predictions
+### Accepting/Rejecting Predictions
 
 - Once the descriptions are generated, you can either edit, accept, or
   reject them.
@@ -131,9 +127,7 @@ If you don't accept or reject the generated descriptions for an asset, and
 then you publish this asset, this unreviewed automatically generated
 metadata is not included in the published data asset.
 
-## Support for custom relational
-
-asset types
+## Support for custom relational asset types
 
 Amazon DataZone supports genAI capabilities for custom asset types. Previously this
 feature was only supported for the managed AWS Glue and AMazon Redshift asset types.

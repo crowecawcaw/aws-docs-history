@@ -1,6 +1,4 @@
-# Create a business glossary in
-
-Amazon DataZone
+# Create a business glossary in Amazon DataZone
 
 In Amazon DataZone, a business glossary is a collection of business terms (words) that may be
 associated with assets (data). It provides appropriate vocabularies with a list of business

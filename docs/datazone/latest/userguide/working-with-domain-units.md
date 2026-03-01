@@ -1,6 +1,4 @@
-# Domain units and authorization policies in
-
-Amazon DataZone
+# Domain units and authorization policies in Amazon DataZone
 
 Use _domain units_ to easily organize your assets and other domain
 entities under specific business units and teams. To set up secure and efficient data
@@ -27,8 +25,7 @@ your users and groups to grant them specific permissions:
 - Project membership policy
 - Domain unit ownership assumption policy
 - Project ownership assumption policy
-  For more information, see [Assign
-  authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md").
+  For more information, see [Assign authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md").
 
 Within an Amazon DataZone domain unit, you can assign the following authorization policies to
 your projects to grant them specific permissions:
@@ -36,8 +33,7 @@ your projects to grant them specific permissions:
 - Glossary creation policy
 - Metadata forms creation policy
 - Custom asset type creation policy
-  For more information, see [Assign
-  authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md").
+  For more information, see [Assign authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md").
 
 Another way to use the authorization mechanism in Amazon DataZone is to apply authorization
 policies to projects and domain unit owners within Amazon DataZone blueprint configurations.
@@ -58,8 +54,7 @@ policies to projects and domain unit owners:
 - Grant permissions to create environment profiles using this blueprint - this
   policy can be assigned to domain unit owners and it authorizes them to grant
   permissions to projects to create environment profiles using this blueprint.
-  For more information, see [Assign authorization
-  policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md").
+  For more information, see [Assign authorization policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md").
 
 ###### Topics
 
@@ -67,9 +62,6 @@ policies to projects and domain unit owners:
 - [Edit domain units in Amazon DataZone](edit-domain-unit.md "edit-domain-unit.md")
 - [Delete domain units in Amazon DataZone](delete-domain-unit.md "delete-domain-unit.md")
 - [Manage domain unit owners in Amazon DataZone](add-domain-unit-owners.md "add-domain-unit-owners.md")
-- [Assign
-  authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md")
-- [Assign
-  authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md")
-- [Assign authorization
-  policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md")
+- [Assign authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md")
+- [Assign authorization policies to projects within an Amazon DataZone domain unit](assign-authorization-policies-to-projects-in-domain-unit.md "assign-authorization-policies-to-projects-in-domain-unit.md")
+- [Assign authorization policies within Amazon DataZone blueprint configurations](assign-authorization-policies-in-blueprint-config.md "assign-authorization-policies-in-blueprint-config.md")

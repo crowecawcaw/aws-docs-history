@@ -16,8 +16,7 @@ dependent assets to a different data source before you delete it.
 ###### Note
 
 You must remove all fulfillments on the data source before you can delete it. For
-more information, see [Amazon DataZone data discovery, subscription,
-and consumption](discover-subscribe-consume-data.md "discover-subscribe-consume-data.md").
+more information, see [Amazon DataZone data discovery, subscription, and consumption](discover-subscribe-consume-data.md "discover-subscribe-consume-data.md").
 
 ###### To delete a data source
 

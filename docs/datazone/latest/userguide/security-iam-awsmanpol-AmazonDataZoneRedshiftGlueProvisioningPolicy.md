@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneRedshiftGlueProvisioningPolicy
+# AWS managed policy: AmazonDataZoneRedshiftGlueProvisioningPolicy
 
 The AmazonDataZoneRedshiftGlueProvisioningPolicy policy grants
 Amazon DataZone the permissions required to interoperate with AWS Glue and Amazon

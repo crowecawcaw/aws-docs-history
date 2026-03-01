@@ -8,8 +8,7 @@ domain. Currently, AWS Identity Center can only be enabled in a single AWS Regio
 You can access the Amazon DataZone data portal by using either your single sign-on (SSO)
 credentials or AWS credentials. Follow the instructions in this section to set up AWS
 IAM Identity Center for Amazon DataZone. For more information about using Amazon DataZone with your
-AWS credentials, see [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md").
+AWS credentials, see [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md").
 
 You can skip the procedures in this section if you already have AWS IAM Identity
 Center (successor to AWS Single Sign-On) enabled and configured in the same AWS region
@@ -45,5 +44,4 @@ choose **Add user**. Users should receive an email inviting them to
 use SSO. In this email, they need to choose Accept invitation and set the password.
 After you create your Amazon DataZone domain, you can enable AWS Identity Center for
 Amazon DataZone and provide access to your SSO users and SSO groups. For more information, see
-[Enable IAM Identity Center for
-Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md").
+[Enable IAM Identity Center for Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md").

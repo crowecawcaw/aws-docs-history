@@ -28,15 +28,9 @@ configurations, and policies from Amazon SageMaker domains. For more information
 
 ###### Topics
 
-- [Enable a custom AWS service
-  blueprint](enable-custom-blueprint.md "enable-custom-blueprint.md")
-- [Create an environment using a custom AWS
-  service blueprint](create-custom-environment.md "create-custom-environment.md")
-- [Create actions in a custom AWS
-  service environment](configure-custom-environment-actions.md "configure-custom-environment-actions.md")
-- [Add project members to a
-  custom AWS service environment](add-project-members-to-custom-environment.md "add-project-members-to-custom-environment.md")
-- [Configure a data source in
-  an AWS service environment](configure-data-source-in-custom-environment.md "configure-data-source-in-custom-environment.md")
-- [Configure a
-  subscription target in an AWS service environment](configure-subscription-target-in-custom-environment.md "configure-subscription-target-in-custom-environment.md")
+- [Enable a custom AWS service blueprint](enable-custom-blueprint.md "enable-custom-blueprint.md")
+- [Create an environment using a custom AWS service blueprint](create-custom-environment.md "create-custom-environment.md")
+- [Create actions in a custom AWS service environment](configure-custom-environment-actions.md "configure-custom-environment-actions.md")
+- [Add project members to a custom AWS service environment](add-project-members-to-custom-environment.md "add-project-members-to-custom-environment.md")
+- [Configure a data source in an AWS service environment](configure-data-source-in-custom-environment.md "configure-data-source-in-custom-environment.md")
+- [Configure a subscription target in an AWS service environment](configure-subscription-target-in-custom-environment.md "configure-subscription-target-in-custom-environment.md")

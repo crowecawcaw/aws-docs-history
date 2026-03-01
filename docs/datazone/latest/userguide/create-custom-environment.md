@@ -1,6 +1,4 @@
-# Create an environment using a custom AWS
-
-service blueprint
+# Create an environment using a custom AWS service blueprint
 
 Complete the following procedure to create an environment using a custom AWS service
 blueprint.

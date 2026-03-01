@@ -5,30 +5,19 @@ consumer workflows in Amazon DataZone with sample Amazon Redshift data.
 
 ###### Quickstart steps
 
-- [Step 1 - Create the Amazon DataZone domain and data
-  portal](#create-domain-gs-rs "#create-domain-gs-rs")
-- [Step 2 - Create the publishing
-  project](#create-publishing-project-gs-rs "#create-publishing-project-gs-rs")
+- [Step 1 - Create the Amazon DataZone domain and data portal](#create-domain-gs-rs "#create-domain-gs-rs")
+- [Step 2 - Create the publishing project](#create-publishing-project-gs-rs "#create-publishing-project-gs-rs")
 - [Step 3 - Create the environment](#create-environment-gs-rs "#create-environment-gs-rs")
-- [Step 4 - Produce data for
-  publishing](#produce-data-for-publishing-gs-rs "#produce-data-for-publishing-gs-rs")
-- [Step 5 - Gather metadata from Amazon
-  Redshift](#gather-metadata-from-glue-gs-rs "#gather-metadata-from-glue-gs-rs")
+- [Step 4 - Produce data for publishing](#produce-data-for-publishing-gs-rs "#produce-data-for-publishing-gs-rs")
+- [Step 5 - Gather metadata from Amazon Redshift](#gather-metadata-from-glue-gs-rs "#gather-metadata-from-glue-gs-rs")
 - [Step 6 - Curate and publish the data asset](#curate-data-asset-gs-rs "#curate-data-asset-gs-rs")
-- [Step 7 - Create the project for
-  data analysis](#create-project-for-data-analysis-gs-rs "#create-project-for-data-analysis-gs-rs")
-- [Step 8 - Create an environment for data
-  analysis](#create-environment-gs2-rs "#create-environment-gs2-rs")
-- [Step 9 - Search the data catalog and
-  subscribe to data](#search-catalog-subscribe-gs-rs "#search-catalog-subscribe-gs-rs")
-- [Step 10 - Approve the subscription
-  request](#approve-subscription-request-gs-rs "#approve-subscription-request-gs-rs")
-- [Step 11 - Build a query and analyze data in Amazon
-  Redshift](#analyze-data-gs-rs "#analyze-data-gs-rs")
+- [Step 7 - Create the project for data analysis](#create-project-for-data-analysis-gs-rs "#create-project-for-data-analysis-gs-rs")
+- [Step 8 - Create an environment for data analysis](#create-environment-gs2-rs "#create-environment-gs2-rs")
+- [Step 9 - Search the data catalog and subscribe to data](#search-catalog-subscribe-gs-rs "#search-catalog-subscribe-gs-rs")
+- [Step 10 - Approve the subscription request](#approve-subscription-request-gs-rs "#approve-subscription-request-gs-rs")
+- [Step 11 - Build a query and analyze data in Amazon Redshift](#analyze-data-gs-rs "#analyze-data-gs-rs")
 
-## Step 1 - Create the Amazon DataZone domain and data
-
-portal
+## Step 1 - Create the Amazon DataZone domain and data portal
 
 Complete the following procedure to create an Amazon DataZone domain. For more information
 about Amazon DataZone domains, see [Amazon DataZone terminology and concepts](datazone-concepts.md "datazone-concepts.md").
@@ -111,9 +100,7 @@ for the data portal cannot be modified.
 Domain creation can take several minutes to complete. Wait for the domain to have a
 status of **Available** before proceeding to the next step.
 
-## Step 2 - Create the publishing
-
-project
+## Step 2 - Create the publishing project
 
 The following section describes the steps of creating the publishing project in this
 workflow.
@@ -162,9 +149,7 @@ workflow.
     The database user you provide in the AWS Secrets Manager must have super
     user permissions.
 
-## Step 4 - Produce data for
-
-publishing
+## Step 4 - Produce data for publishing
 
 The following section describes the steps of producing data for publishing in this
 workflow.
@@ -199,9 +184,7 @@ UNION ALL SELECT 46781887, 24, 30.4, 54, 62, 13, 18, 29, 24, 52, 223, 4561
 Make sure that the **mkt_sls_table** table is successfully created.
 Now you have a data asset that can be published into the Amazon DataZone catalog.
 
-## Step 5 - Gather metadata from Amazon
-
-Redshift
+## Step 5 - Gather metadata from Amazon Redshift
 
 The following section describes the steps of gathering metadata from Amazon
 Redshift.
@@ -234,9 +217,7 @@ this workflow.
 3. Choose **Publish** to publish the `mkt_sls_table`
    asset.
 
-## Step 7 - Create the project for
-
-data analysis
+## Step 7 - Create the project for data analysis
 
 The following section describes the steps of creating te project for data analysis in
 this workflow.
@@ -248,9 +229,7 @@ this workflow.
    **MarketingDataAnalysisProject**, then leave the rest of the fields
    unchanged, and then choose **Create**.
 
-## Step 8 - Create an environment for data
-
-analysis
+## Step 8 - Create an environment for data analysis
 
 The following section describes the steps of creating an environment for data analysis
 in this workflow.
@@ -288,9 +267,7 @@ in this workflow.
     user permissions.
     - For this walkthrough, keep the rest of the fields unchanged.
 
-## Step 9 - Search the data catalog and
-
-subscribe to data
+## Step 9 - Search the data catalog and subscribe to data
 
 The following section describes the steps of searching the data catalog and subscribing
 to data.
@@ -304,9 +281,7 @@ asset, you can choose it to open the asset's details page. 2. On the Product Sal
 **Subscribe**. 3. In the dialog, choose your consumer project from the dropdown, provide the reason
 for access request, and then choose **Subscribe**.
 
-## Step 10 - Approve the subscription
-
-request
+## Step 10 - Approve the subscription request
 
 The following section describes the steps of approving the subscription request in this
 workflow.
@@ -318,9 +293,7 @@ workflow.
    and then **Incoming requests**.
 3. Choose the view request link and then choose **Approve**.
 
-## Step 11 - Build a query and analyze data in Amazon
-
-Redshift
+## Step 11 - Build a query and analyze data in Amazon Redshift
 
 Now that you have successfully published an asset to the Amazon DataZone catalog and
 subscribed to it, you can analyze it.

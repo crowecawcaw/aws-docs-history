@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneSageMakerProvisioningRolePolicy
+# AWS managed policy: AmazonDataZoneSageMakerProvisioningRolePolicy
 
 The AmazonDataZoneSageMakerProvisioningRolePolicy policy grants Amazon DataZone the
 permissions required to interoperate with Amazon SageMaker.

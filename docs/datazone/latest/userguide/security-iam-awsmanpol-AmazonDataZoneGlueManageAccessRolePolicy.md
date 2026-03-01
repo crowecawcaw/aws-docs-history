@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneGlueManageAccessRolePolicy
+# AWS managed policy: AmazonDataZoneGlueManageAccessRolePolicy
 
 This policy gives Amazon DataZone permissions to publish AWS Glue data to the
 catalog. It also gives Amazon DataZone permissions to grant access or revoke access to

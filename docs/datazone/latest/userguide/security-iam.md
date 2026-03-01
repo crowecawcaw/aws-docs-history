@@ -1,6 +1,4 @@
-# Controlling access to Amazon DataZone resources using
-
-IAM
+# Controlling access to Amazon DataZone resources using IAM
 
 You need AWS Identity and Access Management (IAM) to complete the following security-related tasks:
 

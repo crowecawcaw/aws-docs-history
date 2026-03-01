@@ -1,15 +1,11 @@
-# Amazon DataZone events and
-
-notifications
+# Amazon DataZone events and notifications
 
 Amazon DataZone keeps you informed of important activities within your data portal, such as
 subscription requests, updates, comments, and system events. Amazon DataZone provides you with this
 information by delivering messages in the dedicated inbox in the data portal or via the Amazon
 EventBridge default bus.
 
-## Events via the dedicated inbox in the
-
-Amazon DataZone data portal
+## Events via the dedicated inbox in the Amazon DataZone data portal
 
 Amazon DataZone provides a dedicated inbox in the data portal where you can see and take action
 on your messages. Recent messages also surface on the home page, project page, and catalog page.

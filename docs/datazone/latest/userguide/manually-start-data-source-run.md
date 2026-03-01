@@ -1,6 +1,4 @@
-# Manually start a data source run in
-
-Amazon DataZone
+# Manually start a data source run in Amazon DataZone
 
 When you run a data source, Amazon DataZone pulls all any new or modified metadata from the
 source and updates the associated assets in the inventory. When you add a data source to

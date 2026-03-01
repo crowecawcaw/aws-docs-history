@@ -157,9 +157,7 @@ Guide.
 For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the AWS Key Management Service Developer
 Guide.
 
-## Specifying a customer managed key for
-
-Amazon DataZone
+## Specifying a customer managed key for Amazon DataZone
 
 You can specify a customer managed key as a second layer encryption during [domain creation](create-domain.md "create-domain.md").
 
@@ -252,9 +250,7 @@ key for a specific encryption context.
 
 ```
 
-## Monitoring your encryption keys for
-
-Amazon DataZone
+## Monitoring your encryption keys for Amazon DataZone
 
 When you use an AWS KMS customer managed key with your Amazon DataZone resources, you can
 use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to track requests that Amazon DataZone sends to AWS KMS. The
@@ -716,9 +712,7 @@ The following example event records the `RetireGrant` operation:
 
 ```
 
-## Creating Data Lake environments that involve
-
-encrypted AWS Glue catalogs
+## Creating Data Lake environments that involve encrypted AWS Glue catalogs
 
 In advanced use cases, when you are working with an AWS Glue catalog that is
 encrypted, you must grant access to the Amazon DataZone service to use your customer-managed KMS

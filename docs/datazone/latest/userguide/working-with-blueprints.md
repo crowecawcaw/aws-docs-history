@@ -11,14 +11,10 @@ blueprints:
   You can run through the steps of the following procedures to enable default blueprints in
   Amazon DataZone:
 
-- [Enable built-in blueprints in the AWS
-  account that owns the Amazon DataZone domain](#enable-default-blueprint "#enable-default-blueprint")
-- [Add Amazon SageMaker as a trusted
-  service in the AWS account that owns the Amazon DataZone domain](#add-sagemaker-as-trusted-service "#add-sagemaker-as-trusted-service")
+- [Enable built-in blueprints in the AWS account that owns the Amazon DataZone domain](#enable-default-blueprint "#enable-default-blueprint")
+- [Add Amazon SageMaker as a trusted service in the AWS account that owns the Amazon DataZone domain](#add-sagemaker-as-trusted-service "#add-sagemaker-as-trusted-service")
 
-## Enable built-in blueprints in the AWS
-
-account that owns the Amazon DataZone domain
+## Enable built-in blueprints in the AWS account that owns the Amazon DataZone domain
 
 A blueprint with which an environment is created defines what tools and services
 members of the project to which the environment belongs can use as they work with assets
@@ -53,13 +49,10 @@ environments in this domain.
 
 To enable built-in blueprints in an Amazon DataZone domain via the Amazon DataZone management
 console, you must assume an IAM role in the account with administrative permissions.
-[Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the
+[Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the
 minimum permissions.
 
-###### Enable built-in blueprints in an Amazon DataZone
-
-domain
+###### Enable built-in blueprints in an Amazon DataZone domain
 
 1.  Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your
     account credentials.
@@ -130,9 +123,7 @@ which means that any Amazon DataZone user can create profiles for an environment
 blueprint. Therefore, it is strongly recommended that you always specify managing
 projects for your environment blueprints to ensure stronger governance.
 
-###### Specify managing projects on enabled
-
-blueprints
+###### Specify managing projects on enabled blueprints
 
 1. Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your
    account credentials.
@@ -281,9 +272,7 @@ is used to create sagemaker environments.
 
 5. Choose **Create parameter set**.
 
-## Add Amazon SageMaker as a trusted
-
-service in the AWS account that owns the Amazon DataZone domain
+## Add Amazon SageMaker as a trusted service in the AWS account that owns the Amazon DataZone domain
 
 If you've enabled the Amazon SageMaker blueprint, you must also add SageMaker as one
 of the trusted services within Amazon DataZone. To do this, complete the following

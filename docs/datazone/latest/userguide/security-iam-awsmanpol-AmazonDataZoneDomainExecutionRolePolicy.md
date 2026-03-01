@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonDataZoneDomainExecutionRolePolicy
+# AWS managed policy: AmazonDataZoneDomainExecutionRolePolicy
 
 This is the default policy for the Amazon DataZone `DomainExecutionRole`
 service role. This role is used by Amazon DataZone to catalog, discover, govern, share,

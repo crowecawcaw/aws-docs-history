@@ -5,31 +5,19 @@ consumer workflows in Amazon DataZone with sample AWS Glue data.
 
 ###### Quickstart steps
 
-- [Step 1 - Create the Amazon DataZone domain and data
-  portal](#create-domain-gs-glue "#create-domain-gs-glue")
-- [Step 2 - Create the publishing
-  project](#create-publishing-project-gs-glue "#create-publishing-project-gs-glue")
+- [Step 1 - Create the Amazon DataZone domain and data portal](#create-domain-gs-glue "#create-domain-gs-glue")
+- [Step 2 - Create the publishing project](#create-publishing-project-gs-glue "#create-publishing-project-gs-glue")
 - [Step 3 - Create the environment](#create-environment-gs-glue "#create-environment-gs-glue")
-- [Step 4 - Produce data for
-  publishing](#produce-data-for-publishing-gs-glue "#produce-data-for-publishing-gs-glue")
-- [Step 5 - Gather metadata from AWS
-  Glue](#gather-metadata-from-glue-gs-glue "#gather-metadata-from-glue-gs-glue")
-- [Step 6 - Curate and publish the data
-  asset](#curate-data-asset-gs-glue "#curate-data-asset-gs-glue")
-- [Step 7 - Create the project for
-  data analysis](#create-project-for-data-analysis-gs-glue "#create-project-for-data-analysis-gs-glue")
-- [Step 8 - Create an environment for data
-  analysis](#create-environment-gs2-glue "#create-environment-gs2-glue")
-- [Step 9 - Search the data catalog and
-  subscribe to data](#search-catalog-subscribe-gs-glue "#search-catalog-subscribe-gs-glue")
-- [Step 10 - Approve the subscription
-  request](#approve-subscription-request-gs-glue "#approve-subscription-request-gs-glue")
-- [Step 11 - Build a query and analyze data in Amazon
-  Athena](#analyze-data-gs-glue "#analyze-data-gs-glue")
+- [Step 4 - Produce data for publishing](#produce-data-for-publishing-gs-glue "#produce-data-for-publishing-gs-glue")
+- [Step 5 - Gather metadata from AWS Glue](#gather-metadata-from-glue-gs-glue "#gather-metadata-from-glue-gs-glue")
+- [Step 6 - Curate and publish the data asset](#curate-data-asset-gs-glue "#curate-data-asset-gs-glue")
+- [Step 7 - Create the project for data analysis](#create-project-for-data-analysis-gs-glue "#create-project-for-data-analysis-gs-glue")
+- [Step 8 - Create an environment for data analysis](#create-environment-gs2-glue "#create-environment-gs2-glue")
+- [Step 9 - Search the data catalog and subscribe to data](#search-catalog-subscribe-gs-glue "#search-catalog-subscribe-gs-glue")
+- [Step 10 - Approve the subscription request](#approve-subscription-request-gs-glue "#approve-subscription-request-gs-glue")
+- [Step 11 - Build a query and analyze data in Amazon Athena](#analyze-data-gs-glue "#analyze-data-gs-glue")
 
-## Step 1 - Create the Amazon DataZone domain and data
-
-portal
+## Step 1 - Create the Amazon DataZone domain and data portal
 
 This section describes the steps of creating an Amazon DataZone domain and data portal for
 this workflow.
@@ -131,9 +119,7 @@ for the data portal cannot be modified.
 Domain creation can take several minutes to complete. Wait for the domain to have a
 status of **Available** before proceeding to the next step.
 
-## Step 2 - Create the publishing
-
-project
+## Step 2 - Create the publishing project
 
 This section describes the steps required to create the publishing project for this
 workflow.
@@ -168,9 +154,7 @@ workflow.
 
 4. Choose **Create environment**.
 
-## Step 4 - Produce data for
-
-publishing
+## Step 4 - Produce data for publishing
 
 This section describes the steps required to produce data for publishing in this
 workflow.
@@ -208,9 +192,7 @@ Make sure that the **mkt_sls_table** table is successfully created
 in the **Tables and views** section on the left-hand side. Now you have
 a data asset that can be published into the Amazon DataZone catalog.
 
-## Step 5 - Gather metadata from AWS
-
-Glue
+## Step 5 - Gather metadata from AWS Glue
 
 This section describes the step of gathering metadata from AWS Glue for this
 workflow.
@@ -224,9 +206,7 @@ workflow.
    menu and then choose the refresh button. Once the data source run is complete, the
    assets are added to the Amazon DataZone inventory.
 
-## Step 6 - Curate and publish the data
-
-asset
+## Step 6 - Curate and publish the data asset
 
 This section describes the steps of curating and publishing the data asset in this
 workflow.
@@ -245,9 +225,7 @@ workflow.
 3. Choose **Publish asset** to publish the `mkt_sls_table`
    asset.
 
-## Step 7 - Create the project for
-
-data analysis
+## Step 7 - Create the project for data analysis
 
 This section describes the steps of creating the project for data analysis. This is the
 beginning of the data consumer steps of this workflow.
@@ -260,9 +238,7 @@ beginning of the data consumer steps of this workflow.
    **MarketingDataAnalysisProject**, then leave the rest of the fields
    unchanged, and then choose **Create**.
 
-## Step 8 - Create an environment for data
-
-analysis
+## Step 8 - Create an environment for data analysis
 
 This section describes the steps of creating an environment for data analysis.
 
@@ -280,9 +256,7 @@ This section describes the steps of creating an environment for data analysis.
      **DataLakeProfile** environment profile.
    - For this walkthrough, keep the rest of the fields unchanged.
 
-## Step 9 - Search the data catalog and
-
-subscribe to data
+## Step 9 - Search the data catalog and subscribe to data
 
 This section describes the steps of searching the data catalog and subscribing to
 data.
@@ -300,9 +274,7 @@ page. 2. On the **Catalog Sales Data** asset's details page, choose
 then specify the reason for your subscription request, and then choose
 **Subscribe**.
 
-## Step 10 - Approve the subscription
-
-request
+## Step 10 - Approve the subscription request
 
 This section describes the steps of approving the subscription request.
 
@@ -315,9 +287,7 @@ This section describes the steps of approving the subscription request.
    **View request**. Provide a reason for approval and choose
    **Approve**.
 
-## Step 11 - Build a query and analyze data in Amazon
-
-Athena
+## Step 11 - Build a query and analyze data in Amazon Athena
 
 Now that you have successfully published an asset to the Amazon DataZone catalog and
 subscribed to it, you can analyze it.

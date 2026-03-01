@@ -27,5 +27,4 @@ defined in the column filters. To create a column filter, follow the steps below
 8. Select the columns you want to include in the filters using the check boxes
    again the columns in the data asset.
 9. Choose Create filter
-   For information on how to apply column filters to a subscription, see [Approve or reject a subscription
-   request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md") .
+   For information on how to apply column filters to a subscription, see [Approve or reject a subscription request in Amazon DataZone](approve-reject-subscription-request.md "approve-reject-subscription-request.md") .

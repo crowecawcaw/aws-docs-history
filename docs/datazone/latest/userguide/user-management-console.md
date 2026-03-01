@@ -3,8 +3,7 @@
 Your users can access the Amazon DataZone data portal by using either their AWS
 credentials or single sign-on (SSO) credentials. To manage users in the Amazon DataZone
 console for an Amazon DataZone domain, you must assume an IAM role in the account with
-Amazon DataZone management console permissions. [Configure the IAM permissions required to use the
-Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
+Amazon DataZone management console permissions. [Configure the IAM permissions required to use the Amazon DataZone management console](create-iam-roles.md "create-iam-roles.md") to obtain the minimum permissions necessary to
 manage users in the Amazon DataZone console.
 
 ###### Topics
@@ -17,8 +16,7 @@ manage users in the Amazon DataZone console.
 
 IAM roles and users are created using AWS Identity and Access Management (IAM)
 and gain access to your Amazon DataZone domains through permissions attached to them via
-policies. For more information, see [Configure the IAM permissions required to use the
-Amazon DataZone data portal](data-portal-permissions.md "data-portal-permissions.md"). In the current release of Amazon DataZone,
+policies. For more information, see [Configure the IAM permissions required to use the Amazon DataZone data portal](data-portal-permissions.md "data-portal-permissions.md"). In the current release of Amazon DataZone,
 an administrator from an Amazon DataZone domain owner account, can create IAM user
 profiles for users in their own account or for users in the associated accounts. An
 administrator from an Amazon DataZone domain owner account can also set an existing
@@ -54,15 +52,13 @@ Amazon DataZone) or activate or deactivate any existing user.
        accessed the Amazon DataZone portal for your domain.
      - Deactivated means that the IAM user or role can no longer
        use the Amazon DataZone Data Portal. To restrict
-       programmatic access see [Restricting
-       access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md").
+       programmatic access see [Restricting access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md").
 
 7. To deactivate an IAM user or role that is currently activated, check the
    box next to the user and select **Deactivate** from the
    **Actions** menu. This will result in the user no
    longer be able to use the Amazon DataZone Data Portal. To restrict programmatic
-   access see [Restricting
-   access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md").
+   access see [Restricting access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md").
 8. To activate an IAM user or role that is currently deactivated, check the
    box next to the user and select **Activate** from the
    **Actions** menu. The user will gain access to the
@@ -72,8 +68,7 @@ Amazon DataZone) or activate or deactivate any existing user.
 ## Manage SSO users
 
 SSO users are created or synchronized with your identity provider. For more
-information, see [Setting up AWS IAM Identity Center for Amazon DataZone](sso-setup.md "sso-setup.md") and [Enable IAM Identity Center for
-Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md") to enable and
+information, see [Setting up AWS IAM Identity Center for Amazon DataZone](sso-setup.md "sso-setup.md") and [Enable IAM Identity Center for Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md") to enable and
 configure AWS IAM Identity Center for Amazon DataZone. You can view the list of SSO
 users assigned to the domain, add SSO users, and remove SSO users.
 
@@ -138,8 +133,7 @@ users assigned to the domain, add SSO users, and remove SSO users.
 ## Manage SSO groups
 
 SSO groups are created or synchronized with your identity provider in AWS IAM
-Identity Center. For more information, see [Setting up AWS IAM Identity Center for Amazon DataZone](sso-setup.md "sso-setup.md") and [Enable IAM Identity Center for
-Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md") to enable and
+Identity Center. For more information, see [Setting up AWS IAM Identity Center for Amazon DataZone](sso-setup.md "sso-setup.md") and [Enable IAM Identity Center for Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md") to enable and
 configure AWS IAM Identity Center for Amazon DataZone. You can view the list of SSO
 groups assigned to the domain, add SSO groups, and remove SSO groups.
 

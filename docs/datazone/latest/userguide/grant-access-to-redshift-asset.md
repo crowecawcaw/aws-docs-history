@@ -1,6 +1,4 @@
-# Grant access to managed Amazon Redshift
-
-assets in Amazon DataZone
+# Grant access to managed Amazon Redshift assets in Amazon DataZone
 
 When a subscription to an Amazon Redshift table or view is approved, Amazon DataZone can
 automatically add the subscribed asset to all the data warehouse environments within the

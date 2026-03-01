@@ -1,6 +1,4 @@
-# Assign authorization
-
-policies within Amazon DataZone blueprint configurations
+# Assign authorization policies within Amazon DataZone blueprint configurations
 
 Another way to use the authorization mechanism in Amazon DataZone is to apply authorization
 policies to projects and domain unit owners within Amazon DataZone blueprint configurations.
@@ -23,10 +21,7 @@ policies to projects and domain unit owners:
   policy can be assigned to domain unit owners and it authorizes them to grant
   permissions to projects to create environment profiles using this blueprint.
 
-###### Assign the **Create environment profiles using this blueprint**
-
-authorization policy to projects from a blueprint configuration via the Amazon DataZone
-data portal
+###### Assign the **Create environment profiles using this blueprint** authorization policy to projects from a blueprint configuration via the Amazon DataZone data portal
 
 1. Navigate to the Amazon DataZone data portal URL and sign in using single sign-on
    (SSO) or your AWS credentials. If you’re an Amazon DataZone administrator, you can
@@ -56,10 +51,7 @@ data portal
      choose the projects to which you want to assign this policy, and then
      choose **Add projects**.
 
-###### Assign the \*\*Grant permissions to create environment profiles using this
-
-blueprint\*\* authorization policy to domain unit owners from a blueprint
-configuration via the Amazon DataZone management console
+###### Assign the **Grant permissions to create environment profiles using this blueprint** authorization policy to domain unit owners from a blueprint configuration via the Amazon DataZone management console
 
 1. Navigate to the Amazon DataZone console at [https://console.aws.amazon.com/datazone](https://console.aws.amazon.com/datazone "https://console.aws.amazon.com/datazone") and sign in with your
    account credentials.

@@ -19,14 +19,9 @@ For more information, see [Amazon DataZone terminology and concepts](datazone-co
 - [Create Amazon DataZone domains](create-domain.md "create-domain.md")
 - [Edit Amazon DataZone domains](edit-domain.md "edit-domain.md")
 - [Delete Amazon DataZone domains](delete-domain.md "delete-domain.md")
-- [Enable IAM Identity Center for
-  Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md")
-- [Disable IAM Identity Center
-  for Amazon DataZone](disable-IAM-identity-center-for-datazone.md "disable-IAM-identity-center-for-datazone.md")
+- [Enable IAM Identity Center for Amazon DataZone](enable-IAM-identity-center-for-datazone.md "enable-IAM-identity-center-for-datazone.md")
+- [Disable IAM Identity Center for Amazon DataZone](disable-IAM-identity-center-for-datazone.md "disable-IAM-identity-center-for-datazone.md")
 - [Manage users in the Amazon DataZone console](user-management-console.md "user-management-console.md")
-- [Manage user permissions in the Amazon DataZone data
-  portal](user-management-portal.md "user-management-portal.md")
-- [Restricting
-  access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md")
-- [Upgrade Amazon DataZone domains to Amazon SageMaker unified
-  domains](upgrade-domain.md "upgrade-domain.md")
+- [Manage user permissions in the Amazon DataZone data portal](user-management-portal.md "user-management-portal.md")
+- [Restricting access to Amazon DataZone](user-management-portal-restricting-programmatic-access.md "user-management-portal-restricting-programmatic-access.md")
+- [Upgrade Amazon DataZone domains to Amazon SageMaker unified domains](upgrade-domain.md "upgrade-domain.md")

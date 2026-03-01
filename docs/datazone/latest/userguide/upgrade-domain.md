@@ -1,10 +1,6 @@
-# Upgrade Amazon DataZone domains to Amazon SageMaker unified
+# Upgrade Amazon DataZone domains to Amazon SageMaker unified domains
 
-domains
-
-## Considerations before you upgrade your
-
-domain
+## Considerations before you upgrade your domain
 
 Before upgrading your Amazon DataZone domain to an Amazon SageMaker unified domain,
 review these important considerations to ensure a smooth upgrade process.
@@ -54,9 +50,7 @@ review these important considerations to ensure a smooth upgrade process.
 - After the upgrade, the domain's `domainVersion` attribute
   changes from `V1` to `V2`.
 
-## Upgrade your Amazon DataZone domain to an
-
-Amazon SageMaker unified domain
+## Upgrade your Amazon DataZone domain to an Amazon SageMaker unified domain
 
 You can complete the following procedure to upgrade your Amazon DataZone domain to an
 Amazon SageMaker unified domain.
@@ -76,9 +70,7 @@ Amazon SageMaker unified domain.
    you are upgrading doesn’t have owners that are of type IAM user, SSO
    user/group. Then choose **Upgrade domain**.
 
-## Frequently asked questions about upgrading
-
-Amazon DataZone domains to Amazon SageMaker unified domains
+## Frequently asked questions about upgrading Amazon DataZone domains to Amazon SageMaker unified domains
 
 - **Which properties and configurations carry over with
   the domain after the upgrade?**

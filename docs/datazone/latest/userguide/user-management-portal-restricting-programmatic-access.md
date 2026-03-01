@@ -1,6 +1,4 @@
-# Restricting
-
-access to Amazon DataZone
+# Restricting access to Amazon DataZone
 
 **Restricting programmatic access to Amazon DataZone** - for
 IAM users or roles, making programmatic API calls, access can be restricted via IAM

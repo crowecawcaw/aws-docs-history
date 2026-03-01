@@ -1,6 +1,4 @@
-# Configure a
-
-subscription target in an AWS service environment
+# Configure a subscription target in an AWS service environment
 
 Complete the following procedure to configure a subscription target in an AWS
 service environment.

@@ -31,8 +31,7 @@ To add members to an exiting project, complete the following steps.
 
 You can only add those users as project members who are authorized to be members
 of this project by the project membership authorization policy that is configured
-for the domain unit in which this project lives. For more information, see [Assign
-authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md") .
+for the domain unit in which this project lives. For more information, see [Assign authorization policies to users and groups within an Amazon DataZone domain unit](assign-authorization-policies-to-users-in-domain-unit.md "assign-authorization-policies-to-users-in-domain-unit.md") .
 
 ###### Note
 

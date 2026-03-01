@@ -1,6 +1,4 @@
-# Metadata enforcement rules for subscription
-
-requests
+# Metadata enforcement rules for subscription requests
 
 The metadata enforcement rules for subscription requests feature in Amazon DataZone
 strengthens data governance by enabling domain unit owners to establish clear metadata
@@ -99,8 +97,7 @@ requirements before granting access. 6. To approve, select between the two optio
      all the rows and columns in your data asset.
     * **Approve with row and column filters**: To limit
      access to specific rows and columns of data, you can choose the option
-     to approve with row and column filters. For more information, see [Fine-grained access control to data in
-     Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md").
+     to approve with row and column filters. For more information, see [Fine-grained access control to data in Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md").
 
 
 
