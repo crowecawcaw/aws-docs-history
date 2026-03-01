@@ -16,6 +16,5 @@ Updates are applied to all instances in a DB cluster at the same time. An update
 - [Database engine updates for Amazon Aurora MySQL version 3](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 2](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
 - [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
-- [MySQL bugs fixed by Aurora MySQL database
-  engine updates](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
+- [MySQL bugs fixed by Aurora MySQL database engine updates](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md")
 - [Security vulnerabilities fixed in Aurora MySQL](AuroraMySQL.md "AuroraMySQL.md")
