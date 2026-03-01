@@ -5,30 +5,23 @@ you perform some steps, and your customer also performs some steps.
 
 ###### Topics
 
-- [Enable AWS account for Bring Your Own
-  Protocol](#enable-account-for-byop "#enable-account-for-byop")
-- [Grant partner solution access to
-  AWS account](#grant-partner-solution-access "#grant-partner-solution-access")
-- [Enable the account for BYOL and conﬁgure the BYOL CIDR block
-  (Windows client OS ONLY)](#enable-BYOL "#enable-BYOL")
+- [Enable AWS account for Bring Your Own Protocol](#enable-account-for-byop "#enable-account-for-byop")
+- [Grant partner solution access to AWS account](#grant-partner-solution-access "#grant-partner-solution-access")
+- [Enable the account for BYOL and conﬁgure the BYOL CIDR block (Windows client OS ONLY)](#enable-BYOL "#enable-BYOL")
 - [Import the Windows Client OS image (BYOL-BYOP)](#import-image "#import-image")
 - [Configure the directory](#configure-the-directory "#configure-the-directory")
 - [Add a security group to a WorkSpaces directory](#add-security "#add-security")
 - [Deploy Amazon WorkSpaces Core desktops](#deploy-desktop "#deploy-desktop")
 - [Custom images](#custom-images "#custom-images")
 
-## Enable AWS account for Bring Your Own
-
-Protocol
+## Enable AWS account for Bring Your Own Protocol
 
 To enable the customer AWS account for BYOP, customers must contact their AWS account
 manager. For select technology partners with hosted managed solutions, BYOP might be enabled at
 the technology partner solution level. In that case, the customer account won't need to have BYOP
 enabled within their account.
 
-## Grant partner solution access to
-
-AWS account
+## Grant partner solution access to AWS account
 
 Partner step and Customer step – Create a technology partner solution connection to the
 customer's AWS account.
@@ -48,9 +41,7 @@ If assume role access is being used, instruct your customer to use tag-based aut
 This limits exposure to customer resources from the role granted to the partner solution. For
 more information, see [Tag-based authorization guidelines](tag-based-auth-guidelines.md "tag-based-auth-guidelines.md").
 
-## Enable the account for BYOL and conﬁgure the BYOL CIDR block
-
-(Windows client OS ONLY)
+## Enable the account for BYOL and conﬁgure the BYOL CIDR block (Windows client OS ONLY)
 
 Follow these steps to enable Bring Your Own Licenses (BYOL), conﬁgure the BYOL Classless
 Inter-Domain Routing (CIDR) block, and register the directory.
