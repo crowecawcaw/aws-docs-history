@@ -1,9 +1,4 @@
-# Getting
-
-your
-credentials
-and
-tools
+# Getting your credentials and tools
 
 Each job has a set of credentials that you must get from the AWS Snow Family Management Console or the
 job management API to authenticate your access to the Snow device. These credentials are an encrypted
@@ -41,6 +36,4 @@ Now that you have your credentials, the next step is to download the Snowball Ed
 client, which is used to unlock the device.
 
 **Next:**
-[Downloading and
-installing
-the Snowball Edge client](download-the-client.md "download-the-client.md")
+[Downloading and installing the Snowball Edge client](download-the-client.md "download-the-client.md")

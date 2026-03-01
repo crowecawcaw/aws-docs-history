@@ -1,7 +1,4 @@
-# Downloading and
-
-installing
-the Snowball Edge client
+# Downloading and installing the Snowball Edge client
 
 Download the Snowball Edge client for your operating system:
 
@@ -9,7 +6,4 @@ Download the Snowball Edge client for your operating system:
 - **Linux**:
 - **macOS**:
   **Next:**
-  [Bind the
-  hardware security module
-  to the Snow
-  device](bind-hsm.md "bind-hsm.md")
+  [Bind the hardware security module to the Snow device](bind-hsm.md "bind-hsm.md")

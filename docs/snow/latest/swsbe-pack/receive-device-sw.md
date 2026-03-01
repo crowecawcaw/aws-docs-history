@@ -7,17 +7,11 @@ device is a violation of the AWS Acceptable Use Policy.
 
 ###### Topics
 
-- [Verify your
-  hardware](#verify-hardware "#verify-hardware")
+- [Verify your hardware](#verify-hardware "#verify-hardware")
 - [Setting up a Snowball Edge](#receive.swsbe "#receive.swsbe")
-- [Connecting to
-  your
-  local
-  network](#getting-started-connect "#getting-started-connect")
+- [Connecting to your local network](#getting-started-connect "#getting-started-connect")
 
-## Verify your
-
-hardware
+## Verify your hardware
 
 Verify the hardware you've received against the information in the following
 table. Contact Support if there is a discrepancy.
@@ -45,11 +39,7 @@ The device looks like the following image.
 
 ![Snowball Edge device showing front panel and top of device with E ink screen.](images/SnowballEdgeAppliance.png)
 
-## Connecting to
-
-your
-local
-network
+## Connecting to your local network
 
 ### Connect your Snowball Edge to your local network
 

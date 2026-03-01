@@ -30,23 +30,22 @@ The following tables contain hardware specifications for Snowball Edge devices.
 
 ## Snowball Edge equipment description
 
-Storage Optimized Device
-Specifications| Item | Specification |
-| --- | --- |
-| Storage capacity | Snowball Edge devices have up to 80 TB of usable space. |
-| Data and network connections | Network connections:<br>• 10 Gb – RJ45<br>• 25 Gb – SFP+<br>• 40 Gb – QSFP+ |
-| Thermal requirements | AWS Snowball Edge devices are designed for office operations, and are ideal for data<br>center operations. |
-| Decibel output | On average, an AWS Snowball Edge device produces 68 decibels of sound, typically<br>quieter than a vacuum cleaner or living-room music. |
-| Weight | 49.5 pounds (22.45 Kg) |
-| Height | 15.25 inches (386 mm) |
-| Width | 10.6 inches (269 mm) |
-| Length | 26.00 inches (671 mm) |
-| Power | NEMA 5–15p 100–220 volts. |
-| Power consumption | 400 watts |
-| Voltage | 100 – 240V AC |
-| Frequency | 47/63 Hz |
-| Temperature range | 0 – 40°C (operational) |
-| Nonoperational vibration | ASTM D4169 Truck Level I 0.73 GRMS |
-| Nonoperational shock | Drop test (12 inches all sides + 24 inches one side) |
-| Nonoperational altitude | 0–12,000 meters |
-| Operational altitude | 0–3,000 meters (0–10,000 feet) |
+| Storage Optimized Device Specifications | Item                                                                                                                                    | Specification |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Storage capacity                        | Snowball Edge devices have up to 80 TB of usable space.                                                                                 |
+| Data and network connections            | Network connections:<br>• 10 Gb – RJ45<br>• 25 Gb – SFP+<br>• 40 Gb – QSFP+                                                             |
+| Thermal requirements                    | AWS Snowball Edge devices are designed for office operations, and are ideal for data<br>center operations.                              |
+| Decibel output                          | On average, an AWS Snowball Edge device produces 68 decibels of sound, typically<br>quieter than a vacuum cleaner or living-room music. |
+| Weight                                  | 49.5 pounds (22.45 Kg)                                                                                                                  |
+| Height                                  | 15.25 inches (386 mm)                                                                                                                   |
+| Width                                   | 10.6 inches (269 mm)                                                                                                                    |
+| Length                                  | 26.00 inches (671 mm)                                                                                                                   |
+| Power                                   | NEMA 5–15p 100–220 volts.                                                                                                               |
+| Power consumption                       | 400 watts                                                                                                                               |
+| Voltage                                 | 100 – 240V AC                                                                                                                           |
+| Frequency                               | 47/63 Hz                                                                                                                                |
+| Temperature range                       | 0 – 40°C (operational)                                                                                                                  |
+| Nonoperational vibration                | ASTM D4169 Truck Level I 0.73 GRMS                                                                                                      |
+| Nonoperational shock                    | Drop test (12 inches all sides + 24 inches one side)                                                                                    |
+| Nonoperational altitude                 | 0–12,000 meters                                                                                                                         |
+| Operational altitude                    | 0–3,000 meters (0–10,000 feet)                                                                                                          |

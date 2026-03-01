@@ -1,8 +1,4 @@
-# Bind the
-
-hardware security module
-to the Snow
-device
+# Bind the hardware security module to the Snow device
 
 Each Snow device can be bound to one
 hardware security module (HSM) to secure and encrypt the data on the Snow device.
