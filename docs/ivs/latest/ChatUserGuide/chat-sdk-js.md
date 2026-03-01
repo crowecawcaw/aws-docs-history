@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK: JavaScript
-
-Guide
+# IVS Chat Client Messaging SDK: JavaScript Guide
 
 The Amazon Interactive Video (IVS) Chat Client Messaging JavaScript SDK allows
 you to incorporate our [Amazon IVS Chat Messaging API](../chatmsgapireference/welcome.md "../chatmsgapireference/welcome.md") on platforms using

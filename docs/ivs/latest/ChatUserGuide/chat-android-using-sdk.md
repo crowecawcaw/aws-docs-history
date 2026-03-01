@@ -2,9 +2,7 @@
 
 This document takes you through the steps involved in using the Amazon IVS chat client messaging Android SDK.
 
-## Initialize a Chat Room
-
-Instance
+## Initialize a Chat Room Instance
 
 Create an instance of the `ChatRoom` class. This requires passing
 `regionOrUrl`, which typically is the AWS region in which your chat
@@ -77,9 +75,7 @@ The `ChatRoom` class has actions for sending and deleting messages and
 disconnecting other users. These actions accept an optional callback parameter that
 allows you to get request confirmation or rejection notifications.
 
-### Sending a
-
-Message
+### Sending a Message
 
 For this request, you must have the `SEND_MESSAGE` capability
 encoded in your chat token.
@@ -105,9 +101,7 @@ room.sendMessage(request, object : SendMessageCallback {
 })
 ```
 
-### Deleting a
-
-Message
+### Deleting a Message
 
 For this request, you must have the DELETE_MESSAGE capability encoded in your
 chat token.
@@ -133,9 +127,7 @@ room.deleteMessage(request, object : DeleteMessageCallback {
 })
 ```
 
-### Disconnecting
-
-Another User
+### Disconnecting Another User
 
 For this request, you must have the `DISCONNECT_USER` capability
 encoded in your chat token.

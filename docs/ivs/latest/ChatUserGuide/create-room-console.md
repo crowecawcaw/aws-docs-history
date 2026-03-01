@@ -37,9 +37,7 @@ Messages (Optional)](#create-room-console-review-messages "#create-room-console-
 and proceed directly to [Final
 Room Creation](#create-room-console-final "#create-room-console-final").
 
-## Set Up to Review Room
-
-Messages (Optional)
+## Set Up to Review Room Messages (Optional)
 
 1. Under **Message Review Handler**, select
    **Handle with AWS Lambda**. The
@@ -59,9 +57,7 @@ will be automatically created for the lambda function you selected. For
 more information about permissions, see
 [Resource-Based Policy for Amazon IVS Chat](security-iam.md#security-chat-policy-examples "security-iam.md#security-chat-policy-examples").
 
-## Set Up to Log Messages
-
-(Optional)
+## Set Up to Log Messages (Optional)
 
 1. Under **Message logging**, select
    **Automatically log chat messages**.

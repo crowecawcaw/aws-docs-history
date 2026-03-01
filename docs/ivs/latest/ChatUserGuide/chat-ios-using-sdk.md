@@ -46,9 +46,7 @@ let room = ChatRoom(
 try await room.connect()
 ```
 
-### Conforming to the
-
-ChatTokenProvider Protocol
+### Conforming to the ChatTokenProvider Protocol
 
 For the `tokenProvider` parameter in the initializer for
 `ChatRoom`, you can provide an instance of
@@ -88,9 +86,7 @@ let room = ChatRoom(
 try await room.connect()
 ```
 
-### Providing an async
-
-Function in Swift
+### Providing an async Function in Swift
 
 Suppose you already have a manager that you use to manage your application's
 network requests. It might look like this:
@@ -234,9 +230,7 @@ extension ViewController: ChatRoomDelegate {
 }
 ```
 
-## Get Notified when the Connection
-
-Changes
+## Get Notified when the Connection Changes
 
 As is to be expected, you cannot perform actions like sending a message in a room
 until the room is fully connected. The architecture of the SDK tries to encourage
@@ -286,9 +280,7 @@ Task(priority: .background) {
 }
 ```
 
-### Using
-
-ChatRoomDelegate
+### Using ChatRoomDelegate
 
 Alternately, use the optional functions `roomDidConnect(_:)`,
 `roomIsConnecting(_:)`, and `roomDidDisconnect(_:)`
@@ -402,9 +394,7 @@ do {
 }
 ```
 
-### Appending Metadata to a
-
-Message
+### Appending Metadata to a Message
 
 When [sending a message](#room-action-send-message "#room-action-send-message"), you
 can append metadata that will be associated with it.

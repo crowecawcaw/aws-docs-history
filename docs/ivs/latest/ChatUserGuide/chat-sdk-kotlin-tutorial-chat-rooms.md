@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK:
-
-Kotlin Coroutines Tutorial Part 1: Chat Rooms
+# IVS Chat Client Messaging SDK: Kotlin Coroutines Tutorial Part 1: Chat Rooms
 
 This is the first of a two-part tutorial. You will learn the essentials of
 working with the Amazon IVS Chat Messaging SDK by building a fully functional Android app
@@ -16,11 +14,9 @@ language and creating UIs on the Android platform.
 
 This first part of the tutorial is broken up into several sections:
 
-1. [Set Up a Local
-   Authentication/Authorization Server](#chat-kotlin-rooms-auth-server "#chat-kotlin-rooms-auth-server")
+1. [Set Up a Local Authentication/Authorization Server](#chat-kotlin-rooms-auth-server "#chat-kotlin-rooms-auth-server")
 2. [Create a Chatterbox Project](#chat-kotlin-rooms-chatterbox "#chat-kotlin-rooms-chatterbox")
-3. [Connect to a Chat Room and Observe
-   Connection Updates](#chat-kotlin-rooms-connect "#chat-kotlin-rooms-connect")
+3. [Connect to a Chat Room and Observe Connection Updates](#chat-kotlin-rooms-connect "#chat-kotlin-rooms-connect")
 4. [Build a Token Provider](#chat-kotlin-rooms-token-provider "#chat-kotlin-rooms-token-provider")
 5. [Next Steps](#chat-kotlin-rooms-next-steps "#chat-kotlin-rooms-next-steps")
    For full SDK documentation, start with
@@ -43,9 +39,7 @@ This first part of the tutorial is broken up into several sections:
 - Create a chat room and save its ARN. See [Getting Started with Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md"). (If you don’t save the ARN, you can look it up later with the console or
   Chat API.)
 
-## Set Up a Local
-
-Authentication/Authorization Server
+## Set Up a Local Authentication/Authorization Server
 
 Your backend server will be responsible for both creating chat rooms and
 generating the chat tokens needed for the IVS Chat Android SDK to authenticate and
@@ -326,9 +320,7 @@ you can run the auth server with the following command from the project's root:
 ./gradlew :auth-server:run
 ```
 
-## Connect to a Chat Room and Observe
-
-Connection Updates
+## Connect to a Chat Room and Observe Connection Updates
 
 To open a chat-room connection, we use the [onCreate() activity lifecycle
 callback](https://developer.android.com/guide/components/activities/activity-lifecycle "https://developer.android.com/guide/components/activities/activity-lifecycle"), which fires when the activity is first created. The

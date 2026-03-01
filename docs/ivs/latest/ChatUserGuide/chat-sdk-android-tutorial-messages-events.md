@@ -1,21 +1,16 @@
-# IVS Chat Client Messaging
-
-SDK: Android Tutorial Part 2: Messages and Events
+# IVS Chat Client Messaging SDK: Android Tutorial Part 2: Messages and Events
 
 This second (and last) part of the tutorial is broken up into several sections:
 
-1. [Create a UI for Sending
-   Messages](#chat-android-messages-events-create_ui "#chat-android-messages-events-create_ui")
+1. [Create a UI for Sending Messages](#chat-android-messages-events-create_ui "#chat-android-messages-events-create_ui")
    1. [UI Main Layout](#create-ui-main-layout "#create-ui-main-layout")
-   2. [UI Abstracted Text Cell to Display Text
-      Consistently](#create-ui-text-cell "#create-ui-text-cell")
+   2. [UI Abstracted Text Cell to Display Text Consistently](#create-ui-text-cell "#create-ui-text-cell")
    3. [UI Left Chat Message](#create-ui-left-chat-message "#create-ui-left-chat-message")
    4. [UI Right Chat Message](#create-ui-right-chat-message "#create-ui-right-chat-message")
    5. [UI Additional Color Values](#create-ui-color-values "#create-ui-color-values")
 
 2. [Apply View Binding](#chat-android-messages-events-view-binding "#chat-android-messages-events-view-binding")
-3. [Manage Chat-Message
-   Requests](#chat-android-messages-events-requests "#chat-android-messages-events-requests")
+3. [Manage Chat-Message Requests](#chat-android-messages-events-requests "#chat-android-messages-events-requests")
 4. [Final Steps](#chat-android-messages-events-final-steps "#chat-android-messages-events-final-steps")
    For full SDK documentation, start with
    [Amazon IVS Chat Client Messaging SDK](chat-sdk.md "chat-sdk.md")
@@ -27,9 +22,7 @@ This second (and last) part of the tutorial is broken up into several sections:
 
 Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-android-tutorial-chat-rooms.md "chat-sdk-android-tutorial-chat-rooms.md").
 
-## Create a UI for Sending
-
-Messages
+## Create a UI for Sending Messages
 
 Now that we successfully initialized the chat room connection, it’s time to send our
 first message. For this feature, a UI is needed. We will add:
@@ -171,9 +164,7 @@ See Android Jetpack [Layouts](https://developer.android.com/develop/ui/views/lay
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-### UI Abstracted Text Cell to Display Text
-
-Consistently
+### UI Abstracted Text Cell to Display Text Consistently
 
 **XML**:
 
@@ -461,9 +452,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## Manage Chat-Message
-
-Requests
+## Manage Chat-Message Requests
 
 We need a way to manage our chat-message requests through all their possible
 states:

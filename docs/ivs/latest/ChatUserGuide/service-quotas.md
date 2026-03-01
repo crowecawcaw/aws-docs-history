@@ -53,9 +53,7 @@ API call rate quotas are not adjustable.
 | Rate of SendMessage requests per room                 | 100     | No (but configurable through the API) | Maximum number of SendMessage requests that can be made per<br>second for any one of your rooms. This is configurable with the<br>`maximumMessageRatePerSecond` field of [CreateRoom](../ChatAPIReference/API_CreateRoom.md "../ChatAPIReference/API_CreateRoom.md") and [UpdateRoom](../ChatAPIReference/API_UpdateRoom.md "../ChatAPIReference/API_UpdateRoom.md"). These requests come from the Amazon IVS<br>Chat Messaging API (WebSocket). |
 | Rooms                                                 | 50,000  | Yes                                   | Maximum number of chat rooms per account, per<br>AWS Region.                                                                                                                                                                                                                                                                                                                                                                                     |
 
-## Service Quotas Integration with
-
-CloudWatch Usage Metrics
+## Service Quotas Integration with CloudWatch Usage Metrics
 
 You can use CloudWatch to proactively manage your service quotas, via CloudWatch
 _usage metrics_. You can use these metrics to
@@ -97,9 +95,7 @@ The following dimensions are used to refine the usage metric:
 | Type      | The type of resource being tracked. Valid value:<br>`Resource`.                                                                                                                                                                                                                                     |
 | Resource  | The name of the AWS resource. Valid value:<br>`ConcurrentChatConnections`.<br>The ConcurrentChatConnections usage metric is a copy of the one in<br>the \*_AWS/IVSChat_<br>• namespace (with the<br>None dimension), as described in [Monitoring Amazon IVS Chat](chat-health.md "chat-health.md"). |
 
-### Creating a CloudWatch Alarm for Usage
-
-Metrics
+### Creating a CloudWatch Alarm for Usage Metrics
 
 To create a CloudWatch alarm based on an Amazon IVS Chat usage
 metric:

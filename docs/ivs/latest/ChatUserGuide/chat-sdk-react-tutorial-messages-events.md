@@ -1,19 +1,14 @@
-# IVS Chat Client Messaging SDK:
-
-React Native Tutorial Part 2: Messages and Events
+# IVS Chat Client Messaging SDK: React Native Tutorial Part 2: Messages and Events
 
 This second (and last) part of the tutorial is broken up into several sections:
 
-1. [Subscribe to Chat Message
-   Events](#chat-react-messages-events-subscribe "#chat-react-messages-events-subscribe")
+1. [Subscribe to Chat Message Events](#chat-react-messages-events-subscribe "#chat-react-messages-events-subscribe")
 2. [Show Received Messages](#chat-react-messages-events-show "#chat-react-messages-events-show")
    1. [Creating a Message Component](#chat-react-messages-create-component "#chat-react-messages-create-component")
-   2. [Recognizing Messages Sent by the Current
-      User](#chat-react-messages-recognize "#chat-react-messages-recognize")
+   2. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize")
    3. [Rendering a List of Chat Messages](#chat-react-messages-render-list "#chat-react-messages-render-list")
 
-3. [Perform Actions in a Chat
-   Room](#chat-react-messages-events-room-actions "#chat-react-messages-events-room-actions")
+3. [Perform Actions in a Chat Room](#chat-react-messages-events-room-actions "#chat-react-messages-events-room-actions")
    1. [Sending a Message](#chat-react-room-actions-sending-message "#chat-react-room-actions-sending-message")
    2. [Deleting a Message](#chat-react-room-actions-deleting-message "#chat-react-room-actions-deleting-message")
 
@@ -25,9 +20,7 @@ This second (and last) part of the tutorial is broken up into several sections:
 
 Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-react-tutorial-chat-rooms.md "chat-sdk-react-tutorial-chat-rooms.md").
 
-## Subscribe to Chat Message
-
-Events
+## Subscribe to Chat Message Events
 
 The `ChatRoom` instance uses events to communicate when events occur in a chat
 room. To start implementing the chat experience, you need to show your users when others send
@@ -118,8 +111,7 @@ const unsubscribeOnMessageReceived = room.addListener('message', (message) => {
 Below we step through the tasks to show received messages:
 
 1. [Creating a Message Component](#chat-react-messages-create-component "#chat-react-messages-create-component")
-2. [Recognizing Messages Sent by the Current
-   User](#chat-react-messages-recognize "#chat-react-messages-recognize")
+2. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize")
 3. [Rendering a List of Chat Messages](#chat-react-messages-render-list "#chat-react-messages-render-list")
 
 ### Creating a Message Component
@@ -211,9 +203,7 @@ const styles = StyleSheet.create({
 that you want to render in your message rows; for example, avatar URLs, user names, and
 timestamps of when the message was sent.
 
-### Recognizing Messages Sent by the Current
-
-User
+### Recognizing Messages Sent by the Current User
 
 To recognize the message sent by the current user, we modify the code and create a React
 context for storing the `userId` of the current user.
@@ -487,9 +477,7 @@ All the puzzle pieces are now in place for your `App` to start rendering
 messages received by your chat room. Continue below to see how to perform actions in a chat
 room that leverage the components you have created.
 
-## Perform Actions in a Chat
-
-Room
+## Perform Actions in a Chat Room
 
 Sending messages and performing moderator actions are some of the primary ways you
 interact with a chat room. Here you will learn how to use various chat request objects to

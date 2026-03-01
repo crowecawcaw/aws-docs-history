@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK:
-
-Android Tutorial Part 1: Chat Rooms
+# IVS Chat Client Messaging SDK: Android Tutorial Part 1: Chat Rooms
 
 This is the first of a two-part tutorial. You will learn the essentials of working with
 the Amazon IVS Chat Messaging SDK by building a fully functional Android app using the
@@ -17,11 +15,9 @@ creating UIs on the Android platform.
 
 This first part of the tutorial is broken up into several sections:
 
-1. [Set Up a Local
-   Authentication/Authorization Server](#chat-android-rooms-auth-server "#chat-android-rooms-auth-server")
+1. [Set Up a Local Authentication/Authorization Server](#chat-android-rooms-auth-server "#chat-android-rooms-auth-server")
 2. [Create a Chatterbox Project](#chat-android-rooms-chatterbox "#chat-android-rooms-chatterbox")
-3. [Connect to a Chat Room and Observe
-   Connection Updates](#chat-android-rooms-connect-state "#chat-android-rooms-connect-state")
+3. [Connect to a Chat Room and Observe Connection Updates](#chat-android-rooms-connect-state "#chat-android-rooms-connect-state")
 4. [Build a Token Provider](#chat-android-rooms-token-provider "#chat-android-rooms-token-provider")
 5. [Next Steps](#chat-android-rooms-next-steps "#chat-android-rooms-next-steps")
    For full SDK documentation, start with [Amazon IVS Chat Client Messaging SDK](chat-sdk.md "chat-sdk.md")
@@ -43,9 +39,7 @@ This first part of the tutorial is broken up into several sections:
 - Create a chat room and save its ARN. See [Getting Started with Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md"). (If you don’t save the ARN, you can look it up later with the console or
   Chat API.)
 
-## Set Up a Local
-
-Authentication/Authorization Server
+## Set Up a Local Authentication/Authorization Server
 
 Your backend server will be responsible for both creating chat rooms and generating
 the chat tokens needed for the IVS Chat Android SDK to authenticate and authorize your
@@ -324,9 +318,7 @@ run the auth server with the following command from the project's root:
 ./gradlew :auth-server:run
 ```
 
-## Connect to a Chat Room and Observe
-
-Connection Updates
+## Connect to a Chat Room and Observe Connection Updates
 
 To open a chat-room connection, we use the [onCreate() activity lifecycle callback](https://developer.android.com/guide/components/activities/activity-lifecycle "https://developer.android.com/guide/components/activities/activity-lifecycle"), which fires when the activity is
 first created. The [ChatRoom constructor](https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.0.0/-amazon%20-i-v-s%20-chat%20-messaging%20-s-d-k%20for%20-android/com.amazonaws.ivs.chat.messaging/-chat-room/index.html "https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/1.0.0/-amazon%20-i-v-s%20-chat%20-messaging%20-s-d-k%20for%20-android/com.amazonaws.ivs.chat.messaging/-chat-room/index.html") requires us to provide `region` and

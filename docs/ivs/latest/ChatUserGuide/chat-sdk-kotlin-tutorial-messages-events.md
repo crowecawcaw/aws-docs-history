@@ -1,27 +1,17 @@
-# IVS Chat Client Messaging SDK:
-
-Kotlin Coroutines Tutorial Part 2: Messages and Events
+# IVS Chat Client Messaging SDK: Kotlin Coroutines Tutorial Part 2: Messages and Events
 
 This second (and last) part of the tutorial is broken up into several
 sections:
 
-1. [Create a UI for Sending
-   Messages](#chat-kotlin-messages-events-ui "#chat-kotlin-messages-events-ui")
-   1. [UI Main
-      Layout](#chat-kotlin-messages-events-ui-main "#chat-kotlin-messages-events-ui-main")
-   2. [UI
-      Abstracted Text Cell to Display Text Consistently](#chat-kotlin-messages-events-consistent-text "#chat-kotlin-messages-events-consistent-text")
-   3. [UI Left Chat
-      Message](#chat-kotlin-messages-events-ui-left "#chat-kotlin-messages-events-ui-left")
-   4. [UI Right
-      Message](#chat-kotlin-messages-events-ui-right "#chat-kotlin-messages-events-ui-right")
-   5. [UI
-      Additional Color Values](#chat-kotlin-messages-events-additional-color "#chat-kotlin-messages-events-additional-color")
+1. [Create a UI for Sending Messages](#chat-kotlin-messages-events-ui "#chat-kotlin-messages-events-ui")
+   1. [UI Main Layout](#chat-kotlin-messages-events-ui-main "#chat-kotlin-messages-events-ui-main")
+   2. [UI Abstracted Text Cell to Display Text Consistently](#chat-kotlin-messages-events-consistent-text "#chat-kotlin-messages-events-consistent-text")
+   3. [UI Left Chat Message](#chat-kotlin-messages-events-ui-left "#chat-kotlin-messages-events-ui-left")
+   4. [UI Right Message](#chat-kotlin-messages-events-ui-right "#chat-kotlin-messages-events-ui-right")
+   5. [UI Additional Color Values](#chat-kotlin-messages-events-additional-color "#chat-kotlin-messages-events-additional-color")
 
-2. [Apply View
-   Binding](#chat-kotlin-messages-events-apply-view-binding "#chat-kotlin-messages-events-apply-view-binding")
-3. [Manage
-   Chat-Message Requests](#chat-kotlin-messages-events-chat-message "#chat-kotlin-messages-events-chat-message")
+2. [Apply View Binding](#chat-kotlin-messages-events-apply-view-binding "#chat-kotlin-messages-events-apply-view-binding")
+3. [Manage Chat-Message Requests](#chat-kotlin-messages-events-chat-message "#chat-kotlin-messages-events-chat-message")
 4. [Final Steps](#chat-kotlin-messages-events-final-steps "#chat-kotlin-messages-events-final-steps")
    For full SDK documentation, start with
    [Amazon IVS Chat Client Messaging SDK](chat-sdk.md "chat-sdk.md") (here
@@ -32,9 +22,7 @@ sections:
 
 Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-kotlin-tutorial-chat-rooms.md "chat-sdk-kotlin-tutorial-chat-rooms.md").
 
-## Create a UI for Sending
-
-Messages
+## Create a UI for Sending Messages
 
 Now that we successfully initialized the chat room connection, it’s time to send
 our first message. For this feature, a UI is needed. We will add:
@@ -43,9 +31,7 @@ our first message. For this feature, a UI is needed. We will add:
 - Message input with `send` button
 - Dynamic messages list. To build this, we use Android Jetpack [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview "https://developer.android.com/develop/ui/views/layout/recyclerview").
 
-### UI Main
-
-Layout
+### UI Main Layout
 
 See Android Jetpack [Layouts](https://developer.android.com/develop/ui/views/layout/declaring-layout "https://developer.android.com/develop/ui/views/layout/declaring-layout") in the Android developer
 documentation.
@@ -179,9 +165,7 @@ documentation.
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-### UI
-
-Abstracted Text Cell to Display Text Consistently
+### UI Abstracted Text Cell to Display Text Consistently
 
 **XML:**
 
@@ -232,9 +216,7 @@ Abstracted Text Cell to Display Text Consistently
 </LinearLayout>
 ```
 
-### UI Left Chat
-
-Message
+### UI Left Chat Message
 
 **XML:**
 
@@ -291,9 +273,7 @@ Message
 </LinearLayout>
 ```
 
-### UI Right
-
-Message
+### UI Right Message
 
 **XML:**
 
@@ -337,9 +317,7 @@ android:layout_marginEnd="8dp">
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-### UI
-
-Additional Color Values
+### UI Additional Color Values
 
 **XML:**
 
@@ -357,9 +335,7 @@ Additional Color Values
 </resources>
 ```
 
-## Apply View
-
-Binding
+## Apply View Binding
 
 We leverage the Android [View Binding](https://developer.android.com/topic/libraries/view-binding "https://developer.android.com/topic/libraries/view-binding") feature to be able to reference binding classes for our
 XML layout. To enable the feature, set the `viewBinding` build option to
@@ -479,9 +455,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## Manage
-
-Chat-Message Requests
+## Manage Chat-Message Requests
 
 We need a way to manage our chat-message requests through all their possible
 states:

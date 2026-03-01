@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK: iOS
-
-Tutorial
+# IVS Chat Client Messaging SDK: iOS Tutorial
 
 The Amazon Interactive Video (IVS) Chat Client Messaging iOS SDK provides interfaces to
 allow you to incorporate our [IVS Chat Messaging API](../chatmsgapireference/welcome.md "../chatmsgapireference/welcome.md") on

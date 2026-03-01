@@ -33,9 +33,7 @@ aws ivschat create-room --name test-room
 3. Note the `arn` field. You will need this to create a client
    token and connect to a chat room.
 
-## Setting Up a Logging Configuration
-
-(Optional)
+## Setting Up a Logging Configuration (Optional)
 
 As with
 creating a chat room, setting up a logging configuration with the AWS CLI is

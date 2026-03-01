@@ -1,16 +1,12 @@
-# IVS Chat Client Messaging SDK:
-
-JavaScript Tutorial Part 2: Messages and Events
+# IVS Chat Client Messaging SDK: JavaScript Tutorial Part 2: Messages and Events
 
 This second (and last) part of the tutorial is broken up into several sections:
 
 1. [Subscribe to Chat Message Events](#chat-js-messages-events-subscribe "#chat-js-messages-events-subscribe")
 2. [Show Received Messages](#chat-js-messages-events-show "#chat-js-messages-events-show")
    1. [Creating a Message Component](#chat-js-messages-create-component "#chat-js-messages-create-component")
-   2. [Recognizing Messages Sent by the Current
-      User](#chat-js-messages-recognize "#chat-js-messages-recognize")
-   3. [Creating a Message List
-      Component](#chat-js-messages-create-list-component "#chat-js-messages-create-list-component")
+   2. [Recognizing Messages Sent by the Current User](#chat-js-messages-recognize "#chat-js-messages-recognize")
+   3. [Creating a Message List Component](#chat-js-messages-create-list-component "#chat-js-messages-create-list-component")
    4. [Rendering a List of Chat Messages](#chat-js-messages-render-list "#chat-js-messages-render-list")
 
 3. [Perform Actions in a Chat Room](#chat-js-messages-events-room-actions "#chat-js-messages-events-room-actions")
@@ -115,10 +111,8 @@ const unsubscribeOnMessageReceived = room.addListener('message', (message) => {
 Below we step through the tasks to show received messages:
 
 1. [Creating a Message Component](#chat-js-messages-create-component "#chat-js-messages-create-component")
-2. [Recognizing Messages Sent by the Current
-   User](#chat-js-messages-recognize "#chat-js-messages-recognize")
-3. [Creating a Message List
-   Component](#chat-js-messages-create-list-component "#chat-js-messages-create-list-component")
+2. [Recognizing Messages Sent by the Current User](#chat-js-messages-recognize "#chat-js-messages-recognize")
+3. [Creating a Message List Component](#chat-js-messages-create-list-component "#chat-js-messages-create-list-component")
 4. [Rendering a List of Chat Messages](#chat-js-messages-render-list "#chat-js-messages-render-list")
 
 ### Creating a Message Component
@@ -174,9 +168,7 @@ Tip: Use this component to store different properties that you want to render in
 message rows; for example, avatar URLs, user names, and timestamps of when the message was
 sent.
 
-### Recognizing Messages Sent by the Current
-
-User
+### Recognizing Messages Sent by the Current User
 
 To recognize the message sent by the current user, we modify the code and create a React
 context for storing the `userId` of the current user.
@@ -329,9 +321,7 @@ export const Message = ({ message }) => {
 };
 ```
 
-### Creating a Message List
-
-Component
+### Creating a Message List Component
 
 The `MessageList` component is responsible for displaying a chat room's
 conversation over time. The `MessageList` file is the container that holds all

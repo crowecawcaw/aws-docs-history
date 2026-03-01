@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK: React
-
-Native Tutorial Part 1: Chat Rooms
+# IVS Chat Client Messaging SDK: React Native Tutorial Part 1: Chat Rooms
 
 This is the first of a two-part tutorial. You will learn the essentials of working with the
 Amazon IVS Chat Client Messaging JavaScript SDK by building a fully functional app using React
@@ -18,8 +16,7 @@ TypeScript are identical, so they are combined.
 
 This first part of the tutorial is broken up into several sections:
 
-1. [Set Up a Local Authentication/Authorization
-   Server](#chat-react-rooms-auth-server "#chat-react-rooms-auth-server")
+1. [Set Up a Local Authentication/Authorization Server](#chat-react-rooms-auth-server "#chat-react-rooms-auth-server")
 2. [Create a Chatterbox Project](#chat-react-rooms-chatterbox "#chat-react-rooms-chatterbox")
 3. [Connect to a Chat Room](#chat-react-rooms-connect "#chat-react-rooms-connect")
 4. [Build a Token Provider](#chat-react-rooms-token-provider "#chat-react-rooms-token-provider")
@@ -42,9 +39,7 @@ This first part of the tutorial is broken up into several sections:
   you don’t save the ARN, you can look it up later with the console or Chat API.)
 - Install the Node.js 14+ environment with the NPM or Yarn package manager.
 
-## Set Up a Local Authentication/Authorization
-
-Server
+## Set Up a Local Authentication/Authorization Server
 
 Your backend application is responsible for both creating chat rooms and generating the
 chat tokens that are needed for the Chat JS SDK to authenticate and authorize your clients for
@@ -283,8 +278,7 @@ export default function App() {
 As the next step, we need to build a parameterless `tokenProvider` function
 that is required by the `ChatRoom` constructor. First, we will create a
 `fetchChatToken` function that will make a POST request to the backend
-application that you set up in [Set Up a Local Authentication/Authorization
-Server](#chat-react-rooms-auth-server "#chat-react-rooms-auth-server"). Chat tokens
+application that you set up in [Set Up a Local Authentication/Authorization Server](#chat-react-rooms-auth-server "#chat-react-rooms-auth-server"). Chat tokens
 contain the information needed for the SDK to successfully establish a chat-room connection.
 The Chat API uses these tokens as a secure way of validating a user's identity, capabilities
 within a chat room, and session duration.

@@ -118,9 +118,7 @@ func HandleRequest(ctx context.Context, request Request) (Response, error) {
 }
 ```
 
-## Associating and Dissociating a Handler
-
-with a Room
+## Associating and Dissociating a Handler with a Room
 
 Once you have the lambda handler set up and implemented, use the [Amazon
 IVS Chat API](../ChatAPIReference/Welcome.md "../ChatAPIReference/Welcome.md"):
@@ -130,9 +128,7 @@ IVS Chat API](../ChatAPIReference/Welcome.md "../ChatAPIReference/Welcome.md"):
 - To disassociate the handler from a room, call UpdateRoom with an empty value
   for `MessageReviewHandler.Uri`.
 
-## Monitoring Errors with Amazon
-
-CloudWatch
+## Monitoring Errors with Amazon CloudWatch
 
 You can monitor errors occurring in message review with Amazon CloudWatch, and you can
 create alarms or dashboards to indicate or respond to the changes of specific errors. If

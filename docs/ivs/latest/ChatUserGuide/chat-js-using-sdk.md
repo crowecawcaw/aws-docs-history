@@ -3,9 +3,7 @@
 This document takes you through the steps involved in using the Amazon IVS chat client messaging
 JavaScript SDK.
 
-## Initialize a Chat Room
-
-Instance
+## Initialize a Chat Room Instance
 
 Create an instance of the `ChatRoom` class. This requires passing
 `regionOrUrl` (the AWS region where your chat room is hosted) and
@@ -168,9 +166,7 @@ The Amazon IVS Chat Messaging SDK provides user actions for sending messages,
 deleting messages, and disconnecting other users. These are available on the
 `ChatRoom` instance. They return a `Promise` object which allows you to receive request confirmation or rejection.
 
-### Sending a
-
-Message
+### Sending a Message
 
 For this request, you must have a `SEND_MESSAGE` capacity
 encoded in your chat token.
@@ -194,9 +190,7 @@ try {
 }
 ```
 
-### Deleting a
-
-Message
+### Deleting a Message
 
 For this request, you must have a `DELETE_MESSAGE` capacity encoded in your
 chat token.
@@ -221,9 +215,7 @@ try {
 }
 ```
 
-### Disconnecting
-
-Another User
+### Disconnecting Another User
 
 For this request, you must have a `DISCONNECT_USER` capacity
 encoded in your chat token.

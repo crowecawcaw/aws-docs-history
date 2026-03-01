@@ -7,12 +7,9 @@ Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md").
 
 Topics:
 
-- [Why were IVS chat connections
-  not disconnected when the room was deleted?](#chat-connections-not-disconnected "#chat-connections-not-disconnected")
+- [Why were IVS chat connections not disconnected when the room was deleted?](#chat-connections-not-disconnected "#chat-connections-not-disconnected")
 
-## Why were IVS chat connections
-
-not disconnected when the room was deleted?
+## Why were IVS chat connections not disconnected when the room was deleted?
 
 When a chat-room resource is deleted, if the room is actively being used, the chat
 clients that are connected to the room are not automatically disconnected. The

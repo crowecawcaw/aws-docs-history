@@ -1,6 +1,4 @@
-# IVS Chat Client Messaging SDK: React
-
-& React Native Best Practices
+# IVS Chat Client Messaging SDK: React & React Native Best Practices
 
 This document describes the most important practices of using the Amazon IVS Chat Messaging
 SDK for React and React Native. This information should enable you to build typical chat
@@ -74,9 +72,7 @@ const MyChatScreen = () => {
 // ...
 ```
 
-### Listening for Connection
-
-State
+### Listening for Connection State
 
 Optionally, you can subscribe to connection-state updates in your chat-room hook.
 
@@ -539,9 +535,7 @@ const App = () => {
 };
 ```
 
-### Example in React
-
-Native
+### Example in React Native
 
 **TypeScript/JavaScript**:
 

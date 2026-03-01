@@ -82,9 +82,7 @@ set of permissions to identities (read only or full access). You can choose to u
 policies instead of the identity-based policies shown below. For details,
 see [Managed Policies for Amazon IVS Chat](../LowLatencyUserGuide/security-iam-awsmanpol.md "../LowLatencyUserGuide/security-iam-awsmanpol.md").
 
-## Authorization Based on Amazon IVS
-
-Tags
+## Authorization Based on Amazon IVS Tags
 
 You can attach tags to Amazon IVS Chat resources or pass tags in a request to Amazon
 IVS Chat. To control access based on tags, you provide tag information in the condition
@@ -110,16 +108,12 @@ security credentials by calling [AWS Security Token
 Service](../../../STS/latest/APIReference/welcome.md "../../../STS/latest/APIReference/welcome.md") API operations such as `AssumeRole` or
 `GetFederationToken`.
 
-## Privileged and Unprivileged
-
-Access
+## Privileged and Unprivileged Access
 
 API resources have privileged access. Unprivileged playback access can be set up
 through private channels; see [Setting Up IVS Private Channels](../LowLatencyUserGuide/private-channels.md "../LowLatencyUserGuide/private-channels.md").
 
-## Best Practices for
-
-Policies
+## Best Practices for Policies
 
 See [IAM Best
 Practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User
@@ -147,13 +141,9 @@ incur costs for your AWS account. Follow these recommendations:
   within a specified date or time range, or to require the use of SSL or
   MFA.
 
-## Identity-Based Policy
+## Identity-Based Policy Examples
 
-Examples
-
-### Use the Amazon IVS
-
-Console
+### Use the Amazon IVS Console
 
 To access the Amazon IVS console, you must have a minimum set of permissions
 which allow you to list and view details about the Amazon IVS Chat resources in your
@@ -209,9 +199,7 @@ JSON
 
 ```
 
-## Resource-Based Policy for Amazon IVS
-
-Chat
+## Resource-Based Policy for Amazon IVS Chat
 
 You must give the Amazon IVS Chat service permission to invoke your lambda
 resource to review messages. To do that, follow the instructions in [Using resource-based policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") (in the _AWS Lambda Developer Guide_) and fill out the fields

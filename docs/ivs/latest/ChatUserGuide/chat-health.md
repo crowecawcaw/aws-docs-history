@@ -23,9 +23,7 @@ as the metrics age. Here is the schedule:
 
 For current information on data retention, search for "retention period" in [Amazon CloudWatch FAQs](https://aws.amazon.com/cloudwatch/faqs/ "https://aws.amazon.com/cloudwatch/faqs/").
 
-### CloudWatch Console
-
-Instructions
+### CloudWatch Console Instructions
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the side navigation, expand the **Metrics** dropdown, then select **All
@@ -75,9 +73,7 @@ For more information, see [Using Amazon
 CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon CloudWatch User
 Guide_.
 
-## CloudWatch Metrics: IVS
-
-Chat
+## CloudWatch Metrics: IVS Chat
 
 Amazon IVS Chat provides the following metrics in the **AWS/IVSChat** namespace.
 

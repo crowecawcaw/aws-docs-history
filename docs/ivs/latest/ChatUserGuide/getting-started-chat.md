@@ -31,7 +31,5 @@ sample clients apps and a backend server app for token creation):
 - [Step 1: Do Initial Setup](getting-started-chat-create-account.md "getting-started-chat-create-account.md")
 - [Step 2: Create a Chat Room](getting-started-chat-create-room.md "getting-started-chat-create-room.md")
 - [Step 3: Create a Chat Token](getting-started-chat-auth.md "getting-started-chat-auth.md")
-- [Step 4: Send and Receive Your
-  First Message](getting-started-chat-send-and-receive.md "getting-started-chat-send-and-receive.md")
-- [Step 5: Check Your
-  Service-Quota Limits (Optional)](getting-started-chat-check-service-quota.md "getting-started-chat-check-service-quota.md")
+- [Step 4: Send and Receive Your First Message](getting-started-chat-send-and-receive.md "getting-started-chat-send-and-receive.md")
+- [Step 5: Check Your Service-Quota Limits (Optional)](getting-started-chat-check-service-quota.md "getting-started-chat-check-service-quota.md")
