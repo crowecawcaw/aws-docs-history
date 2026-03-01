@@ -5,32 +5,22 @@ them.
 
 ###### Topics
 
-- [Can't connect to a
-  RemoteWebDriver](#troubleshooting-cannot-connect-webdriver "#troubleshooting-cannot-connect-webdriver")
-- [Timeouts when setting up
-  RemoteWebDriver](#troubleshooting-timeout-framework "#troubleshooting-timeout-framework")
-- [Rate limit errors during session
-  creation](#troubleshooting-limits "#troubleshooting-limits")
-- [I get errors during session
-  creation](#troubleshooting-expected-browser "#troubleshooting-expected-browser")
-- [Browser can't connect to my
-  app](#troubleshooting-cannot-connect-browser "#troubleshooting-cannot-connect-browser")
-- [Selenium 3 WebDriver testing
-  framework is not working properly with Microsoft Edge (Chromium)](#troubleshooting-edge-dependencies "#troubleshooting-edge-dependencies")
+- [Can't connect to a RemoteWebDriver](#troubleshooting-cannot-connect-webdriver "#troubleshooting-cannot-connect-webdriver")
+- [Timeouts when setting up RemoteWebDriver](#troubleshooting-timeout-framework "#troubleshooting-timeout-framework")
+- [Rate limit errors during session creation](#troubleshooting-limits "#troubleshooting-limits")
+- [I get errors during session creation](#troubleshooting-expected-browser "#troubleshooting-expected-browser")
+- [Browser can't connect to my app](#troubleshooting-cannot-connect-browser "#troubleshooting-cannot-connect-browser")
+- [Selenium 3 WebDriver testing framework is not working properly with Microsoft Edge (Chromium)](#troubleshooting-edge-dependencies "#troubleshooting-edge-dependencies")
 - [My tests using XPath are slow](#troubleshooting-xpath-slow "#troubleshooting-xpath-slow")
 
-## Can't connect to a
-
-`RemoteWebDriver`
+## Can't connect to a `RemoteWebDriver`
 
 You might see this error when you have an expired URL from
 `CreateTestGridUrl`. The URL is valid only for a short time, as specified
 in the API call. Even if a session is created before the expiry, it cannot be accessed
 after the expiration of the `RemoteWebDriver` URL.
 
-## Timeouts when setting up
-
-`RemoteWebDriver`
+## Timeouts when setting up `RemoteWebDriver`
 
 If your testing framework enforces strict timeouts for test completion, you might see
 tests time out when setting up a new session. When you start a session, there is a 60 to
@@ -40,9 +30,7 @@ and open a page before your test framework sets up your tests, and then re-use t
 session for your test suite. Make sure to close your session when your tests are
 complete.
 
-## Rate limit errors during session
-
-creation
+## Rate limit errors during session creation
 
 You have too many open sessions, are opening too many sessions per second, or are
 making too many WebDriver requests per second. This is common in large, highly parallel
@@ -60,9 +48,7 @@ will stagger your session creation and avoid rate limiting during this time.
 
 If you are frequently experiencing a Rate Limit Exceeded error from Selenium actions other than Create Session calls, then please contact us via a support ticket for assistance. The current default limit is 1200 actions per second.
 
-## I get errors during session
-
-creation
+## I get errors during session creation
 
 If you get errors during session creation or are getting a browser that you don't
 expect, check that your requested capabilities are valid. Make sure:
@@ -81,9 +67,7 @@ For more information, see
 - [Supported browsers](techref-support.md#techref-support-browsers "techref-support.md#techref-support-browsers")
 - [Supported platforms](techref-support.md#techref-support-platforms "techref-support.md#techref-support-platforms")
 
-## Browser can't connect to my
-
-app
+## Browser can't connect to my app
 
 You might see this in the following cases:
 
@@ -99,9 +83,7 @@ You might see this in the following cases:
   _Amazon VPC user guide_.
 - You must not block traffic from Amazon EC2 or other AWS services.
 
-## Selenium 3 WebDriver testing
-
-framework is not working properly with Microsoft Edge (Chromium)
+## Selenium 3 WebDriver testing framework is not working properly with Microsoft Edge (Chromium)
 
 Selenium 3 requires the _Selenium Tools for Microsoft Edge_ package to be
 able to support the Edge browser. For more information, see [Using Selenium 3](https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/?tabs=python#using-selenium-3 "https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/?tabs=python#using-selenium-3").

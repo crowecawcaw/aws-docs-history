@@ -1,6 +1,4 @@
-# Migrating to Device Farm desktop browser testing from Selenium
-
-Grid
+# Migrating to Device Farm desktop browser testing from Selenium Grid
 
 To migrate Selenium test suites in an environment that use Selenium Grid and `RemoteWebDriver`),
 you must modify your test suite setup procedure. Using the AWS SDK, you request a signed command executor (hub)
@@ -43,8 +41,7 @@ Console
 
     ###### Note
 
-    For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC
-     endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
+    For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
 
 CLI
 The following creates a project:
@@ -55,8 +52,7 @@ aws devicefarm create-test-grid-project --name "`Peculiar Things`"
 
 ###### Note
 
-To update your project configuration, see [Configuring your project to use Amazon VPC
-endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure"). 4. Modify your `RemoteWebDriver` initialization to use the WebDriver endpoint.
+To update your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure"). 4. Modify your `RemoteWebDriver` initialization to use the WebDriver endpoint.
 
 Java
 

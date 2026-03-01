@@ -26,14 +26,10 @@ GitHub.
 
 ###### Topics
 
-- [Configuring your project to use Amazon VPC
-  endpoints](#techref-vpc-configure "#techref-vpc-configure")
-- [Removing an Amazon VPC configuration from a Device Farm desktop browser testing
-  project](#techref-vpc-delete "#techref-vpc-delete")
+- [Configuring your project to use Amazon VPC endpoints](#techref-vpc-configure "#techref-vpc-configure")
+- [Removing an Amazon VPC configuration from a Device Farm desktop browser testing project](#techref-vpc-delete "#techref-vpc-delete")
 
-## Configuring your project to use Amazon VPC
-
-endpoints
+## Configuring your project to use Amazon VPC endpoints
 
 You must configure Amazon VPC connections on a per-project basis. At this time, you can
 configure only one endpoint per project. When you configure a VPC, Device Farm creates an interface
@@ -121,9 +117,7 @@ You can also configure Amazon VPC when creating your project:
 
 The JSON presented here is written over multiple lines for readability.
 
-## Removing an Amazon VPC configuration from a Device Farm desktop browser testing
-
-project
+## Removing an Amazon VPC configuration from a Device Farm desktop browser testing project
 
 Console
 **To remove the Amazon VPC configuration through the

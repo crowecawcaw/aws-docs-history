@@ -1,6 +1,4 @@
-# Migrating to Device Farm desktop browser testing from local Selenium
-
-WebDrivers
+# Migrating to Device Farm desktop browser testing from local Selenium WebDrivers
 
 If you're testing browsers locally, you can use the desktop browser testing feature to test on Firefox, Edge,
 and Chrome without setting up those browsers.
@@ -63,8 +61,7 @@ Console
 
     ###### Note
 
-    For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC
-     endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
+    For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
 
 AWS CLI
 Use the `create-test-grid-project` command to create a project:
@@ -86,8 +83,7 @@ Make a note of the project ARN, which is used by your application:
 
 ###### Note
 
-To update your project configuration, see [Configuring your project to use Amazon VPC
-endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure"). 2. To use the desktop browser testing feature, you must install and configure the [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/#SDKs "https://aws.amazon.com/getting-started/tools-sdks/#SDKs") for the language appropriate for your
+To update your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure"). 2. To use the desktop browser testing feature, you must install and configure the [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/#SDKs "https://aws.amazon.com/getting-started/tools-sdks/#SDKs") for the language appropriate for your
 tests. 3. Modify your environment to include your AWS access and secret keys. The steps vary depending on your
 configuration, but involve setting two environment variables:
 
@@ -183,5 +179,4 @@ class myTestSuite:
 
 For more information, see [Migrating Python tests to Device Farm desktop browser testing](testing-frameworks-python.md "testing-frameworks-python.md").
 
-For a list of supported capabilities, see [Supported capabilities, browsers, and platforms in Device Farm desktop browser
-testing](techref-support.md "techref-support.md") 5. Run your tests as you would normally.
+For a list of supported capabilities, see [Supported capabilities, browsers, and platforms in Device Farm desktop browser testing](techref-support.md "techref-support.md") 5. Run your tests as you would normally.

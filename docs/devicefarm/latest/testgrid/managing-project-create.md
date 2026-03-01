@@ -27,8 +27,7 @@ Otherwise, to create a new project, choose **New project**. Then, on the
 
 ###### Note
 
-For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC
-endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
+For instructions on updating your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
 
 AWS CLI
 Use the `create-test-grid-project` command to create a
@@ -51,5 +50,4 @@ The result contains the project that you just created:
 
 ###### Note
 
-To update your project configuration, see [Configuring your project to use Amazon VPC
-endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").
+To update your project configuration, see [Configuring your project to use Amazon VPC endpoints](techref-vpc.md#techref-vpc-configure "techref-vpc.md#techref-vpc-configure").

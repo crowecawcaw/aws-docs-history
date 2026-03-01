@@ -1,6 +1,4 @@
-# Supported capabilities, browsers, and platforms in Device Farm desktop browser
-
-testing
+# Supported capabilities, browsers, and platforms in Device Farm desktop browser testing
 
 This topic lists the supported configurations of browsers and operating systems. An exception is raised if you
 request a browser and operating system combination that is not supported.

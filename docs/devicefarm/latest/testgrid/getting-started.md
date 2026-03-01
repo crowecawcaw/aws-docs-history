@@ -10,7 +10,5 @@ specifically one API call to create a limited-time use URL for the Selenium `Rem
 
 ###### This section covers:
 
-- [Migrating to Device Farm desktop browser testing from Selenium
-  Grid](getting-started-migration.md "getting-started-migration.md")
-- [Migrating to Device Farm desktop browser testing from local Selenium
-  WebDrivers](getting-started-local.md "getting-started-local.md")
+- [Migrating to Device Farm desktop browser testing from Selenium Grid](getting-started-migration.md "getting-started-migration.md")
+- [Migrating to Device Farm desktop browser testing from local Selenium WebDrivers](getting-started-local.md "getting-started-local.md")

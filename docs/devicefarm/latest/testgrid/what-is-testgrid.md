@@ -18,11 +18,8 @@ you quickly identify any issues with your web app.
 
 We recommend that you read the following sections before you use this feature:
 
-- If you're using Selenium Grid or another browser testing provider, see [Migrating to Device Farm desktop browser testing from Selenium
-  Grid](getting-started-migration.md "getting-started-migration.md") and [Supported capabilities, browsers, and platforms in Device Farm desktop browser
-  testing](techref-support.md "techref-support.md").
-- If you're already using Selenium for local testing, see [Migrating to Device Farm desktop browser testing from local Selenium
-  WebDrivers](getting-started-local.md "getting-started-local.md").
+- If you're using Selenium Grid or another browser testing provider, see [Migrating to Device Farm desktop browser testing from Selenium Grid](getting-started-migration.md "getting-started-migration.md") and [Supported capabilities, browsers, and platforms in Device Farm desktop browser testing](techref-support.md "techref-support.md").
+- If you're already using Selenium for local testing, see [Migrating to Device Farm desktop browser testing from local Selenium WebDrivers](getting-started-local.md "getting-started-local.md").
 
 Device Farm desktop browser testing supports using Amazon VPC to test applications in an isolated environment. For more information, see [Using Amazon VPC with Device Farm desktop browser testing](techref-vpc.md "techref-vpc.md").
 
