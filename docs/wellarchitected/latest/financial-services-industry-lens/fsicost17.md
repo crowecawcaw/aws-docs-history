@@ -1,6 +1,4 @@
-# FSICOST17: Are you continually reviewing your workload to
-
-provide the most cost-effective resources?
+# FSICOST17: Are you continually reviewing your workload to provide the most cost-effective resources?
 
 There are multiple factors that affect the architecture, for example, new enhancements
 related to business requirements, re-architecting your workload to improve efficiency, new
@@ -8,9 +6,7 @@ services released by AWS, price changes by AWS, or your team creating an MVP pro
 with services without considering costs. It is necessary to continually review the
 architecture and resources used by your workload.
 
-## FSICOST17-BP01 Assess workload architecture to identify the most cost-effective
-
-resources
+## FSICOST17-BP01 Assess workload architecture to identify the most cost-effective resources
 
 There are multiple factors that affect the architecture, for example, new
 enhancements related to business requirements, re-architecting your workload to improve

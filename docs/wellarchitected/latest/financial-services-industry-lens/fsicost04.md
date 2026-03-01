@@ -1,14 +1,10 @@
-# FSICOST04: How do you promote cost-awareness within your
-
-organization?
+# FSICOST04: How do you promote cost-awareness within your organization?
 
 Awareness of usage at all levels in the organization is key to driving change, as
 change in usage drives changes in cost. Consider taking a multi-faceted approach to becoming
 aware of your usage and expenditures. Your team must gather data, analyze, and then report.
 
-## FSICOST04-BP01
-
-Promote a culture of transparency on costs
+## FSICOST04-BP01 Promote a culture of transparency on costs
 
 To promote transparency and accountability of costs, it is important to have standard
 mechanisms that show or charge back the costs to business units or applications. Companies

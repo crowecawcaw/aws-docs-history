@@ -1,6 +1,4 @@
-# FSISUS15: What is your testing process for workloads that require
-
-floating point precision?
+# FSISUS15: What is your testing process for workloads that require floating point precision?
 
 ## FSISUS15-BP01 Minimize the bit count while maintaining precision
 

@@ -1,10 +1,6 @@
-# FSIREL07: How do you monitor your resilience objectives to achieve your strategic
+# FSIREL07: How do you monitor your resilience objectives to achieve your strategic objectives and business plan?
 
-objectives and business plan?
-
-## FSIREL07-BP01
-
-Monitor and validate your RPO
+## FSIREL07-BP01 Monitor and validate your RPO
 
 RPO is the maximum amount of data loss allowed as the result of a system failure
 expressed in units of time. Online Transaction Processing (OLTP) systems within
@@ -18,9 +14,7 @@ processed, and replicated within the RPO target limit. Furthermore CloudWatch al
 be configured to alert whenever replication delays are routinely exceeding the system
 RPO limits.
 
-## FSIREL07-BP02
-
-Monitor and validate your RTO
+## FSIREL07-BP02 Monitor and validate your RTO
 
 RTO is often defined as the maximum amount of time allowed for a system to resume
 its normal operations after a failure. RTO is measured and validated by testing system

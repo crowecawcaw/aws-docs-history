@@ -18,9 +18,7 @@ In addition to the design principles in the AWS Well-Architected Framework white
 the following design principles can help you achieve performance efficiency for your financial
 services workloads.
 
-### Consider both internal
-
-and external requirements
+### Consider both internal and external requirements
 
 Regulators expect financial services institutions to define operational performance
 objectives for workloads, and implement policies that achieve those objectives. Regulators
@@ -31,9 +29,7 @@ requirements, with penalties for breaches. The objectives must define both quali
 quantitative measures of operational performance and thereby explicitly state the
 performance standards that the workload intends to meet.
 
-### Architect for
-
-performance-driven workloads
+### Architect for performance-driven workloads
 
 Some financial services workloads, for example high-frequency trading systems and risk
 calculation engines, are particularly performance sensitive, with factors such as speed of
@@ -43,9 +39,7 @@ such as cost-efficiency or reliability, considering the trade-offs required to a
 performance goals while also preserving non- functional requirements such as transactional
 consistency and recoverability. For more detail, see [Trade-offs](perf-trade-offs.md "perf-trade-offs.md").
 
-#### Optimize AI workloads for financial services
-
-requirements
+#### Optimize AI workloads for financial services requirements
 
 Financial services AI workloads require specialized performance considerations due to
 regulatory requirements, real-time decision-making needs, and the sensitive nature of

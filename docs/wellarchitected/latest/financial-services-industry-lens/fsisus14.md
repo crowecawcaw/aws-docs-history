@@ -1,6 +1,4 @@
-# FSISUS14: Do you have multi-architecture images for grid
-
-computing systems?
+# FSISUS14: Do you have multi-architecture images for grid computing systems?
 
 Multi-architecture image support for a particular workload makes it easier for you to
 build different images and thus different architectures and operating systems from the same
@@ -9,18 +7,14 @@ layers of system content that make up the image as well as its runtime character
 configuration. Having a multi-architecture image increases the flexibility of the workload
 thus increases the opportunity to use hardware that may be more sustainable.
 
-## FSISUS14-BP01 Use instances with higher energy
-
-efficiency
+## FSISUS14-BP01 Use instances with higher energy efficiency
 
 **Prescriptive guidance**
 
 - [AWS Graviton-based instances](../../../whitepapers/latest/aws-graviton-performance-testing/what-is-aws-graviton.md "../../../whitepapers/latest/aws-graviton-performance-testing/what-is-aws-graviton.md") use up to 60% less energy than comparable
   EC2 instances.
 
-## FSISUS14-BP02 Design applications that can use different
-
-Amazon EC2 instance types
+## FSISUS14-BP02 Design applications that can use different Amazon EC2 instance types
 
 **Prescriptive guidance**
 
@@ -33,9 +27,7 @@ Amazon EC2 instance types
 - Use Amazon EC2's spare capacity with Spot Instances to extract the same value, which
   increases the total value generated from the Amazon EC2 environment as a whole.
 
-## FSISUS14-BP03
-
-Adopt a serverless, event-driven architecture
+## FSISUS14-BP03 Adopt a serverless, event-driven architecture
 
 ### Prescriptive guidance
 

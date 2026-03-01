@@ -6,9 +6,6 @@ Regions for your workloads based on both business requirements and sustainabilit
 
 ###### Best practice questions
 
-- [FSISUS01: How do you select the most sustainable Regions in your
-  area?](fsisus01.md "fsisus01.md")
-- [FSISUS02: How do you address data sovereignty regulations for
-  location of sustainable Region?](fsisus02.md "fsisus02.md")
-- [FSISUS03: How do you select a Region to optimize financial
-  services workloads for sustainability?](fsisus03.md "fsisus03.md")
+- [FSISUS01: How do you select the most sustainable Regions in your area?](fsisus01.md "fsisus01.md")
+- [FSISUS02: How do you address data sovereignty regulations for location of sustainable Region?](fsisus02.md "fsisus02.md")
+- [FSISUS03: How do you select a Region to optimize financial services workloads for sustainability?](fsisus03.md "fsisus03.md")

@@ -1,15 +1,10 @@
-# FSICOST15: Have you reviewed your ongoing cost structure
-
-tradeoffs for your current AWS services lately?
+# FSICOST15: Have you reviewed your ongoing cost structure tradeoffs for your current AWS services lately?
 
 You can optimize cost over time by reviewing new services and implementing them in your
 workload. As AWS releases new services and features, it is a best practice to review your
 existing architectural decisions to ensure that they remain cost effective.
 
-## FSICOST15-BP01 Monitor and optimize your ongoing costs,
-
-ROIs, and tradeoffs against alternative AWS services on a periodic basis to maintain
-your lowest cost of ownership
+## FSICOST15-BP01 Monitor and optimize your ongoing costs, ROIs, and tradeoffs against alternative AWS services on a periodic basis to maintain your lowest cost of ownership
 
 Financial services institutions add new human resources periodically, like
 contractors, vendors, or FTEs, so it is necessary to maintain a cost-aware culture. There

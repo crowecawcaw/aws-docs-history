@@ -28,7 +28,7 @@ _Figure 6: Insurance data lake reference architecture_
 6. Source data file validation failures are sent to an S3 Quarantine folder and Data Catalog table, which can populate an exception queue dashboard where a human can review and take appropriate action.
 7. SQL queries can be written using the AWS Glue databases and
    tables.
-8. Quick Suite dashboards and reports can pull data from the
+8. Quick dashboards and reports can pull data from the
    insurance lake on a real-time or scheduled basis.
 9. Full DevSecOps (everything as code and everything as automated
    as possible) can be managed using AWS CodePipeline and related services.

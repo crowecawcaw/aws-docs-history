@@ -1,15 +1,11 @@
-# FSICOST08: Are you monitoring usage of Savings Plans
-
-regularly?
+# FSICOST08: Are you monitoring usage of Savings Plans regularly?
 
 Capacity planning and usage forecasting is important for managing your commitment
 plans. Gain better control of the flexibility of Savings Plan usage and manage costs with
 regular monitoring on a regular cadence over quarterly basis, or reviews at regular time
 intervals.
 
-## FSICOST08-BP01 Sign up for a compute savings plan for discounts on compute versus
-
-on-demand pricing
+## FSICOST08-BP01 Sign up for a compute savings plan for discounts on compute versus on-demand pricing
 
 Financial systems usually have a predicted usage pattern. Sign up for a compute
 savings plan, as they offer discounts on compute of up to 72% compared to on-demand

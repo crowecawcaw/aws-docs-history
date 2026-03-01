@@ -1,6 +1,4 @@
-# FSIPERF06: How do you evaluate compliance with performance
-
-requirements?
+# FSIPERF06: How do you evaluate compliance with performance requirements?
 
 Here are several methods for doing so:
 
@@ -25,9 +23,7 @@ Here are several methods for doing so:
   communication streams to aid with the reproduction of
   issues.
 
-## FSIPERF06-BP01 Use Application Performance Monitoring
-
-(APM) tools
+## FSIPERF06-BP01 Use Application Performance Monitoring (APM) tools
 
 Use APM tools to provide your organization the capability to verify that application
 performance meets its defined requirements. AWS offers features and services to monitor
@@ -48,26 +44,20 @@ for monitoring your systems without the overhead of managing additional infrastr
 Teams need training to update their skills and processes and take full advantage of this
 new fidelity of insight.
 
-## FSIPERF06-BP02 Integrate performance testing into the
-
-release cycle
+## FSIPERF06-BP02 Integrate performance testing into the release cycle
 
 Rather than considering performance testing to be a separate part of the workload
 release cycle, integrate performance testing into your release process and CI/CD tooling.
 This allows you to record and evaluate performance metrics across releases, being aware of
 and taking action when metrics change as early as possible.
 
-## FSIPERF06-BP03 Verify consistency and failure recovery
-
-during load tests
+## FSIPERF06-BP03 Verify consistency and failure recovery during load tests
 
 You must verify data consistency and recovery during periods of high load. Ensuring
 that your workload's RTO and RPO is still valid under the highest load can uncover gaps in
 your architecture and operational resilience.
 
-## FSIPERF06-BP04 Understand performance of the system under
-
-peak load and in failure scenarios
+## FSIPERF06-BP04 Understand performance of the system under peak load and in failure scenarios
 
 Include testing of common failure scenarios in your performance testing suites to
 understand your workload behaviour in these situations and determine areas for
@@ -80,9 +70,7 @@ understand how the environment behaves under increasing load.
 Under common or anticipated failure scenarios, workloads should exhibit predictable
 failure patterns with performance degrading gracefully using techniques such as [fail-open behavior,](https://www.wellarchitectedlabs.com/reliability/300_labs/300_health_checks_and_dependencies/4_fail_open/ "https://www.wellarchitectedlabs.com/reliability/300_labs/300_health_checks_and_dependencies/4_fail_open/") and the transformation of [hard dependencies into soft dependencies.](../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md "../reliability-pillar/rel_mitigate_interaction_failure_graceful_degradation.md")
 
-## FSIPERF06-BP05 Include dependencies in your load
-
-tests
+## FSIPERF06-BP05 Include dependencies in your load tests
 
 Financial institutions need to map resources they need to continuously deliver their
 important business services. These resources are your people, processes, technology,
@@ -92,9 +80,7 @@ Incorporating the dependencies of your workload (such as on financial messaging 
 as part of your performance tests enables you to demonstrate the overall resiliency of
 your workload.
 
-## FSIPERF06-BP06 Collect and analyze
-
-generative AI performance metrics
+## FSIPERF06-BP06 Collect and analyze generative AI performance metrics
 
 For financial services workloads using generative AI,
 implement comprehensive monitoring of model performance,

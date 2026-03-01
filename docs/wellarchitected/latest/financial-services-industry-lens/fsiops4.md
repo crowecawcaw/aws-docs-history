@@ -1,6 +1,4 @@
-# FSIOPS4: How do you assess your ability to operate a workload in
-
-the cloud?
+# FSIOPS4: How do you assess your ability to operate a workload in the cloud?
 
 Financial services institutions often have a robust set of operating policies that
 govern behaviors and decision-making for activities such as disaster recovery planning,
@@ -10,9 +8,7 @@ possible or practical for on-premises environments. Policies which were original
 for on-premise environments should be revisited from a cloud perspective, rather than
 assumed to be necessary and relevant.
 
-## FSIOPS04-BP01 Implement a change management process for
-
-cloud resources
+## FSIOPS04-BP01 Implement a change management process for cloud resources
 
 Cloud IT change management processes facilitate changes to IT systems in order to
 minimize risks to production environments while adhering to policies, audit, and risk

@@ -20,8 +20,6 @@ optimization efforts with real business value.
 
 ###### Best practice questions
 
-- [FSICOST04: How do you promote cost-awareness within your
-  organization?](fsicost04.md "fsicost04.md")
-- [FSICOST05: How do you track anomalies in your ongoing costs for
-  AWS services?](fsicost05.md "fsicost05.md")
+- [FSICOST04: How do you promote cost-awareness within your organization?](fsicost04.md "fsicost04.md")
+- [FSICOST05: How do you track anomalies in your ongoing costs for AWS services?](fsicost05.md "fsicost05.md")
 - [FSICOST06: How do you track your workload usage cycles?](fsicost06.md "fsicost06.md")

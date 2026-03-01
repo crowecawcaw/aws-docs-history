@@ -1,6 +1,4 @@
-# FSISUS13: Can you complete workloads over more time while not
-
-violating your maximum SLA?
+# FSISUS13: Can you complete workloads over more time while not violating your maximum SLA?
 
 How do you avoid load spikes to reduce the provisioned capacity required for your
 workload?
@@ -12,9 +10,7 @@ shorter span of time, then you lower the overall resource demand for the workloa
 so, you lower the overall amount of provisioned capacity, and thus lower overall energy
 consumption to meet the workload's demand.
 
-## FSISUS13-BP01 Do not complete a customer transaction in
-
-the shortest time when not required by end users
+## FSISUS13-BP01 Do not complete a customer transaction in the shortest time when not required by end users
 
 **Prescriptive guidance**
 
@@ -23,9 +19,7 @@ during times when public demand is lower. This distributes energy consumption to
 the resource demand curve. Evaluate your workload requirements to assess if you are able
 to make this adjustment.
 
-## FSISUS13-BP02
-
-Introduce jitter to your scheduled tasks
+## FSISUS13-BP02 Introduce jitter to your scheduled tasks
 
 ### Prescriptive guidance
 

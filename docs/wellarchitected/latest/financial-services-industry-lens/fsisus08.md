@@ -3,9 +3,7 @@
 Review and optimize your resource usage by implementing either a pub/sub or pull
 mechanism instead of relying on a polling approach.
 
-## FSISUS08-BP01 Use
-
-event-driven architecture
+## FSISUS08-BP01 Use event-driven architecture
 
 Implement either a pub/sub or pull mechanism instead of using a polling approach.
 

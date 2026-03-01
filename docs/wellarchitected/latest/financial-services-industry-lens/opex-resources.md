@@ -65,9 +65,7 @@
 - [AWS Cloud Essentials for Business Leaders (Financial Services)](https://explore.skillbuilder.aws/learn/course/external/view/elearning/9200/aws-cloud-essentials-for-business-leaders-financial-services "https://explore.skillbuilder.aws/learn/course/external/view/elearning/9200/aws-cloud-essentials-for-business-leaders-financial-services")
 - [AWS Ramp-Up Guide: Financial Services Industry (FSI)](https://pages.awscloud.com/rs/112-TZM-766/images/Ramp-Up_Guide_Financial-Services-Industry.pdf "https://pages.awscloud.com/rs/112-TZM-766/images/Ramp-Up_Guide_Financial-Services-Industry.pdf")
 
-## For Enterprise Support
-
-customers
+## For Enterprise Support customers
 
 - [AWS Countdown](https://aws.amazon.com/premiumsupport/aws-countdown/ "https://aws.amazon.com/premiumsupport/aws-countdown/") -
   Plan and execute successful events with AWS Countdown, a service designed for a broad

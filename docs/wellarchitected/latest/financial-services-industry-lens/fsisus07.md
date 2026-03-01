@@ -1,14 +1,10 @@
-# FSISUS07: How do you optimize batch processing components for
-
-sustainability?
+# FSISUS07: How do you optimize batch processing components for sustainability?
 
 Because batch processing is often found within many workloads across financial systems,
 verify that the minimum number of resources are consumed by batching transactions together
 while meeting your customer SLA and system requirements.
 
-## FSISUS07-BP01
-
-Optimize your batch processing systems
+## FSISUS07-BP01 Optimize your batch processing systems
 
 Because batch processing is often found within many workloads across financial
 systems, verify that the minimum number of resources are consumed by batching transactions

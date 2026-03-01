@@ -26,14 +26,8 @@ Establish a quarterly generative AI cost optimization cadence that includes:
 
 ###### Best practice questions
 
-- [FSICOST15: Have you reviewed your ongoing cost structure
-  tradeoffs for your current AWS services lately?](fsicost15.md "fsicost15.md")
-- [FSICOST16: Are you continuously assessing the ongoing costs and
-  usage of your cloud implementations?](fsicost16.md "fsicost16.md")
-- [FSICOST17: Are you continually reviewing your workload to
-  provide the most cost-effective resources?](fsicost17.md "fsicost17.md")
-- [FSICOST18: Do you have specific workload modernization or
-  refactoring goals in your cloud strategy?](fsicost18.md "fsicost18.md")
-- [FSICOST19: Do you use the cloud to drive innovation and
-  operational excellence of your business model to impact both the top and bottom
-  line?](fsicost19.md "fsicost19.md")
+- [FSICOST15: Have you reviewed your ongoing cost structure tradeoffs for your current AWS services lately?](fsicost15.md "fsicost15.md")
+- [FSICOST16: Are you continuously assessing the ongoing costs and usage of your cloud implementations?](fsicost16.md "fsicost16.md")
+- [FSICOST17: Are you continually reviewing your workload to provide the most cost-effective resources?](fsicost17.md "fsicost17.md")
+- [FSICOST18: Do you have specific workload modernization or refactoring goals in your cloud strategy?](fsicost18.md "fsicost18.md")
+- [FSICOST19: Do you use the cloud to drive innovation and operational excellence of your business model to impact both the top and bottom line?](fsicost19.md "fsicost19.md")

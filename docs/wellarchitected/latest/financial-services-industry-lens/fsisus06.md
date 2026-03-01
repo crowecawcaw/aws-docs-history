@@ -1,14 +1,10 @@
-# FSISUS06: How do you monitor and minimize resource usage for
-
-financial services workloads?
+# FSISUS06: How do you monitor and minimize resource usage for financial services workloads?
 
 Monitor and analyze your financial services' usage patterns to minimize resource usage.
 Identify services that are not required to be operational at all times or that can be scaled
 up and down based on user access patterns.
 
-## FSISUS06-BP01
-
-Actively monitor your FSI resource usage
+## FSISUS06-BP01 Actively monitor your FSI resource usage
 
 - Monitor and analyze your financial services' usage patterns to minimize resource
   usage.

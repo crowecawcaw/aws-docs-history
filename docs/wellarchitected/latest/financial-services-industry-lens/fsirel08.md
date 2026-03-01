@@ -1,14 +1,10 @@
-# FSIREL08: How do you monitor your resources to understand your workloads
-
-health?
+# FSIREL08: How do you monitor your resources to understand your workloads health?
 
 High availability for applications requires the ability to detect failures and
 recover quickly. Workloads must be configured to emit the relevant telemetry to detect
 failures, so that operational processes can capture and react to these events.
 
-## FSIREL08-BP01
-
-Use a single pane of glass for monitoring
+## FSIREL08-BP01 Use a single pane of glass for monitoring
 
 Amazon CloudWatch provides robust monitoring, allowing you to organize the data to
 escalate detected issues as quickly as possible. Without adequate processes in place,
@@ -25,9 +21,7 @@ to the most granular entity of your workload. More information on building effic
 dashboards for operational visibility can be found in the [The Amazon
 Builders' Library](https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility/ "https://aws.amazon.com/builders-library/building-dashboards-for-operational-visibility/").
 
-## FSIREL08-BP02 Alert on
-
-the absence of an event
+## FSIREL08-BP02 Alert on the absence of an event
 
 The absence of monitoring data can indicate an underlying issue. Implement
 controls that alert on missed reporting intervals. Treat missing data as a security

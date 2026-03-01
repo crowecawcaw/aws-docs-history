@@ -4,9 +4,7 @@ Not all backups are created equal, and not all have equal value. Ensure that the
 data you're backing up, and the way in which it is stored, is commensurate with the
 value of the data backup.
 
-## FSIREL09-BP01 Implement a
-
-backup strategy
+## FSIREL09-BP01 Implement a backup strategy
 
 A comprehensive backup strategy is an essential part of an organization's data
 protection plan to withstand, recover from, and reduce any impact that might be
@@ -18,9 +16,7 @@ backup strategy and the cost of backup retention with the value of the backups. 
 data is non-essential or could be reconstructed from other sources, make it clear to
 teams that not everything has to be backed up.
 
-## FSIREL09-BP02
-
-Maintain backups in a secondary Region
+## FSIREL09-BP02 Maintain backups in a secondary Region
 
 When you develop a comprehensive strategy for backing up and restoring data,
 consider backing up your data into another AWS Region allowing you to recover

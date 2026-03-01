@@ -1,6 +1,4 @@
-# FSIOPS5: How do you understand the health of your
-
-workload?
+# FSIOPS5: How do you understand the health of your workload?
 
 Financial services institutions are required to communicate service disruptions,
 operational events, and failures to downstream stakeholders and regulatory bodies. They

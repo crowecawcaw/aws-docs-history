@@ -1,23 +1,17 @@
-# FSISUS05: How do you define, review, and optimize network access
-
-patterns for sustainability?
+# FSISUS05: How do you define, review, and optimize network access patterns for sustainability?
 
 Assess and optimize network access patterns for sustainability. Pay attention to
 redundant layers and redirects or patterns generating excessive and unnecessary data
 movement.
 
-## FSISUS05-BP01 Analyze network access patterns to identify the
-
-places that your customers are connecting from
+## FSISUS05-BP01 Analyze network access patterns to identify the places that your customers are connecting from
 
 **Prescriptive guidance**
 
 Remove redundant layers and redirects, use pagination and local caching mechanisms to
 reduce data movement, and consider separating workloads that serve different users.
 
-## FSISUS05-BP02 Avoid common architectural
-
-misconfigurations
+## FSISUS05-BP02 Avoid common architectural misconfigurations
 
 In financial services organizations, it's common to hairpin large amounts of traffic
 through on- premises networks, have largely redundant layers of control using trusted

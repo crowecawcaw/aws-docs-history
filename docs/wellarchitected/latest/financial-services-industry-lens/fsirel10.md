@@ -8,9 +8,7 @@ for backup and retention of data in their systems, which may be informed by regu
 requirements. Financial services customers must understand the requirements that apply
 to the workloads that are running in their environments.
 
-## FSIREL10-BP02
-
-Back up logs as part of the backup strategy
+## FSIREL10-BP02 Back up logs as part of the backup strategy
 
 In addition to the backup of workload data and databases, the system logs may
 also fall under regulatory requirements. Include the AWS CloudTrail, CloudWatch Logs, workload, and
@@ -28,9 +26,7 @@ strategy. While a Regional copy of the data is sufficient for most cases, you ca
 consider replicating backups with AWS Backup into another Region and AWS account. For
 a more detailed discussion around preventing ransomware, see [Protecting resources](protecting-resources.md "protecting-resources.md").
 
-## FSIREL10-BP04
-
-Create lifecycle policies for backups
+## FSIREL10-BP04 Create lifecycle policies for backups
 
 Based on regulatory requirements, create lifecycle policies to retain and purge
 data in AWS. You can use a lifecycle policy in Amazon S3 to allow for the automation of

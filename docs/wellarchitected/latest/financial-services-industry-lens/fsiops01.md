@@ -1,6 +1,4 @@
-# FSIOPS01: Have you defined risk management roles for the
-
-cloud?
+# FSIOPS01: Have you defined risk management roles for the cloud?
 
 Financial institutions typically adopt a Three Lines of Defense model to improve
 effectiveness of risk management. The second and third lines of defense must have the
@@ -13,9 +11,7 @@ efficient and effective.
 
 Financial institutions deploying generative AI workloads must extend their traditional Three Lines of Defense model to address unique risks associated with large language models (LLMs) and foundation models. Establish specialized governance for model selection and validation, implement robust output validation and bias monitoring processes, verify algorithmic explainability and accountability, and develop specialized oversight capabilities for AI/ML risks across model development, deployment, and ongoing operations.
 
-## FSIOPS01-BP01 Define roles and responsibilities across
-
-risk functions
+## FSIOPS01-BP01 Define roles and responsibilities across risk functions
 
 As explained in the preceding general design principles section, financial
 institutions typically adopt a Three Lines of Defense model to improve effectiveness of
@@ -39,10 +35,7 @@ within the three lines of defense should be documented as well, and membership i
 roles should require a standard level of training in order to consistently handle risk
 management.
 
-## FSIOPS01-BP02 Engage with your risk management and
-
-internal audit functions to implement a process for the approval of cloud risk
-controls
+## FSIOPS01-BP02 Engage with your risk management and internal audit functions to implement a process for the approval of cloud risk controls
 
 Significant changes in technology necessitate a refreshed assessment of new potential
 risks and their validations. Technology changes include migrating to the cloud, use of
@@ -71,9 +64,7 @@ the risk control's lifecycle. Thresholds that indicate effectiveness should be
 established, and the continued breach of those thresholds should prompt review of the
 risk control, with an expectation that it be updated or retired.
 
-## FSIOPS01-BP03 Implement a process for adopting appropriate
-
-risk appetites
+## FSIOPS01-BP03 Implement a process for adopting appropriate risk appetites
 
 Failures can happen at any time. The appropriate risk authority within the firm (for
 example, the board of directors, chief risk officers, or business risk officers) needs to

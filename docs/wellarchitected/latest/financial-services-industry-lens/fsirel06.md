@@ -1,6 +1,4 @@
-# FSIREL06: To mitigate operational risks, can your workload owners detect, locate,
-
-and recover from gray failures?
+# FSIREL06: To mitigate operational risks, can your workload owners detect, locate, and recover from gray failures?
 
 Failures, such as loss of network connectivity, is often considered in a binary
 nature where the connectivity is functioning normally or not functioning at all. However
@@ -14,9 +12,7 @@ the load balancer's health check. Overall service health metrics may be based on
 aggregate metrics, such as average response time from the load balancer, which may
 obscure localized failures.
 
-## FSIREL06-BP01 Monitor indicators aside from system metrics that can signal client
-
-impairment
+## FSIREL06-BP01 Monitor indicators aside from system metrics that can signal client impairment
 
 Capture data that measures the experience of your workload's clients to understand
 when anomalies are affecting the customer experience with a workload function. Such
@@ -39,9 +35,7 @@ Insights](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights.md "..
 questions like: "Who are the top 10 clients with high error rates?" And: "Do those top
 10 clients share a common root cause?"
 
-## FSIREL06-BP03 Use anomaly detection to detect unusual changes in user engagement
-
-metrics
+## FSIREL06-BP03 Use anomaly detection to detect unusual changes in user engagement metrics
 
 FSI workload owners should monitor for anomalies in metric data such as the
 number of user requests that receive a timely and successful response, and user

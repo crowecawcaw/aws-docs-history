@@ -1,6 +1,4 @@
-# FSICOST02: Do you apply the Pareto-principle (80/20 rule) to
-
-manage, optimize, and plan your cloud usage and spend?
+# FSICOST02: Do you apply the Pareto-principle (80/20 rule) to manage, optimize, and plan your cloud usage and spend?
 
 Investing the right amount of effort in a cost optimization strategy up front allows
 you to realize the economic benefits of the cloud more readily, by ensuring a consistent

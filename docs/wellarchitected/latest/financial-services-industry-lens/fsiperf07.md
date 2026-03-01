@@ -1,14 +1,10 @@
-# FSIPERF07: How do you make trade-offs in your
-
-architecture?
+# FSIPERF07: How do you make trade-offs in your architecture?
 
 Financial services workloads often have to make trade-offs in their architecture to
 meet their most important goals and KPIs, where performance of the system is deemed more
 important than other factors, or vice-versa.
 
-## FSIPERF07-BP01 Understand your priorities and architect
-
-to meet them
+## FSIPERF07-BP01 Understand your priorities and architect to meet them
 
 For example, a low-latency trading system needs to preserve the performance of the
 system above all other factors, and be prepared to compromise on the cost of

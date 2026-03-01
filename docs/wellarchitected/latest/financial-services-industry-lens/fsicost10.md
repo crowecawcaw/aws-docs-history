@@ -1,6 +1,4 @@
-# FSICOST10: Do you use lower cost Regions to run less
-
-data-intensive or time-sensitive workloads?
+# FSICOST10: Do you use lower cost Regions to run less data-intensive or time-sensitive workloads?
 
 FSI companies usually have to plan their Disaster Recovery (DR) and also run a cadence
 of dry runs for regulatory purposes, and typically opt to setup their DR site in an

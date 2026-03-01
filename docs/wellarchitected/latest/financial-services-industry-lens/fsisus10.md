@@ -1,6 +1,4 @@
-# FSISUS10: Have you selected the storage class with the lowest
-
-carbon footprint?
+# FSISUS10: Have you selected the storage class with the lowest carbon footprint?
 
 Data is at the heart of strategic innovations for the financial services industry. This
 can have many use cases ranging from providing hyperpersonalised experiences for customers,
@@ -9,9 +7,7 @@ case requires different levels of data availability, processing, and storage and
 varies in storage technologies from transactional databases, to data lakes and data
 warehouses. These come with various considerations from a sustainability perspective.
 
-## FSISUS10-BP01 Balance your data performance requirements against its carbon
-
-footprint
+## FSISUS10-BP01 Balance your data performance requirements against its carbon footprint
 
 ### Prescriptive guidance
 
@@ -23,7 +19,7 @@ To balance data performance requirements against its carbon footprint:
   cost saving) and the carbon footprint of training and storing the data. These proxy
   metrics then become the vehicle to balance your performance requirements against its
   carbon footprint. Proxy metrics can be collected by importing AWS Cost and Usage
-  Report as well as Amazon CloudWatch metrics into Amazon S3 and monitored using Amazon Athena and Quick Suite.
+  Report as well as Amazon CloudWatch metrics into Amazon S3 and monitored using Amazon Athena and Quick.
 - Use the right storage class for Amazon S3 Storage Classes based on the data
   performance requirements. The storage class impacts the environmental impact of the
   dataset through its access patterns and its architecture. For example, in [Amazon S3
@@ -54,9 +50,7 @@ Data types may include the following:
 - Unstructured data such as biometrics, facial images, and documents.
 - Structured data like fund movements or, transaction attempts.
 
-## FSISUS10-BP02
-
-Separate data into hot, warm, and cold storage
+## FSISUS10-BP02 Separate data into hot, warm, and cold storage
 
 ### Prescriptive guidance
 

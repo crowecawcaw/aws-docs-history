@@ -1,6 +1,4 @@
-# FSISUS01: How do you select the most sustainable Regions in your
-
-area?
+# FSISUS01: How do you select the most sustainable Regions in your area?
 
 The choice of Region for your workload significantly affects its KPIs, including
 performance, cost, and carbon footprint. To effectively improve these KPIs, you should

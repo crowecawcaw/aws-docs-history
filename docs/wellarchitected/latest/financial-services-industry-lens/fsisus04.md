@@ -1,14 +1,10 @@
-# FSISUS04: How do you prioritize business critical functions over
-
-non-critical functions?
+# FSISUS04: How do you prioritize business critical functions over non-critical functions?
 
 Determine what is defined as a business-critical process and workload, and protect and
 prioritize it. Model and prioritize individual functions and workloads by recording relevant
 metadata, such as interdependencies, SLAs for particular flows, and nuances of user access.
 
-## FSISUS04-BP01 Actively manage each business function and
-
-the allocation and configuration of resources
+## FSISUS04-BP01 Actively manage each business function and the allocation and configuration of resources
 
 **Prescriptive guidance**
 
@@ -21,9 +17,7 @@ the allocation and configuration of resources
 - Develop architecture strategies that use built-in queueing and buffering to
   offload non-critical tasks.
 
-## FSISUS04-BP02 FSI workloads serve the highest common denominator of application
-
-demands
+## FSISUS04-BP02 FSI workloads serve the highest common denominator of application demands
 
 Systems in financial services are built to serve the highest level of performance for
 retention, availability, and integrity. This leads to workloads that often exceed

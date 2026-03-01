@@ -1,12 +1,8 @@
-# FSISUS09: How do you optimize areas of your code that use the
-
-most resources?
+# FSISUS09: How do you optimize areas of your code that use the most resources?
 
 Analyze and optimize your code's efficiency to improve resource utilization.
 
-## FSISUS09-BP01 Monitor and optimize areas of code that are the most compute
-
-resource-intensive
+## FSISUS09-BP01 Monitor and optimize areas of code that are the most compute resource-intensive
 
 ### Prescriptive guidance
 

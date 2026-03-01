@@ -1,14 +1,10 @@
-# FSIOPS3: Have you assessed your specific workload against
-
-regulatory needs?
+# FSIOPS3: Have you assessed your specific workload against regulatory needs?
 
 Financial services institutions must be aware of all applicable regulatory and
 compliance obligations for their use of cloud services, and they should take appropriate
 steps to meet those obligations.
 
-## FSIOPS03-BP01 Implement a process for the review of
-
-applicable compliance and regulatory requirements for your workload
+## FSIOPS03-BP01 Implement a process for the review of applicable compliance and regulatory requirements for your workload
 
 Financial services institutions must be aware of all applicable regulatory and
 compliance obligations for their use of the cloud, and they should take appropriate steps

@@ -1,15 +1,11 @@
-# FSIPERF01: How do you select the best performing
-
-architecture?
+# FSIPERF01: How do you select the best performing architecture?
 
 Performance objectives for workloads can vary depending on the criticality of the
 workload. While more stringent performance requirements are expected for critical systems
 such as core banking, payments processing, trade performance, and market data feeds, all
 cloud workloads benefit from defining performance requirements.
 
-## FSIPERF01-BP01 Use internal and external risk to
-
-determine performance requirements
+## FSIPERF01-BP01 Use internal and external risk to determine performance requirements
 
 External regulatory, as well as internal risk requirements, are often a good place to
 start for performance requirements. For some systems, regulators release sector-wide
@@ -17,9 +13,7 @@ guidance including potential stress tests. For others, regulators require that f
 institutions have the capability to deliver on the operational resilience and the
 performance targets they have set for themselves.
 
-## FSIPERF01-BP02 Factor in rate of increase in load and
-
-scale-out intervals
+## FSIPERF01-BP02 Factor in rate of increase in load and scale-out intervals
 
 Identify the upper bounds of the peak load against a system, as well as the amount of
 time needed to reach peak load. Load tests often overlook the rate of increase in traffic

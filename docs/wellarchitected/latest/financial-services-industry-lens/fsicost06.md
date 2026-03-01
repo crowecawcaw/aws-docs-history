@@ -6,10 +6,7 @@ AWS provides customers with a number of usage monitoring services that can scale
 operations up and down as demand conditions require. Monitor cost at an application-level,
 and a workload-level on a regular basis, and optimize usage of resources and cost.
 
-## FSICOST06-BP01 Monitor your workload usage cycle around times of higher and lower
-
-utilization (quarter-end, year-end, weekends, and holidays) to identify ways to reduce
-your costs
+## FSICOST06-BP01 Monitor your workload usage cycle around times of higher and lower utilization (quarter-end, year-end, weekends, and holidays) to identify ways to reduce your costs
 
 You may have workload usage cycles for week-end or month-end, and quarter-end have
 more usage of resources. In some cases, there could be higher usage due to events like the

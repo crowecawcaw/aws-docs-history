@@ -1,14 +1,10 @@
-# FSISUS02: How do you address data sovereignty regulations for
-
-location of sustainable Region?
+# FSISUS02: How do you address data sovereignty regulations for location of sustainable Region?
 
 While selection of low-carbon Regions is generally recommended for processing of
 financial data, sometimes data residency requirements stipulate the use of higher carbon
 storage.
 
-## FSISUS02-BP01 Run workloads and store restricted data in required country and
-
-unrestricted in sustainable Region selected by following SUS01 guidance
+## FSISUS02-BP01 Run workloads and store restricted data in required country and unrestricted in sustainable Region selected by following SUS01 guidance
 
 ### Prescriptive guidance
 

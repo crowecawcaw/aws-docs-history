@@ -3,9 +3,7 @@
 AWS offers a wide range of storage options and as with compute, the best performance
 is obtained when targeting the specific storage needs of an application.
 
-## FSIPERF03-BP01 Select your storage architecture based on
-
-workload requirements
+## FSIPERF03-BP01 Select your storage architecture based on workload requirements
 
 When you select a storage solution, verify that it aligns with your access patterns to
 achieve the desired performance. It is simple to experiment with different storage types
@@ -29,9 +27,7 @@ requirements, using different database technologies for different purposes, such
 Amazon Timestream time-series database for storing ticking market data, rather than a
 one-size-fits-all use of traditional relational databases.
 
-## FSIPERF03-BP02 Consider changing needs over the entire
-
-lifecycle of your data
+## FSIPERF03-BP02 Consider changing needs over the entire lifecycle of your data
 
 Financial services workloads often have requirements to keep data available for many
 years to help meet regulatory requirements, leading to significant amounts of data being
@@ -47,9 +43,7 @@ Amazon FSx for Lustre file systems to Amazon S3 for long-term, low-cost retentio
 for the service remain low, provided that the services are restricted to a single
 AWS Region.
 
-## FSIPERF03-BP03 Optimize storage for AI
-
-model and data requirements
+## FSIPERF03-BP03 Optimize storage for AI model and data requirements
 
 AI workloads in financial services generate unique storage
 requirements due to large model files, extensive training

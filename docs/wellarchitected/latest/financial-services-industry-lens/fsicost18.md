@@ -1,15 +1,11 @@
-# FSICOST18: Do you have specific workload modernization or
-
-refactoring goals in your cloud strategy?
+# FSICOST18: Do you have specific workload modernization or refactoring goals in your cloud strategy?
 
 In traditional financial institutions, databases and core banking solutions are key
 cost drivers. Improve your total cost of ownership (TCO) by refactoring your lift and shift
 strategies to continue your modernization activities where you can improve performance while
 reducing your costs.
 
-## FSICOST18-BP01 Define ambitious modernization strategy to become truly AWS
-
-optimized
+## FSICOST18-BP01 Define ambitious modernization strategy to become truly AWS optimized
 
 In traditional financial institutions databases and core banking solutions are key
 cost drivers. Improve your Total Cost of Ownership (TCO) by refactoring your lift and

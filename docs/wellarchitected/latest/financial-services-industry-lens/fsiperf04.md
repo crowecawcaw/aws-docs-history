@@ -3,9 +3,7 @@
 Use performance requirements to drive the selection of network components and
 architecture.
 
-## FSIPERF04-BP01 Use AWS services to optimize your
-
-network routes
+## FSIPERF04-BP01 Use AWS services to optimize your network routes
 
 Proximity to data sources, both internal and external, and the distance between
 components can be a key factor for financial services workloads, like high-frequency
@@ -25,9 +23,7 @@ AWS backbone network and bringing your solutions closer to markets, users, and d
 When using multiple AWS Regions, use Route 53 latency-based routing to serve requests from
 the AWS Region with the lowest latency.
 
-## FSIPERF04-BP02 Use Amazon EC2 instances and features to
-
-optimize your networking
+## FSIPERF04-BP02 Use Amazon EC2 instances and features to optimize your networking
 
 Consider network performance when selecting Amazon EC2 instances, with specific network
 optimized variants indicated by the n-suffix, and bare metal instances offering direct

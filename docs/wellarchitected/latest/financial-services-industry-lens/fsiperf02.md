@@ -1,8 +1,6 @@
 # FSIPERF02: How do you select your compute architecture?
 
-## FSIPERF02-BP01 Select your compute architecture based on
-
-workload requirements
+## FSIPERF02-BP01 Select your compute architecture based on workload requirements
 
 The optimal compute solution for a particular architecture depends on the workload
 deployment method, degree of automation, usage patterns, and configuration. Third-party

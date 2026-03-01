@@ -1,10 +1,6 @@
-# FSIREL03: How are your business and regulatory requirements driving the
+# FSIREL03: How are your business and regulatory requirements driving the resilience of your workload?
 
-resilience of your workload?
-
-## FSIREL03-BP01 Use business criticality to drive recovery
-
-objectives
+## FSIREL03-BP01 Use business criticality to drive recovery objectives
 
 Financial institutions scrutinize their most critical functions where a disruption
 to the function could cause harm to consumers, policy holders, participants, or
@@ -61,9 +57,7 @@ by their criticality, you can also make informed trade-offs such as degrading th
 performance of less critical functions to maintain performance of the workload's most
 critical functions.
 
-## FSIREL03-BP03 Use past examples of market volatility in determining peak
-
-loads
+## FSIREL03-BP03 Use past examples of market volatility in determining peak loads
 
 In financial services workloads, even ones that do not directly provide services
 for traders such as settlement and clearing, market volatility creates peak demand

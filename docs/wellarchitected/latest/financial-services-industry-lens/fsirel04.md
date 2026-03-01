@@ -1,13 +1,9 @@
-# FSIREL04: Does the resilience and the architecture of your workload reflect the
-
-business requirements and resilience tier?
+# FSIREL04: Does the resilience and the architecture of your workload reflect the business requirements and resilience tier?
 
 Understanding how AWS services can impact your workload's availability is an
 important step in determining the resilience of your architecture.
 
-## FSIREL04-BP01 Use best practices to implement highly resilient critical
-
-workloads
+## FSIREL04-BP01 Use best practices to implement highly resilient critical workloads
 
 Financial services institutions must be compliant with regulatory frameworks that
 define policies towards the resilience and operational excellence of their mission
@@ -38,9 +34,7 @@ dependencies to become available. Coordinate your disaster recovery failover to
 expedite this process and bring down the recovery time to within acceptable
 ranges.
 
-## FSIREL04-BP03 Decouple your
-
-dependencies
+## FSIREL04-BP03 Decouple your dependencies
 
 Design your workload so that it is able to function despite impairment to dependencies, like external
 service integrations with partner firms, as well as services from other departments in the

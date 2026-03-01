@@ -1,14 +1,10 @@
-# FSIOPS2: Have you completed an operational risk
-
-assessment?
+# FSIOPS2: Have you completed an operational risk assessment?
 
 Financial services workloads should be continually reviewed and prioritized with regard
 to their risk impact to the overall business (for example, based on their reputational,
 financial, or regulatory impact).
 
-## FSIOPS02-BP01 Understand the Shared Responsibility Model
-
-and how it applies to services and workloads you run in the cloud
+## FSIOPS02-BP01 Understand the Shared Responsibility Model and how it applies to services and workloads you run in the cloud
 
 In connection with your use of the cloud, you must understand how the [AWS Shared
 Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") affects your control environment. For example, certain
@@ -28,9 +24,7 @@ as S3). If your organization has central functions (like a Cloud Center of Excel
 governance team), publish a shared responsibility model for your organization, which
 clearly defines the roles of AWS, the central team, and distributed teams.
 
-## FSIOPS02-BP02 Develop an enterprise cloud risk
-
-plan
+## FSIOPS02-BP02 Develop an enterprise cloud risk plan
 
 Map the interactions between business consumers of cloud services and the internal
 stakeholders that shape this consumption, including risk and control considerations.

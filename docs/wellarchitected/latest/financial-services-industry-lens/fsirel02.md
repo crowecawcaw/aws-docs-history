@@ -1,6 +1,4 @@
-# FSIREL02: Are you practicing continuous resilience to ensure that your services
-
-meet regulatory availability and recovery requirements?
+# FSIREL02: Are you practicing continuous resilience to ensure that your services meet regulatory availability and recovery requirements?
 
 Your workload, and the environment in which it operates, is
 constantly changing. To keep pace, resiliency practices should
@@ -41,9 +39,7 @@ gain confidence in their ability to quickly detect and
 recover from incidents as recovery procedures are practiced
 and improved.
 
-## FSIREL02-BP02 Implement an operational readiness review
-
-process
+## FSIREL02-BP02 Implement an operational readiness review process
 
 To capture learnings from previous incidents and minimize reoccurrence across
 teams, implement an [operational readiness review

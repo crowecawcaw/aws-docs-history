@@ -1,6 +1,4 @@
-# FSISUS18: How do you define the minimum requirement in response
-
-time for customers in order to maximize your green SLA?
+# FSISUS18: How do you define the minimum requirement in response time for customers in order to maximize your green SLA?
 
 ## FSISUS18-BP01 Use a green SLA
 

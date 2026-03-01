@@ -1,13 +1,9 @@
-# FSIOPS7: Have you developed a continuous improvement
-
-model?
+# FSIOPS7: Have you developed a continuous improvement model?
 
 Financial institutions should continually assess and optimize their operational
 processes.
 
-## FSIOPS07-BP01 Test, model, and simulate scenarios before
-
-rollout
+## FSIOPS07-BP01 Test, model, and simulate scenarios before rollout
 
 One of the best practices to determine if you have addressed your risk with
 appropriate controls is to actually run scenarios against your cloud control framework and
@@ -33,9 +29,7 @@ learned and the iterative improvement over time. Sufficient time to accomplish t
 should be set aside early in the planning process so that it can occur in the days
 immediately following the game day.
 
-## FSIOPS07-BP02 Conduct post-event operational
-
-reviews
+## FSIOPS07-BP02 Conduct post-event operational reviews
 
 Post-event operational reviews should be conducted after an incident. After
 troubleshooting and performing repair procedures, follow-up documentation and actions

@@ -1,13 +1,9 @@
-# FSICOST14: How do you measure the cost of licensing third-party
-
-applications and software?
+# FSICOST14: How do you measure the cost of licensing third-party applications and software?
 
 If you are using third-party software, understand the specific licensing terms of each
 third-party vendor.
 
-## FSICOST14-BP01 Consider the cost of licensing third-party applications and
-
-software
+## FSICOST14-BP01 Consider the cost of licensing third-party applications and software
 
 If you are using third-party software, understand the specific licensing terms of
 each third- party vendor. AWS offers both Dedicated Hosts that have pre-installed

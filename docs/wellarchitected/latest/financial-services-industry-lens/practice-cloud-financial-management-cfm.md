@@ -1,6 +1,4 @@
-# Practice Cloud Financial Management
-
-(CFM)
+# Practice Cloud Financial Management (CFM)
 
 Cloud Financial Management (CFM) allows finance, product, technology, and business
 organizations to manage, optimize, and plan costs as they grow their usage and scale on AWS.
@@ -34,9 +32,6 @@ control your resources and plan your spend to optimize your return on investment
 
 ###### Best practice questions
 
-- [FSICOST01: Is your cloud team educated on relevant technical and
-  commercial optimization mechanisms?](fsicost01.md "fsicost01.md")
-- [FSICOST02: Do you apply the Pareto-principle (80/20 rule) to
-  manage, optimize, and plan your cloud usage and spend?](fsicost02.md "fsicost02.md")
-- [FSICOST03: Do you use automation to drive scale for Cloud
-  Financial Management practices?](fsicost03.md "fsicost03.md")
+- [FSICOST01: Is your cloud team educated on relevant technical and commercial optimization mechanisms?](fsicost01.md "fsicost01.md")
+- [FSICOST02: Do you apply the Pareto-principle (80/20 rule) to manage, optimize, and plan your cloud usage and spend?](fsicost02.md "fsicost02.md")
+- [FSICOST03: Do you use automation to drive scale for Cloud Financial Management practices?](fsicost03.md "fsicost03.md")

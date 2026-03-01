@@ -1,10 +1,6 @@
-# FSISUS16: Do you achieve a judicious use of development
+# FSISUS16: Do you achieve a judicious use of development resources?
 
-resources?
-
-## FSISUS16-BP01 Verify that all development resources are dedicated to an active project
-
-or team
+## FSISUS16-BP01 Verify that all development resources are dedicated to an active project or team
 
 Often, project test environments and resources are set up in anticipation of an
 upcoming project. If that project is cancelled or never commences, some development
