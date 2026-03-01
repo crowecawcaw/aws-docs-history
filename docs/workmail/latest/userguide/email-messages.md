@@ -1,6 +1,4 @@
-# Working with email
-
-messages
+# Working with email messages
 
 Send, copy, move, print, and delete email messages from Amazon WorkMail. If your administrator
 has created an alias for you, you can also send email using that alias.

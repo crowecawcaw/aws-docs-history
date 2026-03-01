@@ -15,5 +15,4 @@ this, connect to your Outlook account, and then choose **File**,
 - [Sending email on behalf of someone else](send_email_delegate.md "send_email_delegate.md")
 - [Sending email as someone else](send_email_as.md "send_email_as.md")
 - [Scheduling meetings on behalf of someone else](schedule_meeting_delegate.md "schedule_meeting_delegate.md")
-- [Sharing
-  your inbox with another user](share_your_inbox.md "share_your_inbox.md")
+- [Sharing your inbox with another user](share_your_inbox.md "share_your_inbox.md")

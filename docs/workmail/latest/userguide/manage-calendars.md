@@ -1,6 +1,4 @@
-# Managing
-
-calendars
+# Managing calendars
 
 Create, update, and print appointments and meetings from your calendar. You can also
 cancel, decline, and delete calendar events.

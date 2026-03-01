@@ -14,8 +14,6 @@ with you.
 
 ###### Topics
 
-- [Managing
-  calendars](manage-calendars.md "manage-calendars.md")
+- [Managing calendars](manage-calendars.md "manage-calendars.md")
 - [Working with calendar settings](calendar-settings.md "calendar-settings.md")
-- [Sharing
-  calendars](share-calendars.md "share-calendars.md")
+- [Sharing calendars](share-calendars.md "share-calendars.md")

@@ -1,6 +1,4 @@
-# Sharing
-
-your inbox with another user
+# Sharing your inbox with another user
 
 You can give another user permissions to view your inbox.
 

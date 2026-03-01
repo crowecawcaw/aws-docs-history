@@ -1,6 +1,4 @@
-# Sharing
-
-calendars
+# Sharing calendars
 
 You can share your calendar with other users, and view calendars that have been shared
 with you.

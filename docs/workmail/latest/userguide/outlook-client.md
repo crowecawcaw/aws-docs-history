@@ -5,14 +5,10 @@ account.
 
 ###### Topics
 
-- [Connecting Microsoft Outlook clients to
-  your Amazon WorkMail account using AutoDiscover](#connect-outlook-client "#connect-outlook-client")
-- [Connecting Microsoft Outlook clients to your
-  Amazon WorkMail account manually](#manual-outlook-client "#manual-outlook-client")
+- [Connecting Microsoft Outlook clients to your Amazon WorkMail account using AutoDiscover](#connect-outlook-client "#connect-outlook-client")
+- [Connecting Microsoft Outlook clients to your Amazon WorkMail account manually](#manual-outlook-client "#manual-outlook-client")
 
-## Connecting Microsoft Outlook clients to
-
-your Amazon WorkMail account using AutoDiscover
+## Connecting Microsoft Outlook clients to your Amazon WorkMail account using AutoDiscover
 
 Amazon WorkMail uses AutoDiscover to configure your Outlook client. Make sure
 AutoDiscover is configured before you setup your Outlook client. For information,
@@ -35,19 +31,14 @@ capabilities.
 
 If automatic configuration fails, you can manually configure most Outlook clients,
 except for Outlook 2016 and Outlook 2019 for Windows. For more information, see
-[Connecting Microsoft Outlook clients to your
-Amazon WorkMail account manually](#manual-outlook-client "#manual-outlook-client").
+[Connecting Microsoft Outlook clients to your Amazon WorkMail account manually](#manual-outlook-client "#manual-outlook-client").
 
 ###### Topics
 
-- [Connecting Microsoft Outlook on Windows
-  clients](#connect-windows "#connect-windows")
-- [Connecting Microsoft Outlook on Mac
-  clients](#connect-mac "#connect-mac")
+- [Connecting Microsoft Outlook on Windows clients](#connect-windows "#connect-windows")
+- [Connecting Microsoft Outlook on Mac clients](#connect-mac "#connect-mac")
 
-### Connecting Microsoft Outlook on Windows
-
-clients
+### Connecting Microsoft Outlook on Windows clients
 
 To connect Microsoft Outlook to your Amazon WorkMail account.
 
@@ -73,9 +64,7 @@ this website to configure** dialog box, select the
 box, and choose **Allow**. 5. Outlook will prompt you when it finishes setting up your account.
 Choose **Finish**.
 
-### Connecting Microsoft Outlook on Mac
-
-clients
+### Connecting Microsoft Outlook on Mac clients
 
 To connect Microsoft Outlook 2016 or 2019 to your Amazon WorkMail account.
 
@@ -120,9 +109,7 @@ account in the **Accounts** dialog box.
 For more information about adding accounts in Outlook 2016 or later for Mac,
 see [Add an email account to Outlook](https://support.office.com/en-us/article/add-an-email-account-to-outlook-6e27792a-9267-4aa4-8bb6-c84ef146101b "https://support.office.com/en-us/article/add-an-email-account-to-outlook-6e27792a-9267-4aa4-8bb6-c84ef146101b")
 
-## Connecting Microsoft Outlook clients to your
-
-Amazon WorkMail account manually
+## Connecting Microsoft Outlook clients to your Amazon WorkMail account manually
 
 If automatic configuration fails, you can manually configure the following
 versions of Outlook:
@@ -133,21 +120,15 @@ versions of Outlook:
   later for Mac
 
 Outlook 2016 and Outlook 2019 for Windows can only be configured by using
-AutoDiscover. For more information see Connecting Microsoft Outlook clients to your
-Amazon WorkMail account manually.
+AutoDiscover. For more information see Connecting Microsoft Outlook clients to your Amazon WorkMail account manually.
 
 ###### Topics
 
-- [Connecting Microsoft Outlook on
-  Windows clients manually](#manually-connect-windows "#manually-connect-windows")
-- [Connecting Outlook for
-  Windows on Windows clients manually](#manually-connect-outlook-for-windows "#manually-connect-outlook-for-windows")
-- [Connecting Microsoft Outlook on Mac
-  clients manually](#manually-connect-mac "#manually-connect-mac")
+- [Connecting Microsoft Outlook on Windows clients manually](#manually-connect-windows "#manually-connect-windows")
+- [Connecting Outlook for Windows on Windows clients manually](#manually-connect-outlook-for-windows "#manually-connect-outlook-for-windows")
+- [Connecting Microsoft Outlook on Mac clients manually](#manually-connect-mac "#manually-connect-mac")
 
-### Connecting Microsoft Outlook on
-
-Windows clients manually
+### Connecting Microsoft Outlook on Windows clients manually
 
 To manually configure Outlook on Windows.
 
@@ -213,9 +194,7 @@ Settings** dialog box:
 Outlook tests the connection and displays a message saying that your
 account is ready for use. 9. Choose **Finish**.
 
-### Connecting Outlook for
-
-Windows on Windows clients manually
+### Connecting Outlook for Windows on Windows clients manually
 
 To manually configure Outlook for Windows on Windows.
 
@@ -238,9 +217,7 @@ as Outlook (new) or the new Outlook.
 13. On the **Sync your IMAP account** page, choose **Continue**.
 14. Choose **Done**.
 
-### Connecting Microsoft Outlook on Mac
-
-clients manually
+### Connecting Microsoft Outlook on Mac clients manually
 
 To manually configure Outlook 2019 or later for Mac.
 

@@ -53,9 +53,7 @@ AWS Certificate Manager does not currently provide certificates to sign and encr
    certificate is not found, then the red unlocked icon means that the email can’t
    be encrypted.
 
-###### To configure S/MIME in Android Nine and the Samsung Mobile devices native mail
-
-app
+###### To configure S/MIME in Android Nine and the Samsung Mobile devices native mail app
 
 1. Get the certificate (`*.pfx` or `*.p12`) file from your administrator or
    third-party certificate authority in an email.

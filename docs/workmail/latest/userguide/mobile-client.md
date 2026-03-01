@@ -20,10 +20,8 @@ devices.
 
 - [Connect your Android device](#connect_android_device "#connect_android_device")
 - [Connect your iOS device](#connect_ios_device "#connect_ios_device")
-- [Manually connect your mobile
-  device](#manually_connect_device "#manually_connect_device")
-- [Setting up Microsoft Outlook for
-  Android and iOS](#setting_up_microsoft_outlook "#setting_up_microsoft_outlook")
+- [Manually connect your mobile device](#manually_connect_device "#manually_connect_device")
+- [Setting up Microsoft Outlook for Android and iOS](#setting_up_microsoft_outlook "#setting_up_microsoft_outlook")
 
 ## Connect your Android device
 
@@ -82,12 +80,9 @@ configure endpoints](../adminguide/autodiscover.md "../adminguide/autodiscover.m
      **Save**.
     * If your account can't be found, you are prompted to provide the
      name of your Exchange server, the server's domain, your user name,
-     and your password. For more information, see [Manually connect your mobile
-     device](#manually_connect_device "#manually_connect_device").
+     and your password. For more information, see [Manually connect your mobile device](#manually_connect_device "#manually_connect_device").
 
-## Manually connect your mobile
-
-device
+## Manually connect your mobile device
 
 If your mobile device doesn't support AutoDiscover, or if automatic configuration
 failed, you can manually configure the client by providing the following
@@ -102,9 +97,7 @@ information.
 | **Password**                                    | Your password                                                                                                                                                                                                                                                                                                                                                             |
 | **Server**                                      | The endpoint matching the AWS Region where your mailbox is<br>located:<br>• US West (Oregon)<br>mobile.mail.us-west-2.awsapps.com<br>• US East (N. Virginia)<br>mobile.mail.us-east-1.awsapps.com<br>• Europe (Ireland)<br>mobile.mail.eu-west-1.awsapps.com<br>NoteIf you don't know the AWS Region where your mailbox is<br>located, contact your system administrator. |
 
-## Setting up Microsoft Outlook for
-
-Android and iOS
+## Setting up Microsoft Outlook for Android and iOS
 
 You can use your Amazon WorkMail account to setup and use Microsoft Outlook on your Android
 or iOS devices.
