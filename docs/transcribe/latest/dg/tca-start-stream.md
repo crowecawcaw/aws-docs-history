@@ -22,8 +22,7 @@ to the specified bucket. A separate transcript is produced and stored in the spe
 completion of your real-time Call Analytics streaming session.
 
 With real-time Call Analytics, you also have the option to create real-time category alerts; refer
-to [Creating real-time alerts for category
-matches](#tca-create-alert-stream "#tca-create-alert-stream") for
+to [Creating real-time alerts for category matches](#tca-create-alert-stream "#tca-create-alert-stream") for
 instructions.
 
 To start a real-time Call Analytics transcription, you can use the
@@ -201,9 +200,7 @@ text message with `content-type application/json`.
 
 For more information, see [Setting up a streaming transcription](streaming-setting-up.md "streaming-setting-up.md").
 
-## Creating real-time alerts for category
-
-matches
+## Creating real-time alerts for category matches
 
 To set up real-time alerts, you must first create a [`TranscriptFilterType`](../APIReference/API_TranscriptFilter.md "../APIReference/API_TranscriptFilter.md")
 category with the `REAL_TIME` flag. This flag allows your category to be applied to

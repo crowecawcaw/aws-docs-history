@@ -53,8 +53,7 @@ Monitoring is an important part of maintaining the reliability, security, availa
 performance of Amazon Transcribe and your AWS solutions. You can monitor
 Amazon Transcribe using CloudTrail.
 
-For more information, refer to [Monitoring Amazon Transcribe
-with AWS CloudTrail](monitoring-transcribe-cloud-trail.md "monitoring-transcribe-cloud-trail.md").
+For more information, refer to [Monitoring Amazon Transcribe with AWS CloudTrail](monitoring-transcribe-cloud-trail.md "monitoring-transcribe-cloud-trail.md").
 
 - **Enable AWS Config**
 

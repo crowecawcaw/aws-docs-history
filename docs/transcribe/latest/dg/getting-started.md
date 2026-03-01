@@ -134,8 +134,7 @@ To learn more about using AWS policies see:
 - [How Amazon Transcribe works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 
 For example policies you can use with Amazon Transcribe, see
-[Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). If you want to generate custom
+[Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). If you want to generate custom
 policies, consider using the
 [AWS
 Policy Generator](https://awspolicygen.s3.amazonaws.com/policygen.html "https://awspolicygen.s3.amazonaws.com/policygen.html").

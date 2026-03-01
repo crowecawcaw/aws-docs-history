@@ -1,6 +1,4 @@
-# Transcribing a real-time stream using a medical
-
-custom vocabulary
+# Transcribing a real-time stream using a medical custom vocabulary
 
 To improve transcription accuracy in a real-time stream, you can use a custom
 vocabulary using either HTTP/2 or WebSocket streams. To start an HTTP/2 request, use the

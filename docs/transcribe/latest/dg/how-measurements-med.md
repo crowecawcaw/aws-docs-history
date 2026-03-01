@@ -1,6 +1,4 @@
-# Transcribing medical terms and
-
-measurements
+# Transcribing medical terms and measurements
 
 Amazon Transcribe Medical can transcribe medical terms and measurements. Amazon Transcribe Medical outputs abbreviations for
 spoken terms. For example, "blood pressure" is transcribed as BP. You can find a list of

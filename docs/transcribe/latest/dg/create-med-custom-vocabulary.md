@@ -1,6 +1,4 @@
-# Using a text file to create a medical
-
-custom vocabulary
+# Using a text file to create a medical custom vocabulary
 
 To create a custom vocabulary, you must have prepared a text file that contains a
 collection a words or phrases. Amazon Transcribe Medical uses this text file to create a custom vocabulary
@@ -73,9 +71,7 @@ while True:
 print(status)
 ```
 
-###### To enable speaker partitioning in a batch transcription job
-
-(AWS CLI)
+###### To enable speaker partitioning in a batch transcription job (AWS CLI)
 
 - Run the following code.
 

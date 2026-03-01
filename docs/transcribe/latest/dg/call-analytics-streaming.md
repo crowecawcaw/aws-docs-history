@@ -39,8 +39,7 @@ For more information on creating real-time Call Analytics categories, see
 ###### Tip
 
 Category events allow you to set real-time alerts; see
-[Creating real-time alerts for category
-matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream") for
+[Creating real-time alerts for category matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream") for
 more information.
 
 ### Issue detection

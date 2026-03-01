@@ -1,6 +1,4 @@
-# Transcribing a medical conversation in
-
-a real-time stream
+# Transcribing a medical conversation in a real-time stream
 
 You can transcribe an audio stream of a medical conversation using either the HTTP/2
 or [WebSocket](https://tools.ietf.org/html/rfc6455 "https://tools.ietf.org/html/rfc6455") protocols. For
@@ -66,8 +64,7 @@ and specify the following:
   To improve transcription accuracy of specific terms in a real-time stream, use
   a custom vocabulary. To enable a custom vocabulary, set the value of
   `VocabularyName` parameter to the name of the custom vocabulary
-  that you want to use. For more information, see [Improving transcription accuracy with medical custom
-  vocabularies](vocabulary-med.md "vocabulary-med.md").
+  that you want to use. For more information, see [Improving transcription accuracy with medical custom vocabularies](vocabulary-med.md "vocabulary-med.md").
 
 To label the speech from different speakers, set the
 `ShowSpeakerLabel` parameter to `true`. For more
@@ -106,8 +103,7 @@ GET wss://transcribestreaming.`us-west-2`.amazonaws.com:8443/medical-stream-tran
 To improve transcription accuracy of specific terms in a real-time stream, use
 a custom vocabulary. To enable a custom vocabulary, set the value of
 `vocabulary-name` to the name of the custom vocabulary that you
-want to use. For more information, see [Improving transcription accuracy with medical custom
-vocabularies](vocabulary-med.md "vocabulary-med.md").
+want to use. For more information, see [Improving transcription accuracy with medical custom vocabularies](vocabulary-med.md "vocabulary-med.md").
 
 To label the speech from different speakers, set the
 `show-speaker-label` parameter in to `true`. For more

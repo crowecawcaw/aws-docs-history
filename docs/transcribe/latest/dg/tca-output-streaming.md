@@ -2,8 +2,7 @@
 
 Real-time Call Analytics transcripts are displayed in a turn-by-turn format by segment.
 They include category events, issue detection, sentiment, and PII identification and redaction. Category
-events allow you to set real-time alerts; see [Creating real-time alerts for category
-matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream") for more information.
+events allow you to set real-time alerts; see [Creating real-time alerts for category matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream") for more information.
 
 To increase accuracy and further customize your transcripts to your use case, such as including
 industry-specific terms, add [custom vocabularies](custom-vocabulary.md "custom-vocabulary.md") or

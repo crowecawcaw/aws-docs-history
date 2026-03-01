@@ -7,9 +7,7 @@ The language of the model you're including in your request must match the langua
 specify for your media. If the languages don't match, your custom language model is not applied to your
 transcription and there are no warnings or errors.
 
-## Using a custom language model in a batch
-
-transcription
+## Using a custom language model in a batch transcription
 
 To use a custom language model with a batch transcription, see the following for examples:
 
@@ -111,9 +109,7 @@ while True:
 print(status)
 ```
 
-## Using a custom language model in a streaming
-
-transcription
+## Using a custom language model in a streaming transcription
 
 To use a custom language model with a streaming transcription, see the following for examples:
 

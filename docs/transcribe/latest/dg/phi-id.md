@@ -1,6 +1,4 @@
-# Identifying personal health information (PHI) in a
-
-transcription
+# Identifying personal health information (PHI) in a transcription
 
 Use _Personal Health Information Identification_ to label personal
 health information (PHI) in your transcription results. By reviewing labels, you can find

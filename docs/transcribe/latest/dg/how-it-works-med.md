@@ -36,7 +36,6 @@ JSON.
 ```
 
 Amazon Transcribe Medical enables you to generate alternative transcriptions. For more information, see
-[Generating alternative
-transcriptions](alternative-med-transcriptions.md "alternative-med-transcriptions.md").
+[Generating alternative transcriptions](alternative-med-transcriptions.md "alternative-med-transcriptions.md").
 
 You can also enable speaker partitioning or identify channels in your audio. For more information, see [Enabling speaker partitioning](conversation-diarization-med.md "conversation-diarization-med.md") and [Transcribing multi-channel audio](conversation-channel-id-med.md "conversation-channel-id-med.md").

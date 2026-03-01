@@ -30,8 +30,7 @@ When creating a new category, you can specify whether you want it created as a p
 category (`POST_CALL`) or as a real-time category (`REAL_TIME`). If you
 don't specify an option, your category is created as a post-call category by default. Real-time category
 matches can be used to create real-time alerts. For more information, see
-[Creating real-time alerts for category
-matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream").
+[Creating real-time alerts for category matches](tca-start-stream.md#tca-create-alert-stream "tca-start-stream.md#tca-create-alert-stream").
 
 To create a new category for real-time Call Analytics, you can use the
 **AWS Management Console**, **AWS CLI**, or
@@ -43,7 +42,7 @@ To create a new category for real-time Call Analytics, you can use the
    **Call analytics categories** page. Select the
    **Create category** button.
 
-![Amazon Transcribe console screenshot: the Call Analytics 'categories' page.](/images/transcribe/latest/dg/images/analytics-categories.png) 3. You're now on the **Create category page**. Enter a name for your
+![Amazon Transcribe console screenshot: the Call Analytics 'categories' page.](images/analytics-categories.png) 3. You're now on the **Create category page**. Enter a name for your
 category, then choose 'Real time call analytics' in the **Category type**
 dropdown menu.
 
@@ -54,7 +53,7 @@ the template you want, then select **Create category**.
 
 ![Amazon Transcribe console screenshot: the 'category settings' panel showing optional templates.](images/analytics-categories-settings-stream.png) 5. If creating a custom category: select **Create from scratch**.
 
-![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](/images/transcribe/latest/dg/images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules per
+![Amazon Transcribe console screenshot: the 'create category' page showing 'rules' pane.](images/analytics-categories-custom.png) 6. Add rules to your category using the dropdown menu. You can add up to 20 rules per
 category. With real-time Call Analytics transcriptions, you can only include rules that involve transcript
 content matches. Any matches are flagged in real time.
 

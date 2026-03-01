@@ -1,6 +1,4 @@
-# Creating a text file for your medical custom
-
-vocabulary
+# Creating a text file for your medical custom vocabulary
 
 To create a custom vocabulary, you create a text file that is in UTF-8 format. In this
 file, you create a four column table, with each column specifying a field. Each field
@@ -8,9 +6,7 @@ tells Amazon Transcribe Medical either how the domain-specific terms are pronoun
 terms in your transcriptions. You store the text file containing these fields in an
 Amazon S3 bucket.
 
-## Understanding how to format your text
-
-file
+## Understanding how to format your text file
 
 To create a medical custom vocabulary, you enter the column names as a header row.
 You enter the values for each column beneath the header row.
@@ -35,9 +31,7 @@ Make sure that the values that you enter for each column:
 - Have fewer than 256 characters, including hyphens
 - Use only characters from the allowed character set, see [Character set for Amazon Transcribe Medical](charsets-med.md "charsets-med.md").
 
-## Entering values for the columns of
-
-the table
+## Entering values for the columns of the table
 
 The following information shows you how to specify values for the four columns of
 the table:

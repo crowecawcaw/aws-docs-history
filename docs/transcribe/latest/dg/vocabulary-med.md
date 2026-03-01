@@ -1,6 +1,4 @@
-# Improving transcription accuracy with medical custom
-
-vocabularies
+# Improving transcription accuracy with medical custom vocabularies
 
 To improve transcription accuracy in Amazon Transcribe Medical, create and use one or more medical custom
 vocabularies. A _custom vocabulary_ is a collection of words or phrases
@@ -24,12 +22,8 @@ Custom vocabularies are available in US English (en-US).
 
 ###### Topics
 
-- [Creating a text file for your medical custom
-  vocabulary](create-med-vocab-text.md "create-med-vocab-text.md")
-- [Using a text file to create a medical
-  custom vocabulary](create-med-custom-vocabulary.md "create-med-custom-vocabulary.md")
-- [Transcribing an audio file using a medical
-  custom vocabulary](start-med-custom-vocab-job.md "start-med-custom-vocab-job.md")
-- [Transcribing a real-time stream using a medical
-  custom vocabulary](start-med-vocab-stream.md "start-med-vocab-stream.md")
+- [Creating a text file for your medical custom vocabulary](create-med-vocab-text.md "create-med-vocab-text.md")
+- [Using a text file to create a medical custom vocabulary](create-med-custom-vocabulary.md "create-med-custom-vocabulary.md")
+- [Transcribing an audio file using a medical custom vocabulary](start-med-custom-vocab-job.md "start-med-custom-vocab-job.md")
+- [Transcribing a real-time stream using a medical custom vocabulary](start-med-vocab-stream.md "start-med-vocab-stream.md")
 - [Character set for Amazon Transcribe Medical](charsets-med.md "charsets-med.md")

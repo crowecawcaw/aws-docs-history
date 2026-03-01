@@ -181,5 +181,4 @@ IAM role making the [`CreateVocabularyFilter`](../APIReference/API_CreateVocabul
 request has permissions to access this bucket. If the role doesn't have the correct permissions, your request
 fails. You can optionally specify an IAM role within your request by including the
 `DataAccessRoleArn` parameter. For more information on IAM roles and policies
-in Amazon Transcribe, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+in Amazon Transcribe, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

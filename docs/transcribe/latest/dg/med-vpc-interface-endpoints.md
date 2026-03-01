@@ -1,6 +1,4 @@
-# Amazon Transcribe Medical and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Transcribe Medical and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Transcribe Medical by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -16,18 +14,14 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Amazon Transcribe Medical VPC
-
-endpoints
+## Considerations for Amazon Transcribe Medical VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Transcribe Medical, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
 
 Amazon Transcribe Medical supports making calls to all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Amazon Transcribe Medical
+## Creating an interface VPC endpoint for Amazon Transcribe Medical
 
 You can create a VPC endpoint for the Amazon Transcribe Medical service using either the AWS Management Console or
 the AWS CLI. For more information, see [Creating an
@@ -48,9 +42,7 @@ its default DNS name for the AWS Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon Transcribe Medical streaming
+## Creating a VPC endpoint policy for Amazon Transcribe Medical streaming
 
 You can attach an endpoint policy to your VPC endpoint that controls access to Amazon Transcribe Medical.
 The policy specifies the following information:

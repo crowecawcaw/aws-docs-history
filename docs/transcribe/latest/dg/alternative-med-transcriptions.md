@@ -1,6 +1,4 @@
-# Generating alternative
-
-transcriptions
+# Generating alternative transcriptions
 
 When you use Amazon Transcribe Medical, you get the transcription that has the highest confidence level. However,
 you can configure Amazon Transcribe Medical to return additional transcriptions with lower confidence
@@ -29,9 +27,7 @@ alternative results when you configure your job.
    want in the output.
 8. Choose **Create**.
 
-###### To separate text per speaker in an audio file using a batch transcription job
-
-(API)
+###### To separate text per speaker in an audio file using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API, specify
   the following.
@@ -97,9 +93,7 @@ print(status)
 
 ```
 
-###### To transcribe an audio file of a conversation between a primary care
-
-clinician and a patient in an audio file (AWS CLI)
+###### To transcribe an audio file of a conversation between a primary care clinician and a patient in an audio file (AWS CLI)
 
 - Run the following code.
 

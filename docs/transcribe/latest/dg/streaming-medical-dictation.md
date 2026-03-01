@@ -1,6 +1,4 @@
-# Transcribing a medical dictation in a
-
-real-time stream
+# Transcribing a medical dictation in a real-time stream
 
 Use a WebSocket stream to transcribe a medical dictation as an audio stream. You can
 also use the AWS Management Console to transcribe speech that you or others speak directly into
@@ -43,10 +41,7 @@ To use the AWS Management Console to transcribe streaming audio of a medical dic
 choose the option to transcribe a medical dictation, start the stream, and
 begin speaking into the microphone.
 
-###### To
-
-transcribe streaming audio of a medical dictation
-(AWS Management Console)
+###### To transcribe streaming audio of a medical dictation (AWS Management Console)
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/ "https://console.aws.amazon.com/transcribe/").
 2. In the navigation pane, under Amazon Transcribe Medical, choose **Real-time

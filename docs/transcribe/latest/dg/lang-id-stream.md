@@ -68,9 +68,7 @@ dominant language is transcribed incorrectly.
 
 Redaction and custom language models are not currently supported with multi-language identification.
 
-## Using language identification with streaming
-
-media
+## Using language identification with streaming media
 
 You can use automatic language identification in a streaming transcription using the
 **AWS Management Console**, **HTTP/2**, or

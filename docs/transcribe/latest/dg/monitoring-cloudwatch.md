@@ -7,9 +7,7 @@ service is performing. You can also set alarms that watch for certain thresholds
 or take actions when those thresholds are met. For more information, see the [_CloudWatch
 User Guide_](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md").
 
-## Using Amazon CloudWatch metrics and dimensions with
-
-Amazon Transcribe
+## Using Amazon CloudWatch metrics and dimensions with Amazon Transcribe
 
 Amazon Transcribe supports CloudWatch metrics and dimensions, which are data that
 can help you monitor performance. Supported metrics categories include traffic, errors, data

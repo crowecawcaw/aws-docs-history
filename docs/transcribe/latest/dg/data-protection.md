@@ -36,5 +36,4 @@ logical entity within a VPC that allows connectivity only to Amazon Transcribe. 
 routes requests to Amazon Transcribe and routes responses back to the VPC. For more information,
 see [AWS PrivateLink
 concepts](../../../vpc/latest/privatelink/concepts.md "../../../vpc/latest/privatelink/concepts.md"). For information about using Amazon VPC endpoints with Amazon Transcribe
-see [Amazon Transcribe and interface VPC endpoints
-(AWS PrivateLink)](vulnerability-analysis-and-management.md#vpc-interface-endpoints "vulnerability-analysis-and-management.md#vpc-interface-endpoints").
+see [Amazon Transcribe and interface VPC endpoints (AWS PrivateLink)](vulnerability-analysis-and-management.md#vpc-interface-endpoints "vulnerability-analysis-and-management.md#vpc-interface-endpoints").

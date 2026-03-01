@@ -1,6 +1,4 @@
-# Transcribing an audio file using a medical
-
-custom vocabulary
+# Transcribing an audio file using a medical custom vocabulary
 
 Use the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") or the AWS Management Console to start a
 transcription job that uses a custom vocabulary to improve transcription
@@ -19,9 +17,7 @@ accuracy.
    vocabulary.
 8. Choose **Create**.
 
-###### To enable speaker partitioning in an audio file using a batch transcription job
-
-(API)
+###### To enable speaker partitioning in an audio file using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.

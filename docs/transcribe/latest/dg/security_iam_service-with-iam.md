@@ -22,9 +22,7 @@ with most IAM features, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User
 Guide_.
 
-## Identity-based policies for
-
-Amazon Transcribe
+## Identity-based policies for Amazon Transcribe
 
 **Supports identity-based policies:**
 
@@ -41,16 +39,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples
+### Identity-based policy examples for Amazon Transcribe
 
-for Amazon Transcribe
+To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based policies within
-
-Amazon Transcribe
+## Resource-based policies within Amazon Transcribe
 
 **Supports resource-based policies:**
 
@@ -66,9 +59,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for
-
-Amazon Transcribe
+## Policy actions for Amazon Transcribe
 
 **Supports policy actions:**
 
@@ -100,12 +91,9 @@ the word `List`, include the following action:
 "Action": "transcribe:List*"
 ```
 
-To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources for
-
-Amazon Transcribe
+## Policy resources for Amazon Transcribe
 
 **Supports policy resources:**
 
@@ -124,12 +112,9 @@ To see a list of Amazon Transcribe resource types and their ARNs, see [Resources
 the _Service Authorization Reference_. To learn with which actions you can specify the ARN of each
 resource, see [Actions defined by Amazon Transcribe](../../../service-authorization/latest/reference/list_amazontranscribe.md#amazontranscribe-actions-as-permissions "../../../service-authorization/latest/reference/list_amazontranscribe.md#amazontranscribe-actions-as-permissions").
 
-To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon Transcribe
+## Policy condition keys for Amazon Transcribe
 
 **Supports service-specific policy condition keys:**
 
@@ -148,8 +133,7 @@ To see a list of Amazon Transcribe condition keys, see [Condition keys for Amazo
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon Transcribe](../../../service-authorization/latest/reference/list_amazontranscribe.md#amazontranscribe-actions-as-permissions "../../../service-authorization/latest/reference/list_amazontranscribe.md#amazontranscribe-actions-as-permissions").
 
-To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Transcribe identity-based policies, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Transcribe
 
@@ -181,9 +165,7 @@ For more information about tagging Amazon Transcribe resources, see [Tagging res
 [Controlling access to
 AWS resources using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
 
-## Using temporary credentials with
-
-Amazon Transcribe
+## Using temporary credentials with Amazon Transcribe
 
 **Supports temporary credentials:**
 
@@ -195,9 +177,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-Amazon Transcribe
+## Cross-service principal permissions for Amazon Transcribe
 
 **Supports forward access sessions (FAS):**
 
@@ -221,9 +201,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon Transcribe functionality.
 Edit service roles only when Amazon Transcribe provides guidance to do so.
 
-## Service-linked roles for
-
-Amazon Transcribe
+## Service-linked roles for Amazon Transcribe
 
 **Supports service-linked roles:**
 

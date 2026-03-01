@@ -18,8 +18,7 @@ For best results, ensure that your media file contains at least 30 seconds
 of speech.
 
 For usage examples with the AWS Management Console, AWS CLI, and
-AWS Python SDK, see [Using language identification with batch
-transcriptions](#lang-id-batch-examples "#lang-id-batch-examples").
+AWS Python SDK, see [Using language identification with batch transcriptions](#lang-id-batch-examples "#lang-id-batch-examples").
 
 ## Identifying languages in multi-language audio
 
@@ -104,9 +103,7 @@ media to German (`de-DE`) and produce a German-language transcription.
 Mismatching language codes and spoken languages can result in an inaccurate transcript, so
 we recommend caution when including language codes.
 
-## Combining language identification with other
-
-Amazon Transcribe features
+## Combining language identification with other Amazon Transcribe features
 
 You can use batch language identification in combination with any other Amazon Transcribe
 feature. If combining language identification with other features, you are limited to the languages
@@ -143,12 +140,9 @@ _is_ applied to your transcription.
 For examples of [`LanguageIdSettings`](../APIReference/API_LanguageIdSettings.md "../APIReference/API_LanguageIdSettings.md")
 in a request, refer to Option 2 in the **AWS CLI** and
 **AWS SDKs** dropdown panels in the
-[Using language identification with batch
-transcriptions](#lang-id-batch-examples "#lang-id-batch-examples") section.
+[Using language identification with batch transcriptions](#lang-id-batch-examples "#lang-id-batch-examples") section.
 
-## Using language identification with batch
-
-transcriptions
+## Using language identification with batch transcriptions
 
 You can use automatic language identification in a batch transcription job using the
 **AWS Management Console**, **AWS CLI**,

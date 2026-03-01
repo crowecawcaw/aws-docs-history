@@ -17,9 +17,7 @@ streaming. The following list describes how to enable it for each method.
 - Streaming transcription – WebSocket streaming and
   [`StartMedicalStreamTranscription`](../APIReference/API_streaming_StartMedicalStreamTranscription.md "../APIReference/API_streaming_StartMedicalStreamTranscription.md") API
 
-## Transcribing multi-channel audio
-
-files
+## Transcribing multi-channel audio files
 
 When you transcribe an audio file, Amazon Transcribe Medical returns a list of
 _items_ for each channel. An item is a transcribed word or
@@ -104,9 +102,7 @@ print(status)
 
 ```
 
-###### To transcribe a multi-channel audio file using a batch transcription
-
-job (AWS CLI)
+###### To transcribe a multi-channel audio file using a batch transcription job (AWS CLI)
 
 - Run the following code.
 
@@ -237,9 +233,7 @@ conversation on two channels.
 
 ```
 
-## Transcribing multi-channel
-
-audio streams
+## Transcribing multi-channel audio streams
 
 You can transcribe audio from separate channels in either HTTP/2 or WebSocket
 streams using the [`StartMedicalStreamTranscription`](../APIReference/API_streaming_StartMedicalStreamTranscription.md "../APIReference/API_streaming_StartMedicalStreamTranscription.md") API.
@@ -249,9 +243,7 @@ increase if you need to transcribe streams that have more than two channels. For
 information about requesting a quota increase, see [AWS service
 quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
-### Transcribing
-
-multi-channel audio in an HTTP/2 stream
+### Transcribing multi-channel audio in an HTTP/2 stream
 
 To
 transcribe multi-channel audio in an HTTP/2 stream, use the
@@ -271,9 +263,7 @@ following:
 For more information on setting up an HTTP/2 stream to transcribe a medical
 conversation, see [Setting up an HTTP/2 stream](streaming-setting-up.md#streaming-http2 "streaming-setting-up.md#streaming-http2").
 
-### Transcribing
-
-multi-channel audio in a WebSocket stream
+### Transcribing multi-channel audio in a WebSocket stream
 
 To partition speakers in WebSocket streams, use the following format to create
 a pre-signed URI and start a WebSocket request. Specify

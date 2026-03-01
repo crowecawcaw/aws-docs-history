@@ -3,8 +3,7 @@
 You can identify Personal Health Information (PHI) in either HTTP/2 or
 WebSocket streams. When you activate PHI Identification, Amazon Transcribe Medical labels the PHI that it
 identifies in the transcription results. For information about the PHI that Amazon Transcribe Medical can
-identify, see [Identifying personal health information (PHI) in a
-transcription](phi-id.md "phi-id.md").
+identify, see [Identifying personal health information (PHI) in a transcription](phi-id.md "phi-id.md").
 
 To use the AWS Management Console to transcribe the speech picked up by your
 microphone and identify any PHI, choose **Dictation** as the

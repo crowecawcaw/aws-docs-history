@@ -37,14 +37,11 @@ For more information on AWS KMS, see [What is AWS Key Management Service](../../
 ###### Topics
 
 - [Creating a customer managed key](health-scribe-encryption-customer.md "health-scribe-encryption-customer.md")
-- [Specifying a customer managed key for AWS
-  HealthScribe](#health-scribe-encryption-managed "#health-scribe-encryption-managed")
+- [Specifying a customer managed key for AWS HealthScribe](#health-scribe-encryption-managed "#health-scribe-encryption-managed")
 - [AWS KMS encryption context](#health-scribe-encryption-context "#health-scribe-encryption-context")
 - [Monitoring your encryption keys for AWS HealthScribe](#hscribe-monitoring-keys "#hscribe-monitoring-keys")
 
-## Specifying a customer managed key for AWS
-
-HealthScribe
+## Specifying a customer managed key for AWS HealthScribe
 
 You can specify a customer managed key as a second layer encryption for transcription jobs or streaming.
 

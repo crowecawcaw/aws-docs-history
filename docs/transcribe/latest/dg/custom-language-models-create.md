@@ -52,8 +52,7 @@ permissions to access your Amazon S3 bucket. If you don't already have a role wi
 the Amazon S3 bucket where you placed your training data, you must create one. After you create
 a role, you can attach a policy to grant that role permissions. Do not attach a policy to a user.
 
-For example policies, see [Amazon Transcribe identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For example policies, see [Amazon Transcribe identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 To learn how to create a new IAM identity, see [IAM Identities (users, user groups, and
 roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").

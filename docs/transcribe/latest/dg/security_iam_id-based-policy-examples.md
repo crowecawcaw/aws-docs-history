@@ -1,6 +1,4 @@
-# Amazon Transcribe identity-based policy
-
-examples
+# Amazon Transcribe identity-based policy examples
 
 By default, users and roles don't have permission to create or modify Amazon Transcribe
 resources. To grant users permission to perform actions on the
@@ -18,8 +16,7 @@ For details about actions and resource types defined by Amazon Transcribe, inclu
 - [Using the AWS Management Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Permissions required for IAM roles](#auth-role-iam-user "#auth-role-iam-user")
 - [Permissions required for Amazon S3 encryption keys](#auth-role-kms-key "#auth-role-kms-key")
-- [Allow users to
-  view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [AWS KMS encryption context policy](#kms-context-policy "#kms-context-policy")
 - [Confused deputy prevention policy](#confused-deputy-policy "#confused-deputy-policy")
 - [Viewing transcription jobs based on tags](#tagging-transcription-policy "#tagging-transcription-policy")
@@ -185,9 +182,7 @@ JSON
 
 ```
 
-## Allow users to
-
-view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

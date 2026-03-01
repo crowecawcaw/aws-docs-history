@@ -1,6 +1,4 @@
-# Transcribing a medical
-
-conversation
+# Transcribing a medical conversation
 
 You can use Amazon Transcribe Medical to transcribe a medical conversation between a clinician and a patient
 using either a batch transcription job or a real-time stream. Batch transcription jobs
@@ -21,22 +19,17 @@ You can transcribe a clinician-patient visit in the following medical specialiti
 
 - Urology – available in streaming transcription only
   You can improve transcription accuracy by using medical custom vocabularies. For
-  information on how medical custom vocabularies work, see [Improving transcription accuracy with medical custom
-  vocabularies](vocabulary-med.md "vocabulary-med.md").
+  information on how medical custom vocabularies work, see [Improving transcription accuracy with medical custom vocabularies](vocabulary-med.md "vocabulary-med.md").
 
 By default, Amazon Transcribe Medical returns the transcription with the highest confidence level. If you'd
-like to configure it to return alternative transcriptions, see [Generating alternative
-transcriptions](alternative-med-transcriptions.md "alternative-med-transcriptions.md").
+like to configure it to return alternative transcriptions, see [Generating alternative transcriptions](alternative-med-transcriptions.md "alternative-med-transcriptions.md").
 
 For information about how numbers and medical measurements appear in the transcription
-output, see [Transcribing numbers](how-numbers-med.md "how-numbers-med.md") and [Transcribing medical terms and
-measurements](how-measurements-med.md "how-measurements-med.md").
+output, see [Transcribing numbers](how-numbers-med.md "how-numbers-med.md") and [Transcribing medical terms and measurements](how-measurements-med.md "how-measurements-med.md").
 
 ###### Topics
 
-- [Transcribing an audio file of a medical
-  conversation](batch-medical-conversation.md "batch-medical-conversation.md")
-- [Transcribing a medical conversation in
-  a real-time stream](streaming-medical-conversation.md "streaming-medical-conversation.md")
+- [Transcribing an audio file of a medical conversation](batch-medical-conversation.md "batch-medical-conversation.md")
+- [Transcribing a medical conversation in a real-time stream](streaming-medical-conversation.md "streaming-medical-conversation.md")
 - [Enabling speaker partitioning](conversation-diarization-med.md "conversation-diarization-med.md")
 - [Transcribing multi-channel audio](conversation-channel-id-med.md "conversation-channel-id-med.md")

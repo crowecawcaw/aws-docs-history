@@ -1,6 +1,4 @@
-# Monitoring Amazon Transcribe
-
-with AWS CloudTrail
+# Monitoring Amazon Transcribe with AWS CloudTrail
 
 Amazon Transcribe is integrated with AWS CloudTrail, a service that provides a
 record of actions taken in Amazon Transcribe by an AWS Identity and Access Management (IAM)

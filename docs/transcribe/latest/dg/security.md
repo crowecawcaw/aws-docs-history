@@ -31,6 +31,5 @@ security _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for Amazon Transcribe](transcribe-compliance.md "transcribe-compliance.md")
 - [Resilience in Amazon Transcribe](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Transcribe](infrastructure-security.md "infrastructure-security.md")
-- [Vulnerability analysis and management in
-  Amazon Transcribe](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Vulnerability analysis and management in Amazon Transcribe](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Security best practices for Amazon Transcribe](security-best-practices.md "security-best-practices.md")

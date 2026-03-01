@@ -23,9 +23,7 @@ partitioning.
    file.
 9. Choose **Create**.
 
-###### To enable speaker partitioning using a batch transcription job
-
-(API)
+###### To enable speaker partitioning using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.
@@ -166,9 +164,7 @@ transcription job with speaker partitioning enabled.
 
 ```
 
-###### To transcribe an audio file of a conversation between a clinician
-
-practicing primary care and a patient (AWS CLI)
+###### To transcribe an audio file of a conversation between a clinician practicing primary care and a patient (AWS CLI)
 
 - Run the following code.
 

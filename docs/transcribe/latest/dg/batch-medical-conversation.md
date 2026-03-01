@@ -1,6 +1,4 @@
-# Transcribing an audio file of a medical
-
-conversation
+# Transcribing an audio file of a medical conversation
 
 Use a batch transcription job to transcribe audio files of medical conversations. You
 can use this to transcribe a clinician-patient dialogue. You can start a batch
@@ -32,9 +30,7 @@ transcription job and choose **Conversation** for
 6. Choose **Next**.
 7. Choose **Create**.
 
-###### To transcribe a medical conversation using a batch transcription job
-
-(API)
+###### To transcribe a medical conversation using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.
@@ -174,9 +170,7 @@ clinician-patient conversation.
 
 ```
 
-###### To transcribe a medical conversation using a batch transcription job
-
-(AWS CLI)
+###### To transcribe a medical conversation using a batch transcription job (AWS CLI)
 
 - Run the following code.
 

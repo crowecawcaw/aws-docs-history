@@ -5,8 +5,7 @@ a batch transcription job to transcribe audio files and identify the personal he
 information (PHI) within them. When you
 activate Personal Health Information (PHI) Identification, Amazon Transcribe Medical labels the PHI that it
 identified in the transcription results. For information about the PHI that Amazon Transcribe Medical can
-identify, see [Identifying personal health information (PHI) in a
-transcription](phi-id.md "phi-id.md").
+identify, see [Identifying personal health information (PHI) in a transcription](phi-id.md "phi-id.md").
 
 You can start a batch transcription job using either the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API or the AWS Management Console.
 
@@ -15,10 +14,7 @@ use the AWS Management Console to transcribe a clinician-patient dialogue, creat
 transcription job and choose **Conversation** for
 **Audio input type**.
 
-###### To
-
-transcribe an audio file and identify its PHI
-(AWS Management Console)
+###### To transcribe an audio file and identify its PHI (AWS Management Console)
 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/ "https://console.aws.amazon.com/transcribe/").
 2. In the navigation pane, under Amazon Transcribe Medical, choose **Transcription
@@ -40,9 +36,7 @@ transcribe an audio file and identify its PHI
    Identification**.
 8. Choose **Create**.
 
-###### To transcribe an audio file and identify its PHI using a batch
-
-transcription job (API)
+###### To transcribe an audio file and identify its PHI using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API, specify the following.
   1.  For `MedicalTranscriptionJobName`,
@@ -184,9 +178,7 @@ identified.
 
 ```
 
-###### To transcribe an audio file and identify PHI using a batch transcription
-
-job (AWS CLI)
+###### To transcribe an audio file and identify PHI using a batch transcription job (AWS CLI)
 
 - Run the
   following

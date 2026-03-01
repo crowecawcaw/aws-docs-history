@@ -32,6 +32,5 @@ _[Amazon EventBridge User Guide](../../../eventbridge/latest/userguide/eb-what-i
 ###### Topics
 
 - [Monitoring Amazon Transcribe with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Monitoring Amazon Transcribe
-  with AWS CloudTrail](monitoring-transcribe-cloud-trail.md "monitoring-transcribe-cloud-trail.md")
+- [Monitoring Amazon Transcribe with AWS CloudTrail](monitoring-transcribe-cloud-trail.md "monitoring-transcribe-cloud-trail.md")
 - [Using Amazon EventBridge with Amazon Transcribe](monitoring-events.md "monitoring-events.md")
