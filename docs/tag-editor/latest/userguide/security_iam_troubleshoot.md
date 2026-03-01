@@ -1,20 +1,14 @@
-# Troubleshooting Tag Editor identity and
-
-access
+# Troubleshooting Tag Editor identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Tag Editor and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in Tag Editor](#security_iam_troubleshoot-permissions-taged "#security_iam_troubleshoot-permissions-taged")
-- [I am not authorized to perform
-  iam:PassRole](#security_troubleshoot-passrole "#security_troubleshoot-passrole")
+- [I am not authorized to perform an action in Tag Editor](#security_iam_troubleshoot-permissions-taged "#security_iam_troubleshoot-permissions-taged")
+- [I am not authorized to perform iam:PassRole](#security_troubleshoot-passrole "#security_troubleshoot-passrole")
 
-## I am not authorized to
-
-perform an action in Tag Editor
+## I am not authorized to perform an action in Tag Editor
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -32,9 +26,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 access the `my-test-resource` resource using the `tag:GetTagKeys`
 action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Tag Editor.
 

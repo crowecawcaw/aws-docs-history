@@ -1,6 +1,4 @@
-# Evaluating compliance for an
-
-account
+# Evaluating compliance for an account
 
 You can evaluate the compliance of an account in your organization with its effective tag
 policy.
@@ -103,5 +101,4 @@ including the following:
   to tag the policies that the account inherits.
   If you're signed in as the management account in the organization, you can also generate a
   report. This report shows information about all tagged resources in your organization's
-  accounts. For more information, see [Evaluating
-  organization-wide compliance](tag-policies-orgs-evaluating-org-wide-compliance.md "tag-policies-orgs-evaluating-org-wide-compliance.md").
+  accounts. For more information, see [Evaluating organization-wide compliance](tag-policies-orgs-evaluating-org-wide-compliance.md "tag-policies-orgs-evaluating-org-wide-compliance.md").

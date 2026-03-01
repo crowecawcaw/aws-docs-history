@@ -7,15 +7,12 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Tag Editor
-  identity-based policies](#security_iam_service-with-iam-id-based-policies-arg-te "#security_iam_service-with-iam-id-based-policies-arg-te")
+- [Tag Editor identity-based policies](#security_iam_service-with-iam-id-based-policies-arg-te "#security_iam_service-with-iam-id-based-policies-arg-te")
 - [Resource-based policies](#security_iam_resource-based-policies "#security_iam_resource-based-policies")
 - [Authorization based on tags](#security_iam_tags "#security_iam_tags")
 - [Tag Editor IAM roles](#security_iam_roles "#security_iam_roles")
 
-## Tag Editor
-
-identity-based policies
+## Tag Editor identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources in addition to the conditions under which actions are allowed or denied.
@@ -79,9 +76,7 @@ Tag Editor does not have any resources of its own. Instead, it manipulates the
 metadata (tags) that are attached to resources created by other
 AWS services.
 
-### Condition
-
-keys
+### Condition keys
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -96,8 +91,7 @@ Tag Editor does not define any service-specific condition keys.
 
 ### Examples
 
-To view examples of Tag Editor identity-based policies, see [Tag Editor identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Tag Editor identity-based policies, see [Tag Editor identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies
 
@@ -118,8 +112,7 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 are creating or updating the resource.
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Viewing groups based on
-tags](security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags "security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags"). For more information about
+the tags on that resource, see [Viewing groups based on tags](security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags "security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags"). For more information about
 attribute-based access control (ABAC), see [What is
 ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
 
@@ -129,9 +122,7 @@ An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/Use
 is an entity within your AWS account that has specific permissions. Tag Editor does not
 have or use service roles.
 
-### Using temporary credentials with
-
-Tag Editor
+### Using temporary credentials with Tag Editor
 
 In Tag Editor, you can use temporary credentials to sign in with federation, assume
 an IAM role, or to assume a cross-account role. You obtain temporary security

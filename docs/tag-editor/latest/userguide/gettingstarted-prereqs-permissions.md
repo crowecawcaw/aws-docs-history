@@ -13,9 +13,7 @@ following categories:
   information about creating and attaching IAM policies, see [Working with
   policies](../../../IAM/latest/UserGuide/ManagingPolicies.md "../../../IAM/latest/UserGuide/ManagingPolicies.md").
 
-## Permissions for individual
-
-services
+## Permissions for individual services
 
 ###### Important
 
@@ -28,18 +26,14 @@ have permissions to the tagging operations in that service's API, such as the
 [Amazon EC2
 CreateTags](../../../AWSEC2/latest/APIReference/API_CreateTags.md "../../../AWSEC2/latest/APIReference/API_CreateTags.md") operation.
 
-## Permissions required to use the
-
-Tag Editor console
+## Permissions required to use the Tag Editor console
 
 To use the Tag Editor console to list and tag resources, the following permissions must be added to a user's policy
 statement in IAM. You can add either AWS managed policies that are
 maintained and kept up to date by AWS, or you can create and maintain your own
 custom policy.
 
-### Using AWS managed
-
-policies for Tag Editor permissions
+### Using AWS managed policies for Tag Editor permissions
 
 Tag Editor supports the following AWS managed policies that you can use to
 provide a predefined set of permissions to your users. You can attach these
@@ -133,9 +127,7 @@ JSON
 
 ```
 
-### Adding Tag Editor permissions
-
-manually
+### Adding Tag Editor permissions manually
 
 - `tag:*` (This permission allows all Tag Editor actions. If
   you instead want to restrict actions that are available to a user,
@@ -159,9 +151,7 @@ you filter your search using tag keys or values.
 The `resource-explorer:ListResources` permission allows Tag Editor to list resources
 when you search resources without defining search tags.
 
-## Granting permissions
-
-for using Tag Editor
+## Granting permissions for using Tag Editor
 
 To add a policy for using AWS Resource Groups and Tag Editor to a role, do the
 following.
@@ -216,9 +206,7 @@ to a principal, see [Adding
 and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User
 Guide_.
 
-## Authorization and access control based on
-
-tags
+## Authorization and access control based on tags
 
 AWS services support the following:
 

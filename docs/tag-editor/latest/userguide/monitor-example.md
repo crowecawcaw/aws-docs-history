@@ -1,6 +1,4 @@
-# Tutorial: Automatically stopping Amazon EC2 instances that
-
-are missing required tags
+# Tutorial: Automatically stopping Amazon EC2 instances that are missing required tags
 
 As your pool of AWS resources and AWS accounts that you manage grows, you can use
 tags to make it easier to categorize your resources. Tags are commonly used for critical
@@ -51,12 +49,9 @@ change all references in the following code examples to your chosen Region.
 ###### Topics
 
 - [Step 1. Create the Lambda function](#monitor-example-step-1 "#monitor-example-step-1")
-- [Step 2. Set up the required IAM
-  permissions](#monitor-example-step-2 "#monitor-example-step-2")
-- [Step 3. Do a preliminary test of your Lambda
-  function](#monitor-example-step-3 "#monitor-example-step-3")
-- [Step 4. Create the EventBridge rule that launches
-  the function](#monitor-example-step-4 "#monitor-example-step-4")
+- [Step 2. Set up the required IAM permissions](#monitor-example-step-2 "#monitor-example-step-2")
+- [Step 3. Do a preliminary test of your Lambda function](#monitor-example-step-3 "#monitor-example-step-3")
+- [Step 4. Create the EventBridge rule that launches the function](#monitor-example-step-4 "#monitor-example-step-4")
 - [Step 5. Test the complete solution](#monitor-example-step-6 "#monitor-example-step-6")
 - [Tutorial summary](#summary "#summary")
 
@@ -206,9 +201,7 @@ cases.
 
 Keep the Lambda console window open in your browser.
 
-## Step 2. Set up the required IAM
-
-permissions
+## Step 2. Set up the required IAM permissions
 
 Before the function can successfully run, you must grant the function the
 permission to stop an EC2 instance. The AWS provided role [lambda_basic_execution](https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution "https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution") doesn't have that permission.
@@ -221,9 +214,7 @@ the function's execution role named
 For more information about creating Amazon EC2 specific IAM policies, see [Amazon EC2: Allows starting or stopping an EC2 Instance and modifying a security
 group, programmatically and in the console](../../../IAM/latest/UserGuide/reference_policies_examples_ec2_instance-securitygroup.md "../../../IAM/latest/UserGuide/reference_policies_examples_ec2_instance-securitygroup.md") in the _IAM User Guide_.
 
-###### To create an IAM permission policy and attach it to the Lambda function's
-
-execution role
+###### To create an IAM permission policy and attach it to the Lambda function's execution role
 
 1. In a different browser tab or window, open the [Roles](https://console.aws.amazon.com/iamv2/home#/roles "https://console.aws.amazon.com/iamv2/home#/roles") page of the IAM console.
 2. Start typing the role name `AutoEC2Termination`, and
@@ -281,9 +272,7 @@ JSON
 
 ```
 
-## Step 3. Do a preliminary test of your Lambda
-
-function
+## Step 3. Do a preliminary test of your Lambda function
 
 In this step, you submit a test event to your function. The Lambda test
 functionality works by submitting a manually provided test event. The function
@@ -390,9 +379,7 @@ END RequestId: 53631a49-2b54-42fe-bf61-85b9e91e86c4
 
 Keep the Lambda console open in your browser.
 
-## Step 4. Create the EventBridge rule that launches
-
-the function
+## Step 4. Create the EventBridge rule that launches the function
 
 Now you can create an EventBridge rule that matches the event and points to your Lambda
 function.

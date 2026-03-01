@@ -6,8 +6,7 @@ You can use Tag Editor to add tags to selected resources that are in the results
 ###### Note
 
 This topic describes how to bulk edit the tags for _multiple_ resources. You can also edit the tag values for an
-individual resource. For more information, see [View and edit existing tags for a selected
-resource](tagging-resources-view.md "tagging-resources-view.md").
+individual resource. For more information, see [View and edit existing tags for a selected resource](tagging-resources-view.md "tagging-resources-view.md").
 
 1. Open the [Tag Editor console](https://console.aws.amazon.com/resource-groups/tag-editor "https://console.aws.amazon.com/resource-groups/tag-editor"), and submit a query that returns multiple resources
    that you want to tag.

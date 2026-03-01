@@ -15,17 +15,12 @@ requirements and set the necessary permissions.
 
 ###### Topics
 
-- [Prerequisites for evaluating compliance
-  with tag policies](#tag-policies-prereqs-overview "#tag-policies-prereqs-overview")
-- [Permissions for evaluating compliance
-  for an account](#tag-policies-permissions-account "#tag-policies-permissions-account")
-- [Permissions for evaluating
-  organization-wide compliance](#tag-policies-permissions-org "#tag-policies-permissions-org")
+- [Prerequisites for evaluating compliance with tag policies](#tag-policies-prereqs-overview "#tag-policies-prereqs-overview")
+- [Permissions for evaluating compliance for an account](#tag-policies-permissions-account "#tag-policies-permissions-account")
+- [Permissions for evaluating organization-wide compliance](#tag-policies-permissions-org "#tag-policies-permissions-org")
 - [Amazon S3 bucket policy for report storage](#bucket-policy "#bucket-policy")
 
-### Prerequisites for evaluating compliance
-
-with tag policies
+### Prerequisites for evaluating compliance with tag policies
 
 Evaluating compliance with tag policies requires the following:
 
@@ -39,17 +34,13 @@ Evaluating compliance with tag policies requires the following:
 
 - To [find noncompliant tags on an account's
   resources](tag-policies-orgs-finding-noncompliant-tags.md "tag-policies-orgs-finding-noncompliant-tags.md"), you need sign-in credentials for that account
-  and the permissions listed in [Permissions for evaluating compliance
-  for an account](#tag-policies-permissions-account "#tag-policies-permissions-account").
+  and the permissions listed in [Permissions for evaluating compliance for an account](#tag-policies-permissions-account "#tag-policies-permissions-account").
 - To [evaluate organization-wide compliance](tag-policies-orgs-evaluating-org-wide-compliance.md "tag-policies-orgs-evaluating-org-wide-compliance.md"), you
   need sign-in credentials for the organization's management account and the
-  permissions listed in [Permissions for evaluating
-  organization-wide compliance](#tag-policies-permissions-org "#tag-policies-permissions-org") . You can request the
+  permissions listed in [Permissions for evaluating organization-wide compliance](#tag-policies-permissions-org "#tag-policies-permissions-org"). You can request the
   compliance report from only the AWS Region US East (N. Virginia) .
 
-### Permissions for evaluating compliance
-
-for an account
+### Permissions for evaluating compliance for an account
 
 Finding noncompliant tags on an account's resources requires the following
 permissions:
@@ -93,9 +84,7 @@ JSON
 For more information about IAM policies and permissions, see the
 [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-### Permissions for evaluating
-
-organization-wide compliance
+### Permissions for evaluating organization-wide compliance
 
 Evaluating organization-wide compliance with tag policies requires the following
 permissions:
