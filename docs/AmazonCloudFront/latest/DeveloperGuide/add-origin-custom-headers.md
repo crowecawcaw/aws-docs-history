@@ -8,12 +8,9 @@ supports custom headers for custom origins and Amazon S3 origins.
 ###### Contents
 
 - [Use cases](add-origin-custom-headers.md#add-origin-custom-headers-use-cases "add-origin-custom-headers.md#add-origin-custom-headers-use-cases")
-- [Configure CloudFront to add custom
-  headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure")
-- [Custom headers that CloudFront can’t add
-  to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist")
-- [Configure CloudFront to
-  forward the Authorization header](add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization "add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization")
+- [Configure CloudFront to add custom headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure")
+- [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist")
+- [Configure CloudFront to forward the Authorization header](add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization "add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization")
 
 ## Use cases
 
@@ -53,12 +50,9 @@ CloudFront to respect CORS settings](header-caching.md#header-caching-web-cors "
 You can use custom headers to control access to content. By configuring
 your origin to respond to requests only when they include a custom header
 that gets added by CloudFront, you prevent users from bypassing CloudFront and accessing
-your content directly on the origin. For more information, see [Restrict access to files on custom
-origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
+your content directly on the origin. For more information, see [Restrict access to files on custom origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
 
-## Configure CloudFront to add custom
-
-headers to origin requests
+## Configure CloudFront to add custom headers to origin requests
 
 To configure a distribution to add custom headers to requests that it sends to your
 origin, update the origin configuration using one of the following methods:
@@ -78,9 +72,7 @@ the header value before forwarding the request to the origin.
 
 For the quotas that apply to origin custom headers, see [Quotas on headers](cloudfront-limits.md#limits-custom-headers "cloudfront-limits.md#limits-custom-headers").
 
-## Custom headers that CloudFront can’t add
-
-to origin requests
+## Custom headers that CloudFront can’t add to origin requests
 
 You can’t configure CloudFront to add any of the following headers to requests that it sends
 to your origin:
@@ -111,9 +103,7 @@ to your origin:
 - Headers that begin with `X-Edge-`
 - `X-Real-Ip`
 
-## Configure CloudFront to
-
-forward the `Authorization` header
+## Configure CloudFront to forward the `Authorization` header
 
 When CloudFront forwards a viewer request to your origin, CloudFront removes some viewer headers
 by default, including the `Authorization` header. To make sure that your
@@ -127,5 +117,4 @@ have the following options:
   You cannot forward the `Authorization` header individually in an
   origin request policy, but when you forward all viewer headers CloudFront includes the
   `Authorization` header in viewer requests. CloudFront provides a
-  managed origin request policy for this use case, called **Managed-AllViewer**. For more information, see [Use managed origin request
-  policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").
+  managed origin request policy for this use case, called **Managed-AllViewer**. For more information, see [Use managed origin request policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").

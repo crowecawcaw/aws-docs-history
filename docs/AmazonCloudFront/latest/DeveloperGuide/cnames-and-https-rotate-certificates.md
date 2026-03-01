@@ -30,12 +30,9 @@ To rotate your certificates, perform the following procedure. Viewers can
 continue to access your content while you rotate certificates as well as after
 the process is complete.
 
-###### To rotate SSL/TLS
+###### To rotate SSL/TLS certificates
 
-certificates
-
-1. [Increase the quotas for
-   SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md") to
+1. [Increase the quotas for SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md") to
    determine whether you need permission to use more SSL certificates. If
    so, request permission and wait until permission is granted before you
    continue with step 2.

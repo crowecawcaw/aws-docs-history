@@ -1,11 +1,8 @@
-# Create response headers
-
-policies
+# Create response headers policies
 
 You can use a response headers policy to specify the HTTP headers that Amazon CloudFront adds or
 removes in HTTP responses. For more information about response headers policies and reasons
-to use them, see [Add or remove HTTP headers in CloudFront responses
-with a policy](modifying-response-headers.md "modifying-response-headers.md").
+to use them, see [Add or remove HTTP headers in CloudFront responses with a policy](modifying-response-headers.md "modifying-response-headers.md").
 
 You can create a response headers policy in the CloudFront console. Or you can create one by
 using AWS CloudFormation, the AWS Command Line Interface (AWS CLI), or the CloudFront API. After you create a response headers
@@ -42,8 +39,7 @@ Console
    to add to the policy.
 
    For more information about the security headers settings, see
-   [Security
-   headers](understanding-response-headers-policies.md#understanding-response-headers-policies-security "understanding-response-headers-policies.md#understanding-response-headers-policies-security"). 4. In the **Custom headers** panel, add any
+   [Security headers](understanding-response-headers-policies.md#understanding-response-headers-policies-security "understanding-response-headers-policies.md#understanding-response-headers-policies-security"). 4. In the **Custom headers** panel, add any
    custom headers that you want to include in the policy.
 
    For more information about the custom headers settings, see
@@ -65,9 +61,7 @@ Console
 After you create a response headers policy, you can attach it to a cache
 behavior in a CloudFront distribution.
 
-###### To attach a response headers policy to an existing distribution
-
-(console)
+###### To attach a response headers policy to an existing distribution (console)
 
 1. Open the **Distributions** page in the CloudFront console
    at [https://console.aws.amazon.com/cloudfront/v4/home#/distributions](https://console.aws.amazon.com/cloudfront/v4/home#/distributions "https://console.aws.amazon.com/cloudfront/v4/home#/distributions").
@@ -82,9 +76,7 @@ add to the cache behavior. 5. Choose **Save changes** to update the cache behavi
 If you're creating a new cache behavior, choose **Create
 behavior**.
 
-###### To attach a response headers policy to a new distribution
-
-(console)
+###### To attach a response headers policy to a new distribution (console)
 
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Choose **Create distribution**.
@@ -189,8 +181,7 @@ aws cloudfront create-response-headers-policy --generate-cli-skeleton yaml-input
    response headers policy configuration, then save the file.
 
 For more information about the response headers policy settings, see
-[Understand response headers
-policies](understanding-response-headers-policies.md "understanding-response-headers-policies.md"). 3. Use the following command to create the response headers policy. The
+[Understand response headers policies](understanding-response-headers-policies.md "understanding-response-headers-policies.md"). 3. Use the following command to create the response headers policy. The
 policy that you create uses the input parameters from the
 `response-headers-policy.yaml` file.
 
@@ -203,9 +194,7 @@ Make note of the `Id` value in the command output. This is
 the response headers policy ID. You need it to attach the policy to the
 cache behavior of a CloudFront distribution.
 
-###### To attach a response headers policy to an existing distribution (CLI with
-
-input file)
+###### To attach a response headers policy to an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration for
    the CloudFront distribution that you want to update. Replace
@@ -240,9 +229,7 @@ aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > di
 aws cloudfront update-distribution --id `distribution_ID` --cli-input-yaml file://dist-config.yaml
 ```
 
-###### To attach a response headers policy to a new distribution (CLI with input
-
-file)
+###### To attach a response headers policy to a new distribution (CLI with input file)
 
 1. Use the following command to create a file that's named
    `distribution.yaml`. This file contains all of the
@@ -271,8 +258,7 @@ aws cloudfront create-distribution --cli-input-yaml file://distribution.yaml
 
 API
 To create a response headers policy with the CloudFront API, use [CreateResponseHeadersPolicy](../../../cloudfront/latest/APIReference/API_CreateResponseHeadersPolicy.md "../../../cloudfront/latest/APIReference/API_CreateResponseHeadersPolicy.md"). For more information about the fields that
-you specify in this API call, see [Understand response headers
-policies](understanding-response-headers-policies.md "understanding-response-headers-policies.md") and the API reference
+you specify in this API call, see [Understand response headers policies](understanding-response-headers-policies.md "understanding-response-headers-policies.md") and the API reference
 documentation for your AWS SDK or other API client.
 
 After you create a response headers policy, you can attach it to a cache

@@ -1,6 +1,4 @@
-# Restrictions on
-
-CloudFront Functions
+# Restrictions on CloudFront Functions
 
 The following restrictions apply only to CloudFront Functions.
 
@@ -8,11 +6,9 @@ The following restrictions apply only to CloudFront Functions.
 
 - [Logs](cloudfront-function-restrictions.md#cloudfront-function-restrictions-logs "cloudfront-function-restrictions.md#cloudfront-function-restrictions-logs")
 - [Request body](cloudfront-function-restrictions.md#cloudfront-function-restrictions-request-body "cloudfront-function-restrictions.md#cloudfront-function-restrictions-request-body")
-- [Using temporary credentials
-  with the CloudFront KeyValueStore API](cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store "cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store")
+- [Using temporary credentials with the CloudFront KeyValueStore API](cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store "cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store")
 - [Runtime](cloudfront-function-restrictions.md#cloudfront-function-runtime-restrictions "cloudfront-function-restrictions.md#cloudfront-function-runtime-restrictions")
-- [Compute
-  utilization](cloudfront-function-restrictions.md#cloudfront-function-restrictions-compute-utilization "cloudfront-function-restrictions.md#cloudfront-function-restrictions-compute-utilization")
+- [Compute utilization](cloudfront-function-restrictions.md#cloudfront-function-restrictions-compute-utilization "cloudfront-function-restrictions.md#cloudfront-function-restrictions-compute-utilization")
   For information about quotas (formerly referred to as limits), see [Quotas on CloudFront Functions](cloudfront-limits.md#limits-functions "cloudfront-limits.md#limits-functions").
 
 ## Logs
@@ -23,9 +19,7 @@ Function logs in CloudFront Functions are truncated at 10 KB.
 
 CloudFront Functions can't access the body of the HTTP request.
 
-## Using temporary credentials
-
-with the CloudFront KeyValueStore API
+## Using temporary credentials with the CloudFront KeyValueStore API
 
 You can use AWS Security Token Service (AWS STS) to generate temporary security credentials (also
 known as _session tokens_). Session tokens allow you to
@@ -86,17 +80,14 @@ token.
 
 The CloudFront Functions runtime environment doesn't support dynamic code evaluation,
 and it restricts access to the network, file system, environment variables, and
-timers. For more information, see [Restricted
-features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features "functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features").
+timers. For more information, see [Restricted features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features "functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features").
 
 ###### Note
 
 To use CloudFront KeyValueStore, your CloudFront function must use [JavaScript runtime
 2.0](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
-## Compute
-
-utilization
+## Compute utilization
 
 CloudFront Functions have a limit on the time they can take to run, measured as
 _compute utilization_. Compute utilization is a

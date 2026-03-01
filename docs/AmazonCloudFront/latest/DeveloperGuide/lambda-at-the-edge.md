@@ -19,21 +19,14 @@ Lambda@Edge isn't supported with gRPC requests. For more information. see [Using
 
 ###### Topics
 
-- [How Lambda@Edge works with requests
-  and responses](lambda-edge-event-request-response.md "lambda-edge-event-request-response.md")
+- [How Lambda@Edge works with requests and responses](lambda-edge-event-request-response.md "lambda-edge-event-request-response.md")
 - [Ways to use Lambda@Edge](lambda-edge-ways-to-use.md "lambda-edge-ways-to-use.md")
 - [Get started with Lambda@Edge functions (console)](lambda-edge-how-it-works.md "lambda-edge-how-it-works.md")
-- [Set up IAM permissions and roles for
-  Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md")
-- [Write and create a Lambda@Edge
-  function](lambda-edge-create-function.md "lambda-edge-create-function.md")
-- [Add triggers for a Lambda@Edge
-  function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md")
-- [Test and debug Lambda@Edge
-  functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md")
-- [Delete Lambda@Edge functions and
-  replicas](lambda-edge-delete-replicas.md "lambda-edge-delete-replicas.md")
+- [Set up IAM permissions and roles for Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md")
+- [Write and create a Lambda@Edge function](lambda-edge-create-function.md "lambda-edge-create-function.md")
+- [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md")
+- [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md")
+- [Delete Lambda@Edge functions and replicas](lambda-edge-delete-replicas.md "lambda-edge-delete-replicas.md")
 - [Lambda@Edge event structure](lambda-event-structure.md "lambda-event-structure.md")
-- [Work with requests and
-  responses](lambda-generating-http-responses.md "lambda-generating-http-responses.md")
+- [Work with requests and responses](lambda-generating-http-responses.md "lambda-generating-http-responses.md")
 - [Lambda@Edge example functions](lambda-examples.md "lambda-examples.md")

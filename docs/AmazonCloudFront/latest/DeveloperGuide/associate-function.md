@@ -20,8 +20,7 @@ You can choose the following event types:
   CloudFront returns a response to the viewer.
   You can't use origin-facing event types (_origin request_
   and _origin response_) with CloudFront Functions. Instead you can
-  use Lambda@Edge. For more information, see [CloudFront events that can trigger a
-  Lambda@Edge function](lambda-cloudfront-trigger-events.md "lambda-cloudfront-trigger-events.md").
+  use Lambda@Edge. For more information, see [CloudFront events that can trigger a Lambda@Edge function](lambda-cloudfront-trigger-events.md "lambda-cloudfront-trigger-events.md").
 
 ###### Note
 

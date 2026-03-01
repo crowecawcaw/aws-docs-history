@@ -12,20 +12,12 @@ following code examples, rename the `index.mjs` file to
 ###### Topics
 
 - [General examples](#lambda-examples-general-examples "#lambda-examples-general-examples")
-- [Generate responses -
-  examples](#lambda-examples-generated-response-examples "#lambda-examples-generated-response-examples")
-- [Query strings -
-  examples](#lambda-examples-query-string-examples "#lambda-examples-query-string-examples")
-- [Personalize content by
-  country or device type headers - examples](#lambda-examples-redirecting-examples "#lambda-examples-redirecting-examples")
-- [Content-based
-  dynamic origin selection - examples](#lambda-examples-content-based-routing-examples "#lambda-examples-content-based-routing-examples")
-- [Update error statuses
-
-* examples](#lambda-examples-update-error-status-examples "#lambda-examples-update-error-status-examples")
-
-- [Access the request
-  body - examples](#lambda-examples-access-request-body-examples "#lambda-examples-access-request-body-examples")
+- [Generate responses - examples](#lambda-examples-generated-response-examples "#lambda-examples-generated-response-examples")
+- [Query strings - examples](#lambda-examples-query-string-examples "#lambda-examples-query-string-examples")
+- [Personalize content by country or device type headers - examples](#lambda-examples-redirecting-examples "#lambda-examples-redirecting-examples")
+- [Content-based dynamic origin selection - examples](#lambda-examples-content-based-routing-examples "#lambda-examples-content-based-routing-examples")
+- [Update error statuses - examples](#lambda-examples-update-error-status-examples "#lambda-examples-update-error-status-examples")
+- [Access the request body - examples](#lambda-examples-access-request-body-examples "#lambda-examples-access-request-body-examples")
 
 ## General examples
 
@@ -34,8 +26,7 @@ The following examples show common ways to use Lambda@Edge in CloudFront.
 ###### Topics
 
 - [Example: A/B testing](#lambda-examples-a-b-testing "#lambda-examples-a-b-testing")
-- [Example: Override a
-  response header](#lambda-examples-overriding-response-header "#lambda-examples-overriding-response-header")
+- [Example: Override a response header](#lambda-examples-overriding-response-header "#lambda-examples-overriding-response-header")
 
 ### Example: A/B testing
 
@@ -169,9 +160,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Override a
-
-response header
+### Example: Override a response header
 
 The following example shows how to change the value of a response header based
 on the value of another header.
@@ -222,23 +211,17 @@ def lambda_handler(event, context):
     return response
 ```
 
-## Generate responses -
-
-examples
+## Generate responses - examples
 
 The following examples show how you can use Lambda@Edge to generate
 responses.
 
 ###### Topics
 
-- [Example: Serve static
-  content (generated response)](#lambda-examples-static-web-server "#lambda-examples-static-web-server")
-- [Example: Generate an HTTP
-  redirect (generated response)](#lambda-examples-http-redirect "#lambda-examples-http-redirect")
+- [Example: Serve static content (generated response)](#lambda-examples-static-web-server "#lambda-examples-static-web-server")
+- [Example: Generate an HTTP redirect (generated response)](#lambda-examples-http-redirect "#lambda-examples-http-redirect")
 
-### Example: Serve static
-
-content (generated response)
+### Example: Serve static content (generated response)
 
 The following example shows how to use a Lambda function to serve static
 website content, which reduces the load on the origin server and reduces overall
@@ -247,12 +230,10 @@ latency.
 ###### Note
 
 You can generate HTTP responses for viewer request and origin request
-events. For more information, see [Generate HTTP
-responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
+events. For more information, see [Generate HTTP responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
 
 You can also replace or remove the body of the HTTP response in origin
-response events. For more information, see [Update HTTP responses in origin
-response triggers](lambda-generating-http-responses.md#lambda-updating-http-responses "lambda-generating-http-responses.md#lambda-updating-http-responses").
+response events. For more information, see [Update HTTP responses in origin response triggers](lambda-generating-http-responses.md#lambda-updating-http-responses "lambda-generating-http-responses.md#lambda-updating-http-responses").
 
 Node.js
 
@@ -337,17 +318,14 @@ def lambda_handler(event, context):
     return response
 ```
 
-### Example: Generate an HTTP
-
-redirect (generated response)
+### Example: Generate an HTTP redirect (generated response)
 
 The following example shows how to generate an HTTP redirect.
 
 ###### Note
 
 You can generate HTTP responses for viewer request and origin request
-events. For more information, see [Generate HTTP
-responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
+events. For more information, see [Generate HTTP responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
 
 Node.js
 
@@ -393,25 +371,18 @@ def lambda_handler(event, context):
     return response
 ```
 
-## Query strings -
-
-examples
+## Query strings - examples
 
 The following examples show ways that you can use Lambda@Edge with query
 strings.
 
 ###### Topics
 
-- [Example: Add a
-  header based on a query string parameter](#lambda-examples-header-based-on-query-string "#lambda-examples-header-based-on-query-string")
-- [Example:
-  Normalize query string parameters to improve the cache hit ratio](#lambda-examples-normalize-query-string-parameters "#lambda-examples-normalize-query-string-parameters")
-- [Example: Redirect
-  unauthenticated users to a sign-in page](#lambda-examples-redirect-to-signin-page "#lambda-examples-redirect-to-signin-page")
+- [Example: Add a header based on a query string parameter](#lambda-examples-header-based-on-query-string "#lambda-examples-header-based-on-query-string")
+- [Example: Normalize query string parameters to improve the cache hit ratio](#lambda-examples-normalize-query-string-parameters "#lambda-examples-normalize-query-string-parameters")
+- [Example: Redirect unauthenticated users to a sign-in page](#lambda-examples-redirect-to-signin-page "#lambda-examples-redirect-to-signin-page")
 
-### Example: Add a
-
-header based on a query string parameter
+### Example: Add a header based on a query string parameter
 
 The following example shows how to get the key-value pair of a query string
 parameter, and then add a header based on those values.
@@ -477,9 +448,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example:
-
-Normalize query string parameters to improve the cache hit ratio
+### Example: Normalize query string parameters to improve the cache hit ratio
 
 The following example shows how to improve your cache hit ratio by making the
 following changes to query strings before CloudFront forwards requests to your
@@ -488,8 +457,7 @@ origin:
 - Alphabetize key-value pairs by the name of the parameter.
 - Change the case of key-value pairs to lowercase.
 
-For more information, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md").
+For more information, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md").
 
 Node.js
 
@@ -565,9 +533,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Redirect
-
-unauthenticated users to a sign-in page
+### Example: Redirect unauthenticated users to a sign-in page
 
 The following example shows how to redirect users to a sign-in page if they
 haven't entered their credentials.
@@ -669,23 +635,17 @@ def lambda_handler(event, context):
     return response
 ```
 
-## Personalize content by
-
-country or device type headers - examples
+## Personalize content by country or device type headers - examples
 
 The following examples show how you can use Lambda@Edge to customize behavior based
 on location or the type of device used by the viewer.
 
 ###### Topics
 
-- [Example: Redirect
-  viewer requests to a country-specific URL](#lambda-examples-redirect-based-on-country "#lambda-examples-redirect-based-on-country")
-- [Example: Serve different
-  versions of an object based on the device](#lambda-examples-vary-on-device-type "#lambda-examples-vary-on-device-type")
+- [Example: Redirect viewer requests to a country-specific URL](#lambda-examples-redirect-based-on-country "#lambda-examples-redirect-based-on-country")
+- [Example: Serve different versions of an object based on the device](#lambda-examples-vary-on-device-type "#lambda-examples-vary-on-device-type")
 
-### Example: Redirect
-
-viewer requests to a country-specific URL
+### Example: Redirect viewer requests to a country-specific URL
 
 The following example shows how to generate an HTTP redirect response with a
 country-specific URL and return the response to the viewer. This is useful when
@@ -702,8 +662,7 @@ Note the following:
 
 - You must configure your distribution to cache based on the
   `CloudFront-Viewer-Country` header. For more information,
-  see [Cache based on selected
-  request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
+  see [Cache based on selected request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
 - CloudFront adds the `CloudFront-Viewer-Country` header after the
   viewer request event. To use this example, you must create a trigger for
   the origin request event.
@@ -798,9 +757,7 @@ def lambda_handler(event, context):
     return response
 ```
 
-### Example: Serve different
-
-versions of an object based on the device
+### Example: Serve different versions of an object based on the device
 
 The following example shows how to serve different versions of an object based
 on the type of device that the user is using, for example, a mobile device or a
@@ -808,8 +765,7 @@ tablet. Note the following:
 
 - You must configure your distribution to cache based on the
   `CloudFront-Is-*-Viewer` headers. For more information,
-  see [Cache based on selected
-  request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
+  see [Cache based on selected request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
 - CloudFront adds the `CloudFront-Is-*-Viewer` headers after the
   viewer request event. To use this example, you must create a trigger for
   the origin request event.
@@ -899,30 +855,20 @@ def lambda_handler(event, context):
     return request
 ```
 
-## Content-based
-
-dynamic origin selection - examples
+## Content-based dynamic origin selection - examples
 
 The following examples show how you can use Lambda@Edge to route to different
 origins based on information in the request.
 
 ###### Topics
 
-- [Example: Use an origin request trigger to change from a custom origin to an
-  Amazon S3 origin](#lambda-examples-content-based-S3-origin-based-on-query "#lambda-examples-content-based-S3-origin-based-on-query")
-- [Example: Use an origin-request trigger to change the Amazon S3 origin
-  Region](#lambda-examples-content-based-S3-origin-request-trigger "#lambda-examples-content-based-S3-origin-request-trigger")
-- [Example: Use an origin request trigger to change from an Amazon S3 origin to a
-  custom origin](#lambda-examples-content-based-custom-origin-request-trigger "#lambda-examples-content-based-custom-origin-request-trigger")
-- [Example: Use an origin request trigger to gradually transfer traffic from
-  one Amazon S3 bucket to another](#lambda-examples-content-based-gradual-traffic-transfer "#lambda-examples-content-based-gradual-traffic-transfer")
-- [Example: Use an
-  origin request trigger to change the origin domain name based on the country
-  header](#lambda-examples-content-based-geo-header "#lambda-examples-content-based-geo-header")
+- [Example: Use an origin request trigger to change from a custom origin to an Amazon S3 origin](#lambda-examples-content-based-S3-origin-based-on-query "#lambda-examples-content-based-S3-origin-based-on-query")
+- [Example: Use an origin-request trigger to change the Amazon S3 origin Region](#lambda-examples-content-based-S3-origin-request-trigger "#lambda-examples-content-based-S3-origin-request-trigger")
+- [Example: Use an origin request trigger to change from an Amazon S3 origin to a custom origin](#lambda-examples-content-based-custom-origin-request-trigger "#lambda-examples-content-based-custom-origin-request-trigger")
+- [Example: Use an origin request trigger to gradually transfer traffic from one Amazon S3 bucket to another](#lambda-examples-content-based-gradual-traffic-transfer "#lambda-examples-content-based-gradual-traffic-transfer")
+- [Example: Use an origin request trigger to change the origin domain name based on the country header](#lambda-examples-content-based-geo-header "#lambda-examples-content-based-geo-header")
 
-### Example: Use an origin request trigger to change from a custom origin to an
-
-Amazon S3 origin
+### Example: Use an origin request trigger to change from a custom origin to an Amazon S3 origin
 
 This function demonstrates how an origin-request trigger can be used to change
 from a custom origin to an Amazon S3 origin from which the content is fetched, based
@@ -996,9 +942,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Use an origin-request trigger to change the Amazon S3 origin
-
-Region
+### Example: Use an origin-request trigger to change the Amazon S3 origin Region
 
 This function demonstrates how an origin-request trigger can be used to change
 the Amazon S3 origin from which the content is fetched, based on request
@@ -1018,8 +962,7 @@ To use this example, you must do the following:
 
 - Configure your distribution to cache based on the
   `CloudFront-Viewer-Country` header. For more information,
-  see [Cache based on selected
-  request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
+  see [Cache based on selected request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
 - Create a trigger for this function in the origin request event. CloudFront
   adds the `CloudFront-Viewer-Country` header after the viewer
   request event, so to use this example, you must make sure that the
@@ -1156,9 +1099,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Use an origin request trigger to change from an Amazon S3 origin to a
-
-custom origin
+### Example: Use an origin request trigger to change from an Amazon S3 origin to a custom origin
 
 This function demonstrates how an origin-request trigger can be used to change
 the custom origin from which the content is fetched, based on request
@@ -1236,9 +1177,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Use an origin request trigger to gradually transfer traffic from
-
-one Amazon S3 bucket to another
+### Example: Use an origin request trigger to gradually transfer traffic from one Amazon S3 bucket to another
 
 This function demonstrates how you can gradually transfer traffic from one
 Amazon S3 bucket to another in a controlled way.
@@ -1310,10 +1249,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example: Use an
-
-origin request trigger to change the origin domain name based on the country
-header
+### Example: Use an origin request trigger to change the origin domain name based on the country header
 
 This function demonstrates how you can change the origin domain name based on
 the `CloudFront-Viewer-Country` header, so content is served from an
@@ -1329,8 +1265,7 @@ as the following:
 
 Note that to enable this functionality you must configure your distribution to
 cache based on the `CloudFront-Viewer-Country` header. For more
-information, see [Cache based on selected
-request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
+information, see [Cache based on selected request headers](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardHeaders").
 
 Node.js
 
@@ -1369,23 +1304,17 @@ def lambda_handler(event, context):
     return request
 ```
 
-## Update error statuses
-
-- examples
+## Update error statuses - examples
 
 The following examples provide guidance for how you can use Lambda@Edge to change
 the error status that is returned to users.
 
 ###### Topics
 
-- [Example: Use an
-  origin response trigger to update the error status code to 200](#lambda-examples-custom-error-static-body "#lambda-examples-custom-error-static-body")
-- [Example: Use an origin
-  response trigger to update the error status code to 302](#lambda-examples-custom-error-new-site "#lambda-examples-custom-error-new-site")
+- [Example: Use an origin response trigger to update the error status code to 200](#lambda-examples-custom-error-static-body "#lambda-examples-custom-error-static-body")
+- [Example: Use an origin response trigger to update the error status code to 302](#lambda-examples-custom-error-new-site "#lambda-examples-custom-error-new-site")
 
-### Example: Use an
-
-origin response trigger to update the error status code to 200
+### Example: Use an origin response trigger to update the error status code to 200
 
 This function demonstrates how you can update the response status to 200 and
 generate static body content to return to the viewer in the following
@@ -1440,9 +1369,7 @@ def lambda_handler(event, context):
     return response
 ```
 
-### Example: Use an origin
-
-response trigger to update the error status code to 302
+### Example: Use an origin response trigger to update the error status code to 302
 
 This function demonstrates how you can update the HTTP status code to 302 to
 redirect to another path (cache behavior) that has a different origin
@@ -1510,9 +1437,7 @@ def lambda_handler(event, context):
     return response
 ```
 
-## Access the request
-
-body - examples
+## Access the request body - examples
 
 The following examples show how you can use Lambda@Edge to work with POST
 requests.
@@ -1532,14 +1457,10 @@ is not enabled by default.
 
 ###### Topics
 
-- [Example: Use
-  a request trigger to read an HTML form](#lambda-examples-access-request-body-examples-read "#lambda-examples-access-request-body-examples-read")
-- [Example:
-  Use a request trigger to modify an HTML form](#lambda-examples-access-request-body-examples-replace "#lambda-examples-access-request-body-examples-replace")
+- [Example: Use a request trigger to read an HTML form](#lambda-examples-access-request-body-examples-read "#lambda-examples-access-request-body-examples-read")
+- [Example: Use a request trigger to modify an HTML form](#lambda-examples-access-request-body-examples-replace "#lambda-examples-access-request-body-examples-replace")
 
-### Example: Use
-
-a request trigger to read an HTML form
+### Example: Use a request trigger to read an HTML form
 
 This function demonstrates how you can process the body of a POST request
 generated by an HTML form (web form), such as a "contact us" form. For example,
@@ -1642,9 +1563,7 @@ def lambda_handler(event, context):
     return request
 ```
 
-### Example:
-
-Use a request trigger to modify an HTML form
+### Example: Use a request trigger to modify an HTML form
 
 This function demonstrates how you can modify the body of a POST request
 generated by an HTML form (web form). The function is triggered in a CloudFront viewer

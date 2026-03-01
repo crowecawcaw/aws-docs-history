@@ -1,11 +1,8 @@
-# Use managed response
-
-headers policies
+# Use managed response headers policies
 
 With a CloudFront response headers policy, you can specify the HTTP headers that Amazon CloudFront
 removes or adds in responses that it sends to viewers. For more information about response
-headers policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses
-with a policy](modifying-response-headers.md "modifying-response-headers.md").
+headers policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses with a policy](modifying-response-headers.md "modifying-response-headers.md").
 
 CloudFront provides managed response headers policies that you can attach to cache behaviors in
 your CloudFront distributions. With a managed response headers policy, you don't need to write or
@@ -19,8 +16,7 @@ policies. You attach the policy either by name (with the console) or by ID (with
 the AWS CLI, or the AWS SDKs). The names and IDs are listed in the following
 section.
 
-For more information, see [Create response headers
-policies](creating-response-headers-policies.md "creating-response-headers-policies.md").
+For more information, see [Create response headers policies](creating-response-headers-policies.md "creating-response-headers-policies.md").
 
 The following topics describe the managed response headers policies that you can
 use.

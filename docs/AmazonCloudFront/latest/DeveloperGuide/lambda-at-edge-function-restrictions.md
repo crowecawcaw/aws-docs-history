@@ -1,6 +1,4 @@
-# Restrictions on
-
-Lambda@Edge
+# Restrictions on Lambda@Edge
 
 The following restrictions apply only to Lambda@Edge.
 
@@ -10,16 +8,12 @@ The following restrictions apply only to Lambda@Edge.
 - [HTTP status codes](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-status-codes "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-status-codes")
 - [Lambda function version](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-version "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-version")
 - [Lambda Region](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-region "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-region")
-- [Lambda role
-  permissions](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-role-permissions "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-role-permissions")
+- [Lambda role permissions](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-role-permissions "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-role-permissions")
 - [Lambda features](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-features "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-features")
 - [Supported runtimes](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-runtime "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-runtime")
-- [CloudFront
-  headers](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-cloudfront-headers "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-cloudfront-headers")
-- [Restrictions on the
-  request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body")
-- [Response timeout and keep-alive
-  timeout (custom origins only)](lambda-at-edge-function-restrictions.md#timeout-for-lambda-edge-functions "lambda-at-edge-function-restrictions.md#timeout-for-lambda-edge-functions")
+- [CloudFront headers](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-cloudfront-headers "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-cloudfront-headers")
+- [Restrictions on the request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body")
+- [Response timeout and keep-alive timeout (custom origins only)](lambda-at-edge-function-restrictions.md#timeout-for-lambda-edge-functions "lambda-at-edge-function-restrictions.md#timeout-for-lambda-edge-functions")
   For information about quotas, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-edge "cloudfront-limits.md#limits-lambda-at-edge").
 
 ## DNS resolution
@@ -29,8 +23,7 @@ _before_ it executes your origin request Lambda@Edge function.
 If the DNS service for your domain is experiencing issues and CloudFront can't resolve the
 domain name to get the IP address, your Lambda@Edge function will not invoke. CloudFront
 will return an [HTTP 502 status code (Bad
-Gateway)](http-502-bad-gateway.md "http-502-bad-gateway.md") to the client. For more information, see [DNS error
-(NonS3OriginDnsError)](http-502-bad-gateway.md#http-502-dns-error "http-502-bad-gateway.md#http-502-dns-error").
+Gateway)](http-502-bad-gateway.md "http-502-bad-gateway.md") to the client. For more information, see [DNS error (NonS3OriginDnsError)](http-502-bad-gateway.md#http-502-dns-error "http-502-bad-gateway.md#http-502-dns-error").
 
 If your function logic modifies the origin domain name, CloudFront will perform another
 DNS resolution on the updated domain name after the function has finished
@@ -55,15 +48,12 @@ aliases.
 
 The Lambda function must be in the US East (N. Virginia) Region.
 
-## Lambda role
-
-permissions
+## Lambda role permissions
 
 The IAM execution role associated with the Lambda function must allow the service
 principals `lambda.amazonaws.com` and
 `edgelambda.amazonaws.com` to assume the role. For more information,
-see [Set up IAM permissions and roles for
-Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md").
+see [Set up IAM permissions and roles for Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md").
 
 ## Lambda features
 
@@ -115,9 +105,7 @@ runtimes](../../../lambda/latest/dg/lambda-runtimes.md#runtimes-supported "../..
   _AWS Lambda Developer Guide_ and the [Node.js
   release schedule](https://github.com/nodejs/Release#release-schedule "https://github.com/nodejs/Release#release-schedule") on GitHub.
 
-## CloudFront
-
-headers
+## CloudFront headers
 
 Lambda@Edge functions can read, edit, remove, or add any of the CloudFront headers listed
 in [Add CloudFront request headers](adding-cloudfront-headers.md "adding-cloudfront-headers.md").
@@ -143,9 +131,7 @@ in [Add CloudFront request headers](adding-cloudfront-headers.md "adding-cloudfr
   and CloudFront returns HTTP status code 502 (Bad Gateway) to the
   viewer.
 
-## Restrictions on the
-
-request body with the include body option
+## Restrictions on the request body with the include body option
 
 When you choose the **Include Body** option to expose the request
 body to your Lambda@Edge function, the following information and size limits apply to
@@ -176,16 +162,12 @@ the portions of the body that are exposed or replaced.
 ###### Note
 
 If your Lambda@Edge function returns a body that exceeds these limits, your
-request will fail with an HTTP 502 status code ([Lambda validation
-error](http-502-bad-gateway.md#http-502-lambda-validation-error "http-502-bad-gateway.md#http-502-lambda-validation-error")). We recommend that you
+request will fail with an HTTP 502 status code ([Lambda validation error](http-502-bad-gateway.md#http-502-lambda-validation-error "http-502-bad-gateway.md#http-502-lambda-validation-error")). We recommend that you
 update your Lambda@Edge function so that the body doesn't exceed these
 limits.
 
-## Response timeout and keep-alive
-
-timeout (custom origins only)
+## Response timeout and keep-alive timeout (custom origins only)
 
 If you're using Lambda@Edge functions to set the response timeout or keep-alive
 timeout for your distribution origins, verify that you're specifying a value that
-your origin can support. For more information, see [Response and keep-alive timeout
-quotas](DownloadDistValuesOrigin.md#response-keep-alive-timeout-quota "DownloadDistValuesOrigin.md#response-keep-alive-timeout-quota").
+your origin can support. For more information, see [Response and keep-alive timeout quotas](DownloadDistValuesOrigin.md#response-keep-alive-timeout-quota "DownloadDistValuesOrigin.md#response-keep-alive-timeout-quota").

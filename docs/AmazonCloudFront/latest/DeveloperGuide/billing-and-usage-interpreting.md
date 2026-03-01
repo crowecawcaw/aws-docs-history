@@ -1,6 +1,4 @@
-# Interpret your AWS bill and usage
-
-reports for CloudFront
+# Interpret your AWS bill and usage reports for CloudFront
 
 Once you have the [billing report](reports-billing.md#billing-report "reports-billing.md#billing-report") and the [usage report](reports-billing.md#usage-report "reports-billing.md#usage-report"), you can use this topic to understand how
 to interpret each CloudFront charge that appears on your bill and the corresponding usage type

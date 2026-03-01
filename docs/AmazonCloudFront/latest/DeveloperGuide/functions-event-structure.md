@@ -35,14 +35,12 @@ For more information, see the following topics:
 
 - [Version field](#functions-event-structure-version "#functions-event-structure-version")
 - [Context object](#functions-event-structure-context "#functions-event-structure-context")
-- [Connection event
-  structure](#functions-event-structure-connection "#functions-event-structure-connection")
+- [Connection event structure](#functions-event-structure-connection "#functions-event-structure-connection")
 - [Viewer object](#functions-event-structure-viewer "#functions-event-structure-viewer")
 - [Request object](#functions-event-structure-request "#functions-event-structure-request")
 - [Response object](#functions-event-structure-response "#functions-event-structure-response")
 - [Status code and body](#functions-event-structure-status-body "#functions-event-structure-status-body")
-- [Structure for a query
-  string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie")
+- [Structure for a query string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie")
 - [Example response object](#functions-response-structure-example "#functions-response-structure-example")
 - [Example event object](#functions-event-structure-example "#functions-event-structure-example")
 
@@ -87,9 +85,7 @@ The event type, either `viewer-request` or
 A string that uniquely identifies a CloudFront request (and its associated
 response).
 
-## Connection event
-
-structure
+## Connection event structure
 
 Connection functions receive a different event structure than viewer functions. For
 detailed information about the connection event structure and response format, see [Associate a CloudFront Connection Function](connection-functions.md "connection-functions.md").
@@ -178,8 +174,7 @@ The `cookies` object contains one field for each cookie in the
 request.
 
 For more information about the structure of query strings, headers, and cookies, see
-[Structure for a query
-string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie").
+[Structure for a query string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie").
 
 For an example `event` object, see [Example event object](#functions-event-structure-example "#functions-event-structure-example").
 
@@ -267,8 +262,7 @@ The `body` content.
 
 For more information about modified status codes and body content, see [Status code and body](#functions-event-structure-status-body "#functions-event-structure-status-body").
 
-For more information about the structure of headers and cookies, see [Structure for a query
-string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie").
+For more information about the structure of headers and cookies, see [Structure for a query string, header, or cookie](#functions-event-structure-query-header-cookie "#functions-event-structure-query-header-cookie").
 
 For an example `response` object, see [Example response object](#functions-response-structure-example "#functions-response-structure-example").
 
@@ -288,8 +282,7 @@ cache or origin include the following:
 ###### Note
 
 If the origin returns an HTTP error of 400 and above, the CloudFront Function will not
-run. For more information see [Restrictions on all edge
-functions](edge-function-restrictions-all.md "edge-function-restrictions-all.md").
+run. For more information see [Restrictions on all edge functions](edge-function-restrictions-all.md "edge-function-restrictions-all.md").
 
 When you're working with the HTTP response, CloudFront Functions does not have access to the
 response body. You can replace the body content by setting it to the desired value, or
@@ -312,9 +305,7 @@ If your CloudFront Function is configured to return an HTTP error of 400 or abov
 viewer will not see a [custom error
 page](creating-custom-error-pages.md "creating-custom-error-pages.md") that you have specified for the same status code.
 
-## Structure for a query
-
-string, header, or cookie
+## Structure for a query string, header, or cookie
 
 Query strings, headers, and cookies share the same structure. Query strings can appear
 in requests. Headers appear in requests and responses. Cookies appear in requests and
@@ -328,18 +319,12 @@ cookie.
 
 ###### Contents
 
-- [Query strings values or query
-  string objects](functions-event-structure.md#functions-event-structure-query "functions-event-structure.md#functions-event-structure-query")
-- [Special considerations for
-  headers](functions-event-structure.md#functions-event-structure-headers "functions-event-structure.md#functions-event-structure-headers")
-- [Duplicate query strings,
-  headers, and cookies (multiValue array)](functions-event-structure.md#functions-event-structure-multivalue "functions-event-structure.md#functions-event-structure-multivalue")
-- [Cookie
-  attributes](functions-event-structure.md#functions-event-structure-cookie-attributes "functions-event-structure.md#functions-event-structure-cookie-attributes")
+- [Query strings values or query string objects](functions-event-structure.md#functions-event-structure-query "functions-event-structure.md#functions-event-structure-query")
+- [Special considerations for headers](functions-event-structure.md#functions-event-structure-headers "functions-event-structure.md#functions-event-structure-headers")
+- [Duplicate query strings, headers, and cookies (multiValue array)](functions-event-structure.md#functions-event-structure-multivalue "functions-event-structure.md#functions-event-structure-multivalue")
+- [Cookie attributes](functions-event-structure.md#functions-event-structure-cookie-attributes "functions-event-structure.md#functions-event-structure-cookie-attributes")
 
-### Query strings values or query
-
-string objects
+### Query strings values or query string objects
 
 A function can return a query string value in addition to a query string object.
 The query string value can be used to arrange the query string parameters in any
@@ -355,9 +340,7 @@ var request = event.request;
 request.querystring = 'ID=42&Exp=1619740800&TTL=1440&NoValue=&querymv=val1&querymv=val2,val3';
 ```
 
-### Special considerations for
-
-headers
+### Special considerations for headers
 
 For headers only, the header names are converted to lowercase in the event object,
 and header names must be lowercase when they're added by your function code. When
@@ -403,9 +386,7 @@ var request = event.request;
 request.headers['x-custom-header'] = {value: 'example value'};
 ```
 
-### Duplicate query strings,
-
-headers, and cookies (`multiValue` array)
+### Duplicate query strings, headers, and cookies (`multiValue` array)
 
 An HTTP request or response can contain more than one query string, header, or
 cookie with the same name. In this case, the duplicate query strings, headers, or
@@ -490,9 +471,7 @@ object.
 }
 ```
 
-### Cookie
-
-attributes
+### Cookie attributes
 
 In a `Set-Cookie` header in an HTTP response, the header contains the
 name–value pair for the cookie and optionally a set of attributes separated by

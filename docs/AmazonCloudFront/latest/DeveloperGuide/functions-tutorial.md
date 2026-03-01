@@ -1,6 +1,4 @@
-# Tutorial: Create a simple function with
-
-CloudFront Functions
+# Tutorial: Create a simple function with CloudFront Functions
 
 This tutorial shows you how to get started with CloudFront Functions. You can create a simple
 function that redirects the viewer to a different URL, and that also returns a custom

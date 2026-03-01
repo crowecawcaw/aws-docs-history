@@ -1,6 +1,4 @@
-# Request and response behavior
-
-for origin groups
+# Request and response behavior for origin groups
 
 Requests to an origin group work the same as requests to an origin that is not set up
 as an origin group, except when there is an origin failover. As with any other origin,
@@ -10,9 +8,7 @@ an origin group, viewer requests are forwarded to the primary origin in the orig
 group.
 
 The request and response behavior for the primary origin is the same as it is for an
-origin that isn’t in an origin group. For more information, see [Request and response behavior for
-Amazon S3 origins](RequestAndResponseBehaviorS3Origin.md "RequestAndResponseBehaviorS3Origin.md") and [Request and response behavior
-for custom origins](RequestAndResponseBehaviorCustomOrigin.md "RequestAndResponseBehaviorCustomOrigin.md").
+origin that isn’t in an origin group. For more information, see [Request and response behavior for Amazon S3 origins](RequestAndResponseBehaviorS3Origin.md "RequestAndResponseBehaviorS3Origin.md") and [Request and response behavior for custom origins](RequestAndResponseBehaviorCustomOrigin.md "RequestAndResponseBehaviorCustomOrigin.md").
 
 The following describes the behavior for origin failover when the primary origin
 returns specific HTTP status codes:
@@ -35,5 +31,4 @@ returns specific HTTP status codes:
 When CloudFront sends a request to a secondary origin, the response behavior is the same as
 for a CloudFront origin that’s not in an origin group.
 
-For more information about origin groups, see [Optimize high availability with CloudFront
-origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
+For more information about origin groups, see [Optimize high availability with CloudFront origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").

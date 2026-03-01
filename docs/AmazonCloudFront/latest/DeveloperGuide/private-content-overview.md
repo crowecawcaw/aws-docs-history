@@ -11,9 +11,7 @@ You can control user access to your private content in two ways:
     custom headers for a private HTTP server (a custom
     origin)](#forward-custom-headers-restrict-access "#forward-custom-headers-restrict-access").
 
-## Restrict access to files in CloudFront
-
-caches
+## Restrict access to files in CloudFront caches
 
 You can configure CloudFront to require that users access your files using either _signed URLs_ or _signed
 cookies_. You then develop your application either to create and
@@ -37,9 +35,7 @@ If they don't match, CloudFront doesn't serve the file.
 
 You must use either RSA 2048 or ECDSA 256 private keys for signing URLs or cookies.
 
-## Restrict access to files in Amazon S3
-
-buckets
+## Restrict access to files in Amazon S3 buckets
 
 You can optionally secure the content in your Amazon S3 bucket so that users can access it
 through the specified CloudFront distribution but cannot access it directly by using Amazon S3
@@ -54,12 +50,9 @@ To require that users access your content through CloudFront URLs, you do the fo
 - Create the origin access control and associate it with your CloudFront distribution.
 - Remove permission for anyone else to use Amazon S3 URLs to read the files.
 
-For more information, see [Restrict access to an Amazon S3
-origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
-## Restrict access to files on custom
-
-origins
+## Restrict access to files on custom origins
 
 If you use a custom origin, you can optionally set up custom headers to restrict access.
 For CloudFront to get your files from a custom origin, the files must be accessible by
@@ -72,19 +65,16 @@ To require that users access content through CloudFront, change the following se
 
 **Origin Custom Headers**
 Configure CloudFront to forward custom headers to your origin.
-See [Configure CloudFront to add custom
-headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure").
+See [Configure CloudFront to add custom headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure").
 
 **Viewer Protocol Policy**
 Configure your distribution to require viewers to use HTTPS to access CloudFront.
-See [Viewer protocol
-policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
+See [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
 
 **Origin Protocol Policy**
 Configure your distribution to require CloudFront to use the same protocol as viewers to forward requests
 to the origin.
-See [Protocol (custom origins
-only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy").
+See [Protocol (custom origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy").
 
 After you've made these changes, update your application on your custom origin to only
 accept requests that include the custom headers that you’ve configured CloudFront to

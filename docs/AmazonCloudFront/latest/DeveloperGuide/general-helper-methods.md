@@ -7,8 +7,7 @@ create a CloudFront function using JavaScript runtime 2.0.
 import cf from 'cloudfront';
 ```
 
-For more information, see [JavaScript runtime 2.0 features for
-CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
 ## `edgeLocation` metadata
 
@@ -54,8 +53,7 @@ Shield are the same location.
 ###### Note
 
 CloudFront Functions isn't invoked a second time when CloudFront is configured to use origin
-failover. For more information, see [Optimize high availability with CloudFront
-origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
+failover. For more information, see [Optimize high availability with CloudFront origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
 
 ## `rawQueryString()` method
 

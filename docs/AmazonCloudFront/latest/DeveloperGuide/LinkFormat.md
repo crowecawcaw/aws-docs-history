@@ -33,8 +33,7 @@ distribution:
 
 `https://example.com/images/image.jpg`
 
-If you plan to use HTTPS between viewers and CloudFront, see [Use alternate domain names and
-HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
+If you plan to use HTTPS between viewers and CloudFront, see [Use alternate domain names and HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
 
 ## Use a trailing slash (/) in URLs
 
@@ -59,5 +58,4 @@ invalidations, even if only one format for each directory URL exists in CloudFro
 
 If you have content that you want to restrict access to, you can create signed URLs. For example, if you want to distribute your content only
 to users who have authenticated, you can create URLs that are valid only for a specified time period or that are available only from a specified
-IP address. For more information, see [Serve private content with signed URLs and signed
-cookies](PrivateContent.md "PrivateContent.md").
+IP address. For more information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").

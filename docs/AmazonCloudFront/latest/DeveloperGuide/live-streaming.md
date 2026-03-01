@@ -1,6 +1,4 @@
-# Deliver video streaming with CloudFront and AWS Media
-
-Services
+# Deliver video streaming with CloudFront and AWS Media Services
 
 To use AWS Media Services with CloudFront to deliver live content to a global audience,
 see the following guidance.
@@ -19,15 +17,13 @@ options to prepare and serve the content:
   content for different device types. When you package the content, you can also
   implement extra features and add digital rights management (DRM) to prevent
   unauthorized use of your content. For step-by-step instructions for using CloudFront
-  to serve content that MediaPackage formatted, see [Serve live video formatted with
-  AWS Elemental MediaPackage](#live-streaming-with-mediapackage "#live-streaming-with-mediapackage").
+  to serve content that MediaPackage formatted, see [Serve live video formatted with AWS Elemental MediaPackage](#live-streaming-with-mediapackage "#live-streaming-with-mediapackage").
 - **Store and serve your content using scalable
   origin** – If MediaLive encoded content in the formats required
   by all of the devices that your viewers use, use a highly scalable origin like
   [AWS Elemental MediaStore](../../../mediastore/latest/ug/getting-started.md "../../../mediastore/latest/ug/getting-started.md") to serve the
   content. For step-by-step instructions for using CloudFront to serve content that is
-  stored in a MediaStore container, see [Serve video by using AWS Elemental MediaStore as the
-  origin](#video-streaming-mediastore "#video-streaming-mediastore").
+  stored in a MediaStore container, see [Serve video by using AWS Elemental MediaStore as the origin](#video-streaming-mediastore "#video-streaming-mediastore").
   After you’ve set up your origin by using one of these options, you can distribute live
   streaming video to viewers by using CloudFront.
 
@@ -40,16 +36,11 @@ Streaming Automated Deployment](../../../solutions/latest/live-streaming/deploym
 
 ###### Topics
 
-- [Serve video by using AWS Elemental MediaStore as the
-  origin](#video-streaming-mediastore "#video-streaming-mediastore")
-- [Serve live video formatted with
-  AWS Elemental MediaPackage](#live-streaming-with-mediapackage "#live-streaming-with-mediapackage")
-- [Serve video-on-demand content with
-  AWS Elemental MediaPackage](#live-streaming-mediapackage-vod "#live-streaming-mediapackage-vod")
+- [Serve video by using AWS Elemental MediaStore as the origin](#video-streaming-mediastore "#video-streaming-mediastore")
+- [Serve live video formatted with AWS Elemental MediaPackage](#live-streaming-with-mediapackage "#live-streaming-with-mediapackage")
+- [Serve video-on-demand content with AWS Elemental MediaPackage](#live-streaming-mediapackage-vod "#live-streaming-mediapackage-vod")
 
-## Serve video by using AWS Elemental MediaStore as the
-
-origin
+## Serve video by using AWS Elemental MediaStore as the origin
 
 If you have video stored in an [AWS Elemental MediaStore](../../../mediastore/latest/ug/getting-started.md "../../../mediastore/latest/ug/getting-started.md") container, you can create a CloudFront distribution to serve the
 content.
@@ -74,8 +65,7 @@ CloudFront distribution and configure it to work with MediaStore.
         requests to your origin.
     4.  **Viewer protocol policy** – Choose
         **Redirect HTTP to HTTPS**. For more
-        information, see [Viewer protocol
-        policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
+        information, see [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
     5.  **Cache policy** and **Origin request
         policy**
 
@@ -96,9 +86,7 @@ CloudFront distribution and configure it to work with MediaStore.
     name of the media file in the same format that you use for other objects
     that you’re distributing using CloudFront.
 
-## Serve live video formatted with
-
-AWS Elemental MediaPackage
+## Serve live video formatted with AWS Elemental MediaPackage
 
 If you formatted a live stream by using AWS Elemental MediaPackage, you can create a CloudFront
 distribution and configure cache behaviors to serve the live stream. The following
@@ -112,9 +100,7 @@ To create a CloudFront distribution for MediaPackage manually, follow these step
 Complete the following procedure to set up a CloudFront distribution for the live
 video channel that you created with MediaPackage.
 
-###### To
-
-create a distribution for your live video channel
+###### To create a distribution for your live video channel
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -214,9 +200,7 @@ Repeat the steps here to add each of your MediaPackage channel endpoints to your
 distribution, keeping in mind the need to create a "dummy"
 origin.
 
-###### To
-
-add other endpoints as origins
+###### To add other endpoints as origins
 
 1. On the CloudFront console, choose the distribution that you created for your
    channel.
@@ -375,9 +359,7 @@ For links in your application (for example, a media player), specify the URL
 for the media file in the standard format for CloudFront URLs. For more information,
 see [Customize the URL format for files in CloudFront](LinkFormat.md "LinkFormat.md").
 
-## Serve video-on-demand content with
-
-AWS Elemental MediaPackage
+## Serve video-on-demand content with AWS Elemental MediaPackage
 
 If you originate your video-on-demand (VOD) content from an AWS Elemental MediaPackage origin, you can create a CloudFront distribution and configure optimized cache behaviors to serve the VOD content to viewers. The following
 process assumes that you have already [created
@@ -389,9 +371,7 @@ To create a CloudFront distribution for MediaPackage manually, follow these step
 
 Complete the following procedure to set up a CloudFront distribution for the packaging group that you created with MediaPackage.
 
-###### To
-
-create a distribution for your VOD content
+###### To create a distribution for your VOD content
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -484,9 +464,7 @@ Repeat the steps here to add each of your MediaPackage packaging groups to your
 distribution, keeping in mind the need to create a "dummy"
 origin.
 
-###### To
-
-add other packaging groups as origins
+###### To add other packaging groups as origins
 
 1. On the CloudFront console, choose the distribution that you created for your
    channel.

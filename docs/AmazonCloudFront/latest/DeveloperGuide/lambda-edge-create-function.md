@@ -1,6 +1,4 @@
-# Write and create a Lambda@Edge
-
-function
+# Write and create a Lambda@Edge function
 
 To use Lambda@Edge, you _write_ the code for your
 AWS Lambda function. To help you write Lambda@Edge functions, see the following
@@ -22,8 +20,7 @@ the applicable object for request or response events:
   `cf.request` object in the response.
 
 If you're generating a response, include the `cf.response` object
-in the response. For more information, see [Generate HTTP
-responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
+in the response. For more information, see [Generate HTTP responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
 
 - **Response events** – Include the
   `cf.response` object in the response.
@@ -32,10 +29,8 @@ responses in request triggers](lambda-generating-http-responses.md#lambda-genera
 
 ###### Topics
 
-- [Create a Lambda@Edge
-  function](lambda-edge-create-in-lambda-console.md "lambda-edge-create-in-lambda-console.md")
+- [Create a Lambda@Edge function](lambda-edge-create-in-lambda-console.md "lambda-edge-create-in-lambda-console.md")
 - [Edit a Lambda function](lambda-edge-edit-function.md "lambda-edge-edit-function.md")
   After you create the function in Lambda, you set up Lambda to run the function based on
   specific CloudFront events, which are called _triggers_. For more
-  information, see [Add triggers for a Lambda@Edge
-  function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").
+  information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").

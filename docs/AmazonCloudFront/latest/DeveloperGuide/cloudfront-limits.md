@@ -28,10 +28,8 @@ You can request a CloudFront quota increase by using the following options:
 - [Quotas on key groups](#limits-key-groups "#limits-key-groups")
 - [Quotas on WebSocket connections](#limits-websockets "#limits-websockets")
 - [Quotas on field-level encryption](#limits-field-level-encryption "#limits-field-level-encryption")
-- [Quotas on cookies (legacy cache
-  settings)](#limits-allowlisted-cookies "#limits-allowlisted-cookies")
-- [Quotas on query strings (legacy cache
-  settings)](#limits-allowlisted-query-strings "#limits-allowlisted-query-strings")
+- [Quotas on cookies (legacy cache settings)](#limits-allowlisted-cookies "#limits-allowlisted-cookies")
+- [Quotas on query strings (legacy cache settings)](#limits-allowlisted-query-strings "#limits-allowlisted-query-strings")
 - [Quotas on headers](#limits-custom-headers "#limits-custom-headers")
 - [Quotas on multi-tenant distributions](#limits-template "#limits-template")
 - [Related information](#related-information-cloudfront-quotas "#related-information-cloudfront-quotas")
@@ -58,7 +56,7 @@ You can request a CloudFront quota increase by using the following options:
 | Connection attempts per origin<br>For more information, see [Connection attempts](DownloadDistValuesOrigin.md#origin-connection-attempts "DownloadDistValuesOrigin.md#origin-connection-attempts").                                                                                                         | 1-3                                                                                                                                                                                                                              |
 | Connection timeout per origin<br>For more information, see [Connection timeout](DownloadDistValuesOrigin.md#origin-connection-timeout "DownloadDistValuesOrigin.md#origin-connection-timeout").                                                                                                             | 1-10 seconds                                                                                                                                                                                                                     |
 | Response timeout per origin<br>This is also known as *origin read timeout<br>• or<br>*origin request timeout\*. For<br>more information, see [Response timeout](DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout"). | 1-120 seconds<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
-| Keep-alive timeout per origin<br>For more information, see [Keep-alive timeout (custom<br>and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout").                                              | 1-120 seconds<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
+| Keep-alive timeout per origin<br>For more information, see [Keep-alive timeout (custom and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout").                                                 | 1-120 seconds<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
 | Distributions per AWS account<br>For more information, see [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").                                                                                                                                            | 500<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")           |
 | Distributions per origin access control                                                                                                                                                                                                                                                                     | 100<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")           |
 | Distributions within chain of requests to origin endpoint<br>We don't recommend placing one distribution in front of another.<br>Exceeding this quota results in a 403 error.                                                                                                                               | 2                                                                                                                                                                                                                                |
@@ -68,7 +66,7 @@ You can request a CloudFront quota increase by using the following options:
 | Origin access identities per AWS account                                                                                                                                                                                                                                                                    | 100<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")           |
 | Origins per distribution                                                                                                                                                                                                                                                                                    | 100<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")           |
 | Origin groups per distribution                                                                                                                                                                                                                                                                              | 10<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")            |
-| Staging distributions per AWS account<br>For more information, see [Use CloudFront continuous deployment to safely test CDN<br>configuration changes](continuous-deployment.md "continuous-deployment.md").                                                                                                 | 20<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")            |
+| Staging distributions per AWS account<br>For more information, see [Use CloudFront continuous deployment to safely test CDN configuration changes](continuous-deployment.md "continuous-deployment.md").                                                                                                    | 20<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")            |
 | Distributions associated with the same VPC origin                                                                                                                                                                                                                                                           | 50                                                                                                                                                                                                                               |
 | VPC origins per AWS account                                                                                                                                                                                                                                                                                 | 25<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")            |
 | Maximum number of distributions that can be associated with a<br>single Anycast static IP list.                                                                                                                                                                                                             | 100<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase")           |
@@ -115,8 +113,7 @@ You can request a CloudFront quota increase by using the following options:
 | Distributions associated with the same function                                                                                                                                                                                                                                        | 100           |
 
 In addition to these quotas, there are some other restrictions when using
-CloudFront Functions. For more information, see [Restrictions on
-CloudFront Functions](cloudfront-function-restrictions.md "cloudfront-function-restrictions.md").
+CloudFront Functions. For more information, see [Restrictions on CloudFront Functions](cloudfront-function-restrictions.md "cloudfront-function-restrictions.md").
 
 ## Quotas on Connection Functions
 
@@ -166,8 +163,7 @@ Connection Functions. For more information, see [Associate a CloudFront Connecti
   endpoints and quotas](../../../general/latest/gr/cf_region.md#limits_cloudfront "../../../general/latest/gr/cf_region.md#limits_cloudfront") in the
   _AWS General Reference_.
 - In addition to these quotas, there are some other restrictions when using
-  Lambda@Edge functions. For more information, see [Restrictions on
-  Lambda@Edge](lambda-at-edge-function-restrictions.md "lambda-at-edge-function-restrictions.md").
+  Lambda@Edge functions. For more information, see [Restrictions on Lambda@Edge](lambda-at-edge-function-restrictions.md "lambda-at-edge-function-restrictions.md").
 
 ## Quotas on SSL certificates
 
@@ -178,12 +174,10 @@ Connection Functions. For more information, see [Associate a CloudFront Connecti
 
 If your SSL certificate is specifically for HTTPS communication between viewers and
 CloudFront, and if you used AWS Certificate Manager (ACM) or the IAM certificate store to provision or
-import your certificate, additional quotas apply. For more information, see [Quotas on using SSL/TLS certificates with CloudFront (HTTPS
-between viewers and CloudFront only)](cnames-and-https-limits.md "cnames-and-https-limits.md").
+import your certificate, additional quotas apply. For more information, see [Quotas on using SSL/TLS certificates with CloudFront (HTTPS between viewers and CloudFront only)](cnames-and-https-limits.md "cnames-and-https-limits.md").
 
 There are also quotas on the number of SSL certificates that you can import into
-AWS Certificate Manager (ACM) or upload to AWS Identity and Access Management (IAM). For more information, see [Increase the quotas for
-SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md").
+AWS Certificate Manager (ACM) or upload to AWS Identity and Access Management (IAM). For more information, see [Increase the quotas for SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md").
 
 ## Quotas on invalidations
 
@@ -210,21 +204,19 @@ SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasi
 
 ## Quotas on field-level encryption
 
-| Entity                                                                                                                                                                                   | Default quota |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Maximum length of a field to encrypt<br>For more information, see [Use field-level encryption to help protect sensitive<br>data](field-level-encryption.md "field-level-encryption.md"). | 16 KB         |
-| Maximum number of fields in a request body when field-level<br>encryption is configured                                                                                                  | 10            |
-| Maximum length of a request body when field-level encryption is<br>configured                                                                                                            | 1 MB          |
-| Maximum number of field-level encryption configurations that can<br>be associated with one AWS account                                                                                   | 10            |
-| Maximum number of field-level encryption profiles that can be<br>associated with one AWS account                                                                                         | 10            |
-| Maximum number of public keys that can be added to one<br>AWS account                                                                                                                    | 10            |
-| Maximum number of fields to encrypt that can be specified in one<br>profile                                                                                                              | 10            |
-| Maximum number of CloudFront distributions that can be associated with a<br>field-level encryption configuration                                                                         | 20            |
-| Maximum number of query argument profile mappings that can be<br>included in a field-level encryption configuration                                                                      | 5             |
+| Entity                                                                                                                                                                                | Default quota |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Maximum length of a field to encrypt<br>For more information, see [Use field-level encryption to help protect sensitive data](field-level-encryption.md "field-level-encryption.md"). | 16 KB         |
+| Maximum number of fields in a request body when field-level<br>encryption is configured                                                                                               | 10            |
+| Maximum length of a request body when field-level encryption is<br>configured                                                                                                         | 1 MB          |
+| Maximum number of field-level encryption configurations that can<br>be associated with one AWS account                                                                                | 10            |
+| Maximum number of field-level encryption profiles that can be<br>associated with one AWS account                                                                                      | 10            |
+| Maximum number of public keys that can be added to one<br>AWS account                                                                                                                 | 10            |
+| Maximum number of fields to encrypt that can be specified in one<br>profile                                                                                                           | 10            |
+| Maximum number of CloudFront distributions that can be associated with a<br>field-level encryption configuration                                                                      | 20            |
+| Maximum number of query argument profile mappings that can be<br>included in a field-level encryption configuration                                                                   | 5             |
 
-## Quotas on cookies (legacy cache
-
-settings)
+## Quotas on cookies (legacy cache settings)
 
 These quotas apply to CloudFront's legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md "controlling-the-cache-key.md") or [origin request policy](controlling-origin-requests.md "controlling-origin-requests.md") instead of the
 legacy settings.
@@ -234,18 +226,16 @@ legacy settings.
 | Cookies per cache behavior<br>For more information, see [Cache content based on cookies](Cookies.md "Cookies.md").        | 10<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
 | Total number of bytes in cookie names (doesn't apply if you<br>configure CloudFront to forward all cookies to the origin) | 512 minus the number of cookies                                                                                                                                                                                       |
 
-## Quotas on query strings (legacy cache
-
-settings)
+## Quotas on query strings (legacy cache settings)
 
 These quotas apply to CloudFront's legacy cache settings. We recommend using a [cache policy](controlling-the-cache-key.md "controlling-the-cache-key.md") or [origin request policy](controlling-origin-requests.md "controlling-origin-requests.md") instead of the
 legacy settings.
 
-| Entity                                                                                                                                                                  | Default quota                                                                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum number of characters in a query string                                                                                                                          | 128 characters                                                                                                                                                                                                        |
-| Maximum number of characters total for all query strings in the<br>same parameter                                                                                       | 512 characters                                                                                                                                                                                                        |
-| Query strings per cache behavior<br>For more information, see [Cache content based on query string<br>parameters](QueryStringParameters.md "QueryStringParameters.md"). | 10<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
+| Entity                                                                                                                                                               | Default quota                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maximum number of characters in a query string                                                                                                                       | 128 characters                                                                                                                                                                                                        |
+| Maximum number of characters total for all query strings in the<br>same parameter                                                                                    | 512 characters                                                                                                                                                                                                        |
+| Query strings per cache behavior<br>For more information, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md"). | 10<br>[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") |
 
 ## Quotas on headers
 

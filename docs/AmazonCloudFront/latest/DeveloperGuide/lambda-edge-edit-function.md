@@ -21,9 +21,7 @@ it.
   you must wait for the changes to propagate to edge locations before the
   functions you've specified in the triggers will work.
 
-###### To edit a Lambda
-
-function
+###### To edit a Lambda function
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -47,8 +45,7 @@ of the page.
 
 ###### Note
 
-If you haven't added triggers for your function yet, see [Add triggers for a Lambda@Edge
-function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md"). 9. Choose the **Triggers** tab. 10. Choose **Add trigger**. 11. In the **Add trigger** dialog box, choose the dotted box,
+If you haven't added triggers for your function yet, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md"). 9. Choose the **Triggers** tab. 10. Choose **Add trigger**. 11. In the **Add trigger** dialog box, choose the dotted box,
 and then choose **CloudFront**.
 
 ###### Note
@@ -76,5 +73,4 @@ to execute.
     _AWS Lambda Developer Guide_.
 
 When you're ready to have the function execute for CloudFront events, publish another
-version and edit the function to add triggers. For more information, see [Add triggers for a Lambda@Edge
-function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").
+version and edit the function to add triggers. For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").

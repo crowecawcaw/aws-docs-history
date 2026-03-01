@@ -41,8 +41,7 @@ To enable gRPC support for your distribution, complete the following steps:
 
 For more information, see the following topics:
 
-- [Allow gRPC requests over
-  HTTP/2](DownloadDistValuesCacheBehavior.md#enable-grpc-distribution "DownloadDistValuesCacheBehavior.md#enable-grpc-distribution")
+- [Allow gRPC requests over HTTP/2](DownloadDistValuesCacheBehavior.md#enable-grpc-distribution "DownloadDistValuesCacheBehavior.md#enable-grpc-distribution")
 - [GrpcConfig](../../../cloudfront/latest/APIReference/API_GrpcConfig.md "../../../cloudfront/latest/APIReference/API_GrpcConfig.md") in the
   _Amazon CloudFront API Reference_
 

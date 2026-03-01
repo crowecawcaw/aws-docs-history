@@ -16,22 +16,16 @@ viewer requests that are hits, misses, and errors in the CloudFront console. For
 see [View CloudFront cache statistics reports](cache-statistics.md "cache-statistics.md").
 
 A number of factors affect the cache hit ratio. You can adjust your CloudFront distribution
-configuration to improve the cache hit ratio by following the guidance in [Increase the proportion of requests that are served
-directly from the CloudFront caches (cache hit ratio)](cache-hit-ratio.md "cache-hit-ratio.md").
+configuration to improve the cache hit ratio by following the guidance in [Increase the proportion of requests that are served directly from the CloudFront caches (cache hit ratio)](cache-hit-ratio.md "cache-hit-ratio.md").
 
-To learn about adding and removing the content that you want CloudFront to serve, see [Add, remove, or replace content that CloudFront
-distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
+To learn about adding and removing the content that you want CloudFront to serve, see [Add, remove, or replace content that CloudFront distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
 
 ###### Topics
 
-- [Increase the proportion of requests that are served
-  directly from the CloudFront caches (cache hit ratio)](cache-hit-ratio.md "cache-hit-ratio.md")
+- [Increase the proportion of requests that are served directly from the CloudFront caches (cache hit ratio)](cache-hit-ratio.md "cache-hit-ratio.md")
 - [Use Amazon CloudFront Origin Shield](origin-shield.md "origin-shield.md")
-- [Optimize high availability with CloudFront
-  origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md")
-- [Manage how long content stays in the cache
-  (expiration)](Expiration.md "Expiration.md")
-- [Cache content based on query string
-  parameters](QueryStringParameters.md "QueryStringParameters.md")
+- [Optimize high availability with CloudFront origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md")
+- [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md")
+- [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md")
 - [Cache content based on cookies](Cookies.md "Cookies.md")
 - [Cache content based on request headers](header-caching.md "header-caching.md")

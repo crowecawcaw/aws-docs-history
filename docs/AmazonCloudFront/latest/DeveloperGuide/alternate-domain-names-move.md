@@ -17,9 +17,6 @@ To move the alternate domain name, see the following topics:
 
 ###### Topics
 
-- [Set up the target
-  standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md")
-- [Find the source
-  standard distribution or distribution tenant](alternate-domain-names-move-find-source.md "alternate-domain-names-move-find-source.md")
-- [Move the alternate domain
-  name](alternate-domain-names-move-options.md "alternate-domain-names-move-options.md")
+- [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md")
+- [Find the source standard distribution or distribution tenant](alternate-domain-names-move-find-source.md "alternate-domain-names-move-find-source.md")
+- [Move the alternate domain name](alternate-domain-names-move-options.md "alternate-domain-names-move-options.md")

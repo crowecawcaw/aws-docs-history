@@ -1,23 +1,15 @@
-# Work with requests and
-
-responses
+# Work with requests and responses
 
 To use Lambda@Edge requests and responses, see the following topics:
 
 ###### Topics
 
-- [Use Lambda@Edge functions with origin
-  failover](#lambda-and-origin-failover "#lambda-and-origin-failover")
-- [Generate HTTP
-  responses in request triggers](#lambda-generating-http-responses-in-requests "#lambda-generating-http-responses-in-requests")
-- [Update HTTP responses in origin
-  response triggers](#lambda-updating-http-responses "#lambda-updating-http-responses")
-- [Access the request body by choosing the
-  include body option](#lambda-include-body-access "#lambda-include-body-access")
+- [Use Lambda@Edge functions with origin failover](#lambda-and-origin-failover "#lambda-and-origin-failover")
+- [Generate HTTP responses in request triggers](#lambda-generating-http-responses-in-requests "#lambda-generating-http-responses-in-requests")
+- [Update HTTP responses in origin response triggers](#lambda-updating-http-responses "#lambda-updating-http-responses")
+- [Access the request body by choosing the include body option](#lambda-include-body-access "#lambda-include-body-access")
 
-## Use Lambda@Edge functions with origin
-
-failover
+## Use Lambda@Edge functions with origin failover
 
 You can use Lambda@Edge functions with CloudFront distributions that you've set up with
 origin groups, for example, for origin failover that you configure to help ensure
@@ -31,12 +23,9 @@ For more information, see the following:
   [Create an origin group](high_availability_origin_failover.md#concept_origin_groups.creating "high_availability_origin_failover.md#concept_origin_groups.creating")
 - **How origin failover works with
   Lambda@Edge:**
-  [Use origin failover with Lambda@Edge
-  functions](high_availability_origin_failover.md#concept_origin_groups.lambda "high_availability_origin_failover.md#concept_origin_groups.lambda")
+  [Use origin failover with Lambda@Edge functions](high_availability_origin_failover.md#concept_origin_groups.lambda "high_availability_origin_failover.md#concept_origin_groups.lambda")
 
-## Generate HTTP
-
-responses in request triggers
+## Generate HTTP responses in request triggers
 
 When CloudFront receives a request, you can use a Lambda function to generate an HTTP
 response that CloudFront returns directly to the viewer without forwarding the response to
@@ -72,27 +61,20 @@ function.
   it.
 
 To see some sample code for generating HTTP responses, see [Lambda@Edge example functions](lambda-examples.md "lambda-examples.md"). You can also
-replace the HTTP responses in response triggers. For more information, see [Update HTTP responses in origin
-response triggers](#lambda-updating-http-responses "#lambda-updating-http-responses").
+replace the HTTP responses in response triggers. For more information, see [Update HTTP responses in origin response triggers](#lambda-updating-http-responses "#lambda-updating-http-responses").
 
-### Programming
-
-model
+### Programming model
 
 This section describes the programming model for using Lambda@Edge to generate
 HTTP responses.
 
 ###### Topics
 
-- [Response
-  object](#lambda-generating-http-responses-object "#lambda-generating-http-responses-object")
+- [Response object](#lambda-generating-http-responses-object "#lambda-generating-http-responses-object")
 - [Errors](#lambda-generating-http-responses-errors "#lambda-generating-http-responses-errors")
-- [Required
-  fields](#lambda-generating-http-responses-required-fields "#lambda-generating-http-responses-required-fields")
+- [Required fields](#lambda-generating-http-responses-required-fields "#lambda-generating-http-responses-required-fields")
 
-#### Response
-
-object
+#### Response object
 
 The response you return as the `result` parameter of the
 `callback` method should have the following structure (note
@@ -227,17 +209,13 @@ function:
 If the response is larger than the allowed size, CloudFront returns
 an HTTP 502 status code (Bad Gateway) to the viewer.
 
-#### Required
-
-fields
+#### Required fields
 
 The `status` field is required.
 
 All other fields are optional.
 
-## Update HTTP responses in origin
-
-response triggers
+## Update HTTP responses in origin response triggers
 
 When CloudFront receives an HTTP response from the origin server, if there is an
 origin-response trigger associated with the cache behavior, you can modify the HTTP
@@ -247,12 +225,10 @@ Some common scenarios for updating HTTP responses include the following:
 
 - Changing the status to set an HTTP 200 status code and creating static
   body content to return to the viewer when an origin returns an error status
-  code (4xx or 5xx). For sample code, see [Example: Use an
-  origin response trigger to update the error status code to 200](lambda-examples.md#lambda-examples-custom-error-static-body "lambda-examples.md#lambda-examples-custom-error-static-body").
+  code (4xx or 5xx). For sample code, see [Example: Use an origin response trigger to update the error status code to 200](lambda-examples.md#lambda-examples-custom-error-static-body "lambda-examples.md#lambda-examples-custom-error-static-body").
 - Changing the status to set an HTTP 301 or HTTP 302 status code, to
   redirect the user to another website when an origin returns an error status
-  code (4xx or 5xx). For sample code, see [Example: Use an origin
-  response trigger to update the error status code to 302](lambda-examples.md#lambda-examples-custom-error-new-site "lambda-examples.md#lambda-examples-custom-error-new-site").
+  code (4xx or 5xx). For sample code, see [Example: Use an origin response trigger to update the error status code to 302](lambda-examples.md#lambda-examples-custom-error-new-site "lambda-examples.md#lambda-examples-custom-error-new-site").
 
 ###### Note
 
@@ -261,8 +237,7 @@ The function must return a status value between `200` and
 viewer.
 
 You can also replace the HTTP responses in viewer and origin request events. For
-more information, see [Generate HTTP
-responses in request triggers](#lambda-generating-http-responses-in-requests "#lambda-generating-http-responses-in-requests").
+more information, see [Generate HTTP responses in request triggers](#lambda-generating-http-responses-in-requests "#lambda-generating-http-responses-in-requests").
 
 When you're working with the HTTP response, Lambda@Edge does not expose the body
 that is returned by the origin server to the origin-response trigger. You can
@@ -271,9 +246,7 @@ body inside the function by setting the value to be empty. If you don't update t
 body field in your function, the original body returned by the origin server is
 returned back to viewer.
 
-## Access the request body by choosing the
-
-include body option
+## Access the request body by choosing the include body option
 
 You can opt to have Lambda@Edge expose the body in a request for writable HTTP
 methods (POST, PUT, DELETE, and so on), so that you can access it in your Lambda
@@ -282,8 +255,7 @@ the body.
 
 To enable this option, choose **Include Body** when you create a
 CloudFront trigger for your function that's for a viewer request or origin request event.
-For more information, see [Add triggers for a Lambda@Edge
-function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md"), or to learn about using
+For more information, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md"), or to learn about using
 **Include Body** with your function, see [Lambda@Edge event structure](lambda-event-structure.md "lambda-event-structure.md").
 
 Scenarios when you might want to use this feature include the following:
@@ -298,5 +270,4 @@ For sample code, see [Lambda@Edge example functions](lambda-examples.md "lambda-
 ###### Note
 
 If the request body is large, Lambda@Edge truncates it. For detailed
-information about the maximum size and truncation, see [Restrictions on the
-request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body").
+information about the maximum size and truncation, see [Restrictions on the request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body").

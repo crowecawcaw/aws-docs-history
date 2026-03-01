@@ -23,15 +23,13 @@ every hour or every day. You can usually view data about requests that CloudFron
 recently as four hours ago, but data can occasionally be delayed by as much as 24
 hours.
 
-For more information, see [How the usage charts are related to data in the
-CloudFront usage report](#usage-charts-table "#usage-charts-table").
+For more information, see [How the usage charts are related to data in the CloudFront usage report](#usage-charts-table "#usage-charts-table").
 
 ###### Topics
 
 - [View CloudFront usage reports in the console](#usage-charts-howto "#usage-charts-howto")
 - [Download data in CSV format](#usage-csv "#usage-csv")
-- [How the usage charts are related to data in the
-  CloudFront usage report](#usage-charts-table "#usage-charts-table")
+- [How the usage charts are related to data in the CloudFront usage report](#usage-charts-table "#usage-charts-table")
 
 ## View CloudFront usage reports in the console
 
@@ -104,9 +102,7 @@ for which you want to display data in the usage charts:
 You can download the usage report in CSV format. This section explains how to
 download the report and describes the values in the report.
 
-###### To download the usage report in CSV
-
-format
+###### To download the usage report in CSV format
 
 1. While viewing the Usage report, choose **CSV**.
 2. In the **Opening _file
@@ -267,9 +263,7 @@ the specified CloudFront distribution. Values include:
   `PATCH`, `POST`, and
   `PUT` requests
 
-## How the usage charts are related to data in the
-
-CloudFront usage report
+## How the usage charts are related to data in the CloudFront usage report
 
 The following list shows how the usage charts in the CloudFront console correspond with
 values in the **Usage Type** column in the CloudFront usage
@@ -278,10 +272,8 @@ report.
 ###### Topics
 
 - [Number of requests](#usage-charts-requests "#usage-charts-requests")
-- [Data transferred by
-  protocol](#usage-charts-data-transferred-by-protocol "#usage-charts-data-transferred-by-protocol")
-- [Data transferred
-  by destination](#usage-charts-data-transferred-by-destination "#usage-charts-data-transferred-by-destination")
+- [Data transferred by protocol](#usage-charts-data-transferred-by-protocol "#usage-charts-data-transferred-by-protocol")
+- [Data transferred by destination](#usage-charts-data-transferred-by-destination "#usage-charts-data-transferred-by-destination")
 
 ### Number of requests
 
@@ -318,9 +310,7 @@ dynamic, or proxy).
   `PUT` requests that CloudFront forwards to your
   origin
 
-### Data transferred by
-
-protocol
+### Data transferred by protocol
 
 This chart shows the total amount of data transferred from CloudFront edge locations
 in the selected region during each time interval for the specified CloudFront
@@ -360,9 +350,7 @@ proxy), and destination (viewers or origin).
   `OPTIONS`, `PATCH`,
   `POST`, and `PUT` requests
 
-### Data transferred
-
-by destination
+### Data transferred by destination
 
 This chart shows the total amount of data transferred from CloudFront edge locations
 in the selected region during each time interval for the specified CloudFront

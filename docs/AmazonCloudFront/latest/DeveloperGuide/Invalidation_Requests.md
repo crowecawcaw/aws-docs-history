@@ -9,12 +9,10 @@ invalidations from the list.
 ###### Contents
 
 - [Invalidate files](Invalidation_Requests.md#invalidating-objects-console "Invalidation_Requests.md#invalidating-objects-console")
-- [Copy, edit, and rerun an
-  existing invalidation](Invalidation_Requests.md#invalidating-objects-copy-console "Invalidation_Requests.md#invalidating-objects-copy-console")
+- [Copy, edit, and rerun an existing invalidation](Invalidation_Requests.md#invalidating-objects-copy-console "Invalidation_Requests.md#invalidating-objects-copy-console")
 - [Cancel invalidations](Invalidation_Requests.md#canceling-invalidations "Invalidation_Requests.md#canceling-invalidations")
 - [List invalidations](Invalidation_Requests.md#listing-invalidations-console "Invalidation_Requests.md#listing-invalidations-console")
-- [Display information about an
-  invalidation](Invalidation_Requests.md#invalidation-details-console "Invalidation_Requests.md#invalidation-details-console")
+- [Display information about an invalidation](Invalidation_Requests.md#invalidation-details-console "Invalidation_Requests.md#invalidation-details-console")
 
 ## Invalidate files
 
@@ -22,9 +20,7 @@ To invalidate files using the CloudFront console, do the following.
 
 Console
 
-###### To invalidate files
-
-(console)
+###### To invalidate files (console)
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -58,9 +54,7 @@ around the path, such as the following example:
 aws cloudfront create-invalidation --distribution-id `distribution_ID` --paths "/*"
 ```
 
-## Copy, edit, and rerun an
-
-existing invalidation
+## Copy, edit, and rerun an existing invalidation
 
 You can copy an invalidation that you created previously, update the list of
 invalidation paths, and run the updated invalidation. You can't copy an existing
@@ -78,9 +72,7 @@ invalidations for the month. If you already reached the maximum number of
 free invalidations, you will be charged for both invalidations of each file.
 For more information, see [Concurrent invalidation request maximum](InvalidationLimits.md "InvalidationLimits.md").
 
-###### To copy, edit, and
-
-rerun an existing invalidation
+###### To copy, edit, and rerun an existing invalidation
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -108,9 +100,7 @@ more than 100 invalidations, use the `ListInvalidations` API
 operation. For more information, see [ListInvalidations](../../../cloudfront/latest/APIReference/API_ListInvalidations.md "../../../cloudfront/latest/APIReference/API_ListInvalidations.md") in the
 _Amazon CloudFront API Reference_.
 
-###### To list
-
-invalidations
+###### To list invalidations
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -122,18 +112,14 @@ invalidations
 
 You can’t remove invalidations from the list.
 
-## Display information about an
-
-invalidation
+## Display information about an invalidation
 
 You can display detailed information about an invalidation, including
 distribution ID, invalidation ID, the status of the invalidation, the date and
 time that the invalidation was created, and a complete list of the invalidation
 paths.
 
-###### To display information
-
-about an invalidation
+###### To display information about an invalidation
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").

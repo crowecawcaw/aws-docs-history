@@ -23,22 +23,18 @@ origin.
 ###### Topics
 
 - [Origin domain](#DownloadDistValuesDomainName "#DownloadDistValuesDomainName")
-- [Protocol (custom origins
-  only)](#DownloadDistValuesOriginProtocolPolicy "#DownloadDistValuesOriginProtocolPolicy")
+- [Protocol (custom origins only)](#DownloadDistValuesOriginProtocolPolicy "#DownloadDistValuesOriginProtocolPolicy")
 - [Origin path](#DownloadDistValuesOriginPath "#DownloadDistValuesOriginPath")
 - [Name](#DownloadDistValuesId "#DownloadDistValuesId")
-- [Origin access (Amazon S3 origins
-  only)](#DownloadDistValuesOAIRestrictBucketAccess "#DownloadDistValuesOAIRestrictBucketAccess")
+- [Origin access (Amazon S3 origins only)](#DownloadDistValuesOAIRestrictBucketAccess "#DownloadDistValuesOAIRestrictBucketAccess")
 - [Add custom header](#DownloadDistValuesOriginCustomHeaders "#DownloadDistValuesOriginCustomHeaders")
 - [Enable Origin Shield](#create-update-fields-origin-shield "#create-update-fields-origin-shield")
 - [Connection attempts](#origin-connection-attempts "#origin-connection-attempts")
 - [Connection timeout](#origin-connection-timeout "#origin-connection-timeout")
 - [Response timeout](#DownloadDistValuesOriginResponseTimeout "#DownloadDistValuesOriginResponseTimeout")
 - [Response completion timeout](#response-completion-timeout "#response-completion-timeout")
-- [Keep-alive timeout (custom
-  and VPC origins only)](#DownloadDistValuesOriginKeepaliveTimeout "#DownloadDistValuesOriginKeepaliveTimeout")
-- [Response and keep-alive timeout
-  quotas](#response-keep-alive-timeout-quota "#response-keep-alive-timeout-quota")
+- [Keep-alive timeout (custom and VPC origins only)](#DownloadDistValuesOriginKeepaliveTimeout "#DownloadDistValuesOriginKeepaliveTimeout")
+- [Response and keep-alive timeout quotas](#response-keep-alive-timeout-quota "#response-keep-alive-timeout-quota")
 
 ## Origin domain
 
@@ -81,9 +77,7 @@ requests from clients to targets over the internet.
 If you configure CloudFront to connect to your origin over HTTPS, one of the domain names in
 the certificate must match the domain name that you specify for **Origin Domain
 Name**. If no domain name matches, CloudFront returns HTTP status code 502 (Bad
-Gateway) to the viewer. For more information, see [Domain names in the CloudFront distribution
-and in the certificate](cnames-and-https-requirements.md#https-requirements-domain-names-in-cert "cnames-and-https-requirements.md#https-requirements-domain-names-in-cert") and [SSL/TLS negotiation failure between
-CloudFront and a custom origin server](http-502-bad-gateway.md#ssl-negotitation-failure "http-502-bad-gateway.md#ssl-negotitation-failure").
+Gateway) to the viewer. For more information, see [Domain names in the CloudFront distribution and in the certificate](cnames-and-https-requirements.md#https-requirements-domain-names-in-cert "cnames-and-https-requirements.md#https-requirements-domain-names-in-cert") and [SSL/TLS negotiation failure between CloudFront and a custom origin server](http-502-bad-gateway.md#ssl-negotitation-failure "http-502-bad-gateway.md#ssl-negotitation-failure").
 
 ###### Note
 
@@ -98,8 +92,7 @@ If your origin is an Amazon S3 bucket, note the following:
   the **Origin domain** field. The static website hosting
   endpoint appears in the Amazon S3 console, on the **Properties**
   page under **Static website hosting**. For more information,
-  see [Use an Amazon S3 bucket that's
-  configured as a website endpoint](DownloadDistS3AndCustomOrigins.md#concept_S3Origin_website "DownloadDistS3AndCustomOrigins.md#concept_S3Origin_website").
+  see [Use an Amazon S3 bucket that's configured as a website endpoint](DownloadDistS3AndCustomOrigins.md#concept_S3Origin_website "DownloadDistS3AndCustomOrigins.md#concept_S3Origin_website").
 - If you configured Amazon S3 Transfer Acceleration for your bucket, do not specify
   the `s3-accelerate` endpoint for **Origin
   domain**.
@@ -115,8 +108,7 @@ facility in northern Virginia, use the following format:
 
 - The files must be publicly readable unless you secure your content in Amazon S3 by
   using a CloudFront origin access control. For more information about access control,
-  see [Restrict access to an Amazon S3
-  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+  see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
 ###### Important
 
@@ -135,9 +127,7 @@ the new origin. As long as the viewer requests in your application have not chan
 CloudFront continues to serve objects that are already in an edge cache until the TTL on each
 object expires or until seldom-requested objects are evicted.
 
-## Protocol (custom origins
-
-only)
+## Protocol (custom origins only)
 
 ###### Note
 
@@ -172,15 +162,13 @@ domain names in the SSL/TLS certificate on your origin server must match the
 domain name that you specify for **Origin domain**.
 Otherwise, CloudFront responds to the viewer requests with an HTTP status code 502
 (Bad Gateway) instead of returning the requested object. For more
-information, see [Requirements for using SSL/TLS certificates with
-CloudFront](cnames-and-https-requirements.md "cnames-and-https-requirements.md").
+information, see [Requirements for using SSL/TLS certificates with CloudFront](cnames-and-https-requirements.md "cnames-and-https-requirements.md").
 
 ###### Topics
 
 - [HTTP port](#DownloadDistValuesHTTPPort "#DownloadDistValuesHTTPPort")
 - [HTTPS port](#DownloadDistValuesHTTPSPort "#DownloadDistValuesHTTPSPort")
-- [Minimum origin SSL
-  protocol](#DownloadDistValuesOriginSSLProtocols "#DownloadDistValuesOriginSSLProtocols")
+- [Minimum origin SSL protocol](#DownloadDistValuesOriginSSLProtocols "#DownloadDistValuesOriginSSLProtocols")
 
 ### HTTP port
 
@@ -208,9 +196,7 @@ This applies only to custom origins.
 Valid values include ports 80, 443, and 1024 to 65535. The default value is port 443. When **Protocol** is set to **HTTP only**,
 you cannot specify a value for **HTTPS port**.
 
-### Minimum origin SSL
-
-protocol
+### Minimum origin SSL protocol
 
 ###### Note
 
@@ -258,9 +244,7 @@ create cache behaviors in addition to the default cache behavior, you use the na
 you specify here to identify the origin that you want CloudFront to route a request to when
 the request matches the path pattern for that cache behavior.
 
-## Origin access (Amazon S3 origins
-
-only)
+## Origin access (Amazon S3 origins only)
 
 ###### Note
 
@@ -274,12 +258,10 @@ distributions.
 Choose **Public** if the Amazon S3 bucket origin is publicly
 accessible.
 
-For more information, see [Restrict access to an Amazon S3
-origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
 For information about how to require users to access objects on a custom origin by
-using only CloudFront URLs, see [Restrict access to files on custom
-origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
+using only CloudFront URLs, see [Restrict access to files on custom origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
 
 ## Add custom header
 
@@ -363,8 +345,7 @@ of the following values:
 
 If you want to increase the timeout value because viewers are experiencing HTTP
 504 status code errors, consider exploring other ways to eliminate those errors
-before changing the timeout value. See the troubleshooting suggestions in [HTTP 504 status code (Gateway
-Timeout)](http-504-gateway-timeout.md "http-504-gateway-timeout.md").
+before changing the timeout value. See the troubleshooting suggestions in [HTTP 504 status code (Gateway Timeout)](http-504-gateway-timeout.md "http-504-gateway-timeout.md").
 
 CloudFront behavior depends on the HTTP method in the viewer request:
 
@@ -414,8 +395,7 @@ the response.
 
 Regardless of the number of connection attempts or the response timeout, CloudFront will end
 the connection if the complete response from the origin takes longer than 60 seconds to
-complete. CloudFront will then return to the viewer a [HTTP 504 status code (Gateway
-Timeout)](http-504-gateway-timeout.md "http-504-gateway-timeout.md") error response or a custom error response if you specified one.
+complete. CloudFront will then return to the viewer a [HTTP 504 status code (Gateway Timeout)](http-504-gateway-timeout.md "http-504-gateway-timeout.md") error response or a custom error response if you specified one.
 
 ###### Notes
 
@@ -425,9 +405,7 @@ Timeout)](http-504-gateway-timeout.md "http-504-gateway-timeout.md") error respo
 - If you don't set a value for the response completion timeout, CloudFront doesn't
   enforce a maximum value.
 
-## Keep-alive timeout (custom
-
-and VPC origins only)
+## Keep-alive timeout (custom and VPC origins only)
 
 The keep-alive timeout is how long (in seconds) CloudFront tries to maintain a connection to
 your custom origin after it gets the last packet of a response. Maintaining a persistent
@@ -440,9 +418,7 @@ helps improve the request-per-connection metric for distributions.
 For the **Keep-alive timeout** value to have an effect, your
 origin must be configured to allow persistent connections.
 
-## Response and keep-alive timeout
-
-quotas
+## Response and keep-alive timeout quotas
 
 - For [response
   timeout,](#DownloadDistValuesOriginResponseTimeout "#DownloadDistValuesOriginResponseTimeout") the default is 30 seconds.

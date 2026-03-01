@@ -39,11 +39,8 @@ based on the viewer request. For more information, see [Add CloudFront request h
 
 ###### Topics
 
-- [Understand origin
-  request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md")
-- [Create origin request
-  policies](origin-request-create-origin-request-policy.md "origin-request-create-origin-request-policy.md")
-- [Use managed origin request
-  policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md")
+- [Understand origin request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md")
+- [Create origin request policies](origin-request-create-origin-request-policy.md "origin-request-create-origin-request-policy.md")
+- [Use managed origin request policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md")
 - [Add CloudFront request headers](adding-cloudfront-headers.md "adding-cloudfront-headers.md")
 - [Understand how origin request policies and cache policies work together](understanding-how-origin-request-policies-and-cache-policies-work-together.md "understanding-how-origin-request-policies-and-cache-policies-work-together.md")

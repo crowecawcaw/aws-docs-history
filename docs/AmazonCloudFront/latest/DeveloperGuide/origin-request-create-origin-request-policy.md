@@ -1,6 +1,4 @@
-# Create origin request
-
-policies
+# Create origin request policies
 
 You can use an origin request policy to control the values (URL query strings, HTTP
 headers, and cookies) that are included in requests that CloudFront sends to your origin. You
@@ -29,16 +27,13 @@ Console
 2. Choose **Origin request**, then choose
    **Create origin request policy**.
 3. Choose the desired setting for this origin request policy. For
-   more information, see [Understand origin
-   request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md").
+   more information, see [Understand origin request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md").
 4. When finished, choose **Create**.
 
 After you create an origin request policy, you can attach it to a cache
 behavior.
 
-###### To attach an origin request policy to an existing distribution
-
-(console)
+###### To attach an origin request policy to an existing distribution (console)
 
 1. Open the **Distributions** page in the CloudFront console
    at [https://console.aws.amazon.com/cloudfront/v4/home#/distributions](https://console.aws.amazon.com/cloudfront/v4/home#/distributions "https://console.aws.amazon.com/cloudfront/v4/home#/distributions").
@@ -54,9 +49,7 @@ policy** is chosen. 5. For **Origin request policy**, choose the origin
 request policy to attach to this cache behavior. 6. At the bottom of the page, choose **Save
 changes**.
 
-###### To attach an origin request policy to a new distribution
-
-(console)
+###### To attach an origin request policy to a new distribution (console)
 
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Choose **Create distribution**.
@@ -97,8 +90,7 @@ aws cloudfront create-origin-request-policy --generate-cli-skeleton yaml-input >
    fields.
 
 For more information about the origin request policy settings, see
-[Understand origin
-request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md"). 3. Use the following command to create the origin request policy using
+[Understand origin request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md"). 3. Use the following command to create the origin request policy using
 input parameters from the
 `origin-request-policy.yaml` file.
 
@@ -111,9 +103,7 @@ Make note of the `Id` value in the command's output. This
 is the origin request policy ID, and you need it to attach the origin
 request policy to a CloudFront distribution's cache behavior.
 
-###### To attach an origin request policy to an existing distribution (CLI with
-
-input file)
+###### To attach an origin request policy to an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration for
    the CloudFront distribution that you want to update. Replace
@@ -147,9 +137,7 @@ aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > di
 aws cloudfront update-distribution --id `distribution_ID` --cli-input-yaml file://dist-config.yaml
 ```
 
-###### To attach an origin request policy to a new distribution (CLI with
-
-input file)
+###### To attach an origin request policy to a new distribution (CLI with input file)
 
 1. Use the following command to create a file named
    `distribution.yaml` that contains all of the input
@@ -178,8 +166,7 @@ aws cloudfront create-distribution --cli-input-yaml file://distribution.yaml
 
 API
 To create an origin request policy with the CloudFront API, use [CreateOriginRequestPolicy](../../../cloudfront/latest/APIReference/API_CreateOriginRequestPolicy.md "../../../cloudfront/latest/APIReference/API_CreateOriginRequestPolicy.md"). For more information about the fields
-that you specify in this API call, see [Understand origin
-request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md") and the
+that you specify in this API call, see [Understand origin request policies](origin-request-understand-origin-request-policy.md "origin-request-understand-origin-request-policy.md") and the
 API reference documentation for your AWS SDK or other API client.
 
 After you create an origin request policy, you can attach it to a cache

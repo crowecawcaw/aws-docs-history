@@ -1,6 +1,4 @@
-# Decide to use signed URLs or
-
-signed cookies
+# Decide to use signed URLs or signed cookies
 
 CloudFront signed URLs and signed cookies provide the same basic functionality: they allow you to control who can access
 your content. If you want to serve private content through CloudFront and you're trying to decide whether to use signed URLs
@@ -26,9 +24,7 @@ Use signed URLs in the following cases:
   CloudFront assumes that URLs that contain any of those query string parameters are signed URLs, and therefore won't look at
   signed cookies.
 
-## Use both signed URLs and
-
-signed cookies
+## Use both signed URLs and signed cookies
 
 Signed URLs take precedence over signed cookies. If you use both signed URLs and signed
 cookies to control access to the same files and a viewer uses a signed URL to

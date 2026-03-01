@@ -1,6 +1,4 @@
-# Cache content based on query string
-
-parameters
+# Cache content based on query string parameters
 
 Some web applications use query strings to send information to the origin. A query
 string is the part of a web request that appears after a `?` character; the
@@ -74,35 +72,25 @@ You can configure CloudFront to do one of the following:
   query string.
 - Forward query strings to the origin, and cache based on specified parameters
   in the query string.
-  For more information, see [Optimize
-  caching](#query-string-parameters-optimizing-caching "#query-string-parameters-optimizing-caching").
+  For more information, see [Optimize caching](#query-string-parameters-optimizing-caching "#query-string-parameters-optimizing-caching").
 
 ###### Topics
 
-- [Console and API settings for query
-  string forwarding and caching](#query-string-parameters-console "#query-string-parameters-console")
-- [Optimize
-  caching](#query-string-parameters-optimizing-caching "#query-string-parameters-optimizing-caching")
-- [Query string parameters and
-  CloudFront standard logs (access logs)](#query-string-parameters-access-logs "#query-string-parameters-access-logs")
+- [Console and API settings for query string forwarding and caching](#query-string-parameters-console "#query-string-parameters-console")
+- [Optimize caching](#query-string-parameters-optimizing-caching "#query-string-parameters-optimizing-caching")
+- [Query string parameters and CloudFront standard logs (access logs)](#query-string-parameters-access-logs "#query-string-parameters-access-logs")
 
-## Console and API settings for query
-
-string forwarding and caching
+## Console and API settings for query string forwarding and caching
 
 When you create a distribution in the CloudFront console, CloudFront configures query string forwarding and caching for you based on your origin type. Optionally, you can manually edit these settings. For more information, see the following settings in the [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md"):
 
-- [Query string forwarding and
-  caching](DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryString "DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryString")
-- [Query string
-  allowlist](DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryStringAllowlist "DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryStringAllowlist")
+- [Query string forwarding and caching](DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryString "DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryString")
+- [Query string allowlist](DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryStringAllowlist "DownloadDistValuesCacheBehavior.md#DownloadDistValuesQueryStringAllowlist")
 
 To configure query string forwarding and caching with the CloudFront API, see [CachePolicy](../../../cloudfront/latest/APIReference/API_CachePolicy.md "../../../cloudfront/latest/APIReference/API_CachePolicy.md") and [OriginRequestPolicy](../../../cloudfront/latest/APIReference/API_OriginRequestPolicy.md "../../../cloudfront/latest/APIReference/API_OriginRequestPolicy.md") in the
 _Amazon CloudFront API Reference_.
 
-## Optimize
-
-caching
+## Optimize caching
 
 When you configure CloudFront to cache based on query string parameters, you can take
 the following steps to reduce the number of requests that CloudFront forwards to your
@@ -179,9 +167,7 @@ query strings to your origin, your own query string parameters cannot be
 named `Expires`, `Key-Pair-Id`,
 `Policy`, or `Signature`.
 
-## Query string parameters and
-
-CloudFront standard logs (access logs)
+## Query string parameters and CloudFront standard logs (access logs)
 
 If you enable logging, CloudFront logs the full URL, including query string parameters.
 This is true regardless of whether you have configured CloudFront to forward query strings

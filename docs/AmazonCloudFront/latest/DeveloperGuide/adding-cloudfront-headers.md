@@ -7,8 +7,7 @@ viewer or the viewer request. The headers provide information about the viewer's
 type, IP address, geographic location, request protocol (HTTP or HTTPS), HTTP version, TLS
 connection details, [JA3 fingerprint](https://github.com/salesforce/ja3 "https://github.com/salesforce/ja3"),
 and JA4 fingerprint. You can also configure your distribution's cache behavior to forward
-WebSocket headers. For more information, see [Use WebSockets with CloudFront
-distributions](distribution-working-with.md "distribution-working-with.md").
+WebSocket headers. For more information, see [Use WebSockets with CloudFront distributions](distribution-working-with.md "distribution-working-with.md").
 
 With these headers, your origin or your edge function can receive information about the
 viewer without the need for you to write your own code to determine this information. If
@@ -32,8 +31,7 @@ _origin request policy_. For more information, see
 
 - [Device type headers](#cloudfront-headers-device-type "#cloudfront-headers-device-type")
 - [Viewer location headers](#cloudfront-headers-viewer-location "#cloudfront-headers-viewer-location")
-- [Headers to determine the viewer's
-  header structure](#cloudfront-headers-viewer-headers "#cloudfront-headers-viewer-headers")
+- [Headers to determine the viewer's header structure](#cloudfront-headers-viewer-headers "#cloudfront-headers-viewer-headers")
 - [TLS-related headers](#tls-related-versions "#tls-related-versions")
 - [Other CloudFront headers](#cloudfront-headers-other "#cloudfront-headers-other")
 
@@ -117,9 +115,7 @@ and `CloudFront-Viewer-Postal-Code` might not be available for every IP
 address. Some IP addresses can't be geolocated with enough specificity to get that
 information.
 
-## Headers to determine the viewer's
-
-header structure
+## Headers to determine the viewer's header structure
 
 You can add the following headers to help identify the viewer based on the headers
 that it sends. For example, different browsers may send HTTP headers in a certain order.
@@ -190,8 +186,7 @@ TLSv1:ECDHE-RSA-AES256-SHA:fullHandshake
 ```
 
 For the full list of possible SSL/TLS versions and ciphers that can be in this
-header value, see [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+header value, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
 ###### Notes
 

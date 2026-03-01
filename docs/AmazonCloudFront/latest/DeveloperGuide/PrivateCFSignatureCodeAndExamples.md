@@ -1,6 +1,4 @@
-# Code examples for creating a signature for a
-
-signed URL
+# Code examples for creating a signature for a signed URL
 
 This section includes downloadable application examples that demonstrate how to create
 signatures for signed URLs. Examples are available in Perl, PHP, C#, and Java. You can
@@ -17,7 +15,5 @@ example code](https://github.com/boto/boto3/blob/develop/boto3/examples/cloudfro
 
 - [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
 - [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using C# and the .NET
-  Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
-- [Create a URL signature using
-  Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
+- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
+- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")

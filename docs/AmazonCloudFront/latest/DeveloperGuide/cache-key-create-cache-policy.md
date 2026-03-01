@@ -22,9 +22,7 @@ Console
 After you create a cache policy, you can attach it to a cache
 behavior.
 
-###### To attach a cache policy to an existing distribution
-
-(console)
+###### To attach a cache policy to an existing distribution (console)
 
 1. Open the **Distributions** page in the CloudFront
    console at [https://console.aws.amazon.com/cloudfront/v4/home#/distributions](https://console.aws.amazon.com/cloudfront/v4/home#/distributions "https://console.aws.amazon.com/cloudfront/v4/home#/distributions").
@@ -91,9 +89,7 @@ Make note of the `Id` value in the command's output.
 This is the cache policy ID, and you need it to attach the cache
 policy to a CloudFront distribution's cache behavior.
 
-###### To attach a cache policy to an existing distribution (CLI with input
-
-file)
+###### To attach a cache policy to an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration
    for the CloudFront distribution that you want to update. Replace
@@ -134,9 +130,7 @@ aws cloudfront get-distribution-config --id `distribution_ID` --output yaml > di
 aws cloudfront update-distribution --id `distribution_ID` --cli-input-yaml file://dist-config.yaml
 ```
 
-###### To attach a cache policy to a new distribution (CLI with input
-
-file)
+###### To attach a cache policy to a new distribution (CLI with input file)
 
 1. Use the following command to create a file named
    `distribution.yaml` that contains all of the

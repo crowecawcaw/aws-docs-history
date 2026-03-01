@@ -33,9 +33,7 @@ _AWS Config Developer Guide_.
 
 Console
 
-###### To set up AWS Config with
-
-CloudFront
+###### To set up AWS Config with CloudFront
 
 1. Sign in to the AWS Management Console and open the [AWS Config
    console](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").

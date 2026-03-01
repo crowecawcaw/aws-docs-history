@@ -1,6 +1,4 @@
-# HTTP 403 status code (Permission
-
-Denied)
+# HTTP 403 status code (Permission Denied)
 
 An HTTP 403 error means the client isn't authorized to access the requested
 resource. The client understands the request, but can't authorize viewer access. The
@@ -8,23 +6,15 @@ following are common causes when CloudFront returns this status code:
 
 ###### Topics
 
-- [Alternate CNAME is
-  incorrectly configured](#alternate-cname-incorrectly-configured "#alternate-cname-incorrectly-configured")
-- [AWS WAF is configured
-  on CloudFront distribution or at the origin](#aws-waf-configured-on-distribution-origin "#aws-waf-configured-on-distribution-origin")
-- [Custom origin returns a 403
-  error](#custom-origin-returning-403 "#custom-origin-returning-403")
+- [Alternate CNAME is incorrectly configured](#alternate-cname-incorrectly-configured "#alternate-cname-incorrectly-configured")
+- [AWS WAF is configured on CloudFront distribution or at the origin](#aws-waf-configured-on-distribution-origin "#aws-waf-configured-on-distribution-origin")
+- [Custom origin returns a 403 error](#custom-origin-returning-403 "#custom-origin-returning-403")
 - [Amazon S3 origin returns a 403 error](#s3-origin-403-error "#s3-origin-403-error")
-- [Geographic restrictions return a 403
-  error](#geolocation-403 "#geolocation-403")
-- [Signed URL or signed cookie
-  configuration returns a 403 error](#signed-URLs-cookies-403 "#signed-URLs-cookies-403")
-- [Stacked distributions cause a 403
-  error](#stacked-distributions-403 "#stacked-distributions-403")
+- [Geographic restrictions return a 403 error](#geolocation-403 "#geolocation-403")
+- [Signed URL or signed cookie configuration returns a 403 error](#signed-URLs-cookies-403 "#signed-URLs-cookies-403")
+- [Stacked distributions cause a 403 error](#stacked-distributions-403 "#stacked-distributions-403")
 
-## Alternate CNAME is
-
-incorrectly configured
+## Alternate CNAME is incorrectly configured
 
 Verify that you specified the correct CNAME for our distribution. To use an
 alternate CNAME instead of the default CloudFront URL:
@@ -37,9 +27,7 @@ If you create the DNS record but don't add the CNAME in your CloudFront distribu
 configuration, then the request returns a 403 error. For more information about
 configuring a custom CNAME, see [Use custom URLs by adding alternate domain names (CNAMEs)](CNAMEs.md "CNAMEs.md").
 
-## AWS WAF is configured
-
-on CloudFront distribution or at the origin
+## AWS WAF is configured on CloudFront distribution or at the origin
 
 When AWS WAF sits between the client and CloudFront, CloudFront can't distinguish between a
 403 error code that’s returned by your origin and a 403 error code that's
@@ -54,9 +42,7 @@ topics:
 - [Testing and tuning your AWS WAF
   protections](../../../waf/latest/developerguide/web-acl-testing.md "../../../waf/latest/developerguide/web-acl-testing.md")
 
-## Custom origin returns a 403
-
-error
+## Custom origin returns a 403 error
 
 If you're using a custom origin, you might see a 403 error if you have a
 custom firewall configuration at the origin. To troubleshoot, make the request
@@ -84,12 +70,9 @@ You might see a 403 error for the following reasons:
 - The host header was forwarded with the REST API endpoint. For more
   information, see [HTTP Host header bucket specification](../../../AmazonS3/latest/userguide/VirtualHosting.md#VirtualHostingSpecifyBucket "../../../AmazonS3/latest/userguide/VirtualHosting.md#VirtualHostingSpecifyBucket") in the
   _Amazon Simple Storage Service User Guide_.
-- You configured custom error pages. For more information, see [How CloudFront processes errors when
-  you have configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages").
+- You configured custom error pages. For more information, see [How CloudFront processes errors when you have configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages").
 
-## Geographic restrictions return a 403
-
-error
+## Geographic restrictions return a 403 error
 
 If you enabled geographic restrictions (also known as geoblocking) to prevent
 users in specific geographic locations from accessing content that you're
@@ -98,23 +81,18 @@ error.
 
 For more information, see [Restrict the geographic distribution of your content](georestrictions.md "georestrictions.md").
 
-## Signed URL or signed cookie
-
-configuration returns a 403 error
+## Signed URL or signed cookie configuration returns a 403 error
 
 If you enabled **Restrict viewer access** for your
 distribution's behavior configuration, then requests that don't use signed
 cookies or signed URLs result in a 403 error. For more information, see the
 following topics:
 
-- [Serve private content with signed URLs and signed
-  cookies](PrivateContent.md "PrivateContent.md")
+- [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md")
 - [How do I troubleshoot issues related to a signed
   URL or signed cookies in CloudFront?](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-troubleshoot-signed-url-cookies/ "https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-troubleshoot-signed-url-cookies/")
 
-## Stacked distributions cause a 403
-
-error
+## Stacked distributions cause a 403 error
 
 If you have two or more distributions within a chain of requests to the origin
 endpoint, CloudFront returns a 403 error. We don't recommend placing one distribution

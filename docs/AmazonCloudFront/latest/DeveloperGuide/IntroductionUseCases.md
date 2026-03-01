@@ -5,19 +5,13 @@ links to more information, to give you an idea of the possibilities.
 
 ###### Topics
 
-- [Accelerate static website content
-  delivery](#IntroductionUseCasesStaticWebsite "#IntroductionUseCasesStaticWebsite")
-- [Serve video on demand or live streaming
-  video](#IntroductionUseCasesStreaming "#IntroductionUseCasesStreaming")
-- [Encrypt specific fields throughout system
-  processing](#IntroductionUseCasesFieldLevelEncryption "#IntroductionUseCasesFieldLevelEncryption")
+- [Accelerate static website content delivery](#IntroductionUseCasesStaticWebsite "#IntroductionUseCasesStaticWebsite")
+- [Serve video on demand or live streaming video](#IntroductionUseCasesStreaming "#IntroductionUseCasesStreaming")
+- [Encrypt specific fields throughout system processing](#IntroductionUseCasesFieldLevelEncryption "#IntroductionUseCasesFieldLevelEncryption")
 - [Customize at the edge](#IntroductionUseCasesProgrammableCDN "#IntroductionUseCasesProgrammableCDN")
-- [Serve private content by using
-  Lambda@Edge customizations](#IntroductionUseCasesPrivateContentAtTheEdge "#IntroductionUseCasesPrivateContentAtTheEdge")
+- [Serve private content by using Lambda@Edge customizations](#IntroductionUseCasesPrivateContentAtTheEdge "#IntroductionUseCasesPrivateContentAtTheEdge")
 
-## Accelerate static website content
-
-delivery
+## Accelerate static website content delivery
 
 CloudFront can speed up the delivery of your static content (for example, images, style sheets, JavaScript,
 and so on) to viewers across the globe. By using CloudFront, you can take advantage
@@ -29,12 +23,9 @@ S3 together with CloudFront has a number of advantages, including the option to 
 easily restrict access to your Amazon S3 content.
 
 For more information about using Amazon S3 together with CloudFront, including an CloudFormation template to
-help you get started quickly, see [Get
-started with a secure static website](getting-started-secure-static-website-cloudformation-template.md "getting-started-secure-static-website-cloudformation-template.md").
+help you get started quickly, see [Get started with a secure static website](getting-started-secure-static-website-cloudformation-template.md "getting-started-secure-static-website-cloudformation-template.md").
 
-## Serve video on demand or live streaming
-
-video
+## Serve video on demand or live streaming video
 
 CloudFront offers several options for streaming your media to global viewers—both pre-recorded
 files and live events.
@@ -46,12 +37,9 @@ files and live events.
   can be combined, to reduce the load on your origin server.
 
 For more information about how to deliver streaming content with CloudFront, see
-[Video on demand and live streaming video with
-CloudFront](on-demand-streaming-video.md "on-demand-streaming-video.md").
+[Video on demand and live streaming video with CloudFront](on-demand-streaming-video.md "on-demand-streaming-video.md").
 
-## Encrypt specific fields throughout system
-
-processing
+## Encrypt specific fields throughout system processing
 
 When you configure HTTPS with CloudFront, you already have secure end-to-end connections to origin servers.
 When you add field-level encryption, you can protect specific data throughout system processing in
@@ -59,8 +47,7 @@ addition to HTTPS security, so that only certain applications at your origin can
 
 To set up field-level encryption, you add a public key to CloudFront, and then specify the set of fields
 that you want to be encrypted with the key. For more information, see
-[Use field-level encryption to help protect sensitive
-data](field-level-encryption.md "field-level-encryption.md").
+[Use field-level encryption to help protect sensitive data](field-level-encryption.md "field-level-encryption.md").
 
 ## Customize at the edge
 
@@ -76,9 +63,7 @@ CloudFront, see [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md "
 a number of code samples that you can customize for your own solutions, see
 [Lambda@Edge example functions](lambda-examples.md "lambda-examples.md").
 
-## Serve private content by using
-
-Lambda@Edge customizations
+## Serve private content by using Lambda@Edge customizations
 
 Using Lambda@Edge can help you configure your CloudFront distribution to serve private content
 from your own custom origin, in addition to using signed URLs or signed
@@ -96,8 +81,7 @@ To serve private content using CloudFront, you do the following:
       prefix list](LocationsOfEdgeServers.md#managed-prefix-list "LocationsOfEdgeServers.md#managed-prefix-list") to allow inbound traffic to your origin
       from only CloudFront's origin-facing IP addresses.
     - Use a custom HTTP header to restrict access to only
-      requests from CloudFront. For more information, see [Restrict access to files on custom
-      origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access") and [Add custom headers to origin requests](add-origin-custom-headers.md "add-origin-custom-headers.md"). For an example that
+      requests from CloudFront. For more information, see [Restrict access to files on custom origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access") and [Add custom headers to origin requests](add-origin-custom-headers.md "add-origin-custom-headers.md"). For an example that
       uses a custom header to restrict access to an Application Load Balancer origin,
       see [Restrict access to Application Load Balancers](restrict-access-to-load-balancer.md "restrict-access-to-load-balancer.md").
     - If the custom origin requires custom access control logic,

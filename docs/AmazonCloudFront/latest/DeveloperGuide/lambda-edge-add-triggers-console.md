@@ -1,6 +1,4 @@
-# Add triggers to a Lambda@Edge
-
-function
+# Add triggers to a Lambda@Edge function
 
 You can use the AWS Lambda console or Amazon CloudFront console to add a trigger to your
 Lambda@Edge function.
@@ -12,9 +10,7 @@ You can create triggers only for numbered versions of your function (not the
 
 Lambda console
 
-###### To add triggers for
-
-CloudFront events to a Lambda@Edge function
+###### To add triggers for CloudFront events to a Lambda@Edge function
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -110,8 +106,7 @@ CloudFront console
    function to execute: for viewer requests, viewer responses,
    origin requests, or origin responses.
 
-For more information, see [Choose the event to trigger the
-function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md"). 7. In the **Function ARN / Name** text box,
+For more information, see [Choose the event to trigger the function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md"). 7. In the **Function ARN / Name** text box,
 paste the ARN of the Lambda function that you want to execute
 when the chosen event occurs. This is the value that you copied
 from the Lambda console. 8. Select **Include body** if you want to access

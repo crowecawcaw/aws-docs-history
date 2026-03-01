@@ -1,20 +1,14 @@
-# Request and response behavior
-
-for custom origins
+# Request and response behavior for custom origins
 
 To understand how CloudFront processes requests and responses when you're using custom
 origins, see the following sections:
 
 ###### Topics
 
-- [How CloudFront processes and forwards
-  requests to your custom origin](#RequestBehaviorCustomOrigin "#RequestBehaviorCustomOrigin")
-- [How CloudFront processes responses from
-  your custom origin](#ResponseBehaviorCustomOrigin "#ResponseBehaviorCustomOrigin")
+- [How CloudFront processes and forwards requests to your custom origin](#RequestBehaviorCustomOrigin "#RequestBehaviorCustomOrigin")
+- [How CloudFront processes responses from your custom origin](#ResponseBehaviorCustomOrigin "#ResponseBehaviorCustomOrigin")
 
-## How CloudFront processes and forwards
-
-requests to your custom origin
+## How CloudFront processes and forwards requests to your custom origin
 
 Learn about how CloudFront processes viewer requests and forwards the requests to your
 custom origin.
@@ -24,34 +18,25 @@ custom origin.
 - [Authentication](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientAuth "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientAuth")
 - [Caching duration and minimum TTL](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCaching "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCaching")
 - [Client IP addresses](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomIPAddresses "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomIPAddresses")
-- [Client-side SSL
-  authentication](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientSideSslAuth "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientSideSslAuth")
+- [Client-side SSL authentication](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientSideSslAuth "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomClientSideSslAuth")
 - [Compression](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCompression "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCompression")
 - [Conditional requests](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomConditionalGETs "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomConditionalGETs")
 - [Cookies](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCookies "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomCookies")
-- [Cross-origin resource sharing
-  (CORS)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-cors "RequestAndResponseBehaviorCustomOrigin.md#request-custom-cors")
+- [Cross-origin resource sharing (CORS)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-cors "RequestAndResponseBehaviorCustomOrigin.md#request-custom-cors")
 - [Encryption](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomEncryption "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomEncryption")
-- [GET requests that include a
-  body](RequestAndResponseBehaviorCustomOrigin.md#RequestCustom-get-body "RequestAndResponseBehaviorCustomOrigin.md#RequestCustom-get-body")
+- [GET requests that include a body](RequestAndResponseBehaviorCustomOrigin.md#RequestCustom-get-body "RequestAndResponseBehaviorCustomOrigin.md#RequestCustom-get-body")
 - [HTTP methods](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomHTTPMethods "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomHTTPMethods")
-- [HTTP request headers and CloudFront
-  behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior")
+- [HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior")
 - [HTTP version](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomHTTPVersion "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomHTTPVersion")
-- [Maximum length of a
-  request and maximum length of a URL](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomMaxRequestStringLength "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomMaxRequestStringLength")
+- [Maximum length of a request and maximum length of a URL](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomMaxRequestStringLength "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomMaxRequestStringLength")
 - [OCSP stapling](RequestAndResponseBehaviorCustomOrigin.md#request-custom-ocsp-stapling "RequestAndResponseBehaviorCustomOrigin.md#request-custom-ocsp-stapling")
-- [Persistent
-  connections](RequestAndResponseBehaviorCustomOrigin.md#request-custom-persistent-connections "RequestAndResponseBehaviorCustomOrigin.md#request-custom-persistent-connections")
+- [Persistent connections](RequestAndResponseBehaviorCustomOrigin.md#request-custom-persistent-connections "RequestAndResponseBehaviorCustomOrigin.md#request-custom-persistent-connections")
 - [Protocols](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomProtocols "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomProtocols")
 - [Query strings](RequestAndResponseBehaviorCustomOrigin.md#RequestCustomQueryStrings "RequestAndResponseBehaviorCustomOrigin.md#RequestCustomQueryStrings")
-- [Origin connection timeout and
-  attempts](RequestAndResponseBehaviorCustomOrigin.md#custom-origin-timeout-attempts "RequestAndResponseBehaviorCustomOrigin.md#custom-origin-timeout-attempts")
+- [Origin connection timeout and attempts](RequestAndResponseBehaviorCustomOrigin.md#custom-origin-timeout-attempts "RequestAndResponseBehaviorCustomOrigin.md#custom-origin-timeout-attempts")
 - [Origin response timeout](RequestAndResponseBehaviorCustomOrigin.md#request-custom-request-timeout "RequestAndResponseBehaviorCustomOrigin.md#request-custom-request-timeout")
-- [Simultaneous requests for the
-  same object (request collapsing)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-traffic-spikes "RequestAndResponseBehaviorCustomOrigin.md#request-custom-traffic-spikes")
-- [User-Agent
-  header](RequestAndResponseBehaviorCustomOrigin.md#request-custom-user-agent-header "RequestAndResponseBehaviorCustomOrigin.md#request-custom-user-agent-header")
+- [Simultaneous requests for the same object (request collapsing)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-traffic-spikes "RequestAndResponseBehaviorCustomOrigin.md#request-custom-traffic-spikes")
+- [User-Agent header](RequestAndResponseBehaviorCustomOrigin.md#request-custom-user-agent-header "RequestAndResponseBehaviorCustomOrigin.md#request-custom-user-agent-header")
 
 ### Authentication
 
@@ -75,8 +60,7 @@ settings:
 - CloudFront is configured to _not_ cache the response to
   `OPTIONS` requests
 
-For more information, see [Configure CloudFront to
-forward the Authorization header](add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization "add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization").
+For more information, see [Configure CloudFront to forward the Authorization header](add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization "add-origin-custom-headers.md#add-origin-custom-headers-forward-authorization").
 
 You can use HTTP or HTTPS to forward requests to your origin server. For more
 information, see [Use HTTPS with CloudFront](using-https.md "using-https.md").
@@ -91,8 +75,7 @@ another request to your origin, you can:
 - Specify a value for Minimum TTL in CloudFront cache behaviors.
 - Use the default value of 24 hours.
 
-For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ### Client IP addresses
 
@@ -138,9 +121,7 @@ every node on the path to the current server (CloudFront). For more information,
 see section 8.1 in [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239 "https://datatracker.ietf.org/doc/html/rfc7239").
 You can also modify the header using CloudFront edge compute functions.
 
-### Client-side SSL
-
-authentication
+### Client-side SSL authentication
 
 CloudFront supports mutual TLS (mTLS) authentication where both the client and
 server authenticate each other using certificates. With mTLS configured, CloudFront
@@ -192,9 +173,7 @@ For more information, see [Cache content based on cookies](Cookies.md "Cookies.m
 You can configure CloudFront to forward cookies to your origin. For more
 information, see [Cache content based on cookies](Cookies.md "Cookies.md").
 
-### Cross-origin resource sharing
-
-(CORS)
+### Cross-origin resource sharing (CORS)
 
 If you want CloudFront to respect cross-origin resource sharing settings, configure
 CloudFront to forward the `Origin` header to your origin. For more
@@ -207,10 +186,8 @@ to forward requests to your custom origin by using the protocol that is used by
 the viewer. For more information, see the following distribution
 settings:
 
-- [Viewer protocol
-  policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy")
-- [Protocol (custom origins
-  only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy")
+- [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy")
+- [Protocol (custom origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy")
 
 CloudFront forwards HTTPS requests to the origin server using the SSLv3, TLSv1.0, TLSv1.1,
 TLSv1.2, and TLSv1.3 protocols. For custom origins, you can choose the SSL
@@ -232,12 +209,9 @@ Other versions of SSL and TLS are not supported.
 
 For more information about using HTTPS with CloudFront, see [Use HTTPS with CloudFront](using-https.md "using-https.md"). For lists of the
 ciphers that CloudFront supports for HTTPS communication between viewers and CloudFront, and
-between CloudFront and your origin, see [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+between CloudFront and your origin, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
-### GET requests that include a
-
-body
+### GET requests that include a body
 
 If a viewer `GET` request includes a body, CloudFront returns an HTTP
 status code 403 (Forbidden) to the viewer.
@@ -274,9 +248,7 @@ origin server to handle `DELETE` requests appropriately so
 viewers can't delete resources that you don't want them to. For more
 information, see the documentation for your HTTP server.
 
-### HTTP request headers and CloudFront
-
-behavior (custom and Amazon S3 origins)
+### HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)
 
 The following table lists HTTP request headers that you can forward to both
 custom and Amazon S3 origins (with the exceptions that are noted). For each header,
@@ -305,10 +277,10 @@ For more information about caching based on header values, see [Cache content ba
 | `Accept-Language`              | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                         |
 | `Authorization`                | • `GET` and `HEAD` requests<br>– CloudFront removes the `Authorization`<br>header field before forwarding the request to your<br>origin.<br>• `OPTIONS` requests – CloudFront<br>removes the `Authorization` header field<br>before forwarding the request to your origin if you<br>configure CloudFront to cache responses to<br>`OPTIONS` requests.<br>CloudFront forwards the `Authorization`<br>header field to your origin if you do not configure<br>CloudFront to cache responses to OPTIONS requests.<br>• `DELETE`, `PATCH`,<br>`POST`, and `PUT` requests<br>– CloudFront does not remove the header field<br>before forwarding the request to your origin. | Yes                                         |
 | `Cache-Control`                | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
-| `CloudFront-Forwarded-Proto`   | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the<br>protocol of the request](header-caching.md#header-caching-web-protocol "header-caching.md#header-caching-web-protocol").                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                         |
-| `CloudFront-Is-Desktop-Viewer` | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device<br>type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                         |
-| `CloudFront-Is-Mobile-Viewer`  | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device<br>type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                         |
-| `CloudFront-Is-Tablet-Viewer`  | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device<br>type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                          | Yes                                         |
+| `CloudFront-Forwarded-Proto`   | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the protocol of the request](header-caching.md#header-caching-web-protocol "header-caching.md#header-caching-web-protocol").                                                                                                                                                                                                                                                                                                                                                                                             | Yes                                         |
+| `CloudFront-Is-Desktop-Viewer` | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                             | Yes                                         |
+| `CloudFront-Is-Mobile-Viewer`  | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                             | Yes                                         |
+| `CloudFront-Is-Tablet-Viewer`  | CloudFront does not add the header before forwarding the request<br>to your origin.<br>For more information, see [Configure caching based on the device type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                                                                             | Yes                                         |
 | `CloudFront-Viewer-Country`    | CloudFront does not add the header before forwarding the request<br>to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Yes                                         |
 | `Connection`                   | CloudFront replaces this header with `Connection:<br>Keep-Alive` before forwarding the request to your<br>origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | No                                          |
 | `Content-Length`               | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
@@ -330,14 +302,14 @@ For more information about caching based on header values, see [Cache content ba
 | `Proxy-Authenticate`           | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `Proxy-Authorization`          | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `Proxy-Connection`             | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
-| `Range`                        | CloudFront forwards the header to your origin. For more<br>information, see [How CloudFront processes partial requests for an object (range<br>GETs)](RangeGETs.md "RangeGETs.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Yes, by default                             |
+| `Range`                        | CloudFront forwards the header to your origin. For more<br>information, see [How CloudFront processes partial requests for an object (range GETs)](RangeGETs.md "RangeGETs.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes, by default                             |
 | `Referer`                      | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                         |
 | `Request-Range`                | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `TE`                           | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `Trailer`                      | CloudFront removes the header.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `Transfer-Encoding`            | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                                          |
 | `Upgrade`                      | CloudFront removes the header, unless you've established a<br>WebSocket connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | No (except for WebSocket connections)       |
-| `User-Agent`                   | CloudFront replaces the value of this header field with<br>`Amazon CloudFront`. If you want CloudFront to<br>cache your content based on the device the user is using,<br>see [Configure caching based on the device<br>type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                             | Yes, but not recommended                    |
+| `User-Agent`                   | CloudFront replaces the value of this header field with<br>`Amazon CloudFront`. If you want CloudFront to<br>cache your content based on the device the user is using,<br>see [Configure caching based on the device type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").                                                                                                                                                                                                                                                                                                                                                | Yes, but not recommended                    |
 | `Via`                          | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                         |
 | `Warning`                      | CloudFront forwards the header to your origin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Yes                                         |
 | `X-Amz-Cf-Id`                  | CloudFront adds the header to the viewer request before<br>forwarding the request to your origin. The header value<br>contains an encrypted string that uniquely identifies the<br>request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No                                          |
@@ -351,9 +323,7 @@ For more information about caching based on header values, see [Cache content ba
 
 CloudFront forwards requests to your custom origin using HTTP/1.1.
 
-### Maximum length of a
-
-request and maximum length of a URL
+### Maximum length of a request and maximum length of a URL
 
 The maximum length of a request, including the path, the query string (if
 any), and headers, is 20,480 bytes.
@@ -388,9 +358,7 @@ That CloudFront server also submits a validation request to the CA, so the next 
 it receives a request that includes the same domain name, it has a validation
 response from the CA.
 
-### Persistent
-
-connections
+### Persistent connections
 
 When CloudFront gets a response from your origin, it tries to maintain the
 connection for several seconds in case another request arrives during that
@@ -399,8 +367,7 @@ re-establish the TCP connection and perform another TLS handshake for subsequent
 requests.
 
 For more information, including how to configure the duration of persistent
-connections, see [Keep-alive timeout (custom
-and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout") in the section
+connections, see [Keep-alive timeout (custom and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout") in the section
 [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
 ### Protocols
@@ -440,12 +407,9 @@ the _Amazon CloudFront API Reference_.
 ### Query strings
 
 You can configure whether CloudFront forwards query string parameters to your
-origin. For more information, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md").
+origin. For more information, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md").
 
-### Origin connection timeout and
-
-attempts
+### Origin connection timeout and attempts
 
 _Origin
 connection timeout_ is the number of seconds that CloudFront waits when
@@ -461,8 +425,7 @@ long as 30 seconds (3 attempts of 10 seconds each) before attempting to connect
 to the secondary origin or returning an error response. You can reduce this time
 by specifying a shorter connection timeout, fewer attempts, or both.
 
-For more information, see [Control origin timeouts and
-attempts](high_availability_origin_failover.md#controlling-attempts-and-timeouts "high_availability_origin_failover.md#controlling-attempts-and-timeouts").
+For more information, see [Control origin timeouts and attempts](high_availability_origin_failover.md#controlling-attempts-and-timeouts "high_availability_origin_failover.md#controlling-attempts-and-timeouts").
 
 ### Origin response timeout
 
@@ -496,9 +459,7 @@ CloudFront behavior depends on the HTTP method of the viewer request:
 For more information, including how to configure the origin response timeout,
 see [Response timeout](DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout").
 
-### Simultaneous requests for the
-
-same object (request collapsing)
+### Simultaneous requests for the same object (request collapsing)
 
 When a CloudFront edge location receives a request for
 an object and the object isn't in the cache or the cached object is
@@ -538,9 +499,7 @@ request.
 Currently, CloudFront doesn't support request collapsing if you enable cookie forwarding in the [cache policy](controlling-the-cache-key.md "controlling-the-cache-key.md"), the [origin request
 policy](controlling-origin-requests.md "controlling-origin-requests.md"), or the legacy cache settings.
 
-### `User-Agent`
-
-header
+### `User-Agent` header
 
 If you want CloudFront to cache different versions of your objects based on
 the device that a user is using to view your content, we recommend that you
@@ -576,33 +535,25 @@ CloudFront adds this header regardless of whether the request from the viewer
 includes a `User-Agent` header. If the request from the viewer
 includes a `User-Agent` header, CloudFront removes it.
 
-## How CloudFront processes responses from
-
-your custom origin
+## How CloudFront processes responses from your custom origin
 
 Learn how CloudFront processes responses from your custom origin.
 
 ###### Contents
 
-- [100 Continue
-  responses](RequestAndResponseBehaviorCustomOrigin.md#Response100Continue "RequestAndResponseBehaviorCustomOrigin.md#Response100Continue")
+- [100 Continue responses](RequestAndResponseBehaviorCustomOrigin.md#Response100Continue "RequestAndResponseBehaviorCustomOrigin.md#Response100Continue")
 - [Caching](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomCaching "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomCaching")
 - [Canceled requests](RequestAndResponseBehaviorCustomOrigin.md#response-custom-canceled-requests "RequestAndResponseBehaviorCustomOrigin.md#response-custom-canceled-requests")
 - [Content negotiation](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomContentNegotiation "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomContentNegotiation")
 - [Cookies](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomCookies "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomCookies")
-- [Dropped TCP
-  connections](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomDroppedTCPConnections "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomDroppedTCPConnections")
-- [HTTP response headers that CloudFront
-  removes or replaces](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRemovedHeaders "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRemovedHeaders")
+- [Dropped TCP connections](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomDroppedTCPConnections "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomDroppedTCPConnections")
+- [HTTP response headers that CloudFront removes or replaces](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRemovedHeaders "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRemovedHeaders")
 - [Maximum cacheable file size](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomMaxFileSize "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomMaxFileSize")
 - [Origin unavailable](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomOriginUnavailable "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomOriginUnavailable")
 - [Redirects](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRedirects "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomRedirects")
-- [Transfer-Encoding
-  header](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomTransferEncoding "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomTransferEncoding")
+- [Transfer-Encoding header](RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomTransferEncoding "RequestAndResponseBehaviorCustomOrigin.md#ResponseCustomTransferEncoding")
 
-### `100 Continue`
-
-responses
+### `100 Continue` responses
 
 Your origin cannot send more than one 100-Continue response to CloudFront. After the
 first 100-Continue response, CloudFront expects an HTTP 200 OK response. If your
@@ -615,8 +566,7 @@ an error.
   `Date` and `Last-Modified` header
   fields.
 - CloudFront normally respects a `Cache-Control: no-cache` header
-  in the response from the origin. For an exception, see [Simultaneous requests for the
-  same object (request collapsing)](#request-custom-traffic-spikes "#request-custom-traffic-spikes").
+  in the response from the origin. For an exception, see [Simultaneous requests for the same object (request collapsing)](#request-custom-traffic-spikes "#request-custom-traffic-spikes").
 
 ### Canceled requests
 
@@ -638,8 +588,7 @@ request.
 
 If your origin returns `Vary:*` in the response, and if the value
 of **Minimum TTL** for the corresponding cache behavior is any
-other value, CloudFront processes the `Vary` header as described in [HTTP response headers that CloudFront
-removes or replaces](#ResponseCustomRemovedHeaders "#ResponseCustomRemovedHeaders").
+other value, CloudFront processes the `Vary` header as described in [HTTP response headers that CloudFront removes or replaces](#ResponseCustomRemovedHeaders "#ResponseCustomRemovedHeaders").
 
 ### Cookies
 
@@ -647,9 +596,7 @@ If you enable cookies for a cache behavior, and if the origin returns cookies
 with an object, CloudFront caches both the object and the cookies. Note that this
 reduces cacheability for an object. For more information, see [Cache content based on cookies](Cookies.md "Cookies.md").
 
-### Dropped TCP
-
-connections
+### Dropped TCP connections
 
 If the TCP connection between CloudFront and your origin drops while your origin is
 returning an object to CloudFront, CloudFront behavior depends on whether your origin
@@ -673,9 +620,7 @@ We recommend that you configure your HTTP server to add a
 `Content-Length` header to prevent CloudFront from caching partial
 objects.
 
-### HTTP response headers that CloudFront
-
-removes or replaces
+### HTTP response headers that CloudFront removes or replaces
 
 CloudFront removes or updates the following header fields before forwarding the
 response from your origin to the viewer:
@@ -697,8 +642,7 @@ response from your origin to the viewer:
     `CloudFront-Is-Tablet-Viewer`) and you configure
     your origin to return `Vary:User-Agent` to CloudFront, CloudFront
     returns `Vary:User-Agent` to the viewer. For more
-    information, see [Configure caching based on the device
-    type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").
+    information, see [Configure caching based on the device type](header-caching.md#header-caching-web-device "header-caching.md#header-caching-web-device").
   - If you configure your origin to include either
     `Accept-Encoding` or `Cookie` in the
     `Vary` header, CloudFront includes the values in the
@@ -738,8 +682,7 @@ You can use CloudFront to cache an object that is larger than this size by using
 requests to request the objects in parts that are each 50 GB or smaller. CloudFront
 caches these parts because each of them is 50 GB or smaller. After the viewer
 retrieves all the parts of the object, it can reconstruct the original, larger
-object. For more information, see [Use range requests to
-cache large objects](RangeGETs.md#cache-large-objects-with-range-requests "RangeGETs.md#cache-large-objects-with-range-requests").
+object. For more information, see [Use range requests to cache large objects](RangeGETs.md#cache-large-objects-with-range-requests "RangeGETs.md#cache-large-objects-with-range-requests").
 
 ### Origin unavailable
 
@@ -748,8 +691,7 @@ that is in the edge cache but that has expired (for example, because the period
 of time specified in the `Cache-Control max-age` directive has
 passed), CloudFront either serves the expired version of the object or serves a custom
 error page. For more information about CloudFront behavior when you've configured
-custom error pages, see [How CloudFront processes errors when
-you have configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages").
+custom error pages, see [How CloudFront processes errors when you have configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-custom-error-pages").
 
 In some cases, an object that is seldom requested is evicted and is no longer
 available in the edge cache. CloudFront can't serve an object that has been
@@ -780,9 +722,7 @@ locations:
   request for the object will incur charges for two requests to
   CloudFront.
 
-### `Transfer-Encoding`
-
-header
+### `Transfer-Encoding` header
 
 CloudFront supports only the `chunked` value of the
 `Transfer-Encoding` header. If your origin returns
@@ -795,5 +735,4 @@ If the viewer makes a `Range GET` request and the origin returns
 the viewer instead of the requested range.
 
 We recommend that you use chunked encoding if the content length of your
-response cannot be predetermined. For more information, see [Dropped TCP
-connections](#ResponseCustomDroppedTCPConnections "#ResponseCustomDroppedTCPConnections").
+response cannot be predetermined. For more information, see [Dropped TCP connections](#ResponseCustomDroppedTCPConnections "#ResponseCustomDroppedTCPConnections").

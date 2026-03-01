@@ -1,19 +1,14 @@
-# Understand origin
-
-request policies
+# Understand origin request policies
 
 CloudFront provides some predefined origin request policies, known as _managed policies_, for common use cases. You can use these
 managed policies, or you can create your own origin request policy that's specific to
-your needs. For more information about the managed policies, see [Use managed origin request
-policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").
+your needs. For more information about the managed policies, see [Use managed origin request policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").
 
 An origin request policy contains the following settings, which are categorized into
 _policy information_ and _origin
 request settings_.
 
-## Policy
-
-information
+## Policy information
 
 **Name**
 
@@ -25,9 +20,7 @@ the name to attach the origin request policy to a cache behavior.
 A comment to describe the origin request policy. This is
 optional.
 
-## Origin
-
-request settings
+## Origin request settings
 
 Origin request settings specify the values in viewer requests that are included in
 requests that CloudFront sends to the origin (known as origin requests). The values can
@@ -60,8 +53,7 @@ settings:
 
 Do not specify a header that is already included in your
 **Origin Custom Headers** settings. For
-more information, see [Configure CloudFront to add custom
-headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure").
+more information, see [Configure CloudFront to add custom headers to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-configure "add-origin-custom-headers.md#add-origin-custom-headers-configure").
 
 - **All viewer headers except** – You
   specify which HTTP headers are **_not_** included in origin

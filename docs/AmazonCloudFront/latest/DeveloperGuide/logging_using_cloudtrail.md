@@ -97,14 +97,10 @@ An event represents a single request from any source and includes information ab
 
 ###### Contents
 
-- [Example:
-  UpdateDistribution](logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log")
-- [Example:
-  UpdateKeys](logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log")
+- [Example: UpdateDistribution](logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-service-cloudtrail-log")
+- [Example: UpdateKeys](logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log "logging_using_cloudtrail.md#example-cloudfront-kvs-cloudtrail-log")
 
-### Example:
-
-UpdateDistribution
+### Example: UpdateDistribution
 
 The following example shows a CloudTrail event that demonstrates the [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") operation.
 
@@ -449,9 +445,7 @@ For calls to the CloudFront API, the `eventSource` is
 }
 ```
 
-### Example:
-
-UpdateKeys
+### Example: UpdateKeys
 
 The following example shows a CloudTrail event that demonstrates the [UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") operation.
 

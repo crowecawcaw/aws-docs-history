@@ -1,6 +1,4 @@
-# Manage how long content stays in the cache
-
-(expiration)
+# Manage how long content stays in the cache (expiration)
 
 You can control how long your files stay in a CloudFront cache before CloudFront forwards another
 request to your origin. Reducing the duration allows you to serve dynamic content.
@@ -31,32 +29,24 @@ We recommend managing your cache duration by updating your distribution's cache 
 - To change the cache duration for an individual file, you can configure your
   origin to add a `Cache-Control` header with the `max-age`
   or `s-maxage` directive, or an `Expires` header to the
-  file. For more information, see [Use headers to control cache
-  duration for individual objects](#expiration-individual-objects "#expiration-individual-objects").
+  file. For more information, see [Use headers to control cache duration for individual objects](#expiration-individual-objects "#expiration-individual-objects").
   For more information about how **Minimum TTL**, **Default
   TTL**, and **Maximum TTL** interact with the
   `max-age` and `s-maxage` directives and the
-  `Expires` header field, see [Specify the amount of time that CloudFront caches
-  objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
+  `Expires` header field, see [Specify the amount of time that CloudFront caches objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
 
 You can also control how long errors (for example, `404 Not Found`) stay in
 a CloudFront cache before CloudFront tries again to get the requested object by forwarding another
-request to your origin. For more information, see [How CloudFront processes HTTP 4xx and 5xx status codes from
-your origin](HTTPStatusCodes.md "HTTPStatusCodes.md").
+request to your origin. For more information, see [How CloudFront processes HTTP 4xx and 5xx status codes from your origin](HTTPStatusCodes.md "HTTPStatusCodes.md").
 
 ###### Topics
 
-- [Use headers to control cache
-  duration for individual objects](#expiration-individual-objects "#expiration-individual-objects")
+- [Use headers to control cache duration for individual objects](#expiration-individual-objects "#expiration-individual-objects")
 - [Serve stale (expired) content](#stale-content "#stale-content")
-- [Specify the amount of time that CloudFront caches
-  objects](#ExpirationDownloadDist "#ExpirationDownloadDist")
-- [Add headers to your objects by using the Amazon S3
-  console](#ExpirationAddingHeadersInS3 "#ExpirationAddingHeadersInS3")
+- [Specify the amount of time that CloudFront caches objects](#ExpirationDownloadDist "#ExpirationDownloadDist")
+- [Add headers to your objects by using the Amazon S3 console](#ExpirationAddingHeadersInS3 "#ExpirationAddingHeadersInS3")
 
-## Use headers to control cache
-
-duration for individual objects
+## Use headers to control cache duration for individual objects
 
 You can use the `Cache-Control` and `Expires` headers to
 control how long objects stay in the cache. Settings for **Minimum
@@ -80,8 +70,7 @@ object in the cache for 3600 seconds (one hour):
 If you want objects to stay in CloudFront edge caches for a different duration
 than they stay in browser caches, you can use the `Cache-Control
  max-age` and `Cache-Control s-maxage` directives
-together. For more information, see [Specify the amount of time that CloudFront caches
-objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
+together. For more information, see [Specify the amount of time that CloudFront caches objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
 
 - The `Expires` header field lets you specify an expiration date
   and time using the format specified in [RFC 2616, Hypertext Transfer Protocol -- HTTP/1.1 Section 3.3.1, Full
@@ -94,8 +83,7 @@ of the `Expires` header field to control object caching. If you specify
 values both for `Cache-Control max-age` and for `Expires`,
 CloudFront uses only the value of `Cache-Control max-age`.
 
-For more information, see [Specify the amount of time that CloudFront caches
-objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
+For more information, see [Specify the amount of time that CloudFront caches objects](#ExpirationDownloadDist "#ExpirationDownloadDist").
 
 You cannot use the HTTP `Cache-Control` or `Pragma` header
 fields in a `GET` request from a viewer to force CloudFront to go back to the
@@ -194,8 +182,7 @@ Cache-Control: max-age=3600, stale-if-error=86400
 - If you don't configure `stale-if-error` or custom error
   responses, CloudFront will return the stale object or forward the error
   response back to viewer, depending on whether the requested object
-  is in the edge cache or not. For more information, see [How CloudFront processes errors if
-  you haven't configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-no-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-no-custom-error-pages").
+  is in the edge cache or not. For more information, see [How CloudFront processes errors if you haven't configured custom error pages](HTTPStatusCodes.md#HTTPStatusCodes-no-custom-error-pages "HTTPStatusCodes.md#HTTPStatusCodes-no-custom-error-pages").
 
 ### Use both directives
 
@@ -231,9 +218,7 @@ version is non-essential. Additionally, if your content doesn’t change or rare
 changes, `stale-while-revalidate` could add unnecessary network
 requests. Instead, consider setting a long cache duration.
 
-## Specify the amount of time that CloudFront caches
-
-objects
+## Specify the amount of time that CloudFront caches objects
 
 To control the amount of time that CloudFront keeps an object in the cache before
 sending another request to the origin, you can:
@@ -288,16 +273,12 @@ For information about how to change settings for distributions using the CloudFr
 console, see [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md"). For information about how to change
 settings for distributions using the CloudFront API, see [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md").
 
-## Add headers to your objects by using the Amazon S3
-
-console
+## Add headers to your objects by using the Amazon S3 console
 
 You can add the `Cache-Control` or `Expires` header field to your
 Amazon S3 objects. To do so, you modify the metadata fields for the object.
 
-###### To add a `Cache-Control` or `Expires` header field to Amazon S3
-
-objects
+###### To add a `Cache-Control` or `Expires` header field to Amazon S3 objects
 
 1. Follow the procedure in the **Replacing system-defined metadata**
    section on the [Editing object

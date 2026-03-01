@@ -1,6 +1,4 @@
-# Supported
-
-protocols and ciphers between CloudFront and the origin
+# Supported protocols and ciphers between CloudFront and the origin
 
 If you choose to [require HTTPS between CloudFront and your origin](distribution-web-values-specify.md#DownloadDistValuesOriginProtocolPolicy "distribution-web-values-specify.md#DownloadDistValuesOriginProtocolPolicy"), you can decide [which SSL/TLS protocol to allow](distribution-web-values-specify.md#DownloadDistValuesOriginSSLProtocols "distribution-web-values-specify.md#DownloadDistValuesOriginSSLProtocols") for the secure connection, and CloudFront can connect
 to the origin using any of the ECDSA or RSA ciphers listed in the following table. Your

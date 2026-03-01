@@ -24,17 +24,12 @@ referrer for the requested object.
 
 ###### Topics
 
-- [View CloudFront top referrers reports in the
-  console](#top-referrers-howto "#top-referrers-howto")
-- [How CloudFront calculates top referrers
-  statistics](#top-referrers-calculate "#top-referrers-calculate")
+- [View CloudFront top referrers reports in the console](#top-referrers-howto "#top-referrers-howto")
+- [How CloudFront calculates top referrers statistics](#top-referrers-calculate "#top-referrers-calculate")
 - [Download data in CSV format](#top-referrers-csv "#top-referrers-csv")
-- [How data in the top referrers report is related
-  to data in the CloudFront standard logs (access logs)](#top-referrers-data "#top-referrers-data")
+- [How data in the top referrers report is related to data in the CloudFront standard logs (access logs)](#top-referrers-data "#top-referrers-data")
 
-## View CloudFront top referrers reports in the
-
-console
+## View CloudFront top referrers reports in the console
 
 You can view the CloudFront top referrers report in the console.
 
@@ -50,9 +45,7 @@ You can view the CloudFront top referrers report in the console.
 Dates and times are in Coordinated Universal Time (UTC). 4. In the **Distribution** list, select the distribution for
 which you want to display a list of top referrers. 5. Choose **Update**.
 
-## How CloudFront calculates top referrers
-
-statistics
+## How CloudFront calculates top referrers statistics
 
 To get an accurate count of the top 25 referrers, CloudFront counts the requests for all
 of your objects in 10-minute intervals and keeps a running total of the top 75
@@ -68,9 +61,7 @@ referrers typically are more reliable.
 You can download the top referrers report in CSV format. This section explains how
 to download the report and describes the values in the report.
 
-###### To download the top referrers report
-
-in CSV format
+###### To download the top referrers report in CSV format
 
 1. While viewing the Top Referrers report, choose
    **CSV**.
@@ -111,9 +102,7 @@ Coordinated Universal Time (UTC).
 The date and time on which you ran the report, in Coordinated
 Universal Time (UTC).
 
-### Data in the top referrers
-
-report
+### Data in the top referrers report
 
 The report includes the following values:
 
@@ -143,9 +132,7 @@ The total number of requests from the domain name in the
 The number of requests submitted by the referrer as a percentage
 of the total number of requests during the specified period.
 
-## How data in the top referrers report is related
-
-to data in the CloudFront standard logs (access logs)
+## How data in the top referrers report is related to data in the CloudFront standard logs (access logs)
 
 The following list shows how values in the Top Referrers report in the CloudFront
 console correspond with values in CloudFront access logs. For more information about CloudFront

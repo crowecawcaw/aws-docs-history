@@ -18,10 +18,8 @@ includes the `IpAddress` parameter to restrict the IP addresses that
 can access your content, do not enable IPv6. If you want to restrict access to
 some content by IP address and not restrict access to other content (or restrict
 access but not by IP address), you can create two distributions. For information
-about creating signed URLs by using a custom policy, see [Create a signed URL using
-a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md"). For
-information about creating signed cookies by using a custom policy, see [Set signed
-cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
+about creating signed URLs by using a custom policy, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md"). For
+information about creating signed cookies by using a custom policy, see [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
 
 If you're using a Route 53 alias resource record set to route traffic to your
 CloudFront distribution, you need to create a second alias resource record set when

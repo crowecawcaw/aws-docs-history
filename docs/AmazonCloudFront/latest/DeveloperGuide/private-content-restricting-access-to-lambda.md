@@ -1,6 +1,4 @@
-# Restrict access to an
-
-AWS Lambda function URL origin
+# Restrict access to an AWS Lambda function URL origin
 
 CloudFront provides _origin access control_ (OAC) for restricting
 access to a Lambda function URL origin.
@@ -8,8 +6,7 @@ access to a Lambda function URL origin.
 ###### Topics
 
 - [Create a new OAC](#create-oac-overview-lambda "#create-oac-overview-lambda")
-- [Advanced settings for origin access
-  control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda")
+- [Advanced settings for origin access control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda")
 - [Example template code](#example-template-code-lambda-oac "#example-template-code-lambda-oac")
 
 ## Create a new OAC
@@ -26,8 +23,7 @@ sending the request to CloudFront. Lambda doesn't support unsigned payloads.
 ###### Topics
 
 - [Prerequisites](#oac-prerequisites-lambda "#oac-prerequisites-lambda")
-- [Grant CloudFront permission to access
-  the Lambda function URL](#oac-permission-to-access-lambda "#oac-permission-to-access-lambda")
+- [Grant CloudFront permission to access the Lambda function URL](#oac-permission-to-access-lambda "#oac-permission-to-access-lambda")
 - [Create the OAC](#create-oac-lambda "#create-oac-lambda")
 
 ### Prerequisites
@@ -36,9 +32,7 @@ Before you create and set up OAC, you must have a CloudFront distribution with a
 URL as the origin. To use OAC, you must specify `AWS_IAM` as the value
 for the `AuthType` parameter. For more information, see [Use a Lambda function URL](DownloadDistS3AndCustomOrigins.md#concept_lambda_function_url "DownloadDistS3AndCustomOrigins.md#concept_lambda_function_url").
 
-### Grant CloudFront permission to access
-
-the Lambda function URL
+### Grant CloudFront permission to access the Lambda function URL
 
 Before you create an OAC or set it up in a CloudFront distribution, make sure that CloudFront
 has permission to access the Lambda function URL. Do this after you create a CloudFront
@@ -58,9 +52,7 @@ _only_ when the request is on behalf of the CloudFront distribution
 that contains the Lambda function URL. This is the distribution with the Lambda
 function URL origin that you want to add OAC to.
 
-###### Example: AWS CLI command to update a policy to allow read-only access for a CloudFront
-
-distribution with OAC enabled
+###### Example: AWS CLI command to update a policy to allow read-only access for a CloudFront distribution with OAC enabled
 
 The following AWS CLI commands allows the CloudFront distribution
 (`E1PDK09ESKHJWT`) access to your
@@ -110,8 +102,7 @@ Console
    2. For **Signing behavior**, we recommend that you leave the default
       setting (**Sign requests
       (recommended)**). For more information, see
-      [Advanced settings for origin access
-      control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda").
+      [Advanced settings for origin access control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda").
 
 5. For **Origin type**, choose **Lambda**.
 6. Choose **Create**.
@@ -178,8 +169,7 @@ aws cloudfront create-origin-access-control --generate-cli-skeleton yaml-input >
    Edit the file to add a name for the OAC, a description (optional), and change the
    `SigningBehavior` to `always`. Then save the file.
 
-For information about other OAC settings, see [Advanced settings for origin access
-control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda"). 3. Use the following command to create the origin access control using the input
+For information about other OAC settings, see [Advanced settings for origin access control](#oac-advanced-settings-lambda "#oac-advanced-settings-lambda"). 3. Use the following command to create the origin access control using the input
 parameters from the `origin-access-control.yaml` file.
 
 ```
@@ -190,9 +180,7 @@ aws cloudfront create-origin-access-control --cli-input-yaml file://origin-acces
 Make note of the `Id` value in the command output. You need it to add the
 OAC to a Lambda function URL in a CloudFront distribution.
 
-###### To attach an OAC to a Lambda function URL in an existing distribution (CLI with input
-
-file)
+###### To attach an OAC to a Lambda function URL in an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration for the CloudFront
    distribution that you want to add the OAC to. The distribution
@@ -244,9 +232,7 @@ information about the other fields that you specify in these API calls,
 see and the API reference documentation for your AWS SDK or other API
 client.
 
-## Advanced settings for origin access
-
-control
+## Advanced settings for origin access control
 
 The CloudFront OAC feature includes advanced settings that are intended only for specific use
 cases. Use the recommended settings unless you have a specific need for the advanced

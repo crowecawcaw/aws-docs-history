@@ -1,6 +1,4 @@
-# Set up IAM permissions and roles for
-
-Lambda@Edge
+# Set up IAM permissions and roles for Lambda@Edge
 
 To configure Lambda@Edge, you must have the following IAM permissions and roles for
 AWS Lambda:
@@ -16,9 +14,7 @@ AWS Lambda:
   AWS services to replicate Lambda functions to AWS Regions and to enable CloudWatch
   to use CloudFront log files.
 
-## IAM permissions required to
-
-associate Lambda@Edge functions with CloudFront distributions
+## IAM permissions required to associate Lambda@Edge functions with CloudFront distributions
 
 In addition to the IAM permissions that you need for Lambda, you need the
 following permissions to associate Lambda functions with CloudFront distributions:
@@ -58,9 +54,7 @@ For more information, see the following topics:
 - [Lambda resource access permissions](../../../lambda/latest/dg/intro-permission-model.md#lambda-intro-execution-role "../../../lambda/latest/dg/intro-permission-model.md#lambda-intro-execution-role") in the
   _AWS Lambda Developer Guide_
 
-## Function execution role
-
-for service principals
+## Function execution role for service principals
 
 You must create an IAM role that the `lambda.amazonaws.com` and
 `edgelambda.amazonaws.com` service principals can assume when they
@@ -161,8 +155,7 @@ You must remove any associated CloudFront or Lambda@Edge resources before you ca
 service-linked role. This helps protect your Lambda@Edge resources so that you don't remove a
 service-linked role that is still required to access active resources.
 
-For more information about service-linked roles, see [Service-linked
-roles for CloudFront](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
+For more information about service-linked roles, see [Service-linked roles for CloudFront](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service-linked").
 
 ### Service-linked role permissions for Lambda@Edge
 
@@ -172,14 +165,10 @@ of these roles.
 
 ###### Contents
 
-- [Service-linked role permissions for
-  Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator")
-- [Service-linked role permissions for CloudFront
-  logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger")
+- [Service-linked role permissions for Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator")
+- [Service-linked role permissions for CloudFront logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger")
 
-#### Service-linked role permissions for
-
-Lambda replicator
+#### Service-linked role permissions for Lambda replicator
 
 This service-linked role allows Lambda to replicate Lambda@Edge functions
 to AWS Regions.
@@ -196,9 +185,7 @@ specified resources:
 - `iam:PassRole` on `all AWS resources`
 - `cloudfront:ListDistributionsByLambdaFunction` on `all AWS resources`
 
-#### Service-linked role permissions for CloudFront
-
-logger
+#### Service-linked role permissions for CloudFront logger
 
 This service-linked role allows CloudFront to push log files into CloudWatch so that you can debug
 Lambda@Edge validation errors.
@@ -263,9 +250,7 @@ because various entities might reference the role. However, you can use IAM to e
 description. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-### Supported AWS Regions for Lambda@Edge service-linked
-
-roles
+### Supported AWS Regions for Lambda@Edge service-linked roles
 
 CloudFront supports using service-linked roles for Lambda@Edge in the following
 AWS Regions:

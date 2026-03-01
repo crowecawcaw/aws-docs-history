@@ -35,16 +35,12 @@ reports.
 
 ###### Topics
 
-- [Create and use real-time access log
-  configurations](#create-real-time-log-config "#create-real-time-log-config")
-- [Understand real-time access log
-  configurations](#understand-real-time-log-config "#understand-real-time-log-config")
+- [Create and use real-time access log configurations](#create-real-time-log-config "#create-real-time-log-config")
+- [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config")
 - [Create a Kinesis Data Streams consumer](#real-time-log-consumer-guidance "#real-time-log-consumer-guidance")
 - [Troubleshoot real-time access logs](#real-time-log-troubleshooting "#real-time-log-troubleshooting")
 
-## Create and use real-time access log
-
-configurations
+## Create and use real-time access log configurations
 
 To get information about requests made to a distribution in real time. you can use a
 real-time access log configurations. Logs are delivered within seconds of receiving the
@@ -91,8 +87,7 @@ configuration. 10. Choose **Create configuration**.
 If successful, the console shows the details of the real-time access log
 configuration that you just created.
 
-For more information, see [Understand real-time access log
-configurations](#understand-real-time-log-config "#understand-real-time-log-config").
+For more information, see [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config").
 
 AWS CLI
 To create a real-time access log configuration with the AWS CLI, use the
@@ -121,8 +116,7 @@ aws cloudfront create-realtime-log-config --generate-cli-skeleton yaml-input > r
          `Kinesis`.
 
     For more information about the real-time long configuration
-    settings, see [Understand real-time access log
-    configurations](#understand-real-time-log-config "#understand-real-time-log-config").
+    settings, see [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config").
 
 3.  Use the following command to create the real-time access log
     configuration using input parameters from the
@@ -136,9 +130,7 @@ aws cloudfront create-realtime-log-config --cli-input-yaml file://rtl-config.yam
 If successful, the command's output shows the details of the real-time access log
 configuration that you just created.
 
-###### To attach a real-time access log configuration to an existing distribution
-
-(CLI with input file)
+###### To attach a real-time access log configuration to an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration
    for the CloudFront distribution that you want to update. Replace
@@ -180,8 +172,7 @@ that you just updated.
 
 API
 To create a real-time access log configuration with the CloudFront API, use the [CreateRealtimeLogConfig](../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md "../../../cloudfront/latest/APIReference/API_CreateRealtimeLogConfig.md") API operation. For more information
-about the parameters that you specify in this API call, see [Understand real-time access log
-configurations](#understand-real-time-log-config "#understand-real-time-log-config") and the API reference
+about the parameters that you specify in this API call, see [Understand real-time access log configurations](#understand-real-time-log-config "#understand-real-time-log-config") and the API reference
 documentation for your AWS SDK or other API client.
 
 After you create a real-time access log configuration, you can attach it to a
@@ -197,9 +188,7 @@ behavior. For more information about the other fields that you specify in
 these API calls, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md") and the API reference
 documentation for your AWS SDK or other API client.
 
-## Understand real-time access log
-
-configurations
+## Understand real-time access log configurations
 
 To use CloudFront real-time access logs, you start by creating a real-time access log configuration. The
 real-time access log configuration contains information about which log fields you want to
@@ -386,14 +375,12 @@ originated the request. This field can contain multiple comma-separated IP addre
 When the request used HTTPS, this field contains the SSL/TLS protocol
 that the viewer and server negotiated for transmitting the request and
 response. For a list of possible values, see the supported SSL/TLS protocols
-in [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md"). 25. **`ssl-cipher`**
+in [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md"). 25. **`ssl-cipher`**
 
 When the request used HTTPS, this field contains the SSL/TLS cipher
 that the viewer and server negotiated for encrypting the request and
 response. For a list of possible values, see the supported SSL/TLS ciphers
-in [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md"). 26. **`x-edge-result-type`**
+in [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md"). 26. **`x-edge-result-type`**
 
 How the server classified the response after the last byte left the
 server. In some cases, the result type can change between the time

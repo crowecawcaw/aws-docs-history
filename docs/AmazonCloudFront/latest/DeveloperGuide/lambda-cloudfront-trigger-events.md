@@ -1,6 +1,4 @@
-# CloudFront events that can trigger a
-
-Lambda@Edge function
+# CloudFront events that can trigger a Lambda@Edge function
 
 For each cache behavior in a Amazon CloudFront distribution, you can add up to four
 triggers (associations) that cause a Lambda function to execute when specific CloudFront
@@ -21,8 +19,7 @@ The function doesn't execute in the following cases:
 
 - When fetching a custom error page.
 - When CloudFront automatically redirects an HTTP request to HTTPS
-  (when the value of the [Viewer protocol
-  policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") is
+  (when the value of the [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") is
   **Redirect HTTP to HTTPS**).
 
 **Origin request**
@@ -58,8 +55,7 @@ The function doesn't execute in the following cases:
 - When the response is generated from a function that was
   triggered by a viewer request event.
 - When CloudFront automatically redirects an HTTP request to HTTPS
-  (when the value of the [Viewer protocol
-  policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") is
+  (when the value of the [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") is
   **Redirect HTTP to HTTPS**).
 
 When you add multiple triggers to the same cache behavior, you can use them to run

@@ -25,5 +25,4 @@ You can improve resiliency and increase availability for specific scenarios by s
 CloudFront with origin failover. To get started, you create an origin group in which you designate
 a primary origin for CloudFront plus a second origin. CloudFront automatically switches to the second
 origin when the primary origin returns specific HTTP status code failure responses. For
-more information, see [Optimize high availability with CloudFront
-origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
+more information, see [Optimize high availability with CloudFront origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").

@@ -4,15 +4,11 @@ CloudFront Connection Functions have specific configuration requirements and ser
 
 ###### Topics
 
-- [Function code
-  requirements](#connection-function-code-requirements "#connection-function-code-requirements")
+- [Function code requirements](#connection-function-code-requirements "#connection-function-code-requirements")
 - [Service limits](#connection-function-service-limits "#connection-function-service-limits")
-- [Function filtering
-  options](#connection-function-filtering-options "#connection-function-filtering-options")
+- [Function filtering options](#connection-function-filtering-options "#connection-function-filtering-options")
 
-## Function code
-
-requirements
+## Function code requirements
 
 Connection functions require JavaScript code that processes TLS connection events.
 The function code must:
@@ -35,9 +31,7 @@ Connection functions are subject to the following limits:
 - **Stage restrictions** – Only LIVE stage
   functions can be associated with distributions
 
-## Function filtering
-
-options
+## Function filtering options
 
 When listing Connection Functions, you can use the following filters:
 

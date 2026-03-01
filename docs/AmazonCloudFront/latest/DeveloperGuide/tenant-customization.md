@@ -25,8 +25,7 @@ You can customize the following:
   certificates that you specify for distribution tenants are supplemental to the certificate
   provided in the multi-tenant distribution. However, if the same domain is covered by both the
   multi-tenant distribution and distribution tenant certificates, then the tenant certificate is used. For more
-  information, see [Request certificates for your
-  CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md").
+  information, see [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md").
 - **Domain names** – You must specify at least one domain
   name per distribution tenant.
 

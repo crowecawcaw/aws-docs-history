@@ -1,6 +1,4 @@
-# HTTP 412 status code (Precondition
-
-Failed)
+# HTTP 412 status code (Precondition Failed)
 
 CloudFront returns a 412 (Precondition Failed) error code when access to the target
 resource has been denied. In some cases, a server is configured to accept requests

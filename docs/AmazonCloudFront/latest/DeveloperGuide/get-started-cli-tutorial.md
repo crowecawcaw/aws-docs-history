@@ -5,8 +5,7 @@ The procedures in this section show you how to use the AWS CLI with CloudFront t
 - Creating an Amazon S3 bucket to use as your distribution origin.
 - Storing the original versions of your objects in the S3
   bucket.
-- Using origin access control (OAC) to send authenticated requests to your Amazon S3 origin. OAC sends requests through CloudFront to prevent viewers from accessing your S3 bucket directly. For more information about OAC, see [Restrict access to an Amazon S3
-  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+- Using origin access control (OAC) to send authenticated requests to your Amazon S3 origin. OAC sends requests through CloudFront to prevent viewers from accessing your S3 bucket directly. For more information about OAC, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 - Using the CloudFront domain name in URLs for your objects (for example,
   `https://d111111abcdef8.cloudfront.net/index.html`).
 - Keeping your objects in CloudFront edge locations for the default duration of 24 hours
@@ -64,8 +63,7 @@ aws s3 cp ~/cloudfront-demo/hello-world/ s3://`amzn-s3-demo-bucket`/ --recursive
 
 ## Create an Origin Access Control (OAC)
 
-For this tutorial, you will create an origin access control (OAC). OAC helps you securely send authenticated requests to your Amazon S3 origin. For more information about OAC, see [Restrict access to an Amazon S3
-origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+For this tutorial, you will create an origin access control (OAC). OAC helps you securely send authenticated requests to your Amazon S3 origin. For more information about OAC, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
 ```
 aws cloudfront create-origin-access-control \
@@ -144,8 +142,7 @@ DOMAIN_NAME="`d111111abcdef8.cloudfront.net`"
 
 Before using the distribution and S3 bucket from this tutorial in a production
 environment, make sure to configure it to meet your specific needs. For information
-about configuring access in a production environment, see [Configure secure access and restrict access to
-content](SecurityAndPrivateContent.md "SecurityAndPrivateContent.md").
+about configuring access in a production environment, see [Configure secure access and restrict access to content](SecurityAndPrivateContent.md "SecurityAndPrivateContent.md").
 
 ## Update your S3 bucket policy
 

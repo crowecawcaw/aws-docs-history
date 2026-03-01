@@ -1,6 +1,4 @@
-# Restrict access to an AWS
-
-origin
+# Restrict access to an AWS origin
 
 You can configure CloudFront and some AWS origins in a way that provides the following
 benefits:
@@ -15,12 +13,8 @@ benefits:
 
 ###### Topics
 
-- [Restrict access to an
-  AWS Elemental MediaPackage v2 origin](private-content-restricting-access-to-mediapackage.md "private-content-restricting-access-to-mediapackage.md")
-- [Restrict access to an
-  AWS Elemental MediaStore origin](private-content-restricting-access-to-mediastore.md "private-content-restricting-access-to-mediastore.md")
-- [Restrict access to an
-  AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md "private-content-restricting-access-to-lambda.md")
-- [Restrict access to an Amazon S3
-  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md")
+- [Restrict access to an AWS Elemental MediaPackage v2 origin](private-content-restricting-access-to-mediapackage.md "private-content-restricting-access-to-mediapackage.md")
+- [Restrict access to an AWS Elemental MediaStore origin](private-content-restricting-access-to-mediastore.md "private-content-restricting-access-to-mediastore.md")
+- [Restrict access to an AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md "private-content-restricting-access-to-lambda.md")
+- [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md")
 - [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md")

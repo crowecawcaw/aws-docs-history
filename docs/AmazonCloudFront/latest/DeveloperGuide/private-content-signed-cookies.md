@@ -7,41 +7,31 @@ cookies using canned and custom policies.
 
 ###### Topics
 
-- [Decide to use canned or
-  custom policies for signed cookies](#private-content-choosing-canned-custom-cookies "#private-content-choosing-canned-custom-cookies")
+- [Decide to use canned or custom policies for signed cookies](#private-content-choosing-canned-custom-cookies "#private-content-choosing-canned-custom-cookies")
 - [How signed cookies work](#private-content-how-signed-cookies-work "#private-content-how-signed-cookies-work")
-- [Prevent misuse of signed
-  cookies](#private-content-signed-cookie-misuse "#private-content-signed-cookie-misuse")
-- [When CloudFront checks expiration
-  date and time in a signed cookie](#private-content-check-expiration-cookie "#private-content-check-expiration-cookie")
-- [Sample code and third-party
-  tools](#private-content-overview-sample-code-cookies "#private-content-overview-sample-code-cookies")
-- [Set signed cookies
-  using a canned policy](private-content-setting-signed-cookie-canned-policy.md "private-content-setting-signed-cookie-canned-policy.md")
-- [Set signed
-  cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md")
+- [Prevent misuse of signed cookies](#private-content-signed-cookie-misuse "#private-content-signed-cookie-misuse")
+- [When CloudFront checks expiration date and time in a signed cookie](#private-content-check-expiration-cookie "#private-content-check-expiration-cookie")
+- [Sample code and third-party tools](#private-content-overview-sample-code-cookies "#private-content-overview-sample-code-cookies")
+- [Set signed cookies using a canned policy](private-content-setting-signed-cookie-canned-policy.md "private-content-setting-signed-cookie-canned-policy.md")
+- [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md")
 - [Create signed cookies using PHP](signed-cookies-PHP.md "signed-cookies-PHP.md")
 
-## Decide to use canned or
-
-custom policies for signed cookies
+## Decide to use canned or custom policies for signed cookies
 
 When you create a signed cookie, you write a policy statement in JSON format that specifies the restrictions on
 the signed cookie, for example, how long the cookie is valid. You can use canned policies or custom policies. The
 following table compares canned and custom policies:
 
-| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Canned policy | Custom policy  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- |
-| You can reuse the policy statement for multiple files. To reuse the policy statement, you<br>must use wildcard characters in the `Resource` object. For more information, see<br>[Values that you specify in the policy statement for a custom policy for<br>signed cookies](private-content-setting-signed-cookie-custom-policy.md#private-content-custom-policy-statement-cookies-values "private-content-setting-signed-cookie-custom-policy.md#private-content-custom-policy-statement-cookies-values").) | No            | Yes            |
-| You can specify the date and time that users can begin to access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                                              | No            | Yes (optional) |
-| You can specify the date and time that users can no longer access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                                             | Yes           | Yes            |
-| You can specify the IP address or range of IP addresses of the users who can access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                           | No            | Yes (optional) |
+| Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Canned policy | Custom policy  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- |
+| You can reuse the policy statement for multiple files. To reuse the policy statement, you<br>must use wildcard characters in the `Resource` object. For more information, see<br>[Values that you specify in the policy statement for a custom policy for signed cookies](private-content-setting-signed-cookie-custom-policy.md#private-content-custom-policy-statement-cookies-values "private-content-setting-signed-cookie-custom-policy.md#private-content-custom-policy-statement-cookies-values").) | No            | Yes            |
+| You can specify the date and time that users can begin to access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                                           | No            | Yes (optional) |
+| You can specify the date and time that users can no longer access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes           | Yes            |
+| You can specify the IP address or range of IP addresses of the users who can access your<br>content                                                                                                                                                                                                                                                                                                                                                                                                        | No            | Yes (optional) |
 
-For information about creating signed cookies using a canned policy, see [Set signed cookies
-using a canned policy](private-content-setting-signed-cookie-canned-policy.md "private-content-setting-signed-cookie-canned-policy.md").
+For information about creating signed cookies using a canned policy, see [Set signed cookies using a canned policy](private-content-setting-signed-cookie-canned-policy.md "private-content-setting-signed-cookie-canned-policy.md").
 
-For information about creating signed cookies using a custom policy, see [Set signed
-cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
+For information about creating signed cookies using a custom policy, see [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
 
 ## How signed cookies work
 
@@ -52,8 +42,7 @@ request that contains a signed cookie.
    contain the public keys that CloudFront can use to verify the URL signature. You
    use the corresponding private keys to sign the URLs.
 
-For more information, see [Specify signers that can create signed
-URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md"). 2. You develop your application to determine whether a user should have access to your content and, if so,
+For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md"). 2. You develop your application to determine whether a user should have access to your content and, if so,
 to send three `Set-Cookie` headers to the viewer. (Each `Set-Cookie` header can
 contain only one name-value pair, and a CloudFront signed cookie requires three name-value pairs.) You must send
 the `Set-Cookie` headers to the viewer before the viewer requests your private content. If you
@@ -83,9 +72,7 @@ If the request meets the requirements in the policy statement, CloudFront serves
 content that isn't restricted: it determines whether the file is already in the edge cache, forwards the
 request to the origin if necessary, and returns the file to the user.
 
-## Prevent misuse of signed
-
-cookies
+## Prevent misuse of signed cookies
 
 If you specify the `Domain` parameter in a `Set-Cookie` header, specify the most precise
 value possible to reduce the potential for access by someone with the same root domain name. For example, app.example.com
@@ -104,9 +91,7 @@ To help prevent this type of attack, do the following:
 - In the `CloudFront-Expires` attribute, specify the shortest reasonable expiration time based
   on how long you want users to have access to your content.
 
-## When CloudFront checks expiration
-
-date and time in a signed cookie
+## When CloudFront checks expiration date and time in a signed cookie
 
 To determine whether a signed cookie is still valid, CloudFront checks the expiration date and time in the cookie at
 the time of the HTTP request. If a client begins to download a large file immediately before the expiration time,
@@ -114,12 +99,9 @@ the download should complete even if the expiration time passes during the downl
 and the client tries to restart the download after the expiration time passes, the download will fail.
 
 If a client uses Range GETs to get a file in smaller pieces, any GET request that occurs after the expiration
-time passes will fail. For more information about Range GETs, see [How CloudFront processes partial requests for an object (range
-GETs)](RangeGETs.md "RangeGETs.md").
+time passes will fail. For more information about Range GETs, see [How CloudFront processes partial requests for an object (range GETs)](RangeGETs.md "RangeGETs.md").
 
-## Sample code and third-party
-
-tools
+## Sample code and third-party tools
 
 The sample code for private content shows only how to create the signature for signed URLs. However, the process
 for creating a signature for a signed cookie is very similar, so much of the sample code is still relevant. For
@@ -127,7 +109,5 @@ more information, see the following topics:
 
 - [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
 - [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using C# and the .NET
-  Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
-- [Create a URL signature using
-  Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
+- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
+- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")

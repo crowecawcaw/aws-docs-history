@@ -30,8 +30,7 @@ For information about multi-tenant distribution quotas, see [Quotas on multi-ten
 - [Terms](#template-distributions-concepts "#template-distributions-concepts")
 - [Unsupported features](#unsupported-saas "#unsupported-saas")
 - [Distribution tenant customizations](tenant-customization.md "tenant-customization.md")
-- [Request certificates for your
-  CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md")
+- [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md")
 - [Create custom connection group (optional)](custom-connection-group.md "custom-connection-group.md")
 - [Migrate to a multi-tenant distribution](template-migrate-distribution.md "template-migrate-distribution.md")
 
@@ -154,8 +153,7 @@ available.
 - Currently, AWS Firewall Manager policies only apply to your standard distributions. Firewall Manager
   will add support for multi-tenant distributions in a future release.
 - Unlike standard distributions, you specify your domain name (alias) at the
-  _distribution tenant_ level. For more information, see [Request certificates for your
-  CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md") and the [CreateDistributionTenant](../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md "../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md") API operation.
+  _distribution tenant_ level. For more information, see [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md") and the [CreateDistributionTenant](../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md "../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md") API operation.
 
 - [Continuous deployment](continuous-deployment.md "continuous-deployment.md")
 - [Origin access

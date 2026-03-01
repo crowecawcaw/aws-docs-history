@@ -1,6 +1,4 @@
-# Get
-
-started with a secure static website
+# Get started with a secure static website
 
 You can get started with Amazon CloudFront by using the solution described in this topic to create
 a secure static website for your domain name. A _static
@@ -30,8 +28,7 @@ following benefits:
 ###### Topics
 
 - [Solution overview](#cloudformation-website-overview "#cloudformation-website-overview")
-- [Deploy the
-  solution](#deploy-secure-static-website-cloudformation "#deploy-secure-static-website-cloudformation")
+- [Deploy the solution](#deploy-secure-static-website-cloudformation "#deploy-secure-static-website-cloudformation")
 
 ## Solution overview
 
@@ -50,9 +47,7 @@ website solution works:
 6. The objects is returned to the viewer. Subsequent requests for the object that
    come to the same CloudFront edge location are served from the CloudFront cache.
 
-## Deploy the
-
-solution
+## Deploy the solution
 
 To deploy this secure static website solution, you can choose from either of the
 following options:
@@ -70,10 +65,8 @@ You must use the US East (N. Virginia) Region to deploy the CloudFormation templ
 ###### Topics
 
 - [Prerequisites](#deploy-website-cloudformation-prerequisites "#deploy-website-cloudformation-prerequisites")
-- [Use the CloudFormation
-  console](#deploy-website-cloudformation-console "#deploy-website-cloudformation-console")
-- [Clone the solution
-  locally](#deploy-website-cloudformation-clone "#deploy-website-cloudformation-clone")
+- [Use the CloudFormation console](#deploy-website-cloudformation-console "#deploy-website-cloudformation-console")
+- [Clone the solution locally](#deploy-website-cloudformation-clone "#deploy-website-cloudformation-clone")
 - [Finding access logs](#deploy-website-cloudformation-logs "#deploy-website-cloudformation-logs")
 
 ### Prerequisites
@@ -94,9 +87,7 @@ You are responsible for the costs incurred while using this solution. For more
 information about costs, see [the pricing pages
 for each AWS service](https://aws.amazon.com/pricing/ "https://aws.amazon.com/pricing/").
 
-### Use the CloudFormation
-
-console
+### Use the CloudFormation console
 
 ###### To deploy using the CloudFormation console
 
@@ -166,9 +157,7 @@ location. To make sure that viewers see your updated website content,
 _invalidate_ the files to remove the
 cached copies from CloudFront edge locations. For more information, see [Invalidate files to remove content](Invalidation.md "Invalidation.md").
 
-### Clone the solution
-
-locally
+### Clone the solution locally
 
 **Prerequisites**
 

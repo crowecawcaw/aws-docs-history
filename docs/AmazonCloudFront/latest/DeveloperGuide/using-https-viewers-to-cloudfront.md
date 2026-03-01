@@ -1,6 +1,4 @@
-# Require HTTPS for communication
-
-between viewers and CloudFront
+# Require HTTPS for communication between viewers and CloudFront
 
 You can configure one or more cache behaviors in your CloudFront distribution to require HTTPS for communication between viewers and CloudFront.
 You also can configure one or more cache behaviors to allow both HTTP and HTTPS, so that CloudFront requires HTTPS for some objects but not for others.
@@ -18,8 +16,7 @@ For information about how to use the CloudFront API to change the value of the `
 - If you're using your own domain name, such as example.com, you need to change several CloudFront
   settings. You also need to use an SSL/TLS certificate provided by AWS Certificate Manager
   (ACM), or import a certificate from a third-party certificate authority into
-  ACM or the IAM certificate store. For more information, see [Use alternate domain names and
-  HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
+  ACM or the IAM certificate store. For more information, see [Use alternate domain names and HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
 
 ###### Note
 
@@ -27,8 +24,7 @@ If you want to ensure that the objects that viewers get from CloudFront were enc
 HTTPS between CloudFront and your origin. If you recently changed from HTTP to HTTPS between CloudFront and your origin, we recommend that you
 invalidate objects in CloudFront edge locations. CloudFront will return an object to a viewer regardless of whether the protocol used by the viewer
 (HTTP or HTTPS) matches the protocol that CloudFront used to get the object. For more information about removing or replacing objects in a
-distribution, see [Add, remove, or replace content that CloudFront
-distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
+distribution, see [Add, remove, or replace content that CloudFront distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
 
 ## Require HTTPS for viewers
 

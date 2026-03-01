@@ -21,8 +21,7 @@ shared with you.
 - [Using a shared VPC origin](#using-shared-vpc-origin "#using-shared-vpc-origin")
 - [Identifying a shared VPC origin](#sharing-identify "#sharing-identify")
 - [Unsharing a shared VPC origin](#sharing-unshare "#sharing-unshare")
-- [Responsibilities and permissions for shared
-  VPC origins](#sharing-perms "#sharing-perms")
+- [Responsibilities and permissions for shared VPC origins](#sharing-perms "#sharing-perms")
 - [Billing and metering](#sharing-billing "#sharing-billing")
 - [Shared resource quotas](#sharing-quotas "#sharing-quotas")
 
@@ -228,9 +227,7 @@ See [Updating a Resource Share](../../../ram/latest/userguide/working-with-shari
 
 Use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command.
 
-## Responsibilities and permissions for shared
-
-VPC origins
+## Responsibilities and permissions for shared VPC origins
 
 ### Permissions for owners
 

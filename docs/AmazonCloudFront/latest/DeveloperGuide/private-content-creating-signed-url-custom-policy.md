@@ -1,17 +1,12 @@
-# Create a signed URL using
-
-a custom policy
+# Create a signed URL using a custom policy
 
 To create a signed URL using a custom policy, complete the following procedure.
 
-###### To create a signed URL using a
-
-custom policy
+###### To create a signed URL using a custom policy
 
 1. If you're using .NET or Java to create signed URLs, and if you haven't reformatted the private key for
    your key pair from the default .pem format to a format compatible with .NET or with Java, do so now. For
-   more information, see [Reformat the private
-   key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
+   more information, see [Reformat the private key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
 2. Concatenate the following values. You can use the format in this example
    signed URL.
 
@@ -97,8 +92,7 @@ after each one, including the last one.
  policy statement`**
 
 Your policy statement in JSON format, with empty spaces
-removed, then base64 encoded. For more information, see [Create a policy statement for a
-signed URL that uses a custom policy](#private-content-custom-policy-statement "#private-content-custom-policy-statement").
+removed, then base64 encoded. For more information, see [Create a policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement "#private-content-custom-policy-statement").
 
 The policy statement controls the access that a signed URL
 grants to a user. It includes the URL of the file, an expiration
@@ -110,8 +104,7 @@ are allowed to access the file.
  version of the policy statement`**
 
 A hashed, signed, and base64-encoded version of the JSON
-policy statement. For more information, see [Create a signature for a
-signed URL that uses a custom policy](#private-content-custom-policy-creating-signature "#private-content-custom-policy-creating-signature").
+policy statement. For more information, see [Create a signature for a signed URL that uses a custom policy](#private-content-custom-policy-creating-signature "#private-content-custom-policy-creating-signature").
 
 **6. `&Key-Pair-Id=``public key ID for
  the CloudFront public key whose corresponding private key you're using
@@ -125,28 +118,21 @@ in the policy statement to verify that the URL has not been
 tampered with.
 
 This public key must belong to a key group that is a trusted
-signer in the distribution. For more information, see [Specify signers that can create signed
-URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+signer in the distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
 
-## Create a policy statement for a
-
-signed URL that uses a custom policy
+## Create a policy statement for a signed URL that uses a custom policy
 
 Complete the following steps to create a policy statement for a signed URL that uses a
 custom policy.
 
-For example policy statements that control access to files in a variety of ways, see [Example policy statements
-for a signed URL that uses a custom policy](#private-content-custom-policy-statement-examples "#private-content-custom-policy-statement-examples").
+For example policy statements that control access to files in a variety of ways, see [Example policy statements for a signed URL that uses a custom policy](#private-content-custom-policy-statement-examples "#private-content-custom-policy-statement-examples").
 
-###### To create the policy statement for a
-
-signed URL that uses a custom policy
+###### To create the policy statement for a signed URL that uses a custom policy
 
 1. Construct the policy statement using the following JSON format. Replace the less than
    (`<`) and greater than (`>`) symbols, and the
    descriptions within them, with your own values. For more information,
-   see [Values that you specify in
-   the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
+   see [Values that you specify in the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
 
 ```
 {
@@ -178,8 +164,7 @@ Note the following:
     * The order of the parameters in the `Condition` section doesn't matter.
     * For information about the values for `Resource`, `DateLessThan`,
      `DateGreaterThan`, and `IpAddress`, see
-     [Values that you specify in
-     the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
+     [Values that you specify in the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
 
 2. Remove all empty spaces (including tabs and newline characters) from the policy
    statement. You might have to include escape characters in the string in
@@ -200,12 +185,9 @@ Note the following:
 
 5. Append the resulting value to your signed URL after `Policy=`.
 6. Create a signature for the signed URL by hashing, signing, and base64-encoding the
-   policy statement. For more information, see [Create a signature for a
-   signed URL that uses a custom policy](#private-content-custom-policy-creating-signature "#private-content-custom-policy-creating-signature").
+   policy statement. For more information, see [Create a signature for a signed URL that uses a custom policy](#private-content-custom-policy-creating-signature "#private-content-custom-policy-creating-signature").
 
-### Values that you specify in
-
-the policy statement for a signed URL that uses a custom policy
+### Values that you specify in the policy statement for a signed URL that uses a custom policy
 
 When you create a policy statement for a custom policy, you specify the following values.
 
@@ -321,8 +303,7 @@ format.
 This is the only required parameter in the `Condition` section. CloudFront requires
 this value to prevent users from having permanent access to your private content.
 
-For more information, see [When CloudFront checks expiration date and
-time in a signed URL](private-content-signed-urls.md#private-content-check-expiration "private-content-signed-urls.md#private-content-check-expiration")
+For more information, see [When CloudFront checks expiration date and time in a signed URL](private-content-signed-urls.md#private-content-check-expiration "private-content-signed-urls.md#private-content-check-expiration")
 
 **DateGreaterThan (Optional)**
 
@@ -361,9 +342,7 @@ requests for other content, you can create two
 distributions. For more information, see [Enable IPv6 (viewer requests)](DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6 "DownloadDistValuesGeneral.md#DownloadDistValuesEnableIPv6") in the topic
 [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
-## Example policy statements
-
-for a signed URL that uses a custom policy
+## Example policy statements for a signed URL that uses a custom policy
 
 The following example policy statements show how to control access to a specific file, all of the files in a
 directory, or all of the files associated with a key pair ID. The examples also show how to control access
@@ -374,23 +353,15 @@ If you copy and paste any of these examples, remove any empty spaces (including 
 newline characters), replace the values with your own values, and include a
 newline character after the closing brace (`}`).
 
-For more information, see [Values that you specify in
-the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
+For more information, see [Values that you specify in the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-statement-values "#private-content-custom-policy-statement-values").
 
 ###### Topics
 
-- [Example policy
-  statement: Access one file from a range of IP addresses](#private-content-custom-policy-statement-example-one-object "#private-content-custom-policy-statement-example-one-object")
-- [Example policy
-  statement: Access all files in a directory from a range of IP
-  addresses](#private-content-custom-policy-statement-example-all-objects "#private-content-custom-policy-statement-example-all-objects")
-- [Example policy
-  statement: Access all files associated with a key pair ID from one IP
-  address](#private-content-custom-policy-statement-example-one-ip "#private-content-custom-policy-statement-example-one-ip")
+- [Example policy statement: Access one file from a range of IP addresses](#private-content-custom-policy-statement-example-one-object "#private-content-custom-policy-statement-example-one-object")
+- [Example policy statement: Access all files in a directory from a range of IP addresses](#private-content-custom-policy-statement-example-all-objects "#private-content-custom-policy-statement-example-all-objects")
+- [Example policy statement: Access all files associated with a key pair ID from one IP address](#private-content-custom-policy-statement-example-one-ip "#private-content-custom-policy-statement-example-one-ip")
 
-### Example policy
-
-statement: Access one file from a range of IP addresses
+### Example policy statement: Access one file from a range of IP addresses
 
 The following example custom policy in a signed URL specifies that a user can access the
 file `https://d111111abcdef8.cloudfront.net/game_download.zip` from IP
@@ -415,10 +386,7 @@ addresses in the range `192.0.2.0/24` until January 31, 2023
 }
 ```
 
-### Example policy
-
-statement: Access all files in a directory from a range of IP
-addresses
+### Example policy statement: Access all files in a directory from a range of IP addresses
 
 The following example custom policy allows you to create signed URLs for any file in the
 `training` directory, as indicated by the asterisk wildcard
@@ -449,10 +417,7 @@ for example:
 
 `https://d111111abcdef8.cloudfront.net/training/orientation.pdf`
 
-### Example policy
-
-statement: Access all files associated with a key pair ID from one IP
-address
+### Example policy statement: Access all files associated with a key pair ID from one IP address
 
 The following example custom policy allows you to create signed URLs for any file
 associated with any distribution, as indicated by the asterisk wildcard
@@ -494,9 +459,7 @@ The signed URL also includes a key pair ID, which must be associated with a trus
 group in the distribution (d111111abcdef8.cloudfront.net) that you specify in the
 URL.
 
-## Create a signature for a
-
-signed URL that uses a custom policy
+## Create a signature for a signed URL that uses a custom policy
 
 The signature for a signed URL that uses a custom policy is a hashed, signed, and
 base64-encoded version of the policy statement. To create a signature for a
@@ -504,18 +467,13 @@ custom policy, complete the following steps.
 
 For additional information and examples of how to hash, sign, and encode the policy statement, see:
 
-- [Linux commands and OpenSSL for base64
-  encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
-- [Code examples for creating a signature for a
-  signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
+- [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
+- [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
-###### Option 1:
-
-To create a signature by using a custom policy
+###### Option 1: To create a signature by using a custom policy
 
 1. Use the SHA-1 hash function and the generated RSA or ECDSA private key to hash and sign the JSON policy statement that you
-   created in the procedure [To create the policy statement for a
-   signed URL that uses a custom policy](#private-content-custom-policy-creating-policy-procedure "#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes
+   created in the procedure [To create the policy statement for a signed URL that uses a custom policy](#private-content-custom-policy-creating-policy-procedure "#private-content-custom-policy-creating-policy-procedure"). Use the version of the policy statement that no longer includes
    empty spaces but that has not yet been base64-encoded.
 
 For the private key that is required by the hash function, use a private key whose
@@ -525,8 +483,7 @@ distribution.
 ###### Note
 
 The method that you use to hash and sign the policy statement depends on your programming
-language and platform. For sample code, see [Code examples for creating a signature for a
-signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the hashed and signed
+language and platform. For sample code, see [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the hashed and signed
 string. 3. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8,
 Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME
 (Multipurpose Internet Mail Extensions) Part One: Format of Internet
@@ -540,6 +497,5 @@ following table lists invalid and valid characters.
 | /                                | ~ (tilde)                   |
 
 5. Append the resulting value to your signed URL after `&Signature=`, and return to
-   [To create a signed URL using a
-   custom policy](#private-content-creating-signed-url-custom-policy-procedure "#private-content-creating-signed-url-custom-policy-procedure") to finish
+   [To create a signed URL using a custom policy](#private-content-creating-signed-url-custom-policy-procedure "#private-content-creating-signed-url-custom-policy-procedure") to finish
    concatenating the parts of your signed URL.

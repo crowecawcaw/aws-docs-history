@@ -1,6 +1,4 @@
-# Request Anycast static IPs to use for
-
-allowlisting
+# Request Anycast static IPs to use for allowlisting
 
 You can request Anycast static IPs from CloudFront to use with your distributions. Anycast
 static IP lists can contain only IPv4 IP addresses or both IPv4 and IPv6 IP addresses.
@@ -18,8 +16,7 @@ CloudFront distributions, you can request 3 Anycast static IP addresses for this
 Then, add A records in your DNS to point the apex domain to CloudFront.
 
 Anycast static IPs work with [Server Name Indication
-(SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication "https://en.wikipedia.org/wiki/Server_Name_Indication"). For more information, see [Use SNI to serve HTTPS requests (works for most
-clients)](cnames-https-dedicated-ip-or-sni.md#cnames-https-sni "cnames-https-dedicated-ip-or-sni.md#cnames-https-sni").
+(SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication "https://en.wikipedia.org/wiki/Server_Name_Indication"). For more information, see [Use SNI to serve HTTPS requests (works for most clients)](cnames-https-dedicated-ip-or-sni.md#cnames-https-sni "cnames-https-dedicated-ip-or-sni.md#cnames-https-sni").
 
 ## Prerequisites
 
@@ -76,9 +73,7 @@ After your static IP list is created, you can view the allocated IP addresses on
 your static IP list detail page. You can also associate distributions with the
 static IP list.
 
-## Associate an Anycast static IP
-
-list with an existing distribution
+## Associate an Anycast static IP list with an existing distribution
 
 Before you begin, request and create an Anycast static IP list as explained in the
 preceding sections.
@@ -122,9 +117,7 @@ static IP list:
        Anycast static IP list to use with this distribution.
     6. Choose **Save changes**.
 
-## Associate an Anycast static IP list
-
-with a new distribution
+## Associate an Anycast static IP list with a new distribution
 
 Before you begin, request and create an Anycast static IP list as explained in the
 preceding sections.
@@ -149,9 +142,7 @@ needs.
 For more information about quotas related to Anycast static IP lists, see [Amazon CloudFront endpoints and quotas](../../../general/latest/gr/cf_region.md#limits_cloudfront "../../../general/latest/gr/cf_region.md#limits_cloudfront") in the
 _AWS General Reference_.
 
-## Associate an Anycast static IP list with
-
-a connection group
+## Associate an Anycast static IP list with a connection group
 
 Before you begin, request and create an Anycast static IP list as explained in the
 previous sections.

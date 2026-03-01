@@ -1,6 +1,4 @@
-# Optimize high availability with CloudFront
-
-origin failover
+# Optimize high availability with CloudFront origin failover
 
 You can set up CloudFront with origin failover for scenarios that require high availability.
 To get started, you create an _origin group_ with two origins: a
@@ -39,8 +37,7 @@ viewer requests:
 
 For some use cases, like streaming video content, you might want CloudFront to
 fail over to the secondary origin quickly. To adjust how quickly CloudFront fails
-over to the secondary origin, see [Control origin timeouts and
-attempts](#controlling-attempts-and-timeouts "#controlling-attempts-and-timeouts").
+over to the secondary origin, see [Control origin timeouts and attempts](#controlling-attempts-and-timeouts "#controlling-attempts-and-timeouts").
 CloudFront routes all incoming requests to the primary origin, even when a previous request
 failed over to the secondary origin. CloudFront only sends requests to the secondary origin
 after a request to the primary origin fails.
@@ -50,6 +47,10 @@ request is `GET`, `HEAD`, or `OPTIONS`. CloudFront does not
 fail over when the viewer sends a different HTTP method (for example `POST`,
 `PUT`, and so on).
 
+###### Note
+
+CloudFront will not failover if `OPTIONS` are not set as a [Cached HTTP methods](DownloadDistValuesCacheBehavior.md#DownloadDistValuesCachedHTTPMethods "DownloadDistValuesCacheBehavior.md#DownloadDistValuesCachedHTTPMethods") in your cache behavior.
+
 The following diagram illustrates how origin failover works.
 
 ![How origin failover works](images/origingroups-overview.png)
@@ -57,12 +58,9 @@ The following diagram illustrates how origin failover works.
 ###### Topics
 
 - [Create an origin group](#concept_origin_groups.creating "#concept_origin_groups.creating")
-- [Control origin timeouts and
-  attempts](#controlling-attempts-and-timeouts "#controlling-attempts-and-timeouts")
-- [Use origin failover with Lambda@Edge
-  functions](#concept_origin_groups.lambda "#concept_origin_groups.lambda")
-- [Use custom error pages with
-  origin failover](#concept_origin_groups.custom-error "#concept_origin_groups.custom-error")
+- [Control origin timeouts and attempts](#controlling-attempts-and-timeouts "#controlling-attempts-and-timeouts")
+- [Use origin failover with Lambda@Edge functions](#concept_origin_groups.lambda "#concept_origin_groups.lambda")
+- [Use custom error pages with origin failover](#concept_origin_groups.custom-error "#concept_origin_groups.custom-error")
 
 ## Create an origin group
 
@@ -114,9 +112,7 @@ information, see [Media quality-aware resiliency](media-quality-score.md "media-
 Make sure to assign your origin group as the origin for your distribution's cache
 behavior. For more information, see [Name](DownloadDistValuesOrigin.md#DownloadDistValuesId "DownloadDistValuesOrigin.md#DownloadDistValuesId").
 
-## Control origin timeouts and
-
-attempts
+## Control origin timeouts and attempts
 
 By default, CloudFront tries to connect to the primary origin in an origin group for as
 long as 30 seconds (3 connection attempts of 10 seconds each) before failing over to
@@ -161,9 +157,7 @@ complete response) from the origin. By default, CloudFront waits for 30
 seconds, but you can specify 1–120 seconds (inclusive). For more
 information, see [Response timeout](DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginResponseTimeout").
 
-### How to change these
-
-settings
+### How to change these settings
 
 **To change these settings in the [CloudFront
 console](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home")**
@@ -175,9 +169,7 @@ console](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.
 
 For more information, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
-## Use origin failover with Lambda@Edge
-
-functions
+## Use origin failover with Lambda@Edge functions
 
 You can use Lambda@Edge functions with CloudFront distributions that you’ve set up with
 origin groups. To use a Lambda function, specify it in an [origin request or origin response
@@ -198,16 +190,13 @@ Lambda@Edge function in an origin request or response trigger.
 
 ![How origin failover works with Lambda@Edge functions](images/origingroups-with-lambda-edge.png)
 
-For more information about using Lambda@Edge triggers, see [Add triggers for a Lambda@Edge
-function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").
+For more information about using Lambda@Edge triggers, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").
 
 For more information about managing DNS failover, see [Configuring
 DNS failover](../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md "../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md") in the _Amazon Route 53 Developer
 Guide_.
 
-## Use custom error pages with
-
-origin failover
+## Use custom error pages with origin failover
 
 You can use custom error pages with origin groups similarly to how you use them
 with origins that are not set up for origin failover.

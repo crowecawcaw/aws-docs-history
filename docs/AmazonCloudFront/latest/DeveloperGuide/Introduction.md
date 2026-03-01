@@ -37,8 +37,7 @@ _objects)_ are now held (or cached) in multiple edge locations around the world.
 - [Pricing](#pricing "#pricing")
 - [Ways to use CloudFront](IntroductionUseCases.md "IntroductionUseCases.md")
 - [How CloudFront delivers content](HowCloudFrontWorks.md "HowCloudFrontWorks.md")
-- [Locations and IP address ranges of CloudFront edge
-  servers](LocationsOfEdgeServers.md "LocationsOfEdgeServers.md")
+- [Locations and IP address ranges of CloudFront edge servers](LocationsOfEdgeServers.md "LocationsOfEdgeServers.md")
 - [Using CloudFront with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md")
 - [CloudFront technical resources](#resources-cloudfront "#resources-cloudfront")
 
@@ -50,9 +49,7 @@ close to your viewers to deliver that content quickly when someone wants to see 
 
 ![How CloudFront works](images/how-you-configure-cf.png)
 
-###### How you configure CloudFront to deliver your
-
-content
+###### How you configure CloudFront to deliver your content
 
 1. You specify _origin servers_, like an Amazon S3 bucket or your own
    HTTP server, from which CloudFront gets your files which will then be distributed from CloudFront edge
@@ -69,8 +66,7 @@ files, but can be anything that can be served over HTTP.
 If you're using an Amazon S3 bucket as an origin server, you can make the objects in your
 bucket publicly readable, so that anyone who knows the CloudFront URLs for your objects can
 access them. You also have the option of keeping objects private and controlling who
-accesses them. See [Serve private content with signed URLs and signed
-cookies](PrivateContent.md "PrivateContent.md"). 3. You create a CloudFront _distribution_, which tells CloudFront which origin
+accesses them. See [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md"). 3. You create a CloudFront _distribution_, which tells CloudFront which origin
 servers to get your files from when users request the files through your web site or
 application. At the same time, you specify details such as whether you want CloudFront to log
 all requests and whether you want the distribution to be enabled as soon as it's
@@ -93,8 +89,7 @@ Optionally, you can configure your origin server to add headers to the files, to
 indicate how long you want the files to stay in the cache in CloudFront edge locations. By default,
 each file stays in an edge location for 24 hours before it expires. The minimum expiration
 time is 0 seconds; there isn't a maximum expiration time. For more information, see
-[Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+[Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ## Choose between standard distribution or multi-tenant distribution
 

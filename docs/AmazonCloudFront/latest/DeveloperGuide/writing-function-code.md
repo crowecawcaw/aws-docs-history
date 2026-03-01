@@ -15,11 +15,8 @@ examples, see [CloudFront Functions examples for CloudFront](service_code_exampl
 - [JavaScript runtime
   features](functions-javascript-runtime-features.md "functions-javascript-runtime-features.md")
 - [Helper methods for key value stores](functions-custom-methods.md "functions-custom-methods.md")
-- [Helper methods for origin
-  modification](helper-functions-origin-modification.md "helper-functions-origin-modification.md")
-- [Helper methods for CloudFront SaaS Manager
-  properties](saas-specific-logic-function-code.md "saas-specific-logic-function-code.md")
-- [Use async and
-  await](async-await-syntax.md "async-await-syntax.md")
+- [Helper methods for origin modification](helper-functions-origin-modification.md "helper-functions-origin-modification.md")
+- [Helper methods for CloudFront SaaS Manager properties](saas-specific-logic-function-code.md "saas-specific-logic-function-code.md")
+- [Use async and await](async-await-syntax.md "async-await-syntax.md")
 - [CWT support for CloudFront Functions](cwt-support-cloudfront-functions.md "cwt-support-cloudfront-functions.md")
 - [General helper methods](general-helper-methods.md "general-helper-methods.md")

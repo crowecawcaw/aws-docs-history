@@ -21,9 +21,7 @@ To get a high-level view of how CloudFront and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for CloudFront
+## Identity-based policies for CloudFront
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for CloudFront
 
-Identity-based policy examples for CloudFront
+To view examples of CloudFront identity-based policies, see [Identity-based policy examples for Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of CloudFront identity-based policies, see [Identity-based policy examples for
-Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within CloudFront
+## Resource-based policies within CloudFront
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for CloudFront
+## Policy actions for CloudFront
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of CloudFront identity-based policies, see [Identity-based policy examples for
-Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CloudFront identity-based policies, see [Identity-based policy examples for Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for CloudFront
+## Policy resources for CloudFront
 
 **Supports policy resources:**
 
@@ -122,12 +110,9 @@ To see a list of CloudFront resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon CloudFront](../../../service-authorization/latest/reference/list_amazoncloudfront.md#amazoncloudfront-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncloudfront.md#amazoncloudfront-actions-as-permissions").
 
-To view examples of CloudFront identity-based policies, see [Identity-based policy examples for
-Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CloudFront identity-based policies, see [Identity-based policy examples for Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for CloudFront
+## Policy condition keys for CloudFront
 
 **Supports service-specific policy condition keys:**
 
@@ -146,8 +131,7 @@ To see a list of CloudFront condition keys, see [Condition keys for Amazon Cloud
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon CloudFront](../../../service-authorization/latest/reference/list_amazoncloudfront.md#amazoncloudfront-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncloudfront.md#amazoncloudfront-actions-as-permissions").
 
-To view examples of CloudFront identity-based policies, see [Identity-based policy examples for
-Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CloudFront identity-based policies, see [Identity-based policy examples for Amazon CloudFront](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in CloudFront
 
@@ -177,9 +161,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 CloudFront supports ABAC for CloudFront resources that support tags, such as distributions, tenants, or trust stores.
 
-## Using temporary
-
-credentials with CloudFront
+## Using temporary credentials with CloudFront
 
 **Supports temporary credentials:**
 
@@ -191,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for CloudFront
+## Forward access sessions for CloudFront
 
 **Supports forward access sessions (FAS):**
 
@@ -202,9 +182,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-CloudFront
+## Service roles for CloudFront
 
 **Supports service roles:**
 
@@ -219,9 +197,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break CloudFront functionality.
 Edit service roles only when CloudFront provides guidance to do so.
 
-## Service-linked
-
-roles for CloudFront
+## Service-linked roles for CloudFront
 
 **Supports service-linked roles:**
 
@@ -232,8 +208,7 @@ Service-linked roles appear in your AWS account and are owned by the service. An
 but not edit the permissions for service-linked roles.
 
 CloudFront uses service-linked roles to performs actions for you. For more
-information about creating or managing CloudFront service-linked roles, see [Use service-linked roles for
-CloudFront](using-service-linked-roles.md "using-service-linked-roles.md"). For more
+information about creating or managing CloudFront service-linked roles, see [Use service-linked roles for CloudFront](using-service-linked-roles.md "using-service-linked-roles.md"). For more
 information about creating or managing Lambda@Edge service-linked roles, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge "lambda-edge-permissions.md#using-service-linked-roles-lambda-edge").
 
 For details about creating or managing service-linked roles, see [AWS services

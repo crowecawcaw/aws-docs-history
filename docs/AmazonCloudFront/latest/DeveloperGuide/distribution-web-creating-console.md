@@ -47,8 +47,7 @@ distribution, you can use your own domain name. In that case, the URL for
 
 Note the following:
 
-    * If you want to use signed URLs to restrict access to your content, see [Serve private content with signed URLs and signed
-     cookies](PrivateContent.md "PrivateContent.md").
+    * If you want to use signed URLs to restrict access to your content, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
     * If you want to serve compressed content, see [Serve compressed files](ServingCompressedFiles.md "ServingCompressedFiles.md").
     * For information about CloudFront request and response behavior for Amazon S3 and custom
      origins, see [Request and response behavior](RequestAndResponseBehavior.md "RequestAndResponseBehavior.md").
@@ -167,8 +166,7 @@ template.
 If you entered a domain name that isn't covered by a
 certificate, you will need to verify that you own the
 domain. You can still create the distribution tenant for now and verify
-domain ownership later. For more information, see [Request certificates for your
-CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md"). 9. Choose **Next**. 10. On the **Define parameters** page, the
+domain ownership later. For more information, see [Request certificates for your CloudFront distribution tenant](managed-cloudfront-certificates.md "managed-cloudfront-certificates.md"). 9. Choose **Next**. 10. On the **Define parameters** page, the
 parameters that you specified in the multi-tenant distribution appear.
 For required parameters, enter a value next to the parameter
 name and save your changes. 11. To add another parameter, choose **Add
@@ -289,8 +287,7 @@ objects, see [Customize the URL format for files in CloudFront](LinkFormat.md "L
 
 If you specified one or more alternate domain names (CNAMEs), you can use your own
 domain names for links to your objects instead of using the CloudFront domain name. For more
-information about CNAMEs, see [Alternate domain names
-(CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME").
+information about CNAMEs, see [Alternate domain names (CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME").
 
 ###### Note
 

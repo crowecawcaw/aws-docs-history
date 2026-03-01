@@ -1,6 +1,4 @@
-# Get a reference to a
-
-key value store
+# Get a reference to a key value store
 
 To work with the key value stores programmatically, you need the `ETag`
 and the name of the key value store.

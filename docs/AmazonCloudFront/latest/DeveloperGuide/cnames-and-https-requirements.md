@@ -1,6 +1,4 @@
-# Requirements for using SSL/TLS certificates with
-
-CloudFront
+# Requirements for using SSL/TLS certificates with CloudFront
 
 The requirements for SSL/TLS certificates are described in this topic. They apply to both
 of the following, except as noted:
@@ -13,19 +11,15 @@ of the following, except as noted:
 - [Certificate issuer](#https-requirements-certificate-issuer "#https-requirements-certificate-issuer")
 - [AWS Region for AWS Certificate Manager](#https-requirements-aws-region "#https-requirements-aws-region")
 - [Certificate format](#https-requirements-certificate-format "#https-requirements-certificate-format")
-- [Intermediate
-  certificates](#https-requirements-intermediate-certificates "#https-requirements-intermediate-certificates")
+- [Intermediate certificates](#https-requirements-intermediate-certificates "#https-requirements-intermediate-certificates")
 - [Key type](#https-requirements-key-type "#https-requirements-key-type")
 - [Private key](#https-requirements-private-key "#https-requirements-private-key")
 - [Permissions](#https-requirements-permissions "#https-requirements-permissions")
 - [Size of the certificate key](#https-requirements-size-of-public-key "#https-requirements-size-of-public-key")
 - [Supported types of certificates](#https-requirements-supported-types "#https-requirements-supported-types")
-- [Certificate expiration date and
-  renewal](#https-requirements-cert-expiration "#https-requirements-cert-expiration")
-- [Domain names in the CloudFront distribution
-  and in the certificate](#https-requirements-domain-names-in-cert "#https-requirements-domain-names-in-cert")
-- [Minimum SSL/TLS protocol
-  version](#https-requirements-minimum-ssl-protocol-version "#https-requirements-minimum-ssl-protocol-version")
+- [Certificate expiration date and renewal](#https-requirements-cert-expiration "#https-requirements-cert-expiration")
+- [Domain names in the CloudFront distribution and in the certificate](#https-requirements-domain-names-in-cert "#https-requirements-domain-names-in-cert")
+- [Minimum SSL/TLS protocol version](#https-requirements-minimum-ssl-protocol-version "#https-requirements-minimum-ssl-protocol-version")
 - [Supported HTTP versions](#https-requirements-supported-http-versions "#https-requirements-supported-http-versions")
 
 ## Certificate issuer
@@ -62,9 +56,7 @@ any AWS Region.
 The certificate must be in X.509 PEM format. This is the default format if you’re using
 AWS Certificate Manager.
 
-## Intermediate
-
-certificates
+## Intermediate certificates
 
 If you’re using a third-party certificate authority (CA), list all of the intermediate
 certificates in the certificate chain that’s in the `.pem`
@@ -97,9 +89,7 @@ ECDSA certificates. With [AWS Certificate Manager
 (ACM)](https://console.aws.amazon.com/acm "https://console.aws.amazon.com/acm"), you can request and import RSA or ECDSA certificates and then associate them with your CloudFront distribution.
 
 For lists of the RSA and ECDSA ciphers supported by CloudFront that you can
-negotiate in HTTPS connections, see [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md") and [Supported
-protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md").
+negotiate in HTTPS connections, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md") and [Supported protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md").
 
 ## Private key
 
@@ -137,8 +127,7 @@ Note that ACM issues RSA certificates with up to 2048-bit keys.
 To use a 3072-bit or 4096-bit RSA certificate, you need to obtain the certificate externally and import it into ACM, after which it will be available for you to use with CloudFront.
 
 For information about how to determine the size of an RSA key, see
-[Determine the size of the public key in
-an SSL/TLS RSA certificate](cnames-and-https-size-of-public-key.md "cnames-and-https-size-of-public-key.md").
+[Determine the size of the public key in an SSL/TLS RSA certificate](cnames-and-https-size-of-public-key.md "cnames-and-https-size-of-public-key.md").
 
 **For ECDSA certificates:**
 
@@ -150,9 +139,7 @@ elliptic curve.
 
 CloudFront supports all types of certificates issued by a trusted certificate authority.
 
-## Certificate expiration date and
-
-renewal
+## Certificate expiration date and renewal
 
 If you’re using certificates that you get from a third-party certificate authority (CA),
 you must monitor certificate expiration dates and renew the certificates that
@@ -175,9 +162,7 @@ If you’re using ACM provided certificates, ACM manages certificate renewals fo
 For more information, see [Managed renewal](../../../acm/latest/userguide/managed-renewal.md "../../../acm/latest/userguide/managed-renewal.md") in the
 _AWS Certificate Manager User Guide_.
 
-## Domain names in the CloudFront distribution
-
-and in the certificate
+## Domain names in the CloudFront distribution and in the certificate
 
 When you’re using a custom origin, the SSL/TLS certificate on your origin includes a
 domain name in the **Common Name** field, and possibly several
@@ -197,22 +182,17 @@ name (SAN) field of the certificate. This means the SAN field must contain
 an exact match for the alternate domain name, or contain a wildcard at the
 same level of the alternate domain name that you’re adding.
 
-For more information, see [Requirements for using alternate domain
-names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
+For more information, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
 
-## Minimum SSL/TLS protocol
-
-version
+## Minimum SSL/TLS protocol version
 
 If you’re using dedicated IP addresses, set the minimum SSL/TLS protocol version for the
 connection between viewers and CloudFront by choosing a security policy.
 
-For more information, see [Security policy (minimum
-SSL/TLS version)](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy "DownloadDistValuesGeneral.md#DownloadDistValues-security-policy") in the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
+For more information, see [Security policy (minimum SSL/TLS version)](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy "DownloadDistValuesGeneral.md#DownloadDistValues-security-policy") in the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
 ## Supported HTTP versions
 
 If you associate one certificate with more than one CloudFront distribution, all the
-distributions associated with the certificate must use the same option for [Supported HTTP
-versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions"). You specify this
+distributions associated with the certificate must use the same option for [Supported HTTP versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions"). You specify this
 option when you create or update a CloudFront distribution.

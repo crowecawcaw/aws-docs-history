@@ -1,6 +1,4 @@
-# Create a URL signature using
-
-Java
+# Create a URL signature using Java
 
 In addition to the following code example, you can use [the `CloudFrontUrlSigner` utility class in the AWS SDK for Java (version 1)](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/cloudfront/CloudFrontUrlSigner.md") to create [CloudFront signed
 URLs](private-content-signed-urls.md "private-content-signed-urls.md").
@@ -15,9 +13,7 @@ information about the entire process, see [Use signed URLs](private-content-sign
 
 The following example shows how to create a CloudFront signed URL.
 
-###### Example Java policy and
-
-signature encryption methods
+###### Example Java policy and signature encryption methods
 
 ```
 package org.example;
@@ -54,5 +50,4 @@ See also:
 
 - [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
 - [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using C# and the .NET
-  Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
+- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")

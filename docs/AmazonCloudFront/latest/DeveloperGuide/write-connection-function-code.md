@@ -1,6 +1,4 @@
-# Write CloudFront Connection Function code for
-
-mutual TLS (viewer) validation
+# Write CloudFront Connection Function code for mutual TLS (viewer) validation
 
 CloudFront Connection Functions enable you to write lightweight JavaScript functions for mTLS certificate validation and custom authentication logic. Your Connection Function code can validate client certificates, implement device-specific authentication rules, handle certificate revocation scenarios, and make allow/deny decisions for TLS connections at CloudFront edge locations worldwide.
 
@@ -12,23 +10,15 @@ To help you write effective Connection Function code, see the following topics. 
 
 ###### Topics
 
-- [CloudFront Connection Function use cases
-  and purposes](#connection-function-use-cases "#connection-function-use-cases")
-- [CloudFront Connection Function event
-  structure and response format](#connection-function-event-structure "#connection-function-event-structure")
-- [CloudFront Connection Functions
-  JavaScript runtime features](#connection-function-javascript-runtime "#connection-function-javascript-runtime")
-- [CloudFront Connection Function helper
-  methods and APIs](#connection-function-helper-methods "#connection-function-helper-methods")
-- [CloudFront Connection Function
-  KeyValueStore integration](#connection-function-kvs-integration "#connection-function-kvs-integration")
+- [CloudFront Connection Function use cases and purposes](#connection-function-use-cases "#connection-function-use-cases")
+- [CloudFront Connection Function event structure and response format](#connection-function-event-structure "#connection-function-event-structure")
+- [CloudFront Connection Functions JavaScript runtime features](#connection-function-javascript-runtime "#connection-function-javascript-runtime")
+- [CloudFront Connection Function helper methods and APIs](#connection-function-helper-methods "#connection-function-helper-methods")
+- [CloudFront Connection Function KeyValueStore integration](#connection-function-kvs-integration "#connection-function-kvs-integration")
 - [Use async and await](#connection-function-async-await "#connection-function-async-await")
-- [Connection function code
-  examples](#connection-function-code-examples "#connection-function-code-examples")
+- [Connection function code examples](#connection-function-code-examples "#connection-function-code-examples")
 
-## CloudFront Connection Function use cases
-
-and purposes
+## CloudFront Connection Function use cases and purposes
 
 Before writing your CloudFront Connection Function, carefully determine what type of
 certificate validation or authentication logic you need to implement. Connection
@@ -75,9 +65,7 @@ operations should be optimized for speed. Use KeyValueStore for fast data lookup
 rather than complex calculations, and structure your validation logic to fail fast
 for invalid certificates.
 
-## CloudFront Connection Function event
-
-structure and response format
+## CloudFront Connection Function event structure and response format
 
 CloudFront Connection Functions receive a different event structure than viewer request
 and viewer response functions. Instead of HTTP request/response data, connection
@@ -86,14 +74,10 @@ authentication decisions.
 
 ###### Topics
 
-- [Event structure
-  for Connection Functions](#connection-function-event-structure-details "#connection-function-event-structure-details")
-- [Connection Functions
-  response format](#connection-function-response-format "#connection-function-response-format")
+- [Event structure for Connection Functions](#connection-function-event-structure-details "#connection-function-event-structure-details")
+- [Connection Functions response format](#connection-function-response-format "#connection-function-response-format")
 
-### Event structure
-
-for Connection Functions
+### Event structure for Connection Functions
 
 Connection Functions receive an event object that contains certificate and
 connection information. The event structure of the function is shown
@@ -147,9 +131,7 @@ Below is an example of the event object structure:
 }
 ```
 
-### Connection Functions
-
-response format
+### Connection Functions response format
 
 Your Connection Function must return a response object that indicates whether
 to allow or deny the connection. Use the helper methods to make connection
@@ -170,9 +152,7 @@ Unlike viewer request and viewer response functions, Connection Functions
 cannot modify HTTP requests or responses. They can only allow or deny the TLS
 connection.
 
-## CloudFront Connection Functions
-
-JavaScript runtime features
+## CloudFront Connection Functions JavaScript runtime features
 
 CloudFront Connection Functions use the CloudFront Functions JavaScript runtime 2.0, which
 provides a secure and high-performance environment specifically optimized for
@@ -207,9 +187,7 @@ ensuring that no data leaks between different client connections. Each function
 execution starts with a clean state and has no access to previous execution results
 or client data from other connections.
 
-## CloudFront Connection Function helper
-
-methods and APIs
+## CloudFront Connection Function helper methods and APIs
 
 CloudFront Connection Functions provide specialized helper methods designed to simplify
 certificate validation decisions and enhance observability. These methods are
@@ -243,9 +221,7 @@ Always call either connection.allow() or connection.deny() before your function
 completes. If neither method is called, CloudFront will deny the connection by default as
 a security precaution.
 
-## CloudFront Connection Function
-
-KeyValueStore integration
+## CloudFront Connection Function KeyValueStore integration
 
 CloudFront Connection Functions can use CloudFront KeyValueStore to perform ultra-fast data
 lookups for certificate validation scenarios. KeyValueStore is particularly powerful
@@ -332,9 +308,7 @@ issues during high-traffic periods. Consider batching related validation checks 
 using the most efficient KeyValueStore method (exists() vs get()) for your use
 case.
 
-## Connection function code
-
-examples
+## Connection function code examples
 
 The following examples demonstrate common Connection Function patterns for
 different validation scenarios. Use these examples as starting points for your own

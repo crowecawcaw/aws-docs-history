@@ -9,8 +9,7 @@ information about updating your distribution using the CloudFront API, see
 ###### Note
 
 If you want viewers to use HTTPS with your alternate domain name, see
-[Use alternate domain names and
-HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
+[Use alternate domain names and HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
 
 **Before you begin:** Make sure that you do the following
 before you update your distribution to add an alternate domain name:
@@ -18,8 +17,7 @@ before you update your distribution to add an alternate domain name:
 - Register the domain name with Route 53 or another domain registrar.
 - Get a TLS certificate from an authorized certificate authority (CA) that covers the
   domain name. Add the certificate to your distribution to validate that you
-  are authorized to use the domain. For more information, see [Requirements for using alternate domain
-  names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
+  are authorized to use the domain. For more information, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
 
 ###### Add an alternate domain name
 
@@ -57,8 +55,7 @@ Optionally, you can create an HTTPS record for an alternate domain name to allow
 
 ###### To create an alias resource record set with an HTTPS record (optional)
 
-    1. Enable HTTP/2 or HTTP/3 in your CloudFront distribution settings. For more information, see [Supported HTTP
-     versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions") and [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md").
+    1. Enable HTTP/2 or HTTP/3 in your CloudFront distribution settings. For more information, see [Supported HTTP versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions") and [Update a distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md").
     2. In the Route 53 console, create an alias resource record set. Follow the [Routing traffic to an Amazon CloudFront web
      distribution by using your domain name](../../../Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.md "../../../Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.md") procedure.
     3. While you are creating the alias resource record set, create an alias record with record type **HTTPS**.

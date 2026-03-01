@@ -45,14 +45,11 @@ Shield. For more information, see [Using gRPC with CloudFront distributions](dis
 ###### Topics
 
 - [Use cases for Origin Shield](#origin-shield-use-cases "#origin-shield-use-cases")
-- [Choose the AWS Region for Origin
-  Shield](#choose-origin-shield-region "#choose-origin-shield-region")
+- [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region")
 - [Enable Origin Shield](#enable-origin-shield "#enable-origin-shield")
 - [Estimate Origin Shield costs](#origin-shield-costs "#origin-shield-costs")
-- [Origin Shield high
-  availability](#origin-shield-high-availability "#origin-shield-high-availability")
-- [How Origin Shield interacts with
-  other CloudFront features](#origin-shield-and-other-features "#origin-shield-and-other-features")
+- [Origin Shield high availability](#origin-shield-high-availability "#origin-shield-high-availability")
+- [How Origin Shield interacts with other CloudFront features](#origin-shield-and-other-features "#origin-shield-and-other-features")
 
 ## Use cases for Origin Shield
 
@@ -74,13 +71,10 @@ cases.
 
 ###### Use cases
 
-- [Viewers in different geographical
-  regions](#os-use-cases-global-viewers "#os-use-cases-global-viewers")
+- [Viewers in different geographical regions](#os-use-cases-global-viewers "#os-use-cases-global-viewers")
 - [Multiple CDNs](#os-use-cases-multi-cdn "#os-use-cases-multi-cdn")
 
-### Viewers in different geographical
-
-regions
+### Viewers in different geographical regions
 
 With Amazon CloudFront, you inherently get a reduced load on your origin because requests
 that CloudFront can serve from the cache don’t go to your origin. In addition to CloudFront’s
@@ -163,18 +157,14 @@ the load on your origin, as shown in the following diagram.
 
 ![Graphic that shows CloudFront Origin Shield receiving fewer duplicate requests.](images/origin-shield-with-multi-cdn.png)
 
-## Choose the AWS Region for Origin
-
-Shield
+## Choose the AWS Region for Origin Shield
 
 Amazon CloudFront offers Origin Shield in AWS Regions where CloudFront has a [regional edge cache](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches"). When you enable
 Origin Shield, you choose the AWS Region for Origin Shield. You should choose the
 AWS Region that has the lowest latency to your origin. You can use Origin Shield with
 origins that are in an AWS Region, and with origins that are not in AWS.
 
-### For origins in an AWS
-
-Region
+### For origins in an AWS Region
 
 If your origin is in an AWS Region, first determine whether your origin is in a
 Region in which CloudFront offers Origin Shield. CloudFront offers Origin Shield in the
@@ -217,9 +207,7 @@ the following table to determine which Region to enable Origin Shield in.
 | Europe (Stockholm) – `eu-north-1`      | Europe (London) – `eu-west-2`               |
 | Middle East (Bahrain) – `me-south-1`   | Asia Pacific (Mumbai) – `ap-south-1`        |
 
-### For origins outside of
-
-AWS
+### For origins outside of AWS
 
 You can use Origin Shield with an origin that is on-premises or is not in an AWS
 Region. In this case, enable Origin Shield in the AWS Region that has the lowest
@@ -262,8 +250,7 @@ Console
    **Yes**.
 6. For **Origin Shield Region**, choose the AWS
    Region where you want to enable Origin Shield. For help choosing a
-   Region, see [Choose the AWS Region for Origin
-   Shield](#choose-origin-shield-region "#choose-origin-shield-region").
+   Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region").
 7. Choose **Save changes**.
 
 When your distribution status is **Deployed**, Origin
@@ -292,8 +279,7 @@ Shield is ready. This takes a few minutes.
     **Yes**.
 4.  For **Origin Shield Region**, choose the AWS
     Region where you want to enable Origin Shield. For help choosing a
-    Region, see [Choose the AWS Region for Origin
-    Shield](#choose-origin-shield-region "#choose-origin-shield-region").
+    Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region").
 5.  Follow the steps in the console to finish creating your origin or distribution.
 
 When your distribution status is **Deployed**, Origin
@@ -308,8 +294,7 @@ or include it when you create a new `Origin`.
 
 The following example shows the syntax, in YAML format, for enabling
 `OriginShield` in the US West (Oregon) Region
-(`us-west-2`). For help choosing a Region, see [Choose the AWS Region for Origin
-Shield](#choose-origin-shield-region "#choose-origin-shield-region"). This example shows only the
+(`us-west-2`). For help choosing a Region, see [Choose the AWS Region for Origin Shield](#choose-origin-shield-region "#choose-origin-shield-region"). This example shows only the
 `Origin` property type, not the entire
 `AWS::CloudFront::Distribution` resource.
 
@@ -390,9 +375,7 @@ Origin Shield charge per 10,000 requests **/**
 For more information about the charge per 10,000 requests for Origin Shield, see
 [CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/").
 
-## Origin Shield high
-
-availability
+## Origin Shield high availability
 
 Origin Shield leverages the CloudFront [regional
 edge caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.md#CloudFrontRegionaledgecaches") feature. Each of these edge caches is built in an AWS Region
@@ -402,9 +385,7 @@ locations to Origin Shield also use active error tracking for each request to
 automatically route the request to a secondary Origin Shield location if the primary
 Origin Shield location is unavailable.
 
-## How Origin Shield interacts with
-
-other CloudFront features
+## How Origin Shield interacts with other CloudFront features
 
 The following sections explain how Origin Shield interacts with other CloudFront
 features.
@@ -427,9 +408,7 @@ caches](HowCloudFrontWorks.md#CloudFrontRegionaledgecaches "HowCloudFrontWorks.m
 edge cache that is acting as Origin Shield, it is reported as a `Hit` in
 the logs, not as an `OriginShieldHit`.
 
-### Origin Shield and origin
-
-groups
+### Origin Shield and origin groups
 
 Origin Shield is compatible with [CloudFront origin groups](high_availability_origin_failover.md "high_availability_origin_failover.md"). Because Origin Shield is a property of the origin,
 requests always travel through Origin Shield for each origin even when the origin is
@@ -438,9 +417,7 @@ origin in the origin group through the primary origin’s Origin Shield. If that
 request fails (according to the origin group failover criteria), CloudFront routes the
 request to the secondary origin through the secondary origin’s Origin Shield.
 
-### Origin Shield and
-
-Lambda@Edge
+### Origin Shield and Lambda@Edge
 
 Origin Shield does not impact the functionality of [Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md") functions, but it can affect the
 AWS Region where those functions run.

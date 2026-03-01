@@ -5,25 +5,18 @@ functions in CloudFront Functions have one of the following purposes.
 
 ###### Topics
 
-- [Modify the HTTP request in a viewer
-  request event type](#function-code-modify-request "#function-code-modify-request")
-- [Generate an HTTP response in a
-  viewer request event type](#function-code-generate-response "#function-code-generate-response")
-- [Modify the HTTP response in a viewer
-  response event type](#function-code-modify-response "#function-code-modify-response")
-- [Validate mTLS connections in a
-  connection request event type](#function-code-connection-request "#function-code-connection-request")
-- [Related
-  information](#related-information-cloudfront-functions-purpose "#related-information-cloudfront-functions-purpose")
+- [Modify the HTTP request in a viewer request event type](#function-code-modify-request "#function-code-modify-request")
+- [Generate an HTTP response in a viewer request event type](#function-code-generate-response "#function-code-generate-response")
+- [Modify the HTTP response in a viewer response event type](#function-code-modify-response "#function-code-modify-response")
+- [Validate mTLS connections in a connection request event type](#function-code-connection-request "#function-code-connection-request")
+- [Related information](#related-information-cloudfront-functions-purpose "#related-information-cloudfront-functions-purpose")
   Regardless of your function’s purpose, the `handler` is the entry point for
   any function. It takes a single argument called `event`, which is passed to
   the function by CloudFront. The `event` is a JSON object that contains a
   representation of the HTTP request (and the response, if your function modifies the HTTP
   response).
 
-## Modify the HTTP request in a viewer
-
-request event type
+## Modify the HTTP request in a viewer request event type
 
 Your function can modify the HTTP request that CloudFront receives from the viewer
 (client), and return the modified request to CloudFront for continued processing. For
@@ -55,9 +48,7 @@ The function returns the modified `request` object to CloudFront. CloudFront
 continues processing the returned request by checking the CloudFront cache for a cache
 hit, and sending the request to the origin if necessary.
 
-## Generate an HTTP response in a
-
-viewer request event type
+## Generate an HTTP response in a viewer request event type
 
 Your function can generate an HTTP response at the edge and return it directly to
 the viewer (client) without checking for a cached response or any further processing
@@ -90,9 +81,7 @@ The function returns a `response` object to CloudFront, which CloudFront
 immediately returns to the viewer without checking the CloudFront cache or sending a
 request to the origin.
 
-## Modify the HTTP response in a viewer
-
-response event type
+## Modify the HTTP response in a viewer response event type
 
 Your function can modify the HTTP response before CloudFront sends it to the viewer
 (client), regardless of whether the response comes from the CloudFront cache or the
@@ -124,9 +113,7 @@ function handler(event) {
 The function returns the modified `response` object to CloudFront, which
 CloudFront immediately returns to the viewer.
 
-## Validate mTLS connections in a
-
-connection request event type
+## Validate mTLS connections in a connection request event type
 
 Connection functions are a type of CloudFront Functions that run during TLS connections
 to provide custom validation and authentication logic. Connection functions are currently
@@ -160,9 +147,7 @@ The function uses helper methods to determine whether to allow or deny the
 connection. Unlike viewer request and viewer response functions, connection
 functions cannot modify HTTP requests or responses.
 
-## Related
-
-information
+## Related information
 
 For more information about working with CloudFront Functions, see the following
 topics:

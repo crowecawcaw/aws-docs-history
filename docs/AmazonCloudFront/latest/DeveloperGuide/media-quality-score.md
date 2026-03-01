@@ -77,10 +77,8 @@ To enable this feature for your distribution, complete the following steps:
 - Currently, MQAR isn't available when you use a [Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md") function in
   origin-facing triggers (origin request and origin response) that is
   associated with your distribution's cache behavior. For more information,
-  see [Cache behavior
-  settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md").
-- If you enabled the MQAR feature and origin access control (OAC), add the `mediapackagev2:GetHeadObject` action to the IAM policy. MQAR requires this permission to send `HEAD` requests to the MediaPackage v2 origin. For more information about OAC, see [Restrict access to an
-  AWS Elemental MediaPackage v2 origin](private-content-restricting-access-to-mediapackage.md "private-content-restricting-access-to-mediapackage.md").
+  see [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md").
+- If you enabled the MQAR feature and origin access control (OAC), add the `mediapackagev2:GetHeadObject` action to the IAM policy. MQAR requires this permission to send `HEAD` requests to the MediaPackage v2 origin. For more information about OAC, see [Restrict access to an AWS Elemental MediaPackage v2 origin](private-content-restricting-access-to-mediapackage.md "private-content-restricting-access-to-mediapackage.md").
 
 ## MQAR log fields
 

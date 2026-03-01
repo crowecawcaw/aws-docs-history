@@ -1,6 +1,4 @@
-# Troubleshooting distribution
-
-issues
+# Troubleshooting distribution issues
 
 Use the information here to help you diagnose and fix certificate errors,
 access-denied issues, or other common issues that you might encounter when setting up
@@ -8,37 +6,24 @@ your website or application with Amazon CloudFront distributions.
 
 ###### Topics
 
-- [CloudFront returns an Access Denied
-  error](#access-denied "#access-denied")
-- [CloudFront returns an
-  InvalidViewerCertificate error when I try to add an alternate
-  domain name](#troubleshooting-distributions-certificates "#troubleshooting-distributions-certificates")
-- [CloudFront returns
-  an incorrectly configured DNS record error when I try to add a new CNAME](#troubleshoot-incorrectly-configured-DNS-record-error "#troubleshoot-incorrectly-configured-DNS-record-error")
-- [I can't view the files in my
-  distribution](#troubleshooting-web-distribution "#troubleshooting-web-distribution")
-- [Error message: Certificate:
-  <certificate-id> is being used by CloudFront](#troubleshooting-certificate-error "#troubleshooting-certificate-error")
+- [CloudFront returns an Access Denied error](#access-denied "#access-denied")
+- [CloudFront returns an InvalidViewerCertificate error when I try to add an alternate domain name](#troubleshooting-distributions-certificates "#troubleshooting-distributions-certificates")
+- [CloudFront returns an incorrectly configured DNS record error when I try to add a new CNAME](#troubleshoot-incorrectly-configured-DNS-record-error "#troubleshoot-incorrectly-configured-DNS-record-error")
+- [I can't view the files in my distribution](#troubleshooting-web-distribution "#troubleshooting-web-distribution")
+- [Error message: Certificate: <certificate-id> is being used by CloudFront](#troubleshooting-certificate-error "#troubleshooting-certificate-error")
 
-## CloudFront returns an Access Denied
-
-error
+## CloudFront returns an Access Denied error
 
 If you're using an Amazon S3 bucket as the origin for your CloudFront distribution, you might
 see an Access Denied (403) error message in the following examples.
 
 ###### Contents
 
-- [You specified a missing object
-  from the Amazon S3 origin](troubleshooting-distributions.md#missing-object-in-s3-bucket "troubleshooting-distributions.md#missing-object-in-s3-bucket")
-- [Your Amazon S3 origin
-  is missing IAM permissions](troubleshooting-distributions.md#access-denied-origin-missing-iam-permissions "troubleshooting-distributions.md#access-denied-origin-missing-iam-permissions")
-- [You're using invalid
-  credentials or don't have sufficient permissions](troubleshooting-distributions.md#access-denied-missing-iam-permissions "troubleshooting-distributions.md#access-denied-missing-iam-permissions")
+- [You specified a missing object from the Amazon S3 origin](troubleshooting-distributions.md#missing-object-in-s3-bucket "troubleshooting-distributions.md#missing-object-in-s3-bucket")
+- [Your Amazon S3 origin is missing IAM permissions](troubleshooting-distributions.md#access-denied-origin-missing-iam-permissions "troubleshooting-distributions.md#access-denied-origin-missing-iam-permissions")
+- [You're using invalid credentials or don't have sufficient permissions](troubleshooting-distributions.md#access-denied-missing-iam-permissions "troubleshooting-distributions.md#access-denied-missing-iam-permissions")
 
-### You specified a missing object
-
-from the Amazon S3 origin
+### You specified a missing object from the Amazon S3 origin
 
 Verify that the requested object in your bucket exists. Object names are case
 sensitive. Entering an invalid object name can return an access denied error
@@ -67,9 +52,7 @@ ABCDE/Vg+7PSNa/d/IfFQ8Fb92TGQ0KH0ZwG5iEKbc6+e06DdMS1ZW+ryB9GFRIVtS66rSSy6So=
 
 ```
 
-### Your Amazon S3 origin
-
-is missing IAM permissions
+### Your Amazon S3 origin is missing IAM permissions
 
 Verify that you've selected the correct Amazon S3 bucket as the origin domain and
 name. The origin (Amazon S3) must have the correct permissions.
@@ -97,8 +80,7 @@ retrieve the encrypted objects for content delivery.
    server-side encryption settings to verify the KMS key ARN.
 3. Edit the Amazon S3 bucket policy to grant CloudFront permission to call the
    `GetObject` API operation from the Amazon S3 bucket. For an
-   example Amazon S3 bucket policy that uses origin access control, see [Grant CloudFront permission to access
-   the S3 bucket](private-content-restricting-access-to-s3.md#oac-permission-to-access-s3 "private-content-restricting-access-to-s3.md#oac-permission-to-access-s3").
+   example Amazon S3 bucket policy that uses origin access control, see [Grant CloudFront permission to access the S3 bucket](private-content-restricting-access-to-s3.md#oac-permission-to-access-s3 "private-content-restricting-access-to-s3.md#oac-permission-to-access-s3").
 4. Edit the KMS key policy to grant CloudFront permission to perform the
    actions to `Encrypt`, `Decrypt`, and
    `GenerateDataKey*`. To align with least privilege
@@ -109,15 +91,11 @@ retrieve the encrypted objects for content delivery.
 
 If you’re using origin access identity (OAI) instead of OAC, the permissions
 to the Amazon S3 bucket are slightly different because you grant permission to an
-identity instead of the AWS service. For more information, see [Give an origin
-access identity permission to read files in the Amazon S3 bucket](private-content-restricting-access-to-s3.md#private-content-granting-permissions-to-oai "private-content-restricting-access-to-s3.md#private-content-granting-permissions-to-oai").
+identity instead of the AWS service. For more information, see [Give an origin access identity permission to read files in the Amazon S3 bucket](private-content-restricting-access-to-s3.md#private-content-granting-permissions-to-oai "private-content-restricting-access-to-s3.md#private-content-granting-permissions-to-oai").
 
-If you still can't view your files in your distribution, see [I can't view the files in my
-distribution](#troubleshooting-web-distribution "#troubleshooting-web-distribution").
+If you still can't view your files in your distribution, see [I can't view the files in my distribution](#troubleshooting-web-distribution "#troubleshooting-web-distribution").
 
-### You're using invalid
-
-credentials or don't have sufficient permissions
+### You're using invalid credentials or don't have sufficient permissions
 
 An Access Denied error message can appear if you’re using incorrect or expired
 AWS SCT credentials (access key and secret key) or your IAM role or user is
@@ -127,10 +105,7 @@ the _IAM User Guide_.
 
 For information about how IAM works with CloudFront, see [Identity and Access Management for Amazon CloudFront](security-iam.md "security-iam.md").
 
-## CloudFront returns an
-
-InvalidViewerCertificate error when I try to add an alternate
-domain name
+## CloudFront returns an InvalidViewerCertificate error when I try to add an alternate domain name
 
 If CloudFront returns an `InvalidViewerCertificate` error when you try to add
 an alternate domain name (CNAME) to your distribution, review the following
@@ -148,8 +123,7 @@ have completed successfully.
 To add an alternate domain name (CNAME), you must attach a trusted,
 valid certificate to your distribution. Please review the requirements,
 obtain a valid certificate that meets them, attach it to your
-distribution, and then try again. For more information, see [Requirements for using alternate domain
-names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
+distribution, and then try again. For more information, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
 
 **There are too many certificates in the certificate chain for the
 certificate that you've attached.**
@@ -173,8 +147,7 @@ Authority (CA).**
 
 The certificate that you attach to CloudFront to verify an alternate domain
 name cannot be a self-signed certificate. It must be signed by a trusted
-CA. For more information, see [Requirements for using alternate domain
-names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
+CA. For more information, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
 
 **The certificate that you've attached isn't formatted correctly**
 
@@ -198,12 +171,9 @@ attach a valid SSL/TLS certificate from a trusted Certificate Authority
 (CA) that covers the domain name, to validate your authorization to use
 it. Please update your certificate to include a domain name that covers
 the CNAME that you're trying to add. For more information and examples
-of using domain names with wildcards, see [Requirements for using alternate domain
-names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
+of using domain names with wildcards, see [Requirements for using alternate domain names](CNAMEs.md#alternate-domain-names-requirements "CNAMEs.md#alternate-domain-names-requirements").
 
-## CloudFront returns
-
-an incorrectly configured DNS record error when I try to add a new CNAME
+## CloudFront returns an incorrectly configured DNS record error when I try to add a new CNAME
 
 When you have an existing wildcard DNS entry pointing to a CloudFront distribution, if
 you try to add a new CNAME with a more specific name, you might encounter the
@@ -220,31 +190,24 @@ To resolve this, first create another distribution, then create a DNS entry
 pointing to the new distribution. Finally, add the more specific CNAME. For more
 information on how to add CNAMEs, see [Add an alternate domain name](CreatingCNAME.md "CreatingCNAME.md").
 
-## I can't view the files in my
-
-distribution
+## I can't view the files in my distribution
 
 If you can't view the files in your CloudFront distribution, see the following topics
 for some common solutions.
 
-### Did you sign up for both CloudFront and
-
-Amazon S3?
+### Did you sign up for both CloudFront and Amazon S3?
 
 To use Amazon CloudFront with an Amazon S3 origin, you must sign up for both CloudFront and Amazon S3,
 separately. For more information about signing up for CloudFront and Amazon S3, see [Set up your AWS account](setting-up-cloudfront.md "setting-up-cloudfront.md").
 
-### Are your Amazon S3 bucket and object
-
-permissions set correctly?
+### Are your Amazon S3 bucket and object permissions set correctly?
 
 If you're using CloudFront with an Amazon S3 origin, the original versions of your
 content are stored in an S3 bucket. To serve the content to your viewers, we
 recommend that you use CloudFront Origin Access Control (OAC) to secure Amazon S3 bucket
 access. This means your S3 bucket is reachable only through CloudFront. OAC controls
 viewer access and secure delivery via CloudFront. For more information about OAC, see
-[Restrict access to an Amazon S3
-origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+[Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
 For more information about managing your bucket access, see [Blocking public access to your Amazon S3
 storage](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md") in the _Amazon S3 User Guide_.
@@ -253,9 +216,7 @@ Object properties and bucket properties are independent. You must explicitly
 grant privileges to each object in Amazon S3. Objects do not inherit properties from
 buckets, and object properties must be set independently of the bucket.
 
-### Is your alternate domain name (CNAME)
-
-correctly configured?
+### Is your alternate domain name (CNAME) correctly configured?
 
 If you already have an existing CNAME record for your domain name, update that
 record or replace it with a new one that points to your distribution's domain
@@ -292,16 +253,12 @@ images.example.com. 10800 IN	CNAME	d111111abcdef8.cloudfront.net.
 
 For more information about CNAMEs, see [Use custom URLs by adding alternate domain names (CNAMEs)](CNAMEs.md "CNAMEs.md").
 
-### Are you referencing the correct URL for
-
-your CloudFront distribution?
+### Are you referencing the correct URL for your CloudFront distribution?
 
 Make sure that the URL that you're referencing uses the domain name (or CNAME)
 of your CloudFront distribution, not your Amazon S3 bucket or custom origin.
 
-### Do you need help troubleshooting
-
-a custom origin?
+### Do you need help troubleshooting a custom origin?
 
 If you need AWS to help you troubleshoot a custom origin, we probably will
 need to inspect the `X-Amz-Cf-Id` header entries from your requests.
@@ -310,9 +267,7 @@ the future. For more information, see [Use Amazon EC2 (or another custom origin)
 For further help, see the [AWS
 Support Center](https://console.aws.amazon.com/support/home?#/ "https://console.aws.amazon.com/support/home?#/").
 
-## Error message: Certificate:
-
-<certificate-id> is being used by CloudFront
+## Error message: Certificate: <certificate-id> is being used by CloudFront
 
 **Problem:** You're trying to delete an SSL/TLS
 certificate from the IAM certificate store, and you're getting the message
@@ -327,5 +282,4 @@ default CloudFront certificate. To fix that, complete the steps in one of the fo
 procedures:
 
 - [Rotate SSL/TLS certificates](cnames-and-https-rotate-certificates.md "cnames-and-https-rotate-certificates.md")
-- [Revert from a custom SSL/TLS
-  certificate to the default CloudFront certificate](cnames-and-https-revert-to-cf-certificate.md "cnames-and-https-revert-to-cf-certificate.md")
+- [Revert from a custom SSL/TLS certificate to the default CloudFront certificate](cnames-and-https-revert-to-cf-certificate.md "cnames-and-https-revert-to-cf-certificate.md")

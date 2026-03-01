@@ -26,8 +26,7 @@ AWS CLI
 ###### To delete a key value store
 
 1. Get the `ETag` and the name of the key value stores.
-   For more information, see [Get a reference to a
-   key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md").
+   For more information, see [Get a reference to a key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md").
 2. Verify if the key value stores is associated with a function.
    If it is, remove the association. For more information on both
    these steps, see [Update functions](update-function.md "update-function.md").
@@ -49,8 +48,7 @@ API
 ###### To delete a key value store
 
 1. Get the `ETag` and the name of the key value stores.
-   For more information, see [Get a reference to a
-   key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md").
+   For more information, see [Get a reference to a key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md").
 2. Verify if the key value stores is associated with a function.
    If it is, remove the association. For more information on both
    these steps, see [Update functions](update-function.md "update-function.md").

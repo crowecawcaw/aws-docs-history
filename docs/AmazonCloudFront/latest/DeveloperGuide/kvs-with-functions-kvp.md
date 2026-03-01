@@ -5,16 +5,12 @@ include key-value pairs when you initially create the key value stores, see [Cre
 
 ###### Topics
 
-- [Work with key-value pairs
-  (console)](#kvs-with-functions-kvp-using-console "#kvs-with-functions-kvp-using-console")
+- [Work with key-value pairs (console)](#kvs-with-functions-kvp-using-console "#kvs-with-functions-kvp-using-console")
 - [About the CloudFront KeyValueStore](#kvs-with-functions-api-describe "#kvs-with-functions-api-describe")
 - [Work with key-value pairs (AWS CLI)](#work-with-kvs-cli-keys "#work-with-kvs-cli-keys")
-- [Work with key-value pairs
-  (API)](#kvs-with-functions-kvp-using-api "#kvs-with-functions-kvp-using-api")
+- [Work with key-value pairs (API)](#kvs-with-functions-kvp-using-api "#kvs-with-functions-kvp-using-api")
 
-## Work with key-value pairs
-
-(console)
+## Work with key-value pairs (console)
 
 You can use the CloudFront console to work with your key-value pairs.
 
@@ -36,8 +32,7 @@ You can use the CloudFront console to work with your key-value pairs.
 
 The CloudFront KeyValueStore API is a global service that uses Signature Version 4A (SigV4A)
 for authentication. Using temporary credentials with SigV4A requires version 2
-session tokens. For more information, see [Using temporary credentials
-with the CloudFront KeyValueStore API](cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store "cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store").
+session tokens. For more information, see [Using temporary credentials with the CloudFront KeyValueStore API](cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store "cloudfront-function-restrictions.md#regional-endpoint-for-key-value-store").
 
 If you're using the AWS Command Line Interface (AWS CLI) or your own code to call the CloudFront KeyValueStore API,
 see the following sections.
@@ -223,23 +218,17 @@ aws cloudfront-keyvaluestore update-keys \
 }
 ```
 
-## Work with key-value pairs
-
-(API)
+## Work with key-value pairs (API)
 
 Follow this section to work with your key-value pairs programatically.
 
 ###### Contents
 
-- [Get a reference to a
-  key value store](kvs-with-functions-kvp.md#kvs-with-functions-api-ref "kvs-with-functions-kvp.md#kvs-with-functions-api-ref")
-- [Change key-value pairs in a
-  key value store](kvs-with-functions-kvp.md#kvs-with-functions-api-actions "kvs-with-functions-kvp.md#kvs-with-functions-api-actions")
+- [Get a reference to a key value store](kvs-with-functions-kvp.md#kvs-with-functions-api-ref "kvs-with-functions-kvp.md#kvs-with-functions-api-ref")
+- [Change key-value pairs in a key value store](kvs-with-functions-kvp.md#kvs-with-functions-api-actions "kvs-with-functions-kvp.md#kvs-with-functions-api-actions")
 - [Example code for CloudFront KeyValueStore](kvs-with-functions-kvp.md#example-code-key-value-store "kvs-with-functions-kvp.md#example-code-key-value-store")
 
-### Get a reference to a
-
-key value store
+### Get a reference to a key value store
 
 When you use the CloudFront KeyValueStore API to call a write operation, you need to specify
 the ARN and the `ETag` of the key value store. To get this data, do
@@ -268,9 +257,7 @@ key value store.
 
     `ETVABCEXAMPLE2`
 
-### Change key-value pairs in a
-
-key value store
+### Change key-value pairs in a key value store
 
 You can specify the key value store that contains the key-value pair that you
 want to update.

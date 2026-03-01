@@ -14,9 +14,7 @@ know the domain name associated with the distribution. To test your distribution
 
 Use the following procedure to create test links for the objects in your CloudFront web distribution.
 
-###### To create links to objects in a web
-
-distribution
+###### To create links to objects in a web distribution
 
 1. Copy the following HTML code into a new file, replace
    `domain-name` with your distribution's domain name, and replace

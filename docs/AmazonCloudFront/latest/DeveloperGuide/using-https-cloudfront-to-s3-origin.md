@@ -1,6 +1,4 @@
-# Require HTTPS for communication between CloudFront
-
-and your Amazon S3 origin
+# Require HTTPS for communication between CloudFront and your Amazon S3 origin
 
 When your origin is an Amazon S3 bucket, your options for using HTTPS for communications with CloudFront depend on how you're using the
 bucket. If your Amazon S3 bucket is configured as a website endpoint, you can't configure CloudFront to use HTTPS to communicate with your origin
@@ -8,8 +6,7 @@ because Amazon S3 doesn't support HTTPS connections in that configuration.
 
 When your origin is an Amazon S3 bucket that supports HTTPS communication, CloudFront forwards requests
 to S3 by using the protocol that viewers used to submit the requests. The default
-setting for the [Protocol (custom origins
-only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy") setting is **Match
+setting for the [Protocol (custom origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy") setting is **Match
 Viewer** and can't be changed. However, if you enable origin access control
 (OAC) for your Amazon S3 origin, the communication used between CloudFront and Amazon S3 depends on your
 settings. For more information, see [Create a new origin access control](private-content-restricting-access-to-s3.md#create-oac-overview-s3 "private-content-restricting-access-to-s3.md#create-oac-overview-s3").
@@ -28,9 +25,7 @@ When you use HTTPS with an Amazon S3 bucket that supports HTTPS communication, A
 
 The following procedure shows you how to configure CloudFront to require HTTPS to your Amazon S3 origin.
 
-###### To configure CloudFront to require
-
-HTTPS to your Amazon S3 origin
+###### To configure CloudFront to require HTTPS to your Amazon S3 origin
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").

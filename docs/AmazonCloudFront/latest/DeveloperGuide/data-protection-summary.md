@@ -41,15 +41,11 @@ delivers:
 
 ###### Topics
 
-- [Encryption in
-  transit](#data-protection-summary-encryption-in-transit "#data-protection-summary-encryption-in-transit")
+- [Encryption in transit](#data-protection-summary-encryption-in-transit "#data-protection-summary-encryption-in-transit")
 - [Encryption at rest](#data-protection-summary-encryption-at-rest "#data-protection-summary-encryption-at-rest")
-- [Restrict access to
-  content](#data-protection-summary-restrict-access "#data-protection-summary-restrict-access")
+- [Restrict access to content](#data-protection-summary-restrict-access "#data-protection-summary-restrict-access")
 
-## Encryption in
-
-transit
+## Encryption in transit
 
 To encrypt your data during transit, you configure Amazon CloudFront to require that viewers
 use HTTPS to request your files, so that connections are encrypted when CloudFront
@@ -68,8 +64,7 @@ encrypted throughout your entire application stack, ensuring that only applicati
 need the data—and have the credentials to decrypt it—are able to do
 so.
 
-For more information, see [Use field-level encryption to help protect sensitive
-data](field-level-encryption.md "field-level-encryption.md").
+For more information, see [Use field-level encryption to help protect sensitive data](field-level-encryption.md "field-level-encryption.md").
 
 The CloudFront API endpoints, `cloudfront.amazonaws.com` and
 `cloudfront-fips.amazonaws.com`, only accept HTTPS traffic. This means that
@@ -88,9 +83,7 @@ Function code and configuration in CloudFront Functions is always stored in an e
 format on the edge location POPs, and in other storage locations
 used by CloudFront.
 
-## Restrict access to
-
-content
+## Restrict access to content
 
 Many companies that distribute content over the internet want to restrict access to
 documents, business data, media streams, or content that is intended for a subset of
@@ -102,8 +95,7 @@ following:
 You can restrict access to content that is intended for selected
 users—for example, users who have paid a fee—by serving this
 private content through CloudFront using signed URLs or signed cookies. For more
-information, see [Serve private content with signed URLs and signed
-cookies](PrivateContent.md "PrivateContent.md").
+information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
 
 **Restrict access to content in Amazon S3 buckets**
 
@@ -114,8 +106,7 @@ CloudFront URL, so that your protections work.
 
 If you use an Amazon S3 bucket as the origin for a CloudFront distribution, you can set up an origin
 access control (OAC) which makes it possible to restrict access to the S3
-bucket. For more information, see [Restrict access to an Amazon S3
-origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+bucket. For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 
 **Restrict access to content served by an Application Load Balancer**
 

@@ -32,8 +32,7 @@ _AWS Billing User Guide_.
 ###### Contents
 
 - [Tag restrictions](tagging.md#tagging-restrictions "tagging.md#tagging-restrictions")
-- [Add, edit, and delete tags for
-  distributions](tagging.md#tagging-add-edit-delete "tagging.md#tagging-add-edit-delete")
+- [Add, edit, and delete tags for distributions](tagging.md#tagging-add-edit-delete "tagging.md#tagging-add-edit-delete")
 - [Programmatic tagging](tagging.md#tagging-related-information "tagging.md#tagging-related-information")
 
 ## Tag restrictions
@@ -49,15 +48,11 @@ The following basic restrictions apply to tags:
 - Don't use `aws:` as a prefix for keys. This prefix is reserved for
   AWS use.
 
-## Add, edit, and delete tags for
-
-distributions
+## Add, edit, and delete tags for distributions
 
 You can use the CloudFront console to manage tags for your distributions.
 
-###### To add tags, edit, or delete tags
-
-for a distribution
+###### To add tags, edit, or delete tags for a distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").

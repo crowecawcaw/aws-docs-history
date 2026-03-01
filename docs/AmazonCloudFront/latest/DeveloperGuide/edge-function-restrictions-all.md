@@ -1,36 +1,26 @@
-# Restrictions on all edge
-
-functions
+# Restrictions on all edge functions
 
 The following restrictions apply to all edge functions, both CloudFront Functions and
 Lambda@Edge.
 
 ###### Topics
 
-- [AWS account
-  ownership](#function-restrictions-account-ownership "#function-restrictions-account-ownership")
-- [Combining CloudFront Functions
-  with Lambda@Edge](#function-restrictions-combining-functions "#function-restrictions-combining-functions")
+- [AWS account ownership](#function-restrictions-account-ownership "#function-restrictions-account-ownership")
+- [Combining CloudFront Functions with Lambda@Edge](#function-restrictions-combining-functions "#function-restrictions-combining-functions")
 - [HTTP status codes](#function-restrictions-status-codes "#function-restrictions-status-codes")
 - [HTTP headers](#function-restrictions-headers "#function-restrictions-headers")
 - [Query strings](#function-restrictions-query-strings "#function-restrictions-query-strings")
 - [URI](#function-restrictions-uri "#function-restrictions-uri")
-- [URI, query string, and headers
-  encoding](#function-restrictions-encoding "#function-restrictions-encoding")
-- [Microsoft Smooth
-  Streaming](#function-restrictions-microsoft-smooth-streaming "#function-restrictions-microsoft-smooth-streaming")
+- [URI, query string, and headers encoding](#function-restrictions-encoding "#function-restrictions-encoding")
+- [Microsoft Smooth Streaming](#function-restrictions-microsoft-smooth-streaming "#function-restrictions-microsoft-smooth-streaming")
 - [Tagging](#function-restrictions-tagging "#function-restrictions-tagging")
 
-## AWS account
-
-ownership
+## AWS account ownership
 
 To associate an edge function with a CloudFront distribution, the function and
 distribution must be owned by the same AWS account.
 
-## Combining CloudFront Functions
-
-with Lambda@Edge
+## Combining CloudFront Functions with Lambda@Edge
 
 For a given cache behavior, the following restrictions apply:
 
@@ -57,8 +47,7 @@ CloudFront doesn't invoke edge functions for viewer response events when the ori
 returns HTTP status code 400 or higher.
 
 Lambda@Edge functions for origin response events are invoked for _all_ origin responses, including when the origin returns
-HTTP status code 400 or higher. For more information, see [Update HTTP responses in origin
-response triggers](lambda-generating-http-responses.md#lambda-updating-http-responses "lambda-generating-http-responses.md#lambda-updating-http-responses").
+HTTP status code 400 or higher. For more information, see [Update HTTP responses in origin response triggers](lambda-generating-http-responses.md#lambda-updating-http-responses "lambda-generating-http-responses.md#lambda-updating-http-responses").
 
 ## HTTP headers
 
@@ -68,14 +57,10 @@ functions can read them but can't add, modify, or delete them.
 
 ###### Topics
 
-- [Disallowed
-  headers](#function-restrictions-disallowed-headers "#function-restrictions-disallowed-headers")
-- [Read-only
-  headers](#function-restrictions-read-only-headers "#function-restrictions-read-only-headers")
+- [Disallowed headers](#function-restrictions-disallowed-headers "#function-restrictions-disallowed-headers")
+- [Read-only headers](#function-restrictions-read-only-headers "#function-restrictions-read-only-headers")
 
-### Disallowed
-
-headers
+### Disallowed headers
 
 The following HTTP headers are not exposed to edge functions, and functions
 can't add them. If your function adds one of these headers, it fails CloudFront
@@ -110,9 +95,7 @@ viewer.
 - `X-Forwarded-Proto`
 - `X-Real-IP`
 
-### Read-only
-
-headers
+### Read-only headers
 
 The following headers are read-only. Your function can read them and use them
 as input to the function logic, but it can't change the values. If your function
@@ -187,8 +170,7 @@ string in a request URI.
   - The total size of the URI, including the query string, must be
     less than 8,192 characters.
   - We recommend that you use percent encoding for the URI and query
-    string. For more information, see [URI, query string, and headers
-    encoding](#function-restrictions-encoding "#function-restrictions-encoding").
+    string. For more information, see [URI, query string, and headers encoding](#function-restrictions-encoding "#function-restrictions-encoding").
 
 ## URI
 
@@ -198,9 +180,7 @@ behavior for the request or the origin that the request is forwarded to.
 The total size of the URI, including the query string, must be less than 8,192
 characters.
 
-## URI, query string, and headers
-
-encoding
+## URI, query string, and headers encoding
 
 The values for the URI, query string, and headers that are passed to edge
 functions are UTF-8 encoded. Your function should use UTF-8 encoding for the URI,
@@ -233,9 +213,7 @@ origin depend on whether a function changes the values:
 - If a function changes the URI, query string, or header, CloudFront forwards the
   UTF-8 encoded values.
 
-## Microsoft Smooth
-
-Streaming
+## Microsoft Smooth Streaming
 
 You can't use edge functions with a CloudFront distribution that you're using for
 streaming media files that you've transcoded into the Microsoft Smooth Streaming

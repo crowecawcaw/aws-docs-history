@@ -24,22 +24,14 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 
 ###### Topics
 
-- [AWS managed policy:
-  CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")
-- [AWS managed policy:
-  CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")
-- [AWS managed policy:
-  AWSCloudFrontLogger](#security-iam-awsmanpol-cloudfront-logger "#security-iam-awsmanpol-cloudfront-logger")
-- [AWS managed policy:
-  AWSLambdaReplicator](#security-iam-awsmanpol-lambda-replicator "#security-iam-awsmanpol-lambda-replicator")
-- [AWS managed policy:
-  AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin")
-- [CloudFront updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: CloudFrontReadOnlyAccess](#security-iam-awsmanpol-cloudfront-read-only "#security-iam-awsmanpol-cloudfront-read-only")
+- [AWS managed policy: CloudFrontFullAccess](#security-iam-awsmanpol-cloudfront-full-access "#security-iam-awsmanpol-cloudfront-full-access")
+- [AWS managed policy: AWSCloudFrontLogger](#security-iam-awsmanpol-cloudfront-logger "#security-iam-awsmanpol-cloudfront-logger")
+- [AWS managed policy: AWSLambdaReplicator](#security-iam-awsmanpol-lambda-replicator "#security-iam-awsmanpol-lambda-replicator")
+- [AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy](#security-iam-awsmanpol-vpc-origin "#security-iam-awsmanpol-vpc-origin")
+- [CloudFront updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-CloudFrontReadOnlyAccess
+## AWS managed policy: CloudFrontReadOnlyAccess
 
 You can attach the **CloudFrontReadOnlyAccess** policy to
 your IAM identities. This policy allows read-only permissions to CloudFront resources. It also
@@ -90,9 +82,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [CloudFrontReadOnlyAccess](../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/CloudFrontReadOnlyAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-CloudFrontFullAccess
+## AWS managed policy: CloudFrontFullAccess
 
 You can attach the **CloudFrontFullAccess** policy to your
 IAM identities. This policy allows administrative permissions to CloudFront resources. It also
@@ -171,24 +161,19 @@ Reference_.
 If you want CloudFront to create and save access logs, you need to grant additional
 permissions. For more information, see [Permissions](standard-logging-legacy-s3.md#AccessLogsBucketAndFileOwnership "standard-logging-legacy-s3.md#AccessLogsBucketAndFileOwnership").
 
-## AWS managed policy:
-
-AWSCloudFrontLogger
+## AWS managed policy: AWSCloudFrontLogger
 
 You can’t attach the **AWSCloudFrontLogger** policy to your
 IAM identities. This policy is attached to a service-linked role that allows CloudFront to
 perform actions on your behalf. For more information, see [Service-linked roles for Lambda@Edge](lambda-edge-permissions.md#using-service-linked-roles-lambda-edge "lambda-edge-permissions.md#using-service-linked-roles-lambda-edge").
 
 This policy allows CloudFront to push log files to Amazon CloudWatch. For details about the permissions
-included in this policy, see [Service-linked role permissions for CloudFront
-logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger").
+included in this policy, see [Service-linked role permissions for CloudFront logger](lambda-edge-permissions.md#slr-permissions-cloudfront-logger "lambda-edge-permissions.md#slr-permissions-cloudfront-logger").
 
 To view the permissions for this policy, see [AWSCloudFrontLogger](../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontLogger.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSLambdaReplicator
+## AWS managed policy: AWSLambdaReplicator
 
 You can’t attach the **AWSLambdaReplicator** policy to your
 IAM identities. This policy is attached to a service-linked role that allows CloudFront to
@@ -196,20 +181,16 @@ perform actions on your behalf. For more information, see [Service-linked roles 
 
 This policy allows CloudFront to create, delete, and disable functions in AWS Lambda to
 replicate Lambda@Edge functions to AWS Regions. For details about the permissions
-included in this policy, see [Service-linked role permissions for
-Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator").
+included in this policy, see [Service-linked role permissions for Lambda replicator](lambda-edge-permissions.md#slr-permissions-lambda-replicator "lambda-edge-permissions.md#slr-permissions-lambda-replicator").
 
 To view the permissions for this policy, see [AWSLambdaReplicator](../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md "../../../aws-managed-policy/latest/reference/AWSLambdaReplicator.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSCloudFrontVPCOriginServiceRolePolicy
+## AWS managed policy: AWSCloudFrontVPCOriginServiceRolePolicy
 
 You can't attach the **AWSCloudFrontVPCOriginServiceRolePolicy** policy to your IAM entities. This
 policy is attached to a service-linked role that allows CloudFront to perform actions on your
-behalf. For more information, see [Use service-linked roles for
-CloudFront](using-service-linked-roles.md "using-service-linked-roles.md").
+behalf. For more information, see [Use service-linked roles for CloudFront](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy allows CloudFront to manage EC2 elastic network interfaces and security groups on
 your behalf. For details about the permissions included in this policy, see [Service-linked role permissions for CloudFront VPC Origins](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
@@ -217,9 +198,7 @@ your behalf. For details about the permissions included in this policy, see [Ser
 To view the permissions for this policy, see [AWSCloudFrontVPCOriginServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSCloudFrontVPCOriginServiceRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## CloudFront updates to AWS managed
-
-policies
+## CloudFront updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudFront since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

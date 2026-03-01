@@ -10,28 +10,17 @@ the origin.
 
 ###### Topics
 
-- [SSL/TLS negotiation failure between
-  CloudFront and a custom origin server](#ssl-negotitation-failure "#ssl-negotitation-failure")
-- [Origin
-  is not responding with supported ciphers/protocols](#origin-not-responding-with-supported-ciphers-protocols "#origin-not-responding-with-supported-ciphers-protocols")
-- [SSL/TLS certificate on the origin is
-  expired, invalid, self-signed, or the certificate chain is in the wrong
-  order](#ssl-certificate-expired "#ssl-certificate-expired")
-- [Origin is not
-  responding on specified ports in origin settings](#origin-not-responding-on-specified-ports "#origin-not-responding-on-specified-ports")
-- [Lambda validation
-  error](#http-502-lambda-validation-error "#http-502-lambda-validation-error")
-- [CloudFront function
-  validation error](#http-502-cloudfront-function-validation-error "#http-502-cloudfront-function-validation-error")
-- [DNS error
-  (NonS3OriginDnsError)](#http-502-dns-error "#http-502-dns-error")
+- [SSL/TLS negotiation failure between CloudFront and a custom origin server](#ssl-negotitation-failure "#ssl-negotitation-failure")
+- [Origin is not responding with supported ciphers/protocols](#origin-not-responding-with-supported-ciphers-protocols "#origin-not-responding-with-supported-ciphers-protocols")
+- [SSL/TLS certificate on the origin is expired, invalid, self-signed, or the certificate chain is in the wrong order](#ssl-certificate-expired "#ssl-certificate-expired")
+- [Origin is not responding on specified ports in origin settings](#origin-not-responding-on-specified-ports "#origin-not-responding-on-specified-ports")
+- [Lambda validation error](#http-502-lambda-validation-error "#http-502-lambda-validation-error")
+- [CloudFront function validation error](#http-502-cloudfront-function-validation-error "#http-502-cloudfront-function-validation-error")
+- [DNS error (NonS3OriginDnsError)](#http-502-dns-error "#http-502-dns-error")
 - [Application Load Balancer origin 502 error](#cloudfront-alb-502-error "#cloudfront-alb-502-error")
-- [API Gateway origin 502
-  error](#cloudfront-api-gateway-502-error "#cloudfront-api-gateway-502-error")
+- [API Gateway origin 502 error](#cloudfront-api-gateway-502-error "#cloudfront-api-gateway-502-error")
 
-## SSL/TLS negotiation failure between
-
-CloudFront and a custom origin server
+## SSL/TLS negotiation failure between CloudFront and a custom origin server
 
 If you use a custom origin that requires HTTPS between CloudFront and your origin,
 mismatched domain names might cause errors. The SSL/TLS certificate on your
@@ -99,13 +88,10 @@ CNAME that's configured in your distribution):
 name`:443 -servername
  `CNAME``
 
-## Origin
-
-is not responding with supported ciphers/protocols
+## Origin is not responding with supported ciphers/protocols
 
 CloudFront connects to origin servers using ciphers and protocols. For a list of the
-ciphers and protocols that CloudFront supports, see [Supported
-protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md"). If
+ciphers and protocols that CloudFront supports, see [Supported protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md"). If
 your origin does not respond with one of these ciphers or protocols in the
 SSL/TLS exchange, CloudFront fails to connect. You can validate that your origin
 supports the ciphers and protocols by using an online tool such as [SSL Labs](https://www.ssllabs.com/ssltest "https://www.ssllabs.com/ssltest"). Type the domain name
@@ -115,13 +101,9 @@ names** and **Alternative names**
 fields from the test to see if they match your origin's domain name. After the
 test is finished, find the **Protocols** and **Cipher
 Suites** sections in the test results to see which ciphers or
-protocols are supported by your origin. Compare them with the list of [Supported
-protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md").
+protocols are supported by your origin. Compare them with the list of [Supported protocols and ciphers between CloudFront and the origin](secure-connections-supported-ciphers-cloudfront-to-origin.md "secure-connections-supported-ciphers-cloudfront-to-origin.md").
 
-## SSL/TLS certificate on the origin is
-
-expired, invalid, self-signed, or the certificate chain is in the wrong
-order
+## SSL/TLS certificate on the origin is expired, invalid, self-signed, or the certificate chain is in the wrong order
 
 If the origin server returns the following, CloudFront drops the TCP connection,
 returns HTTP status code 502 (Bad Gateway), and sets the `X-Cache`
@@ -138,12 +120,9 @@ If the full chain of certificates, including the intermediate certificate,
 is not present, CloudFront drops the TCP connection.
 
 For information about installing an SSL/TLS certificate on your custom origin
-server, see [Require HTTPS for communication
-between CloudFront and your custom origin](using-https-cloudfront-to-custom-origin.md "using-https-cloudfront-to-custom-origin.md").
+server, see [Require HTTPS for communication between CloudFront and your custom origin](using-https-cloudfront-to-custom-origin.md "using-https-cloudfront-to-custom-origin.md").
 
-## Origin is not
-
-responding on specified ports in origin settings
+## Origin is not responding on specified ports in origin settings
 
 When you create an origin on your CloudFront distribution, you can set the ports
 that CloudFront connects to the origin with for HTTP and HTTPS traffic. By default,
@@ -157,18 +136,13 @@ For more information, see [AWS IP address ranges](../../../vpc/latest/userguide/
 _Amazon VPC User Guide_. Additionally, verify whether your web
 server is running on the origin.
 
-## Lambda validation
-
-error
+## Lambda validation error
 
 If you're using Lambda@Edge, an HTTP 502 status code can indicate that your
 Lambda function response was incorrectly formed or included invalid content. For
-more information about troubleshooting Lambda@Edge errors, see [Test and debug Lambda@Edge
-functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md").
+more information about troubleshooting Lambda@Edge errors, see [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md").
 
-## CloudFront function
-
-validation error
+## CloudFront function validation error
 
 If you're using CloudFront functions, an HTTP 502 status code can indicate that the
 CloudFront function is trying to add, delete, or change a read-only header. This error
@@ -176,9 +150,7 @@ does not show up during testing, but will show up after you deploy the function
 and run the request. To resolve this error, check and update your CloudFront function.
 For more information, see [Update functions](update-function.md "update-function.md").
 
-## DNS error
-
-(`NonS3OriginDnsError`)
+## DNS error (`NonS3OriginDnsError`)
 
 An HTTP 502 error with the `NonS3OriginDnsError` error code
 indicates that there's a DNS configuration problem that prevents CloudFront from
@@ -238,9 +210,7 @@ documentation.
 
 If you use Application Load Balancer as your origin and receive a 502 error, see [How do I troubleshoot Application Load Balancer HTTP 502 errors?](https://repost.aws/knowledge-center/elb-alb-troubleshoot-502-errors "https://repost.aws/knowledge-center/elb-alb-troubleshoot-502-errors").
 
-## API Gateway origin 502
-
-error
+## API Gateway origin 502 error
 
 If you use API Gateway and receive a 502 error, see [How do I
 resolve HTTP 502 errors from API Gateway REST APIs with Lambda proxy

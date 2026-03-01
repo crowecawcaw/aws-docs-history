@@ -1,6 +1,4 @@
-# Choose how CloudFront serves HTTPS
-
-requests
+# Choose how CloudFront serves HTTPS requests
 
 If you want your viewers to use HTTPS and to use alternate domain names for your
 files, choose one of the following options for how CloudFront serves HTTPS
@@ -11,9 +9,7 @@ requests:
 - Use a dedicated IP address in each edge location
   This section explains how each option works.
 
-## Use SNI to serve HTTPS requests (works for most
-
-clients)
+## Use SNI to serve HTTPS requests (works for most clients)
 
 [Server Name Indication
 (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication "https://en.wikipedia.org/wiki/Server_Name_Indication") is an extension to the TLS protocol that is supported by browsers
@@ -42,8 +38,7 @@ If you want to use SNI but some of your users' browsers don't support SNI, you
 have several options:
 
 - Configure CloudFront to serve HTTPS requests by using dedicated IP addresses
-  instead of SNI. For more information, see [Use a dedicated IP address to
-  serve HTTPS requests (works for all clients)](#cnames-https-dedicated-ip "#cnames-https-dedicated-ip").
+  instead of SNI. For more information, see [Use a dedicated IP address to serve HTTPS requests (works for all clients)](#cnames-https-dedicated-ip "#cnames-https-dedicated-ip").
 - Use the CloudFront SSL/TLS certificate instead of a custom certificate. This
   requires that you use the CloudFront domain name for your distribution in the
   URLs for your files, for example,
@@ -62,16 +57,13 @@ custom certificate to the default CloudFront certificate:
     + If you have used your distribution to distribute your content,
      you must create a new CloudFront distribution and change the URLs for
      your files to reduce or eliminate the amount of time that your
-     content is unavailable. For more information, see [Revert from a custom SSL/TLS
-     certificate to the default CloudFront certificate](cnames-and-https-revert-to-cf-certificate.md "cnames-and-https-revert-to-cf-certificate.md").
+     content is unavailable. For more information, see [Revert from a custom SSL/TLS certificate to the default CloudFront certificate](cnames-and-https-revert-to-cf-certificate.md "cnames-and-https-revert-to-cf-certificate.md").
 
 - If you can control which browser your users use, have them upgrade
   their browser to one that supports SNI.
 - Use HTTP instead of HTTPS.
 
-## Use a dedicated IP address to
-
-serve HTTPS requests (works for all clients)
+## Use a dedicated IP address to serve HTTPS requests (works for all clients)
 
 Server Name Indication (SNI) is one way to associate a request with a domain.
 Another way is to use a dedicated IP address. If you have users who can't
@@ -117,14 +109,11 @@ Dedicated IPs are not static IPs and can change over time. The IP address that i
 
 The IP address ranges for CloudFront edge servers are subject to change. To be notified of IP address changes, [subscribe to AWS Public IP Address Changes via Amazon SNS](https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/ "https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/").
 
-## Request permission
-
-to use three or more dedicated IP SSL/TLS certificates
+## Request permission to use three or more dedicated IP SSL/TLS certificates
 
 If you need permission to permanently associate three or more SSL/TLS
 dedicated IP certificates with CloudFront, perform the following procedure. For more
-details about HTTPS requests, see [Choose how CloudFront serves HTTPS
-requests](cnames-https-dedicated-ip-or-sni.md "cnames-https-dedicated-ip-or-sni.md").
+details about HTTPS requests, see [Choose how CloudFront serves HTTPS requests](cnames-https-dedicated-ip-or-sni.md "cnames-https-dedicated-ip-or-sni.md").
 
 ###### Note
 
@@ -136,10 +125,7 @@ You can only associate a single SSL/TLS certificate to a CloudFront distribution
 at a time. This number is for the total number of dedicated IP SSL
 certificates you can use across all of your CloudFront distributions.
 
-###### To request
-
-permission to use three or more certificates with a CloudFront
-distribution
+###### To request permission to use three or more certificates with a CloudFront distribution
 
 1. Go to the [Support Center](https://console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase&limitType=service-code-cloudfront-distributions "https://console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase&limitType=service-code-cloudfront-distributions") and create a case.
 2. Indicate how many certificates you need permission to use, and

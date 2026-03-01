@@ -8,8 +8,6 @@ step-by-step instructions to resolve them.
 
 ###### Topics
 
-- [Troubleshooting distribution
-  issues](troubleshooting-distributions.md "troubleshooting-distributions.md")
-- [Troubleshooting error response status
-  codes in CloudFront](troubleshooting-response-errors.md "troubleshooting-response-errors.md")
+- [Troubleshooting distribution issues](troubleshooting-distributions.md "troubleshooting-distributions.md")
+- [Troubleshooting error response status codes in CloudFront](troubleshooting-response-errors.md "troubleshooting-response-errors.md")
 - [Load testing CloudFront](load-testing.md "load-testing.md")

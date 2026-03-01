@@ -1,6 +1,4 @@
-# Determine which files to
-
-invalidate
+# Determine which files to invalidate
 
 If you want to invalidate multiple files such as all of the files in a directory
 or all files that begin with the same characters, you can include the `*`

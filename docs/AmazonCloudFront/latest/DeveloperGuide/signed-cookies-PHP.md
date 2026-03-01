@@ -19,17 +19,14 @@ a new signed URL for each segment.
 
 ###### Topics
 
-- [Create the RSA SHA-1
-  signature](#create-rsa-sha-1signature-cookies "#create-rsa-sha-1signature-cookies")
+- [Create the RSA SHA-1 signature](#create-rsa-sha-1signature-cookies "#create-rsa-sha-1signature-cookies")
 - [Create the signed cookies](#create-the-signed-cookie "#create-the-signed-cookie")
 - [Full code](#full-code-signed-cookies "#full-code-signed-cookies")
   The following sections breaks down the code example into individual parts. You can
   find the complete [code sample](#full-code-signed-cookies "#full-code-signed-cookies")
   below.
 
-## Create the RSA SHA-1
-
-signature
+## Create the RSA SHA-1 signature
 
 This code example does the following:
 
@@ -98,8 +95,7 @@ function create_signed_cookies($resource, $private_key_filename, $key_pair_id, $
 }
 ```
 
-For more information, see [Set signed
-cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
+For more information, see [Set signed cookies using a custom policy](private-content-setting-signed-cookie-custom-policy.md "private-content-setting-signed-cookie-custom-policy.md").
 
 ## Full code
 

@@ -1,6 +1,4 @@
-# Overview and
-
-workflow
+# Overview and workflow
 
 CloudFront Connection Functions are a specialized type of CloudFront Functions that run during the TLS handshake when a client attempts to establish an mTLS connection. Your Connection Function can access client certificate information, mTLS configuration parameters, certificate revocation check results, and the client IP address.
 
@@ -13,10 +11,8 @@ CloudFront Connection Functions follow a two-stage lifecycle that allows you to 
 ###### Topics
 
 - [Function stages](#connection-function-stages "#connection-function-stages")
-- [Development
-  workflow](#connection-function-development-workflow "#connection-function-development-workflow")
-- [Differences from other function
-  types](#connection-function-differences "#connection-function-differences")
+- [Development workflow](#connection-function-development-workflow "#connection-function-development-workflow")
+- [Differences from other function types](#connection-function-differences "#connection-function-differences")
 
 ## Function stages
 
@@ -33,9 +29,7 @@ When you create a new Connection Function, it starts in the
 **DEVELOPMENT** stage. After testing and validation, you
 publish the function to move it to the **LIVE** stage.
 
-## Development
-
-workflow
+## Development workflow
 
 Follow this workflow to develop and deploy Connection Functions:
 
@@ -55,9 +49,7 @@ Follow this workflow to develop and deploy Connection Functions:
 To make changes to a LIVE function, you must update the DEVELOPMENT version and
 publish it again. This creates a new version in the LIVE stage.
 
-## Differences from other function
-
-types
+## Differences from other function types
 
 Connection functions differ from viewer request and viewer response functions in
 several important ways:

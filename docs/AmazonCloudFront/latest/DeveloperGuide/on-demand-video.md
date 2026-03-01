@@ -8,8 +8,7 @@ services:
 - An encoder (such as AWS Elemental MediaConvert) to transcode the video into streaming
   formats.
 - CloudFront to deliver the transcoded video to viewers. For Microsoft Smooth
-  Streaming, see [Configure video on demand for Microsoft
-  Smooth Streaming](#on-demand-streaming-smooth "#on-demand-streaming-smooth").
+  Streaming, see [Configure video on demand for Microsoft Smooth Streaming](#on-demand-streaming-smooth "#on-demand-streaming-smooth").
 
 ###### To create a VOD solution with CloudFront
 
@@ -24,9 +23,7 @@ services:
 3. Deliver your converted content by using a CloudFront distribution. Viewers can watch
    the content on any device, at any time.
 
-## Configure video on demand for Microsoft
-
-Smooth Streaming
+## Configure video on demand for Microsoft Smooth Streaming
 
 You have the following options for using CloudFront to distribute video on demand (VOD)
 content that you’ve transcoded into the Microsoft Smooth Streaming format:
@@ -54,14 +51,11 @@ server that is running Microsoft IIS), note the following:
   enable Smooth Streaming for the cache behavior.
 - You cannot invalidate media files in the Smooth Streaming format. If you
   want to update files before they expire, you must rename them. For more
-  information, see [Add, remove, or replace content that CloudFront
-  distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
+  information, see [Add, remove, or replace content that CloudFront distributes](AddRemoveReplaceObjects.md "AddRemoveReplaceObjects.md").
 
 For information about Smooth Streaming clients, see [Smooth Streaming](https://learn.microsoft.com/en-us/shows/iis-net-site-videos/smooth-streaming "https://learn.microsoft.com/en-us/shows/iis-net-site-videos/smooth-streaming") on the Microsoft documentation website.
 
-###### To use CloudFront to distribute Smooth Streaming files when a Microsoft IIS web
-
-server isn’t the origin
+###### To use CloudFront to distribute Smooth Streaming files when a Microsoft IIS web server isn’t the origin
 
 1. Transcode your media files into Smooth Streaming fragmented MP4
    format.

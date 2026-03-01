@@ -26,18 +26,12 @@ the CloudFront console.
 
 ###### Topics
 
-- [Default CloudFront distribution
-  metrics](#monitoring-console.distributions "#monitoring-console.distributions")
-- [Turn on additional
-  CloudFront distribution metrics](#monitoring-console.distributions-additional "#monitoring-console.distributions-additional")
-- [Default Lambda@Edge function
-  metrics](#monitoring-console.lambda-at-edge "#monitoring-console.lambda-at-edge")
-- [Default CloudFront Functions
-  metrics](#monitoring-console.cloudfront-functions "#monitoring-console.cloudfront-functions")
+- [Default CloudFront distribution metrics](#monitoring-console.distributions "#monitoring-console.distributions")
+- [Turn on additional CloudFront distribution metrics](#monitoring-console.distributions-additional "#monitoring-console.distributions-additional")
+- [Default Lambda@Edge function metrics](#monitoring-console.lambda-at-edge "#monitoring-console.lambda-at-edge")
+- [Default CloudFront Functions metrics](#monitoring-console.cloudfront-functions "#monitoring-console.cloudfront-functions")
 
-## Default CloudFront distribution
-
-metrics
+## Default CloudFront distribution metrics
 
 The following default metrics are included for all CloudFront distributions, at no
 additional cost:
@@ -78,13 +72,10 @@ totals are displayed at 1-minute granularity. In addition to viewing the graphs,
 can also [download metrics reports as CSV
 files](cloudwatch-csv.md "cloudwatch-csv.md").
 
-## Turn on additional
-
-CloudFront distribution metrics
+## Turn on additional CloudFront distribution metrics
 
 In addition to the default metrics, you can turn on additional metrics for an
-additional cost. For more information about the cost, see [Estimate
-the cost for the additional CloudFront metrics](#monitoring-console.distributions-additional-pricing "#monitoring-console.distributions-additional-pricing").
+additional cost. For more information about the cost, see [Estimate the cost for the additional CloudFront metrics](#monitoring-console.distributions-additional-pricing "#monitoring-console.distributions-additional-pricing").
 
 These additional metrics must be turned on for each distribution
 separately:
@@ -170,9 +161,7 @@ the following commands:
 aws cloudfront create-monitoring-subscription --distribution-id `EDFDVBD6EXAMPLE` --monitoring-subscription RealtimeMetricsSubscriptionConfig={RealtimeMetricsSubscriptionStatus=Enabled}
 ```
 
-###### To see whether additional metrics are turned on for a
-
-distribution
+###### To see whether additional metrics are turned on for a distribution
 
 - Use the **get-monitoring-subscription**
   command, as in the following example. Replace
@@ -209,9 +198,7 @@ following API operations.
 For more information about these API operations, see the API reference
 documentation for your AWS SDK or other API client.
 
-### Estimate
-
-the cost for the additional CloudFront metrics
+### Estimate the cost for the additional CloudFront metrics
 
 When you turn on additional metrics for a distribution, CloudFront sends up to 8
 metrics to CloudWatch in the US East (N. Virginia) Region. CloudWatch charges a low, fixed rate for each
@@ -223,9 +210,7 @@ the [CloudWatch
 pricing calculator](https://aws.amazon.com/cloudwatch/pricing/#Pricing_calculator "https://aws.amazon.com/cloudwatch/pricing/#Pricing_calculator"). Additional API charges apply when you retrieve
 the metrics with the CloudWatch API.
 
-## Default Lambda@Edge function
-
-metrics
+## Default Lambda@Edge function metrics
 
 You can use CloudWatch metrics to monitor, in real time, problems with your Lambda@Edge
 functions. There's no additional charge for these metrics.
@@ -257,13 +242,10 @@ function and then view log files by AWS Region, until you determine which functi
 is causing the problems and in which AWS Region. For more information about
 troubleshooting Lambda@Edge errors, see:
 
-- [How to determine
-  the type of failure](lambda-edge-testing-debugging.md#lambda-edge-testing-debugging-failure-type "lambda-edge-testing-debugging.md#lambda-edge-testing-debugging-failure-type")
+- [How to determine the type of failure](lambda-edge-testing-debugging.md#lambda-edge-testing-debugging-failure-type "lambda-edge-testing-debugging.md#lambda-edge-testing-debugging-failure-type")
 - [Four Steps for Debugging your Content Delivery on AWS](https://aws.amazon.com/blogs/networking-and-content-delivery/four-steps-for-debugging-your-content-delivery-on-aws/ "https://aws.amazon.com/blogs/networking-and-content-delivery/four-steps-for-debugging-your-content-delivery-on-aws/")
 
-## Default CloudFront Functions
-
-metrics
+## Default CloudFront Functions metrics
 
 CloudFront Functions sends operational metrics to Amazon CloudWatch so that you can monitor your
 functions. Viewing these metrics can help you troubleshoot, track, and debug issues.

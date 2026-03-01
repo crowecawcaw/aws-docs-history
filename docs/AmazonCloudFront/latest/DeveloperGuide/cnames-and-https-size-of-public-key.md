@@ -1,6 +1,4 @@
-# Determine the size of the public key in
-
-an SSL/TLS RSA certificate
+# Determine the size of the public key in an SSL/TLS RSA certificate
 
 When you’re using CloudFront alternate domain names and HTTPS, the maximum size of the public key
 in an SSL/TLS RSA certificate is 4096 bits. (This is the key size, not the number of

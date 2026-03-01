@@ -1,6 +1,4 @@
-# Store objects and custom
-
-error pages in different locations
+# Store objects and custom error pages in different locations
 
 If you want to store your objects and your custom error pages in different locations,
 your distribution must include a cache behavior for which the following is true:
@@ -14,5 +12,4 @@ your distribution must include a cache behavior for which the following is true:
 - The value of **Origin** specifies the value of
   **Origin ID** for the origin that contains your custom
   error pages.
-  For more information, see [Cache behavior
-  settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md").
+  For more information, see [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md").

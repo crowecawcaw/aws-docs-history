@@ -10,9 +10,7 @@ console, see [Create a distribution](distribution-web-creating-console.md "distr
 ###### Topics
 
 - [Origin settings](DownloadDistValuesOrigin.md "DownloadDistValuesOrigin.md")
-- [Cache behavior
-  settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md")
+- [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md")
 - [Distribution settings](DownloadDistValuesGeneral.md "DownloadDistValuesGeneral.md")
-- [Custom error pages and error
-  caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md")
+- [Custom error pages and error caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md")
 - [Geographic restrictions](DownloadDistValuesEnableGeoRestriction.md "DownloadDistValuesEnableGeoRestriction.md")

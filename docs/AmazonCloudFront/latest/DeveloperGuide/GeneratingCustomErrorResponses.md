@@ -21,13 +21,8 @@ Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/clou
 
 ###### Topics
 
-- [Configure error response
-  behavior](custom-error-pages-procedure.md "custom-error-pages-procedure.md")
-- [Create a custom error page for specific
-  HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md")
-- [Store objects and custom
-  error pages in different locations](custom-error-pages-different-locations.md "custom-error-pages-different-locations.md")
-- [Change response codes returned by
-  CloudFront](custom-error-pages-response-code.md "custom-error-pages-response-code.md")
-- [Control how long CloudFront caches
-  errors](custom-error-pages-expiration.md "custom-error-pages-expiration.md")
+- [Configure error response behavior](custom-error-pages-procedure.md "custom-error-pages-procedure.md")
+- [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md")
+- [Store objects and custom error pages in different locations](custom-error-pages-different-locations.md "custom-error-pages-different-locations.md")
+- [Change response codes returned by CloudFront](custom-error-pages-response-code.md "custom-error-pages-response-code.md")
+- [Control how long CloudFront caches errors](custom-error-pages-expiration.md "custom-error-pages-expiration.md")

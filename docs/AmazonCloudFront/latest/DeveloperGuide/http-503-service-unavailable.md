@@ -1,6 +1,4 @@
-# HTTP 503 status code (Service
-
-Unavailable)
+# HTTP 503 status code (Service Unavailable)
 
 An HTTP 503 status code (Service Unavailable) typically indicates a performance
 issue on the origin server. In rare cases, it indicates that CloudFront temporarily can't
@@ -11,18 +9,12 @@ error or a Lambda@Edge limit exceeded error.
 
 ###### Topics
 
-- [Origin
-  server does not have enough capacity to support the request rate](#http-503-service-unavailable-not-enough-origin-capacity "#http-503-service-unavailable-not-enough-origin-capacity")
-- [CloudFront caused the error due to resource constraints at the edge
-  location](#http-503-service-unavailable-limited-resources-at-edge-location "#http-503-service-unavailable-limited-resources-at-edge-location")
-- [Lambda@Edge or CloudFront Function
-  execution error](#http-503-lambda-execution-error "#http-503-lambda-execution-error")
-- [Lambda@Edge limit
-  exceeded](#http-503-lambda-limit-exceeded-error "#http-503-lambda-limit-exceeded-error")
+- [Origin server does not have enough capacity to support the request rate](#http-503-service-unavailable-not-enough-origin-capacity "#http-503-service-unavailable-not-enough-origin-capacity")
+- [CloudFront caused the error due to resource constraints at the edge location](#http-503-service-unavailable-limited-resources-at-edge-location "#http-503-service-unavailable-limited-resources-at-edge-location")
+- [Lambda@Edge or CloudFront Function execution error](#http-503-lambda-execution-error "#http-503-lambda-execution-error")
+- [Lambda@Edge limit exceeded](#http-503-lambda-limit-exceeded-error "#http-503-lambda-limit-exceeded-error")
 
-## Origin
-
-server does not have enough capacity to support the request rate
+## Origin server does not have enough capacity to support the request rate
 
 When an origin server is unavailable or unable to serve incoming requests, it
 returns an HTTP 503 status code (Service Unavailable). CloudFront then relays the
@@ -80,9 +72,7 @@ solutions:
     determine if there is an issue with backend capacity,
     integration, or something else.
 
-## CloudFront caused the error due to resource constraints at the edge
-
-location
+## CloudFront caused the error due to resource constraints at the edge location
 
 You will receive this error in the rare situation that CloudFront can't route
 requests to the next best available edge location, and so can't satisfy a
@@ -92,22 +82,17 @@ guidelines for avoiding 503 (capacity exceeded) errors.
 
 If this happens in your production environment, contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## Lambda@Edge or CloudFront Function
-
-execution error
+## Lambda@Edge or CloudFront Function execution error
 
 If you're using Lambda@Edge or CloudFront Functions, an HTTP 503 status code can
 indicate that your function returned an execution error.
 
 For more details about how to identify and resolve Lambda@Edge errors, see
-[Test and debug Lambda@Edge
-functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md").
+[Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md").
 
 For more information about testing CloudFront Functions, see [Test functions](test-function.md "test-function.md").
 
-## Lambda@Edge limit
-
-exceeded
+## Lambda@Edge limit exceeded
 
 If you're using Lambda@Edge, an HTTP 503 status code can indicate that Lambda
 returned an error. The error might be caused by one of the following:
@@ -118,6 +103,5 @@ returned an error. The error might be caused by one of the following:
 - The function exceeded the Lambda function timeout quota.
 
 For more information about the Lambda@Edge quotas, see [Quotas on Lambda@Edge](cloudfront-limits.md#limits-lambda-at-edge "cloudfront-limits.md#limits-lambda-at-edge"). For
-more details about how to identify and resolve Lambda@Edge errors, see [Test and debug Lambda@Edge
-functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md"). You can also see the [Lambda
+more details about how to identify and resolve Lambda@Edge errors, see [Test and debug Lambda@Edge functions](lambda-edge-testing-debugging.md "lambda-edge-testing-debugging.md"). You can also see the [Lambda
 service quotas](../../../lambda/latest/dg/gettingstarted-limits.md "../../../lambda/latest/dg/gettingstarted-limits.md") in the _AWS Lambda Developer Guide_.

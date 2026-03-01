@@ -1,6 +1,4 @@
-# Use field-level encryption to help protect sensitive
-
-data
+# Use field-level encryption to help protect sensitive data
 
 With Amazon CloudFront, you can enforce secure end-to-end connections to origin servers by
 using HTTPS. Field-level encryption adds an additional layer of security that lets you
@@ -71,20 +69,13 @@ specific steps, see [Set up field-level encryption](#field-level-encryption-sett
 Follow these steps to get started using field-level encryption. To learn about
 quotas (formerly known as limits) on field-level encryption, see [Quotas](cloudfront-limits.md "cloudfront-limits.md").
 
-- [Step 1: Create an RSA key
-  pair](#field-level-encryption-setting-up-step1 "#field-level-encryption-setting-up-step1")
-- [Step 2: Add your public key to
-  CloudFront](#field-level-encryption-setting-up-step2 "#field-level-encryption-setting-up-step2")
-- [Step 3: Create a profile for
-  field-level encryption](#field-level-encryption-setting-up-step3 "#field-level-encryption-setting-up-step3")
-- [Step 4: Create a
-  configuration](#field-level-encryption-setting-up-step4 "#field-level-encryption-setting-up-step4")
-- [Step 5: Add a configuration to a
-  cache behavior](#field-level-encryption-setting-up-step5 "#field-level-encryption-setting-up-step5")
+- [Step 1: Create an RSA key pair](#field-level-encryption-setting-up-step1 "#field-level-encryption-setting-up-step1")
+- [Step 2: Add your public key to CloudFront](#field-level-encryption-setting-up-step2 "#field-level-encryption-setting-up-step2")
+- [Step 3: Create a profile for field-level encryption](#field-level-encryption-setting-up-step3 "#field-level-encryption-setting-up-step3")
+- [Step 4: Create a configuration](#field-level-encryption-setting-up-step4 "#field-level-encryption-setting-up-step4")
+- [Step 5: Add a configuration to a cache behavior](#field-level-encryption-setting-up-step5 "#field-level-encryption-setting-up-step5")
 
-### Step 1: Create an RSA key
-
-pair
+### Step 1: Create an RSA key pair
 
 To get started, you must create an RSA key pair that includes a public key and a private
 key. The public key enables CloudFront to encrypt data, and the private key enables
@@ -110,15 +101,11 @@ openssl rsa -pubout -in private_key.pem -out public_key.pem
 The public key file (`public_key.pem`) contains the encoded
 key value that you paste in the following step.
 
-### Step 2: Add your public key to
-
-CloudFront
+### Step 2: Add your public key to CloudFront
 
 After you get your RSA key pair, add your public key to CloudFront.
 
-###### To add your
-
-public key to CloudFront (console)
+###### To add your public key to CloudFront (console)
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -139,16 +126,12 @@ public key to CloudFront (console)
 You can add more keys to use with CloudFront by repeating the steps in the
 procedure.
 
-### Step 3: Create a profile for
-
-field-level encryption
+### Step 3: Create a profile for field-level encryption
 
 After you add at least one public key to CloudFront, create a profile that tells
 CloudFront which fields to encrypt.
 
-###### To create a
-
-profile for field-level encryption (console)
+###### To create a profile for field-level encryption (console)
 
 1. In the navigation pane, choose **Field-level
    encryption**.
@@ -205,9 +188,7 @@ number of characters that you can use is 128. 4. After you fill in the fields, c
 profile**. 5. If you want to add more profiles, choose **Add
 profile**.
 
-### Step 4: Create a
-
-configuration
+### Step 4: Create a configuration
 
 After you create one or more field-level encryption profiles, create a
 configuration that specifies the content type of the request that includes the
@@ -256,9 +237,7 @@ You can create up to 10 configurations for a single account, and then
 associate one of the configurations to the cache behavior of any distribution
 for the account.
 
-###### To create a
-
-configuration for field-level encryption (console)
+###### To create a configuration for field-level encryption (console)
 
 1. On the **Field-level encryption** page, choose
    **Create configuration**.
@@ -331,9 +310,7 @@ Select the check box if you want to allow the request to
 go to your origin _if the profile specified in a
 query argument isn't defined in CloudFront_.
 
-### Step 5: Add a configuration to a
-
-cache behavior
+### Step 5: Add a configuration to a cache behavior
 
 To use field-level encryption, link a configuration to a cache behavior for a
 distribution by adding the configuration ID as a value for your

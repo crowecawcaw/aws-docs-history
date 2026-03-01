@@ -1,6 +1,4 @@
-# Cache behavior
-
-settings
+# Cache behavior settings
 
 By setting the cache behavior, you can configure a variety of CloudFront functionality for a
 given URL path pattern for files on your website. For example, one cache
@@ -43,43 +41,29 @@ distribution, or to request a higher quota (formerly known as limit), see [Gener
 ###### Topics
 
 - [Path pattern](#DownloadDistValuesPathPattern "#DownloadDistValuesPathPattern")
-- [Origin or origin
-  group](#DownloadDistValuesTargetOriginId "#DownloadDistValuesTargetOriginId")
-- [Viewer protocol
-  policy](#DownloadDistValuesViewerProtocolPolicy "#DownloadDistValuesViewerProtocolPolicy")
-- [Allowed HTTP
-  methods](#DownloadDistValuesAllowedHTTPMethods "#DownloadDistValuesAllowedHTTPMethods")
-- [Field-level
-  encryption config](#DownloadDistValuesFieldLevelEncryption "#DownloadDistValuesFieldLevelEncryption")
-- [Cached HTTP
-  methods](#DownloadDistValuesCachedHTTPMethods "#DownloadDistValuesCachedHTTPMethods")
-- [Allow gRPC requests over
-  HTTP/2](#enable-grpc-distribution "#enable-grpc-distribution")
-- [Cache based on selected
-  request headers](#DownloadDistValuesForwardHeaders "#DownloadDistValuesForwardHeaders")
+- [Origin or origin group](#DownloadDistValuesTargetOriginId "#DownloadDistValuesTargetOriginId")
+- [Viewer protocol policy](#DownloadDistValuesViewerProtocolPolicy "#DownloadDistValuesViewerProtocolPolicy")
+- [Allowed HTTP methods](#DownloadDistValuesAllowedHTTPMethods "#DownloadDistValuesAllowedHTTPMethods")
+- [Field-level encryption config](#DownloadDistValuesFieldLevelEncryption "#DownloadDistValuesFieldLevelEncryption")
+- [Cached HTTP methods](#DownloadDistValuesCachedHTTPMethods "#DownloadDistValuesCachedHTTPMethods")
+- [Allow gRPC requests over HTTP/2](#enable-grpc-distribution "#enable-grpc-distribution")
+- [Cache based on selected request headers](#DownloadDistValuesForwardHeaders "#DownloadDistValuesForwardHeaders")
 - [Allowlist headers](#DownloadDistValuesAllowlistHeaders "#DownloadDistValuesAllowlistHeaders")
 - [Object caching](#DownloadDistValuesObjectCaching "#DownloadDistValuesObjectCaching")
 - [Minimum TTL](#DownloadDistValuesMinTTL "#DownloadDistValuesMinTTL")
 - [Maximum TTL](#DownloadDistValuesMaxTTL "#DownloadDistValuesMaxTTL")
 - [Default TTL](#DownloadDistValuesDefaultTTL "#DownloadDistValuesDefaultTTL")
 - [Forward cookies](#DownloadDistValuesForwardCookies "#DownloadDistValuesForwardCookies")
-- [Allowlist
-  cookies](#DownloadDistValuesAllowlistCookies "#DownloadDistValuesAllowlistCookies")
-- [Query string forwarding and
-  caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString")
-- [Query string
-  allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist")
+- [Allowlist cookies](#DownloadDistValuesAllowlistCookies "#DownloadDistValuesAllowlistCookies")
+- [Query string forwarding and caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString")
+- [Query string allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist")
 - [Smooth Streaming](#DownloadDistValuesSmoothStreaming "#DownloadDistValuesSmoothStreaming")
-- [Restrict viewer
-  access (use signed URLs or signed cookies)](#DownloadDistValuesRestrictViewerAccess "#DownloadDistValuesRestrictViewerAccess")
+- [Restrict viewer access (use signed URLs or signed cookies)](#DownloadDistValuesRestrictViewerAccess "#DownloadDistValuesRestrictViewerAccess")
 - [Trusted signers](#DownloadDistValuesTrustedSigners "#DownloadDistValuesTrustedSigners")
-- [AWS account
-  numbers](#DownloadDistValuesAWSAccountNumbers "#DownloadDistValuesAWSAccountNumbers")
-- [Compress
-  objects automatically](#DownloadDistValuesCompressObjectsAutomatically "#DownloadDistValuesCompressObjectsAutomatically")
+- [AWS account numbers](#DownloadDistValuesAWSAccountNumbers "#DownloadDistValuesAWSAccountNumbers")
+- [Compress objects automatically](#DownloadDistValuesCompressObjectsAutomatically "#DownloadDistValuesCompressObjectsAutomatically")
 - [CloudFront event](#DownloadDistValuesEventType "#DownloadDistValuesEventType")
-- [Lambda function
-  ARN](#DownloadDistValuesLambdaFunctionARN "#DownloadDistValuesLambdaFunctionARN")
+- [Lambda function ARN](#DownloadDistValuesLambdaFunctionARN "#DownloadDistValuesLambdaFunctionARN")
 - [Include body](#include-body "#include-body")
 
 ## Path pattern
@@ -137,8 +121,7 @@ If you're working with a MediaPackage channel, you must include specific path
 patterns for the cache behavior that you define for the endpoint type for
 your origin. For example, for a DASH endpoint, you type `*.mpd`
 for **Path Pattern**. For more information and specific
-instructions, see [Serve live video formatted with
-AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage").
+instructions, see [Serve live video formatted with AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage").
 
 The path you specify applies to requests for all files in the specified
 directory and in subdirectories below the specified directory. CloudFront does not
@@ -208,9 +191,7 @@ cache behavior.
 To work around the paths being normalized, you can update your request
 paths or the path pattern for the cache behavior.
 
-## Origin or origin
-
-group
+## Origin or origin group
 
 This setting applies only when you create or update a cache behavior for an
 existing distribution.
@@ -220,9 +201,7 @@ origin or origin group to which you want CloudFront to route requests when a req
 (such as https://example.com/logo.jpg) matches the path pattern for a cache
 behavior (such as \*.jpg) or for the default cache behavior (\*).
 
-## Viewer protocol
-
-policy
+## Viewer protocol policy
 
 Choose the protocol policy that you want viewers to use to access your
 content in CloudFront edge locations:
@@ -235,12 +214,9 @@ content in CloudFront edge locations:
 - **HTTPS Only**: Viewers can only access your
   content if they're using HTTPS.
 
-For more information, see [Require HTTPS for communication
-between viewers and CloudFront](using-https-viewers-to-cloudfront.md "using-https-viewers-to-cloudfront.md").
+For more information, see [Require HTTPS for communication between viewers and CloudFront](using-https-viewers-to-cloudfront.md "using-https-viewers-to-cloudfront.md").
 
-## Allowed HTTP
-
-methods
+## Allowed HTTP methods
 
 Specify the HTTP methods that you want CloudFront to process and forward to your
 origin:
@@ -289,8 +265,7 @@ access:
   _only_ because you want to use
   `PUT`, you must still configure Amazon S3 bucket
   policies to handle `DELETE` requests appropriately.
-  For more information, see [Restrict access to an Amazon S3
-  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+  For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 - **If you're using a custom
   origin:** Configure your origin server to handle
   all methods. For example, if you configure CloudFront to accept and
@@ -298,27 +273,20 @@ access:
   to use `POST`, you must still configure your origin
   server to handle `DELETE` requests appropriately.
 
-## Field-level
-
-encryption config
+## Field-level encryption config
 
 If you want to enforce field-level encryption on specific data fields, in the dropdown
 list, choose a field-level encryption configuration.
 
-For more information, see [Use field-level encryption to help protect sensitive
-data](field-level-encryption.md "field-level-encryption.md").
+For more information, see [Use field-level encryption to help protect sensitive data](field-level-encryption.md "field-level-encryption.md").
 
-## Cached HTTP
-
-methods
+## Cached HTTP methods
 
 Specify whether you want CloudFront to cache the response from your origin when
 a viewer submits an `OPTIONS` request. CloudFront always caches the
 response to `GET` and `HEAD` requests.
 
-## Allow gRPC requests over
-
-HTTP/2
+## Allow gRPC requests over HTTP/2
 
 Specify whether you want your distribution to allow gRPC requests. To enable
 gRPC, select the following settings:
@@ -328,15 +296,12 @@ gRPC, select the following settings:
   methods. gRPC requires the `POST` method.
 - Select the gRPC checkbox that appears after you select the
   `POST` method.
-- For **[Supported HTTP
-  versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions")**,
+- For **[Supported HTTP versions](DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions "DownloadDistValuesGeneral.md#DownloadDistValuesSupportedHTTPVersions")**,
   select **HTTP/2**.
 
 For more information, see [Using gRPC with CloudFront distributions](distribution-using-grpc.md "distribution-using-grpc.md").
 
-## Cache based on selected
-
-request headers
+## Cache based on selected request headers
 
 Specify whether you want CloudFront to cache objects based on the values of
 specified headers:
@@ -355,8 +320,7 @@ specified headers:
 Regardless of the option that you choose, CloudFront forwards certain headers to
 your origin and takes specific actions based on the headers that you
 forward. For more information about how CloudFront handles header forwarding, see
-[HTTP request headers and CloudFront
-behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior").
+[HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior").
 
 For more information about how to configure caching in CloudFront by using
 request headers, see [Cache content based on request headers](header-caching.md "header-caching.md").
@@ -389,8 +353,7 @@ Then specify values in the **Minimum TTL**,
 **Default TTL**, and **Maximum TTL**
 fields.
 
-For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ## Minimum TTL
 
@@ -402,8 +365,7 @@ determine whether the object has been updated.
 
 If your minimum TTL is greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers.
 
-For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ## Maximum TTL
 
@@ -412,8 +374,7 @@ stay in CloudFront caches before CloudFront queries your origin to see whether t
 object has been updated. The value that you specify for **Maximum
 TTL** applies only when your origin adds HTTP headers such as
 `Cache-Control max-age`, `Cache-Control s-maxage`,
-or `Expires` to objects. For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+or `Expires` to objects. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 To specify a value for **Maximum TTL**, you must choose
 the **Customize** option for the **Object
@@ -433,8 +394,7 @@ determine whether the object has been updated. The value that you specify
 for **Default TTL** applies only when your origin does
 _not_ add HTTP headers such as `Cache-Control
  max-age`, `Cache-Control s-maxage`, or
-`Expires` to objects. For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+`Expires` to objects. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 To specify a value for **Default TTL**, you must choose
 the **Customize** option for the **Object
@@ -465,9 +425,7 @@ Cookies**.
 
 For more information about forwarding cookies to the origin, go to [Cache content based on cookies](Cookies.md "Cookies.md").
 
-## Allowlist
-
-cookies
+## Allowlist cookies
 
 ###### Note
 
@@ -504,12 +462,9 @@ origin all of the cookies that begin with `userid_`:
 
 For the current maximum number of cookie names that you can allowlist for
 each cache behavior, or to request a higher quota (formerly known as limit),
-see [Quotas on cookies (legacy cache
-settings)](cloudfront-limits.md#limits-allowlisted-cookies "cloudfront-limits.md#limits-allowlisted-cookies").
+see [Quotas on cookies (legacy cache settings)](cloudfront-limits.md#limits-allowlisted-cookies "cloudfront-limits.md#limits-allowlisted-cookies").
 
-## Query string forwarding and
-
-caching
+## Query string forwarding and caching
 
 CloudFront can cache different versions of your content based on the values of
 query string parameters. Choose one of the following options:
@@ -527,8 +482,7 @@ your origin.
 Choose this option if your origin server returns different
 versions of your objects based on one or more query string
 parameters. Then specify the parameters that you want CloudFront to
-use as a basis for caching in the [Query string
-allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist")
+use as a basis for caching in the [Query string allowlist](#DownloadDistValuesQueryStringAllowlist "#DownloadDistValuesQueryStringAllowlist")
 field.
 
 **Forward all, cache based on all**
@@ -537,16 +491,12 @@ Choose this option if your origin server returns different
 versions of your objects for all query string parameters.
 
 For more information about caching based on query string parameters,
-including how to improve performance, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md").
+including how to improve performance, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md").
 
-## Query string
-
-allowlist
+## Query string allowlist
 
 This setting applies only when you choose **Forward all, cache based on allowlist**
-for [Query string forwarding and
-caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString"). You can specify the query
+for [Query string forwarding and caching](#DownloadDistValuesQueryString "#DownloadDistValuesQueryString"). You can specify the query
 string parameters that you want CloudFront to use as a basis for caching.
 
 ## Smooth Streaming
@@ -566,12 +516,9 @@ If you specify **Yes**, you can still distribute
 other content using this cache behavior if that content matches the
 value of **Path Pattern**.
 
-For more information, see [Configure video on demand for Microsoft
-Smooth Streaming](on-demand-video.md#on-demand-streaming-smooth "on-demand-video.md#on-demand-streaming-smooth").
+For more information, see [Configure video on demand for Microsoft Smooth Streaming](on-demand-video.md#on-demand-streaming-smooth "on-demand-video.md#on-demand-streaming-smooth").
 
-## Restrict viewer
-
-access (use signed URLs or signed cookies)
+## Restrict viewer access (use signed URLs or signed cookies)
 
 If you want requests for objects that match the `PathPattern`
 for this cache behavior to use public URLs, choose
@@ -582,8 +529,7 @@ for this cache behavior to use signed URLs, choose **Yes**.
 Then specify the AWS accounts that you want to use to create signed URLs;
 these accounts are known as trusted signers.
 
-For more information about trusted signers, see [Specify signers that can create signed
-URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+For more information about trusted signers, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
 
 ## Trusted signers
 
@@ -611,9 +557,7 @@ generating signed URLs for your objects. After you add trusted signers
 to a distribution, users must use signed URLs to access the objects that
 match the `PathPattern` for this cache behavior.
 
-## AWS account
-
-numbers
+## AWS account numbers
 
 This setting applies only when you choose **Specify Accounts** for **Trusted Signers**.
 
@@ -622,8 +566,7 @@ instead of the current account, enter one AWS account number per line in
 this field. Note the following:
 
 - The accounts that you specify must have at least one active CloudFront
-  key pair. For more information, see [Create key pairs for your
-  signers](private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs "private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs").
+  key pair. For more information, see [Create key pairs for your signers](private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs "private-content-trusted-signers.md#private-content-creating-cloudfront-key-pairs").
 - You can't create CloudFront key pairs for IAM users, so you can't use
   IAM users as trusted signers.
 - For information about how to get the AWS account number for an
@@ -634,9 +577,7 @@ this field. Note the following:
   removes the account number from the **AWS Account
   Numbers** list.
 
-## Compress
-
-objects automatically
+## Compress objects automatically
 
 If you want CloudFront to automatically compress files of certain types when
 viewers support compressed content, choose **Yes**. When
@@ -660,12 +601,9 @@ CloudFront events occur:
 - Before CloudFront returns the response to the viewer (viewer
   response)
 
-For more information, see [Choose the event to trigger the
-function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md").
+For more information, see [Choose the event to trigger the function](lambda-how-to-choose-event.md "lambda-how-to-choose-event.md").
 
-## Lambda function
-
-ARN
+## Lambda function ARN
 
 This setting applies to **Lambda Function Associations**.
 

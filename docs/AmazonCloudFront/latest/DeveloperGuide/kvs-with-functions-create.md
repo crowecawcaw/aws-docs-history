@@ -15,8 +15,7 @@ key value store. You can import your key-value pairs by using the CloudFront con
 API, or AWS SDKs. However, you can only import your file of key-value pairs when
 you _initially_ create the key value store.
 
-To create a file of key-value pairs, see [File format for key-value
-pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md").
+To create a file of key-value pairs, see [File format for key-value pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md").
 
 Console
 
@@ -122,8 +121,7 @@ API
      import key-value pairs from a file that is stored in an
      Amazon S3 bucket. You can import from a file only when you
      first create the key value store. For information about
-     the file structure, see [File format for key-value
-     pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md").
+     the file structure, see [File format for key-value pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md").
 
 The operation response includes the following information:
 
@@ -144,8 +142,8 @@ programmatically.
 When you create a key value store, the data store can have the following status
 values.
 
-| Value             | Description                                                                                                                                                                                                                                                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Provisioning**  | The key value store was created and CloudFront is processing the<br>data source that you specified.                                                                                                                                                                                                                 |
-| **Ready**         | The key value store was created and CloudFront successfully<br>processed the data source that you specified.                                                                                                                                                                                                        |
-| **Import failed** | CloudFront wasn't able to process the data source that you<br>specified. This status can appear if your file format isn't<br>valid or that it exceeds the size limit. For more<br>information, see [File format for key-value<br>pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md"). |
+| Value             | Description                                                                                                                                                                                                                                                                                                      |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Provisioning**  | The key value store was created and CloudFront is processing the<br>data source that you specified.                                                                                                                                                                                                              |
+| **Ready**         | The key value store was created and CloudFront successfully<br>processed the data source that you specified.                                                                                                                                                                                                     |
+| **Import failed** | CloudFront wasn't able to process the data source that you<br>specified. This status can appear if your file format isn't<br>valid or that it exceeds the size limit. For more<br>information, see [File format for key-value pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md"). |

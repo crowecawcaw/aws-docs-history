@@ -14,8 +14,7 @@ geographic restrictions, you have two options:
 ###### Topics
 
 - [Use CloudFront geographic restrictions](#georestrictions-cloudfront "#georestrictions-cloudfront")
-- [Use a third-party geolocation
-  service](#georestrictions-geolocation-service "#georestrictions-geolocation-service")
+- [Use a third-party geolocation service](#georestrictions-geolocation-service "#georestrictions-geolocation-service")
 
 ## Use CloudFront geographic restrictions
 
@@ -54,8 +53,7 @@ Here’s how geographic restrictions work:
 
 You can optionally configure CloudFront to return a custom error message to the user, and you can
 specify how long you want CloudFront to cache the error response for the requested file.
-The default value is 10 seconds. For more information, see [Create a custom error page for specific
-HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
+The default value is 10 seconds. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
 
 Geographic restrictions apply to an entire distribution. If you need to apply one
 restriction to part of your content and a different restriction (or no restriction)
@@ -78,9 +76,7 @@ The following procedure explains how to use the CloudFront console to add geogra
 to an existing distribution. For information about how to use the console to create
 a distribution, see [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
 
-###### To add geographic restrictions to your CloudFront web
-
-distribution (console)
+###### To add geographic restrictions to your CloudFront web distribution (console)
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -97,9 +93,7 @@ distribution (console)
 6. Add the desired countries to the list, then choose **Save
    changes**.
 
-## Use a third-party geolocation
-
-service
+## Use a third-party geolocation service
 
 With the CloudFront geographic restrictions feature, you control distribution of your content at
 the country level for all files that you're distributing with a given web
@@ -115,21 +109,17 @@ URLs, with which you can specify an expiration date and time after which the URL
 no longer valid. In addition, we recommend that you use an Amazon S3 bucket as your
 origin because you can then use a CloudFront [origin access control](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md")
 to prevent users from accessing your content directly from the origin. For more
-information about signed URLs and origin access control, see [Serve private content with signed URLs and signed
-cookies](PrivateContent.md "PrivateContent.md").
+information about signed URLs and origin access control, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
 
 The following steps explain how to control access to your files by using a third-party
 geolocation service.
 
-###### To use a third-party geolocation service to restrict access to files in a CloudFront
-
-distribution
+###### To use a third-party geolocation service to restrict access to files in a CloudFront distribution
 
 1.  Get an account with a geolocation service.
 2.  Upload your content to an Amazon S3 bucket.
 3.  Configure Amazon CloudFront and Amazon S3 to serve private content. For more
-    information, see [Serve private content with signed URLs and signed
-    cookies](PrivateContent.md "PrivateContent.md").
+    information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
 4.  Write your web application to do the following:
 
         * Send the IP address for each user request to the geolocation
@@ -140,8 +130,7 @@ distribution
          for your CloudFront content. If you don’t want to distribute content to
          that location, return HTTP status code `403 (Forbidden)`
          to the user. Alternatively, you can configure CloudFront to return a
-         custom error message. For more information, see [Create a custom error page for specific
-         HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
+         custom error message. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
 
     For more information, refer to the documentation for the geolocation service that you’re
     using.

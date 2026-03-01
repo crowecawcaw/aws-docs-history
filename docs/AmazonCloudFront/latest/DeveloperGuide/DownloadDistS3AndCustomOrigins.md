@@ -1,6 +1,4 @@
-# Use various origins with CloudFront
-
-distributions
+# Use various origins with CloudFront distributions
 
 When you create a distribution, you specify the _origin_
 where CloudFront sends requests for the files. You can use several different kinds of origins
@@ -37,12 +35,9 @@ as the origin for a CloudFront distribution.
 - [Use a standard Amazon S3 bucket](#concept_S3Origin "#concept_S3Origin")
 - [Use Amazon S3 Object Lambda](#using-S3-Object-Lambda "#using-S3-Object-Lambda")
 - [Use Amazon S3 Access Point](#using-S3-Access-Point "#using-S3-Access-Point")
-- [Use an Amazon S3 bucket that's
-  configured as a website endpoint](#concept_S3Origin_website "#concept_S3Origin_website")
-- [Add CloudFront to an existing Amazon S3
-  bucket](#adding-cloudfront-to-s3 "#adding-cloudfront-to-s3")
-- [Move an Amazon S3 bucket to a
-  different AWS Region](#move-s3-bucket-different-region "#move-s3-bucket-different-region")
+- [Use an Amazon S3 bucket that's configured as a website endpoint](#concept_S3Origin_website "#concept_S3Origin_website")
+- [Add CloudFront to an existing Amazon S3 bucket](#adding-cloudfront-to-s3 "#adding-cloudfront-to-s3")
+- [Move an Amazon S3 bucket to a different AWS Region](#move-s3-bucket-different-region "#move-s3-bucket-different-region")
 
 ### Use a standard Amazon S3 bucket
 
@@ -59,8 +54,7 @@ access Amazon S3 objects at the standard Amazon S3 price. You incur regular Amaz
 for storing the objects in the bucket. For more information about the charges to
 use CloudFront, see [Amazon CloudFront
 Pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/cloudfront/pricing/"). For more information about using CloudFront with an existing S3
-bucket, see [Add CloudFront to an existing Amazon S3
-bucket](#adding-cloudfront-to-s3 "#adding-cloudfront-to-s3").
+bucket, see [Add CloudFront to an existing Amazon S3 bucket](#adding-cloudfront-to-s3 "#adding-cloudfront-to-s3").
 
 ###### Important
 
@@ -79,11 +73,9 @@ CloudFront features:
 - Configure CloudFront to communicate with your Amazon S3 bucket using SSL/TLS. For more information,
   see [Use HTTPS with CloudFront](using-https.md "using-https.md").
 - Use an origin access control to require that viewers access your content using CloudFront
-  URLs, not by using Amazon S3 URLs. For more information, see [Restrict access to an Amazon S3
-  origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
+  URLs, not by using Amazon S3 URLs. For more information, see [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
 - Update the content of your bucket by submitting `POST` and `PUT`
-  requests to CloudFront. For more information, see [HTTP methods](RequestAndResponseBehaviorS3Origin.md#RequestS3HTTPMethods "RequestAndResponseBehaviorS3Origin.md#RequestS3HTTPMethods") in the topic [How CloudFront processes and forwards requests
-  to your Amazon S3 origin](RequestAndResponseBehaviorS3Origin.md#RequestBehaviorS3Origin "RequestAndResponseBehaviorS3Origin.md#RequestBehaviorS3Origin").
+  requests to CloudFront. For more information, see [HTTP methods](RequestAndResponseBehaviorS3Origin.md#RequestS3HTTPMethods "RequestAndResponseBehaviorS3Origin.md#RequestS3HTTPMethods") in the topic [How CloudFront processes and forwards requests to your Amazon S3 origin](RequestAndResponseBehaviorS3Origin.md#RequestBehaviorS3Origin "RequestAndResponseBehaviorS3Origin.md#RequestBehaviorS3Origin").
 
 Don't specify the bucket using the following formats:
 
@@ -388,9 +380,7 @@ JSONJSON
 
 7. Choose **Save changes**.
 
-### Use an Amazon S3 bucket that's
-
-configured as a website endpoint
+### Use an Amazon S3 bucket that's configured as a website endpoint
 
 You can use an Amazon S3 bucket that's configured as a website endpoint as a custom origin with
 CloudFront. When you configure your CloudFront distribution, for the origin, enter the Amazon S3
@@ -406,8 +396,7 @@ For more information about specifying Amazon S3 static website endpoints, see [W
 When you specify the bucket name in this format as your origin, you can use Amazon S3 redirects
 and Amazon S3 custom error documents. For more information, see [Configuring a custom error document](../../../AmazonS3/latest/userguide/CustomErrorDocSupport.md "../../../AmazonS3/latest/userguide/CustomErrorDocSupport.md") and [Configuring a
 redirect](../../../AmazonS3/latest/userguide/how-to-page-redirect.md "../../../AmazonS3/latest/userguide/how-to-page-redirect.md") in the _Amazon Simple Storage Service User Guide_. (CloudFront
-also provides custom error pages. For more information, see [Create a custom error page for specific
-HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").)
+also provides custom error pages. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").)
 
 Using an Amazon S3 bucket as your CloudFront origin server doesn't change the bucket in any way. You
 can still use it as you normally would and you incur regular Amazon S3 charges. For
@@ -422,9 +411,7 @@ Amazon S3 bucket. For more information about creating distributions by using the
 CloudFront API, see [CreateDistribution](../../../cloudfront/latest/APIReference/API_CreateDistribution.md "../../../cloudfront/latest/APIReference/API_CreateDistribution.md") in the
 _Amazon CloudFront API Reference_.
 
-### Add CloudFront to an existing Amazon S3
-
-bucket
+### Add CloudFront to an existing Amazon S3 bucket
 
 If you store your objects in an Amazon S3 bucket, you can either have users get
 your objects directly from S3, or you can configure CloudFront to get your objects
@@ -445,9 +432,7 @@ own domain name (such as example.com) instead of the domain name of your Amazon 
 bucket (such as amzn-s3-demo-bucket.s3.us-west-2.amazonaws.com), you can add CloudFront
 with no disruption by using the following procedure.
 
-###### To add CloudFront when you're
-
-already distributing your content from Amazon S3
+###### To add CloudFront when you're already distributing your content from Amazon S3
 
 1. Create a CloudFront distribution. For more information, see [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
 
@@ -510,9 +495,7 @@ happens faster. During this time, some requests for your content will
 continue to be routed to your Amazon S3 bucket, and others will be routed to
 CloudFront.
 
-### Move an Amazon S3 bucket to a
-
-different AWS Region
+### Move an Amazon S3 bucket to a different AWS Region
 
 If you're using Amazon S3 as the origin for a CloudFront distribution and you move the
 bucket to a different AWS Region, CloudFront can take up to an hour to update its
@@ -525,8 +508,7 @@ records to use the new Region when both of the following are true:
 
 When you're using OAIs, CloudFront uses the Region (among other values) to calculate the
 signature that it uses to request objects from your bucket. For more information
-about OAIs, see [Use an origin access
-identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai "private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai").
+about OAIs, see [Use an origin access identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai "private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai").
 For a list of AWS Regions that support Signature Version 2, see [Signature
 Version 2 signing process](../../../general/latest/gr/signature-version-2.md "../../../general/latest/gr/signature-version-2.md") in the
 _Amazon Web Services General Reference_.
@@ -546,10 +528,8 @@ configure a distribution in CloudFront to stream the video.
 
 For more information and step-by-step instructions, see the following topics:
 
-- [Serve video by using AWS Elemental MediaStore as the
-  origin](live-streaming.md#video-streaming-mediastore "live-streaming.md#video-streaming-mediastore")
-- [Serve live video formatted with
-  AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage")
+- [Serve video by using AWS Elemental MediaStore as the origin](live-streaming.md#video-streaming-mediastore "live-streaming.md#video-streaming-mediastore")
+- [Serve live video formatted with AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage")
 
 ## Use an Application Load Balancer
 
@@ -606,8 +586,7 @@ options:
   function URL must use the `AWS_IAM` value and allow the
   `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction`
   permissions in a resource-based policy. For more information about using Lambda
-  function URLs for OAC, see [Restrict access to an
-  AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md "private-content-restricting-access-to-lambda.md").
+  function URLs for OAC, see [Restrict access to an AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md "private-content-restricting-access-to-lambda.md").
 - If you don't use OAC, you can set the `AuthType` parameter of
   the function URL to `NONE` and allow the
   `lambda:InvokeFunctionUrl` permission in a resource-based
@@ -637,8 +616,7 @@ _AWS Lambda Developer Guide_:
 You can use both internal and internet-facing EC2 instances with Amazon CloudFront. You can use internal EC2 instances inside private subnets with CloudFront by using VPC origins. CloudFront VPC origins allow you to serve content from applications hosted in private VPC subnets without exposing them to the public internet. For more information, see [Restrict access with VPC origins](private-content-vpc-origins.md "private-content-vpc-origins.md").
 
 A custom origin is an HTTP(S) web server with a publicly resolvable DNS name that routes requests from clients to targets over the internet. The HTTP(S) server can be hosted on AWS–for example, an Amazon EC2 instance–or hosted somewhere else. An Amazon S3 origin
-configured as a website endpoint is also considered a custom origin. For more information, see [Use an Amazon S3 bucket that's
-configured as a website endpoint](#concept_S3Origin_website "#concept_S3Origin_website").
+configured as a website endpoint is also considered a custom origin. For more information, see [Use an Amazon S3 bucket that's configured as a website endpoint](#concept_S3Origin_website "#concept_S3Origin_website").
 
 When you use your own HTTP server as a custom origin, you specify the DNS name of the
 server, along with the HTTP and HTTPS ports and the protocol that you want CloudFront to
@@ -647,8 +625,7 @@ use when fetching objects from your origin.
 Most CloudFront features are supported when you use a custom origin with the exception of private
 content. Although you can use a signed URL to distribute content from a custom
 origin, for CloudFront to access the custom origin, the origin must remain publicly
-accessible. For more information, see [Serve private content with signed URLs and signed
-cookies](PrivateContent.md "PrivateContent.md").
+accessible. For more information, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
 
 Follow these guidelines for using Amazon EC2 instances and other custom origins with
 CloudFront.
@@ -664,8 +641,7 @@ CloudFront.
   logs, and reports. In addition, if you monitor CloudFront activity using CloudWatch
   metrics, note that CloudWatch also uses UTC.
 - Use redundant servers to handle failures.
-- For information about using a custom origin to serve private content, see [Restrict access to files on custom
-  origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
+- For information about using a custom origin to serve private content, see [Restrict access to files on custom origins](private-content-overview.md#forward-custom-headers-restrict-access "private-content-overview.md#forward-custom-headers-restrict-access").
 - For information about request and response behavior and about supported HTTP status
   codes, see [Request and response behavior](RequestAndResponseBehavior.md "RequestAndResponseBehavior.md").
 
@@ -691,8 +667,7 @@ to designate a primary origin for CloudFront plus a second origin that CloudFron
 switches to when the primary origin returns specific HTTP status code failure
 responses.
 
-For more information, including the steps for setting up an origin group, see [Optimize high availability with CloudFront
-origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
+For more information, including the steps for setting up an origin group, see [Optimize high availability with CloudFront origin failover](high_availability_origin_failover.md "high_availability_origin_failover.md").
 
 ## Use Amazon API Gateway
 

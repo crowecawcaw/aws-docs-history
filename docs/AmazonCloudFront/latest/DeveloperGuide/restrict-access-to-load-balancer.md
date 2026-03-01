@@ -22,18 +22,12 @@ only access your Application Load Balancer through CloudFront.
 
 ###### Topics
 
-- [Configure CloudFront to add a custom
-  HTTP header to requests](#restrict-alb-add-custom-header "#restrict-alb-add-custom-header")
-- [Configure an Application Load Balancer to only
-  forward requests that contain a specific header](#restrict-alb-route-based-on-header "#restrict-alb-route-based-on-header")
-- [(Optional) Improve the security of this
-  solution](#restrict-alb-improve-security "#restrict-alb-improve-security")
-- [(Optional) Limit
-  access to origin by using the AWS-managed prefix list for CloudFront](#limit-access-to-origin-using-aws-managed-prefixes "#limit-access-to-origin-using-aws-managed-prefixes")
+- [Configure CloudFront to add a custom HTTP header to requests](#restrict-alb-add-custom-header "#restrict-alb-add-custom-header")
+- [Configure an Application Load Balancer to only forward requests that contain a specific header](#restrict-alb-route-based-on-header "#restrict-alb-route-based-on-header")
+- [(Optional) Improve the security of this solution](#restrict-alb-improve-security "#restrict-alb-improve-security")
+- [(Optional) Limit access to origin by using the AWS-managed prefix list for CloudFront](#limit-access-to-origin-using-aws-managed-prefixes "#limit-access-to-origin-using-aws-managed-prefixes")
 
-## Configure CloudFront to add a custom
-
-HTTP header to requests
+## Configure CloudFront to add a custom HTTP header to requests
 
 You can configure CloudFront to add a custom HTTP header to the requests that it sends to
 your origin (in this case, an Application Load Balancer).
@@ -112,12 +106,9 @@ In the CloudFront API, use the `CustomHeaders` object inside
 client.
 
 There are some header names that you can’t specify as origin custom headers. For more
-information, see [Custom headers that CloudFront can’t add
-to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist").
+information, see [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist").
 
-## Configure an Application Load Balancer to only
-
-forward requests that contain a specific header
+## Configure an Application Load Balancer to only forward requests that contain a specific header
 
 After you configure CloudFront to add a custom HTTP header to the requests that it sends to
 your Application Load Balancer (see [the previous
@@ -162,9 +153,7 @@ and one to your Application Load Balancer. The request to CloudFront returns you
 the one sent directly to your Application Load Balancer returns a `403` response with the plain
 text message `Access denied`.
 
-## (Optional) Improve the security of this
-
-solution
+## (Optional) Improve the security of this solution
 
 To improve the security of this solution, you can configure your CloudFront distribution to
 always use HTTPS when sending requests to your Application Load Balancer. Remember, this solution only works
@@ -172,14 +161,11 @@ if you keep the custom header name and value secret. Using HTTPS can help preven
 eavesdropper from discovering the header name and value. We also recommend rotating the
 header name and value periodically.
 
-###### Use HTTPS for origin
-
-requests
+###### Use HTTPS for origin requests
 
 To configure CloudFront to use HTTPS for origin requests, set the **Origin Protocol
 Policy** setting to **HTTPS Only**. This setting is available
-in the CloudFront console, CloudFormation, and the CloudFront API. For more information, see [Protocol (custom origins
-only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy").
+in the CloudFront console, CloudFormation, and the CloudFront API. For more information, see [Protocol (custom origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy").
 
 The following also applies when you configure CloudFront to use HTTPS for origin
 requests:
@@ -210,12 +196,9 @@ requests:
   users. To do this, use the **Viewer Protocol Policy** setting. You can
   set it to redirect end users from HTTP to HTTPS, or to reject requests that use HTTP.
   This setting is available in the CloudFront console, CloudFormation, and the CloudFront API. For more
-  information, see [Viewer protocol
-  policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
+  information, see [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy").
 
-###### Rotate the header name and
-
-value
+###### Rotate the header name and value
 
 In addition to using HTTPS, we also recommend rotating the header name and value
 periodically. The high-level steps for doing this are as follows:
@@ -232,9 +215,7 @@ periodically. The high-level steps for doing this are as follows:
 For more information about accomplishing these steps, see the preceding
 sections.
 
-## (Optional) Limit
-
-access to origin by using the AWS-managed prefix list for CloudFront
+## (Optional) Limit access to origin by using the AWS-managed prefix list for CloudFront
 
 To further restrict access to your Application Load Balancer, you can configure the security group
 associated with the Application Load Balancer so that it only accept traffic from CloudFront when the service is

@@ -1,6 +1,4 @@
-# CloudFront continuous
-
-deployment workflow
+# CloudFront continuous deployment workflow
 
 The following high-level workflow explains how to safely test and deploy configuration
 changes with CloudFront continuous deployment.
@@ -14,15 +12,12 @@ changes with CloudFront continuous deployment.
    _continuous deployment policy_, and attach it
    to the primary distribution. This determines how CloudFront routes traffic to the
    staging distribution. For more information about routing requests to a staging
-   distribution, see [Route requests to
-   the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing").
+   distribution, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing").
 4. Update the configuration of the staging distribution. For more information
-   about the settings that you can update, see [Update primary and
-   staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+   about the settings that you can update, see [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
 5. Monitor the staging distribution to determine whether the configuration
    changes perform as expected. For more information about monitoring a staging
-   distribution, see [Monitor a staging
-   distribution](monitoring-staging-distribution.md "monitoring-staging-distribution.md").
+   distribution, see [Monitor a staging distribution](monitoring-staging-distribution.md "monitoring-staging-distribution.md").
 
 As you monitor the staging distribution, you can:
 

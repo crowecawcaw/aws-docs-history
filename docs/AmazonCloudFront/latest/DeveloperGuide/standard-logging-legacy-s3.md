@@ -18,9 +18,7 @@
    an Amazon S3 bucket to receive your logs.
 3. View your access logs.
 
-## Choose an Amazon S3 bucket for standard
-
-logs
+## Choose an Amazon S3 bucket for standard logs
 
 When you enable logging for a distribution, you specify the Amazon S3 bucket that you want
 CloudFront to store log files in. If you're using Amazon S3 as your origin, we recommend that you
@@ -124,9 +122,7 @@ and the `awslogsdelivery` account has read and write permissions.
 If you disable logging, CloudFront doesn't delete the ACLs for either the bucket
 or the log files. You can delete the ACLs if needed.
 
-### Required key policy for SSE-KMS
-
-buckets
+### Required key policy for SSE-KMS buckets
 
 If the S3 bucket for your standard logs uses server-side encryption with
 AWS KMS keys (SSE-KMS) by using a customer managed key, you must add the following
@@ -179,14 +175,10 @@ To enable standard logs, use the CloudFront console or the CloudFront API.
 
 ###### Contents
 
-- [Enable standard logging (legacy) (CloudFront
-  console)](standard-logging-legacy-s3.md#standard-logs-legacy-enable-console "standard-logging-legacy-s3.md#standard-logs-legacy-enable-console")
-- [Enable standard logging (legacy) (CloudFront
-  API)](standard-logging-legacy-s3.md#standard-logs-legacy-enable-api "standard-logging-legacy-s3.md#standard-logs-legacy-enable-api")
+- [Enable standard logging (legacy) (CloudFront console)](standard-logging-legacy-s3.md#standard-logs-legacy-enable-console "standard-logging-legacy-s3.md#standard-logs-legacy-enable-console")
+- [Enable standard logging (legacy) (CloudFront API)](standard-logging-legacy-s3.md#standard-logs-legacy-enable-api "standard-logging-legacy-s3.md#standard-logs-legacy-enable-api")
 
-### Enable standard logging (legacy) (CloudFront
-
-console)
+### Enable standard logging (legacy) (CloudFront console)
 
 ###### To enable standard logs for a CloudFront distribution (console)
 
@@ -216,9 +208,7 @@ status is **Enabled** next to the distribution.
 For more information about the standard logging delivery and log fields,
 see the [Standard logging reference](standard-logs-reference.md "standard-logs-reference.md").
 
-### Enable standard logging (legacy) (CloudFront
-
-API)
+### Enable standard logging (legacy) (CloudFront API)
 
 You can also use the CloudFront API to enable standard logs for your distributions.
 

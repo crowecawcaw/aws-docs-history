@@ -17,17 +17,12 @@ statistics about those objects, including the following:
 
 ###### Topics
 
-- [View CloudFront popular objects reports in the
-  console](#popular-objects-howto "#popular-objects-howto")
-- [How CloudFront calculates popular objects
-  statistics](#popular-objects-calculate "#popular-objects-calculate")
+- [View CloudFront popular objects reports in the console](#popular-objects-howto "#popular-objects-howto")
+- [How CloudFront calculates popular objects statistics](#popular-objects-calculate "#popular-objects-calculate")
 - [Download data in CSV format](#popular-objects-csv "#popular-objects-csv")
-- [How data in the popular objects report is
-  related to data in the CloudFront standard logs (access logs)](#popular-objects-data "#popular-objects-data")
+- [How data in the popular objects report is related to data in the CloudFront standard logs (access logs)](#popular-objects-data "#popular-objects-data")
 
-## View CloudFront popular objects reports in the
-
-console
+## View CloudFront popular objects reports in the console
 
 You can view the CloudFront popular objects report in the console.
 
@@ -45,9 +40,7 @@ You can view the CloudFront popular objects report in the console.
 Dates and times are in Coordinated Universal Time (UTC). 4. In the **Distribution** list, select the distribution for
 which you want to display a list of popular objects. 5. Choose **Update**.
 
-## How CloudFront calculates popular objects
-
-statistics
+## How CloudFront calculates popular objects statistics
 
 To get an accurate count of the top 50 objects in your distribution, CloudFront counts
 the requests for all of your objects in 10-minute intervals beginning at midnight
@@ -75,9 +68,7 @@ exceed the number of requests that appear in the access logs for that object.
 You can download the popular objects report in CSV format. This section explains
 how to download the report and describes the values in the report.
 
-###### To download the popular objects
-
-report in CSV format
+###### To download the popular objects report in CSV format
 
 1. While viewing the popular objects report, choose
    **CSV**.
@@ -85,9 +76,7 @@ report in CSV format
    name_** dialog box, choose whether to open or save
    the file.
 
-### Information about the
-
-report
+### Information about the report
 
 The first few rows of the report include the following information:
 
@@ -118,9 +107,7 @@ Coordinated Universal Time (UTC).
 The date and time on which you ran the report, in Coordinated
 Universal Time (UTC).
 
-### Data in the popular objects
-
-report
+### Data in the popular objects report
 
 The report includes the following values:
 
@@ -193,9 +180,7 @@ The number of viewer requests for which the HTTP status code was a
 The number of viewer requests for which the HTTP status code was a
 5xx value (server error).
 
-## How data in the popular objects report is
-
-related to data in the CloudFront standard logs (access logs)
+## How data in the popular objects report is related to data in the CloudFront standard logs (access logs)
 
 The following list shows how values in the popular objects report in the CloudFront
 console correspond with values in CloudFront access logs. For more information about CloudFront

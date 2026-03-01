@@ -18,8 +18,7 @@ pricing](https://aws.amazon.com/cloudfront/pricing/ "https://aws.amazon.com/clou
 
 - [View the AWS billing report for CloudFront](#billing-report "#billing-report")
 - [View the AWS usage report for CloudFront](#usage-report "#usage-report")
-- [Interpret your AWS bill and usage
-  reports for CloudFront](billing-and-usage-interpreting.md "billing-and-usage-interpreting.md")
+- [Interpret your AWS bill and usage reports for CloudFront](billing-and-usage-interpreting.md "billing-and-usage-interpreting.md")
 
 ## View the AWS billing report for CloudFront
 
@@ -128,5 +127,4 @@ For detailed information about every request that CloudFront receives for your o
 turn on CloudFront access logs for your distribution. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
 For more information about understanding the CloudFront charges and usage types on your
-reports, see [Interpret your AWS bill and usage
-reports for CloudFront](billing-and-usage-interpreting.md "billing-and-usage-interpreting.md").
+reports, see [Interpret your AWS bill and usage reports for CloudFront](billing-and-usage-interpreting.md "billing-and-usage-interpreting.md").

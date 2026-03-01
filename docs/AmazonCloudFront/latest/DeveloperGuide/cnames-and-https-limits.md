@@ -1,14 +1,11 @@
-# Quotas on using SSL/TLS certificates with CloudFront (HTTPS
-
-between viewers and CloudFront only)
+# Quotas on using SSL/TLS certificates with CloudFront (HTTPS between viewers and CloudFront only)
 
 Note the following quotas on using SSL/TLS certificates with
 CloudFront. These quotas apply only to the SSL/TLS certificates that you provision by
 using AWS Certificate Manager (ACM), that you import into ACM, or upload to the IAM
 certificate store for HTTPS communication between viewers and CloudFront.
 
-For more information, see [Increase the quotas for
-SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md").
+For more information, see [Increase the quotas for SSL/TLS certificates](increasing-the-limit-for-ssl-tls-certificates.md "increasing-the-limit-for-ssl-tls-certificates.md").
 
 **Maximum number of certificates per CloudFront distribution**
 

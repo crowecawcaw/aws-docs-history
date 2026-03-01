@@ -1,6 +1,4 @@
-# How CloudFront processes HTTP 4xx and 5xx status codes from
-
-your origin
+# How CloudFront processes HTTP 4xx and 5xx status codes from your origin
 
 When CloudFront requests an object from your Amazon S3 bucket or custom origin server, your
 origin sometimes returns an HTTP 4xx or 5xx status code, which indicates that an error
@@ -30,33 +28,23 @@ For more information about features and options that relate to the error message
 returned from CloudFront, see the following:
 
 - For information about settings for custom error pages in the CloudFront console, see
-  [Custom error pages and error
-  caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md").
+  [Custom error pages and error caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md").
 - For information about the error caching minimum TTL in the CloudFront console, see
-  [Error caching minimum
-  TTL (seconds)](DownloadDistValuesErrorPages.md#DownloadDistValuesErrorCachingMinTTL "DownloadDistValuesErrorPages.md#DownloadDistValuesErrorCachingMinTTL").
-- For a list of the HTTP status codes that CloudFront caches, see [HTTP 4xx and 5xx status codes that
-  CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors").
+  [Error caching minimum TTL (seconds)](DownloadDistValuesErrorPages.md#DownloadDistValuesErrorCachingMinTTL "DownloadDistValuesErrorPages.md#DownloadDistValuesErrorCachingMinTTL").
+- For a list of the HTTP status codes that CloudFront caches, see [HTTP 4xx and 5xx status codes that CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors").
 
 ###### Topics
 
-- [How CloudFront processes errors when
-  you have configured custom error pages](#HTTPStatusCodes-custom-error-pages "#HTTPStatusCodes-custom-error-pages")
-- [How CloudFront processes errors if
-  you haven't configured custom error pages](#HTTPStatusCodes-no-custom-error-pages "#HTTPStatusCodes-no-custom-error-pages")
-- [HTTP 4xx and 5xx status codes that
-  CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors")
+- [How CloudFront processes errors when you have configured custom error pages](#HTTPStatusCodes-custom-error-pages "#HTTPStatusCodes-custom-error-pages")
+- [How CloudFront processes errors if you haven't configured custom error pages](#HTTPStatusCodes-no-custom-error-pages "#HTTPStatusCodes-no-custom-error-pages")
+- [HTTP 4xx and 5xx status codes that CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors")
 
-## How CloudFront processes errors when
-
-you have configured custom error pages
+## How CloudFront processes errors when you have configured custom error pages
 
 If you have configured custom error pages, CloudFront behavior depends on whether the
 requested object is in the edge cache.
 
-### The requested
-
-object is not in the edge cache
+### The requested object is not in the edge cache
 
 CloudFront continues to try to get the requested object from your origin when all of
 the following are true:
@@ -70,15 +58,12 @@ the following are true:
     of the object.
   - Your origin returns an HTTP 4xx status code that is not
     restricted by a cache control header and is included in the
-    following list of status codes: [HTTP 4xx and 5xx status codes that
-    CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors").
+    following list of status codes: [HTTP 4xx and 5xx status codes that CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors").
   - Your origin returns an HTTP 4xx status code with a
     `Cache-Control max-age` header or a
     `Cache-Control s-maxage` header, and the status
     code is included in the following list of status codes: Control
-    [HTTP 4xx
-    status codes that CloudFront caches based on Cache-Control
-    headers](#HTTPStatusCodes-cached-errors-with-cache-control "#HTTPStatusCodes-cached-errors-with-cache-control").
+    [HTTP 4xx status codes that CloudFront caches based on Cache-Control headers](#HTTPStatusCodes-cached-errors-with-cache-control "#HTTPStatusCodes-cached-errors-with-cache-control").
 
 ###### CloudFront does the following:
 
@@ -120,9 +105,7 @@ steps 5 and 6:
   by the cache behavior TTL.
   For more information, see the cache behavior [TTL settings](DownloadDistValuesCacheBehavior.md#DownloadDistValuesMinTTL "DownloadDistValuesCacheBehavior.md#DownloadDistValuesMinTTL").
 
-### The requested
-
-object is in the edge cache
+### The requested object is in the edge cache
 
 CloudFront continues to serve the object that is currently in the edge cache when
 all of the following are true:
@@ -145,26 +128,19 @@ get the requested object by forwarding another request to your origin.
 Note that if the object is not requested frequently, CloudFront might evict it
 from the edge cache while your origin server is still returning 5xx
 responses. For information about how long objects stay in CloudFront edge
-caches, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+caches, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
-## How CloudFront processes errors if
-
-you haven't configured custom error pages
+## How CloudFront processes errors if you haven't configured custom error pages
 
 If you haven't configured custom error pages, CloudFront behavior depends on whether the
 requested object is in the edge cache.
 
 ###### Topics
 
-- [The
-  requested object is not in the edge cache](#HTTPStatusCodes-no-custom-error-pages-not-in-cache "#HTTPStatusCodes-no-custom-error-pages-not-in-cache")
-- [The requested
-  object is in the edge cache](#HTTPStatusCodes-no-custom-error-pages-in-cache "#HTTPStatusCodes-no-custom-error-pages-in-cache")
+- [The requested object is not in the edge cache](#HTTPStatusCodes-no-custom-error-pages-not-in-cache "#HTTPStatusCodes-no-custom-error-pages-not-in-cache")
+- [The requested object is in the edge cache](#HTTPStatusCodes-no-custom-error-pages-in-cache "#HTTPStatusCodes-no-custom-error-pages-in-cache")
 
-### The
-
-requested object is not in the edge cache
+### The requested object is not in the edge cache
 
 CloudFront continues to try to get the requested object from your origin when all of
 the following are true:
@@ -178,15 +154,12 @@ the following are true:
     of the object.
   - Your origin returns an HTTP 4xx status code that is not
     restricted by a cache control header and is included in the
-    following list of status codes: [HTTP 4xx and 5xx status codes that
-    CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors")
+    following list of status codes: [HTTP 4xx and 5xx status codes that CloudFront caches](#HTTPStatusCodes-cached-errors "#HTTPStatusCodes-cached-errors")
   - Your origin returns an HTTP 4xx status code with a
     `Cache-Control max-age` header or a
     `Cache-Control s-maxage` header and the status
     code is included in the following list of status codes: Control
-    [HTTP 4xx
-    status codes that CloudFront caches based on Cache-Control
-    headers](#HTTPStatusCodes-cached-errors-with-cache-control "#HTTPStatusCodes-cached-errors-with-cache-control").
+    [HTTP 4xx status codes that CloudFront caches based on Cache-Control headers](#HTTPStatusCodes-cached-errors-with-cache-control "#HTTPStatusCodes-cached-errors-with-cache-control").
 
 CloudFront does the following:
 
@@ -208,9 +181,7 @@ s-maxage` header that is returned by the origin when
    origin. CloudFront continues to retry at intervals specified by the error
    caching minimum TTL.
 
-### The requested
-
-object is in the edge cache
+### The requested object is in the edge cache
 
 CloudFront continues to serve the object that is currently in the edge cache when
 all of the following are true:
@@ -233,8 +204,7 @@ code, not the requested object, to the viewer. 2. After the error caching minimu
 get the requested object by forwarding another request to your origin.
 If the object isn't requested frequently, CloudFront might evict it from the
 edge cache while your origin server is still returning 5xx responses.
-For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ###### Tip
 
@@ -245,9 +215,7 @@ For more information, see [Manage how long content stays in the cache
   unavailable. For information, see [Serve stale (expired) content](Expiration.md#stale-content "Expiration.md#stale-content").
 - CloudFront will only serve an object that is stale up to the specified [maximum TTL](DownloadDistValuesCacheBehavior.md#DownloadDistValuesMaxTTL "DownloadDistValuesCacheBehavior.md#DownloadDistValuesMaxTTL") value. After this duration, the object won't be available from the edge cache.
 
-## HTTP 4xx and 5xx status codes that
-
-CloudFront caches
+## HTTP 4xx and 5xx status codes that CloudFront caches
 
 CloudFront caches HTTP 4xx and 5xx status codes returned by your origin, depending on
 the specific status code that is returned and whether your origin returns specific
@@ -272,10 +240,7 @@ won't cache these status codes or custom error pages.
 | 503 | Service Unavailable   |
 | 504 | Gateway Time-out      |
 
-### HTTP 4xx
-
-status codes that CloudFront caches based on `Cache-Control`
-headers
+### HTTP 4xx status codes that CloudFront caches based on `Cache-Control` headers
 
 CloudFront only caches the following HTTP 4xx status codes returned by your origin
 if your origin returns a `Cache-Control max-age` or

@@ -72,8 +72,7 @@ including specifying the expiration time.
 
 You can then used a canned policy or a custom policy to determine how to
 manage access to your content. For more information about which one to choose,
-see the [Decide to use canned or
-custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy "private-content-signed-urls.md#private-content-choosing-canned-custom-policy") section.
+see the [Decide to use canned or custom policies for signed URLs](private-content-signed-urls.md#private-content-choosing-canned-custom-policy "private-content-signed-urls.md#private-content-choosing-canned-custom-policy") section.
 
 ## Create a canned policy
 
@@ -103,8 +102,7 @@ function get_canned_policy_stream_name($video_path, $private_key_filename, $key_
 }
 ```
 
-For more information about canned policies, see [Create a signed URL using
-a canned policy](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
+For more information about canned policies, see [Create a signed URL using a canned policy](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
 
 ## Create a custom policy
 
@@ -127,8 +125,7 @@ function get_custom_policy_stream_name($video_path, $private_key_filename, $key_
 }
 ```
 
-For more information about custom policies, see [Create a signed URL using
-a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md").
+For more information about custom policies, see [Create a signed URL using a custom policy](private-content-creating-signed-url-custom-policy.md "private-content-creating-signed-url-custom-policy.md").
 
 ## Full code example
 
@@ -289,9 +286,7 @@ $custom_policy_stream_name = get_custom_policy_stream_name($video_path, $private
 For additional URL signature examples, see the following topics:
 
 - [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
-- [Create a URL signature using C# and the .NET
-  Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
-- [Create a URL signature using
-  Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
+- [Create a URL signature using C# and the .NET Framework](CreateSignatureInCSharp.md "CreateSignatureInCSharp.md")
+- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
   Instead of using signed URLs to create the signature, you can use signed cookies.
   For more information, see [Create signed cookies using PHP](signed-cookies-PHP.md "signed-cookies-PHP.md").

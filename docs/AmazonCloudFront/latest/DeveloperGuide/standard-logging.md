@@ -52,8 +52,7 @@ logging for your distribution.
 
 CloudFront supports sending access logs to different AWS accounts (cross accounts). To
 enable cross-account delivery, both accounts (your account and the receiving
-account) must have the required permissions. For more information, see the [Enable standard logging for
-cross-account delivery](#enable-standard-logging-cross-accounts "#enable-standard-logging-cross-accounts") section or the [Cross-account delivery example](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example") in the _Amazon CloudWatch Logs User
+account) must have the required permissions. For more information, see the [Enable standard logging for cross-account delivery](#enable-standard-logging-cross-accounts "#enable-standard-logging-cross-accounts") section or the [Cross-account delivery example](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#vended-logs-crossaccount-example") in the _Amazon CloudWatch Logs User
 Guide_.
 
 ## Enable standard logging
@@ -62,14 +61,10 @@ To enable standard logging, you can use the CloudFront console or the CloudWatch
 
 ###### Contents
 
-- [Enable standard logging (CloudFront
-  console)](standard-logging.md#access-logging-console "standard-logging.md#access-logging-console")
-- [Enable standard logging (CloudWatch
-  API)](standard-logging.md#enable-access-logging-api "standard-logging.md#enable-access-logging-api")
+- [Enable standard logging (CloudFront console)](standard-logging.md#access-logging-console "standard-logging.md#access-logging-console")
+- [Enable standard logging (CloudWatch API)](standard-logging.md#enable-access-logging-api "standard-logging.md#enable-access-logging-api")
 
-### Enable standard logging (CloudFront
-
-console)
+### Enable standard logging (CloudFront console)
 
 ###### To enable standard logging for a CloudFront distribution (console)
 
@@ -137,9 +132,7 @@ Cookie logging is a global setting that applies to _all_ standard logging for yo
 For more information about the standard logging delivery and log fields,
 see the [Standard logging reference](standard-logs-reference.md "standard-logs-reference.md").
 
-### Enable standard logging (CloudWatch
-
-API)
+### Enable standard logging (CloudWatch API)
 
 You can also use the CloudWatch API to enable standard logging for your distributions.
 
@@ -320,9 +313,7 @@ properties:
 - [DeliverySource](../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.md")
   The `ResourceArn` is the CloudFront distribution and `LogType` must be `ACCESS_LOGS` as the supported log type.
 
-## Enable standard logging for
-
-cross-account delivery
+## Enable standard logging for cross-account delivery
 
 If you enable standard logging for your AWS account and you want to deliver your
 access logs to another account, make sure that you configure the source account and the
@@ -335,9 +326,7 @@ In this example procedure, the source account
 bucket in the destination account (`222222222222`).
 To send access logs to an Amazon S3 bucket in the destination account, use the AWS CLI.
 
-### Configure the destination
-
-account
+### Configure the destination account
 
 For destination account, complete the following procedure.
 
@@ -663,9 +652,7 @@ When you specify the name of the Firehose stream, only use the regex pattern
 `[\w-]`. For more information, see the [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md#API_PutDeliveryDestination_RequestSyntax "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md#API_PutDeliveryDestination_RequestSyntax") API operation in the
 _Amazon CloudWatch Logs API Reference_.
 
-### Example access log sent to
-
-Firehose
+### Example access log sent to Firehose
 
 ```
 {"date":"2024-11-15","time":"19:45:51","x-edge-location":"SOF50-P2","asn":"16509","timestamp(ms)":"1731699951183","origin-fbl":"0.254","origin-lbl":"0.254","x-host-header":"d111111abcdef8.cloudfront.net","cs(Cookie)":"examplecookie=value"}
@@ -701,8 +688,7 @@ each other.
 
 - [Specify an S3 bucket](#prefix-s3-buckets "#prefix-s3-buckets")
 - [Partitioning](#partitioning "#partitioning")
-- [Hive-compatible file name
-  format](#hive-compatible-file-name-format "#hive-compatible-file-name-format")
+- [Hive-compatible file name format](#hive-compatible-file-name-format "#hive-compatible-file-name-format")
 - [Example paths to access logs](#bucket-path-examples "#bucket-path-examples")
 - [Example access log sent to Amazon S3](#example-access-logs-s3 "#example-access-logs-s3")
 
@@ -753,9 +739,7 @@ if you're sending access logs to AWS Glue, you must use the
 to be in lowercase. Update your existing log configuration in CloudFront to replace
 `{DistributionId}` with `{distributionid}`.
 
-### Hive-compatible file name
-
-format
+### Hive-compatible file name format
 
 You can use this option so that S3 objects that contain delivered access logs use
 a prefix structure that allows for integration with Apache Hive. For more
@@ -801,9 +785,7 @@ the options that you choose.
 | `amzn-s3-demo-bucket` | `myFolderA/`                                  | `AWSLogs/{account-id}/CloudFront/myFolderA/`       | Yes                      | `amzn-s3-demo-bucket/AWSLogs/aws-account-id=`<your-account-ID>`/CloudFront/myFolderA/`          |
 | `amzn-s3-demo-bucket` | `myFolderA/{yyyy}`                            | `AWSLogs/{account-id}/CloudFront/myFolderA/{yyyy}` | Yes                      | `amzn-s3-demo-bucket/AWSLogs/aws-account-id=`<your-account-ID>`/CloudFront/myFolderA/year=2025` |
 
-#### AWS account ID as a
-
-partition
+#### AWS account ID as a partition
 
 | Amazon S3 bucket name | Partition that you specify in the suffix path | Updated suffix path                                     | Hive-compatible enabled? | Access logs are sent to                                                                                             |
 | --------------------- | --------------------------------------------- | ------------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------- |
@@ -859,9 +841,7 @@ Reference_.
 Use the following information to fix common issues when you work with CloudFront
 standard logging (v2).
 
-### Delivery source already
-
-exists
+### Delivery source already exists
 
 When you enable standard logging for a distribution, you create a delivery source.
 You then use that delivery source to create deliveries to destination type that you
@@ -877,9 +857,7 @@ To create another delivery source, delete the existing one first. For more
 information, see [DeleteDeliverySource](../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.md") in the _Amazon CloudWatch Logs API
 Reference_.
 
-### I changed the suffix path and the
-
-Amazon S3 bucket can't receive my logs
+### I changed the suffix path and the Amazon S3 bucket can't receive my logs
 
 If you enabled standard logging (v2) and specify a bucket ARN without a prefix, CloudFront will
 append the following default to the suffix path:

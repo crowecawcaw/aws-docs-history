@@ -1,6 +1,4 @@
-# Step 2: Create the
-
-revocation Connection Function
+# Step 2: Create the revocation Connection Function
 
 Create a Connection Function that checks certificate serial numbers against the
 KeyValueStore to determine if certificates are revoked.

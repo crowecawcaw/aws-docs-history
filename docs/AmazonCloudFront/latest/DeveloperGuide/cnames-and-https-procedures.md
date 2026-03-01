@@ -1,6 +1,4 @@
-# Configure alternate domain names and
-
-HTTPS
+# Configure alternate domain names and HTTPS
 
 To use alternate domain names in the URLs for your files and to use HTTPS between
 viewers and CloudFront, perform the applicable procedures.
@@ -8,8 +6,7 @@ viewers and CloudFront, perform the applicable procedures.
 ###### Topics
 
 - [Get an SSL/TLS certificate](#cnames-and-https-getting-certificates "#cnames-and-https-getting-certificates")
-- [Import an SSL/TLS
-  certificate](#cnames-and-https-uploading-certificates "#cnames-and-https-uploading-certificates")
+- [Import an SSL/TLS certificate](#cnames-and-https-uploading-certificates "#cnames-and-https-uploading-certificates")
 - [Update your CloudFront distribution](#cnames-and-https-updating-cloudfront "#cnames-and-https-updating-cloudfront")
 
 ## Get an SSL/TLS certificate
@@ -30,9 +27,7 @@ US East (N. Virginia) Region.
   see the documentation provided by the certificate authority. When you
   have the certificate, continue with the next procedure.
 
-## Import an SSL/TLS
-
-certificate
+## Import an SSL/TLS certificate
 
 If you got your certificate from a third-party CA, import the certificate into
 ACM or upload it to the IAM certificate store:
@@ -99,9 +94,7 @@ the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/l
 To update settings for your distribution, perform the following
 procedure:
 
-###### To configure
-
-your CloudFront distribution for alternate domain names
+###### To configure your CloudFront distribution for alternate domain names
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -127,8 +120,7 @@ to choose it.
 
 If you uploaded a certificate to the IAM certificate store
 but it's not listed, and you can't choose it by typing the
-name in the field, review the procedure [Import an SSL/TLS
-certificate](#cnames-and-https-uploading-certificates "#cnames-and-https-uploading-certificates") to
+name in the field, review the procedure [Import an SSL/TLS certificate](#cnames-and-https-uploading-certificates "#cnames-and-https-uploading-certificates") to
 confirm that you correctly uploaded the certificate.
 
 ###### Important

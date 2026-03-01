@@ -5,8 +5,7 @@ The following sections apply to both standard logging (v2) and standard logging 
 ###### Topics
 
 - [Timing of log file delivery](#access-logs-timing "#access-logs-timing")
-- [How requests are logged when the request
-  URL or headers exceed the maximum size](#access-logs-request-URL-size "#access-logs-request-URL-size")
+- [How requests are logged when the request URL or headers exceed the maximum size](#access-logs-request-URL-size "#access-logs-request-URL-size")
 - [Log file fields](#BasicDistributionFileFormat "#BasicDistributionFileFormat")
 - [Analyze logs](#access-logs-analyzing "#access-logs-analyzing")
 
@@ -36,9 +35,7 @@ You might get a few access logs before that time.
 If no users request your objects during the time period, you don't receive any log
 files for that period.
 
-## How requests are logged when the request
-
-URL or headers exceed the maximum size
+## How requests are logged when the request URL or headers exceed the maximum size
 
 If the total size of all request headers, including cookies, exceeds 20 KB, or if the
 URL exceeds 8192 bytes, CloudFront can't parse the request completely and can't log the
@@ -116,8 +113,7 @@ came from a search engine, which search engine. 12. **`cs-uri-query`**
 The query string portion of the request URL, if any.
 
 When a URL doesn't contain a query string, this field's value is a hyphen (-).
-For more information, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md"). 13. **`cs(Cookie)`**
+For more information, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md"). 13. **`cs(Cookie)`**
 
 The `Cookie` header in the request, including name—value
 pairs and the associated attributes.
@@ -218,8 +214,7 @@ field is a hyphen (-). 21. **`ssl-protocol`**
 When the request used HTTPS, this field contains the SSL/TLS protocol
 that the viewer and server negotiated for transmitting the request and
 response. For a list of possible values, see the supported SSL/TLS protocols
-in [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+in [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
 When `cs-protocol` in field 17 is `http`, the value for
 this field is a hyphen (-). 22. **`ssl-cipher`**
@@ -227,8 +222,7 @@ this field is a hyphen (-). 22. **`ssl-cipher`**
 When the request used HTTPS, this field contains the SSL/TLS cipher
 that the viewer and server negotiated for encrypting the request and
 response. For a list of possible values, see the supported SSL/TLS ciphers
-in [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+in [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
 When `cs-protocol` in field 17 is `http`, the value for
 this field is a hyphen (-). 23. **`x-edge-response-result-type`**

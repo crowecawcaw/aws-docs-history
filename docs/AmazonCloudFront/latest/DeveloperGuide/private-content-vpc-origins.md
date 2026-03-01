@@ -36,8 +36,7 @@ Before you create a VPC origin for your CloudFront distribution, you must comple
 
 ### VPC Configuration
 
-**Create a virtual private cloud (VPC) on Amazon VPC** in one of the AWS Regions that are supported for VPC origins. For information about creating a VPC, see [Create a VPC plus other VPC resources](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources") in the _Amazon VPC User Guide_. For a list of supported Regions, see [Supported AWS Regions for
-VPC origins](#vpc-origins-supported-regions "#vpc-origins-supported-regions").
+**Create a virtual private cloud (VPC) on Amazon VPC** in one of the AWS Regions that are supported for VPC origins. For information about creating a VPC, see [Create a VPC plus other VPC resources](../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources "../../../vpc/latest/userguide/create-vpc.md#create-vpc-and-other-resources") in the _Amazon VPC User Guide_. For a list of supported Regions, see [Supported AWS Regions for VPC origins](#vpc-origins-supported-regions "#vpc-origins-supported-regions").
 
 Your VPC must include the following:
 
@@ -102,9 +101,7 @@ If your VPC origin is an EC2 instance, copy and paste the
 **Private IP DNS name** of the instance into the
 **Origin domain** field. 8. Finish creating your distribution. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution").
 
-## Create a VPC origin (existing
-
-distribution)
+## Create a VPC origin (existing distribution)
 
 The following procedure shows you how to create a VPC origin for your existing
 CloudFront distribution in the CloudFront console, which helps to ensure continuous availability
@@ -129,8 +126,7 @@ without creating a staging distribution.
 7. Choose the ID of your distribution.
 8. On the **General** tab, under **Continuous
    deployment**, choose **Create staging
-   distribution**. For more information, see [Use CloudFront continuous deployment to safely test CDN
-   configuration changes](continuous-deployment.md "continuous-deployment.md").
+   distribution**. For more information, see [Use CloudFront continuous deployment to safely test CDN configuration changes](continuous-deployment.md "continuous-deployment.md").
 9. Follow the steps in the **Create staging distribution**
    wizard to create a staging distribution. Include the following steps:
    - For **Origins**, choose **Create
@@ -189,9 +185,7 @@ If your VPC origin is an EC2 instance, copy and paste the
 with your distribution again. Repeat steps 12-17 to associate the updated
 VPC origin with any other distributions.
 
-## Supported AWS Regions for
-
-VPC origins
+## Supported AWS Regions for VPC origins
 
 VPC origins are currently supported in the following commercial AWS Regions.
 Availability Zone (AZ) exceptions are noted.

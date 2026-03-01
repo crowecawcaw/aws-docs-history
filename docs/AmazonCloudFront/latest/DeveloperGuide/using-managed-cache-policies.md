@@ -64,9 +64,7 @@ This policy has the following settings:
 
 Because this policy has a minimum TTL greater than 0, CloudFront will cache content for at least the duration specified in the cache policy's minimum TTL, even if the `Cache-Control: no-cache`, `no-store`, or `private` directives are present in the origin headers.
 
-### AWS Amplify Hosting cache
-
-policies
+### AWS Amplify Hosting cache policies
 
 Amplify uses the following managed cache policies to optimize the default cache
 configuration for customers' applications:

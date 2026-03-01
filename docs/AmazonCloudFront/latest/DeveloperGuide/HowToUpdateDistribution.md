@@ -33,8 +33,7 @@ that all of the required fields are included when you use the CloudFront API to 
 in [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md")
 in the _Amazon CloudFront API Reference_.
 
-To change the multi-tenant distribution for a distribution tenant, you update the distribution tenant. You also update the distribution tenant to update its domain, certificate, customizations, or parameter values. For more details about updating the distribution tenant certificate, see [Add a domain and certificate
-(distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant").
+To change the multi-tenant distribution for a distribution tenant, you update the distribution tenant. You also update the distribution tenant to update its domain, certificate, customizations, or parameter values. For more details about updating the distribution tenant certificate, see [Add a domain and certificate (distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant").
 
 ###### To update a distribution tenant
 
@@ -63,8 +62,7 @@ Standard
    - **Origin settings:**
      [Origin settings](DownloadDistValuesOrigin.md "DownloadDistValuesOrigin.md")
    - **Cache behavior settings:**
-     [Cache behavior
-     settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md")
+     [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md")
 
 5. If you want to delete an origin in your distribution, do the following:
    1. Choose **Behaviors**, and then make sure you have moved any default cache behaviors associated

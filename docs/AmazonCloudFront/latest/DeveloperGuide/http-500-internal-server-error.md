@@ -1,6 +1,4 @@
-# HTTP 500 status code (Internal
-
-Server Error)
+# HTTP 500 status code (Internal Server Error)
 
 An HTTP 500 status code (Internal Server Error) indicates that the server
 encountered an unexpected condition that prevented it from fulfilling the request.
@@ -8,12 +6,9 @@ The following are some common causes of 500 errors in Amazon CloudFront.
 
 ###### Topics
 
-- [Origin server returns 500 error to
-  CloudFront](#origin-server-500-error "#origin-server-500-error")
+- [Origin server returns 500 error to CloudFront](#origin-server-500-error "#origin-server-500-error")
 
-## Origin server returns 500 error to
-
-CloudFront
+## Origin server returns 500 error to CloudFront
 
 Your origin server might be returning a 500 error to CloudFront. Refer to the
 following troubleshooting topics for more information:

@@ -1,6 +1,4 @@
-# Bring your own IP to CloudFront using
-
-IPAM
+# Bring your own IP to CloudFront using IPAM
 
 This tutorial shows how to use IPAM to manage your BYOIP CIDRs for CloudFront Anycast Static IP
 lists.
@@ -10,13 +8,10 @@ lists.
 - [What is BYOIP for Anycast Static IPs?](#what-is-byoip-anycast "#what-is-byoip-anycast")
 - [Why use this feature?](#why-use-byoip "#why-use-byoip")
 - [Prerequisites](#byoip-prerequisites "#byoip-prerequisites")
-- [Step 1: Request an Anycast static IP
-  list](#request-anycast-static-ip-list "#request-anycast-static-ip-list")
-- [Step 2: Create an Anycast static IP
-  list](#create-anycast-static-ip-list "#create-anycast-static-ip-list")
+- [Step 1: Request an Anycast static IP list](#request-anycast-static-ip-list "#request-anycast-static-ip-list")
+- [Step 2: Create an Anycast static IP list](#create-anycast-static-ip-list "#create-anycast-static-ip-list")
 - [Step 3: Create a CloudFront distribution](#create-cloudfront-distribution "#create-cloudfront-distribution")
-- [Step 4: Associate with CloudFront
-  resources](#associate-with-cloudfront-resources "#associate-with-cloudfront-resources")
+- [Step 4: Associate with CloudFront resources](#associate-with-cloudfront-resources "#associate-with-cloudfront-resources")
 - [Step 5: Prepare for migration](#prepare-for-migration "#prepare-for-migration")
 - [Step 6: Advertise CIDR globally](#advertise-cidr-globally "#advertise-cidr-globally")
 
@@ -70,9 +65,7 @@ Complete these steps before starting:
 
 Requires **three /24** IPv4 CIDR blocks.
 
-## Step 1: Request an Anycast static IP
-
-list
+## Step 1: Request an Anycast static IP list
 
 Request an Anycast static IP list to use with your CloudFront distribution.
 
@@ -86,9 +79,7 @@ Request an Anycast static IP list to use with your CloudFront distribution.
 5. CloudFront support engineering reviews your request. The review process might take up to two days.
 6. After your request is approved, you can create an Anycast static IP list and associate it with one or more distributions.
 
-## Step 2: Create an Anycast static IP
-
-list
+## Step 2: Create an Anycast static IP list
 
 Before you begin, request an Anycast static IP list as explained in the preceding section.
 
@@ -131,9 +122,7 @@ automatically.
 
 For CloudFront, you can follow instructions to [create a standard distribution](distribution-web-creating-console.md "distribution-web-creating-console.md") or use [multi-tenant distributions](distribution-config-options.md "distribution-config-options.md").
 
-## Step 4: Associate with CloudFront
-
-resources
+## Step 4: Associate with CloudFront resources
 
 - [Associate an Anycast static IP
   list with an existing distribution](request-static-ips.md#associate-static-ip-list-existing "request-static-ips.md#associate-static-ip-list-existing")

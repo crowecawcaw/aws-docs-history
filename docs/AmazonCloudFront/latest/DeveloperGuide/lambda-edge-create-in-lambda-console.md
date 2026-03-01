@@ -1,13 +1,9 @@
-# Create a Lambda@Edge
-
-function
+# Create a Lambda@Edge function
 
 To set up AWS Lambda to run Lambda functions that are based on CloudFront events, follow
 this procedure.
 
-###### To create a Lambda@Edge
-
-function
+###### To create a Lambda@Edge function
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -74,5 +70,4 @@ version**. 13. Enter a description for the new version of the function. 14. Choo
 Lambda console, see [Invoke a Lambda function using the console](../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually "../../../lambda/latest/dg/getting-started.md#get-started-invoke-manually") in the
 *AWS Lambda Developer Guide\*. 16. When you're ready to have the function execute for CloudFront events, publish
 another version and edit the function to add triggers. For more information,
-see [Add triggers for a Lambda@Edge
-function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").
+see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md "lambda-edge-add-triggers.md").

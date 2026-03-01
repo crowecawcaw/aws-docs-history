@@ -1,6 +1,4 @@
-# Monitor a staging
-
-distribution
+# Monitor a staging distribution
 
 To monitor the performance of a staging distribution, you can use the same [metrics, logs, and reports](reports-and-monitoring.md "reports-and-monitoring.md") that CloudFront provides
 for all distributions. For example:

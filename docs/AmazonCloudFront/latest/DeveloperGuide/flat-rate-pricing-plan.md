@@ -24,8 +24,7 @@ Flat-rate pricing plans include the following features for a simple monthly pric
 - [Features by pricing plan tier](#pricing-plan-features "#pricing-plan-features")
 - [Monthly usage allowances](#usage-allowance "#usage-allowance")
 - [Costs covered by your plan](#costs-covered-by-plan "#costs-covered-by-plan")
-- [Reduce overall AWS costs with pricing
-  plans](#pricing-plan-vs-payg "#pricing-plan-vs-payg")
+- [Reduce overall AWS costs with pricing plans](#pricing-plan-vs-payg "#pricing-plan-vs-payg")
 - [Manage your flat-rate pricing plans](#manage-your-pricing-plans "#manage-your-pricing-plans")
 - [Permissions](#prerequisites-pricing-plan "#prerequisites-pricing-plan")
 - [Flat-rate pricing plan quotas](#pricing-plan-quotas "#pricing-plan-quotas")
@@ -226,9 +225,7 @@ zone must meet the following requirements:
 
 If your hosted zone is not attached to your plan, it will remain on pay-as-you-go pricing, where you're responsible for all standard Route 53 costs.
 
-#### Understanding
-
-monthly DNS query allowances
+#### Understanding monthly DNS query allowances
 
 When your hosted zone is attached to your plan, you get:
 
@@ -249,9 +246,7 @@ distribution. ALIAS records pointing to CloudFront and [other supported AWS serv
 against your monthly DNS query allowance. All other DNS queries, including CNAME
 records to CloudFront, count against your DNS query allowance.
 
-#### Exceeding DNS query
-
-allowances
+#### Exceeding DNS query allowances
 
 If your DNS query usage exceeds your plan's monthly allowance, AWS may
 notify you. At that point, you can detach your hosted zone from the plan in the
@@ -263,9 +258,7 @@ zone moves to pay-as-you-go pricing, you are responsible for all standard Route
 53 costs. Your CloudFront distribution and all other plan benefits continue
 unchanged.
 
-## Reduce overall AWS costs with pricing
-
-plans
+## Reduce overall AWS costs with pricing plans
 
 CloudFront flat-rate pricing plans can reduce your overall AWS costs in three ways:
 
@@ -298,9 +291,7 @@ designated CloudFront distribution using VPC Origins](private-content-vpc-origin
 Follow these procedures in the CloudFront console to subscribe, upgrade, downgrade, or
 cancel a pricing plan for your distributions.
 
-### Subscribe a new distribution to a pricing
-
-plan
+### Subscribe a new distribution to a pricing plan
 
 When you create a new distribution, you can subscribe to a pricing plan.
 
@@ -315,9 +306,7 @@ When you create a new distribution, you can subscribe to a pricing plan.
    pricing plan that you need for your application.
 4. Complete the steps to [create your distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
 
-### Subscribe an existing distribution to
-
-a pricing plan
+### Subscribe an existing distribution to a pricing plan
 
 When you update a distribution, you can subscribe to a pricing plan. Before
 choosing a pricing plan, ensure that your distribution configuration is compatible
@@ -429,9 +418,7 @@ To keep your existing flat-rate pricing plan, upgrade, or downgrade your pricing
 5. Choose the pricing plan that you want for your distribution.
 6. Complete the steps to update an existing distribution.
 
-### Deleting a distribution with a pricing
-
-plan
+### Deleting a distribution with a pricing plan
 
 You can't delete a distribution that is subscribed to a pricing plan. You must
 first cancel the pricing plan and then after the current billing cycle, delete the
@@ -456,9 +443,7 @@ you must first cancel it.
 ## Permissions
 
 To view or manage pricing plan subscriptions for your CloudFront distributions, you must
-have the required permissions. For more information, see [AWS managed policy:
-CloudFrontFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-full-access "security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-full-access") and [AWS managed policy:
-CloudFrontReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-read-only "security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-read-only").
+have the required permissions. For more information, see [AWS managed policy: CloudFrontFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-full-access "security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-full-access") and [AWS managed policy: CloudFrontReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-read-only "security-iam-awsmanpol.md#security-iam-awsmanpol-cloudfront-read-only").
 
 ## Flat-rate pricing plan quotas
 
@@ -517,9 +502,7 @@ and use an alternative option, or keep pay-as-you-go for your distribution.
 | [Origin access identity<br>(OAI)](private-content-restricting-access-to-s3.md#migrate-from-oai-to-oac "private-content-restricting-access-to-s3.md#migrate-from-oai-to-oac")                                                                                                          | Use [Origin access control (OAC)](private-content-restricting-access-to-origin.md "private-content-restricting-access-to-origin.md")                                                                                                                                                               | CloudFront  |
 | Legacy cache settings                                                                                                                                                                                                                                                                 | Use [cache<br>policies](cache-key-understand-cache-policy.md "cache-key-understand-cache-policy.md") and [origin request policies](understanding-how-origin-request-policies-and-cache-policies-work-together.md "understanding-how-origin-request-policies-and-cache-policies-work-together.md"). | CloudFront  |
 
-### Unsupported
-
-associations
+### Unsupported associations
 
 You can't subscribe a distribution to a pricing plan if the distribution is
 already associated with any of the following resources that are _already
@@ -553,9 +536,7 @@ conditions:
 - Your distribution has enabled the [Firewall Manager Service](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md") for your web ACL. Firewall Manager won't manage
   your CloudFront distribution's WebACL in a pricing plan.
 
-### Additional features that can affect
-
-your pricing plan
+### Additional features that can affect your pricing plan
 
 Flat-rate pricing plans enable you to pay a flat-rate for your CloudFront
 distribution and the features listed above that are both included in your plan and
@@ -593,9 +574,7 @@ DNS query fees subject to respective allowances per tier. All other costs from
 Route 53 usage and features not listed above as included in your plan are not
 covered by your plan.
 
-### Pricing plans vs. pay-as-you-go
-
-pricing
+### Pricing plans vs. pay-as-you-go pricing
 
 Flat-rate plans and pay-as-you-go pricing offer different advantages based on your
 needs. With flat-rate plans, you pay one price that includes multiple AWS services

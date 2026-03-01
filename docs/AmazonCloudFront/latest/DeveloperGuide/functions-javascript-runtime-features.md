@@ -1,6 +1,4 @@
-# JavaScript runtime features for
-
-CloudFront Functions
+# JavaScript runtime features for CloudFront Functions
 
 The CloudFront Functions JavaScript runtime environment is compliant with [ECMAScript (ES) version
 5.1](https://www.ecma-international.org/ecma-262/5.1/ "https://www.ecma-international.org/ecma-262/5.1/") and also supports some features of ES versions 6 through 12.
@@ -24,8 +22,7 @@ The JavaScript runtime 2.0 features has the following changes compared to 1.0:
   - `hmac.digest()` – Return type is changed to
     `Buffer` if no encoding is provided
 
-- For more information about additional new features, see [JavaScript runtime 2.0 features for
-  CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+- For more information about additional new features, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
 ###### Topics
 

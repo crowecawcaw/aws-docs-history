@@ -1,11 +1,8 @@
-# Understand response headers
-
-policies
+# Understand response headers policies
 
 You can use a response headers policy to specify the HTTP headers that Amazon CloudFront removes or
 adds in responses that it sends to viewers. For more information about response headers
-policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses
-with a policy](modifying-response-headers.md "modifying-response-headers.md").
+policies and reasons to use them, see [Add or remove HTTP headers in CloudFront responses with a policy](modifying-response-headers.md "modifying-response-headers.md").
 
 The following topics explain the settings in a response headers
 policy. The
@@ -13,18 +10,14 @@ settings are grouped into categories, which are represented in the following top
 
 ###### Topics
 
-- [Policy details
-  (metadata)](#understanding-response-headers-policies-details "#understanding-response-headers-policies-details")
+- [Policy details (metadata)](#understanding-response-headers-policies-details "#understanding-response-headers-policies-details")
 - [CORS headers](#understanding-response-headers-policies-cors "#understanding-response-headers-policies-cors")
-- [Security
-  headers](#understanding-response-headers-policies-security "#understanding-response-headers-policies-security")
+- [Security headers](#understanding-response-headers-policies-security "#understanding-response-headers-policies-security")
 - [Custom headers](#understanding-response-headers-policies-custom "#understanding-response-headers-policies-custom")
 - [Remove headers](#understanding-response-headers-policies-remove-headers "#understanding-response-headers-policies-remove-headers")
 - [Server-Timing header](#server-timing-header "#server-timing-header")
 
-## Policy details
-
-(metadata)
+## Policy details (metadata)
 
 The policy details settings contain metadata about a response headers policy.
 
@@ -147,9 +140,7 @@ policy.
   origin to the response. CloudFront doesn't add any CORS headers in the
   policy to the response that is sent to the viewer.
 
-## Security
-
-headers
+## Security headers
 
 You can use the security headers settings to add and configure several
 security-related HTTP response headers in a response headers policy.
@@ -367,16 +358,12 @@ policy](creating-response-headers-policies.md "creating-response-headers-policie
 
 ###### Topics
 
-- [Sampling rate and Pragma
-  request header](#server-timing-header-sampling-rate "#server-timing-header-sampling-rate")
-- [Server-Timing header from the
-  origin](#server-timing-header-origin "#server-timing-header-origin")
+- [Sampling rate and Pragma request header](#server-timing-header-sampling-rate "#server-timing-header-sampling-rate")
+- [Server-Timing header from the origin](#server-timing-header-origin "#server-timing-header-origin")
 - [Server-Timing header metrics](#server-timing-header-metrics "#server-timing-header-metrics")
 - [Server-Timing header examples](#server-timing-header-examples "#server-timing-header-examples")
 
-### Sampling rate and Pragma
-
-request header
+### Sampling rate and Pragma request header
 
 When you enable the `Server-Timing` header in a response headers
 policy, you also specify the _sampling rate_. The
@@ -397,9 +384,7 @@ matter what the sampling rate is set to. Even when the sampling rate is set to z
 (0), CloudFront adds the `Server-Timing` header to the response if the request
 contains the `Pragma: server-timing` header.
 
-### Server-Timing header from the
-
-origin
+### Server-Timing header from the origin
 
 When there is a cache miss and CloudFront forwards the request to the origin, the origin
 might include a `Server-Timing` header in its response to CloudFront. In this

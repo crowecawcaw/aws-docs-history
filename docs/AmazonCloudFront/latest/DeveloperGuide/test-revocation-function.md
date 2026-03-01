@@ -1,6 +1,4 @@
-# Step 3: Test your revocation
-
-function
+# Step 3: Test your revocation function
 
 Use the CloudFront console to test your Connection Function with sample certificates.
 Navigate to the Connection Function in the console and use the Test tab.

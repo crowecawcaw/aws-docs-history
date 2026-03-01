@@ -23,22 +23,16 @@ viewers charts and reports.
 
 ###### Topics
 
-- [View viewers charts and reports in the
-  console](#viewers-reports-displaying "#viewers-reports-displaying")
+- [View viewers charts and reports in the console](#viewers-reports-displaying "#viewers-reports-displaying")
 - [Download data in CSV format](#viewer-csv "#viewer-csv")
 - [Data included in the viewers reports](#viewer-csv-header "#viewer-csv-header")
-- [How data in the locations report is related
-  to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data")
+- [How data in the locations report is related to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data")
 
-## View viewers charts and reports in the
-
-console
+## View viewers charts and reports in the console
 
 You can view CloudFront viewers charts and reports in the console.
 
-###### To view CloudFront viewers charts and
-
-reports
+###### To view CloudFront viewers charts and reports
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -88,9 +82,7 @@ point.
 You can download each of the viewer reports in CSV format. This section explains
 how to download the reports and describes the values in the report.
 
-###### To download the viewer reports in CSV
-
-format
+###### To download the viewer reports in CSV format
 
 1. While viewing the Viewer report, choose **CSV**.
 2. Choose the data that you want to download, for example,
@@ -154,10 +146,8 @@ reports.
 - [Device trends report](#viewer-device-trends-csv-data "#viewer-device-trends-csv-data")
 - [Browsers report](#viewer-browsers-csv-data "#viewer-browsers-csv-data")
 - [Browser trends report](#viewer-browser-trends-csv-data "#viewer-browser-trends-csv-data")
-- [Operating systems
-  report](#viewer-operating-system-csv-data "#viewer-operating-system-csv-data")
-- [Operating system
-  trends report](#viewer-operating-system-trends-csv-data "#viewer-operating-system-trends-csv-data")
+- [Operating systems report](#viewer-operating-system-csv-data "#viewer-operating-system-csv-data")
+- [Operating system trends report](#viewer-operating-system-trends-csv-data "#viewer-operating-system-trends-csv-data")
 - [Locations report](#viewer-locations-csv-data "#viewer-locations-csv-data")
 - [Location trends report](#viewer-location-trends-csv-data "#viewer-location-trends-csv-data")
 
@@ -349,9 +339,7 @@ values include the following:
   requests in this category come from custom applications or
   scripts.
 
-### Operating systems
-
-report
+### Operating systems report
 
 The report includes the following values:
 
@@ -403,9 +391,7 @@ The number of requests that CloudFront received from each type of
 operating system as a percentage of the total number of requests
 that CloudFront received during the time period.
 
-### Operating system
-
-trends report
+### Operating system trends report
 
 The report includes the following values:
 
@@ -469,8 +455,7 @@ origin domain name for the distribution.
 
 The abbreviation for the location that CloudFront received requests
 from. For more information about possible values, see the
-description of Location in [How data in the locations report is related
-to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data").
+description of Location in [How data in the locations report is related to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data").
 
 **LocationName**
 
@@ -517,12 +502,9 @@ Universal Time (UTC).
 
 The remaining columns in the report list the locations that CloudFront
 received requests from. For more information about possible values,
-see the description of Location in [How data in the locations report is related
-to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data").
+see the description of Location in [How data in the locations report is related to data in the CloudFront standard logs (access logs)](#viewers-reports-data "#viewers-reports-data").
 
-## How data in the locations report is related
-
-to data in the CloudFront standard logs (access logs)
+## How data in the locations report is related to data in the CloudFront standard logs (access logs)
 
 The following list shows how data in the Locations report in the CloudFront console
 corresponds with values in CloudFront access logs. For more information about CloudFront access

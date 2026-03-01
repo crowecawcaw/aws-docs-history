@@ -1,6 +1,4 @@
-# Find the source
-
-standard distribution or distribution tenant
+# Find the source standard distribution or distribution tenant
 
 Before you can move an alternate domain name from one distribution (standard or
 tenant) to another, find the _source distribution_.
@@ -29,9 +27,7 @@ list-domain-conflicts
   `cloudfront:ListDomainConflicts`
   permissions.
 
-###### To use `list-domain-conflicts` to find the source
-
-standard distribution or distribution tenant
+###### To use `list-domain-conflicts` to find the source standard distribution or distribution tenant
 
 1. Use the `list-domain-conflicts` command as shown in the
    following example.
@@ -118,9 +114,7 @@ You must have the `cloudfront:GetDistribution` and
 `cloudfront:ListConflictingAliases` permissions on the
 target standard distribution.
 
-###### To use `list-conflicting-aliases` to find the source
-
-standard distribution
+###### To use `list-conflicting-aliases` to find the source standard distribution
 
 1. Use the `list-conflicting-aliases` command as shown in
    the following example.

@@ -23,9 +23,7 @@ to attach the cache policy to a cache behavior.
 A comment to describe the cache policy. This is optional, but it can
 help you identify the purpose of the cache policy.
 
-## Time to live (TTL)
-
-settings
+## Time to live (TTL) settings
 
 The time to live (TTL) settings work together with the `Cache-Control`
 and `Expires` HTTP headers (if they're in the origin response) to
@@ -35,8 +33,7 @@ determine how long objects in the CloudFront cache remain valid.
 
 The minimum amount of time, in seconds, that you want objects to stay
 in the CloudFront cache before CloudFront checks with the origin to see if the
-object has been updated. For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+object has been updated. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ###### Warning
 
@@ -48,8 +45,7 @@ The maximum amount of time, in seconds, that objects stay in the CloudFront
 cache before CloudFront checks with the origin to see if the object has been
 updated. CloudFront uses this setting only when the origin sends
 `Cache-Control` or `Expires` headers with the
-object. For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+object. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 **Default TTL**
 
@@ -58,8 +54,7 @@ in the CloudFront cache before CloudFront checks with the origin to see if the
 object has been updated. CloudFront uses this setting's value as the object's
 TTL only when the origin does _not_
 send `Cache-Control` or `Expires` headers with the
-object. For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+object. For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ###### Note
 
@@ -67,9 +62,7 @@ If the **Minimum TTL**, **Maximum TTL**, and
 **Default TTL** settings are all set to 0, this disables
 CloudFront caching.
 
-## Cache key
-
-settings
+## Cache key settings
 
 Cache key settings specify the values in viewer requests that CloudFront includes in the
 cache key. The values can include URL query strings, HTTP headers, and cookies. The

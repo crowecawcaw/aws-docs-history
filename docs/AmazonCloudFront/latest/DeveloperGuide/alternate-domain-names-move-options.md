@@ -1,6 +1,4 @@
-# Move the alternate domain
-
-name
+# Move the alternate domain name
 
 Depending on your situation, choose from the following ways to move the alternate
 domain name:
@@ -21,15 +19,13 @@ If you have access to the source standard distribution or distribution tenant, t
 is _not_ an apex domain, and you are not
 already using a wildcard that overlaps with that alternate domain name, use
 a wildcard to move the alternate domain name. For more information, see
-[Use a wildcard to move an
-alternate domain name](#alternate-domain-names-move-use-wildcard "#alternate-domain-names-move-use-wildcard").
+[Use a wildcard to move an alternate domain name](#alternate-domain-names-move-use-wildcard "#alternate-domain-names-move-use-wildcard").
 
 If you don’t have access to the AWS account that has the source
 standard distribution or distribution tenant, you can try using the
 **update-domain-association** command to move the
 alternate domain name. The source standard distribution or distribution tenant must be disabled before you
-can move the alternate domain name. For additional help, see [Contact AWS Support to
-move an alternate domain name](#alternate-domain-names-move-contact-support "#alternate-domain-names-move-contact-support").
+can move the alternate domain name. For additional help, see [Contact AWS Support to move an alternate domain name](#alternate-domain-names-move-contact-support "#alternate-domain-names-move-contact-support").
 
 ###### Note
 
@@ -39,9 +35,7 @@ Reference_.
 
 update-domain-association (standard distributions and distribution tenants)
 
-###### To use `update-domain-association` to move an alternate
-
-domain name
+###### To use `update-domain-association` to move an alternate domain name
 
 1.  Use the `update-domain-association` command, as shown
     in the following example.
@@ -66,8 +60,7 @@ domain name
          tenant) are in different AWS accounts, the source must
          be disabled before you can move the domain.
         * The target distribution must be set up as described in
-         [Set up the target
-         standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
+         [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
 
     **Request**
 
@@ -99,9 +92,7 @@ specify the connection group endpoint. For more information, see
 
 associate-alias (standard distributions only)
 
-###### To use `associate-alias` to move an alternate domain
-
-name
+###### To use `associate-alias` to move an alternate domain name
 
 1.  Use the `associate-alias` command, as shown in the
     following example.
@@ -126,8 +117,7 @@ name
          are in different AWS accounts, you must disable
          the source standard distribution first.
         * The target standard distribution must be set up as
-         described in [Set up the target
-         standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
+         described in [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
 
     **Request**
 
@@ -151,9 +141,7 @@ name
 For more information, see the [associate-alias](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/associate-alias.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudfront/associate-alias.html") command in the
 _AWS CLI Command Reference_.
 
-## Use a wildcard to move an
-
-alternate domain name
+## Use a wildcard to move an alternate domain name
 
 If the source distribution is in a different AWS account than the target
 distribution, and the source distribution is enabled, you can use a wildcard to move
@@ -163,8 +151,7 @@ the alternate domain name.
 
 You can’t use a wildcard to move an apex domain (like example.com). To move an
 apex domain when the source and target distributions are in different
-AWS accounts, contact Support. For more information, see [Contact AWS Support to
-move an alternate domain name](#alternate-domain-names-move-contact-support "#alternate-domain-names-move-contact-support").
+AWS accounts, contact Support. For more information, see [Contact AWS Support to move an alternate domain name](#alternate-domain-names-move-contact-support "#alternate-domain-names-move-contact-support").
 
 ###### To use a wildcard to move an alternate domain name
 
@@ -197,9 +184,7 @@ the DNS record for the alternate domain name resolves to the domain name of
 the target distribution. 6. (Optional) Update the target distribution to remove the wildcard alternate
 domain name.
 
-## Contact AWS Support to
-
-move an alternate domain name
+## Contact AWS Support to move an alternate domain name
 
 If the source and target distributions are in different AWS accounts, and you
 don’t have access to the source distribution’s AWS account or can’t disable the
@@ -208,8 +193,7 @@ source distribution, you can contact Support to move the alternate domain name.
 ###### To contact Support to move an alternate domain name
 
 1. Set up a target distribution, including the DNS TXT record that points to
-   the target distribution. For more information, see [Set up the target
-   standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
+   the target distribution. For more information, see [Set up the target standard distribution or distribution tenant](alternate-domain-names-move-create-target.md "alternate-domain-names-move-create-target.md").
 2. [Contact Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") to request
    that they verify that you own the domain, and move the domain to the new
    CloudFront distribution for you.

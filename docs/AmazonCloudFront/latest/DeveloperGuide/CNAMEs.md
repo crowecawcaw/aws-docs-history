@@ -8,18 +8,14 @@ To learn how to use your own domain name, such as www.example.com, see the follo
 
 ###### Topics
 
-- [Requirements for using alternate domain
-  names](#alternate-domain-names-requirements "#alternate-domain-names-requirements")
-- [Restrictions on using
-  alternate domain names](#alternate-domain-names-restrictions "#alternate-domain-names-restrictions")
+- [Requirements for using alternate domain names](#alternate-domain-names-requirements "#alternate-domain-names-requirements")
+- [Restrictions on using alternate domain names](#alternate-domain-names-restrictions "#alternate-domain-names-restrictions")
 - [Add an alternate domain name](CreatingCNAME.md "CreatingCNAME.md")
 - [Move an alternate domain name](alternate-domain-names-move.md "alternate-domain-names-move.md")
 - [Remove an alternate domain name](alternate-domain-names-remove-domain.md "alternate-domain-names-remove-domain.md")
 - [Use wildcards in alternate domain names](alternate-domain-names-wildcard.md "alternate-domain-names-wildcard.md")
 
-## Requirements for using alternate domain
-
-names
+## Requirements for using alternate domain names
 
 When you add an alternate domain name, such as www.example.com, to a CloudFront distribution, the
 following are requirements:
@@ -40,8 +36,7 @@ A trusted certificate is one that is issued by AWS Certificate Manager (ACM) or 
 validate an existing CNAME, but _not_ for a new
 CNAME. CloudFront supports the same certificate authorities as Mozilla. For
 the current list, see [Mozilla
-Included CA Certificate List](https://wiki.mozilla.org/CA/Included_Certificates "https://wiki.mozilla.org/CA/Included_Certificates"). For information about intermediate certificates when using a third-party CA, see [Intermediate
-certificates](cnames-and-https-requirements.md#https-requirements-intermediate-certificates "cnames-and-https-requirements.md#https-requirements-intermediate-certificates").
+Included CA Certificate List](https://wiki.mozilla.org/CA/Included_Certificates "https://wiki.mozilla.org/CA/Included_Certificates"). For information about intermediate certificates when using a third-party CA, see [Intermediate certificates](cnames-and-https-requirements.md#https-requirements-intermediate-certificates "cnames-and-https-requirements.md#https-requirements-intermediate-certificates").
 
 To verify an alternate domain name by using the certificate that you attach, including
 alternate domain names that include wildcards, CloudFront checks the subject
@@ -97,12 +92,9 @@ application for the domain owner.
 **Alternate domain names and HTTPS**
 
 If you want viewers to use HTTPS with an alternate domain name, you must complete some
-additional configuration. For more information, see [Use alternate domain names and
-HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
+additional configuration. For more information, see [Use alternate domain names and HTTPS](using-https-alternate-domain-names.md "using-https-alternate-domain-names.md").
 
-## Restrictions on using
-
-alternate domain names
+## Restrictions on using alternate domain names
 
 Note the following restrictions on using alternate domain names:
 
@@ -128,8 +120,7 @@ marketing.domain.com is more specific than \*.domain.com.
 
 If you have an existing wildcard DNS entry that points to a CloudFront
 distribution and you receive an incorrectly configured DNS error when
-trying to add a new CNAME with a more specific name, see [CloudFront returns
-an incorrectly configured DNS record error when I try to add a new CNAME](troubleshooting-distributions.md#troubleshoot-incorrectly-configured-DNS-record-error "troubleshooting-distributions.md#troubleshoot-incorrectly-configured-DNS-record-error").
+trying to add a new CNAME with a more specific name, see [CloudFront returns an incorrectly configured DNS record error when I try to add a new CNAME](troubleshooting-distributions.md#troubleshoot-incorrectly-configured-DNS-record-error "troubleshooting-distributions.md#troubleshoot-incorrectly-configured-DNS-record-error").
 
 **Domain fronting**
 
@@ -224,5 +215,4 @@ _Amazon Route 53 Developer Guide_.
 
 If you're not using Route 53 for your DNS, you can request Anycast static
 IP addresses to route apex domains like example.com to CloudFront. For more
-information, see [Request Anycast static IPs to use for
-allowlisting](request-static-ips.md "request-static-ips.md").
+information, see [Request Anycast static IPs to use for allowlisting](request-static-ips.md "request-static-ips.md").

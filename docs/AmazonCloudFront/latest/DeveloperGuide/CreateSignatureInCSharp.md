@@ -1,6 +1,4 @@
-# Create a URL signature using C# and the .NET
-
-Framework
+# Create a URL signature using C# and the .NET Framework
 
 The C# examples in this section implement an example application that demonstrates how to
 create the signatures for CloudFront private distributions using canned and custom policy
@@ -30,9 +28,7 @@ the XML format that the .NET Framework uses.
 
 After conversion, the RSA private key file is in the following format:
 
-###### Example: RSA private key in the XML .NET Framework
-
-format
+###### Example: RSA private key in the XML .NET Framework format
 
 ```
 <RSAKeyValue>
@@ -69,9 +65,7 @@ format
 </RSAKeyValue>
 ```
 
-## Canned policy signing method in
-
-C#
+## Canned policy signing method in C#
 
 The following C# code creates a signed URL that uses a canned policy by doing
 the following:
@@ -95,9 +89,7 @@ For more information, see
 ![6](images/callouts/6.png)
 [&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
 
-###### Example: Canned policy
-
-signing method in C#
+###### Example: Canned policy signing method in C#
 
 ```
 public static string ToUrlSafeBase64String(byte[] bytes)
@@ -173,9 +165,7 @@ public static string CreateCannedPrivateURL(string urlString,
 }
 ```
 
-## Custom policy signing method in
-
-C#
+## Custom policy signing method in C#
 
 The following C# code creates a signed URL that uses a custom policy by doing
 the following:
@@ -201,9 +191,7 @@ For more information, see
 ![6](images/callouts/6.png)
 [&Key-Pair-Id](private-content-creating-signed-url-canned-policy.md "private-content-creating-signed-url-canned-policy.md").
 
-###### Example: Custom policy
-
-signing method in C#
+###### Example: Custom policy signing method in C#
 
 ```
 public static string ToUrlSafeBase64String(byte[] bytes)
@@ -281,16 +269,12 @@ public static string CreateCustomPrivateURL(string urlString,
 }
 ```
 
-## Utility methods for signature
-
-generation
+## Utility methods for signature generation
 
 The following methods get the policy statement from a file and parse time intervals for signature
 generation.
 
-###### Example: Utility methods for signature
-
-generation
+###### Example: Utility methods for signature generation
 
 ```
 public static string CreatePolicyStatement(string policyStmnt,
@@ -397,5 +381,4 @@ See also
 
 - [Create a URL signature using Perl](CreateURLPerl.md "CreateURLPerl.md")
 - [Create a URL signature using PHP](CreateURL_PHP.md "CreateURL_PHP.md")
-- [Create a URL signature using
-  Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")
+- [Create a URL signature using Java](CFPrivateDistJavaDevelopment.md "CFPrivateDistJavaDevelopment.md")

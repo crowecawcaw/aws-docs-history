@@ -1,22 +1,15 @@
-# Specify signers that can create signed
-
-URLs and signed cookies
+# Specify signers that can create signed URLs and signed cookies
 
 ###### Topics
 
-- [Choose between trusted key groups
-  (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts")
-- [Create key pairs for your
-  signers](#private-content-creating-cloudfront-key-pairs "#private-content-creating-cloudfront-key-pairs")
-- [Reformat the private
-  key (.NET and Java only)](#private-content-reformatting-private-key "#private-content-reformatting-private-key")
-- [Add a signer to a
-  distribution](#private-content-adding-trusted-signers "#private-content-adding-trusted-signers")
+- [Choose between trusted key groups (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts")
+- [Create key pairs for your signers](#private-content-creating-cloudfront-key-pairs "#private-content-creating-cloudfront-key-pairs")
+- [Reformat the private key (.NET and Java only)](#private-content-reformatting-private-key "#private-content-reformatting-private-key")
+- [Add a signer to a distribution](#private-content-adding-trusted-signers "#private-content-adding-trusted-signers")
 - [Rotating key pairs](#private-content-rotating-key-pairs "#private-content-rotating-key-pairs")
   To create signed URLs or signed cookies, you need a _signer_. A signer is either a trusted key group that you create in CloudFront, or
   an AWS account that contains a CloudFront key pair. We recommend that you use trusted key
-  groups with signed URLs and signed cookies. For more information, see [Choose between trusted key groups
-  (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts").
+  groups with signed URLs and signed cookies. For more information, see [Choose between trusted key groups (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts").
 
 The signer has two purposes:
 
@@ -40,21 +33,15 @@ cookies, and to add the signers to your CloudFront distribution, do the followin
 tasks:
 
 1. Decide whether to use a trusted key group or an AWS account as the signer. We recommend
-   using a trusted key group. For more information, see [Choose between trusted key groups
-   (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts").
+   using a trusted key group. For more information, see [Choose between trusted key groups (recommended) and AWS accounts](#choosing-key-groups-or-AWS-accounts "#choosing-key-groups-or-AWS-accounts").
 2. For the signer that you chose in step 1, create a public–private key pair. For more
-   information, see [Create key pairs for your
-   signers](#private-content-creating-cloudfront-key-pairs "#private-content-creating-cloudfront-key-pairs").
+   information, see [Create key pairs for your signers](#private-content-creating-cloudfront-key-pairs "#private-content-creating-cloudfront-key-pairs").
 3. If you’re using .NET or Java to create signed URLs or signed cookies, reformat the private
-   key. For more information, see [Reformat the private
-   key (.NET and Java only)](#private-content-reformatting-private-key "#private-content-reformatting-private-key").
+   key. For more information, see [Reformat the private key (.NET and Java only)](#private-content-reformatting-private-key "#private-content-reformatting-private-key").
 4. In the distribution for which you’re creating signed URLs or signed cookies, specify the
-   signer. For more information, see [Add a signer to a
-   distribution](#private-content-adding-trusted-signers "#private-content-adding-trusted-signers").
+   signer. For more information, see [Add a signer to a distribution](#private-content-adding-trusted-signers "#private-content-adding-trusted-signers").
 
-## Choose between trusted key groups
-
-(recommended) and AWS accounts
+## Choose between trusted key groups (recommended) and AWS accounts
 
 To use signed URLs or signed cookies, you need a _signer_.
 A signer is either a trusted key group that you create in CloudFront, or an AWS account
@@ -85,9 +72,7 @@ following reasons:
 When you use the AWS account root user to manage CloudFront key pairs, you can
 only have up to two active CloudFront key pairs per AWS account.
 
-## Create key pairs for your
-
-signers
+## Create key pairs for your signers
 
 Each signer that you use to create CloudFront signed URLs or signed cookies must have a
 public–private key pair. The signer uses its private key to sign the URL or
@@ -103,9 +88,7 @@ sections. The key pair that you create must meet the following requirements:
 To help secure your applications, we recommend that you rotate key pairs
 periodically. For more information, see [Rotating key pairs](#private-content-rotating-key-pairs "#private-content-rotating-key-pairs").
 
-### Create a key pair for a trusted key group
-
-(recommended)
+### Create a key pair for a trusted key group (recommended)
 
 To create a key pair for a trusted key group, perform the following steps:
 
@@ -115,9 +98,7 @@ To create a key pair for a trusted key group, perform the following steps:
 
 For more information, see the following procedures.
 
-###### To
-
-create a key pair
+###### To create a key pair
 
 ###### Note
 
@@ -216,8 +197,7 @@ file) later, in the following procedure.
 
 We recommend that you create a public key for a trusted key group
 instead of following these steps. For the recommended way to create
-public keys for signed URLs and signed cookies, see [Create a key pair for a trusted key group
-(recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
+public keys for signed URLs and signed cookies, see [Create a key pair for a trusted key group (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
 
 You can create a CloudFront key pair in the following ways:
 
@@ -225,12 +205,9 @@ You can create a CloudFront key pair in the following ways:
   See the following procedure.
 - Create an RSA key pair by using an application such as OpenSSL,
   and then upload the public key to the AWS Management Console. For more
-  information about creating an RSA key pair, see [Create a key pair for a trusted key group
-  (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
+  information about creating an RSA key pair, see [Create a key pair for a trusted key group (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
 
-###### To
-
-create CloudFront key pairs in the AWS Management Console
+###### To create CloudFront key pairs in the AWS Management Console
 
 1. Sign in to the AWS Management Console using the credentials of the AWS
    account root user.
@@ -261,9 +238,7 @@ create a new CloudFront key pair. 7. Record the key pair ID for your key pair. (
 is called the **Access Key ID**.) You’ll use it
 when you create signed URLs or signed cookies.
 
-## Reformat the private
-
-key (.NET and Java only)
+## Reformat the private key (.NET and Java only)
 
 If you’re using .NET or Java to create signed URLs or signed cookies, you cannot use the
 private key from your key pair in the default PEM format to create the signature.
@@ -287,9 +262,7 @@ To ensure that the encoder works correctly, add the JAR for the Bouncy Castle Ja
 cryptography APIs to your project and then add the Bouncy Castle
 provider.
 
-## Add a signer to a
-
-distribution
+## Add a signer to a distribution
 
 A signer is the trusted key group (recommended) or CloudFront key pair that can create
 signed URLs and signed cookies for a distribution. To use signed URLs or signed
@@ -336,13 +309,10 @@ Console
 The following steps show how to add a trusted key group as a signer. You can
 also add an AWS account as a trusted signer, but it’s not recommended.
 
-###### To add a signer to a
-
-distribution using the console
+###### To add a signer to a distribution using the console
 
 1. Record the key group ID of the key group that you want to use as a
-   trusted signer. For more information, see [Create a key pair for a trusted key group
-   (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
+   trusted signer. For more information, see [Create a key pair for a trusted key group (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
 2. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 3. Choose the distribution whose files you want to protect with signed URLs or signed
    cookies.
@@ -387,8 +357,7 @@ signed cookies without invalidating URLs or cookies that haven’t expired yet, 
 following tasks:
 
 1. Create a new key pair, and add the public key to a key group. For more
-   information, see [Create a key pair for a trusted key group
-   (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
+   information, see [Create a key pair for a trusted key group (recommended)](#create-key-pair-and-key-group "#create-key-pair-and-key-group").
 2. If you created a new key group in the previous step, [add the key group
    to the distribution as a signer](#private-content-adding-trusted-signers "#private-content-adding-trusted-signers").
 

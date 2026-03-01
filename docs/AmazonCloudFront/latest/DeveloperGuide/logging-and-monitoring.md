@@ -27,8 +27,7 @@ CloudFront logs provide detailed records about requests that are made to a distr
 are useful for many applications. For example, log information can be useful in
 security and access audits.
 
-For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and [Create and use real-time access log
-configurations](real-time-logs.md#create-real-time-log-config "real-time-logs.md#create-real-time-log-config").
+For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and [Create and use real-time access log configurations](real-time-logs.md#create-real-time-log-config "real-time-logs.md#create-real-time-log-config").
 
 **Edge function logs**
 

@@ -26,21 +26,15 @@ received as recently as an hour ago, but data can occasionally be delayed by as 
 
 ###### Topics
 
-- [View CloudFront cache statistics reports in the
-  console](#cache-statistics-howto "#cache-statistics-howto")
+- [View CloudFront cache statistics reports in the console](#cache-statistics-howto "#cache-statistics-howto")
 - [Download data in CSV format](#cache-statistics-csv "#cache-statistics-csv")
-- [How cache statistics charts are related to
-  data in the CloudFront standard logs (access logs)](#cache-statistics-data "#cache-statistics-data")
+- [How cache statistics charts are related to data in the CloudFront standard logs (access logs)](#cache-statistics-data "#cache-statistics-data")
 
-## View CloudFront cache statistics reports in the
-
-console
+## View CloudFront cache statistics reports in the console
 
 You can view the CloudFront cache statistics report in the console.
 
-###### To view the CloudFront cache statistics
-
-report
+###### To view the CloudFront cache statistics report
 
 1.  Sign in to the AWS Management Console and open the CloudFront console at
     [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -96,9 +90,7 @@ report
 You can download the cache statistics report in CSV format. This section explains
 how to download the report and describes the values in the report.
 
-###### To download the cache statistics
-
-report in CSV format
+###### To download the cache statistics report in CSV format
 
 1. While viewing the cache statistics report, choose
    **CSV**.
@@ -106,9 +98,7 @@ report in CSV format
    name_** dialog box, choose whether to open or save
    the file.
 
-### Information about the
-
-report
+### Information about the report
 
 The first few rows of the report include the following information:
 
@@ -151,9 +141,7 @@ The continent that viewer requests originated from, or
 `ALL`, if you chose to download the report for all
 locations.
 
-### Data in the cache statistics
-
-report
+### Data in the cache statistics report
 
 The report includes the following values:
 
@@ -240,9 +228,7 @@ approximation of bytes transferred from your origin to CloudFront edge
 caches. However, it excludes requests for objects that are already
 in the edge cache but that have expired.
 
-## How cache statistics charts are related to
-
-data in the CloudFront standard logs (access logs)
+## How cache statistics charts are related to data in the CloudFront standard logs (access logs)
 
 The following table shows how cache statistics charts in the CloudFront console
 correspond with values in CloudFront access logs. For more information about CloudFront access

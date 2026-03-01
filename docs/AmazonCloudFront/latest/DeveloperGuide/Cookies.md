@@ -37,9 +37,7 @@ cookie to the origin. Otherwise, CloudFront removes the cookie before forwarding
 request to your origin.
 
 To configure cookie forwarding, you update your distribution’s cache behavior. For
-more information about cache behaviors, see [Cache behavior
-settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md"), particularly the [Forward cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardCookies") and [Allowlist
-cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies") sections.
+more information about cache behaviors, see [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md"), particularly the [Forward cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesForwardCookies") and [Allowlist cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies") sections.
 
 You can configure each cache behavior to do one of the following:
 
@@ -59,12 +57,10 @@ You can configure each cache behavior to do one of the following:
   headers with the object returned from the origin, and sends those
   `Set-Cookie` headers to viewers on all cache hits.
 
-For information about specifying wildcards in cookie names, see [Allowlist
-cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies").
+For information about specifying wildcards in cookie names, see [Allowlist cookies](DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies "DownloadDistValuesCacheBehavior.md#DownloadDistValuesAllowlistCookies").
 
 For the current quota on the number of cookie names that you can forward for
-each cache behavior, or to request a higher quota, see [Quotas on query strings (legacy cache
-settings)](cloudfront-limits.md#limits-allowlisted-query-strings "cloudfront-limits.md#limits-allowlisted-query-strings").
+each cache behavior, or to request a higher quota, see [Quotas on query strings (legacy cache settings)](cloudfront-limits.md#limits-allowlisted-query-strings "cloudfront-limits.md#limits-allowlisted-query-strings").
 
 - **Don't forward cookies to your origin –** CloudFront doesn’t cache your objects based on cookie sent by the viewer.
   In addition, CloudFront removes cookies before forwarding requests to your origin, and

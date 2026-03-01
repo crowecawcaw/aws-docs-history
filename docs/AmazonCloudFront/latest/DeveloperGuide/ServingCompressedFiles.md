@@ -9,19 +9,13 @@ uncompressed.
 
 ###### Topics
 
-- [Configure CloudFront to compress
-  objects](#compressed-content-cloudfront-configuring "#compressed-content-cloudfront-configuring")
-- [How CloudFront compression
-  works](#compressed-content-cloudfront-how-it-works "#compressed-content-cloudfront-how-it-works")
+- [Configure CloudFront to compress objects](#compressed-content-cloudfront-configuring "#compressed-content-cloudfront-configuring")
+- [How CloudFront compression works](#compressed-content-cloudfront-how-it-works "#compressed-content-cloudfront-how-it-works")
 - [Conditions for compression](#compressed-content-cloudfront-notes "#compressed-content-cloudfront-notes")
-- [File types that CloudFront
-  compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types")
-- [ETag header
-  conversion](#compressed-content-cloudfront-etag-header "#compressed-content-cloudfront-etag-header")
+- [File types that CloudFront compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types")
+- [ETag header conversion](#compressed-content-cloudfront-etag-header "#compressed-content-cloudfront-etag-header")
 
-## Configure CloudFront to compress
-
-objects
+## Configure CloudFront to compress objects
 
 To configure CloudFront to compress objects, update the cache behavior that you want to
 serve the compressed objects.
@@ -50,9 +44,7 @@ serve the compressed objects.
 
 To understand how CloudFront compresses objects, see the following section.
 
-## How CloudFront compression
-
-works
+## How CloudFront compression works
 
 1. A viewer requests an object. The viewer includes the
    `Accept-Encoding` HTTP header in the request, and the header
@@ -90,8 +82,7 @@ format, subsequent requests to the same object will always return the Gzip
 version, even if the viewer accepts both Brotli and Gzip.
 
 Some custom origins can also compress objects. Your origin might be able to compress
-objects that CloudFront doesn’t compress. For more information, see [File types that CloudFront
-compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types").
+objects that CloudFront doesn’t compress. For more information, see [File types that CloudFront compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types").
 
 ## Conditions for compression
 
@@ -141,8 +132,7 @@ location.
 
 **File types that CloudFront compresses**
 
-For a complete list, see [File types that CloudFront
-compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types").
+For a complete list, see [File types that CloudFront compresses](#compressed-content-cloudfront-file-types "#compressed-content-cloudfront-file-types").
 
 **Size of objects that CloudFront compresses**
 
@@ -157,8 +147,7 @@ the range that CloudFront compresses. If the `Content-Length` header is
 missing, contains an invalid value, or contains a value outside the range of
 sizes that CloudFront compresses, CloudFront doesn't compress the object. For more
 information about how CloudFront processes large objects that can exceed the size
-range, see [How CloudFront processes partial requests for an object (range
-GETs)](RangeGETs.md "RangeGETs.md").
+range, see [How CloudFront processes partial requests for an object (range GETs)](RangeGETs.md "RangeGETs.md").
 
 **HTTP status code of the response**
 
@@ -173,8 +162,7 @@ CloudFront to compress.
 **`ETag` header**
 
 CloudFront sometimes modifies the `ETag` header in the HTTP response
-when it compresses objects. For more information, see [ETag header
-conversion](#compressed-content-cloudfront-etag-header "#compressed-content-cloudfront-etag-header").
+when it compresses objects. For more information, see [ETag header conversion](#compressed-content-cloudfront-etag-header "#compressed-content-cloudfront-etag-header").
 
 **CloudFront skips compression**
 
@@ -185,9 +173,7 @@ CloudFront skips compression for an object, it caches the uncompressed object an
 continues to serve it to viewers until the object expires, is evicted, or is
 invalidated.
 
-## File types that CloudFront
-
-compresses
+## File types that CloudFront compresses
 
 If you configure CloudFront to compress objects, CloudFront only compresses objects that have one
 of the following values in the `Content-Type` response header:
@@ -243,9 +229,7 @@ of the following values in the `Content-Type` response header:
 
 [Show moreShow less](# "#")
 
-## `ETag` header
-
-conversion
+## `ETag` header conversion
 
 When the uncompressed object from the origin includes a valid, strong
 `ETag` HTTP header, and CloudFront compresses the object, CloudFront also converts

@@ -1,6 +1,4 @@
-# HTTP 504 status code (Gateway
-
-Timeout)
+# HTTP 504 status code (Gateway Timeout)
 
 An HTTP 504 status code (gateway timeout) indicates that when CloudFront forwarded a
 request to the origin (because the requested object wasn't in the edge cache), one
@@ -15,18 +13,12 @@ of the following happened:
 
 ###### Topics
 
-- [Configure the
-  firewall on your origin server to allow CloudFront traffic](#http-504-gateway-timeout-configure-firewall "#http-504-gateway-timeout-configure-firewall")
-- [Configure
-  the security groups on your origin server to allow CloudFront traffic](#http-504-gateway-timeout-configure-security-groups "#http-504-gateway-timeout-configure-security-groups")
-- [Make your
-  custom origin server accessible on the internet](#http-504-gateway-timeout-make-origin-accessible "#http-504-gateway-timeout-make-origin-accessible")
-- [Find and fix delayed
-  responses from applications on your origin server](#http-504-gateway-timeout-slow-application "#http-504-gateway-timeout-slow-application")
+- [Configure the firewall on your origin server to allow CloudFront traffic](#http-504-gateway-timeout-configure-firewall "#http-504-gateway-timeout-configure-firewall")
+- [Configure the security groups on your origin server to allow CloudFront traffic](#http-504-gateway-timeout-configure-security-groups "#http-504-gateway-timeout-configure-security-groups")
+- [Make your custom origin server accessible on the internet](#http-504-gateway-timeout-make-origin-accessible "#http-504-gateway-timeout-make-origin-accessible")
+- [Find and fix delayed responses from applications on your origin server](#http-504-gateway-timeout-slow-application "#http-504-gateway-timeout-slow-application")
 
-## Configure the
-
-firewall on your origin server to allow CloudFront traffic
+## Configure the firewall on your origin server to allow CloudFront traffic
 
 If the firewall on your origin server blocks CloudFront traffic, CloudFront returns an
 HTTP 504 status code, so it's good to make sure that isn't the issue before
@@ -42,8 +34,7 @@ depends on what system your origin server uses:
 
 When you evaluate the firewall configuration on your origin server, look for
 any firewalls or security rules that block traffic from CloudFront edge locations,
-based on the published IP address range. For more information, see [Locations and IP address ranges of CloudFront edge
-servers](LocationsOfEdgeServers.md "LocationsOfEdgeServers.md").
+based on the published IP address range. For more information, see [Locations and IP address ranges of CloudFront edge servers](LocationsOfEdgeServers.md "LocationsOfEdgeServers.md").
 
 If the CloudFront IP address range is allowed to connect to your origin server, make
 sure to update your server's security rules to incorporate changes. You can
@@ -53,9 +44,7 @@ retrieve the file, parse it, and make adjustments for your local environment.
 For more information, see [Subscribe to AWS Public IP Address Changes via Amazon SNS](https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/ "https://aws.amazon.com/blogs/aws/subscribe-to-aws-public-ip-address-changes-via-amazon-sns/") on the AWS
 News Blog.
 
-## Configure
-
-the security groups on your origin server to allow CloudFront traffic
+## Configure the security groups on your origin server to allow CloudFront traffic
 
 If your origin uses Elastic Load Balancing, review the [ELB security groups](../../../elasticloadbalancing/latest/classic/elb-security-groups.md "../../../elasticloadbalancing/latest/classic/elb-security-groups.md") and make sure that the
 security groups allow inbound traffic from CloudFront.
@@ -63,9 +52,7 @@ security groups allow inbound traffic from CloudFront.
 You can also use AWS Lambda to automatically update your security groups to
 allow inbound traffic from CloudFront.
 
-## Make your
-
-custom origin server accessible on the internet
+## Make your custom origin server accessible on the internet
 
 If CloudFront can't access your custom origin server because it isn't publicly
 available on the internet, CloudFront returns an HTTP 504 error.
@@ -89,9 +76,7 @@ For HTTP traffic:
 - nc -zv `OriginDomainName` 80
 - telnet `OriginDomainName` 80
 
-## Find and fix delayed
-
-responses from applications on your origin server
+## Find and fix delayed responses from applications on your origin server
 
 Server timeouts are often the result of either an application taking a very
 long time to respond, or a timeout value that is set too low.

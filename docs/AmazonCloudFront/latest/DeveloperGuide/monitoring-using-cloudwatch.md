@@ -12,8 +12,7 @@ cost.
 In addition to the default metrics for CloudFront distributions, you can turn on additional
 metrics for an additional cost. The additional metrics apply to CloudFront distributions, and must
 be turned on for each distribution separately. For more information about the cost, see
-[Estimate
-the cost for the additional CloudFront metrics](viewing-cloudfront-metrics.md#monitoring-console.distributions-additional-pricing "viewing-cloudfront-metrics.md#monitoring-console.distributions-additional-pricing").
+[Estimate the cost for the additional CloudFront metrics](viewing-cloudfront-metrics.md#monitoring-console.distributions-additional-pricing "viewing-cloudfront-metrics.md#monitoring-console.distributions-additional-pricing").
 
 You can also set alarms based on these metrics in the CloudFront console, or in the CloudWatch
 console, API, or CLI. For example, you can set an alarm based on the

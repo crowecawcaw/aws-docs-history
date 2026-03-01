@@ -24,5 +24,4 @@ the following examples:
   user credentials, or fetch additional content to customize a response.
   For more information, including example code, see [Lambda@Edge example functions](lambda-examples.md "lambda-examples.md").
 
-For more information about setting up Lambda@Edge in the console, see [Tutorial: Create a basic
-Lambda@Edge function (console)](lambda-edge-how-it-works-tutorial.md "lambda-edge-how-it-works-tutorial.md").
+For more information about setting up Lambda@Edge in the console, see [Tutorial: Create a basic Lambda@Edge function (console)](lambda-edge-how-it-works-tutorial.md "lambda-edge-how-it-works-tutorial.md").

@@ -1,6 +1,4 @@
-# Change response codes returned by
-
-CloudFront
+# Change response codes returned by CloudFront
 
 You can configure CloudFront to return a different HTTP status code to the viewer than what
 CloudFront received from the origin. For example, if your origin returns a 500 status code to

@@ -24,8 +24,7 @@ options:
   in an origin request policy, but when you forward all viewer headers, CloudFront
   includes the `Authorization` header in viewer requests. CloudFront
   provides the managed `AllViewer` origin request policy for this
-  use case. For more information, see [Use managed origin request
-  policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").
+  use case. For more information, see [Use managed origin request policies](using-managed-origin-request-policies.md "using-managed-origin-request-policies.md").
   For more information, see [How
   can I configure CloudFront to forward the Authorization header to the
   origin?](https://repost.aws/knowledge-center/cloudfront-authorization-header "https://repost.aws/knowledge-center/cloudfront-authorization-header")

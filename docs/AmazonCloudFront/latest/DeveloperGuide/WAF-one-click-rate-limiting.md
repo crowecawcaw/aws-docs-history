@@ -19,8 +19,7 @@ CloudFront distribution.
 The **Rate limiting** option only appears in the CloudFront console if you
 specified a non-S3 custom origin for your distribution. Otherwise, you will only see the
 **Core protections** enabled for the distribution. For more information about
-origin types, see [Use various origins with CloudFront
-distributions](DownloadDistS3AndCustomOrigins.md "DownloadDistS3AndCustomOrigins.md").
+origin types, see [Use various origins with CloudFront distributions](DownloadDistS3AndCustomOrigins.md "DownloadDistS3AndCustomOrigins.md").
 
 ###### To set up rate limiting
 

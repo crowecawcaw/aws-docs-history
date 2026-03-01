@@ -4,8 +4,7 @@ The following procedure deletes a distribution by using the CloudFront console.
 For information about deleting with the CloudFront API, see [DeleteDistribution](../../../cloudfront/latest/APIReference/API_DeleteDistribution.md "../../../cloudfront/latest/APIReference/API_DeleteDistribution.md") in the
 _Amazon CloudFront API Reference_.
 
-If you need to delete a distribution with an OAC attached to an S3 bucket, see [Delete a distribution with an OAC
-attached to an S3 bucket](private-content-restricting-access-to-s3.md#delete-oac-distribution-s3 "private-content-restricting-access-to-s3.md#delete-oac-distribution-s3") for important details.
+If you need to delete a distribution with an OAC attached to an S3 bucket, see [Delete a distribution with an OAC attached to an S3 bucket](private-content-restricting-access-to-s3.md#delete-oac-distribution-s3 "private-content-restricting-access-to-s3.md#delete-oac-distribution-s3") for important details.
 
 ###### Warning
 

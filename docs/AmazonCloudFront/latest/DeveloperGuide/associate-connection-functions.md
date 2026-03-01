@@ -4,16 +4,11 @@ After publishing a Connection Function to the LIVE stage, you must associate it 
 
 ###### Topics
 
-- [Association
-  requirements](#connection-function-association-requirements "#connection-function-association-requirements")
-- [Organizing functions with
-  filters](#connection-function-organizing-filters "#connection-function-organizing-filters")
-- [Deployment
-  considerations](#connection-function-deployment-considerations "#connection-function-deployment-considerations")
+- [Association requirements](#connection-function-association-requirements "#connection-function-association-requirements")
+- [Organizing functions with filters](#connection-function-organizing-filters "#connection-function-organizing-filters")
+- [Deployment considerations](#connection-function-deployment-considerations "#connection-function-deployment-considerations")
 
-## Association
-
-requirements
+## Association requirements
 
 To associate a Connection Function with a distribution:
 
@@ -22,9 +17,7 @@ To associate a Connection Function with a distribution:
 - The distribution must have a valid trust store configured
 - You can only associate one Connection Function per distribution
 
-## Organizing functions with
-
-filters
+## Organizing functions with filters
 
 CloudFront provides filtering capabilities to help you organize and manage connection
 functions:
@@ -39,9 +32,7 @@ functions:
 Use these filters when managing multiple Connection Functions across different
 distributions or development environments.
 
-## Deployment
-
-considerations
+## Deployment considerations
 
 Consider these factors when deploying Connection Functions:
 

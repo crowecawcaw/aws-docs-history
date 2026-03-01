@@ -11,14 +11,11 @@ To get started, see the following topics:
 ###### Topics
 
 - [Create a key value store](kvs-with-functions-create.md "kvs-with-functions-create.md")
-- [Associate a key value store with a
-  function](kvs-with-functions-associate.md "kvs-with-functions-associate.md")
+- [Associate a key value store with a function](kvs-with-functions-associate.md "kvs-with-functions-associate.md")
 - [Update a key value store](kvs-with-functions-edit.md "kvs-with-functions-edit.md")
-- [Get a reference to a
-  key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md")
+- [Get a reference to a key value store](kvs-with-functions-get-reference.md "kvs-with-functions-get-reference.md")
 - [Delete a key value store](kvs-with-functions-delete.md "kvs-with-functions-delete.md")
-- [File format for key-value
-  pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md")
+- [File format for key-value pairs](kvs-with-functions-create-s3-kvp.md "kvs-with-functions-create-s3-kvp.md")
 
 ###### Note
 

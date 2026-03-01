@@ -7,15 +7,11 @@ contents of your distribution.
 
 ###### Contents
 
-- [How to specify a default root
-  object](DefaultRootObject.md#DefaultRootObjectHowToDefine "DefaultRootObject.md#DefaultRootObjectHowToDefine")
+- [How to specify a default root object](DefaultRootObject.md#DefaultRootObjectHowToDefine "DefaultRootObject.md#DefaultRootObjectHowToDefine")
 - [How default root object works](DefaultRootObject.md#DefaultRootObjectHow "DefaultRootObject.md#DefaultRootObjectHow")
-- [How CloudFront works if you don’t define a root
-  object](DefaultRootObject.md#DefaultRootObjectNotSet "DefaultRootObject.md#DefaultRootObjectNotSet")
+- [How CloudFront works if you don’t define a root object](DefaultRootObject.md#DefaultRootObjectNotSet "DefaultRootObject.md#DefaultRootObjectNotSet")
 
-## How to specify a default root
-
-object
+## How to specify a default root object
 
 To avoid exposing the contents of your distribution or returning an error, specify
 a default root object for your distribution. You can specify the exact file name or
@@ -29,9 +25,7 @@ distribution will return the specified file from that path. You can use a file p
 to have more flexibility to organize your content at the origin, as your default
 root object can be in a folder instead of at the root level.
 
-###### To specify a default root object for
-
-your distribution
+###### To specify a default root object for your distribution
 
 1. Upload the default root object to the origin that your distribution points
    to.
@@ -158,9 +152,7 @@ You still need to manage security for your origin. For example, if you are using
 an Amazon S3 origin, you still need to set your Amazon S3 bucket ACLs appropriately to
 ensure the level of access you want on your bucket.
 
-## How CloudFront works if you don’t define a root
-
-object
+## How CloudFront works if you don’t define a root object
 
 If you don't define a default root object, requests for the root of your
 distribution pass to your origin server. If you are using an Amazon S3 origin, any of the
@@ -181,8 +173,7 @@ following might be returned:
   with your distribution are visible to anyone who has the credentials to
   access your distribution through CloudFront. In this case, users are not able to
   access your content through your origin root URL. For more information about
-  distributing private content, see [Serve private content with signed URLs and signed
-  cookies](PrivateContent.md "PrivateContent.md").
+  distributing private content, see [Serve private content with signed URLs and signed cookies](PrivateContent.md "PrivateContent.md").
 - `Error 403 Forbidden`—CloudFront returns this error if the
   permissions on the Amazon S3 bucket associated with your distribution or the
   permissions on the objects in that bucket deny access to CloudFront and to

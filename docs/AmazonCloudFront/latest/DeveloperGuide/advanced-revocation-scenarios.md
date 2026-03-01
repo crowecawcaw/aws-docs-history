@@ -1,24 +1,17 @@
-# Advanced revocation
-
-scenarios
+# Advanced revocation scenarios
 
 For more complex certificate revocation requirements, consider these additional
 configurations:
 
 ###### Topics
 
-- [Convert Certificate Revocation Lists
-  (CRL) to KeyValueStore format](#convert-crl-kvs-format "#convert-crl-kvs-format")
-- [Handle multiple Certificate
-  Authorities](#handle-multiple-cas "#handle-multiple-cas")
-- [Add custom data to connection
-  logs](#add-custom-data-logs "#add-custom-data-logs")
+- [Convert Certificate Revocation Lists (CRL) to KeyValueStore format](#convert-crl-kvs-format "#convert-crl-kvs-format")
+- [Handle multiple Certificate Authorities](#handle-multiple-cas "#handle-multiple-cas")
+- [Add custom data to connection logs](#add-custom-data-logs "#add-custom-data-logs")
 - [Manage CRL updates](#manage-crl-updates "#manage-crl-updates")
 - [Plan KeyValueStore capacity](#plan-kvs-capacity "#plan-kvs-capacity")
 
-## Convert Certificate Revocation Lists
-
-(CRL) to KeyValueStore format
+## Convert Certificate Revocation Lists (CRL) to KeyValueStore format
 
 If you have a Certificate Revocation List (CRL) file, you can convert it to
 KeyValueStore JSON format using OpenSSL and jq:
@@ -44,9 +37,7 @@ jq -R -s 'split("\n") | map(select(length > 0)) | {data: map({"key": ., "value":
 Upload the formatted file to S3 and create the KeyValueStore as described in
 Step 1.
 
-## Handle multiple Certificate
-
-Authorities
+## Handle multiple Certificate Authorities
 
 When your TrustStore contains multiple Certificate Authorities (CAs), include
 the issuer information in your KeyValueStore keys to avoid conflicts between
@@ -84,9 +75,7 @@ Using issuer identifier + serial number creates longer keys, which may
 reduce the total number of entries you can store in the
 KeyValueStore.
 
-## Add custom data to connection
-
-logs
+## Add custom data to connection logs
 
 Connection functions can add custom data to CloudFront connection logs using the
 logCustomData method. This lets you include revocation check results,

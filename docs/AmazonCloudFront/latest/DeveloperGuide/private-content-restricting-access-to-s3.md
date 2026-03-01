@@ -1,6 +1,4 @@
-# Restrict access to an Amazon S3
-
-origin
+# Restrict access to an Amazon S3 origin
 
 CloudFront provides two ways to send authenticated requests to an Amazon S3 origin: _origin access control_ (OAC) and _origin access identity_ (OAI). OAC helps you secure your origins, such as
 Amazon S3.
@@ -14,8 +12,7 @@ following features:
   encryption with AWS KMS](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") (SSE-KMS)
 - Dynamic requests (`PUT` and `DELETE`) to Amazon S3
   OAI doesn't support these features or it requires extra workarounds in those
-  scenarios. If you're already using OAI and want to migrate, see [Migrating from origin access identity
-  (OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac").
+  scenarios. If you're already using OAI and want to migrate, see [Migrating from origin access identity (OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac").
 
 ###### Notes
 
@@ -33,12 +30,9 @@ following features:
 **Topics**
 
 - [Create a new origin access control](#create-oac-overview-s3 "#create-oac-overview-s3")
-- [Delete a distribution with an OAC
-  attached to an S3 bucket](#delete-oac-distribution-s3 "#delete-oac-distribution-s3")
-- [Migrating from origin access identity
-  (OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac")
-- [Advanced settings for origin access
-  control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3")
+- [Delete a distribution with an OAC attached to an S3 bucket](#delete-oac-distribution-s3 "#delete-oac-distribution-s3")
+- [Migrating from origin access identity (OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac")
+- [Advanced settings for origin access control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3")
 
 ## Create a new origin access control
 
@@ -48,8 +42,7 @@ control in CloudFront.
 ###### Topics
 
 - [Prerequisites](#oac-prerequisites-s3 "#oac-prerequisites-s3")
-- [Grant CloudFront permission to access
-  the S3 bucket](#oac-permission-to-access-s3 "#oac-permission-to-access-s3")
+- [Grant CloudFront permission to access the S3 bucket](#oac-permission-to-access-s3 "#oac-permission-to-access-s3")
 - [Create the origin access control](#create-oac-s3 "#create-oac-s3")
 
 ### Prerequisites
@@ -83,9 +76,7 @@ following policies:
   only** for the [viewer protocol
   policy](using-https-viewers-to-cloudfront.md "using-https-viewers-to-cloudfront.md").
 
-### Grant CloudFront permission to access
-
-the S3 bucket
+### Grant CloudFront permission to access the S3 bucket
 
 Before you create an origin access control (OAC) or set it up in a CloudFront
 distribution, make sure that CloudFront has permission to access the S3 bucket origin.
@@ -104,9 +95,7 @@ For information about adding or modifying a bucket policy, see [Adding a bucket 
 The following are examples of S3 bucket policies that allow a CloudFront
 distribution with OAC enabled access to an S3 origin.
 
-###### Example S3 bucket policy that allows read-only access for a CloudFront distribution
-
-with OAC enabled
+###### Example S3 bucket policy that allows read-only access for a CloudFront distribution with OAC enabled
 
 JSON
 
@@ -133,9 +122,7 @@ JSON
 
 ```
 
-###### Example S3 bucket policy that allows read and write access for a CloudFront
-
-distribution with OAC enabled
+###### Example S3 bucket policy that allows read and write access for a CloudFront distribution with OAC enabled
 
 JSON
 
@@ -225,8 +212,7 @@ Console
       recommend that you leave the default setting
       (**Sign requests
       (recommended)**). For more information, see
-      [Advanced settings for origin access
-      control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3").
+      [Advanced settings for origin access control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3").
 
 5. Choose S3 from the **Origin type**
    dropdown.
@@ -236,9 +222,7 @@ After the OAC is created, make note of the
 **Name**. You need this in the
 following procedure.
 
-###### To add an origin access control to an S3 origin in a
-
-distribution
+###### To add an origin access control to an S3 origin in a distribution
 
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Choose a distribution with an S3 origin that you want to
@@ -283,9 +267,7 @@ command. You can use an input file to provide the input parameters
 for the command, rather than specifying each individual parameter as
 command line input.
 
-###### To create an origin access control (CLI with input
-
-file)
+###### To create an origin access control (CLI with input file)
 
 1. Use the following command to create a file that's named
    `origin-access-control.yaml`. This
@@ -304,8 +286,7 @@ aws cloudfront create-origin-access-control --generate-cli-skeleton yaml-input >
    `SigningBehavior` to `always`.
    Then save the file.
 
-For information about other OAC settings, see [Advanced settings for origin access
-control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3"). 3. Use the following command to create the origin access
+For information about other OAC settings, see [Advanced settings for origin access control](#oac-advanced-settings-s3 "#oac-advanced-settings-s3"). 3. Use the following command to create the origin access
 control using the input parameters from the
 `origin-access-control.yaml`
 file.
@@ -319,9 +300,7 @@ Make note of the `Id` value in the command
 output. You need it to add the OAC to an S3 bucket origin in
 a CloudFront distribution.
 
-###### To attach an OAC to an S3 bucket origin in an existing
-
-distribution (CLI with input file)
+###### To attach an OAC to an S3 bucket origin in an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution
    configuration for the CloudFront distribution that you want to add
@@ -380,9 +359,7 @@ these API calls, see [All distribution settings reference](distribution-web-valu
 reference documentation for your AWS SDK or other API
 client.
 
-## Delete a distribution with an OAC
-
-attached to an S3 bucket
+## Delete a distribution with an OAC attached to an S3 bucket
 
 If you need to delete a distribution with an OAC attached to an S3 bucket, you
 should delete the distribution before you delete the S3 bucket origin.
@@ -390,9 +367,7 @@ Alternatively, include the Region in the origin domain name. If this isn't possi
 you can remove the OAC from the distribution by switching to public before deletion.
 For more information, see [Delete a distribution](HowToDeleteDistribution.md "HowToDeleteDistribution.md").
 
-## Migrating from origin access identity
-
-(OAI) to origin access control (OAC)
+## Migrating from origin access identity (OAI) to origin access control (OAC)
 
 To migrate from a legacy origin access identity (OAI) to an origin access control
 (OAC), first update the S3 bucket origin to allow both the OAI and the distribution
@@ -404,9 +379,7 @@ policy](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3
 The following example S3 bucket policy allows both an OAI and a distribution with
 OAC enabled to access an S3 origin.
 
-###### Example S3 bucket policy that allows read-only access for an OAI and a CloudFront
-
-distribution with OAC enabled
+###### Example S3 bucket policy that allows read-only access for an OAI and a CloudFront distribution with OAC enabled
 
 JSON
 
@@ -447,12 +420,9 @@ OAC, you can update the distribution configuration to use OAC instead of OAI. Fo
 more information, see [Create a new origin access control](#create-oac-overview-s3 "#create-oac-overview-s3").
 
 After the distribution is fully deployed, you can remove the statement in the
-bucket policy that allows access to the OAI. For more information, see [Grant CloudFront permission to access
-the S3 bucket](#oac-permission-to-access-s3 "#oac-permission-to-access-s3").
+bucket policy that allows access to the OAI. For more information, see [Grant CloudFront permission to access the S3 bucket](#oac-permission-to-access-s3 "#oac-permission-to-access-s3").
 
-## Advanced settings for origin access
-
-control
+## Advanced settings for origin access control
 
 The CloudFront origin access control feature includes advanced settings that are
 intended only for specific use cases. Use the recommended settings unless you have a
@@ -509,9 +479,7 @@ viewer request, you _must_ add the
 cache behaviors that use S3 bucket origins associated with this
 origin access control.
 
-## Use an origin access
-
-identity (legacy, not recommended)
+## Use an origin access identity (legacy, not recommended)
 
 CloudFront _origin access identity_ (OAI)
 provides similar functionality as _origin access
@@ -527,8 +495,7 @@ Specifically, OAI doesn't support:
 ###### Tip
 
 We recommend that you use OAC instead. To set up OAC, see [Create a new origin access control](#create-oac-overview-s3 "#create-oac-overview-s3"). For information about how to
-migrate from OAI to OAC, see [Migrating from origin access identity
-(OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac").
+migrate from OAI to OAC, see [Migrating from origin access identity (OAI) to origin access control (OAC)](#migrate-from-oai-to-oac "#migrate-from-oai-to-oac").
 
 When you create an OAI or add one to a distribution with the CloudFront console,
 you can automatically update the Amazon S3 bucket policy to give the OAI
@@ -550,9 +517,7 @@ requests that use the `DELETE` method, configure your bucket
 policy to handle `DELETE` requests appropriately so viewers
 can delete only files that you want them to.
 
-#### Use Amazon S3
-
-bucket policies
+#### Use Amazon S3 bucket policies
 
 You can give a CloudFront OAI access to files in an Amazon S3 bucket by creating
 or updating the bucket policy in the following ways:
@@ -576,9 +541,7 @@ If you update the bucket policy manually, make sure that you:
 
 For more information, see the following sections.
 
-##### Specify an OAI as the `Principal` in a bucket
-
-policy
+##### Specify an OAI as the `Principal` in a bucket policy
 
 To specify an OAI as the `Principal` in an Amazon S3 bucket
 policy, use the OAI's Amazon Resource Name (ARN), which includes the
@@ -640,9 +603,7 @@ JSON
 
 ```
 
-###### Example Amazon S3 bucket policy that gives the OAI read and write
-
-access
+###### Example Amazon S3 bucket policy that gives the OAI read and write access
 
 The following example allows the OAI to read and write objects
 in the specified bucket (`s3:GetObject` and
@@ -672,9 +633,7 @@ JSON
 
 ```
 
-#### Use Amazon S3 object ACLs
-
-(not recommended)
+#### Use Amazon S3 object ACLs (not recommended)
 
 ###### Important
 

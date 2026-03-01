@@ -22,8 +22,7 @@ information, see [Point domains to CloudFront](managed-cloudfront-certificates.m
 previously used for your standard distribution.
 
     * **Console** – For detailed
-     instructions, see [Add a domain and certificate
-     (distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant").
+     instructions, see [Add a domain and certificate (distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant").
     * **API** – Use the [UpdateDomainAssociation](../../../cloudfront/latest/APIReference/API_UpdateDomainAssociation.md "../../../cloudfront/latest/APIReference/API_UpdateDomainAssociation.md") API action in the *Amazon CloudFront
      API Reference*.
 

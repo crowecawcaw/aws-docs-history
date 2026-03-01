@@ -1,6 +1,4 @@
-# Video on demand and live streaming video with
-
-CloudFront
+# Video on demand and live streaming video with CloudFront
 
 You can use CloudFront to deliver video on demand (VOD) or live streaming video by using any
 HTTP origin. One way you can set up video workflows in the cloud is by using CloudFront together
@@ -10,8 +8,7 @@ with [AWS Media Services](https://aws.amazon.com/media-services/ "https://aws.am
 
 - [About streaming video](#StreamingVideo "#StreamingVideo")
 - [Deliver video on demand with CloudFront](on-demand-video.md "on-demand-video.md")
-- [Deliver video streaming with CloudFront and AWS Media
-  Services](live-streaming.md "live-streaming.md")
+- [Deliver video streaming with CloudFront and AWS Media Services](live-streaming.md "live-streaming.md")
 - [Media quality-aware resiliency](media-quality-score.md "media-quality-score.md")
 
 ## About streaming video
@@ -43,9 +40,7 @@ After your video is encoded, you can store it in AWS Elemental MediaStore or con
 into different delivery formats by using AWS Elemental MediaPackage. Use either of these
 origins to set up a CloudFront distribution to deliver the content. For specific
 steps and guidance for creating distributions that work together with these
-services, see [Serve video by using AWS Elemental MediaStore as the
-origin](live-streaming.md#video-streaming-mediastore "live-streaming.md#video-streaming-mediastore") and [Serve live video formatted with
-AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage").
+services, see [Serve video by using AWS Elemental MediaStore as the origin](live-streaming.md#video-streaming-mediastore "live-streaming.md#video-streaming-mediastore") and [Serve live video formatted with AWS Elemental MediaPackage](live-streaming.md#live-streaming-with-mediapackage "live-streaming.md#live-streaming-with-mediapackage").
 
 Wowza and Unified Streaming also provide tools that you can use for streaming video
 with CloudFront. For more information about using Wowza with CloudFront, see [Bring your Wowza Streaming Engine license to CloudFront live HTTP streaming](https://www.wowza.com/docs/how-to-bring-your-wowza-streaming-engine-license-to-cloudfront-live-http-streaming "https://www.wowza.com/docs/how-to-bring-your-wowza-streaming-engine-license-to-cloudfront-live-http-streaming")

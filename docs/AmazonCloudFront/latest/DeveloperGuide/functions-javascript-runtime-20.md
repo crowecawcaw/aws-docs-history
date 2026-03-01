@@ -1,6 +1,4 @@
-# JavaScript runtime 2.0 features for
-
-CloudFront Functions
+# JavaScript runtime 2.0 features for CloudFront Functions
 
 The CloudFront Functions JavaScript runtime environment is compliant with [ECMAScript (ES) version
 5.1](https://262.ecma-international.org/5.1/ "https://262.ecma-international.org/5.1/") and also supports some features of ES versions 6 through 12. It also
@@ -10,16 +8,12 @@ topics list all supported features in this runtime.
 ###### Topics
 
 - [Core features](#writing-functions-javascript-features-core-20 "#writing-functions-javascript-features-core-20")
-- [Primitive
-  objects](#writing-functions-javascript-features-primitive-objects-20 "#writing-functions-javascript-features-primitive-objects-20")
-- [Built-in
-  objects](#writing-functions-javascript-features-builtin-objects-20 "#writing-functions-javascript-features-builtin-objects-20")
+- [Primitive objects](#writing-functions-javascript-features-primitive-objects-20 "#writing-functions-javascript-features-primitive-objects-20")
+- [Built-in objects](#writing-functions-javascript-features-builtin-objects-20 "#writing-functions-javascript-features-builtin-objects-20")
 - [Error types](#writing-functions-javascript-features-error-types-20 "#writing-functions-javascript-features-error-types-20")
 - [Globals](#writing-functions-javascript-features-globals-20 "#writing-functions-javascript-features-globals-20")
-- [Built-in
-  modules](#writing-functions-javascript-features-builtin-modules-20 "#writing-functions-javascript-features-builtin-modules-20")
-- [Restricted
-  features](#writing-functions-javascript-features-restricted-features-20 "#writing-functions-javascript-features-restricted-features-20")
+- [Built-in modules](#writing-functions-javascript-features-builtin-modules-20 "#writing-functions-javascript-features-builtin-modules-20")
+- [Restricted features](#writing-functions-javascript-features-restricted-features-20 "#writing-functions-javascript-features-restricted-features-20")
 
 ## Core features
 
@@ -98,9 +92,7 @@ Functions operate in strict mode by default, so you don’t need to add a
 `use strict` statement in your function code. This cannot be
 changed.
 
-## Primitive
-
-objects
+## Primitive objects
 
 The following primitive objects of ES are supported.
 
@@ -235,9 +227,7 @@ ES 12 numeric separators are supported.
 
 ES 12 numeric separators are new in JavaScript runtime 2.0.
 
-## Built-in
-
-objects
+## Built-in objects
 
 The following built-in objects of ES are supported.
 
@@ -309,8 +299,7 @@ All ES 5.1 `Date` features are supported.
 
 For security reasons, `Date` always returns the same
 value—the function’s start time—during the lifetime of a
-single function run. For more information, see [Restricted
-features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features "functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features").
+single function run. For more information, see [Restricted features](functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features "functions-javascript-runtime-10.md#writing-functions-javascript-features-restricted-features").
 
 **Function**
 
@@ -613,9 +602,7 @@ The following global constants are supported:
 - `undefined`
 - `arguments`
 
-## Built-in
-
-modules
+## Built-in modules
 
 The following built-in modules are supported.
 
@@ -1389,9 +1376,7 @@ Calculates the digest of all of the data passed using
 `hmac.update()`. The encoding can be `hex`,
 `base64`, or `base64url`.
 
-## Restricted
-
-features
+## Restricted features
 
 The following JavaScript language features are either unsupported or restricted due to
 security concerns.

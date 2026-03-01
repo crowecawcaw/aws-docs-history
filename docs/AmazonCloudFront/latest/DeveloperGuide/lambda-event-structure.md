@@ -5,14 +5,11 @@ to a Lambda@Edge function when it's triggered.
 
 ###### Topics
 
-- [Dynamic origin
-  selection](#lambda-event-content-based-routing "#lambda-event-content-based-routing")
+- [Dynamic origin selection](#lambda-event-content-based-routing "#lambda-event-content-based-routing")
 - [Request events](#lambda-event-structure-request "#lambda-event-structure-request")
 - [Response events](#lambda-event-structure-response "#lambda-event-structure-response")
 
-## Dynamic origin
-
-selection
+## Dynamic origin selection
 
 You can use [the path pattern in a
 cache behavior](DownloadDistValuesCacheBehavior.md#DownloadDistValuesPathPattern "DownloadDistValuesCacheBehavior.md#DownloadDistValuesPathPattern") to route requests to an origin based on the path and name
@@ -25,8 +22,7 @@ example, you can distribute requests across origins in different geographic area
 help with global load balancing. Or you can selectively route requests to different
 origins that each serve a particular function: bot handling, SEO optimization,
 authentication, and so on. For code examples that demonstrate how to use this
-feature, see [Content-based
-dynamic origin selection - examples](lambda-examples.md#lambda-examples-content-based-routing-examples "lambda-examples.md#lambda-examples-content-based-routing-examples").
+feature, see [Content-based dynamic origin selection - examples](lambda-examples.md#lambda-examples-content-based-routing-examples "lambda-examples.md#lambda-examples-content-based-routing-examples").
 
 In the CloudFront origin request event, the `origin` object in the event
 structure contains information about the origin that the request would be routed to,
@@ -181,9 +177,7 @@ Request event object data is contained in two subobjects: `config`
 (`Records.cf.request`). The following lists describe each
 subobject's fields.
 
-#### Fields in the config
-
-object
+#### Fields in the config object
 
 The following list describes the fields in the `config` object
 (`Records.cf.config`).
@@ -211,9 +205,7 @@ request. The `requestId` value also appears in CloudFront
 access logs as `x-edge-request-id`. For more
 information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and [Log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
 
-#### Fields in the request
-
-object
+#### Fields in the request object
 
 The following list describes the fields in the `request` object
 (`Records.cf.request`).
@@ -279,8 +271,7 @@ The HTTP method of the request.
 The query string, if any, in the request. If the request
 doesn't include a query string, the event object still includes
 `querystring` with an empty value. For more
-information about query strings, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md").
+information about query strings, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md").
 
 **`uri` (read/write)**
 
@@ -307,8 +298,7 @@ can contain the following fields:
 
 A Boolean flag that indicates whether the body was
 truncated by Lambda@Edge. For more information, see
-[Restrictions on the
-request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body").
+[Restrictions on the request body with the include body option](lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body "lambda-at-edge-function-restrictions.md#lambda-at-edge-restrictions-request-body").
 
 **`action` (read/write)**
 
@@ -360,8 +350,7 @@ name and value pair for each custom header. You
 can't add headers that are disallowed, and a header
 with the same name can't be present in
 `Records.cf.request.headers`. The [notes about request headers](#request-event-fields-request-headers "#request-event-fields-request-headers") also apply to
-custom headers. For more information, see [Custom headers that CloudFront can’t add
-to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist") and [Restrictions on edge functions](edge-functions-restrictions.md "edge-functions-restrictions.md").
+custom headers. For more information, see [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist") and [Restrictions on edge functions](edge-functions-restrictions.md "edge-functions-restrictions.md").
 
 **`domainName` (read/write) (custom and Amazon S3
 origins)**
@@ -486,15 +475,11 @@ fields in viewer and origin response events.
 
 ###### Topics
 
-- [Example origin
-  response](#lambda-event-structure-response-origin "#lambda-event-structure-response-origin")
-- [Example viewer
-  response](#lambda-event-structure-response-viewer "#lambda-event-structure-response-viewer")
+- [Example origin response](#lambda-event-structure-response-origin "#lambda-event-structure-response-origin")
+- [Example viewer response](#lambda-event-structure-response-viewer "#lambda-event-structure-response-viewer")
 - [Response event fields](#response-event-fields "#response-event-fields")
 
-### Example origin
-
-response
+### Example origin response
 
 The following example shows an origin response event object.
 
@@ -636,9 +621,7 @@ The following example shows an origin response event object.
 }
 ```
 
-### Example viewer
-
-response
+### Example viewer response
 
 The following example shows a viewer response event object.
 
@@ -763,14 +746,11 @@ Response event object data is contained in three subobjects:
 `config` (`Records.cf.config`), `request`
 (`Records.cf.request`), and `response`
 (`Records.cf.response`). For more information about the fields in
-the request object, see [Fields in the request
-object](#request-event-fields-request "#request-event-fields-request"). The following lists describe
+the request object, see [Fields in the request object](#request-event-fields-request "#request-event-fields-request"). The following lists describe
 the fields in the `config` and `response`
 subobjects.
 
-#### Fields in the config
-
-object
+#### Fields in the config object
 
 The following list describes the fields in the `config` object
 (`Records.cf.config`).
@@ -800,14 +780,11 @@ logs as `x-edge-request-id`. For more information,
 see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md") and
 [Log file fields](standard-logs-reference.md#BasicDistributionFileFormat "standard-logs-reference.md#BasicDistributionFileFormat").
 
-#### Fields in the response
-
-object
+#### Fields in the response object
 
 The following list describes the fields in the `response`
 object (`Records.cf.response`). For information about using a
-Lambda@Edge function to generate an HTTP response, see [Generate HTTP
-responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
+Lambda@Edge function to generate an HTTP response, see [Generate HTTP responses in request triggers](lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests "lambda-generating-http-responses.md#lambda-generating-http-responses-in-requests").
 
 **`headers` (read/write)**
 

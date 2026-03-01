@@ -19,10 +19,8 @@ CloudFront Functions when the following events occur:
 
 ###### Topics
 
-- [Tutorial: Create a simple function with
-  CloudFront Functions](functions-tutorial.md "functions-tutorial.md")
-- [Tutorial: Create a CloudFront function that includes key
-  values](functions-tutorial-kvs.md "functions-tutorial-kvs.md")
+- [Tutorial: Create a simple function with CloudFront Functions](functions-tutorial.md "functions-tutorial.md")
+- [Tutorial: Create a CloudFront function that includes key values](functions-tutorial-kvs.md "functions-tutorial-kvs.md")
 - [Write function code](writing-function-code.md "writing-function-code.md")
 - [Create functions](create-function.md "create-function.md")
 - [Test functions](test-function.md "test-function.md")

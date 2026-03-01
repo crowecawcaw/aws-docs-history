@@ -1,12 +1,9 @@
-# Custom error pages and error
-
-caching
+# Custom error pages and error caching
 
 You can have CloudFront return an object to the viewer (for example, an HTML file)
 when your Amazon S3 or custom origin returns an HTTP 4xx or 5xx status code to CloudFront.
 You can also specify how long an error response from your origin or a custom
-error page is cached in CloudFront edge caches. For more information, see [Create a custom error page for specific
-HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
+error page is cached in CloudFront edge caches. For more information, see [Create a custom error page for specific HTTP status codes](creating-custom-error-pages.md "creating-custom-error-pages.md").
 
 ###### Note
 
@@ -17,11 +14,9 @@ distribution.
 ###### Topics
 
 - [HTTP error code](#DownloadDistValuesErrorCode "#DownloadDistValuesErrorCode")
-- [Response page
-  path](#DownloadDistValuesResponsePagePath "#DownloadDistValuesResponsePagePath")
+- [Response page path](#DownloadDistValuesResponsePagePath "#DownloadDistValuesResponsePagePath")
 - [HTTP response code](#DownloadDistValuesResponseCode "#DownloadDistValuesResponseCode")
-- [Error caching minimum
-  TTL (seconds)](#DownloadDistValuesErrorCachingMinTTL "#DownloadDistValuesErrorCachingMinTTL")
+- [Error caching minimum TTL (seconds)](#DownloadDistValuesErrorCachingMinTTL "#DownloadDistValuesErrorCachingMinTTL")
 
 ## HTTP error code
 
@@ -29,9 +24,7 @@ The HTTP status code for which you want CloudFront to return a custom error
 page. You can configure CloudFront to return custom error pages for none, some, or
 all of the HTTP status codes that CloudFront caches.
 
-## Response page
-
-path
+## Response page path
 
 The path to the custom error page (for example,
 `/4xx-errors/403-forbidden.html`) that you want CloudFront
@@ -57,9 +50,7 @@ following is true:
 The HTTP status code that you want CloudFront to return to the viewer along with
 the custom error page.
 
-## Error caching minimum
-
-TTL (seconds)
+## Error caching minimum TTL (seconds)
 
 The minimum amount of time that you want CloudFront to cache error responses
 from your origin server.

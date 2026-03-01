@@ -1,6 +1,4 @@
-# Use file versioning to update or remove
-
-content with a CloudFront distribution
+# Use file versioning to update or remove content with a CloudFront distribution
 
 To update existing content that CloudFront is set up to distribute for you, we recommend that you use a version identifier in file names or in folder names. This helps give you
 control over managing the content that CloudFront serves.
@@ -22,8 +20,7 @@ don't have to wait for an object to expire before CloudFront begins to serve a n
 and you don't have to pay for object invalidation.
 
 Even if you version your files, we still recommend that you set an expiration date.
-For more information, see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+For more information, see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ###### Note
 

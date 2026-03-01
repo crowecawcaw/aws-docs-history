@@ -18,8 +18,7 @@ The methods associated to this module are accessible through (where \* is a wild
 cf.cwt.*
 ```
 
-For more information, see [JavaScript runtime 2.0 features for
-CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
 Currently, the module only support MAC0 structure with HS256 (HMAC-SHA256) algorithm with a limit of 1KB for the maximum token size.
 

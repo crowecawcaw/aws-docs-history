@@ -1,19 +1,13 @@
-# Set signed cookies
-
-using a canned policy
+# Set signed cookies using a canned policy
 
 To set a signed cookie by using a canned policy, complete the following steps. To create
-the signature, see [Create a signature for a
-signed cookie that uses a canned policy](#private-content-canned-policy-signature-cookies "#private-content-canned-policy-signature-cookies").
+the signature, see [Create a signature for a signed cookie that uses a canned policy](#private-content-canned-policy-signature-cookies "#private-content-canned-policy-signature-cookies").
 
-###### To set a signed cookie using a
-
-canned policy
+###### To set a signed cookie using a canned policy
 
 1. If you're using .NET or Java to create signed cookies, and if you haven't reformatted the private key
    for your key pair from the default .pem format to a format compatible with .NET or with Java, do so now.
-   For more information, see [Reformat the private
-   key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
+   For more information, see [Reformat the private key (.NET and Java only)](private-content-trusted-signers.md#private-content-reformatting-private-key "private-content-trusted-signers.md#private-content-reformatting-private-key").
 2. Program your application to send three `Set-Cookie` headers to approved
    viewers. You need three `Set-Cookie` headers because each
    `Set-Cookie` header can contain only one name-value pair, and a
@@ -28,8 +22,7 @@ canned policy
 In general, we recommend that you exclude `Expires` and `Max-Age` attributes.
 Excluding the attributes causes the browser to delete the cookie when the user closes the browser,
 which reduces the possibility of someone getting unauthorized access to your content. For more
-information, see [Prevent misuse of signed
-cookies](private-content-signed-cookies.md#private-content-signed-cookie-misuse "private-content-signed-cookies.md#private-content-signed-cookie-misuse").
+information, see [Prevent misuse of signed cookies](private-content-signed-cookies.md#private-content-signed-cookie-misuse "private-content-signed-cookies.md#private-content-signed-cookie-misuse").
 
 **The names of cookie attributes are case-sensitive**.
 
@@ -74,8 +67,7 @@ name.
 
 If you want to use an alternate domain name such as example.com in URLs, you must add the
 alternate domain name to your distribution regardless of whether you specify the
-`Domain` attribute. For more information, see [Alternate domain names
-(CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME") in the topic
+`Domain` attribute. For more information, see [Alternate domain names (CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME") in the topic
 [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
 **(Optional) `Path`**
@@ -113,8 +105,7 @@ Time on the Internet: Timestamps_, [https://tools.ietf.org/html/rfc3339](https:/
 **`CloudFront-Signature`**
 
 A hashed, signed, and base64-encoded version of a JSON policy statement. For more
-information, see [Create a signature for a
-signed cookie that uses a canned policy](#private-content-canned-policy-signature-cookies "#private-content-canned-policy-signature-cookies").
+information, see [Create a signature for a signed cookie that uses a canned policy](#private-content-canned-policy-signature-cookies "#private-content-canned-policy-signature-cookies").
 
 **`CloudFront-Key-Pair-Id`**
 
@@ -126,8 +117,7 @@ statement to verify that the URL has not been tampered
 with.
 
 This public key must belong to a key group that is a trusted
-signer in the distribution. For more information, see [Specify signers that can create signed
-URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
+signer in the distribution. For more information, see [Specify signers that can create signed URLs and signed cookies](private-content-trusted-signers.md "private-content-trusted-signers.md").
 The following example shows `Set-Cookie` headers for one signed cookie when you're using the domain
 name that is associated with your distribution in the URLs for your files:
 
@@ -148,26 +138,18 @@ Set-Cookie: CloudFront-Key-Pair-Id=K2JCJMDEHXQW5F; Domain=example.org; Path=/ima
 
 If you want to use an alternate domain name such as example.com in URLs, you must add the alternate domain name
 to your distribution regardless of whether you specify the `Domain` attribute. For more information,
-see [Alternate domain names
-(CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME") in the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
+see [Alternate domain names (CNAMEs)](DownloadDistValuesGeneral.md#DownloadDistValuesCNAME "DownloadDistValuesGeneral.md#DownloadDistValuesCNAME") in the topic [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md").
 
-## Create a signature for a
-
-signed cookie that uses a canned policy
+## Create a signature for a signed cookie that uses a canned policy
 
 To create the signature for a signed cookie that uses a canned policy, complete the following procedures.
 
 ###### Topics
 
-- [Create a policy statement
-  for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies "#private-content-canned-policy-statement-cookies")
-- [Sign the
-  policy statement to create a signature for a signed cookie that uses a
-  canned policy](#private-content-canned-policy-cookies-signing-policy-statement "#private-content-canned-policy-cookies-signing-policy-statement")
+- [Create a policy statement for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies "#private-content-canned-policy-statement-cookies")
+- [Sign the policy statement to create a signature for a signed cookie that uses a canned policy](#private-content-canned-policy-cookies-signing-policy-statement "#private-content-canned-policy-cookies-signing-policy-statement")
 
-### Create a policy statement
-
-for a signed cookie that uses a canned policy
+### Create a policy statement for a signed cookie that uses a canned policy
 
 When you set a signed cookie that uses a canned policy, the
 `CloudFront-Signature` attribute is a hashed and signed version
@@ -176,15 +158,11 @@ don't include the policy statement in the `Set-Cookie` header, as
 you do for signed cookies that use a custom policy. To create the policy
 statement, complete the following steps.
 
-###### To create a policy statement
-
-for a signed cookie that uses a canned policy
+###### To create a policy statement for a signed cookie that uses a canned policy
 
 1. Construct the policy statement using the following JSON format and using UTF-8 character
    encoding. Include all punctuation and other literal values exactly as specified. For information
-   about the `Resource` and `DateLessThan` parameters, see [Values that you
-   specify in the policy statement for a canned policy for signed
-   cookies](#private-content-canned-policy-statement-cookies-values "#private-content-canned-policy-statement-cookies-values").
+   about the `Resource` and `DateLessThan` parameters, see [Values that you specify in the policy statement for a canned policy for signed cookies](#private-content-canned-policy-statement-cookies-values "#private-content-canned-policy-statement-cookies-values").
 
 ```
 {
@@ -205,10 +183,7 @@ for a signed cookie that uses a canned policy
    statement. You might have to include escape characters in the string
    in application code.
 
-#### Values that you
-
-specify in the policy statement for a canned policy for signed
-cookies
+#### Values that you specify in the policy statement for a canned policy for signed cookies
 
 When you create a policy statement for a canned policy, you specify the following values:
 
@@ -243,12 +218,9 @@ format.
 This value must match the value of the `CloudFront-Expires` attribute in the
 `Set-Cookie` header. Do not enclose the value in quotation marks.
 
-For more information, see [When CloudFront checks expiration
-date and time in a signed cookie](private-content-signed-cookies.md#private-content-check-expiration-cookie "private-content-signed-cookies.md#private-content-check-expiration-cookie").
+For more information, see [When CloudFront checks expiration date and time in a signed cookie](private-content-signed-cookies.md#private-content-check-expiration-cookie "private-content-signed-cookies.md#private-content-check-expiration-cookie").
 
-#### Example
-
-policy statement for a canned policy
+#### Example policy statement for a canned policy
 
 When you use the following example policy statement in a signed cookie, a user can access the file
 `https://d111111abcdef8.cloudfront.net/horizon.jpg` until March 16, 2015 10:00 am
@@ -269,30 +241,21 @@ UTC:
 }
 ```
 
-### Sign the
-
-policy statement to create a signature for a signed cookie that uses a
-canned policy
+### Sign the policy statement to create a signature for a signed cookie that uses a canned policy
 
 To create the value for the `CloudFront-Signature` attribute in a `Set-Cookie`
-header, you hash and sign the policy statement that you created in [To create a policy statement
-for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies-procedure "#private-content-canned-policy-statement-cookies-procedure").
+header, you hash and sign the policy statement that you created in [To create a policy statement for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies-procedure "#private-content-canned-policy-statement-cookies-procedure").
 
 For additional information and examples of how to hash, sign, and encode the policy statement, see the
 following topics:
 
-- [Linux commands and OpenSSL for base64
-  encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
-- [Code examples for creating a signature for a
-  signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
+- [Linux commands and OpenSSL for base64 encoding and encryption](private-content-linux-openssl.md "private-content-linux-openssl.md")
+- [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md")
 
-###### To create a signature
-
-for a signed cookie using a canned policy
+###### To create a signature for a signed cookie using a canned policy
 
 1. Use the SHA-1 hash function and RSA to hash and sign the policy statement that you
-   created in the procedure [To create a policy statement
-   for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies-procedure "#private-content-canned-policy-statement-cookies-procedure"). Use the version of the policy statement that no longer includes
+   created in the procedure [To create a policy statement for a signed cookie that uses a canned policy](#private-content-canned-policy-statement-cookies-procedure "#private-content-canned-policy-statement-cookies-procedure"). Use the version of the policy statement that no longer includes
    empty spaces.
 
 For the private key that is required by the hash function, use a
@@ -302,8 +265,7 @@ the distribution.
 ###### Note
 
 The method that you use to hash and sign the policy statement depends on your programming
-language and platform. For sample code, see [Code examples for creating a signature for a
-signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the hashed and signed
+language and platform. For sample code, see [Code examples for creating a signature for a signed URL](PrivateCFSignatureCodeAndExamples.md "PrivateCFSignatureCodeAndExamples.md"). 2. Remove empty spaces (including tabs and newline characters) from the hashed and signed
 string. 3. Base64-encode the string using MIME base64 encoding. For more information, see [Section 6.8,
 Base64 Content-Transfer-Encoding](https://tools.ietf.org/html/rfc2045#section-6.8 "https://tools.ietf.org/html/rfc2045#section-6.8") in _RFC 2045, MIME
 (Multipurpose Internet Mail Extensions) Part One: Format of Internet
@@ -317,6 +279,5 @@ following table lists invalid and valid characters.
 | /                                | ~ (tilde)                   |
 
 5. Include the resulting value in the `Set-Cookie` header for the
-   `CloudFront-Signature` name-value pair. Then return to [To set a signed cookie using a
-   canned policy](#private-content-setting-signed-cookie-canned-policy-procedure "#private-content-setting-signed-cookie-canned-policy-procedure") add the
+   `CloudFront-Signature` name-value pair. Then return to [To set a signed cookie using a canned policy](#private-content-setting-signed-cookie-canned-policy-procedure "#private-content-setting-signed-cookie-canned-policy-procedure") add the
    `Set-Cookie` header for `CloudFront-Key-Pair-Id`.

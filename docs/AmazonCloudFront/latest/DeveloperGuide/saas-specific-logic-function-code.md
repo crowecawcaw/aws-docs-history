@@ -1,12 +1,9 @@
-# Helper methods for CloudFront SaaS Manager
-
-properties
+# Helper methods for CloudFront SaaS Manager properties
 
 Use the following helper functions for CloudFront SaaS Manager to retrieve values for your
 multi-tenant distributions in the function that you create. To use examples on this page, you must
 first create a CloudFront function by using JavaScript runtime 2.0. For more information,
-[JavaScript runtime 2.0 features for
-CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+[JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
 ###### Topics
 
@@ -49,9 +46,7 @@ import cf from 'cloudfront';
 You can use the following examples only in the `handler` function,
 either directly or through any nested-call function.
 
-### `distributionTenant.id`
-
-field
+### `distributionTenant.id` field
 
 Use this field to get the value of distribution tenant ID.
 

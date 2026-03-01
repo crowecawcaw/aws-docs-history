@@ -1,6 +1,4 @@
-# Restrict access to an
-
-AWS Elemental MediaPackage v2 origin
+# Restrict access to an AWS Elemental MediaPackage v2 origin
 
 CloudFront provides _origin access control_ (OAC) for restricting
 access to a MediaPackage v2 origin.
@@ -12,8 +10,7 @@ CloudFront OAC only supports MediaPackage v2. MediaPackage v1 isn't supported.
 ###### Topics
 
 - [Creating a new OAC](#create-oac-overview-mediapackage "#create-oac-overview-mediapackage")
-- [Advanced settings for origin access
-  control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage")
+- [Advanced settings for origin access control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage")
 
 ## Creating a new OAC
 
@@ -22,8 +19,7 @@ Complete the steps described in the following topics to set up a new OAC in Clou
 ###### Topics
 
 - [Prerequisites](#oac-prerequisites-mediapackage "#oac-prerequisites-mediapackage")
-- [Grant CloudFront permission to access the
-  MediaPackage v2 origin](#oac-permission-to-access-mediapackage "#oac-permission-to-access-mediapackage")
+- [Grant CloudFront permission to access the MediaPackage v2 origin](#oac-permission-to-access-mediapackage "#oac-permission-to-access-mediapackage")
 - [Creating the OAC](#create-oac-mediapackage "#create-oac-mediapackage")
 
 ### Prerequisites
@@ -31,9 +27,7 @@ Complete the steps described in the following topics to set up a new OAC in Clou
 Before you create and set up OAC, you must have a CloudFront distribution with a MediaPackage v2
 origin. For more information, see [Use a MediaStore container or a MediaPackage channel](DownloadDistS3AndCustomOrigins.md#concept_AWS_Media "DownloadDistS3AndCustomOrigins.md#concept_AWS_Media").
 
-### Grant CloudFront permission to access the
-
-MediaPackage v2 origin
+### Grant CloudFront permission to access the MediaPackage v2 origin
 
 Before you create an OAC or set it up in a CloudFront distribution, make sure that CloudFront has
 permission to access the MediaPackage v2 origin. Do this after you create a CloudFront distribution, but
@@ -45,9 +39,7 @@ element in the policy allows CloudFront to access the MediaPackage v2 origin _on
 when the request is on behalf of the CloudFront distribution that contains the MediaPackage v2 origin.
 This is the distribution with the MediaPackage v2 origin that you want to add OAC to.
 
-###### Example: IAM policy that allows read-only access for a CloudFront distribution with OAC
-
-enabled
+###### Example: IAM policy that allows read-only access for a CloudFront distribution with OAC enabled
 
 The following policy allows the CloudFront distribution
 (`E1PDK09ESKHJWT`) access to the MediaPackage v2
@@ -99,8 +91,7 @@ Console
       **Description** for the OAC.
    2. For **Signing behavior**, we recommend that you leave the
       default setting (**Sign requests (recommended)**). For more
-      information, see [Advanced settings for origin access
-      control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage").
+      information, see [Advanced settings for origin access control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage").
 
 5. For **Origin type**, choose **MediaPackage V2**.
 6. Choose **Create**.
@@ -168,8 +159,7 @@ aws cloudfront create-origin-access-control --generate-cli-skeleton yaml-input >
    change the `SigningBehavior` to `always`. Then save the
    file.
 
-For information about other OAC settings, see [Advanced settings for origin access
-control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage"). 3. Use the following command to create the origin access control using the input
+For information about other OAC settings, see [Advanced settings for origin access control](#oac-advanced-settings-mediapackage "#oac-advanced-settings-mediapackage"). 3. Use the following command to create the origin access control using the input
 parameters from the `origin-access-control.yaml` file.
 
 ```
@@ -180,9 +170,7 @@ aws cloudfront create-origin-access-control --cli-input-yaml file://origin-acces
 Make note of the `Id` value in the command output. You need it to
 add the OAC to a MediaPackage v2 origin in a CloudFront distribution.
 
-###### To attach an OAC to a MediaPackage v2 origin in an existing distribution (CLI with
-
-input file)
+###### To attach an OAC to a MediaPackage v2 origin in an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution configuration for the CloudFront
    distribution that you want to add the OAC to. The distribution must have a MediaPackage
@@ -233,9 +221,7 @@ For both of these API calls, provide the OAC ID in the
 about the other fields that you specify in these API calls, see [All distribution settings reference](distribution-web-values-specify.md "distribution-web-values-specify.md") and the API reference
 documentation for your AWS SDK or other API client.
 
-## Advanced settings for origin access
-
-control
+## Advanced settings for origin access control
 
 The CloudFront OAC feature includes advanced settings that are intended only for specific use
 cases. Use the recommended settings unless you have a specific need for the advanced

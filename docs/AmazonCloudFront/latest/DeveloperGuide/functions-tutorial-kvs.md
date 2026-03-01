@@ -1,6 +1,4 @@
-# Tutorial: Create a CloudFront function that includes key
-
-values
+# Tutorial: Create a CloudFront function that includes key values
 
 This tutorial shows you how to include key values with CloudFront function. Key values are part
 of a key-value pair. You include the name (from the key-value pair) in the function code.
@@ -15,18 +13,14 @@ the size of your function. For more information, see [Amazon CloudFront KeyValue
 
 - [Prerequisites](functions-tutorial-kvs.md#functions-kvs-tutorial-prerequisites "functions-tutorial-kvs.md#functions-kvs-tutorial-prerequisites")
 - [Create the key value store](functions-tutorial-kvs.md#functions-kvs-tutorial-kvs-step "functions-tutorial-kvs.md#functions-kvs-tutorial-kvs-step")
-- [Add key-value pairs to the key value
-  store](functions-tutorial-kvs.md#add-key-value-pairs-to-store "functions-tutorial-kvs.md#add-key-value-pairs-to-store")
-- [Associate the key value store
-  with the function](functions-tutorial-kvs.md#functions-kvs-tutorial-functions-step "functions-tutorial-kvs.md#functions-kvs-tutorial-functions-step")
-- [Test and publish the function
-  code](functions-tutorial-kvs.md#test-and-publish-function-code "functions-tutorial-kvs.md#test-and-publish-function-code")
+- [Add key-value pairs to the key value store](functions-tutorial-kvs.md#add-key-value-pairs-to-store "functions-tutorial-kvs.md#add-key-value-pairs-to-store")
+- [Associate the key value store with the function](functions-tutorial-kvs.md#functions-kvs-tutorial-functions-step "functions-tutorial-kvs.md#functions-kvs-tutorial-functions-step")
+- [Test and publish the function code](functions-tutorial-kvs.md#test-and-publish-function-code "functions-tutorial-kvs.md#test-and-publish-function-code")
 
 ## Prerequisites
 
 If you're new to CloudFront Functions functions and the key value store, we recommend that
-you follow the tutorial in [Tutorial: Create a simple function with
-CloudFront Functions](functions-tutorial.md "functions-tutorial.md").
+you follow the tutorial in [Tutorial: Create a simple function with CloudFront Functions](functions-tutorial.md "functions-tutorial.md").
 
 After you complete that tutorial, you can follow this tutorial to extend the function
 that you created. For this tutorial, we recommend that you create the key value store
@@ -62,9 +56,7 @@ First, create the key value store to use for your function.
    store appears. This page includes a **Key value pairs** section
    that is currently empty.
 
-## Add key-value pairs to the key value
-
-store
+## Add key-value pairs to the key value store
 
 Next, manually add a list of key-value pairs to the key value store that you
 previously created.
@@ -81,9 +73,7 @@ previously created.
 
 You now have a key value store that contains a group of key-value pairs.
 
-## Associate the key value store
-
-with the function
+## Associate the key value store with the function
 
 You have now created the key value store. And you have created or modified a function
 that includes the key names from the key value store. You can now associate the key
@@ -103,9 +93,7 @@ value store and the function. You create that association from within the functi
 
 You can associate only one key value store with each function.
 
-## Test and publish the function
-
-code
+## Test and publish the function code
 
 After you associate the key value store with your function, you can test and publish
 the function code. You should always test the function code every time you modify it,

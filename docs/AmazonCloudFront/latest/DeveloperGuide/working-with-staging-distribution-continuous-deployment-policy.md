@@ -12,9 +12,7 @@ Console
 You can create a staging distribution with a continuous deployment policy
 by using the AWS Management Console.
 
-###### To create a staging distribution and continuous deployment policy
-
-(console)
+###### To create a staging distribution and continuous deployment policy (console)
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -33,8 +31,7 @@ by using the AWS Management Console.
    2. Choose **Next**.
    3. Modify the configuration of the staging distribution. For
       more information about the settings that you can update, see
-      [Update primary and
-      staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+      [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
 
    When you are finished modifying the staging distribution's
    configuration, choose **Next**. 4. Use the console to specify the **Traffic
@@ -43,8 +40,7 @@ by using the AWS Management Console.
    traffic configuration in a _continuous deployment policy_.)
 
    For more information about the options in a
-   **Traffic configuration**, see [Route requests to
-   the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing").
+   **Traffic configuration**, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing").
 
    When you are finished with the **Traffic
    configuration**, choose
@@ -117,9 +113,7 @@ The command's output shows information about the staging
 distribution and its configuration. Copy the staging distribution's
 CloudFront domain name because you need it for a following step.
 
-###### To create a continuous deployment policy (CLI with input
-
-file)
+###### To create a continuous deployment policy (CLI with input file)
 
 1. Use the following command to create file named
    `continuous-deployment-policy.yaml` that contains
@@ -163,10 +157,8 @@ aws cloudfront create-continuous-deployment-policy --generate-cli-skeleton yaml-
            `.15` (fifteen percent).
 
       For more information about the options in
-      `TrafficConfig`, see [Route requests to
-      the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
-      [Session stickiness
-      for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
+      `TrafficConfig`, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
+      [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
 
 3.  Use the following command to create the continuous deployment
     policy using input parameters from the
@@ -181,9 +173,7 @@ Copy the `Id` value in the command's output. This is
 the continuous deployment policy ID, and you need it in a following
 step.
 
-###### To attach a continuous deployment policy to a primary distribution
-
-(CLI with input file)
+###### To attach a continuous deployment policy to a primary distribution (CLI with input file)
 
 1. Use the following command to save the primary distribution's
    configuration to a file named
@@ -234,10 +224,8 @@ CloudFront API, use the following API operations:
 For more information about the fields that you specify in these API calls,
 see the following:
 
-- [Route requests to
-  the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing")
-- [Session stickiness
-  for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions")
+- [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing")
+- [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions")
 - The API reference documentation for your AWS SDK or other API
   client
 
@@ -250,8 +238,7 @@ continuous deployment policy to the primary distribution.
 The following procedures show you how to update a staging distribution with a continuous deployment policy.
 
 Console
-You can update certain configurations for both the primary and staging distributions. For more information, see [Update primary and
-staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+You can update certain configurations for both the primary and staging distributions. For more information, see [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
 
 ###### To update a staging distribution (console)
 
@@ -264,8 +251,7 @@ staging distributions](understanding-continuous-deployment.md#updating-staging-a
 4. Choose **View staging distribution**.
 5. Use the console to modify the configuration of the staging
    distribution. For more information about the settings that you can
-   update, see [Update primary and
-   staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+   update, see [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
 
 As soon as the staging distribution's configuration deploys to edge
 locations it takes effect for incoming traffic that's routed to the staging
@@ -292,8 +278,7 @@ aws cloudfront get-distribution-config --id `staging_distribution_ID` --output y
 
         * Modify the configuration of the staging distribution. For
          more information about the settings that you can update, see
-         [Update primary and
-         staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+         [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
         * Rename the `ETag` field to
          `IfMatch`, but don't change the field's
          value.
@@ -317,8 +302,7 @@ distribution.
 API
 To update the configuration of a staging distribution, use [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") (on the staging distribution) to modify the
 configuration of the staging distribution. For more information about the
-settings that you can update, see [Update primary and
-staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
+settings that you can update, see [Update primary and staging distributions](understanding-continuous-deployment.md#updating-staging-and-primary-distributions "understanding-continuous-deployment.md#updating-staging-and-primary-distributions").
 
 ## Update a continuous deployment policy
 
@@ -347,9 +331,7 @@ the staging distribution based on the updated traffic configuration.
 
 CLI
 
-###### To update a continuous deployment policy (CLI with input
-
-file)
+###### To update a continuous deployment policy (CLI with input file)
 
 1. Use the following command to save the continuous deployment
    policy's configuration to a file named
@@ -373,10 +355,8 @@ aws cloudfront get-continuous-deployment-policy-config --id `continuous_deployme
          policy as desired. For example, you can change from using a
          header-based to a weight-based traffic configuration, or you
          can change the percentage of traffic (weight) for a
-         weight-based configuration. For more information, see [Route requests to
-         the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
-         [Session stickiness
-         for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
+         weight-based configuration. For more information, see [Route requests to the staging distribution](understanding-continuous-deployment.md#understanding-continuous-deployment-routing "understanding-continuous-deployment.md#understanding-continuous-deployment-routing") and
+         [Session stickiness for weight-based configurations](understanding-continuous-deployment.md#understanding-continuous-deployment-sessions "understanding-continuous-deployment.md#understanding-continuous-deployment-sessions").
         * Rename the `ETag` field to
          `IfMatch`, but don't change the field's
          value.

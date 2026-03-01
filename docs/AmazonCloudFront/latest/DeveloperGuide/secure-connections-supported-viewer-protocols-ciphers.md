@@ -1,6 +1,4 @@
-# Supported
-
-protocols and ciphers between viewers and CloudFront
+# Supported protocols and ciphers between viewers and CloudFront
 
 When you [require HTTPS between
 viewers and your CloudFront distribution](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy"), you must choose a [security policy](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy "DownloadDistValuesGeneral.md#DownloadDistValues-security-policy"), which
@@ -10,14 +8,12 @@ determines the following settings:
   viewers.
 - The ciphers that CloudFront can use to encrypt the communication with
   viewers.
-  To choose a security policy, specify the applicable value for [Security policy (minimum
-  SSL/TLS version)](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy "DownloadDistValuesGeneral.md#DownloadDistValues-security-policy"). The following table lists the
+  To choose a security policy, specify the applicable value for [Security policy (minimum SSL/TLS version)](DownloadDistValuesGeneral.md#DownloadDistValues-security-policy "DownloadDistValuesGeneral.md#DownloadDistValues-security-policy"). The following table lists the
   protocols and ciphers that CloudFront can use for each security policy.
 
 A viewer must support at least one of the supported ciphers to establish an HTTPS
 connection with CloudFront. CloudFront chooses a cipher in the listed order from among the ciphers
-that the viewer supports. See also [OpenSSL, s2n, and RFC
-cipher names](#secure-connections-openssl-rfc-cipher-names "#secure-connections-openssl-rfc-cipher-names").
+that the viewer supports. See also [OpenSSL, s2n, and RFC cipher names](#secure-connections-openssl-rfc-cipher-names "#secure-connections-openssl-rfc-cipher-names").
 
 |                                 | Security policy |
 | ------------------------------- | --------------- | ----- | ---------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -56,9 +52,7 @@ cipher names](#secure-connections-openssl-rfc-cipher-names "#secure-connections-
 | DES-CBC3-SHA                    | ♦               | ♦     |            |              |              |              |              |              |              |
 | RC4-MD5                         | ♦               |       |            |              |              |              |              |              |              |
 
-## OpenSSL, s2n, and RFC
-
-cipher names
+## OpenSSL, s2n, and RFC cipher names
 
 OpenSSL and [s2n](https://github.com/awslabs/s2n "https://github.com/awslabs/s2n") use different
 names for ciphers than the TLS standards use ([RFC 2246](https://tools.ietf.org/html/rfc2246 "https://tools.ietf.org/html/rfc2246"), [RFC 4346](https://tools.ietf.org/html/rfc4346 "https://tools.ietf.org/html/rfc4346"), [RFC 5246](https://tools.ietf.org/html/rfc5246 "https://tools.ietf.org/html/rfc5246"), and [RFC 8446](https://tools.ietf.org/html/rfc8446 "https://tools.ietf.org/html/rfc8446")). The following table
@@ -86,8 +80,7 @@ For more information, see the following topics:
     + [Cryptography algorithms and AWS services](../../../prescriptive-guidance/latest/encryption-best-practices/aws-cryptography-services.md#algorithms "../../../prescriptive-guidance/latest/encryption-best-practices/aws-cryptography-services.md#algorithms")
     + [Hybrid key exchange in TLS 1.3](https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/ "https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/")
 
-For more information about certificate requirements for CloudFront, see [Requirements for using SSL/TLS certificates with
-CloudFront](cnames-and-https-requirements.md "cnames-and-https-requirements.md").
+For more information about certificate requirements for CloudFront, see [Requirements for using SSL/TLS certificates with CloudFront](cnames-and-https-requirements.md "cnames-and-https-requirements.md").
 
 | OpenSSL and s2n cipher name   | RFC cipher name                               |
 | ----------------------------- | --------------------------------------------- |
@@ -119,9 +112,7 @@ CloudFront](cnames-and-https-requirements.md "cnames-and-https-requirements.md")
 | DES-CBC3-SHA                  | TLS_RSA_WITH_3DES_EDE_CBC_SHA                 |
 | RC4-MD5                       | TLS_RSA_WITH_RC4_128_MD5                      |
 
-## Supported signature
-
-schemes between viewers and CloudFront
+## Supported signature schemes between viewers and CloudFront
 
 CloudFront supports the following signature schemes for connections between viewers and
 CloudFront.

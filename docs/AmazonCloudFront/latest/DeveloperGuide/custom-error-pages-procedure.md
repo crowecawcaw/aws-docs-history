@@ -1,6 +1,4 @@
-# Configure error response
-
-behavior
+# Configure error response behavior
 
 You have several options to manage how CloudFront responds when there’s an error. To
 configure custom error responses, you can use the CloudFront console, the CloudFront API, or CloudFormation.
@@ -13,8 +11,7 @@ and recommendations:
   you store the custom error pages on the same origin as your website or
   application, and the origin starts to return 5xx errors, CloudFront can’t get the
   custom error pages because the origin server is unavailable. For more
-  information, see [Store objects and custom
-  error pages in different locations](custom-error-pages-different-locations.md "custom-error-pages-different-locations.md").
+  information, see [Store objects and custom error pages in different locations](custom-error-pages-different-locations.md "custom-error-pages-different-locations.md").
 - Make sure that CloudFront has permission to get your custom error pages. If the
   custom error pages are stored in Amazon S3, the pages must be publicly accessible or
   you must configure a CloudFront [origin access control
@@ -24,8 +21,7 @@ and recommendations:
   `Expires` header along with the custom error pages, if you want.
   You can also use the **Error Caching Minimum TTL** setting to
   control how long CloudFront caches the custom error pages. For more information, see
-  [Control how long CloudFront caches
-  errors](custom-error-pages-expiration.md "custom-error-pages-expiration.md").
+  [Control how long CloudFront caches errors](custom-error-pages-expiration.md "custom-error-pages-expiration.md").
 
 ## Configure custom error responses
 
@@ -43,8 +39,7 @@ Console
 2. In the list of distributions, choose the distribution to update.
 3. Choose the **Error Pages** tab, then choose
    **Create Custom Error Response**.
-4. Enter the applicable values. For more information, see [Custom error pages and error
-   caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md").
+4. Enter the applicable values. For more information, see [Custom error pages and error caching](DownloadDistValuesErrorPages.md "DownloadDistValuesErrorPages.md").
 5. After entering the desired values, choose
    **Create**.
 

@@ -32,8 +32,7 @@ Lambda@Edge. This works for viewer and origin requests and responses.
 
 ###### Topics
 
-- [Differences between CloudFront Functions and
-  Lambda@Edge](edge-functions-choosing.md "edge-functions-choosing.md")
+- [Differences between CloudFront Functions and Lambda@Edge](edge-functions-choosing.md "edge-functions-choosing.md")
 - [Customize at the edge with CloudFront Functions](cloudfront-functions.md "cloudfront-functions.md")
 - [Customize with CloudFront Connection Functions](customize-connections-validation-with-connection-functions.md "customize-connections-validation-with-connection-functions.md")
 - [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md")

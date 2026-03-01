@@ -10,18 +10,14 @@ of the following:
 
 ###### Topics
 
-- [Choose between invalidating files and
-  using versioned file names](#Invalidation_Expiration "#Invalidation_Expiration")
-- [Determine which files to
-  invalidate](invalidation-access-logs.md "invalidation-access-logs.md")
+- [Choose between invalidating files and using versioned file names](#Invalidation_Expiration "#Invalidation_Expiration")
+- [Determine which files to invalidate](invalidation-access-logs.md "invalidation-access-logs.md")
 - [What you need to know when invalidating files](invalidation-specifying-objects.md "invalidation-specifying-objects.md")
 - [Invalidate files](Invalidation_Requests.md "Invalidation_Requests.md")
 - [Concurrent invalidation request maximum](InvalidationLimits.md "InvalidationLimits.md")
 - [Pay for file invalidation](PayingForInvalidation.md "PayingForInvalidation.md")
 
-## Choose between invalidating files and
-
-using versioned file names
+## Choose between invalidating files and using versioned file names
 
 To control the versions of files that are served from your distribution, you can
 either invalidate files or give them versioned file names. If you want to update

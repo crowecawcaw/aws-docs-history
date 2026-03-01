@@ -1,6 +1,4 @@
-# Set up the target
-
-standard distribution or distribution tenant
+# Set up the target standard distribution or distribution tenant
 
 Before you can move an alternate domain name, you must set up the target resource.
 This is the target standard distribution or distribution tenant that you're moving the alternate domain name
@@ -79,8 +77,7 @@ part of creating the distribution tenant, associate the certificate with the
 distribution tenant. For more information, see [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md").
 
 If you already have a target distribution tenant, associate the certificate
-with the distribution tenant. For more information, see [Add a domain and certificate
-(distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant"). 3. **If you’re moving alternate domain names
+with the distribution tenant. For more information, see [Add a domain and certificate (distribution tenant)](managed-cloudfront-certificates.md#vanity-domain-tls-tenant "managed-cloudfront-certificates.md#vanity-domain-tls-tenant"). 3. **If you’re moving alternate domain names
 within the same AWS account, skip this step.**
 
 To move an alternate domain name from one AWS account to

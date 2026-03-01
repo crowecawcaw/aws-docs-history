@@ -1,6 +1,4 @@
-# Require HTTPS for communication
-
-between CloudFront and your custom origin
+# Require HTTPS for communication between CloudFront and your custom origin
 
 You can require HTTPS for communication between CloudFront and your origin.
 
@@ -21,8 +19,7 @@ do the following:
 ###### Topics
 
 - [Require HTTPS for custom origins](#using-https-cloudfront-to-origin-distribution-setting "#using-https-cloudfront-to-origin-distribution-setting")
-- [Install an SSL/TLS certificate on
-  your custom origin](#using-https-cloudfront-to-origin-certificate "#using-https-cloudfront-to-origin-certificate")
+- [Install an SSL/TLS certificate on your custom origin](#using-https-cloudfront-to-origin-certificate "#using-https-cloudfront-to-origin-certificate")
 
 ## Require HTTPS for custom origins
 
@@ -31,9 +28,7 @@ Elastic Load Balancing load balancer, an Amazon EC2 instance, or another custom 
 about using the CloudFront API to update a distribution, see [UpdateDistribution](../../../cloudfront/latest/APIReference/API_UpdateDistribution.md "../../../cloudfront/latest/APIReference/API_UpdateDistribution.md") in the
 _Amazon CloudFront API Reference_.
 
-###### To configure CloudFront to
-
-require HTTPS between CloudFront and your custom origin
+###### To configure CloudFront to require HTTPS between CloudFront and your custom origin
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -84,9 +79,7 @@ environment:
     * The cache behaviors are routing requests to the origins that you changed the
      **Origin Protocol Policy** for.
 
-## Install an SSL/TLS certificate on
-
-your custom origin
+## Install an SSL/TLS certificate on your custom origin
 
 You can use an SSL/TLS certificate from the following sources on your custom
 origin:

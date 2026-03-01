@@ -1,6 +1,4 @@
-# Associate a key value store with a
-
-function
+# Associate a key value store with a function
 
 After you create your key value store, you can update your function to associate it
 with your key value store. You must make this association to use the key-value pairs

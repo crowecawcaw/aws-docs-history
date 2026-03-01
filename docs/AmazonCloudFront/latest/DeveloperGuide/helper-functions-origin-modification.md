@@ -1,6 +1,4 @@
-# Helper methods for origin
-
-modification
+# Helper methods for origin modification
 
 This section applies if you dynamically update or change the origin used on the
 request inside your CloudFront Functions code. You can update the origin on _viewer
@@ -14,8 +12,7 @@ the following statement in the first line of the function code:
 import cf from 'cloudfront';
 ```
 
-For more information, see [JavaScript runtime 2.0 features for
-CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
+For more information, see [JavaScript runtime 2.0 features for CloudFront Functions](functions-javascript-runtime-20.md "functions-javascript-runtime-20.md").
 
 ###### Note
 
@@ -23,9 +20,7 @@ The Test API and Test console pages don't test whether an origin modification ha
 occurred. However, testing ensures that the function code executes without
 error.
 
-## Choose between CloudFront Functions
-
-and Lambda@Edge
+## Choose between CloudFront Functions and Lambda@Edge
 
 You can update your origins by using either CloudFront Functions or Lambda@Edge.
 
@@ -64,9 +59,7 @@ Lambda@Edge is most useful in the following situations:
 
 For more information about Lambda@Edge, see [Customize at the edge with Lambda@Edge](lambda-at-the-edge.md "lambda-at-the-edge.md").
 
-## updateRequestOrigin()
-
-method
+## updateRequestOrigin() method
 
 Use the `updateRequestOrigin()` method to update the origin settings
 for a request. You can use this method to update existing origin properties for
@@ -168,8 +161,7 @@ hyphen.
 For example, if you function code adds a header named
 `example-header-name`, CloudFront converts this to
 `Example-Header-Name` in the HTTP request. For more
-information, see [Custom headers that CloudFront can’t add
-to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist") and [Restrictions on edge functions](edge-functions-restrictions.md "edge-functions-restrictions.md").
+information, see [Custom headers that CloudFront can’t add to origin requests](add-origin-custom-headers.md#add-origin-custom-headers-denylist "add-origin-custom-headers.md#add-origin-custom-headers-denylist") and [Restrictions on edge functions](edge-functions-restrictions.md "edge-functions-restrictions.md").
 
 If this is not provided, then any custom headers from the assigned
 origin are used.
@@ -203,8 +195,7 @@ Region.
 
 When you enable CloudFront Origin Shield, you must specify the
 AWS Region for it. For a list of available AWS Regions
-and help choosing the best Region for your origin, see [Choose the AWS Region for Origin
-Shield](origin-shield.md#choose-origin-shield-region "origin-shield.md#choose-origin-shield-region").
+and help choosing the best Region for your origin, see [Choose the AWS Region for Origin Shield](origin-shield.md#choose-origin-shield-region "origin-shield.md#choose-origin-shield-region").
 
 **originAccessControlConfig (optional)**
 
@@ -214,8 +205,7 @@ Amazon S3, Lambda function URLs, MediaStore, and MediaPackage V2. If this is not
 then the OAC settings from the assigned origin are used.
 
 This does not support the legacy origin access identity (OAI). For
-more information, see [Restrict access to an AWS
-origin](private-content-restricting-access-to-origin.md "private-content-restricting-access-to-origin.md").
+more information, see [Restrict access to an AWS origin](private-content-restricting-access-to-origin.md "private-content-restricting-access-to-origin.md").
 
 **enabled (required)**
 
@@ -226,8 +216,7 @@ Boolean expression to enable or disable OAC. Accepts a
 
 Specifies which requests CloudFront signs (adds authentication
 information to). Specify `always` for the most
-common use case. For more information, see [Advanced settings for origin access
-control](private-content-restricting-access-to-s3.md#oac-advanced-settings-s3 "private-content-restricting-access-to-s3.md#oac-advanced-settings-s3").
+common use case. For more information, see [Advanced settings for origin access control](private-content-restricting-access-to-s3.md#oac-advanced-settings-s3 "private-content-restricting-access-to-s3.md#oac-advanced-settings-s3").
 
 This field can have one of the following values:
 
@@ -313,8 +302,7 @@ The `keepAliveTimeout` specifies how long CloudFront
 should try to maintain the connection to the origin after
 receiving the last packet of the response. The minimum
 timeout is 1 second and the maximum is 120 seconds. For more
-information, see [Keep-alive timeout (custom
-and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout").
+information, see [Keep-alive timeout (custom and VPC origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout "DownloadDistValuesOrigin.md#DownloadDistValuesOriginKeepaliveTimeout").
 
 **connectionTimeout (optional)**
 
@@ -353,8 +341,7 @@ A list that specifies the minimum SSL/TLS protocol that
 CloudFront uses when connecting to your origin over HTTPS. Valid
 values include `SSLv3`, `TLSv1`,
 `TLSv1.1`, and `TLSv1.2`. For more
-information, see [Minimum origin SSL
-protocol](DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols "DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols").
+information, see [Minimum origin SSL protocol](DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols "DownloadDistValuesOrigin.md#DownloadDistValuesOriginSSLProtocols").
 
 **ipAddressType (optional)**
 
@@ -466,9 +453,7 @@ cf.updateRequestOrigin({
 });
 ```
 
-## selectRequestOriginById()
-
-method
+## selectRequestOriginById() method
 
 Use `selectRequestOriginById()` to update an existing origin by
 selecting a different origin that's already configured in your distribution. This

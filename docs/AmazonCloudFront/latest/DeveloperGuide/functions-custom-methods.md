@@ -82,9 +82,7 @@ performance, such as the following example.
 var values = await Promise.all([kvs.get('key1'), kvs.get('key2'),]);
 ```
 
-## `exists()`
-
-method
+## `exists()` method
 
 Use this method to identify whether or not the key exists in the
 key value store.

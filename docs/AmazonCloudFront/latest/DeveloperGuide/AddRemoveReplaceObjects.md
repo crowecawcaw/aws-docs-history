@@ -1,6 +1,4 @@
-# Add, remove, or replace content that CloudFront
-
-distributes
+# Add, remove, or replace content that CloudFront distributes
 
 This section explains how to make sure CloudFront can access the content that you want to be served to
 your viewers, how to specify the objects in your website or in your application, and how to remove or replace
@@ -9,8 +7,7 @@ content.
 ###### Topics
 
 - [Add and access content that CloudFront distributes](#AddingObjects "#AddingObjects")
-- [Use file versioning to update or remove
-  content with a CloudFront distribution](UpdatingExistingObjects.md "UpdatingExistingObjects.md")
+- [Use file versioning to update or remove content with a CloudFront distribution](UpdatingExistingObjects.md "UpdatingExistingObjects.md")
 - [Customize the URL format for files in CloudFront](LinkFormat.md "LinkFormat.md")
 - [Specify a default root object](DefaultRootObject.md "DefaultRootObject.md")
 - [Invalidate files to remove content](Invalidation.md "Invalidation.md")

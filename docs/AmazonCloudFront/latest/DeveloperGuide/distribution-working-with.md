@@ -1,6 +1,4 @@
-# Use WebSockets with CloudFront
-
-distributions
+# Use WebSockets with CloudFront distributions
 
 Amazon CloudFront supports using WebSocket, a TCP-based protocol that is useful when you need
 long-lived bidirectional connections between clients and servers. A persistent
@@ -20,9 +18,7 @@ distribution:
   `Sec-WebSocket-Version` request headers in your origin request
   policy.
 
-## How the
-
-WebSocket protocol works
+## How the WebSocket protocol works
 
 The WebSocket protocol is an independent, TCP-based protocol that allows you to
 avoid some of the overhead—and potentially increased latency—of
@@ -36,14 +32,10 @@ time.
 
 By default, the WebSocket protocol uses port 80 for regular WebSocket connections
 and port 443 for WebSocket connections over TLS. The options that you choose for
-your CloudFront [Viewer protocol
-policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") and [Protocol (custom origins
-only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy") apply to WebSocket
+your CloudFront [Viewer protocol policy](DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy "DownloadDistValuesCacheBehavior.md#DownloadDistValuesViewerProtocolPolicy") and [Protocol (custom origins only)](DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy "DownloadDistValuesOrigin.md#DownloadDistValuesOriginProtocolPolicy") apply to WebSocket
 connections and also HTTP traffic.
 
-## WebSocket
-
-requirements
+## WebSocket requirements
 
 WebSocket requests must comply with [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455 "https://datatracker.ietf.org/doc/html/rfc6455") in the
 following standard formats.

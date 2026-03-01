@@ -64,8 +64,7 @@ topics:
 - For more information about viewing graphs in the
   **Monitoring** section of the CloudFront console, see [Monitor CloudFront metrics with Amazon CloudWatch](monitoring-using-cloudwatch.md "monitoring-using-cloudwatch.md").
 - For information about the permissions required to send data to CloudWatch Logs, see
-  [Set up IAM permissions and roles for
-  Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md").
+  [Set up IAM permissions and roles for Lambda@Edge](lambda-edge-permissions.md "lambda-edge-permissions.md").
 - For information about adding logging to a Lambda@Edge function, see [AWS Lambda
   function logging in Node.js](../../../lambda/latest/dg/nodejs-logging.md "../../../lambda/latest/dg/nodejs-logging.md") or [AWS Lambda
   function logging in Python](../../../lambda/latest/dg/python-logging.md "../../../lambda/latest/dg/python-logging.md") in the

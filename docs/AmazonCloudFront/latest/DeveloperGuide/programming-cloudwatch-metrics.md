@@ -9,12 +9,9 @@ For more information, see [get-metric-data](../../../cli/latest/reference/cloudw
 
 ###### Topics
 
-- [Values for all CloudFront
-  metrics](#cloudfront-metrics-global-values "#cloudfront-metrics-global-values")
-- [Values for CloudFront
-  distribution metrics](#cloudfront-metrics-distribution-values "#cloudfront-metrics-distribution-values")
-- [Values for CloudFront function
-  metrics](#cloudfront-metrics-function-values "#cloudfront-metrics-function-values")
+- [Values for all CloudFront metrics](#cloudfront-metrics-global-values "#cloudfront-metrics-global-values")
+- [Values for CloudFront distribution metrics](#cloudfront-metrics-distribution-values "#cloudfront-metrics-distribution-values")
+- [Values for CloudFront function metrics](#cloudfront-metrics-function-values "#cloudfront-metrics-function-values")
 
 ###### Note
 
@@ -22,9 +19,7 @@ To get the CloudFront metrics from the CloudWatch API, you must use the US East 
 (`us-east-1`). You also need to know certain values and types for
 each metric.
 
-## Values for all CloudFront
-
-metrics
+## Values for all CloudFront metrics
 
 The following values apply to all CloudFront metrics:
 
@@ -55,9 +50,7 @@ The value for `Region` is always
 `Global`, because CloudFront is a global
 service.
 
-## Values for CloudFront
-
-distribution metrics
+## Values for CloudFront distribution metrics
 
 Use information from the following list to get details about specific CloudFront
 distribution metrics from the CloudWatch API. Some of these metrics are available only
@@ -223,9 +216,7 @@ status code is `4xx` or `5xx`.
 - Valid statistic: `Average`
 - Unit: `Percent`
 
-## Values for CloudFront function
-
-metrics
+## Values for CloudFront function metrics
 
 Use information from the following list to get details about specific CloudFront
 function metrics from the CloudWatch API.

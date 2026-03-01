@@ -1,6 +1,4 @@
-# Request certificates for your
-
-CloudFront distribution tenant
+# Request certificates for your CloudFront distribution tenant
 
 When you create a distribution tenant, the tenant inherits the shared AWS Certificate Manager (ACM) certificate
 from the multi-tenant distribution. This shared certificate provides HTTPS for all tenants associated with
@@ -21,16 +19,13 @@ You can request the certificate when you create or update the distribution tenan
 
 ###### Topics
 
-- [Add a domain and certificate
-  (distribution tenant)](#vanity-domain-tls-tenant "#vanity-domain-tls-tenant")
+- [Add a domain and certificate (distribution tenant)](#vanity-domain-tls-tenant "#vanity-domain-tls-tenant")
 - [Complete domain setup](#complete-domain-ownership "#complete-domain-ownership")
 - [Point domains to CloudFront](#point-domains-to-cloudfront "#point-domains-to-cloudfront")
 - [Domain considerations (distribution tenant)](#tenant-domain-considerations "#tenant-domain-considerations")
 - [Wildcard domains (distribution tenant)](#tenant-wildcard-domains "#tenant-wildcard-domains")
 
-## Add a domain and certificate
-
-(distribution tenant)
+## Add a domain and certificate (distribution tenant)
 
 The following procedure shows you how to add a domain and update the certificate for a
 distribution tenant.

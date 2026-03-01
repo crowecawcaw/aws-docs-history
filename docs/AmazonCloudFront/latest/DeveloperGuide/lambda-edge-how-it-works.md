@@ -32,5 +32,4 @@ For a step-by-step tutorial, see the following topic:
 
 ###### Topics
 
-- [Tutorial: Create a basic
-  Lambda@Edge function (console)](lambda-edge-how-it-works-tutorial.md "lambda-edge-how-it-works-tutorial.md")
+- [Tutorial: Create a basic Lambda@Edge function (console)](lambda-edge-how-it-works-tutorial.md "lambda-edge-how-it-works-tutorial.md")

@@ -1,6 +1,4 @@
-# Use managed origin request
-
-policies
+# Use managed origin request policies
 
 CloudFront provides a set of managed origin request policies that you can attach to any of your
 distribution's cache behaviors. With a managed origin request policy, you don't need to
@@ -13,8 +11,7 @@ instead of creating a new one, you just attach one of the managed origin request
 policies. You attach the policy either by name (with the console) or by ID (with the
 AWS CLI or SDKs). The names and IDs are listed in the following section.
 
-For more information, see [Create origin request
-policies](origin-request-create-origin-request-policy.md "origin-request-create-origin-request-policy.md").
+For more information, see [Create origin request policies](origin-request-create-origin-request-policy.md "origin-request-create-origin-request-policy.md").
 
 The following topics describe the managed origin request policies that you can
 use.

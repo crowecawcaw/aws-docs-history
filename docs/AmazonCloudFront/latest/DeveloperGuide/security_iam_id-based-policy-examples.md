@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon CloudFront
+# Identity-based policy examples for Amazon CloudFront
 
 By default, users and roles don't have permission to create or modify CloudFront
 resources. To grant users permission to perform actions on the
@@ -14,18 +12,13 @@ For details about actions and resource types defined by CloudFront, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Permissions to access CloudFront programmatically](#security_iam_id-based-policy-examples-programmatic-access-all "#security_iam_id-based-policy-examples-programmatic-access-all")
 - [Permissions required to use the CloudFront console](#security_iam_id-based-policy-examples-console-required-permissions "#security_iam_id-based-policy-examples-console-required-permissions")
-- [Customer managed policy
-  examples](#security_iam_id-based-policy-examples-sdk-cli "#security_iam_id-based-policy-examples-sdk-cli")
+- [Customer managed policy examples](#security_iam_id-based-policy-examples-sdk-cli "#security_iam_id-based-policy-examples-sdk-cli")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CloudFront resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -58,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -230,8 +221,7 @@ This permission isn't required if you aren't using the CloudFront console.
 
 When you're creating or updating distributions that restrict access to S3
 buckets, lets a user update the bucket policy to grant access to the CloudFront
-origin access identity. For more information, see [Use an origin access
-identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai "private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai").
+origin access identity. For more information, see [Use an origin access identity (legacy, not recommended)](private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai "private-content-restricting-access-to-s3.md#private-content-restricting-access-to-s3-oai").
 
 This permission isn't required if you aren't using the CloudFront console.
 
@@ -251,9 +241,7 @@ Lets you view a list of AWS WAF web ACLs in the CloudFront console.
 These permissions aren't required if you aren't using the CloudFront
 console.
 
-### Permission-only actions for the CloudFront
-
-console
+### Permission-only actions for the CloudFront console
 
 You can perform the following CloudFront actions on the [CloudFront Security Savings
 Bundle](https://console.aws.amazon.com//cloudfront/v3/home#/savings-bundle/overview "https://console.aws.amazon.com//cloudfront/v3/home#/savings-bundle/overview") page. The following API actions are not intended to be called by
@@ -275,9 +263,7 @@ your code, and are not included in the AWS CLI and AWS SDKs.
 - If you create a savings plan for CloudFront and then want to delete it later,
   contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service "https://console.aws.amazon.com/support/home#/case/create?issueType=customer-service").
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 You can create your own custom IAM policies to allow permissions for CloudFront API
 actions. You can attach these custom policies to the IAM users or groups that require
@@ -290,8 +276,7 @@ cases. For the policy that grants a user full access to CloudFront, see [Permiss
 - [Example 1: Allow read access to all distributions](#security_iam_id-based-policy-examples-allow-read-all-distributions "#security_iam_id-based-policy-examples-allow-read-all-distributions")
 - [Example 2: Allow creating, updating, and deleting distributions](#security_iam_id-based-policy-examples-allow-create-update-delete-distributions "#security_iam_id-based-policy-examples-allow-create-update-delete-distributions")
 - [Example 3: Allow creating and listing invalidations](#security_iam_id-based-policy-examples-allow-create-list-invalidations "#security_iam_id-based-policy-examples-allow-create-list-invalidations")
-- [Example 4: Allow creating a
-  distribution](#create-distribution-iam-policy "#create-distribution-iam-policy")
+- [Example 4: Allow creating a distribution](#create-distribution-iam-policy "#create-distribution-iam-policy")
 
 ### Example 1: Allow read access to all distributions
 
@@ -428,9 +413,7 @@ JSON
 
 ```
 
-### Example 4: Allow creating a
-
-distribution
+### Example 4: Allow creating a distribution
 
 The following permission policy grants the user permission to create and list
 distributions in the CloudFront console. For the `CreateDistribution` action,

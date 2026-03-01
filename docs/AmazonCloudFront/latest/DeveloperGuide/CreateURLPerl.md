@@ -12,12 +12,9 @@ more information about the end-to-end process, see [Use signed URLs](private-con
 
 ###### Topics
 
-- [Source for the Perl script to create a signed
-  URL](#CreateURLPerlScriptSource "#CreateURLPerlScriptSource")
+- [Source for the Perl script to create a signed URL](#CreateURLPerlScriptSource "#CreateURLPerlScriptSource")
 
-## Source for the Perl script to create a signed
-
-URL
+## Source for the Perl script to create a signed URL
 
 The following Perl source code can be used to create a signed URL for CloudFront. Comments in
 the code include information about the command line switches and the features of

@@ -1,6 +1,4 @@
-# How CloudFront processes partial requests for an object (range
-
-GETs)
+# How CloudFront processes partial requests for an object (range GETs)
 
 For a large object, the viewer (web browser or other client) can make multiple
 `GET` requests and use the `Range` request header to download
@@ -52,9 +50,7 @@ code `206` with the specified ranges:
   RFC 7233, or [Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Range")
   in the MDN Web Docs.
 
-## Use range requests to
-
-cache large objects
+## Use range requests to cache large objects
 
 When caching is enabled, CloudFront doesn’t retrieve or cache an object that is larger
 than 50 GB. When an origin indicates that the object is larger than this size (in

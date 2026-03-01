@@ -1,20 +1,14 @@
-# Restrict access to an
-
-AWS Elemental MediaStore origin
+# Restrict access to an AWS Elemental MediaStore origin
 
 CloudFront provides _origin access control_ (OAC) for
 restricting access to an AWS Elemental MediaStore origin.
 
 ###### Topics
 
-- [Create a new origin access
-  control](#create-oac-overview-mediastore "#create-oac-overview-mediastore")
-- [Advanced settings for origin
-  access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore")
+- [Create a new origin access control](#create-oac-overview-mediastore "#create-oac-overview-mediastore")
+- [Advanced settings for origin access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore")
 
-## Create a new origin access
-
-control
+## Create a new origin access control
 
 Complete the steps described in the following topics to set up a new origin access
 control in CloudFront.
@@ -22,8 +16,7 @@ control in CloudFront.
 ###### Topics
 
 - [Prerequisites](#oac-prerequisites-mediastore "#oac-prerequisites-mediastore")
-- [Grant CloudFront permission to
-  access the MediaStore origin](#oac-permission-to-access-mediastore "#oac-permission-to-access-mediastore")
+- [Grant CloudFront permission to access the MediaStore origin](#oac-permission-to-access-mediastore "#oac-permission-to-access-mediastore")
 - [Create the origin access control](#create-oac-mediastore "#create-oac-mediastore")
 
 ### Prerequisites
@@ -31,9 +24,7 @@ control in CloudFront.
 Before you create and set up origin access control, you must have a CloudFront
 distribution with a MediaStore origin.
 
-### Grant CloudFront permission to
-
-access the MediaStore origin
+### Grant CloudFront permission to access the MediaStore origin
 
 Before you create an origin access control or set it up in a CloudFront
 distribution, make sure that CloudFront has permission to access the MediaStore origin. Do
@@ -50,9 +41,7 @@ you want to add OAC to.
 The following are examples of MediaStore container policies that allow a CloudFront
 distribution to access a MediaStore origin.
 
-###### Example MediaStore container policy that allows read-only access for a CloudFront
-
-distribution with OAC enabled
+###### Example MediaStore container policy that allows read-only access for a CloudFront distribution with OAC enabled
 
 JSON
 
@@ -84,9 +73,7 @@ JSON
 
 ```
 
-###### Example MediaStore container policy that allows read and write access for a CloudFront
-
-distribution with OAC enabled
+###### Example MediaStore container policy that allows read and write access for a CloudFront distribution with OAC enabled
 
 JSON
 
@@ -149,8 +136,7 @@ Console
       recommend that you leave the default setting
       (**Sign requests
       (recommended)**). For more information, see
-      [Advanced settings for origin
-      access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore").
+      [Advanced settings for origin access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore").
 
 5. Choose MediaStore from the **Origin type**
    dropdown.
@@ -160,9 +146,7 @@ After the OAC is created, make note of the
 **Name**. You need this in the
 following procedure.
 
-###### To add an origin access control to a MediaStore origin in a
-
-distribution
+###### To add an origin access control to a MediaStore origin in a distribution
 
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Choose a distribution with a MediaStore origin that you want to
@@ -206,9 +190,7 @@ command. You can use an input file to provide the input parameters
 for the command, rather than specifying each individual parameter as
 command line input.
 
-###### To create an origin access control (CLI with input
-
-file)
+###### To create an origin access control (CLI with input file)
 
 1. Use the following command to create a file that's named
    `origin-access-control.yaml`. This
@@ -227,8 +209,7 @@ aws cloudfront create-origin-access-control --generate-cli-skeleton yaml-input >
    `SigningBehavior` to `always`.
    Then save the file.
 
-For information about other OAC settings, see [Advanced settings for origin
-access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore"). 3. Use the following command to create the origin access
+For information about other OAC settings, see [Advanced settings for origin access control](#oac-advanced-settings-mediastore "#oac-advanced-settings-mediastore"). 3. Use the following command to create the origin access
 control using the input parameters from the
 `origin-access-control.yaml`
 file.
@@ -242,9 +223,7 @@ Make note of the `Id` value in the command
 output. You need it to add the OAC to a MediaStore origin in a
 CloudFront distribution.
 
-###### To attach an OAC to a MediaStore origin in an existing
-
-distribution (CLI with input file)
+###### To attach an OAC to a MediaStore origin in an existing distribution (CLI with input file)
 
 1. Use the following command to save the distribution
    configuration for the CloudFront distribution that you want to add
@@ -303,9 +282,7 @@ these API calls, see [All distribution settings reference](distribution-web-valu
 reference documentation for your AWS SDK or other API
 client.
 
-## Advanced settings for origin
-
-access control
+## Advanced settings for origin access control
 
 The CloudFront origin access control feature includes advanced settings that are
 intended only for specific use cases. Use the recommended settings unless you have a

@@ -16,13 +16,10 @@ When you associate a Connection Function with an mTLS-enabled CloudFront distrib
 
 ###### Topics
 
-- [Overview and
-  workflow](connection-functions-overview.md "connection-functions-overview.md")
+- [Overview and workflow](connection-functions-overview.md "connection-functions-overview.md")
 - [Configuration and limits](connection-function-configuration-limits.md "connection-function-configuration-limits.md")
 - [Create CloudFront Connection Functions for mutual TLS (viewer) validation](create-connection-functions.md "create-connection-functions.md")
-- [Write CloudFront Connection Function code for
-  mutual TLS (viewer) validation](write-connection-function-code.md "write-connection-function-code.md")
+- [Write CloudFront Connection Function code for mutual TLS (viewer) validation](write-connection-function-code.md "write-connection-function-code.md")
 - [Test CloudFront Connection Functions before deployment](test-connection-functions.md "test-connection-functions.md")
 - [Associate Connection Functions with distributions](associate-connection-functions.md "associate-connection-functions.md")
-- [Implement certificate revocation for mutual TLS (viewer) with
-  CloudFront Functions and KeyValueStore](implement-certificate-revocation.md "implement-certificate-revocation.md")
+- [Implement certificate revocation for mutual TLS (viewer) with CloudFront Functions and KeyValueStore](implement-certificate-revocation.md "implement-certificate-revocation.md")

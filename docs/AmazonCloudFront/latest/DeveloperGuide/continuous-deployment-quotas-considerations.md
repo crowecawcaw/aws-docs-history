@@ -1,6 +1,4 @@
-# Quotas and other
-
-considerations for continuous deployment
+# Quotas and other considerations for continuous deployment
 
 CloudFront continuous deployment is subject to the following quotas and other
 considerations.
@@ -21,8 +19,7 @@ For more information, see [Quotas](cloudfront-limits.md "cloudfront-limits.md").
 
 When using continuous deployment and your primary distribution is set with OAC
 for S3 bucket access, update your S3 bucket policy to allow access for the
-staging distribution. For example S3 bucket policies, see [Grant CloudFront permission to access
-the S3 bucket](private-content-restricting-access-to-s3.md#oac-permission-to-access-s3 "private-content-restricting-access-to-s3.md#oac-permission-to-access-s3").
+staging distribution. For example S3 bucket policies, see [Grant CloudFront permission to access the S3 bucket](private-content-restricting-access-to-s3.md#oac-permission-to-access-s3 "private-content-restricting-access-to-s3.md#oac-permission-to-access-s3").
 
 ## AWS WAF web ACLs
 
@@ -37,9 +34,7 @@ Before you can do the preceding tasks, you must delete the continuous deployment
 policy for your production distribution. This also deletes the staging distribution.
 For more information, see [Use AWS WAF protections](distribution-web-awswaf.md "distribution-web-awswaf.md").
 
-## Cases when CloudFront sends all
-
-requests to the primary distribution
+## Cases when CloudFront sends all requests to the primary distribution
 
 In certain cases, such as periods of high resource utilization, CloudFront might send
 all requests to the primary distribution regardless of what's specified in the

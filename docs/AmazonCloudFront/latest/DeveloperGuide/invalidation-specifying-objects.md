@@ -83,8 +83,7 @@ in the following example:
 For more information about using wildcards in the invalidation path,
 see [Invalidation paths](#invalidation-specifying-objects-paths "#invalidation-specifying-objects-paths").
 
-For more information about query strings, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md").
+For more information about query strings, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md").
 
 To determine which query strings are in use, you can enable CloudFront
 logging. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").

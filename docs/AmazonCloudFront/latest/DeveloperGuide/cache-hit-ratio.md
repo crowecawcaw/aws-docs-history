@@ -1,6 +1,4 @@
-# Increase the proportion of requests that are served
-
-directly from the CloudFront caches (cache hit ratio)
+# Increase the proportion of requests that are served directly from the CloudFront caches (cache hit ratio)
 
 You can improve performance by increasing the proportion of your viewer requests that
 are served directly from the CloudFront cache instead of going to your origin servers for
@@ -10,22 +8,15 @@ The following sections explain how to improve your cache hit ratio.
 
 ###### Topics
 
-- [Specify how long CloudFront caches your
-  objects](#cache-hit-ratio-duration "#cache-hit-ratio-duration")
+- [Specify how long CloudFront caches your objects](#cache-hit-ratio-duration "#cache-hit-ratio-duration")
 - [Use Origin Shield](#cache-hit-ratio-use-origin-shield "#cache-hit-ratio-use-origin-shield")
-- [Caching based on query
-  string parameters](#cache-hit-ratio-query-string-parameters "#cache-hit-ratio-query-string-parameters")
+- [Caching based on query string parameters](#cache-hit-ratio-query-string-parameters "#cache-hit-ratio-query-string-parameters")
 - [Caching based on cookie values](#cache-hit-ratio-cookies "#cache-hit-ratio-cookies")
-- [Caching based on request
-  headers](#cache-hit-ratio-request-headers "#cache-hit-ratio-request-headers")
-- [Remove
-  Accept-Encoding header when compression is not needed](#cache-hit-ratio-remove-accept-encoding "#cache-hit-ratio-remove-accept-encoding")
-- [Serve media content over
-  HTTP](#cache-hit-ratio-http-streaming "#cache-hit-ratio-http-streaming")
+- [Caching based on request headers](#cache-hit-ratio-request-headers "#cache-hit-ratio-request-headers")
+- [Remove Accept-Encoding header when compression is not needed](#cache-hit-ratio-remove-accept-encoding "#cache-hit-ratio-remove-accept-encoding")
+- [Serve media content over HTTP](#cache-hit-ratio-http-streaming "#cache-hit-ratio-http-streaming")
 
-## Specify how long CloudFront caches your
-
-objects
+## Specify how long CloudFront caches your objects
 
 To increase your cache hit ratio, you can configure your origin to add a [Cache-Control max-age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control") directive to your objects, and specify the
 longest practical value for `max-age`. The shorter the cache duration,
@@ -33,8 +24,7 @@ the more frequently CloudFront sends requests to your origin to determine if an 
 changed and to get the latest version. You can supplement `max-age` with
 the `stale-while-revalidate` and `stale-if-error` directives
 to further improve cache hit ratio under certain conditions. For more information,
-see [Manage how long content stays in the cache
-(expiration)](Expiration.md "Expiration.md").
+see [Manage how long content stays in the cache (expiration)](Expiration.md "Expiration.md").
 
 ## Use Origin Shield
 
@@ -48,9 +38,7 @@ retrieve the object from Origin Shield.
 
 For more information, see [Use Amazon CloudFront Origin Shield](origin-shield.md "origin-shield.md").
 
-## Caching based on query
-
-string parameters
+## Caching based on query string parameters
 
 If you configure CloudFront to cache based on query string parameters, you can improve
 caching if you do the following:
@@ -73,8 +61,7 @@ caching if you do the following:
   corresponding objects even if they're identical. If you always use the same
   order for parameters, CloudFront forwards fewer requests to your origin.
 
-For more information, see [Cache content based on query string
-parameters](QueryStringParameters.md "QueryStringParameters.md"). If you want to review the query strings
+For more information, see [Cache content based on query string parameters](QueryStringParameters.md "QueryStringParameters.md"). If you want to review the query strings
 that CloudFront forwards to your origin, see the values in the `cs-uri-query`
 column of your CloudFront log files. For more information, see [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
@@ -125,9 +112,7 @@ you want to review the cookies that CloudFront forwards to your origin, see the 
 the `cs(Cookie)` column of your CloudFront log files. For more information, see
 [Access logs (standard logs)](AccessLogs.md "AccessLogs.md").
 
-## Caching based on request
-
-headers
+## Caching based on request headers
 
 If you configure CloudFront to cache based on request headers, you can improve caching
 if you do the following:
@@ -144,11 +129,9 @@ CloudFront always forwards to your origin the headers specified in the
 following topics:
 
     + How CloudFront processes and forwards requests to your Amazon S3 origin
-     server > [HTTP request headers that CloudFront
-     removes or updates](RequestAndResponseBehaviorS3Origin.md#request-s3-removed-headers "RequestAndResponseBehaviorS3Origin.md#request-s3-removed-headers")
+     server > [HTTP request headers that CloudFront removes or updates](RequestAndResponseBehaviorS3Origin.md#request-s3-removed-headers "RequestAndResponseBehaviorS3Origin.md#request-s3-removed-headers")
     + How CloudFront processes and forwards requests to your custom origin
-     server > [HTTP request headers and CloudFront
-     behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior")
+     server > [HTTP request headers and CloudFront behavior (custom and Amazon S3 origins)](RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior "RequestAndResponseBehaviorCustomOrigin.md#request-custom-headers-behavior")
 
 When you configure CloudFront to cache based on request headers, you don't
 change the headers that CloudFront forwards, only whether CloudFront caches objects
@@ -171,9 +154,7 @@ forward only the `CloudFront-Is-Tablet-Viewer` header, not the
 
 For more information, see [Cache content based on request headers](header-caching.md "header-caching.md").
 
-## Remove
-
-`Accept-Encoding` header when compression is not needed
+## Remove `Accept-Encoding` header when compression is not needed
 
 If compression is not enabled—because the origin doesn’t support it, CloudFront
 doesn’t support it, or the content is not compressible—you can increase the
@@ -188,10 +169,7 @@ header from the cache key and doesn’t include the header in origin requests. T
 configuration applies to all content that CloudFront serves with the distribution from
 that origin.
 
-## Serve media content over
-
-HTTP
+## Serve media content over HTTP
 
 For information about optimizing video on demand (VOD) and streaming video
-content, see [Video on demand and live streaming video with
-CloudFront](on-demand-streaming-video.md "on-demand-streaming-video.md").
+content, see [Video on demand and live streaming video with CloudFront](on-demand-streaming-video.md "on-demand-streaming-video.md").

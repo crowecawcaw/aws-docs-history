@@ -6,17 +6,12 @@ The following values apply to the entire distribution.
 
 - [Price class](#DownloadDistValuesPriceClass "#DownloadDistValuesPriceClass")
 - [AWS WAF web ACL](#DownloadDistValuesWAFWebACL "#DownloadDistValuesWAFWebACL")
-- [Alternate domain names
-  (CNAMEs)](#DownloadDistValuesCNAME "#DownloadDistValuesCNAME")
+- [Alternate domain names (CNAMEs)](#DownloadDistValuesCNAME "#DownloadDistValuesCNAME")
 - [SSL certificate](#DownloadDistValuesSSLCertificate "#DownloadDistValuesSSLCertificate")
-- [Custom SSL client
-  support](#DownloadDistValuesClientsSupported "#DownloadDistValuesClientsSupported")
-- [Security policy (minimum
-  SSL/TLS version)](#DownloadDistValues-security-policy "#DownloadDistValues-security-policy")
-- [Supported HTTP
-  versions](#DownloadDistValuesSupportedHTTPVersions "#DownloadDistValuesSupportedHTTPVersions")
-- [Default root
-  object](#DownloadDistValuesDefaultRootObject "#DownloadDistValuesDefaultRootObject")
+- [Custom SSL client support](#DownloadDistValuesClientsSupported "#DownloadDistValuesClientsSupported")
+- [Security policy (minimum SSL/TLS version)](#DownloadDistValues-security-policy "#DownloadDistValues-security-policy")
+- [Supported HTTP versions](#DownloadDistValuesSupportedHTTPVersions "#DownloadDistValuesSupportedHTTPVersions")
+- [Default root object](#DownloadDistValuesDefaultRootObject "#DownloadDistValuesDefaultRootObject")
 - [Standard logging](#DownloadDistValuesLoggingOnOff "#DownloadDistValuesLoggingOnOff")
 - [Connection logs](#DownloadDistValuesConnectionLogs "#DownloadDistValuesConnectionLogs")
 - [Log prefix](#DownloadDistValuesLogPrefix "#DownloadDistValuesLogPrefix")
@@ -49,9 +44,7 @@ threats specific to your application in the AWS WAF console at
 
 For more information about AWS WAF, see the [AWS WAF Developer Guide](../../../waf/latest/developerguide.md "../../../waf/latest/developerguide.md").
 
-## Alternate domain names
-
-(CNAMEs)
+## Alternate domain names (CNAMEs)
 
 Optional. Specify one or more domain names that you want to use for URLs for
 your objects instead of the domain name that CloudFront assigns when you create your
@@ -133,9 +126,7 @@ that support that.
        Indication (SNI)**: CloudFront drops the connection with
        the viewer without returning the object.
 
-## Custom SSL client
-
-support
+## Custom SSL client support
 
 Applies only when you choose **Custom SSL Certificate
 (example.com)** for **SSL Certificate**. If you
@@ -166,12 +157,9 @@ the `SSLSupportMethod` field. In CloudFormation, the field is named
 `SslSupportMethod` (note the different
 capitalization).
 
-For more information, see [Choose how CloudFront serves HTTPS
-requests](cnames-https-dedicated-ip-or-sni.md "cnames-https-dedicated-ip-or-sni.md").
+For more information, see [Choose how CloudFront serves HTTPS requests](cnames-https-dedicated-ip-or-sni.md "cnames-https-dedicated-ip-or-sni.md").
 
-## Security policy (minimum
-
-SSL/TLS version)
+## Security policy (minimum SSL/TLS version)
 
 Specify the security policy that you want CloudFront to use for HTTPS connections
 with viewers (clients). A security policy determines two settings:
@@ -182,8 +170,7 @@ with viewers (clients). A security policy determines two settings:
   to viewers.
 
 For more information about the security policies, including the protocols and
-ciphers that each one includes, see [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+ciphers that each one includes, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
 The security policies that are available depend on the values that you specify
 for **SSL Certificate** and **Custom SSL Client
@@ -275,12 +262,9 @@ Support** (known as `CloudFrontDefaultCertificate` and
       	 TLSv1.1\_2016, that distribution will no longer
       	 support the DES-CBC3-SHA cipher. For more
       	 information about the ciphers and protocols that
-      	 each security policy supports, see [Supported
-      	 protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+      	 each security policy supports, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
-## Supported HTTP
-
-versions
+## Supported HTTP versions
 
 Choose the HTTP versions that you want your distribution to support when
 viewers communicate with CloudFront.
@@ -295,16 +279,13 @@ connection migration, see [Connection Migration](https://www.rfc-editor.org/rfc/
 
 ###### Note
 
-For more information about supported TLSv1.3 ciphers, see [Supported
-protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
+For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](secure-connections-supported-viewer-protocols-ciphers.md "secure-connections-supported-viewer-protocols-ciphers.md").
 
 ###### Note
 
 If you use Amazon Route 53, you can use HTTPS records to allow protocol negotiation as part of the DNS lookup if the client supports it. For more information, see [Create alias resource record set](CreatingCNAME.md#alternate-domain-https "CreatingCNAME.md#alternate-domain-https").
 
-## Default root
-
-object
+## Default root object
 
 Optional. The object that you want CloudFront to request from your origin (for
 example, `index.html`) when a viewer requests the root URL of your
