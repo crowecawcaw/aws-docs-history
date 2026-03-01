@@ -8,9 +8,7 @@ for each operation’s growing and changing needs.
 
 ## Smart Farm on Amazon Web Services Diagram
 
-### Reference Architecture
-
-Diagram
+### Reference Architecture Diagram
 
 ![Reference architecture diagram showing how to create a Connected Farm that enables sensors, computer vision, and edge inference in agriculture by focusing on ensuring scalability, elasticity, and a responsiveness for each operation’s growing and changing needs.](images/smart-farm-on-aws.png)
 
@@ -30,7 +28,7 @@ Diagram
 7. Transfer owned data, like planting records or farm finances, securely into your data
    lake with **Direct Connect**.
 8. Securely consume data from a sensor ecosystem hosted on AWS with **AWS PrivateLink**.
-9. Empower users with insights delivered via **Amazon API Gateway** or visualizations with **Quick Suite**.
+9. Empower users with insights delivered via **Amazon API Gateway** or visualizations with **Quick**.
 10. Build and deploy machine learning (ML) models for edge inference with **Amazon SageMaker AI**. Use **Amazon SageMaker Ground Truth** to manage data labeling workflow.
 11. Each time a new file is written into **Amazon S3**, **AWS Glue crawler** crawls the data to infer the schema and make
     it available into the **AWS Glue Data Catalog**. **Amazon Athena** does on-demand querying.
