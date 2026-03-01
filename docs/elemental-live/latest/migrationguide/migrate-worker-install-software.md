@@ -1,6 +1,4 @@
-# Step G: Install worker software on an
-
-Elemental Live node
+# Step G: Install worker software on an Elemental Live node
 
 This install procedure isn't the same as the install procedure on a newly obtained
 appliance (as described in [AWS Elemental Live Installation Guide](../installguide.md "../installguide.md")). You don't have to configure the node.

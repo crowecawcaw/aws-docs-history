@@ -12,9 +12,7 @@ AWS Elemental software. These files might include credentials and other sensitiv
 information. Handle the backup according to your organization's best practices for
 handling sensitive data.
 
-## About the backup
-
-process
+## About the backup process
 
 The script backs up the following data:
 
@@ -46,9 +44,7 @@ If your migration process means that you don't run the lifeboat script for
 any reason, make sure that you change the hostname before you boot the node
 after installing RHEL 9.
 
-## Step D2: Download the lifeboat
-
-script
+## Step D2: Download the lifeboat script
 
 You must copy the lifeboat script onto every node.
 
@@ -73,9 +69,7 @@ start a remote terminal session with the node. Don’t log in as sudo. 4. Untar 
 [elemental@hostname ~]$ cd elemental_lifeboat_el9
 ```
 
-## Step D3: Create the
-
-backup
+## Step D3: Create the backup
 
 ###### Important
 
@@ -123,9 +117,7 @@ The script also creates the following files:
 
 `/opt/upgrade-backups/system-backup.tar.gz`
 
-## Step D4: Store the backup
-
-archive
+## Step D4: Store the backup archive
 
 Copy two files to storage off the node, so that you can copy them back to the node
 when you want to perform the restore operation. The files to store off the node are
@@ -142,9 +134,7 @@ the AWS Elemental software. These files might include credentials and other
 sensitive system information. Handle the backup according to your organization's
 best practices for handling sensitive data.
 
-## Step D5: Verify the
-
-backup
+## Step D5: Verify the backup
 
 Verify the integrity of the backup archive. This step is optional but we strongly
 recommend that you follow it because the restore operation that you [later perform](migrate-worker-install-restore.md "migrate-worker-install-restore.md") might fail if the

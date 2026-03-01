@@ -1,20 +1,14 @@
-# Step H: Restore the database on a Elemental Live
-
-node
+# Step H: Restore the database on a Elemental Live node
 
 You restore data using the same lifeboat script that you used to create the
 backup.
 
 ###### Topics
 
-- [Step H1: Perform the
-  restore](#migrate-worker-restore-command "#migrate-worker-restore-command")
-- [Step H2: Perform manual restore
-  tasks](#migrate-worker-restore-manual "#migrate-worker-restore-manual")
+- [Step H1: Perform the restore](#migrate-worker-restore-command "#migrate-worker-restore-command")
+- [Step H2: Perform manual restore tasks](#migrate-worker-restore-manual "#migrate-worker-restore-manual")
 
-## Step H1: Perform the
-
-restore
+## Step H1: Perform the restore
 
 1. Download the lifeboat script, following the procedure that you followed
    when you [created the
@@ -73,9 +67,7 @@ two earlier on this page.
 This time the script looks for the files that are in
 `/home/elemental`, and restores those files.
 
-## Step H2: Perform manual restore
-
-tasks
+## Step H2: Perform manual restore tasks
 
 After you have run the lifeboat script, you might need to perform some manual
 steps.

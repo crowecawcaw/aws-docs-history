@@ -1,6 +1,4 @@
-# Step I: Configure the Elemental Live node after
-
-migration
+# Step I: Configure the Elemental Live node after migration
 
 **Install new licenses**
 

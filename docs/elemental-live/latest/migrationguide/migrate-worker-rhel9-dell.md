@@ -3,9 +3,7 @@
 You can install RHEL 9 on a Dell chassis either from the iDRAC interface or using
 a USB stick.
 
-## Install using the iDRAC
-
-interface
+## Install using the iDRAC interface
 
 ### Get Ready
 
@@ -45,9 +43,7 @@ The system reboots into the kickstart .iso. Lines of text appear, and
 finally the prompt **Enter the server complete hostname**
 appears.
 
-### Install the
-
-operating system
+### Install the operating system
 
 1. At the **Enter the server complete hostname**
    prompt, enter the hostname that already applies to this node, then
@@ -55,9 +51,7 @@ operating system
 2. When the installation is complete, press
    **Enter** to quit and reboot.
 
-### Finishing
-
-steps
+### Finishing steps
 
 1.  Installation of the RHEL 9 operating system will remove all
     network configurations. You must manually configure at least one
@@ -84,13 +78,9 @@ steps
     repository, go to the [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter") and read the Knowledge article
     [about the introduction of RHEL 9](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7 "https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/Advisory-AWS-Elemental-is-introducing-RHEL-9-2-support-for-Elemental-Live-Conductor-Live-and-Statmux-replacing-CentOS-7").
 
-## Install using a USB
+## Install using a USB stick
 
-stick
-
-### Install the operating
-
-system
+### Install the operating system
 
 1. Make sure that you have created a boot USB drive. See [Create a boot USB drive](migrate-worker-get-ready.md#migrate-worker-boot "migrate-worker-get-ready.md#migrate-worker-boot").
 2. Insert the USB drive into an available USB port. You might need to
@@ -103,9 +93,7 @@ system
 5. Then on the screen, press the reboot button shown or press the
    **Enter** key.
 
-### Finishing
-
-steps
+### Finishing steps
 
 1.  Installation of the RHEL 9 operating system will remove all
     network configurations. You must manually configure at least one

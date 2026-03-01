@@ -1,18 +1,12 @@
-# Step B: Prepare the Elemental Live node for
+# Step B: Prepare the Elemental Live node for migration
 
-migration
-
-## Upgrade to the latest 2.25 minor
-
-version
+## Upgrade to the latest 2.25 minor version
 
 To upgrade to version 2.26.0 or higher, the software currently
 installed on the node must be version 2.25.5 or higher. For instructions about how
 to upgrade to that version, see the [AWS Elemental Live Upgrade Guide](../upgradeguide.md "../upgradeguide.md").
 
-## Verify access to the BMC on the
-
-appliances
+## Verify access to the BMC on the appliances
 
 Make sure that you have access to the BMC on each appliance:
 
@@ -35,9 +29,7 @@ We recommend that you update the firmware on all your nodes at the same time. We
 also recommend that you perform this update during a maintenance window. After you
 install the firmware, you must reboot the node. For more information, see Update firmware.
 
-## Make a note of router
-
-information
+## Make a note of router information
 
 This information applies if the appliance is connected to an SDI input using a
 router. After you upgrade, the node will still have information about the SDI inputs

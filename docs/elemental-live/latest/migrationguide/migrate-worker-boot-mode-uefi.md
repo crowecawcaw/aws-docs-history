@@ -6,5 +6,4 @@ mode from BIOS (or Legacy mode) to UEFI.
 ###### Topics
 
 - [Switch to UEFI on a Dell](migrate-worker-boot-mode-uefi-dell.md "migrate-worker-boot-mode-uefi-dell.md")
-- [Switch to UEFI on a
-  SuperMicro](migrate-worker-boot-mode-uefi-smc.md "migrate-worker-boot-mode-uefi-smc.md")
+- [Switch to UEFI on a SuperMicro](migrate-worker-boot-mode-uefi-smc.md "migrate-worker-boot-mode-uefi-smc.md")
