@@ -118,8 +118,7 @@ drivers, and detect anomalies.
 
 For more information, see the following topics:
 
-- [Performing ad hoc analysis on pro forma costs
-  in AWS Cost Explorer](ad-hoc-cost-explorer-analysis.md "ad-hoc-cost-explorer-analysis.md")
+- [Performing ad hoc analysis on pro forma costs in AWS Cost Explorer](ad-hoc-cost-explorer-analysis.md "ad-hoc-cost-explorer-analysis.md")
 - [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User
   Guide_
 

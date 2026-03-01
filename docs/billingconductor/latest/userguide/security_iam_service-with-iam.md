@@ -1,6 +1,4 @@
-# How AWS Billing Conductor works with
-
-IAM
+# How AWS Billing Conductor works with IAM
 
 Before you use IAM to manage access to Billing Conductor, you should understand what
 IAM features are available to use with Billing Conductor. To get a high-level view of how
@@ -9,19 +7,13 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Billing Conductor
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Billing Conductor
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Billing Conductor identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Billing Conductor resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Access control lists (ACLs)](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
-- [Authorization based on
-  Billing Conductor tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Billing Conductor IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on Billing Conductor tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Billing Conductor IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Billing Conductor
-
-identity-based policies
+## Billing Conductor identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -147,12 +139,9 @@ resources you can use a condition key, see [Actions Defined by AWS Billing Condu
 
 ### Examples
 
-To view examples of Billing Conductor identity-based policies, see [AWS Billing Conductor identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Billing Conductor identity-based policies, see [AWS Billing Conductor identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Billing Conductor
-
-resource-based policies
+## Billing Conductor resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on the Billing Conductor resource and under what
@@ -181,8 +170,7 @@ to a `bucket`. This policy defines which principal entities
 
 ### Examples
 
-To view examples of Billing Conductor resource-based policies, see [AWS Billing Conductor
-resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"),
+To view examples of Billing Conductor resource-based policies, see [AWS Billing Conductor resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"),
 
 ## Access control lists (ACLs)
 
@@ -227,9 +215,7 @@ The ID field in the ACL is the AWS account canonical user ID. To learn how to vi
 this ID in an account that you own, see [Finding an AWS Account
 Canonical User ID](../../../general/latest/gr/acct-identifiers.md#FindingCanonicalId "../../../general/latest/gr/acct-identifiers.md#FindingCanonicalId").
 
-## Authorization based on
-
-Billing Conductor tags
+## Authorization based on Billing Conductor tags
 
 You can attach tags to Billing Conductor resources or pass tags in a request to
 Billing Conductor. To control access based on tags, you provide tag information in the
@@ -239,16 +225,12 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition keys.
 
-## Billing Conductor IAM
-
-roles
+## Billing Conductor IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Billing Conductor
+### Using temporary credentials with Billing Conductor
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -256,9 +238,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Billing Conductor supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -276,9 +256,7 @@ functionality of the service.
 
 Billing Conductor supports service roles.
 
-### Choosing an IAM role
-
-in Billing Conductor
+### Choosing an IAM role in Billing Conductor
 
 When you create a resource in Billing Conductor, you must choose a role to allow
 Billing Conductor to access Amazon EC2 on your behalf. If you have previously created a

@@ -44,8 +44,7 @@ accounts mid-month doesn't affect previous billing periods.
 9. Under **Accounts**, choose one or more accounts to add to the billing
    group _or_ choose **Import organizational unit** to
    automatically select the accounts that are within an organizational unit. For a policy example
-   to grant access to the import OU feature, see [Granting Billing Conductor
-   access to the import organizational unit feature](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ABCaccessOU "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ABCaccessOU").
+   to grant access to the import OU feature, see [Granting Billing Conductor access to the import organizational unit feature](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ABCaccessOU "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-ABCaccessOU").
 
 You can use the table filter to sort by account names, account IDs, or the root email
 address that's associated with an account. 10. The primary account inherits the ability to see pro forma cost and usage across the billing

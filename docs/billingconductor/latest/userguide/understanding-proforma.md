@@ -91,8 +91,7 @@ Accounts that are associated to a billing group can see the pro forma data when 
 their bill details through an integrated service. When using Billing Conductor as a standalone service, the primary account has cross-account
 visibility, and can see the pro forma billing data for all of the accounts in the billing group.
 Other accounts in the billing group can see the pro forma billing data for their own account.
-For the full list of services that support pro forma data views, see [AWS services that support pro
-forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").
+For the full list of services that support pro forma data views, see [AWS services that support pro forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").
 
 ### How Free Tier applies in the pro forma domain
 
@@ -118,9 +117,7 @@ Accounts that sign up after July 2025 receive Free Tier credits when they choose
 
 You can't reconcile the costs generated for a billing group's pro forma bill, based on the costs in the standard privately negotiated AWS bill. For example, you can't derive the pro forma cost for an account by subtracting private discounts and taxes charged in the standard AWS bill. For more information on why, see [What's the difference between pro forma billing data and standard AWS billing data?](#abc-proforma-def-bestpractices-diff "#abc-proforma-def-bestpractices-diff") and [How Free Tier applies in the pro forma domain](#abc-proforma-def-bestpractices-FT "#abc-proforma-def-bestpractices-FT").
 
-### How are Reserved Instances and Savings Plans
-
-allocated in the pro forma domain?
+### How are Reserved Instances and Savings Plans allocated in the pro forma domain?
 
 This section applies only when using Billing Conductor as a standalone service. For users using billing transfer, the reserved instances and Savings Plans apply exactly as they do in the standard billing domain because there is a one-to-one mapping between the billing group and the AWS Organizations transferring its bills.
 

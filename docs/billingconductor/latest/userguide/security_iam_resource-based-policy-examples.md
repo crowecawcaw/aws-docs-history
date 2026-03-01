@@ -1,6 +1,4 @@
-# AWS Billing Conductor
-
-resource-based policy examples
+# AWS Billing Conductor resource-based policy examples
 
 ###### Topics
 

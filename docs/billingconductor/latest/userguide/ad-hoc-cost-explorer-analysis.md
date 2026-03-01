@@ -1,6 +1,4 @@
-# Performing ad hoc analysis on pro forma costs
-
-in AWS Cost Explorer
+# Performing ad hoc analysis on pro forma costs in AWS Cost Explorer
 
 ## Using Billing Conductor as a standalone service
 
@@ -26,5 +24,4 @@ Center](http://aws.amazon.com/support "http://aws.amazon.com/support"). The data
 
 An AWS Organizations in a billing transfer billing group can analyze, forecast, and report pro forma costs in Cost Explorer. By default, their cost data in the primary view shows only pro forma data.
 
-For a list of AWS services that support pro forma costs, see [AWS services that support pro
-forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").
+For a list of AWS services that support pro forma costs, see [AWS services that support pro forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").

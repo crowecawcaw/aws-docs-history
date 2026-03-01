@@ -61,7 +61,7 @@ Billing group Cost and Usage Reports don't include credits, tax, or support char
 13. For **Report path prefix**, enter the report path prefix that you want
     prepended to the name of your report.
 
-This step is optional for Amazon Redshift or Quick Suite, but required for Amazon Athena.
+This step is optional for Amazon Redshift or Quick, but required for Amazon Athena.
 
 If you don't specify a prefix, the default prefix is the name that you specified for
 the report in step 4 and the date range for the report, in the following format:
@@ -77,10 +77,10 @@ the report in step 4 and the date range for the report, in the following format:
     report to overwrite the previous version of the report or to be delivered in addition to the
     previous versions.
 16. For **Enable report data integration for**, choose whether you want to
-    upload your Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick Suite. The report is compressed in the following
+    upload your Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following
     formats:
     - **Athena**: parquet compression
-    - **Amazon Redshift or Quick Suite**: .gz compression
+    - **Amazon Redshift or Quick**: .gz compression
 
 17. Choose **Next**.
 18. After reviewing the settings for your report, choose **Review and

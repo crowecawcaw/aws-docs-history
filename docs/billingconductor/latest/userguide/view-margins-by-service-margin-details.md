@@ -32,9 +32,7 @@ months, which includes the following columns:
 If the billing group wasn't active for the entirety of the last three months, then the
 chart will only display the cost report data that is available.
 
-## Understanding your margin analysis
-
-table
+## Understanding your margin analysis table
 
 The billing group margin analysis table includes the following columns:
 

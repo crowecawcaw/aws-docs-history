@@ -34,9 +34,7 @@ The AWSBillingConductorReadOnlyAccess managed policy grants read-only access to 
 
 To view the permissions for this policy, see [AWSBillingConductorReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSBillingConductorReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSBillingConductorReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS Billing Conductor updates to AWS managed
-
-policies
+## AWS Billing Conductor updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Billing Conductor since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

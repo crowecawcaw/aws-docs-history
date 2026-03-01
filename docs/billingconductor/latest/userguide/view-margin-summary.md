@@ -1,6 +1,4 @@
-# View your aggregate margins with margin
-
-summary
+# View your aggregate margins with margin summary
 
 ## Viewing your billing group margins summary
 
@@ -23,9 +21,7 @@ summary
    - As a table in the **Margin analysis** table.Negative margins are shown in red in the graph, with a negative dollar amount and negative
      percentage.
 
-## Understanding your margin analysis
-
-table
+## Understanding your margin analysis table
 
 The billing group margin analysis table is sorted in reverse chronological order by
 default. You can sort the table by all of the columns, which include the following:

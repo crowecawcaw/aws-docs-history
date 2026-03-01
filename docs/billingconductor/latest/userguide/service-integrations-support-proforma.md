@@ -1,6 +1,4 @@
-# AWS services that support pro
-
-forma-based billing view costs
+# AWS services that support pro forma-based billing view costs
 
 The following Cloud Financial Management services and their features support pro forma
 costs.
@@ -39,8 +37,7 @@ in the [Cost Management Console](https://console.aws.amazon.com/cost-management/
 
 If you don't want your IAM entities to see specific billable rates for these
 services and features, you can use IAM policies to deny access. For an example IAM
-policy, see [Denying Billing and Cost Explorer access to
-services and features that don't support pro forma costs](security_iam_id-based-policy-examples.md#deny-access-proforma-costs "security_iam_id-based-policy-examples.md#deny-access-proforma-costs").
+policy, see [Denying Billing and Cost Explorer access to services and features that don't support pro forma costs](security_iam_id-based-policy-examples.md#deny-access-proforma-costs "security_iam_id-based-policy-examples.md#deny-access-proforma-costs").
 
 You can also customize your IAM policies to allow or deny specific permissions. For
 a granular list of IAM actions for Billing and Cost Management, see the following topics:

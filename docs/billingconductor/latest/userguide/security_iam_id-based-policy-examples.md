@@ -1,6 +1,4 @@
-# AWS Billing Conductor identity-based
-
-policy examples
+# AWS Billing Conductor identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Billing Conductor resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,18 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Billing Conductor identity-based policy examples](#security_policy-examples "#security_policy-examples")
 - [AWS managed policies for AWS Billing Conductor](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [AWS Billing Conductor
-  resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
-- [Troubleshooting AWS Billing Conductor identity
-  and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [AWS Billing Conductor resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
+- [Troubleshooting AWS Billing Conductor identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Billing Conductor resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -66,18 +59,12 @@ This topic contains example policies that you can attach to your IAM user or gro
 ###### Topics
 
 - [Granting full access to the Billing Conductor console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Granting full access
-  to the Billing Conductor API](#security_iam_id-based-policy-examples-fullAPI "#security_iam_id-based-policy-examples-fullAPI")
-- [Granting read-only
-  access to the Billing Conductor console](#security_iam_id-based-policy-examples-readonly "#security_iam_id-based-policy-examples-readonly")
-- [Granting
-  Billing Conductor access through the Billing console](#security_iam_id-based-policy-examples-ABCthroughbilling "#security_iam_id-based-policy-examples-ABCthroughbilling")
-- [Granting Billing Conductor
-  access through AWS Cost and Usage Reports](#security_iam_id-based-policy-examples-ABCthroughCUR "#security_iam_id-based-policy-examples-ABCthroughCUR")
-- [Granting Billing Conductor
-  access to the import organizational unit feature](#security_iam_id-based-policy-examples-ABCaccessOU "#security_iam_id-based-policy-examples-ABCaccessOU")
-- [Denying Billing and Cost Explorer access to
-  services and features that don't support pro forma costs](#deny-access-proforma-costs "#deny-access-proforma-costs")
+- [Granting full access to the Billing Conductor API](#security_iam_id-based-policy-examples-fullAPI "#security_iam_id-based-policy-examples-fullAPI")
+- [Granting read-only access to the Billing Conductor console](#security_iam_id-based-policy-examples-readonly "#security_iam_id-based-policy-examples-readonly")
+- [Granting Billing Conductor access through the Billing console](#security_iam_id-based-policy-examples-ABCthroughbilling "#security_iam_id-based-policy-examples-ABCthroughbilling")
+- [Granting Billing Conductor access through AWS Cost and Usage Reports](#security_iam_id-based-policy-examples-ABCthroughCUR "#security_iam_id-based-policy-examples-ABCthroughCUR")
+- [Granting Billing Conductor access to the import organizational unit feature](#security_iam_id-based-policy-examples-ABCaccessOU "#security_iam_id-based-policy-examples-ABCaccessOU")
+- [Denying Billing and Cost Explorer access to services and features that don't support pro forma costs](#deny-access-proforma-costs "#deny-access-proforma-costs")
 - [Creating a pro forma CUR by billing group](#allow-legacy-cur "#allow-legacy-cur")
 
 ### Granting full access to the Billing Conductor console
@@ -128,9 +115,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-### Granting full access
-
-to the Billing Conductor API
+### Granting full access to the Billing Conductor API
 
 In this example, you grant an IAM entity full access to the Billing Conductor API.
 
@@ -155,9 +140,7 @@ JSON
 
 ```
 
-### Granting read-only
-
-access to the Billing Conductor console
+### Granting read-only access to the Billing Conductor console
 
 In this example, you grant an IAM entity read-only access to the Billing Conductor console.
 
@@ -187,9 +170,7 @@ JSON
 
 ```
 
-### Granting
-
-Billing Conductor access through the Billing console
+### Granting Billing Conductor access through the Billing console
 
 In this example, IAM entities can toggle and view pro forma billing data through the bills
 page in their Billing console.
@@ -213,9 +194,7 @@ JSON
 
 ```
 
-### Granting Billing Conductor
-
-access through AWS Cost and Usage Reports
+### Granting Billing Conductor access through AWS Cost and Usage Reports
 
 In this example, IAM entities can toggle and view pro forma billing data through the
 Cost and Usage Reports page in their Billing console.
@@ -240,9 +219,7 @@ JSON
 
 ```
 
-### Granting Billing Conductor
-
-access to the import organizational unit feature
+### Granting Billing Conductor access to the import organizational unit feature
 
 In this example, IAM entities have read-only access to the specific AWS Organizations API operations
 that are required to import your organizational unit (OU) accounts when you're
@@ -268,9 +245,7 @@ JSON
 
 ```
 
-### Denying Billing and Cost Explorer access to
-
-services and features that don't support pro forma costs
+### Denying Billing and Cost Explorer access to services and features that don't support pro forma costs
 
 In this example, IAM entities are denied access to services and features that
 don't support pro forma costs. This policy includes a list of actions that are
@@ -342,8 +317,7 @@ JSON
 
 ```
 
-For more information, see [AWS services that support pro
-forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").
+For more information, see [AWS services that support pro forma-based billing view costs](service-integrations-support-proforma.md "service-integrations-support-proforma.md").
 
 ### Creating a pro forma CUR by billing group
 
