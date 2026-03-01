@@ -1,6 +1,4 @@
-# Authentication and authorization for
-
-Aurora DSQL
+# Authentication and authorization for Aurora DSQL
 
 Aurora DSQL uses IAM roles and policies for cluster authorization. You associate IAM roles
 with [PostgreSQL
@@ -8,9 +6,7 @@ database roles](https://www.postgresql.org/docs/current/user-manag.html "https:/
 IAM](../../../IAM/latest/UserGuide/intro-iam-features.md "../../../IAM/latest/UserGuide/intro-iam-features.md") with [PostgreSQL privileges](https://www.postgresql.org/docs/current/user-manag.html "https://www.postgresql.org/docs/current/user-manag.html"). Aurora DSQL uses these features to provide a comprehensive
 authorization and access policy for your cluster, database, and data.
 
-## Managing your cluster
-
-using IAM
+## Managing your cluster using IAM
 
 To manage your cluster, use IAM for authentication and authorization:
 
@@ -36,12 +32,9 @@ the following sample policy action.
 }
 ```
 
-For more information, see [Using IAM policy
-actions to manage clusters](#authentication-authorization-iam-policy-manage "#authentication-authorization-iam-policy-manage").
+For more information, see [Using IAM policy actions to manage clusters](#authentication-authorization-iam-policy-manage "#authentication-authorization-iam-policy-manage").
 
-## Connecting to your
-
-cluster using IAM
+## Connecting to your cluster using IAM
 
 To connect to your cluster, use IAM for authentication and authorization:
 
@@ -86,9 +79,7 @@ using to establish the connection to your cluster’s endpoint:
 After you establish a connection, your role is authorized for up to one hour
 for the connection.
 
-## Interacting with
-
-your database using PostgreSQL database roles and IAM roles
+## Interacting with your database using PostgreSQL database roles and IAM roles
 
 PostgreSQL manages database access permissions using the concept of roles. A role can
 be thought of as either a database user, or a group of database users, depending on how
@@ -114,8 +105,7 @@ connect to the cluster, as in the following example.
 AWS IAM GRANT `custom-db-role` TO 'arn:aws:iam::`account-id`:role/`iam-role-name`';
 ```
 
-To learn more, see [Authorizing
-database roles to connect to your cluster](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles").
+To learn more, see [Authorizing database roles to connect to your cluster](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles").
 
 **Authorization**
 
@@ -125,17 +115,13 @@ more, see [PostgreSQL
 database roles](https://www.postgresql.org/docs/current/user-manag.html "https://www.postgresql.org/docs/current/user-manag.html") and [PostgreSQL
 privileges](https://www.postgresql.org/docs/current/ddl-priv.html "https://www.postgresql.org/docs/current/ddl-priv.html") in the PostgreSQL documentation.
 
-## Using IAM policy actions
-
-with Aurora DSQL
+## Using IAM policy actions with Aurora DSQL
 
 The IAM policy action you use depends on the role you use to connect to your
 cluster: either `admin` or a custom database role. The policy also depends on
 the IAM actions required for this role.
 
-### Using IAM policy
-
-actions to connect to clusters
+### Using IAM policy actions to connect to clusters
 
 When you connect to your cluster with the default database role of
 `admin`, use an IAM identity with authorization to perform the
@@ -155,9 +141,7 @@ cluster must have authorization to perform the following IAM policy action.
 
 To learn more about custom database roles, see [Using database roles and IAM authentication](using-database-and-iam-roles.md "using-database-and-iam-roles.md").
 
-### Using IAM policy
-
-actions to manage clusters
+### Using IAM policy actions to manage clusters
 
 When managing your Aurora DSQL clusters, specify policy actions only for the actions
 that your role needs to perform. For example, if your role only needs to get cluster
@@ -238,8 +222,7 @@ IAM policy or detach the policy from the identity.
 
 You can also remove the association between the database role and IAM by
 using the command `AWS IAM REVOKE` in your database. To learn
-more about revoking access from database roles, see [Revoking database
-authorization from an IAM role](using-database-and-iam-roles.md#using-database-and-iam-roles-revoke "using-database-and-iam-roles.md#using-database-and-iam-roles-revoke").
+more about revoking access from database roles, see [Revoking database authorization from an IAM role](using-database-and-iam-roles.md#using-database-and-iam-roles-revoke "using-database-and-iam-roles.md#using-database-and-iam-roles-revoke").
 
 You can't manage permissions of the predefined `admin` database role. To
 learn how to manage permissions for custom database roles, see [PostgreSQL

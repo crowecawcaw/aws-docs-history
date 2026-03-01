@@ -2,9 +2,7 @@
 
 The AWS CLI provides a command-line interface for managing your multi-Region Aurora DSQL clusters. The following examples demonstrate how to create, configure, and delete multi-Region clusters.
 
-## Connect to your multi-Region
-
-cluster
+## Connect to your multi-Region cluster
 
 Multi-Region peered clusters provide two regional endpoints, one in each peered cluster
 AWS Region. Both endpoints present a single logical database that supports concurrent
@@ -106,9 +104,7 @@ aws dsql update-cluster \
 }
 ```
 
-### Step 4: Peer cluster in US East (Ohio) with
-
-US East (N. Virginia)
+### Step 4: Peer cluster in US East (Ohio) with US East (N. Virginia)
 
 To peer your US East (Ohio) cluster with your US East (N. Virginia) cluster, use the
 `update-cluster` command. Specify your US East (Ohio) cluster name and a
@@ -139,9 +135,7 @@ aws dsql update-cluster \
 After successful peering, both clusters transition from "PENDING_SETUP" to
 "CREATING" and finally to "ACTIVE" status when ready for use.
 
-#### View multi-Region cluster
-
-properties
+#### View multi-Region cluster properties
 
 When you describe a cluster, you can view multi-Region properties for clusters
 in different AWS Regions.
@@ -233,9 +227,7 @@ The command returns the following response.
 
 The cluster transitions to `PENDING_DELETE` status. The deletion isn't complete until you delete the peered cluster in US East (Ohio).
 
-### Update and delete cluster in
-
-US East (Ohio)
+### Update and delete cluster in US East (Ohio)
 
 1. Turn off deletion protection using the `update-cluster`
    command.

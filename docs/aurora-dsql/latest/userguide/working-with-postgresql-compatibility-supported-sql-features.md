@@ -1,6 +1,4 @@
-# Supported SQL
-
-for Aurora DSQL
+# Supported SQL for Aurora DSQL
 
 Aurora DSQL supports a wide range of core PostgreSQL SQL features. In the following sections, you
 can learn about general PostgreSQL expression support. This list is not exhaustive.

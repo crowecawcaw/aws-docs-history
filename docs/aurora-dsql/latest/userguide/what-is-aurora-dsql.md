@@ -70,8 +70,7 @@ The distributed database layer (compute) in Aurora DSQL is based on a current ma
 PostgreSQL. You can connect to Aurora DSQL with familiar PostgreSQL drivers and tools, such as
 `psql`. Aurora DSQL is currently compatible with PostgreSQL version 16 and supports a
 wide range of PostgreSQL features, expressions, and data types. For more information about the
-supported SQL features, see [SQL feature compatibility in
-Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md").
+supported SQL features, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md").
 
 ## Region availability for Aurora DSQL
 
@@ -104,9 +103,7 @@ endpoint for each AWS Region.
 | Europe (London)          | eu-west-2      | dsql.eu-west-2.api.aws                                      | HTTPS          |
 | Europe (Paris)           | eu-west-3      | dsql.eu-west-3.api.aws                                      | HTTPS          |
 
-### Multi-Region cluster availability
-
-for Aurora DSQL
+### Multi-Region cluster availability for Aurora DSQL
 
 You can create Aurora DSQL multi-Region clusters within specific AWS Region sets. Each Region
 set groups geographically related Regions that can work together in a multi-Region
@@ -149,7 +146,6 @@ For information about the core components in Aurora DSQL and to get started with
 the following:
 
 - [Getting started with Aurora DSQL](getting-started.md "getting-started.md")
-- [SQL feature compatibility in
-  Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md")
+- [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md")
 - [Accessing Aurora DSQL with PostgreSQL-compatible clients](accessing.md "accessing.md")
 - [Aurora DSQL and PostgreSQL](working-with.md "working-with.md")

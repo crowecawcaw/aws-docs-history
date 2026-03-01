@@ -1,6 +1,4 @@
-# Connecting to Aurora DSQL clusters with
-
-a JDBC connector
+# Connecting to Aurora DSQL clusters with a JDBC connector
 
 The [Aurora DSQL Connector for JDBC](https://github.com/awslabs/aurora-dsql-connectors/tree/main/java/jdbc "https://github.com/awslabs/aurora-dsql-connectors/tree/main/java/jdbc") is designed as an authentication plugin that extends the functionality of the PostgreSQL JDBC driver to enable applications to authenticate with Aurora DSQL using IAM credentials. The connector does not connect directly to the database, but provides seamless IAM authentication on top of the underlying PostgreSQL JDBC driver.
 
@@ -32,9 +30,7 @@ Although Aurora DSQL provides a PostgreSQL-compatible interface, existing Postgr
 - **Seamless Integration**: Works with existing JDBC connection patterns
 - **AWS Credentials Support**: Supports various AWS credential providers (default, profile-based, etc.)
 
-### Using the
-
-Aurora DSQL Connector for JDBC with connection pooling
+### Using the Aurora DSQL Connector for JDBC with connection pooling
 
 The Aurora DSQL Connector for JDBC works with connection pooling libraries such as HikariCP. The connector handles IAM token generation during connection establishment, allowing connection pools to operate normally.
 

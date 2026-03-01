@@ -1,6 +1,4 @@
-# Detective security best practices
-
-for Aurora DSQL
+# Detective security best practices for Aurora DSQL
 
 In addition to the following ways to securely use Aurora DSQL, see [Security](../../../wellarchitected/latest/framework/security.md "../../../wellarchitected/latest/framework/security.md") in AWS Well-Architected Tool to learn about how cloud technologies improve your
 security.

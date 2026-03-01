@@ -1,6 +1,4 @@
-# Supported
-
-subsets of SQL commands in Aurora DSQL
+# Supported subsets of SQL commands in Aurora DSQL
 
 This section provides detailed information about supported SQL commands,
 focusing on commands with extensive parameter sets and subcommands. For example, CREATE

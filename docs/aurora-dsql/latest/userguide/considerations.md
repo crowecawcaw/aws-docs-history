@@ -1,8 +1,7 @@
 # Considerations for working with Amazon Aurora DSQL
 
 Consider the following behaviors when you work with Amazon Aurora DSQL. For more information about
-PostgreSQL compatibility and support, see [SQL feature compatibility in
-Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md"). For quotas and limits, see [Cluster quotas and database limits in Amazon Aurora DSQL](CHAP_quotas.md "CHAP_quotas.md").
+PostgreSQL compatibility and support, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md"). For quotas and limits, see [Cluster quotas and database limits in Amazon Aurora DSQL](CHAP_quotas.md "CHAP_quotas.md").
 
 - Storage limit calculations may take time to reflect freed storage after running a `DROP
 TABLE` command. If you need additional storage capacity, see
@@ -14,8 +13,7 @@ TABLE` command. If you need additional storage capacity, see
   `CREATE SCHEMA` and grant access to other roles using `GRANT USAGE ON SCHEMA`.
   Admin users manage objects in the public schema, while non-admin users create objects in user-created
   schemas. The admin role can grant itself any other role to obtain permissions on user-created objects.
-  For more information, see [Authorizing
-  database roles to use SQL in your database](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql").
+  For more information, see [Authorizing database roles to use SQL in your database](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql").
 - When drivers call `PG_PREPARED_STATEMENTS`, Aurora DSQL provides a cluster-wide view of
   cached prepared statements. You may see more prepared statements per connection
   than expected for the same cluster and IAM role. Aurora DSQL manages statement names dynamically

@@ -16,24 +16,17 @@ policy](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../.
 cluster in Aurora DSQL](getting-started.md#getting-started-quickstart "getting-started.md#getting-started-quickstart"). Then use the AWS console , AWS CLI, or the AWS SDKs to
 generate a token.
 
-At a minimum, you must have the IAM permissions listed in [Connecting to your
-cluster using IAM](authentication-authorization.md#authentication-authorization-iam-role-connect "authentication-authorization.md#authentication-authorization-iam-role-connect"), depending on which
+At a minimum, you must have the IAM permissions listed in [Connecting to your cluster using IAM](authentication-authorization.md#authentication-authorization-iam-role-connect "authentication-authorization.md#authentication-authorization-iam-role-connect"), depending on which
 database role you use to connect.
 
 ###### Topics
 
-- [Use the AWS console to generate an
-  authentication token in Aurora DSQL](#authentication-token-console "#authentication-token-console")
-- [Use AWS CloudShell to generate an
-  authentication token in Aurora DSQL](#authentication-token-cloudshell "#authentication-token-cloudshell")
-- [Use the AWS CLI to generate an authentication
-  token in Aurora DSQL](#authentication-token-cli "#authentication-token-cli")
-- [Use the SDKs to generate a token in
-  Aurora DSQL](#authentication-token-sdks "#authentication-token-sdks")
+- [Use the AWS console to generate an authentication token in Aurora DSQL](#authentication-token-console "#authentication-token-console")
+- [Use AWS CloudShell to generate an authentication token in Aurora DSQL](#authentication-token-cloudshell "#authentication-token-cloudshell")
+- [Use the AWS CLI to generate an authentication token in Aurora DSQL](#authentication-token-cli "#authentication-token-cli")
+- [Use the SDKs to generate a token in Aurora DSQL](#authentication-token-sdks "#authentication-token-sdks")
 
-## Use the AWS console to generate an
-
-authentication token in Aurora DSQL
+## Use the AWS console to generate an authentication token in Aurora DSQL
 
 Aurora DSQL authenticates users with a token rather than a password. You can generate the
 token from the console.
@@ -43,20 +36,15 @@ token from the console.
 1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
 2. Choose the cluster ID of the cluster for which you want to generate an
    authentication token. If you haven't yet created a cluster, follow the steps in
-   [Step 1: Create an Aurora DSQL single-Region
-   cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Step 4 (Optional): Create a multi-Region
-   cluster](getting-started.md#getting-started-multi-region "getting-started.md#getting-started-multi-region").
+   [Step 1: Create an Aurora DSQL single-Region cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Step 4 (Optional): Create a multi-Region cluster](getting-started.md#getting-started-multi-region "getting-started.md#getting-started-multi-region").
 3. Choose **Connect** and then select **Get
    Token**.
 4. Choose whether you want to connect as an `admin` or with a [custom database role](authentication-authorization.md#authentication-authorization-iam-role-connect "authentication-authorization.md#authentication-authorization-iam-role-connect").
 5. Copy the generated authentication token and use it for [Access Aurora DSQL using SQL clients](accessing.md#accessing-sql-clients "accessing.md#accessing-sql-clients").
 
-To learn more about custom database roles and IAM in Aurora DSQL, see [Authentication and authorization for
-Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
+To learn more about custom database roles and IAM in Aurora DSQL, see [Authentication and authorization for Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
 
-## Use AWS CloudShell to generate an
-
-authentication token in Aurora DSQL
+## Use AWS CloudShell to generate an authentication token in Aurora DSQL
 
 Before you can generate an authentication token using AWS CloudShell, make sure that you
 [Create an Aurora DSQL cluster](getting-started.md#getting-started-quickstart "getting-started.md#getting-started-quickstart").
@@ -116,12 +104,9 @@ continue to get access deny errors, see [Troubleshoot IAM](../../../IAM/latest/U
 can I troubleshoot access denied or unauthorized operation errors with an
 IAM policy?](https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues "https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues").
 
-To learn more about custom database roles and IAM in Aurora DSQL, see [Authentication and authorization for
-Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
+To learn more about custom database roles and IAM in Aurora DSQL, see [Authentication and authorization for Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
 
-## Use the AWS CLI to generate an authentication
-
-token in Aurora DSQL
+## Use the AWS CLI to generate an authentication token in Aurora DSQL
 
 When your cluster is `ACTIVE`, you can generate an authentication token on
 the CLI by using the `aws dsql` command. Use either of the following
@@ -164,9 +149,7 @@ aws dsql generate-db-connect-admin-auth-token ^
   --hostname=`your_cluster_endpoint`
 ```
 
-## Use the SDKs to generate a token in
-
-Aurora DSQL
+## Use the SDKs to generate a token in Aurora DSQL
 
 You can generate an authentication token for your cluster when it is in
 `ACTIVE` status. The SDK examples use the following attributes to

@@ -24,9 +24,7 @@ access Aurora DSQL.
 To run SQL commands with IAM authentication, you can use either IAM role ARNs
 or IAM user ARNs in the examples below.
 
-## Authorizing
-
-database roles to connect to your cluster
+## Authorizing database roles to connect to your cluster
 
 Create an IAM role and grant connection authorization with the IAM policy action:
 `dsql:DbConnect`.
@@ -34,9 +32,7 @@ Create an IAM role and grant connection authorization with the IAM policy action
 The IAM policy must also grant permission to access the cluster resources. Use a
 wildcard (`*`) or follow the instructions in [Using IAM condition keys with Amazon Aurora DSQL](using-iam-condition-keys.md#using-iam-condition-keys-create-cluster "using-iam-condition-keys.md#using-iam-condition-keys-create-cluster").
 
-## Authorizing
-
-database roles to use SQL in your database
+## Authorizing database roles to use SQL in your database
 
 You must use an IAM role with authorization to connect to your cluster.
 
@@ -90,9 +86,7 @@ Example output:
 
 This table shows all the mappings between IAM roles (identified by their ARN) and PostgreSQL database roles.
 
-## Revoking database
-
-authorization from an IAM role
+## Revoking database authorization from an IAM role
 
 To revoke database authorization, use the `AWS IAM REVOKE`
 operation.

@@ -36,8 +36,7 @@ PostgreSQL, including the following:
 - Scale and precision for numeric operations
 - Equivalence for string operations
 
-For more information, see [SQL feature compatibility in
-Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md").
+For more information, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md").
 
 **Transaction management**
 

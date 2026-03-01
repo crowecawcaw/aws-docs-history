@@ -1,6 +1,4 @@
-# Supported data
-
-types in Aurora DSQL
+# Supported data types in Aurora DSQL
 
 Aurora DSQL supports a subset of the common PostgreSQL types.
 
@@ -10,8 +8,7 @@ Aurora DSQL supports a subset of the common PostgreSQL types.
 - [Character data types](#character-data-types "#character-data-types")
 - [Date and time data types](#date-time-data-types "#date-time-data-types")
 - [Miscellaneous data types](#miscellaneous-data-types "#miscellaneous-data-types")
-- [Query runtime data
-  types](#working-with-postgresql-compatibility-query-runtime "#working-with-postgresql-compatibility-query-runtime")
+- [Query runtime data types](#working-with-postgresql-compatibility-query-runtime "#working-with-postgresql-compatibility-query-runtime")
 
 ## Numeric data types
 
@@ -75,9 +72,7 @@ Aurora DSQL supports the following miscellaneous PostgreSQL data types.
 the defaults. Aurora DSQL applies limits when you run `INSERT` or
 `UPDATE` statements.
 
-## Query runtime data
-
-types
+## Query runtime data types
 
 Query runtime data types are internal data types used at query execution time. These
 types are distinct from the PostgreSQL-compatible types like `varchar` and

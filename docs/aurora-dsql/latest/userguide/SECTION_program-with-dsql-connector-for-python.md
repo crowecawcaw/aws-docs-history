@@ -408,9 +408,7 @@ the exception of asyncpg parameters
 **gsslib** which are
 not supported by DSQL.
 
-### Using the Aurora DSQL connector for Python with connection
-
-pooling
+### Using the Aurora DSQL connector for Python with connection pooling
 
 The Aurora DSQL Connector for Python works with psycopg,
 psycopg2, and asyncpg built-in connection pooling. The connector

@@ -21,15 +21,12 @@ involved in protecting sensitive data. Encryption at rest helps you:
 - [KMS key types for Aurora DSQL](#kms-key-types "#kms-key-types")
 - [Encryption at rest in Aurora DSQL](#encryption-at-rest "#encryption-at-rest")
 - [Using AWS KMS and data keys with Aurora DSQL](#using-kms-and-data-keys "#using-kms-and-data-keys")
-- [Authorizing use of your AWS KMS key for
-  Aurora DSQL](#authorizing-kms-key-use "#authorizing-kms-key-use")
+- [Authorizing use of your AWS KMS key for Aurora DSQL](#authorizing-kms-key-use "#authorizing-kms-key-use")
 - [Aurora DSQL encryption context](#dsql-encryption-context "#dsql-encryption-context")
-- [Monitoring Aurora DSQL interaction with
-  AWS KMS](#monitoring-dsql-kms-interaction "#monitoring-dsql-kms-interaction")
+- [Monitoring Aurora DSQL interaction with AWS KMS](#monitoring-dsql-kms-interaction "#monitoring-dsql-kms-interaction")
 - [Creating an encrypted Aurora DSQL cluster](#creating-encrypted-cluster "#creating-encrypted-cluster")
 - [Removing or updating a key for your Aurora DSQL cluster](#updating-encryption-key "#updating-encryption-key")
-- [Considerations for encryption with
-  Aurora DSQL](#considerations-with-encryption "#considerations-with-encryption")
+- [Considerations for encryption with Aurora DSQL](#considerations-with-encryption "#considerations-with-encryption")
 
 ## KMS key types for Aurora DSQL
 
@@ -195,9 +192,7 @@ minutes of inactivity, it sends a new request to AWS KMS to decrypt the cluster 
 will capture any changes made to the access policies of the AWS KMS key in AWS KMS or
 AWS Identity and Access Management (IAM) after the last request to decrypt the cluster key.
 
-## Authorizing use of your AWS KMS key for
-
-Aurora DSQL
+## Authorizing use of your AWS KMS key for Aurora DSQL
 
 If you use a customer managed key in your account to protect your Aurora DSQL cluster, the
 policies on that key must give Aurora DSQL permission to use it on your behalf.
@@ -206,9 +201,7 @@ You have full control over the policies on a customer managed key. Aurora DSQL d
 additional authorization to use the default AWS owned key to protect the Aurora DSQL clusters in
 your AWS account.
 
-### Key policy for a customer managed
-
-key
+### Key policy for a customer managed key
 
 When you select a customer managed key to protect a Aurora DSQL cluster, Aurora DSQL needs
 permission to use the AWS KMS key on behalf of the principal who makes the selection.
@@ -307,9 +300,7 @@ In its requests to AWS KMS, Aurora DSQL uses an encryption context with a key-va
 The key–value pair identifies the cluster that Aurora DSQL is encrypting. The key is
 `aws:dsql:ClusterId`. The value is the identifier of the cluster.
 
-## Monitoring Aurora DSQL interaction with
-
-AWS KMS
+## Monitoring Aurora DSQL interaction with AWS KMS
 
 If you use a customer managed key to protect your Aurora DSQL clusters, you can use AWS CloudTrail
 logs to track the requests that Aurora DSQL sends to AWS KMS on your behalf.
@@ -457,8 +448,7 @@ encryption types.
 ###### Note
 
 If you select to own and manage your own key, make sure you set the KMS key
-policy appropriately. For examples and more information, see [Key policy for a customer managed
-key](#key-policy-customer-managed-key "#key-policy-customer-managed-key").
+policy appropriately. For examples and more information, see [Key policy for a customer managed key](#key-policy-customer-managed-key "#key-policy-customer-managed-key").
 
 CLI
 
@@ -596,12 +586,9 @@ through the platform, the encryption status will be transitioned to
 ###### Note
 
 If you select to own and manage your own key, make sure you set the KMS key policy
-appropriately. For examples and more information, see [Key policy for a customer managed
-key](#key-policy-customer-managed-key "#key-policy-customer-managed-key").
+appropriately. For examples and more information, see [Key policy for a customer managed key](#key-policy-customer-managed-key "#key-policy-customer-managed-key").
 
-## Considerations for encryption with
-
-Aurora DSQL
+## Considerations for encryption with Aurora DSQL
 
 - Aurora DSQL encrypts all cluster data at rest. You can't disable this encryption or encrypt
   only some items in a cluster.

@@ -68,8 +68,7 @@ Amazon Aurora DSQL logs the following AWS KMS operations to CloudTrail as manage
 - `Decrypt`
 
 To learn more about how CloudTrail logs track requests that Aurora DSQL sends to AWS KMS on your
-behalf, see [Monitoring Aurora DSQL interaction with
-AWS KMS](data-encryption.md#monitoring-dsql-kms-interaction "data-encryption.md#monitoring-dsql-kms-interaction").
+behalf, see [Monitoring Aurora DSQL interaction with AWS KMS](data-encryption.md#monitoring-dsql-kms-interaction "data-encryption.md#monitoring-dsql-kms-interaction").
 
 ## Aurora DSQL data events in CloudTrail
 

@@ -145,9 +145,7 @@ The `job_id` indicates that Aurora DSQL has submitted a new job to create the
 index. You can use the procedure `sys.wait_for_job(job_id)`'your_index_creation_job_id'`` to block other
 work on the session until the job finishes or times out.
 
-## Querying the status of index creation:
-
-example
+## Querying the status of index creation: example
 
 Query the `sys.jobs` system view to check the creation status of your index,
 as shown in the following example.
@@ -205,9 +203,7 @@ unique index could not be built due to uniqueness constraint violations.
 2. Drop the failed index.
 3. Issue a new create index command.
 
-## Detecting uniqueness violations in primary
-
-tables
+## Detecting uniqueness violations in primary tables
 
 The following SQL query helps you identify duplicate values in a specified column of
 your table. This is particularly useful when you need to enforce uniqueness on a column that

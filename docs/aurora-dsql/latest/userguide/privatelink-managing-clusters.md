@@ -1,6 +1,4 @@
-# Managing and connecting to Amazon Aurora DSQL
-
-clusters using AWS PrivateLink
+# Managing and connecting to Amazon Aurora DSQL clusters using AWS PrivateLink
 
 With AWS PrivateLink for Amazon Aurora DSQL, you can provision interface Amazon VPC endpoints (interface endpoints) in your Amazon Virtual Private Cloud. These endpoints are directly accessible from applications that are on premises over Amazon VPC and Direct Connect, or in a different AWS Region over Amazon VPC peering. Using AWS PrivateLink and interface endpoints, you can simplify private network connectivity from your applications to Aurora DSQL.
 
@@ -20,8 +18,7 @@ Aurora DSQL requires two different types of AWS PrivateLink endpoints.
    `update`, `delete`, and `list` on Aurora DSQL
    clusters. See [Managing Aurora DSQL clusters using AWS PrivateLink](#managing-dsql-clusters-using-privatelink "#managing-dsql-clusters-using-privatelink").
 2. _Connection endpoint_— This endpoint is used for
-   connecting to Aurora DSQL clusters through PostgreSQL clients. See [Connecting to Aurora DSQL clusters using
-   AWS PrivateLink](#privatelink-connecting-clusters "#privatelink-connecting-clusters").
+   connecting to Aurora DSQL clusters through PostgreSQL clients. See [Connecting to Aurora DSQL clusters using AWS PrivateLink](#privatelink-connecting-clusters "#privatelink-connecting-clusters").
 
 ## Considerations when using AWS PrivateLink for Aurora DSQL
 
@@ -56,9 +53,7 @@ If private DNS is not enabled, use the `--region` and
 `--endpoint-url` parameters with AWS CLI commands to manage Aurora DSQL
 clusters through Aurora DSQL interface endpoints.
 
-### Listing clusters using an endpoint
-
-URL
+### Listing clusters using an endpoint URL
 
 In the following example, replace the AWS Region `us-east-1` and
 the DNS name of the Amazon VPC endpoint ID
@@ -132,15 +127,11 @@ JSON
 
 ```
 
-## Connecting to Aurora DSQL clusters using
-
-AWS PrivateLink
+## Connecting to Aurora DSQL clusters using AWS PrivateLink
 
 Once your AWS PrivateLink endpoint is set up and active, you can connect to your Aurora DSQL cluster using a PostgreSQL client. The connection instructions below outline the steps to construct the proper hostname for connecting through the AWS PrivateLink endpoint.
 
-### Setting up an AWS PrivateLink
-
-connection endpoint
+### Setting up an AWS PrivateLink connection endpoint
 
 **Step 1: Get the service name for
 your cluster**
@@ -364,13 +355,9 @@ reasons:
    connecting cluster.
 
 If creating private DNS records is not possible, you can
-still connect to Aurora DSQL. See [Connecting to an
-Aurora DSQL cluster using an AWS PrivateLink endpoint
-without private DNS](#connecting-cluster-id-option "#connecting-cluster-id-option").
+still connect to Aurora DSQL. See [Connecting to an Aurora DSQL cluster using an AWS PrivateLink endpoint without private DNS](#connecting-cluster-id-option "#connecting-cluster-id-option").
 
-### Connecting to an Aurora DSQL cluster using an
-
-AWS PrivateLink connection endpoint
+### Connecting to an Aurora DSQL cluster using an AWS PrivateLink connection endpoint
 
 Once your AWS PrivateLink endpoint is set up and active (check that the
 `State` is `available`), you can connect to your
@@ -413,10 +400,7 @@ export PGPASSWORD=$(aws dsql --region $REGION generate-db-connect-admin-auth-tok
 psql -d postgres -h $HOSTNAME -U admin
 ```
 
-#### Connecting to an
-
-Aurora DSQL cluster using an AWS PrivateLink endpoint
-without private DNS
+#### Connecting to an Aurora DSQL cluster using an AWS PrivateLink endpoint without private DNS
 
 The connection instructions above rely on private DNS
 records. If your application is running in the same
@@ -468,9 +452,7 @@ export PGOPTIONS="-c amzn-cluster-id=$CLUSTERID"
 psql -d postgres -h $HOSTNAME -U admin
 ```
 
-### Troubleshooting issues with
-
-AWS PrivateLink
+### Troubleshooting issues with AWS PrivateLink
 
 #### Common Issues and Solutions
 

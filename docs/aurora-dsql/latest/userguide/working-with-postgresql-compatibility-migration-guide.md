@@ -5,9 +5,7 @@ compatible](working-with-postgresql-compatibility.md "working-with-postgresql-co
 
 This section provides practical guidance for migrating your application to Aurora DSQL, including framework compatibility, migration patterns, and architectural considerations.
 
-##
-
-Framework and ORM compatibility
+## Framework and ORM compatibility
 
 Aurora DSQL uses the standard PostgreSQL wire protocol, ensuring
 compatibility with PostgreSQL drivers and frameworks. Most
@@ -139,9 +137,7 @@ Aurora DSQL automatically partitions and distributes your data based on access p
 
 **Migration tip:** Remove manual partitioning logic and let Aurora DSQL handle data distribution. Use UUIDs or application-generated IDs for optimal distribution. If your application requires sequential identifiers, see [Sequences and identity columns](sequences-identity-columns.md "sequences-identity-columns.md").
 
-## Aurora DSQL
-
-considerations for PostgreSQL compatibility
+## Aurora DSQL considerations for PostgreSQL compatibility
 
 Aurora DSQL has feature support differences from self-managed PostgreSQL that enable its distributed architecture, serverless operation, and automatic scaling. Most applications work within these differences without modification.
 
@@ -165,8 +161,7 @@ Read`.
     `UPDATE`, `DELETE`)
 
 - Database connections time out after 1 hour.
-- Aurora DSQL manages permissions through schema-level grants. Admin users create schemas using `CREATE SCHEMA` and grant access using `GRANT USAGE ON SCHEMA`. Admin users manage objects in the public schema, while non-admin users create objects in user-created schemas for clear ownership boundaries. For more information, see [Authorizing
-  database roles to use SQL in your database](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql").
+- Aurora DSQL manages permissions through schema-level grants. Admin users create schemas using `CREATE SCHEMA` and grant access using `GRANT USAGE ON SCHEMA`. Admin users manage objects in the public schema, while non-admin users create objects in user-created schemas for clear ownership boundaries. For more information, see [Authorizing database roles to use SQL in your database](using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql "using-database-and-iam-roles.md#using-database-and-iam-roles-custom-database-roles-sql").
 
 ## Need help with migration?
 

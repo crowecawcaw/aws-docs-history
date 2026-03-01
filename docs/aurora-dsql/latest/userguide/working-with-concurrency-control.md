@@ -28,9 +28,7 @@ recommended logic is similar to the abort and retry logic in a standard PostgreS
 or deadlock situation. However, OCC requires your applications to exercise this logic more
 frequently.
 
-## Guidelines for optimizing transaction
-
-performance
+## Guidelines for optimizing transaction performance
 
 To optimize performance, minimize high contention on single keys or small key ranges. To
 achieve this goal, design your schema to spread updates over your cluster key range by using

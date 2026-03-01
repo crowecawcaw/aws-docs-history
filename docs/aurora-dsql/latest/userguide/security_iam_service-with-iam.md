@@ -21,9 +21,7 @@ To get a high-level view of how Aurora DSQL and other AWS services work with mos
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Aurora DSQL
+## Identity-based policies for Aurora DSQL
 
 **Supports identity-based policies:**
 
@@ -40,15 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for Aurora DSQL
+### Identity-based policy examples for Aurora DSQL
 
 To view examples of Aurora DSQL identity-based policies, see [Identity-based policy examples for Amazon Aurora DSQL](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Aurora DSQL
+## Resource-based policies within Aurora DSQL
 
 **Supports resource-based policies:**
 
@@ -58,9 +52,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 
 To learn how to create and manage resource-based policies for Aurora DSQL clusters, see [Resource-based policies for Aurora DSQL](resource-based-policies.md "resource-based-policies.md").
 
-## Policy actions
-
-for Aurora DSQL
+## Policy actions for Aurora DSQL
 
 **Supports policy actions:**
 
@@ -92,9 +84,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 To view examples of Aurora DSQL identity-based policies, see [Identity-based policy examples for Amazon Aurora DSQL](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Aurora DSQL
+## Policy resources for Aurora DSQL
 
 **Supports policy resources:**
 
@@ -116,9 +106,7 @@ which actions you can specify the ARN of each resource, see
 
 To view examples of Aurora DSQL identity-based policies, see [Identity-based policy examples for Amazon Aurora DSQL](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Aurora DSQL
+## Policy condition keys for Aurora DSQL
 
 **Supports service-specific policy condition keys:**
 

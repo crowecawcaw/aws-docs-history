@@ -8,9 +8,7 @@ Aurora DSQL.
 Aurora DSQL is compatible with PostgreSQL, so many [system catalog
 tables](https://www.PostgreSQL.org/docs/current/catalogs-overview.html "https://www.PostgreSQL.org/docs/current/catalogs-overview.html") and [views](https://www.PostgreSQL.org/docs/current/views.html "https://www.PostgreSQL.org/docs/current/views.html") from PostgreSQL also exist in Aurora DSQL.
 
-### Important PostgreSQL catalog tables and
-
-views
+### Important PostgreSQL catalog tables and views
 
 The following table describes the most common tables and views you might use in
 Aurora DSQL.
@@ -28,9 +26,7 @@ Aurora DSQL.
 | `pg_indexes`    | Lists all indexes                                          |
 | `pg_constraint` | Lists constraints on tables                                |
 
-### Supported and unsupported catalog
-
-tables
+### Supported and unsupported catalog tables
 
 The following table indicates which tables are supported and unsupported in
 Aurora DSQL.
@@ -102,9 +98,7 @@ Aurora DSQL.
 | `pg_type`                  | Yes                       |
 | `pg_user_mapping`          | No                        |
 
-### Supported and unsupported system
-
-views
+### Supported and unsupported system views
 
 The following table indicates which views are supported and unsupported in
 Aurora DSQL.

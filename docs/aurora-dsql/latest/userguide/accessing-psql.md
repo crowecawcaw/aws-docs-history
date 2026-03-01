@@ -1,8 +1,6 @@
 # Use the PostgreSQL interactive terminal (psql) to access Aurora DSQL
 
-## Use AWS CloudShell to access Aurora DSQL with the PostgreSQL
-
-interactive terminal (psql)
+## Use AWS CloudShell to access Aurora DSQL with the PostgreSQL interactive terminal (psql)
 
 Use the following procedure to access Aurora DSQL with the PostgreSQL interactive terminal from
 AWS CloudShell. For more information, see [What is AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md").
@@ -12,8 +10,7 @@ AWS CloudShell. For more information, see [What is AWS CloudShell](../../../clou
 1. Sign in to the [Aurora DSQL
    console](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
 2. Choose the cluster for which you would like to open in CloudShell. If you haven't yet
-   created a cluster, follow the steps in [Step 1: Create an Aurora DSQL single-Region
-   cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Create a multi-Region
+   created a cluster, follow the steps in [Step 1: Create an Aurora DSQL single-Region cluster](getting-started.md#getting-started-create-cluster "getting-started.md#getting-started-create-cluster") or [Create a multi-Region
    cluster](getting-started.md#getting-started-multi-region "getting-started.md#getting-started-multi-region").
 3. Choose **Connect with Query Editor** and then choose **Connect
    with CloudShell**.
@@ -21,9 +18,7 @@ AWS CloudShell. For more information, see [What is AWS CloudShell](../../../clou
 5. Choose **Launch in CloudShell** and choose **Run**
    in the following CloudShell dialog.
 
-## Use the local CLI to access Aurora DSQL with the
-
-PostgreSQL interactive terminal (psql)
+## Use the local CLI to access Aurora DSQL with the PostgreSQL interactive terminal (psql)
 
 Use `psql`, a terminal-based front-end to PostgreSQL utility, to interactively enter in queries, issue them to PostgreSQL, and view the query results.
 

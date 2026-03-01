@@ -8,7 +8,5 @@ than prescriptions.
 
 ###### Topics
 
-- [Detective security best practices
-  for Aurora DSQL](best-practices-security-detective.md "best-practices-security-detective.md")
-- [Preventative security best practices
-  for Aurora DSQL](best-practices-security-preventative.md "best-practices-security-preventative.md")
+- [Detective security best practices for Aurora DSQL](best-practices-security-detective.md "best-practices-security-detective.md")
+- [Preventative security best practices for Aurora DSQL](best-practices-security-preventative.md "best-practices-security-preventative.md")

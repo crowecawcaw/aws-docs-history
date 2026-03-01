@@ -1,6 +1,4 @@
-# Preventative security best practices
-
-for Aurora DSQL
+# Preventative security best practices for Aurora DSQL
 
 In addition to the following ways to securely use Aurora DSQL, see [Security](../../../wellarchitected/latest/framework/security.md "../../../wellarchitected/latest/framework/security.md") in AWS Well-Architected Tool to learn about how cloud technologies improve your
 security.
@@ -15,8 +13,7 @@ rotated. There is significant business impact if these credentials are
 compromised. An IAM role lets you obtain temporary access keys that you
 can use to access AWS services and resources.
 
-For more information, see [Authentication and authorization for
-Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
+For more information, see [Authentication and authorization for Aurora DSQL](authentication-authorization.md "authentication-authorization.md").
 
 **Use IAM policies for Aurora DSQL base authorization.**
 

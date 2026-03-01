@@ -10,12 +10,10 @@ production workloads.
 ###### Topics
 
 - [Prerequisites](#getting-started-prereqs "#getting-started-prereqs")
-- [Step 1: Create an Aurora DSQL single-Region
-  cluster](#getting-started-create-cluster "#getting-started-create-cluster")
+- [Step 1: Create an Aurora DSQL single-Region cluster](#getting-started-create-cluster "#getting-started-create-cluster")
 - [Step 2: Connect to your Aurora DSQL cluster](#connect-dsql-cluster "#connect-dsql-cluster")
 - [Step 3: Run sample SQL commands in Aurora DSQL](#getting-started-sql "#getting-started-sql")
-- [Step 4 (Optional): Create a multi-Region
-  cluster](#getting-started-multi-region "#getting-started-multi-region")
+- [Step 4 (Optional): Create a multi-Region cluster](#getting-started-multi-region "#getting-started-multi-region")
 - [Troubleshooting](#getting-started-sql-troubleshooting "#getting-started-sql-troubleshooting")
 
 ## Prerequisites
@@ -28,9 +26,7 @@ Before you can begin using Aurora DSQL, make sure you meet the following prerequ
   - Access to perform any action on any resource in your AWS account
   - `AmazonAuroraDSQLConsoleFullAccess` AWS managed policy is [attached](../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md").
 
-## Step 1: Create an Aurora DSQL single-Region
-
-cluster
+## Step 1: Create an Aurora DSQL single-Region cluster
 
 The basic unit of Aurora DSQL is the cluster, which is where you store your data. In this task,
 you create a cluster in a single AWS Region.
@@ -119,9 +115,7 @@ DROP TABLE test.hello_world;
 DROP SCHEMA test;
 ```
 
-## Step 4 (Optional): Create a multi-Region
-
-cluster
+## Step 4 (Optional): Create a multi-Region cluster
 
 When you create a multi-Region cluster, you specify the following Regions:
 
