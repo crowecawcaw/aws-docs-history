@@ -22,9 +22,7 @@ create the interface endpoint.
 | com.amazonaws.`region`.kinesisanalytics-fips                                                                                                                      |
 | Amazon Route 53                                                                                                                                                   | com.amazonaws.route53                   |
 
-## View available AWS service
-
-names
+## View available AWS service names
 
 You can use the [describe-vpc-endpoint-services](../../../cli/latest/reference/ec2/describe-vpc-endpoint-services.md "../../../cli/latest/reference/ec2/describe-vpc-endpoint-services.md") command to view cross Region enabled services.
 

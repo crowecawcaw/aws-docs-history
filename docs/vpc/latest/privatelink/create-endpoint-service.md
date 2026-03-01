@@ -15,8 +15,7 @@ endpoint service using a Gateway Load Balancer, see [Access virtual appliances](
 - [Considerations](#considerations-endpoint-services "#considerations-endpoint-services")
 - [Prerequisites](#prerequisites-endpoint-services "#prerequisites-endpoint-services")
 - [Create an endpoint service](#create-endpoint-service-nlb "#create-endpoint-service-nlb")
-- [Make your endpoint service available to service
-  consumers](#share-endpoint-service "#share-endpoint-service")
+- [Make your endpoint service available to service consumers](#share-endpoint-service "#share-endpoint-service")
 - [Connect to an endpoint service as the service consumer](#connect-to-endpoint-service "#connect-to-endpoint-service")
 
 ## Considerations
@@ -127,9 +126,7 @@ Use the following procedure to create an endpoint service using a Network Load B
 - [create-vpc-endpoint-service-configuration](../../../cli/latest/reference/ec2/create-vpc-endpoint-service-configuration.md "../../../cli/latest/reference/ec2/create-vpc-endpoint-service-configuration.md") (AWS CLI)
 - [New-EC2VpcEndpointServiceConfiguration](../../../powershell/latest/reference/items/New-EC2VpcEndpointServiceConfiguration.md "../../../powershell/latest/reference/items/New-EC2VpcEndpointServiceConfiguration.md") (Tools for Windows PowerShell)
 
-## Make your endpoint service available to service
-
-consumers
+## Make your endpoint service available to service consumers
 
 AWS principals can connect to your endpoint service privately by creating an
 interface VPC endpoint. Service providers must do the following to make their services

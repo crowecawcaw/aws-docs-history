@@ -17,11 +17,9 @@ gateway through which it receives traffic.
 - [Protocol](#resource-configuration-protocol "#resource-configuration-protocol")
 - [Port ranges](#resource-configuration-port "#resource-configuration-port")
 - [Accessing resources](#resource-configuration-accessing "#resource-configuration-accessing")
-- [Association with service
-  network type](#resource-configuration-service-network-association "#resource-configuration-service-network-association")
+- [Association with service network type](#resource-configuration-service-network-association "#resource-configuration-service-network-association")
 - [Types of service networks](#service-network-types "#service-network-types")
-- [Sharing resource configurations
-  through AWS RAM](#sharing-resource-configuration-ram "#sharing-resource-configuration-ram")
+- [Sharing resource configurations through AWS RAM](#sharing-resource-configuration-ram "#sharing-resource-configuration-ram")
 - [Monitoring](#resource-configuration-monitoring "#resource-configuration-monitoring")
 - [Create a resource
   configuration](create-resource-configuration.md "create-resource-configuration.md")
@@ -218,9 +216,7 @@ guide_.
 
 When private DNS is enabled for your VPC, you can’t create a resource endpoint and service network endpoint for the same resource configuration.
 
-## Association with service
-
-network type
+## Association with service network type
 
 When you share a resource configuration with a consumer account, for example,
 Account-B, through AWS RAM, Account-B can access the resource configuration either
@@ -264,9 +260,7 @@ accounts. If you disallow this, then Account-B won’t be able to add your resou
 configuration to a service network that is shared or can be shared with another
 account.
 
-## Sharing resource configurations
-
-through AWS RAM
+## Sharing resource configurations through AWS RAM
 
 Resource configurations are integrated with AWS Resource Access Manager. You can share your resource
 configuration with another account through AWS RAM. When you share a resource

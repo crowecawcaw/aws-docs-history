@@ -1,6 +1,4 @@
-# Receive alerts for interface endpoint
-
-events
+# Receive alerts for interface endpoint events
 
 You can create a notification to receive alerts for specific events related to your
 interface endpoint. For example, you can receive an email when a connection request is

@@ -1,6 +1,4 @@
-# AWS services that integrate with
-
-AWS PrivateLink
+# AWS services that integrate with AWS PrivateLink
 
 The following AWS services integrate with AWS PrivateLink. You can create a VPC endpoint
 to connect to these services privately, as if they were running in your own VPC.
@@ -325,6 +323,7 @@ endpoint.
 | [AWS Network Firewall](../../../network-firewall/latest/developerguide/vpc-interface-endpoints.md "../../../network-firewall/latest/developerguide/vpc-interface-endpoints.md")                                                             | com.amazonaws.`region`.network-firewall                  |
 | com.amazonaws.`region`.network-firewall-fips                                                                                                                                                                                                |
 | [Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/vpc-interface-endpoints.md "../../../opensearch-service/latest/developerguide/vpc-interface-endpoints.md")                                                    | These endpoints are service-managed                      |
+| [Amazon OpenSearch Ingestion](../../../opensearch-service/latest/developerguide/osis-access-apis-using-privatelink.md "../../../opensearch-service/latest/developerguide/osis-access-apis-using-privatelink.md")                            | com.amazonaws.`region`.osis                              |
 | [AWS Organizations](../../../organizations/latest/userguide/orgs_security_privatelink.md "../../../organizations/latest/userguide/orgs_security_privatelink.md")                                                                            | com.amazonaws.`region`.organizations                     |
 | com.amazonaws.`region`.organizations-fips                                                                                                                                                                                                   |
 | AWS Outposts                                                                                                                                                                                                                                | com.amazonaws.`region`.outposts                          |
@@ -351,7 +350,7 @@ endpoint.
 | com.amazonaws.`region`.q                                                                                                                                                                                                                    |
 | com.amazonaws.`region`.qapps                                                                                                                                                                                                                |
 | Amazon Q User Subscriptions                                                                                                                                                                                                                 | com.amazonaws.`region`.service.user-subscriptions        |
-| [Quick Suite](../../../quicksight/latest/developerguide/vpc-interface-endpoints.md "../../../quicksight/latest/developerguide/vpc-interface-endpoints.md")                                                                                  | com.amazonaws.`region`.quicksight-website                |
+| [Quick](../../../quicksight/latest/developerguide/vpc-interface-endpoints.md "../../../quicksight/latest/developerguide/vpc-interface-endpoints.md")                                                                                        | com.amazonaws.`region`.quicksight-website                |
 | [Amazon RDS](../../../AmazonRDS/latest/UserGuide/vpc-interface-endpoints.md "../../../AmazonRDS/latest/UserGuide/vpc-interface-endpoints.md")                                                                                               | com.amazonaws.`region`.rds                               |
 | com.amazonaws.`region`.rds-fips                                                                                                                                                                                                             |
 | [Amazon RDS Data<br>API](../../../AmazonRDS/latest/AuroraUserGuide/data-api.md#data-api.vpc-endpoint "../../../AmazonRDS/latest/AuroraUserGuide/data-api.md#data-api.vpc-endpoint")                                                         | com.amazonaws.`region`.rds-data                          |
@@ -467,9 +466,7 @@ endpoint.
 | [Amazon Managed Service for Apache Flink](../../../managed-flink/latest/java/vpc-internet.md "../../../managed-flink/latest/java/vpc-internet.md")                                                                                          | com.amazonaws.`region`.kinesisanalytics                  |
 | com.amazonaws.`region`.kinesisanalytics-fips                                                                                                                                                                                                |
 
-## View available AWS service
-
-names
+## View available AWS service names
 
 You can use the [describe-vpc-endpoint-services](../../../cli/latest/reference/ec2/describe-vpc-endpoint-services.md "../../../cli/latest/reference/ec2/describe-vpc-endpoint-services.md") command to view the service names that
 support VPC endpoints.

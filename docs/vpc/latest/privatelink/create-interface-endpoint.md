@@ -1,10 +1,7 @@
-# Access an AWS service using an interface VPC
-
-endpoint
+# Access an AWS service using an interface VPC endpoint
 
 You can create an interface VPC endpoint to connect to services powered by AWS PrivateLink,
-including many AWS services. For an overview, see [AWS PrivateLink concepts](concepts.md "concepts.md") and [Access AWS services through
-AWS PrivateLink](privatelink-access-aws-services.md "privatelink-access-aws-services.md").
+including many AWS services. For an overview, see [AWS PrivateLink concepts](concepts.md "concepts.md") and [Access AWS services through AWS PrivateLink](privatelink-access-aws-services.md "privatelink-access-aws-services.md").
 
 For each subnet that you specify from your VPC, we create an endpoint network interface in
 the subnet and assign it a private IP address from the subnet address range. An endpoint
@@ -52,8 +49,7 @@ AWS service.
 4. For **Type**, choose **AWS services**.
 5. (Optional) If creating an endpoint to an AWS service in another Region, select the **Enable cross Region endpoint** checkbox and then select the **service region** from the drop down.
 6. For **Service name**, select the service. For more information, see
-   [AWS services that integrate with
-   AWS PrivateLink](aws-services-privatelink-support.md "aws-services-privatelink-support.md").
+   [AWS services that integrate with AWS PrivateLink](aws-services-privatelink-support.md "aws-services-privatelink-support.md").
 7. For **VPC**, select the VPC from which you'll access the
    AWS service.
 8. If, in Step 5, you selected the service name for Amazon S3, and if you want to configure

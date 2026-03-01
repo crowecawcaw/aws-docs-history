@@ -1,6 +1,4 @@
-# Create a resource configuration in
-
-VPC Lattice
+# Create a resource configuration in VPC Lattice
 
 Create a resource configuration.
 

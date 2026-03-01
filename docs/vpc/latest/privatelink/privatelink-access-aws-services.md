@@ -1,6 +1,4 @@
-# Access AWS services through
-
-AWS PrivateLink
+# Access AWS services through AWS PrivateLink
 
 You access an AWS service using an endpoint. The default service endpoints are public
 interfaces, so you must add an internet gateway to your VPC so that traffic can get from the VPC
@@ -33,8 +31,7 @@ Availability Zone. You are also billed per GB of data processed. For more inform
 - [Create an interface
   endpoint](create-interface-endpoint.md "create-interface-endpoint.md")
 - [Configure an interface endpoint](interface-endpoints.md "interface-endpoints.md")
-- [Receive alerts for interface endpoint
-  events](manage-notifications-endpoint.md "manage-notifications-endpoint.md")
+- [Receive alerts for interface endpoint events](manage-notifications-endpoint.md "manage-notifications-endpoint.md")
 - [Delete an interface endpoint](delete-interface-endpoint.md "delete-interface-endpoint.md")
 - [Gateway endpoints](gateway-endpoints.md "gateway-endpoints.md")
 

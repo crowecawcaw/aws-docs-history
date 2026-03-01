@@ -1,6 +1,4 @@
-# Access a service network through a
-
-service-network endpoint
+# Access a service network through a service-network endpoint
 
 You can access a service network using a service-network endpoint. A service-network
 endpoint provides private access to resource configurations and services in the service

@@ -57,8 +57,7 @@ The default endpoint policy grants full access to the endpoint.
 
 ## Policies for interface endpoints
 
-For example endpoint policies for AWS services, see [AWS services that integrate with
-AWS PrivateLink](aws-services-privatelink-support.md "aws-services-privatelink-support.md").
+For example endpoint policies for AWS services, see [AWS services that integrate with AWS PrivateLink](aws-services-privatelink-support.md "aws-services-privatelink-support.md").
 The first column in the table contains links to AWS PrivateLink documentation for each
 AWS service. If an AWS service supports endpoint policies, its documentation
 includes example endpoint policies.

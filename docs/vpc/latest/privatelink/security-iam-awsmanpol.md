@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS PrivateLink updates to AWS managed
-
-policies
+## AWS PrivateLink updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS PrivateLink since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

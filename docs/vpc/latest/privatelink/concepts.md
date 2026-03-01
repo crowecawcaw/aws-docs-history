@@ -114,8 +114,7 @@ on-premises.
 ###### Concepts
 
 - [VPC endpoints](#concepts-vpc-endpoints "#concepts-vpc-endpoints")
-- [Endpoint network
-  interfaces](#concepts-endpoint-network-interfaces "#concepts-endpoint-network-interfaces")
+- [Endpoint network interfaces](#concepts-endpoint-network-interfaces "#concepts-endpoint-network-interfaces")
 - [Endpoint policies](#concepts-endpoint-policies "#concepts-endpoint-policies")
 - [Endpoint states](#concepts-endpoint-states "#concepts-endpoint-states")
 
@@ -155,9 +154,7 @@ _gateway endpoint_ to send traffic to Amazon S3 or DynamoDB.
 Gateway endpoints do not use AWS PrivateLink, unlike the other types of VPC
 endpoints. For more information, see [Gateway endpoints](gateway-endpoints.md "gateway-endpoints.md").
 
-### Endpoint network
-
-interfaces
+### Endpoint network interfaces
 
 An _endpoint network interface_ is a requester-managed
 network interface that serves as an entry point for traffic destined to an

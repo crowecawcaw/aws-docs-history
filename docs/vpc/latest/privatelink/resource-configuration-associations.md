@@ -1,15 +1,11 @@
-# Manage associations for a VPC Lattice
-
-resource configuration
+# Manage associations for a VPC Lattice resource configuration
 
 Consumer accounts with which you share a resource configuration with and clients in
 your account can access the resource configuration either directly using a resource VPC
 endpoint or through a service-network endpoint. As a result your resource configuration
 will have endpoint associations and service network associations.
 
-## Manage service network resource
-
-associations
+## Manage service network resource associations
 
 Create or delete a service network association.
 
@@ -55,9 +51,7 @@ Use the [create-service-network-resource-association](https://awscli.amazonaws.c
 
 Use the [delete-service-network-resource-association](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/vpc-lattice/delete-service-network-resource-association.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/vpc-lattice/delete-service-network-resource-association.html") command.
 
-## Manage resource VPC endpoint
-
-associations
+## Manage resource VPC endpoint associations
 
 Consumer accounts with access to your resource configuration or clients in
 your account can access the resource configuration using a resource VPC

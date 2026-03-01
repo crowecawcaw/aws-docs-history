@@ -37,15 +37,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for AWS PrivateLink
+### Identity-based policy examples for AWS PrivateLink
 
 To view examples of AWS PrivateLink identity-based policies, see [Identity-based policy examples for AWS PrivateLink](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within AWS PrivateLink
+## Resource-based policies within AWS PrivateLink
 
 **Supports resource-based policies:**
 
@@ -66,9 +62,7 @@ _endpoint policy_. An endpoint policy controls which AWS
 principals can use the endpoint to access the endpoint service. For more
 information, see [Control access to VPC endpoints using endpoint policies](vpc-endpoints-access.md "vpc-endpoints-access.md").
 
-## Policy actions
-
-for AWS PrivateLink
+## Policy actions for AWS PrivateLink
 
 **Supports policy actions:**
 
@@ -105,9 +99,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-## Policy
-
-condition keys for AWS PrivateLink
+## Policy condition keys for AWS PrivateLink
 
 **Supports service-specific policy condition keys:**
 
@@ -159,9 +151,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS PrivateLink
+## Using temporary credentials with AWS PrivateLink
 
 **Supports temporary credentials:**
 
@@ -173,9 +163,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS PrivateLink
+## Cross-service principal permissions for AWS PrivateLink
 
 **Supports forward access sessions (FAS):**
 
@@ -194,9 +182,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked roles
-
-for AWS PrivateLink
+## Service-linked roles for AWS PrivateLink
 
 **Supports service-linked roles:**
 

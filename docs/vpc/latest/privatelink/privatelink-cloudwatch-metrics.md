@@ -155,9 +155,7 @@ You must have the following permissions to use Contributor Insights:
 Use the following procedures to enable the built-in rules for AWS PrivateLink using either
 the AWS Management Console or the AWS CLI.
 
-###### To enable the Contributor Insights rules for AWS PrivateLink using the
-
-console
+###### To enable the Contributor Insights rules for AWS PrivateLink using the console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -170,9 +168,7 @@ console
    **Actions**, **Disable rule**. When
    prompted for confirmation, choose **Disable**.
 
-###### To enable the Contributor Insights rules for AWS PrivateLink using the
-
-AWS CLI
+###### To enable the Contributor Insights rules for AWS PrivateLink using the AWS CLI
 
 1. Use the [list-managed-insight-rules](../../../cli/latest/reference/cloudwatch/list-managed-insight-rules.md "../../../cli/latest/reference/cloudwatch/list-managed-insight-rules.md") command as follows to enumerate the
    available rules. For the `--resource-arn` option, specify the ARN
@@ -204,9 +200,7 @@ disable a rule, it stops collecting contributor data, but existing contributor d
 is kept until it is 15 days old. After you disable a rule, you can enable it again
 to resume collecting contributor data.
 
-###### To disable the Contributor Insights rules for AWS PrivateLink using the
-
-console
+###### To disable the Contributor Insights rules for AWS PrivateLink using the console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -219,9 +213,7 @@ console
    rule**
 5. When prompted for confirmation, choose **Disable**.
 
-###### To disable the Contributor Insights rules for AWS PrivateLink using the
-
-AWS CLI
+###### To disable the Contributor Insights rules for AWS PrivateLink using the AWS CLI
 
 Use the [disable-insight-rules](../../../cli/latest/reference/cloudwatch/disable-insight-rules.md "../../../cli/latest/reference/cloudwatch/disable-insight-rules.md") command to disable a rule.
 
