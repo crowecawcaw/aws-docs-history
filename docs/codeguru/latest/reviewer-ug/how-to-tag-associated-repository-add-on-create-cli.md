@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Add a tag
-
-when you create a CodeGuru Reviewer associated repository (AWS CLI)
+# Add a tag when you create a CodeGuru Reviewer associated repository (AWS CLI)
 
 You can use the AWS CLI to add tags to an associated repository when you create
 it.
@@ -34,12 +32,9 @@ tag's key and value using an equal symbol (for example,
 **associate-repository** to create an association
 with your repository type, see one of the following:
 
-    * [Create a CodeCommit repository association
-     (AWS CLI)](create-codecommit-association.md#create-codecommit-association-cli "create-codecommit-association.md#create-codecommit-association-cli")
-    * [Create a Bitbucket repository
-     association (AWS CLI)](create-bitbucket-association.md#create-bitbucket-association-cli "create-bitbucket-association.md#create-bitbucket-association-cli")
-    * [Create a GitHub Enterprise Server repository
-     association (AWS CLI)](create-github-enterprise-association.md#create-github-enterprise-association-cli "create-github-enterprise-association.md#create-github-enterprise-association-cli")
+    * [Create a CodeCommit repository association (AWS CLI)](create-codecommit-association.md#create-codecommit-association-cli "create-codecommit-association.md#create-codecommit-association-cli")
+    * [Create a Bitbucket repository association (AWS CLI)](create-bitbucket-association.md#create-bitbucket-association-cli "create-bitbucket-association.md#create-bitbucket-association-cli")
+    * [Create a GitHub Enterprise Server repository association (AWS CLI)](create-github-enterprise-association.md#create-github-enterprise-association-cli "create-github-enterprise-association.md#create-github-enterprise-association-cli")
 
 The following example adds 3 tags when you create an AWS CodeCommit
 repository association.

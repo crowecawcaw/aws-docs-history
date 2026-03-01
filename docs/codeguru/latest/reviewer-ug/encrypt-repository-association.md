@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Encrypting a repository association in
-
-Amazon CodeGuru Reviewer
+# Encrypting a repository association in Amazon CodeGuru Reviewer
 
 All associated repositories in Amazon CodeGuru Reviewer are encrypted by default using a key that AWS
 owns and manages for you. You can encrypt an associated repository using an AWS Key Management Service key,
@@ -13,8 +11,7 @@ _AWS Key Management Service Developer Guide_.
 
 You can encrypt an associated repository with a KMS key only when you create it. If you
 want to update how an existing repository is encrypted, you must disassociate it and then
-recreate it with the encryption you want. For more information, see [Disassociate a repository in
-CodeGuru Reviewer](disassociate-repository-association.md "disassociate-repository-association.md").
+recreate it with the encryption you want. For more information, see [Disassociate a repository in CodeGuru Reviewer](disassociate-repository-association.md "disassociate-repository-association.md").
 
 The encryption key (either an AWS owned and managed key, or a KMS key you create)
 encrypts the associated repository and all of its code reviews. Each code review is a child
@@ -39,14 +36,10 @@ pricing](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing"
 
 ###### Topics
 
-- [Encrypt an associated
-  repository using an AWS KMS key](#encrypt-repository-association-how-to-use-cmk "#encrypt-repository-association-how-to-use-cmk")
-- [Update how a
-  repository association is encrypted](#encrypt-repository-association-how-to-change-cmk "#encrypt-repository-association-how-to-change-cmk")
+- [Encrypt an associated repository using an AWS KMS key](#encrypt-repository-association-how-to-use-cmk "#encrypt-repository-association-how-to-use-cmk")
+- [Update how a repository association is encrypted](#encrypt-repository-association-how-to-change-cmk "#encrypt-repository-association-how-to-change-cmk")
 
-## Encrypt an associated
-
-repository using an AWS KMS key
+## Encrypt an associated repository using an AWS KMS key
 
 You can use the Amazon CodeGuru Reviewer console to specify an AWS Key Management Service key (KMS key) to encrypt
 your associated repository. If you don't do this, your associated repository is
@@ -79,9 +72,7 @@ encrypted by default using a key that is owned and managed by AWS.
 
 5. Complete the rest of the steps to create your repository association.
 
-## Update how a
-
-repository association is encrypted
+## Update how a repository association is encrypted
 
 If you want to update how your associated repository is encrypted, you must
 disassociate it, then recreate it. When you recreate the associated repository, specify
@@ -90,8 +81,7 @@ your data is encrypted by a key that is managed by AWS.
 
 ###### Change how an associated repository is encrypted
 
-1. Disassociate your associated repository by following the steps in [Disassociate a repository
-   in CodeGuru Reviewer (console)](disassociate-repository-association.md#disassociate-repository-association-console "disassociate-repository-association.md#disassociate-repository-association-console").
+1. Disassociate your associated repository by following the steps in [Disassociate a repository in CodeGuru Reviewer (console)](disassociate-repository-association.md#disassociate-repository-association-console "disassociate-repository-association.md#disassociate-repository-association-console").
 2. Follow the steps in one of the following topics to create an association with
    your repository type. Specify the KMS key you want to use or don't specify any
    KMS key if you want to encrypt your data using an AWS owned and managed key.

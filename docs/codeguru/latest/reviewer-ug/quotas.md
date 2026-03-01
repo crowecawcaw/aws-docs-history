@@ -26,9 +26,7 @@ Tag limits apply to tags on CodeGuru Reviewer associated repository resources.
 | Resource tag key names                                   | Any combination of Unicode letters, numbers, spaces, and allowed<br>characters in UTF-8 between 1 and 127 characters in length. Allowed<br>characters are `+<br>• = . _ : / @`.<br>Tag key names must be unique, and each key can only have one<br>value. A tag key name cannot:<br>• begin with `aws:`<br>• consist only of spaces<br>• end with a space<br>• contain emojis or any of the following characters: `?<br>^<br>• [ \ ~ ! # $ % &<br>• ( ) > < | " ' ` [ ] { }<br>;`  |
 | Resource tag values                                      | Any combination of Unicode letters, numbers, spaces, and allowed<br>characters in UTF-8 between 0 and 255 characters in length. Allowed<br>characters are `+<br>• = . _ : / @`.<br>A key can only have one value, but many keys can have the same<br>value. A tag key value cannot contain emojis or any of the following<br>characters: `? ^<br>• [ \ ~ ! # $ % &<br>• ( ) > <                                                                             | " ' `<br>[ ] { } ;`. |
 
-## CodeGuru Reviewer quotas for
-
-creating, deploying, and managing an API
+## CodeGuru Reviewer quotas for creating, deploying, and managing an API
 
 The following fixed quotas apply to creating, deploying, and managing an API in
 CodeGuru Reviewer, using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs. These

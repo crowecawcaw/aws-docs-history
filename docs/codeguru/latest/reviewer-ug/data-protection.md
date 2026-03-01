@@ -82,16 +82,14 @@ encrypted by default and doesn't require you to do anything.
   – Associated repositories and code reviews are encrypted by default using a key
   that AWS owns and manages. If you don't want to use a key managed by AWS, you must
   create an AWS Key Management Service key. For more information, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") and [AWS KMS
-  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_ and [Encrypting a repository association in
-  Amazon CodeGuru Reviewer](encrypt-repository-association.md "encrypt-repository-association.md").
+  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer Guide_ and [Encrypting a repository association in Amazon CodeGuru Reviewer](encrypt-repository-association.md "encrypt-repository-association.md").
 
 ## Traffic privacy
 
 You can improve the security of associated repositories and code reviews by configuring
 CodeGuru Reviewer to use an interface VPC endpoint. To do this, you don't need an internet gateway, NAT
 device, or virtual private gateway. It also is not required to configure AWS PrivateLink, though
-it is recommended. For more information, see [CodeGuru Reviewer and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). For more information about AWS PrivateLink and VPC
+it is recommended. For more information, see [CodeGuru Reviewer and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). For more information about AWS PrivateLink and VPC
 endpoints, see [What is AWS PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") in the
 _AWS PrivateLink Guide_ and [Connect your VPC to services
 using AWS PrivateLink](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md") in the _Amazon VPC User Guide_.

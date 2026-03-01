@@ -20,12 +20,9 @@ that you specify:
   a branch in a repository within an hour.
 
 A user or role must have CloudWatch `PutMetricAlarm` permissions to create an alarm.
-For more information, see [Using
-identity-based policies for CodeGuru Reviewer](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md") and [Amazon CloudWatch permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md") in the _Amazon CloudWatch User Guide_.
+For more information, see [Using identity-based policies for CodeGuru Reviewer](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md") and [Amazon CloudWatch permissions reference](../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md "../../../AmazonCloudWatch/latest/monitoring/permissions-reference-cw.md") in the _Amazon CloudWatch User Guide_.
 
-###### To create a CloudWatch alarm for CodeGuru Reviewer
-
-recommendations
+###### To create a CloudWatch alarm for CodeGuru Reviewer recommendations
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

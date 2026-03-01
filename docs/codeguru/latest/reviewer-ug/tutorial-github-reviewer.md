@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Tutorial: monitor source code in a GitHub
-
-repository
+# Tutorial: monitor source code in a GitHub repository
 
 In this tutorial, you learn how to configure Amazon CodeGuru Reviewer to monitor source code so that it
 can create recommendations that improve the code.
@@ -38,9 +36,7 @@ Fork the example application repository so you can create a pull request on it.
 
 ![GitHub tutorial step 1: Fork a GitHub repository](images/github-fork.png)
 
-## Step 2: Associate the forked
-
-repository
+## Step 2: Associate the forked repository
 
 Create a repository association with the example application's repository so that CodeGuru Reviewer
 listens to it for pull requests.
@@ -57,9 +53,7 @@ listens to it for pull requests.
 
 CodeGuru Reviewer is now associated with the repository and listening for pull requests.
 
-## Step 3: Push a change to the
-
-code
+## Step 3: Push a change to the code
 
 Push a change to the example application's code. Later in this tutorial, you create a
 pull request for this change.
@@ -117,9 +111,7 @@ Create a pull request for CodeGuru Reviewer to review.
 ![GitHub tutorial step 4: Create a GitHub pull request](images/github-compare-changes.png) 4. Choose **Create pull request**, then choose **Create pull
 request** again.
 
-## Step 5: Review
-
-recommendations
+## Step 5: Review recommendations
 
 After a few minutes, CodeGuru Reviewer issues recommendations on the same GitHub page where the
 pull request was created. You can check the status of the code review in CodeGuru Reviewer console.

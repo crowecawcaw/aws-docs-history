@@ -18,15 +18,11 @@ The source code reviewed by CodeGuru Reviewer is not stored. For more informatio
 
 ###### Topics
 
-- [Provide feedback using the CodeGuru Reviewer
-  console](#provide-feedback-in-console "#provide-feedback-in-console")
-- [Provide feedback using pull request
-  comments](#provide-feedback-in-pull-requests "#provide-feedback-in-pull-requests")
+- [Provide feedback using the CodeGuru Reviewer console](#provide-feedback-in-console "#provide-feedback-in-console")
+- [Provide feedback using pull request comments](#provide-feedback-in-pull-requests "#provide-feedback-in-pull-requests")
 - [Provide feedback using the CLI](#provide-feedback-cli "#provide-feedback-cli")
 
-## Provide feedback using the CodeGuru Reviewer
-
-console
+## Provide feedback using the CodeGuru Reviewer console
 
 You can provide feedback for recommendations on incremental code reviews or full
 repository analysis code reviews [using the
@@ -35,9 +31,7 @@ a code review to view details and recommendations from that code review. Then ch
 thumbs-up or thumbs-down icon under each recommendation to indicate whether the
 recommendation was helpful.
 
-## Provide feedback using pull request
-
-comments
+## Provide feedback using pull request comments
 
 You can also provide feedback for incremental code reviews by replying to comments in
 pull requests, without leaving your repository context. In AWS CodeCommit you can view the

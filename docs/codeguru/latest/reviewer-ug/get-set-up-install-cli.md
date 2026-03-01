@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Install or upgrade and then configure the
-
-AWS CLI
+# Install or upgrade and then configure the AWS CLI
 
 To call Amazon CodeGuru Reviewer commands from the AWS Command Line Interface (AWS CLI) on a local development machine, you
 must install the AWS CLI.
@@ -11,8 +9,7 @@ must install the AWS CLI.
 
 You cannot create a repository association for a GitHub repository using the AWS CLI. You
 can use the AWS CLI to create a repository association for all other supported repository
-types. For more information, see [Working with repository associations in
-Amazon CodeGuru Reviewer](working-with-repositories.md "working-with-repositories.md").
+types. For more information, see [Working with repository associations in Amazon CodeGuru Reviewer](working-with-repositories.md "working-with-repositories.md").
 
 If you have an older version of the AWS CLI installed, we recommend you upgrade it so the
 CodeGuru Reviewer commands are available. To check the version, use the `aws --version`

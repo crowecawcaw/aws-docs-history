@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Disassociate a repository in
-
-CodeGuru Reviewer
+# Disassociate a repository in CodeGuru Reviewer
 
 You can disassociate any associated repository you create. After you disassociate a
 repository, Amazon CodeGuru Reviewer no longer has permission to read code in the repository's pull
@@ -27,14 +25,10 @@ Charges are not incurred for disassociated repositories.
 
 ###### Topics
 
-- [Disassociate a repository
-  in CodeGuru Reviewer (console)](#disassociate-repository-association-console "#disassociate-repository-association-console")
-- [Disassociate a repository in
-  CodeGuru Reviewer (AWS CLI)](#disassociate-repository-association-cli "#disassociate-repository-association-cli")
+- [Disassociate a repository in CodeGuru Reviewer (console)](#disassociate-repository-association-console "#disassociate-repository-association-console")
+- [Disassociate a repository in CodeGuru Reviewer (AWS CLI)](#disassociate-repository-association-cli "#disassociate-repository-association-cli")
 
-## Disassociate a repository
-
-in CodeGuru Reviewer (console)
+## Disassociate a repository in CodeGuru Reviewer (console)
 
 ###### To disassociate a repository
 
@@ -49,9 +43,7 @@ in CodeGuru Reviewer (console)
      **Disassociate repository**. With this option, you
      can view details about your repository before you disassociate it.
 
-## Disassociate a repository in
-
-CodeGuru Reviewer (AWS CLI)
+## Disassociate a repository in CodeGuru Reviewer (AWS CLI)
 
 For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGuru Reviewer section of the AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html")
 

@@ -1,16 +1,13 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Using tags to control access to
-
-Amazon CodeGuru Reviewer associated repositories
+# Using tags to control access to Amazon CodeGuru Reviewer associated repositories
 
 Conditions in IAM policy statements are part of the syntax that you can use to
 specify permissions to CodeGuru Reviewer associated repository-based actions. You can create a
 policy that allows or denies actions on associated repositories based on the tags
 associated with those associated repositories, and then apply those policies to the
 IAM groups you configure for managing users. For information about applying tags
-to an associated repository using the console or AWS CLI, see [Add a tag to a CodeGuru Reviewer
-associated repository](how-to-tag-associated-repositories-add.md "how-to-tag-associated-repositories-add.md"). For information about applying
+to an associated repository using the console or AWS CLI, see [Add a tag to a CodeGuru Reviewer associated repository](how-to-tag-associated-repositories-add.md "how-to-tag-associated-repositories-add.md"). For information about applying
 tags using the CodeGuru Reviewer SDK, see [AssociateRepository](../reviewer-api/API_AssociateRepository.md#API_AssociateRepository_RequestSyntax "../reviewer-api/API_AssociateRepository.md#API_AssociateRepository_RequestSyntax") in the _Amazon CodeGuru Reviewer API Reference_. For
 information about using tags to control access to AWS resources, see [Controlling Access
 to AWS Resources Using Resource Tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the

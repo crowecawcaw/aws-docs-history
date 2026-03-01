@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Overview of managing access permissions
-
-to your CodeGuru Reviewer resources
+# Overview of managing access permissions to your CodeGuru Reviewer resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access
 a resource are governed by permissions policies. An account administrator can attach
@@ -20,11 +18,9 @@ they can access, and the actions that can be performed on those resources.
 ###### Topics
 
 - [CodeGuru Reviewer resources and operations](#arn-formats "#arn-formats")
-- [Understanding resource
-  ownership](#understanding-resource-ownership "#understanding-resource-ownership")
+- [Understanding resource ownership](#understanding-resource-ownership "#understanding-resource-ownership")
 - [Managing access to resources](#managing-access-resources "#managing-access-resources")
-- [Specifying policy elements: actions,
-  effects, and principals](#actions-effects-principals "#actions-effects-principals")
+- [Specifying policy elements: actions, effects, and principals](#actions-effects-principals "#actions-effects-principals")
 
 ## CodeGuru Reviewer resources and operations
 
@@ -66,12 +62,9 @@ commas, as follows.
 ```
 
 CodeGuru Reviewer provides a set of operations to work with the CodeGuru Reviewer resources. For a list,
-see [Amazon CodeGuru Reviewer permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see [Amazon CodeGuru Reviewer permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in it, regardless of who
 created the resources. Specifically, the resource owner is the AWS account of the
@@ -124,18 +117,14 @@ can control access to code reviews.
 You can create IAM policies to restrict the calls and resources that users
 in your account have access to, and then attach those policies to IAM roles that users can use.
 For more information about how to create IAM roles and to explore example
-IAM policy statements for CodeGuru Reviewer, see [Customer managed policy
-examples](auth-and-access-control-iam-identity-based-access-control.md#security_iam_id-based-policy-examples "auth-and-access-control-iam-identity-based-access-control.md#security_iam_id-based-policy-examples").
+IAM policy statements for CodeGuru Reviewer, see [Customer managed policy examples](auth-and-access-control-iam-identity-based-access-control.md#security_iam_id-based-policy-examples "auth-and-access-control-iam-identity-based-access-control.md#security_iam_id-based-policy-examples").
 
-## Specifying policy elements: actions,
-
-effects, and principals
+## Specifying policy elements: actions, effects, and principals
 
 For each CodeGuru Reviewer resource, the service defines a set of API operations. To grant
 permissions for these API operations, CodeGuru Reviewer defines a set of actions that you can
 specify in a policy. Some API operations can require permissions for more than one
-action to perform the API operation. For more information, see [CodeGuru Reviewer resources and operations](#arn-formats "#arn-formats") and [Amazon CodeGuru Reviewer permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+action to perform the API operation. For more information, see [CodeGuru Reviewer resources and operations](#arn-formats "#arn-formats") and [Amazon CodeGuru Reviewer permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 The following are the basic policy elements:
 
@@ -161,5 +150,4 @@ To learn more about IAM policy syntax and descriptions, see [IAM JSON policy ref
 in the _IAM User Guide_.
 
 For a table showing all of the CodeGuru Reviewer API actions and the resources they apply to,
-see [Amazon CodeGuru Reviewer permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see [Amazon CodeGuru Reviewer permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").

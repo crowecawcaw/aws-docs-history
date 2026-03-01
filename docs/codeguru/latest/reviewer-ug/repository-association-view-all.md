@@ -1,22 +1,16 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# View all repository associations in
-
-CodeGuru Reviewer
+# View all repository associations in CodeGuru Reviewer
 
 You can view all the associated repositories in your AWS Region and your AWS account
 using the console or the AWS CLI.
 
 ###### Topics
 
-- [View all associated
-  repositories in CodeGuru Reviewer (console)](#repository-association-view-all-console "#repository-association-view-all-console")
-- [View all repository associations
-  in CodeGuru Reviewer (AWS CLI)](#repository-association-view-all-cli "#repository-association-view-all-cli")
+- [View all associated repositories in CodeGuru Reviewer (console)](#repository-association-view-all-console "#repository-association-view-all-console")
+- [View all repository associations in CodeGuru Reviewer (AWS CLI)](#repository-association-view-all-cli "#repository-association-view-all-cli")
 
-## View all associated
-
-repositories in CodeGuru Reviewer (console)
+## View all associated repositories in CodeGuru Reviewer (console)
 
 ###### View all associated repositories
 
@@ -24,9 +18,7 @@ repositories in CodeGuru Reviewer (console)
    [https://console.aws.amazon.com/codeguru/reviewer/](https://console.aws.amazon.com/codeguru/reviewer/ "https://console.aws.amazon.com/codeguru/reviewer/").
 2. In the navigation pane, choose **Associated repositories**.
 
-## View all repository associations
-
-in CodeGuru Reviewer (AWS CLI)
+## View all repository associations in CodeGuru Reviewer (AWS CLI)
 
 For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGuru Reviewer section](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html") and [list-repository-associations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/list-repository-associations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/list-repository-associations.html") in the _AWS CLI Command Reference_.
 

@@ -28,9 +28,7 @@ To view code reviews with the AWS CLI or the AWS SDK, call `ListCodeReviews`.
 You can filter using `ProviderType`, `RepositoryName`, or
 `State`. For more information, see the [Amazon CodeGuru Reviewer API Reference](../reviewer-api/Welcome.md "../reviewer-api/Welcome.md").
 
-## Navigate to repositories and pull
-
-requests
+## Navigate to repositories and pull requests
 
 From the **Code reviews** page, you can navigate to the repository or
 the pull request that CodeGuru Reviewer scanned. On either the **Incremental code

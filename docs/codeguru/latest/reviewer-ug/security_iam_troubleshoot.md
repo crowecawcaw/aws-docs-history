@@ -1,22 +1,16 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Troubleshooting CodeGuru Reviewer identity
-
-and access
+# Troubleshooting CodeGuru Reviewer identity and access
 
 Use the following information to help you diagnose and fix common issues that you
 might encounter when working with Amazon CodeGuru Reviewer and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in CodeGuru Reviewer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I am not authorized to perform an action in CodeGuru Reviewer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 
-## I am not authorized to
-
-perform an action in CodeGuru Reviewer
+## I am not authorized to perform an action in CodeGuru Reviewer
 
 If the AWS Management Console tells you that you're not authorized to perform an action, you
 must contact your administrator for assistance.
@@ -36,9 +30,7 @@ access the `my-example-code-review` resource
 using the `codeguru-reviewer:`DescribeCodeReview``
 action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to CodeGuru Reviewer.
 

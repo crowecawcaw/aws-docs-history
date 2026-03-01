@@ -7,41 +7,23 @@ Amazon CodeGuru Reviewer.
 
 ###### Topics
 
-- [Where can I check the status of a
-  repository association?](#troubleshooting-status-repo-assoc "#troubleshooting-status-repo-assoc")
-- [Where can I check the status of a code
-  review?](#troubleshooting-status-code-review "#troubleshooting-status-code-review")
-- [Where can I check the status of a
-  third-party source provider connection?](#troubleshooting-status-connection "#troubleshooting-status-connection")
-- [My repository is in an associated state. Why
-  don't I see recommendations?](#troubleshooting-status-no-recos "#troubleshooting-status-no-recos")
-- [Why did my association
-  fail?](#troubleshooting-status-repo-assoc-failed "#troubleshooting-status-repo-assoc-failed")
-- [Why did my code review
-  fail?](#troubleshooting-status-code-review-failed "#troubleshooting-status-code-review-failed")
-- [What if I disagree with the
-  recommendation?](#troubleshooting-status-reco-disagree "#troubleshooting-status-reco-disagree")
-- [How do I suppress a
-  recommendation?](#troubleshooting-status-reco-suppress "#troubleshooting-status-reco-suppress")
-- [The repository status has been
-  associating for more than 5 minutes. What should I do?](#troubleshooting-long-associating-time "#troubleshooting-long-associating-time")
-- [The code review status has been
-  Pending for more than 15 minutes. What should I do?](#troubleshooting-long-code-review-time "#troubleshooting-long-code-review-time")
-- [How do you access a repository if
-  its owner is no longer available?](#troubleshooting-losing-repository-owner "#troubleshooting-losing-repository-owner")
-- [Can I use the same AWS CodeStar
-  connection to access repositories in two different accounts?](#troubleshooting-multiple-third-party-accounts "#troubleshooting-multiple-third-party-accounts")
-- [I'm trying to connect to my third-party
-  repositories. What is the difference between an app installation and a connection? Which one
-  can be used to adjust permissions?](#troubleshooting-connections-and-apps "#troubleshooting-connections-and-apps")
-- [How do I know if CodeGuru Reviewer used my
-  aws-codeguru-reviewer.yml file in a code review?](#troubleshooting-config-file-used "#troubleshooting-config-file-used")
-- [Why didn't my costs decrease when I used
-  an aws-codeguru-reviewer.yml file?](#troubleshooting-config-file-costs "#troubleshooting-config-file-costs")
+- [Where can I check the status of a repository association?](#troubleshooting-status-repo-assoc "#troubleshooting-status-repo-assoc")
+- [Where can I check the status of a code review?](#troubleshooting-status-code-review "#troubleshooting-status-code-review")
+- [Where can I check the status of a third-party source provider connection?](#troubleshooting-status-connection "#troubleshooting-status-connection")
+- [My repository is in an associated state. Why don't I see recommendations?](#troubleshooting-status-no-recos "#troubleshooting-status-no-recos")
+- [Why did my association fail?](#troubleshooting-status-repo-assoc-failed "#troubleshooting-status-repo-assoc-failed")
+- [Why did my code review fail?](#troubleshooting-status-code-review-failed "#troubleshooting-status-code-review-failed")
+- [What if I disagree with the recommendation?](#troubleshooting-status-reco-disagree "#troubleshooting-status-reco-disagree")
+- [How do I suppress a recommendation?](#troubleshooting-status-reco-suppress "#troubleshooting-status-reco-suppress")
+- [The repository status has been associating for more than 5 minutes. What should I do?](#troubleshooting-long-associating-time "#troubleshooting-long-associating-time")
+- [The code review status has been Pending for more than 15 minutes. What should I do?](#troubleshooting-long-code-review-time "#troubleshooting-long-code-review-time")
+- [How do you access a repository if its owner is no longer available?](#troubleshooting-losing-repository-owner "#troubleshooting-losing-repository-owner")
+- [Can I use the same AWS CodeStar connection to access repositories in two different accounts?](#troubleshooting-multiple-third-party-accounts "#troubleshooting-multiple-third-party-accounts")
+- [I'm trying to connect to my third-party repositories. What is the difference between an app installation and a connection? Which one can be used to adjust permissions?](#troubleshooting-connections-and-apps "#troubleshooting-connections-and-apps")
+- [How do I know if CodeGuru Reviewer used my aws-codeguru-reviewer.yml file in a code review?](#troubleshooting-config-file-used "#troubleshooting-config-file-used")
+- [Why didn't my costs decrease when I used an aws-codeguru-reviewer.yml file?](#troubleshooting-config-file-costs "#troubleshooting-config-file-costs")
 
-## Where can I check the status of a
-
-repository association?
+## Where can I check the status of a repository association?
 
 You can check the status of a repository in the CodeGuru console. In the navigation
 pane, choose **Reviewer**, and then choose **Repositories**.
@@ -52,9 +34,7 @@ You can also use the AWS CLI or the AWS SDK. First call
 `ListRepositoryAssociations` to find the association ID, then call
 `DescribeAssociation`.
 
-## Where can I check the status of a code
-
-review?
+## Where can I check the status of a code review?
 
 You can check the status of a code review in the CodeGuru console. In the navigation
 pane, choose **Reviewer**, and then choose **Code reviews**.
@@ -66,9 +46,7 @@ Name (ARN), you can call `DescribeCodeReview`. Alternatively, you can call
 `ListCodeReviews` and filter using `ProviderType` and
 `RepositoryName`.
 
-## Where can I check the status of a
-
-third-party source provider connection?
+## Where can I check the status of a third-party source provider connection?
 
 If you are using a source provider that uses CodeConnections, you can check the status of a
 connection using the AWS CLI or AWS SDK. To do this, call `ListConnections` and
@@ -81,9 +59,7 @@ Your connection only displays on the CodeGuru console if it has a status of
 **Available**. The console does not display connections with a status of
 **Pending** or **Error**.
 
-## My repository is in an associated state. Why
-
-don't I see recommendations?
+## My repository is in an associated state. Why don't I see recommendations?
 
 This could happen for the following reasons:
 
@@ -93,9 +69,7 @@ This could happen for the following reasons:
 - There was an issue running CodeGuru Reviewer on the source code. You should [contact
   Support](https://aws.amazon.com/premiumsupport/?nc2=h_ql_ce_spt "https://aws.amazon.com/premiumsupport/?nc2=h_ql_ce_spt").
 
-## Why did my association
-
-fail?
+## Why did my association fail?
 
 An association usually fails because of missing permissions. You can find more information
 about why the association failed from the status reason.
@@ -116,9 +90,7 @@ You can also use the AWS CLI or the AWS SDK. First, call
 
 When you have fixed the problem, retry associating the repository.
 
-## Why did my code review
-
-fail?
+## Why did my code review fail?
 
 To check the failure status reason of the code review, call the
 `DescribeCodeReview` API using the AWS CLI or the AWS SDK. You can also find more
@@ -138,9 +110,7 @@ Code reviews usually fail for the following reasons:
   Wait for CodeGuru Reviewer to finish reviewing your code before deleting the source branch or closing
   the pull request.
 
-## What if I disagree with the
-
-recommendation?
+## What if I disagree with the recommendation?
 
 Recommendations depend on context and a variety of other factors. It's possible that some
 recommendations are not useful. In these cases, reply to the recommendation in the source
@@ -154,9 +124,7 @@ on the CodeGuru Reviewer console and select the name of a code review to view de
 from that code review. There are thumbs-up and thumbs-down icons there under each
 recommendation that you can choose to indicate whether the recommendation was helpful.
 
-## How do I suppress a
-
-recommendation?
+## How do I suppress a recommendation?
 
 You cannot suppress _individual_ recommendations, but you
 can suppress recommendations from CodeGuru Reviewer for specific files or directories in your repository.
@@ -164,18 +132,14 @@ To do so, add the files or directories to an `aws-codeguru-reviewer.yml` file. F
 more information, see [Suppress
 recommendations](recommendation-suppression.md "recommendation-suppression.md").
 
-## The repository status has been
-
-associating for more than 5 minutes. What should I do?
+## The repository status has been associating for more than 5 minutes. What should I do?
 
 If you have refreshed the page and the status has not changed after five minutes, it's
 possible that there is a problem with the repository source provider. To check the status of
 the repository, on the **Repositories** page, choose
 **Action**, then **View repository details**.
 
-## The code review status has been
-
-Pending for more than 15 minutes. What should I do?
+## The code review status has been Pending for more than 15 minutes. What should I do?
 
 If you have refreshed the page and the status has not changed after 15 minutes, it's
 possible that there is a problem with the repository association or an internal failure. To
@@ -185,18 +149,14 @@ failed from the status reason on the console. To view details about a code revie
 the console, navigate to the **Code reviews** page and choose the name of the
 code review that failed.
 
-## How do you access a repository if
-
-its owner is no longer available?
+## How do you access a repository if its owner is no longer available?
 
 If the owner of a repository is no longer able to maintain it, you should make another
 person an administrator. The new administrator should then disassociate the repository and
 reassociate it. Having a group or email list with administrator privileges helps avoid this
 problem.
 
-## Can I use the same AWS CodeStar
-
-connection to access repositories in two different accounts?
+## Can I use the same AWS CodeStar connection to access repositories in two different accounts?
 
 Each connection is associated with one third-party repository source provider account. To
 access repositories in multiple accounts, create separate connections and switch between the
@@ -204,10 +164,7 @@ accounts to access corresponding repositories. You can create separate connectio
 different accounts from the **Associate repository** page in the
 console.
 
-## I'm trying to connect to my third-party
-
-repositories. What is the difference between an app installation and a connection? Which one
-can be used to adjust permissions?
+## I'm trying to connect to my third-party repositories. What is the difference between an app installation and a connection? Which one can be used to adjust permissions?
 
 An _app installation_ is a feature that allows CodeConnections to create
 connections to a single repository source provider account. A _connection_
@@ -215,17 +172,13 @@ is a feature that uses an app installation through CodeConnections to connect a 
 repository source provider account. Multiple connections can be used for the same app
 installation if different users need to have different levels of permissions.
 
-## How do I know if CodeGuru Reviewer used my
-
-aws-codeguru-reviewer.yml file in a code review?
+## How do I know if CodeGuru Reviewer used my aws-codeguru-reviewer.yml file in a code review?
 
 CodeGuru Reviewer recognizes the presence of a valid and correctly named
 `aws-codeguru-reviewer.yml` file in your repository when it creates a full
 repository analysis code review or an incremental code review.
 
-###### To confirm that CodeGuru Reviewer used your `aws-codeguru-reviewer.yml` file in a code
-
-review
+###### To confirm that CodeGuru Reviewer used your `aws-codeguru-reviewer.yml` file in a code review
 
 1. In the CodeGuru Reviewer console, choose **Code reviews**. This page lists all
    code reviews performed.
@@ -242,8 +195,7 @@ review
    Fix your
    `aws-codeguru-reviewer.yml` file based on the
    error messages and then initiate a new full repository analysis. For more
-   information, see [Error handling for the aws-codeguru-reviewer.yml
-   file](recommendation-suppression.md#error-handling-yml "recommendation-suppression.md#error-handling-yml").
+   information, see [Error handling for the aws-codeguru-reviewer.yml file](recommendation-suppression.md#error-handling-yml "recommendation-suppression.md#error-handling-yml").
 
    ![The Details section of a code review. List of errors in your YAML file appears in top banner.](images/code-review-config-file-error.png)
    - If CodeGuru Reviewer did not recognize your file name or find the file at the root directory of your repository, then **No file detected** appears under **Analysis configuration file**. Your file must be named
@@ -258,9 +210,7 @@ review
 For more information about using an `aws-codeguru-reviewer.yml` file, see [Suppress
 recommendations](recommendation-suppression.md "recommendation-suppression.md").
 
-## Why didn't my costs decrease when I used
-
-an aws-codeguru-reviewer.yml file?
+## Why didn't my costs decrease when I used an aws-codeguru-reviewer.yml file?
 
 Using an `aws-codeguru-reviewer.yml` file to suppress recommendations from CodeGuru Reviewer
 might decrease the amount of code that CodeGuru Reviewer analyzes and reduce your costs. If your costs don't decrease as expected when using an `aws-codeguru-reviewer.yml` file, then check

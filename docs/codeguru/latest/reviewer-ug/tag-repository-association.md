@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Tagging a repository association in
-
-Amazon CodeGuru Reviewer
+# Tagging a repository association in Amazon CodeGuru Reviewer
 
 A _tag_ is a custom attribute label that you or AWS assigns to an
 AWS resource. Each AWS tag has two parts:
@@ -33,16 +31,11 @@ policies to help control who can view and interact with your repository associat
 A repository association has a parent-child hierarchical relationship with code reviews
 because a repository association contains all the code reviews inside it. Because of this,
 you can use tags on repository associations to control access to the code reviews in it. For
-examples of tag-based access policies, see [Using tags to control access to
-Amazon CodeGuru Reviewer associated repositories](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
+examples of tag-based access policies, see [Using tags to control access to Amazon CodeGuru Reviewer associated repositories](auth-and-access-control-using-tags.md "auth-and-access-control-using-tags.md").
 
 ###### Topics
 
-- [Add a tag to a CodeGuru Reviewer
-  associated repository](how-to-tag-associated-repositories-add.md "how-to-tag-associated-repositories-add.md")
-- [View tags for a CodeGuru Reviewer
-  associated repository](how-to-tag-associated-repository-view.md "how-to-tag-associated-repository-view.md")
-- [Add or update tags for a
-  CodeGuru Reviewer associated repository](how-to-tag-associated-repository-update.md "how-to-tag-associated-repository-update.md")
-- [Remove tags from a CodeGuru Reviewer
-  associated repository](how-to-tag-associated-repository-remove.md "how-to-tag-associated-repository-remove.md")
+- [Add a tag to a CodeGuru Reviewer associated repository](how-to-tag-associated-repositories-add.md "how-to-tag-associated-repositories-add.md")
+- [View tags for a CodeGuru Reviewer associated repository](how-to-tag-associated-repository-view.md "how-to-tag-associated-repository-view.md")
+- [Add or update tags for a CodeGuru Reviewer associated repository](how-to-tag-associated-repository-update.md "how-to-tag-associated-repository-update.md")
+- [Remove tags from a CodeGuru Reviewer associated repository](how-to-tag-associated-repository-remove.md "how-to-tag-associated-repository-remove.md")

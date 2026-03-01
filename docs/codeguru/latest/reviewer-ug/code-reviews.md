@@ -3,8 +3,7 @@ As of November 7, 2025, you can't create new repository associations in Amazon C
 # Working with code reviews
 
 You can create an incremental code review or a full repository analysis code review. For
-more information about the types of code reviews, see [About full repository analysis and
-incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md").
+more information about the types of code reviews, see [About full repository analysis and incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md").
 
 When you create a code review, CodeGuru Reviewer reviews your code and provides recommendations about
 how to improve the code. You can see these recommendations directly in the CodeGuru Reviewer console
@@ -39,12 +38,9 @@ console:
 
 ###### Topics
 
-- [About full repository analysis and
-  incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md")
-- [Suppress recommendations from
-  Amazon CodeGuru Reviewer](recommendation-suppression.md "recommendation-suppression.md")
+- [About full repository analysis and incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md")
+- [Suppress recommendations from Amazon CodeGuru Reviewer](recommendation-suppression.md "recommendation-suppression.md")
 - [Create code reviews in Amazon CodeGuru Reviewer](create-code-reviews.md "create-code-reviews.md")
 - [View all code reviews](view-all-code-reviews.md "view-all-code-reviews.md")
 - [View code review details](view-code-review-details.md "view-code-review-details.md")
-- [View recommendations and provide
-  feedback](give-feedback-from-code-review-details.md "give-feedback-from-code-review-details.md")
+- [View recommendations and provide feedback](give-feedback-from-code-review-details.md "give-feedback-from-code-review-details.md")

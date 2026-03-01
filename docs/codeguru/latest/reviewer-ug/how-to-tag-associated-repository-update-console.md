@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Add or update tags
-
-for a CodeGuru Reviewer associated repository (console)
+# Add or update tags for a CodeGuru Reviewer associated repository (console)
 
 You can use the CodeGuru Reviewer console to update, add, or remove the tags associated with
 a CodeGuru Reviewer associated repository. Using the console, you can also change the name of

@@ -16,5 +16,4 @@ recommendations](recommendation-suppression.md "recommendation-suppression.md").
 After you know the repository type and the name of your repository, you need to create a
 repository association. For GitHub repositories, you can create a repository association using
 only the CodeGuru Reviewer console. For the other supported repository types, you can use the console,
-AWS CLI, or Amazon CodeGuru Reviewer SDK to create a repository association. For more information, see [Working with repository associations in
-Amazon CodeGuru Reviewer](working-with-repositories.md "working-with-repositories.md").
+AWS CLI, or Amazon CodeGuru Reviewer SDK to create a repository association. For more information, see [Working with repository associations in Amazon CodeGuru Reviewer](working-with-repositories.md "working-with-repositories.md").

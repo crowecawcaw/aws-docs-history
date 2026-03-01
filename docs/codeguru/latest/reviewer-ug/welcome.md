@@ -10,9 +10,7 @@ By proactively detecting code defects, CodeGuru Reviewer can provide guidelines 
 implementing best practices to improve the overall quality and maintainability of your code base
 during the code review stage. For more information, see [How Amazon CodeGuru Reviewer works](how-codeguru-reviewer-works.md "how-codeguru-reviewer-works.md").
 
-## What kind of recommendations does CodeGuru Reviewer
-
-provide?
+## What kind of recommendations does CodeGuru Reviewer provide?
 
 CodeGuru Reviewer doesn't flag syntactical mistakes, as these are relatively easy to find. Instead,
 CodeGuru Reviewer identifies more complex problems and suggests improvements related to recommendation
@@ -24,9 +22,7 @@ Library](../../detector-library/index.md "../../detector-library/index.md").
 CodeGuru Reviewer also integrates with AWS Secrets Manager to use a secrets detector that finds unprotected
 secrets in your code. For more information, see [Secrets detection](recommendations.md#secrets-detection "recommendations.md#secrets-detection").
 
-## What languages and repositories can I use with
-
-CodeGuru Reviewer?
+## What languages and repositories can I use with CodeGuru Reviewer?
 
 CodeGuru Reviewer is designed to work with Java and Python code repositories in the following source
 providers:

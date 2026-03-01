@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Create a GitHub Enterprise Server repository
-
-association in Amazon CodeGuru Reviewer
+# Create a GitHub Enterprise Server repository association in Amazon CodeGuru Reviewer
 
 You can create a GitHub Enterprise Server repository association using the Amazon CodeGuru Reviewer console, the AWS CLI,
 or the CodeGuru Reviewer SDK. Before you create a GitHub Enterprise Server repository association, you must have a
@@ -16,18 +14,12 @@ instead](create-github-association.md "create-github-association.md").
 
 ###### Topics
 
-- [GitHub Enterprise Server repository
-  association prerequisites](#create-github-enterprise-association-requirements "#create-github-enterprise-association-requirements")
-- [Create a GitHub Enterprise Server
-  repository association (console)](#create-github-enterprise-association-console "#create-github-enterprise-association-console")
-- [Create a GitHub Enterprise Server repository
-  association (AWS CLI)](#create-github-enterprise-association-cli "#create-github-enterprise-association-cli")
-- [Create a GitHub Enterprise Server
-  repository association (AWS SDKs)](#create-github-enterprise-server-association-sdk "#create-github-enterprise-server-association-sdk")
+- [GitHub Enterprise Server repository association prerequisites](#create-github-enterprise-association-requirements "#create-github-enterprise-association-requirements")
+- [Create a GitHub Enterprise Server repository association (console)](#create-github-enterprise-association-console "#create-github-enterprise-association-console")
+- [Create a GitHub Enterprise Server repository association (AWS CLI)](#create-github-enterprise-association-cli "#create-github-enterprise-association-cli")
+- [Create a GitHub Enterprise Server repository association (AWS SDKs)](#create-github-enterprise-server-association-sdk "#create-github-enterprise-server-association-sdk")
 
-## GitHub Enterprise Server repository
-
-association prerequisites
+## GitHub Enterprise Server repository association prerequisites
 
 To create a GitHub Enterprise Server repository association, you must have a GitHub Enterprise Server connection in
 AWS CodeConnections. The connection must be in the same AWS account and Region in which you want your
@@ -45,9 +37,7 @@ your GitHub Enterprise Server instance and is to what your GitHub Enterprise Ser
 an on-premises server or a Virtual Private Cloud (VPC). For more information, see [Amazon VPC configuration for your host](../../../dtconsole/latest/userguide/connections-create-gheserver-console.md#connections-create-gheserver-prereq "../../../dtconsole/latest/userguide/connections-create-gheserver-console.md#connections-create-gheserver-prereq") and [Create a host](../../../dtconsole/latest/userguide/connections-host-create.md "../../../dtconsole/latest/userguide/connections-host-create.md") in
 the _AWS Developer Tools User Guide_.
 
-## Create a GitHub Enterprise Server
-
-repository association (console)
+## Create a GitHub Enterprise Server repository association (console)
 
 ###### To create a GitHub Enterprise Server repository association
 
@@ -65,8 +55,7 @@ repository association (console)
     repository that contains the source code you want CodeGuru Reviewer to analyze.
 7.  (Optional) Expand **Encryption key - optional** to use
     your own AWS Key Management Service key (KMS key) to encrypt your associated repository. For more information,
-    see [Encrypting a repository association in
-    Amazon CodeGuru Reviewer](encrypt-repository-association.md "encrypt-repository-association.md").
+    see [Encrypting a repository association in Amazon CodeGuru Reviewer](encrypt-repository-association.md "encrypt-repository-association.md").
     1. Select **Customize encryption settings (advanced)**.
     2. Do one of the following:
        - If you already have a KMS key that you manage, enter its Amazon Resource Name (ARN). For information
@@ -80,8 +69,7 @@ repository association (console)
 
 8.  In **Run a repository analysis**, specify information for your associated repository's
     first full scan. This scan generates your repository's initial code review. For more information, see
-    [Get recommendations using full repository
-    analysis](create-code-reviews.md#get-repository-scan "create-code-reviews.md#get-repository-scan").
+    [Get recommendations using full repository analysis](create-code-reviews.md#get-repository-scan "create-code-reviews.md#get-repository-scan").
 
         1. From **Source branch**, choose the branch to use.
         2. (Optional) In **Code review name**, type a name for your code review.
@@ -91,8 +79,7 @@ repository association (console)
     ![The Run a repository analysis section with settings and sample YAML file information.](images/run-repo-analysis-config-file.png)
 
 9.  (Optional) Expand **Tags** to add one or more tags to your repository association.
-    For more information, see [Tagging a repository association in
-    Amazon CodeGuru Reviewer](tag-repository-association.md "tag-repository-association.md").
+    For more information, see [Tagging a repository association in Amazon CodeGuru Reviewer](tag-repository-association.md "tag-repository-association.md").
     1. Choose **Add new tag**.
     2. In **Key**, enter a name for the tag. You can add an optional
        value for the tag in **Value**.
@@ -104,9 +91,7 @@ repository association (console)
     changes to **Associated** and a full repository analysis begins.
     Refresh the page to check for the status change.
 
-## Create a GitHub Enterprise Server repository
-
-association (AWS CLI)
+## Create a GitHub Enterprise Server repository association (AWS CLI)
 
 For information about using the AWS CLI with CodeGuru Reviewer, see the [CodeGuru Reviewer section of the AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-reviewer/index.html")
 
@@ -179,9 +164,7 @@ aws codeguru-reviewer describe-repository-association --association-arn arn:aws:
 }
 ```
 
-## Create a GitHub Enterprise Server
-
-repository association (AWS SDKs)
+## Create a GitHub Enterprise Server repository association (AWS SDKs)
 
 To create a GitHub Enterprise Server repository association with the AWS SDKs, use the
 `AssociateRepository` API. For more information, see [AssociateRepository](../reviewer-api/API_AssociateRepository.md "../reviewer-api/API_AssociateRepository.md") in the _Amazon CodeGuru Reviewer API Reference_.

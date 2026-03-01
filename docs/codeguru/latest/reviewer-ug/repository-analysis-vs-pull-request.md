@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# About full repository analysis and
-
-incremental code reviews
+# About full repository analysis and incremental code reviews
 
 There are three different kinds of code reviews that CodeGuru Reviewer can do to provide
 recommendations.

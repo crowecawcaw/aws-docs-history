@@ -30,18 +30,14 @@ user names, and more. When an unprotected secret is found during a code review, 
 generates a recommendation and displays it with your code reviews. The recommendation
 tells you about the unprotected secret. To immediately protect that secret, choose
 **Protect your credential** in the code review. This opens the
-Secrets Manager console to protect and manage the secret. For more information, see the [AWS Secrets Manager User Guide](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") and [View recommendations and provide
-feedback](give-feedback-from-code-review-details.md "give-feedback-from-code-review-details.md").
+Secrets Manager console to protect and manage the secret. For more information, see the [AWS Secrets Manager User Guide](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") and [View recommendations and provide feedback](give-feedback-from-code-review-details.md "give-feedback-from-code-review-details.md").
 
 ###### Topics
 
-- [Secrets detection supported file
-  types](#secrets-file-extension-support "#secrets-file-extension-support")
+- [Secrets detection supported file types](#secrets-file-extension-support "#secrets-file-extension-support")
 - [Types of secrets detected by CodeGuru Reviewer](#secrets-found-types "#secrets-found-types")
 
-### Secrets detection supported file
-
-types
+### Secrets detection supported file types
 
 The secrets detector finds unprotected secrets the following file types with a
 maximum file size of 100kb.

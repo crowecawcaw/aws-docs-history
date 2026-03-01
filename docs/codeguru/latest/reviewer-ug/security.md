@@ -28,6 +28,5 @@ _in_ the cloud:
 - [Data protection for CodeGuru Reviewer](data-protection.md "data-protection.md")
 - [Identity and access management in CodeGuru Reviewer](auth-and-access-control.md "auth-and-access-control.md")
 - [Compliance validation for CodeGuru Reviewer](codeguru-reviewer-compliance.md "codeguru-reviewer-compliance.md")
-- [CodeGuru Reviewer and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [CodeGuru Reviewer and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Infrastructure security in CodeGuru Reviewer](infrastructure-security.md "infrastructure-security.md")

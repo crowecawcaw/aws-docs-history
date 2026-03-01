@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# CodeGuru Reviewer and interface VPC endpoints
-
-(AWS PrivateLink)
+# CodeGuru Reviewer and interface VPC endpoints (AWS PrivateLink)
 
 You can use VPC endpoints when you call Amazon CodeGuru Reviewer APIs. When you use VPC endpoints, your
 API calls are more secure because they are contained within your VPC and don't access the

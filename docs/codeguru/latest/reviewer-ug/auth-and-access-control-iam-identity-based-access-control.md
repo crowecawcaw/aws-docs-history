@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Using
-
-identity-based policies for CodeGuru Reviewer
+# Using identity-based policies for CodeGuru Reviewer
 
 By default, users and IAM roles don't have permission to create or modify
 Amazon CodeGuru Reviewer resources. They also can't perform tasks using the AWS Management Console,
@@ -17,20 +15,13 @@ documents, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_poli
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Permissions required to use the CodeGuru Reviewer
-  console](#console-permissions "#console-permissions")
-- [AWS managed (predefined) policies for
-  CodeGuru Reviewer](#managed-policies "#managed-policies")
-- [CodeGuru Reviewer updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
-- [Customer managed policy
-  examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Permissions required to use the CodeGuru Reviewer console](#console-permissions "#console-permissions")
+- [AWS managed (predefined) policies for CodeGuru Reviewer](#managed-policies "#managed-policies")
+- [CodeGuru Reviewer updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Customer managed policy examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CodeGuru Reviewer resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -63,9 +54,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Permissions required to use the CodeGuru Reviewer
-
-console
+## Permissions required to use the CodeGuru Reviewer console
 
 A user who uses the CodeGuru Reviewer console must have a minimum set of permissions that
 allows the user to describe other AWS resources for the AWS account. You must
@@ -89,9 +78,7 @@ information about a repository association only in the `us-east-2` Region
 for account `123456789012` for any repository association with a
 universally unique identifier (UUID) that starts with `12345`.
 
-## AWS managed (predefined) policies for
-
-CodeGuru Reviewer
+## AWS managed (predefined) policies for CodeGuru Reviewer
 
 AWS addresses many common use cases by providing standalone IAM policies that
 are created and administered by AWS. These AWS managed policies grant necessary
@@ -163,9 +150,7 @@ resource, if it doesn't already exist.
 The `AmazonCodeGuruReviewerServiceRolePolicy` policy contains the
 following statement.
 
-## CodeGuru Reviewer updates to AWS managed
-
-policies
+## CodeGuru Reviewer updates to AWS managed policies
 
 View details about updates to AWS managed policies for CodeGuru Reviewer since this service
 began tracking these changes. For automatic alerts about changes to this page,
@@ -176,9 +161,7 @@ subscribe to the RSS feed on the CodeGuru Reviewer [Amazon CodeGuru Reviewer Use
 | [AmazonCodeGuruReviewerServiceRolePolicy](#managed-policy-for-codecommit-and-codestar-connections "#managed-policy-for-codecommit-and-codestar-connections") – Update to an existing policy | CodeGuru Reviewer added new permissions to allow access to the<br>`CreateBucket`, `ListBucket`,<br>`PutBucketPolicy`, and<br>`PutLifecycleConfiguration` actions on an Amazon S3<br>bucket resource. | April 28, 2021 |
 | CodeGuru Reviewer started tracking changes                                                                                                                                                  | CodeGuru Reviewer started tracking changes for its AWS managed<br>policies.                                                                                                                          | July 2, 2020   |
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 You can create your own custom IAM policies to allow permissions for CodeGuru Reviewer
 actions and resources. You can attach these custom policies to the roles or groups that require those permissions.
@@ -197,46 +180,32 @@ account IDs.
 
 **Examples**
 
-- [Example 1: Allow a user to
-  see all recommendations created in an associated repository](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Allow a user to
-  view code reviews in an associated repository in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
-- [Example 3: Allow a user to
-  perform CodeGuru Reviewer operations in a single Region](#identity-based-policies-example-3 "#identity-based-policies-example-3")
-- [Example 4: Allow read-only
-  access to CodeGuru Reviewer operations for a user connecting from a specified IP
-  address range](#identity-based-policies-example-4 "#identity-based-policies-example-4")
+- [Example 1: Allow a user to see all recommendations created in an associated repository](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow a user to view code reviews in an associated repository in a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow a user to perform CodeGuru Reviewer operations in a single Region](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 4: Allow read-only access to CodeGuru Reviewer operations for a user connecting from a specified IP address range](#identity-based-policies-example-4 "#identity-based-policies-example-4")
 
-### Example 1: Allow a user to
-
-see all recommendations created in an associated repository
+### Example 1: Allow a user to see all recommendations created in an associated repository
 
 The following example policy grants permissions for the AWS user with
 account ID `123456789012` to see a list of all
 recommendations in their AWS account and Region in the repository association
 with ID `association-uuid`.
 
-### Example 2: Allow a user to
-
-view code reviews in an associated repository in a single Region
+### Example 2: Allow a user to view code reviews in an associated repository in a single Region
 
 The following shows an example of a permissions policy that allows a user with
 account ID `123456789012` to get information about code
 reviews in Region `us-east-2` in an associated repository with ID
 `association-uuid`.
 
-### Example 3: Allow a user to
-
-perform CodeGuru Reviewer operations in a single Region
+### Example 3: Allow a user to perform CodeGuru Reviewer operations in a single Region
 
 The following permissions policy uses a wildcard character
 (`"codeguru-reviewer:*"`) to allow users to perform all CodeGuru Reviewer actions
 in the us-east-2 Region and not from other AWS Regions.
 
-### Example 4: Allow read-only
-
-access to CodeGuru Reviewer operations for a user connecting from a specified IP
-address range
+### Example 4: Allow read-only access to CodeGuru Reviewer operations for a user connecting from a specified IP address range
 
 You can create a policy that only allows users CodeGuru Reviewer read-only access if
 their IP address is within a certain IP address range. The following example

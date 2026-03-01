@@ -35,20 +35,15 @@ recommendations.
   all the source code in your CI/CD workflow. For more information, see [Create
   code reviews with GitHub Actions](working-with-cicd.md "working-with-cicd.md").
   For more information on the difference between incremental code reviews and full
-  repository analysis code reviews, see [About full repository analysis and
-  incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md").
+  repository analysis code reviews, see [About full repository analysis and incremental code reviews](repository-analysis-vs-pull-request.md "repository-analysis-vs-pull-request.md").
 
 ###### Topics
 
-- [Get recommendations using full repository
-  analysis](#get-repository-scan "#get-repository-scan")
-- [Get recommendations using incremental code
-  reviews](#get-pull-request-scan "#get-pull-request-scan")
+- [Get recommendations using full repository analysis](#get-repository-scan "#get-repository-scan")
+- [Get recommendations using incremental code reviews](#get-pull-request-scan "#get-pull-request-scan")
 - [Get recommendations using GitHub Actions](#working-with-github-actions "#working-with-github-actions")
 
-## Get recommendations using full repository
-
-analysis
+## Get recommendations using full repository analysis
 
 To get recommendations on all the code in a branch, associate the repository with
 CodeGuru Reviewer. CodeGuru Reviewer automatically initiates a full repository analysis. Later, to initiate a full
@@ -82,9 +77,7 @@ If a repository contains Java and Python files, then CodeGuru Reviewer generates
 five Java files and ten Python files in an associated repository, then CodeGuru Reviewer generates recommendations for the Python code and does not generate recommendations for the Java code.
 If the number of Java and Python files is the same, then only Java recommendations are generated.
 
-## Get recommendations using incremental code
-
-reviews
+## Get recommendations using incremental code reviews
 
 To get recommendations from CodeGuru Reviewer for code changes in an associated repository,
 referred to as an incremental code review, use the repository source provider to submit a

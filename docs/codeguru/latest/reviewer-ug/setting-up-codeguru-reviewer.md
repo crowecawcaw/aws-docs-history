@@ -22,8 +22,6 @@ recommendations](recommendation-suppression.md "recommendation-suppression.md").
 ###### Topics
 
 - [Sign up for AWS](get-set-up-sign-up-for-aws.md "get-set-up-sign-up-for-aws.md")
-- [Configure IAM permissions for
-  Amazon CodeGuru Reviewer](get-set-up-configure-iam-permissions.md "get-set-up-configure-iam-permissions.md")
-- [Install or upgrade and then configure the
-  AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md")
+- [Configure IAM permissions for Amazon CodeGuru Reviewer](get-set-up-configure-iam-permissions.md "get-set-up-configure-iam-permissions.md")
+- [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md")
 - [Create a repository for your source code](get-set-up-setup-repository.md "get-set-up-setup-repository.md")

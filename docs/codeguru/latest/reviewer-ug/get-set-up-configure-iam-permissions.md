@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Configure IAM permissions for
-
-Amazon CodeGuru Reviewer
+# Configure IAM permissions for Amazon CodeGuru Reviewer
 
 When you create an AWS account, you get a single sign-in identity that has complete
 access to all of the AWS services and resources in the account. This identity is called the
@@ -20,7 +18,5 @@ See the following topics for information about permissions required for CodeGuru
 add them.
 
 - [Authenticating with identities](auth-and-access-control.md#security_iam_authentication "auth-and-access-control.md#security_iam_authentication")
-- [Using
-  identity-based policies for CodeGuru Reviewer](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md")
-- [Amazon CodeGuru Reviewer permissions
-  reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md")
+- [Using identity-based policies for CodeGuru Reviewer](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md")
+- [Amazon CodeGuru Reviewer permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md")

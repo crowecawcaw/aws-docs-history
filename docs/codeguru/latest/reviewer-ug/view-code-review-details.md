@@ -8,13 +8,10 @@ recommendations.
 
 ###### Topics
 
-- [Information in code review
-  details](#information-in-code-review-details "#information-in-code-review-details")
+- [Information in code review details](#information-in-code-review-details "#information-in-code-review-details")
 - [View code review details by using the AWS CLI](#view-details-cli "#view-details-cli")
 
-## Information in code review
-
-details
+## Information in code review details
 
 You might want to use code review details to get more information about a code review,
 to provide feedback on recommendations in a code review, or to troubleshoot a
@@ -39,8 +36,7 @@ There are three possible code review statuses:
     retried.
   - If the problem is due to an analysis configuration file error, then review the
     errors with the file, fix the file, and initiate an incremental code review or a
-    full repository analysis. For more information, see [Error handling for the aws-codeguru-reviewer.yml
-    file](recommendation-suppression.md#error-handling-yml "recommendation-suppression.md#error-handling-yml").
+    full repository analysis. For more information, see [Error handling for the aws-codeguru-reviewer.yml file](recommendation-suppression.md#error-handling-yml "recommendation-suppression.md#error-handling-yml").
     When you retry the operation, be sure to keep relevant incremental code reviews
     open and the source branch available while CodeGuru Reviewer processes the request.
 

@@ -1,8 +1,6 @@
 As of November 7, 2025, you can't create new repository associations in Amazon CodeGuru Reviewer. To learn about services with capabilities similar to CodeGuru Reviewer, see [Amazon CodeGuru Reviewer availability change](codeguru-reviewer-availability-change.md "codeguru-reviewer-availability-change.md").
 
-# Suppress recommendations from
-
-Amazon CodeGuru Reviewer
+# Suppress recommendations from Amazon CodeGuru Reviewer
 
 Whether you initiate a full repository analysis code review or an incremental code review,
 you can suppress recommendations from CodeGuru Reviewer. You do this by excluding files and directories
@@ -23,18 +21,12 @@ The following examples describe scenarios in which you might want to use an
 
 ###### Topics
 
-- [Structure of the aws-codeguru-reviewer.yml
-  file](#structure-configure-file "#structure-configure-file")
-- [Steps to suppress
-  recommendations](#steps-to-suppress-recommendations "#steps-to-suppress-recommendations")
-- [Cost impact of suppressing
-  recommendations](#costs-control-code-analyzed "#costs-control-code-analyzed")
-- [Error handling for the aws-codeguru-reviewer.yml
-  file](#error-handling-yml "#error-handling-yml")
+- [Structure of the aws-codeguru-reviewer.yml file](#structure-configure-file "#structure-configure-file")
+- [Steps to suppress recommendations](#steps-to-suppress-recommendations "#steps-to-suppress-recommendations")
+- [Cost impact of suppressing recommendations](#costs-control-code-analyzed "#costs-control-code-analyzed")
+- [Error handling for the aws-codeguru-reviewer.yml file](#error-handling-yml "#error-handling-yml")
 
-## Structure of the aws-codeguru-reviewer.yml
-
-file
+## Structure of the aws-codeguru-reviewer.yml file
 
 The following content lists the criteria that your `aws-codeguru-reviewer.yml`
 file must meet, includes sample code that you can use as a template to create your file,
@@ -44,15 +36,12 @@ and illustrates with example code snippets how to exclude files and directories.
 
 Be sure to use relative paths for files and directories that you add to your `aws-codeguru-reviewer.yml` file.
 
-### Criteria for the aws-codeguru-reviewer.yml
-
-file
+### Criteria for the aws-codeguru-reviewer.yml file
 
 In addition to being valid YAML and not containing syntax errors, your
 `aws-codeguru-reviewer.yml` file must meet the following criteria. If
 your file does not, then CodeGuru Reviewer returns error messages and does not use your file in
-any analysis. For more information, see [Error handling for the aws-codeguru-reviewer.yml
-file](#error-handling-yml "#error-handling-yml").
+any analysis. For more information, see [Error handling for the aws-codeguru-reviewer.yml file](#error-handling-yml "#error-handling-yml").
 
 - File name: `aws-codeguru-reviewer.yml`
 
@@ -79,8 +68,7 @@ this sample file from the CodeGuru Reviewer console or from the [sample applicat
 
 Replace the items under `excludeFiles:` with your
 own files and directories. For information about how to exclude files and
-directories, see [Example code for the aws-codeguru-reviewer.yml
-file](#example-configure-file "#example-configure-file").
+directories, see [Example code for the aws-codeguru-reviewer.yml file](#example-configure-file "#example-configure-file").
 
 ###### Note
 
@@ -111,9 +99,7 @@ version: 1.0
   - 'src/some-*/**/*.json'
 ```
 
-### Example code for the aws-codeguru-reviewer.yml
-
-file
+### Example code for the aws-codeguru-reviewer.yml file
 
 In your `aws-codeguru-reviewer.yml` file, add files and directories to
 exclude under `excludeFiles:`. Use glob pattern
@@ -158,9 +144,7 @@ version: 1.0
   - '**/*.java'
 ```
 
-## Steps to suppress
-
-recommendations
+## Steps to suppress recommendations
 
 You can add an `aws-codeguru-reviewer.yml` file to a repository either
 _before_ or _after_ you associate a repository. For more information about associating
@@ -169,8 +153,7 @@ a repository, see [Working with repository associations](working-with-repositori
 ###### To suppress recommendations
 
 1. Create an `aws-codeguru-reviewer.yml` file. For more information, see
-   [Structure of the aws-codeguru-reviewer.yml
-   file](#structure-configure-file "#structure-configure-file").
+   [Structure of the aws-codeguru-reviewer.yml file](#structure-configure-file "#structure-configure-file").
 2. Add the `aws-codeguru-reviewer.yml` file to the root directory of the
    repository that you want CodeGuru Reviewer to analyze.
 3. For new repositories, associate the repository. After you associate the
@@ -196,8 +179,7 @@ a repository, see [Working with repository associations](working-with-repositori
       Fix your
       `aws-codeguru-reviewer.yml` file based on the
       error messages and then initiate a new full repository analysis. For more
-      information, see [Error handling for the aws-codeguru-reviewer.yml
-      file](#error-handling-yml "#error-handling-yml").
+      information, see [Error handling for the aws-codeguru-reviewer.yml file](#error-handling-yml "#error-handling-yml").
 
       ![The Details section of a code review. List of errors in your YAML file appears in top banner.](images/code-review-config-file-error.png)
       - If CodeGuru Reviewer did not recognize your file name or find the file at the root directory of your repository, then **No file detected** appears under **Analysis configuration file**. Your file must be named
@@ -213,9 +195,7 @@ a repository, see [Working with repository associations](working-with-repositori
    match what you expect based on the settings in your
    `aws-codeguru-reviewer.yml` file.
 
-## Cost impact of suppressing
-
-recommendations
+## Cost impact of suppressing recommendations
 
 You are only charged for the lines of code that CodeGuru Reviewer analyzes. You are not charged
 for the lines of code in files or directories that you exclude in your
@@ -223,12 +203,9 @@ for the lines of code in files or directories that you exclude in your
 
 If you receive an error message about the `aws-codeguru-reviewer.yml` file,
 CodeGuru Reviewer did not analyze your repository and you are not charged. For more information
-about error messages, see [Error handling for the aws-codeguru-reviewer.yml
-file](#error-handling-yml "#error-handling-yml").
+about error messages, see [Error handling for the aws-codeguru-reviewer.yml file](#error-handling-yml "#error-handling-yml").
 
-## Error handling for the aws-codeguru-reviewer.yml
-
-file
+## Error handling for the aws-codeguru-reviewer.yml file
 
 CodeGuru Reviewer does not validate your `aws-codeguru-reviewer.yml` file, but you could
 receive error messages under the following situations.

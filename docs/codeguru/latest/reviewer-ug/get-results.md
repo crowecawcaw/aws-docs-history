@@ -18,15 +18,11 @@ issues before they reach production.
 For more information, see the following topics:
 
 - [View code review details](view-code-review-details.md "view-code-review-details.md")
-- [Get recommendations using full repository
-  analysis](create-code-reviews.md#get-repository-scan "create-code-reviews.md#get-repository-scan")
-- [Get recommendations using incremental code
-  reviews](create-code-reviews.md#get-pull-request-scan "create-code-reviews.md#get-pull-request-scan")
+- [Get recommendations using full repository analysis](create-code-reviews.md#get-repository-scan "create-code-reviews.md#get-repository-scan")
+- [Get recommendations using incremental code reviews](create-code-reviews.md#get-pull-request-scan "create-code-reviews.md#get-pull-request-scan")
 - [Get recommendations using GitHub Actions and a CI/CD workflow](working-with-cicd.md "working-with-cicd.md")
 
-## About full repository
-
-analysis and incremental code reviews
+## About full repository analysis and incremental code reviews
 
 You can receive recommendations in code reviews by creating a full repository analysis
 or submitting a pull request. After you associate a repository, CodeGuru Reviewer automatically creates
