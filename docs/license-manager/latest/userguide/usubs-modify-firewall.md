@@ -1,6 +1,4 @@
-# Modify firewall settings for
-
-your Microsoft Office subscription
+# Modify firewall settings for your Microsoft Office subscription
 
 A firewall protects your network resources from unauthorized inbound or outbound traffic.
 The rules that you define for your security group act as the firewall for the VPC resources

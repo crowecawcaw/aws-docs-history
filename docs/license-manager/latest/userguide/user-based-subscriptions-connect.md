@@ -1,6 +1,4 @@
-# Connect to a user-based
-
-subscription instance with RDP
+# Connect to a user-based subscription instance with RDP
 
 Once you have associated users with the instance providing the product, they can connect to
 the instance if the **Health status** of the instance is

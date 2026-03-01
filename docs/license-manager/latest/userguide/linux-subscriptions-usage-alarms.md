@@ -1,6 +1,4 @@
-# Manage Amazon CloudWatch alarms for Linux
-
-subscriptions in License Manager
+# Manage Amazon CloudWatch alarms for Linux subscriptions in License Manager
 
 The **Linux subscriptions** list page in the License Manager console
 shows the following key details, including the Amazon CloudWatch alarms that you have configured
@@ -43,16 +41,11 @@ The following are possible CloudWatch alarm states:
 
 ###### Topics
 
-- [Create a CloudWatch alarm for Linux
-  subscriptions](#linux-subscriptions-alarms-create "#linux-subscriptions-alarms-create")
-- [Modify a CloudWatch alarm for Linux
-  subscriptions](#linux-subscriptions-alarms-modify "#linux-subscriptions-alarms-modify")
-- [Delete a CloudWatch alarm for Linux
-  subscriptions](#linux-subscriptions-alarms-delete "#linux-subscriptions-alarms-delete")
+- [Create a CloudWatch alarm for Linux subscriptions](#linux-subscriptions-alarms-create "#linux-subscriptions-alarms-create")
+- [Modify a CloudWatch alarm for Linux subscriptions](#linux-subscriptions-alarms-modify "#linux-subscriptions-alarms-modify")
+- [Delete a CloudWatch alarm for Linux subscriptions](#linux-subscriptions-alarms-delete "#linux-subscriptions-alarms-delete")
 
-## Create a CloudWatch alarm for Linux
-
-subscriptions
+## Create a CloudWatch alarm for Linux subscriptions
 
 You can create alarms for each commercial Linux subscription that you have discovered on
 your running EC2 instances. If necessary, you can create multiple alarms with different
@@ -76,9 +69,7 @@ dimensions and conditions for each subscription.
 
 5. Choose **Create** to create the alarm.
 
-## Modify a CloudWatch alarm for Linux
-
-subscriptions
+## Modify a CloudWatch alarm for Linux subscriptions
 
 You can modify existing CloudWatch alarms from the License Manager console to adapt to
 changing requirements.
@@ -93,9 +84,7 @@ changing requirements.
 4. Modify the defined values as required.
 5. Choose **Edit** to modify the alarm.
 
-## Delete a CloudWatch alarm for Linux
-
-subscriptions
+## Delete a CloudWatch alarm for Linux subscriptions
 
 You can delete existing CloudWatch alarms from the License Manager console to adapt to
 changing requirements.

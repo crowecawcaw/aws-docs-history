@@ -44,9 +44,7 @@ License Manager purges stale associations between resources and self-managed lic
 hours. If an AMI associated with a self-managed license is deregistered through Amazon EC2, The AMI
 may briefly continue to appear in the License Manager resource inventory before being purged.
 
-## New child account instances are slow to appear in resource
-
-inventory
+## New child account instances are slow to appear in resource inventory
 
 When cross-account support is enabled, License Manager updates customer accounts at 1 PM daily by
 default. Instances added later in the day show up in the management account resource inventory on
@@ -54,9 +52,7 @@ the following day. You can change the frequency at which the update script runs 
 `LicenseManagerResourceSynDataProcessJobTrigger` in the AWS Glue console for the management
 account.
 
-## After enabling cross-account mode, child account instances are
-
-slow to appear
+## After enabling cross-account mode, child account instances are slow to appear
 
 When you enable cross-account mode in License Manager, instances in child accounts may take anywhere
 from a few minutes to a few hours to appear in the resource inventory. The time depends on the
@@ -67,9 +63,7 @@ number of child accounts and the number of instances in each child account.
 After an account is configured for cross-account discovery, it is impossible to revert to
 single-account discovery.
 
-## Child account user cannot associate shared
-
-self-managed license with an instance
+## Child account user cannot associate shared self-managed license with an instance
 
 When this occurs and cross-account discovery has been enabled, check for the
 following:

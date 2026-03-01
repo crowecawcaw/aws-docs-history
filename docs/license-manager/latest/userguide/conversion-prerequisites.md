@@ -1,6 +1,4 @@
-# Conversion prerequisites for License Manager license
-
-types
+# Conversion prerequisites for License Manager license types
 
 To convert license types with License Manager, there are general and operating system specific
 prerequisites.
@@ -24,8 +22,7 @@ conversion:
   instance](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md") in the _Amazon EC2 User
   Guide_.
 - If stop protection is enabled on the target instance, the conversion process
-  will fail. For more information, see [Troubleshooting license type conversion in
-  License Manager](conversion-troubleshooting.md "conversion-troubleshooting.md").
+  will fail. For more information, see [Troubleshooting license type conversion in License Manager](conversion-troubleshooting.md "conversion-troubleshooting.md").
 - The target instance must be configured with AWS Systems Manager Inventory. For more
   information, see [Setting up Systems Manager for EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") and [AWS Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md") in the
   _AWS Systems Manager User Guide_.

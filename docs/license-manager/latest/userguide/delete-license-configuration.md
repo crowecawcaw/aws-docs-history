@@ -1,6 +1,4 @@
-# Delete a self-managed license in
-
-License Manager
+# Delete a self-managed license in License Manager
 
 Before you can delete a self-managed license, you must disassociate any resources. You can
 delete a self-managed license if you need to start over with new licensing rules. If the

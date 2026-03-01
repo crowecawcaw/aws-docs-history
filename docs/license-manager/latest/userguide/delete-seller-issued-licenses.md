@@ -1,6 +1,4 @@
-# Delete seller issued licenses in
-
-License Manager
+# Delete seller issued licenses in License Manager
 
 After you delete a license, you can recreate it. The license and its data are retained
 and available to the license issuer and license grantees in read-only mode for six

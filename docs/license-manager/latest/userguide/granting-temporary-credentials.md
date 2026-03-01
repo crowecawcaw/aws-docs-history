@@ -1,6 +1,4 @@
-# Get temporary credentials for ISV customers
-
-without an AWS account
+# Get temporary credentials for ISV customers without an AWS account
 
 For customers without an AWS account, you can use entitlements in the same manner that
 you do for your customers with an AWS account. Use the following procedure to get

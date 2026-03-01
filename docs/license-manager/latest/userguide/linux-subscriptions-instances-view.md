@@ -1,6 +1,4 @@
-# View discovered instance data in
-
-License Manager
+# View discovered instance data in License Manager
 
 After License Manager completes the initial resource discovery process in your selected
 AWS Regions, you can view the results in the console. If you chose to link AWS Organizations,
@@ -34,8 +32,7 @@ the following key fields.
 ###### Topics
 
 - [View data for all instances](#linux-subscriptions-instances-view-all "#linux-subscriptions-instances-view-all")
-- [View data for instances by
-  subscription](#linux-subscriptions-instances-view-subscription "#linux-subscriptions-instances-view-subscription")
+- [View data for instances by subscription](#linux-subscriptions-instances-view-subscription "#linux-subscriptions-instances-view-subscription")
 
 ## View data for all instances
 
@@ -58,9 +55,7 @@ in your account or AWS Organizations, as follows.
 4. (Optional) Choose **Export view to CSV** to export data for all of your
    instances as a comma-separated values file (CSV).
 
-## View data for instances by
-
-subscription
+## View data for instances by subscription
 
 You can view data for all instances has have been aggregated across accounts in your
 organization within the chosen Regions.

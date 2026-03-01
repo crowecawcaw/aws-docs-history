@@ -47,9 +47,7 @@ by accounts in your organization.
 
 You can register and deregister delegated administrators using the [AWS License Manager console](https://console.aws.amazon.com/license-manager "https://console.aws.amazon.com/license-manager"), [AWS CLI](https://aws.amazon.com/cli "https://aws.amazon.com/cli"), or [AWS SDKs.](https://aws.amazon.com/tools "https://aws.amazon.com/tools")
 
-## Regions supported for
-
-delegated License Manager administrators
+## Regions supported for delegated License Manager administrators
 
 The following Regions support License Manager delegated administrators:
 
@@ -76,9 +74,7 @@ The following Regions support License Manager delegated administrators:
 
 [Show moreShow less](# "#")
 
-## Register a delegated License Manager
-
-administrator
+## Register a delegated License Manager administrator
 
 You can register a delegated administrator using the AWS CLI or AWS Management Console.
 
@@ -133,9 +129,7 @@ aws organizations register-delegated-administrator --service-principal=license-m
 aws organizations list-delegated-administrators --service-principal=license-manager-linux-subscriptions.amazonaws.com
 ```
 
-## Deregister a delegated License Manager
-
-administrator
+## Deregister a delegated License Manager administrator
 
 You can deregister a delegated administrator using the AWS CLI or AWS Management Console.
 

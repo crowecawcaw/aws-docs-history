@@ -16,8 +16,7 @@ List of licenses coming up for renewal in the next 7, 30, or 100 days tracked wi
 
 ###### Note
 
-You must configure license expiry dates to view upcoming renewals. See [Edit a self-managed license in
-License Manager](modify-license-configuration.md "modify-license-configuration.md").
+You must configure license expiry dates to view upcoming renewals. See [Edit a self-managed license in License Manager](modify-license-configuration.md "modify-license-configuration.md").
 
 ### Usage Trends
 

@@ -1,6 +1,4 @@
-# Convert a license type for Windows
-
-and SQL Server in License Manager
+# Convert a license type for Windows and SQL Server in License Manager
 
 You can use either the License Manager Console or the AWS CLI to convert the license type of
 eligible Windows and SQL Server instances.
@@ -8,8 +6,7 @@ eligible Windows and SQL Server instances.
 ###### Topics
 
 - [License type conversion limits](#conversion-limits "#conversion-limits")
-- [Convert a license type using the License Manager
-  console](#conversion-console "#conversion-console")
+- [Convert a license type using the License Manager console](#conversion-console "#conversion-console")
 - [Convert a license type using the AWS CLI](#conversion-cli "#conversion-cli")
 
 ## License type conversion limits
@@ -35,9 +32,7 @@ follows. This is not a comprehensive list and is subject to change.
 - A license-included SQL Server instance must have at least 4
   vCPUs.
 
-## Convert a license type using the License Manager
-
-console
+## Convert a license type using the License Manager console
 
 You can use the License Manager console to convert a license type.
 
@@ -127,9 +122,7 @@ The usage operation for Windows Server with SQL Server Enterprise BYOL is
 the same as the usage operation for Windows BYOL because they are
 identically billed.
 
-###### Convert Windows Server from license included to
-
-BYOL
+###### Convert Windows Server from license included to BYOL
 
 When you convert Windows Server from license included to BYOL, License Manager does
 not automatically activate Windows. You must switch the KMS server for your
@@ -168,9 +161,7 @@ aws license-manager create-license-conversion-task-for-resource \
 slmgr.vbs /skms `<your-kms-address>`
 ```
 
-###### Convert Windows Server from BYOL to license
-
-included
+###### Convert Windows Server from BYOL to license included
 
 When you convert Windows Server from BYOL to license included, License Manager
 automatically switches the KMS server for your instance to the AWS KMS
@@ -187,9 +178,7 @@ aws license-manager create-license-conversion-task-for-resource \
 	--destination-license-context UsageOperation=RunInstances:0002
 ```
 
-###### Convert both Windows Server and SQL Server from BYOL to
-
-license included
+###### Convert both Windows Server and SQL Server from BYOL to license included
 
 You can switch multiple products at the same time. For example, you can
 convert both Windows Server and SQL Server in one license type conversion.

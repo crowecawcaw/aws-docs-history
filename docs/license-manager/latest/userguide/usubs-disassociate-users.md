@@ -1,12 +1,9 @@
-# Disassociate users from an instance that
-
-provides License Manager user-based subscriptions
+# Disassociate users from an instance that provides License Manager user-based subscriptions
 
 To remove user access to an instance that provides License Manager user-based subscriptions,
 you can disassociate the subscribed user from that instance. This change does not affect
 the user's subscription status. To unsubscribe a user and stop subscription charges for
-that individual, see [Unsubscribe users from user-based
-product subscriptions in License Manager](usubs-unsubscribe-users.md "usubs-unsubscribe-users.md").
+that individual, see [Unsubscribe users from user-based product subscriptions in License Manager](usubs-unsubscribe-users.md "usubs-unsubscribe-users.md").
 
 ###### Disassociate subscription users from an instance
 

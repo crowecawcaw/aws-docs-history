@@ -77,8 +77,7 @@ The following are examples of the functionality provided by License Manager for 
   (BYOL) without redeploying your workloads.
 - [Inventory search in License Manager](inventory.md "inventory.md") – Used to discover and track
   on-premises applications using AWS Systems Manager Inventory and licensing rules.
-- [Use License Manager user-based subscriptions for supported
-  software products](user-based-subscriptions.md "user-based-subscriptions.md")
+- [Use License Manager user-based subscriptions for supported software products](user-based-subscriptions.md "user-based-subscriptions.md")
   – Used to purchase fully compliant Amazon provided licenses for supported software with
   a per user subscription fee.
 - [Manage Linux subscriptions in License Manager](linux-subscriptions.md "linux-subscriptions.md") – Used to

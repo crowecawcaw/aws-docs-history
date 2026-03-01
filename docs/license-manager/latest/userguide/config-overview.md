@@ -1,6 +1,4 @@
-# Self-managed license parameters and rules in
-
-License Manager
+# Self-managed license parameters and rules in License Manager
 
 A self-managed license consists of basic parameters and rules that vary according to the
 parameter values. You can also add tags to your self-managed licenses. After you create a

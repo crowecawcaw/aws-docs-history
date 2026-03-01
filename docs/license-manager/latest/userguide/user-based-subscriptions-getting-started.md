@@ -1,28 +1,18 @@
-# Get started with user-based
-
-subscriptions in License Manager
+# Get started with user-based subscriptions in License Manager
 
 The following steps detail how you can get started with using user-based subscriptions.
 These steps assume you have already implemented the required prerequisites. For more
-information, see the [Prerequisites to create
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
+information, see the [Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
 
 ###### Steps
 
-- [Step 1: Subscribe to a
-  product](user-based-subscriptions-getting-started.md#user-based-subscriptions-subscribe-products "user-based-subscriptions-getting-started.md#user-based-subscriptions-subscribe-products")
-- [Step 2: Register your
-  Active Directory in License Manager](user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad "user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad")
-- [Step 3: Configure RDS license
-  server](user-based-subscriptions-getting-started.md#usubs-configure-rds "user-based-subscriptions-getting-started.md#usubs-configure-rds")
-- [Step 4: Launch an instance to
-  provide user-based subscriptions](user-based-subscriptions-getting-started.md#user-based-subscriptions-launch-instance "user-based-subscriptions-getting-started.md#user-based-subscriptions-launch-instance")
-- [Step 5: Associate users to a user-based
-  subscription instance](user-based-subscriptions-getting-started.md#user-based-subscriptions-associate-users "user-based-subscriptions-getting-started.md#user-based-subscriptions-associate-users")
+- [Step 1: Subscribe to a product](user-based-subscriptions-getting-started.md#user-based-subscriptions-subscribe-products "user-based-subscriptions-getting-started.md#user-based-subscriptions-subscribe-products")
+- [Step 2: Register your Active Directory in License Manager](user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad "user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad")
+- [Step 3: Configure RDS license server](user-based-subscriptions-getting-started.md#usubs-configure-rds "user-based-subscriptions-getting-started.md#usubs-configure-rds")
+- [Step 4: Launch an instance to provide user-based subscriptions](user-based-subscriptions-getting-started.md#user-based-subscriptions-launch-instance "user-based-subscriptions-getting-started.md#user-based-subscriptions-launch-instance")
+- [Step 5: Associate users to a user-based subscription instance](user-based-subscriptions-getting-started.md#user-based-subscriptions-associate-users "user-based-subscriptions-getting-started.md#user-based-subscriptions-associate-users")
 
-## Step 1: Subscribe to a
-
-product
+## Step 1: Subscribe to a product
 
 Microsoft products like Office or Visual Studio require an active subscription before
 you can associate Active Directory users to an instance that includes those products.
@@ -70,9 +60,7 @@ Your estimated bill for charges on the number of users and related costs takes
 information, see [Viewing your monthly
 charges](../../../awsaccountbilling/latest/aboutv2/invoice.md "../../../awsaccountbilling/latest/aboutv2/invoice.md") in the _AWS Billing User Guide_.
 
-## Step 2: Register your
-
-Active Directory in License Manager
+## Step 2: Register your Active Directory in License Manager
 
 License Manager requires that subscription users are defined in Active Directory in order to
 associate the users with user-based subscriptions. This can be either an AWS Managed Microsoft AD
@@ -97,8 +85,7 @@ configured.
 ###### Important
 
 You must allow License Manager to create the required [service-linked role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") before you can proceed. For more information, see the
-[Prerequisites to create
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
+[Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
 
 Registration steps differ in the console, depending on which products you've subscribed
 to. If you've subscribed to `Win Remote Desktop Services SAL`, select the
@@ -182,9 +169,7 @@ user-based subscriptions with the [RegisterIdentityProvider](../../../license-ma
 aws license-manager-user-subscriptions register-identity-provider --product "`<product-name>`" --identity-provider "ActiveDirectoryIdentityProvider={DirectoryId=`<directory_id>`}"
 ```
 
-###### Configure Active Directory and your VPC for user-based subscriptions
-
-(AWS CLI)
+###### Configure Active Directory and your VPC for user-based subscriptions (AWS CLI)
 
 You can register your Active Directory as the identity provider and configure
 your VPC for user-based subscriptions with the [RegisterIdentityProvider](../../../license-manager-user-subscriptions/latest/APIReference/API_RegisterIdentityProvider.md "../../../license-manager-user-subscriptions/latest/APIReference/API_RegisterIdentityProvider.md") operation.
@@ -194,12 +179,9 @@ aws license-manager-user-subscriptions register-identity-provider --product "`<p
 ```
 
 For more information about the available software products, see
-[Supported software products for
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
+[Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
 
-## Step 3: Configure RDS license
-
-server
+## Step 3: Configure RDS license server
 
 The Microsoft Remote Desktop Services (RDS) license server issues Subscriber Access
 Licenses (SALs) to Active Directory users when they access EC2 instances that provide
@@ -239,9 +221,7 @@ described in Administrative credentials secret section of the
 
 You can optionally enter tags for your license server resource. 6. Choose **Configure** to save your settings.
 
-## Step 4: Launch an instance to
-
-provide user-based subscriptions
+## Step 4: Launch an instance to provide user-based subscriptions
 
 After you have subscribed to a product, you must launch instances for your users to
 connect to from the AWS Marketplace AMI that includes the product. After you launch an instance,
@@ -254,9 +234,7 @@ instance.
 
 To launch an instance with user-based subscriptions, see [Launch an instance from a license included AMI](usubs-launch-instance.md "usubs-launch-instance.md").
 
-## Step 5: Associate users to a user-based
-
-subscription instance
+## Step 5: Associate users to a user-based subscription instance
 
 Once you have subscribed to the required product’s AWS Marketplace AMI, you can subscribe users
 to a product and associate them to an instance that provides the product. You can subscribe
@@ -267,8 +245,7 @@ present. One subscription is created for each user you subscribe to the product.
 Each user must have a subscription to both Windows Server Remote Desktop Services
 Subscriber Access License (RDS SAL) and the product they will use.
 
-When your account has subscribed to RDS SAL as detailed in [Step 1: Subscribe to a
-product](#user-based-subscriptions-subscribe-products "#user-based-subscriptions-subscribe-products"), License Manager automatically subscribes
+When your account has subscribed to RDS SAL as detailed in [Step 1: Subscribe to a product](#user-based-subscriptions-subscribe-products "#user-based-subscriptions-subscribe-products"), License Manager automatically subscribes
 the users in your Active Directory to RDS SAL when they subscribe to a user-based
 subscription product.
 
@@ -352,9 +329,7 @@ user-based subscription with the [AssociateUser](../../../license-manager-user-s
 aws license-manager-user-subscriptions associate-user --username `<user_name>` --instance-id `<instance_id>` --identity-provider  ""ActiveDirectoryIdentityProvider" = {"DirectoryId" = "`<directory_id>`"}"
 ```
 
-###### To associate self-managed Active Directory users to an instance
-
-(AWS CLI)
+###### To associate self-managed Active Directory users to an instance (AWS CLI)
 
 You can associate users from your self-managed Active Directory with an instance
 launched to provide the user-based subscription with the [AssociateUser](../../../license-manager-user-subscriptions/latest/APIReference/API_AssociateUser.md "../../../license-manager-user-subscriptions/latest/APIReference/API_AssociateUser.md") operation.
@@ -364,8 +339,7 @@ aws license-manager-user-subscriptions associate-user --username `<user_name>` -
 ```
 
 For more information about the available software products, see
-[Supported software products for
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
+[Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
 
 You can subscribe users to a product using one of the following methods.
 
@@ -402,9 +376,7 @@ identity provider using the [StartProductSubscription](../../../license-manager-
 aws license-manager-user-subscriptions start-product-subscription --username `<user_name>` --product `<product_name>` --identity-provider ""ActiveDirectoryIdentityProvider" = {"DirectoryId" = "`<directory_id>`"}"
 ```
 
-###### Subscribe users to a product with a self-managed Active Directory
-
-(AWS CLI)
+###### Subscribe users to a product with a self-managed Active Directory (AWS CLI)
 
 You can subscribe users from your self-managed Active Directory to a product that
 is registered with your AWS Managed Microsoft AD directory using the [StartProductSubscription](../../../license-manager-user-subscriptions/latest/APIReference/API_StartProductSubscription.md "../../../license-manager-user-subscriptions/latest/APIReference/API_StartProductSubscription.md") operation.
@@ -413,8 +385,7 @@ is registered with your AWS Managed Microsoft AD directory using the [StartProdu
 aws license-manager-user-subscriptions start-product-subscription --username `<user_name>` --product `<product_name>` --identity-provider 'ActiveDirectoryIdentityProvider" = {"DirectoryId" = "`<directory_id>`"}' --domain `<self-managed-domain-name>`
 ```
 
-For more information about the available software products, see [Supported software products for
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
+For more information about the available software products, see [Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
 
 Users that have a subscription will be displayed under
 **Users** with a **Status** of

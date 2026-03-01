@@ -1,33 +1,23 @@
-# Troubleshoot user-based
-
-subscriptions in License Manager
+# Troubleshoot user-based subscriptions in License Manager
 
 The following are troubleshooting tips to help solve issues that can occur with
 user-based subscriptions in AWS License Manager.
 
 ###### Contents
 
-- [Troubleshoot
-  instance compliance](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-compliance "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-compliance")
-- [Troubleshoot user subscription product configuration
-  failures](user-based-subscriptions-troubleshoot.md#product_configuration_failing "user-based-subscriptions-troubleshoot.md#product_configuration_failing")
+- [Troubleshoot instance compliance](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-compliance "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-compliance")
+- [Troubleshoot user subscription product configuration failures](user-based-subscriptions-troubleshoot.md#product_configuration_failing "user-based-subscriptions-troubleshoot.md#product_configuration_failing")
 - [Troubleshoot user subscription instances launch failures](user-based-subscriptions-troubleshoot.md#instance_launch_failures "user-based-subscriptions-troubleshoot.md#instance_launch_failures")
-- [Troubleshoot license
-  compliance](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-license-compliance "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-license-compliance")
-- [Troubleshoot
-  instance connectivity](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-connectivity "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-connectivity")
-- [Troubleshoot failures to
-  join the domain](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-domain-join "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-domain-join")
+- [Troubleshoot license compliance](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-license-compliance "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-license-compliance")
+- [Troubleshoot instance connectivity](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-connectivity "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-instance-connectivity")
+- [Troubleshoot failures to join the domain](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-domain-join "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-domain-join")
 - [Troubleshoot Systems Manager connectivity](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity")
-- [Troubleshoot
-  Systems Manager Run Command](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-commands "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-commands")
+- [Troubleshoot Systems Manager Run Command](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-commands "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-commands")
 - [Troubleshoot Microsoft RDS Licensing failures](user-based-subscriptions-troubleshoot.md#usubs-troubleshoot-rds-licensing "user-based-subscriptions-troubleshoot.md#usubs-troubleshoot-rds-licensing")
 - [Troubleshoot Microsoft Office activation failures](user-based-subscriptions-troubleshoot.md#usubs-troubleshoot-office-activation "user-based-subscriptions-troubleshoot.md#usubs-troubleshoot-office-activation")
 - [Troubleshoot the inability to delete Active Directory](user-based-subscriptions-troubleshoot.md#delete_active_directory "user-based-subscriptions-troubleshoot.md#delete_active_directory")
-- [Troubleshoot inability to delete
-  AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService Service Linked Role (SLR)](user-based-subscriptions-troubleshoot.md#delete_service_linked_role "user-based-subscriptions-troubleshoot.md#delete_service_linked_role")
-- [Troubleshoot subscription is not
-  present error for RDS SAL product](user-based-subscriptions-troubleshoot.md#rds_sal_subscription_error "user-based-subscriptions-troubleshoot.md#rds_sal_subscription_error")
+- [Troubleshoot inability to delete AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService Service Linked Role (SLR)](user-based-subscriptions-troubleshoot.md#delete_service_linked_role "user-based-subscriptions-troubleshoot.md#delete_service_linked_role")
+- [Troubleshoot subscription is not present error for RDS SAL product](user-based-subscriptions-troubleshoot.md#rds_sal_subscription_error "user-based-subscriptions-troubleshoot.md#rds_sal_subscription_error")
 - [Troubleshoot license counts not showing up correctly](user-based-subscriptions-troubleshoot.md#license_counts_not_showing "user-based-subscriptions-troubleshoot.md#license_counts_not_showing")
 - [Troubleshoot RDS License Diagnoser issues](user-based-subscriptions-troubleshoot.md#rds_licensing_mode_error "user-based-subscriptions-troubleshoot.md#rds_licensing_mode_error")
 - [Troubleshoot trusts](user-based-subscriptions-troubleshoot.md#troubleshoot_trusts "user-based-subscriptions-troubleshoot.md#troubleshoot_trusts")
@@ -35,31 +25,23 @@ user-based subscriptions in AWS License Manager.
 - [Troubleshoot inactive marketplace subscription status](user-based-subscriptions-troubleshoot.md#inactive_marketplace_status "user-based-subscriptions-troubleshoot.md#inactive_marketplace_status")
 - [Troubleshoot user limits per instance](user-based-subscriptions-troubleshoot.md#user_limits_per_instance "user-based-subscriptions-troubleshoot.md#user_limits_per_instance")
 - [Troubleshoot CAL token not vended after migration to RDS SAL](user-based-subscriptions-troubleshoot.md#cal_token "user-based-subscriptions-troubleshoot.md#cal_token")
-- [Seamless domain join not working for EC2 instances with user
-  subscription products](user-based-subscriptions-troubleshoot.md#seamless_domain_join "user-based-subscriptions-troubleshoot.md#seamless_domain_join")
+- [Seamless domain join not working for EC2 instances with user subscription products](user-based-subscriptions-troubleshoot.md#seamless_domain_join "user-based-subscriptions-troubleshoot.md#seamless_domain_join")
 - [VPC endpoint was created in my account](user-based-subscriptions-troubleshoot.md#vpc_endpoint_created "user-based-subscriptions-troubleshoot.md#vpc_endpoint_created")
 - [Remove all VPC endpoint resources created by License Manager](user-based-subscriptions-troubleshoot.md#remove_vpc_endpoint "user-based-subscriptions-troubleshoot.md#remove_vpc_endpoint")
 - [Change a username on Managed Active Directory](user-based-subscriptions-troubleshoot.md#change_username "user-based-subscriptions-troubleshoot.md#change_username")
 - [Dissociate users from a terminated instance](user-based-subscriptions-troubleshoot.md#dissociate_terminated_instance "user-based-subscriptions-troubleshoot.md#dissociate_terminated_instance")
 - [Install additional software on user subscription instances](user-based-subscriptions-troubleshoot.md#additional_software "user-based-subscriptions-troubleshoot.md#additional_software")
-- [Japanese Language Packs on user subscription
-  instances](user-based-subscriptions-troubleshoot.md#japanese_language_packs "user-based-subscriptions-troubleshoot.md#japanese_language_packs")
-- [Local Administrator user on user subscription
-  instances](user-based-subscriptions-troubleshoot.md#local_admin_user "user-based-subscriptions-troubleshoot.md#local_admin_user")
-- [Number of users that can RDP to a user subscriptions
-  instance](user-based-subscriptions-troubleshoot.md#rdp_user_limit "user-based-subscriptions-troubleshoot.md#rdp_user_limit")
+- [Japanese Language Packs on user subscription instances](user-based-subscriptions-troubleshoot.md#japanese_language_packs "user-based-subscriptions-troubleshoot.md#japanese_language_packs")
+- [Local Administrator user on user subscription instances](user-based-subscriptions-troubleshoot.md#local_admin_user "user-based-subscriptions-troubleshoot.md#local_admin_user")
+- [Number of users that can RDP to a user subscriptions instance](user-based-subscriptions-troubleshoot.md#rdp_user_limit "user-based-subscriptions-troubleshoot.md#rdp_user_limit")
 - [Users in my self-managed AD for Office and Visual Studio products](user-based-subscriptions-troubleshoot.md#self_managed_ad "user-based-subscriptions-troubleshoot.md#self_managed_ad")
 - [Supported Windows operating systems](user-based-subscriptions-troubleshoot.md#supported_os "user-based-subscriptions-troubleshoot.md#supported_os")
 - [Supported versions of Office and Visual Studio](user-based-subscriptions-troubleshoot.md#supported_software "user-based-subscriptions-troubleshoot.md#supported_software")
-- [Using user subscription with older Windows Server
-  versions](user-based-subscriptions-troubleshoot.md#older_windows_versions "user-based-subscriptions-troubleshoot.md#older_windows_versions")
-- [Using License Manager user subscriptions across accounts or
-  regions](user-based-subscriptions-troubleshoot.md#unsupported_scenarios "user-based-subscriptions-troubleshoot.md#unsupported_scenarios")
+- [Using user subscription with older Windows Server versions](user-based-subscriptions-troubleshoot.md#older_windows_versions "user-based-subscriptions-troubleshoot.md#older_windows_versions")
+- [Using License Manager user subscriptions across accounts or regions](user-based-subscriptions-troubleshoot.md#unsupported_scenarios "user-based-subscriptions-troubleshoot.md#unsupported_scenarios")
 - [Tips for contacting AWS Support](user-based-subscriptions-troubleshoot.md#aws_support_tips "user-based-subscriptions-troubleshoot.md#aws_support_tips")
 
-## Troubleshoot
-
-instance compliance
+## Troubleshoot instance compliance
 
 Instances providing user-based subscriptions must remain in a healthy status to be in
 compliance. Instances that are marked as unhealthy no longer meet the required
@@ -69,12 +51,9 @@ instances that are not able to return to a healthy status are terminated.
 Instances which are launched to provide user-based subscriptions and are unable to
 complete the initial configuration will be terminated. You must correct the
 configuration issue and launch new instances to provide user-based subscriptions in this
-scenario. For more information, see the [Prerequisites to create
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
+scenario. For more information, see the [Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites").
 
-## Troubleshoot user subscription product configuration
-
-failures
+## Troubleshoot user subscription product configuration failures
 
 Your product configuration may be failing due to issues with outbound network access. To address this, ensure that the default security group permits outbound traffic to the IP addresses of each domain controller's network interface as well as SSM.
 
@@ -94,16 +73,12 @@ Once the provisioning process is complete, you can associate a different securit
 
 Your instance launches can be failing due to multiple reasons. Here are some of the common issues for which an instance launch may fail:
 
-- Ensure your instance is discoverable by SSM, see [Troubleshoot
-  instance connectivity](#user-based-subscriptions-troubleshoot-instance-connectivity "#user-based-subscriptions-troubleshoot-instance-connectivity").
-- Ensure your instance is able to join your domain, see [Troubleshoot failures to
-  join the domain](#user-based-subscriptions-troubleshoot-domain-join "#user-based-subscriptions-troubleshoot-domain-join").
+- Ensure your instance is discoverable by SSM, see [Troubleshoot instance connectivity](#user-based-subscriptions-troubleshoot-instance-connectivity "#user-based-subscriptions-troubleshoot-instance-connectivity").
+- Ensure your instance is able to join your domain, see [Troubleshoot failures to join the domain](#user-based-subscriptions-troubleshoot-domain-join "#user-based-subscriptions-troubleshoot-domain-join").
 - Ensure that the Route53 outbound resolver endpoint rule is set. For more information, see the blog post [Integrating your Directory Service's DNS resolution with Amazon Route 53 Resolvers](https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/ "https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-your-directory-services-dns-resolution-with-amazon-route-53-resolvers/").
 - If launching instances from custom AMIs created on top of User subscription AMIs, please make sure to perform Sysprep and ensure unique computer names when creating and launching instances from custom AMIs.
 
-## Troubleshoot license
-
-compliance
+## Troubleshoot license compliance
 
 If you configured your Active Directory to provide user-based subscriptions with Microsoft Office, you
 must ensure your resources can connect to the VPC endpoints License Manager creates. The endpoints
@@ -120,18 +95,14 @@ and 1688 for the destination port for the path to analyze. For more information,
 I troubleshoot connectivity issues over my gateway and interface VPC
 endpoints?](https://aws.amazon.com/premiumsupport/knowledge-center/vpc-fix-gateway-or-interface-endpoint/ "https://aws.amazon.com/premiumsupport/knowledge-center/vpc-fix-gateway-or-interface-endpoint/").
 
-## Troubleshoot
-
-instance connectivity
+## Troubleshoot instance connectivity
 
 Users must be able to use RDP to connect to the instances providing user-based
 subscriptions in order to use the products within. For more information on
 troubleshooting instance connectivity, see [Troubleshoot connecting to your Windows instance](../../../AWSEC2/latest/UserGuide/troubleshoot-connect-windows-instance.md "../../../AWSEC2/latest/UserGuide/troubleshoot-connect-windows-instance.md") in the
 _Amazon EC2 User Guide_.
 
-## Troubleshoot failures to
-
-join the domain
+## Troubleshoot failures to join the domain
 
 Users must be able to connect to the instances providing the user-based subscription
 products with their user identities from the Active Directory configured in the License Manager settings.
@@ -157,9 +128,7 @@ will be terminated. For more information, see [Troubleshooting
 SSM Agent](../../../systems-manager/latest/userguide/troubleshooting-ssm-agent.md "../../../systems-manager/latest/userguide/troubleshooting-ssm-agent.md") and [Troubleshooting managed node availability](../../../systems-manager/latest/userguide/troubleshooting-managed-instances.md "../../../systems-manager/latest/userguide/troubleshooting-managed-instances.md") in the _AWS Systems Manager User
 Guide_.
 
-## Troubleshoot
-
-Systems Manager Run Command
+## Troubleshoot Systems Manager Run Command
 
 Run Command, a capability of Systems Manager, is used with instances providing user-based
 subscriptions to join the domain, harden the operating system, and perform access audits
@@ -198,18 +167,13 @@ peering with the License Manager onboarded VPC.
 
 License Manager is registered as an authorized application with Directory Service during configuration, thereby safeguarding active directories from deletion once configured. As part of the standard procedure, customers need to first remove all instances, instance associations, and user subscriptions. Following this, they can proceed with removing the active directory from the License Manager and subsequently delete the directory itself.
 
-## Troubleshoot inability to delete
-
-AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService Service Linked Role (SLR)
+## Troubleshoot inability to delete AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService Service Linked Role (SLR)
 
 License Manager requires the "AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService" service-linked role for managing AWS resources that will provide user-based subscriptions. A service-linked role makes setting up License Manager easier because you don't have to manually add the necessary permissions. License Manager defines the permissions of its service-linked roles, and unless defined otherwise, only License Manager can assume its roles. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity.
 
-For more information, see [Prerequisites to create
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [License Manager – User-based subscription role](user-based-subscription-role.md "user-based-subscription-role.md") and [Service-linked roles](../../../singlesignon/latest/userguide/slrconcept.md "../../../singlesignon/latest/userguide/slrconcept.md").
+For more information, see [Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [License Manager – User-based subscription role](user-based-subscription-role.md "user-based-subscription-role.md") and [Service-linked roles](../../../singlesignon/latest/userguide/slrconcept.md "../../../singlesignon/latest/userguide/slrconcept.md").
 
-## Troubleshoot \*subscription is not
-
-present\* error for RDS SAL product
+## Troubleshoot _subscription is not present_ error for RDS SAL product
 
 Your account must have a subscription to Windows Server Remote Desktop Services Subscriber Access License (RDS SAL). All users associated with instances providing user-based subscription products must have a single active subscription to this license in addition to any other products they would like to use. Your user will be subscribed to RDS SAL on their behalf when they subscribe to a user-based subscription product.
 
@@ -273,8 +237,7 @@ Furthermore:
 - You need an RDS SAL for each user who needs to access your Office/VS instances.
 - To stop incurring charges for user-based subscriptions, you must disassociate the user
   from all instances they are associated with. Deleting a user from Active Directory does not
-  disassociate the user from instances. For more information, see [Disassociate users from an instance that
-  provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
+  disassociate the user from instances. For more information, see [Disassociate users from an instance that provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
 - A user is only counted once. You get charged per user for Microsoft Office and Visual
   Studio, irrespective of the number of EC2 instances the user connects to. Users are charged for
   their subscription once, regardless of their usage of multiple instances.
@@ -299,9 +262,7 @@ Once the currently issued CAL tokens reach their expiration date, new token requ
 by the service-managed license server, and users are auto-subscribed to the RDS SAL product as
 needed.
 
-## Seamless domain join not working for EC2 instances with user
-
-subscription products
+## Seamless domain join not working for EC2 instances with user subscription products
 
 License Manager needs to perform domain join on these instances using SSM to allow authorized access to only users subscribed to the product. As a result, the seamless domain join feature is deactivated.
 
@@ -313,8 +274,7 @@ License Manager creates VPC endpoints required for your resources to connect to 
 
 In order to delete the VPC endpoint resources, you must perform the following actions:
 
-- Disassociate all users from their user-based subscriptions. For more information, see [Disassociate users from an instance that
-  provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
+- Disassociate all users from their user-based subscriptions. For more information, see [Disassociate users from an instance that provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
 - Remove any directory that is configured from the License Manager settings. For more information, see [Deregister an Active Directory from License Manager settings](usubs-deregister-ad.md "usubs-deregister-ad.md").
 - Terminate all instances providing user-based subscription products. For more information, see [Launch an instance from a license included AMI](usubs-launch-instance.md "usubs-launch-instance.md").
 
@@ -344,27 +304,20 @@ To install additional software with the Admin account, you must:
 - Associate the Admin account to the instance.
 - Connect to the instance using the Admin account to perform the installation.
 
-For more information, see [Get started with user-based
-subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").
+For more information, see [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").
 
-## Japanese Language Packs on user subscription
-
-instances
+## Japanese Language Packs on user subscription instances
 
 Japanese language pack installation is supported with User subscription instances.
 
-## Local Administrator user on user subscription
-
-instances
+## Local Administrator user on user subscription instances
 
 We only allow users under the users managed active directory domain to be associated with
 user subscription instances to prevent unauthorized access to these Microsoft products. When you
 create local users with administrator privileges on instances that provide user-based
 subscriptions, the instance's health status changes to unhealthy.
 
-## Number of users that can RDP to a user subscriptions
-
-instance
+## Number of users that can RDP to a user subscriptions instance
 
 Instances that provide user-based subscriptions support up to two active user sessions at a
 time as stated in [Use License Manager user-based subscriptions for supported software products](user-based-subscriptions.md "user-based-subscriptions.md"). By
@@ -380,17 +333,13 @@ Create a trust relationship between your AWS Managed Microsoft AD and your self-
 
 ## Supported Windows operating systems
 
-For information about supported Windows operating system platforms, see [Supported software products for
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
+For information about supported Windows operating system platforms, see [Supported software products for user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-software "user-based-subscriptions.md#usubs-software").
 
 ## Supported versions of Office and Visual Studio
 
-For information about supported software for user-based subscriptions, see [Supported
-software for user-based subscriptions](user-based-subscriptions.md#usubs-software-supported "user-based-subscriptions.md#usubs-software-supported").
+For information about supported software for user-based subscriptions, see [Supported software for user-based subscriptions](user-based-subscriptions.md#usubs-software-supported "user-based-subscriptions.md#usubs-software-supported").
 
-## Using user subscription with older Windows Server
-
-versions
+## Using user subscription with older Windows Server versions
 
 When you launch an instance from an AMI that supports Office LTSC Professional Plus or Microsoft Visual Studio, the launch defaults to the latest Windows OS platform version of the AMI (for example Windows Server 2022). To launch with an earlier OS platform version, follow these steps:
 
@@ -401,9 +350,7 @@ When you launch an instance from an AMI that supports Office LTSC Professional P
 5. To launch an instance from an AMI that's based on an earlier version of the Windows OS platform, select the full AWS Marketplace website link, located under the Software version. This takes you to a configuration page where you can select from a list of versions.
 6. The list shows the latest AMI versions for the supported Windows OS platforms. Select the Windows OS version that you want to launch from.
 
-## Using License Manager user subscriptions across accounts or
-
-regions
+## Using License Manager user subscriptions across accounts or regions
 
 These scenarios are supported:
 

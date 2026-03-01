@@ -37,8 +37,7 @@ Single accounts can set up automated discovery but cannot add exclusion rules.
 ###### To configure automated discovery when you create a self-managed license
 
 You can configure automated discovery rules and exclusion rules when you create a
-self-managed license. For more information, see [Create a self-managed license in
-License Manager](create-license-configuration.md "create-license-configuration.md").
+self-managed license. For more information, see [Create a self-managed license in License Manager](create-license-configuration.md "create-license-configuration.md").
 
 ###### To add automated discovery rules to an existing self-managed license
 

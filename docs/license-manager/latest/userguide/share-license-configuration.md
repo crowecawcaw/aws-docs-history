@@ -1,14 +1,10 @@
-# Share a self-managed license in
-
-License Manager
+# Share a self-managed license in License Manager
 
 You can use AWS Resource Access Manager to share your self-managed licenses with any AWS account or through
 AWS Organizations. For more information, see [Sharing
 your AWS resources](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md") in the _AWS RAM User Guide_.
 
-## Share a self-managed license with
-
-your AWS Organization
+## Share a self-managed license with your AWS Organization
 
 ###### Prerequisites
 
@@ -46,9 +42,7 @@ management account that has the following permissions:
 - `organizations:enableAWSServiceAccess`
 - `organizations:DescribeOrganization`
 
-### Increasing the supported accounts
-
-quota
+### Increasing the supported accounts quota
 
 The following procedure will increase your current quota for `Number of accounts per
  organization for License Manager` to the current default maximum.

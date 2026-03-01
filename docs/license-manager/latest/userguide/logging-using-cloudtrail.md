@@ -15,5 +15,4 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 ###### Topics
 
 - [License Manager information in CloudTrail](license-manager-info-in-cloudtrail.md "license-manager-info-in-cloudtrail.md")
-- [Understanding License Manager log
-  file entries](understanding-license-manager-entries.md "understanding-license-manager-entries.md")
+- [Understanding License Manager log file entries](understanding-license-manager-entries.md "understanding-license-manager-entries.md")

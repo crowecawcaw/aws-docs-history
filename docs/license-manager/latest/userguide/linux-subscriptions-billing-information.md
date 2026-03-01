@@ -1,6 +1,4 @@
-# Billing information for Linux
-
-subscriptions in License Manager
+# Billing information for Linux subscriptions in License Manager
 
 Each commercial Linux subscription running on Amazon EC2 has billing information associated
 with the Amazon Machine Image (AMI). Commercial Linux subscriptions have Amazon EC2 usage
@@ -26,9 +24,7 @@ and [AMI product codes](../../../marketplace/latest/userguide/ami-getting-starte
 
 ¹ This subscription has both an Amazon EC2 usage operation and AWS Marketplace product code.
 
-## Usage metrics for Linux
-
-subscriptions
+## Usage metrics for Linux subscriptions
 
 The following metrics and dimensions are available for Linux subscriptions:
 

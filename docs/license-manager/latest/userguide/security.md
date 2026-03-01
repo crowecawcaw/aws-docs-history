@@ -24,13 +24,11 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 ###### Contents
 
 - [Data protection in License Manager](data-protection.md "data-protection.md")
-- [Identity and access management for
-  License Manager](identity-access-management.md "identity-access-management.md")
+- [Identity and access management for License Manager](identity-access-management.md "identity-access-management.md")
 - [Using service-linked roles for License Manager](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS managed policies for License Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Cryptographic signing of licenses in License Manager](license-signing.md "license-signing.md")
 - [Compliance validation for License Manager](compliance-validation.md "compliance-validation.md")
 - [Resilience in License Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in License Manager](infrastructure-security.md "infrastructure-security.md")
-- [License Manager and interface VPC endpoints with
-  AWS PrivateLink](interface-vpc-endpoints.md "interface-vpc-endpoints.md")
+- [License Manager and interface VPC endpoints with AWS PrivateLink](interface-vpc-endpoints.md "interface-vpc-endpoints.md")

@@ -1,6 +1,4 @@
-# Edit a self-managed license in
-
-License Manager
+# Edit a self-managed license in License Manager
 
 You can edit values for the following fields in a self-managed license:
 

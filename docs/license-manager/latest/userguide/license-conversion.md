@@ -45,11 +45,8 @@ Canonical documentation.
 
 ###### Topics
 
-- [Eligible license types for license type conversion in
-  License Manager](conversion-types.md "conversion-types.md")
-- [Conversion prerequisites for License Manager license
-  types](conversion-prerequisites.md "conversion-prerequisites.md")
+- [Eligible license types for license type conversion in License Manager](conversion-types.md "conversion-types.md")
+- [Conversion prerequisites for License Manager license types](conversion-prerequisites.md "conversion-prerequisites.md")
 - [Convert a license type in License Manager](conversion-procedures.md "conversion-procedures.md")
 - [Tenancy conversion in License Manager](conversion-tenancy.md "conversion-tenancy.md")
-- [Troubleshooting license type conversion in
-  License Manager](conversion-troubleshooting.md "conversion-troubleshooting.md")
+- [Troubleshooting license type conversion in License Manager](conversion-troubleshooting.md "conversion-troubleshooting.md")

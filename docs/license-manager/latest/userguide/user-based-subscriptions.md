@@ -1,6 +1,4 @@
-# Use License Manager user-based subscriptions for supported
-
-software products
+# Use License Manager user-based subscriptions for supported software products
 
 With user-based subscriptions in AWS License Manager, you can purchase fully-compliant licensed
 software subscriptions. Licenses are provided by Amazon and have a per-user subscription fee.
@@ -24,34 +22,23 @@ month.
 
 ###### Topics
 
-- [Considerations for using
-  user-based subscriptions in License Manager](#usubs-considerations "#usubs-considerations")
+- [Considerations for using user-based subscriptions in License Manager](#usubs-considerations "#usubs-considerations")
 - [Subscription charges in License Manager](#usubs-subscription-charges "#usubs-subscription-charges")
-- [Prerequisites to create
-  user-based subscriptions in License Manager](#usubs-prerequisites "#usubs-prerequisites")
-- [Supported software products for
-  user-based subscriptions in License Manager](#usubs-software "#usubs-software")
+- [Prerequisites to create user-based subscriptions in License Manager](#usubs-prerequisites "#usubs-prerequisites")
+- [Supported software products for user-based subscriptions in License Manager](#usubs-software "#usubs-software")
 - [Active Directory](#ad-support "#ad-support")
-- [Additional
-  software](#usubs-software-additional "#usubs-software-additional")
-- [Get started with user-based
-  subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md")
-- [Configure Active Directory GPO for more active
-  remote user sessions](usubs-configure-gpo.md "usubs-configure-gpo.md")
+- [Additional software](#usubs-software-additional "#usubs-software-additional")
+- [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md")
+- [Configure Active Directory GPO for more active remote user sessions](usubs-configure-gpo.md "usubs-configure-gpo.md")
 - [Get Started with Cross-Account AWS License Manager using Shared AWS Managed Microsoft AD](license-cross-account.md "license-cross-account.md")
 - [Launch an instance from a license included AMI](usubs-launch-instance.md "usubs-launch-instance.md")
-- [Connect to a user-based
-  subscription instance with RDP](user-based-subscriptions-connect.md "user-based-subscriptions-connect.md")
-- [Modify firewall settings for
-  your Microsoft Office subscription](usubs-modify-firewall.md "usubs-modify-firewall.md")
+- [Connect to a user-based subscription instance with RDP](user-based-subscriptions-connect.md "user-based-subscriptions-connect.md")
+- [Modify firewall settings for your Microsoft Office subscription](usubs-modify-firewall.md "usubs-modify-firewall.md")
 - [Manage subscription users for License Manager user-based subscriptions](usubs-manage-users.md "usubs-manage-users.md")
 - [Deregister an Active Directory from License Manager settings](usubs-deregister-ad.md "usubs-deregister-ad.md")
-- [Troubleshoot user-based
-  subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md")
+- [Troubleshoot user-based subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md")
 
-## Considerations for using
-
-user-based subscriptions in License Manager
+## Considerations for using user-based subscriptions in License Manager
 
 The following considerations apply when using user-based subscriptions with License Manager:
 
@@ -61,8 +48,7 @@ Services SAL`) has a per user per month fee, with no proration.
   sessions at a time by default. To enable more than two active user sessions, you can
   configure an Active Directory Group Policy Object (GPO), and set the Microsoft RDS
   licensing mode to `Per User`. For more information, see the prerequisites
-  for [Configure Active Directory GPO for more active
-  remote user sessions](usubs-configure-gpo.md "usubs-configure-gpo.md").
+  for [Configure Active Directory GPO for more active remote user sessions](usubs-configure-gpo.md "usubs-configure-gpo.md").
 - When you create local users with administrator privileges on instances that
   provide user-based subscriptions, the instance health status might change to
   unhealthy. License Manager can terminate instances that are unhealthy for non-compliance. For
@@ -82,13 +68,11 @@ Services SAL`) has a per user per month fee, with no proration.
   deleted.
 - The instances deployed for user-based subscriptions must be managed nodes with
   AWS Systems Manager and joined to the same domain. For information on keeping your instances
-  managed by Systems Manager, see the [Troubleshoot user-based
-  subscriptions in License Manager](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity")
+  managed by Systems Manager, see the [Troubleshoot user-based subscriptions in License Manager](user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity "user-based-subscriptions-troubleshoot.md#user-based-subscriptions-troubleshoot-systems-manager-connectivity")
   section of this guide.
 - To stop incurring Microsoft Office or Visual Studio subscription charges for a user, you must
   disassociate the user from all instances they are associated with. For more information, see
-  [Disassociate users from an instance that
-  provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
+  [Disassociate users from an instance that provides License Manager user-based subscriptions](usubs-disassociate-users.md "usubs-disassociate-users.md").
 
 ## Subscription charges in License Manager
 
@@ -225,9 +209,7 @@ For more information about how Microsoft RDS per user CALs work, see the
 [License your Remote Desktop deployment](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license") article on the _Microsoft Learn_
 website.
 
-## Prerequisites to create
-
-user-based subscriptions in License Manager
+## Prerequisites to create user-based subscriptions in License Manager
 
 The following prerequisites must be implemented in your environment before you can
 create user-based subscriptions.
@@ -240,8 +222,7 @@ create user-based subscriptions.
 - [Active Directory](user-based-subscriptions.md#usubs-prereq-ad "user-based-subscriptions.md#usubs-prereq-ad")
 - [Security groups](user-based-subscriptions.md#usubs-prereq-sg "user-based-subscriptions.md#usubs-prereq-sg")
 - [Network configuration](user-based-subscriptions.md#usubs-prereq-network "user-based-subscriptions.md#usubs-prereq-network")
-- [Instances that provide user-based subscription
-  products](user-based-subscriptions.md#usubs-prereq-instance "user-based-subscriptions.md#usubs-prereq-instance")
+- [Instances that provide user-based subscription products](user-based-subscriptions.md#usubs-prereq-instance "user-based-subscriptions.md#usubs-prereq-instance")
 - [Microsoft Remote Desktop Services](user-based-subscriptions.md#usubs-prereq-rds "user-based-subscriptions.md#usubs-prereq-rds")
   - [Administrative credentials secret](user-based-subscriptions.md#usubs-prereq-rds-secret "user-based-subscriptions.md#usubs-prereq-rds-secret")
 
@@ -446,8 +427,7 @@ from your instance. For more information, see [Work with security groups](../../
 
 License Manager creates two network interfaces which use the default security group of the
 VPC where your AWS Managed Microsoft AD is provisioned. These interfaces are used for the service
-to interact with your directory. For more information, see [Step 2: Register your
-Active Directory in License Manager](user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad "user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad") and [What gets created](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md") in the _AWS Directory Service Administration
+to interact with your directory. For more information, see [Step 2: Register your Active Directory in License Manager](user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad "user-based-subscriptions-getting-started.md#user-based-subscriptions-configure-ad") and [What gets created](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md") in the _AWS Directory Service Administration
 Guide_.
 
 After the provisioning process is complete, you can associate a different security
@@ -467,9 +447,7 @@ ensure that Active Directory nodes are accessible, configure DNS resolution as f
   for your VPC. For more information, see [View and update DNS
   attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-updating").
 
-### Instances that provide user-based subscription
-
-products
+### Instances that provide user-based subscription products
 
 For your user-based subscription instances to function as expected, you must meet the
 following prerequisites:
@@ -488,8 +466,7 @@ following prerequisites:
 License Manager will attempt to recover unhealthy instances, but
 instances that are not able to be return to a healthy status will be terminated.
 For troubleshooting information on keeping your instances managed by Systems Manager, and
-instance compliance, see the [Troubleshoot user-based
-subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md") section of this guide.
+instance compliance, see the [Troubleshoot user-based subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md") section of this guide.
 
 - You must have an instance profile role attached to instances providing the
   user-based subscription products that allows for the resource to be managed by
@@ -577,16 +554,13 @@ For more information about Secrets Manager, see [What Is Secrets Manager](../../
 specifically related to costs, see [Pricing for
 AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md#asm_pricing "../../../secretsmanager/latest/userguide/intro.md#asm_pricing") in the _Secrets Manager User Guide_.
 
-## Supported software products for
-
-user-based subscriptions in License Manager
+## Supported software products for user-based subscriptions in License Manager
 
 AWS License Manager supports user-based subscriptions for Microsoft Visual Studio, and Microsoft Office. Supported software
 utilization is tracked by License Manager. A single subscription to Windows Server Remote Desktop
 Services Subscriber Access License (RDS SAL) is required for each user to access a
 license-included instance that provides a user-based subscription product. For more information,
-see [Get started with user-based
-subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").
+see [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").
 
 ###### Supported Windows operating system (OS) platforms
 
@@ -597,9 +571,7 @@ license for the following Windows OS platforms:
 - Windows Server 2022
 - Windows Server 2019
 
-### Supported
-
-software for user-based subscriptions
+### Supported software for user-based subscriptions
 
 ###### License Manager supports user-based licensing with the following software.
 
@@ -665,9 +637,7 @@ This table indicates which types of Active Directory are supported by each softw
 | Microsoft Office        | Supported                | Not supported   |
 | RDS SAL Product         | Supported                | Supported       |
 
-## Additional
-
-software
+## Additional software
 
 You can install additional software on your instances that aren't available as
 user-based subscriptions. Additional software installations aren't tracked by License Manager.
@@ -682,5 +652,4 @@ To install additional software with the Active Directory administrative account,
 - Connect to the instance using the administrative account to perform the
   installation.
 
-For more information, see [Get started with user-based
-subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").
+For more information, see [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md").

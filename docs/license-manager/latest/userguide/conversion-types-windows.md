@@ -1,6 +1,4 @@
-# Eligible license types for Windows and
-
-SQL Server in License Manager
+# Eligible license types for Windows and SQL Server in License Manager
 
 ###### Important
 
@@ -12,17 +10,13 @@ license type conversion.
 
 ###### Topics
 
-- [SQL Server
-  editions](#conversion-types-windows-sql-editions "#conversion-types-windows-sql-editions")
-- [SQL Server
-  versions](#conversion-types-windows-sql-versions "#conversion-types-windows-sql-versions")
+- [SQL Server editions](#conversion-types-windows-sql-editions "#conversion-types-windows-sql-editions")
+- [SQL Server versions](#conversion-types-windows-sql-versions "#conversion-types-windows-sql-versions")
 - [Usage operation values](#usage-operation-values "#usage-operation-values")
 - [Media compatibility](#media-compatibility "#media-compatibility")
 - [Conversion paths](#conversion-paths "#conversion-paths")
 
-## SQL Server
-
-editions
+## SQL Server editions
 
 License Manager supports the following SQL Server editions:
 
@@ -30,9 +24,7 @@ License Manager supports the following SQL Server editions:
 - SQL Server Enterprise edition
 - SQL Server Web edition
 
-## SQL Server
-
-versions
+## SQL Server versions
 
 License Manager supports the following SQL Server versions:
 

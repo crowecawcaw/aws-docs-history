@@ -1,6 +1,4 @@
-# License Manager – User-based subscription
-
-role
+# License Manager – User-based subscription role
 
 License Manager requires a service-linked role for managing AWS resources that will provide user-based subscriptions.
 
@@ -12,8 +10,7 @@ utilize AWS Systems Manager and manage Amazon EC2 resources providing user-based
 describe Directory Service resources.
 
 To review permissions for the **AWSLicenseManagerUserSubscriptionsServiceRolePolicy**,
-see [AWS managed policy:
-AWSLicenseManagerUserSubscriptionsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerUserSubscriptionsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerUserSubscriptionsServiceRolePolicy"). To learn more
+see [AWS managed policy: AWSLicenseManagerUserSubscriptionsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerUserSubscriptionsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerUserSubscriptionsServiceRolePolicy"). To learn more
 about configuring permissions for a service-linked role, see
 [Service-Linked
 Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.

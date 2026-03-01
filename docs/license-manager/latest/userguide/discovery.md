@@ -9,8 +9,7 @@ refreshes its dashboards to report usage.
 
 - [Set up for inventory search](#discovery-setup "#discovery-setup")
 - [Use inventory search](#using-discovery "#using-discovery")
-- [Add automated discovery rules to a self-managed
-  license](#add-discovery-rule "#add-discovery-rule")
+- [Add automated discovery rules to a self-managed license](#add-discovery-rule "#add-discovery-rule")
 - [Associate a self-managed license with inventory search](#discovered "#discovered")
 - [Disassociate a self-managed license and a resource](#disassociate "#disassociate")
 
@@ -54,9 +53,7 @@ For more information about Amazon RDS database product licenses, see [RDS for Or
 [RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md")
 in the _Amazon RDS User Guide_.
 
-## Add automated discovery rules to a self-managed
-
-license
+## Add automated discovery rules to a self-managed license
 
 After you add product information to your self-managed license, License Manager can track license
 usage for the instances that have those products installed. For more information, see [Automated discovery of inventory in License Manager](automated-discovery.md "automated-discovery.md").

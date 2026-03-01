@@ -1,6 +1,4 @@
-# Create a self-managed license in
-
-License Manager
+# Create a self-managed license in License Manager
 
 A self-managed license represents the licensing terms in the agreement with your software
 vendor. Your self-managed license specifies how your licenses should be counted (for example, by

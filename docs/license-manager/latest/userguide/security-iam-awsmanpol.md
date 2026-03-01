@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSLicenseManagerServiceRolePolicy
+## AWS managed policy: AWSLicenseManagerServiceRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAWSLicenseManagerRole` to allow License Manager to call
@@ -64,9 +62,7 @@ specified resources.
 
 To view the permissions for this policy in the AWS Management Console, see [AWSLicenseManagerServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy").
 
-## AWS managed
-
-policy: AWSLicenseManagerMasterAccountRolePolicy
+## AWS managed policy: AWSLicenseManagerMasterAccountRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAWSLicenseManagerMasterAccountRole` to allow
@@ -138,9 +134,7 @@ specified resources.
 
 To view the permissions for this policy in the AWS Management Console, see [AWSLicenseManagerMasterAccountRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMasterAccountRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMasterAccountRolePolicy").
 
-## AWS managed
-
-policy: AWSLicenseManagerMemberAccountRolePolicy
+## AWS managed policy: AWSLicenseManagerMemberAccountRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAWSLicenseManagerMemberAccountRole` to allow
@@ -166,9 +160,7 @@ specified resources.
 
 To view the permissions for this policy in the AWS Management Console, see [AWSLicenseManagerMemberAccountRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMemberAccountRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMemberAccountRolePolicy").
 
-## AWS managed policy:
-
-AWSLicenseManagerConsumptionPolicy
+## AWS managed policy: AWSLicenseManagerConsumptionPolicy
 
 You can attach the `AWSLicenseManagerConsumptionPolicy` policy to your IAM
 identities. This policy grants permissions that allow access to the License Manager API actions
@@ -176,15 +168,12 @@ required to consume licenses. For more information, see [Seller issued license u
 
 To view the permissions for this policy, see [AWSLicenseManagerConsumptionPolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLicenseManagerConsumptionPolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSLicenseManagerConsumptionPolicy") in the AWS Management Console.
 
-## AWS managed policy:
-
-AWSLicenseManagerUserSubscriptionsServiceRolePolicy
+## AWS managed policy: AWSLicenseManagerUserSubscriptionsServiceRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAWSLicenseManagerUserSubscriptionsService` policy to allow
 License Manager to call API actions to manage user-based subscription resources. For more
-information, see [License Manager – User-based subscription
-role](user-based-subscription-role.md "user-based-subscription-role.md").
+information, see [License Manager – User-based subscription role](user-based-subscription-role.md "user-based-subscription-role.md").
 
 The role permissions policy allows License Manager to complete the following actions on the
 specified resources.
@@ -220,9 +209,7 @@ or [d44g89hc0gp9jdzm99rznthpw](https://aws.amazon.com/marketplace/pp/prodview-zo
 
 To view the permissions for this policy in the AWS Management Console, see [AWSLicenseManagerUserSubscriptionsServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy").
 
-## AWS managed policy:
-
-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy
+## AWS managed policy: AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForAWSLicenseManagerLinuxSubscriptionsService` policy to allow
@@ -250,9 +237,7 @@ specified resources.
 
 To view the permissions for this policy in the AWS Management Console, see [AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy").
 
-## License Manager updates to AWS managed
-
-policies
+## License Manager updates to AWS managed policies
 
 View details about updates to AWS managed policies for License Manager since this service
 began tracking these changes.

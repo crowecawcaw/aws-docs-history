@@ -1,6 +1,4 @@
-# Identity and access management for
-
-License Manager
+# Identity and access management for License Manager
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be authenticated (signed in) and
@@ -17,9 +15,7 @@ permission to perform the specified tasks on the specified resources. For more i
 see [Policies and Permissions](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the
 _IAM User Guide_ guide.
 
-## Create users, groups, and
-
-roles
+## Create users, groups, and roles
 
 You can create users and groups for your AWS account and then assign them the
 permissions they require. As a best practice, users should acquire the permissions by
@@ -116,9 +112,7 @@ To specify all License Manager API operations, use the \* wildcard as follows:
 "Action": "license-manager:*"
 ```
 
-### Example policy for an ISV using
-
-License Manager
+### Example policy for an ISV using License Manager
 
 ISVs that distribute licenses through License Manager require the following
 permissions:
@@ -150,9 +144,7 @@ JSON
 
 ```
 
-## Grant permissions to users, groups, and
-
-roles
+## Grant permissions to users, groups, and roles
 
 Once you have created the IAM policies you require, you must grant these permissions to your users, groups, and roles.
 

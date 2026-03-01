@@ -1,6 +1,4 @@
-# Deactivate a self-managed license in
-
-License Manager
+# Deactivate a self-managed license in License Manager
 
 When you deactivate a self-managed license, existing resources using the license are
 unaffected and AMIs using the license can still be launched. However, license consumption is no

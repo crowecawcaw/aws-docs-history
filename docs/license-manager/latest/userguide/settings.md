@@ -21,8 +21,7 @@ The following settings are configurable for Linux subscriptions:
 - Discovery and aggregation of Commercial Linux license subscription data
 - Red Hat Subscription Manager (RHSM) discovery for Linux subscriptions
 
-For more information, see [Linux subscription settings in
-License Manager](settings-linux-subscriptions.md "settings-linux-subscriptions.md").
+For more information, see [Linux subscription settings in License Manager](settings-linux-subscriptions.md "settings-linux-subscriptions.md").
 
 User-based subscriptions
 The following settings are configurable for user-based subscriptions:
@@ -30,8 +29,7 @@ The following settings are configurable for user-based subscriptions:
 - AWS Managed Microsoft AD
 - Virtual Private Cloud (VPC)
 
-For more information, see [User-based subscription settings in
-License Manager](settings-user-based-subscriptions.md "settings-user-based-subscriptions.md").
+For more information, see [User-based subscription settings in License Manager](settings-user-based-subscriptions.md "settings-user-based-subscriptions.md").
 
 Delegated administration
 This tab is displayed if your account has administrative access for your
@@ -47,23 +45,18 @@ from the AWS CLI or AWS Management Console. For more information, see [Delegated
   - [Cross-account resource discovery](settings-managed-licenses.md#settings-resource-discovery "settings-managed-licenses.md#settings-resource-discovery")
   - [Simple Notification Service (SNS)](settings-managed-licenses.md#settings-sns "settings-managed-licenses.md#settings-sns")
 
-- [Linux subscription settings in
-  License Manager](settings-linux-subscriptions.md "settings-linux-subscriptions.md")
+- [Linux subscription settings in License Manager](settings-linux-subscriptions.md "settings-linux-subscriptions.md")
   - [Linux subscriptions settings](settings-linux-subscriptions.md#linux-subscriptions-general-settings "settings-linux-subscriptions.md#linux-subscriptions-general-settings")
   - [Red Hat Subscription Manager discovery](settings-linux-subscriptions.md#linux-subscriptions-rhsm-settings "settings-linux-subscriptions.md#linux-subscriptions-rhsm-settings")
 
-- [User-based subscription settings in
-  License Manager](settings-user-based-subscriptions.md "settings-user-based-subscriptions.md")
+- [User-based subscription settings in License Manager](settings-user-based-subscriptions.md "settings-user-based-subscriptions.md")
   - [AWS Managed Microsoft AD](settings-user-based-subscriptions.md#settings-managed-ad "settings-user-based-subscriptions.md#settings-managed-ad")
   - [Virtual private cloud](settings-user-based-subscriptions.md#settings-vpc "settings-user-based-subscriptions.md#settings-vpc")
 
 - [Delegated administrator settings in License Manager](delegated-administrator.md "delegated-administrator.md")
-  - [Regions supported for
-    delegated License Manager administrators](delegated-administrator.md#delegated-administrator-supported-regions "delegated-administrator.md#delegated-administrator-supported-regions")
-  - [Register a delegated License Manager
-    administrator](delegated-administrator.md#register-delegated-admin "delegated-administrator.md#register-delegated-admin")
-  - [Deregister a delegated License Manager
-    administrator](delegated-administrator.md#deregister-delegated-admin "delegated-administrator.md#deregister-delegated-admin")
+  - [Regions supported for delegated License Manager administrators](delegated-administrator.md#delegated-administrator-supported-regions "delegated-administrator.md#delegated-administrator-supported-regions")
+  - [Register a delegated License Manager administrator](delegated-administrator.md#register-delegated-admin "delegated-administrator.md#register-delegated-admin")
+  - [Deregister a delegated License Manager administrator](delegated-administrator.md#deregister-delegated-admin "delegated-administrator.md#deregister-delegated-admin")
 
 ## Edit License Manager settings
 

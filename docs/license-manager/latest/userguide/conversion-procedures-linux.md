@@ -1,22 +1,15 @@
-# Convert a license type for Linux in
-
-License Manager
+# Convert a license type for Linux in License Manager
 
 You can use either the License Manager Console or the AWS CLI to convert the license type of
 eligible Ubuntu LTS, RHEL, and RHEL for SAP instances.
 
 ###### Topics
 
-- [Convert a license type
-  using the License Manager console](#convert-license-type-console-linux "#convert-license-type-console-linux")
-- [Convert a license type using
-  the AWS CLI](#convert-license-type-cli-linux "#convert-license-type-cli-linux")
-- [Remove a Ubuntu Pro
-  subscription](#remove-subscription-ubuntu-pro "#remove-subscription-ubuntu-pro")
+- [Convert a license type using the License Manager console](#convert-license-type-console-linux "#convert-license-type-console-linux")
+- [Convert a license type using the AWS CLI](#convert-license-type-cli-linux "#convert-license-type-cli-linux")
+- [Remove a Ubuntu Pro subscription](#remove-subscription-ubuntu-pro "#remove-subscription-ubuntu-pro")
 
-## Convert a license type
-
-using the License Manager console
+## Convert a license type using the License Manager console
 
 You can use the License Manager console to convert a license type.
 
@@ -55,15 +48,12 @@ conversion panel. The Conversion status column displays the status of the
 conversion as **In progress**, **Completed**,
 or **Failed**.
 
-## Convert a license type using
-
-the AWS CLI
+## Convert a license type using the AWS CLI
 
 To start a license type conversion in the AWS CLI, you should confirm the
 license type of your instance is eligible, and then perform a license type
 conversion to change to the required subscription. For more information on
-eligible subscription types, see [Eligible subscription types for Linux in
-License Manager](conversion-types-linux.md "conversion-types-linux.md").
+eligible subscription types, see [Eligible subscription types for Linux in License Manager](conversion-types-linux.md "conversion-types-linux.md").
 
 ###### Determine the license type of your instance
 
@@ -245,8 +235,7 @@ products.
 Before you convert your instance from Ubuntu LTS to Ubuntu Pro, your
 instance must have outbound internet access configured to retrieve a
 license token from the Canonical servers and install the Ubuntu Pro Client.
-For more information, see [Conversion prerequisites for License Manager license
-types](conversion-prerequisites.md "conversion-prerequisites.md").
+For more information, see [Conversion prerequisites for License Manager license types](conversion-prerequisites.md "conversion-prerequisites.md").
 
 To convert Ubuntu LTS to Ubuntu Pro, follow these steps:
 
@@ -272,9 +261,7 @@ pro status
 
 ![Example output of the Ubuntu pro command with an active Ubuntu Pro subscription.](images/ubuntu-pro-conversion-output-valid.png)
 
-## Remove a Ubuntu Pro
-
-subscription
+## Remove a Ubuntu Pro subscription
 
 License type conversion can only be used to convert from Ubuntu LTS to Ubuntu
 Pro. If you need to convert from Ubuntu Pro to Ubuntu LTS, you will need to

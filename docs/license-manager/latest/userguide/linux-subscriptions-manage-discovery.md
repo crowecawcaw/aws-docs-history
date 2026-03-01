@@ -1,6 +1,4 @@
-# Configure Linux subscription
-
-discovery in License Manager
+# Configure Linux subscription discovery in License Manager
 
 You can configure discovery of Linux subscriptions through the License Manager console, the
 AWS CLI, the License Manager Linux subscription API, or the associated SDKs. When you activate
@@ -16,17 +14,12 @@ To request an increase to these limits, use the
 
 ###### Topics
 
-- [Configure Linux subscription
-  discovery](#linux-subscriptions-configure-discovery "#linux-subscriptions-configure-discovery")
-- [Activate Red Hat Subscription Manager subscription
-  discovery](#rhsm-subscription-discovery "#rhsm-subscription-discovery")
+- [Configure Linux subscription discovery](#linux-subscriptions-configure-discovery "#linux-subscriptions-configure-discovery")
+- [Activate Red Hat Subscription Manager subscription discovery](#rhsm-subscription-discovery "#rhsm-subscription-discovery")
 - [Resource discovery status reasons](#linux-subscriptions-status-reasons "#linux-subscriptions-status-reasons")
-- [Deactivate discovery of Linux
-  subscriptions](#linux-subscriptions-disable-discovery "#linux-subscriptions-disable-discovery")
+- [Deactivate discovery of Linux subscriptions](#linux-subscriptions-disable-discovery "#linux-subscriptions-disable-discovery")
 
-## Configure Linux subscription
-
-discovery
+## Configure Linux subscription discovery
 
 To configure Linux subscription discovery from the **Settings**
 page in the License Manager console, follow these steps:
@@ -46,9 +39,7 @@ page in the License Manager console, follow these steps:
    service-linked role for Linux subscriptions.
 7. Choose **Save configuration**.
 
-## Activate Red Hat Subscription Manager subscription
-
-discovery
+## Activate Red Hat Subscription Manager subscription discovery
 
 To retrieve subscription information from Red Hat Subscription Manager (RHSM) on your behalf, License Manager must
 provide your Red Hat customer account API credentials.
@@ -61,8 +52,7 @@ prerequisites.
 - Default discovery for Linux subscriptions must be activated for your
   AWS account before you can configure RHSM subscription discovery. If default
   discovery is **Not activated**, see
-  [Configure Linux subscription
-  discovery](#linux-subscriptions-configure-discovery "#linux-subscriptions-configure-discovery").
+  [Configure Linux subscription discovery](#linux-subscriptions-configure-discovery "#linux-subscriptions-configure-discovery").
 - If you use a corporate Red Hat login provided by your Organization
   Administrator, ensure that your login ID has the following roles and permissions
   assigned:
@@ -165,9 +155,7 @@ more detail on the status and status reason:
 | `"Region": "Org-Onboard: Failed<br>• Account isn't part of an<br>organization"`             | Enabling Linux subscriptions for an organization has failed due to the account<br>performing the operation not being in an organization. Try the operation from an account in<br>the organization, or add this account to the organization, and try again. |
 | `"Region": "Org-Onboard: Failed<br>• Linux subscriptions can't access the<br>organization"` | Enabling Linux subscriptions for an organization has failed due to License Manager not<br>having permissions to access the organization. Create the service-linked role for Linux<br>subscriptions, and try again.                                         |
 
-## Deactivate discovery of Linux
-
-subscriptions
+## Deactivate discovery of Linux subscriptions
 
 You can deactivate discovery of Linux subscriptions from the AWS License Manager settings page.
 However, if you have activated discovery for

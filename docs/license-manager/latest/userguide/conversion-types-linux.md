@@ -1,6 +1,4 @@
-# Eligible subscription types for Linux in
-
-License Manager
+# Eligible subscription types for Linux in License Manager
 
 License type conversion is available for supported versions of Ubuntu. The supported
 versions include updates such as Ubuntu 18.04.1 LTS. When you convert a subscription to
@@ -12,9 +10,7 @@ You can use license type conversion for long-term support (LTS) versions of
 Ubuntu, RHEL, and RHEL for SAP. You can switch subscriptions between AWS-provided
 and Red Hat-provided options from AWS Marketplace.
 
-## License type conversion
-
-considerations
+## License type conversion considerations
 
 Some of the considerations that license type conversion is subject to are
 listed as follows. This is not a comprehensive list and is subject to
@@ -33,8 +29,7 @@ change.
 - The instance must be running Ubuntu LTS in order to convert the
   license type to Ubuntu Pro.
 - You can't use license type conversion for a Ubuntu Pro subscription.
-  To remove a Ubuntu Pro subscription, see [Remove a Ubuntu Pro
-  subscription](conversion-procedures-linux.md#remove-subscription-ubuntu-pro "conversion-procedures-linux.md#remove-subscription-ubuntu-pro").
+  To remove a Ubuntu Pro subscription, see [Remove a Ubuntu Pro subscription](conversion-procedures-linux.md#remove-subscription-ubuntu-pro "conversion-procedures-linux.md#remove-subscription-ubuntu-pro").
 - Ubuntu Pro is not available as a Reserved Instance. For savings with
   On-Demand Instance pricing, we recommend that you use Ubuntu Pro with
   Savings Plans. For more information, see [Reserved

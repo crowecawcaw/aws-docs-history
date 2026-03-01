@@ -40,9 +40,7 @@ Before you begin, ensure you have:
 
 ![](images/cross-account.png)
 
-## How to set up cross-account License Manager
-
-functionality
+## How to set up cross-account License Manager functionality
 
 To set up cross-account License Manager functionality:
 
@@ -51,9 +49,7 @@ To set up cross-account License Manager functionality:
 3. Establish network connectivity.
 4. Deploy instances and manage user associations.
 
-### Step 1: Set up the Directory Owner/license
-
-admin account
+### Step 1: Set up the Directory Owner/license admin account
 
 #### Create and share AWS Managed Microsoft AD
 

@@ -13,9 +13,7 @@ instance.
 
 The instances you launch must meet the required prerequisites to be in compliance.
 Resources that are unable to complete the initial configuration are terminated.
-For more information, see the [Prerequisites to create
-user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [Troubleshoot user-based
-subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md").
+For more information, see the [Prerequisites to create user-based subscriptions in License Manager](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [Troubleshoot user-based subscriptions in License Manager](user-based-subscriptions-troubleshoot.md "user-based-subscriptions-troubleshoot.md").
 
 ###### Launch an instance with user-based subscriptions
 

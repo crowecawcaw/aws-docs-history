@@ -1,6 +1,4 @@
-# Permissions required to track
-
-seller issued license usage in License Manager
+# Permissions required to track seller issued license usage in License Manager
 
 To get started with this feature, you need permission to call the following License Manager API
 actions.
@@ -44,8 +42,7 @@ application to call the License Manager API.
 If you use the AWS Management Console to distribute temporary credentials for customers without an
 AWS account, License Manager will automatically create the
 `AWSLicenseManagerConsumptionRole` on your behalf. For more
-information, see [Get temporary credentials for ISV customers
-without an AWS account](granting-temporary-credentials.md "granting-temporary-credentials.md"). To create this role from the AWS CLI,
+information, see [Get temporary credentials for ISV customers without an AWS account](granting-temporary-credentials.md "granting-temporary-credentials.md"). To create this role from the AWS CLI,
 use the AWS IAM [create-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html")
 command, as shown in the following example.
 

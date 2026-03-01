@@ -14,8 +14,7 @@ service-linked role trusts the `license-manager.master-account.amazonaws.com`
 service to assume the role.
 
 To review permissions for the **AWSLicenseManagerMasterAccountRolePolicy**,
-see [AWS managed
-policy: AWSLicenseManagerMasterAccountRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerMasterAccountRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerMasterAccountRolePolicy"). To learn more
+see [AWS managed policy: AWSLicenseManagerMasterAccountRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerMasterAccountRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerMasterAccountRolePolicy"). To learn more
 about configuring permissions for a service-linked role, see
 [Service-Linked
 Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.

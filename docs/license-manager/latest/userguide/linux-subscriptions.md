@@ -56,11 +56,7 @@ Hybrid Cloud Console](https://console.redhat.com/ "https://console.redhat.com/")
 
 ###### Additional topics
 
-- [Configure Linux subscription
-  discovery in License Manager](linux-subscriptions-manage-discovery.md "linux-subscriptions-manage-discovery.md")
-- [View discovered instance data in
-  License Manager](linux-subscriptions-instances-view.md "linux-subscriptions-instances-view.md")
-- [Billing information for Linux
-  subscriptions in License Manager](linux-subscriptions-billing-information.md "linux-subscriptions-billing-information.md")
-- [Manage Amazon CloudWatch alarms for Linux
-  subscriptions in License Manager](linux-subscriptions-usage-alarms.md "linux-subscriptions-usage-alarms.md")
+- [Configure Linux subscription discovery in License Manager](linux-subscriptions-manage-discovery.md "linux-subscriptions-manage-discovery.md")
+- [View discovered instance data in License Manager](linux-subscriptions-instances-view.md "linux-subscriptions-instances-view.md")
+- [Billing information for Linux subscriptions in License Manager](linux-subscriptions-billing-information.md "linux-subscriptions-billing-information.md")
+- [Manage Amazon CloudWatch alarms for Linux subscriptions in License Manager](linux-subscriptions-usage-alarms.md "linux-subscriptions-usage-alarms.md")

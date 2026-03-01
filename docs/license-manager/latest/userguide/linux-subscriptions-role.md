@@ -2,9 +2,7 @@
 
 License Manager requires a service-linked role to manage AWS resources that provide Linux subscriptions.
 
-## Permissions for the Linux
-
-subscriptions role
+## Permissions for the Linux subscriptions role
 
 The service-linked role named
 `AWSServiceRoleForAWSLicenseManagerLinuxSubscriptionsService` allows License Manager
@@ -18,8 +16,7 @@ to perform the following actions for Linux subscriptions.
   to decrypt secrets.
 
 To review permissions for the **AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy**,
-see [AWS managed policy:
-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy"). To learn more
+see [AWS managed policy: AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy](security-iam-awsmanpol.md#security-iam-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy "security-iam-awsmanpol.md#security-iam-AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy"). To learn more
 about configuring permissions for a service-linked role, see
 [Service-Linked
 Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
