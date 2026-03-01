@@ -9,8 +9,7 @@ Amazon Monitron and perform real-time analysis. Data export streams live data to
 
 ###### Topics
 
-- [Exporting your data to a Kinesis
-  stream](#exporting-stream-procedure-v2 "#exporting-stream-procedure-v2")
+- [Exporting your data to a Kinesis stream](#exporting-stream-procedure-v2 "#exporting-stream-procedure-v2")
 - [Editing live data export settings](#edit-live-export-v2 "#edit-live-export-v2")
 - [Stopping a live data export](#stop-kinesis-export-v2 "#stop-kinesis-export-v2")
 - [Viewing data export errors](#viewing-kinesis-export-errors-v2 "#viewing-kinesis-export-errors-v2")
@@ -18,13 +17,10 @@ Amazon Monitron and perform real-time analysis. Data export streams live data to
 - [Monitoring with Amazon CloudWatch Logs](data-export-cloudwatch-logs-v2.md "data-export-cloudwatch-logs-v2.md")
 - [Storing exported data in Amazon S3](kinesis-store-S3-v2.md "kinesis-store-S3-v2.md")
 - [Processing data with Lambda](data-export-lambda-v2.md "data-export-lambda-v2.md")
-- [Understanding the v2 data export
-  schema](data-export-schema-v2.md "data-export-schema-v2.md")
+- [Understanding the v2 data export schema](data-export-schema-v2.md "data-export-schema-v2.md")
 - [Migration from Kinesis v1 to v2](migration-from-v1-to-v2.md "migration-from-v1-to-v2.md")
 
-## Exporting your data to a Kinesis
-
-stream
+## Exporting your data to a Kinesis stream
 
 1. From your project's main page, near the bottom of the page, on the right,
    choose **Start live data export**.

@@ -65,8 +65,7 @@ It can take a few minutes for the gateway to be commissioned.
 
 The best place to mount your gateway is higher than the sensors and no
 more than 20 to 30 meters away.For additional help with locating your
-gateway, see [Placing and installing an Ethernet
-gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md"). 3. Plug in the gateway and make sure the network light (yellow) and the
+gateway, see [Placing and installing an Ethernet gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md"). 3. Plug in the gateway and make sure the network light (yellow) and the
 Bluetooth light (blue) on the front of your gateway are blinking
 alternatively. 4. Push the **Config** button on the gateway to put it
 into commissioning mode. the Bluetooth and network LED lights will start
@@ -85,8 +84,7 @@ gateway.
 ![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](images/phone-bluetooth-ethernet-gateway.png)
 
 If the mobile app continues to try to connect to the gateway without
-success, see [Troubleshooting
-Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
 
 ###### Note
 
@@ -100,8 +98,7 @@ It can take a few minutes for the gateway to be commissioned and to
 connect to the network.
 
 If you have further difficulties making the gateway work, it might be
-helpful to reset it. For more information, see [Troubleshooting
-Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+helpful to reset it. For more information, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
 
     1. If you choose automatic (DHCP), Amazon Monitron will automatically
      configure the network to connect the gateway.

@@ -13,6 +13,5 @@ For programmatic access, AWS provides an SDK and CLI to cryptographically sign r
 ###### Topics
 
 - [AWS account root user](security_iam_authentication-rootuser.md "security_iam_authentication-rootuser.md")
-- [IAM users and
-  Groups](security_iam_authentication-iamuser.md "security_iam_authentication-iamuser.md")
+- [IAM users and Groups](security_iam_authentication-iamuser.md "security_iam_authentication-iamuser.md")
 - [IAM Roles](security_iam_authentication-iamrole.md "security_iam_authentication-iamrole.md")

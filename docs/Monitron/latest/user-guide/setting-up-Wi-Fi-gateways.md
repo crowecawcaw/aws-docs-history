@@ -20,12 +20,9 @@ button.
 - [Reading the LED lights on a Wi-Fi gateway](LED.md "LED.md")
 - [Placing and installing a Wi-Fi gateway](installing-gateway.md "installing-gateway.md")
 - [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-Fi.md")
-- [Troubleshooting Wi-Fi gateway
-  detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md")
-- [Troubleshooting
-  Bluetooth pairing](troubleshooting-Bluetooth-pairing-wireless.md "troubleshooting-Bluetooth-pairing-wireless.md")
-- [Resetting the Wi-Fi gateway to factory
-  settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md")
+- [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md")
+- [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-wireless.md "troubleshooting-Bluetooth-pairing-wireless.md")
+- [Resetting the Wi-Fi gateway to factory settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md")
 - [Viewing the list of gateways](wi-fi-gateway-list.md "wi-fi-gateway-list.md")
 - [Viewing Wi-Fi gateway details](viewing-gateway-details-wifi.md "viewing-gateway-details-wifi.md")
 - [Editing Wi-Fi gateway name](editing-gateway-wifi.md "editing-gateway-wifi.md")

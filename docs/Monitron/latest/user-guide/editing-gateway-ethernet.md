@@ -9,12 +9,9 @@ edit a gateway name, open your web or mobile app and do the following.
 
 ###### Topics
 
-- [To edit an Ethernet gateway
-  name](#editing-gateway-name-ethernet "#editing-gateway-name-ethernet")
+- [To edit an Ethernet gateway name](#editing-gateway-name-ethernet "#editing-gateway-name-ethernet")
 
-## To edit an Ethernet gateway
-
-name
+## To edit an Ethernet gateway name
 
 1. Select the gateway name you want to edit from the
    **Gateways** page.

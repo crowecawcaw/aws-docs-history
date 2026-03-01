@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Understanding the v2 data export
-
-schema
+# Understanding the v2 data export schema
 
 Each measurement data, its corresponding inference result, gateway
 connect/disconnect, and sensor connect/disconnect events are exported as one Kinesis

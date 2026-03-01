@@ -26,8 +26,6 @@ first time and connect to your project.
 
 - [Step 1: Understanding asset health](gsg-asset-list.md "gsg-asset-list.md")
 - [Step 2: Viewing asset conditions](gsg-monitoring.md "gsg-monitoring.md")
-- [Step 3: Viewing and acknowledging a machine
-  abnormality](gsg-acknowledging.md "gsg-acknowledging.md")
-- [Step 4: Resolving a machine
-  abnormality](gs-resolving-anomalies.md "gs-resolving-anomalies.md")
+- [Step 3: Viewing and acknowledging a machine abnormality](gsg-acknowledging.md "gsg-acknowledging.md")
+- [Step 4: Resolving a machine abnormality](gs-resolving-anomalies.md "gs-resolving-anomalies.md")
 - [Step 5: Muting and unmuting alerts](gs-muting-alerts.md "gs-muting-alerts.md")

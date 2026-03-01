@@ -23,14 +23,10 @@ on the Amazon Monitron mobile app unless you also add it to the web app.
 
 ###### Topics
 
-- [Switching between projects in the web
-  app](#monitron-switch-projects-web "#monitron-switch-projects-web")
-- [Switching between projects in the mobile
-  app](#monitron-switch-projects-mobile "#monitron-switch-projects-mobile")
+- [Switching between projects in the web app](#monitron-switch-projects-web "#monitron-switch-projects-web")
+- [Switching between projects in the mobile app](#monitron-switch-projects-mobile "#monitron-switch-projects-mobile")
 
-## Switching between projects in the web
-
-app
+## Switching between projects in the web app
 
 ###### To switch between projects in the web app
 
@@ -51,9 +47,7 @@ switch.
 
 ![Project switching dialog box explaining single project access and automatic logout/login process.](images/project-switching-message-web.png)
 
-## Switching between projects in the mobile
-
-app
+## Switching between projects in the mobile app
 
 ###### To switch between projects in the mobile app
 

@@ -60,9 +60,7 @@ following format:
 You can retrieve your assigned project value using your Amazon Monitron web app.
 The tag value for your project is the project ID.
 
-###### To retrieve the specific tag value assigned to your Amazon Monitron
-
-project:
+###### To retrieve the specific tag value assigned to your Amazon Monitron project:
 
 1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/").
 2. Choose **Create Project**.
@@ -80,9 +78,7 @@ Explorer console.
 You can retrieve your assigned site tag value using your Amazon Monitron web app.
 The tag value for your site is the Id.
 
-###### To retrieve the specific tag value assigned to your Amazon Monitron
-
-site:
+###### To retrieve the specific tag value assigned to your Amazon Monitron site:
 
 1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/").
 2. Choose **Create project**.

@@ -14,8 +14,7 @@ Kinesis.
 
 ###### Topics
 
-- [Exporting your data to a Kinesis
-  stream](#exporting-stream-procedure "#exporting-stream-procedure")
+- [Exporting your data to a Kinesis stream](#exporting-stream-procedure "#exporting-stream-procedure")
 - [Editing live data export settings](#edit-live-export "#edit-live-export")
 - [Stopping a live data export](#stop-kinesis-export "#stop-kinesis-export")
 - [Viewing data export errors](#viewing-kinesis-export-errors "#viewing-kinesis-export-errors")
@@ -25,9 +24,7 @@ Kinesis.
 - [Processing data with Lambda](data-export-lambda.md "data-export-lambda.md")
 - [Understanding the v1 data export schema](data-export-schema.md "data-export-schema.md")
 
-## Exporting your data to a Kinesis
-
-stream
+## Exporting your data to a Kinesis stream
 
 1. From your project's main page, near the bottom of the page, on the right,
    choose **Start live data export**.

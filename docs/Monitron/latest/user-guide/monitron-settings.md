@@ -31,9 +31,7 @@ When a language is not available for a particular area, the Amazon Monitron app
 will default to English, and US units/number format. The app will detect your location
 once and then use these defaults until you manually change them.
 
-### Changing localization
-
-settings
+### Changing localization settings
 
 You can change your Amazon Monitron language settings for both the web and
 mobile apps, and the console.

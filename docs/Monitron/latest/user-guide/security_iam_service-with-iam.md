@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# How Amazon Monitron Works with
-
-IAM
+# How Amazon Monitron Works with IAM
 
 Before you use IAM to manage access to Amazon Monitron, you should understand what
 IAM features are available to use with Amazon Monitron. To get a high-level view of how
@@ -14,21 +12,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Amazon Monitron
-  Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Monitron Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [Amazon Monitron Resource-Based Policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization Based on
-  Amazon Monitron Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Monitron IAM
-  Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
-- [Amazon Monitron Identity-Based
-  Policy Examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
-- [Troubleshooting Amazon Monitron Identity
-  and Access](#security_iam_troubleshoot "#security_iam_troubleshoot")
+- [Authorization Based on Amazon Monitron Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Monitron IAM Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Monitron Identity-Based Policy Examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Troubleshooting Amazon Monitron Identity and Access](#security_iam_troubleshoot "#security_iam_troubleshoot")
 
-## Amazon Monitron
-
-Identity-Based Policies
+## Amazon Monitron Identity-Based Policies
 
 To specify allowed or denied actions and resources and the conditions under
 which actions are allowed or denied, use IAM identity-based policies.
@@ -113,16 +104,13 @@ resources you can use a condition key, see [Condition keys for Amazon Monitron](
 
 ### Examples
 
-To view examples of Amazon Monitron identity-based policies, see [Amazon Monitron Identity-Based
-Policy Examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Amazon Monitron identity-based policies, see [Amazon Monitron Identity-Based Policy Examples](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ## Amazon Monitron Resource-Based Policies
 
 Amazon Monitron does not support resource-based policies.
 
-## Authorization Based on
-
-Amazon Monitron Tags
+## Authorization Based on Amazon Monitron Tags
 
 You can associate tags with certain types of Amazon Monitron resources for
 authorization. To control access based on tags, provide tag information in the
@@ -131,16 +119,12 @@ authorization. To control access based on tags, provide tag information in the
 `aws:RequestTag/${TagKey}`, or `aws:TagKeys` condition
 keys.
 
-## Amazon Monitron IAM
-
-Roles
+## Amazon Monitron IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity
 within your AWS account that has specific permissions.
 
-### Using
-
-Temporary Credentials with Amazon Monitron
+### Using Temporary Credentials with Amazon Monitron
 
 You can use temporary credentials to sign in with federation, assume an
 IAM role, or assume a cross-account role. You obtain temporary security
@@ -158,9 +142,7 @@ roles.
 
 Amazon Monitron supports service-linked roles.
 
-### Service
-
-Roles
+### Service Roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to
 access resources in other services to complete an action on your behalf.
@@ -170,9 +152,7 @@ role. However, doing so might break the functionality of the service.
 
 Amazon Monitron supports service roles.
 
-## Amazon Monitron Identity-Based
-
-Policy Examples
+## Amazon Monitron Identity-Based Policy Examples
 
 By default, IAM users and roles don't have permission to create or modify
 Amazon Monitron resources. They also can't perform tasks using the AWS Management Console. An IAM
@@ -188,16 +168,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy
-  Best Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Amazon Monitron Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Monitron Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Example: List All Amazon Monitron Projects](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
 - [Example: List Amazon Monitron Projects Based on Tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
 
-### Policy
-
-Best Practices
+### Policy Best Practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Monitron resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -230,9 +206,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using the
-
-Amazon Monitron Console
+### Using the Amazon Monitron Console
 
 To set up Amazon Monitron using the console, please complete the initial
 setup process using a high privilege user (such as one with the
@@ -289,24 +263,17 @@ JSON
 For more information, see [IAM
 JSON Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Troubleshooting Amazon Monitron Identity
-
-and Access
+## Troubleshooting Amazon Monitron Identity and Access
 
 Use the following information to help you diagnose and fix common issues that
 you might encounter when working with Amazon Monitron and IAM.
 
 ###### Topics
 
-- [I Am Not
-  Authorized to Perform an Action in Amazon Monitron](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I Want to
-  Allow People Outside of My AWS Account to Access My Amazon Monitron
-  Resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I Am Not Authorized to Perform an Action in Amazon Monitron](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I Want to Allow People Outside of My AWS Account to Access My Amazon Monitron Resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-### I Am Not
-
-Authorized to Perform an Action in Amazon Monitron
+### I Am Not Authorized to Perform an Action in Amazon Monitron
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -326,10 +293,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I Want to
-
-Allow People Outside of My AWS Account to Access My Amazon Monitron
-Resources
+### I Want to Allow People Outside of My AWS Account to Access My Amazon Monitron Resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -337,8 +301,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether Amazon Monitron supports these features, see [How Amazon Monitron Works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether Amazon Monitron supports these features, see [How Amazon Monitron Works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

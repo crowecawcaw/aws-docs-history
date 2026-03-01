@@ -9,12 +9,9 @@ procedure.
 
 ###### Topics
 
-- [Configuring Kinesis manually in the
-  console](#kinesis-configure-console-v2 "#kinesis-configure-console-v2")
+- [Configuring Kinesis manually in the console](#kinesis-configure-console-v2 "#kinesis-configure-console-v2")
 
-## Configuring Kinesis manually in the
-
-console
+## Configuring Kinesis manually in the console
 
 1. Sign in to the AWS Management Console and open the Kinesis console at
    https://console.aws.amazon.com/kinesis.

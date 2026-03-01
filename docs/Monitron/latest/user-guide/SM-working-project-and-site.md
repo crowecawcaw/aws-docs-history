@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Navigating between projects and sites in
-
-the mobile app
+# Navigating between projects and sites in the mobile app
 
 Project-level admin users and project-level technicians can access and manage either
 project-level or site-level resources. Project-level admin users can add resources and

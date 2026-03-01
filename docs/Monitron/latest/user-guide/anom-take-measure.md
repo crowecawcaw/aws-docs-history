@@ -14,12 +14,9 @@ technicians can take this action.
 
 ###### Topics
 
-- [To take a one-time measurement (mobile app
-  only)](#take-measure "#take-measure")
+- [To take a one-time measurement (mobile app only)](#take-measure "#take-measure")
 
-## To take a one-time measurement (mobile app
-
-only)
+## To take a one-time measurement (mobile app only)
 
 1. From the Amazon Monitron mobile app, select your project.
 

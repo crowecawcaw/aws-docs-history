@@ -21,7 +21,7 @@ its normal state so that it can later determine abnormalities.
 
 ###### To pair a sensor with an asset
 
-1. Attach your sensor in the correct position, as described in [Step 3: Attach Sensors](gsg-sensors.md "gsg-sensors.md") . You can also attach
+1. Attach your sensor in the correct position, as described in [Step 3: Attach Sensors](gsg-sensors.md "gsg-sensors.md"). You can also attach
    the sensor after pairing it to the asset in this step 4.
 2. Make sure that the NFC feature on your smartphone is on and
    functioning.

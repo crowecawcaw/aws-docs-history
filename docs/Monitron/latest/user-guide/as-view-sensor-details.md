@@ -28,9 +28,7 @@ To check that a sensor is performing as expected, check its details page. The
 You can view sensor details on both the mobile and web app. The following section
 shows you how.
 
-### To view sensor details in the mobile
-
-app
+### To view sensor details in the mobile app
 
 1. From the **Assets** list, choose the asset that is
    paired with the sensor that you want to view.
@@ -46,9 +44,7 @@ app
 
 The **Sensor details** page is displayed.
 
-### To view sensor details in the web
-
-app
+### To view sensor details in the web app
 
 1. From the **Assets** list, choose the asset that is
    paired with the sensor that you want to view.

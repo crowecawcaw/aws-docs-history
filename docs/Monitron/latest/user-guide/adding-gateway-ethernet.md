@@ -21,8 +21,7 @@ Bluetooth.
 
 The best place to mount your gateway is higher than the sensors and no
 more than 20 to 30 meters away. For additional help with locating your
-gateway, see [Placing and installing an Ethernet
-gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md"). 3. Plug in the gateway and make sure the network light (yellow) and the
+gateway, see [Placing and installing an Ethernet gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md"). 3. Plug in the gateway and make sure the network light (yellow) and the
 Bluetooth light (blue) on the front of your gateway are blinking
 alternately. 4. Push the **Config** button on the gateway to put it
 into commissioning mode. The Bluetooth and network LED lights will start
@@ -41,8 +40,7 @@ list. 7. Choose the gateway.
 If you are using an iOS mobile device, and you have previously
 paired with this particular gateway, then you may need to make your
 device "forget" the gateway before re-pairing. For more information,
-see [Troubleshooting
-Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md "troubleshooting-Bluetooth-pairing-ethernet.md").
+see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md "troubleshooting-Bluetooth-pairing-ethernet.md").
 
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
@@ -50,8 +48,7 @@ gateway.
 ![Smartphone connecting via Bluetooth to an Amazon device with a smile logo.](images/phone-bluetooth-ethernet-gateway.png)
 
 If the mobile app continues to try to connect to the gateway without
-success, see [Troubleshooting
-Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
 
 ###### Note
 
@@ -66,8 +63,7 @@ It can take a few minutes for the gateway to be commissioned and to
 connect to the network.
 
 If you have further difficulties making the gateway work, it might be
-helpful to reset it. For more information, see [Resetting the Ethernet gateway to
-factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
+helpful to reset it. For more information, see [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
 
     1. If you choose automatic (DHCP), Amazon Monitron will
      automatically configure the network to connect to the

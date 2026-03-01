@@ -9,14 +9,11 @@ like this.
 
 ###### Topics
 
-- [Setting up your Monitron network
-  foundation with your mobile app](#network-mobile-foundation "#network-mobile-foundation")
+- [Setting up your Monitron network foundation with your mobile app](#network-mobile-foundation "#network-mobile-foundation")
 - [Setting up your gateways](#network-gateways "#network-gateways")
 - [Setting up your sensors](#network-sensors "#network-sensors")
 
-## Setting up your Monitron network
-
-foundation with your mobile app
+## Setting up your Monitron network foundation with your mobile app
 
 1. Your mobile device uses Wi-Fi or a signal from outside the facility (such
    as a satellite or a tower) to connect to the internet.

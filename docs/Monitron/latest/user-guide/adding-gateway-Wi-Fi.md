@@ -38,8 +38,7 @@ list. 7. Choose the gateway.
 If you are using an iOS mobile device, and you have previously
 paired with this particular gateway, you may need to make your
 device "forget" the gateway before re-pairing. For more information,
-see [Troubleshooting
-Bluetooth pairing](troubleshooting-Bluetooth-pairing-wireless.md "troubleshooting-Bluetooth-pairing-wireless.md").
+see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-wireless.md "troubleshooting-Bluetooth-pairing-wireless.md").
 
 It can take a few moments for Amazon Monitron to connect to the new
 gateway.
@@ -47,13 +46,11 @@ gateway.
 ![Smartphone connecting to AWS service via Bluetooth, represented by icons and symbols.](images/gs-gateway-bluetooth.png)
 
 If the mobile app continues to try to connect to the gateway without
-success, see [Troubleshooting Wi-Fi gateway
-detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md"). 8. After it connects to the gateway, Amazon Monitron scans for Wi-Fi
+success, see [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md"). 8. After it connects to the gateway, Amazon Monitron scans for Wi-Fi
 networks. Choose the Wi-Fi network that you want to use. 9. Enter your Wi-Fi password, and then choose
 **Connect**.
 
 It can take a few minutes for the gateway to be commissioned and to
 connect to the Wi-Fi network.
 
-If you have further difficulties, see [Resetting the Wi-Fi gateway to factory
-settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md").
+If you have further difficulties, see [Resetting the Wi-Fi gateway to factory settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md").

@@ -6,16 +6,11 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 
 ###### Topics
 
-- [Step 1: Creating an Amazon S3 bucket (with
-  AWS CloudShell)](#create-s3-with-shell "#create-s3-with-shell")
-- [Step 2: Granting Amazon Monitron access to your
-  Amazon S3 bucket (with AWS CloudShell)](#create-policy-with-shell "#create-policy-with-shell")
-- [Step 3: Creating your support
-  ticket](#create-support-ticket "#create-support-ticket")
+- [Step 1: Creating an Amazon S3 bucket (with AWS CloudShell)](#create-s3-with-shell "#create-s3-with-shell")
+- [Step 2: Granting Amazon Monitron access to your Amazon S3 bucket (with AWS CloudShell)](#create-policy-with-shell "#create-policy-with-shell")
+- [Step 3: Creating your support ticket](#create-support-ticket "#create-support-ticket")
 
-## Step 1: Creating an Amazon S3 bucket (with
-
-AWS CloudShell)
+## Step 1: Creating an Amazon S3 bucket (with AWS CloudShell)
 
 1. Log in to the AWS Console.
 2. Open AWS CloudShell
@@ -59,9 +54,7 @@ You should see output that looks something like this:
 arn:aws:s3:::bucketname
 ```
 
-## Step 2: Granting Amazon Monitron access to your
-
-Amazon S3 bucket (with AWS CloudShell)
+## Step 2: Granting Amazon Monitron access to your Amazon S3 bucket (with AWS CloudShell)
 
 1. Paste the code below into a text editor, and save it as:
    monitron-assumes-role.json. Do not use Microsoft Word, which will add
@@ -266,9 +259,7 @@ You are responsible for taking the appropriate steps to secure your
 data. We strongly recommend using server-side encryption and blocking
 public access to your bucket. For more information, see [Blocking public access](../../../AmazonS3/latest/userguide/access-control-block-public-access.md "../../../AmazonS3/latest/userguide/access-control-block-public-access.md").
 
-## Step 3: Creating your support
-
-ticket
+## Step 3: Creating your support ticket
 
 1. From your AWS console, choose the question mark icon near the upper
    right corner of any page, then choose **Support

@@ -14,7 +14,5 @@ use with no additional charge.
 - [Audience](security_iam_audience.md "security_iam_audience.md")
 - [Authenticating with Identities](security_iam_authentication.md "security_iam_authentication.md")
 - [Managing Access Using Policies](security_iam_access-manage.md "security_iam_access-manage.md")
-- [How Amazon Monitron Works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Using service-linked roles for
-  Amazon Monitron](using-service-linked-roles.md "using-service-linked-roles.md")
+- [How Amazon Monitron Works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Using service-linked roles for Amazon Monitron](using-service-linked-roles.md "using-service-linked-roles.md")

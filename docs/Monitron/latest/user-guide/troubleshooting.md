@@ -15,28 +15,21 @@ Android.
 
 ###### Topics
 
-- [Troubleshooting Issues with Amazon Monitron
-  Sensors](#trouble-sensor-issues "#trouble-sensor-issues")
-- [Troubleshooting issues with Amazon Monitron
-  gateways](#gateway-fail2 "#gateway-fail2")
+- [Troubleshooting Issues with Amazon Monitron Sensors](#trouble-sensor-issues "#trouble-sensor-issues")
+- [Troubleshooting issues with Amazon Monitron gateways](#gateway-fail2 "#gateway-fail2")
 
-## Troubleshooting Issues with Amazon Monitron
-
-Sensors
+## Troubleshooting Issues with Amazon Monitron Sensors
 
 As a completely self-contained unit, there aren't many things that are likely to go
 wrong with a sensor. However, some issues can still occur.
 
 ###### Topics
 
-- [If you can't commission your
-  sensors](#trouble-cannot-commission "#trouble-cannot-commission")
+- [If you can't commission your sensors](#trouble-cannot-commission "#trouble-cannot-commission")
 - [If your sensor is offline](#trouble-sending-measurements "#trouble-sending-measurements")
 - [If your sensor falls off](#trouble-sensor-falling-off "#trouble-sensor-falling-off")
 
-### If you can't commission your
-
-sensors
+### If you can't commission your sensors
 
 Consider the following questions.
 
@@ -124,21 +117,15 @@ If your sensor has stopped sending data, try the following:
 
 [Re-mount it](as-how-sensors.md "as-how-sensors.md").
 
-## Troubleshooting issues with Amazon Monitron
-
-gateways
+## Troubleshooting issues with Amazon Monitron gateways
 
 ###### Topics
 
-- [If your mobile app can't pair with the
-  gateway](#gateway-detection-fail "#gateway-detection-fail")
-- [If commissioning the gateway
-  fails](#gateway-commissioning-fail "#gateway-commissioning-fail")
+- [If your mobile app can't pair with the gateway](#gateway-detection-fail "#gateway-detection-fail")
+- [If commissioning the gateway fails](#gateway-commissioning-fail "#gateway-commissioning-fail")
 - [If your gateway goes offline](#gateway-stops-working "#gateway-stops-working")
 
-### If your mobile app can't pair with the
-
-gateway
+### If your mobile app can't pair with the gateway
 
 If you choose **Add gateway** in your mobile app, but the app
 can't find the gateway, try the following.
@@ -184,9 +171,7 @@ If none of these actions resolves the issue, try the following:
   or [reset your Ethernet
   gateway](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
 
-### If commissioning the gateway
-
-fails
+### If commissioning the gateway fails
 
 If the Amazon Monitron gateway commissioning process fails, try the
 following:
@@ -243,9 +228,7 @@ to the network. In such cases, try the following:
 - If it's an Ethernet gateway, check the network configuration.
 - Delete the gateway using the Amazon Monitron mobile app, do a factory
   reset of the gateway, and then install the gateway again. For more
-  information, see [Resetting the Wi-Fi gateway to factory
-  settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md") or [Resetting the Ethernet gateway to
-  factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
+  information, see [Resetting the Wi-Fi gateway to factory settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md") or [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
 
 If none of these suggestions helps to get your Amazon Monitron device working
 again, contact AWS Support.

@@ -10,14 +10,10 @@ contains instructions for connecting to your project.
 
 ###### Topics
 
-- [To generate an email invitation to a site or project using the mobile
-  app](#w2aac28c15c27b7 "#w2aac28c15c27b7")
-- [To generate an email invitation to a site or project using the web
-  app](#w2aac28c15c27b9 "#w2aac28c15c27b9")
+- [To generate an email invitation to a site or project using the mobile app](#w2aac28c15c27b7 "#w2aac28c15c27b7")
+- [To generate an email invitation to a site or project using the web app](#w2aac28c15c27b9 "#w2aac28c15c27b9")
 
-## To generate an email invitation to a site or project using the mobile
-
-app
+## To generate an email invitation to a site or project using the mobile app
 
 1. Add the user to the site or project.
 2. Choose the vertical ellipse icon (
@@ -32,9 +28,7 @@ addressed to that user. It contains two links. One link is to download
 the Amazon Monitron mobile app from the Google Play Store. The other is to open
 the project to which the user has been added. 4. Verify that the email is correct, and then send it to the user.
 
-## To generate an email invitation to a site or project using the web
-
-app
+## To generate an email invitation to a site or project using the web app
 
 1. Add the user to the site or project.
 2. Choose **Users** from the left nav.

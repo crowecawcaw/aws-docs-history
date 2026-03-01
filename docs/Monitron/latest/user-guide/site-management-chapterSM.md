@@ -20,5 +20,4 @@ to each site.
 - [Creating a site](SM-creating-site.md "SM-creating-site.md")
 - [Changing a site name](SM-editing-site.md "SM-editing-site.md")
 - [Deleting a site](SM-deleting-site.md "SM-deleting-site.md")
-- [Navigating between projects and sites in
-  the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md")
+- [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md")

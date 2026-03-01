@@ -49,16 +49,12 @@ unmuting alerts, you can choose from the following options.
 
 ###### Available options
 
-- [Resume all alerts (alarms and
-  warnings)](#unmuting-alerts "#unmuting-alerts")
-- [Resume alarms but keep
-  warnings muted](#unmuting-alarms-muting-warnings "#unmuting-alarms-muting-warnings")
+- [Resume all alerts (alarms and warnings)](#unmuting-alerts "#unmuting-alerts")
+- [Resume alarms but keep warnings muted](#unmuting-alarms-muting-warnings "#unmuting-alarms-muting-warnings")
 - [Resume only alarms](#resume-alarms "#resume-alarms")
 - [Resume only warnings](#resume-warnings "#resume-warnings")
 
-### Resume all alerts (alarms and
-
-warnings)
+### Resume all alerts (alarms and warnings)
 
 If you've muted both alarms and warnings, you can unmute them.
 
@@ -72,9 +68,7 @@ If you've muted both alarms and warnings, you can unmute them.
 
 ![Graph showing single axis vibration measurements over time with warning and alarm thresholds.](images/resume-alerts-web-3.png)
 
-### Resume alarms but keep
-
-warnings muted
+### Resume alarms but keep warnings muted
 
 If you've muted both alarms and warnings, you can unmute alarms and keep
 warnings muted.

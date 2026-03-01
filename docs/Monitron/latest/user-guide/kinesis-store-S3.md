@@ -6,14 +6,10 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 
 ###### Topics
 
-- [Using a predefined CloudFormation
-  template](#kinesis-cloudfront-makestack "#kinesis-cloudfront-makestack")
-- [Configuring Kinesis manually in the
-  console](#kinesis-configure-console "#kinesis-configure-console")
+- [Using a predefined CloudFormation template](#kinesis-cloudfront-makestack "#kinesis-cloudfront-makestack")
+- [Configuring Kinesis manually in the console](#kinesis-configure-console "#kinesis-configure-console")
 
-## Using a predefined CloudFormation
-
-template
+## Using a predefined CloudFormation template
 
 Amazon Monitron provides a predefined AWS CloudFormation template to help quickly set up the
 Firehose to deliver data from a Kinesis data stream to the Amazon S3 bucket. This
@@ -40,9 +36,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
 7. On the next page, choose the refresh icon as often as you like until
    the status of the stack is CREATE_COMPLETE.
 
-## Configuring Kinesis manually in the
-
-console
+## Configuring Kinesis manually in the console
 
 1. Sign in to the AWS Management Console and open the Kinesis console at
    https://console.aws.amazon.com/kinesis.

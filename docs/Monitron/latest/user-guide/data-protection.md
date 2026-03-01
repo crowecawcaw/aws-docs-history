@@ -40,5 +40,4 @@ Security Blog_.
 
 - [Data at rest](data-at-rest.md "data-at-rest.md")
 - [Data in transit](data-in-transit.md "data-in-transit.md")
-- [AWS KMS and data encryption in
-  Amazon Monitron](kms-data-encrypt.md "kms-data-encrypt.md")
+- [AWS KMS and data encryption in Amazon Monitron](kms-data-encrypt.md "kms-data-encrypt.md")

@@ -18,14 +18,10 @@ reset of the device before commissioning it again.
 
 ###### Topics
 
-- [Deleting an Ethernet gateway using
-  the mobile app](#deleting-gateway-ethernet-mobile "#deleting-gateway-ethernet-mobile")
-- [Deleting an Ethernet gateway
-  using the web app](#deleting-gateway-ethernet-web "#deleting-gateway-ethernet-web")
+- [Deleting an Ethernet gateway using the mobile app](#deleting-gateway-ethernet-mobile "#deleting-gateway-ethernet-mobile")
+- [Deleting an Ethernet gateway using the web app](#deleting-gateway-ethernet-web "#deleting-gateway-ethernet-web")
 
-## Deleting an Ethernet gateway using
-
-the mobile app
+## Deleting an Ethernet gateway using the mobile app
 
 1. Using the mobile app, navigate to the **Gateways**
    page.
@@ -35,9 +31,7 @@ the mobile app
 3. Choose **Delete Gateway**.
 4. Choose **Delete** again.
 
-## Deleting an Ethernet gateway
-
-using the web app
+## Deleting an Ethernet gateway using the web app
 
 1. Navigate to the [list of Wi-Fi
    gateways.](ethernet-gateway-list.md "ethernet-gateway-list.md")

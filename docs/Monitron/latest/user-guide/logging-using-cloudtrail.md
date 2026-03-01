@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Logging Amazon Monitron actions with
-
-AWS CloudTrail
+# Logging Amazon Monitron actions with AWS CloudTrail
 
 Amazon Monitron is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon Monitron. CloudTrail captures API calls for
@@ -21,7 +19,5 @@ To learn more about CloudTrail, including how to configure and enable it, see th
 
 ###### Topics
 
-- [Amazon Monitron information in
-  CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
-- [Example: Amazon Monitron log file
-  entries](understanding-service-name-entries.md "understanding-service-name-entries.md")
+- [Amazon Monitron information in CloudTrail](service-name-info-in-cloudtrail.md "service-name-info-in-cloudtrail.md")
+- [Example: Amazon Monitron log file entries](understanding-service-name-entries.md "understanding-service-name-entries.md")

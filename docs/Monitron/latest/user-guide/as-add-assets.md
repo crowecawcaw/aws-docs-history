@@ -29,13 +29,12 @@ the app.
 ![Site name dropdown menu in a navigation bar with a notification bell icon.](images/site-level.png)
 
 For more information about changing from site level to project level and
-vice versa, see [Navigating between projects and sites in
-the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
+vice versa, see [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
 asset**. 4. On the **Add asset** page, for **Asset
 name**, add a name for the asset you want to create and then
 select **Add**.
 
-![Add asset interface with warning message, asset name field, and example input.](/images/Monitron/latest/user-guide/images/add-asset-mobile-2.png)
+![Add asset interface with warning message, asset name field, and example input.](images/add-asset-mobile-2.png)
 
 ###### Note
 

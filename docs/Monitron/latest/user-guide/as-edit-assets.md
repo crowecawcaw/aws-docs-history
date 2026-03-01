@@ -8,13 +8,10 @@ After you add an asset, you can change both its name and machine class.
 
 ###### Topics
 
-- [To change an asset's name in the mobile
-  app](#asset-edit-mobile "#asset-edit-mobile")
+- [To change an asset's name in the mobile app](#asset-edit-mobile "#asset-edit-mobile")
 - [To change an asset's name in the web app](#asset-edit-web "#asset-edit-web")
 
-## To change an asset's name in the mobile
-
-app
+## To change an asset's name in the mobile app
 
 1. From the app's main menu, choose **Assets**.
 2. For **Asset details**, choose

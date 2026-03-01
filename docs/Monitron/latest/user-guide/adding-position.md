@@ -18,14 +18,10 @@ the Amazon Monitron mobile app. Using the apps, you can:
 
 ###### Topics
 
-- [To add a sensor position on the web
-  app](#adding-position-web "#adding-position-web")
-- [To add a sensor position on the mobile
-  app](#adding-position-mobile "#adding-position-mobile")
+- [To add a sensor position on the web app](#adding-position-web "#adding-position-web")
+- [To add a sensor position on the mobile app](#adding-position-mobile "#adding-position-mobile")
 
-## To add a sensor position on the web
-
-app
+## To add a sensor position on the web app
 
 1. Choose the sensor whose position you want to create or edit from the
    **Assets** list.
@@ -44,9 +40,7 @@ name**, **Position type** and
 
 ![Asset management interface showing positions with various statuses and types.](images/web-app-add-position-4.png)
 
-## To add a sensor position on the mobile
-
-app
+## To add a sensor position on the mobile app
 
 1. Choose the sensor whose position you want to create or edit from the
    **Assets** list.

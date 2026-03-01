@@ -20,14 +20,10 @@ shows you how.
 
 ###### Topics
 
-- [To view Wi-Fi gateway details
-  in the mobile app](#w2aac19c17c43c13 "#w2aac19c17c43c13")
-- [To view Wi-FI gateway details in
-  the web app](#w2aac19c17c43c15 "#w2aac19c17c43c15")
+- [To view Wi-Fi gateway details in the mobile app](#w2aac19c17c43c13 "#w2aac19c17c43c13")
+- [To view Wi-FI gateway details in the web app](#w2aac19c17c43c15 "#w2aac19c17c43c15")
 
-## To view Wi-Fi gateway details
-
-in the mobile app
+## To view Wi-Fi gateway details in the mobile app
 
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
@@ -39,9 +35,7 @@ details**.
 
 ![Gateway details page showing status, physical ID, IP address, and other network information.](images/wifi-gateway-details-mobile-v3.png)
 
-## To view Wi-FI gateway details in
-
-the web app
+## To view Wi-FI gateway details in the web app
 
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.

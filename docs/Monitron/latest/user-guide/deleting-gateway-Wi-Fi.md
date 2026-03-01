@@ -15,14 +15,10 @@ the data might be lost.
 
 ###### Topics
 
-- [To delete a gateway using the
-  mobile app](#delete-gateway-wifi-mobile "#delete-gateway-wifi-mobile")
-- [To delete a gateway using the web
-  app](#delete-gateway-wifi-web "#delete-gateway-wifi-web")
+- [To delete a gateway using the mobile app](#delete-gateway-wifi-mobile "#delete-gateway-wifi-mobile")
+- [To delete a gateway using the web app](#delete-gateway-wifi-web "#delete-gateway-wifi-web")
 
-## To delete a gateway using the
-
-mobile app
+## To delete a gateway using the mobile app
 
 1. Navigate to the **Gateways** page.
 2. Choose the vertical ellipses icon (
@@ -31,9 +27,7 @@ mobile app
 3. Choose **Delete gateway**.
 4. Choose **Delete** again.
 
-## To delete a gateway using the web
-
-app
+## To delete a gateway using the web app
 
 1. Navigate to the [Viewing the list of gateways](wi-fi-gateway-list.md "wi-fi-gateway-list.md").
 2. Select the gateway from the table.

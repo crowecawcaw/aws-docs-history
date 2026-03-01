@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Viewing Ethernet gateway
-
-details
+# Viewing Ethernet gateway details
 
 You can view gateway details on your mobile or web app. The following gateway
 details are viewable:
@@ -22,14 +20,10 @@ shows you how.
 
 ###### Topics
 
-- [To view Ethernet gateway
-  details in the mobile app](#w2aac19c13c43c13 "#w2aac19c13c43c13")
-- [To view Ethernet gateway
-  details in the web app](#w2aac19c13c43c15 "#w2aac19c13c43c15")
+- [To view Ethernet gateway details in the mobile app](#w2aac19c13c43c13 "#w2aac19c13c43c13")
+- [To view Ethernet gateway details in the web app](#w2aac19c13c43c15 "#w2aac19c13c43c15")
 
-## To view Ethernet gateway
-
-details in the mobile app
+## To view Ethernet gateway details in the mobile app
 
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.
@@ -41,9 +35,7 @@ details**.
 
 ![Gateway details page showing device status, specifications, and network information.](images/gateway-details-mobile-ethernet.png)
 
-## To view Ethernet gateway
-
-details in the web app
+## To view Ethernet gateway details in the web app
 
 1. From the **Gateways** list, choose the gateway whose
    details you want to view.

@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Amazon Monitron information in
-
-CloudTrail
+# Amazon Monitron information in CloudTrail
 
 CloudTrail is enabled for your AWS users when you create your account. When supported
 event activity occurs in Amazon Monitron, that activity is recorded in a CloudTrail event along

@@ -2,18 +2,14 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Exporting your data with the
-
-console
+# Exporting your data with the console
 
 ###### Topics
 
 - [Step 1: Setting up your Amazon S3 bucket](#gdpr-console-s3 "#gdpr-console-s3")
-- [Step 2: Give Amazon Monitron permission to
-  access Amazon S3](#gdpr-console-set-policy "#gdpr-console-set-policy")
+- [Step 2: Give Amazon Monitron permission to access Amazon S3](#gdpr-console-set-policy "#gdpr-console-set-policy")
 - [Step 3: Create the role](#gdpr-console-create-role "#gdpr-console-create-role")
-- [Step 4: Create the trust
-  policy](#gdpr-console-trust-policy "#gdpr-console-trust-policy")
+- [Step 4: Create the trust policy](#gdpr-console-trust-policy "#gdpr-console-trust-policy")
 - [Step 5: Create the support case](#gdpr-console-case "#gdpr-console-case")
 
 ## Step 1: Setting up your Amazon S3 bucket
@@ -52,9 +48,7 @@ ARN, and region of the bucket.
 
 ![S3 bucket properties showing name, region, ARN, and creation date for monitron-export-example.](images/gdpr-s3-properties-tab.png)
 
-## Step 2: Give Amazon Monitron permission to
-
-access Amazon S3
+## Step 2: Give Amazon Monitron permission to access Amazon S3
 
 1. Open the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and
    choose **Policies**.
@@ -149,9 +143,7 @@ following:
 
 ![Form for creating a new role with fields for role name, description, trust policy, and permissions.](images/s3-export-18.png)
 
-## Step 4: Create the trust
-
-policy
+## Step 4: Create the trust policy
 
 1. Search for the role you just created and choose the role.
 

@@ -6,14 +6,10 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 
 ###### Topics
 
-- [Renaming a sensor position on the mobile
-  app](#rename-position-mobile "#rename-position-mobile")
-- [Renaming a sensor position on the web
-  app](#rename-position-web "#rename-position-web")
+- [Renaming a sensor position on the mobile app](#rename-position-mobile "#rename-position-mobile")
+- [Renaming a sensor position on the web app](#rename-position-web "#rename-position-web")
 
-## Renaming a sensor position on the mobile
-
-app
+## Renaming a sensor position on the mobile app
 
 1. From the **Assets** list, choose the asset with the
    sensor position whose name you want to change.
@@ -26,9 +22,7 @@ app
 
 ![Text input field for entering a new position name to be monitored by the sensor.](images/position-details-name.png) 7. Choose **Save**.
 
-## Renaming a sensor position on the web
-
-app
+## Renaming a sensor position on the web app
 
 1. Select the position.
 

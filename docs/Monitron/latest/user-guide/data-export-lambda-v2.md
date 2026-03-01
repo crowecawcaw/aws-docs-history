@@ -6,17 +6,12 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 
 ###### Topics
 
-- [Step 1: Create the IAM
-  role that gives your function permission to access AWS
-  resources](#data-export-lambda-v2-1 "#data-export-lambda-v2-1")
+- [Step 1: Create the IAM role that gives your function permission to access AWS resources](#data-export-lambda-v2-1 "#data-export-lambda-v2-1")
 - [Step 2: Create the Lambda function](#create-lambda-function-v2 "#create-lambda-function-v2")
 - [Step 3: Configure the Lambda function](#configure-lambda-function-v2 "#configure-lambda-function-v2")
 - [Step 4: Enable Kinesis trigger in AWS Lambda console](#configure-kinesis-trigger-v2 "#configure-kinesis-trigger-v2")
 
-## Step 1: Create the [IAM
-
-role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") that gives your function permission to access AWS
-resources
+## Step 1: Create the [IAM role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") that gives your function permission to access AWS resources
 
 1. Open the [roles
    page](https://console.aws.amazon.com/iam/home?#/roles "https://console.aws.amazon.com/iam/home?#/roles") in the IAM console.

@@ -17,20 +17,14 @@ To learn about using Amazon Monitron with Wi-Fi gateways, see [Wi-Fi gateways](s
 
 ###### Topics
 
-- [Reading the LED lights on an Ethernet
-  gateway](reading-LED-lights-ethernet.md "reading-LED-lights-ethernet.md")
-- [Placing and installing an Ethernet
-  gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md")
+- [Reading the LED lights on an Ethernet gateway](reading-LED-lights-ethernet.md "reading-LED-lights-ethernet.md")
+- [Placing and installing an Ethernet gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md")
 - [Commissioning an Ethernet gateway](adding-gateway-ethernet.md "adding-gateway-ethernet.md")
-- [Troubleshooting
-  Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md")
-- [Troubleshooting
-  Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md "troubleshooting-Bluetooth-pairing-ethernet.md")
-- [Resetting the Ethernet gateway to
-  factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md")
+- [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md")
+- [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md "troubleshooting-Bluetooth-pairing-ethernet.md")
+- [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md")
 - [Viewing the list of gateways](ethernet-gateway-list.md "ethernet-gateway-list.md")
-- [Viewing Ethernet gateway
-  details](viewing-gateway-details-ethernet.md "viewing-gateway-details-ethernet.md")
+- [Viewing Ethernet gateway details](viewing-gateway-details-ethernet.md "viewing-gateway-details-ethernet.md")
 - [Editing Ethernet gateway name](editing-gateway-ethernet.md "editing-gateway-ethernet.md")
 - [Deleting an Ethernet gateway](deleting-gateway-ethernet.md "deleting-gateway-ethernet.md")
 - [Retrieving MAC address details](mac-address-ethernet-gateway.md "mac-address-ethernet-gateway.md")

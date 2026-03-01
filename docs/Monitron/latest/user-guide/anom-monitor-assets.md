@@ -17,8 +17,7 @@ problem occurs, you can see it in the **Assets** list in the Amazon Monitron app
 
 The **Assets** list displays every asset in your site or project,
 showing the assets for the site or project that you are currently viewing. For more
-information about sites and projects, see [Navigating between projects and sites in
-the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md").
+information about sites and projects, see [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md").
 
 When you open the Amazon Monitron mobile app, it displays the list of assets
 associated with the site or project that you last worked with. To navigate to the

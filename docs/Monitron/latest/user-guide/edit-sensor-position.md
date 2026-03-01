@@ -18,16 +18,11 @@ resolve any alerts before editing machine class.
 
 ###### Topics
 
-- [To edit machine class on the
-  mobile app](#edit-sensor-machine-class-mobile "#edit-sensor-machine-class-mobile")
-- [To edit machine class on the web
-  app](#edit-sensor-machine-class-web "#edit-sensor-machine-class-web")
-- [To edit machine class
-  from the position detail page](#edit-sensor-machine-class-position-detail "#edit-sensor-machine-class-position-detail")
+- [To edit machine class on the mobile app](#edit-sensor-machine-class-mobile "#edit-sensor-machine-class-mobile")
+- [To edit machine class on the web app](#edit-sensor-machine-class-web "#edit-sensor-machine-class-web")
+- [To edit machine class from the position detail page](#edit-sensor-machine-class-position-detail "#edit-sensor-machine-class-position-detail")
 
-## To edit machine class on the
-
-mobile app
+## To edit machine class on the mobile app
 
 1. From the **Assets** list, choose the asset with the
    sensor position you want to edit.
@@ -63,9 +58,7 @@ machine class you want to assign to the sensor. Choose
 The new machine class will take effect at the next measurement
 interval. The single-axis chart threshold will be updated.
 
-## To edit machine class on the web
-
-app
+## To edit machine class on the web app
 
 1. From the **Assets** table, choose the
    **Actions** button.
@@ -81,9 +74,7 @@ The new machine class will take effect at the next measurement
 interval and impact position status. The single-axis chart threshold
 will be updated.
 
-## To edit machine class
-
-from the position detail page
+## To edit machine class from the position detail page
 
 1. From the **Positions** table, choose the
    **Actions** button.

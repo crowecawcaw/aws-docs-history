@@ -10,14 +10,10 @@ position.
 
 ###### Topics
 
-- [To delete a sensor position in the
-  mobile app](#delete-sensorposition-mobile "#delete-sensorposition-mobile")
-- [To delete a sensor position in the web
-  app](#delete-sensorposition-web "#delete-sensorposition-web")
+- [To delete a sensor position in the mobile app](#delete-sensorposition-mobile "#delete-sensorposition-mobile")
+- [To delete a sensor position in the web app](#delete-sensorposition-web "#delete-sensorposition-web")
 
-## To delete a sensor position in the
-
-mobile app
+## To delete a sensor position in the mobile app
 
 1. From the **Assets** list, choose the asset that has the
    sensor position that you want to delete.
@@ -30,9 +26,7 @@ mobile app
 
 ![Dialog box for deleting "Pump sensor 2" position with warning and Delete sensor button.](images/position-sensor-delete.png) 5. Choose **Delete**.
 
-## To delete a sensor position in the web
-
-app
+## To delete a sensor position in the web app
 
 1. Select the position.
 2. Choose the **Actions** button in the

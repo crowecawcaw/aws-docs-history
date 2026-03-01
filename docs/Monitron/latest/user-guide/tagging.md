@@ -38,15 +38,11 @@ The following restrictions also apply to Amazon Monitron project tags:
 
 ###### Topics
 
-- [Adding a tag to a project when you create
-  it](#tag-original-1 "#tag-original-1")
-- [Adding a tag to a project after it’s been
-  created](#tag-existing-1 "#tag-existing-1")
+- [Adding a tag to a project when you create it](#tag-original-1 "#tag-original-1")
+- [Adding a tag to a project after it’s been created](#tag-existing-1 "#tag-existing-1")
 - [Modifying or removing a tag](#modify-tag-1 "#modify-tag-1")
 
-## Adding a tag to a project when you create
-
-it
+## Adding a tag to a project when you create it
 
 ###### To add a tag to a project when creating it
 
@@ -67,9 +63,7 @@ The key must be unique for the project. The value is optional.
 
 ![Tags interface showing a key-value pair for glass fabrication and windshields, with an empty row below.](images/tag-c.png)
 
-## Adding a tag to a project after it’s been
-
-created
+## Adding a tag to a project after it’s been created
 
 You can add a tag to a project on the project detail page.
 

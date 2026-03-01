@@ -10,12 +10,9 @@ that action will be taken.
 
 ###### Topics
 
-- [To view and acknowledge a machine
-  abnormality](#anom-acknowledge "#anom-acknowledge")
+- [To view and acknowledge a machine abnormality](#anom-acknowledge "#anom-acknowledge")
 
-## To view and acknowledge a machine
-
-abnormality
+## To view and acknowledge a machine abnormality
 
 1. From the **Assets** list, choose the asset that is
    reporting an abnormality.

@@ -2,20 +2,15 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Exporting your data with CloudFormation
-
-(recommended option)
+# Exporting your data with CloudFormation (recommended option)
 
 ###### Topics
 
-- [Step 1: Create your Amazon S3 bucket,
-  IAM role, and IAM policies.](#gdpr-cloudfront-makestack "#gdpr-cloudfront-makestack")
+- [Step 1: Create your Amazon S3 bucket, IAM role, and IAM policies.](#gdpr-cloudfront-makestack "#gdpr-cloudfront-makestack")
 - [Step 2: Note your resources](#gdpr-cloudfront-resources "#gdpr-cloudfront-resources")
 - [Step 3: Create the support case](#gdpr-cloudfront-case "#gdpr-cloudfront-case")
 
-## Step 1: Create your Amazon S3 bucket,
-
-IAM role, and IAM policies.
+## Step 1: Create your Amazon S3 bucket, IAM role, and IAM policies.
 
 1. Sign in to your AWS account.
 2. Open a new browser tab with the following URL.

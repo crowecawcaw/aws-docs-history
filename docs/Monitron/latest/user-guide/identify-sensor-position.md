@@ -11,10 +11,8 @@ through your asset list.
 
 - [Identifying paired sensor](#finding-paired-sensor "#finding-paired-sensor")
 - [Missing or unread sensor](#missing-or-unread-sensor "#missing-or-unread-sensor")
-- [Permissions and site commissioning
-  issues](#sensor-permissions-issues "#sensor-permissions-issues")
-- [Scanning sensor from another
-  site](#scanning-sensor-from-another-site "#scanning-sensor-from-another-site")
+- [Permissions and site commissioning issues](#sensor-permissions-issues "#sensor-permissions-issues")
+- [Scanning sensor from another site](#scanning-sensor-from-another-site "#scanning-sensor-from-another-site")
 
 ## Identifying paired sensor
 
@@ -41,9 +39,7 @@ sensor until you see a success message.
 
 If no sensor was added, add an asset and try again.
 
-## Permissions and site commissioning
-
-issues
+## Permissions and site commissioning issues
 
 If the sensor hasn’t been commissioned for a site, commission the sensor and try
 again.
@@ -55,9 +51,7 @@ permissions in the app and try again to read the sensor’s position details.
 
 ![Error message indicating sensor scan failure due to insufficient permissions.](images/android-sensor-scan-no-permissions.png)
 
-## Scanning sensor from another
-
-site
+## Scanning sensor from another site
 
 If you scan a sensor that is commissioned for another site, and you're redirected
 to that site, scan the sensor on that site.

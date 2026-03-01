@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Using service-linked roles for
-
-Amazon Monitron
+# Using service-linked roles for Amazon Monitron
 
 Amazon Monitron uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM
 role that is linked directly to Amazon Monitron. Service-linked roles are predefined
@@ -26,17 +24,10 @@ link to view the service-linked role documentation for that service.
 
 ###### Topics
 
-- [Service-linked role permissions for
-  Amazon Monitron](slr-permissions.md "slr-permissions.md")
-- [Creating a service-linked role for
-  Amazon Monitron](create-slr.md "create-slr.md")
-- [Editing a service-linked role for
-  Amazon Monitron](edit-slr.md "edit-slr.md")
-- [Deleting a service-linked role for
-  Amazon Monitron](delete-slr.md "delete-slr.md")
-- [Supported regions for Amazon Monitron service-linked
-  roles](slr-regions.md "slr-regions.md")
-- [AWS managed policies for
-  Amazon Monitron](monitron-managed-policies.md "monitron-managed-policies.md")
-- [Amazon Monitron updates to AWS managed
-  policies](managed-policy-updates.md "managed-policy-updates.md")
+- [Service-linked role permissions for Amazon Monitron](slr-permissions.md "slr-permissions.md")
+- [Creating a service-linked role for Amazon Monitron](create-slr.md "create-slr.md")
+- [Editing a service-linked role for Amazon Monitron](edit-slr.md "edit-slr.md")
+- [Deleting a service-linked role for Amazon Monitron](delete-slr.md "delete-slr.md")
+- [Supported regions for Amazon Monitron service-linked roles](slr-regions.md "slr-regions.md")
+- [AWS managed policies for Amazon Monitron](monitron-managed-policies.md "monitron-managed-policies.md")
+- [Amazon Monitron updates to AWS managed policies](managed-policy-updates.md "managed-policy-updates.md")

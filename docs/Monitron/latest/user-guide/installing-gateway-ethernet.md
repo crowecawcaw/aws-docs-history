@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Placing and installing an Ethernet
-
-gateway
+# Placing and installing an Ethernet gateway
 
 Unlike sensors, an Ethernet gateway doesn't need to be attached to the machines
 that are being monitored. However, it does need an available Ethernet network
@@ -115,5 +113,4 @@ After the bracket is mounted, attach the gateway to the bracket.
 
 Install the gateway with the Ethernet cable going downwards.
 
-If you have a problem with connecting to your gateway, see [Troubleshooting
-Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+If you have a problem with connecting to your gateway, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").

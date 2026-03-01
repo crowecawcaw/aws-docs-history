@@ -2,9 +2,7 @@ Amazon Monitron is no longer open to new customers. Existing customers can
 continue to use the service as normal. For capabilities similar to Amazon
 Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
 
-# Example: Amazon Monitron log file
-
-entries
+# Example: Amazon Monitron log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -19,10 +17,8 @@ The following examples show CloudTrail log entries that demonstrate the project 
 ###### Topics
 
 - [Successful DeleteProject action](#collapsible-section-1 "#collapsible-section-1")
-- [Failed DeleteProject action (authorization
-  error)](#collapsible-section-2 "#collapsible-section-2")
-- [Failed DeleteProject action (conflict
-  exception error)](#collapsible-section-3 "#collapsible-section-3")
+- [Failed DeleteProject action (authorization error)](#collapsible-section-2 "#collapsible-section-2")
+- [Failed DeleteProject action (conflict exception error)](#collapsible-section-3 "#collapsible-section-3")
 
 ## Successful DeleteProject action
 
@@ -75,9 +71,7 @@ successful `DeleteProject` action.
 
 [Show moreShow less](# "#")
 
-## Failed DeleteProject action (authorization
-
-error)
+## Failed DeleteProject action (authorization error)
 
 The following example shows what might appear in the CloudTrail log following a
 failed `DeleteProject` action due to an error occurring. In this
@@ -126,9 +120,7 @@ permission to delete the specified project.
 
 [Show moreShow less](# "#")
 
-## Failed DeleteProject action (conflict
-
-exception error)
+## Failed DeleteProject action (conflict exception error)
 
 The following example shows what might appear in the CloudTrail log following a
 failed `DeleteProject` action due to an error occurring. In this

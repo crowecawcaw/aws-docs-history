@@ -19,12 +19,9 @@ to make sure that email addresses for your users are added and synced.
 ###### Topics
 
 - [Understanding SSO requirements](#sso-requirements "#sso-requirements")
-- [Adding admin users using the native IAM Identity Center
-  directory](#mp-project-admin2 "#mp-project-admin2")
-- [Adding admin users using Microsoft Active
-  Directory](#mp-project-admin3 "#mp-project-admin3")
-- [Adding admin users using an external ID
-  provider](#mp-project-admin4 "#mp-project-admin4")
+- [Adding admin users using the native IAM Identity Center directory](#mp-project-admin2 "#mp-project-admin2")
+- [Adding admin users using Microsoft Active Directory](#mp-project-admin3 "#mp-project-admin3")
+- [Adding admin users using an external ID provider](#mp-project-admin4 "#mp-project-admin4")
 - [Returning to Amazon Monitron with IAM Identity Center](#logging-mon-sso "#logging-mon-sso")
 
 ## Understanding SSO requirements
@@ -119,9 +116,7 @@ consider increasing the quota. Otherwise, you may have issues with IAM Identity 
 you provision permission sets to accounts that have exceeded the IAM role
 limit.
 
-## Adding admin users using the native IAM Identity Center
-
-directory
+## Adding admin users using the native IAM Identity Center directory
 
 The simplest way to add admin users to your project is by using the IAM Identity Center
 native directory. You can use it by starting to use Amazon Monitron and letting it
@@ -170,9 +165,7 @@ Any admin user can add other users using the Amazon Monitron mobile app. For
 more information, see [Adding a User](adding-user.md "adding-user.md") in the _Amazon Monitron User
 Guide_.
 
-## Adding admin users using Microsoft Active
-
-Directory
+## Adding admin users using Microsoft Active Directory
 
 If you use Microsoft Active Directory (AD) for your organization's primary
 user directory, you can configure IAM Identity Center to use it. IAM Identity Center enables you to connect
@@ -212,9 +205,7 @@ search box. For example, if you enter "olg" in the search box, the list
 returns all users with the letters "olg" in their names, such as "Olga
 Kurth" and "Jamie Folgman." 8. Choose the users you want to assign as admin users. 9. Choose **Add** to add the admin users.
 
-## Adding admin users using an external ID
-
-provider
+## Adding admin users using an external ID provider
 
 If you're using an external Identity provider (IdP), you can configure IAM Identity Center
 to use that provider through the Security Assertion Markup Language (SAML) 2.0

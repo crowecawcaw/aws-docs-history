@@ -19,8 +19,7 @@ causes of failures. If none of the modes or causes apply to your situation, choo
 
 - [Failure modes](#failure-modes "#failure-modes")
 - [Failure causes](#failure-causes "#failure-causes")
-- [To resolve a machine abnormality using the mobile
-  app](#anom-resolve "#anom-resolve")
+- [To resolve a machine abnormality using the mobile app](#anom-resolve "#anom-resolve")
 
 ## Failure modes
 
@@ -72,9 +71,7 @@ The following are the Amazon Monitron failure causes:
 - **Wear**: Breakdown/Degradation over
   time
 
-## To resolve a machine abnormality using the mobile
-
-app
+## To resolve a machine abnormality using the mobile app
 
 1. From the **Assets** list, choose the asset that had an
    abnormality that you resolved.

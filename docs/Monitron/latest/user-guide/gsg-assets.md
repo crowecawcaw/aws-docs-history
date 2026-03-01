@@ -29,8 +29,7 @@ level in the app.
 ![Site name dropdown menu in a navigation bar with a notification bell icon.](images/site-level.png)
 
 For more information about changing from site level to project level
-and vice versa, see [Navigating between projects and sites in
-the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
+and vice versa, see [Navigating between projects and sites in the mobile app](SM-working-project-and-site.md "SM-working-project-and-site.md"). 3. From the **Assets** page, choose **Add
 asset**. 4. On the **Add asset** page, for **Asset
 name**, add a name for the asset you want to create and
 then select **Add**.
@@ -52,7 +51,7 @@ list** page.
 1. Sign in to your web app and select the project you want to add an
    asset to.
 
-![Projects page showing two projects with options to add, remove, or search projects.](/images/Monitron/latest/user-guide/images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and
+![Projects page showing two projects with options to add, remove, or search projects.](images/add-asset-1.png) 2. From the left navigation menu, choose **Sites**, and
 then select the site you want to the asset to.
 
 ![Amazon Monitron interface showing Sites page with one site listed and options to manage sites.](images/add-asset-2.png)

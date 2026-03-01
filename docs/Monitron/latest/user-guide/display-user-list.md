@@ -17,13 +17,10 @@ list of users:
 
 ###### Topics
 
-- [To display the list of users in the mobile
-  app](#w2aac28c19c11b9 "#w2aac28c19c11b9")
+- [To display the list of users in the mobile app](#w2aac28c19c11b9 "#w2aac28c19c11b9")
 - [To display the list of users in the web app](#w2aac28c19c11c11 "#w2aac28c19c11c11")
 
-## To display the list of users in the mobile
-
-app
+## To display the list of users in the mobile app
 
 1. Log into the Amazon Monitron mobile app on your smartphone.
 2. Choose the project or site whose users you want to view.

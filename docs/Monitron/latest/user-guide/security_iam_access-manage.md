@@ -12,9 +12,6 @@ By default, users and roles have no permissions. An IAM administrator creates IA
 
 ###### Topics
 
-- [Identity-Based
-  Policies](security_iam_access-manage-id-based-policies.md "security_iam_access-manage-id-based-policies.md")
-- [Other Policy
-  Types](security_iam_access-manage-other-policies.md "security_iam_access-manage-other-policies.md")
-- [Multiple Policy
-  Types](security_iam_access-manage-multiple-policies.md "security_iam_access-manage-multiple-policies.md")
+- [Identity-Based Policies](security_iam_access-manage-id-based-policies.md "security_iam_access-manage-id-based-policies.md")
+- [Other Policy Types](security_iam_access-manage-other-policies.md "security_iam_access-manage-other-policies.md")
+- [Multiple Policy Types](security_iam_access-manage-multiple-policies.md "security_iam_access-manage-multiple-policies.md")

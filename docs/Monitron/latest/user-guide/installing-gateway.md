@@ -150,5 +150,4 @@ The gateway is designed to be mounted with the small screw securing it at
 the top. However, installing it upside down doesn’t affect its
 performance.
 
-If you have problems connecting to your gateway, see [Troubleshooting Wi-Fi gateway
-detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md").
+If you have problems connecting to your gateway, see [Troubleshooting Wi-Fi gateway detection](gateway-failure-Wi-Fi.md "gateway-failure-Wi-Fi.md").
