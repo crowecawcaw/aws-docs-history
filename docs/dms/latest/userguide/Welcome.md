@@ -30,8 +30,7 @@ The following diagram illustrates the AWS DMS replication process.
 ###### References
 
 - AWS Regions that support AWS DMS – For information
-  about what AWS Regions support AWS DMS, see [Working with an AWS DMS replication
-  instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+  about what AWS Regions support AWS DMS, see [Working with an AWS DMS replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 - Cost of database migration – For information on the
   cost of database migration, see the [AWS Database Migration Service pricing page](https://aws.amazon.com/dms/pricing/ "https://aws.amazon.com/dms/pricing/").
 - AWS DMS features and benefits – For information about AWS DMS

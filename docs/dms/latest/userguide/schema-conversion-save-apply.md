@@ -1,6 +1,4 @@
-# Saving and applying your converted code
-
-in DMS Schema Conversion
+# Saving and applying your converted code in DMS Schema Conversion
 
 After DMS Schema Conversion converts your source database objects, it doesn't immediately apply the
 converted code to your target database. Instead, DMS Schema Conversion stores the converted code in
@@ -8,8 +6,7 @@ your project until you are ready to apply it to your target database.
 
 Before you apply the converted code, you can update your source database code and
 convert the updated objects again to address the existing action items. For more
-information about items that DMS Schema Conversion can't convert automatically, see [Creating database migration assessment reports with
-DMS Schema Conversion](assessment-reports.md "assessment-reports.md"). For more
+information about items that DMS Schema Conversion can't convert automatically, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md"). For more
 information about refreshing your source database objects in migration project for
 DMS Schema Conversion, see [Refreshing your database
 schemas](schema-conversion-refresh.md "schema-conversion-refresh.md").
@@ -19,9 +16,7 @@ save the code to a file as a SQL script. You can review these SQL scripts, edit 
 where necessary, and then manually apply these SQL scripts to your target
 database.
 
-## Saving your converted code to a SQL
-
-file
+## Saving your converted code to a SQL file
 
 You can save your converted schema as SQL scripts in a text file. You can modify
 the converted code to address action items that DMS Schema Conversion can't convert
@@ -62,9 +57,7 @@ selected node or the parent node in blue. It then activates the
 **Apply** to confirm your choice and apply the converted code
 to your target database.
 
-## Applying the extension
-
-pack schema
+## Applying the extension pack schema
 
 When you apply your converted schema to your target database for the first time,
 DMS Schema Conversion might also apply the extension pack schema. The extension pack schema

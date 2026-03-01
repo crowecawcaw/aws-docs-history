@@ -1,6 +1,4 @@
-# Using a MySQL compatible database
-
-as a source for homogeneous data migrations in AWS DMS
+# Using a MySQL compatible database as a source for homogeneous data migrations in AWS DMS
 
 You can use a MySQL-compatible database (MySQL or MariaDB) as a source for [Homogeneous data migrations](data-migrations.md "data-migrations.md") in AWS DMS. In this case, your
 source data provider can be an on-premises, Amazon EC2, or RDS for MySQL or MariaDB database.
@@ -44,16 +42,11 @@ AWS-managed MySQL databases.
 
 ###### Topics
 
-- [Using a self-managed
-  MySQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mysql-sm "#dm-data-providers-source-mysql-sm")
-- [Using an AWS-managed
-  MySQL compatible database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mysql-aws "#dm-data-providers-source-mysql-aws")
-- [Limitations for using a
-  MySQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mysql-limitations "#dm-data-providers-source-mysql-limitations")
+- [Using a self-managed MySQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mysql-sm "#dm-data-providers-source-mysql-sm")
+- [Using an AWS-managed MySQL compatible database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mysql-aws "#dm-data-providers-source-mysql-aws")
+- [Limitations for using a MySQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mysql-limitations "#dm-data-providers-source-mysql-limitations")
 
-## Using a self-managed
-
-MySQL compatible database as a source for homogeneous data migrations
+## Using a self-managed MySQL compatible database as a source for homogeneous data migrations
 
 This section describes how to configure your MySQL compatible databases that are hosted on-premises
 or on Amazon EC2 instances.
@@ -75,9 +68,7 @@ following parameters in the `my.ini` (Windows) or
 | `binlog_row_image`  | Set this parameter to `FULL`.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `log_slave_updates` | Set this parameter to `TRUE` if you are using a<br>MySQL or MariaDB replica as a source.                                                                                                                                                                                                                                                                                                                                             |
 
-## Using an AWS-managed
-
-MySQL compatible database as a source for homogeneous data migrations in AWS DMS
+## Using an AWS-managed MySQL compatible database as a source for homogeneous data migrations in AWS DMS
 
 This section describes how to configure your Amazon RDS for MySQL and Amazon RDS for MariaDB database instances.
 
@@ -114,9 +105,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
   enable backups on the read replica, and ensure the `log_slave_updates` parameter is set to
   `TRUE`.
 
-## Limitations for using a
-
-MySQL compatible database as a source for homogeneous data migrations
+## Limitations for using a MySQL compatible database as a source for homogeneous data migrations
 
 The following limitations apply when using a MySQL compatible database as a source for homogeneous data migrations:
 

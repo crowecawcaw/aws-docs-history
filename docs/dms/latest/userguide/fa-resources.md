@@ -15,13 +15,10 @@ time, complete the following prerequisites.
 
 To configure your Amazon S3 bucket and IAM resources, do one of the following:
 
-- [Configure Amazon S3 and IAM resources using
-  CloudFormation](#fa-resources-cf "#fa-resources-cf") (recommended).
+- [Configure Amazon S3 and IAM resources using CloudFormation](#fa-resources-cf "#fa-resources-cf") (recommended).
 - [Configure Amazon S3 and IAM resources in the AWS Management Console](#fa-resources-manual "#fa-resources-manual")
 
-## Configure Amazon S3 and IAM resources using
-
-CloudFormation
+## Configure Amazon S3 and IAM resources using CloudFormation
 
 A _CloudFormation stack_ is a collection of AWS resources that
 you can manage as a single unit. To simplify creating required resources for
@@ -35,9 +32,7 @@ This section only applies to using the standalone DMS Fleet Advisor collector. F
 information about using a single on-premises collector for gathering information
 about both databases and servers, see [Application Discovery Service Agentless Collector](../../../application-discovery/latest/userguide/agentless-collector.md "../../../application-discovery/latest/userguide/agentless-collector.md") in the [_AWS Application Discovery Service User Guide_](../../../index.md "../../../index.md").
 
-### Amazon S3 and IAM resources created by
-
-CloudFormation
+### Amazon S3 and IAM resources created by CloudFormation
 
 When you use the CloudFormation templates, they create stacks that include the
 following resources in your AWS account:
@@ -58,14 +53,10 @@ following resources in your AWS account:
 Follow the steps listed below to configure your resources with
 CloudFormation.
 
-- [Step 1: Download the CloudFormation
-  template files](#fa-resources-cf.dl-templates "#fa-resources-cf.dl-templates")
-- [Step 2: Configure Amazon S3 and IAM using
-  CloudFormation](#fa-resources-cf.config "#fa-resources-cf.config")
+- [Step 1: Download the CloudFormation template files](#fa-resources-cf.dl-templates "#fa-resources-cf.dl-templates")
+- [Step 2: Configure Amazon S3 and IAM using CloudFormation](#fa-resources-cf.config "#fa-resources-cf.config")
 
-### Step 1: Download the CloudFormation
-
-template files
+### Step 1: Download the CloudFormation template files
 
 A _CloudFormation template_ is a declaration of the AWS
 resources that make up a stack. The template is stored as a JSON file.
@@ -83,9 +74,7 @@ resources that make up a stack. The template is stored as a JSON file.
 
 2. Save the file to your computer.
 
-### Step 2: Configure Amazon S3 and IAM using
-
-CloudFormation
+### Step 2: Configure Amazon S3 and IAM using CloudFormation
 
 When you use the CloudFormation template for IAM, it creates the Amazon S3 and IAM
 resources listed previously.
@@ -372,8 +361,7 @@ collected database performance metrics to CloudWatch on your behalf.
    **Create role**.
 
 Alternatively, you can create this service-linked role from the AWS API
-or AWS CLI. For more information, see [Creating a service-linked role for
-AWS DMS Fleet Advisor](slr-services-fa.md#create-slr-fa "slr-services-fa.md#create-slr-fa").
+or AWS CLI. For more information, see [Creating a service-linked role for AWS DMS Fleet Advisor](slr-services-fa.md#create-slr-fa "slr-services-fa.md#create-slr-fa").
 
 After you create the service-linked role for DMS Fleet Advisor, you can see
 performance metrics for your source databases in target recommendations.

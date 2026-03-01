@@ -2,10 +2,8 @@
 
 ###### Note
 
-DMS Schema Conversion with generative AI feature is now available. For more information, see [Viewing your database migration assessment
-report for DMS Schema Conversion](assessment-reports-view.md "assessment-reports-view.md") and
-[Converting database schemas in
-DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md").
+DMS Schema Conversion with generative AI feature is now available. For more information, see [Viewing your database migration assessment report for DMS Schema Conversion](assessment-reports-view.md "assessment-reports-view.md") and
+[Converting database schemas in DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md").
 
 DMS Schema Conversion in AWS Database Migration Service (AWS DMS) makes database migrations between different types of
 databases more predictable. Use DMS Schema Conversion to assess the complexity of your migration for your
@@ -45,12 +43,10 @@ Use the following topics to better understand how to use DMS Schema Conversion.
 - [Creating and setting target data providers in DMS Schema Conversion](data-providers-target.md "data-providers-target.md")
 - [Virtual data provider](virtual-data-provider.md "virtual-data-provider.md")
 - [Managing migration projects in DMS Schema Conversion](sc-migration-projects.md "sc-migration-projects.md")
-- [Creating database migration assessment reports with
-  DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
+- [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
 - [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md")
 - [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md")
-- [AWS IAM actions to API mapping for
-  DMS Schema Conversion and Common Studio Framework (CSF)](schema-conversion-iam.md "schema-conversion-iam.md")
+- [AWS IAM actions to API mapping for DMS Schema Conversion and Common Studio Framework (CSF)](schema-conversion-iam.md "schema-conversion-iam.md")
 
 ## Supported AWS Regions
 
@@ -102,8 +98,7 @@ DMS Schema Conversion provides the following features:
   convert to your target database. Database migration assessment reports help
   evaluate how much of your migration project DMS Schema Conversion can automate. These reports
   also help to estimate the amount of manual effort that is required to complete
-  the conversion. For more information, see [Creating database migration assessment reports with
-  DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+  the conversion. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
 - After you connect to your source and target data providers, DMS Schema Conversion can
   convert your existing source database schemas to the target database engine. You
   can choose any schema item from your source database to convert. After you
@@ -131,8 +126,7 @@ DMS Schema Conversion provides the following features:
   information, see [The
   latest release notes for AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md "../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md") .
 - You can edit converted SQL code before DMS migrates it to the target database.
-  For more information, see [Editing and saving your
-  converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql") .
+  For more information, see [Editing and saving your converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql").
 
 ## Schema conversion limitations
 

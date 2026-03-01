@@ -36,9 +36,7 @@ At any given time, a trigger can be in one of the following states: `origin`,
 `session_replication_role` parameter to `replica`, only triggers in the
 `replica` state are active. Otherwise, the triggers remain inactive.
 
-## Limitations for using a
-
-PostgreSQL compatible database as a target for homogeneous data migrations
+## Limitations for using a PostgreSQL compatible database as a target for homogeneous data migrations
 
 The following limitations apply when using a PostgreSQL compatible database as a target for homogeneous data migrations:
 

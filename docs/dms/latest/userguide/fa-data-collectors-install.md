@@ -1,6 +1,4 @@
-# Installing and configuring a data
-
-collector in AWS DMS
+# Installing and configuring a data collector in AWS DMS
 
 ###### Important
 
@@ -68,12 +66,9 @@ You can add an existing LDAP server to your project for data collector that you 
 for discovering information about the infrastructure of your systems. To do so, choose
 the **+Server** option, then specify a fully qualified domain name
 (FQDN) and the credentials for your domain controller. After adding the server, validate
-the connection check. To get started with the discovery process, see [Discovering OS and database servers to
-monitor in AWS DMS](fa-discovery.md "fa-discovery.md").
+the connection check. To get started with the discovery process, see [Discovering OS and database servers to monitor in AWS DMS](fa-discovery.md "fa-discovery.md").
 
-## Configuring credentials for
-
-data forwarding
+## Configuring credentials for data forwarding
 
 After you install the data collector, make sure that this application can send the
 collected data to AWS DMS Fleet Advisor.

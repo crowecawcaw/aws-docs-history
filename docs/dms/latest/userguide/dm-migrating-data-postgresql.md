@@ -1,6 +1,4 @@
-# Migrating data from PostgreSQL databases
-
-with homogeneous data migrations in AWS DMS
+# Migrating data from PostgreSQL databases with homogeneous data migrations in AWS DMS
 
 You can use [Homogeneous data migrations](data-migrations.md "data-migrations.md") to migrate a self-managed PostgreSQL database to RDS for PostgreSQL or Aurora PostgreSQL.
 AWS DMS creates a serverless environment for your data migration. For different types of data migrations,
@@ -54,9 +52,7 @@ to RDS for PostgreSQL or Aurora PostgreSQL.
 
 ![An architecture diagram of the PostgreSQL data migration with DMS Homogeneous Data Migrations.](images/data-migrations-postgresql.png)
 
-## Best practices for using a PostgreSQL database as a
-
-source for homogeneous data migrations
+## Best practices for using a PostgreSQL database as a source for homogeneous data migrations
 
 - To speed up initial data syncing on the subscriber side for FLCDC task, you must adjust
   `max_logical_replication_workers` and `max_sync_workers_per_subscription`. Increasing

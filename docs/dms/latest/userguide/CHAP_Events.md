@@ -1,14 +1,10 @@
-# Working with Amazon SNS events and notifications in
-
-AWS Database Migration Service
+# Working with Amazon SNS events and notifications in AWS Database Migration Service
 
 Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommend that you
 use Amazon EventBridge to provide notifications when an AWS DMS event occurs. For more information about
 using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md").
 
-## Moving event subscriptions to
-
-Amazon EventBridge
+## Moving event subscriptions to Amazon EventBridge
 
 You can use the following AWS CLI command to migrate active event subscriptions from DMS
 to Amazon EventBridge, up to 10 at a time.
@@ -65,8 +61,7 @@ creation-related event occurs that affects your replication instance. If you sub
 to a Configuration Change category for a replication instance, you are notified when the
 replication instance's configuration is changed. You also receive notification when
 an event notification subscription changes. For a list of the event categories provided
-by AWS DMS, see [AWS DMS event categories and event messages
-for SNS notifications](#USER_Events.Messages "#USER_Events.Messages"), following.
+by AWS DMS, see [AWS DMS event categories and event messages for SNS notifications](#USER_Events.Messages "#USER_Events.Messages"), following.
 
 AWS DMS sends event notifications to the addresses you provide when you create an
 event subscription. You might want to create several different subscriptions, such as
@@ -111,14 +106,11 @@ To subscribe to AWS DMS events with Amazon SNS, use the following process:
 
 For the list of categories and events that you can be notified of, see the following
 section. For more details about subscribing to and working with AWS DMS event
-subscriptions, see [Subscribing to AWS DMS event notification
-using SNS](#CHAP_Events.Subscription "#CHAP_Events.Subscription").
+subscriptions, see [Subscribing to AWS DMS event notification using SNS](#CHAP_Events.Subscription "#CHAP_Events.Subscription").
 
 ###### Topics
 
-## AWS DMS event categories and event messages
-
-for SNS notifications
+## AWS DMS event categories and event messages for SNS notifications
 
 ###### Important
 
@@ -211,9 +203,7 @@ category.
 
 ```
 
-## Subscribing to AWS DMS event notification
-
-using SNS
+## Subscribing to AWS DMS event notification using SNS
 
 ###### Important
 
@@ -237,9 +227,7 @@ Beginning with the release of AWS DMS 3.4.5 and with later versions, we
 recommend that you use Amazon EventBridge to provide notifications when an AWS DMS event
 occurs. For more information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md").
 
-###### To subscribe to AWS DMS event notification with Amazon SNS by using the
-
-console
+###### To subscribe to AWS DMS event notification with Amazon SNS by using the console
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
@@ -282,9 +270,7 @@ and CLI. For more information, see the [CreateEventSubscription](../APIReference
 Reference_ and [create-event-subscription](../../../cli/latest/reference/dms/create-event-subscription.md "../../../cli/latest/reference/dms/create-event-subscription.md") in the _AWS DMS CLI
 Reference_ documentation.
 
-### Validating the access policy of
-
-your SNS topic
+### Validating the access policy of your SNS topic
 
 Your SNS access policy requires permissions that allow AWS DMS to publish events to
 your SNS topic. You can validate and update your access policy as described in the

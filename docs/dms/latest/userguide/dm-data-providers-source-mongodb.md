@@ -11,20 +11,13 @@ and AWS-managed Amazon DocumentDB databases.
 
 ###### Topics
 
-- [Using a self-managed
-  MongoDB database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mongodb-sm "#dm-data-providers-source-mongodb-sm")
-- [Using an Amazon DocumentDB
-  database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mongodb-aws "#dm-data-providers-source-mongodb-aws")
-- [Features for using a
-  MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-features "#dm-data-providers-source-mongodb-features")
-- [Limitations for using a
-  MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-limitations "#dm-data-providers-source-mongodb-limitations")
-- [Best practices for using a
-  MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-bestpractices "#dm-data-providers-source-mongodb-bestpractices")
+- [Using a self-managed MongoDB database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mongodb-sm "#dm-data-providers-source-mongodb-sm")
+- [Using an Amazon DocumentDB database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-mongodb-aws "#dm-data-providers-source-mongodb-aws")
+- [Features for using a MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-features "#dm-data-providers-source-mongodb-features")
+- [Limitations for using a MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-limitations "#dm-data-providers-source-mongodb-limitations")
+- [Best practices for using a MongoDB-compatible database as a source for homogeneous data migrations](#dm-data-providers-source-mongodb-bestpractices "#dm-data-providers-source-mongodb-bestpractices")
 
-## Using a self-managed
-
-MongoDB database as a source for homogeneous data migrations in AWS DMS
+## Using a self-managed MongoDB database as a source for homogeneous data migrations in AWS DMS
 
 This section describes how to configure your MongoDB databases that are hosted
 on-premises or on Amazon EC2 instances.
@@ -34,23 +27,19 @@ database version as described in [Source data providers for DMS homogeneous data
 
 To run homogeneous data migrations with a MongoDB source, you can create either a user account with
 root privileges, or a user with permissions only on the database to migrate. For more information about
-user creation, see [Permissions needed when using
-MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC").
+user creation, see [Permissions needed when using MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC").
 
 To use ongoing replication or CDC with MongoDB, AWS DMS requires access to the MongoDB operations log (oplog).
-For more information, see [Configuring a
-MongoDB replica set for CDC](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet").
+For more information, see [Configuring a MongoDB replica set for CDC](CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet "CHAP_Source.md#CHAP_Source.MongoDB.PrerequisitesCDC.ReplicaSet").
 
 For information about MongoDB authentication methods, see
-[Security requirements when using
-MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.Security "CHAP_Source.md#CHAP_Source.MongoDB.Security").
+[Security requirements when using MongoDB as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MongoDB.Security "CHAP_Source.md#CHAP_Source.MongoDB.Security").
 
 For MongoDB as a source, homogeneous data migrations supports all of the datatypes that Amazon DocumentDB supports.
 
 For MongoDB as a source, to store user credentials in Secrets Manager, you need to provide them in plain text,
 using the **Other type of secrets** type. For more information, see
-[Using secrets to access AWS Database Migration Service
-endpoints](security_iam_secretsmanager.md "security_iam_secretsmanager.md").
+[Using secrets to access AWS Database Migration Service endpoints](security_iam_secretsmanager.md "security_iam_secretsmanager.md").
 
 The following code sample demonstrates how to store database secrets using plain text.
 
@@ -61,9 +50,7 @@ The following code sample demonstrates how to store database secrets using plain
 }
 ```
 
-## Using an Amazon DocumentDB
-
-database as a source for homogeneous data migrations in AWS DMS
+## Using an Amazon DocumentDB database as a source for homogeneous data migrations in AWS DMS
 
 This section describes how to configure your Amazon DocumentDB database instances for use as a source for
 homogeneous data migrations.
@@ -72,8 +59,7 @@ Use the master username for the Amazon DocumentDB instance as the user account f
 source data provider for homogeneous data migrations in AWS DMS. The master user account has the required roles that
 allow it to set up CDC. If you use an account other than the master user account, then the
 account must have the root role. For more information on the user creation as a root account,
-see [Setting permissions to use
-Amazon DocumentDB as a source](CHAP_Source.md#CHAP_Source.DocumentDB.Permissions "CHAP_Source.md#CHAP_Source.DocumentDB.Permissions").
+see [Setting permissions to use Amazon DocumentDB as a source](CHAP_Source.md#CHAP_Source.DocumentDB.Permissions "CHAP_Source.md#CHAP_Source.DocumentDB.Permissions").
 
 To turn on logical replication, set the `change_stream_log_retention_duration` parameter in
 your database parameter group to a setting appropriate for your transaction workload. Changing this static parameter
@@ -93,9 +79,7 @@ to retain changes for at least 24 hours.
 To use Amazon DocumentDB for homogeneous data migration, store user credentials in Secrets Manager under
 **Credentials for Amazon DocumentDB database**.
 
-## Features for using a
-
-MongoDB-compatible database as a source for homogeneous data migrations
+## Features for using a MongoDB-compatible database as a source for homogeneous data migrations
 
 - You can migrate all the secondary indexes that Amazon DocumentDB supports during the Full load phase.
 - AWS DMS migrates collections in parallel. homogeneous data migrations calculates segments at runtime
@@ -104,9 +88,7 @@ MongoDB-compatible database as a source for homogeneous data migrations
   this feature in MongoDB version 6.0.
 - DMS supports documents with a nesting level greater than 97.
 
-## Limitations for using a
-
-MongoDB-compatible database as a source for homogeneous data migrations
+## Limitations for using a MongoDB-compatible database as a source for homogeneous data migrations
 
 - Documents can't have field names with a `$` prefix.
 - AWS DMS doesn't support time series collection migration.
@@ -132,9 +114,7 @@ rs0 [direct: primary] test> db.collection1.aggregate([
 - AWS DMS doesn't support documents with invalid UTF8 characters.
 - AWS DMS doesn't support sharded collections.
 
-## Best practices for using a
-
-MongoDB-compatible database as a source for homogeneous data migrations
+## Best practices for using a MongoDB-compatible database as a source for homogeneous data migrations
 
 - For multiple large databases and collections hosted on same MongoDB instance,
   we recommend you use selection rules for each database and collection to split the task

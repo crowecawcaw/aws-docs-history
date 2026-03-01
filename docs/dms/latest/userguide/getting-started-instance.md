@@ -1,6 +1,4 @@
-# Create an instance profile for
-
-DMS Schema Conversion
+# Create an instance profile for DMS Schema Conversion
 
 Before you create an instance profile, configure a subnet group for your instance
 profile. For more information about creating a subnet group for your AWS DMS migration

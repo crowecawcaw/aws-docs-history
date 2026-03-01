@@ -14,10 +14,7 @@ to the following targets:
 For more information about using DMS Schema Conversion with a source SQL Server database, see the
 [SQL Server to MySQL migration step-by-step walkthrough](../sbs/schema-conversion-sql-server-mysql.md "../sbs/schema-conversion-sql-server-mysql.md").
 
-## Privileges for Microsoft
-
-SQL Server as a
-source
+## Privileges for Microsoft SQL Server as a source
 
 View the following list of privileges required for Microsoft SQL Server as a
 source:

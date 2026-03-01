@@ -8,9 +8,7 @@ You can use DMS Schema Conversion to convert database code objects from Db2 for 
   For more information regarding the supported IBM Db2 for z/OS database versions, see
   [Source data providers for DMS Schema Conversion](CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion "CHAP_Introduction.md#CHAP_Introduction.Sources.SchemaConversion").
 
-## Prerequisites for IBM Db2 for z/OS
-
-as a source database
+## Prerequisites for IBM Db2 for z/OS as a source database
 
 The IBM Db2 for z/OS version 12 function level 100 database version does not
 support most new capabilities of IBM Db2 for z/OS version 12. This database version
@@ -37,9 +35,7 @@ SELECT CURRENT APPLICATION COMPATIBILITY as version FROM SYSIBM.SYSDUMMY1;
 
 Ensure that this code returns version `V12R1M500` or higher.
 
-## Privileges for IBM Db2 for
-
-z/OS as a source database
+## Privileges for IBM Db2 for z/OS as a source database
 
 The privileges needed to connect to a Db2 for z/OS database and read system
 catalogs and tables are as follows:

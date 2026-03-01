@@ -1,6 +1,4 @@
-# Exporting target recommendations
-
-with AWS DMS Fleet Advisor
+# Exporting target recommendations with AWS DMS Fleet Advisor
 
 ###### Important
 

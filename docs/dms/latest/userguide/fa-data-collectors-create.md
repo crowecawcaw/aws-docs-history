@@ -12,8 +12,7 @@ Learn how to create and download a DMS data collector.
 Before you create a data collector, use the IAM console to create a service-linked role
 for DMS Fleet Advisor. This role allows principals to publish metric data points to Amazon CloudWatch. DMS Fleet Advisor
 uses this role to display charts with database metrics. For more information, see
-[Creating a service-linked role for
-AWS DMS Fleet Advisor](slr-services-fa.md#create-slr-fa "slr-services-fa.md#create-slr-fa").
+[Creating a service-linked role for AWS DMS Fleet Advisor](slr-services-fa.md#create-slr-fa "slr-services-fa.md#create-slr-fa").
 
 ###### To create and download a data collector
 
@@ -45,5 +44,4 @@ banner to download your newly created data collector. A message informs you that
 the download is in progress. After the download has finished, you can access the
 `AWS_DMS_Collector_Installer_`version_number`.msi`
 file.
-You can now install the DMS data collector on your client. For more information, see [Installing and configuring a data
-collector in AWS DMS](fa-data-collectors-install.md "fa-data-collectors-install.md").
+You can now install the DMS data collector on your client. For more information, see [Installing and configuring a data collector in AWS DMS](fa-data-collectors-install.md "fa-data-collectors-install.md").

@@ -1,6 +1,4 @@
-# Migrating data from MySQL databases
-
-with homogeneous data migrations in AWS DMS
+# Migrating data from MySQL databases with homogeneous data migrations in AWS DMS
 
 You can use [Homogeneous data migrations](data-migrations.md "data-migrations.md") to migrate a self-managed MySQL database to RDS for MySQL or Aurora MySQL.
 AWS DMS creates a serverless environment for your data migration. For different types of data

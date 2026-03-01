@@ -45,8 +45,7 @@ To connect to your Amazon RDS databases, create a subnet group that includes
 public subnets.
 
 To connect to your on-premises databases, create a subnet group that
-includes private subnets. For more information, see [Create an instance profile for
-DMS Schema Conversion](getting-started-instance.md "getting-started-instance.md"). 6. Choose **NAT gateways**. Choose your **NAT
+includes private subnets. For more information, see [Create an instance profile for DMS Schema Conversion](getting-started-instance.md "getting-started-instance.md"). 6. Choose **NAT gateways**. Choose your **NAT
 gateway** and take a note of your **Elastic IP
 address**.
 
@@ -299,9 +298,7 @@ JSON
 
 ```
 
-###### To create the `dms-vpc-role` IAM role for use with the AWS CLI
-
-or AWS DMS API
+###### To create the `dms-vpc-role` IAM role for use with the AWS CLI or AWS DMS API
 
 1. Create a JSON file with the following IAM policy. Name the JSON file
    `dmsAssumeRolePolicyDocument.json`.
@@ -339,9 +336,7 @@ aws iam create-role --role-name dms-vpc-role --assume-role-policy-document file:
 aws iam attach-role-policy --role-name dms-vpc-role --policy-arn arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole
 ```
 
-###### To create the `dms-cloudwatch-logs-role` IAM role for use with the AWS CLI
-
-or AWS DMS API
+###### To create the `dms-cloudwatch-logs-role` IAM role for use with the AWS CLI or AWS DMS API
 
 1. Create a JSON file with the following IAM policy. Name the JSON file
    `dmsAssumeRolePolicyDocument2.json`.

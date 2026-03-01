@@ -1,24 +1,16 @@
-# Resource-based policy
-
-examples for AWS KMS
+# Resource-based policy examples for AWS KMS
 
 AWS DMS allows you to create custom AWS KMS encryption keys to encrypt supported target
 endpoint data. To learn how to create and attach a key policy to the encryption key you
-create for supported target data encryption, see [Creating and using AWS KMS keys to
-encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys")
-and [Creating AWS KMS keys to encrypt Amazon S3 target
-objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
+create for supported target data encryption, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys")
+and [Creating AWS KMS keys to encrypt Amazon S3 target objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
 
 ###### Topics
 
-- [A policy
-  for a custom AWS KMS encryption key to encrypt Amazon Redshift target data](#security_iam_resource-based-policy-examples-custom-rs-key-policy "#security_iam_resource-based-policy-examples-custom-rs-key-policy")
-- [A
-  policy for a custom AWS KMS encryption key to encrypt Amazon S3 target data](#security_iam_resource-based-policy-examples-custom-s3-key-policy "#security_iam_resource-based-policy-examples-custom-s3-key-policy")
+- [A policy for a custom AWS KMS encryption key to encrypt Amazon Redshift target data](#security_iam_resource-based-policy-examples-custom-rs-key-policy "#security_iam_resource-based-policy-examples-custom-rs-key-policy")
+- [A policy for a custom AWS KMS encryption key to encrypt Amazon S3 target data](#security_iam_resource-based-policy-examples-custom-s3-key-policy "#security_iam_resource-based-policy-examples-custom-s3-key-policy")
 
-## A policy
-
-for a custom AWS KMS encryption key to encrypt Amazon Redshift target data
+## A policy for a custom AWS KMS encryption key to encrypt Amazon Redshift target data
 
 The following example shows the JSON for the key policy created for an AWS KMS
 encryption key that you create to encrypt Amazon Redshift target data.
@@ -119,9 +111,7 @@ outside of AWS KMS. They can also return detailed information about a AWS KMS ke
 the key that you just created. In addition, such a user can manage attachments to AWS
 resources, such as the target endpoint.
 
-## A
-
-policy for a custom AWS KMS encryption key to encrypt Amazon S3 target data
+## A policy for a custom AWS KMS encryption key to encrypt Amazon S3 target data
 
 The following example shows the JSON for the key policy created for an AWS KMS
 encryption key that you create to encrypt Amazon S3 target data.

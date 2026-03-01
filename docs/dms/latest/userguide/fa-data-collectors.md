@@ -37,10 +37,8 @@ See the following section for information about AWS DMS service quotas [Quotas f
 
 - [Permissions for a DMS data collector](#fa-data-collectors-permissions "#fa-data-collectors-permissions")
 - [Creating a data collector for AWS DMS Fleet Advisor](fa-data-collectors-create.md "fa-data-collectors-create.md")
-- [Installing and configuring a data
-  collector in AWS DMS](fa-data-collectors-install.md "fa-data-collectors-install.md")
-- [Discovering OS and database servers to
-  monitor in AWS DMS](fa-discovery.md "fa-discovery.md")
+- [Installing and configuring a data collector in AWS DMS](fa-data-collectors-install.md "fa-data-collectors-install.md")
+- [Discovering OS and database servers to monitor in AWS DMS](fa-discovery.md "fa-discovery.md")
 - [Managing monitored objects in AWS DMS](fa-managing-objects.md "fa-managing-objects.md")
 - [Using SSL with AWS DMS Fleet Advisor](fa-using-ssl.md "fa-using-ssl.md")
 - [Collecting data for AWS DMS Fleet Advisor](fa-collecting.md "fa-collecting.md")

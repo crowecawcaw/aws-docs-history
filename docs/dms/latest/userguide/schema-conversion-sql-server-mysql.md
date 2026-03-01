@@ -1,6 +1,4 @@
-# Understanding SQL Server to
-
-MySQL conversion settings
+# Understanding SQL Server to MySQL conversion settings
 
 SQL Server to MySQL conversion settings in DMS Schema Conversion include the following:
 

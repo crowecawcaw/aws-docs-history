@@ -1,6 +1,4 @@
-# Refreshing your database schemas in
-
-DMS Schema Conversion
+# Refreshing your database schemas in DMS Schema Conversion
 
 After you create a migration project, DMS Schema Conversion stores the information about your
 source and target schemas in this project. DMS Schema Conversion uses _lazy

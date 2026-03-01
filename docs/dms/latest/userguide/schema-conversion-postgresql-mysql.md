@@ -1,6 +1,4 @@
-# Understanding PostgreSQL to
-
-MySQL conversion settings
+# Understanding PostgreSQL to MySQL conversion settings
 
 PostgreSQL to MySQL conversion settings in DMS Schema Conversion include the following:
 

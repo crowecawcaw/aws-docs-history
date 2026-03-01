@@ -2,8 +2,7 @@
 
 SAP ASE (Sybase ASE) to PostgreSQL conversion settings in DMS Schema Conversion include the following:
 
-- To convert applicable database objects using generative AI enable the **Generative AI** setting. Objects successfully converted using generative AI will be clearly identified with **Action Item 3077**, which states: "This conversion uses machine learning models that generate predictions based on patterns in data." For more information, see [Converting database objects
-  with generative AI](schema-conversion-convert.md "schema-conversion-convert.md").
+- To convert applicable database objects using generative AI enable the **Generative AI** setting. Objects successfully converted using generative AI will be clearly identified with **Action Item 3077**, which states: "This conversion uses machine learning models that generate predictions based on patterns in data." For more information, see [Converting database objects with generative AI](schema-conversion-convert.md "schema-conversion-convert.md").
 - **Comments in converted SQL code:** This setting includes comments in the converted code for the action items of the selected severity and higher. This setting supports the following values:
   - Errors only
   - Errors and warnings

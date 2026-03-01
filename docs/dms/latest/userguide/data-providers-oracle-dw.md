@@ -19,8 +19,7 @@ The following privileges are required for Oracle Data Warehouse as a source:
 ## Oracle Data Warehouse to Amazon Redshift conversion settings
 
 For information about editing DMS Schema Conversion settings, see
-[Specifying schema conversion settings for
-migration projects](schema-conversion-settings.md "schema-conversion-settings.md").
+[Specifying schema conversion settings for migration projects](schema-conversion-settings.md "schema-conversion-settings.md").
 
 Oracle Data Warehouse to Amazon Redshift conversion settings include the following:
 

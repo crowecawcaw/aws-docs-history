@@ -2,22 +2,14 @@
 
 ###### Topics
 
-- [AWS managed
-  policy: AmazonDMSVPCManagementRole](#security-iam-awsmanpol-AmazonDMSVPCManagementRole "#security-iam-awsmanpol-AmazonDMSVPCManagementRole")
-- [AWS managed
-  policy: AWSDMSServerlessServiceRolePolicy](#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy "#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy")
-- [AWS managed
-  policy: AmazonDMSCloudWatchLogsRole](#security-iam-awsmanpol-AmazonDMSCloudWatchLogsRole "#security-iam-awsmanpol-AmazonDMSCloudWatchLogsRole")
-- [AWS
-  managed policy: AWSDMSFleetAdvisorServiceRolePolicy](#security-iam-awsmanpol-AWSDMSFleetAdvisorServiceRolePolicy "#security-iam-awsmanpol-AWSDMSFleetAdvisorServiceRolePolicy")
-- [AWS managed policy:
-  AmazonDMSRedshiftS3Role](#security-iam-awsmanpol-AmazonDMSRedshiftS3Role "#security-iam-awsmanpol-AmazonDMSRedshiftS3Role")
-- [AWS DMS updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AmazonDMSVPCManagementRole](#security-iam-awsmanpol-AmazonDMSVPCManagementRole "#security-iam-awsmanpol-AmazonDMSVPCManagementRole")
+- [AWS managed policy: AWSDMSServerlessServiceRolePolicy](#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy "#security-iam-awsmanpol-AWSDMSServerlessServiceRolePolicy")
+- [AWS managed policy: AmazonDMSCloudWatchLogsRole](#security-iam-awsmanpol-AmazonDMSCloudWatchLogsRole "#security-iam-awsmanpol-AmazonDMSCloudWatchLogsRole")
+- [AWS managed policy: AWSDMSFleetAdvisorServiceRolePolicy](#security-iam-awsmanpol-AWSDMSFleetAdvisorServiceRolePolicy "#security-iam-awsmanpol-AWSDMSFleetAdvisorServiceRolePolicy")
+- [AWS managed policy: AmazonDMSRedshiftS3Role](#security-iam-awsmanpol-AmazonDMSRedshiftS3Role "#security-iam-awsmanpol-AmazonDMSRedshiftS3Role")
+- [AWS DMS updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed
-
-policy: AmazonDMSVPCManagementRole
+## AWS managed policy: AmazonDMSVPCManagementRole
 
 This policy is attached to the `dms-vpc-role` role, which allows AWS DMS to
 perform actions on your behalf.
@@ -95,9 +87,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSDMSServerlessServiceRolePolicy
+## AWS managed policy: AWSDMSServerlessServiceRolePolicy
 
 This policy is attached to the `AWSServiceRoleForDMSServerless` role, which
 allows AWS DMS to perform actions on your behalf. For more information, see [Service-linked role for AWS DMS](slr-services-sl.md "slr-services-sl.md").
@@ -232,13 +222,10 @@ This policy includes the following permissions.
 }
 ```
 
-## AWS managed
-
-policy: AmazonDMSCloudWatchLogsRole
+## AWS managed policy: AmazonDMSCloudWatchLogsRole
 
 This policy is attached to the `dms-cloudwatch-logs-role` role, which
-allows AWS DMS to perform actions on your behalf. For more information, see [Using service-linked roles for
-AWS DMS](using-service-linked-roles.md "using-service-linked-roles.md").
+allows AWS DMS to perform actions on your behalf. For more information, see [Using service-linked roles for AWS DMS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS DMS to publish replication
 logs to CloudWatch logs.
@@ -316,14 +303,11 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AWSDMSFleetAdvisorServiceRolePolicy
+## AWS managed policy: AWSDMSFleetAdvisorServiceRolePolicy
 
 You can't attach AWSDMSFleetAdvisorServiceRolePolicy to your IAM entities. This
 policy is attached to a service-linked role that allows AWS DMS Fleet Advisor to
-perform actions on your behalf. For more information, see [Using service-linked roles for
-AWS DMS](using-service-linked-roles.md "using-service-linked-roles.md").
+perform actions on your behalf. For more information, see [Using service-linked roles for AWS DMS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS DMS Fleet Advisor to publish
 Amazon CloudWatch metrics.
@@ -355,9 +339,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonDMSRedshiftS3Role
+## AWS managed policy: AmazonDMSRedshiftS3Role
 
 This policy provides permissions that allow AWS DMS to manage S3 settings for Redshift
 endpoints.
@@ -437,9 +419,7 @@ JSON
 
 ```
 
-## AWS DMS updates to AWS managed
-
-policies
+## AWS DMS updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS DMS since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

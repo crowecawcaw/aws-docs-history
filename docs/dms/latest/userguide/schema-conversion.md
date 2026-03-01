@@ -24,17 +24,10 @@ To convert your database schema, use the following process:
 
 ###### Topics
 
-- [Setting up transformation rules
-  in DMS Schema Conversion](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md")
-- [Converting database schemas in
-  DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md")
-- [Converting database objects
-  with generative AI](schema-conversion-convert.md "schema-conversion-convert.md")
-- [Specifying schema conversion settings for
-  migration projects](schema-conversion-settings.md "schema-conversion-settings.md")
-- [Refreshing your database schemas in
-  DMS Schema Conversion](schema-conversion-refresh.md "schema-conversion-refresh.md")
-- [Saving and applying your converted code
-  in DMS Schema Conversion](schema-conversion-save-apply.md "schema-conversion-save-apply.md")
-- [Converting embedded SQL in Java
-  applications](schema-conversion-embedded-sql.md "schema-conversion-embedded-sql.md")
+- [Setting up transformation rules in DMS Schema Conversion](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md")
+- [Converting database schemas in DMS Schema Conversion: step-by-step guide](schema-conversion-convert.md "schema-conversion-convert.md")
+- [Converting database objects with generative AI](schema-conversion-convert.md "schema-conversion-convert.md")
+- [Specifying schema conversion settings for migration projects](schema-conversion-settings.md "schema-conversion-settings.md")
+- [Refreshing your database schemas in DMS Schema Conversion](schema-conversion-refresh.md "schema-conversion-refresh.md")
+- [Saving and applying your converted code in DMS Schema Conversion](schema-conversion-save-apply.md "schema-conversion-save-apply.md")
+- [Converting embedded SQL in Java applications](schema-conversion-embedded-sql.md "schema-conversion-embedded-sql.md")

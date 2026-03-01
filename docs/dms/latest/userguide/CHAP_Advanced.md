@@ -15,20 +15,13 @@ Following, you can find out more details about advanced endpoint configuration.
 
 ###### Topics
 
-- [VPC peering configuration for
-  AWS DMS.](CHAP_Advanced.Endpoints.vpc.md "CHAP_Advanced.Endpoints.vpc.md")
-- [Security group configuration
-  for AWS DMS](CHAP_Advanced.Endpoints.md "CHAP_Advanced.Endpoints.md")
-- [Network Access Control List (NACL)
-  configuration for AWS DMS](CHAP_Advanced.Ednpoints.md "CHAP_Advanced.Ednpoints.md")
-- [Configuring AWS DMS secrets
-  manager VPC Endpoint](CHAP_Advanced.Endpoints.md "CHAP_Advanced.Endpoints.md")
-- [Additional
-  considerations](#CHAP_secretsmanager.additionalconsiderations "#CHAP_secretsmanager.additionalconsiderations")
+- [VPC peering configuration for AWS DMS.](CHAP_Advanced.Endpoints.vpc.md "CHAP_Advanced.Endpoints.vpc.md")
+- [Security group configuration for AWS DMS](CHAP_Advanced.Endpoints.md "CHAP_Advanced.Endpoints.md")
+- [Network Access Control List (NACL) configuration for AWS DMS](CHAP_Advanced.Ednpoints.md "CHAP_Advanced.Ednpoints.md")
+- [Configuring AWS DMS secrets manager VPC Endpoint](CHAP_Advanced.Endpoints.md "CHAP_Advanced.Endpoints.md")
+- [Additional considerations](#CHAP_secretsmanager.additionalconsiderations "#CHAP_secretsmanager.additionalconsiderations")
 
-## Additional
-
-considerations
+## Additional considerations
 
 You must consider the following additional configuration information:
 

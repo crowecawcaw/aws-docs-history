@@ -14,8 +14,7 @@ When you create a migration project with the compatible source and target data p
 type, AWS DMS deploys a serverless environment where your data migration runs. Next, AWS DMS connects to
 the source data provider, reads the source data, dumps the files on the disk, and restores the data
 using native database tools. For more information about instance profiles, data providers, and
-migration projects, see [Working with data providers, instance profiles,
-and migration projects in AWS DMS](migration-projects.md "migration-projects.md").
+migration projects, see [Working with data providers, instance profiles, and migration projects in AWS DMS](migration-projects.md "migration-projects.md").
 
 For the list of supported source databases, see [Sources for DMS homogeneous data migrations](CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "CHAP_Introduction.md#CHAP_Introduction.Sources.HomogeneousDataMigrations").
 

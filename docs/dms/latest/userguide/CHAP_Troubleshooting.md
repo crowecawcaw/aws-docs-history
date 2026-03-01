@@ -20,39 +20,29 @@ and dump file collection, open a case with AWS Support.
 - [Migration tasks run slowly](#CHAP_Troubleshooting.General.SlowTask "#CHAP_Troubleshooting.General.SlowTask")
 - [Task status bar doesn't move](#CHAP_Troubleshooting.General.StatusBar "#CHAP_Troubleshooting.General.StatusBar")
 - [Task completes but nothing was migrated](#CHAP_Troubleshooting.General.NothingMigrated "#CHAP_Troubleshooting.General.NothingMigrated")
-- [Foreign keys and secondary
-  indexes are missing](#CHAP_Troubleshooting.General.MissingSecondaryObjs "#CHAP_Troubleshooting.General.MissingSecondaryObjs")
+- [Foreign keys and secondary indexes are missing](#CHAP_Troubleshooting.General.MissingSecondaryObjs "#CHAP_Troubleshooting.General.MissingSecondaryObjs")
 - [AWS DMS does not create CloudWatch logs](#CHAP_Troubleshooting.General.CWL "#CHAP_Troubleshooting.General.CWL")
-- [Issues occur with connecting to Amazon
-  RDS](#CHAP_Troubleshooting.General.RDSConnection "#CHAP_Troubleshooting.General.RDSConnection")
+- [Issues occur with connecting to Amazon RDS](#CHAP_Troubleshooting.General.RDSConnection "#CHAP_Troubleshooting.General.RDSConnection")
 - [Networking issues occur](#CHAP_Troubleshooting.General.Network "#CHAP_Troubleshooting.General.Network")
 - [CDC is stuck after full load](#CHAP_Troubleshooting.General.CDCStuck "#CHAP_Troubleshooting.General.CDCStuck")
-- [Primary key violation errors occur when you
-  restart a task](#CHAP_Troubleshooting.General.PKErrors "#CHAP_Troubleshooting.General.PKErrors")
+- [Primary key violation errors occur when you restart a task](#CHAP_Troubleshooting.General.PKErrors "#CHAP_Troubleshooting.General.PKErrors")
 - [Initial load of a schema fails](#CHAP_Troubleshooting.General.SchemaLoadFail "#CHAP_Troubleshooting.General.SchemaLoadFail")
 - [Tasks fail with an unknown error](#CHAP_Troubleshooting.General.TasksFail "#CHAP_Troubleshooting.General.TasksFail")
-- [Task restart loads tables from the
-  beginning](#CHAP_Troubleshooting.General.RestartLoad "#CHAP_Troubleshooting.General.RestartLoad")
-- [Number of tables per task causes
-  issues](#CHAP_Troubleshooting.General.TableLimit "#CHAP_Troubleshooting.General.TableLimit")
-- [Tasks fail when a primary key is created
-  on a LOB column](#CHAP_Troubleshooting.General.PKLOBColumn "#CHAP_Troubleshooting.General.PKLOBColumn")
-- [Duplicate records occur on a target
-  table without a primary key](#CHAP_Troubleshooting.General.DuplicateRecords "#CHAP_Troubleshooting.General.DuplicateRecords")
-- [Source endpoints fall in the reserved IP
-  range](#CHAP_Troubleshooting.General.ReservedIP "#CHAP_Troubleshooting.General.ReservedIP")
+- [Task restart loads tables from the beginning](#CHAP_Troubleshooting.General.RestartLoad "#CHAP_Troubleshooting.General.RestartLoad")
+- [Number of tables per task causes issues](#CHAP_Troubleshooting.General.TableLimit "#CHAP_Troubleshooting.General.TableLimit")
+- [Tasks fail when a primary key is created on a LOB column](#CHAP_Troubleshooting.General.PKLOBColumn "#CHAP_Troubleshooting.General.PKLOBColumn")
+- [Duplicate records occur on a target table without a primary key](#CHAP_Troubleshooting.General.DuplicateRecords "#CHAP_Troubleshooting.General.DuplicateRecords")
+- [Source endpoints fall in the reserved IP range](#CHAP_Troubleshooting.General.ReservedIP "#CHAP_Troubleshooting.General.ReservedIP")
 - [Timestamps are garbled in Amazon Athena queries](#CHAP_Troubleshooting.General.GarbledTimestamps "#CHAP_Troubleshooting.General.GarbledTimestamps")
 - [Troubleshooting issues with Oracle](#CHAP_Troubleshooting.Oracle "#CHAP_Troubleshooting.Oracle")
 - [Troubleshooting issues with MySQL](#CHAP_Troubleshooting.MySQL "#CHAP_Troubleshooting.MySQL")
 - [Troubleshooting issues with PostgreSQL](#CHAP_Troubleshooting.PostgreSQL "#CHAP_Troubleshooting.PostgreSQL")
-- [Troubleshooting issues with Microsoft SQL
-  Server](#CHAP_Troubleshooting.SQLServer "#CHAP_Troubleshooting.SQLServer")
+- [Troubleshooting issues with Microsoft SQL Server](#CHAP_Troubleshooting.SQLServer "#CHAP_Troubleshooting.SQLServer")
 - [Troubleshooting issues with Amazon Redshift](#CHAP_Troubleshooting.Redshift "#CHAP_Troubleshooting.Redshift")
 - [Troubleshooting issues with Amazon Aurora MySQL](#CHAP_Troubleshooting.Aurora "#CHAP_Troubleshooting.Aurora")
 - [Troubleshooting issues with SAP ASE](#CHAP_Troubleshooting.SAP "#CHAP_Troubleshooting.SAP")
 - [Troubleshooting issues with IBM Db2](#CHAP_Troubleshooting.Db2 "#CHAP_Troubleshooting.Db2")
-- [Table suspended a table with
-  error "Failed to build 'where' statement"](#CHAP_Troubleshooting.table.suspended "#CHAP_Troubleshooting.table.suspended")
+- [Table suspended a table with error "Failed to build 'where' statement"](#CHAP_Troubleshooting.table.suspended "#CHAP_Troubleshooting.table.suspended")
 - [Troubleshooting latency issues in AWS Database Migration Service](CHAP_Troubleshooting_Latency.md "CHAP_Troubleshooting_Latency.md")
 - [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md")
 - [Working with the AWS DMS diagnostic support AMI](CHAP_SupportAmi.md "CHAP_SupportAmi.md")
@@ -71,8 +61,7 @@ your replication instance or split your tasks across multiple replication instan
 a more efficient migration.
 
 For more information about determining the size of your replication instance, see
-[Selecting the best size for a
-replication instance](CHAP_BestPractices.md "CHAP_BestPractices.md").
+[Selecting the best size for a replication instance](CHAP_BestPractices.md "CHAP_BestPractices.md").
 
 You can increase the speed of an initial migration load by doing the following:
 
@@ -85,8 +74,7 @@ You can increase the speed of an initial migration load by doing the following:
   IOPS.
 - If your migration data contains LOBs, make sure that the task is
   optimized for LOB migration. For more information on optimizing for LOBs, see
-  [Target
-  metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
 ## Task status bar doesn't move
 
@@ -106,12 +94,9 @@ Do the following if nothing was migrated after your task has completed.
 - Check if the user that created the endpoint has read access to the table you intend to migrate.
 - Check if the object you want to migrate is a table. If it is a view, update table mappings
   and specify the object-locator as “view” or “all”. For more information, see
-  [Specifying table
-  selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+  [Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
-## Foreign keys and secondary
-
-indexes are missing
+## Foreign keys and secondary indexes are missing
 
 AWS DMS creates tables, primary keys, and in some cases unique indexes, but it
 doesn't create any other objects that aren't required to efficiently migrate the
@@ -149,9 +134,7 @@ If your account is part of AWS Organizations, verify that Service Control Polici
 (SCPs) are not restricting your IAM role permissions. SCPs can override and limit
 IAM role permissions even when they are properly configured.
 
-## Issues occur with connecting to Amazon
-
-RDS
+## Issues occur with connecting to Amazon RDS
 
 There can be several reasons why you can't connect to an Amazon RDS DB instance
 that you set as a source or target. Some items to check follow:
@@ -169,9 +152,7 @@ that you set as a source or target. Some items to check follow:
   the same virtual private cloud (VPC), check that the DB instance is publicly
   accessible.
 
-### Error
-
-message: Incorrect thread connection string: Incorrect thread value 0
+### Error message: Incorrect thread connection string: Incorrect thread value 0
 
 This error can often occur when you are testing the connection to an endpoint.
 This error indicates that there is an error in the connection string. An example is
@@ -227,9 +208,7 @@ creating primary and unique indexes. If you haven't created primary or unique ke
 on the target tables, AWS DMS does a full table scan for each update. This approach can
 affect performance significantly.
 
-## Primary key violation errors occur when you
-
-restart a task
+## Primary key violation errors occur when you restart a task
 
 This error can occur when data remains in the target database from a previous
 migration task. If the **Target table preparation mode** option is set
@@ -257,26 +236,20 @@ To make sure that your replication instance has enough resources to perform the
 migration, check your instance's use of CPU, memory, swap files, and IOPS. For more
 information on monitoring, see [AWS Database Migration Service metrics](CHAP_Monitoring.md#CHAP_Monitoring.Metrics "CHAP_Monitoring.md#CHAP_Monitoring.Metrics").
 
-## Task restart loads tables from the
-
-beginning
+## Task restart loads tables from the beginning
 
 AWS DMS restarts table loading from the beginning when it hasn't finished the
 initial load of a table. When a task is restarted, AWS DMS reloads tables from the beginning when the
 initial load didn't complete.
 
-## Number of tables per task causes
-
-issues
+## Number of tables per task causes issues
 
 There is no set limit on the number of tables per replication task. However, we
 recommend limiting the number of tables in a task to less than 60,000, as a rule of
 thumb. Resource use can often be a bottleneck when a single task uses more than 60,000
 tables.
 
-## Tasks fail when a primary key is created
-
-on a LOB column
+## Tasks fail when a primary key is created on a LOB column
 
 In FULL LOB or LIMITED LOB mode, AWS DMS doesn't support replication of primary
 keys that are LOB data types.
@@ -286,18 +259,14 @@ column. So, when the primary key is created on a LOB column, the initial insert 
 since the primary key can't be null. As a workaround, add another column as primary
 key and remove the primary key from the LOB column.
 
-## Duplicate records occur on a target
-
-table without a primary key
+## Duplicate records occur on a target table without a primary key
 
 Running a full load and CDC task can create duplicate records on target tables that
 don't have a primary key or unique index. To avoid duplicating records on target
 tables during full load and CDC tasks, make sure that target tables have a primary key
 or unique index.
 
-## Source endpoints fall in the reserved IP
-
-range
+## Source endpoints fall in the reserved IP range
 
 If an AWS DMS source database uses an IP address within the reserved IP range
 of 192.168.0.0/24, the source endpoint connection test fails. The following
@@ -336,21 +305,16 @@ Oracle databases.
 
 - [Pulling data from views](#CHAP_Troubleshooting.Oracle.Views "#CHAP_Troubleshooting.Oracle.Views")
 - [Migrating LOBs from Oracle 12c](#CHAP_Troubleshooting.Oracle.12cLOBs "#CHAP_Troubleshooting.Oracle.12cLOBs")
-- [Switching between Oracle LogMiner
-  and Binary Reader](#CHAP_Troubleshooting.Oracle.LogMinerBinaryReader "#CHAP_Troubleshooting.Oracle.LogMinerBinaryReader")
-- [Error: Oracle CDC stopped 122301
-  oracle CDC maximum retry counter exceeded.](#CHAP_Troubleshooting.Oracle.CDCStopped "#CHAP_Troubleshooting.Oracle.CDCStopped")
-- [Automatically add supplemental
-  logging to an Oracle source endpoint](#CHAP_Troubleshooting.Oracle.AutoSupplLogging "#CHAP_Troubleshooting.Oracle.AutoSupplLogging")
+- [Switching between Oracle LogMiner and Binary Reader](#CHAP_Troubleshooting.Oracle.LogMinerBinaryReader "#CHAP_Troubleshooting.Oracle.LogMinerBinaryReader")
+- [Error: Oracle CDC stopped 122301 oracle CDC maximum retry counter exceeded.](#CHAP_Troubleshooting.Oracle.CDCStopped "#CHAP_Troubleshooting.Oracle.CDCStopped")
+- [Automatically add supplemental logging to an Oracle source endpoint](#CHAP_Troubleshooting.Oracle.AutoSupplLogging "#CHAP_Troubleshooting.Oracle.AutoSupplLogging")
 - [LOB changes aren't being captured](#CHAP_Troubleshooting.Oracle.LOBChanges "#CHAP_Troubleshooting.Oracle.LOBChanges")
-- [Error: ORA-12899: Value too large for column
-  column-name](#CHAP_Troubleshooting.Oracle.ORA12899 "#CHAP_Troubleshooting.Oracle.ORA12899")
+- [Error: ORA-12899: Value too large for column column-name](#CHAP_Troubleshooting.Oracle.ORA12899 "#CHAP_Troubleshooting.Oracle.ORA12899")
 - [NUMBER data type being misinterpreted](#CHAP_Troubleshooting.Oracle.Numbers "#CHAP_Troubleshooting.Oracle.Numbers")
 - [Records missing during full load](#CHAP_Troubleshooting.Oracle.RecordsMissing "#CHAP_Troubleshooting.Oracle.RecordsMissing")
 - [Table Error](#CHAP_Troubleshooting.Oracle.TableError "#CHAP_Troubleshooting.Oracle.TableError")
 - [Error: Cannot retrieve Oracle archived Redo log destination ids](#CHAP_Troubleshooting.Oracle.RedoLogError "#CHAP_Troubleshooting.Oracle.RedoLogError")
-- [Evaluating read performance of Oracle
-  redo or archive logs](#CHAP_Troubleshooting.Oracle.ReadPerformUtil "#CHAP_Troubleshooting.Oracle.ReadPerformUtil")
+- [Evaluating read performance of Oracle redo or archive logs](#CHAP_Troubleshooting.Oracle.ReadPerformUtil "#CHAP_Troubleshooting.Oracle.ReadPerformUtil")
 - [Failed to get LOB data](#CHAP_Troubleshooting.Oracle.LOBdata "#CHAP_Troubleshooting.Oracle.LOBdata")
 
 ### Pulling data from views
@@ -372,9 +336,7 @@ Binary Reader and Oracle LogMiner. By default, AWS DMS uses Oracle LogMiner to
 capture changes. However, on Oracle 12c, Oracle LogMiner doesn't support LOB
 columns. To capture changes to LOB columns on Oracle 12c, use Binary Reader.
 
-### Switching between Oracle LogMiner
-
-and Binary Reader
+### Switching between Oracle LogMiner and Binary Reader
 
 AWS DMS can use two methods to capture changes to a source Oracle database,
 Binary Reader and Oracle LogMiner. Oracle LogMiner is the default. To switch to using
@@ -405,9 +367,7 @@ SELECT ON V_$TRANSPORTABLE_PLATFORM
 
 ```
 
-### Error: Oracle CDC stopped 122301
-
-oracle CDC maximum retry counter exceeded.
+### Error: Oracle CDC stopped 122301 oracle CDC maximum retry counter exceeded.
 
 This error occurs when the needed Oracle archive logs have been removed
 from your server before AWS DMS was able to use them to capture changes.
@@ -423,9 +383,7 @@ exec rdsadmin.rdsadmin_util.set_configuration('archivelog retention hours',24);
 
 ```
 
-### Automatically add supplemental
-
-logging to an Oracle source endpoint
+### Automatically add supplemental logging to an Oracle source endpoint
 
 By default, AWS DMS has supplemental logging turned off. To automatically turn
 on supplemental logging for a source Oracle endpoint, do the following:
@@ -461,9 +419,7 @@ you can take to capture LOB changes:
 - Create a logical standby, add a primary key to the table, and migrate from the logical
   standby.
 
-### Error: ORA-12899: Value too large for column
-
-`column-name`
+### Error: ORA-12899: Value too large for column `column-name`
 
 The error "ORA-12899: value too large for column
 `column-name`" is often caused by a couple of
@@ -482,8 +438,7 @@ NLS_LENGTH_SEMANTICS parameter is set to BYTE.
 The Oracle NUMBER data type is converted into various AWS DMS data types, depending
 on the precision and scale of NUMBER. These conversions are documented here [Source data types for Oracle](CHAP_Source.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.md#CHAP_Source.Oracle.DataTypes"). The way the NUMBER type is
 converted can also be affected by using endpoint settings for the source
-Oracle endpoint. These endpoint settings are documented in [Endpoint settings
-when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").
+Oracle endpoint. These endpoint settings are documented in [Endpoint settings when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").
 
 ### Records missing during full load
 
@@ -528,9 +483,7 @@ For a self-managed Oracle source database, use the following command to force a 
 ALTER SYSTEM SWITCH LOGFILE ;
 ```
 
-### Evaluating read performance of Oracle
-
-redo or archive logs
+### Evaluating read performance of Oracle redo or archive logs
 
 If you experience performance issues with your Oracle source, you can evaluate the
 read performance of your Oracle redo or archive logs to find ways to improve
@@ -653,39 +606,27 @@ MySQL databases.
 
 ###### Topics
 
-- [CDC task failing for Amazon RDS DB
-  instance endpoint because binary logging disabled](#CHAP_Troubleshooting.MySQL.CDCTaskFail "#CHAP_Troubleshooting.MySQL.CDCTaskFail")
-- [Connections to a
-  target MySQL instance are disconnected during a task](#CHAP_Troubleshooting.MySQL.ConnectionDisconnect "#CHAP_Troubleshooting.MySQL.ConnectionDisconnect")
-- [Adding autocommit to a
-  MySQL-compatible endpoint](#CHAP_Troubleshooting.MySQL.Autocommit "#CHAP_Troubleshooting.MySQL.Autocommit")
-- [Disable foreign keys on
-  a target MySQL-compatible endpoint](#CHAP_Troubleshooting.MySQL.DisableForeignKeys "#CHAP_Troubleshooting.MySQL.DisableForeignKeys")
+- [CDC task failing for Amazon RDS DB instance endpoint because binary logging disabled](#CHAP_Troubleshooting.MySQL.CDCTaskFail "#CHAP_Troubleshooting.MySQL.CDCTaskFail")
+- [Connections to a target MySQL instance are disconnected during a task](#CHAP_Troubleshooting.MySQL.ConnectionDisconnect "#CHAP_Troubleshooting.MySQL.ConnectionDisconnect")
+- [Adding autocommit to a MySQL-compatible endpoint](#CHAP_Troubleshooting.MySQL.Autocommit "#CHAP_Troubleshooting.MySQL.Autocommit")
+- [Disable foreign keys on a target MySQL-compatible endpoint](#CHAP_Troubleshooting.MySQL.DisableForeignKeys "#CHAP_Troubleshooting.MySQL.DisableForeignKeys")
 - [Characters replaced with question mark](#CHAP_Troubleshooting.MySQL.CharacterReplacement "#CHAP_Troubleshooting.MySQL.CharacterReplacement")
 - ["Bad event" log entries](#CHAP_Troubleshooting.MySQL.BadEvent "#CHAP_Troubleshooting.MySQL.BadEvent")
 - [Change data capture with MySQL 5.5](#CHAP_Troubleshooting.MySQL.MySQL55CDC "#CHAP_Troubleshooting.MySQL.MySQL55CDC")
 - [Increasing binary log retention for Amazon RDS DB instances](#CHAP_Troubleshooting.MySQL.BinLogRetention "#CHAP_Troubleshooting.MySQL.BinLogRetention")
-- [Log message: Some changes from the
-  source database had no impact when applied to the target database.](#CHAP_Troubleshooting.MySQL.NoImpact "#CHAP_Troubleshooting.MySQL.NoImpact")
+- [Log message: Some changes from the source database had no impact when applied to the target database.](#CHAP_Troubleshooting.MySQL.NoImpact "#CHAP_Troubleshooting.MySQL.NoImpact")
 - [Error: Identifier too long](#CHAP_Troubleshooting.MySQL.IDTooLong "#CHAP_Troubleshooting.MySQL.IDTooLong")
-- [Error:
-  Unsupported character set
-  causes field data conversion to fail](#CHAP_Troubleshooting.MySQL.UnsupportedCharacterSet "#CHAP_Troubleshooting.MySQL.UnsupportedCharacterSet")
-- [Error:
-  Codepage 1252 to UTF8 [120112] a field data conversion failed](#CHAP_Troubleshooting.MySQL.DataConversionFailed "#CHAP_Troubleshooting.MySQL.DataConversionFailed")
+- [Error: Unsupported character set causes field data conversion to fail](#CHAP_Troubleshooting.MySQL.UnsupportedCharacterSet "#CHAP_Troubleshooting.MySQL.UnsupportedCharacterSet")
+- [Error: Codepage 1252 to UTF8 [120112] a field data conversion failed](#CHAP_Troubleshooting.MySQL.DataConversionFailed "#CHAP_Troubleshooting.MySQL.DataConversionFailed")
 - [Indexes, Foreign Keys, or Cascade Updates or Deletes Not Migrated](#CHAP_Troubleshooting.MySQL.FKsAndIndexes "#CHAP_Troubleshooting.MySQL.FKsAndIndexes")
 
-### CDC task failing for Amazon RDS DB
-
-instance endpoint because binary logging disabled
+### CDC task failing for Amazon RDS DB instance endpoint because binary logging disabled
 
 This issue occurs with Amazon RDS DB instances because automated backups are
 disabled. Enable automatic backups by setting the backup retention period to a
 non-zero value.
 
-### Connections to a
-
-target MySQL instance are disconnected during a task
+### Connections to a target MySQL instance are disconnected during a task
 
 If you have a task with LOBs that is getting disconnected from a MySQL target, you
 might see the following type of errors in the task log.
@@ -718,9 +659,7 @@ following:
 For information about setting MySQL system variables, see [Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html")
 in the [MySQL documentation](https://dev.mysql.com/ "https://dev.mysql.com/").
 
-### Adding autocommit to a
-
-MySQL-compatible endpoint
+### Adding autocommit to a MySQL-compatible endpoint
 
 ###### To add autocommit to a target MySQL-compatible endpoint
 
@@ -740,9 +679,7 @@ Initstmt= SET AUTOCOMMIT=1
 
 6. Choose **Modify**.
 
-### Disable foreign keys on
-
-a target MySQL-compatible endpoint
+### Disable foreign keys on a target MySQL-compatible endpoint
 
 You can disable foreign key checks on MySQL by adding the following to the **Extra
 Connection Attributes** in the **Advanced** section of the target MySQL, Amazon Aurora MySQL-Compatible Edition, or
@@ -802,9 +739,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 
 ```
 
-### Log message: Some changes from the
-
-source database had no impact when applied to the target database.
+### Log message: Some changes from the source database had no impact when applied to the target database.
 
 When AWS DMS updates a MySQL database column's value to its existing value, a
 message of `zero rows affected` is returned from MySQL. This behavior is
@@ -835,10 +770,7 @@ primary keys in the target database. Then use a task with the task setting
 nothing** or **Truncate** to populate the target
 tables.
 
-### Error:
-
-Unsupported character set
-causes field data conversion to fail
+### Error: Unsupported character set causes field data conversion to fail
 
 The following error occurs when an unsupported character set causes a field data
 conversion to fail:
@@ -859,9 +791,7 @@ SHOW VARIABLES LIKE '%char%';
 
 ```
 
-### Error:
-
-Codepage 1252 to UTF8 [120112] a field data conversion failed
+### Error: Codepage 1252 to UTF8 [120112] a field data conversion failed
 
 The following error can occur during a migration if you have non codepage-1252
 characters in the source MySQL database.
@@ -959,26 +889,16 @@ PostgreSQL databases.
 ###### Topics
 
 - [JSON data types being truncated](#CHAP_Troubleshooting.PostgreSQL.JSONTruncation "#CHAP_Troubleshooting.PostgreSQL.JSONTruncation")
-- [Columns of a user-defined data
-  type not being migrated correctly](#CHAP_Troubleshooting.PostgreSQL.UserDefinedDataType "#CHAP_Troubleshooting.PostgreSQL.UserDefinedDataType")
-- [Error: No schema has been
-  selected to create in](#CHAP_Troubleshooting.PostgreSQL.NoSchema "#CHAP_Troubleshooting.PostgreSQL.NoSchema")
-- [Deletes and
-  updates to a table aren't being replicated using CDC](#CHAP_Troubleshooting.PostgreSQL.DeletesNotReplicated "#CHAP_Troubleshooting.PostgreSQL.DeletesNotReplicated")
-- [Truncate statements aren't being
-  propagated](#CHAP_Troubleshooting.PostgreSQL.Truncate "#CHAP_Troubleshooting.PostgreSQL.Truncate")
-- [Preventing PostgreSQL from
-  capturing DDL](#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL "#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL")
-- [Selecting the schema where
-  database objects for capturing DDL are created](#CHAP_Troubleshooting.PostgreSQL.SchemaDDL "#CHAP_Troubleshooting.PostgreSQL.SchemaDDL")
-- [Oracle tables
-  missing after migrating to PostgreSQL](#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing "#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing")
-- [ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions,
-  such as ETL workloads](#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions "#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions")
-- [Task using view as a source has
-  no rows copied](#CHAP_Troubleshooting.PostgreSQL.ViewTask "#CHAP_Troubleshooting.PostgreSQL.ViewTask")
-- [Invalid byte sequence
-  for encoding "UTF8"](#CHAP_Troubleshooting.PostgreSQL.invalidbyte "#CHAP_Troubleshooting.PostgreSQL.invalidbyte")
+- [Columns of a user-defined data type not being migrated correctly](#CHAP_Troubleshooting.PostgreSQL.UserDefinedDataType "#CHAP_Troubleshooting.PostgreSQL.UserDefinedDataType")
+- [Error: No schema has been selected to create in](#CHAP_Troubleshooting.PostgreSQL.NoSchema "#CHAP_Troubleshooting.PostgreSQL.NoSchema")
+- [Deletes and updates to a table aren't being replicated using CDC](#CHAP_Troubleshooting.PostgreSQL.DeletesNotReplicated "#CHAP_Troubleshooting.PostgreSQL.DeletesNotReplicated")
+- [Truncate statements aren't being propagated](#CHAP_Troubleshooting.PostgreSQL.Truncate "#CHAP_Troubleshooting.PostgreSQL.Truncate")
+- [Preventing PostgreSQL from capturing DDL](#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL "#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL")
+- [Selecting the schema where database objects for capturing DDL are created](#CHAP_Troubleshooting.PostgreSQL.SchemaDDL "#CHAP_Troubleshooting.PostgreSQL.SchemaDDL")
+- [Oracle tables missing after migrating to PostgreSQL](#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing "#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing")
+- [ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions, such as ETL workloads](#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions "#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions")
+- [Task using view as a source has no rows copied](#CHAP_Troubleshooting.PostgreSQL.ViewTask "#CHAP_Troubleshooting.PostgreSQL.ViewTask")
+- [Invalid byte sequence for encoding "UTF8"](#CHAP_Troubleshooting.PostgreSQL.invalidbyte "#CHAP_Troubleshooting.PostgreSQL.invalidbyte")
 
 ### JSON data types being truncated
 
@@ -1015,17 +935,13 @@ mode setting and failed validation.
   Error while executing the query [1022502] (ar_odbc_stmt.c:2421)
 ```
 
-### Columns of a user-defined data
-
-type not being migrated correctly
+### Columns of a user-defined data type not being migrated correctly
 
 When replicating from a PostgreSQL source, AWS DMS creates the target table with
 the same data types for all columns, apart from columns with user-defined data
 types. In such cases, the data type is created as "character varying" in the target.
 
-### Error: No schema has been
-
-selected to create in
+### Error: No schema has been selected to create in
 
 In some case, you might see the error "SQL_ERROR SqlState: 3F000 NativeError:
 7 Message: ERROR: no schema has been selected to create in".
@@ -1033,9 +949,7 @@ In some case, you might see the error "SQL_ERROR SqlState: 3F000 NativeError:
 This error can occur when your JSON table mapping contains a wildcard value for
 the schema but the source database doesn't support that value.
 
-### Deletes and
-
-updates to a table aren't being replicated using CDC
+### Deletes and updates to a table aren't being replicated using CDC
 
 Delete and update operations during change data capture (CDC) are ignored if the
 source table doesn't have a primary key. AWS DMS supports change data capture
@@ -1046,16 +960,12 @@ include a before image of the database row. In this case, AWS DMS can't update
 the table. For delete operations to be replicated, create a primary key on the
 source table.
 
-### Truncate statements aren't being
-
-propagated
+### Truncate statements aren't being propagated
 
 When using change data capture (CDC), TRUNCATE operations aren't
 supported by AWS DMS.
 
-### Preventing PostgreSQL from
-
-capturing DDL
+### Preventing PostgreSQL from capturing DDL
 
 You can prevent a PostgreSQL target endpoint from capturing DDL statements by
 adding the following **Endpoint setting** statement.
@@ -1066,9 +976,7 @@ adding the following **Endpoint setting** statement.
 
 ```
 
-### Selecting the schema where
-
-database objects for capturing DDL are created
+### Selecting the schema where database objects for capturing DDL are created
 
 You can control what schema the database objects related to capturing DDL are
 created in. Add the following **Endpoint setting**
@@ -1081,9 +989,7 @@ available in the tab of the source endpoint.
 
 ```
 
-### Oracle tables
-
-missing after migrating to PostgreSQL
+### Oracle tables missing after migrating to PostgreSQL
 
 In this case, your tables and data are generally still accessible.
 
@@ -1096,10 +1002,7 @@ If you migrated your tables without using transformation rules to convert the ca
 of your table names, enclose your table names in quotation marks when referencing
 them.
 
-###
-
-ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions,
-such as ETL workloads
+### ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions, such as ETL workloads
 
 When logical replication is enabled, the maximum number of changes kept in memory
 per transaction is 4MB. After that, changes are spilled to disk. As a result
@@ -1110,14 +1013,11 @@ is a long transaction, it can take a long time to rollback.
 So, avoid long running transactions when logical replication is enabled. Instead,
 try to break the transaction into several smaller transactions.
 
-### Task using view as a source has
-
-no rows copied
+### Task using view as a source has no rows copied
 
 To migrate a view, set `table-type` to `all` or
 `view`. For more information, see
-[Specifying table
-selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+[Specifying table selection and transformations rules from the console](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
 Sources that support views include the following.
 
@@ -1128,9 +1028,7 @@ Sources that support views include the following.
 - IBM Db2 LUW
 - SAP Adaptive Server Enterprise (ASE)
 
-### Invalid byte sequence
-
-for encoding "UTF8"
+### Invalid byte sequence for encoding "UTF8"
 
 Data migration from Oracle to PostgreSQL using AWS DMS presents unique challenges
 due to character set encoding differences between the two databases. A significant
@@ -1152,33 +1050,22 @@ modifications to the source data.
 For more information, see _Character set validation and
 replacement_ bullet point in [Character substitution task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md") topic.
 
-## Troubleshooting issues with Microsoft SQL
-
-Server
+## Troubleshooting issues with Microsoft SQL Server
 
 Following, you can learn about troubleshooting issues specific to using AWS DMS with
 Microsoft SQL Server databases.
 
 ###### Topics
 
-- [Ongoing replication fails after
-  RDS for SQL Server fails over to secondary](#CHAP_Troubleshooting.SQLServer.RepFailover "#CHAP_Troubleshooting.SQLServer.RepFailover")
-- [Errors capturing changes for SQL
-  server database](#CHAP_Troubleshooting.SQLServer.CDCErrors "#CHAP_Troubleshooting.SQLServer.CDCErrors")
+- [Ongoing replication fails after RDS for SQL Server fails over to secondary](#CHAP_Troubleshooting.SQLServer.RepFailover "#CHAP_Troubleshooting.SQLServer.RepFailover")
+- [Errors capturing changes for SQL server database](#CHAP_Troubleshooting.SQLServer.CDCErrors "#CHAP_Troubleshooting.SQLServer.CDCErrors")
 - [Missing identity columns](#CHAP_Troubleshooting.SQLServer.IdentityColumns "#CHAP_Troubleshooting.SQLServer.IdentityColumns")
-- [Error: SQL Server
-  doesn't support publications](#CHAP_Troubleshooting.SQLServer.Publications "#CHAP_Troubleshooting.SQLServer.Publications")
-- [Changes do not appear in your
-  target](#CHAP_Troubleshooting.SQLServer.NoChanges "#CHAP_Troubleshooting.SQLServer.NoChanges")
-- [Non-uniform table mapped
-  across partitions](#CHAP_Troubleshooting.SQLServer.Nonuniform "#CHAP_Troubleshooting.SQLServer.Nonuniform")
-- [Error : CDC task
-  failed with a Bad Envelope, invalid data context/LCX code while processing a
-  transaction](#CHAP_Troubleshooting.SQLServer.badenvelope.cdc "#CHAP_Troubleshooting.SQLServer.badenvelope.cdc")
+- [Error: SQL Server doesn't support publications](#CHAP_Troubleshooting.SQLServer.Publications "#CHAP_Troubleshooting.SQLServer.Publications")
+- [Changes do not appear in your target](#CHAP_Troubleshooting.SQLServer.NoChanges "#CHAP_Troubleshooting.SQLServer.NoChanges")
+- [Non-uniform table mapped across partitions](#CHAP_Troubleshooting.SQLServer.Nonuniform "#CHAP_Troubleshooting.SQLServer.Nonuniform")
+- [Error : CDC task failed with a Bad Envelope, invalid data context/LCX code while processing a transaction](#CHAP_Troubleshooting.SQLServer.badenvelope.cdc "#CHAP_Troubleshooting.SQLServer.badenvelope.cdc")
 
-### Ongoing replication fails after
-
-RDS for SQL Server fails over to secondary
+### Ongoing replication fails after RDS for SQL Server fails over to secondary
 
 If a source SQL Server instance fails over to the secondary, AWS DMS ongoing replication keeps
 trying to connect, and continues replicating once the source is back online. However, for RDS for SQL Server
@@ -1196,9 +1083,7 @@ MAZ instances, under certain circumstances the secondary database owner can be s
 To fix this, follow the steps in
 [Changing the db_owner to the rdsa account for your database](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.md"), and then resume your DMS task.
 
-### Errors capturing changes for SQL
-
-server database
+### Errors capturing changes for SQL server database
 
 Errors during change data capture (CDC) can often indicate that one of the
 prerequisites wasn't met. For example, the most common overlooked prerequisite
@@ -1213,17 +1098,14 @@ To enable all changes to be captured, you must perform a full database backup.
 
 ```
 
-Review the prerequisites listed for using SQL Server as a source in [Using a Microsoft SQL Server database as a
-source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+Review the prerequisites listed for using SQL Server as a source in [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
 
 ### Missing identity columns
 
 AWS DMS doesn't support identity columns when you create a target schema. You
 must add them after the initial load has completed.
 
-### Error: SQL Server
-
-doesn't support publications
+### Error: SQL Server doesn't support publications
 
 The following error is generated when you use SQL Server Express as a source
 endpoint:
@@ -1238,9 +1120,7 @@ Message: This edition of SQL Server does not support publications.
 AWS DMS currently doesn't support SQL Server Express as a source or
 target.
 
-### Changes do not appear in your
-
-target
+### Changes do not appear in your target
 
 AWS DMS requires that a source SQL Server database be in either 'FULL' or 'BULK
 LOGGED' data recovery model in order to consistently capture changes. The 'SIMPLE'
@@ -1255,12 +1135,9 @@ is automatically truncated. This truncation means that the log becomes available
 reuse and older log entries can be overwritten. When log entries are overwritten,
 changes can't be captured. This issue is why AWS DMS does not support the SIMPLE
 data recovery model. For information on other required prerequisites for using SQL
-Server as a source, see [Using a Microsoft SQL Server database as a
-source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
+Server as a source, see [Using a Microsoft SQL Server database as a source for AWS DMS](CHAP_Source.md "CHAP_Source.md").
 
-### Non-uniform table mapped
-
-across partitions
+### Non-uniform table mapped across partitions
 
 During change data capture (CDC), migration of a table with a specialized
 structure is suspended when AWS DMS can't properly perform CDC on the table.
@@ -1292,10 +1169,7 @@ Workarounds include the following:
 - If the table does not have a clustered index, add a clustered index to the table (you can drop
   it later if you want).
 
-### Error : CDC task
-
-failed with a Bad Envelope, invalid data context/LCX code while processing a
-transaction
+### Error : CDC task failed with a Bad Envelope, invalid data context/LCX code while processing a transaction
 
 The 'Bad Envelope' error occurs when AWS DMS is unable to validate specific event
 types in CDC phase replication during the validation process. This error can
@@ -1317,54 +1191,39 @@ Amazon Redshift databases.
 
 ###### Topics
 
-- [Loading in to an Amazon Redshift cluster in a different
-  AWS Region](#CHAP_Troubleshooting.Redshift.Regions "#CHAP_Troubleshooting.Redshift.Regions")
-- [Error: Relation
-  "awsdms_apply_exceptions" already exists](#CHAP_Troubleshooting.Redshift.AlreadyExists "#CHAP_Troubleshooting.Redshift.AlreadyExists")
-- [Errors with tables whose name
-  begins with "awsdms_changes"](#CHAP_Troubleshooting.Redshift.Changes "#CHAP_Troubleshooting.Redshift.Changes")
-- [Seeing tables in clusters with names like
-  dms.awsdms_changes000000000XXXX](#CHAP_Troubleshooting.Redshift.TempTables "#CHAP_Troubleshooting.Redshift.TempTables")
-- [Permissions required to work with
-  Amazon Redshift](#CHAP_Troubleshooting.Redshift.Permissions "#CHAP_Troubleshooting.Redshift.Permissions")
+- [Loading in to an Amazon Redshift cluster in a different AWS Region](#CHAP_Troubleshooting.Redshift.Regions "#CHAP_Troubleshooting.Redshift.Regions")
+- [Error: Relation "awsdms_apply_exceptions" already exists](#CHAP_Troubleshooting.Redshift.AlreadyExists "#CHAP_Troubleshooting.Redshift.AlreadyExists")
+- [Errors with tables whose name begins with "awsdms_changes"](#CHAP_Troubleshooting.Redshift.Changes "#CHAP_Troubleshooting.Redshift.Changes")
+- [Seeing tables in clusters with names like dms.awsdms_changes000000000XXXX](#CHAP_Troubleshooting.Redshift.TempTables "#CHAP_Troubleshooting.Redshift.TempTables")
+- [Permissions required to work with Amazon Redshift](#CHAP_Troubleshooting.Redshift.Permissions "#CHAP_Troubleshooting.Redshift.Permissions")
 
-### Loading in to an Amazon Redshift cluster in a different
-
-AWS Region
+### Loading in to an Amazon Redshift cluster in a different AWS Region
 
 You can't load into an Amazon Redshift cluster in a different AWS Region than your AWS DMS
 replication instance. DMS requires that your replication instance and your Amazon Redshift
 cluster be in the same Region.
 
-### Error: Relation
-
-"awsdms_apply_exceptions" already exists
+### Error: Relation "awsdms_apply_exceptions" already exists
 
 The error "Relation 'awsdms_apply_exceptions' already exists" often occurs when a
 Redshift endpoint is specified as a PostgreSQL endpoint. To fix this issue, modify
 the endpoint and change the **Target engine** to "redshift."
 
-### Errors with tables whose name
-
-begins with "awsdms_changes"
+### Errors with tables whose name begins with "awsdms_changes"
 
 Table error messages with names that begin with "awsdms_changes" can
 occur when two tasks trying to load data into the same Amazon Redshift cluster run
 concurrently. Due to the way temporary tables are named, concurrent tasks can
 conflict when updating the same table.
 
-### Seeing tables in clusters with names like
-
-dms.awsdms_changes000000000XXXX
+### Seeing tables in clusters with names like dms.awsdms_changes000000000XXXX
 
 AWS DMS creates temporary tables when data is being loaded from files stored in
 Amazon S3. The names of these temporary tables each have the prefix `dms.awsdms_changes`.
 These tables are required so AWS DMS can store data when it is first loaded and before
 it is placed in its final target table.
 
-### Permissions required to work with
-
-Amazon Redshift
+### Permissions required to work with Amazon Redshift
 
 To use AWS DMS with Amazon Redshift, the user account that you use to access Amazon Redshift must
 have the following permissions:
@@ -1373,8 +1232,7 @@ have the following permissions:
 - Bulk load
 - Create, alter, drop (if required by the task's definition)
 
-To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for
-AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
+To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md").
 
 ## Troubleshooting issues with Amazon Aurora MySQL
 
@@ -1383,12 +1241,9 @@ Amazon Aurora MySQL databases.
 
 ###### Topics
 
-- [Error: CHARACTER SET
-  UTF8 fields terminated by ',' enclosed by '"' lines terminated by '\n'](#CHAP_Troubleshooting.Aurora.ANSIQuotes "#CHAP_Troubleshooting.Aurora.ANSIQuotes")
+- [Error: CHARACTER SET UTF8 fields terminated by ',' enclosed by '"' lines terminated by '\n'](#CHAP_Troubleshooting.Aurora.ANSIQuotes "#CHAP_Troubleshooting.Aurora.ANSIQuotes")
 
-### Error: CHARACTER SET
-
-UTF8 fields terminated by ',' enclosed by '"' lines terminated by '\n'
+### Error: CHARACTER SET UTF8 fields terminated by ',' enclosed by '"' lines terminated by '\n'
 
 If you are using Amazon Aurora MySQL as a target, you might see an error like the
 following in the logs. This type of error usually indicates that you have
@@ -1415,9 +1270,7 @@ enclosed by '"' lines terminated by '\n'( `SANDBOX_SRC_FILE_ID`,`SANDBOX_ID`,
 Following, you can learn about troubleshooting issues specific to using AWS DMS with
 SAP ASE databases.
 
-### Error: LOB columns have NULL values when source has a
-
-composite unique index with NULL values
+### Error: LOB columns have NULL values when source has a composite unique index with NULL values
 
 When using SAP ASE as a source with tables configured with a composite unique index that allows NULL values,
 LOB values might not migrate during ongoing replication. This behavior is usually the result of ANSI_NULL set to 1 by default
@@ -1431,13 +1284,11 @@ to the AWS DMS source endpoint for the task.
 Following, you can learn about troubleshooting issues specific to using AWS DMS with
 IBM Db2 databases.
 
-### Error: Resume from
+### Error: Resume from timestamp is not supported Task
 
-timestamp is not supported Task
-
-For ongoing replication (CDC), if you plan to start replication from a specific timestamp, set the connection attribute
+For ongoing replication (CDC), if you plan to start replication from a specific timestamp, set the extra connection attribute
 `StartFromContext` to the required timestamp. For more information, see
-[Endpoint settings when using Db2 LUW](CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib "CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib"). Setting
+[Extra Connection Attributes (ECAs) when using Db2 LUW](CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib "CHAP_Source.md#CHAP_Source.DB2.ConnectionAttrib"). Setting
 `StartFromContext` to the required timestamp prevents the following issue:
 
 ```
@@ -1447,9 +1298,7 @@ scanning the log (to find the timestamp). When using IBM DB2 for LUW, 'Start fro
 change was captured by this Replicate task earlier to the specified timestamp.
 ```
 
-## Table suspended a table with
-
-error "Failed to build 'where' statement"
+## Table suspended a table with error "Failed to build 'where' statement"
 
 In DMS when you try to update a record in a table that does not have a primary key,
 the system is unable to construct a WHERE condition and displays the following

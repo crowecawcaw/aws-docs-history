@@ -89,12 +89,9 @@ collection** and rerun the data collection process. After performing
 data collection, the data collector uses secure connections to upload collected data
 to a DMS Fleet Advisor inventory. DMS Fleet Advisor stores information in your
 Amazon S3 bucket. For information about configuring credentials for data forwarding,
-see [Configuring credentials for
-data forwarding](fa-data-collectors-install.md#fa-data-collectors-configure "fa-data-collectors-install.md#fa-data-collectors-configure").
+see [Configuring credentials for data forwarding](fa-data-collectors-install.md#fa-data-collectors-configure "fa-data-collectors-install.md#fa-data-collectors-configure").
 
-## Collecting capacity and resource utilization metrics
-
-with AWS DMS Fleet Advisor
+## Collecting capacity and resource utilization metrics with AWS DMS Fleet Advisor
 
 You can collect metadata and performance metrics in two modes: single run or ongoing
 monitoring. Depending on the option that you select, your DMS data collector tracks different
@@ -142,9 +139,7 @@ DMS Fleet Advisor uses these metrics to generate accurate target recommendations
 target databases meet your performance needs. This can prevent additional cost incurred on
 the maintenance of your resources in the AWS Cloud.
 
-## How does the AWS DMS Fleet Advisor collect capacity
-
-and resource utilization metrics?
+## How does the AWS DMS Fleet Advisor collect capacity and resource utilization metrics?
 
 DMS Fleet Advisor collects performance metrics every minute.
 

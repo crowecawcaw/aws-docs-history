@@ -4,14 +4,10 @@ This topic describes how to set up CDC replication on a SQL Server source.
 
 ###### Topics
 
-- [Capturing data changes for self-managed
-  SQL Server on-premises or on Amazon EC2](#CHAP_Source.SQLServer.CDC.Selfmanaged "#CHAP_Source.SQLServer.CDC.Selfmanaged")
-- [Setting up ongoing replication
-  on a cloud SQL Server DB instance](#CHAP_Source.SQLServer.Configuration "#CHAP_Source.SQLServer.Configuration")
+- [Capturing data changes for self-managed SQL Server on-premises or on Amazon EC2](#CHAP_Source.SQLServer.CDC.Selfmanaged "#CHAP_Source.SQLServer.CDC.Selfmanaged")
+- [Setting up ongoing replication on a cloud SQL Server DB instance](#CHAP_Source.SQLServer.Configuration "#CHAP_Source.SQLServer.Configuration")
 
-## Capturing data changes for self-managed
-
-SQL Server on-premises or on Amazon EC2
+## Capturing data changes for self-managed SQL Server on-premises or on Amazon EC2
 
 To capture changes from a source Microsoft SQL Server database, make sure that the database
 is configured for full backups. Configure the database either in full recovery mode
@@ -52,32 +48,24 @@ WHERE OBJECTPROPERTY(object_id, 'TableHasPrimaryKey') = 0
 ORDER BY schema_name, table_name;
 ```
 
-### Setting up ongoing replication
-
-on a self-managed SQL Server
+### Setting up ongoing replication on a self-managed SQL Server
 
 This section contains information about setting up ongoing replication on a self-managed
 SQL server with or without using the sysadmin role.
 
 ###### Topics
 
-- [Setting up ongoing replication
-  on a self-managed SQL Server: Using sysadmin role](#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin "#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin")
-- [Setting up ongoing replication
-  on a standalone SQL Server: Without sysadmin role](#CHAP_SupportScripts.SQLServer.standalone "#CHAP_SupportScripts.SQLServer.standalone")
-- [Setting up ongoing replication
-  on a SQL Server in an availability group environment: Without sysadmin role](#CHAP_SupportScripts.SQLServer.ag "#CHAP_SupportScripts.SQLServer.ag")
+- [Setting up ongoing replication on a self-managed SQL Server: Using sysadmin role](#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin "#CHAP_Source.SQLServer.CDC.MSCDC.Sysadmin")
+- [Setting up ongoing replication on a standalone SQL Server: Without sysadmin role](#CHAP_SupportScripts.SQLServer.standalone "#CHAP_SupportScripts.SQLServer.standalone")
+- [Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role](#CHAP_SupportScripts.SQLServer.ag "#CHAP_SupportScripts.SQLServer.ag")
 
-#### Setting up ongoing replication
-
-on a self-managed SQL Server: Using sysadmin role
+#### Setting up ongoing replication on a self-managed SQL Server: Using sysadmin role
 
 AWS DMS ongoing replication for SQL Server uses native SQL Server replication
 for tables with primary keys, and change data capture (CDC) for tables without
 primary keys.
 
-Before setting up ongoing replication, see [Prerequisites for using ongoing
-replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
+Before setting up ongoing replication, see [Prerequisites for using ongoing replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
 
 For tables with primary keys, AWS DMS can generally configure the required
 artifacts on the source. However, for SQL Server source instances that are
@@ -150,9 +138,7 @@ GO
 For more information on setting up MS-CDC for specific tables, see the [SQL Server
 documentation](https://msdn.microsoft.com/en-us/library/cc627369.aspx "https://msdn.microsoft.com/en-us/library/cc627369.aspx").
 
-#### Setting up ongoing replication
-
-on a standalone SQL Server: Without sysadmin role
+#### Setting up ongoing replication on a standalone SQL Server: Without sysadmin role
 
 This section describes how to set up ongoing replication for a standalone SQL Server database source that
 doesn't require the user account to have sysadmin privileges.
@@ -687,9 +673,7 @@ use Source_DB
 enableNonSysadminWrapper=true;
 ```
 
-#### Setting up ongoing replication
-
-on a SQL Server in an availability group environment: Without sysadmin role
+#### Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role
 
 This section describes how to set up ongoing replication for a SQL Server database source
 in an availability group environment that
@@ -1122,18 +1106,14 @@ enabled, stop the MS-REPLICATION Log Reader job. 4. Perform the following steps 
     EXEC sp_addrolemember N'db_owner', N'dmsnosysadmin'
     ```
 
-## Setting up ongoing replication
-
-on a cloud SQL Server DB instance
+## Setting up ongoing replication on a cloud SQL Server DB instance
 
 This section describes how to set up CDC on a cloud-hosted SQL Server database instance.
 A cloud-hosted SQL server instance is an instance running on Amazon RDS for SQL Server, an Azure SQL Manged Instance,
 or any other managed cloud SQL Server instance. For information about limitations for ongoing replication for
-each database type, see [Limitations on using SQL Server
-as a source for AWS DMS](CHAP_Source.md#CHAP_Source.SQLServer.Limitations "CHAP_Source.md#CHAP_Source.SQLServer.Limitations").
+each database type, see [Limitations on using SQL Server as a source for AWS DMS](CHAP_Source.md#CHAP_Source.SQLServer.Limitations "CHAP_Source.md#CHAP_Source.SQLServer.Limitations").
 
-Before setting up ongoing replication, see [Prerequisites for using ongoing
-replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
+Before setting up ongoing replication, see [Prerequisites for using ongoing replication (CDC) from a SQL Server source](CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites "CHAP_Source.md#CHAP_Source.SQLServer.Prerequisites").
 
 Unlike self-managed Microsoft SQL Server sources, Amazon RDS for SQL Server doesn't support
 MS-Replication. Therefore, AWS DMS needs to use MS-CDC for tables with or without
@@ -1261,9 +1241,7 @@ exec sp_cdc_start_job 'capture'
 Remember to start the job that truncates SQL Server transaction logs.
 Otherwise, storage on your SQL Server instance might fill up.
 
-### Recommended settings
-
-when using RDS for SQL Server as a source for AWS DMS
+### Recommended settings when using RDS for SQL Server as a source for AWS DMS
 
 #### For AWS DMS 3.5.3 and above
 
@@ -1295,12 +1273,10 @@ based on the CloudWatch `FreeStorageSpace` metric for your Amazon RDS instance.
 We strongly recommend that you don’t start or resume from a point too far back in the transaction log backups,
 as it might lead to storage on your SQL Server instance filling up. In such cases, it is advisable to start
 a full load. Replicating from the transaction log backup is slower than reading from the active transaction logs.
-For more information, see [Transaction log
-backup processing for RDS for SQL Server](CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup "CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup").
+For more information, see [Transaction log backup processing for RDS for SQL Server](CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup "CHAP_Troubleshooting_Latency_Source_SQLServer.md#CHAP_Troubleshooting_Latency_Source_SQLServer_backup").
 
 Note that accessing the log backups requires additional privileges. For more information, see
-as detailed in [Set up permissions for ongoing replication
-from a cloud SQL Server database](CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud "CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud")
+as detailed in [Set up permissions for ongoing replication from a cloud SQL Server database](CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud "CHAP_Source.md#CHAP_Source.SQLServer.Permissions.Cloud")
 Make sure that you grant these privileges before the task starts replicating.
 
 #### For AWS DMS 3.5.2 and below

@@ -1,6 +1,4 @@
-# How AWS Database Migration Service works with
-
-IAM
+# How AWS Database Migration Service works with IAM
 
 Before you use IAM to manage access to AWS DMS, you should understand what
 IAM features are available to use with AWS DMS. To get a high-level view of how
@@ -9,18 +7,13 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [AWS DMS
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS DMS
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  AWS DMS tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS DMS identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS DMS resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on AWS DMS tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [IAM roles for AWS DMS](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 - [Identity and access management for DMS Fleet Advisor](#fa-security-iam "#fa-security-iam")
 
-## AWS DMS
-
-identity-based policies
+## AWS DMS identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, and also the conditions under which actions are allowed or denied.
@@ -132,8 +125,7 @@ specify multiple resources in a single statement, separate the ARNs with commas.
 ```
 
 For more information on controlling access to AWS DMS resources using policies, see
-[Using resource names
-to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName "CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName"). To see a list of
+[Using resource names to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName "CHAP_Security.md#CHAP_Security.FineGrainedAccess.ResourceName"). To see a list of
 AWS DMS resource types and their ARNs, see [Resources Defined by AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-resources-for-iam-policies") in the
 _IAM User Guide_. To learn with which actions you can specify
 the ARN of each resource, see [Actions Defined by AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-actions-as-permissions").
@@ -154,8 +146,7 @@ some global condition keys. To see all AWS global condition keys, see [AWS globa
 context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
 AWS DMS defines a set of standard tags that you can use in its condition keys and
-also allows you defined your own custom tags. For more information, see [Using tags to control
-access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
+also allows you defined your own custom tags. For more information, see [Using tags to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
 
 To see a list of AWS DMS condition keys, see [Condition Keys for AWS Database Migration Service](../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-policy-keys "../../../IAM/latest/UserGuide/list_awsdatabasemigrationservice.md#awsdatabasemigrationservice-policy-keys")
 in the _IAM User Guide_. To learn with which actions and
@@ -164,12 +155,9 @@ resources you can use a condition key, see [Actions Defined by AWS Database Migr
 
 ### Examples
 
-To view examples of AWS DMS identity-based policies, see [AWS Database Migration Service identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS DMS identity-based policies, see [AWS Database Migration Service identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## AWS DMS
-
-resource-based policies
+## AWS DMS resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on a given AWS DMS resource and under what
@@ -196,18 +184,13 @@ This policy defines which principal entities (accounts, users, roles, and federa
 users) can encrypt migrated data on the supported target endpoint.
 
 To learn how to attach a resource-based policy to an encryption key that you create
-for the supported target endpoints, see [Creating and using AWS KMS keys to
-encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") and [Creating AWS KMS keys to encrypt Amazon S3 target
-objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
+for the supported target endpoints, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") and [Creating AWS KMS keys to encrypt Amazon S3 target objects](CHAP_Target.md#CHAP_Target.S3.KMSKeys "CHAP_Target.md#CHAP_Target.S3.KMSKeys").
 
 ### Examples
 
-For examples of AWS DMS resource-based policies, see [Resource-based policy
-examples for AWS KMS](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+For examples of AWS DMS resource-based policies, see [Resource-based policy examples for AWS KMS](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Authorization based on
-
-AWS DMS tags
+## Authorization based on AWS DMS tags
 
 You can attach tags to AWS DMS resources or pass tags in a request to
 AWS DMS. To control access based on tags, you provide tag information in the
@@ -217,21 +200,17 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition key. AWS DMS defines a set of standard tags that you
 can use in its condition keys and also enables you to define your own custom tags. For
-more information, see [Using tags to control
-access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
+more information, see [Using tags to control access](CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags "CHAP_Security.md#CHAP_Security.FineGrainedAccess.Tags").
 
 For an example identity-based policy that limits access to a resource based on tags,
-see [Accessing
-AWS DMS resources based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags").
+see [Accessing AWS DMS resources based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-access-resources-tags").
 
 ## IAM roles for AWS DMS
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with AWS DMS
+### Using temporary credentials with AWS DMS
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or assume a cross-account role. You get temporary security credentials by
@@ -239,9 +218,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 AWS DMS supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -266,22 +243,15 @@ certain source or target endpoints:
 - Roles with permissions to allow AWS DMS access to the following source
   and target endpoints (or their resources):
 
-      + Amazon DynamoDB as a target – For more information see [Prerequisites for using
-       DynamoDB as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites").
-      + OpenSearch as a target – For more information see [Prerequisites for using
-       Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites").
-      + Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis
-       data stream as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites").
+      + Amazon DynamoDB as a target – For more information see [Prerequisites for using DynamoDB as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.md#CHAP_Target.DynamoDB.Prerequisites").
+      + OpenSearch as a target – For more information see [Prerequisites for using Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.md#CHAP_Target.Elasticsearch.Prerequisites").
+      + Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service](CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.md#CHAP_Target.Kinesis.Prerequisites").
       + Amazon Redshift as a target – You need to create the specified role only
        for creating a custom KMS encryption key to encrypt the target data or
        for specifying a custom S3 bucket to hold intermediate task storage. For
-       more information, see [Creating and using AWS KMS keys to
-       encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket
-       settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
+       more information, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
       + Amazon S3 as a source or as a target – For more information, see
-       [Prerequisites when using Amazon S3 as a
-       source for AWS DMS](CHAP_Source.md#CHAP_Source.S3.Prerequisites "CHAP_Source.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a
-       target](CHAP_Target.md#CHAP_Target.S3.Prerequisites "CHAP_Target.md#CHAP_Target.S3.Prerequisites").
+       [Prerequisites when using Amazon S3 as a source for AWS DMS](CHAP_Source.md#CHAP_Source.S3.Prerequisites "CHAP_Source.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a target](CHAP_Target.md#CHAP_Target.S3.Prerequisites "CHAP_Target.md#CHAP_Target.S3.Prerequisites").
 
   For example, to read data from an S3 source endpoint or to push data to an
   S3 target endpoint, you must create a service role as a prerequisite to
@@ -294,9 +264,7 @@ certain source or target endpoints:
   `dms-access-for-endpoint` to your AWS account. For more
   information, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
 
-### Choosing an IAM role
-
-in AWS DMS
+### Choosing an IAM role in AWS DMS
 
 If you use the AWS DMS console, the AWS CLI or the AWS DMS API for your database migration, you must
 add certain IAM roles to your AWS account before you can use the features of

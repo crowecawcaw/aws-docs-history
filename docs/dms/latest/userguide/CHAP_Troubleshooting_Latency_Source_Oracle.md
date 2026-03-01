@@ -82,15 +82,12 @@ To troubleshoot latency in this scenario, check the following:
   either Oracle LogMiner or AWS DMS Binary Reader. While LogMiner reads the online redo logs and archived
   redo log files, Binary Reader reads and parses the raw redo log files directly. As a result, Binary Reader
   is more performant. We recommend that you use Binary Reader if your redo log generation is more than 10 GB/ hour.
-  For more information, see [Using Oracle LogMiner or AWS DMS Binary
-  Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
+  For more information, see [Using Oracle LogMiner or AWS DMS Binary Reader for CDC](CHAP_Source.md#CHAP_Source.Oracle.CDC "CHAP_Source.md#CHAP_Source.Oracle.CDC").
 - Check if you set `ArchivedLogsOnly` to `Y`. If this endpoint setting is set,
   AWS DMS reads from the archived redo logs. This increases source latency, because AWS DMS waits for the online redo log
   to be archived before reading. For more information, see [ArchivedLogsOnly](../APIReference/API_OracleSettings.md#DMS-Type-OracleSettings-ArchivedLogsOnly "../APIReference/API_OracleSettings.md#DMS-Type-OracleSettings-ArchivedLogsOnly").
 - If your Oracle source uses Automatic Storage Management (ASM), see
-  [Storing REDO on Oracle ASM
-  when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.REDOonASM "CHAP_Source.md#CHAP_Source.Oracle.REDOonASM") for information about
+  [Storing REDO on Oracle ASM when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.REDOonASM "CHAP_Source.md#CHAP_Source.Oracle.REDOonASM") for information about
   how to properly configure your data store. You may also be able to optimize reading performance further
   by using the `asmUsePLSQLArray` extra connection attrribute (ECA). For information about using
-  `asmUsePLSQLArray`, see [Endpoint settings
-  when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").
+  `asmUsePLSQLArray`, see [Endpoint settings when using Oracle as a source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib "CHAP_Source.md#CHAP_Source.Oracle.ConnectionAttrib").

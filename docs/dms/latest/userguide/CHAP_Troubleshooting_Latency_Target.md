@@ -61,8 +61,7 @@ If your logs contain a message similar to the second message, do the following:
   these task settings, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 - Evaluate if you can use batch apply for your transaction by setting `BatchApplyEnabled`
   to `true`. For information about the `BatchApplyEnabled` setting, see
-  [Target
-  metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+  [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
 ## Database locking
 

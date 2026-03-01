@@ -16,8 +16,7 @@ subscribe to the Creation category for a given replication instance, you are
 notified whenever a creation-related event occurs that affects your
 replication instance. You can work with these notifications in any form
 supported by Amazon SNS for an AWS Region, such as an email message, a text
-message, or a call to an HTTP endpoint. For more information, see [Working with Amazon SNS events and notifications in
-AWS Database Migration Service](CHAP_Events.md "CHAP_Events.md")
+message, or a call to an HTTP endpoint. For more information, see [Working with Amazon SNS events and notifications in AWS Database Migration Service](CHAP_Events.md "CHAP_Events.md")
 
 **Task status**
 
@@ -30,10 +29,8 @@ if a full load of a table has begun or is in progress and details such as
 the number of inserts, deletes, and updates have occurred for the table. For
 more information about monitoring task and task resource condition, see
 [Task status](#CHAP_Tasks.Status "#CHAP_Tasks.Status")
-and [Table state during
-tasks](#CHAP_Tasks.CustomizingTasks.TableState "#CHAP_Tasks.CustomizingTasks.TableState"). For more
-information about control tables, see [Control
-table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
+and [Table state during tasks](#CHAP_Tasks.CustomizingTasks.TableState "#CHAP_Tasks.CustomizingTasks.TableState"). For more
+information about control tables, see [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
 **Amazon CloudWatch alarms and logs**
 
@@ -62,10 +59,8 @@ only for full-load and CDC tasks and for CDC only tasks. To turn on Time Travel
 or to modify any existing Time Travel settings, ensure that your task is
 stopped.
 
-For more information about Time Travel logs, see [Time Travel task
-settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md"). For
-best practices for using Time Travel logs, see [Troubleshooting replication tasks with
-Time Travel](CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel "CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel").
+For more information about Time Travel logs, see [Time Travel task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md"). For
+best practices for using Time Travel logs, see [Troubleshooting replication tasks with Time Travel](CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel "CHAP_BestPractices.md#CHAP_BestPractices.TimeTravel").
 
 **AWS CloudTrail logs**
 
@@ -93,8 +88,7 @@ For more information, see the following topics.
 ###### Topics
 
 - [Task status](#CHAP_Tasks.Status "#CHAP_Tasks.Status")
-- [Table state during
-  tasks](#CHAP_Tasks.CustomizingTasks.TableState "#CHAP_Tasks.CustomizingTasks.TableState")
+- [Table state during tasks](#CHAP_Tasks.CustomizingTasks.TableState "#CHAP_Tasks.CustomizingTasks.TableState")
 - [Monitoring replication tasks using Amazon CloudWatch](#CHAP_Monitoring.CloudWatch "#CHAP_Monitoring.CloudWatch")
 - [AWS Database Migration Service metrics](#CHAP_Monitoring.Metrics "#CHAP_Monitoring.Metrics")
 - [Viewing and managing AWS DMS task logs](#CHAP_Monitoring.ManagingLogs "#CHAP_Monitoring.ManagingLogs")
@@ -173,9 +167,7 @@ shown in the following example.
 }
 ```
 
-## Table state during
-
-tasks
+## Table state during tasks
 
 The AWS DMS console updates information regarding the state of your tables during
 migration. The following table shows the possible state values:
@@ -230,8 +222,7 @@ AWS DMS provides statistics for the following:
 - **Host Metrics** – Performance
   and utilization statistics for the replication host, provided by Amazon CloudWatch. For a complete list of the
   available metrics,
-  see [Replication instance
-  metrics](#CHAP_Monitoring.Metrics.CloudWatch "#CHAP_Monitoring.Metrics.CloudWatch").
+  see [Replication instance metrics](#CHAP_Monitoring.Metrics.CloudWatch "#CHAP_Monitoring.Metrics.CloudWatch").
 - **Replication Task Metrics** – Statistics
   for replication tasks including incoming and committed changes, and latency between the replication host and both
   the source and target databases. For a complete list of the
@@ -342,9 +333,7 @@ conversions happen. Overloading the CPU and not having enough CPU resources can 
 slow migrations. AWS DMS can be CPU-intensive, especially when performing heterogeneous
 migrations and replications such as migrating from Oracle to PostgreSQL.
 
-### Replication instance
-
-metrics
+### Replication instance metrics
 
 Replication instance monitoring includes Amazon CloudWatch metrics for the
 following statistics.
@@ -518,9 +507,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-### Understanding AWS DMS log file
-
-entries
+### Understanding AWS DMS log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

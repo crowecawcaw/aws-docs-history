@@ -15,8 +15,7 @@ can save the converted code as SQL scripts in a text file.
 4. Choose a database object in the source database pane. DMS Schema Conversion displays the
    source code and the converted code for this object. You can edit the converted
    SQL code for a database object using the Edit SQL feature. For more information,
-   see [Editing and saving your
-   converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql") .
+   see [Editing and saving your converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql").
 5. In the target database pane, choose the converted database schema. Also,
    select the check box for the name of this schema.
 6. For **Actions**, choose **Save as SQL**. The

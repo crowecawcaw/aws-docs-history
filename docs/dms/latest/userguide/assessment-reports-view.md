@@ -1,6 +1,4 @@
-# Viewing your database migration assessment
-
-report for DMS Schema Conversion
+# Viewing your database migration assessment report for DMS Schema Conversion
 
 After you create an assessment report, DMS Schema Conversion adds information in the following
 tabs:
@@ -36,9 +34,7 @@ To change the scope of the assessment report, select the required node in the
 source database tree. DMS Schema Conversion updates the assessment report summary to match the
 selected scope.
 
-## Assessment report action
-
-items
+## Assessment report action items
 
 The **Action items** tab contains a list of items that DMS Schema Conversion
 can't automatically convert to a format compatible with the target database engine.
@@ -49,9 +45,7 @@ occurrences.
 To view the code for the related database object, select an action item in the
 list.
 
-## Assessment report with
-
-generative AI
+## Assessment report with generative AI
 
 DMS Schema Conversion with generative AI streamlines the database migration process by offering
 recommendations to help you convert previously unconverted code objects that

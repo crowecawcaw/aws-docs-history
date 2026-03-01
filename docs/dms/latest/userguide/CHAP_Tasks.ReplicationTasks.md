@@ -1,6 +1,4 @@
-# Creating multiple
-
-tasks
+# Creating multiple tasks
 
 In some migration scenarios, you might have to create several migration tasks.
 Tasks work independently and can run concurrently. Each task has its own initial

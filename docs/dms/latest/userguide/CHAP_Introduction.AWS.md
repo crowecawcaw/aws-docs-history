@@ -1,6 +1,4 @@
-# Constructing an Amazon Resource Name
-
-(ARN) for AWS DMS
+# Constructing an Amazon Resource Name (ARN) for AWS DMS
 
 If you use the AWS CLI or AWS DMS API to automate your database migration, then you
 work with Amazon Resource Name (ARNs). Each resource that is created in Amazon Web Services is

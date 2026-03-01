@@ -158,9 +158,7 @@ To promote CDC performance, AWS DMS supports these task settings:
   `partition-key-type` default is the `primary-key` of the
   table, not `schema-name.table-name`.
 
-## Using a before image to view
-
-original values of CDC rows for a Kinesis data stream as a target
+## Using a before image to view original values of CDC rows for a Kinesis data stream as a target
 
 When writing CDC updates to a data-streaming target like Kinesis, you
 can view a source database row's original values before change by an update. To
@@ -235,9 +233,7 @@ Amazon S3 targets don't support `BeforeImageSettings`. For S3 targets, use only 
 `add-before-image-columns` transformation rule to perform before
 imaging during CDC.
 
-### Using a before
-
-image transformation rule
+### Using a before image transformation rule
 
 As as an alternative to task settings, you can use the
 `add-before-image-columns` parameter, which applies a column
@@ -288,9 +284,7 @@ part of table primary keys, choose `pk-only` . Choose
 `non-lob` to only add columns that are not of LOB type. Or choose
 `all` to add any column that has a before-image value.
 
-### Example for a before
-
-image transformation rule
+### Example for a before image transformation rule
 
 The transformation rule in the following example adds a new column called
 `BI_emp_no` in the target. So a statement like `UPDATE
@@ -336,13 +330,9 @@ original row was updated.
 For information on using the `add-before-image-columns` rule
 action, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-## Prerequisites for using a Kinesis
+## Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service
 
-data stream as a target for AWS Database Migration Service
-
-### IAM role for using a Kinesis
-
-data stream as a target for AWS Database Migration Service
+### IAM role for using a Kinesis data stream as a target for AWS Database Migration Service
 
 Before you set up a Kinesis data stream as a target for AWS DMS, make sure that
 you create an IAM role. This role must allow AWS DMS to assume and grant access
@@ -391,9 +381,7 @@ JSON
 
 ```
 
-### Accessing a Kinesis
-
-data stream as a target for AWS Database Migration Service
+### Accessing a Kinesis data stream as a target for AWS Database Migration Service
 
 In AWS DMS version 3.4.7 and higher, to connect to an Kinesis endpoint, you must
 do one of the following:
@@ -402,12 +390,9 @@ do one of the following:
   to use VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
 - Configure DMS to use public routes, that is, make
   your replication instance public. For information about public replication instances, see
-  [Public and private replication
-  instances](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+  [Public and private replication instances](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
 
-## Limitations when using Kinesis Data Streams as a
-
-target for AWS Database Migration Service
+## Limitations when using Kinesis Data Streams as a target for AWS Database Migration Service
 
 The following limitations apply when using Kinesis Data Streams as a target:
 
@@ -436,8 +421,7 @@ The following limitations apply when using Kinesis Data Streams as a target:
 - Kinesis targets are only supported for a Kinesis data stream in the same AWS account and the same AWS Region
   as the replication instance.
 - When migrating from a MySQL source, the BeforeImage data doesn't include CLOB and BLOB data types. For more information,
-  see [Using a before image to view
-  original values of CDC rows for a Kinesis data stream as a target](#CHAP_Target.Kinesis.BeforeImage "#CHAP_Target.Kinesis.BeforeImage").
+  see [Using a before image to view original values of CDC rows for a Kinesis data stream as a target](#CHAP_Target.Kinesis.BeforeImage "#CHAP_Target.Kinesis.BeforeImage").
 - AWS DMS doesn't support migrating values of `BigInt` data type with more than 16 digits. To work around
   this limitation, you can use the following transformation rule to convert the `BigInt` column to a string. For
   more information about transformation rules, see
@@ -470,9 +454,7 @@ The following limitations apply when using Kinesis Data Streams as a target:
   to how LOB data is processed during replication.
 - AWS DMS does not support source data containing embedded `'\0'` characters when using Kinesis as a target endpoint. Data containing embedded `'\0'` characters will be truncated at the first `'\0'` character.
 
-## Using object mapping to migrate
-
-data to a Kinesis data stream
+## Using object mapping to migrate data to a Kinesis data stream
 
 AWS DMS uses table-mapping rules to map data from the source to the target Kinesis data
 stream. To map data to a target stream, you use a type of table-mapping rule called
@@ -654,9 +636,7 @@ the resulting record format.
 
 ```
 
-### Restructuring data with
-
-attribute mapping
+### Restructuring data with attribute mapping
 
 You can restructure the data while you are migrating it to a Kinesis data stream
 using an attribute map. For example, you might want to combine several fields in
@@ -810,9 +790,7 @@ specific task is that record's `TaskId`. Specifying a
 `partition-key` value in the object mapping has no impact on
 the `partition-key` for a control record.
 
-### Message format for
-
-Kinesis Data Streams
+### Message format for Kinesis Data Streams
 
 The JSON output is simply a list of key-value pairs. A JSON_UNFORMATTED message
 format is a single line JSON string with new line delimiter.

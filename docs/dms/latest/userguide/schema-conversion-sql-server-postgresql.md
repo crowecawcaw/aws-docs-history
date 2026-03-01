@@ -1,6 +1,4 @@
-# Understanding SQL Server
-
-to PostgreSQL conversion settings
+# Understanding SQL Server to PostgreSQL conversion settings
 
 SQL Server to PostgreSQL conversion settings in DMS Schema Conversion include the
 following:
@@ -11,8 +9,7 @@ following:
   **Action Item 7744**, which states: "This
   conversion uses machine learning models that generate predictions based on
   patterns in data." For more information, see
-  [Converting database objects
-  with generative AI](schema-conversion-convert.md "schema-conversion-convert.md").
+  [Converting database objects with generative AI](schema-conversion-convert.md "schema-conversion-convert.md").
 - In SQL Server, you can use indexes with the same name in different tables.
   However, in PostgreSQL, all index names that you use in the schema must be
   unique. To make sure that DMS Schema Conversion generates unique names for all your

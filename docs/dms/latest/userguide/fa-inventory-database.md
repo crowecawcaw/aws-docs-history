@@ -10,9 +10,7 @@ Advisor end of support](dms_fleet.md "dms_fleet.md").
 To view a list of all databases on all the discovered servers within your network
 from which data was collected, use the following procedure.
 
-###### To view a list of databases on your network servers that data was
-
-collected from
+###### To view a list of databases on your network servers that data was collected from
 
 1. Choose **Inventory** on the console.
 

@@ -87,25 +87,18 @@ The following JSON example shows an EventBridge events model for an AWS DMS serv
 
 For the list of categories and events that you can be notified of, see the following section.
 
-## AWS DMS event categories and event
-
-messages
+## AWS DMS event categories and event messages
 
 AWS DMS generates a significant number of events in categories that you can identify. Each category applies
 to a replication instance or replication task source types.
 
 ###### Topics
 
-- [ReplicationInstance event
-  messages](#EventBridge.Messages.ReplicationInstance "#EventBridge.Messages.ReplicationInstance")
-- [ReplicationTask event
-  messages](#EventBridge.Messages.ReplicationTask "#EventBridge.Messages.ReplicationTask")
-- [Replication event
-  messages](#EventBridge.Messages.Replication "#EventBridge.Messages.Replication")
+- [ReplicationInstance event messages](#EventBridge.Messages.ReplicationInstance "#EventBridge.Messages.ReplicationInstance")
+- [ReplicationTask event messages](#EventBridge.Messages.ReplicationTask "#EventBridge.Messages.ReplicationTask")
+- [Replication event messages](#EventBridge.Messages.Replication "#EventBridge.Messages.Replication")
 
-### ReplicationInstance event
-
-messages
+### ReplicationInstance event messages
 
 The following table shows the possible categories and events for the **ReplicationInstance**
 source type.
@@ -148,9 +141,7 @@ source type.
 | LowStorage           | DMS-EVENT-0007 | Free storage for the replication instance is low.                                                                                                                                                                                                                                                                                                      |
 | LowStorage           |                | Allocated inodes have been exhausted<br>• scale storage to resolve                                                                                                                                                                                                                                                                                     |
 
-### ReplicationTask event
-
-messages
+### ReplicationTask event messages
 
 The following table shows the possible categories and events for the **ReplicationTask**
 source type.
@@ -184,9 +175,7 @@ source type.
 | StateChange         | DMS-EVENT-0079 | Replication task stopped                                           |
 | Deletion            | DMS-EVENT-0073 | The replication task has been deleted.                             |
 
-### Replication event
-
-messages
+### Replication event messages
 
 The following table shows the possible categories and events for the **Replication**
 source type.

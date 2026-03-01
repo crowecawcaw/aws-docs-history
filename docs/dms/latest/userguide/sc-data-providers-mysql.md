@@ -14,8 +14,7 @@ You can use DMS Schema Conversion to convert database code objects from MySQL Da
 ## MySQL to PostgreSQL conversion settings
 
 For information about editing DMS Schema Conversion settings, see
-[Specifying schema conversion settings for
-migration projects](schema-conversion-settings.md "schema-conversion-settings.md").
+[Specifying schema conversion settings for migration projects](schema-conversion-settings.md "schema-conversion-settings.md").
 
 MySQL to PostgreSQL conversion settings include the following:
 

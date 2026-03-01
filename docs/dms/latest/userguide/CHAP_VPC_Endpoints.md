@@ -54,9 +54,7 @@ Before you configure a VPC endpoint, you must meet the following prerequisites:
     programmatically creates a Serverless service linked role. You can view
     this role in the IAM console.
 
-## Set up an Amazon VPC endpoint with
-
-AWS Secrets Manager
+## Set up an Amazon VPC endpoint with AWS Secrets Manager
 
 You can set up an Amazon VPC endpoint for AWS Secrets Manager to work with AWS DMS. By
 creating this endpoint, you enable AWS DMS replication instances or serverless replication
@@ -144,9 +142,7 @@ You have now successfully created a VPC endpoint. You must configure AWS DMS End
 DMS subnet groups. Depending on migration option you choose, configure DMS replication
 instance or Serverless replication.
 
-## Set up an Amazon VPC endpoint with Amazon
-
-S3
+## Set up an Amazon VPC endpoint with Amazon S3
 
 You can set up an Amazon VPC endpoint for Amazon S3 to work with AWS DMS. By creating
 this endpoint, you enable AWS DMS replication instances or serverless replication
@@ -219,9 +215,7 @@ You have now successfully created a VPC endpoint. You must configure AWS DMS End
 DMS subnet groups. Depending on migration option you choose, configure DMS replication
 instance or Serverless replication.
 
-## Setup an Amazon VPC endpoint for
-
-Amazon DynamoDB
+## Setup an Amazon VPC endpoint for Amazon DynamoDB
 
 When using AWS DMS replication instances in private subnets or AWS DMS serverless
 replication, you must create a VPC endpoint to establish secure connectivity with Amazon
@@ -238,9 +232,7 @@ For more information, see:
   do I troubleshoot connectivity issues with my gateway Amazon VPC
   endpoints?](https://repost.aws/knowledge-center/connect-s3-vpc-endpoint "https://repost.aws/knowledge-center/connect-s3-vpc-endpoint")
 
-## Setup an Amazon VPC endpoint for
-
-Amazon Kinesis
+## Setup an Amazon VPC endpoint for Amazon Kinesis
 
 When using AWS DMS replication instances in private subnets or AWS DMS serverless
 replication, you must create a VPC endpoint to establish secure connectivity with Amazon
@@ -251,9 +243,7 @@ information, see:
 - [Using Amazon Kinesis
   Data Streams as a target for AWS Database Migration Service](CHAP_Target.md "CHAP_Target.md")
 
-## Setup an Amazon VPC endpoint for
-
-Amazon Redshift
+## Setup an Amazon VPC endpoint for Amazon Redshift
 
 When using AWS DMS replication instances in private subnets or AWS DMS serverless
 replication, you must create a VPC endpoint to establish secure connectivity with Amazon
@@ -264,9 +254,7 @@ information, see:
 - [Redshift-managed
   VPC endpoints](../../../redshift/latest/mgmt/managing-cluster-cross-vpc.md "../../../redshift/latest/mgmt/managing-cluster-cross-vpc.md")
 
-## Setup an Amazon VPC endpoint for Amazon
-
-OpenSearch Service
+## Setup an Amazon VPC endpoint for Amazon OpenSearch Service
 
 When using AWS DMS replication instances in private subnets or AWS DMS serverless
 replication, you must create a VPC endpoint to establish secure connectivity with Amazon
@@ -277,18 +265,14 @@ For more information, see:
 - [Configuring VPC access for Amazon OpenSearch Ingestion
   pipelines](../../../opensearch-service/latest/developerguide/pipeline-security.md "../../../opensearch-service/latest/developerguide/pipeline-security.md")
 
-## Setup replication instances, DMS subnet
-
-groups, and DMS Endpoints
+## Setup replication instances, DMS subnet groups, and DMS Endpoints
 
 You must configure AWS DMS replication resources after creating VPC endpoints. You can
 set up replication subnet groups for network isolation, replication instances or
 serverless replications for processing, and endpoints for connecting to source and
 target databases to enable secure database migration within your VPC.
 
-### Setup an AWS DMS
-
-replication instance
+### Setup an AWS DMS replication instance
 
 To configure an AWS DMS provisioned replication instance you must setup DMS
 replication subnets groups.
@@ -359,9 +343,7 @@ You must wait until the status becomes `Available`.
    `Available` status to run the test with it.
 6. Select **Create endpoint**.
 
-### Setup an AWS DMS serverless
-
-replication
+### Setup an AWS DMS serverless replication
 
 To configure an AWS DMS serverless replication you must setup DMS replication
 subnets groups.
@@ -425,17 +407,13 @@ replication configuration that appears in the task list with the status
 **Start** from the **Actions**
 menu.
 
-## Who is impacted when migrating to
-
-AWS DMS versions 3.4.7 and higher?
+## Who is impacted when migrating to AWS DMS versions 3.4.7 and higher?
 
 You are impacted if you are using one or more of the previously listed AWS DMS
 endpoints, and these endpoints are not publicly routable or they don’t have VPC
 endpoints already associated with them.
 
-## Who is not impacted when
-
-migrating to AWS DMS versions 3.4.7 and higher?
+## Who is not impacted when migrating to AWS DMS versions 3.4.7 and higher?
 
 You are not impacted if:
 
@@ -475,8 +453,7 @@ AWS Secrets Manager, you typically don't need to adjust the routing table. Alway
 for each service.
 
 For more information on configuring VPC endpoints for an AWS DMS replication
-instance, see [Network configurations for
-database migration](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations"). For more information
+instance, see [Network configurations for database migration](CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations "CHAP_ReplicationInstance.md#CHAP_ReplicationInstance.VPC.Configurations"). For more information
 on creating interface VPC endpoints for accessing AWS services generally, see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _AWS PrivateLink Guide_. For information on AWS DMS regional
 availability for VPC endpoints, see the [AWS Region

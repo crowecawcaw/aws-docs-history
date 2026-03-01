@@ -1,6 +1,4 @@
-# Discovering and evaluating databases for migration
-
-with AWS DMS Fleet Advisor
+# Discovering and evaluating databases for migration with AWS DMS Fleet Advisor
 
 ###### Important
 

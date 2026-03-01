@@ -1,6 +1,4 @@
-# Understanding Oracle to MySQL
-
-conversion settings
+# Understanding Oracle to MySQL conversion settings
 
 Oracle to MySQL conversion settings in DMS Schema Conversion include the following:
 

@@ -1,6 +1,4 @@
-# Troubleshooting data collection issues related to
-
-network and server connections in AWS DMS
+# Troubleshooting data collection issues related to network and server connections in AWS DMS
 
 ###### Important
 

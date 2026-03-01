@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the action.
@@ -37,16 +35,11 @@ characters (`*`) for the unknown portions of the ARN. For example,
 
 ###### Topics
 
-- [IAM roles to use with AWS DMS API for cross-service
-  confused deputy prevention](#cross-service-confused-deputy-prevention-dms-api "#cross-service-confused-deputy-prevention-dms-api")
-- [IAM policy to store preflight assessments in Amazon S3
-  for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-s3 "#cross-service-confused-deputy-prevention-s3")
-- [Using Amazon DynamoDB as a
-  target endpoint with AWS DMS for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-dynamodb "#cross-service-confused-deputy-prevention-dynamodb")
+- [IAM roles to use with AWS DMS API for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-dms-api "#cross-service-confused-deputy-prevention-dms-api")
+- [IAM policy to store preflight assessments in Amazon S3 for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-s3 "#cross-service-confused-deputy-prevention-s3")
+- [Using Amazon DynamoDB as a target endpoint with AWS DMS for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-dynamodb "#cross-service-confused-deputy-prevention-dynamodb")
 
-## IAM roles to use with AWS DMS API for cross-service
-
-confused deputy prevention
+## IAM roles to use with AWS DMS API for cross-service confused deputy prevention
 
 To use the AWS CLI or the AWS DMS API for your database migration, you must add
 the `dms-vpc-role` and `dms-cloudwatch-logs-role` IAM roles
@@ -82,12 +75,10 @@ JSON
 
 ```
 
-## IAM policy to store preflight assessments in Amazon S3
-
-for cross-service confused deputy prevention
+## IAM policy to store preflight assessments in Amazon S3 for cross-service confused deputy prevention
 
 To store preassessment results in your S3 bucket, you create an IAM policy that allows
-AWS DMS to manage objects in Amazon S3. For more information, see [Create IAM resources](CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM "CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM") .
+AWS DMS to manage objects in Amazon S3. For more information, see [Create IAM resources](CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM "CHAP_Tasks.AssessmentReport.md#CHAP_Tasks.AssessmentReport.Prerequisites.IAM").
 
 The following example shows a trust policy with confused deputy conditions that are set on
 an IAM role that allows AWS DMS to access all tasks and assessment runs under a specified
@@ -121,9 +112,7 @@ JSON
 
 ```
 
-## Using Amazon DynamoDB as a
-
-target endpoint with AWS DMS for cross-service confused deputy prevention
+## Using Amazon DynamoDB as a target endpoint with AWS DMS for cross-service confused deputy prevention
 
 To use Amazon DynamoDB as a target endpoint for your database migration, you must create
 the IAM role that allows AWS DMS to assume and grant access to the DynamoDB tables. Then,

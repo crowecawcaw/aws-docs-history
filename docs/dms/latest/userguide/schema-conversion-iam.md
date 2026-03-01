@@ -1,6 +1,4 @@
-# AWS IAM actions to API mapping for
-
-DMS Schema Conversion and Common Studio Framework (CSF)
+# AWS IAM actions to API mapping for DMS Schema Conversion and Common Studio Framework (CSF)
 
 When setting up access control and writing IAM permissions policies for DMS Schema Conversion and
 Common Studio Framework, it is important to understand how API actions map to IAM

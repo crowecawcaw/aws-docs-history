@@ -1,6 +1,4 @@
-# Troubleshooting data collection issues related to
-
-Windows Management Instrumentation in AWS DMS
+# Troubleshooting data collection issues related to Windows Management Instrumentation in AWS DMS
 
 ###### Important
 

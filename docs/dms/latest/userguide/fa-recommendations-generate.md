@@ -1,6 +1,4 @@
-# Generating target recommendations
-
-with AWS DMS Fleet Advisor
+# Generating target recommendations with AWS DMS Fleet Advisor
 
 ###### Important
 

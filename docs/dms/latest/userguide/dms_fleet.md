@@ -6,9 +6,7 @@ End of support notice: On May 20, 2026, AWS will end support for AWS Database Mi
 you will no longer be able to access the AWS DMS Fleet Advisor console or AWS DMS Fleet Advisor resources. For more information, see
 [AWS DMS Fleet Advisor end of support](dms_fleet.md "dms_fleet.md").
 
-## AWS DMS Fleet Advisor end of support
-
-details
+## AWS DMS Fleet Advisor end of support details
 
 ### End of support plan
 

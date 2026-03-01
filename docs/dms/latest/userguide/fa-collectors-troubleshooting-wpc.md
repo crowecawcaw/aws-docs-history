@@ -1,6 +1,4 @@
-# Troublehsooting data collection issues
-
-related to Windows webpage composer
+# Troublehsooting data collection issues related to Windows webpage composer
 
 ###### Important
 

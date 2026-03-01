@@ -1,6 +1,4 @@
-# Using IAM authentication for Amazon RDS
-
-endpoint in AWS DMS
+# Using IAM authentication for Amazon RDS endpoint in AWS DMS
 
 AWS Identity and Access Management (IAM) database authentication provides
 enhanced security for your Amazon RDS databases by managing database access through AWS
@@ -20,9 +18,7 @@ these engines, you can select IAM authentication and specify an IAM role instead
 providing database credentials. This integration enhances security by eliminating
 the need to manage and store database passwords for your migration tasks.
 
-## Configuring IAM
-
-authentication for Amazon RDS endpoint in AWS DMS
+## Configuring IAM authentication for Amazon RDS endpoint in AWS DMS
 
 When creating an endpoint you can configure IAM authentication for your Amazon RDS
 database. To configure IAM authentication, do the following:

@@ -33,16 +33,12 @@ would with a real target data provider. Actions that require connection to a rea
 database will be disabled, but **Save as SQL** will be available for
 the target tree.
 
-## Transition from a virtual
-
-data provider to a real data provider
+## Transition from a virtual data provider to a real data provider
 
 When you are ready to proceed with the actual migration, you can make the transition
 to a real data provider .
 
-###### To transition from a virtual data provider to a real data provider, follow these
-
-steps.
+###### To transition from a virtual data provider to a real data provider, follow these steps.
 
 1. Sign in to the AWS Management Console, and open the AWS DMS console.
 2. In the navigation pane, choose **Data providers**. Then

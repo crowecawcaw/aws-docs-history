@@ -26,24 +26,18 @@ AWS DMS supports CDC for PostgreSQL tables with primary keys. If a table doesn't
 write-ahead logs (WAL) don't include a before image of the database row. Here, you can use additional
 configuration settings and use table replica identity as a workaround. However, this approach can generate
 extra logs. We recommend that you use table replica identity as a workaround only after careful testing.
-For more information, see [Additional configuration settings
-when using a PostgreSQL database as a DMS source](CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced "CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced").
+For more information, see [Additional configuration settings when using a PostgreSQL database as a DMS source](CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced "CHAP_Source.md#CHAP_Source.PostgreSQL.Advanced").
 
 The following sections describe specific configuration prerequisites for self-managed and
 AWS-managed PostgreSQL databases.
 
 ###### Topics
 
-- [Using a self-managed
-  PostgreSQL database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-postgresql-sm "#dm-data-providers-source-postgresql-sm")
-- [Using an AWS-managed
-  PostgreSQL database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-postgresql-aws "#dm-data-providers-source-postgresql-aws")
-- [Limitations for using a
-  PostgreSQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-postgresql-limitations "#dm-data-providers-source-postgresql-limitations")
+- [Using a self-managed PostgreSQL database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-postgresql-sm "#dm-data-providers-source-postgresql-sm")
+- [Using an AWS-managed PostgreSQL database as a source for homogeneous data migrations in AWS DMS](#dm-data-providers-source-postgresql-aws "#dm-data-providers-source-postgresql-aws")
+- [Limitations for using a PostgreSQL compatible database as a source for homogeneous data migrations](#dm-data-providers-source-postgresql-limitations "#dm-data-providers-source-postgresql-limitations")
 
-## Using a self-managed
-
-PostgreSQL database as a source for homogeneous data migrations in AWS DMS
+## Using a self-managed PostgreSQL database as a source for homogeneous data migrations in AWS DMS
 
 This section describes how to configure your PostgreSQL databases that are hosted on-premises
 or on Amazon EC2 instances.
@@ -80,9 +74,7 @@ changes to their entries in the configuration file are ignored until the
 server is restarted. For more information, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/current/intro-whatis.html "https://www.postgresql.org/docs/current/intro-whatis.html").
 
-## Using an AWS-managed
-
-PostgreSQL database as a source for homogeneous data migrations in AWS DMS
+## Using an AWS-managed PostgreSQL database as a source for homogeneous data migrations in AWS DMS
 
 This section describes how to configure your Amazon RDS for PostgreSQL database instances.
 
@@ -108,9 +100,7 @@ To turn on logical replication, set the `rds.logical_replication` parameter in
 your DB parameter group to 1. This static parameter requires a reboot of the DB instance
 to take effect.
 
-## Limitations for using a
-
-PostgreSQL compatible database as a source for homogeneous data migrations
+## Limitations for using a PostgreSQL compatible database as a source for homogeneous data migrations
 
 The following limitations apply when using a PostgreSQL compatible database as a source for homogeneous data migrations:
 

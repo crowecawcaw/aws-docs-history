@@ -1,6 +1,4 @@
-# Saving your database migration assessment
-
-report for DMS Schema Conversion
+# Saving your database migration assessment report for DMS Schema Conversion
 
 After you create a database migration assessment report, you can save a copy of this
 report as a PDF or comma-separated value (CSV) files.

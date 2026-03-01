@@ -1,6 +1,4 @@
-# Exploring details of target recommendations
-
-with AWS DMS Fleet Advisor
+# Exploring details of target recommendations with AWS DMS Fleet Advisor
 
 ###### Important
 

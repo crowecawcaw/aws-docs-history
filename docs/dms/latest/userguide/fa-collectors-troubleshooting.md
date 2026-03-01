@@ -12,10 +12,7 @@ issues while collecting data with your data collector.
 
 ###### Topics
 
-- [Troubleshooting data collection issues related to
-  network and server connections in AWS DMS](fa-collectors-troubleshooting-net.md "fa-collectors-troubleshooting-net.md")
-- [Troubleshooting data collection issues related to
-  Windows Management Instrumentation in AWS DMS](fa-collectors-troubleshooting-wmi.md "fa-collectors-troubleshooting-wmi.md")
-- [Troublehsooting data collection issues
-  related to Windows webpage composer](fa-collectors-troubleshooting-wpc.md "fa-collectors-troubleshooting-wpc.md")
+- [Troubleshooting data collection issues related to network and server connections in AWS DMS](fa-collectors-troubleshooting-net.md "fa-collectors-troubleshooting-net.md")
+- [Troubleshooting data collection issues related to Windows Management Instrumentation in AWS DMS](fa-collectors-troubleshooting-wmi.md "fa-collectors-troubleshooting-wmi.md")
+- [Troublehsooting data collection issues related to Windows webpage composer](fa-collectors-troubleshooting-wpc.md "fa-collectors-troubleshooting-wpc.md")
 - [Troubleshooting data collection issues related to SSL in AWS DMS](fa-collectors-troubleshooting-ssl.md "fa-collectors-troubleshooting-ssl.md")

@@ -1,6 +1,4 @@
-# VPC peering configuration for
-
-AWS DMS.
+# VPC peering configuration for AWS DMS.
 
 VPC peering enables private network connectivity between two VPCs, allowing AWS DMS
 replication instances and database endpoints to communicate across different VPCs as

@@ -1,6 +1,4 @@
-# AWS Database Migration Service identity-based
-
-policy examples
+# AWS Database Migration Service identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 AWS DMS resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,20 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  AWS DMS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing one
-  Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
-- [Accessing
-  AWS DMS resources based on tags](#security_iam_id-based-policy-examples-access-resources-tags "#security_iam_id-based-policy-examples-access-resources-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS DMS console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing one Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
+- [Accessing AWS DMS resources based on tags](#security_iam_id-based-policy-examples-access-resources-tags "#security_iam_id-based-policy-examples-access-resources-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS DMS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-AWS DMS console
+## Using the AWS DMS console
 
 The following policy gives you access to AWS DMS, including the AWS DMS
 console, and also specifies permissions for certain actions needed from other Amazon
@@ -238,12 +227,9 @@ AWS DMS API for your migration, you need to add several roles to your account. F
 information about adding these roles, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole "security-iam.md#CHAP_Security.APIRole").
 
 For more information on the requirements for using this policy to access AWS DMS,
-see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions").
+see [IAM permissions needed to use AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions").
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -283,9 +269,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing one
-
-Amazon S3 bucket
+## Accessing one Amazon S3 bucket
 
 AWS DMS uses Amazon S3 buckets as intermediate storage for database migration.
 Typically, AWS DMS manages default S3 buckets for this purpose. However, in certain
@@ -340,12 +324,9 @@ JSON
 
 ```
 
-For more information on creating a role based on this policy, see [Amazon S3 bucket
-settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
+For more information on creating a role based on this policy, see [Amazon S3 bucket settings](CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
 
-## Accessing
-
-AWS DMS resources based on tags
+## Accessing AWS DMS resources based on tags
 
 You can use conditions in your identity-based policy to control access to
 AWS DMS resources based on tags. This example shows how you might create a

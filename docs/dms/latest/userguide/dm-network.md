@@ -16,18 +16,12 @@ common network configurations.
 
 ###### Topics
 
-- [Configuring a network using a single virtual
-  private cloud (VPC)](#dm-network-one-vpc "#dm-network-one-vpc")
-- [Configuring a network using different
-  virtual private clouds (VPCs)](#dm-network-different-vpc "#dm-network-different-vpc")
-- [Using Direct Connect or a VPN to
-  configure a network to a VPC](#dm-networking_Direct_Connect "#dm-networking_Direct_Connect")
-- [Resolving domain endpoints using
-  DNS](#dm-networking-resolving_endpoints "#dm-networking-resolving_endpoints")
+- [Configuring a network using a single virtual private cloud (VPC)](#dm-network-one-vpc "#dm-network-one-vpc")
+- [Configuring a network using different virtual private clouds (VPCs)](#dm-network-different-vpc "#dm-network-different-vpc")
+- [Using Direct Connect or a VPN to configure a network to a VPC](#dm-networking_Direct_Connect "#dm-networking_Direct_Connect")
+- [Resolving domain endpoints using DNS](#dm-networking-resolving_endpoints "#dm-networking-resolving_endpoints")
 
-## Configuring a network using a single virtual
-
-private cloud (VPC)
+## Configuring a network using a single virtual private cloud (VPC)
 
 In this configuration, AWS DMS connects to your source and target data providers
 within the private network.
@@ -46,17 +40,13 @@ within the private network.
 
 This configuration doesn't require you to use the public IP address for data migrations.
 
-## Configuring a network using different
-
-virtual private clouds (VPCs)
+## Configuring a network using different virtual private clouds (VPCs)
 
 In this configuration, AWS DMS uses a private network to connect to your source or target data provider.
 For another data provider, AWS DMS uses a public network. Depending on which data provider you have in the
 same VPC as your instance profile, choose one of the following configurations.
 
-### To connect through a
-
-private network
+### To connect through a private network
 
 1. Create the subnet group in the AWS DMS console with the VPC and subnets
    that your source data provider uses. For more information, see [Creating a subnet group](subnet-group.md "subnet-group.md").
@@ -75,9 +65,7 @@ private network
 6. Allow access from the CIDR block of target database’s VPC for target
    database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
 
-### To connect through a
-
-Public network
+### To connect through a Public network
 
 If your database accepts connections from any address:
 
@@ -104,9 +92,7 @@ the data migration:
 5. Allow access from the public IP address of your NAT Gateway in your
    database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
 
-## Using Direct Connect or a VPN to
-
-configure a network to a VPC
+## Using Direct Connect or a VPN to configure a network to a VPC
 
 You can connect remote networks to your VPC through Direct Connect or VPN connections
 (software or hardware). These options enable you to extend your internal network
@@ -121,9 +107,7 @@ communication between your VPC and on-premises infrastructure. For more informat
 see [step 5](../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-vpn-connection "../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-vpn-connection") for [Get started with AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-vpn-connection "../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-vpn-connection") procedure in the AWS Site-to-Site
 VPN User Guide.
 
-## Resolving domain endpoints using
-
-DNS
+## Resolving domain endpoints using DNS
 
 For DNS resolution in AWS DMS homogeneous migrations, the service primarily uses the
 Amazon ECS DNS resolver to resolve domain endpoints. If you need additional DNS

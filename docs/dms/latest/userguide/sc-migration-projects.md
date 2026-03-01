@@ -16,9 +16,7 @@ Amazon terminates the schema conversion instance that your migration project use
 days after you complete the project. You can retrieve your converted schema and assessment
 report from the Amazon S3 bucket that you use for DMS Schema Conversion.
 
-## Specifying migration project settings for
-
-DMS Schema Conversion
+## Specifying migration project settings for DMS Schema Conversion
 
 After you create your migration project and launch schema conversion, you can specify
 migration project settings. You can change conversion settings to improve the
@@ -66,9 +64,7 @@ system databases, and user-defined databases or schemas.
 6.  Choose **Apply**, and then choose **Schema
     conversion**.
 
-## Access logs for AWS DMS Schema
-
-Conversion
+## Access logs for AWS DMS Schema Conversion
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/](https://console.aws.amazon.com/dms/ "https://console.aws.amazon.com/dms/").
 2. Choose **Migration projects**. The **Migration projects** page opens.

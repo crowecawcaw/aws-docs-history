@@ -1,6 +1,4 @@
-# Data
-
-resync settings
+# Data resync settings
 
 The Data resync feature allows you to resync target database with your source
 database based on data validation report. For more information, see [AWS DMS data

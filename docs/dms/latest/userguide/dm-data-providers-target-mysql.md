@@ -40,9 +40,7 @@ your target database has binary logging enabled, then set `log_bin_trust_functio
 ERROR 1419 (HY000): You don't have the SUPER privilege and binary logging is enabled (you might want to use the less safe log_bin_trust_function_creators variable)
 ```
 
-## Limitations for using a
-
-MySQL compatible database as a target for homogeneous data migrations
+## Limitations for using a MySQL compatible database as a target for homogeneous data migrations
 
 The following limitations apply when using a MySQL compatible database as a target for homogeneous data migrations:
 

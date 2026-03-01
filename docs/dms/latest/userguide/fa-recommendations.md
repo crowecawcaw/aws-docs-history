@@ -1,6 +1,4 @@
-# Using the AWS DMS Fleet Advisor Target Recommendations
-
-feature
+# Using the AWS DMS Fleet Advisor Target Recommendations feature
 
 ###### Important
 
@@ -37,16 +35,11 @@ the cost or performance of your database workloads.
 ###### Topics
 
 - [Recommended target instances](#fa-recommendations-instances "#fa-recommendations-instances")
-- [How does DMS Fleet Advisor determine target
-  instance specifications for the recommendation?](#fa-recommendations-how-it-works "#fa-recommendations-how-it-works")
-- [Generating target recommendations
-  with AWS DMS Fleet Advisor](fa-recommendations-generate.md "fa-recommendations-generate.md")
-- [Exploring details of target recommendations
-  with AWS DMS Fleet Advisor](fa-recommendations-view.md "fa-recommendations-view.md")
-- [Exporting target recommendations
-  with AWS DMS Fleet Advisor](fa-recommendations-export.md "fa-recommendations-export.md")
-- [Discovering and analyzing
-  migration limitations with AWS DMS Fleet Advisor](fa-data-collectors-database-features.md "fa-data-collectors-database-features.md")
+- [How does DMS Fleet Advisor determine target instance specifications for the recommendation?](#fa-recommendations-how-it-works "#fa-recommendations-how-it-works")
+- [Generating target recommendations with AWS DMS Fleet Advisor](fa-recommendations-generate.md "fa-recommendations-generate.md")
+- [Exploring details of target recommendations with AWS DMS Fleet Advisor](fa-recommendations-view.md "fa-recommendations-view.md")
+- [Exporting target recommendations with AWS DMS Fleet Advisor](fa-recommendations-export.md "fa-recommendations-export.md")
+- [Discovering and analyzing migration limitations with AWS DMS Fleet Advisor](fa-data-collectors-database-features.md "fa-data-collectors-database-features.md")
 - [Troubleshooting for target recommendations with AWS DMS Fleet Advisor](fa-recommendations-troubleshooting.md "fa-recommendations-troubleshooting.md")
 
 ## Recommended target instances
@@ -66,9 +59,7 @@ memory-optimized, and burstable performance Amazon RDS DB instances.
 For more information about Amazon RDS DB instance classes, see [DB instance classes](../../../AmazonRDS/latest/UserGuide/Concepts.md "../../../AmazonRDS/latest/UserGuide/Concepts.md") in the
 _Amazon RDS User Guide_.
 
-## How does DMS Fleet Advisor determine target
-
-instance specifications for the recommendation?
+## How does DMS Fleet Advisor determine target instance specifications for the recommendation?
 
 DMS Fleet Advisor can generate recommendations based on either database capacity or
 utilization.

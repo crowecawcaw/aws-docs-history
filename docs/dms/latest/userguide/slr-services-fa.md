@@ -42,9 +42,7 @@ You must configure permissions to allow an IAM entity, such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS DMS Fleet Advisor
+## Creating a service-linked role for AWS DMS Fleet Advisor
 
 You can use the IAM console to create a service-linked role with the
 **DMS – Fleet Advisor** use case. In the AWS CLI or the AWS API, create
@@ -56,9 +54,7 @@ service-linked role, you can use this same process to create the role again.
 Make sure that you create this role before you create a data collector. DMS Fleet Advisor
 uses this role to display charts with database metrics in the AWS Management Console. For more information, see [Creating a data collector](fa-data-collectors-create.md "fa-data-collectors-create.md").
 
-## Editing a service-linked role for
-
-AWS DMS Fleet Advisor
+## Editing a service-linked role for AWS DMS Fleet Advisor
 
 AWS DMS doesn't allow you to edit the AWSServiceRoleForDMSFleetAdvisor service-linked role. After you
 create a service-linked role, you can't change the name of the role because various entities
@@ -66,9 +62,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS DMS Fleet Advisor
+## Deleting a service-linked role for AWS DMS Fleet Advisor
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. Thus, you don’t have an unused entity that isn't actively
@@ -103,8 +97,6 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-AWS DMS Fleet Advisor service-linked roles
+## Supported regions for AWS DMS Fleet Advisor service-linked roles
 
 AWS DMS Fleet Advisor supports using service-linked roles in all of the regions where the service is available. For more information, see [Supported AWS Regions](CHAP_FleetAdvisor.md#CHAP_FleetAdvisor.SupportedRegions "CHAP_FleetAdvisor.md#CHAP_FleetAdvisor.SupportedRegions").

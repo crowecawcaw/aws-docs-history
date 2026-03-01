@@ -11,18 +11,14 @@ This section describes individual premigration assessments for all endpoint type
 - [Target table without primary keys for CDC tasks only](#CHAP_Tasks.AssessmentReport.Assessments.All.CDCOnlyNoPrimaryKey "#CHAP_Tasks.AssessmentReport.Assessments.All.CDCOnlyNoPrimaryKey")
 - [Unsupported source primary key types - composite primary keys](#CHAP_Tasks.AssessmentReport.Assessments.All.CompositeNoPrimaryKey "#CHAP_Tasks.AssessmentReport.Assessments.All.CompositeNoPrimaryKey")
 
-##
-
-Unsupported data types
+## Unsupported data types
 
 **API key:** `unsupported-data-types-in-source`
 
 Checks for data types in the source endpoint that DMS doesn't support.
 Not all data types can be migrated between engines.
 
-##
-
-Large objects (LOBs) are used but target LOB columns are not nullable
+## Large objects (LOBs) are used but target LOB columns are not nullable
 
 **API key:** `full-lob-not-nullable-at-target`
 
@@ -30,9 +26,7 @@ Checks for the nullability of a LOB column in the target when the replication us
 DMS requires a LOB column to be null when using these LOB modes. This assessment requires the source and target
 databases to be relational.
 
-##
-
-Source table with Large objects (LOBs) but without primary keys or unique constraints
+## Source table with Large objects (LOBs) but without primary keys or unique constraints
 
 **API key:** `table-with-lob-but-without-primary-key-or-unique-constraint`
 
@@ -40,9 +34,7 @@ Checks for the presence of source tables with LOBs but without a primary key or 
 A table must have a primary key or a unique key for DMS to migrate LOBs. This assessment requires
 the source database to be relational.
 
-##
-
-Source table without primary key for CDC or full load and CDC tasks only
+## Source table without primary key for CDC or full load and CDC tasks only
 
 **API key:** `table-with-no-primary-key-or-unique-constraint`
 
@@ -51,9 +43,7 @@ and change data capture (CDC) migration, or a CDC-only migration. A lack of a pr
 or a unique key can cause performance issues during the CDC migration. This assessment requires
 the source database to be relational, and the migration type to include CDC.
 
-##
-
-Target table without primary keys for CDC tasks only
+## Target table without primary keys for CDC tasks only
 
 **API key:** `target-table-has-unique-key-or-primary-key-for-cdc`
 
@@ -63,9 +53,7 @@ in the target when DMS applies updates and deletes. This can result in performan
 during the CDC migration. This assessment requires the target database to be relational,
 and the migration type to include CDC.
 
-##
-
-Unsupported source primary key types - composite primary keys
+## Unsupported source primary key types - composite primary keys
 
 **API key:** `unsupported-source-pk-type-for-elasticsearch-target`
 

@@ -1,6 +1,4 @@
-# Creating a database migration assessment
-
-report for DMS Schema Conversion
+# Creating a database migration assessment report for DMS Schema Conversion
 
 After you create a migration project, use the following procedure to create a database
 migration assessment report.

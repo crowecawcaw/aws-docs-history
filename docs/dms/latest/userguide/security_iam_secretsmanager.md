@@ -1,6 +1,4 @@
-# Using secrets to access AWS Database Migration Service
-
-endpoints
+# Using secrets to access AWS Database Migration Service endpoints
 
 For AWS DMS, a _secret_ is an encrypted key that you can use
 to represent a set of user credentials to authenticate, through _secret
@@ -27,8 +25,7 @@ include in your endpoint settings.
 
 You can't use master credentials managed by Amazon RDS Aurora. These credentials don't include
 host or port information, which AWS DMS needs to establish connections. Instead, create a new user and secret.
-For information about creating a user and secret, see [Using the AWS Management Console to create a
-secret and secret access role](#security_iam_secretsmanager.console "#security_iam_secretsmanager.console") following.
+For information about creating a user and secret, see [Using the AWS Management Console to create a secret and secret access role](#security_iam_secretsmanager.console "#security_iam_secretsmanager.console") following.
 
 For more information on AWS Secrets Manager, see [What Is AWS
 Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the _AWS Secrets Manager User
@@ -91,8 +88,7 @@ SecretsManagerAccessRoleArn = ARN2xsecrets;
 SecretsManagerOracleAsmAccessRoleArn = ARN2xsecrets;
 ```
 
-For more information on creating these values, see [Using the AWS Management Console to create a
-secret and secret access role](#security_iam_secretsmanager.console "#security_iam_secretsmanager.console").
+For more information on creating these values, see [Using the AWS Management Console to create a secret and secret access role](#security_iam_secretsmanager.console "#security_iam_secretsmanager.console").
 After you have created and specified the required secret and secret access-role endpoint
 settings for your endpoints, update the permissions on the user accounts that will run the
 `CreateEndpoint` or `ModifyEndpoint` API request with these secret
@@ -157,17 +153,13 @@ access role and its secret.
    If the command returns an error message, make sure the permissions
    were given correctly.
 
-## Using the AWS Management Console to create a
-
-secret and secret access role
+## Using the AWS Management Console to create a secret and secret access role
 
 You can use the AWS Management Console to create a secret for endpoint authentication and to
 create the policy and role to allow AWS DMS to access the secret on your
 behalf.
 
-###### To create a secret using the AWS Management Console that AWS DMS can use to
-
-authenticate a database for source and target endpoint connections
+###### To create a secret using the AWS Management Console that AWS DMS can use to authenticate a database for source and target endpoint connections
 
 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at
    [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
@@ -294,11 +286,7 @@ retrieve the secret ARN as the value for `SecretsManagerSecretId` or
 `SecretsManagerOracleAsmSecretId` as appropriate to authenticate
 access to your endpoint database connection and Oracle ASM (if used).
 
-###### To create the secret access policy and role to set your
-
-`SecretsManagerAccessRoleArn` or
-`SecretsManagerOracleAsmAccessRoleArn`, which allows AWS DMS
-to access AWS Secrets Manager to access your appropriate secret
+###### To create the secret access policy and role to set your `SecretsManagerAccessRoleArn` or `SecretsManagerOracleAsmAccessRoleArn`, which allows AWS DMS to access AWS Secrets Manager to access your appropriate secret
 
 1. Sign in to the AWS Management Console and open the AWS Identity and Access Management (IAM) console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

@@ -87,8 +87,7 @@ To identify resource bottlenecks for your replication instance, verify the follo
 - Critical CloudWatch metrics such as CPU, Memory, I/O per second, and storage are not experiencing spikes
   or consistenly high values.
 - Your replication instance is sized appropriately for your workload. For information about determining
-  the correct size of a replication instance, see [Selecting the best size for a
-  replication instance](CHAP_BestPractices.md "CHAP_BestPractices.md").
+  the correct size of a replication instance, see [Selecting the best size for a replication instance](CHAP_BestPractices.md "CHAP_BestPractices.md").
 
 ### Network speed and bandwidth
 
@@ -132,16 +131,14 @@ in the [Working with AWS DMS endpoints](CHAP_Endpoints.md "CHAP_Endpoints.md") t
   except for Amazon Redshift. However, for sources with a large number of changes, setting `BatchApplyEnabled`
   to `true` may improve performance.
 
-For more information about task settings, see [Specifying task settings
-for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
+For more information about task settings, see [Specifying task settings for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
 
 - **Start Position of a CDC only task**: Starting a CDC-only task from a
   position or timestamp in the past will start the task with increased CDC source latency. Depending on the
   volume of changes on the source, task latency will take time to subside.
 - **LOB settings**: Large Object data types can hinder replication performance
   due to the way AWS DMS replicates large binary data. For more information, see the following topics:
-  - [Setting LOB support for source databases in
-    an AWS DMS task](CHAP_Tasks.md "CHAP_Tasks.md")
+  - [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.md "CHAP_Tasks.md")
   - [Migrating large binary objects (LOBs)](CHAP_BestPractices.md#CHAP_BestPractices.LOBS "CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
 
 ### Replication scenarios
@@ -150,14 +147,11 @@ This section describes specific replication scenarios and how they may affect la
 
 ###### Topics
 
-- [Stopping a task for an
-  extended period of time](#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Stoptask "#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Stoptask")
+- [Stopping a task for an extended period of time](#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Stoptask "#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Stoptask")
 - [Cached changes](#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Cachedchanges "#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Cachedchanges")
 - [Cross-region replication](#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Crossregion "#CHAP_Troubleshooting_Latency_Causes_Replication_Scenarios_Crossregion")
 
-#### Stopping a task for an
-
-extended period of time
+#### Stopping a task for an extended period of time
 
 When you stop a task, AWS DMS saves the position of the last transaction log that was read from the source.
 When you resume the task, DMS tries to continue reading from the same transaction log position. Resuming a task after

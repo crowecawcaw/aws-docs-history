@@ -11,8 +11,7 @@ from a significant increase in the number of events written to the transaction l
 - [Large transactions](#CHAP_Troubleshooting_Latency_Source_SQLServer_Largetransactions "#CHAP_Troubleshooting_Latency_Source_SQLServer_Largetransactions")
 - [Misconfigured MS-CDC polling interval for Amazon RDS SQL Server](#CHAP_Troubleshooting_Latency_Source_SQLServer_MisconfiguredCDC "#CHAP_Troubleshooting_Latency_Source_SQLServer_MisconfiguredCDC")
 - [Multiple CDC tasks replicating from the same source database](#CHAP_Troubleshooting_Latency_Source_SQLServer_MultipleCDC "#CHAP_Troubleshooting_Latency_Source_SQLServer_MultipleCDC")
-- [Transaction log
-  backup processing for RDS for SQL Server](#CHAP_Troubleshooting_Latency_Source_SQLServer_backup "#CHAP_Troubleshooting_Latency_Source_SQLServer_backup")
+- [Transaction log backup processing for RDS for SQL Server](#CHAP_Troubleshooting_Latency_Source_SQLServer_backup "#CHAP_Troubleshooting_Latency_Source_SQLServer_backup")
 
 ## Index rebuilds
 
@@ -85,8 +84,7 @@ To troubleshoot a misconfigured polling interval, do the following:
   [The Transaction Log (SQL Server)](https://learn.microsoft.com/en-us/sql/relational-databases/logs/the-transaction-log-sql-server?view=sql-server-ver16#FactorsThatDelayTruncation "https://learn.microsoft.com/en-us/sql/relational-databases/logs/the-transaction-log-sql-server?view=sql-server-ver16#FactorsThatDelayTruncation") in the [SQL Server technical documentation](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16 "https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16").
 
 If you find issues with any of the items in the previous list, tune the MS-CDC polling interval. For information
-about tuning the polling interval, see [Recommended settings
-when using RDS for SQL Server as a source for AWS DMS](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings").
+about tuning the polling interval, see [Recommended settings when using RDS for SQL Server as a source for AWS DMS](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration.Settings").
 
 ## Multiple CDC tasks replicating from the same source database
 
@@ -110,9 +108,7 @@ The maximum number of tasks that can connect to your source database without cre
 source database capacity, the rate of transaction log growth, or the number of tables. To determine the ideal number
 of tasks for your replication scenario, test replication in a test environment similar to your production environment.
 
-## Transaction log
-
-backup processing for RDS for SQL Server
+## Transaction log backup processing for RDS for SQL Server
 
 AWS DMS 3.5.3 and above support replicating from RDS for SQL Server log backups. Replicating events
 from the backup logs on RDS instances is slower than replicating events from the active

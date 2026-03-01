@@ -17,10 +17,7 @@ The following sections describe how to create, configure, and run homogeneous da
 - [Managing data migrations in AWS DMS](dm-migrating-data-manage.md "dm-migrating-data-manage.md")
 - [Monitoring data migrations in AWS DMS](dm-migrating-data-monitoring.md "dm-migrating-data-monitoring.md")
 - [Statuses of homogeneous data migrations in AWS DMS](dm-migrating-data-statuses.md "dm-migrating-data-statuses.md")
-- [Migrating data from MySQL databases
-  with homogeneous data migrations in AWS DMS](dm-migrating-data-mysql.md "dm-migrating-data-mysql.md")
-- [Migrating data from PostgreSQL databases
-  with homogeneous data migrations in AWS DMS](dm-migrating-data-postgresql.md "dm-migrating-data-postgresql.md")
-- [Migrating data from MongoDB databases
-  with homogeneous data migrations in AWS DMS](dm-migrating-data-mongodb.md "dm-migrating-data-mongodb.md")
+- [Migrating data from MySQL databases with homogeneous data migrations in AWS DMS](dm-migrating-data-mysql.md "dm-migrating-data-mysql.md")
+- [Migrating data from PostgreSQL databases with homogeneous data migrations in AWS DMS](dm-migrating-data-postgresql.md "dm-migrating-data-postgresql.md")
+- [Migrating data from MongoDB databases with homogeneous data migrations in AWS DMS](dm-migrating-data-mongodb.md "dm-migrating-data-mongodb.md")
 - [Target table preparation mode](dm-migrating-data-table-prep.md "dm-migrating-data-table-prep.md")

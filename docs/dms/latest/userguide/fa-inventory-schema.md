@@ -10,9 +10,7 @@ Advisor end of support](dms_fleet.md "dms_fleet.md").
 You can view a list of database schemas discovered on servers within your network
 from which the data was collected. Perform the following procedure.
 
-###### To view a list of schemas on your network servers that data was
-
-collected from
+###### To view a list of schemas on your network servers that data was collected from
 
 1. Choose **Inventory** on the console. The
    **Inventory** page opens.

@@ -1,6 +1,4 @@
-# Discovering OS and database servers to
-
-monitor in AWS DMS
+# Discovering OS and database servers to monitor in AWS DMS
 
 ###### Important
 
@@ -21,8 +19,7 @@ PowerShell, Secure Shell (SSH), and Windows Management Instrumentation (WMI) scr
 commands, as well as access to the Windows registry. To discover database servers in
 your network and collect metadata from them, you need read-only administrator permissions
 for a remote database connection. Make sure that you added an LDAP server before you
-proceed with discovery. For more information, see [Configuring credentials for
-data forwarding](fa-data-collectors-install.md#fa-data-collectors-configure "fa-data-collectors-install.md#fa-data-collectors-configure").
+proceed with discovery. For more information, see [Configuring credentials for data forwarding](fa-data-collectors-install.md#fa-data-collectors-configure "fa-data-collectors-install.md#fa-data-collectors-configure").
 
 To get started with the DMS data collector, complete the following tasks:
 

@@ -1,6 +1,4 @@
-# Creating tasks for ongoing replication using
-
-AWS DMS
+# Creating tasks for ongoing replication using AWS DMS
 
 You can create an AWS DMS task that captures ongoing changes from the source data store.
 You can do this capture while you are migrating your data. You can also create a task
@@ -15,8 +13,7 @@ database engine's native API.
 You can migrate views using full-load tasks only. If your task is either a
 CDC-only task or a full-load task that starts CDC after it completes, the migration
 includes only tables from the source. Using a full-load-only task, you can migrate
-views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules using
-JSON](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
+views or a combination of tables and views. For more information, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
 
 Each source engine has specific configuration requirements for exposing this change
 stream to a given user account. Most engines require some additional configuration to
@@ -47,14 +44,11 @@ examples of how AWS DMS does that:
   enough. For specific settings for each endpoint, see the following:
 
       + **Amazon RDS for Oracle:**
-       [Configuring
-       an AWS-managed Oracle source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
+      [Configuring an AWS-managed Oracle source for AWS DMS](CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
       + **Amazon RDS for MySQL and Aurora MySQL:**
-      [Using an AWS-managed
-       MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged").
+      [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.md#CHAP_Source.MySQL.AmazonManaged").
       + **Amazon RDS for SQL Server:**
-      [Setting up ongoing replication
-       on a cloud SQL Server DB instance](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration").
+      [Setting up ongoing replication on a cloud SQL Server DB instance](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.Configuration").
       + **Amazon RDS for PostgreSQL and Aurora PostgreSQL:**
        PostgreSQL automatically keeps the required WAL.
 
@@ -65,9 +59,7 @@ examples of how AWS DMS does that:
 - CDC only – The task migrates ongoing changes after you have data on
   your target database.
 
-## Performing replication starting from a
-
-CDC start point
+## Performing replication starting from a CDC start point
 
 You can start an AWS DMS ongoing replication task (change data capture only) from
 several points. These include the following:
@@ -82,7 +74,7 @@ several points. These include the following:
 
 ###### Note
 
-Only by setting the `StartFromContext` connection attribute
+Only by setting the `StartFromContext` extra connection attribute
 to the required timestamp does Db2 as a source offer a customized CDC start
 time.
 
@@ -145,9 +137,7 @@ No previous assessment records found.
 This helps ensure accurate migration planning while maintaining data consistency between the specified
 CDC point and current system state.
 
-### Determining a CDC native start
-
-point
+### Determining a CDC native start point
 
 A _CDC native start point_ is a point in the
 database engine's log that defines a time where you can begin CDC.
@@ -184,23 +174,19 @@ a CDC native start point.
 You can use a CDC recovery checkpoint for your PostgreSQL source
 database. This checkpoint value is generated at various points as an
 ongoing replication task runs for your source database (the parent
-task). For more information about checkpoints in general, see [Using a checkpoint as a
-CDC start point](#CHAP_Task.CDC.StartPoint.Checkpoint "#CHAP_Task.CDC.StartPoint.Checkpoint").
+task). For more information about checkpoints in general, see [Using a checkpoint as a CDC start point](#CHAP_Task.CDC.StartPoint.Checkpoint "#CHAP_Task.CDC.StartPoint.Checkpoint").
 
 To identify the checkpoint to use as your native start point, use
 your database `pg_replication_slots` view or your parent
 task's overview details from the AWS Management Console
 
-###### To find the overview details for your parent task on the
-
-console
+###### To find the overview details for your parent task on the console
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
 If you are signed in as an IAM user, make sure that you have the
 appropriate permissions to access AWS DMS. For more information about the permissions
-required, see [IAM permissions needed to use
-AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. On the navigation pane, choose **Database migration tasks**. 3. Choose your parent task from the list on the **Database migration tasks** page.
+required, see [IAM permissions needed to use AWS DMS](security-iam.md#CHAP_Security.IAMPermissions "security-iam.md#CHAP_Security.IAMPermissions"). 2. On the navigation pane, choose **Database migration tasks**. 3. Choose your parent task from the list on the **Database migration tasks** page.
 Doing this opens your parent task page, showing the overview
 details. 4. Find the checkpoint value under **Change data capture (CDC)**, **Change data capture (CDC) start
 position**, and **Change
@@ -217,8 +203,7 @@ need to specify this native CDC start point. Set the DMS API
 `CdcStartPosition` parameter to this value
 when you create the CDC task to begin replication at this
 start point for your PostgreSQL source. For information on
-using the AWS CLI to create this CDC task, see [Enabling CDC with an
-AWS-managed PostgreSQL DB instance with AWS DMS](CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC "CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC").
+using the AWS CLI to create this CDC task, see [Enabling CDC with an AWS-managed PostgreSQL DB instance with AWS DMS](CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC "CHAP_Source.md#CHAP_Source.PostgreSQL.RDSPostgreSQL.CDC").
 
 **Oracle**
 
@@ -281,9 +266,7 @@ binlogs file name and the position, for example
 and `373` is the position where AWS DMS needs to start
 capturing changes.
 
-### Using a checkpoint as a
-
-CDC start point
+### Using a checkpoint as a CDC start point
 
 An ongoing replication task migrates changes, and AWS DMS caches checkpoint
 information specific to AWS DMS from time to time. The checkpoint that AWS DMS
@@ -320,9 +303,7 @@ table:
 
 `checkpoint:V1#1#000004AF/B00000D0#0#0#*#0#0`
 
-### Stopping a task at a commit or server
-
-time point
+### Stopping a task at a commit or server time point
 
 With the introduction of CDC native start points, AWS DMS can also stop a task
 at the following points:
@@ -366,9 +347,7 @@ configurations and settings are evaluated, regardless of the actual task status.
 If no assessments have been performed within the last 7 days for a given task, the premigration assessment
 will automatically execute to ensure data completeness and consistency.
 
-## Performing bidirectional
-
-replication
+## Performing bidirectional replication
 
 You can use AWS DMS tasks to perform bidirectional replication between two systems.
 In _bidirectional replication_, you replicate data
@@ -400,9 +379,7 @@ database engines:
 - Amazon Aurora MySQL-Compatible Edition
 - Aurora PostgreSQL-Compatible Edition
 
-### Creating bidirectional
-
-replication tasks
+### Creating bidirectional replication tasks
 
 To enable AWS DMS bidirectional replication, configure source and target
 endpoints for both databases (A and B). For example, configure a source endpoint
@@ -413,8 +390,7 @@ Then create two tasks: one task for source A to move data to target B, and
 another task for source B to move data to target A. Also, make sure that each
 task is configured with loopback prevention. Doing this prevents identical
 changes from being applied to the targets of both tasks, thus corrupting the
-data for at least one of them. For more information, see [Preventing
-loopback](#CHAP_Task.CDC.Bidirectional.Loopback "#CHAP_Task.CDC.Bidirectional.Loopback").
+data for at least one of them. For more information, see [Preventing loopback](#CHAP_Task.CDC.Bidirectional.Loopback "#CHAP_Task.CDC.Bidirectional.Loopback").
 
 For the easiest approach, start with identical datasets on both database A and
 database B. Then create two CDC only tasks, one task to replicate data from A to
@@ -428,8 +404,7 @@ the following:
    time.
 2. When the full load is complete and before applications are allowed to
    modify data on database B, note the time or CDC start position of
-   database B. For instructions, see [Performing replication starting from a
-   CDC start point](#CHAP_Task.CDC.StartPoint "#CHAP_Task.CDC.StartPoint").
+   database B. For instructions, see [Performing replication starting from a CDC start point](#CHAP_Task.CDC.StartPoint "#CHAP_Task.CDC.StartPoint").
 3. Create a CDC only task that moves data from database B back to A using
    this start time or CDC start position.
 
@@ -437,9 +412,7 @@ the following:
 
 Only one task in a bidirectional pair can be full load and CDC.
 
-### Preventing
-
-loopback
+### Preventing loopback
 
 To show preventing loopback, suppose that in a task T1 AWS DMS reads change logs
 from source database A and applies the changes to target database B.
@@ -533,9 +506,7 @@ When using the AWS CLI, use only the `create-replication-task` or
 `LoopbackPreventionSettings` in your bidirectional
 replications tasks.
 
-### Limitations of
-
-bidirectional replication
+### Limitations of bidirectional replication
 
 Bidirectional replication for AWS DMS has the following limitations:
 

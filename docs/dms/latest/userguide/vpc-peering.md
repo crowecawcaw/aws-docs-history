@@ -29,25 +29,17 @@ AWS DMS uses the following CIDR blocks to establish a VPC peering connection.
 
 ###### Topics
 
-- [Configuring a network using a single virtual
-  private cloud (VPC)](#vpc-peering-one-vpc "#vpc-peering-one-vpc")
-- [Configuring a network using different
-  virtual private clouds (VPCs)](#vpc-peering-different-vpc "#vpc-peering-different-vpc")
-- [Using an on-premises source data
-  provider](#vpc-peering-on-premesis "#vpc-peering-on-premesis")
-- [Configuring ongoing data
-  replication](#vpc-peering-ongoing-replication "#vpc-peering-ongoing-replication")
+- [Configuring a network using a single virtual private cloud (VPC)](#vpc-peering-one-vpc "#vpc-peering-one-vpc")
+- [Configuring a network using different virtual private clouds (VPCs)](#vpc-peering-different-vpc "#vpc-peering-different-vpc")
+- [Using an on-premises source data provider](#vpc-peering-on-premesis "#vpc-peering-on-premesis")
+- [Configuring ongoing data replication](#vpc-peering-ongoing-replication "#vpc-peering-ongoing-replication")
 
-## Configuring a network using a single virtual
-
-private cloud (VPC)
+## Configuring a network using a single virtual private cloud (VPC)
 
 In this configuration, AWS DMS connects to your source and target data providers
 within the private network.
 
-###### To configure a network when your source and target data providers are in the
-
-same VPC
+###### To configure a network when your source and target data providers are in the same VPC
 
 1. Create the subnet group in the AWS DMS console with the VPC and subnets that
    your source and target data providers use. For more information, see [Creating a subnet group](subnet-group.md "subnet-group.md").
@@ -58,18 +50,14 @@ same VPC
 This configuration doesn't require you to use the public IP address for data
 migrations.
 
-## Configuring a network using different
-
-virtual private clouds (VPCs)
+## Configuring a network using different virtual private clouds (VPCs)
 
 In this configuration, AWS DMS uses a private network to connect to your source or
 target data provider. For another data provider, AWS DMS uses a public network.
 Depending on which data provider you have in the same VPC as your instance profile,
 choose one of the following configurations.
 
-###### To configure a private network for your source data provider and a public
-
-network for your target data provider
+###### To configure a private network for your source data provider and a public network for your target data provider
 
 1. Create the subnet group in the AWS DMS console with the VPC and subnets that
    your source data provider uses. For more information, see [Creating a subnet group](subnet-group.md "subnet-group.md").
@@ -84,9 +72,7 @@ network for your target data provider
    target database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon Relational Database Service User
    Guide_.
 
-###### To configure a public network for your source data provider and a private
-
-network for your target data provider
+###### To configure a public network for your source data provider and a private network for your target data provider
 
 1. Create the subnet group in the AWS DMS console with the VPC and subnets that
    your target data provider uses. For more information, see [Creating a subnet group](subnet-group.md "subnet-group.md").
@@ -101,9 +87,7 @@ network for your target data provider
    source database security group. For more information, see [Controlling access with security groups](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") in the _Amazon Relational Database Service User
    Guide_.
 
-## Using an on-premises source data
-
-provider
+## Using an on-premises source data provider
 
 In this configuration, AWS DMS connects to your source data provider within the
 public network. AWS DMS uses a private network to connect to your target data
@@ -136,17 +120,13 @@ you don't delete these rules because this action can lead to a failure of your d
 migration. You can configure your own rules in VPC security groups. We recommended
 that you add a description to your rules so that you can manage them.
 
-## Configuring ongoing data
-
-replication
+## Configuring ongoing data replication
 
 To run data migrations of the **Full load and change data capture
 (CDC)** or **Change data capture (CDC)** type, you
 must allow connection between your source and target databases.
 
-###### To configure a connection between your publicly accessible source and target
-
-databases
+###### To configure a connection between your publicly accessible source and target databases
 
 1. Take a note of the public IP addresses of your source and target
    databases.
@@ -155,9 +135,7 @@ databases
 3. Allow access to your target database from the public IP address of your
    source database.
 
-###### To configure a connection between your source and target databases that are
-
-privately accessible in a single VPC
+###### To configure a connection between your source and target databases that are privately accessible in a single VPC
 
 1. Take a note of the private IP addresses of your source and target
    databases.

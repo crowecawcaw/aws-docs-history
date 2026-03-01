@@ -32,9 +32,7 @@ manually. For a MySQL database, you can use a custom certificate. To use a
 custom certificate, select the **Verify CA** check box. For
 information about adding a server, see [Managing monitored objects](fa-managing-objects.md "fa-managing-objects.md").
 
-## Checking the Server Certificate Authority (CA)
-
-Certificate for SQL Server
+## Checking the Server Certificate Authority (CA) Certificate for SQL Server
 
 If you want to validate your Server Certificate Authority (CA) Certificate for SQL
 Server, then clear **Trust server certificate** when you add the

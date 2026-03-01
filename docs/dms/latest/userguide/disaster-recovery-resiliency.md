@@ -22,5 +22,4 @@ replication instance fails or becomes unresponsive, the standby resumes any runn
 with minimal interruption. Because the primary is constantly replicating its state to the
 standby, Multi-AZ deployment does incur some performance overhead.
 
-For more information on working with Multi-AZ deployments, see [Working with an AWS DMS replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+For more information on working with Multi-AZ deployments, see [Working with an AWS DMS replication instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").

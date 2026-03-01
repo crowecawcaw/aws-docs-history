@@ -43,8 +43,7 @@ If you get the **Unable to connect to target** error message, then perform the f
 
 1. Make sure that the security group that is attached to your source and target databases
    contains a rule for any inbound and outbound traffic. For more information, see
-   [Configuring ongoing data
-   replication](vpc-peering.md#vpc-peering-ongoing-replication "vpc-peering.md#vpc-peering-ongoing-replication").
+   [Configuring ongoing data replication](vpc-peering.md#vpc-peering-ongoing-replication "vpc-peering.md#vpc-peering-ongoing-replication").
 2. Verify the network access control list (ACL) and route table rules.
 3. Your database must be accessible from the VPC that you created. Add public IP addresses in
    VPC security groups, and allow input connections in your firewall.

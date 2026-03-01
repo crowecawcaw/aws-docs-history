@@ -1,6 +1,4 @@
-# Clean up and troubleshoot to work with
-
-DMS Schema Conversion
+# Clean up and troubleshoot to work with DMS Schema Conversion
 
 You can use Amazon CloudWatch to review or share your DMS Schema Conversion logs.
 

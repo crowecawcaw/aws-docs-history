@@ -1,6 +1,4 @@
-# Configure your data providers for
-
-DMS Schema Conversion
+# Configure your data providers for DMS Schema Conversion
 
 Next, you create data providers that describe your source and target databases. For
 each data provider, you specify a data store type and location information. You don't

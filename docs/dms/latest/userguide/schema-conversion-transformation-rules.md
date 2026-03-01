@@ -1,6 +1,4 @@
-# Setting up transformation rules
-
-in DMS Schema Conversion
+# Setting up transformation rules in DMS Schema Conversion
 
 Before you convert your database schema with DMS Schema Conversion, you can set up transformation
 rules. _Transformation rules_ can do such things as change an object
@@ -22,9 +20,7 @@ You can create transformation rules that perform the following tasks:
 - Table
 - Column
 
-## Creating
-
-transformation rules
+## Creating transformation rules
 
 DMS Schema Conversion stores transformation rules as part of your migration project. You can
 set up transformation rules when you create your migration project, or edit them
@@ -61,9 +57,7 @@ To duplicate an existing transformation rule, choose
 the rule from the list. To delete an existing transformation rule, choose
 **Remove**.
 
-## Editing transformation
-
-rules
+## Editing transformation rules
 
 You can add new, remove, or edit existing transformation rules in your migration
 project. Because DMS Schema Conversion applies the transformation rules during the launch of

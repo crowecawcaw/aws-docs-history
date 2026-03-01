@@ -7,8 +7,7 @@ This section contains replication scenarios specific to PostgreSQL.
 - [Long-running transaction on source](#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Longrunning "#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Longrunning")
 - [High workload on source](#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Highworkload "#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Highworkload")
 - [High network throughput](#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Highnetwork "#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Highnetwork")
-- [Spill files in
-  Aurora PostgreSQL](#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Spill "#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Spill")
+- [Spill files in Aurora PostgreSQL](#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Spill "#CHAP_Troubleshooting_Latency_Source_PostgreSQL_Spill")
 
 ## Long-running transaction on source
 
@@ -62,8 +61,7 @@ If your source PostgreSQL has a high workload, check the following to reduce lat
   `pglogical` plugin instead. Unlike the `test_decoding` plugin, the
   `pglogical` plugin filters write ahead log (WAL) changes at the source,
   and only sends relevant changes to the replication instance. For information about using the
-  `pglogical` plugin with AWS DMS, see [Configuring the
-  pglogical plugin](CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical "CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical").
+  `pglogical` plugin with AWS DMS, see [Configuring the pglogical plugin](CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical "CHAP_Source.md#CHAP_Source.PostgreSQL.Security.Pglogical").
 
 ## High network throughput
 
@@ -76,9 +74,7 @@ To improve performance, consider using the `pglogical` plugin instead, which is 
 Unlike the `test_decoding` plugin, the `pglogical` plugin generates binary format output,
 resulting in compressed write ahead log (WAL) stream changes.
 
-## Spill files in
-
-Aurora PostgreSQL
+## Spill files in Aurora PostgreSQL
 
 In PostgreSQL version 13 and higher, the `logical_decoding_work_mem` parameter determines
 the memory allocation for decoding and streaming. For more information about the `logical_decoding_work_mem`

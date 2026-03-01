@@ -1,7 +1,4 @@
-#
-
-Specifying table selection and transformations rules using
-JSON
+# Specifying table selection and transformations rules using JSON
 
 To specify the table mappings that you want to apply during migration, you can
 create a JSON file. If you create a migration task using the console, you can browse
@@ -41,9 +38,6 @@ For the targets following, you can specify how and where selected schemas and
 tables are migrated to the target using the `object-mapping` rule
 type:
 
-- Amazon DynamoDB – For more information, see [Using object mapping to migrate
-  data to DynamoDB](CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping "CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping").
-- Amazon Kinesis – For more information, see [Using object mapping to migrate
-  data to a Kinesis data stream](CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping "CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping").
-- Apache Kafka – For more information, see [Using object mapping to migrate
-  data to a Kafka topic](CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping "CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping").
+- Amazon DynamoDB – For more information, see [Using object mapping to migrate data to DynamoDB](CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping "CHAP_Target.md#CHAP_Target.DynamoDB.ObjectMapping").
+- Amazon Kinesis – For more information, see [Using object mapping to migrate data to a Kinesis data stream](CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping "CHAP_Target.md#CHAP_Target.Kinesis.ObjectMapping").
+- Apache Kafka – For more information, see [Using object mapping to migrate data to a Kafka topic](CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping "CHAP_Target.md#CHAP_Target.Kafka.ObjectMapping").

@@ -8,7 +8,6 @@ Your source data provider can be an on-premises, Amazon EC2, or Amazon RDS datab
 
 ###### Topics
 
-- [Using a MySQL compatible database
-  as a source for homogeneous data migrations in AWS DMS](dm-data-providers-source-mysql.md "dm-data-providers-source-mysql.md")
+- [Using a MySQL compatible database as a source for homogeneous data migrations in AWS DMS](dm-data-providers-source-mysql.md "dm-data-providers-source-mysql.md")
 - [Using a PostgreSQL database as a source for homogeneous data migrations in AWS DMS](dm-data-providers-source-postgresql.md "dm-data-providers-source-postgresql.md")
 - [Using a MongoDB compatible database as a source for homogeneous data migrations in AWS DMS](dm-data-providers-source-mongodb.md "dm-data-providers-source-mongodb.md")

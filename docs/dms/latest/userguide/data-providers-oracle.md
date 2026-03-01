@@ -21,9 +21,7 @@ to the following targets:
 For more information about using DMS Schema Conversion with a source Oracle database, see the
 [Oracle to PostgreSQL migration step-by-step walkthrough](../sbs/schema-conversion-oracle-postgresql.md "../sbs/schema-conversion-oracle-postgresql.md").
 
-##
-
-Privileges for Oracle as a source
+## Privileges for Oracle as a source
 
 The following privileges are required for Oracle as a source:
 
