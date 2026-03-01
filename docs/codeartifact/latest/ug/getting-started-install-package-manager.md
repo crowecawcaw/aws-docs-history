@@ -1,6 +1,4 @@
-# Install your package manager or
-
-build tool
+# Install your package manager or build tool
 
 To publish or consume packages from CodeArtifact, you must use a package manager. There are different package
 managers for each package type. The following list contains some package managers that you can use with CodeArtifact. If you

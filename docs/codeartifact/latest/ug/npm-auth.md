@@ -7,11 +7,9 @@ is by using the `aws codeartifact login` command. You can also configure npm man
 ###### Contents
 
 - [Configuring npm with the login command](npm-auth.md#configure-npm-login-command "npm-auth.md#configure-npm-login-command")
-- [Configuring npm without using the
-  login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command")
+- [Configuring npm without using the login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command")
 - [Running npm commands](npm-auth.md#running-npm-commands "npm-auth.md#running-npm-commands")
-- [Verifying npm authentication and
-  authorization](npm-auth.md#verifying-npm-authentication-and-authorization "npm-auth.md#verifying-npm-authentication-and-authorization")
+- [Verifying npm authentication and authorization](npm-auth.md#verifying-npm-authentication-and-authorization "npm-auth.md#verifying-npm-authentication-and-authorization")
 - [Changing back to the default npm registry](npm-auth.md#revert-default-npm-registry "npm-auth.md#revert-default-npm-registry")
 - [Troubleshooting slow installs with npm 8.x or higher](npm-auth.md#troubleshooting-slow-npm-install "npm-auth.md#troubleshooting-slow-npm-install")
 
@@ -47,9 +45,7 @@ be called to periodically refresh the token. For more information about
 the authorization token created with the `login` command, see
 [Tokens created with the login command](tokens-authentication.md#auth-token-login "tokens-authentication.md#auth-token-login").
 
-## Configuring npm without using the
-
-login command
+## Configuring npm without using the login command
 
 You can configure npm with your CodeArtifact repository without the `aws codeartifact login` command by
 manually updating the npm configuration.
@@ -141,9 +137,7 @@ For information about how to create npm packages, see [Creating Node.js
 Modules](https://docs.npmjs.com/getting-started/creating-node-modules "https://docs.npmjs.com/getting-started/creating-node-modules") on the npm documentation website. For a list of npm commands supported
 by CodeArtifact, see [npm Command Support](npm-commands.md "npm-commands.md").
 
-## Verifying npm authentication and
-
-authorization
+## Verifying npm authentication and authorization
 
 Invoking the `npm ping` command is a way to verify the following:
 

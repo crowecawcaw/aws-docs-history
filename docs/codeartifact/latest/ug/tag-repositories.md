@@ -159,12 +159,9 @@ You can use the console or the CLI to tag resources.
 ###### Topics
 
 - [Add tags to a repository (console)](#add-tag-repositories-console "#add-tag-repositories-console")
-- [View tags for a repository
-  (console)](#list-tag-repositories-console "#list-tag-repositories-console")
-- [Edit tags for a repository
-  (console)](#update-tag-repositories-console "#update-tag-repositories-console")
-- [Remove tags from a repository
-  (console)](#delete-tag-repositories-console "#delete-tag-repositories-console")
+- [View tags for a repository (console)](#list-tag-repositories-console "#list-tag-repositories-console")
+- [Edit tags for a repository (console)](#update-tag-repositories-console "#update-tag-repositories-console")
+- [Remove tags from a repository (console)](#delete-tag-repositories-console "#delete-tag-repositories-console")
 
 ### Add tags to a repository (console)
 
@@ -189,9 +186,7 @@ You can use the console to add tags to an existing repository.
 ![The repository configuration.](images/repo-add-tag-console.png) 7. (Optional) Choose **Add tag** to add more rows and enter
 more tags. 8. Choose **Update repository**.
 
-### View tags for a repository
-
-(console)
+### View tags for a repository (console)
 
 You can use the console to list tags for existing repositories.
 
@@ -206,9 +201,7 @@ You can use the console to list tags for existing repositories.
 
 If there are no tags added to this repository, the console will read **Add repository tags**.
 
-### Edit tags for a repository
-
-(console)
+### Edit tags for a repository (console)
 
 You can use the console to edit tags that have been added to repository.
 
@@ -227,9 +220,7 @@ update the values in each field as needed. For example, for the
 change `Test` to
 `Prod`. 6. Choose **Update repository**.
 
-### Remove tags from a repository
-
-(console)
+### Remove tags from a repository (console)
 
 You can use the console to delete tags from repositories.
 

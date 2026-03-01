@@ -18,6 +18,5 @@ We have tested and confirmed compatibility with CodeArtifact for the following v
 - [Publishing with curl](maven-curl.md "maven-curl.md")
 - [Use Maven checksums](maven-checksums.md "maven-checksums.md")
 - [Use Maven snapshots](maven-snapshots.md "maven-snapshots.md")
-- [Requesting
-  Maven packages from upstreams and external connections](maven-upstream-external-connections-request.md "maven-upstream-external-connections-request.md")
+- [Requesting Maven packages from upstreams and external connections](maven-upstream-external-connections-request.md "maven-upstream-external-connections-request.md")
 - [Maven troubleshooting](maven-troubleshooting.md "maven-troubleshooting.md")

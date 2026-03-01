@@ -4,8 +4,7 @@ CodeArtifact requires users to authenticate with the service in order to publish
 You must authenticate to the CodeArtifact service by creating an authorization token using your AWS credentials.
 In order to create an authorization token, you must have the correct permissions. For the permissions needed to create
 an authorization token, see the `GetAuthorizationToken` entry in the
-[AWS CodeArtifact permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+[AWS CodeArtifact permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 For more general information on CodeArtifact permissions, see [How AWS CodeArtifact works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 To fetch an authorization token from CodeArtifact, you must call the
@@ -128,11 +127,9 @@ aws codeartifact get-authorization-token \
 See the following documentation for more information:
 
 - For guidance on tokens and environment variables, see [Pass an auth token using an environment variable](#env-var "#env-var").
-- For Python users, see [Configure pip without the login
-  command](python-configure-pip.md#python-configure-without-pip "python-configure-pip.md#python-configure-without-pip") or [Configure and use twine with CodeArtifact](python-configure-twine.md "python-configure-twine.md").
+- For Python users, see [Configure pip without the login command](python-configure-pip.md#python-configure-without-pip "python-configure-pip.md#python-configure-without-pip") or [Configure and use twine with CodeArtifact](python-configure-twine.md "python-configure-twine.md").
 - For Maven users, see [Use CodeArtifact with Gradle](maven-gradle.md "maven-gradle.md") or [Use CodeArtifact with mvn](maven-mvn.md "maven-mvn.md").
-- For npm users, see [Configuring npm without using the
-  login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command").
+- For npm users, see [Configuring npm without using the login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command").
 
 ## Pass an auth token using an environment variable
 
@@ -146,8 +143,7 @@ token it needs to fetch packages from a CodeArtifact repository or publish packa
 For security reasons, this approach is preferable to storing the token in a file where it
 might be read by other users or processes, or accidentally checked into source control.
 
-1. Configure your AWS credentials as described in [Install or upgrade and then configure the
-   AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md").
+1. Configure your AWS credentials as described in [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md").
 2. Set the `CODEARTIFACT_AUTH_TOKEN` environment variable:
 
 ###### Note

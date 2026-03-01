@@ -1,6 +1,4 @@
-# Requesting a package version with upstream
-
-repositories
+# Requesting a package version with upstream repositories
 
 When a client (for example, npm) requests a package version from a CodeArtifact repository
 named `my_repo` that has multiple upstream repositories, the following can
@@ -38,9 +36,7 @@ version is not affected by any of the following:
 - Editing the package version in the upstream repository (for example, by adding a
   new asset to it).
 
-## Fetch packages
-
-through an upstream relationship
+## Fetch packages through an upstream relationship
 
 If a CodeArtifact repository has an upstream relationship with a repository that has an external connection,
 requests for packages not in the upstream repository are copied from the external
@@ -142,9 +138,7 @@ Example output:
 }
 ```
 
-## Package
-
-retention in intermediate repositories
+## Package retention in intermediate repositories
 
 CodeArtifact allows chaining upstream repositories. For example, `repo-A` can have
 `repo-B` as an upstream and `repo-B` can have `repo-C` as an upstream. This

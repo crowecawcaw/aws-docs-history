@@ -1,20 +1,14 @@
-# Troubleshooting AWS CodeArtifact identity and
-
-access
+# Troubleshooting AWS CodeArtifact identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with CodeArtifact and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in CodeArtifact](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I want to allow people
-  outside of my AWS account to access my CodeArtifact resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in CodeArtifact](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I want to allow people outside of my AWS account to access my CodeArtifact resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in CodeArtifact
+## I am not authorized to perform an action in CodeArtifact
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -34,9 +28,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my CodeArtifact resources
+## I want to allow people outside of my AWS account to access my CodeArtifact resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

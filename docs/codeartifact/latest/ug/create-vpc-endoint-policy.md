@@ -1,6 +1,4 @@
-# Create a VPC endpoint policy for
-
-CodeArtifact
+# Create a VPC endpoint policy for CodeArtifact
 
 To create a VPC endpoint policy for CodeArtifact, specify the following:
 

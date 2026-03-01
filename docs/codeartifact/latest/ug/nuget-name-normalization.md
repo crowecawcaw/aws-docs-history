@@ -38,5 +38,4 @@ To find the normalized name of a package, use the `aws codeartifact list-package
 
 To find the non-normalized name of a package, use the `aws codeartifact describe-package-version` command. The non-normalized
 name of the package is returned in the `displayName` field. For more information, see
-[View and update package version details and
-dependencies](describe-package-version.md "describe-package-version.md").
+[View and update package version details and dependencies](describe-package-version.md "describe-package-version.md").

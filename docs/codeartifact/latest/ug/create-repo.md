@@ -30,8 +30,7 @@ account, or domain.
 
 - [Create a repository (console)](#create-repo-console "#create-repo-console")
 - [Create a repository (AWS CLI)](#create-repo-cli "#create-repo-cli")
-- [Create a repository with an
-  upstream repository](#creating-a-repository-with-an-upstream "#creating-a-repository-with-an-upstream")
+- [Create a repository with an upstream repository](#creating-a-repository-with-an-upstream "#creating-a-repository-with-an-upstream")
 
 ## Create a repository (console)
 
@@ -117,9 +116,7 @@ To create a repository with tags, add the `--tags` parameter to your `create-dom
 aws codeartifact create-repository --domain `my_domain` --domain-owner `111122223333` --repository `my_repo` --tags `key=k1,value=v1 key=k2,value=v2`
 ```
 
-## Create a repository with an
-
-upstream repository
+## Create a repository with an upstream repository
 
 You can specify one or more upstream repositories when you create a repository.
 
@@ -155,7 +152,5 @@ To create a repository with an upstream, you must have permission for the
 `AssociateWithDownstreamRepository` action on the upstream
 repository.
 
-To add an upstream to a repository after it's been created, see [Add or remove upstream repositories
-(console)](repo-upstream-add.md#repo-upstream-add-console "repo-upstream-add.md#repo-upstream-add-console") and
-[Add or remove upstream repositories
-(AWS CLI)](repo-upstream-add.md#repo-upstream-add-cli "repo-upstream-add.md#repo-upstream-add-cli").
+To add an upstream to a repository after it's been created, see [Add or remove upstream repositories (console)](repo-upstream-add.md#repo-upstream-add-console "repo-upstream-add.md#repo-upstream-add-console") and
+[Add or remove upstream repositories (AWS CLI)](repo-upstream-add.md#repo-upstream-add-cli "repo-upstream-add.md#repo-upstream-add-cli").

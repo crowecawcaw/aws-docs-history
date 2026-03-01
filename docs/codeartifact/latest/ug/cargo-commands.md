@@ -5,13 +5,10 @@ repositories, in addition to specific commands that are not supported.
 
 ###### Contents
 
-- [Supported commands
-  that require accessing the registry](cargo-commands.md#supported-commands-access-the-registry "cargo-commands.md#supported-commands-access-the-registry")
+- [Supported commands that require accessing the registry](cargo-commands.md#supported-commands-access-the-registry "cargo-commands.md#supported-commands-access-the-registry")
 - [Unsupported commands](cargo-commands.md#unsupported-commands "cargo-commands.md#unsupported-commands")
 
-## Supported commands
-
-that require accessing the registry
+## Supported commands that require accessing the registry
 
 This section lists Cargo commands where the Cargo client requires access to
 the registry it's been configured with. These commands have been verified to function correctly

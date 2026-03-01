@@ -71,8 +71,7 @@ In the preceding list of permissions, your IAM policy must specify the
 the `repository` resource for the
 `codeartifact:ReadFromRepository` permission.
 
-For more information about permissions in CodeArtifact, see [AWS CodeArtifact permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+For more information about permissions in CodeArtifact, see [AWS CodeArtifact permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 ### Overwriting package assets
 

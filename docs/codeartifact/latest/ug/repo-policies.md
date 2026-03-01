@@ -8,9 +8,7 @@ access your repository.
 
 For more information, see [Resource-Based Policies](../../../IAM/latest/UserGuide/access_policies.md#policies_resource-based "../../../IAM/latest/UserGuide/access_policies.md#policies_resource-based") and [Identity-Based Policies and Resource-Based Policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md").
 
-## Create a resource policy to grant
-
-read access
+## Create a resource policy to grant read access
 
 A resource policy is a text file in JSON format. The file must specify a principal
 (actor), one or more actions, and an effect (`Allow` or `Deny`).
@@ -181,9 +179,7 @@ aws codeartifact delete-repository-permissions-policy --domain `my_domain` --dom
 
 The format of the output is the same as that of the `get-repository-permissions-policy` command.
 
-## Grant read access to
-
-principals
+## Grant read access to principals
 
 When you specify the root user of an account as the principal in a policy
 document, you grant access to all of the users and roles in that account. To limit
@@ -212,9 +208,7 @@ JSON
 
 ```
 
-## Grant write access to
-
-packages
+## Grant write access to packages
 
 The `codeartifact:PublishPackageVersion` action is used to control
 permission to publish new versions of a package. The resource used with this action
@@ -277,9 +271,7 @@ addition to `codeartifact:PublishPackageVersion`.
 Because this policy specifies a domain and repository as part of the resource, it
 allows publishing only when attached to that repository.
 
-## Grant write access to a
-
-repository
+## Grant write access to a repository
 
 You can use wildcards to grant write permission for all packages in a repository.
 For example, use the following policy to grant an account permission to write to

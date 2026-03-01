@@ -162,12 +162,9 @@ You can use the console or the CLI to tag resources.
 ###### Topics
 
 - [Add tags to a domain (console)](#add-tag-domains-console "#add-tag-domains-console")
-- [View tags for a domain
-  (console)](#list-tag-domains-console "#list-tag-domains-console")
-- [Edit tags for a domain
-  (console)](#update-tag-domains-console "#update-tag-domains-console")
-- [Remove tags from a domain
-  (console)](#delete-tag-domains-console "#delete-tag-domains-console")
+- [View tags for a domain (console)](#list-tag-domains-console "#list-tag-domains-console")
+- [Edit tags for a domain (console)](#update-tag-domains-console "#update-tag-domains-console")
+- [Remove tags from a domain (console)](#delete-tag-domains-console "#delete-tag-domains-console")
 
 ### Add tags to a domain (console)
 
@@ -191,9 +188,7 @@ You can use the console to add tags to an existing domain.
 ![The domain configuration.](images/domain-add-tag-console.png) 7. (Optional) Choose **Add tag** to add more rows and enter
 more tags. 8. Choose **Update domain**.
 
-### View tags for a domain
-
-(console)
+### View tags for a domain (console)
 
 You can use the console to list tags for existing domains.
 
@@ -208,9 +203,7 @@ You can use the console to list tags for existing domains.
 
 If there are no tags added to this domain, the console will read **Add domain tags**.
 
-### Edit tags for a domain
-
-(console)
+### Edit tags for a domain (console)
 
 You can use the console to edit tags that have been added to domain.
 
@@ -229,9 +222,7 @@ update the values in each field as needed. For example, for the
 change `Test` to
 `Prod`. 6. Choose **Update domain**.
 
-### Remove tags from a domain
-
-(console)
+### Remove tags from a domain (console)
 
 You can use the console to delete tags from domains.
 

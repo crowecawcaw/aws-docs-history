@@ -7,8 +7,7 @@ In this getting started tutorial, you use CodeArtifact to create the following:
 - A repository called `npm-store` that is contained in `my-domain`. The `npm-store` has
   an external connection to the npm public repository. This connection is used to ingest an npm package
   into the `my-repo` repository.
-  Before starting this tutorial, we recommend that you review CodeArtifact [AWS CodeArtifact
-  concepts](codeartifact-concepts.md "codeartifact-concepts.md").
+  Before starting this tutorial, we recommend that you review CodeArtifact [AWS CodeArtifact concepts](codeartifact-concepts.md "codeartifact-concepts.md").
 
 ###### Note
 

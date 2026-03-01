@@ -33,9 +33,7 @@ be called to periodically refresh the token. For more information about
 the authorization token created with the `login` command, see
 [Tokens created with the login command](tokens-authentication.md#auth-token-login "tokens-authentication.md#auth-token-login").
 
-## Configure pip without the login
-
-command
+## Configure pip without the login command
 
 If you cannot use the `login` command to configure `pip`, you can
 use `pip config`.

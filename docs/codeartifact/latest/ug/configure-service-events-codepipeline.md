@@ -1,6 +1,4 @@
-# Use an event to start a CodePipeline
-
-execution
+# Use an event to start a CodePipeline execution
 
 This example demonstrates how to configure an Amazon EventBridge rule so that an AWS CodePipeline
 execution starts when a package version in a CodeArtifact repository is published, modified,
@@ -8,25 +6,18 @@ or deleted.
 
 ###### Topics
 
-- [Configure EventBridge
-  permissions](#configure-service-events-codepipeline-permissions "#configure-service-events-codepipeline-permissions")
-- [Create the EventBridge
-  rule](#configure-service-events-codepipeline-create-rule "#configure-service-events-codepipeline-create-rule")
-- [Create the EventBridge
-  rule target](#configure-service-events-codepipeline-create-rule-target "#configure-service-events-codepipeline-create-rule-target")
+- [Configure EventBridge permissions](#configure-service-events-codepipeline-permissions "#configure-service-events-codepipeline-permissions")
+- [Create the EventBridge rule](#configure-service-events-codepipeline-create-rule "#configure-service-events-codepipeline-create-rule")
+- [Create the EventBridge rule target](#configure-service-events-codepipeline-create-rule-target "#configure-service-events-codepipeline-create-rule-target")
 
-## Configure EventBridge
-
-permissions
+## Configure EventBridge permissions
 
 You must add permissions for EventBridge to use CodePipeline to invoke the rule that you
 create. To add these permissions using the AWS Command Line Interface (AWS CLI), follow step 1 in
 [Create a CloudWatch Events Rule for a CodeCommit Source (CLI)](../../../codepipeline/latest/userguide/pipelines-trigger-source-repo-changes-cli.md "../../../codepipeline/latest/userguide/pipelines-trigger-source-repo-changes-cli.md") in the _AWS CodePipeline
 User Guide_.
 
-## Create the EventBridge
-
-rule
+## Create the EventBridge rule
 
 To create the rule, use the `put-rule` command with the
 `--name` and `--event-pattern` parameters. The event
@@ -41,9 +32,7 @@ aws events put-rule --name `MyCodeArtifactRepoRule` --event-pattern \
     "detail":{"domainName":["`my_domain`"],"domainOwner":["`111122223333`"],"repositoryName":["`myrepo`"]}}'
 ```
 
-## Create the EventBridge
-
-rule target
+## Create the EventBridge rule target
 
 The following command adds a target to the rule so that when an event matches the
 rule, a CodePipeline execution is triggered. For the `RoleArn` parameter,

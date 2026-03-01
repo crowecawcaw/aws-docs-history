@@ -8,8 +8,7 @@ configure `mvn` to use a CodeArtifact repository.
 - [Fetch dependencies](#fetching-dependencies "#fetching-dependencies")
 - [Publish artifacts](#publishing-artifacts "#publishing-artifacts")
 - [Publish third-party artifacts](#publishing-third-party-artifacts "#publishing-third-party-artifacts")
-- [Restrict Maven dependency downloads to
-  a CodeArtifact repository](#restrict-maven-downloads "#restrict-maven-downloads")
+- [Restrict Maven dependency downloads to a CodeArtifact repository](#restrict-maven-downloads "#restrict-maven-downloads")
 - [Apache Maven Project information](#apache-maven-project-info "#apache-maven-project-info")
 
 ## Fetch dependencies
@@ -255,9 +254,7 @@ The example above publishes `commons-cli 1.4`. Modify the groupId, artifactID, v
 
 These instructions are based on examples in the [Guide to deploying 3rd party JARs to remote repository](https://maven.apache.org/guides/mini/guide-3rd-party-jars-remote.html "https://maven.apache.org/guides/mini/guide-3rd-party-jars-remote.html") from the _Apache Maven documentation_.
 
-## Restrict Maven dependency downloads to
-
-a CodeArtifact repository
+## Restrict Maven dependency downloads to a CodeArtifact repository
 
 If a package cannot be fetched from a configured repository, by default, the
 `mvn` command fetches it from Maven Central. Add the

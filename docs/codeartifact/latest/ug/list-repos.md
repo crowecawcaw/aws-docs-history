@@ -2,9 +2,7 @@
 
 Use the commands in this topic to list repositories in an AWS account or domain.
 
-## List repositories in an AWS
-
-account
+## List repositories in an AWS account
 
 Use this command to list all of the repositories in your AWS account.
 

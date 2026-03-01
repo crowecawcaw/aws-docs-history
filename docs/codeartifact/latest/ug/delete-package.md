@@ -13,8 +13,7 @@ versions using the `put-package-origin-configuration` API operation (see [Editin
 - [Deleting a package (AWS CLI)](#delete-package-CLI "#delete-package-CLI")
 - [Deleting a package (console)](#delete-package-console "#delete-package-console")
 - [Deleting a package version (AWS CLI)](#delete-package-version-CLI "#delete-package-version-CLI")
-- [Deleting a package version
-  (console)](#delete-package-version-console "#delete-package-version-console")
+- [Deleting a package version (console)](#delete-package-version-console "#delete-package-version-console")
 - [Deleting an npm package or package version](#delete-package-npm "#delete-package-npm")
 - [Deleting a Maven package or package version](#delete-package-maven "#delete-package-maven")
 - [Best practices for deleting packages or package versions](#delete-package-bp "#delete-package-bp")
@@ -113,9 +112,7 @@ aws codeartifact list-package-versions --domain `my_domain` --domain-owner `1111
 --repository `my_repo` --format `pypi` --package `my-package`
 ```
 
-## Deleting a package version
-
-(console)
+## Deleting a package version (console)
 
 1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home").
 2. In the navigation pane, choose **Repositories**.

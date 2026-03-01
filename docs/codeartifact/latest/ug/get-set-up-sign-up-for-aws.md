@@ -3,8 +3,7 @@
 When you sign up for Amazon Web Services (AWS), you are charged only for the services and resources that you
 use, including AWS CodeArtifact.
 
-If you already have an AWS account, skip to the next task, [Install or upgrade and then configure the
-AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md"). If you don't
+If you already have an AWS account, skip to the next task, [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md"). If you don't
 have an AWS account, use the following procedure to create one.
 
 ###### To create an AWS account

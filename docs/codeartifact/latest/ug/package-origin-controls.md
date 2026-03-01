@@ -176,9 +176,7 @@ aws codeartifact put-package-origin-configuration --domain `my_domain` \
 --restrictions publish=`ALLOW`,upstream=`BLOCK`
 ```
 
-## Publishing and upstream
-
-repositories
+## Publishing and upstream repositories
 
 CodeArtifact doesn't allow publishing package versions that are present in reachable
 upstream repositories or public repositories. For example, suppose that you want to

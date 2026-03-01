@@ -1,11 +1,8 @@
-# Requesting
-
-Maven packages from upstreams and external connections
+# Requesting Maven packages from upstreams and external connections
 
 ## Importing standard asset names
 
-When importing a Maven package version from a public repository, such as Maven Central, AWS CodeArtifact attempts to import all the assets in that package version. As described in [Requesting a package version with upstream
-repositories](repo-upstream-behavior.md "repo-upstream-behavior.md"), importing
+When importing a Maven package version from a public repository, such as Maven Central, AWS CodeArtifact attempts to import all the assets in that package version. As described in [Requesting a package version with upstream repositories](repo-upstream-behavior.md "repo-upstream-behavior.md"), importing
 occurs when:
 
 - A

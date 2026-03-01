@@ -1,6 +1,4 @@
-#
-
-Resilience in AWS CodeArtifact
+# Resilience in AWS CodeArtifact
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide multiple physically separated and isolated
 Availability Zones, which are connected with low-latency, high-throughput, and highly redundant networking. AWS CodeArtifact operates in multiple

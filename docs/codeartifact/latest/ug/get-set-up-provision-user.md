@@ -13,8 +13,7 @@ Follow these instructions to prepare an IAM user to use CodeArtifact.
    - **Option 1:** Create a custom IAM policy. With a custom IAM
      policy, you can provide the minimum required permissions and change how long
      authentication tokens last. For more information and example policies, see
-     [Identity-based policy
-     examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+     [Identity-based policy examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
    - **Option 2:** Use the `AWSCodeArtifactAdminAccess` AWS managed policy.
      The following snippet shows the contents of this policy.
 
@@ -66,5 +65,4 @@ package manager with a CodeArtifact repository, your IAM user or role must allow
 `sts:GetServiceBearerToken` as shown in the preceding policy example.
 
 If you haven't installed the package manager or build tool that you plan to use with
-CodeArtifact, see [Install your package manager or
-build tool](getting-started-install-package-manager.md "getting-started-install-package-manager.md").
+CodeArtifact, see [Install your package manager or build tool](getting-started-install-package-manager.md "getting-started-install-package-manager.md").

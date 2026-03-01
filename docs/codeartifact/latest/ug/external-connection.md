@@ -16,8 +16,7 @@ been fetched from npmjs.com, rather than fetching and storing them again.
 
 - [Connect to an external repository (console)](#adding-an-external-connection-console "#adding-an-external-connection-console")
 - [Connect to an external repository (CLI)](#adding-an-external-connection "#adding-an-external-connection")
-- [Supported external connection
-  repositories](#supported-public-repositories "#supported-public-repositories")
+- [Supported external connection repositories](#supported-public-repositories "#supported-public-repositories")
 - [Remove an external connection (CLI)](#removing-an-external-connection "#removing-an-external-connection")
 
 ## Connect to an external repository (console)
@@ -70,8 +69,7 @@ more information about `-store` repositories and connecting with the console, se
 ###### To add an external connection to a CodeArtifact repository (CLI)
 
 - Use `associate-external-connection` to add an external connection. The following example connects a repository to the npm public registry, npmjs.com.
-  For a list of supported external repositories, see [Supported external connection
-  repositories](#supported-public-repositories "#supported-public-repositories").
+  For a list of supported external repositories, see [Supported external connection repositories](#supported-public-repositories "#supported-public-repositories").
 
 ```
 aws codeartifact associate-external-connection --external-connection `public:npmjs` \
@@ -105,9 +103,7 @@ After adding an external connection, see
 [Requesting packages from external connections](external-connection-requesting-packages.md "external-connection-requesting-packages.md")
 for information about requesting packages from an external repository with an external connection.
 
-## Supported external connection
-
-repositories
+## Supported external connection repositories
 
 CodeArtifact supports an external connection to the following public repositories. To use
 the CodeArtifact CLI to specify an external connection, use the value in the **Name** column for the `--external-connection`

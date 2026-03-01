@@ -45,9 +45,7 @@ All CodeArtifact actions are logged by CloudTrail. For example, calls to the
 package manager client commands. Package manager client commands typically make more than one HTTP
 request to the server. Each request generates a separate CloudTrail log event.
 
-### Cross-account delivery
-
-of CloudTrail logs
+### Cross-account delivery of CloudTrail logs
 
 Up to three separate accounts receive CloudTrail logs for a single API call:
 
@@ -66,9 +64,7 @@ owner's account receive the CloudTrail log. For APIs like
 `ListRepositories` that are not authorized against any resource,
 only the account of the caller receives the CloudTrail log.
 
-## Understanding CodeArtifact log file
-
-entries
+## Understanding CodeArtifact log file entries
 
 CloudTrail log files can contain one or more log entries. Each entry lists multiple
 JSON-formatted events. A log event represents a single request from any source and
@@ -79,8 +75,7 @@ API calls, so they do not appear in any specific order.
 ###### Topics
 
 - [Example: A log entry for calling the GetAuthorizationToken API](#example-a-log-entry-for-calling-the-getauthorizationtoken-api "#example-a-log-entry-for-calling-the-getauthorizationtoken-api")
-- [Example: A
-  log entry for fetching an npm package version](#example-a-log-entry-for-fetching-an-npm-package-version "#example-a-log-entry-for-fetching-an-npm-package-version")
+- [Example: A log entry for fetching an npm package version](#example-a-log-entry-for-fetching-an-npm-package-version "#example-a-log-entry-for-fetching-an-npm-package-version")
 
 ### Example: A log entry for calling the GetAuthorizationToken API
 
@@ -131,9 +126,7 @@ A log entry created by `GetAuthorizationToken` includes the domain name in the
 }
 ```
 
-### Example: A
-
-log entry for fetching an npm package version
+### Example: A log entry for fetching an npm package version
 
 Requests made by all package manager clients, including the **`npm`** client, have additional data logged including the domain name, repository
 name, and package name in the `requestParameters` field. The URL path and

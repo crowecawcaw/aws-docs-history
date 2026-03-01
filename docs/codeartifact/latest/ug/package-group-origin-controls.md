@@ -37,8 +37,7 @@ in the domain using package managers or similar tools.
 
 The `EXTERNAL_UPSTREAM` setting configures whether package versions can be ingested from external, public repositories when
 requested by a package manager. For a list of supported external repositories, see
-[Supported external connection
-repositories](external-connection.md#supported-public-repositories "external-connection.md#supported-public-repositories").
+[Supported external connection repositories](external-connection.md#supported-public-repositories "external-connection.md#supported-public-repositories").
 
 - **ALLOW**: Any package version can be ingested into all repositories from a public source with an external connection.
 - **BLOCK**: Package versions cannot be ingested into any repository from a public source with an external connection.

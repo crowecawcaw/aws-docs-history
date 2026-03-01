@@ -1,6 +1,4 @@
-# AWS CodeArtifact
-
-concepts
+# AWS CodeArtifact concepts
 
 Here are some concepts and terms to know when you use CodeArtifact.
 
@@ -13,8 +11,7 @@ Here are some concepts and terms to know when you use CodeArtifact.
 - [Package group](#welcome-concepts-package-group "#welcome-concepts-package-group")
 - [Package namespace](#welcome-concepts-package-namespace "#welcome-concepts-package-namespace")
 - [Package version](#welcome-concepts-package-version "#welcome-concepts-package-version")
-- [Package version
-  revision](#welcome-concepts-package-version-revision "#welcome-concepts-package-version-revision")
+- [Package version revision](#welcome-concepts-package-version-revision "#welcome-concepts-package-version-revision")
 - [Upstream repository](#welcome-concepts-upstream "#welcome-concepts-upstream")
 
 ## Asset
@@ -101,9 +98,7 @@ for different package formats. For example, npm package versions must conform to
 a package version consists of the version identifier, package version level metadata,
 and a set of assets.
 
-## Package version
-
-revision
+## Package version revision
 
 A _package version revision_ is a string that identifies a
 specific set of assets and metadata for a package version. Each time a package version

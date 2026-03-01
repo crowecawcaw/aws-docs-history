@@ -5,16 +5,13 @@ when requesting a package.
 
 ###### Topics
 
-- [Fetch packages from an
-  external connection](#fetching-packages-from-a-public-repository "#fetching-packages-from-a-public-repository")
+- [Fetch packages from an external connection](#fetching-packages-from-a-public-repository "#fetching-packages-from-a-public-repository")
 - [External connection latency](#external-connection-latency "#external-connection-latency")
 - [CodeArtifact behavior when an external repository is not available](#external-connection-unavailable "#external-connection-unavailable")
 - [Availability of new package versions](#new-pv-availability "#new-pv-availability")
 - [Importing package versions with more than one asset](#import-pv-multi-asset "#import-pv-multi-asset")
 
-## Fetch packages from an
-
-external connection
+## Fetch packages from an external connection
 
 To fetch packages from an external connection once you've added it to your CodeArtifact
 repository as described in [Connect a CodeArtifact repository to a public repository](external-connection.md "external-connection.md"), configure your package manager to use your
@@ -90,8 +87,7 @@ Example output:
 When fetching a package from a public repository using an external connection, there
 is a delay from when the package is fetched from the public repository and when it is
 stored in your CodeArtifact repository. For example, say you have installed version
-1.2.5 of the npm package "lodash" as described in [Fetch packages from an
-external connection](#fetching-packages-from-a-public-repository "#fetching-packages-from-a-public-repository"). Although the `npm
+1.2.5 of the npm package "lodash" as described in [Fetch packages from an external connection](#fetching-packages-from-a-public-repository "#fetching-packages-from-a-public-repository"). Although the `npm
  install lodash` lodash command completed successfully, the package version
 might not appear in your CodeArtifact repository yet. It typically takes around 3 minutes for
 the package version to appear in your repository, although occasionally it can take
@@ -155,5 +151,4 @@ download.
 
 ## Importing package versions with more than one asset
 
-Both Maven and Python packages can have multiple assets per package version. This makes importing packages of these formats more complex than npm and NuGet packages, which only have one asset per package version. For descriptions of which assets are imported for these package types and how newly-added assets are made available, see [Requesting Python packages from upstreams and external connections](python-upstream-external-connections-request.md "python-upstream-external-connections-request.md") and [Requesting
-Maven packages from upstreams and external connections](maven-upstream-external-connections-request.md "maven-upstream-external-connections-request.md").
+Both Maven and Python packages can have multiple assets per package version. This makes importing packages of these formats more complex than npm and NuGet packages, which only have one asset per package version. For descriptions of which assets are imported for these package types and how newly-added assets are made available, see [Requesting Python packages from upstreams and external connections](python-upstream-external-connections-request.md "python-upstream-external-connections-request.md") and [Requesting Maven packages from upstreams and external connections](maven-upstream-external-connections-request.md "maven-upstream-external-connections-request.md").

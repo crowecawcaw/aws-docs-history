@@ -21,9 +21,7 @@ To get a high-level view of how CodeArtifact and other AWS services work with mo
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for CodeArtifact
+## Identity-based policies for CodeArtifact
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for CodeArtifact
 
-Identity-based policy examples for CodeArtifact
+To view examples of CodeArtifact identity-based policies, see [Identity-based policy examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of CodeArtifact identity-based policies, see [Identity-based policy
-examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within CodeArtifact
+## Resource-based policies within CodeArtifact
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for CodeArtifact
+## Policy actions for CodeArtifact
 
 **Supports policy actions:**
 
@@ -105,12 +96,9 @@ action:
 "Action": "codeartifact:Describe*"
 ```
 
-To view examples of CodeArtifact identity-based policies, see [Identity-based policy
-examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CodeArtifact identity-based policies, see [Identity-based policy examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for CodeArtifact
+## Policy resources for CodeArtifact
 
 **Supports policy resources:**
 
@@ -131,9 +119,7 @@ which actions you can specify the ARN of each resource, see
 [Actions defined by AWS CodeArtifact](../../../service-authorization/latest/reference/list_awscodeartifact.md#awscodeartifact-actions-as-permissions "../../../service-authorization/latest/reference/list_awscodeartifact.md#awscodeartifact-actions-as-permissions"). To see examples of specifying CodeArtifact resource ARNs in policies, see
 [AWS CodeArtifact resources and operations](auth-and-access-control-permissions-reference.md#arn-formats "auth-and-access-control-permissions-reference.md#arn-formats").
 
-## Policy
-
-condition keys for CodeArtifact
+## Policy condition keys for CodeArtifact
 
 **Supports service-specific policy condition keys:**
 
@@ -159,8 +145,7 @@ To see a list of CodeArtifact condition keys, see [Condition keys for AWS CodeAr
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS CodeArtifact](../../../service-authorization/latest/reference/list_awscodeartifact.md#awscodeartifact-actions-as-permissions "../../../service-authorization/latest/reference/list_awscodeartifact.md#awscodeartifact-actions-as-permissions").
 
-To view examples of CodeArtifact identity-based policies, see [Identity-based policy
-examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CodeArtifact identity-based policies, see [Identity-based policy examples for AWS CodeArtifact](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in CodeArtifact
 
@@ -190,12 +175,9 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging CodeArtifact
 resources, including example identity-based policies for limiting access to a resource based on
-the tags on that resource, see [Using tags to control access to CodeArtifact
-resources](tag-based-access-control.md "tag-based-access-control.md").
+the tags on that resource, see [Using tags to control access to CodeArtifact resources](tag-based-access-control.md "tag-based-access-control.md").
 
-## Using temporary
-
-credentials with CodeArtifact
+## Using temporary credentials with CodeArtifact
 
 **Supports temporary credentials:**
 
@@ -207,9 +189,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for CodeArtifact
+## Cross-service principal permissions for CodeArtifact
 
 **Supports forward access sessions (FAS):**
 
@@ -226,12 +206,9 @@ There are two CodeArtifact API actions that require the calling principal to hav
    `kms:CreateGrant` on the KMS key along with `codeartifact:CreateDomain`.
 
 For more information about required permissions and resources for actions in CodeArtifact,
-see [AWS CodeArtifact permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+see [AWS CodeArtifact permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
-## Service roles for
-
-CodeArtifact
+## Service roles for CodeArtifact
 
 **Supports service roles:**
 
@@ -246,9 +223,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break CodeArtifact functionality.
 Edit service roles only when CodeArtifact provides guidance to do so.
 
-## Service-linked
-
-roles for CodeArtifact
+## Service-linked roles for CodeArtifact
 
 **Supports service-linked roles:**
 

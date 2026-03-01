@@ -11,8 +11,6 @@ repository, complete the following tasks to get set up to use CodeArtifact:
 ###### Topics
 
 - [Sign up for AWS](get-set-up-sign-up-for-aws.md "get-set-up-sign-up-for-aws.md")
-- [Install or upgrade and then configure the
-  AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md")
+- [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md")
 - [Provision an IAM user](get-set-up-provision-user.md "get-set-up-provision-user.md")
-- [Install your package manager or
-  build tool](getting-started-install-package-manager.md "getting-started-install-package-manager.md")
+- [Install your package manager or build tool](getting-started-install-package-manager.md "getting-started-install-package-manager.md")

@@ -1,6 +1,4 @@
-# Using tags to control access to CodeArtifact
-
-resources
+# Using tags to control access to CodeArtifact resources
 
 Conditions in IAM user policy statements are part of the syntax that you use to
 specify permissions to resources required by CodeArtifact actions. Using tags in conditions
@@ -31,8 +29,7 @@ control:
 
 When using tags on resources to limit actions, the tags must be on the resource in which the action operates on. For example,
 to deny `DescribeRepository` permissions with tags, the tags must be on each repository and not the domain. See
-[AWS CodeArtifact permissions
-reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md") for a list of
+[AWS CodeArtifact permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md") for a list of
 actions in CodeArtifact and which resources they operate on.
 
 ## Tag-based access control examples

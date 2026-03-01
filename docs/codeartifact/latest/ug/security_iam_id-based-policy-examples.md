@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS CodeArtifact
+# Identity-based policy examples for AWS CodeArtifact
 
 By default, users and roles don't have permission to create or modify CodeArtifact
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,16 @@ For details about actions and resource types defined by CodeArtifact, including 
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the CodeArtifact
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [AWS managed (predefined) policies for
-  AWS CodeArtifact](#managed-policies "#managed-policies")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the CodeArtifact console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [AWS managed (predefined) policies for AWS CodeArtifact](#managed-policies "#managed-policies")
 - [Allow a user to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow a user to get information about repositories and domains](#security_iam_id-based-policy-examples-repos-and-domains "#security_iam_id-based-policy-examples-repos-and-domains")
 - [Allow a user to get information about specific domains](#security_iam_id-based-policy-examples-specific-domains "#security_iam_id-based-policy-examples-specific-domains")
 - [Allow a user to get information about specific repositories](#security_iam_id-based-policy-examples-specific-repos "#security_iam_id-based-policy-examples-specific-repos")
 - [Limit authorization token duration](#limit-token-duration "#limit-token-duration")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CodeArtifact resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +54,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the CodeArtifact
-
-console
+## Using the CodeArtifact console
 
 To access the AWS CodeArtifact console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the CodeArtifact resources
@@ -80,9 +71,7 @@ To ensure that users and roles can still use the CodeArtifact console, also atta
 managed policy to the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## AWS managed (predefined) policies for
-
-AWS CodeArtifact
+## AWS managed (predefined) policies for AWS CodeArtifact
 
 AWS addresses many common use cases by providing standalone IAM policies that
 are created and administered by AWS. These AWS managed policies grant necessary

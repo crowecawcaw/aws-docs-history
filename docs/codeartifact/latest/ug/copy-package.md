@@ -146,9 +146,7 @@ If the package version is copied successfully, the output will be similar to the
 }
 ```
 
-## Versions that do not exist
-
-in the source repository
+## Versions that do not exist in the source repository
 
 If you specify a version that does not exist in the source repository, the copy will fail.
 If some versions exist in the source repository and some do not, all versions will fail to copy.
@@ -182,9 +180,7 @@ The output in this scenario will be similar to the following.
 The `SKIPPED` error code is used to indicate that the version was not copied to the destination
 repository because another version was not able to be copied.
 
-## Versions that already exist
-
-in the destination repository
+## Versions that already exist in the destination repository
 
 When a package version is copied to a repository where it already exists, CodeArtifact
 compares its package assets and package version level metadata in the two
@@ -296,8 +292,7 @@ To find the revisions of a package version, use the `describe-package-version` o
 `list-package-versions` command.
 
 For more information, see
-[Package version
-revision](codeartifact-concepts.md#welcome-concepts-package-version-revision "codeartifact-concepts.md#welcome-concepts-package-version-revision")
+[Package version revision](codeartifact-concepts.md#welcome-concepts-package-version-revision "codeartifact-concepts.md#welcome-concepts-package-version-revision")
 and [CopyPackageVersion](../APIReference/API_CopyPackageVersions.md "../APIReference/API_CopyPackageVersions.md")
 in the _CodeArtifact API Reference_.
 

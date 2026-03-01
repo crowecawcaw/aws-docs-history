@@ -18,7 +18,5 @@ CodeArtifact, report when something is wrong, and take automatic actions when ap
 ###### Topics
 
 - [Monitoring CodeArtifact events](monitoring-events.md "monitoring-events.md")
-- [Use an event to start a CodePipeline
-  execution](configure-service-events-codepipeline.md "configure-service-events-codepipeline.md")
-- [Use an event to run a Lambda
-  function](configure-service-events-lambda-function.md "configure-service-events-lambda-function.md")
+- [Use an event to start a CodePipeline execution](configure-service-events-codepipeline.md "configure-service-events-codepipeline.md")
+- [Use an event to run a Lambda function](configure-service-events-lambda-function.md "configure-service-events-lambda-function.md")

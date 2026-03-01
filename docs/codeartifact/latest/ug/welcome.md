@@ -50,8 +50,7 @@ cannot be made publicly available. For more information about authentication and
 We recommend that you complete the following steps:
 
 1. **Learn** more about CodeArtifact by reading
-   [AWS CodeArtifact
-   concepts](codeartifact-concepts.md "codeartifact-concepts.md").
+   [AWS CodeArtifact concepts](codeartifact-concepts.md "codeartifact-concepts.md").
 2. **Set up** your AWS account, the AWS CLI, and an
    IAM user by following the steps in [Setting up with AWS CodeArtifact](get-set-up-for-codeartifact.md "get-set-up-for-codeartifact.md").
 3. **Use** CodeArtifact by following the instructions in [Getting started with CodeArtifact](getting-started.md "getting-started.md").

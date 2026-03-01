@@ -10,14 +10,10 @@ account, or domain.
 
 ###### Topics
 
-- [View or modify a repository configuration
-  (console)](#config-repos-console "#config-repos-console")
-- [View or modify a repository configuration
-  (AWS CLI)](#config-repos-cli "#config-repos-cli")
+- [View or modify a repository configuration (console)](#config-repos-console "#config-repos-console")
+- [View or modify a repository configuration (AWS CLI)](#config-repos-cli "#config-repos-cli")
 
-## View or modify a repository configuration
-
-(console)
+## View or modify a repository configuration (console)
 
 You can view details about and update your repository using the CodeArtifact console.
 
@@ -47,9 +43,7 @@ more information, see [Repository policies](repo-policies.md "repo-policies.md")
      add one or more existing repositories as upstream repositories. Arrange them in the order you want them prioritized by CodeArtifact when
      a package is requested. For more information, see [Upstream repository priority order](repo-upstream-search-order.md "repo-upstream-search-order.md").
 
-## View or modify a repository configuration
-
-(AWS CLI)
+## View or modify a repository configuration (AWS CLI)
 
 To view a repository's current configuration in CodeArtifact, use the
 `describe-repository` command.
@@ -74,9 +68,7 @@ Example output:
 }
 ```
 
-### Modify a repository upstream
-
-configuration
+### Modify a repository upstream configuration
 
 An upstream repository allows a package manager client to access the packages
 contained in more than one repository using a single URL endpoint. To add or change a

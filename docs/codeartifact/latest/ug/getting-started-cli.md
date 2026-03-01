@@ -1,8 +1,7 @@
 # Getting started using the AWS CLI
 
 Run the following steps to get started with CodeArtifact using the AWS Command Line Interface (AWS CLI). For more
-information, see [Install or upgrade and then configure the
-AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md"). This guide uses the `npm` package manager,
+information, see [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md"). This guide uses the `npm` package manager,
 if you are using a different package manager, you will need to modify some of the following steps.
 
 1. Use the AWS CLI to run the **create-domain** command.
@@ -140,8 +139,7 @@ repository, including its new upstream repository.
 
 ```
 
-For more information, see [Add or remove upstream repositories
-(AWS CLI)](repo-upstream-add.md#repo-upstream-add-cli "repo-upstream-add.md#repo-upstream-add-cli"). 6. Use the **login** command to configure your npm package manager
+For more information, see [Add or remove upstream repositories (AWS CLI)](repo-upstream-add.md#repo-upstream-add-cli "repo-upstream-add.md#repo-upstream-add-cli"). 6. Use the **login** command to configure your npm package manager
 with your `my-repo` repository.
 
 ```

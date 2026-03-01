@@ -20,13 +20,10 @@ by CodeArtifact repositories, in addition to specific commands that are not supp
 
 ###### Topics
 
-- [Supported commands
-  that interact with a repository](#supported-pip-commands-that-interact-with-a-repository "#supported-pip-commands-that-interact-with-a-repository")
+- [Supported commands that interact with a repository](#supported-pip-commands-that-interact-with-a-repository "#supported-pip-commands-that-interact-with-a-repository")
 - [Supported client-side commands](#supported-pip-client-side-commands "#supported-pip-client-side-commands")
 
-### Supported commands
-
-that interact with a repository
+### Supported commands that interact with a repository
 
 This section lists `pip` commands where the `pip` client makes one
 or more requests to the registry it's been configured with. These commands have been verified

@@ -219,8 +219,7 @@ cd `repoName`
       command to create the package and then use a Curl command to publish it.
       1. If you haven't configured the `CODEARTIFACT_AUTH_TOKEN` and
          `CODEARTIFACT_REPO` environment variables, or it's been over 12 hours since you have, follow the steps in
-         [Configure Swift without the login
-         command](configure-swift.md#configure-swift-without-login-command "configure-swift.md#configure-swift-without-login-command").
+         [Configure Swift without the login command](configure-swift.md#configure-swift-without-login-command "configure-swift.md#configure-swift-without-login-command").
       2. Create the Swift package by using the `swift package archive-source` command:
 
       ```

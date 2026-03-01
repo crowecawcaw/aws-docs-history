@@ -11,18 +11,14 @@ Permissions](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/late
 
 ###### Topics
 
-- [Enable cross-account access
-  to a domain](#enabling-cross-acount-access-to-a-domain "#enabling-cross-acount-access-to-a-domain")
+- [Enable cross-account access to a domain](#enabling-cross-acount-access-to-a-domain "#enabling-cross-acount-access-to-a-domain")
 - [Domain policy example](#domain-policy-example "#domain-policy-example")
-- [Domain policy example
-  with AWS Organizations](#domain-policy-example-with-aws-organizations "#domain-policy-example-with-aws-organizations")
+- [Domain policy example with AWS Organizations](#domain-policy-example-with-aws-organizations "#domain-policy-example-with-aws-organizations")
 - [Set a domain policy](#set-domain-policy "#set-domain-policy")
 - [Read a domain policy](#reading-a-domain-policy "#reading-a-domain-policy")
 - [Delete a domain policy](#deleting-a-domain-policy "#deleting-a-domain-policy")
 
-## Enable cross-account access
-
-to a domain
+## Enable cross-account access to a domain
 
 A resource policy is a text file in JSON format. The file must specify a principal
 (actor), one or more actions, and an effect (`Allow` or `Deny`).
@@ -147,9 +143,7 @@ JSON
 You don't need to create a domain policy if a domain and all its repositories are
 owned by a single account and only need to be used from that account.
 
-## Domain policy example
-
-with AWS Organizations
+## Domain policy example with AWS Organizations
 
 You can use the `aws:PrincipalOrgID` condition key to grant access to an
 CodeArtifact domain from all accounts in your organization, as follows.

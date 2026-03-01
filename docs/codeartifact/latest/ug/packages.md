@@ -12,7 +12,6 @@ CLI and API.
 - [Download package version assets](download-assets.md "download-assets.md")
 - [Copy packages between repositories](copy-package.md "copy-package.md")
 - [Delete a package or package version](delete-package.md "delete-package.md")
-- [View and update package version details and
-  dependencies](describe-package-version.md "describe-package-version.md")
+- [View and update package version details and dependencies](describe-package-version.md "describe-package-version.md")
 - [Update package version status](update-package-version-status.md "update-package-version-status.md")
 - [Editing package origin controls](package-origin-controls.md "package-origin-controls.md")

@@ -146,9 +146,7 @@ The following shows the output.
 }
 ```
 
-## Downloading generic package
-
-assets
+## Downloading generic package assets
 
 To download the assets from a generic package, use the
 `get-package-version-asset` command. For more information, see [Download package version assets](download-assets.md "download-assets.md").

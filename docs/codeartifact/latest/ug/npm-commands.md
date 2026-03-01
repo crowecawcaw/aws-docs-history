@@ -5,14 +5,11 @@ repositories, in addition to specific commands that are not supported.
 
 ###### Contents
 
-- [Supported commands
-  that interact with a repository](npm-commands.md#supported-commands-that-interact-with-a-repository "npm-commands.md#supported-commands-that-interact-with-a-repository")
+- [Supported commands that interact with a repository](npm-commands.md#supported-commands-that-interact-with-a-repository "npm-commands.md#supported-commands-that-interact-with-a-repository")
 - [Supported client-side commands](npm-commands.md#supported-client-side-commands "npm-commands.md#supported-client-side-commands")
 - [Unsupported commands](npm-commands.md#unsupported-commands "npm-commands.md#unsupported-commands")
 
-## Supported commands
-
-that interact with a repository
+## Supported commands that interact with a repository
 
 This section lists npm commands where the npm client makes one
 or more requests to the registry it's been configured with (for example, with `npm

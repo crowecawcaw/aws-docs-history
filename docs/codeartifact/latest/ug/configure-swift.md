@@ -58,9 +58,7 @@ be called to periodically refresh the token. For more information about
 the authorization token created with the `login` command, see
 [Tokens created with the login command](tokens-authentication.md#auth-token-login "tokens-authentication.md#auth-token-login").
 
-## Configure Swift without the login
-
-command
+## Configure Swift without the login command
 
 While it is recommended that you [configure Swift with the aws codeartifact login command](#configure-swift-login-command "#configure-swift-login-command"),
 you can also configure the Swift Package Manager without the login command by

@@ -7,13 +7,10 @@ This guide contains information about configuring other CodeArtifact repositorie
 For information about configuring an external connection to public repositories like npmjs.com, Nuget Gallery, Maven Central, or PyPI, see
 [Add an external connection](external-connection.md "external-connection.md").
 
-## Add or remove upstream repositories
-
-(console)
+## Add or remove upstream repositories (console)
 
 Perform the steps in the following procedure to add a repository as an upstream repository using the CodeArtifact console. For information
-about adding an upstream repository with the AWS CLI, see [Add or remove upstream repositories
-(AWS CLI)](#repo-upstream-add-cli "#repo-upstream-add-cli").
+about adding an upstream repository with the AWS CLI, see [Add or remove upstream repositories (AWS CLI)](#repo-upstream-add-cli "#repo-upstream-add-cli").
 
 ###### To add an upstream repository using the CodeArtifact console
 
@@ -39,9 +36,7 @@ about adding an upstream repository with the AWS CLI, see [Add or remove upstrea
 
 Once you remove an upstream repository from a CodeArtifact repository, package managers will not have access to packages in the upstream repository or any of its upstream repositories. 6. Choose **Update repository**.
 
-## Add or remove upstream repositories
-
-(AWS CLI)
+## Add or remove upstream repositories (AWS CLI)
 
 You can add or remove a CodeArtifact repository's upstream repositories using the
 AWS Command Line Interface (AWS CLI). To do this, use the `update-repository` command, and
