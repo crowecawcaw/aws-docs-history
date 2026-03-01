@@ -29,8 +29,7 @@ MemoryDB in-transit encryption implements the following features:
 From 07/20/2023, TLS 1.2 is the minimum supported version for new and existing clusters.
 Use this [link](https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/ "https://aws.amazon.com/blogs/security/tls-1-2-required-for-aws-endpoints/") to learn more about TLS 1.2 at AWS.
 
-For more information on connecting to MemoryDB clusters, see [Connecting to MemoryDB nodes using
-redis-cli](getting-started.md#connect-tls "getting-started.md#connect-tls").
+For more information on connecting to MemoryDB clusters, see [Connecting to MemoryDB nodes using redis-cli](getting-started.md#connect-tls "getting-started.md#connect-tls").
 
 ## See also
 

@@ -1,14 +1,13 @@
-# FT.EXPLAINCLI
+# FT.ALIASADD
 
-Same as the FT.EXPLAIN command except that the results are displayed in a different format more useful with the redis-cli.
+Add an alias for an index. The new alias name can be used anywhere that an index name is required.
 
 **Syntax**
 
 ```
-FT.EXPLAINCLI <index> <query>
-
+FT.ALIASADD <alias> <index-name>
 ```
 
 **Return**
 
-A string containing the parsed results.
+Returns a simple string OK message or an error reply.

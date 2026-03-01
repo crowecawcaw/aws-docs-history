@@ -1,6 +1,4 @@
-# MemoryDB API and interface VPC endpoints
-
-(AWS PrivateLink)
+# MemoryDB API and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon
 MemoryDB API endpoints by creating an
@@ -39,9 +37,7 @@ of its [API Actions](../APIReference/API_Operations.md "../APIReference/API_Oper
 Private DNS hostnames can be enabled for only one VPC endpoint in the VPC. If you want to create an additional VPC endpoint then private
 DNS hostname should be disabled for it.
 
-## Considerations for VPC
-
-endpoints
+## Considerations for VPC endpoints
 
 Before you set up an interface VPC endpoint for MemoryDB API endpoints, ensure that
 you review [Interface endpoint
@@ -54,11 +50,7 @@ default, full access to MemoryDB API operations is allowed through the endpoint.
 information, see [Controlling access to services
 with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-### Creating an interface VPC
-
-endpoint for
-the
-MemoryDB API
+### Creating an interface VPC endpoint for the MemoryDB API
 
 You can create a VPC endpoint for the MemoryDB API using either the Amazon VPC console or the AWS CLI. For more information,
 see [Creating an interface endpoint](../../../vpc/latest/privatelink/create-endpoint-service.md "../../../vpc/latest/privatelink/create-endpoint-service.md")
@@ -68,10 +60,7 @@ After you create an interface VPC endpoint, you can enable private DNS host name
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-### Creating a VPC endpoint policy for
-
-the
-Amazon MemoryDB API
+### Creating a VPC endpoint policy for the Amazon MemoryDB API
 
 You can attach an endpoint policy to your VPC endpoint that controls access to the
 MemoryDB API. The policy specifies the following:

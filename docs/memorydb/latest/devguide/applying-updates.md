@@ -14,16 +14,13 @@ You can apply only those service updates that have an
 **available** or **scheduled** status.
 
 For more information about reviewing and applying any
-service-specific updates to applicable MemoryDB clusters, see [Applying the
-service updates using the console](#applying-updates-console-APIReferenceconsole "#applying-updates-console-APIReferenceconsole").
+service-specific updates to applicable MemoryDB clusters, see [Applying the service updates using the console](#applying-updates-console-APIReferenceconsole "#applying-updates-console-APIReferenceconsole").
 
 When a new service update is available for one or more of your MemoryDB clusters, you
 can use the MemoryDB console, API, or AWS CLI to apply the update. The following sections
 explain the options that you can use to apply updates.
 
-## Applying the
-
-service updates using the console
+## Applying the service updates using the console
 
 To view the list of available service updates, along with other information, go to the **Service Updates** page in the console.
 

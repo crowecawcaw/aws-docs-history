@@ -11,5 +11,4 @@ To find a cluster's endpoint, see the following:
 
 - [Finding the Endpoint for a MemoryDB Cluster (AWS CLI)](endpoints.md#endpoints.find.cli "endpoints.md#endpoints.find.cli")
 - [Finding the Endpoint for a MemoryDB Cluster (MemoryDB API)](endpoints.md#endpoints.find.api "endpoints.md#endpoints.find.api")
-  For connecting to nodes or clusters, see [Connecting to MemoryDB nodes using
-  redis-cli](getting-started.md#connect-tls "getting-started.md#connect-tls").
+  For connecting to nodes or clusters, see [Connecting to MemoryDB nodes using redis-cli](getting-started.md#connect-tls "getting-started.md#connect-tls").

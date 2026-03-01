@@ -37,9 +37,7 @@ functionality can result in some shards not being deleted.
 You can horizontally scale your MemoryDB clusters using the AWS Management Console, the
 AWS CLI, and the MemoryDB API.
 
-## Adding shards with online
-
-resharding
+## Adding shards with online resharding
 
 You can add shards to your MemoryDB cluster using the AWS Management Console, AWS CLI, or MemoryDB
 API.
@@ -251,9 +249,7 @@ Use the following parameters with `UpdateCluster`.
 
   For more information, see [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md").
 
-## Removing shards with online
-
-resharding
+## Removing shards with online resharding
 
 You can remove shards from your MemoryDB cluster using the AWS Management Console, AWS CLI, or
 MemoryDB API.

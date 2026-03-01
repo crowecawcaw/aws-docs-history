@@ -59,7 +59,7 @@ Each node runs the engine version that was chosen when you created your cluster.
 
 Each node runs an instance of the engine at the version chosen when
 you created your cluster. If necessary, you can scale the nodes in a cluster up or down to a different
-type. For more information, see [Scaling](scaling.md "scaling.md") .
+type. For more information, see [Scaling](scaling.md "scaling.md").
 
 Every node within a cluster is the same node type.
 

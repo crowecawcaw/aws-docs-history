@@ -99,9 +99,7 @@ To grant users programmatic access, choose one of the following options.
 - [What is IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_.
 - [AWS Security Credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md") in _AWS General Reference_.
 
-### Set up your permissions (new MemoryDB users
-
-only)
+### Set up your permissions (new MemoryDB users only)
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -132,10 +130,8 @@ service-linked role.
 For more information, see the following:
 
 - [Creating a New Policy](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") (IAM)
-- [AWS-managed (predefined) policies
-  for MemoryDB](security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies "security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies")
-- [Using Service-Linked Roles for
-  MemoryDB](using-service-linked-roles.md "using-service-linked-roles.md")
+- [AWS-managed (predefined) policies for MemoryDB](security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies "security-iam-awsmanpol.md#iam.identitybasedpolicies.predefinedpolicies")
+- [Using Service-Linked Roles for MemoryDB](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ### Downloading and Configuring the AWS CLI
 
@@ -332,7 +328,7 @@ even if you're not actively using it.
 To stop incurring charges for this cluster, you must delete it. See [Step 5: Deleting a cluster](#clusters.delete "#clusters.delete").
 
 Restore from snapshotsUnder **Snapshot source**, choose the source snapshot from which to migrate data.
-For more information, see [Snapshot and restore](snapshots.md "snapshots.md") .
+For more information, see [Snapshot and restore](snapshots.md "snapshots.md").
 
 ###### Note
 
@@ -607,9 +603,7 @@ To further explore how to find your endpoints, see the following:
 
 Now that you have the endpoint you need, you can log in to an EC2 instance and connect to the cluster. In the following example, you use the _cli_ utility to connect to a cluster using Ubuntu 22. The latest version of cli also supports SSL/TLS for connecting encryption/authentication enabled clusters.
 
-#### Connecting to MemoryDB nodes using
-
-redis-cli
+#### Connecting to MemoryDB nodes using redis-cli
 
 To access data from MemoryDB nodes, you use clients that work with Secure Socket Layer (SSL). You can also use redis-cli with TLS/SSL on Amazon Linux and Amazon Linux 2.
 
@@ -693,7 +687,7 @@ you are actively using it. To stop incurring charges, delete the cluster.
 
 - When you delete a MemoryDB cluster, your manual snapshots are retained.
   You can also create a final snapshot before the cluster is deleted. Automatic snapshots are not retained.
-  For more information, see [Snapshot and restore](snapshots.md "snapshots.md") .
+  For more information, see [Snapshot and restore](snapshots.md "snapshots.md").
 - `CreateSnapshot` permission is required to create a final snapshot.
   Without this permission, the API call will fail with an `Access Denied` exception.
 

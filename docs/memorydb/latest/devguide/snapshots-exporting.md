@@ -51,8 +51,7 @@ _MemoryDB User Guide_.
 ###### Topics
 
 - [Step 1: Create an Amazon S3 bucket](#snapshots-exporting-create-s3-bucket "#snapshots-exporting-create-s3-bucket")
-- [Step 2: Grant MemoryDB access to your
-  Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access")
+- [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access")
 - [Step 3: Export a MemoryDB snapshot](#snapshots-exporting-procedures "#snapshots-exporting-procedures")
 
 ## Step 1: Create an Amazon S3 bucket
@@ -74,9 +73,7 @@ export and store your MemoryDB snapshot.
 
 For more information about creating an Amazon S3 bucket, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Step 2: Grant MemoryDB access to your
-
-Amazon S3 bucket
+## Step 2: Grant MemoryDB access to your Amazon S3 bucket
 
 AWS Regions introduced before March 20, 2019, are enabled by default. You can
 begin working in these AWS Regions immediately. Regions introduced after March 20,
@@ -85,9 +82,7 @@ You must enable, or opt in, to these Regions before you can use them, as describ
 in [Managing AWS
 regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md").
 
-### Grant MemoryDB access to your
-
-S3 Bucket in an AWS Region
+### Grant MemoryDB access to your S3 Bucket in an AWS Region
 
 To create the proper permissions on an Amazon S3 bucket in an AWS Region, take
 the following steps.
@@ -205,14 +200,12 @@ The Amazon S3 bucket must be in the same AWS Region as the MemoryDB snapshot.
         * Object access – **Read** and **Write**.
         * Permissions access – **Read**.
 
-    For more information, see [Step 2: Grant MemoryDB access to your
-    Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access"). 3. Choose **Copy**.
+    For more information, see [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access"). 3. Choose **Copy**.
 
 ###### Note
 
 If your S3 bucket does not have the permissions needed for MemoryDB to export a snapshot to it, you
-receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your
-Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
+receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
 specified and retry exporting your snapshot.
 
 - MemoryDB has not been granted READ permissions %s on the S3 Bucket.
@@ -257,8 +250,7 @@ in the snapshot's AWS Region with the following permissions for the export proce
     + Object access – **Read** and **Write**.
     + Permissions access – **Read**.
 
-For more information, see [Step 2: Grant MemoryDB access to your
-Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access").
+For more information, see [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access").
 The following operation copies a snapshot to amzn-s3-demo-bucket.
 
 For Linux, macOS, or Unix:
@@ -282,8 +274,7 @@ aws memorydb copy-snapshot ^
 ###### Note
 
 If your S3 bucket does not have the permissions needed for MemoryDB to export a snapshot to it, you
-receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your
-Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
+receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
 specified and retry exporting your snapshot.
 
 - MemoryDB has not been granted READ permissions %s on the S3 Bucket.
@@ -332,8 +323,7 @@ in the snapshot's AWS Region with the following permissions for the export proce
     + Object access – **Read** and **Write**.
     + Permissions access – **Read**.
 
-For more information, see [Step 2: Grant MemoryDB access to your
-Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access").
+For more information, see [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access").
 The following example makes a copy of an automatic snapshot to the Amazon S3 bucket `amzn-s3-demo-bucket`.
 
 ###### Example
@@ -359,8 +349,7 @@ https://memory-db.us-east-1.amazonaws.com/
 ###### Note
 
 If your S3 bucket does not have the permissions needed for MemoryDB to export a snapshot to it, you
-receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your
-Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
+receive one of the following error messages. Return to [Step 2: Grant MemoryDB access to your Amazon S3 bucket](#snapshots-exporting-grant-access "#snapshots-exporting-grant-access") to add the permissions
 specified and retry exporting your snapshot.
 
 - MemoryDB has not been granted READ permissions %s on the S3 Bucket.

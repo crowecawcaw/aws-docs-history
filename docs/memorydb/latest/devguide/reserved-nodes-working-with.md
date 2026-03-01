@@ -5,9 +5,7 @@ nodes.
 
 ## Console
 
-###### To get pricing and information about available reserved node
-
-offerings
+###### To get pricing and information about available reserved node offerings
 
 1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
 2. In the navigation pane, choose **Reserved
@@ -352,9 +350,7 @@ The following parameters limit the scope of what is returned:
 - `OfferingType` – Use this parameter to show only the
   available offerings matching the specified offering type.
 
-## Viewing the billing for your
-
-reserved nodes
+## Viewing the billing for your reserved nodes
 
 You can view the billing for your reserved nodes in the Billing Dashboard in
 the AWS Management Console.

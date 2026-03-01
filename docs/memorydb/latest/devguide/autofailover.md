@@ -41,16 +41,11 @@ of failure.
 
 ###### Topics
 
-- [Failure scenarios when only the
-  primary node fails](#autofailover.scenarios.primaryonly "#autofailover.scenarios.primaryonly")
-- [Failure scenarios when
-  the primary node and some replicas fail](#autofailover.scenarios.primaryandeplicas "#autofailover.scenarios.primaryandeplicas")
-- [Failure scenarios when the entire
-  cluster fails](#autofailover.scenarios.allfail "#autofailover.scenarios.allfail")
+- [Failure scenarios when only the primary node fails](#autofailover.scenarios.primaryonly "#autofailover.scenarios.primaryonly")
+- [Failure scenarios when the primary node and some replicas fail](#autofailover.scenarios.primaryandeplicas "#autofailover.scenarios.primaryandeplicas")
+- [Failure scenarios when the entire cluster fails](#autofailover.scenarios.allfail "#autofailover.scenarios.allfail")
 
-### Failure scenarios when only the
-
-primary node fails
+### Failure scenarios when only the primary node fails
 
 If only the primary node fails, a replica will automatically become primary.
 A replacement replica is then created and provisioned in
@@ -74,9 +69,7 @@ For information about finding the endpoints of a cluster, see the following topi
 
  
 
-### Failure scenarios when
-
-the primary node and some replicas fail
+### Failure scenarios when the primary node and some replicas fail
 
 If the primary and at least one replica fails, an up-to-date replica
 is promoted to primary cluster. New replicas are also
@@ -101,9 +94,7 @@ For information about finding the endpoints of a cluster, see the following topi
 
  
 
-### Failure scenarios when the entire
-
-cluster fails
+### Failure scenarios when the entire cluster fails
 
 If everything fails, all the nodes are recreated and provisioned in the same
 Availability Zones as the original nodes.

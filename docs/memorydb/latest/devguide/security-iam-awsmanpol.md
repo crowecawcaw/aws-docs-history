@@ -116,9 +116,7 @@ JSON
 
 ```
 
-## AWS-managed (predefined) policies
-
-for MemoryDB
+## AWS-managed (predefined) policies for MemoryDB
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. Managed policies grant necessary permissions for
@@ -215,9 +213,7 @@ You can also create your own custom IAM policies to allow permissions for
 MemoryDB API actions. You can attach these custom policies to the IAM users or
 groups that require those permissions.
 
-## MemoryDB updates to AWS managed
-
-policies
+## MemoryDB updates to AWS managed policies
 
 View details about updates to AWS managed policies for MemoryDB since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
