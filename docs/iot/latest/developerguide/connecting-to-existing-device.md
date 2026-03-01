@@ -1,6 +1,4 @@
-# Connect a Raspberry
-
-Pi or other device
+# Connect a Raspberry Pi or other device
 
 In this section, we'll configure a Raspberry Pi for use with AWS IoT. If you
 have another device that you'd like to connect, the instructions for the
@@ -13,13 +11,10 @@ system software upgrades to install.
 ###### In this tutorial, you'll:
 
 - [Set up your device](#gs-device-prereqs "#gs-device-prereqs")
-- [Install the required tools and
-  libraries for the AWS IoT Device SDK](#gs-device-sdk-tools "#gs-device-sdk-tools")
+- [Install the required tools and libraries for the AWS IoT Device SDK](#gs-device-sdk-tools "#gs-device-sdk-tools")
 - [Install AWS IoT Device SDK](#gs-device-install-sdk "#gs-device-install-sdk")
-- [Install and run the sample
-  app](#gs-device-node-app-run "#gs-device-node-app-run")
-- [View messages from the sample app in
-  the AWS IoT console](#gs-device-view-msg "#gs-device-view-msg")
+- [Install and run the sample app](#gs-device-node-app-run "#gs-device-node-app-run")
+- [View messages from the sample app in the AWS IoT console](#gs-device-view-msg "#gs-device-view-msg")
 
 ###### Important
 
@@ -28,9 +23,7 @@ challenging. You'll need to understand your device well enough to be able to
 interpret these instructions and apply them to your device.
 
 If you encounter difficulties while configuring your device for AWS IoT, you
-might try one of the other device options as an alternative, such as [Create a virtual device with
-Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md") or [Use your Windows or Linux
-PC or Mac as an AWS IoT device](using-laptop-as-device.md "using-laptop-as-device.md").
+might try one of the other device options as an alternative, such as [Create a virtual device with Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md") or [Use your Windows or Linux PC or Mac as an AWS IoT device](using-laptop-as-device.md "using-laptop-as-device.md").
 
 ## Set up your device
 
@@ -76,16 +69,13 @@ perform the following instructions in that window. Otherwise, if you are
 connecting to your device by using a remote terminal, such as PuTTY, open a
 remote terminal to your device and use that.
 
-## Install the required tools and
-
-libraries for the AWS IoT Device SDK
+## Install the required tools and libraries for the AWS IoT Device SDK
 
 Before you install the AWS IoT Device SDK and sample code, make sure your
 system is up to date and has the required tools and libraries to install the
 SDKs.
 
-1. ###### Update the operating system and install required
-   libraries
+1. ###### Update the operating system and install required libraries
 
 Before you install an AWS IoT Device SDK, run these commands in
 a terminal window on your device to update the operating system
@@ -232,8 +222,7 @@ commands.
     pip3 --version
     ```
 
-3. ###### Install the current AWS IoT Device SDK for
-   Python
+3. ###### Install the current AWS IoT Device SDK for Python
 
 Install the AWS IoT Device SDK for Python and
 download the sample apps to your device.
@@ -312,8 +301,7 @@ on your Raspberry Pi.
 
     Continue after the device restarts.
 
-2. ###### Install the AWS IoT Device SDK for
-   JavaScript
+2. ###### Install the AWS IoT Device SDK for JavaScript
 
 Install the AWS IoT Device SDK for JavaScript on
 your Raspberry Pi.
@@ -358,9 +346,7 @@ your Raspberry Pi.
     npm install
     ```
 
-## Install and run the sample
-
-app
+## Install and run the sample app
 
 In this section, you'll install and run the `pubsub` sample app
 found in the AWS IoT Device SDK. This app shows how your device uses the MQTT
@@ -474,8 +460,7 @@ Disconnected!
 ```
 
 If you're having trouble running the sample app,
-review [Troubleshoot problems with the
-sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
 
 You can also add the `--verbosity Debug`
 parameter to the command line so the sample app displays
@@ -541,8 +526,7 @@ Publish received on topic topic_1
 ```
 
 If you're having trouble running the sample app,
-review [Troubleshoot problems with the
-sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
 
 You can also add the `--verbosity Debug`
 parameter to the command line so the sample app displays
@@ -550,9 +534,7 @@ detailed messages about what it’s doing. That
 information might provide you the help you need to
 correct the problem.
 
-## View messages from the sample app in
-
-the AWS IoT console
+## View messages from the sample app in the AWS IoT console
 
 You can see the sample app's messages as they pass through the message
 broker by using the **MQTT test client** in the
@@ -560,8 +542,7 @@ broker by using the **MQTT test client** in the
 
 ###### To view the MQTT messages published by the sample app
 
-1. Review [View MQTT messages with the AWS IoT MQTT
-   client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
+1. Review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
    to use the **MQTT test client** in the
    **AWS IoT console** to view MQTT messages as they
    pass through the message broker.

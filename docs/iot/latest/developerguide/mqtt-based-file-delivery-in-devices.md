@@ -6,8 +6,7 @@ schedule data transfer tasks for your devices by including the initial data set 
 receives the initial data set, it should then start the interaction with AWS IoT MQTT-based file delivery. To exchange
 data with AWS IoT MQTT-based file delivery, a device should:
 
-- Use the MQTT protocol to subscribe to the [MQTT-based file delivery
-  topics](reserved-topics.md#reserved-topics-mqtt-based-file-delivery "reserved-topics.md#reserved-topics-mqtt-based-file-delivery").
+- Use the MQTT protocol to subscribe to the [MQTT-based file delivery topics](reserved-topics.md#reserved-topics-mqtt-based-file-delivery "reserved-topics.md#reserved-topics-mqtt-based-file-delivery").
 - Send requests and then wait to receive the responses using MQTT messages.
   You can optionally include a stream file ID and a stream version in the initial data
   set. Sending a stream file ID to a device can simplify the programming of the device's

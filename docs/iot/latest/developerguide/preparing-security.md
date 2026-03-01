@@ -221,9 +221,7 @@ Finally, you must have the permission to pass the role to AWS IoT Core when you 
 
 ```
 
-## AWS IoT Jobs permissions to
-
-download from Amazon S3
+## AWS IoT Jobs permissions to download from Amazon S3
 
 The job document is saved in Amazon S3. You refer to this file when you dispatch
 through AWS IoT Jobs. You must provide AWS IoT Jobs with the rights to download the file
@@ -231,9 +229,7 @@ through AWS IoT Jobs. You must provide AWS IoT Jobs with the rights to download 
 Amazon S3 and AWS IoT Jobs. For instructions to create these policies, see [Presigned URLs](create-manage-jobs.md#create-manage-jobs-presigned-URLs "create-manage-jobs.md#create-manage-jobs-presigned-URLs") in [Managing
 Jobs](create-manage-jobs.md "create-manage-jobs.md").
 
-## Permissions to update the software bill of
-
-materials for a package version
+## Permissions to update the software bill of materials for a package version
 
 To update the software bill of materials for a package version in the
 `Draft`, `Published`, or `Deprecated` lifecycle

@@ -21,12 +21,9 @@ System coordinate system (WGS84)](https://gisgeography.com/wgs84-world-geodetic-
 - [Measurement types and solvers](#location-measurement-types "#location-measurement-types")
 - [How AWS IoT Core Device Location works](#location-how-works "#location-how-works")
 - [How to use AWS IoT Core Device Location](#location-how-use "#location-how-use")
-- [Resolving location of IoT
-  devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md")
-- [Resolving device location using
-  AWS IoT Core Device Location MQTT topics](device-location-reserved-topics.md "device-location-reserved-topics.md")
-- [Location solvers and device
-  payload](device-location-solvers-payload.md "device-location-solvers-payload.md")
+- [Resolving location of IoT devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md")
+- [Resolving device location using AWS IoT Core Device Location MQTT topics](device-location-reserved-topics.md "device-location-reserved-topics.md")
+- [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md")
 
 ## Measurement types and solvers
 
@@ -56,8 +53,7 @@ _AWS IoT Wireless documentation_.
 | Bluetooth Low Energy (BLE)                                                | BLE based solver         | Amazon Sidewalk devices                                   |
 
 For more information about the location solvers and examples that show the device
-payload for the various measurement types, see [Location solvers and device
-payload](device-location-solvers-payload.md "device-location-solvers-payload.md").
+payload for the various measurement types, see [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md").
 
 ## How AWS IoT Core Device Location works
 
@@ -102,15 +98,13 @@ Specify the raw measurement data related to the location of your device as a
 JSON payload. To retrieve the payload measurement data, go to your device logs,
 or use CloudWatch Logs, and copy the payload data information. The JSON payload must
 contain one or more types of data measurement. For examples that show the
-payload format for various solvers, see [Location solvers and device
-payload](device-location-solvers-payload.md "device-location-solvers-payload.md"). 2. ###### Resolve location information
+payload format for various solvers, see [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md"). 2. ###### Resolve location information
 
 Using the [Device
 Location](https://console.aws.amazon.com/iot/home#/device-location-test "https://console.aws.amazon.com/iot/home#/device-location-test") page in the AWS IoT console or the [GetPositionEstimate](../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md "../../../iot-wireless/latest/apireference/API_GetPositionEstimate.md") API operation, pass the payload measurement
 data and resolve the device location. AWS IoT Core Device Location then chooses the solver with the
 highest accuracy and reports the device location. For more information, see
-[Resolving location of IoT
-devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md"). 3. ###### Copy location information
+[Resolving location of IoT devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md"). 3. ###### Copy location information
 
 Verify the geolocation information that was resolved by AWS IoT Core Device Location and reported
 as a GeoJSON payload. You can copy the payload for use with your applications
@@ -120,7 +114,5 @@ data to Amazon Location Service using the [Location](location-rule-action.md "lo
 The following topics show how to use AWS IoT Core Device Location and examples of device location
 payload.
 
-- [Resolving location of IoT
-  devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md")
-- [Location solvers and device
-  payload](device-location-solvers-payload.md "device-location-solvers-payload.md")
+- [Resolving location of IoT devices](device-location-resolve-solvers.md "device-location-resolve-solvers.md")
+- [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md")

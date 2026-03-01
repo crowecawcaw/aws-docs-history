@@ -18,9 +18,7 @@ Note that cleaning the device's microSD card does not remove any AWS IoT resourc
 the AWS IoT resources after you clean the device's microSD card, you should review the tutorial
 on [Step 2: Cleaning up your AWS account after building demos with the AWS IoT Device Client](#iot-dc-cleanup-cloud "#iot-dc-cleanup-cloud").
 
-### Option 1: Cleaning up by rewriting
-
-the microSD card
+### Option 1: Cleaning up by rewriting the microSD card
 
 The easiest and most thorough way to clean the microSD card after completing the
 tutorials in this learning path is to overwrite the microSD card with a saved image
@@ -46,9 +44,7 @@ operating system, refer to the procedure for that device.
 
 Your microSD card is ready to use.
 
-### Option 2: Cleaning up by deleting user
-
-directories
+### Option 2: Cleaning up by deleting user directories
 
 To clean the microSD card after completing the tutorials without rewriting
 the microSD card image, you can delete the user directories individually. This is not
@@ -103,15 +99,13 @@ while completing the tutorials in this learning path.
 This procedure helps you identify and remove the AWS IoT resources that you created
 while completing the tutorials in this learning path.
 
-| AWS IoT resources created in this learning path                                                                               | Tutorial                                              | Thing resource                                        | Policy resource |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------- |
-| [Tutorial: Installing and configuring the<br>AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")              | **DevCliTestThing**                                   | **DevCliTestThingPolicy**                             |
-| [Tutorial: Demonstrate MQTT message communication with the<br>AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing**                                   | **PubSubTestThingPolicy**                             |
-| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | \*user defined<br>• (there could be<br>more than one) | \*user defined<br>• (there could<br>be more than one) |
+| AWS IoT resources created in this learning path                                                                            | Tutorial                                              | Thing resource                                        | Policy resource |
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | --------------- |
+| [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")              | **DevCliTestThing**                                   | **DevCliTestThingPolicy**                             |
+| [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md") | **PubSubTestThing**                                   | **PubSubTestThingPolicy**                             |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")        | \*user defined<br>• (there could be<br>more than one) | \*user defined<br>• (there could<br>be more than one) |
 
-###### To delete the AWS IoT resources, follow this procedure for each thing resource
-
-that you created
+###### To delete the AWS IoT resources, follow this procedure for each thing resource that you created
 
 1. Replace `thing_name` with the name
    of the thing resource you want to delete, and then run this command to list
@@ -320,10 +314,10 @@ If successful, this command doesn't return anything.
 This procedure helps you identify and remove other AWS resources that you
 created while completing the tutorials in this learning path.
 
-| Other AWS resources created in this learning path                                                                      | Tutorial              | Resource type        | Resource name or ID |
-| ---------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ------------------- |
-| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | Amazon S3 object      | hello-world-job.json |
-| [Tutorial: Demonstrate remote actions (jobs) with the<br>AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | AWS IoT job resources | _user defined_       |
+| Other AWS resources created in this learning path                                                                   | Tutorial              | Resource type        | Resource name or ID |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ------------------- |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | Amazon S3 object      | hello-world-job.json |
+| [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md") | AWS IoT job resources | _user defined_       |
 
 ###### To delete the AWS resources created in this learning path
 

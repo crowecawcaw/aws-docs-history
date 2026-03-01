@@ -1,6 +1,4 @@
-# Open a tunnel using manual setup and
-
-connect to remote device
+# Open a tunnel using manual setup and connect to remote device
 
 When you open a tunnel, you can choose the quick setup or the manual setup method
 for opening a tunnel into the remote device. This tutorial shows how to open a
@@ -19,9 +17,7 @@ With this setup method, you can use services other than SSH, such as FTP to
 connect to the remote device. For more information about the different setup
 methods, see [Tunnel setup methods](secure-tunneling-tutorial-open-tunnel.md#tunneling-tutorial-setup-methods "secure-tunneling-tutorial-open-tunnel.md#tunneling-tutorial-setup-methods").
 
-## Prerequisites for manual
-
-setup method
+## Prerequisites for manual setup method
 
 - The firewalls that the remote device is behind must allow outbound traffic
   on port 443. The tunnel that you create will use this port to connect to the
@@ -51,14 +47,12 @@ information, see [Tunnel creation methods in AWS IoT console](secure-tunneling-t
 ![AWS IoT console showing an empty list of tunnels with options to create, close, or delete tunnels.](images/tunnels-page.png) 2. For this tutorial, choose **Manual setup** as the tunnel
 creation method and then choose **Next**. For information
 about using the **quick setup** method to create a tunnel,
-see [Open a tunnel and use browser-based
-SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
+see [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
 
 ###### Note
 
 If you create a secure tunnel from the details page of a thing, you can choose
-whether to create a new tunnel or use an existing one. For more information, see [Open a tunnel for remote device and
-use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md").
+whether to create a new tunnel or use an existing one. For more information, see [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md").
 
 ![Two options for setting up a tunnel connection: Quick setup (SSH) or Manual setup, which requires configuring a local proxy and managing access tokens.](images/tunnels-choose-manual.PNG) 3. (Optional) Enter the configuration settings for your tunnel. You can
 also skip this step and proceed to the next step to create a tunnel.
@@ -153,8 +147,7 @@ tunnel, if the device agent is set up correctly.
 ```
 
 For examples that show how and when to rotate the access tokens, see
-[Resolving AWS IoT secure tunneling
-connectivity issues by rotating client access tokens](iot-secure-tunneling-troubleshooting.md "iot-secure-tunneling-troubleshooting.md").
+[Resolving AWS IoT secure tunneling connectivity issues by rotating client access tokens](iot-secure-tunneling-troubleshooting.md "iot-secure-tunneling-troubleshooting.md").
 
 ## Configure and start the local proxy
 

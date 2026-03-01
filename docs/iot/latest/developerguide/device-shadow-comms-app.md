@@ -54,17 +54,13 @@ shadowName
 The name of the named shadow. This parameter is not used with unnamed
 shadows.
 
-## Initializing the app or
-
-service on connection to AWS IoT
+## Initializing the app or service on connection to AWS IoT
 
 When the app first connects to AWS IoT, it should send an HTTP GET request to the
 URLs of the shadows it uses to get the current state of the shadows it's using. This
 allows it to sync the app or service to the shadow.
 
-## Processing state changes
-
-while the app or service is connected to AWS IoT
+## Processing state changes while the app or service is connected to AWS IoT
 
 While the app or service is connected to AWS IoT, it can query the current state
 periodically by sending an HTTP GET request on the URLs of the shadows it

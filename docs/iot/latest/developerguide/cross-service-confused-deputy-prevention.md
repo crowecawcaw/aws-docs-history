@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The _confused deputy problem_ is a security issue where an entity that
 doesn't have permission to perform an action can coerce a more-privileged entity to perform
@@ -32,8 +30,7 @@ account ID.
 
 The following example shows how to prevent the confused deputy problem by using the
 `aws:SourceArn` and `aws:SourceAccount` global condition context
-keys in the AWS IoT role trust policy. For more examples, see [Detailed examples of
-confused deputy prevention](#cross-service-confused-deputy-prevention-examples "#cross-service-confused-deputy-prevention-examples").
+keys in the AWS IoT role trust policy. For more examples, see [Detailed examples of confused deputy prevention](#cross-service-confused-deputy-prevention-examples "#cross-service-confused-deputy-prevention-examples").
 
 ```
 `{
@@ -65,9 +62,7 @@ If you get access deny errors, it can be because the service integration with AW
 Security Token Service (STS) doesn't support the `aws:SourceArn` and
 `aws:SourceAccount` context keys.
 
-## Detailed examples of
-
-confused deputy prevention
+## Detailed examples of confused deputy prevention
 
 ###### This section provides detailed examples of how to prevent the
 
@@ -75,14 +70,11 @@ confused deputy problem by using the aws:SourceArn and
 aws:SourceAccount global condition context keys in the AWS IoT role trust
 policy.
 
-- [Fleet
-  provisioning](#cross-service-confused-deputy-prevention-fleet-provision "#cross-service-confused-deputy-prevention-fleet-provision")
+- [Fleet provisioning](#cross-service-confused-deputy-prevention-fleet-provision "#cross-service-confused-deputy-prevention-fleet-provision")
 - [JITP](#cross-service-confused-deputy-prevention-JITP "#cross-service-confused-deputy-prevention-JITP")
 - [Credential provider](#cross-service-confused-deputy-prevention-credential-provider "#cross-service-confused-deputy-prevention-credential-provider")
 
-### Fleet
-
-provisioning
+### Fleet provisioning
 
 You can configure [fleet provisioning](iot-provision.md "iot-provision.md")
 using a provisioning template resource. When a provisioning template references a
@@ -130,8 +122,7 @@ policy depends on how you define the provisioning template.
 If you define your provisioning template as a separate resource, the value
 of `aws:SourceArn` can be
 `"arn:aws:iot:`region`:`account-id`:provisioningtemplate/`example_template`"`.
-You can use the same policy example in [Fleet
-provisioning](#cross-service-confused-deputy-prevention-fleet-provision "#cross-service-confused-deputy-prevention-fleet-provision").
+You can use the same policy example in [Fleet provisioning](#cross-service-confused-deputy-prevention-fleet-provision "#cross-service-confused-deputy-prevention-fleet-provision").
 
 If you define your provisioning template within a CA certificate resource,
 the value of `aws:SourceArn` can be

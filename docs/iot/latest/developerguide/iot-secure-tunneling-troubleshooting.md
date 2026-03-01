@@ -1,6 +1,4 @@
-# Resolving AWS IoT secure tunneling
-
-connectivity issues by rotating client access tokens
+# Resolving AWS IoT secure tunneling connectivity issues by rotating client access tokens
 
 When you use AWS IoT secure tunneling, you might run into connectivity issues even if
 the tunnel is open. The following sections show some possible issues and how you can
@@ -40,8 +38,7 @@ Invalid access token: The access token was previously used and cannot be used ag
 The error occurs because the client access token (CAT) can only be used once by
 the local proxy, and it then becomes invalid. To resolve this error, rotate the
 client access token in the `SOURCE` mode to generate a new CAT for the
-source. For an example that shows how to rotate the source CAT, see [Rotate source CAT
-example](#rotate-token-source-example "#rotate-token-source-example").
+source. For an example that shows how to rotate the source CAT, see [Rotate source CAT example](#rotate-token-source-example "#rotate-token-source-example").
 
 ## Client token mismatch error
 

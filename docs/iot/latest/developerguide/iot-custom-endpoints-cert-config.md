@@ -1,6 +1,4 @@
-# Server certificate configuration for
-
-OCSP stapling
+# Server certificate configuration for OCSP stapling
 
 AWS IoT Core supports [Online
 Certificate Status Protocol (OCSP)](https://www.rfc-editor.org/rfc/rfc6960.html "https://www.rfc-editor.org/rfc/rfc6960.html") stapling for server certificate, also
@@ -15,8 +13,7 @@ is part of the process to create or update a domain configuration with a custom 
 OCSP stapling checks for revocation status on the server certificate continuously. This
 helps verify that any certificates that have been revoked by the CA are no longer
 trusted by the clients connecting to your custom domains. For more information, see
-[Enabling server
-certificate OCSP in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-manage "#iot-custom-endpoints-cert-config-ocsp-manage").
+[Enabling server certificate OCSP in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-manage "#iot-custom-endpoints-cert-config-ocsp-manage").
 
 Server certificate OCSP stapling provides real-time revocation status check, reduces
 the latency associated with checking the revocation status, and improves privacy and
@@ -29,28 +26,20 @@ This feature is not available in AWS GovCloud (US) Regions.
 
 ###### In this topic:
 
-- [What is
-  OCSP?](#iot-custom-endpoints-cert-config-ocsp-what-is "#iot-custom-endpoints-cert-config-ocsp-what-is")
-- [How OCSP
-  stapling works](#iot-custom-endpoints-cert-config-ocsp-stapling-what-is "#iot-custom-endpoints-cert-config-ocsp-stapling-what-is")
-- [Enabling server
-  certificate OCSP in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-manage "#iot-custom-endpoints-cert-config-ocsp-manage")
-- [Configuring
-  server certificate OCSP for private endpoints in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-private-endpoint "#iot-custom-endpoints-cert-config-ocsp-private-endpoint")
+- [What is OCSP?](#iot-custom-endpoints-cert-config-ocsp-what-is "#iot-custom-endpoints-cert-config-ocsp-what-is")
+- [How OCSP stapling works](#iot-custom-endpoints-cert-config-ocsp-stapling-what-is "#iot-custom-endpoints-cert-config-ocsp-stapling-what-is")
+- [Enabling server certificate OCSP in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-manage "#iot-custom-endpoints-cert-config-ocsp-manage")
+- [Configuring server certificate OCSP for private endpoints in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-private-endpoint "#iot-custom-endpoints-cert-config-ocsp-private-endpoint")
 - [Important notes for using server certificate OCSP stapling in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-notes "#iot-custom-endpoints-cert-config-ocsp-notes")
 - [Troubleshooting server certificate OCSP stapling in AWS IoT Core](#iot-custom-endpoints-cert-config-ocsp-troubleshooting "#iot-custom-endpoints-cert-config-ocsp-troubleshooting")
 
-## What is
-
-OCSP?
+## What is OCSP?
 
 The Online Certificate Status Protocol (OCSP) aids in providing a server
 certificate's revocation status for a Transport Layer Security (TLS)
 handshake.
 
-### Key
-
-concepts
+### Key concepts
 
 The following key concepts provide details about the Online Certificate Status
 Protocol (OCSP).
@@ -114,9 +103,7 @@ The following diagram illustrates how client-side OCSP and server-side OCSP work
 5. The client validates the OCSP certificate status.
 6. The TLS handshake is completed.
 
-## How OCSP
-
-stapling works
+## How OCSP stapling works
 
 OCSP stapling is used during the TLS handshake between
 the client and the server to check the server certificate revocation status. The
@@ -125,9 +112,7 @@ to the certificates returned to the client. By having the server make the reques
 the OCSP responder, the responses can be cached and then used multiple times for
 many clients.
 
-### How OCSP stapling
-
-works in AWS IoT Core
+### How OCSP stapling works in AWS IoT Core
 
 The following diagram shows how server-side OCSP stapling works in
 AWS IoT Core.
@@ -186,22 +171,17 @@ status of a certificate during the TLS handshake. Instead of the client having
 to query an OCSP server separately, the server sends the request and attaches
 the OCSP response with the server certificate during the handshake.
 
-## Enabling server
-
-certificate OCSP in AWS IoT Core
+## Enabling server certificate OCSP in AWS IoT Core
 
 To enable server certificate OCSP stapling in AWS IoT Core, create a domain
 configuration for a custom domain or update an existing custom domain configuration.
 For general information about creating a domain configuration with a custom domain,
-see [Creating and configuring
-customer managed domains](iot-custom-endpoints-configurable-custom.md "iot-custom-endpoints-configurable-custom.md").
+see [Creating and configuring customer managed domains](iot-custom-endpoints-configurable-custom.md "iot-custom-endpoints-configurable-custom.md").
 
 Use the following instructions to enable OCSP server stapling using AWS Management Console or
 AWS CLI.
 
-###### To enable server certificate OCSP stapling using the AWS IoT
-
-console:
+###### To enable server certificate OCSP stapling using the AWS IoT console:
 
 1. In the navigation menu, choose **Settings**, and then choose **Create
    domain configuration**, or choose an existing domain
@@ -241,9 +221,7 @@ aws iot update-domain-configuration --domain-configuration-name "myDomainConfigu
 
 For more information, see [CreateDomainConfiguration](../apireference/API_CreateDomainConfiguration.md "../apireference/API_CreateDomainConfiguration.md") and [UpdateDomainConfiguration](../apireference/API_UpdateDomainConfiguration.md "../apireference/API_UpdateDomainConfiguration.md") from the AWS IoT API Reference.
 
-## Configuring
-
-server certificate OCSP for private endpoints in AWS IoT Core
+## Configuring server certificate OCSP for private endpoints in AWS IoT Core
 
 OCSP for private endpoints lets you use your private OCSP resources within your
 Amazon Virtual Private Cloud (Amazon VPC) for AWS IoT Core operations. The process involves setting up a Lambda
@@ -357,9 +335,7 @@ public class LambdaResponderApplication implements RequestHandler<String, String
 }
 ```
 
-#### Authorizing AWS IoT to invoke your Lambda
-
-function
+#### Authorizing AWS IoT to invoke your Lambda function
 
 In the process of creating the domain configuration with a Lambda OCSP
 responder, you must grant AWS IoT permission to invoke the Lambda function
@@ -410,9 +386,7 @@ mission on resource: arn:aws:lambda:`us-east-1`:`123456789012`:function:`ocsp-fu
 
 ### Configuring server OCSP stapling for private endpoints
 
-###### To configure server certificate OCSP stapling using the AWS IoT
-
-console:
+###### To configure server certificate OCSP stapling using the AWS IoT console:
 
 1. From the navigation menu, choose **Settings**, and then choose
    **Create domain configuration**, or choose

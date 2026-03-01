@@ -1,7 +1,4 @@
-# Register a client certificate
-
-when the client connects to AWS IoT just-in-time registration
-(JITR)
+# Register a client certificate when the client connects to AWS IoT just-in-time registration (JITR)
 
 You can configure a CA certificate to enable client certificates it has
 signed to register with AWS IoT automatically the first time the client
@@ -12,13 +9,9 @@ first time, you must enable the CA certificate for automatic registration
 and configure the first connection by the client to provide the required
 certificates.
 
-## Configure a CA
+## Configure a CA certificate to support automatic registration (console)
 
-certificate to support automatic registration (console)
-
-###### To configure a CA certificate to support automatic client
-
-certificate registration using the AWS IoT console
+###### To configure a CA certificate to support automatic client certificate registration using the AWS IoT console
 
 1. Sign in to the AWS Management Console and open the [AWS IoT
    console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
@@ -39,9 +32,7 @@ certificate authority, you must open the
 **Details** page of the certificate
 authority.
 
-## Configure a CA
-
-certificate to support automatic registration (CLI)
+## Configure a CA certificate to support automatic registration (CLI)
 
 If you have already registered your CA certificate with AWS IoT, use the
 [**update-ca-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-ca-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-ca-certificate.html") command to set
@@ -68,9 +59,7 @@ command.
 Use the [**describe-ca-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html") command to
 see the status of the CA certificate.
 
-## Configure the first
-
-connection by a client for automatic registration
+## Configure the first connection by a client for automatic registration
 
 When a client attempts to connect to AWS IoT for the first time, the
 client certificate signed by your CA certificate must be present on the
@@ -84,8 +73,7 @@ registers the client certificate, and sets its status to
 `PENDING_ACTIVATION`. This means that the client
 certificate was automatically registered and is awaiting activation. The
 client certificate's state must be `ACTIVE` before it can be
-used to connect to AWS IoT. See [Activate or deactivate a
-client certificate](activate-or-deactivate-device-cert.md "activate-or-deactivate-device-cert.md") for information on
+used to connect to AWS IoT. See [Activate or deactivate a client certificate](activate-or-deactivate-device-cert.md "activate-or-deactivate-device-cert.md") for information on
 activating a client certificate.
 
 ###### Note

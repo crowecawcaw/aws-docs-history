@@ -67,9 +67,7 @@ devices.
 
 ```
 
-## MQTT persistent sessions
-
-policy examples
+## MQTT persistent sessions policy examples
 
 `connectAttributes` allow you to specify what attributes you
 want to use in your connect message in your IAM policies such as

@@ -7,24 +7,18 @@ results and detailed logs.
 ###### Tutorials
 
 - [Prerequisites](#da-detailed-prereqs "#da-detailed-prereqs")
-- [Create a test suite
-  definition](#device-advisor-console-create-suite "#device-advisor-console-create-suite")
-- [Start a test suite
-  run](#device-advisor-console-run-test-suite "#device-advisor-console-run-test-suite")
+- [Create a test suite definition](#device-advisor-console-create-suite "#device-advisor-console-create-suite")
+- [Start a test suite run](#device-advisor-console-run-test-suite "#device-advisor-console-run-test-suite")
 - [Stop a test suite run (optional)](#device-advisor-stop-test-run "#device-advisor-stop-test-run")
-- [View test suite run details and
-  logs](#device-advisor-console-view-logs "#device-advisor-console-view-logs")
-- [Download an AWS IoT
-  qualification report](#device-advisor-console-qualification-report "#device-advisor-console-qualification-report")
+- [View test suite run details and logs](#device-advisor-console-view-logs "#device-advisor-console-view-logs")
+- [Download an AWS IoT qualification report](#device-advisor-console-qualification-report "#device-advisor-console-qualification-report")
 
 ## Prerequisites
 
 To complete this tutorial, you need to
 [create a thing and certificate](device-advisor-setting-up.md#da-create-thing-certificate "device-advisor-setting-up.md#da-create-thing-certificate").
 
-## Create a test suite
-
-definition
+## Create a test suite definition
 
 Create a test suite suite so that you can run it for your devices and
 perform verification.
@@ -149,9 +143,7 @@ If the test suite creation failed, make sure the test suite, test groups,
 test cases, and device role have been configured according to the previous
 instructions.
 
-## Start a test suite
-
-run
+## Start a test suite run
 
 1. In the [AWS IoT
    console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand
@@ -198,9 +190,7 @@ to complete and for the test suite status to change to the
 
 ![The stopped results of test runs on the Device Advisor console.](images/da-stopped-test-suite.PNG)
 
-## View test suite run details and
-
-logs
+## View test suite run details and logs
 
 1. In the [AWS IoT
    console](https://console.aws.amazon.com//iot "https://console.aws.amazon.com//iot"), in the navigation pane, expand
@@ -231,9 +221,7 @@ suite log**.
 To access CloudWatch logs for any test case, choose **Test case
 log**. 4. Based on your test results, [troubleshoot](iot_troubleshooting.md#device-advisor-troubleshooting "iot_troubleshooting.md#device-advisor-troubleshooting") your device until all tests pass.
 
-## Download an AWS IoT
-
-qualification report
+## Download an AWS IoT qualification report
 
 If you chose the **Use the AWS IoT Qualification test suite** option while creating a test suite and were able to run a
 qualification test suite, you can download a qualification report by choosing **Download qualification report** in the test run summary page.

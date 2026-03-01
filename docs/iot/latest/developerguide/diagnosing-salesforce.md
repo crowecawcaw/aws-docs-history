@@ -1,6 +1,4 @@
-# Diagnosing Salesforce IoT input stream action
-
-issues
+# Diagnosing Salesforce IoT input stream action issues
 
 ###### Help us improve this topic
 

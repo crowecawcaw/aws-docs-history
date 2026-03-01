@@ -1,6 +1,4 @@
-# Tutorial: Formatting a notification by using an AWS Lambda
-
-function
+# Tutorial: Formatting a notification by using an AWS Lambda function
 
 This tutorial demonstrates how to send MQTT message data to an AWS Lambda action for
 formatting and sending to another AWS service. In this tutorial, the AWS Lambda action uses the
@@ -37,14 +35,10 @@ the data from the rule query statement and calls the [SNS publish](https://boto3
 
 ###### In this tutorial, you'll:
 
-- [Step 1: Create an AWS Lambda function that
-  sends a text message](#iot-lambda-rule-create-lambda "#iot-lambda-rule-create-lambda")
-- [Step 2: Create an AWS IoT rule with an AWS Lambda
-  rule action](#iot-lambda-rule-create-rule "#iot-lambda-rule-create-rule")
-- [Step 3: Test the AWS IoT rule and AWS Lambda rule
-  action](#iot-lambda-rule-test-rule "#iot-lambda-rule-test-rule")
-- [Step 4: Review the results and next
-  steps](#iot-lambda-rule-next-steps "#iot-lambda-rule-next-steps")
+- [Step 1: Create an AWS Lambda function that sends a text message](#iot-lambda-rule-create-lambda "#iot-lambda-rule-create-lambda")
+- [Step 2: Create an AWS IoT rule with an AWS Lambda rule action](#iot-lambda-rule-create-rule "#iot-lambda-rule-create-rule")
+- [Step 3: Test the AWS IoT rule and AWS Lambda rule action](#iot-lambda-rule-test-rule "#iot-lambda-rule-test-rule")
+- [Step 4: Review the results and next steps](#iot-lambda-rule-next-steps "#iot-lambda-rule-next-steps")
 
 ###### Before you start this tutorial, make sure that you have:
 
@@ -52,8 +46,7 @@ the data from the rule query statement and calls the [SNS publish](https://boto3
 
 You'll need your AWS account and AWS IoT console to complete this tutorial.
 
-- ###### Reviewed [View MQTT messages with the AWS IoT MQTT
-  client](view-mqtt-messages.md "view-mqtt-messages.md")
+- ###### Reviewed [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md")
 
 Be sure you can use the MQTT client to subscribe and publish to a topic. You'll use
 the MQTT client to test your new rule in this procedure.
@@ -69,9 +62,7 @@ rules-related tutorials in this section.
 If you haven't used AWS Lambda before, review [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") and [Getting started with
 Lambda](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") to learn its terms and concepts.
 
-## Step 1: Create an AWS Lambda function that
-
-sends a text message
+## Step 1: Create an AWS Lambda function that sends a text message
 
 The AWS Lambda function in this tutorial receives the result of the rule query statement,
 inserts the elements into a text string, and sends the resulting string to Amazon SNS as the
@@ -218,9 +209,7 @@ If you didn't get a text message on the phone, check the result of the operation
 tab, review the response to find any errors that occurred. Don't continue to the next step
 until your function can send the notification to your phone.
 
-## Step 2: Create an AWS IoT rule with an AWS Lambda
-
-rule action
+## Step 2: Create an AWS IoT rule with an AWS Lambda rule action
 
 In this step, you'll use the rule query statement to format the data from the imaginary
 weather sensor device to send to a Lambda function, which will format and send a text
@@ -324,9 +313,7 @@ correct text message.
     4. To create the rule, at the bottom of **Create a rule**, choose
        **Create rule**.
 
-## Step 3: Test the AWS IoT rule and AWS Lambda rule
-
-action
+## Step 3: Test the AWS IoT rule and AWS Lambda rule action
 
 To test your new rule, you'll use the MQTT client to publish and subscribe to the MQTT
 messages used by this rule.
@@ -437,9 +424,7 @@ console, you'll lose your subscriptions or message logs.
 
 If you don't see the correct behavior, check the troubleshooting tips.
 
-### Troubleshooting your AWS Lambda rule and
-
-notification
+### Troubleshooting your AWS Lambda rule and notification
 
 Here are some things to check, in case you're not seeing the results you
 expect.
@@ -484,14 +469,12 @@ message.
 
 ###### Things to check
 
-    + ###### Check the AWS Region of your MQTT client and the rule that you
-     created
+    + ###### Check the AWS Region of your MQTT client and the rule that you created
 
 
     The console in which you're running the MQTT client must be in the same AWS
      Region as the rule you created.
-    + ###### Check that the temperature value in the message payload exceeds the test
-     threshold
+    + ###### Check that the temperature value in the message payload exceeds the test threshold
 
 
     If the temperature value is less than or equal to 30, as defined in the rule
@@ -526,15 +509,13 @@ message.
     + ###### Check the Amazon SNS notification
 
 
-    In [Step 1: Create an Amazon SNS topic that sends a
-     SMS text message](iot-sns-rule.md#iot-sns-rule-create-sns-topic "iot-sns-rule.md#iot-sns-rule-create-sns-topic"), refer to step 3 that
+    In [Step 1: Create an Amazon SNS topic that sends a SMS text message](iot-sns-rule.md#iot-sns-rule-create-sns-topic "iot-sns-rule.md#iot-sns-rule-create-sns-topic"), refer to step 3 that
      describes how to test the Amazon SNS notification and test the notification to make
      sure the notification works.
     + ###### Check the Lambda function
 
 
-    In [Step 1: Create an AWS Lambda function that
-     sends a text message](#iot-lambda-rule-create-lambda "#iot-lambda-rule-create-lambda"), refer to step 5 that
+    In [Step 1: Create an AWS Lambda function that sends a text message](#iot-lambda-rule-create-lambda "#iot-lambda-rule-create-lambda"), refer to step 5 that
      describes how to test the Lambda function using test data and test the Lambda
      function.
     + ###### Check the role being used by the rule
@@ -554,9 +535,7 @@ message.
      a new role. New roles created by the rule action receive the authorizations
      necessary to perform these actions.
 
-## Step 4: Review the results and next
-
-steps
+## Step 4: Review the results and next steps
 
 ###### In this tutorial:
 

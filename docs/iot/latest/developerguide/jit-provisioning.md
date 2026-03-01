@@ -10,10 +10,8 @@ Amazon CloudWatch.
 ###### Topics
 
 - [JITP overview](#jit-provisioning-overview "#jit-provisioning-overview")
-- [Register CA using
-  provisioning template](#jit-provisioning-registerCA-template "#jit-provisioning-registerCA-template")
-- [Register CA using
-  provisioning template name](#jit-provisioning-registerCA-templateName "#jit-provisioning-registerCA-templateName")
+- [Register CA using provisioning template](#jit-provisioning-registerCA-template "#jit-provisioning-registerCA-template")
+- [Register CA using provisioning template name](#jit-provisioning-registerCA-templateName "#jit-provisioning-registerCA-templateName")
 
 ## JITP overview
 
@@ -54,9 +52,7 @@ device is required to send the [Server
 Name Indication (SNI)](https://datatracker.ietf.org/doc/html/rfc3546#section-3.1 "https://datatracker.ietf.org/doc/html/rfc3546#section-3.1") extension when it connects to
 AWS IoT Core.
 
-### Example template
-
-body
+### Example template body
 
 The following JSON file is an example template body of a complete JITP
 template.
@@ -160,9 +156,7 @@ Throttling Quotas](../../../general/latest/gr/iot-core.md#throttling-limits "../
 calls. Contact [AWS Customer Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") to raise your throttling quotas if
 necessary.
 
-## Register CA using
-
-provisioning template
+## Register CA using provisioning template
 
 To register a CA by using a complete provisioning template, follow these
 steps:
@@ -218,9 +212,7 @@ aws iot update-ca-certificate --certificate-id `caCertificateId`
                 --new-auto-registration-status ENABLE --registration-config file://`your-template`
 ```
 
-## Register CA using
-
-provisioning template name
+## Register CA using provisioning template name
 
 To register a CA by using a provisioning template name, follow these
 steps:

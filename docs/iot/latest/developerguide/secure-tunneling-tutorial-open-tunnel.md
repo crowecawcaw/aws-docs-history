@@ -1,15 +1,11 @@
-# Open a tunnel and start
-
-SSH session to remote device
+# Open a tunnel and start SSH session to remote device
 
 In these tutorials, you'll learn how to remotely access a device that's behind a firewall.
 You can't start a direct SSH session into the device because the firewall blocks all
 inbound traffic. The tutorials show you how you can open a tunnel and then use that
 tunnel to start an SSH session to a remote device.
 
-## Prerequisites for the
-
-tutorials
+## Prerequisites for the tutorials
 
 The prerequisites for running the tutorial can vary depending on whether you use
 the manual or quick setup methods for opening a tunnel and accessing the remote
@@ -20,11 +16,9 @@ device.
 For both setup methods, you must allow outbound traffic on port 443.
 
 - For information about prerequisites for the quick setup method tutorial,
-  see [Prerequisites for quick
-  setup method](tunneling-tutorial-quick-setup.md#tunneling-tutorial-quick-prerequisites "tunneling-tutorial-quick-setup.md#tunneling-tutorial-quick-prerequisites").
+  see [Prerequisites for quick setup method](tunneling-tutorial-quick-setup.md#tunneling-tutorial-quick-prerequisites "tunneling-tutorial-quick-setup.md#tunneling-tutorial-quick-prerequisites").
 - For information about prerequisites for the manual setup method tutorial,
-  see [Prerequisites for manual
-  setup method](tunneling-tutorial-manual-setup.md#tunneling-tutorial-manual-prerequisites "tunneling-tutorial-manual-setup.md#tunneling-tutorial-manual-prerequisites"). If you use
+  see [Prerequisites for manual setup method](tunneling-tutorial-manual-setup.md#tunneling-tutorial-manual-prerequisites "tunneling-tutorial-manual-setup.md#tunneling-tutorial-manual-prerequisites"). If you use
   this setup method, you must configure the local proxy on your source device.
   To download the local proxy source code, see [Local proxy reference implementation on GitHub](https://github.com/aws-samples/aws-iot-securetunneling-localproxy "https://github.com/aws-samples/aws-iot-securetunneling-localproxy").
 
@@ -57,15 +51,13 @@ mode. For more information, see [Reserved topics](reserved-topics.md "reserved-t
 
 You can omit the destination configuration if you want to
 deliver the destination client access token to the remote device through another
-method. For more information, see [Configuring a remote device and using IoT
-agent](configure-remote-device.md "configure-remote-device.md").
+method. For more information, see [Configuring a remote device and using IoT agent](configure-remote-device.md "configure-remote-device.md").
 
 In the AWS IoT console, you can create a tunnel using either of the following
 methods. For information about tutorials that will help you learn to create a
 tunnel using these methods, see [Tutorials in this section](secure-tunneling-tutorial.md#tunneling-tutorial-overview "secure-tunneling-tutorial.md#tunneling-tutorial-overview").
 
-- ###### [Tunnels
-  hub](https://console.aws.amazon.com/iot/home#/tunnels "https://console.aws.amazon.com/iot/home#/tunnels")
+- ###### [Tunnels hub](https://console.aws.amazon.com/iot/home#/tunnels "https://console.aws.amazon.com/iot/home#/tunnels")
 
 When you create the tunnel, you'll be able to specify whether to use
 the quick setup or the manual setup methods for creating the tunnel and
@@ -90,7 +82,5 @@ a device in the AWS IoT registry](register-device.md "register-device.md").
 
 ###### Tutorials in this section
 
-- [Open a tunnel and use browser-based
-  SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md")
-- [Open a tunnel using manual setup and
-  connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md")
+- [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md")
+- [Open a tunnel using manual setup and connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md")

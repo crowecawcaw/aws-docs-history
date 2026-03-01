@@ -1,6 +1,4 @@
-# Understanding the custom authentication
-
-workflow
+# Understanding the custom authentication workflow
 
 Custom authentication enables you to define how to authenticate and authorize
 clients by using [authorizer
@@ -11,9 +9,7 @@ authorization workflow for custom authentication in AWS IoT Core.
 
 ![Custom authorization workflow for custom authentication in AWS IoT Core.](images/custom-authentication.png)
 
-## AWS IoT Core custom authentication
-
-and authorization workflow
+## AWS IoT Core custom authentication and authorization workflow
 
 The following list explains each step in the custom authentication and
 authorization workflow.

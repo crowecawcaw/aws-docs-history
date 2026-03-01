@@ -1,12 +1,8 @@
-# AWS IoT Device Management Software Package Catalog
-
-Troubleshooting
+# AWS IoT Device Management Software Package Catalog Troubleshooting
 
 This is the troubleshooting section for AWS IoT Device Management Software Package Catalog.
 
-## General Troubleshooting Error
-
-Messages
+## General Troubleshooting Error Messages
 
 This section lists common errors seen throughout the software package version
 lifecycle.
@@ -19,8 +15,7 @@ command](../../../cli/latest/reference/s3api/head-bucket.md "../../../cli/latest
 deployment.
 
 For more information on using an Amazon S3 bucket for uploading files during a job
-deployment, see [Presigned URL for file
-upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload").
+deployment, see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload").
 
 ```
 **InvalidRoleException**
@@ -76,8 +71,7 @@ upload**
 The following error messages appear when encountering issues with a placeholder inside
 of a presigned URL used for uploading files to a destination Amazon S3 bucket during a job
 deployment. For more information on using an Amazon S3 bucket for uploading files during a job
-deployment and what a local placeholder is, see [Presigned URL for file
-upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload").
+deployment and what a local placeholder is, see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload").
 
 The below error message appears when the local placeholder is not recognized.
 
@@ -180,8 +174,7 @@ The following error message appears when you exceed the limit for number of loca
 placeholders used in a presigned URL for file upload during a job deployment.
 
 For more information on using a presigned URL for file upload during a job deployment,
-see [Presigned URL for file
-upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload")
+see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload")
 
 ```
 **InvalidJobDocumentException**
@@ -195,8 +188,7 @@ in the Amazon S3 bucket name for a presigned URL placeholder used for file uploa
 deployment.
 
 For more information on using a presigned URL for file upload during a job deployment,
-see [Presigned URL for file
-upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload")
+see [Presigned URL for file upload](create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload "create-manage-jobs.md#create-manage-jobs-presigned-URLs-upload")
 
 ```
 **InvalidJobDocumentException**
@@ -236,9 +228,7 @@ representing a package version artifact in a job document without an IAM role.
     "presignedUrlConfig role ARN is required to generate an S3 presigned url in job document for package %s version %s artifact."
 ```
 
-## Software Bill of Materials Error
-
-Messages
+## Software Bill of Materials Error Messages
 
 This section lists common errors associated with a software bill of materials (SBOM)
 linked to a package version.

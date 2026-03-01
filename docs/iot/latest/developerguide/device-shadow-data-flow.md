@@ -58,13 +58,9 @@ Your app or service can update a shadow's state by using the [UpdateThingShadow]
 by publishing to the [/update](device-shadow-mqtt.md#update-pub-sub-topic "device-shadow-mqtt.md#update-pub-sub-topic") topic. Updates affect only the fields
 specified in the request.
 
-### Updating a shadow when a client
+### Updating a shadow when a client requests a state change
 
-requests a state change
-
-###### When a client requests a state change in a shadow by using the MQTT
-
-protocol
+###### When a client requests a state change in a shadow by using the MQTT protocol
 
 1. The client should have a current shadow document so that it can
    identify the properties to change. See the /get action for how to obtain
@@ -101,38 +97,29 @@ protocol
         * `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
         * `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
 
-    The `/update/accepted` message contains an [/accepted
-    response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+    The `/update/accepted` message contains an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
     shadow document, and the `/update/delta` message contains a
-    [/delta response
-    state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
+    [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
     document.
 
 5.  If the update request is not valid, AWS IoT publishes a message with the
     `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
-    topic with an [Error response
-    document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
+    topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
     that describes the error.
 
-###### When a client requests a state change in a shadow by using the
+###### When a client requests a state change in a shadow by using the API
 
-API
-
-1. The client calls the `UpdateThingShadow` API with a [Request state
-   document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") state document
+1. The client calls the `UpdateThingShadow` API with a [Request state document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") state document
    as its message body.
 2. If the request was valid, AWS IoT returns an HTTP success response code
-   and an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   and an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document as its response message body.
 
 AWS IoT will also publish an MQTT message to the
 `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
-topic with a [/delta response
-state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
+topic with a [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
 document for any devices or clients that subscribe to it. 3. If the request was not valid, AWS IoT returns an HTTP error response
-code an [Error response
-document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
+code an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
 message body.
 
 When the device receives the `/desired` state on the
@@ -140,13 +127,9 @@ When the device receives the `/desired` state on the
 device. It then sends a message to the `/update` topic to report its
 current state to the shadow.
 
-### Updating a shadow when a device
+### Updating a shadow when a device reports its current state
 
-reports its current state
-
-###### When a device reports its current state to the shadow by using the MQTT
-
-protocol
+###### When a device reports its current state to the shadow by using the MQTT protocol
 
 1. The device should subscribe to these MQTT topics before updating the
    shadow:
@@ -172,34 +155,26 @@ protocol
 
 3. If AWS IoT accepts the update, it publishes a message to the
    `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
-   topics with an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   topics with an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document.
 4. If the update request is not valid, AWS IoT publishes a message with the
    `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
-   topic with an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
+   topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
    that describes the error.
 
-###### When a device reports its current state to the shadow by using the
+###### When a device reports its current state to the shadow by using the API
 
-API
-
-1. The device calls the `UpdateThingShadow` API with a [Request state
-   document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") state document
+1. The device calls the `UpdateThingShadow` API with a [Request state document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") state document
    as its message body.
 2. If the request was valid, AWS IoT updates the shadow and returns an HTTP
-   success response code with an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   success response code with an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document as its response message body.
 
 AWS IoT will also publish an MQTT message to the
 `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
-topic with a [/delta response
-state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
+topic with a [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta") shadow
 document for any devices or clients that subscribe to it. 3. If the request was not valid, AWS IoT returns an HTTP error response
-code an [Error response
-document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
+code an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
 message body.
 
 ### Optimistic locking
@@ -306,13 +281,11 @@ task is the same whether the device or a client is making the request.
    topic with an empty message body.
 3. If the request is successful, AWS IoT publishes a message to the
    `$aws/things/`thingName`/shadow/name/`shadowName`/get/accepted`
-   topic with a [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") in the
+   topic with a [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") in the
    message body.
 4. If the request was not valid, AWS IoT publishes a message to the
    `$aws/things/`thingName`/shadow/name/`shadowName`/get/rejected`
-   topic with an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") in the message
+   topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") in the message
    body.
 
 ###### To retrieve a shadow document by using a REST API
@@ -320,12 +293,10 @@ task is the same whether the device or a client is making the request.
 1. The device or client call the `GetThingShadow` API with an empty
    message body.
 2. If the request is valid, AWS IoT returns an HTTP success response code with
-   an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") shadow
+   an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") shadow
    document as its response message body.
 3. If the request is not valid, AWS IoT returns an HTTP error response code an
-   [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
+   [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
    message body.
 
 ## Deleting shadow data
@@ -345,9 +316,7 @@ the shadow document and you can delete the shadow completely.
 Deleting a shadow doesn't reset its version number to zero at once. It will be reset
 to zero after 48 hours.
 
-### Deleting a property from a shadow
-
-document
+### Deleting a property from a shadow document
 
 ###### To delete a property from a shadow by using the MQTT protocol
 
@@ -378,19 +347,16 @@ document
 4. If the update request is valid, AWS IoT deletes the specified properties
    in the shadow and publishes a messages with the
    `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
-   topic with an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   topic with an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document in the message body.
 5. If the update request is not valid, AWS IoT publishes a message with the
    `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
-   topic with an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
+   topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
    that describes the error.
 
 ###### To delete a property from a shadow by using the REST API
 
-1. The device or client calls the `UpdateThingShadow` API with a [Request state
-   document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") that assigns
+1. The device or client calls the `UpdateThingShadow` API with a [Request state document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json") that assigns
    `null` values to the properties of the shadow to delete.
    Include only the properties that you want to delete in the document.
    This is an example of a document that deletes the `engine`
@@ -407,12 +373,10 @@ document
 ```
 
 2. If the request was valid, AWS IoT returns an HTTP success response code
-   and an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   and an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document as its response message body.
 3. If the request was not valid, AWS IoT returns an HTTP error response
-   code an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
+   code an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
    message body.
 
 ### Deleting a shadow
@@ -438,8 +402,7 @@ Following are some considerations when deleting a device's shadow.
 3. If the delete request is valid, AWS IoT deletes the shadow and publishes
    a messages with the
    `$aws/things/`thingName`/shadow/name/`shadowName`/delete/accepted`
-   topic and an abbreviated [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   topic and an abbreviated [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document in the message body. This is an example of the accepted
    delete message:
 
@@ -452,8 +415,7 @@ Following are some considerations when deleting a device's shadow.
 
 4. If the update request is not valid, AWS IoT publishes a message with the
    `$aws/things/`thingName`/shadow/name/`shadowName`/delete/rejected`
-   topic with an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
+   topic with an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") shadow document
    that describes the error.
 
 ###### To delete a shadow by using the REST API
@@ -461,10 +423,8 @@ Following are some considerations when deleting a device's shadow.
 1. The device or client calls the `DeleteThingShadow` API with an empty
    message buffer.
 2. If the request was valid, AWS IoT returns an HTTP success response code
-   and an [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") and
-   an abbreviated [/accepted
-   response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
+   and an [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted") and
+   an abbreviated [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted")
    shadow document in the message body. This is an example of the accepted
    delete message:
 
@@ -476,6 +436,5 @@ Following are some considerations when deleting a device's shadow.
 ```
 
 3. If the request was not valid, AWS IoT returns an HTTP error response
-   code an [Error response
-   document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
+   code an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json") as its response
    message body.

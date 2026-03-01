@@ -10,8 +10,7 @@ objects, and arrays are stored in the device's shadow document.
 - [Delta state](#delta-state "#delta-state")
 - [Versioning shadow documents](#versioning "#versioning")
 - [Client tokens in shadow documents](#client-token "#client-token")
-- [Empty shadow document
-  properties](#device-shadow-empty-fields "#device-shadow-empty-fields")
+- [Empty shadow document properties](#device-shadow-empty-fields "#device-shadow-empty-fields")
 - [Array values in shadow documents](#device-shadow-arrays "#device-shadow-arrays")
 
 ## Shadow document examples
@@ -21,18 +20,12 @@ operations using the [REST API](device-shadow-rest-api.md "device-shadow-rest-ap
 
 ###### Examples
 
-- [Request state
-  document](#device-shadow-example-request-json "#device-shadow-example-request-json")
-- [Response state
-  documents](#device-shadow-example-response-json "#device-shadow-example-response-json")
-- [Error response
-  document](#device-shadow-example-error-json "#device-shadow-example-error-json")
-- [Shadow name list response
-  document](#device-shadow-list-json "#device-shadow-list-json")
+- [Request state document](#device-shadow-example-request-json "#device-shadow-example-request-json")
+- [Response state documents](#device-shadow-example-response-json "#device-shadow-example-response-json")
+- [Error response document](#device-shadow-example-error-json "#device-shadow-example-error-json")
+- [Shadow name list response document](#device-shadow-list-json "#device-shadow-list-json")
 
-### Request state
-
-document
+### Request state document
 
 A request state document has the following format:
 
@@ -72,16 +65,12 @@ A request state document has the following format:
   processes the update only if the specified version matches the latest
   version it has.
 
-### Response state
-
-documents
+### Response state documents
 
 Response state documents have the following format depending on the response
 type.
 
-#### /accepted
-
-response state document
+#### /accepted response state document
 
 ```
 {
@@ -113,9 +102,7 @@ response state document
 }
 ```
 
-#### /delta response
-
-state document
+#### /delta response state document
 
 ```
 {
@@ -143,9 +130,7 @@ state document
 }
 ```
 
-#### /documents
-
-response state document
+#### /documents response state document
 
 ```
 {
@@ -240,9 +225,7 @@ response state document
 }
 ```
 
-#### Response
-
-state document properties
+#### Response state document properties
 
 - `previous` — After a successful update, contains
   the `state` of the object before the update.
@@ -271,9 +254,7 @@ state document properties
   for the device's shadow shared in AWS IoT. It is increased by one over
   the previous version of the document.
 
-### Error response
-
-document
+### Error response document
 
 An error response document has the following format:
 
@@ -298,9 +279,7 @@ An error response document has the following format:
 
 For more information, see [Device Shadow error messages](device-shadow-error-messages.md "device-shadow-error-messages.md").
 
-### Shadow name list response
-
-document
+### Shadow name list response document
 
 A shadow name list response document has the following format:
 
@@ -507,9 +486,7 @@ The client token can be no longer than 64 bytes. A client token that is longer
 than 64 bytes causes a 400 (Bad Request) response and an _Invalid
 clientToken_ error message.
 
-## Empty shadow document
-
-properties
+## Empty shadow document properties
 
 The `reported` and `desired` properties in a shadow document
 can be empty or omitted when they don't apply to the current shadow state. For

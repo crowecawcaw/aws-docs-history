@@ -13,7 +13,5 @@ equal to ten.
 
 ###### Topics
 
-- [Create custom job templates by using the
-  AWS Management Console](job-templates-console.md "job-templates-console.md")
-- [Create custom job templates by using the
-  AWS CLI](job-templates-cli.md "job-templates-cli.md")
+- [Create custom job templates by using the AWS Management Console](job-templates-console.md "job-templates-console.md")
+- [Create custom job templates by using the AWS CLI](job-templates-cli.md "job-templates-cli.md")

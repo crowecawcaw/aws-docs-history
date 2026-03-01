@@ -1,24 +1,16 @@
-# Managing HTTP topic rule
-
-destinations
+# Managing HTTP topic rule destinations
 
 You can use the following operations to manage your HTTP topic rule
 destinations.
 
 ###### In this topic:
 
-- [Creating HTTP topic
-  rule destinations](#rule-destination-http-creating "#rule-destination-http-creating")
-- [Confirming HTTP topic
-  rule destinations](#rule-destination-http-confirming "#rule-destination-http-confirming")
-- [Sending a new confirmation
-  request](#trigger-confirm "#trigger-confirm")
-- [Disabling and deleting
-  a topic rule destination](#rule-destination-http-deleting "#rule-destination-http-deleting")
+- [Creating HTTP topic rule destinations](#rule-destination-http-creating "#rule-destination-http-creating")
+- [Confirming HTTP topic rule destinations](#rule-destination-http-confirming "#rule-destination-http-confirming")
+- [Sending a new confirmation request](#trigger-confirm "#trigger-confirm")
+- [Disabling and deleting a topic rule destination](#rule-destination-http-deleting "#rule-destination-http-deleting")
 
-## Creating HTTP topic
-
-rule destinations
+## Creating HTTP topic rule destinations
 
 You create an HTTP topic rule destination by calling the
 `CreateTopicRuleDestination` operation or by using the
@@ -67,16 +59,13 @@ messageType
 
 The type of message.
 
-## Confirming HTTP topic
-
-rule destinations
+## Confirming HTTP topic rule destinations
 
 To complete the endpoint confirmation process, if you're using the
 AWS CLI, you must perform the following steps after your confirmation URL
 receives the confirmation request.
 
-1. ###### Confirm that the destination is willing to receive
-   messages
+1. ###### Confirm that the destination is willing to receive messages
 
 To confirm that the topic rule destination is willing to
 receive IoT messages, either call the `enableUrl`
@@ -96,9 +85,7 @@ If you're using the AWS IoT console, copy the
 confirmation dialog in the AWS IoT console. You can then enable the topic
 rule.
 
-## Sending a new confirmation
-
-request
+## Sending a new confirmation request
 
 To activate a new confirmation message for a destination, call
 `UpdateTopicRuleDestination` and set the topic rule
@@ -107,9 +94,7 @@ destination's status to `IN_PROGRESS`.
 Repeat the confirmation process after you send a new confirmation
 request.
 
-## Disabling and deleting
-
-a topic rule destination
+## Disabling and deleting a topic rule destination
 
 To disable a destination, call `UpdateTopicRuleDestination`
 and set the topic rule destination's status to `DISABLED`. A

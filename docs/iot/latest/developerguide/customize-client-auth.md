@@ -1,6 +1,4 @@
-# Custom client certificate
-
-validation
+# Custom client certificate validation
 
 AWS IoT Core supports custom client certificate validation for X.509 client
 certificates, which enhances client authentication management. This certificate
@@ -26,17 +24,12 @@ This feature is not supported in the AWS GovCloud (US) Regions.
 
 validation involves the following steps.
 
-- [Step 1: Register your X.509
-  client certificates with AWS IoT Core](#client-auth-cert-verification "#client-auth-cert-verification")
+- [Step 1: Register your X.509 client certificates with AWS IoT Core](#client-auth-cert-verification "#client-auth-cert-verification")
 - [Step 2: Create a Lambda function](#customize-client-auth-lambda "#customize-client-auth-lambda")
-- [Step 3:
-  Authorize AWS IoT to invoke your Lambda function](#customize-client-configuration-grant-permission "#customize-client-configuration-grant-permission")
-- [Step 4: Set authentication
-  configuration for a domain](#customize-client-configuration "#customize-client-configuration")
+- [Step 3: Authorize AWS IoT to invoke your Lambda function](#customize-client-configuration-grant-permission "#customize-client-configuration-grant-permission")
+- [Step 4: Set authentication configuration for a domain](#customize-client-configuration "#customize-client-configuration")
 
-## Step 1: Register your X.509
-
-client certificates with AWS IoT Core
+## Step 1: Register your X.509 client certificates with AWS IoT Core
 
 If you haven't done this already, register and activate your [X.509 client
 certificates](x509-client-certs.md "x509-client-certs.md") with AWS IoT Core. Otherwise, skip to the next
@@ -122,9 +115,7 @@ authorization. Otherwise, the IoT client certificate can be disabled and
 custom authentication with X.509 client certificates can be blocked for
 further authentication and authorization.
 
-## Step 3:
-
-Authorize AWS IoT to invoke your Lambda function
+## Step 3: Authorize AWS IoT to invoke your Lambda function
 
 After creating the Lambda function, you must grant permission for AWS IoT to
 invoke it, by using the [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md") CLI command. Note that this Lambda function will
@@ -132,16 +123,12 @@ be invoked for every connect attempt to your configured endpoint. For more
 information, see [Authorizing AWS IoT to
 invoke your Lambda function](custom-auth-authorize.md "custom-auth-authorize.md").
 
-## Step 4: Set authentication
-
-configuration for a domain
+## Step 4: Set authentication configuration for a domain
 
 The following section describes how to set authentication configuration
 for a custom domain using the AWS CLI.
 
-### Set client certificate
-
-configuration for a domain (CLI)
+### Set client certificate configuration for a domain (CLI)
 
 If you don't have a domain configuration, use the [**create-domain-configuration**](../../../cli/latest/reference/iot/create-domain-configuration.md "../../../cli/latest/reference/iot/create-domain-configuration.md") CLI
 command to create one. If you already have a domain configuration, use

@@ -10,10 +10,8 @@ bulk registration, and the second is used for fleet provisioning.
 
 - [Parameters section](#parameters-section "#parameters-section")
 - [Resources section](#resources-section "#resources-section")
-- [Template example for bulk
-  registration](#bulk-template-example "#bulk-template-example")
-- [Template example for just-in-time
-  provisioning (JITP)](#JITP-template-example "#JITP-template-example")
+- [Template example for bulk registration](#bulk-template-example "#bulk-template-example")
+- [Template example for just-in-time provisioning (JITP)](#JITP-template-example "#JITP-template-example")
 - [Fleet provisioning](#fleet-provision-template "#fleet-provision-template")
 
 ## Parameters section
@@ -125,8 +123,7 @@ Certificate resources are declared using the following properties:
 ###### Note
 
 You can also provision devices without device certificates. For
-more information, see [Provisioning devices that don't have device
-certificates using fleet provisioning](provision-wo-cert.md "provision-wo-cert.md").
+more information, see [Provisioning devices that don't have device certificates using fleet provisioning](provision-wo-cert.md "provision-wo-cert.md").
 
 Examples:
 
@@ -315,9 +312,7 @@ The policy is declared with:
 - The type `AWS::IoT::Policy`.
 - Either the name of an existing policy or a policy document.
 
-## Template example for bulk
-
-registration
+## Template example for bulk registration
 
 The following JSON file is an example of a complete provisioning template that
 specifies the certificate with a CSR:
@@ -370,9 +365,7 @@ escaped string.)
 }
 ```
 
-## Template example for just-in-time
-
-provisioning (JITP)
+## Template example for just-in-time provisioning (JITP)
 
 The following JSON file is an example of a complete provisioning template that
 specifies an existing certificate with a certificate ID:
@@ -546,9 +539,7 @@ specify. You can use this function to construct commands or outputs
 that include values that aren't available until you create or update
 a stack.
 
-### Template example for fleet
-
-provisioning
+### Template example for fleet provisioning
 
 ```
 {

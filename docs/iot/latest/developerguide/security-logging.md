@@ -22,8 +22,7 @@ when something is wrong:
   notification sent to an Amazon Simple Notification Service (Amazon SNS) topic or Amazon EC2 Auto Scaling policy. CloudWatch alarms do not
   invoke actions simply because they are in a particular state. The state must have
   changed and been maintained for a specified number of periods. For more information,
-  see [Monitor AWS IoT alarms and metrics using
-  Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+  see [Monitor AWS IoT alarms and metrics using Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 - **Amazon CloudWatch Logs** – Monitor, store, and access your log files
   from AWS CloudTrail or other sources. Amazon CloudWatch Logs also allows you to see critical steps AWS IoT
   Device Advisor test cases take, generated events and MQTT messages sent from your

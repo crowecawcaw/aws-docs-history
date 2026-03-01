@@ -1,6 +1,4 @@
-# Associating an AWS IoT thing to an MQTT client
-
-connection
+# Associating an AWS IoT thing to an MQTT client connection
 
 An exclusive thing association is when you attach an X.509 certificate to a single
 AWS IoT thing. In this case, the certificate cannot be used with other things. By ensuring
@@ -16,8 +14,7 @@ ID with the thing name.
 ###### In this topic
 
 - [Use cases](#exclusive-thing-benefits "#exclusive-thing-benefits")
-- [How to associate a thing to a
-  connection](#exclusive-thing-how-to "#exclusive-thing-how-to")
+- [How to associate a thing to a connection](#exclusive-thing-how-to "#exclusive-thing-how-to")
 
 ## Use cases
 
@@ -53,9 +50,7 @@ with custom tags for cost allocation and add the things to these groups. For mor
 information, see [Billing
 groups](tagging-iot-billing-groups.md "tagging-iot-billing-groups.md").
 
-## How to associate a thing to a
-
-connection
+## How to associate a thing to a connection
 
 If your client ID matches your thing's name in the registry, after you attach an
 X.509 certificate to that IoT thing, AWS IoT Core will associate the client connection
@@ -67,9 +62,7 @@ associated with an exclusive thing, this certificate can only be associated with
 other things if you detach it from the exclusive thing. In this section, choose
 either AWS Management Console or AWS CLI to associate a thing to a connection.
 
-###### To attach a certificate to a thing exclusively using the
-
-AWS Management Console.
+###### To attach a certificate to a thing exclusively using the AWS Management Console.
 
 1. Open the [AWS IoT home
    page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
@@ -90,9 +83,7 @@ succeeds, you will see a banner that says "Successfully attached a
 thing to your certificate", and the thing will be added to the
 **Things** tab.
 
-###### To detach a certificate from an exclusive thing using the
-
-AWS Management Console
+###### To detach a certificate from an exclusive thing using the AWS Management Console
 
 1. Open the [AWS IoT home
    page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from
@@ -146,8 +137,7 @@ The output can look like the following.
 }
 ```
 
-For more information, see [List things associated with a principal
-V2](list-principal-things-v2.md "list-principal-things-v2.md"). 3. To list the principals associated with the specified thing along with the
+For more information, see [List things associated with a principal V2](list-principal-things-v2.md "list-principal-things-v2.md"). 3. To list the principals associated with the specified thing along with the
 attachment type, run the `list-thing-principals-v2` command . The
 attachment type refers to how the certificate is attached to the thing. An
 example command can be the following.
@@ -170,8 +160,7 @@ The output can look like the following.
 }
 ```
 
-For more information, see [List principals associated with a thing
-V2](list-thing-principals-v2.md "list-thing-principals-v2.md"). 4. To detach a certificate from a thing, run the [detach-thing-principal](../../../cli/latest/reference/iot/detach-thing-principal.md "../../../cli/latest/reference/iot/detach-thing-principal.md") command.
+For more information, see [List principals associated with a thing V2](list-thing-principals-v2.md "list-thing-principals-v2.md"). 4. To detach a certificate from a thing, run the [detach-thing-principal](../../../cli/latest/reference/iot/detach-thing-principal.md "../../../cli/latest/reference/iot/detach-thing-principal.md") command.
 
 ```
 aws iot detach-thing-principal \

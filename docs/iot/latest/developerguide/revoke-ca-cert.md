@@ -9,9 +9,7 @@ Once a certificate is revoked, it's status can't be changed. That is, the
 certificate status can't be changed to `Active` or any other
 status.
 
-## Revoke a client certificate
-
-(console)
+## Revoke a client certificate (console)
 
 ###### To revoke a client certificate using the AWS IoT console
 
@@ -28,9 +26,7 @@ status.
 If the certificate was successfully revoked, it will show as
 **Revoked** in the list of certificates.
 
-## Revoke a client certificate
-
-(CLI)
+## Revoke a client certificate (CLI)
 
 The AWS CLI provides the [**update-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html") command to revoke a
 certificate.

@@ -527,9 +527,7 @@ The result of the SELECT statement in this example is shown here.
 If the decoded value was not a valid JSON document, the decoded value would be
 returned as a string.
 
-### Decoding protobuf message
-
-payload
+### Decoding protobuf message payload
 
 You can use the decode SQL function to configure a Rule that can decode your
 protobuf message payload. For more information, see [Decoding protobuf message
@@ -708,9 +706,7 @@ Examples:
 | Object          | `String` (no conversion is applied) | The value stored in the first argument object corresponding to<br>the string key provided as the second argument.                                                                                                                                                                            |
 | Other value     | Any value                           | `Undefined`.                                                                                                                                                                                                                                                                                 |
 
-## get_dynamodb(tableName,
-
-partitionKeyName, partitionKeyValue, sortKeyName, sortKeyValue, roleArn)
+## get_dynamodb(tableName, partitionKeyName, partitionKeyValue, sortKeyName, sortKeyValue, roleArn)
 
 Retrieves data from a DynamoDB table. `get_dynamodb()` allows you to query
 a DynamoDB table while a rule is evaluated. You can filter or augment message payloads
@@ -840,9 +836,7 @@ SELECT *, get_mqtt_property('content_type') as contentType,
 FROM 'some/topic'
 ```
 
-## get_or_default(expression,
-
-defaultValue)
+## get_or_default(expression, defaultValue)
 
 Returns the default value in the second parameter if specified or else returns undefined, when the expression in the first parameter returns null, undefined, or fails. Supported by SQL version
 2016-03-23 and later.
@@ -946,9 +940,7 @@ We recommend following these best practices to maintain security when using this
 - Avoid using hardcoded secrets in rule definitions including default values
 - Use AWS Secrets Manager for managing sensitive information
 
-## get_registry_data(registryAPI,
-
-thingName, roleArn)
+## get_registry_data(registryAPI, thingName, roleArn)
 
 Retrieves AWS IoT thing registry data in an AWS IoT rule. You can read registry data
 (such as attributes, thing type, and thing groups a device belongs to) and use this
@@ -1084,9 +1076,7 @@ You can use the `get_secret` function in an authentication header in an HTTPS ru
 
 For more information about the HTTPS rule action, see [HTTP](https-rule-action.md "https-rule-action.md").
 
-## get_thing_shadow(thingName,
-
-shadowName, roleArn)
+## get_thing_shadow(thingName, shadowName, roleArn)
 
 Returns the specified shadow of the specified thing. Supported by SQL version
 2016-03-23 and later.
@@ -1348,9 +1338,7 @@ Example:
 | Null          | `Undefined`.                                                                                                             |
 | Undefined     | `Undefined`.                                                                                                             |
 
-## machinelearning_predict(modelId,
-
-roleArn, record)
+## machinelearning_predict(modelId, roleArn, record)
 
 Use the `machinelearning_predict` function to make predictions using
 the data from an MQTT message based on an Amazon SageMaker AI model. Supported by SQL
@@ -1466,14 +1454,11 @@ Examples:
 
 `numbytes("€")` = 3
 
-## parse_time(String, Long[,
-
-String])
+## parse_time(String, Long[, String])
 
 Use the `parse_time` function to format a timestamp into a
 human-readable date/time format. Supported by SQL version 2016-03-23 and later. To
-convert a timestamp string into milliseconds, see [time_to_epoch(String,
-String)](#iot-sql-function-time-to-epoch "#iot-sql-function-time-to-epoch").
+convert a timestamp string into milliseconds, see [time_to_epoch(String, String)](#iot-sql-function-time-to-epoch "#iot-sql-function-time-to-epoch").
 
 The `parse_time` function expects the following arguments:
 
@@ -1650,9 +1635,7 @@ Must be a valid regex expression. Non-string types are converted to
 the resultant string might not be a valid regular expression. If the (converted)
 argument is not valid regex, the result is `Undefined`.
 
-## regexp_replace(String, String,
-
-String)
+## regexp_replace(String, String, String)
 
 Replaces all occurrences of the second argument (regular expression) in the first
 argument with the third argument. Reference capture groups with "$". Supported by
@@ -2115,14 +2098,11 @@ Example: `tanh(2.3)` = 0.9800963962661914
 | Null          | `Undefined`.                                                                                                                                                     |
 | Undefined     | `Undefined`.                                                                                                                                                     |
 
-## time_to_epoch(String,
-
-String)
+## time_to_epoch(String, String)
 
 Use the `time_to_epoch` function to convert a timestamp string into a
 number of milliseconds in Unix epoch time. Supported by SQL version 2016-03-23 and
-later. To convert milliseconds to a formatted timestamp string, see [parse_time(String, Long[,
-String])](#iot-sql-function-parse-time "#iot-sql-function-parse-time").
+later. To convert milliseconds to a formatted timestamp string, see [parse_time(String, Long[, String])](#iot-sql-function-parse-time "#iot-sql-function-parse-time").
 
 The `time_to_epoch` function expects the following arguments:
 
@@ -2189,9 +2169,7 @@ Example:
 
 `traceid()` = "12345678-1234-1234-1234-123456789012"
 
-## transform(String, Object,
-
-Array)
+## transform(String, Object, Array)
 
 Returns an array of objects that contains the result of the specified
 transformation of the `Object` parameter on the

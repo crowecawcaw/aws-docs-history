@@ -189,8 +189,7 @@ The attribute or data value name that follows the prefix can have only alphanume
 If there' a type inconsistency between a custom field in your configuration and the
 value being indexed, fleet indexing ignores the inconsistent value for aggregation queries.
 CloudWatch Logs are helpful when troubleshooting aggregation query problems. For more information, see
-[Troubleshooting aggregation queries for the
-fleet indexing service](fleet-indexing-troubleshooting.md#aggregation-troubleshooting "fleet-indexing-troubleshooting.md#aggregation-troubleshooting").
+[Troubleshooting aggregation queries for the fleet indexing service](fleet-indexing-troubleshooting.md#aggregation-troubleshooting "fleet-indexing-troubleshooting.md#aggregation-troubleshooting").
 
 - **Custom field types**
 

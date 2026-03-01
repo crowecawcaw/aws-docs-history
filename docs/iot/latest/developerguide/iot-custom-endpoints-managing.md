@@ -6,17 +6,12 @@ following APIs: [ListDomainConfigurations](../apireference/API_ListDomainConfigu
 
 ###### In this topic:
 
-- [Viewing domain
-  configurations](#iot-custom-endpoints-managing-view "#iot-custom-endpoints-managing-view")
-- [Updating domain
-  configurations](#iot-custom-endpoints-managing-update "#iot-custom-endpoints-managing-update")
-- [Deleting domain
-  configurations](#iot-custom-endpoints-managing-delete "#iot-custom-endpoints-managing-delete")
+- [Viewing domain configurations](#iot-custom-endpoints-managing-view "#iot-custom-endpoints-managing-view")
+- [Updating domain configurations](#iot-custom-endpoints-managing-update "#iot-custom-endpoints-managing-update")
+- [Deleting domain configurations](#iot-custom-endpoints-managing-delete "#iot-custom-endpoints-managing-delete")
 - [Rotating certificates in custom domains](#iot-custom-endpoints-managing-certificates "#iot-custom-endpoints-managing-certificates")
 
-## Viewing domain
-
-configurations
+## Viewing domain configurations
 
 To return a paginated list of all domain configurations in your AWS account, use
 the [ListDomainConfigurations](../apireference/API_ListDomainConfigurations.md "../apireference/API_ListDomainConfigurations.md") API . You can see the details of a particular
@@ -26,9 +21,7 @@ specified configuration.
 
 **Example**
 
-## Updating domain
-
-configurations
+## Updating domain configurations
 
 To update the status or the custom authorizer of your domain configuration, use
 the [UpdateDomainConfiguration](../apireference/API_UpdateDomainConfiguration.md "../apireference/API_UpdateDomainConfiguration.md") API. You can set the status to
@@ -40,9 +33,7 @@ it.
 
 **Example**
 
-## Deleting domain
-
-configurations
+## Deleting domain configurations
 
 Before you delete a domain configuration, use the [UpdateDomainConfiguration](../apireference/API_UpdateDomainConfiguration.md "../apireference/API_UpdateDomainConfiguration.md") API to set the status to
 `DISABLED`. This helps you avoid accidentally deleting the endpoint.

@@ -82,8 +82,7 @@ terminal state, such as `SUCCEEDED`, `FAILED`,
 - ###### CANCELED
 
 When you cancel a job using the AWS IoT console, the [CancelJob](../apireference/API_CancelJob.md "../apireference/API_CancelJob.md") API, or
-the [Job abort
-configuration](jobs-configurations-details.md#job-abort-using "jobs-configurations-details.md#job-abort-using"), the job status changes to `CANCELED`. During job
+the [Job abort configuration](jobs-configurations-details.md#job-abort-using "jobs-configurations-details.md#job-abort-using"), the job status changes to `CANCELED`. During job
 cancellation, AWS IoT Jobs starts canceling previously created job
 executions.
 
@@ -172,8 +171,7 @@ device must invoke the `UpdateJobExecution` API with a
 status of `Failed` to indicate that the job execution
 failed. AWS IoT Jobs then updates and returns the job execution status
 as `Failed`. You can retry this job execution for the
-device using the [Job execution retry
-configuration](jobs-configurations-details.md#job-retry-configuration "jobs-configurations-details.md#job-retry-configuration").
+device using the [Job execution retry configuration](jobs-configurations-details.md#job-retry-configuration "jobs-configurations-details.md#job-retry-configuration").
 
 ![Image showing how an in-progress job execution can fail and how to retry the execution.](images/JE-inprogress-failed.png)
 
@@ -186,10 +184,8 @@ timer, AWS IoT Jobs sets the job execution status to
 `TIMED_OUT`. You also have a step timer for each job
 step of an in-progress job and applies only to the job execution.
 The in-progress timer duration is specified using the
-`inProgressTimeoutInMinutes` property of the [Job execution timeout
-configuration](jobs-configurations-details.md#job-timeout-configuration "jobs-configurations-details.md#job-timeout-configuration"). You can retry this
-job execution for the device using the [Job execution retry
-configuration](jobs-configurations-details.md#job-retry-configuration "jobs-configurations-details.md#job-retry-configuration").
+`inProgressTimeoutInMinutes` property of the [Job execution timeout configuration](jobs-configurations-details.md#job-timeout-configuration "jobs-configurations-details.md#job-timeout-configuration"). You can retry this
+job execution for the device using the [Job execution retry configuration](jobs-configurations-details.md#job-retry-configuration "jobs-configurations-details.md#job-retry-configuration").
 
 ![Image showing how an in-progress job execution can time out and how to retry the execution.](images/JE-inprogress-timedout.png)
 
@@ -212,7 +208,6 @@ execution for the device.
 
 When you cancel a job or cancel a job execution using the console
 or the `CancelJob` or `CancelJobExecution`
-API, or when the abort criteria specified using the [Job abort
-configuration](jobs-configurations-details.md#job-abort-using "jobs-configurations-details.md#job-abort-using") is
+API, or when the abort criteria specified using the [Job abort configuration](jobs-configurations-details.md#job-abort-using "jobs-configurations-details.md#job-abort-using") is
 met, AWS IoT Jobs cancels the job and sets the job execution status to
 `CANCELED`.

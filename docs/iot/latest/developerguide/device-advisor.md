@@ -65,6 +65,5 @@ and ports used.
 - [Device Advisor workflow](device-advisor-workflow.md "device-advisor-workflow.md")
 - [Device Advisor detailed console workflow](device-advisor-console-tutorial.md "device-advisor-console-tutorial.md")
 - [Long duration tests console workflow](device-advisor-long-duration-console-tutorial.md "device-advisor-long-duration-console-tutorial.md")
-- [Device Advisor VPC endpoints
-  (AWS PrivateLink)](device-advisor-vpc-endpoint.md "device-advisor-vpc-endpoint.md")
+- [Device Advisor VPC endpoints (AWS PrivateLink)](device-advisor-vpc-endpoint.md "device-advisor-vpc-endpoint.md")
 - [Device Advisor test cases](device-advisor-tests.md "device-advisor-tests.md")

@@ -1,6 +1,4 @@
-# Authorizing direct calls to AWS services
-
-using AWS IoT Core credential provider
+# Authorizing direct calls to AWS services using AWS IoT Core credential provider
 
 Devices can use X.509 certificates to connect to AWS IoT Core using TLS mutual
 authentication protocols. Other AWS services do not support certificate-based
@@ -60,9 +58,7 @@ The following diagram illustrates the credentials provider workflow.
    is written with the assumption that you have already [registered a device](register-device.md "register-device.md") and [created and
    activated your own certificate](device-certs-your-own.md "device-certs-your-own.md") for it.
 
-## How to use a certificate to get
-
-a security token
+## How to use a certificate to get a security token
 
 1. Configure the IAM role that the credentials provider assumes on behalf
    of your device. Attach the following trust policy to the role.

@@ -1,6 +1,4 @@
-# Use AWS managed templates to deploy common
-
-remote operations
+# Use AWS managed templates to deploy common remote operations
 
 AWS managed templates are job templates provided by AWS. They're used for
 frequently performed remote actions such as rebooting, downloading a file, or installing
@@ -12,9 +10,7 @@ templates without writing any additional code. Using managed templates, you can 
 job document deployed to your fleets. You can create a job using these templates and
 create a custom job template that you can reuse for your remote operations.
 
-## What do managed templates
-
-contain?
+## What do managed templates contain?
 
 Each AWS managed template contains:
 
@@ -30,8 +26,7 @@ Each AWS managed template contains:
       + A local file path on the device to store the downloaded
        file.
 
-  For more information about the job documents and its parameters, see [Managed template remote actions and
-  job documents](#job-template-manage-actions "#job-template-manage-actions").
+  For more information about the job documents and its parameters, see [Managed template remote actions and job documents](#job-template-manage-actions "#job-template-manage-actions").
 
 ## Prerequisites
 
@@ -92,9 +87,7 @@ Use the AWS IoT Device Client to run the managed template remote actions
 because it supports common microprocessors and Linux environments, like
 Debian and Ubuntu.
 
-## Managed template remote actions and
-
-job documents
+## Managed template remote actions and job documents
 
 The following section lists the different AWS managed templates for AWS IoT Jobs,
 and describes the remote actions that can be performed on the devices. The following
@@ -573,7 +566,5 @@ provided which the device will run.
 
 ###### Topics
 
-- [Create a job from AWS managed
-  templates by using the AWS Management Console](job-template-manage-console-create.md "job-template-manage-console-create.md")
-- [Create a job from AWS managed
-  templates by using the AWS CLI](job-template-manage-cli-create.md "job-template-manage-cli-create.md")
+- [Create a job from AWS managed templates by using the AWS Management Console](job-template-manage-console-create.md "job-template-manage-console-create.md")
+- [Create a job from AWS managed templates by using the AWS CLI](job-template-manage-cli-create.md "job-template-manage-cli-create.md")

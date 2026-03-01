@@ -20,14 +20,10 @@ to an SNS topic, which notifies all subscribers to the SNS topic.
 
 ###### In this tutorial, you'll:
 
-- [Step 1: Create an Amazon SNS topic that sends a
-  SMS text message](#iot-sns-rule-create-sns-topic "#iot-sns-rule-create-sns-topic")
-- [Step 2: Create an AWS IoT rule to send the text
-  message](#iot-sns-rule-create-rule "#iot-sns-rule-create-rule")
-- [Step 3: Test the AWS IoT rule and Amazon SNS
-  notification](#iot-sns-rule-test-rule "#iot-sns-rule-test-rule")
-- [Step 4: Review the results and next
-  steps](#iot-sns-rule-review-results "#iot-sns-rule-review-results")
+- [Step 1: Create an Amazon SNS topic that sends a SMS text message](#iot-sns-rule-create-sns-topic "#iot-sns-rule-create-sns-topic")
+- [Step 2: Create an AWS IoT rule to send the text message](#iot-sns-rule-create-rule "#iot-sns-rule-create-rule")
+- [Step 3: Test the AWS IoT rule and Amazon SNS notification](#iot-sns-rule-test-rule "#iot-sns-rule-test-rule")
+- [Step 4: Review the results and next steps](#iot-sns-rule-review-results "#iot-sns-rule-review-results")
 
 ###### Before you start this tutorial, make sure that you have:
 
@@ -35,8 +31,7 @@ to an SNS topic, which notifies all subscribers to the SNS topic.
 
 You'll need your AWS account and AWS IoT console to complete this tutorial.
 
-- ###### Reviewed [View MQTT messages with the AWS IoT MQTT
-  client](view-mqtt-messages.md "view-mqtt-messages.md")
+- ###### Reviewed [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md")
 
 Be sure you can use the MQTT client to subscribe and publish to a topic. You'll use
 the MQTT client to test your new rule in this procedure.
@@ -47,9 +42,7 @@ If you haven't used Amazon SNS before, review [Setting up access for
 Amazon SNS](../../../sns/latest/dg/sns-setting-up.md "../../../sns/latest/dg/sns-setting-up.md"). If you've already completed other AWS IoT tutorials, your AWS account
 should already be configured correctly.
 
-## Step 1: Create an Amazon SNS topic that sends a
-
-SMS text message
+## Step 1: Create an Amazon SNS topic that sends a SMS text message
 
 This procedure exaplains how to create the Amazon SNS topic your weather sensor can send
 message data to. The Amazon SNS topic will then notify all of its subscribers via a SMS text
@@ -109,9 +102,7 @@ charges from the messages you will send in this tutorial.
 
 Make sure you can publish test messages from the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home") before you continue the tutorial.
 
-## Step 2: Create an AWS IoT rule to send the text
-
-message
+## Step 2: Create an AWS IoT rule to send the text message
 
 The AWS IoT rule that you'll create in this tutorial subscribes to the
 `device/`device_id`/data` MQTT topics where
@@ -155,9 +146,7 @@ looks like this to the Amazon SNS topic:
 }
 ```
 
-###### To create an AWS IoT rule to detect an over-limit temperature value and create the data
-
-to send to the Amazon SNS topic
+###### To create an AWS IoT rule to detect an over-limit temperature value and create the data to send to the Amazon SNS topic
 
 1.  Open [the **Rules**
     hub of the AWS IoT console](https://console.aws.amazon.com//iot/home#/rulehub "https://console.aws.amazon.com//iot/home#/rulehub").
@@ -231,9 +220,7 @@ notification**, you can see the SNS topic that your rule will call.
 This is the only rule action you'll add to this rule. 10. To create the rule and complete this step, in **Create a rule**,
 scroll down to the bottom and choose **Create rule**.
 
-## Step 3: Test the AWS IoT rule and Amazon SNS
-
-notification
+## Step 3: Test the AWS IoT rule and Amazon SNS notification
 
 To test your new rule, you'll use the MQTT client to publish and subscribe to the MQTT
 messages used by this rule.
@@ -400,14 +387,12 @@ message.
 
 ###### Things to check
 
-    + ###### Check the AWS Region of your MQTT client and the rule that you
-     created
+    + ###### Check the AWS Region of your MQTT client and the rule that you created
 
 
     The console in which you're running the MQTT client must be in the same AWS
      Region as the rule you created.
-    + ###### Check that the temperature value in the message payload exceeds the test
-     threshold
+    + ###### Check that the temperature value in the message payload exceeds the test threshold
 
 
     If the temperature value is less than or equal to 30, as defined in the rule
@@ -465,9 +450,7 @@ message.
      a new role. New roles created by the rule action receive the authorizations
      necessary to perform these actions.
 
-## Step 4: Review the results and next
-
-steps
+## Step 4: Review the results and next steps
 
 ###### In this tutorial:
 

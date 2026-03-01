@@ -1,6 +1,4 @@
-# Test your device and save the
-
-Amazon CA cert
+# Test your device and save the Amazon CA cert
 
 The procedures in this section continue from [the previous section](iot-dc-prepare-device-sw.md "iot-dc-prepare-device-sw.md") to install the AWS Command Line Interface and
 the Certificate Authority certificate used to authenticate your connections with AWS IoT Core.
@@ -22,8 +20,7 @@ the internet.
 - [Install the AWS Command Line Interface](#iot-dc-prepare-device-test-step1 "#iot-dc-prepare-device-test-step1")
 - [Configure your AWS account credentials](#iot-dc-prepare-device-test-step2 "#iot-dc-prepare-device-test-step2")
 - [Download the Amazon Root CA certificate](#iot-dc-prepare-device-test-step3 "#iot-dc-prepare-device-test-step3")
-- [(Optional) Save the microSD card
-  image](#iot-dc-prepare-device-test-step4 "#iot-dc-prepare-device-test-step4")
+- [(Optional) Save the microSD card image](#iot-dc-prepare-device-test-step4 "#iot-dc-prepare-device-test-step4")
 
 ## Install the AWS Command Line Interface
 
@@ -180,9 +177,7 @@ If the file size is not `1188`, check the
 **curl** command parameters. You might have downloaded an
 incorrect file.
 
-## (Optional) Save the microSD card
-
-image
+## (Optional) Save the microSD card image
 
 At this point, your Raspberry Pi's microSD card has an updated OS and the basic
 application software loaded.
@@ -235,5 +230,4 @@ application software loaded.
 yet.**
 
 After you have restarted and logged in to your Raspberry Pi,
-you're ready to continue to [Tutorial: Installing and configuring the
-AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md").
+you're ready to continue to [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md").

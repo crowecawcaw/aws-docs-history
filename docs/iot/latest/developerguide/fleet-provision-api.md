@@ -36,8 +36,7 @@ certificate status changes to `ACTIVE` or `INACTIVE` as
 described in the template.
 
 For more information on creating a client certificate using your Certificate
-Authority certificate and a certificate signing request, refer to [Create a client certificate using your
-CA certificate](create-device-cert.md "create-device-cert.md").
+Authority certificate and a certificate signing request, refer to [Create a client certificate using your CA certificate](create-device-cert.md "create-device-cert.md").
 
 ###### Note
 
@@ -49,9 +48,7 @@ to a policy or a thing by the time the token expires, the certificate is
 deleted. If the token expires, the device can call `CreateCertificateFromCsr` to
 generate a new certificate.
 
-### CreateCertificateFromCsr
-
-request
+### CreateCertificateFromCsr request
 
 Publish a message with the
 `$aws/certificates/create-from-csr/`payload-format``
@@ -62,9 +59,7 @@ topic.
 The message payload format as `cbor` or
 `json`.
 
-#### CreateCertificateFromCsr
-
-request payload
+#### CreateCertificateFromCsr request payload
 
 ```
 {
@@ -76,9 +71,7 @@ request payload
 
 The CSR, in PEM format.
 
-### CreateCertificateFromCsr
-
-response
+### CreateCertificateFromCsr response
 
 Subscribe to
 `$aws/certificates/create-from-csr/`payload-format`/accepted`.
@@ -88,9 +81,7 @@ Subscribe to
 The message payload format as `cbor` or
 `json`.
 
-#### CreateCertificateFromCsr
-
-response payload
+#### CreateCertificateFromCsr response payload
 
 ```
 {
@@ -124,9 +115,7 @@ To receive error responses, subscribe to
 The message payload format as `cbor` or
 `json`.
 
-#### CreateCertificateFromCsr
-
-error payload
+#### CreateCertificateFromCsr error payload
 
 ```
 {
@@ -167,9 +156,7 @@ attached to a policy or a thing by the time the token expires, the certificate
 is deleted. If the token expires, the device can call `CreateKeysAndCertificate` to
 generate a new certificate.
 
-### CreateKeysAndCertificate
-
-request
+### CreateKeysAndCertificate request
 
 Publish a message on
 `$aws/certificates/create/`payload-format``
@@ -180,9 +167,7 @@ with an empty message payload.
 The message payload format as `cbor` or
 `json`.
 
-### CreateKeysAndCertificate
-
-response
+### CreateKeysAndCertificate response
 
 Subscribe to
 `$aws/certificates/create/`payload-format`/accepted`.
@@ -192,9 +177,7 @@ Subscribe to
 The message payload format as `cbor` or
 `json`.
 
-#### CreateKeysAndCertificate
-
-response
+#### CreateKeysAndCertificate response
 
 ```
 {
@@ -232,9 +215,7 @@ To receive error responses, subscribe to
 The message payload format as `cbor` or
 `json`.
 
-#### CreateKeysAndCertificate
-
-error payload
+#### CreateKeysAndCertificate error payload
 
 ```
 {
@@ -274,9 +255,7 @@ The message payload format as `cbor` or
 
 The provisioning template name.
 
-#### RegisterThing request
-
-payload
+#### RegisterThing request payload
 
 ```
 {
@@ -314,9 +293,7 @@ The message payload format as `cbor` or
 
 The provisioning template name.
 
-#### RegisterThing response
-
-payload
+#### RegisterThing response payload
 
 ```
 {
@@ -350,9 +327,7 @@ The message payload format as `cbor` or
 
 The provisioning template name.
 
-#### RegisterThing error response
-
-payload
+#### RegisterThing error response payload
 
 ```
 {

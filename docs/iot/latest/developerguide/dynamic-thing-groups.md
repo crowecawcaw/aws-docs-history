@@ -61,9 +61,7 @@ these groups based on the defined criteria.
 
 For more information about specifying thing groups as job targets, see [CreateJob](../apireference/API_CreateJob.md "../apireference/API_CreateJob.md").
 
-### Use dynamic group membership changes to perform
-
-desired actions
+### Use dynamic group membership changes to perform desired actions
 
 Each time a device is added to or removed from a dynamic thing group, a
 notification is sent to an MQTT topic as part of [registry
@@ -73,18 +71,14 @@ updates and take desired actions. Example actions include writing to
 Amazon DynamoDB, invoking a Lambda function, or sending a
 notification to Amazon SNS.
 
-### Add devices to a dynamic
-
-thing group for automatic violation detection
+### Add devices to a dynamic thing group for automatic violation detection
 
 AWS IoT Device Defender Detect customers can define a [security
 profile](device-defender-detect.md "device-defender-detect.md") on a dynamic thing group. Devices of the dynamic thing
 group are automatically detected for violations by the security profile
 defined on the group.
 
-### Set log levels on
-
-dynamic thing groups to observe devices with fine-grained logging
+### Set log levels on dynamic thing groups to observe devices with fine-grained logging
 
 You can specify a log level on a dynamic thing group. This is useful if
 you only want to customize logging level and detail for devices that meet
@@ -133,9 +127,7 @@ status of the group is set to `BUILDING`. When the backfill is complete,
 the status changes to `ACTIVE`. To check the status of your dynamic thing
 group, use the [DescribeThingGroup](../apireference/API_DescribeThingGroup.md "../apireference/API_DescribeThingGroup.md") command.
 
-## Describe a dynamic thing
-
-group
+## Describe a dynamic thing group
 
 Use the **DescribeThingGroup** command to get information about a
 dynamic thing group:
@@ -239,9 +231,7 @@ Commands that show which groups a thing belongs to (for example,
 **ListGroupsForThing**) might continue to show the group while
 records in the cloud are being updated.
 
-## Dynamic and Static Thing
-
-Group Limitations
+## Dynamic and Static Thing Group Limitations
 
 Dynamic thing groups and static thing groups share the following
 limitations:
@@ -252,9 +242,7 @@ limitations:
 - Thing group names can't contain international characters, such as û, é,
   and ñ.
 
-## Dynamic Thing Group
-
-Limitations
+## Dynamic Thing Group Limitations
 
 Dynamic thing groups have the following limitations:
 
@@ -273,9 +261,7 @@ groups.
 If you have permissions to query the fleet index, you can access the data
 of things across the entire fleet.
 
-### The number of dynamic thing
-
-groups is limited
+### The number of dynamic thing groups is limited
 
 The number of dynamic thing groups is [limited](../../../general/latest/gr/iot_device_management.md#thing-group-limits "../../../general/latest/gr/iot_device_management.md#thing-group-limits").
 
@@ -327,9 +313,7 @@ to meet a dynamic thing group's search query, the thing is then added to the
 group as previously described. These additions and removals are normal and don't
 produce error log entries.
 
-### With `overrideDynamicGroups`
-
-enabled, static groups take priority over dynamic groups
+### With `overrideDynamicGroups` enabled, static groups take priority over dynamic groups
 
 The number of groups to which a thing can belong is [limited](../../../general/latest/gr/iot_device_management.md#thing-limits "../../../general/latest/gr/iot_device_management.md#thing-limits"). When you use the [AddThingToThingGroup](../apireference/API_AddThingToThingGroup.md "../apireference/API_AddThingToThingGroup.md") or [UpdateThingGroupsForThing](../apireference/API_UpdateThingGroupsForThing.md "../apireference/API_UpdateThingGroupsForThing.md") commands to update thing membership,
 adding the `--overrideDynamicGroups` parameter gives static thing
@@ -359,28 +343,21 @@ When you add a thing to a static thing group, consider the following:
         group from which the thing was removed. Then, the
         thing is added to the static thing group.
 
-### Older dynamic thing groups take priority over
-
-newer ones
+### Older dynamic thing groups take priority over newer ones
 
 The number of groups to which a thing can belong is [limited](../../../general/latest/gr/iot_device_management.md#thing-limits "../../../general/latest/gr/iot_device_management.md#thing-limits"). When a create or update operation creates additional group
 eligibility for a thing and the thing has reached its group limit, removal from
 another dynamic thing group can occur to enable this addition. For more
-information about how this occurs, see [Successful commands can log errors](#log-errors "#log-errors") and [With overrideDynamicGroups
-enabled, static groups take priority over dynamic groups](#membership-limit "#membership-limit") for examples.
+information about how this occurs, see [Successful commands can log errors](#log-errors "#log-errors") and [With overrideDynamicGroups enabled, static groups take priority over dynamic groups](#membership-limit "#membership-limit") for examples.
 
 When a thing is removed from a dynamic thing group, an error is logged and an
 event is raised.
 
-### You can't apply policies to dynamic thing
-
-groups
+### You can't apply policies to dynamic thing groups
 
 Attempting to apply a policy to a dynamic thing group generates an exception.
 
-### Dynamic thing group membership is eventually
-
-consistent
+### Dynamic thing group membership is eventually consistent
 
 Only the final state of a thing is evaluated for the registry. Intermediary
 states can be skipped if states are updated rapidly. Avoid associating a rule or

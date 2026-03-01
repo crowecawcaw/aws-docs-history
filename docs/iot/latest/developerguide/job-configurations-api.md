@@ -1,6 +1,4 @@
-# Specify job configurations by using the
-
-AWS IoT Jobs API
+# Specify job configurations by using the AWS IoT Jobs API
 
 You can use the [CreateJob](../apireference/API_CreateJob.md "../apireference/API_CreateJob.md") or
 the [CreateJobTemplate](../apireference/API_CreateJobTemplate.md "../apireference/API_CreateJobTemplate.md")

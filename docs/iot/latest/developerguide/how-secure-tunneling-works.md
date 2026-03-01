@@ -35,8 +35,7 @@ side of the tunnel. For more information about local proxy, see [Local proxy](lo
 As both sides of the tunnel are connected, you can start an SSH
 session by using the local proxy on the source side.
 For more information about how to use the AWS Management Console to open a tunnel and start an
-SSH session, see [Open a tunnel and start
-SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
+SSH session, see [Open a tunnel and start SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
 
 The following video describes how secure tunneling works and walks you through
 the process of setting up an SSH session to a Raspberry Pi device.

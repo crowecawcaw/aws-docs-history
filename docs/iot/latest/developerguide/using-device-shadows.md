@@ -1,6 +1,4 @@
-# Simulating Device Shadow service
-
-communications
+# Simulating Device Shadow service communications
 
 This topic demonstrates how the Device Shadow service acts as an intermediary and
 allows devices and apps to use a shadow to update, store, and retrieve a device's
@@ -112,9 +110,7 @@ shadow, the shadow that supports a thing object named,
 _mySimulatedThing_, named,
 _simShadow1_.
 
-###### To get the current shadow state from the \*\*MQTT
-
-client\*\*
+###### To get the current shadow state from the **MQTT client**
 
 1. In the **MQTT client**, choose **Publish to a
    topic**.
@@ -215,9 +211,7 @@ If you receive a message in the topic:
 }
 ```
 
-## Send an update from the
-
-app
+## Send an update from the app
 
 This section uses the AWS CLI to demonstrate how an app can interact with a
 shadow.
@@ -336,9 +330,7 @@ If successful, this command should return the following shadow document.
 }
 ```
 
-## Respond to update in
-
-device
+## Respond to update in device
 
 Returning to the **MQTT client** in the AWS console, you should
 see the messages that AWS IoT published to reflect the update command issued in the
@@ -563,9 +555,7 @@ device in the preceding procedure.
 }
 ```
 
-## Observe the update in the
-
-app
+## Observe the update in the app
 
 The app can now query the shadow for the current state as reported by the
 device.
@@ -643,9 +633,7 @@ aws iot-data get-thing-shadow --thing-name mySimulatedThing --shadow-name simSha
 }
 ```
 
-## Going beyond the
-
-simulation
+## Going beyond the simulation
 
 Experiment with the interaction between the AWS CLI (representing the app) and the
 console (representing the device) to model your IoT solution.

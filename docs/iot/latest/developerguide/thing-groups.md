@@ -187,9 +187,7 @@ If a thing belongs to as many thing groups as possible, and one or more of
 those groups is a dynamic thing group, you can use the [**overrideDynamicGroups**](../apireference/API_AddThingToThingGroup.md#iot-AddThingToThingGroup-request-overrideDynamicGroups "../apireference/API_AddThingToThingGroup.md#iot-AddThingToThingGroup-request-overrideDynamicGroups") flag to make static
 groups take priority over dynamic groups.
 
-## Remove a thing from a static thing
-
-group
+## Remove a thing from a static thing group
 
 You can use the **RemoveThingFromThingGroup** command to remove a
 thing from a group:
@@ -433,9 +431,7 @@ show which groups a thing belongs to (for example,
 **ListGroupsForThing**) might continue to show the group while
 records in the cloud are being updated.
 
-## Attach a policy to a static thing
-
-group
+## Attach a policy to a static thing group
 
 You can use the **AttachPolicy** command to attach a policy to a
 static thing group and so, by extension, to all things in that group and things in
@@ -465,9 +461,7 @@ certificates and authentication, see [Authentication](authentication.md "authent
 For more information, see [AWS IoT Core
 policies](iot-policies.md "iot-policies.md").
 
-## Detach a policy from a static thing
-
-group
+## Detach a policy from a static thing group
 
 You can use the **DetachPolicy** command to detach a policy from a
 group and so, by extension, to all things in that group and things in any of its
@@ -479,9 +473,7 @@ $ aws iot detach-policy --target "arn:aws:iot:us-west-2:123456789012:thinggroup/
 
 The **DetachPolicy** command does not produce any output.
 
-## List the policies attached to a static thing
-
-group
+## List the policies attached to a static thing group
 
 You can use the **ListAttachedPolicies** command to list the
 policies attached to a static thing group:
@@ -532,9 +524,7 @@ the token to use to retrieve more results:
 }
 ```
 
-## Get effective policies for a
-
-thing
+## Get effective policies for a thing
 
 You can use the **GetEffectivePolicies** command to list the
 policies in effect for a thing, including the policies attached to any groups the
@@ -576,9 +566,7 @@ policies:
 }
 ```
 
-## Test authorization for MQTT
-
-actions
+## Test authorization for MQTT actions
 
 You can use the **TestAuthorization** command to test whether an
 [MQTT](mqtt.md "mqtt.md") action (`Publish`, `Subscribe`) is allowed

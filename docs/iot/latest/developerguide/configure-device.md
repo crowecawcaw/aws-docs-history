@@ -12,9 +12,6 @@ option is the best](iot-gs-first-thing.md#choosing-a-gs-system "iot-gs-first-thi
 
 ###### Device options
 
-- [Create a virtual device with
-  Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md")
-- [Use your Windows or Linux
-  PC or Mac as an AWS IoT device](using-laptop-as-device.md "using-laptop-as-device.md")
-- [Connect a Raspberry
-  Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md")
+- [Create a virtual device with Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md")
+- [Use your Windows or Linux PC or Mac as an AWS IoT device](using-laptop-as-device.md "using-laptop-as-device.md")
+- [Connect a Raspberry Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md")

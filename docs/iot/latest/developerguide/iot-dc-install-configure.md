@@ -1,6 +1,4 @@
-# Configure the AWS IoT Device Client to
-
-test connectivity
+# Configure the AWS IoT Device Client to test connectivity
 
 The procedures in this section configure the AWS IoT Device Client to publish an MQTT
 message from your Raspberry Pi.
@@ -145,5 +143,4 @@ the **MQTT test client**, you've demonstrated a successful connection. 5. In the
 the AWS IoT Device Client.
 
 After you've demonstrated that the AWS IoT Device Client is running correctly on
-your Raspberry Pi and can communicate with AWS IoT, you can continue to the [Tutorial: Demonstrate MQTT message communication with the
-AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md").
+your Raspberry Pi and can communicate with AWS IoT, you can continue to the [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md").

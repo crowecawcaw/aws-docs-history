@@ -1,6 +1,4 @@
-# Adding propagating attributes for
-
-message enrichment
+# Adding propagating attributes for message enrichment
 
 In AWS IoT Core, you can enrich MQTT messages from devices by adding propagating
 attributes, which are contextual metadata from thing attributes or connection details.
@@ -34,9 +32,7 @@ If you attempt to test this feature using the MQTT test client within console, i
 
 ## AWS Management Console
 
-###### To add propagating attributes for message enrichment using the
-
-AWS Management Console
+###### To add propagating attributes for message enrichment using the AWS Management Console
 
 1. Open the [AWS IoT home
    page](https://console.aws.amazon.com//iot/home#/home "https://console.aws.amazon.com//iot/home#/home") in the AWS IoT console. On the left navigation, from

@@ -1,6 +1,4 @@
-# Demonstrate subscribing to messages with
-
-the AWS IoT Device Client
+# Demonstrate subscribing to messages with the AWS IoT Device Client
 
 In this section, you'll
 demonstrate two types of message subscriptions:
@@ -44,9 +42,7 @@ that match those named in the `Resource` object.
     }
 ```
 
-## Subscribe to a single MQTT
-
-message topic
+## Subscribe to a single MQTT message topic
 
 This procedure demonstrates how the AWS IoT Device Client can subscribe to and log
 MQTT messages.
@@ -116,9 +112,7 @@ By viewing the message in the log file, you've demonstrated that the
 AWS IoT Device Client received the message that you published from the MQTT test
 client.
 
-## Subscribe to multiple MQTT
-
-message topic using wildcard characters
+## Subscribe to multiple MQTT message topic using wildcard characters
 
 These procedures demonstrate how the AWS IoT Device Client can subscribe to and log
 MQTT messages using wildcard characters. To do this, you'll:
@@ -130,9 +124,7 @@ MQTT messages using wildcard characters. To do this, you'll:
 3. Run the AWS IoT Device Client and publish messages from the MQTT test
    console.
 
-###### To create a config file to subscribe to multiple MQTT message topics by using
-
-a wildcard MQTT topic filter
+###### To create a config file to subscribe to multiple MQTT message topics by using a wildcard MQTT topic filter
 
 1. In the terminal window on your local host computer that's connected to
    your Raspberry Pi, open
@@ -159,9 +151,7 @@ payloads that it receives from this subscription to the file named in
 `~/dc-configs/dc-pubsub-wild-config.json`, and exit
 the editor.
 
-###### To modify the policy used by your Raspberry Pi to allow subscribing to and
-
-receiving multiple MQTT message topics
+###### To modify the policy used by your Raspberry Pi to allow subscribing to and receiving multiple MQTT message topics
 
 1. In the terminal window on your local host computer that's connected to
    your Raspberry Pi, in your favorite text editor, open
@@ -199,8 +189,7 @@ because the policy processor uses a different wild card character than
 MQTT uses.
 
 For more information about using wild card characters for topics and
-topic filters in policies, see [Using wildcard characters in MQTT and
-AWS IoT Core policies](pub-sub-policy.md#pub-sub-policy-cert "pub-sub-policy.md#pub-sub-policy-cert"). 3. In the `iot::Receive` policy statement, update the string in
+topic filters in policies, see [Using wildcard characters in MQTT and AWS IoT Core policies](pub-sub-policy.md#pub-sub-policy-cert "pub-sub-policy.md#pub-sub-policy-cert"). 3. In the `iot::Receive` policy statement, update the string in
 the Resource object to replace `subtopic` with `*`, so
 that it looks like this.
 
@@ -270,9 +259,7 @@ After deleting a policy version, retry this step.
 With the updated config file and policy, you're ready to demonstrate wild card
 subscriptions with the AWS IoT Device Client.
 
-###### To demonstrate how the AWS IoT Device Client subscribes to and receives multiple
-
-MQTT message topics
+###### To demonstrate how the AWS IoT Device Client subscribes to and receives multiple MQTT message topics
 
 1. In the **MQTT test client**, check the subscriptions. If the **MQTT test client**
    is subscribed to the to the in the `#` topic filter,
@@ -340,5 +327,4 @@ that begins with `test/dc/` should be received and logged. Messages with
 topic names that begin with any other text are ignored.
 
 After demonstrating how the AWS IoT Device Client can publish and subscribe to MQTT
-messages, continue to [Tutorial: Demonstrate remote actions (jobs) with the
-AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md").
+messages, continue to [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md").

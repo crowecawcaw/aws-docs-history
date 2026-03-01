@@ -1,6 +1,4 @@
-# Tutorial: Preparing your devices for the
-
-AWS IoT Device Client
+# Tutorial: Preparing your devices for the AWS IoT Device Client
 
 This tutorial walks you through the initialization of your Raspberry Pi to prepare it for
 the subsequent tutorials in this learning path.
@@ -12,8 +10,7 @@ development environment.
 ###### Prerequisites
 
 Before you start this tutorial, make sure that you have the items listed in
-[Prerequisites to building demos with the
-AWS IoT Device Client](iot-tutorials-dc-intro.md#iot-dc-tutorial-overview "iot-tutorials-dc-intro.md#iot-dc-tutorial-overview") available and ready to use.
+[Prerequisites to building demos with the AWS IoT Device Client](iot-tutorials-dc-intro.md#iot-dc-tutorial-overview "iot-tutorials-dc-intro.md#iot-dc-tutorial-overview") available and ready to use.
 
 This tutorial takes about 90 minutes to complete.
 
@@ -27,9 +24,6 @@ This tutorial takes about 90 minutes to complete.
 
 ###### Procedures in this tutorial
 
-- [Install and update the
-  operating system of the device](iot-dc-prepare-device-sys.md "iot-dc-prepare-device-sys.md")
-- [Install and verify required software
-  on your device](iot-dc-prepare-device-sw.md "iot-dc-prepare-device-sw.md")
-- [Test your device and save the
-  Amazon CA cert](iot-dc-prepare-device-test.md "iot-dc-prepare-device-test.md")
+- [Install and update the operating system of the device](iot-dc-prepare-device-sys.md "iot-dc-prepare-device-sys.md")
+- [Install and verify required software on your device](iot-dc-prepare-device-sw.md "iot-dc-prepare-device-sw.md")
+- [Test your device and save the Amazon CA cert](iot-dc-prepare-device-test.md "iot-dc-prepare-device-test.md")

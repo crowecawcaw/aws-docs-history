@@ -33,9 +33,7 @@ create one.
 
 You can't perform this procedure in the AWS IoT console.
 
-###### To create a CA certificate using [OpenSSL v1.1.1i](https://www.openssl.org/ "https://www.openssl.org/")
-
-tools
+###### To create a CA certificate using [OpenSSL v1.1.1i](https://www.openssl.org/ "https://www.openssl.org/") tools
 
 1. Generate a key pair.
 
@@ -62,9 +60,7 @@ certificates signed by a CA that's not Amazon's CA, you must register
 the CA certificate with AWS IoT Core so that it can verify the device
 certificate's ownership.
 
-### Register a CA
-
-certificate (console)
+### Register a CA certificate (console)
 
 ###### Note
 
@@ -78,9 +74,7 @@ in the same AWS Region. You can register your CA in
 Single-account mode by providing a verification certificate and
 proof of ownership of CA’s private key.
 
-### Register a CA certificate
-
-(CLI)
+### Register a CA certificate (CLI)
 
 You can register a CA certificate in `DEFAULT` mode
 or `SNI_ONLY` mode. A CA can be registered in
@@ -97,9 +91,7 @@ verification certificate or access to the private key, and
 you can register the CA by multiple AWS accounts in the
 same AWS Region.
 
-#### Register a CA
-
-certificate in SNI_ONLY mode (CLI) - Recommended
+#### Register a CA certificate in SNI_ONLY mode (CLI) - Recommended
 
 **Prerequisites**
 
@@ -112,9 +104,7 @@ computer before you continue:
 - [OpenSSL
   v1.1.1i](https://www.openssl.org/ "https://www.openssl.org/") or later
 
-###### To register a CA certificate in `SNI_ONLY`
-
-mode using the AWS CLI
+###### To register a CA certificate in `SNI_ONLY` mode using the AWS CLI
 
 1. Register the CA certificate with AWS IoT. Using the
    **register-ca-certificate**
@@ -152,9 +142,7 @@ To see the status of the CA certificate, use the
 more information, see [describe-ca-certificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html") in the
 _AWS CLI Command Reference_.
 
-#### Register a CA
-
-certificate in `DEFAULT` mode (CLI)
+#### Register a CA certificate in `DEFAULT` mode (CLI)
 
 **Prerequisites**
 
@@ -170,9 +158,7 @@ computer before you continue:
 - [OpenSSL
   v1.1.1i](https://www.openssl.org/ "https://www.openssl.org/") or later
 
-###### To register a CA certificate in `DEFAULT`
-
-mode using the AWS CLI
+###### To register a CA certificate in `DEFAULT` mode using the AWS CLI
 
 1. To get a registration code from AWS IoT, use
    **get-registration-code**. Save the
@@ -283,10 +269,7 @@ To see the status of the CA certificate, use the
 more information, see [describe-ca-certificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-ca-certificate.html") in the
 _AWS CLI Command Reference_.
 
-### Create a CA
-
-verification certificate to register the CA certificate in the
-console
+### Create a CA verification certificate to register the CA certificate in the console
 
 ###### Note
 
@@ -309,10 +292,7 @@ before you continue:
 - [OpenSSL
   v1.1.1i](https://www.openssl.org/ "https://www.openssl.org/") or later
 
-###### To use the command line interface to create a CA verification
-
-certificate to register your CA certificate in the
-console
+###### To use the command line interface to create a CA verification certificate to register your CA certificate in the console
 
 1. Replace
    `verification_cert_key_filename.key`
@@ -440,13 +420,9 @@ Any registered client certificates that were signed by the
 compromised CA certificate continue to work until you explicitly
 revoke each one of them.
 
-### Deactivate a CA
+### Deactivate a CA certificate (console)
 
-certificate (console)
-
-###### To deactivate a CA certificate using the AWS IoT
-
-console
+###### To deactivate a CA certificate using the AWS IoT console
 
 1. Sign in to the AWS Management Console and open the [AWS IoT
    console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
@@ -466,12 +442,9 @@ The certificate authority should show as
 
 The AWS IoT console does not provide a way to list the
 certificates that were signed by the CA you deactivated. For an
-AWS CLI option to list those certificates, see [Deactivate a CA certificate
-(CLI)](#deactivate-ca-cert-cli "#deactivate-ca-cert-cli").
+AWS CLI option to list those certificates, see [Deactivate a CA certificate (CLI)](#deactivate-ca-cert-cli "#deactivate-ca-cert-cli").
 
-### Deactivate a CA certificate
-
-(CLI)
+### Deactivate a CA certificate (CLI)
 
 The AWS CLI provides the [**update-ca-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-ca-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-ca-certificate.html") command to
 deactivate a CA certificate.

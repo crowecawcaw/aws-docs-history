@@ -52,9 +52,7 @@ For more information, see [Version attributes](preparing-to-use-software-package
 You can enter up to 50 tags. For more information, see
 [Tagging your AWS IoT resources](tagging-iot.md "tagging-iot.md"). 5. Choose **Next**.
 
-###### Associate the Software Bill of Materials to a Package Version
-
-(Optional)
+###### Associate the Software Bill of Materials to a Package Version (Optional)
 
 1. On **Step 3: Version SBOMs (Optional)** in the
    **SBOM configurations** window, choose the default SBOM

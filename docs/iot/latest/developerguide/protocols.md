@@ -22,9 +22,7 @@ The [AWS IoT Device SDKs](iot-connect-devices.md#iot-connect-device-sdks "iot-co
 support the security requirements of client connections. We recommend using the
 [AWS IoT Device SDKs](iot-connect-devices.md#iot-connect-device-sdks "iot-connect-devices.md#iot-connect-device-sdks") to connect clients to AWS IoT.
 
-## Protocols, port mappings, and
-
-authentication
+## Protocols, port mappings, and authentication
 
 How a device or client connects to the message broker is configurable
 using an [authentication
@@ -61,8 +59,7 @@ does not.
 On port 8443 HTTPS and port 443 MQTT with ALPN x-amzn-mqtt-ca, [custom authentication](custom-authentication.md "custom-authentication.md") can't be
 used.
 
-Clients connect to their AWS account's device endpoints. See [AWS IoT device data and service
-endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints") for information about how to find your
+Clients connect to their AWS account's device endpoints. See [AWS IoT device data and service endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints") for information about how to find your
 account's device endpoints.
 
 ###### Note
@@ -78,9 +75,7 @@ can generate an error such as invalid hostname.
 | MQTT over WSS              | `wss://`iot-endpoint`/mqtt`     |
 | HTTPS                      | `https://`iot-endpoint`/topics` |
 
-## Choosing an application protocol for your
-
-device communication
+## Choosing an application protocol for your device communication
 
 For most IoT device communication through the device endpoints, you'll want to
 use the Secure MQTT or MQTT over WebSocket Secure (WSS) protocols; however, the
@@ -97,15 +92,13 @@ The following table compares how AWS IoT Core uses the two high-level protocols
 | Can receive messages be missed while device was<br>offline | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
 | `clientId` field support                                   | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
 | Device disconnection detection                             | Yes                                                                                                                                                  | No                                                                                                                                                                                      |
-| Secure communications                                      | Yes. See [Protocols, port mappings, and<br>authentication](#protocol-mapping "#protocol-mapping")                                                    | Yes. See [Protocols, port mappings, and<br>authentication](#protocol-mapping "#protocol-mapping")                                                                                       |
+| Secure communications                                      | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping")                                                       | Yes. See [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping")                                                                                          |
 | Topic definitions                                          | Application defined                                                                                                                                  | Application defined                                                                                                                                                                     |
 | Message data format                                        | Application defined                                                                                                                                  | Application defined                                                                                                                                                                     |
 | Protocol overhead                                          | Lower                                                                                                                                                | Higher                                                                                                                                                                                  |
 | Power consumption                                          | Lower                                                                                                                                                | Higher                                                                                                                                                                                  |
 
-## Choosing an authentication type
-
-for your device communication
+## Choosing an authentication type for your device communication
 
 You can configure authentication type for your IoT endpoint using configurable
 endpoints. Alternatively, use default configuration and determine how your
@@ -150,20 +143,18 @@ protocols.
 
 Authenticate devices based on the port and/or application layer protocol
 negotiation (ALPN) extension that devices use. Some additional authentication
-options are not supported. For more information, see [Protocols, port mappings, and
-authentication](#protocol-mapping "#protocol-mapping").
+options are not supported. For more information, see [Protocols, port mappings, and authentication](#protocol-mapping "#protocol-mapping").
 
 The table below shows all the supported combinations of authentication types
 and application protocols.
 
-Supported combinations of authentication types and application
-protocols| Authentication type | Secure MQTT (MQTT over TLS) | MQTT over WebSocket Secure (WSS) | HTTPS | Default |
-| --- | --- | --- | --- | --- |
-| **X.509 certificate** | ✓ | | ✓ | |
-| **X.509 certificate with custom<br>authorizer** | ✓ | | ✓ | |
-| **AWS Signature Version 4<br>(SigV4)** | | ✓ | ✓ | |
-| **Custom authorizer** | ✓ | ✓ | ✓ | |
-| **Default** | | | | ✓ |
+| Supported combinations of authentication types and application protocols | Authentication type | Secure MQTT (MQTT over TLS) | MQTT over WebSocket Secure (WSS) | HTTPS | Default |
+| ------------------------------------------------------------------------ | ------------------- | --------------------------- | -------------------------------- | ----- | ------- |
+| **X.509 certificate**                                                    | ✓                   |                             | ✓                                |       |
+| **X.509 certificate with custom<br>authorizer**                          | ✓                   |                             | ✓                                |       |
+| **AWS Signature Version 4<br>(SigV4)**                                   |                     | ✓                           | ✓                                |       |
+| **Custom authorizer**                                                    | ✓                   | ✓                           | ✓                                |       |
+| **Default**                                                              |                     |                             |                                  | ✓     |
 
 ## Connection duration limits
 

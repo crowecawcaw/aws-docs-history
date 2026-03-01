@@ -32,8 +32,7 @@ Select **Save**.
     4. Choose **Next** to do the next step.
 
 ![The Device Advisor interface that allows you to configure and run tests on IoT devices.](images/additional-ld-ts.png) 6. In this step, **Create a new role** or **Select an existing role**.
-See [Create an IAM role to use as your device
-role](device-advisor-setting-up.md#da-iam-role "device-advisor-setting-up.md#da-iam-role") for details.
+See [Create an IAM role to use as your device role](device-advisor-setting-up.md#da-iam-role "device-advisor-setting-up.md#da-iam-role") for details.
 
 ![The device role step where you can create a new role or select an existing role for the device being tested. The role grants permissions for Device Advisor to perform MQTT actions like Connect, Publish, and Subscribe on behalf of the test device.](images/devicerole-ld-ts.png) 7. Review all the configurations created until this step and select **Create test suite**.
 

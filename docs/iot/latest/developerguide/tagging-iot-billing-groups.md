@@ -30,9 +30,7 @@ The following commands are available:
 - [AssociateWirelessDeviceWithThing](../../../iot-wireless/latest/apireference/API_AssociateWirelessDeviceWithThing.md "../../../iot-wireless/latest/apireference/API_AssociateWirelessDeviceWithThing.md")
 - [AssociateWirelessGatewayWithThing](../../../iot-wireless/latest/apireference/API_AssociateWirelessGatewayWithThing.md "../../../iot-wireless/latest/apireference/API_AssociateWirelessGatewayWithThing.md")
 
-## Viewing cost allocation and usage
-
-data
+## Viewing cost allocation and usage data
 
 You can use billing group tags to categorize and track your costs. When you apply tags
 to billing groups (and so to the things they include), AWS generates a cost allocation
@@ -51,8 +49,7 @@ billing groups, each device or application must:
 - Connect to the AWS IoT message broker through MQTT using only the thing's name as
   the client ID. For more information, see [Device communication protocols](protocols.md "protocols.md"). If you client ID
   doesn't match the thing name, you can enable the exclusive thing attachment to
-  establish the association. For more information, see [Associating an AWS IoT thing to an MQTT client
-  connection](exclusive-thing.md "exclusive-thing.md").
+  establish the association. For more information, see [Associating an AWS IoT thing to an MQTT client connection](exclusive-thing.md "exclusive-thing.md").
 - Authenticate using a client certificate associated with the thing.
 
 The following pricing dimensions are available for billing groups (based on the activity

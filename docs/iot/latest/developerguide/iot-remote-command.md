@@ -36,6 +36,5 @@ The AWS IoT Commands feature enables you to:
 - [Commands concepts and status](iot-remote-command-concepts.md "iot-remote-command-concepts.md")
 - [High-level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md")
 - [Create and manage commands](iot-remote-command-create-manage.md "iot-remote-command-create-manage.md")
-- [Start and monitor command
-  executions](iot-remote-command-execution-start-monitor.md "iot-remote-command-execution-start-monitor.md")
+- [Start and monitor command executions](iot-remote-command-execution-start-monitor.md "iot-remote-command-execution-start-monitor.md")
 - [Deprecate a command resource](iot-remote-command-deprecate.md "iot-remote-command-deprecate.md")

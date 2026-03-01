@@ -4,9 +4,7 @@ The procedures in this section start with the saved microSD image that has the A
 and AWS IoT Device Client installed and create the AWS IoT resources and device certificates
 that provision your Raspberry Pi in AWS IoT.
 
-## Install the microSD card in your
-
-Raspberry Pi
+## Install the microSD card in your Raspberry Pi
 
 This procedure installs the microSD card with the necessary software loaded and
 configured into the Raspberry Pi and configures your AWS account so that you can
@@ -66,9 +64,7 @@ local host computer to the Raspberry Pi and complete these procedures.
 
 This procedure creates the device certificate files for this demo.
 
-###### To create and download the device certificate files for your Raspberry
-
-Pi
+###### To create and download the device certificate files for your Raspberry Pi
 
 1. In the terminal window on your local host computer, enter these
    commands to create the device certificate files for your device.
@@ -254,5 +250,4 @@ aws iot attach-thing-principal \
 If successful, this command returns nothing.
 
 After you successfully provisioned your device in AWS IoT, you're ready to
-continue to [Configure the AWS IoT Device Client to
-test connectivity](iot-dc-install-configure.md "iot-dc-install-configure.md").
+continue to [Configure the AWS IoT Device Client to test connectivity](iot-dc-install-configure.md "iot-dc-install-configure.md").

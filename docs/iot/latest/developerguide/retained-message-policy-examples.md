@@ -1,6 +1,4 @@
-# Retained message policy
-
-examples
+# Retained message policy examples
 
 Using [retained messages](mqtt.md#mqtt-retain "mqtt.md#mqtt-retain") requires specific
 policies. Retained messages are MQTT messages published with the RETAIN flag set
@@ -9,16 +7,11 @@ common uses of retained messages.
 
 ###### In this section:
 
-- [Policy to connect
-  and publish retained messages](#retained-message-policy-examples-publish "#retained-message-policy-examples-publish")
-- [Policy to
-  connect and publish retained Will messages](#retained-message-policy-examples-publish-lwt "#retained-message-policy-examples-publish-lwt")
-- [Policy to list
-  and get retained messages](#retained-message-policy-examples-list-get "#retained-message-policy-examples-list-get")
+- [Policy to connect and publish retained messages](#retained-message-policy-examples-publish "#retained-message-policy-examples-publish")
+- [Policy to connect and publish retained Will messages](#retained-message-policy-examples-publish-lwt "#retained-message-policy-examples-publish-lwt")
+- [Policy to list and get retained messages](#retained-message-policy-examples-list-get "#retained-message-policy-examples-list-get")
 
-## Policy to connect
-
-and publish retained messages
+## Policy to connect and publish retained messages
 
 For a device to publish retained messages, the device must be able to
 connect, publish (any MQTT message), and publish MQTT retained messages. The
@@ -55,9 +48,7 @@ permission to connect, see [Connect and publish policy examples](connect-and-pub
 
 ```
 
-## Policy to
-
-connect and publish retained Will messages
+## Policy to connect and publish retained Will messages
 
 Clients can configure a message that AWS IoT Core will publish when the
 client disconnects unexpectedly. MQTT calls such a message a [_Will_ message](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag "http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html#_Will_Flag"). A client
@@ -103,9 +94,7 @@ AWS IoT Core will also retain.
 
 ```
 
-## Policy to list
-
-and get retained messages
+## Policy to list and get retained messages
 
 Services and applications can access retained messages without the need to
 support an MQTT client by calling [`ListRetainedMessages`](../apireference/API_iotdata_ListRetainedMessages.md "../apireference/API_iotdata_ListRetainedMessages.md") and

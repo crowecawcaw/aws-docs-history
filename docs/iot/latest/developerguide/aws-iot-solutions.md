@@ -13,14 +13,12 @@ productivity of industrial processes.
 
 ###### Solutions for industrial use cases
 
-- ###### [Use AWS IoT to build predictive quality models in industrial
-  operations](https://d1.awsstatic.com/IoT/Predictive%20Quality%20Infographic.pdf "https://d1.awsstatic.com/IoT/Predictive%20Quality%20Infographic.pdf")
+- ###### [Use AWS IoT to build predictive quality models in industrial operations](https://d1.awsstatic.com/IoT/Predictive%20Quality%20Infographic.pdf "https://d1.awsstatic.com/IoT/Predictive%20Quality%20Infographic.pdf")
 
 See how AWS IoT can collect and analyze data from industrial operations
 to build predictive quality models. [Learn more](https://d1.awsstatic.com/IoT/AWS%20Industrial%20-%20Predictive%20Quality%20Reference%20Architecture.pdf "https://d1.awsstatic.com/IoT/AWS%20Industrial%20-%20Predictive%20Quality%20Reference%20Architecture.pdf")
 
-- ###### [Use AWS IoT to support predictive maintenance in industrial
-  operations](https://d1.awsstatic.com/IoT/Predictive%20Maintenance%20Infographic.pdf "https://d1.awsstatic.com/IoT/Predictive%20Maintenance%20Infographic.pdf")
+- ###### [Use AWS IoT to support predictive maintenance in industrial operations](https://d1.awsstatic.com/IoT/Predictive%20Maintenance%20Infographic.pdf "https://d1.awsstatic.com/IoT/Predictive%20Maintenance%20Infographic.pdf")
 
 See how AWS IoT can help plan preventive maintenance to reduce unplanned
 downtime. [Learn more](https://d1.awsstatic.com/IoT/AWS%20Industrial%20-%20Predictive%20Maintenance%20Reference%20Architecture.pdf "https://d1.awsstatic.com/IoT/AWS%20Industrial%20-%20Predictive%20Maintenance%20Reference%20Architecture.pdf")

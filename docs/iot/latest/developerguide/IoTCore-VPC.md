@@ -13,28 +13,19 @@ Amazon VPC, refer to the options listed in the [Network-to-Amazon VPC connectivi
 
 ###### Contents
 
-- [Creating VPC endpoints for AWS IoT Core control
-  plane](#Create-VPC-endpoints-CP "#Create-VPC-endpoints-CP")
-- [Creating VPC endpoints for AWS IoT Core data
-  plane](#Create-VPC-endpoints "#Create-VPC-endpoints")
-- [Creating VPC endpoints for
-  AWS IoT Core credential provider](#Create-VPC-endpoints-credential-provider "#Create-VPC-endpoints-credential-provider")
-- [Creating an Amazon VPC interface
-  endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc")
-- [Configure a private hosted
-  zone](#connect-iot-core-create-phz-lns "#connect-iot-core-create-phz-lns")
-- [Controlling Access to AWS IoT Core over VPC
-  endpoints](#Control-VPC-access "#Control-VPC-access")
+- [Creating VPC endpoints for AWS IoT Core control plane](#Create-VPC-endpoints-CP "#Create-VPC-endpoints-CP")
+- [Creating VPC endpoints for AWS IoT Core data plane](#Create-VPC-endpoints "#Create-VPC-endpoints")
+- [Creating VPC endpoints for AWS IoT Core credential provider](#Create-VPC-endpoints-credential-provider "#Create-VPC-endpoints-credential-provider")
+- [Creating an Amazon VPC interface endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc")
+- [Configure a private hosted zone](#connect-iot-core-create-phz-lns "#connect-iot-core-create-phz-lns")
+- [Controlling Access to AWS IoT Core over VPC endpoints](#Control-VPC-access "#Control-VPC-access")
 - [Limitations](#VPC-limitations "#VPC-limitations")
 - [Scaling VPC endpoints with AWS IoT Core](#Scaling-VPC-endpoints "#Scaling-VPC-endpoints")
 - [Using custom domains with VPC endpoints](#VPC-custom-domains "#VPC-custom-domains")
 - [Availability of VPC endpoints for AWS IoT Core](#VPC-availability "#VPC-availability")
-- [Using AWS IoT Device Management secure tunneling with interface VPC
-  endpoints](IoTCore-ST-VPC.md "IoTCore-ST-VPC.md")
+- [Using AWS IoT Device Management secure tunneling with interface VPC endpoints](IoTCore-ST-VPC.md "IoTCore-ST-VPC.md")
 
-## Creating VPC endpoints for AWS IoT Core control
-
-plane
+## Creating VPC endpoints for AWS IoT Core control plane
 
 You can create a VPC endpoint for AWS IoT Core control plane API to connect your devices to
 AWS IoT services and other AWS services. To get started with VPC endpoints, [create
@@ -50,9 +41,7 @@ aws ec2 describe-vpc-endpoint-services --service-name com.amazonaws.us-east-1.io
 See the detailed instructions below to [Create an Amazon VPC interface
 endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc") for AWS IoT Core control plane.
 
-## Creating VPC endpoints for AWS IoT Core data
-
-plane
+## Creating VPC endpoints for AWS IoT Core data plane
 
 You can create a VPC endpoint for AWS IoT Core data plane API to connect your devices to
 AWS IoT services and other AWS services. To get started with VPC endpoints, [create
@@ -90,9 +79,7 @@ See the detailed instructions below to [Create an Amazon VPC interface
 endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc") and [Configure
 private hosted zone](#connect-iot-core-create-phz-lns "#connect-iot-core-create-phz-lns") for AWS IoT Core data plane.
 
-## Creating VPC endpoints for
-
-AWS IoT Core credential provider
+## Creating VPC endpoints for AWS IoT Core credential provider
 
 You can create a VPC endpoint for AWS IoT Core [credential
 provider](authorizing-direct-aws.md "authorizing-direct-aws.md") to connect devices using client certificate-based authentication
@@ -134,9 +121,7 @@ See the detailed instructions below to [Create an Amazon VPC interface
 endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc") and [Configure
 private hosted zone](#connect-iot-core-create-phz-lns "#connect-iot-core-create-phz-lns") for AWS IoT Core credential provider.
 
-## Creating an Amazon VPC interface
-
-endpoint
+## Creating an Amazon VPC interface endpoint
 
 You can create an interface VPC endpoint to connect to AWS services powered by
 AWS PrivateLink. Use the following procedure to create an interface VPC endpoint that
@@ -221,9 +206,7 @@ created in this section to [configure
 your private hosted zone](#connect-iot-core-create-phz-lns "#connect-iot-core-create-phz-lns"). If you are using AWS IoT Core control plane, you do
 not need to configure a private hosted zone.
 
-## Configure a private hosted
-
-zone
+## Configure a private hosted zone
 
 ###### Note
 
@@ -259,9 +242,7 @@ The processes to configure private hosted zone for AWS IoT Core data plane and
 AWS IoT Core credential provider are similar, but you must make endpoint specific
 changes to make the connection work.
 
-### Create a
-
-private hosted zone
+### Create a private hosted zone
 
 **To create a private hosted zone using Route 53
 console**
@@ -295,9 +276,7 @@ iot:Data-ATS`, or `aws iot describe-endpoint
 For more information, see [Creating a
 private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md "../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md").
 
-### Create a
-
-record
+### Create a record
 
 After you have created a private hosted zone, you can create a record that tells
 the DNS how you want traffic to be routed to that domain.
@@ -330,17 +309,14 @@ address and some AWS resources`. If you want dual-stack
    - For **Value/Route traffic to**, choose
      **Alias to VPC endpoint**. Then choose your
      **Region** and then choose the endpoint that
-     you created previously, as described in [Creating an Amazon VPC interface
-     endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc")
+     you created previously, as described in [Creating an Amazon VPC interface endpoint](#Create-VPC-endpoints-core-create-vpc "#Create-VPC-endpoints-core-create-vpc")
      from the list
      of endpoints displayed.
 
 6. Choose **Define simple record** to create your
    record.
 
-## Controlling Access to AWS IoT Core over VPC
-
-endpoints
+## Controlling Access to AWS IoT Core over VPC endpoints
 
 You can restrict device access to AWS IoT Core to be allowed only through VPC endpoint by
 using VPC [condition context
@@ -400,9 +376,7 @@ provider](authorizing-direct-aws.md "authorizing-direct-aws.md") endpoints. VPC 
 Information Processing Standard (FIPS) endpoints](iot-connect-fips.md "iot-connect-fips.md") when using the AWS IoT Core
 control plane.
 
-### Limitations of IoT control plane VPC
-
-endpoints
+### Limitations of IoT control plane VPC endpoints
 
 This section covers the limitations of IoT control plane VPC endpoints.
 
@@ -410,9 +384,7 @@ This section covers the limitations of IoT control plane VPC endpoints.
 - Custom domains are not supported for control plane endpoints.
 - For information regarding FIPS security policies, see [FIPS security policies](../../../elasticloadbalancing/latest/application/describe-ssl-policies.md#fips-security-policies "../../../elasticloadbalancing/latest/application/describe-ssl-policies.md#fips-security-policies").
 
-### Limitations of IoT data VPC
-
-endpoints
+### Limitations of IoT data VPC endpoints
 
 This section covers the limitations of IoT data VPC endpoints.
 
@@ -428,9 +400,7 @@ This section covers the limitations of IoT data VPC endpoints.
 - For VPC endpoints that are created for the AWS IoT Core data plane, AWS IoT Core
   doesn't support using zonal or regional public DNS records.
 
-### Limitations of credential
-
-provider endpoints
+### Limitations of credential provider endpoints
 
 This section covers the limitations of credential provider VPC endpoints.
 

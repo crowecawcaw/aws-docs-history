@@ -1,6 +1,4 @@
-# Troubleshoot problems with the
-
-sample application
+# Troubleshoot problems with the sample application
 
 If you encounter an error when you try to run the sample app, here are some
 things to check.
@@ -42,9 +40,7 @@ the steps in [Create a thing object](create-iot-resources.md#create-aws-thing "c
 you will need to give it a new thing name and download the new certificate
 files to your device.
 
-## Check the policy attached to the
-
-certificate
+## Check the policy attached to the certificate
 
 Policies authorize actions in AWS IoT. If the certificate used to connect to
 AWS IoT does not have a policy, or does not have a policy that allows it to
@@ -80,9 +76,7 @@ Windows systems.
 Review the command you entered and double-check the endpoint address in
 your command to the one in your [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
 
-## Check the file names of the
-
-certificate files
+## Check the file names of the certificate files
 
 Compare the file names in the command you entered to the file names of the
 certificate files in the `certs` directory.

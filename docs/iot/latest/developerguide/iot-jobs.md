@@ -16,8 +16,7 @@ Sign in to the AWS Management Console, and go to the AWS IoT console. In the nav
 choose **Manage**, and then choose **Jobs**. You
 can create and manage jobs from this section. If you want to create and manage job
 templates, in the navigation pane, choose **Job templates**. For
-more information, see [Create and manage jobs by using the
-AWS Management Console](manage-job-console.md "manage-job-console.md").
+more information, see [Create and manage jobs by using the AWS Management Console](manage-job-console.md "manage-job-console.md").
 
 ###### Using the API or CLI
 

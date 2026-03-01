@@ -4,8 +4,7 @@ A Lambda (`lambda`) action invokes an AWS Lambda function, passing in an
 MQTT message. AWS IoT invokes Lambda functions asynchronously.
 
 You can follow a tutorial that shows you how to create and test a rule with a
-Lambda action. For more information, see [Tutorial: Formatting a notification by using an AWS Lambda
-function](iot-lambda-rule.md "iot-lambda-rule.md").
+Lambda action. For more information, see [Tutorial: Formatting a notification by using an AWS Lambda function](iot-lambda-rule.md "iot-lambda-rule.md").
 
 ## Requirements
 
@@ -149,5 +148,4 @@ in an AWS IoT rule.
 
 - [What is AWS Lambda?](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md") in the
   _AWS Lambda Developer Guide_
-- [Tutorial: Formatting a notification by using an AWS Lambda
-  function](iot-lambda-rule.md "iot-lambda-rule.md")
+- [Tutorial: Formatting a notification by using an AWS Lambda function](iot-lambda-rule.md "iot-lambda-rule.md")

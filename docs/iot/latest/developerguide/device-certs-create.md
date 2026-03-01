@@ -16,9 +16,7 @@ attributes are immutable only after the certificate is created.
 You can use the AWS IoT console or the AWS CLI to create an AWS IoT certificate
 signed by the Amazon Root certificate authority.
 
-## Create an AWS IoT certificate
-
-(console)
+## Create an AWS IoT certificate (console)
 
 ###### To create an AWS IoT certificate using the AWS IoT console
 
@@ -42,8 +40,7 @@ client.
 
 To activate the client certificate now, choose
 **Activate**. If you don't want to activate
-the certificate now, see [Activate a client certificate
-(console)](activate-or-deactivate-device-cert.md#activate-device-cert-console "activate-or-deactivate-device-cert.md#activate-device-cert-console") to learn how to
+the certificate now, see [Activate a client certificate (console)](activate-or-deactivate-device-cert.md#activate-device-cert-console "activate-or-deactivate-device-cert.md#activate-device-cert-console") to learn how to
 activate the certificate later. 6. If you want to attach a policy to the certificate, choose
 **Attach a policy**.
 
@@ -54,15 +51,12 @@ later.
 After you complete the procedure, install the certificate files on the
 client.
 
-## Create an AWS IoT certificate
-
-(CLI)
+## Create an AWS IoT certificate (CLI)
 
 The AWS CLI provides the **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html")** command to create
 client certificates signed by the Amazon Root certificate authority. This
 command, however, does not download the Amazon Root CA certificate file. You
-can download the Amazon Root CA certificate file from [CA certificates for server
-authentication](server-authentication.md#server-authentication-certs "server-authentication.md#server-authentication-certs").
+can download the Amazon Root CA certificate file from [CA certificates for server authentication](server-authentication.md#server-authentication-certs "server-authentication.md#server-authentication-certs").
 
 This command creates private key, public key, and X.509 certificate files
 and registers and activates the certificate with AWS IoT.
@@ -78,8 +72,7 @@ aws iot create-keys-and-certificate \
 
 If you don't want to activate the certificate when you create and register
 it, this command creates private key, public key, and X.509 certificate
-files and registers the certificate, but it does not activate it. [Activate a client certificate
-(CLI)](activate-or-deactivate-device-cert.md#activate-device-cert-cli "activate-or-deactivate-device-cert.md#activate-device-cert-cli") describes how to activate the
+files and registers the certificate, but it does not activate it. [Activate a client certificate (CLI)](activate-or-deactivate-device-cert.md#activate-device-cert-cli "activate-or-deactivate-device-cert.md#activate-device-cert-cli") describes how to activate the
 certificate later.
 
 ```

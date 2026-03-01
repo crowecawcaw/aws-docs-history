@@ -1,6 +1,4 @@
-# Install and verify required software
-
-on your device
+# Install and verify required software on your device
 
 The procedures in this section continue from [the previous section](iot-dc-prepare-device-sys.md "iot-dc-prepare-device-sys.md") to bring your
 Raspberry Pi's operating system up to date and install the software on the Raspberry Pi
@@ -30,10 +28,8 @@ documentation for your device's software.
 ###### Procedures in this section:
 
 - [Update operating system software](#iot-dc-prepare-device-sw-step1 "#iot-dc-prepare-device-sw-step1")
-- [Install the required applications
-  and libraries](#iot-dc-prepare-device-sw-step2 "#iot-dc-prepare-device-sw-step2")
-- [(Optional) Save the microSD card
-  image](#iot-dc-prepare-device-sw-step3 "#iot-dc-prepare-device-sw-step3")
+- [Install the required applications and libraries](#iot-dc-prepare-device-sw-step2 "#iot-dc-prepare-device-sw-step2")
+- [(Optional) Save the microSD card image](#iot-dc-prepare-device-sw-step3 "#iot-dc-prepare-device-sw-step3")
 
 ## Update operating system software
 
@@ -150,12 +146,9 @@ settings.
    your local host computer to your Raspberry Pi.
 
 Your Raspberry Pi system software is now configured and you're ready to continue
-to [Install the required applications
-and libraries](#iot-dc-prepare-device-sw-step2 "#iot-dc-prepare-device-sw-step2").
+to [Install the required applications and libraries](#iot-dc-prepare-device-sw-step2 "#iot-dc-prepare-device-sw-step2").
 
-## Install the required applications
-
-and libraries
+## Install the required applications and libraries
 
 This procedure installs the application software and libraries that the subsequent
 tutorials use.
@@ -166,9 +159,7 @@ computer. If you must compile software for your IoT device on your local host
 computer, review the software documentation for your IoT device for information
 about how to do these steps on your device.
 
-###### To install the application software and libraries on your Raspberry
-
-Pi
+###### To install the application software and libraries on your Raspberry Pi
 
 1. Enter this command to install the application software and
    libraries.
@@ -195,12 +186,9 @@ git --version`
    - `git`: 2.20.1 or later
 
 If your Raspberry Pi has acceptable versions of the required application software,
-you're ready to continue to [(Optional) Save the microSD card
-image](#iot-dc-prepare-device-sw-step3 "#iot-dc-prepare-device-sw-step3").
+you're ready to continue to [(Optional) Save the microSD card image](#iot-dc-prepare-device-sw-step3 "#iot-dc-prepare-device-sw-step3").
 
-## (Optional) Save the microSD card
-
-image
+## (Optional) Save the microSD card image
 
 Throughout the tutorials in this learning path, you'll encounter these procedures
 to save a copy of the Raspberry Pi's microSD card image to a file on your local host

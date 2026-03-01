@@ -346,8 +346,7 @@ package version referenced in the job document match the software package and
 package version stated in the `destinationPackageVersions` parameter in
 the `CreateJob` API operation. If they don't match, you will receive an
 error message prompting you to make both references match. For more information on
-Software Package Catalog error messages, see [General Troubleshooting Error
-Messages](software-package-catalog-troubleshooting.md#spc-general-troubleshooting "software-package-catalog-troubleshooting.md#spc-general-troubleshooting").
+Software Package Catalog error messages, see [General Troubleshooting Error Messages](software-package-catalog-troubleshooting.md#spc-general-troubleshooting "software-package-catalog-troubleshooting.md#spc-general-troubleshooting").
 
 In addition to the software packages and package versions referenced in the job
 document, you can include additional software packages and package versions in the

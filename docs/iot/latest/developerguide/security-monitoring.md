@@ -1,6 +1,4 @@
-# Security monitoring of production fleets or devices
-
-with AWS IoT Core
+# Security monitoring of production fleets or devices with AWS IoT Core
 
 IoT fleets can consist of large numbers of devices that have diverse capabilities, are
 long-lived, and are geographically distributed. These characteristics make fleet setup

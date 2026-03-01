@@ -27,9 +27,7 @@ functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../..
 AWS IoT works with both AWS IoT and IAM policies. This topic discusses only IAM policies,
 which defines a policy action for control plane and data plane API operations. See also [AWS IoT Core policies](iot-policies.md "iot-policies.md").
 
-## AWS managed policy:
-
-AWSIoTConfigAccess
+## AWS managed policy: AWSIoTConfigAccess
 
 You can attach the `AWSIoTConfigAccess` policy to your IAM identities.
 
@@ -210,9 +208,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTConfigReadOnlyAccess
+## AWS managed policy: AWSIoTConfigReadOnlyAccess
 
 You can attach the `AWSIoTConfigReadOnlyAccess` policy to your IAM
 identities.
@@ -312,9 +308,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTDataAccess
+## AWS managed policy: AWSIoTDataAccess
 
 You can attach the `AWSIoTDataAccess` policy to your IAM identities.
 
@@ -352,9 +346,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTFullAccess
+## AWS managed policy: AWSIoTFullAccess
 
 You can attach the `AWSIoTFullAccess` policy to your IAM identities.
 
@@ -387,9 +379,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTLogging
+## AWS managed policy: AWSIoTLogging
 
 You can attach the `AWSIoTLogging` policy to your IAM identities.
 
@@ -428,9 +418,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTOTAUpdate
+## AWS managed policy: AWSIoTOTAUpdate
 
 You can attach the `AWSIoTOTAUpdate` policy to your IAM identities.
 
@@ -460,9 +448,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTRuleActions
+## AWS managed policy: AWSIoTRuleActions
 
 You can attach the `AWSIoTRuleActions` policy to your IAM identities.
 
@@ -510,9 +496,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS managed policy:
-
-AWSIoTThingsRegistration
+## AWS managed policy: AWSIoTThingsRegistration
 
 You can attach the `AWSIoTThingsRegistration` policy to your IAM
 identities.
@@ -575,9 +559,7 @@ This policy includes the following permissions.
 
 ```
 
-## AWS IoT updates to AWS managed
-
-policies
+## AWS IoT updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS IoT since this
 service began tracking these changes. For automatic alerts about changes to this page,

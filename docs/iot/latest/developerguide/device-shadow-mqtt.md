@@ -82,8 +82,7 @@ device's shadow:
 `ShadowTopicPrefix`/get/accepted
 ```
 
-For more information, see [Response state
-documents](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json").
+For more information, see [Response state documents](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json").
 
 ### Example policy
 
@@ -125,8 +124,7 @@ device's shadow:
 `ShadowTopicPrefix`/get/rejected
 ```
 
-For more information, see [Error response
-document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+For more information, see [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
 
 ### Example policy
 
@@ -232,8 +230,7 @@ for `desired` and `reported` states:
 `ShadowTopicPrefix`/update/delta
 ```
 
-The message buffer contains a [/delta response
-state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta").
+The message buffer contains a [/delta response state document](device-shadow-document.md#device-shadow-example-response-json-delta "device-shadow-document.md#device-shadow-example-response-json-delta").
 
 ### Message body details
 
@@ -292,8 +289,7 @@ for the device's shadow:
 `ShadowTopicPrefix`/update/accepted
 ```
 
-The message buffer contains a [/accepted
-response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted").
+The message buffer contains a [/accepted response state document](device-shadow-document.md#device-shadow-example-response-json-accepted "device-shadow-document.md#device-shadow-example-response-json-accepted").
 
 ### Example policy
 
@@ -335,8 +331,7 @@ successfully performed:
 `ShadowTopicPrefix`/update/documents
 ```
 
-The message body contains a [/documents
-response state document](device-shadow-document.md#device-shadow-example-response-json-documents "device-shadow-document.md#device-shadow-example-response-json-documents").
+The message body contains a [/documents response state document](device-shadow-document.md#device-shadow-example-response-json-documents "device-shadow-document.md#device-shadow-example-response-json-documents").
 
 ### Example policy
 
@@ -378,8 +373,7 @@ for the device's shadow:
 `ShadowTopicPrefix`/update/rejected
 ```
 
-The message body contains an [Error response
-document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+The message body contains an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
 
 ### Example policy
 
@@ -496,8 +490,7 @@ device's shadow:
 `ShadowTopicPrefix`/delete/rejected
 ```
 
-The message body contains an [Error response
-document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
+The message body contains an [Error response document](device-shadow-document.md#device-shadow-example-error-json "device-shadow-document.md#device-shadow-example-error-json").
 
 ### Example policy
 

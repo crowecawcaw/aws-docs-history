@@ -1,6 +1,4 @@
-# Step 2: Create the AWS IoT thing,
-
-certificate, and private key
+# Step 2: Create the AWS IoT thing, certificate, and private key
 
 Create a thing in the AWS IoT registry to represent your Raspberry Pi.
 

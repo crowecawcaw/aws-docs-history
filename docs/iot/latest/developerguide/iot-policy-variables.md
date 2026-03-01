@@ -13,8 +13,7 @@ as a wildcard, matching any characters. For example, you can use `*` to
 describe multiple MQTT topic names in the `Resource` attribute of a
 policy. The characters `+` and `#` are treated as literal
 strings in a policy. For an example policy that shows how to use wildcards, see
-[Using wildcard characters in MQTT and
-AWS IoT Core policies](pub-sub-policy.md#pub-sub-policy-cert "pub-sub-policy.md#pub-sub-policy-cert").
+[Using wildcard characters in MQTT and AWS IoT Core policies](pub-sub-policy.md#pub-sub-policy-cert "pub-sub-policy.md#pub-sub-policy-cert").
 
 You can also use predefined policy variables with fixed values to represent
 characters that otherwise have special meaning. These special characters include
@@ -24,8 +23,6 @@ elements: Variables and tags](../../../IAM/latest/UserGuide/reference_policies_v
 
 ###### Topics
 
-- [Basic AWS IoT Core policy
-  variables](basic-policy-variables.md "basic-policy-variables.md")
+- [Basic AWS IoT Core policy variables](basic-policy-variables.md "basic-policy-variables.md")
 - [Thing policy variables](thing-policy-variables.md "thing-policy-variables.md")
-- [X.509 Certificate AWS IoT Core policy
-  variables](cert-policy-variables.md "cert-policy-variables.md")
+- [X.509 Certificate AWS IoT Core policy variables](cert-policy-variables.md "cert-policy-variables.md")

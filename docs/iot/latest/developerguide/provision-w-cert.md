@@ -1,6 +1,4 @@
-# Provisioning devices that have device
-
-certificates
+# Provisioning devices that have device certificates
 
 AWS IoT provides three ways to provision devices when they already have a device
 certificate (and associated private key) on them:

@@ -16,7 +16,5 @@ following shows when you can specify these configurations.
 
 ###### Topics
 
-- [Specify job configurations by using the
-  AWS Management Console](job-configurations-console.md "job-configurations-console.md")
-- [Specify job configurations by using the
-  AWS IoT Jobs API](job-configurations-api.md "job-configurations-api.md")
+- [Specify job configurations by using the AWS Management Console](job-configurations-console.md "job-configurations-console.md")
+- [Specify job configurations by using the AWS IoT Jobs API](job-configurations-api.md "job-configurations-api.md")

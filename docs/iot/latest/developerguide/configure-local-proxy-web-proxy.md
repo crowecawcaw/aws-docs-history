@@ -1,6 +1,4 @@
-# Configure local proxy for devices
-
-that use web proxy
+# Configure local proxy for devices that use web proxy
 
 You can use local proxy on AWS IoT devices to communicate with AWS IoT secure
 tunneling APIs. The local proxy transmits data sent by the device application using
@@ -43,8 +41,7 @@ The following steps show how the local proxy works with a web proxy.
 
 - [Build the local proxy](#build-local-proxy "#build-local-proxy")
 - [Configure your web proxy](#configure-web-proxy "#configure-web-proxy")
-- [Configure and start the local
-  proxy](#configure-start-local-proxy "#configure-start-local-proxy")
+- [Configure and start the local proxy](#configure-start-local-proxy "#configure-start-local-proxy")
 
 ## Build the local proxy
 
@@ -120,9 +117,7 @@ export HTTPS_PROXY=http:`//server.com:1234`
 curl -I https://aws.amazon.com
 ```
 
-## Configure and start the local
-
-proxy
+## Configure and start the local proxy
 
 To configure the local proxy to use a web proxy, you must configure the
 `HTTPS_PROXY` environment variable with either the DNS domain
@@ -152,9 +147,7 @@ The commands shown in the following examples depend on the operating system
 that you use and whether the web proxy is listening on an HTTP or an HTTPS
 port.
 
-### Web proxy listening on an
-
-HTTP port
+### Web proxy listening on an HTTP port
 
 If your web proxy is listening on an HTTP port, you can provide the web
 proxy URL or IP address for the `HTTPS_PROXY` variable.
@@ -206,9 +199,7 @@ set HTTPS_PROXY=http://`username`:`password`@`10.15.20.25:1234`
 .\localproxy -r us-east-1 -d 22
 ```
 
-### Web proxy listening on
-
-an HTTPS port
+### Web proxy listening on an HTTPS port
 
 Run the following commands if your web proxy is listening on an HTTPS
 port.
@@ -269,9 +260,7 @@ set HTTPS_PROXY=http://`username`:`password`@`10.15.20.25:1234`
 .\localproxy -r us-east-1 -d 22 -c `\path\to\certs`
 ```
 
-### Example command and
-
-output
+### Example command and output
 
 The following shows an example of a command that you run on a Linux OS and
 the corresponding output. The example shows a web proxy that's listening on

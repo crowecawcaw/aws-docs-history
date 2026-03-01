@@ -4,8 +4,7 @@ You can run the local proxy on the source and destination devices to transmit da
 to the secure tunneling endpoints. If your devices are in a network that use a web
 proxy, the web proxy can intercept the connections before forwarding them to the
 internet. In this case, you'll need to configure your local proxy to use the web
-proxy. For more information, see [Configure local proxy for devices
-that use web proxy](configure-local-proxy-web-proxy.md "configure-local-proxy-web-proxy.md").
+proxy. For more information, see [Configure local proxy for devices that use web proxy](configure-local-proxy-web-proxy.md "configure-local-proxy-web-proxy.md").
 
 ## Local proxy workflow
 
@@ -49,8 +48,7 @@ calling `CloseTunnel`. Active tunnel clients might not be
 closed right after calling `CloseTunnel`.
 
 For more information about how to use the AWS Management Console to open a tunnel and start
-an SSH session, see [Open a tunnel and start
-SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
+an SSH session, see [Open a tunnel and start SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
 
 ## Local proxy best practices
 
@@ -75,9 +73,7 @@ When running the local proxy, follow these best practices:
   argument to bind the TCP socket to the network interface used to
   communicate with the destination application.
 
-## Example command and
-
-output
+## Example command and output
 
 The following shows an example of a command that you run and the corresponding
 output. The example shows how the local proxy can be configured in both

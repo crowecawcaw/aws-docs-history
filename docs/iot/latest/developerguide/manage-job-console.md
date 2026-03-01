@@ -1,6 +1,4 @@
-# Create and manage jobs by using the
-
-AWS Management Console
+# Create and manage jobs by using the AWS Management Console
 
 This section describes how you can create and manage jobs from the AWS IoT console. After
 you've created a job, you can view information about the job on the details page, and manage
@@ -13,14 +11,10 @@ information, see [Create and manage jobs by using the AWS CLI](manage-job-cli.md
 
 ###### Topics
 
-- [Create manage jobs by using the
-  AWS Management Console](#create-job-console "#create-job-console")
-- [View and manage jobs by using the
-  AWS Management Console](#view-manage-job-console "#view-manage-job-console")
+- [Create manage jobs by using the AWS Management Console](#create-job-console "#create-job-console")
+- [View and manage jobs by using the AWS Management Console](#view-manage-job-console "#view-manage-job-console")
 
-## Create manage jobs by using the
-
-AWS Management Console
+## Create manage jobs by using the AWS Management Console
 
 To create a job, log in to the AWS IoT console, and go to the [Jobs hub](https://console.aws.amazon.com/iot/home#/jobhub "https://console.aws.amazon.com/iot/home#/jobhub") in the **Remote
 Actions** section. Then, perform the following steps.
@@ -98,9 +92,7 @@ following options:
      If you're creating a job for performing frequently used remote
      actions such as rebooting your device, you can use an AWS managed
      template. These templates have already been preconfigured for use. For
-     more information, see [Create a custom job
-     template](job-templates-console.md#job-templates-console-create "job-templates-console.md#job-templates-console-create") and [Create custom job
-     templates from managed templates](job-template-manage-console-create.md#job-template-manage-create-template "job-template-manage-console-create.md#job-template-manage-create-template").
+     more information, see [Create a custom job template](job-templates-console.md#job-templates-console-create "job-templates-console.md#job-templates-console-create") and [Create custom job templates from managed templates](job-template-manage-console-create.md#job-template-manage-create-template "job-template-manage-console-create.md#job-template-manage-create-template").
 
 5.  On the **Job configuration** page in the **Job
     configuration** dialog box, select one of the following job
@@ -124,17 +116,13 @@ following options:
     Refer to the following sections for additional information on Job
     configurations:
 
-        * [Job rollout, scheduling, and abort
-         configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-        * [Job execution timeout and retry
-         configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+        * [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+        * [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
     Review all of your job selections and then choose **Submit**
     to create your job.
 
-## View and manage jobs by using the
-
-AWS Management Console
+## View and manage jobs by using the AWS Management Console
 
 After you create the job, the console generates a JSON signature and places it in
 your job document. You can use the [AWS IoT console](https://console.aws.amazon.com/iot/ "https://console.aws.amazon.com/iot/")

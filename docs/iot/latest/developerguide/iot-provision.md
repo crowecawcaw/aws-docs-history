@@ -18,11 +18,9 @@ first connects. The device is provisioned in AWS IoT on its first connection usi
 details of its provisioning template.
 
 For more information on single thing, JITP, JITR, and bulk provisioning of devices
-that have unique certificates, see [Provisioning devices that have device
-certificates](provision-w-cert.md "provision-w-cert.md").
+that have unique certificates, see [Provisioning devices that have device certificates](provision-w-cert.md "provision-w-cert.md").
 
-- ###### End users or installers can use an app to install certificates on their IoT
-  devices
+- ###### End users or installers can use an app to install certificates on their IoT devices
 
 If you cannot securely install unique client certificates on your IoT device
 before they are delivered to the end user, but the end user or an installer can
@@ -40,8 +38,7 @@ certificate.
 
 For more information, see [Provisioning by trusted user](provision-wo-cert.md#trusted-user "provision-wo-cert.md#trusted-user").
 
-- ###### End users CANNOT use an app to install certificates on their IoT
-  devices
+- ###### End users CANNOT use an app to install certificates on their IoT devices
 
 If neither of the previous options will work in your IoT solution, the [provisioning by claim](provision-wo-cert.md#claim-based "provision-wo-cert.md#claim-based") process is an option.
 With this process, your IoT devices have a claim certificate that is shared by

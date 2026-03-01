@@ -177,5 +177,4 @@ You should see output similar to the following:
 Your device is now connected to AWS IoT using the AWS IoT Device SDK for Embedded C.
 
 You can also use the AWS IoT console to view the MQTT messages that the sample app
-is publishing. For information about how to use the MQTT client in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), see [View MQTT messages with the AWS IoT MQTT
-client](view-mqtt-messages.md "view-mqtt-messages.md") .
+is publishing. For information about how to use the MQTT client in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), see [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md") .

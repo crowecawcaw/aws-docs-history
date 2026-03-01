@@ -1,6 +1,4 @@
-# Create a job from AWS managed
-
-templates by using the AWS CLI
+# Create a job from AWS managed templates by using the AWS CLI
 
 Use the AWS CLI to get information about AWS managed templates and create a job by
 using these templates. You can then save the job as a template and then create your
@@ -68,9 +66,7 @@ templates and their details.
 
 For more information, see [ListManagedJobTemplates](../apireference/API_ListManagedJobTemplates.md "../apireference/API_ListManagedJobTemplates.md").
 
-## Get details about a managed
-
-template
+## Get details about a managed template
 
 The [`describe-managed-job-template`](../../../cli/latest/reference/iot/describe-managed-job-template.md "../../../cli/latest/reference/iot/describe-managed-job-template.md") AWS CLI
 command gets details about a specified job template. Specify the job template
@@ -88,16 +84,14 @@ aws iot describe-managed-job-template \
 The command displays the template details and ARN, its job document, and the
 `documentParameters` parameter, which is a list of key-value
 pairs of input parameters of the template. For information about the different
-templates and input parameters, see [Managed template remote actions and
-job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
+templates and input parameters, see [Managed template remote actions and job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
 
 ###### Note
 
 The `documentParameters` object returned when you use this API
 must only be used when creating jobs from AWS managed templates. The
 object must not be used for custom job templates. For an example that shows
-how to use this parameter, see [Create a job by using
-managed templates](#job-template-manage-cli-create-job "#job-template-manage-cli-create-job").
+how to use this parameter, see [Create a job by using managed templates](#job-template-manage-cli-create-job "#job-template-manage-cli-create-job").
 
 ```
 {
@@ -145,9 +139,7 @@ managed templates](#job-template-manage-cli-create-job "#job-template-manage-cli
 
 For more information, see [DescribeManagedJobTemplate](../apireference/API_DescribeManagedJobTemplate.md "../apireference/API_DescribeManagedJobTemplate.md").
 
-## Create a job by using
-
-managed templates
+## Create a job by using managed templates
 
 The [`create-job`](../../../cli/latest/reference/iot/create-job.md "../../../cli/latest/reference/iot/create-job.md") AWS CLI command can be used to create a
 job from a job template. It targets a device named `thingOne` and
@@ -199,11 +191,8 @@ Run the following command to create a job for the template,
 }
 ```
 
-## Create a custom job template
-
-from managed templates
+## Create a custom job template from managed templates
 
 1. Create a job using a managed template as described in the previous section.
 2. Create a custom job template by using the ARN of the job that you
-   created. For more information, see [Create a job template from
-   an existing job](job-templates-cli.md#job-templates-cli-create-from-job "job-templates-cli.md#job-templates-cli-create-from-job").
+   created. For more information, see [Create a job template from an existing job](job-templates-cli.md#job-templates-cli-create-from-job "job-templates-cli.md#job-templates-cli-create-from-job").

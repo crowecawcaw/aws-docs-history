@@ -53,8 +53,7 @@ The `timestamp` value consists of the following two
 values:
 
 - `value`: An expression that returns a long
-  epoch time value. You can use the [time_to_epoch(String,
-  String)](iot-sql-functions.md#iot-sql-function-time-to-epoch "iot-sql-functions.md#iot-sql-function-time-to-epoch") function to
+  epoch time value. You can use the [time_to_epoch(String, String)](iot-sql-functions.md#iot-sql-function-time-to-epoch "iot-sql-functions.md#iot-sql-function-time-to-epoch") function to
   create a valid timestamp from a date or time value passed in
   the message payload. Supports [substitution templates](iot-substitution-templates.md "iot-substitution-templates.md"): Yes.
 - `unit`: (Optional) The precision of the

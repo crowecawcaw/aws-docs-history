@@ -21,10 +21,7 @@ identities, you need to specify permissions in two places:
 
 - Attach an AWS IoT Core policy to the Amazon Cognito Identity (authenticated user).
 
-## Policy examples for
-
-unauthenticated and authenticated Amazon Cognito users connecting to
-AWS IoT Core
+## Policy examples for unauthenticated and authenticated Amazon Cognito users connecting to AWS IoT Core
 
 The following example shows permissions in both the IAM policy and the IoT
 policy of an Amazon Cognito identity. The authenticated user wants to publish to a device

@@ -25,9 +25,7 @@ For more information on AWS IoT Core, see [What is AWS IoT?](what-is-aws-iot.md 
 
 For more information on AWS IoT Device Management Jobs, see [What is AWS IoT Jobs?](jobs-what-is.md "jobs-what-is.md").
 
-## Benefits of using AWS IoT Device Management Jobs for remote
-
-operations
+## Benefits of using AWS IoT Device Management Jobs for remote operations
 
 Using AWS IoT Device Management Jobs to perform your remote operations streamlines the management of
 your device fleet. The following list highlights some of the key benefits for using
@@ -95,8 +93,7 @@ AWS IoT Device Management Jobs to perform your remote operations:
   - **Job configurations**: Customize
     your job and job document with the optional job configurations
     rollout, scheduling, abort, timeout, and retry to meet your specific
-    needs. For more information, see [Job
-    configurations](jobs-configurations.md "jobs-configurations.md").
+    needs. For more information, see [Job configurations](jobs-configurations.md "jobs-configurations.md").
 
 - **Cost effective**
   - Introduce a more efficient cost structure for maintaining your

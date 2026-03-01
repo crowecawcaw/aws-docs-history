@@ -15,8 +15,7 @@ connect to AWS IoT Core and exchange messages.
 
 ###### Note
 
-If you are planning to [Create a virtual device with
-Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md"), you
+If you are planning to [Create a virtual device with Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md"), you
 can skip this page and continue to [Configure your device](configure-device.md "configure-device.md").
 You will create these resources when you create your virtual
 thing.
@@ -112,8 +111,7 @@ policy**. 3. On the **Create policy** page:
 4. After you've entered the information for your policy, choose
    **Create**.
 
-For more information, see [How AWS IoT works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+For more information, see [How AWS IoT works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 ## Create a thing object
 

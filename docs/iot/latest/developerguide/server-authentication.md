@@ -61,9 +61,7 @@ To see your `iot:Data-ATS` endpoint in the AWS IoT Core console,
 choose **Settings**. The console displays only the
 `iot:Data-ATS` endpoint.
 
-### Creating an `IotDataPlaneClient` with
-
-the AWS SDK for Java
+### Creating an `IotDataPlaneClient` with the AWS SDK for Java
 
 To create an `IotDataPlaneClient` that uses an
 `iot:Data-ATS` endpoint, you must do the following.
@@ -86,9 +84,7 @@ public void setup() throws Exception {
 }
 ```
 
-## CA certificates for server
-
-authentication
+## CA certificates for server authentication
 
 Depending on which type of data endpoint you are using and which cipher suite you
 have negotiated, AWS IoT Core server authentication certificates are signed by one of
@@ -118,9 +114,7 @@ certificates.
 
 - RSA 2048 bit key: [VeriSign Class 3 Public Primary G5 root CA certificate](https://www.digicert.com/kb/digicert-root-certificates.htm "https://www.digicert.com/kb/digicert-root-certificates.htm")
 
-## Server authentication
-
-guidelines
+## Server authentication guidelines
 
 There are many variables that can affect a device's ability to validate the
 AWS IoT Core server authentication certificate. For example, devices may be too memory

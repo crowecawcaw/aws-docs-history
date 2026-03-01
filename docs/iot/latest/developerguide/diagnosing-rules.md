@@ -75,8 +75,7 @@ Review the object and property names used in the query with those used in the
 JSON document of the topic's message payload. For more information about the JSON
 formatting in SQL queries, see [JSON extensions](iot-sql-json.md "iot-sql-json.md").
 
-- ###### Check to see if the JSON object or property names include reserved or numeric
-  characters.
+- ###### Check to see if the JSON object or property names include reserved or numeric characters.
 
 For more information about reserved characters in JSON object references in SQL
 queries, see [JSON extensions](iot-sql-json.md "iot-sql-json.md").

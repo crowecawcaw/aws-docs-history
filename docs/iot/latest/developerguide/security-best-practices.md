@@ -271,9 +271,7 @@ Name (ARN) that you created under the [prerequisites](device-advisor-workflow.md
 
 ```
 
-## Cross-service confused
-
-deputy prevention for Device Advisor
+## Cross-service confused deputy prevention for Device Advisor
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the

@@ -45,9 +45,7 @@ command:
 }
 ```
 
-### Create a job with a job
-
-document
+### Create a job with a job document
 
 The following command shows how to create a job using a job document
 (`job-document.json`) stored in an Amazon S3 bucket
@@ -419,9 +417,7 @@ The command returns a list of job executions:
 }
 ```
 
-## List job executions for a
-
-thing
+## List job executions for a thing
 
 Run the **ListJobExecutionsForThing** command to list all job
 executions running on a thing. The following shows how to list job executions for a

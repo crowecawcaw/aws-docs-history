@@ -249,8 +249,7 @@ The name of the thing for which to list the named shadows.
 ###### Response
 
 Upon success, the response includes the standard HTTP headers plus the
-following response code and a [Shadow name list response
-document](device-shadow-document.md#device-shadow-list-json "device-shadow-document.md#device-shadow-list-json").
+following response code and a [Shadow name list response document](device-shadow-document.md#device-shadow-list-json "device-shadow-document.md#device-shadow-list-json").
 
 ###### Note
 

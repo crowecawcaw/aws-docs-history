@@ -21,8 +21,7 @@ To view metrics using AWS CLI, run the following command.
 ###### CloudWatch displays the following groups of metrics for AWS IoT:
 
 - [AWS IoT metrics](#iot-metrics "#iot-metrics")
-- [AWS IoT Core credential provider
-  metrics](#credential-provider-metrics "#credential-provider-metrics")
+- [AWS IoT Core credential provider metrics](#credential-provider-metrics "#credential-provider-metrics")
 - [Authentication metrics](#authentication-metrics "#authentication-metrics")
 - [Server certificate OCSP stapling metrics](#server-ocsp-metrics "#server-ocsp-metrics")
 - [Rule metrics](#rulemetrics "#rulemetrics")
@@ -47,9 +46,7 @@ To view metrics using AWS CLI, run the following command.
 | `NumLogBatchesFailedToPublishThrottled` | The singular batch of log events that has failed to publish due to<br>throttling errors.                                                                                                             |
 | `NumLogEventsFailedToPublishThrottled`  | The number of log events within the batch that have failed to publish due to<br>throttling errors.                                                                                                   |
 
-## AWS IoT Core credential provider
-
-metrics
+## AWS IoT Core credential provider metrics
 
 | Metric                      | Description                                                                                            |
 | --------------------------- | ------------------------------------------------------------------------------------------------------ |

@@ -1,6 +1,4 @@
-# Tutorial: Connecting a device to AWS IoT Core by using the
-
-AWS IoT Device SDK
+# Tutorial: Connecting a device to AWS IoT Core by using the AWS IoT Device SDK
 
 This tutorial demonstrates how to connect a device to AWS IoT Core so that it can send and receive
 data to and from AWS IoT. After you complete this tutorial, your device will be configured to
@@ -11,8 +9,7 @@ connect to AWS IoT Core and you'll understand how devices communicate with AWS I
 - [Pre-requisites](#sdk-tutorials-prereq "#sdk-tutorials-prereq")
 - [Prepare your device for AWS IoT](#sdk-tutorials-prepare "#sdk-tutorials-prepare")
 - [Review the MQTT protocol](#sdk-tutorials-mqtt-review "#sdk-tutorials-mqtt-review")
-- [Review the pubsub.py Device SDK sample
-  app](#sdk-tutorials-explore-sample "#sdk-tutorials-explore-sample")
+- [Review the pubsub.py Device SDK sample app](#sdk-tutorials-explore-sample "#sdk-tutorials-explore-sample")
 - [Connect your device and communicate with AWS IoT Core](#sdk-tutorials-experiment "#sdk-tutorials-experiment")
 - [Review the results](#sdk-tutorials-conclusion "#sdk-tutorials-conclusion")
 - [Tutorial: Using the AWS IoT Device SDK for Embedded C](iot-embedded-c-sdk.md "iot-embedded-c-sdk.md")
@@ -24,8 +21,7 @@ Before you start this tutorial, make sure that you have:
 - ###### Completed [Getting started with AWS IoT Core tutorials](iot-gs.md "iot-gs.md")
 
 In the section of that tutorial where you must [Configure your device](configure-device.md "configure-device.md"),
-select the [Connect a Raspberry
-Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md") option for your device and use the
+select the [Connect a Raspberry Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md") option for your device and use the
 Python language options to configure your device.
 
 ###### Note
@@ -100,8 +96,7 @@ and Region.
 3. An **internet connection** that can access your
    AWS account’s device endpoints.
 
-The device endpoints are described in [AWS IoT device data and service
-endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints") and can be seen in the
+The device endpoints are described in [AWS IoT device data and service endpoints](iot-connect-devices.md#iot-connect-device-endpoints "iot-connect-devices.md#iot-connect-device-endpoints") and can be seen in the
 [settings page
 of the AWS IoT console](https://console.aws.amazon.com/iot/home#/settings "https://console.aws.amazon.com/iot/home#/settings"). 4. **Communication software** such as the AWS IoT
 Device SDKs provide. This tutorial uses the
@@ -113,8 +108,7 @@ Before we talk about the sample app, it helps to understand the MQTT protocol. T
 MQTT protocol offers some advantages over other network communication protocols, such as
 HTTP, which makes it a popular choice for IoT devices. This section reviews the key
 aspects of MQTT that apply to this tutorial. For information about how MQTT compares to
-HTTP, see [Choosing an application protocol for your
-device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
+HTTP, see [Choosing an application protocol for your device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
 
 ###### MQTT uses a publish/subscribe communication model
 
@@ -134,9 +128,7 @@ while they were disconnected. On the device side, MQTT supports Quality of Servi
 levels ([QoS](mqtt.md#mqtt-qos "mqtt.md#mqtt-qos")) that ensure the host receives messages
 sent by the device.
 
-## Review the pubsub.py Device SDK sample
-
-app
+## Review the pubsub.py Device SDK sample app
 
 This section reviews the `pubsub.py` sample app from the **AWS IoT Device SDK v2 for Python** used in this tutorial. Here,
 we'll review how it connects to AWS IoT Core to publish and subscribe to MQTT messages. The
@@ -152,8 +144,7 @@ of an MQTT connection with AWS IoT Core:
 - [Quality of Service](#sdk-tutorials-explore-qos "#sdk-tutorials-explore-qos")
 - [Message publish](#sdk-tutorials-explore-publish "#sdk-tutorials-explore-publish")
 - [Message subscription](#sdk-tutorials-explore-subscribe "#sdk-tutorials-explore-subscribe")
-- [Device disconnection and
-  reconnection](#sdk-tutorials-explore-connect "#sdk-tutorials-explore-connect")
+- [Device disconnection and reconnection](#sdk-tutorials-explore-connect "#sdk-tutorials-explore-connect")
 
 ### Communication protocols
 
@@ -328,8 +319,7 @@ This example sends a message to AWS IoT Core using HTTPS such that AWS IoT Core
 interprets it as an MQTT message.
 
 While AWS IoT Core supports HTTPS requests from devices, be sure to
-review the information about [Choosing an application protocol for your
-device communication](protocols.md#protocol-selection "protocols.md#protocol-selection") so that you can make an
+review the information about [Choosing an application protocol for your device communication](protocols.md#protocol-selection "protocols.md#protocol-selection") so that you can make an
 informed decision on which protocol to use for your device communications.
 
 ### Persistent sessions
@@ -501,9 +491,7 @@ received to end the program after the limit is reached.
 Your app would evaluate the topic and the payload to determine
 what actions to perform.
 
-### Device disconnection and
-
-reconnection
+### Device disconnection and reconnection
 
 The `pubsub.py` sample includes callback
 functions that are called when the device is disconnected
@@ -528,12 +516,9 @@ These exercises use the [`pubsub.py`](https://github.com/aws/aws-iot-device-sdk-
 
 ###### In this section, you'll:
 
-- [Subscribe to wild card topic
-  filters](#sdk-tutorials-experiment-wild "#sdk-tutorials-experiment-wild")
-- [Process topic filter
-  subscriptions](#sdk-tutorials-experiment-process "#sdk-tutorials-experiment-process")
-- [Publish messages from your
-  device](#sdk-tutorials-experiment-publish "#sdk-tutorials-experiment-publish")
+- [Subscribe to wild card topic filters](#sdk-tutorials-experiment-wild "#sdk-tutorials-experiment-wild")
+- [Process topic filter subscriptions](#sdk-tutorials-experiment-process "#sdk-tutorials-experiment-process")
+- [Publish messages from your device](#sdk-tutorials-experiment-publish "#sdk-tutorials-experiment-publish")
 
 For these exercises, you'll start from the `pubsub.py` sample
 program.
@@ -543,9 +528,7 @@ program.
 These exercises assume that you completed the [Getting started with AWS IoT Core tutorials](iot-gs.md "iot-gs.md") tutorials and use the terminal window for your device from that
 tutorial.
 
-### Subscribe to wild card topic
-
-filters
+### Subscribe to wild card topic filters
 
 In this exercise, you’ll modify the command line used to call
 `pubsub.py` to subscribe to a wild card topic filter and process the
@@ -635,17 +618,13 @@ topic filter, received them, and displayed them in the terminal window. Notice h
 you subscribed to a single topic filter, and the callback function was called to
 process messages having two distinct topics.
 
-### Process topic filter
-
-subscriptions
+### Process topic filter subscriptions
 
 Building on the previous exercise, modify the `pubsub.py` sample app to
 evaluate the message topics and process the subscribed messages based on the
 topic.
 
-#### Exercise
-
-procedure
+#### Exercise procedure
 
 ###### To evaluate the message topic
 
@@ -742,9 +721,7 @@ Another way for your device to receive and process multiple messages is to
 subscribe to different messages separately and assign each subscription to its
 own callback function.
 
-### Publish messages from your
-
-device
+### Publish messages from your device
 
 You can use the pubsub.py sample app to publish messages from your device. While
 it will publish messages as it is, the messages can't be read as JSON documents.
@@ -770,9 +747,7 @@ In this exercise, the following message will be sent with the
 
 ```
 
-###### To prepare your MQTT test client to monitor the messages from this
-
-exercise
+###### To prepare your MQTT test client to monitor the messages from this exercise
 
 1. In **Subscribe to a topic**, in the
    **Subscription topic field**, enter the topic filter:
@@ -853,5 +828,4 @@ When you are ready to explore AWS IoT Core further, try these tutorials:
 
 - [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md")
 - [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md "iot-ddb-rule.md")
-- [Tutorial: Formatting a notification by using an AWS Lambda
-  function](iot-lambda-rule.md "iot-lambda-rule.md")
+- [Tutorial: Formatting a notification by using an AWS Lambda function](iot-lambda-rule.md "iot-lambda-rule.md")

@@ -1,6 +1,4 @@
-# Basic AWS IoT Core policy
-
-variables
+# Basic AWS IoT Core policy variables
 
 AWS IoT Core defines the following basic policy variables:
 
@@ -13,20 +11,15 @@ AWS IoT Core defines the following basic policy variables:
 
 ###### Examples
 
-- [Examples of ClientId and
-  SourceIp policy variables](#basic-policy-variables-example "#basic-policy-variables-example")
-- [Examples of
-  iot:DomainName policy variable](#basic-policy-variables-example-domain "#basic-policy-variables-example-domain")
+- [Examples of ClientId and SourceIp policy variables](#basic-policy-variables-example "#basic-policy-variables-example")
+- [Examples of iot:DomainName policy variable](#basic-policy-variables-example-domain "#basic-policy-variables-example-domain")
 
-## Examples of `ClientId` and
-
-`SourceIp` policy variables
+## Examples of `ClientId` and `SourceIp` policy variables
 
 The following AWS IoT Core policy shows a policy that uses policy variables.
 `aws:SourceIp` can be used in the Condition element of your
 policy to allow principals to make API requests only within a specific address
-range. For examples, see [Authorizing users and cloud services to use
-AWS IoT Jobs](iam-policy-users-jobs.md "iam-policy-users-jobs.md").
+range. For examples, see [Authorizing users and cloud services to use AWS IoT Jobs](iam-policy-users-jobs.md "iam-policy-users-jobs.md").
 
 ```
 `{
@@ -112,9 +105,7 @@ pass the validation but cause disconnection. Because any
 `ClientId` is allowed, setting a random client ID can bypass
 thing group policies.
 
-## Examples of
-
-`iot:DomainName` policy variable
+## Examples of `iot:DomainName` policy variable
 
 You can add the `iot:DomainName` policy variable to restrict
 which domains are allowed to use. Adding the `iot:DomainName`

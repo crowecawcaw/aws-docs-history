@@ -1,6 +1,4 @@
-# Configuring TLS settings in domain
-
-configurations
+# Configuring TLS settings in domain configurations
 
 AWS IoT Core provides [predefined security polices](transport-security.md#tls-policy-table "transport-security.md#tls-policy-table") for
 you to customize your Transport Layer Security (TLS) settings for [TLS 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2 "https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2")
@@ -35,14 +33,10 @@ the AWS CLI.
 
 ###### Contents
 
-- [Configure TLS settings in domain
-  configurations (console)](#custom-tls-console "#custom-tls-console")
-- [Configure TLS settings in domain configurations
-  (CLI)](#custom-tls-cli "#custom-tls-cli")
+- [Configure TLS settings in domain configurations (console)](#custom-tls-console "#custom-tls-console")
+- [Configure TLS settings in domain configurations (CLI)](#custom-tls-cli "#custom-tls-cli")
 
-## Configure TLS settings in domain
-
-configurations (console)
+## Configure TLS settings in domain configurations (console)
 
 ###### To configure TLS settings using the AWS IoT console
 
@@ -77,9 +71,7 @@ configurations (console)
 For more information, see [Create a domain configuration](iot-custom-endpoints-configurable-custom.md#iot-custom-endpoints-configurable-custom-domain-config "iot-custom-endpoints-configurable-custom.md#iot-custom-endpoints-configurable-custom-domain-config") and [Manage domain
 configurations](iot-custom-endpoints-managing.md "iot-custom-endpoints-managing.md").
 
-## Configure TLS settings in domain configurations
-
-(CLI)
+## Configure TLS settings in domain configurations (CLI)
 
 You can use the [**create-domain-configuration**](../../../cli/latest/reference/iot/create-domain-configuration.md "../../../cli/latest/reference/iot/create-domain-configuration.md") and [**update-domain-configuration**](../../../cli/latest/reference/iot/update-domain-configuration.md "../../../cli/latest/reference/iot/update-domain-configuration.md") CLI commands to
 configure your TLS settings in domain configurations.

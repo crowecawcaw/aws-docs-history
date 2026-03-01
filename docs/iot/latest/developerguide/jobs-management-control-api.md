@@ -1,13 +1,10 @@
-# Jobs management and control API and
-
-data types
+# Jobs management and control API and data types
 
 ###### The following commands are available for Job management and control
 
 in the CLI and over the HTTPS protocol.
 
-- [Job management and control data
-  types](#jobs-control-plane-data-types "#jobs-control-plane-data-types")
+- [Job management and control data types](#jobs-control-plane-data-types "#jobs-control-plane-data-types")
 - [Job management and control API operations](#jobs-http-api "#jobs-http-api")
   To determine the `endpoint-url` parameter for your CLI
   commands, run this command.
@@ -34,9 +31,7 @@ If you're using dual-stack endpoints (IPv6 and IPv6), use the
 `iot:Data-ATS` endpoint. The `iot:Jobs` endpoint supports
 only IPv4.
 
-## Job management and control data
-
-types
+## Job management and control data types
 
 The following data types are used by management and control applications to
 communicate with AWS IoT Jobs.

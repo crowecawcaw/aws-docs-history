@@ -37,7 +37,6 @@ Guide_.
 - [AWS IoT Core policy actions](iot-policy-actions.md "iot-policy-actions.md")
 - [AWS IoT Core action resources](iot-action-resources.md "iot-action-resources.md")
 - [AWS IoT Core policy variables](iot-policy-variables.md "iot-policy-variables.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [AWS IoT Core policy examples](example-iot-policies.md "example-iot-policies.md")
 - [Authorization with Amazon Cognito identities](cog-iot-policies.md "cog-iot-policies.md")

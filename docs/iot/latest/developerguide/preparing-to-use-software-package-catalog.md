@@ -176,8 +176,7 @@ permissions policy:
 
 ```
 
-For more information on resource-based permission policies, see [AWS IoT
-resource-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies")
+For more information on resource-based permission policies, see [AWS IoT resource-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-resource-based-policies")
 
 **Updating the SBOM**
 

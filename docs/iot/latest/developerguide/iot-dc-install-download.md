@@ -1,6 +1,4 @@
-# Download and save the
-
-AWS IoT Device Client
+# Download and save the AWS IoT Device Client
 
 The procedures in this section download the AWS IoT Device Client, compile it, and install
 it on your Raspberry Pi. After you test the installation, you can save the image of the
@@ -9,15 +7,11 @@ again.
 
 ###### Procedures in this section:
 
-- [Download and build the
-  AWS IoT Device Client](#iot-dc-install-dc-download "#iot-dc-install-dc-download")
-- [Create the directories used by the
-  tutorials](#iot-dc-install-dc-files "#iot-dc-install-dc-files")
+- [Download and build the AWS IoT Device Client](#iot-dc-install-dc-download "#iot-dc-install-dc-download")
+- [Create the directories used by the tutorials](#iot-dc-install-dc-files "#iot-dc-install-dc-files")
 - [(Optional) Save the microSD card image](#iot-dc-install-dc-save "#iot-dc-install-dc-save")
 
-## Download and build the
-
-AWS IoT Device Client
+## Download and build the AWS IoT Device Client
 
 This procedure installs the AWS IoT Device Client on your Raspberry Pi.
 
@@ -60,9 +54,7 @@ command.
 If you see the command line help for the AWS IoT Device Client, the AWS IoT Device Client
 has been built successfully and is ready for you to use.
 
-## Create the directories used by the
-
-tutorials
+## Create the directories used by the tutorials
 
 This procedure creates the directories on the Raspberry Pi that will be used
 to store the files used by the tutorials in this learning path.

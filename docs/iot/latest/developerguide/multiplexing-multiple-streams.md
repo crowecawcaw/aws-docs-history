@@ -1,6 +1,4 @@
-# Multiplexing multiple data streams
-
-in a secure tunnel
+# Multiplexing multiple data streams in a secure tunnel
 
 You can use the multiplexing feature for devices that use multiple connections or
 ports. Multiplexing can also be used when you require multiple connections to a
@@ -22,9 +20,7 @@ time.
 
 ![A diagram showing IoT cloud architecture with source devices, proxy servers, and destination devices for streaming data over different protocols.](images/tunnel-multiplexing.png)
 
-## How to set up a multiplexed
-
-tunnel
+## How to set up a multiplexed tunnel
 
 The following procedure walks you through how to set up a multiplexed tunnel
 for troubleshooting devices using applications that require connections to

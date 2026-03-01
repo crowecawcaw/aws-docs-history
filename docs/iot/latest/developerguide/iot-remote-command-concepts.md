@@ -42,8 +42,7 @@ A payload template defines a command payload with placeholders that generate dif
 
 **Target device**
 
-To execute a command, specify a target device using either its thing name (for devices registered with AWS IoT) or MQTT client ID (for unregistered devices). The client ID is a unique identifier defined in the [MQTT](mqtt.md "mqtt.md") protocol used to connect devices to AWS IoT. For details, see [Target device
-considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target").
+To execute a command, specify a target device using either its thing name (for devices registered with AWS IoT) or MQTT client ID (for unregistered devices). The client ID is a unique identifier defined in the [MQTT](mqtt.md "mqtt.md") protocol used to connect devices to AWS IoT. For details, see [Target device considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target").
 
 **Commands topics**
 
@@ -200,21 +199,16 @@ The following diagram shows execution status transitions.
 
 ###### Note
 
-When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status allowing retries and state changes. If your device explicitly reports `TIMED_OUT`, this becomes a terminal status with no further transitions. For more information, see [Non-terminal command
-executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal").
+When AWS IoT detects no device response within the timeout period, it sets `TIMED_OUT` as a temporary status allowing retries and state changes. If your device explicitly reports `TIMED_OUT`, this becomes a terminal status with no further transitions. For more information, see [Non-terminal command executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal").
 
 The following sections describe terminal and non-terminal executions and their statuses.
 
 ###### Topics
 
-- [Non-terminal command
-  executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal")
-- [Terminal command
-  executions](#iot-command-execution-status-terminal "#iot-command-execution-status-terminal")
+- [Non-terminal command executions](#iot-command-execution-status-nonterminal "#iot-command-execution-status-nonterminal")
+- [Terminal command executions](#iot-command-execution-status-terminal "#iot-command-execution-status-terminal")
 
-### Non-terminal command
-
-executions
+### Non-terminal command executions
 
 An execution is non-terminal if it can accept updates from devices. Non-terminal executions are considered _Active_. The following statuses are non-terminal:
 
@@ -237,12 +231,9 @@ Both cloud and device can trigger this status. Executions in `CREATED` or `IN_PR
     + After sending the command, a timer starts. If the device doesn't respond within the specified duration, the cloud changes status to `TIMED_OUT`. In this case, the execution is non-terminal.
     + The device can override status to any terminal status or report a timeout and set status to `TIMED_OUT`. In this case, status remains `TIMED_OUT`, but `StatusReason` object fields change based on device information. The execution becomes terminal.
 
-For more information, see [Time out value and
-TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
+For more information, see [Time out value and TIMED_OUT execution status](iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status "iot-remote-command-execution-start-monitor.md#iot-command-execution-timeout-status").
 
-### Terminal command
-
-executions
+### Terminal command executions
 
 An execution becomes terminal when it no longer accepts updates from devices. The following statuses are terminal. Executions can transition to terminal statuses from any non-terminal status: `CREATED`, `IN_PROGRESS`, or `TIMED_OUT`.
 

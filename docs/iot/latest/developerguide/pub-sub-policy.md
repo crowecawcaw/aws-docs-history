@@ -14,31 +14,17 @@ that's used for the connection.
 
 ###### In this section:
 
-- [Using wildcard characters in MQTT and
-  AWS IoT Core policies](#pub-sub-policy-cert "#pub-sub-policy-cert")
-- [Policies to publish, subscribe and
-  receive messages to/from specific topics](#pub-sub-specific-topic "#pub-sub-specific-topic")
-- [Policies to publish,
-  subscribe and receive messages to/from topics with a specific
-  prefix](#pub-sub-policy-specific-topic-prefix "#pub-sub-policy-specific-topic-prefix")
-- [Policies to publish,
-  subscribe and receive messages to/from topics specific to each
-  device](#pub-sub-specific-topic-device "#pub-sub-specific-topic-device")
-- [Policies to publish, subscribe and
-  receive messages to/from topics with thing attribute in topic
-  name](#pub-sub-topic-attribute "#pub-sub-topic-attribute")
-- [Policies to deny publishing messages
-  to subtopics of a topic name](#pub-sub-deny-publish "#pub-sub-deny-publish")
-- [Policies to deny receiving messages
-  from subtopics of a topic name](#pub-sub-deny-receive "#pub-sub-deny-receive")
-- [Policies to subscribe to topics
-  using MQTT wildcard characters](#pub-sub-topic-wildcard "#pub-sub-topic-wildcard")
-- [Policies for HTTP and WebSocket
-  clients](#pub-sub-policy-cognito "#pub-sub-policy-cognito")
+- [Using wildcard characters in MQTT and AWS IoT Core policies](#pub-sub-policy-cert "#pub-sub-policy-cert")
+- [Policies to publish, subscribe and receive messages to/from specific topics](#pub-sub-specific-topic "#pub-sub-specific-topic")
+- [Policies to publish, subscribe and receive messages to/from topics with a specific prefix](#pub-sub-policy-specific-topic-prefix "#pub-sub-policy-specific-topic-prefix")
+- [Policies to publish, subscribe and receive messages to/from topics specific to each device](#pub-sub-specific-topic-device "#pub-sub-specific-topic-device")
+- [Policies to publish, subscribe and receive messages to/from topics with thing attribute in topic name](#pub-sub-topic-attribute "#pub-sub-topic-attribute")
+- [Policies to deny publishing messages to subtopics of a topic name](#pub-sub-deny-publish "#pub-sub-deny-publish")
+- [Policies to deny receiving messages from subtopics of a topic name](#pub-sub-deny-receive "#pub-sub-deny-receive")
+- [Policies to subscribe to topics using MQTT wildcard characters](#pub-sub-topic-wildcard "#pub-sub-topic-wildcard")
+- [Policies for HTTP and WebSocket clients](#pub-sub-policy-cognito "#pub-sub-policy-cognito")
 
-## Using wildcard characters in MQTT and
-
-AWS IoT Core policies
+## Using wildcard characters in MQTT and AWS IoT Core policies
 
 MQTT and AWS IoT Core policies have different wildcard characters and you
 should choose them after careful consideration. In MQTT, the wildcard
@@ -72,9 +58,7 @@ AWS IoT Core policies for MQTT clients.
 | `*`                | No                         | N/A             | Yes                                       | `topicfilter/some/*/topic`<br>`topicfilter/some/sensor*/topic` |
 | `?`                | No                         | N/A             | Yes                                       | `topic/some/?????/topic`<br>`topicfilter/some/sensor???/topic` |
 
-## Policies to publish, subscribe and
-
-receive messages to/from specific topics
+## Policies to publish, subscribe and receive messages to/from specific topics
 
 The following shows examples for registered and unregistered devices to
 publish, subscribe and receive messages to/from the topic named
@@ -195,10 +179,7 @@ clientId1, clientId2 or clientId3. It also provides
 
 ```
 
-## Policies to publish,
-
-subscribe and receive messages to/from topics with a specific
-prefix
+## Policies to publish, subscribe and receive messages to/from topics with a specific prefix
 
 The following shows examples for registered and unregistered devices to
 publish, subscribe and receive messages to/from topics prefixed with
@@ -310,10 +291,7 @@ clientId1, clientId2 or clientId3. It also provides
 
 ```
 
-## Policies to publish,
-
-subscribe and receive messages to/from topics specific to each
-device
+## Policies to publish, subscribe and receive messages to/from topics specific to each device
 
 The following shows examples for registered and unregistered devices to
 publish, subscribe and receive messages to/from topics that are specific to
@@ -442,10 +420,7 @@ able to subscribe to and receive from the topic
 
 ```
 
-## Policies to publish, subscribe and
-
-receive messages to/from topics with thing attribute in topic
-name
+## Policies to publish, subscribe and receive messages to/from topics with thing attribute in topic name
 
 The following shows an example for registered devices to publish,
 subscribe and receive messages to/from topics whose names include thing
@@ -526,9 +501,7 @@ Because thing attributes only exist for devices registered in
 AWS IoT Core registry, there is no corresponding example for
 unregistered things.
 
-## Policies to deny publishing messages
-
-to subtopics of a topic name
+## Policies to deny publishing messages to subtopics of a topic name
 
 The following shows examples for registered and unregistered devices to
 publish messages to all topics except certain subtopics.
@@ -626,9 +599,7 @@ publish to all topics prefixed with "department/" but not to the
 
 ```
 
-## Policies to deny receiving messages
-
-from subtopics of a topic name
+## Policies to deny receiving messages from subtopics of a topic name
 
 The following shows examples for registered and unregistered devices to
 subscribe to and receive messages from topics with specific prefixes except
@@ -727,9 +698,7 @@ However, they will only receive messages from the topic
 
 ```
 
-## Policies to subscribe to topics
-
-using MQTT wildcard characters
+## Policies to subscribe to topics using MQTT wildcard characters
 
 MQTT wildcard characters + and # are treated as literal strings, but they
 are not treated as wildcards when used in AWS IoT Core policies. In MQTT, + and
@@ -851,9 +820,7 @@ well.
 
 ```
 
-## Policies for HTTP and WebSocket
-
-clients
+## Policies for HTTP and WebSocket clients
 
 When you connect over HTTP or the WebSocket protocol, you're
 authenticating with Signature Version 4 and Amazon Cognito. Amazon Cognito identities can be

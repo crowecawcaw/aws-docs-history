@@ -1,13 +1,9 @@
-# Create custom job templates by using the
-
-AWS CLI
+# Create custom job templates by using the AWS CLI
 
 This topic explains how to create, delete, and retrieve details about job
 templates by using the AWS CLI.
 
-## Create a job template from
-
-scratch
+## Create a job template from scratch
 
 The following AWS CLI command shows how to create a job using a job document
 (`job-document.json`) stored in an S3 bucket and a
@@ -58,9 +54,7 @@ you create the job. If you change the contents of the Amazon S3 file you used as
 the source of your job document after you create the job, what is sent to
 the targets of the job doesn't change.
 
-## Create a job template from
-
-an existing job
+## Create a job template from an existing job
 
 The following AWS CLI command creates a job template by specifying the Amazon
 Resource Name (ARN) of an existing job. The new job template uses all of the
@@ -76,9 +70,7 @@ aws iot create-job-template  \
 
 ```
 
-## Get details about a job
-
-template
+## Get details about a job template
 
 The following AWS CLI command gets details about a specified job
 template.
@@ -178,9 +170,7 @@ aws iot delete-job-template \
 
 The command displays no output.
 
-## Create a job from a custom job
-
-template
+## Create a job from a custom job template
 
 The following AWS CLI command creates a job from a custom job template. It
 targets a device named `thingOne` and specifies the Amazon Resource
@@ -193,8 +183,7 @@ the associated parameters of the `create-job` command.
 The `document-parameters` object must be used with the
 `create-job` command only when creating jobs from AWS
 managed templates. This object must not be used with custom job templates.
-For an example that shows how to create jobs using this parameter, see [Create a job by using
-managed templates](job-template-manage-cli-create.md#job-template-manage-cli-create-job "job-template-manage-cli-create.md#job-template-manage-cli-create-job").
+For an example that shows how to create jobs using this parameter, see [Create a job by using managed templates](job-template-manage-cli-create.md#job-template-manage-cli-create-job "job-template-manage-cli-create.md#job-template-manage-cli-create-job").
 
 ```
 aws iot create-job \

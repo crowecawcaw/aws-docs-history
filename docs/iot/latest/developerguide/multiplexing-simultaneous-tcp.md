@@ -1,6 +1,4 @@
-# Using simultaneous TCP connections
-
-in a secure tunnel
+# Using simultaneous TCP connections in a secure tunnel
 
 AWS IoT secure tunneling supports more than one TCP connection simultaneously for
 each data stream. You can use this capability when you require simultaneous
@@ -30,14 +28,11 @@ application running on the remote device.
 
 If you want to access multiple applications running on the remote device
 using the tunnel, you can use tunnel multiplexing. For more information, see
-[Multiplexing multiple data streams
-in a secure tunnel](multiplexing-multiple-streams.md "multiplexing-multiple-streams.md").
+[Multiplexing multiple data streams in a secure tunnel](multiplexing-multiple-streams.md "multiplexing-multiple-streams.md").
 
 ![An illustration showing IoT cloud setup with source device, local proxy, proxy servers, and destination device with web server application, connected via TCP and WSS protocols.](images/tcp-tunneling.png)
 
-## How to use simultaneous TCP
-
-connections
+## How to use simultaneous TCP connections
 
 The following procedure walks you through how to use simultaneous TCP
 connections for accessing the web browser on the remote device. When there are

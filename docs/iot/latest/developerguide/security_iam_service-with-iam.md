@@ -1,6 +1,4 @@
-# How AWS IoT works with
-
-IAM
+# How AWS IoT works with IAM
 
 Before you use IAM to manage access to AWS IoT, you should understand which
 IAM features are available to use with AWS IoT. To get a high-level view of how
@@ -9,18 +7,12 @@ Work with IAM](../../../service-authorization/latest/reference/reference_aws-ser
 
 ###### Topics
 
-- [AWS IoT
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS IoT
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  AWS IoT tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [AWS IoT IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [AWS IoT identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS IoT resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on AWS IoT tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS IoT IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## AWS IoT
-
-identity-based policies
+## AWS IoT identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -198,9 +190,7 @@ action:
 To see a list of AWS IoT actions, see [Actions Defined by AWS IoT](../../../service-authorization/latest/reference/list_awsiot.md#awsiot-actions-as-permissions "../../../service-authorization/latest/reference/list_awsiot.md#awsiot-actions-as-permissions") in the
 _IAM User Guide_.
 
-#### Device Advisor
-
-actions
+#### Device Advisor actions
 
 The following table lists the IAM IoT Device Advisor actions, the associated
 AWS IoT Device Advisor API, and the resource the action manipulates.
@@ -377,9 +367,7 @@ To see a list of AWS IoT resource types and their ARNs, see
 with which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS IoT](../../../service-authorization/latest/reference/list_awsiot.md#awsiot-actions-as-permissions "../../../service-authorization/latest/reference/list_awsiot.md#awsiot-actions-as-permissions").
 
-#### Device Advisor
-
-resources
+#### Device Advisor resources
 
 To define resource-level restrictions for AWS IoT Device Advisor IAM policies,
 use the following resource ARN formats for suite definitions and suite
@@ -420,12 +408,9 @@ resources you can use a condition key, see [Actions Defined by AWS IoT](../../..
 
 ### Examples
 
-To view examples of AWS IoT identity-based policies, see [AWS IoT identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT identity-based policies, see [AWS IoT identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## AWS IoT
-
-resource-based policies
+## AWS IoT resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on the AWS IoT resource and under what
@@ -434,9 +419,7 @@ conditions.
 AWS IoT does not support IAM resource-based policies. It does, however,
 support AWS IoT resource-based policies. For more information, see [AWS IoT Core policies](iot-policies.md "iot-policies.md").
 
-## Authorization based on
-
-AWS IoT tags
+## Authorization based on AWS IoT tags
 
 You can attach tags to AWS IoT resources or pass tags in a request to
 AWS IoT. To control access based on tags, you provide tag information in the
@@ -448,19 +431,14 @@ element](../../../service-authorization/latest/reference/reference_policies_elem
 about tagging AWS IoT resources, see [Tagging your AWS IoT resources](tagging-iot.md "tagging-iot.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Viewing
-AWS IoT resources based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-thing-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-thing-tags").
+the tags on that resource, see [Viewing AWS IoT resources based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-thing-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-thing-tags").
 
-## AWS IoT IAM
-
-roles
+## AWS IoT IAM roles
 
 An [IAM role](../../../service-authorization/latest/reference/id_roles.md "../../../service-authorization/latest/reference/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with AWS IoT
+### Using temporary credentials with AWS IoT
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -468,9 +446,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 AWS IoT supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../service-authorization/latest/reference/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

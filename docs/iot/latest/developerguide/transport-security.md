@@ -13,8 +13,7 @@ security documentation for that service.
 
 - [TLS protocols](#tls-ssl-policy "#tls-ssl-policy")
 - [Security policies](#tls-policy-table "#tls-policy-table")
-- [Important notes for transport security in
-  AWS IoT Core](#tls-ssl-core "#tls-ssl-core")
+- [Important notes for transport security in AWS IoT Core](#tls-ssl-core "#tls-ssl-core")
 - [Transport security for LoRaWAN wireless devices](#tls-lorawan "#tls-lorawan")
 
 ## TLS protocols
@@ -26,8 +25,7 @@ AWS IoT Core supports the following versions of the TLS protocol:
 
 With AWS IoT Core, you can configure the TLS settings (for [TLS 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2 "https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.2")
 and [TLS
-1.3](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3 "https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3")) in domain configurations. For more information, see [Configuring TLS settings in domain
-configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
+1.3](https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3 "https://en.wikipedia.org/wiki/Transport_Layer_Security#TLS_1.3")) in domain configurations. For more information, see [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
 
 ## Security policies
 
@@ -41,8 +39,7 @@ connecting them to AWS IoT Core. The names of the most recent predefined securit
 in AWS IoT Core include version information based on the year and month that they were
 released. The default predefined security policy is
 `IoTSecurityPolicy_TLS13_1_2_2022_10`. To specify a security policy, you
-can use the AWS IoT console or the AWS CLI. For more information, see [Configuring TLS settings in domain
-configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
+can use the AWS IoT console or the AWS CLI. For more information, see [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
 
 The following table describes the most recent predefined security policies that
 AWS IoT Core supports. The `IotSecurityPolicy_` has been removed from policy
@@ -89,9 +86,7 @@ us-gov-west-1, us-gov-west-2, us-west-1.
 ap-northeast-1, ap-southeast-1, eu-central-1, eu-west-1, us-east-1,
 us-west-2.
 
-## Important notes for transport security in
-
-AWS IoT Core
+## Important notes for transport security in AWS IoT Core
 
 For devices that connect to AWS IoT Core using [MQTT](mqtt.md "mqtt.md"), TLS encrypts the connection
 between the devices and the broker, and AWS IoT Core uses TLS client authentication to

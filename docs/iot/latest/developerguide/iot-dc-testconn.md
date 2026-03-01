@@ -1,6 +1,4 @@
-# Tutorial: Demonstrate MQTT message communication with the
-
-AWS IoT Device Client
+# Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client
 
 This tutorial demonstrates how the AWS IoT Device Client can subscribe to and publish MQTT
 messages, which are commonly used in IoT solutions.
@@ -31,9 +29,6 @@ can use a microSD card with that image with your Raspberry Pi.
 
 ###### Procedures in this tutorial
 
-- [Prepare the Raspberry Pi to
-  demonstrate MQTT message communication](iot-dc-testconn-provision.md "iot-dc-testconn-provision.md")
-- [Demonstrate publishing messages with
-  the AWS IoT Device Client](iot-dc-testconn-publish.md "iot-dc-testconn-publish.md")
-- [Demonstrate subscribing to messages with
-  the AWS IoT Device Client](iot-dc-testconn-subscribe.md "iot-dc-testconn-subscribe.md")
+- [Prepare the Raspberry Pi to demonstrate MQTT message communication](iot-dc-testconn-provision.md "iot-dc-testconn-provision.md")
+- [Demonstrate publishing messages with the AWS IoT Device Client](iot-dc-testconn-publish.md "iot-dc-testconn-publish.md")
+- [Demonstrate subscribing to messages with the AWS IoT Device Client](iot-dc-testconn-subscribe.md "iot-dc-testconn-subscribe.md")

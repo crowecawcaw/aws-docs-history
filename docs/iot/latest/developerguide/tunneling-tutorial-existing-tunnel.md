@@ -1,13 +1,10 @@
-# Open a tunnel for remote device and
-
-use browser-based SSH
+# Open a tunnel for remote device and use browser-based SSH
 
 From the AWS IoT console, you can create a tunnel either from the **Tunnels
 hub** or from the details page of an IoT thing that you created. When you
 create a tunnel from the **Tunnels** hub, you can specify whether to
 create a tunnel using the quick setup or the manual setup. For an example tutorial, see
-[Open a tunnel and start
-SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
+[Open a tunnel and start SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md").
 
 When you create a tunnel from the thing details page of the AWS IoT console, you can
 also specify whether to create a new tunnel or open an existing tunnel for that thing as
@@ -29,9 +26,7 @@ interface within the terminal to SSH into the device.
   configured with an MQTT topic subscription. For more information, see [connect a device to the AWS IoT device gateway](sdk-tutorials.md "sdk-tutorials.md").
 - You must have an SSH daemon running on the remote device.
 
-## Open a new tunnel for the
-
-remote device
+## Open a new tunnel for the remote device
 
 Say you want to open a tunnel into your remote device, `RemoteDevice1`.
 First, create an IoT thing with the name `RemoteDevice1` in the AWS IoT
@@ -51,9 +46,7 @@ more information, see [Tunnel creation methods in AWS IoT console](secure-tunnel
 ![Details of a device named "RemoteDevice1" with its Amazon Resource Name (ARN) displayed.](images/tunnel-create-thing.PNG) 2. Choose whether to create a new tunnel or open an existing tunnel.
 To create a new tunnel, choose **Create new tunnel**. You
 can then choose whether to use the manual setup or the quick setup method
-to create the tunnel. For more information, see [Open a tunnel using manual setup and
-connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md") and [Open a tunnel and use browser-based
-SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
+to create the tunnel. For more information, see [Open a tunnel using manual setup and connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md") and [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
 
 ###### To create a tunnel for remote device using API
 
@@ -98,9 +91,7 @@ destination access tokens.
 }
 ```
 
-## Open an existing tunnel
-
-and use browser-based SSH
+## Open an existing tunnel and use browser-based SSH
 
 Say you created the tunnel for your remote device, `RemoteDevice1`, using the manual
 setup method or using the AWS IoT API Reference API. You can then open the existing tunnel for the device
@@ -136,8 +127,7 @@ interface** section. As the local proxy has already been configured for
 you, you can start entering commands to quickly get started with accessing and
 interacting with your remote device, `RemoteDevice1`.
 
-For more information about the quick setup method and using the browser-based SSH, see [Open a tunnel and use browser-based
-SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
+For more information about the quick setup method and using the browser-based SSH, see [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md").
 
 ## Cleaning up
 

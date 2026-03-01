@@ -1,6 +1,4 @@
-# Accessing cross-account
-
-resources using AWS IoT rules
+# Accessing cross-account resources using AWS IoT rules
 
 You can configure AWS IoT rules for cross-account access so that data ingested on MQTT
 topics of one account can be routed into the AWS services, such as Amazon SQS and Lambda, of

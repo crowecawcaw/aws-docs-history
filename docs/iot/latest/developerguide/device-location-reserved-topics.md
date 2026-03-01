@@ -1,13 +1,9 @@
-# Resolving device location using
-
-AWS IoT Core Device Location MQTT topics
+# Resolving device location using AWS IoT Core Device Location MQTT topics
 
 You can use reserved MQTT topics to get the latest location information for your
 devices with the AWS IoT Core Device Location feature.
 
-## Format of device location MQTT
-
-topics
+## Format of device location MQTT topics
 
 Reserved topics for AWS IoT Core Device Location use the following prefix:
 
@@ -43,9 +39,7 @@ The following are the reserved topics used to interact with AWS IoT Core Device 
 | $aws/device_location/`customer_device_id`/get_position_estimate/accepted | Subscribe | AWS IoT Core Device Location publishes the location information to this topic when<br>it successfully resolves the device location. |
 | $aws/device_location/`customer_device_id`/get_position_estimate/rejected | Subscribe | AWS IoT Core Device Location publishes the error information to this topic when it<br>fails to resolve the device location.         |
 
-## Policy for device location MQTT
-
-topics
+## Policy for device location MQTT topics
 
 To receive messages from device location topics, your device must use a policy
 that allows it to connect to the AWS IoT device gateway and subscribe to the MQTT
@@ -92,9 +86,7 @@ various topics.
 
 ```
 
-## Device location topics and
-
-payload
+## Device location topics and payload
 
 The following shows the AWS IoT Core Device Location topics, the format of their message payload, and
 an example policy for each topic.
@@ -269,8 +261,7 @@ $aws/device_location/`customer_device_id`/get_position_estimate/rejected
 ```
 
 The following shows the message payload and example policy. For information
-about the errors, see [Troubleshooting errors when
-resolving the location](device-location-resolve-solvers.md#location-resolve-troubleshoot "device-location-resolve-solvers.md#location-resolve-troubleshoot").
+about the errors, see [Troubleshooting errors when resolving the location](device-location-resolve-solvers.md#location-resolve-troubleshoot "device-location-resolve-solvers.md#location-resolve-troubleshoot").
 
 The following is an example of the message payload that provides the
 error code and message, which indicates why AWS IoT Core Device Location failed to resolve

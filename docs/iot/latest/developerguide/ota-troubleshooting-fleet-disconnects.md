@@ -1,6 +1,4 @@
-# Troubleshooting device fleet
-
-disconnects
+# Troubleshooting device fleet disconnects
 
 ###### Help us improve this topic
 

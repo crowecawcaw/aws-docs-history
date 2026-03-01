@@ -1,6 +1,4 @@
-# Building demos with the AWS IoT Device
-
-Client
+# Building demos with the AWS IoT Device Client
 
 The tutorials in this learning path walk you through the steps to develop
 demonstration software by using the AWS IoT Device Client. The AWS IoT Device Client provides
@@ -21,9 +19,7 @@ software.
   tutorials in this learning path demonstrate features by using a Raspberry Pi, they
   explain the goals and procedures to help you adapt them to other devices.
 
-## Prerequisites to building demos with the
-
-AWS IoT Device Client
+## Prerequisites to building demos with the AWS IoT Device Client
 
 This section describes what you'll need to have before you start the tutorials in
 this learning path.
@@ -104,8 +100,7 @@ operations include:
     	- Have the [AWS CLI](https://aws.amazon.com//cli/ "https://aws.amazon.com//cli/")
     	 installed and configured.
     	- Have a web browser that supports the AWS console.
-    + ###### A way to connect your local host computer to your device to
-     communicate with it, to enter commands, and to transfer files
+    + ###### A way to connect your local host computer to your device to communicate with it, to enter commands, and to transfer files
 
 
     On the Raspberry Pi, this is often done using SSH and SCP from the
@@ -115,8 +110,7 @@ operations include:
 
     These can be helpful, but are not required to complete the
      tutorials.
-    + ###### A way for your local host computer and your IoT devices to
-     connect to the internet
+    + ###### A way for your local host computer and your IoT devices to connect to the internet
 
 
     This could be a cabled or a wireless network connection to a
@@ -126,8 +120,7 @@ operations include:
      tutorials can't show you how to set this up for your particular
      device or device configuration, but they show how you can test
      this connectivity.
-    + ###### Access to your local area network's router to view the
-     connected devices
+    + ###### Access to your local area network's router to view the connected devices
 
 
     To complete the tutorials in this learning path, you'll need
@@ -148,17 +141,12 @@ operations include:
     If none of these are an option, you'll need to find a way to
      identify the device's IP address after each time it restarts.
 
-After you have all your materials, continue to [Tutorial: Preparing your devices for the
-AWS IoT Device Client](iot-dc-prepare-device.md "iot-dc-prepare-device.md").
+After you have all your materials, continue to [Tutorial: Preparing your devices for the AWS IoT Device Client](iot-dc-prepare-device.md "iot-dc-prepare-device.md").
 
 ###### Tutorials in this learning path
 
-- [Tutorial: Preparing your devices for the
-  AWS IoT Device Client](iot-dc-prepare-device.md "iot-dc-prepare-device.md")
-- [Tutorial: Installing and configuring the
-  AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")
-- [Tutorial: Demonstrate MQTT message communication with the
-  AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md")
-- [Tutorial: Demonstrate remote actions (jobs) with the
-  AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")
+- [Tutorial: Preparing your devices for the AWS IoT Device Client](iot-dc-prepare-device.md "iot-dc-prepare-device.md")
+- [Tutorial: Installing and configuring the AWS IoT Device Client](iot-dc-install-dc.md "iot-dc-install-dc.md")
+- [Tutorial: Demonstrate MQTT message communication with the AWS IoT Device Client](iot-dc-testconn.md "iot-dc-testconn.md")
+- [Tutorial: Demonstrate remote actions (jobs) with the AWS IoT Device Client](iot-dc-runjobs.md "iot-dc-runjobs.md")
 - [Tutorial: Cleaning up after running the AWS IoT Device Client tutorials](iot-dc-cleanup.md "iot-dc-cleanup.md")

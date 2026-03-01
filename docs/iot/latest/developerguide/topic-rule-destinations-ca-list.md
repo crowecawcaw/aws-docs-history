@@ -1,6 +1,4 @@
-# Certificate authorities
-
-supported by HTTPS endpoints in topic rule destinations
+# Certificate authorities supported by HTTPS endpoints in topic rule destinations
 
 The following certificate authorities are supported by HTTPS endpoints in
 topic rule destinations. You can choose one of these supported certificate

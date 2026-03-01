@@ -1,6 +1,4 @@
-# Certificate policy
-
-examples
+# Certificate policy examples
 
 For devices registered in AWS IoT Core registry, the following policy grants
 permission to connect to AWS IoT Core with a client ID that matches a thing name,

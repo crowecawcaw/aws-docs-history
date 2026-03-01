@@ -20,8 +20,7 @@ connection statuses work.
 The client access tokens (CAT) can only be used once to connect to a
 tunnel. To reconnect to the tunnel, rotate the client access tokens
 using the [RotateTunnelAccessToken](../apireference/API_iot-secure-tunneling_RotateTunnelAccessToken.md "../apireference/API_iot-secure-tunneling_RotateTunnelAccessToken.md") API operation or the [rotate-tunnel-access-token](../../../cli/latest/reference/iotsecuretunneling/rotate-tunnel-access-token.md "../../../cli/latest/reference/iotsecuretunneling/rotate-tunnel-access-token.md") CLI command. For examples, see
-[Resolving AWS IoT secure tunneling
-connectivity issues by rotating client access tokens](iot-secure-tunneling-troubleshooting.md "iot-secure-tunneling-troubleshooting.md"). 4. When you call `CloseTunnel` or the tunnel remains
+[Resolving AWS IoT secure tunneling connectivity issues by rotating client access tokens](iot-secure-tunneling-troubleshooting.md "iot-secure-tunneling-troubleshooting.md"). 4. When you call `CloseTunnel` or the tunnel remains
 `OPEN` for longer than the `MaxLifetimeTimeout`
 value, a tunnel's status becomes `CLOSED`. You can configure
 `MaxLifetimeTimeout` when calling `OpenTunnel`.

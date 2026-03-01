@@ -1,6 +1,4 @@
-# Uploading device-side logs by using
-
-AWS IoT rules
+# Uploading device-side logs by using AWS IoT rules
 
 You can use the AWS IoT rules engine to upload log records from existing device-side log
 files (system, application, and device-client logs) to Amazon CloudWatch. When device-side logs are
@@ -346,9 +344,7 @@ AWS CLI
    }
    ```
 
-## Sending device-side logs to
-
-AWS IoT
+## Sending device-side logs to AWS IoT
 
 ###### To send device-side logs to AWS IoT
 

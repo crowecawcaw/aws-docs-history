@@ -1,19 +1,14 @@
-# Transfer a certificate to another
-
-account
+# Transfer a certificate to another account
 
 X.509 certificates that belong to one AWS account can be transferred to
 another AWS account.
 
-###### To transfer an X.509 certificate from one AWS account to
-
-another
+###### To transfer an X.509 certificate from one AWS account to another
 
 1. [Begin a certificate transfer](#transfer-cert-init "#transfer-cert-init")
 
 The certificate must be deactivated and detached from all policies and
-things before initiating the transfer. 2. [Accept or reject a certificate
-transfer](#transfer-cert-accept "#transfer-cert-accept")
+things before initiating the transfer. 2. [Accept or reject a certificate transfer](#transfer-cert-accept "#transfer-cert-accept")
 
 The receiving account must explicitly accept or reject the transferred
 certificate. After the receiving account accepts the certificate, the
@@ -28,9 +23,7 @@ You can begin to transfer a certificate to another AWS account by using
 the [AWS IoT
 console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") or the AWS CLI.
 
-### Begin a certificate
-
-transfer (console)
+### Begin a certificate transfer (console)
 
 To complete this procedure, you'll need the ID of the certificate that
 you want to transfer.
@@ -38,9 +31,7 @@ you want to transfer.
 Do this procedure from the account with the certificate to
 transfer.
 
-###### To begin to transfer a certificate to another
-
-AWS account
+###### To begin to transfer a certificate to another AWS account
 
 1. Sign in to the AWS Management Console and open the [AWS IoT
    console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
@@ -81,9 +72,7 @@ The console should display a message that indicates the success or
 failure of the transfer. If the transfer was started, the certificate's
 status is updated to **Transferred**.
 
-### Begin a certificate transfer
-
-(CLI)
+### Begin a certificate transfer (CLI)
 
 To complete this procedure, you'll need the
 `certificateId` and the
@@ -93,9 +82,7 @@ you want to transfer.
 Do this procedure from the account with the certificate to
 transfer.
 
-###### To begin to transfer a certificate to another AWS
-
-account
+###### To begin to transfer a certificate to another AWS account
 
 1. Use the [**update-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html") command
    to deactivate the certificate.
@@ -143,17 +130,13 @@ account
 `aws iot transfer-certificate --certificate-id `certificateId` --target-aws-account `account-id``
 ```
 
-## Accept or reject a certificate
-
-transfer
+## Accept or reject a certificate transfer
 
 You can accept or reject a certificate transferred to you AWS account
 from another AWS account by using the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") or
 the AWS CLI.
 
-### Accept or reject a
-
-certificate transfer (console)
+### Accept or reject a certificate transfer (console)
 
 To complete this procedure, you'll need the ID of the certificate that
 was transferred to your account.
@@ -161,9 +144,7 @@ was transferred to your account.
 Do this procedure from the account receiving the certificate that was
 transferred.
 
-###### To accept or reject a certificate that was transferred to your
-
-AWS account
+###### To accept or reject a certificate that was transferred to your AWS account
 
 1. Sign in to the AWS Management Console and open the [AWS IoT
    console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
@@ -181,9 +162,7 @@ open its details page. 3. On the certificate's **Details** page, in the
     * To not accept the certificate, choose **Reject
      transfer**.
 
-### Accept or reject a
-
-certificate transfer (CLI)
+### Accept or reject a certificate transfer (CLI)
 
 To complete this procedure, you'll need the
 `certificateId` of the certificate transfer
@@ -192,9 +171,7 @@ that you want to accept or reject.
 Do this procedure from the account receiving the certificate that was
 transferred.
 
-###### To accept or reject a certificate that was transferred to your
-
-AWS account
+###### To accept or reject a certificate that was transferred to your AWS account
 
 1. Use the [**accept-certificate-transfer**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/accept-certificate-transfer.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/accept-certificate-transfer.html")
    command to accept the certificate.
@@ -216,9 +193,7 @@ You can cancel a certificate transfer before it has been accepted by using
 the [AWS IoT
 console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") or the AWS CLI.
 
-### Cancel a certificate
-
-transfer (console)
+### Cancel a certificate transfer (console)
 
 To complete this procedure, you'll need the ID of the certificate
 transfer that you want to cancel.
@@ -251,9 +226,7 @@ the certificate transfer, while the
 **Revoke** option makes the certificate
 irreversibly unusable by AWS IoT.
 
-### Cancel a certificate transfer
-
-(CLI)
+### Cancel a certificate transfer (CLI)
 
 To complete this procedure, you'll need the
 `certificateId` of the certificate transfer

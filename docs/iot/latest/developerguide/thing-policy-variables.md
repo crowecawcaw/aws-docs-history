@@ -65,8 +65,7 @@ to a thing exclusively, using policy variables in the policy definition can
 simplify policy management. Instead of creating individual policies for each IoT
 thing, you can define a single policy using the thing policy variables. This
 policy can be applied to all devices dynamically. The following is an example
-policy to show how it works. For more information, see [Associating an AWS IoT thing to an MQTT client
-connection](exclusive-thing.md "exclusive-thing.md").
+policy to show how it works. For more information, see [Associating an AWS IoT thing to an MQTT client connection](exclusive-thing.md "exclusive-thing.md").
 
 ```
 `{

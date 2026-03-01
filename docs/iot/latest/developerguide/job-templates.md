@@ -28,6 +28,5 @@ to your devices.
 
 ###### Topics
 
-- [Use AWS managed templates to deploy common
-  remote operations](job-templates-managed.md "job-templates-managed.md")
+- [Use AWS managed templates to deploy common remote operations](job-templates-managed.md "job-templates-managed.md")
 - [Create custom job templates](job-templates-create.md "job-templates-create.md")

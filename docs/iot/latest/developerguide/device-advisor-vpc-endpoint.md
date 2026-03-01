@@ -1,6 +1,4 @@
-# Device Advisor VPC endpoints
-
-(AWS PrivateLink)
+# Device Advisor VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and the AWS IoT Core Device Advisor test
 endpoint
@@ -62,9 +60,7 @@ following before you continue:
   quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md").
 - VPC endpoints support only IPv4 traffic.
 
-## Create an interface VPC endpoint for
-
-AWS IoT Core Device Advisor
+## Create an interface VPC endpoint for AWS IoT Core Device Advisor
 
 To get started with VPC endpoints,
 [create an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md"). Next, select AWS IoT Core Device Advisor as the

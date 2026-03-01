@@ -142,9 +142,7 @@ confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-s
 
 ```
 
-## Presigned URL for file
-
-upload
+## Presigned URL for file upload
 
 If your devices need to upload files to an Amazon S3 bucket during a job deployment, then
 you can include the following presigned URL placeholder in your job document:
@@ -162,8 +160,7 @@ reserved keywords specific to each device ensures each uploaded file from a devi
 specific to that device and not overwritten by a similar uploaded file from another
 device targeted by the same job deployment. For information on troubleshooting local
 placeholders within a presigned URL placeholder for uploading files during a job
-deployment, see [General Troubleshooting Error
-Messages](software-package-catalog-troubleshooting.md#spc-general-troubleshooting "software-package-catalog-troubleshooting.md#spc-general-troubleshooting").
+deployment, see [General Troubleshooting Error Messages](software-package-catalog-troubleshooting.md#spc-general-troubleshooting "software-package-catalog-troubleshooting.md#spc-general-troubleshooting").
 
 ###### Note
 
@@ -182,9 +179,7 @@ Jobs will automatically generate a key for each device using a max of two of eac
 `${thingName}`, `${jobId}`, and
 `${executionNumber}`.
 
-## Presigned URL using Amazon S3
-
-versioning
+## Presigned URL using Amazon S3 versioning
 
 Safeguarding the integrity of a file stored in an Amazon S3 bucket is critical for ensuring
 secure job deployments using that file to your device fleet. With the use of Amazon S3
@@ -250,6 +245,5 @@ The following list outlines the differences between Amazon S3 presigned URL plac
 
 ###### Topics
 
-- [Create and manage jobs by using the
-  AWS Management Console](manage-job-console.md "manage-job-console.md")
+- [Create and manage jobs by using the AWS Management Console](manage-job-console.md "manage-job-console.md")
 - [Create and manage jobs by using the AWS CLI](manage-job-cli.md "manage-job-cli.md")

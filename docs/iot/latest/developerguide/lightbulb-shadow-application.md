@@ -1,6 +1,4 @@
-# Tutorial: Installing the Device SDK and running
-
-the sample application for Device Shadows
+# Tutorial: Installing the Device SDK and running the sample application for Device Shadows
 
 This section shows how you can install the required software and the AWS IoT Device SDK
 for Python and run the `shadow.py` sample application to edit the Shadow document and control the
@@ -20,30 +18,23 @@ shadow's state.
 You must have set up your AWS account, configured your Raspberry Pi device, and
 created an AWS IoT thing and policy that gives the device permissions to publish and
 subscribe to the MQTT reserved topics of the Device Shadow service. For
-more information, see [Tutorial: Preparing your Raspberry Pi to run the
-shadow application](create-resources-shadow.md "create-resources-shadow.md").
+more information, see [Tutorial: Preparing your Raspberry Pi to run the shadow application](create-resources-shadow.md "create-resources-shadow.md").
 
 You must have also installed Git, Python, and the AWS IoT Device SDK for Python. This
-tutorial builds on the concepts presented in the tutorial [Connect a Raspberry
-Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md").
+tutorial builds on the concepts presented in the tutorial [Connect a Raspberry Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md").
 If you haven't tried that tutorial, we recommend that you follow the steps described in that
 tutorial to install the certificate files and Device SDK and then come back to this tutorial
 to run the `shadow.py` sample app.
 
 ###### In this tutorial, you'll:
 
-- [Step 1: Run the shadow.py sample
-  app](#run-sample-application-shadows "#run-sample-application-shadows")
-- [Step 2: Review the shadow.py Device SDK sample
-  app](#review-shadow-sample-code "#review-shadow-sample-code")
-- [Step 3: Troubleshoot problems with the
-  shadow.py sample app](#shadow-sample-app-troubleshoot "#shadow-sample-app-troubleshoot")
+- [Step 1: Run the shadow.py sample app](#run-sample-application-shadows "#run-sample-application-shadows")
+- [Step 2: Review the shadow.py Device SDK sample app](#review-shadow-sample-code "#review-shadow-sample-code")
+- [Step 3: Troubleshoot problems with the shadow.py sample app](#shadow-sample-app-troubleshoot "#shadow-sample-app-troubleshoot")
 - [Step 4: Review the results and next steps](#sample-app-shadow-review "#sample-app-shadow-review")
   This tutorial takes about 20 minutes to complete.
 
-## Step 1: Run the shadow.py sample
-
-app
+## Step 1: Run the shadow.py sample app
 
 Before you run the `shadow.py` sample app, you'll need the following
 information in addition to the names and location of the certificate files that you
@@ -51,7 +42,7 @@ installed.
 
 | Application parameter values | Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Where to find the value |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| `your-iot-thing-name`        | Name of the AWS IoT thing that you created earlier in [Step 2: Create a thing resource and attach the policy<br>to the thing](shadow-provision-cloud.md#create-thing-shadow "shadow-provision-cloud.md#create-thing-shadow").<br>To find this value, in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **Manage**, and then choose<br>**Things**.                                                                                                                                                                              |
+| `your-iot-thing-name`        | Name of the AWS IoT thing that you created earlier in [Step 2: Create a thing resource and attach the policy to the thing](shadow-provision-cloud.md#create-thing-shadow "shadow-provision-cloud.md#create-thing-shadow").<br>To find this value, in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"), choose **Manage**, and then choose<br>**Things**.                                                                                                                                                                                 |
 | `your-iot-endpoint`          | The `your-iot-endpoint` value has a format of:<br>``endpoint_id`-ats.iot.`region`.amazonaws.com`,<br>for example, `a3qj468EXAMPLE-ats.iot.us-west-2.amazonaws.com`. To<br>find this value:<br>1. In the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"),<br>choose **Manage**, and then choose<br>**Things**.<br>2. Choose the IoT thing you created for your device,<br>**My_light_bulb**, that you used earlier, and then choose<br>**Interact**. On the thing details page, your endpoint is<br>displayed in the \*_HTTPS_<br>• section. |
 
 ###### Install and run the sample app
@@ -92,8 +83,7 @@ Enter desired value:
 
 ###### Note
 
-If you're having trouble running the `shadow.py` sample app, review [Step 3: Troubleshoot problems with the
-shadow.py sample app](#shadow-sample-app-troubleshoot "#shadow-sample-app-troubleshoot"). To get additional information that might
+If you're having trouble running the `shadow.py` sample app, review [Step 3: Troubleshoot problems with the shadow.py sample app](#shadow-sample-app-troubleshoot "#shadow-sample-app-troubleshoot"). To get additional information that might
 help you correct the problem, add the `--verbosity debug` parameter to the
 command line so the sample app displays detailed messages about what it’s doing.
 
@@ -178,14 +168,11 @@ state document doesn't match the version supplied.
 ```
 
 To learn more about the Shadow document and observe changes to the state information,
-proceed to the next tutorial [Tutorial: Interacting with Device Shadow
-using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md") as described in the [Step 4: Review the results and next steps](#sample-app-shadow-review "#sample-app-shadow-review") section of
+proceed to the next tutorial [Tutorial: Interacting with Device Shadow using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md") as described in the [Step 4: Review the results and next steps](#sample-app-shadow-review "#sample-app-shadow-review") section of
 this tutorial. Optionally, you can also learn about the `shadow.py` sample code
 and how it uses the MQTT protocol in the following section.
 
-## Step 2: Review the shadow.py Device SDK sample
-
-app
+## Step 2: Review the shadow.py Device SDK sample app
 
 This section reviews the `shadow.py` sample app from the **AWS IoT Device SDK v2 for Python** used in this tutorial. Here, we'll
 review how it connects to AWS IoT Core by using the MQTT and MQTT over WSS protocol. The
@@ -199,8 +186,7 @@ device, see the [HTTPS code example](http.md#codeexample "http.md#codeexample") 
 `requests` library.
 
 For information about how you can make an informed decision about which protocol to
-use for your device communications, review the [Choosing an application protocol for your
-device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
+use for your device communications, review the [Choosing an application protocol for your device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
 
 ###### MQTT
 
@@ -274,12 +260,9 @@ For more information about the MQTT protocol, see [Review the MQTT protocol](sdk
 [MQTT](mqtt.md "mqtt.md").
 
 For more information about how MQTT, MQTT over WSS, persistent sessions, and QoS
-levels that are used in this tutorial, see [Review the pubsub.py Device SDK sample
-app](sdk-tutorials.md#sdk-tutorials-explore-sample "sdk-tutorials.md#sdk-tutorials-explore-sample").
+levels that are used in this tutorial, see [Review the pubsub.py Device SDK sample app](sdk-tutorials.md#sdk-tutorials-explore-sample "sdk-tutorials.md#sdk-tutorials-explore-sample").
 
-## Step 3: Troubleshoot problems with the
-
-`shadow.py` sample app
+## Step 3: Troubleshoot problems with the `shadow.py` sample app
 
 When you run the `shadow.py` sample app, you should see some messages
 displayed in the terminal and a prompt to enter a `desired` value. If the
@@ -347,8 +330,7 @@ To check whether the correct policy is attached:
 
 
     For a sample policy,
-     see [Step 1: Create an AWS IoT policy for the Device
-     Shadow](shadow-provision-cloud.md#create-policy-shadow "shadow-provision-cloud.md#create-policy-shadow").
+     see [Step 1: Create an AWS IoT policy for the Device Shadow](shadow-provision-cloud.md#create-policy-shadow "shadow-provision-cloud.md#create-policy-shadow").
 
 If you see error messages that indicate trouble connecting to AWS IoT, it could be
 because of the permissions you're using for the policy. If that's the case, we recommend that you start
@@ -397,5 +379,4 @@ to control the state. You can observe the updates to the Shadow document in the 
 Console and observe delta events that the sample app responds to. Using the MQTT test
 client, you can subscribe to the reserved shadow topics and observe messages received by
 the topics when running the sample program. For more information about how to run this
-tutorial, see [Tutorial: Interacting with Device Shadow
-using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md").
+tutorial, see [Tutorial: Interacting with Device Shadow using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md").

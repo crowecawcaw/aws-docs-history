@@ -24,8 +24,5 @@ Indication (SNI) extension](https://tools.ietf.org/html/rfc3546#section-3.1 "htt
 
 ###### Topics
 
-- [Register a client certificate
-  manually](manual-cert-registration.md "manual-cert-registration.md")
-- [Register a client certificate
-  when the client connects to AWS IoT just-in-time registration
-  (JITR)](auto-register-device-cert.md "auto-register-device-cert.md")
+- [Register a client certificate manually](manual-cert-registration.md "manual-cert-registration.md")
+- [Register a client certificate when the client connects to AWS IoT just-in-time registration (JITR)](auto-register-device-cert.md "auto-register-device-cert.md")

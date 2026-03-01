@@ -1,6 +1,4 @@
-# Retaining device state while the device is offline with
-
-Device Shadows
+# Retaining device state while the device is offline with Device Shadows
 
 These tutorials show you how to use the AWS IoT Device Shadow service to store and update the
 state information of a device. The Shadow document, which is a JSON document, shows the change
@@ -27,25 +25,21 @@ shadow while showing how you might accommodate named shadows or multiple devices
 The following tutorials will help you learn how to use the AWS IoT Device Shadow
 service.
 
-- ###### [Tutorial: Preparing your Raspberry Pi to run the
-  shadow application](create-resources-shadow.md "create-resources-shadow.md")
+- ###### [Tutorial: Preparing your Raspberry Pi to run the shadow application](create-resources-shadow.md "create-resources-shadow.md")
 
 This tutorial shows how to set up a Raspberry Pi device for connecting with AWS IoT.
 You'll also create an AWS IoT policy document and a thing resource, download the
 certificates, and then attach the policy to that thing resource. This tutorial takes about
 30 minutes to complete.
 
-- ###### [Tutorial: Installing the Device SDK and running
-  the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md")
+- ###### [Tutorial: Installing the Device SDK and running the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md")
 
 This tutorial shows how to install the required tools, software, and the AWS IoT Device SDK
 for Python, and then run the sample shadow application. This tutorial builds on concepts
-presented in [Connect a Raspberry
-Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md")
+presented in [Connect a Raspberry Pi or other device](connecting-to-existing-device.md "connecting-to-existing-device.md")
 and takes 20 minutes to complete.
 
-- ###### [Tutorial: Interacting with Device Shadow
-  using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md")
+- ###### [Tutorial: Interacting with Device Shadow using the sample app and the MQTT test client](interact-lights-device-shadows.md "interact-lights-device-shadows.md")
 
 This tutorial shows how you use the `shadow.py` sample app and **AWS IoT console**
 to observe the interaction between AWS IoT Device Shadows and the state changes of the light

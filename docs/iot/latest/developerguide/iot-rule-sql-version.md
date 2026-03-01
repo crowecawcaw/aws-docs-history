@@ -35,9 +35,7 @@ AWS IoT currently supports the following SQL versions:
 - `beta` – The most recent beta SQL version. This version
   could introduce breaking changes to your rules.
 
-## What's new in the 2016-03-23 SQL rules engine
-
-version
+## What's new in the 2016-03-23 SQL rules engine version
 
 - Fixes for selecting nested JSON objects.
 - Fixes for array queries.
@@ -47,9 +45,7 @@ version
   can be applied on JSON and non-JSON format data. For more information, see
   the [encode function](iot-sql-functions.md#iot-sql-encode-payload "iot-sql-functions.md#iot-sql-encode-payload").
 
-### Output an `Array` as a top-level
-
-object
+### Output an `Array` as a top-level object
 
 This feature allows a rule to return an array as a top-level object. For
 example, given the following MQTT message:

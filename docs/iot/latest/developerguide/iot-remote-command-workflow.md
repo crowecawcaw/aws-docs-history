@@ -7,12 +7,9 @@ This workflow shows how devices interact with AWS IoT Device Management Commands
 ###### Workflow overview
 
 - [Create and manage commands](#command-create-command "#command-create-command")
-- [Choose target device for your commands and
-  subscribe to MQTT topics](#command-choose-target "#command-choose-target")
-- [Start and monitor command executions for
-  your target device](#command-command-executions "#command-command-executions")
-- [(Optional) Enable
-  notifications for commands events](#iot-remote-command-commands-notifications "#iot-remote-command-commands-notifications")
+- [Choose target device for your commands and subscribe to MQTT topics](#command-choose-target "#command-choose-target")
+- [Start and monitor command executions for your target device](#command-command-executions "#command-command-executions")
+- [(Optional) Enable notifications for commands events](#iot-remote-command-commands-notifications "#iot-remote-command-commands-notifications")
 
 ## Create and manage commands
 
@@ -28,20 +25,16 @@ For dynamic Commands with payload templates, the final payload is generated at r
 
 Update the display name and description after creation. Mark Commands as deprecated when no longer needed, or delete them permanently. To modify Payload information, create a new Command.
 
-## Choose target device for your commands and
-
-subscribe to MQTT topics
+## Choose target device for your commands and subscribe to MQTT topics
 
 Choose your target device and configure MQTT topics for receiving Commands and publishing responses.
 
 1. ###### Choose the target device for your command
 
-Choose a target device to receive and execute the Command. Use a Thing name for registered devices or a Client ID for unregistered devices. For more information, see [Target device
-considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target"). 2. ###### Configure the AWS IoT device policy
+Choose a target device to receive and execute the Command. Use a Thing name for registered devices or a Client ID for unregistered devices. For more information, see [Target device considerations](iot-remote-command-execution-start-monitor.md#iot-command-execution-target "iot-remote-command-execution-start-monitor.md#iot-command-execution-target"). 2. ###### Configure the AWS IoT device policy
 
 Configure an IAM policy granting permissions to receive Executions and publish updates. See
-[Sample IAM
-policy](iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy "iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy") for policy examples. 3. ###### Establish an MQTT connection
+[Sample IAM policy](iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy "iot-remote-command-execution-start-monitor.md#iot-remote-command-execution-update-policy") for policy examples. 3. ###### Establish an MQTT connection
 
 Connect devices to the message broker and subscribe to request and response Topics. Devices need `iot:Connect` permission. Find your data plane endpoint using the
 `DescribeEndpoint` API or `describe-endpoint` CLI command:
@@ -88,9 +81,7 @@ $aws/commands/`<devices>`/`<DeviceID>`/executions/+/response/rejected/`<PayloadF
 
 ```
 
-## Start and monitor command executions for
-
-your target device
+## Start and monitor command executions for your target device
 
 After you have created the commands and specified the targets for the command, you can
 start the execution on the target device by performing the following steps.
@@ -131,9 +122,7 @@ $aws/commands/`<devices>`/`<DeviceID>`/executions/`<ExecutionId>`/response/`<Pay
 Retrieve Execution results from the AWS IoT console or using `GetCommandExecution`. The device must publish results to the Commands response
 Topic for latest information. View additional details including last update time, result, and completion time.
 
-## (Optional) Enable
-
-notifications for commands events
+## (Optional) Enable notifications for commands events
 
 Subscribe to Commands events for notifications when Execution status changes.
 

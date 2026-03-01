@@ -2,8 +2,7 @@
 
 Authorization is the process of granting permissions to an authenticated identity. You
 grant permissions in AWS IoT Core using AWS IoT Core and IAM policies. This topic covers
-AWS IoT Core policies. For more information about IAM policies, see [Identity and access management for AWS IoT](security-iam.md "security-iam.md") and [How AWS IoT works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+AWS IoT Core policies. For more information about IAM policies, see [Identity and access management for AWS IoT](security-iam.md "security-iam.md") and [How AWS IoT works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 AWS IoT Core policies determine what an authenticated identity can do. An authenticated
 identity is used by devices, mobile applications, web applications, and desktop

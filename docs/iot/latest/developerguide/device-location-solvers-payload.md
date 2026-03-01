@@ -1,6 +1,4 @@
-# Location solvers and device
-
-payload
+# Location solvers and device payload
 
 Location solvers are algorithms that can be used to resolve the location of your IoT
 devices. AWS IoT Core Device Location supports the following location solvers. You'll see examples of the
@@ -69,9 +67,7 @@ include measurement data from any or all of these technologies.
 - TD-SCDMA
 - LTE
 
-### Cellular based solver
-
-payload examples
+### Cellular based solver payload examples
 
 The following code shows examples of the JSON payload from the device that
 contains cellular measurement data. When AWS IoT Core Device Location receives this data as input, it
@@ -300,8 +296,7 @@ using this format, or specify values for the [Ip](../../../iot-wireless/latest/a
 
 When this solver is used, the city, state, country, and postal code
 where the device is located is also reported in addition to the
-coordinates. For an example, see [Resolving device location
-(console)](device-location-resolve-solvers.md#location-resolve-console "device-location-resolve-solvers.md#location-resolve-console").
+coordinates. For an example, see [Resolving device location (console)](device-location-resolve-solvers.md#location-resolve-console "device-location-resolve-solvers.md#location-resolve-console").
 
 ```
 {

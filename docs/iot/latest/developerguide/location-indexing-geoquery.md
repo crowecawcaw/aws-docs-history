@@ -81,9 +81,7 @@ Depending on your use cases, create geoqueries and run them to search for device
 The geoqeury you compose must follow the [Query syntax](query-syntax.md "query-syntax.md"). You can find
 some examples in [Example geoqueries](#location-indexing-geoqueries "#location-indexing-geoqueries").
 
-## Update thing indexing
-
-configuration
+## Update thing indexing configuration
 
 To index location data, you must update indexing configuration and include your location
 data. Depending on where your location data is stored, follow the steps to update your

@@ -14,13 +14,8 @@ AWS IoT Core supports, see [Device communication protocols](protocols.md "protoc
 
 ###### Topics
 
-- [Understanding the custom authentication
-  workflow](custom-authorizer.md "custom-authorizer.md")
-- [Creating and managing custom authorizers
-  (CLI)](config-custom-auth.md "config-custom-auth.md")
-- [Custom authentication with X.509 client
-  certificates](custom-auth-509cert.md "custom-auth-509cert.md")
-- [Connecting to AWS IoT Core by using custom
-  authentication](custom-auth.md "custom-auth.md")
-- [Troubleshooting your
-  authorizers](custom-auth-troubleshooting.md "custom-auth-troubleshooting.md")
+- [Understanding the custom authentication workflow](custom-authorizer.md "custom-authorizer.md")
+- [Creating and managing custom authorizers (CLI)](config-custom-auth.md "config-custom-auth.md")
+- [Custom authentication with X.509 client certificates](custom-auth-509cert.md "custom-auth-509cert.md")
+- [Connecting to AWS IoT Core by using custom authentication](custom-auth.md "custom-auth.md")
+- [Troubleshooting your authorizers](custom-auth-troubleshooting.md "custom-auth-troubleshooting.md")

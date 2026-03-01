@@ -127,8 +127,7 @@ exponential rollout rate. To specify the maximum number of job
 targets to inform per minute, use a static rollout rate.
 
 For examples of setting rollout rates and for more information
-about configuring job rollouts, see [Job rollout, scheduling, and abort
-configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
+about configuring job rollouts, see [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
 
 **Scheduling**
 
@@ -138,15 +137,13 @@ snapshot jobs.
 Additionally, you can create an optional maintenance window containing specific dates and times that a job will rollout the job document to all devices in the target group. A maintenance window is a recurring instance with a frequency of daily, weekly, monthly, or custom dates and times selected during the initial job or job template creation. Only continuous jobs can be scheduled to perform a rollout during a maintenance window.
 
 Jobs Scheduling is specific to your job. Individual Job Executions
-can't be scheduled. For more information, see [Job rollout, scheduling, and abort
-configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
+can't be scheduled. For more information, see [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
 
 **Abort**
 
 You can create a set of conditions to cancel rollouts when
 criteria that you specify have been met. For more information, see
-[Job rollout, scheduling, and abort
-configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
+[Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling").
 
 **Timeouts**
 
@@ -158,8 +155,7 @@ your job deployment.
 
 Rollouts and abort configurations are specific to your job,
 whereas the timeout configuration is specific to a job deployment.
-For more information, see [Job execution timeout and retry
-configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").
+For more information, see [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").
 
 **Retries**
 
@@ -170,5 +166,4 @@ retry attempt and whether the job execution succeeded.
 
 Rollouts and abort configurations are specific to your job,
 whereas the timeout and retry configurations are specific to a job
-execution. For more information, see [Job execution timeout and retry
-configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").
+execution. For more information, see [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").

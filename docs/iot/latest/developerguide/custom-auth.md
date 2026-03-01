@@ -1,6 +1,4 @@
-# Connecting to AWS IoT Core by using custom
-
-authentication
+# Connecting to AWS IoT Core by using custom authentication
 
 Devices can connect to AWS IoT Core by using custom authentication with any protocol
 that AWS IoT Core supports for device messaging. For more information about supported

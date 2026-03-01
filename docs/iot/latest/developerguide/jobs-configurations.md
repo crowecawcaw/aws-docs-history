@@ -1,6 +1,4 @@
-# Job
-
-configurations
+# Job configurations
 
 You can have the following additional configurations for each job that you deploy to the
 specified targets.

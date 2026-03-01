@@ -39,8 +39,7 @@ Before you can use AWS IoT services, you must set up an AWS account. If
 you already have an AWS account and an IAM user for yourself, you can
 use them and skip this step.
 
-- ###### [Try the quick connect
-  tutorial](iot-quick-start.md "iot-quick-start.md")
+- ###### [Try the quick connect tutorial](iot-quick-start.md "iot-quick-start.md")
 
 This tutorial is best if you want to quickly get started with AWS IoT and
 see how it works in a limited scenario. In this tutorial, you'll need a
@@ -49,16 +48,14 @@ IoT device, you can use your Windows, Linux, or macOS personal computer as a
 device for this tutorial. If you want to try AWS IoT, but you don't have a
 device, try the next option.
 
-- ###### [Try the interactive
-  tutorial](interactive-demo.md "interactive-demo.md")
+- ###### [Try the interactive tutorial](interactive-demo.md "interactive-demo.md")
 
 This demo is best if you want to see what a basic AWS IoT solution can do
 without connecting a device or downloading any software. The interactive
 tutorial presents a simulated solution built on AWS IoT Core services that
 illustrates how they interact.
 
-- ###### [Explore AWS IoT Core services with a
-  hands-on tutorial](iot-gs-first-thing.md "iot-gs-first-thing.md")
+- ###### [Explore AWS IoT Core services with a hands-on tutorial](iot-gs-first-thing.md "iot-gs-first-thing.md")
 
 This tutorial is best for developers who want to get started with AWS IoT so
 they can continue to explore other AWS IoT Core features such as the rules
@@ -66,8 +63,7 @@ engine and shadows. This tutorial follows a process similar to the quick
 connect tutorial, but provides more details on each step to enable a
 smoother transition to the more advanced tutorials.
 
-- ###### [View MQTT messages with the AWS IoT MQTT
-  client](view-mqtt-messages.md "view-mqtt-messages.md")
+- ###### [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md")
 
 Learn how to use the MQTT test client to watch your first device publish
 MQTT messages to AWS IoT. The MQTT test client is a useful tool to monitor and

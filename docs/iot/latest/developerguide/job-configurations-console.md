@@ -1,6 +1,4 @@
-# Specify job configurations by using the
-
-AWS Management Console
+# Specify job configurations by using the AWS Management Console
 
 You can add the different configurations for your job by using the AWS IoT console.
 After you've created a job, you can see the status details of your job

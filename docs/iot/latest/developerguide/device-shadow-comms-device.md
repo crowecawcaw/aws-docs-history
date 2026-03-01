@@ -53,9 +53,7 @@ table. Remember that topics are case sensitive.
 See [Shadow topics](reserved-topics.md#reserved-topics-shadow "reserved-topics.md#reserved-topics-shadow")
 for more information about the reserved topics for shadows.
 
-## Initializing the device
-
-on first connection to AWS IoT
+## Initializing the device on first connection to AWS IoT
 
 After a device registers with AWS IoT, it should subscribe to these MQTT messages
 for the shadows that it supports.
@@ -112,9 +110,7 @@ topic `$aws/things/My_IoT_Thing/shadow/name/namedShadow1/update`. To retrieve
 the state information, use the `/get` request for the named shadow,
 `$aws/things/My_IoT_Thing/shadow/name/namedShadow1/get`.
 
-## Processing messages
-
-while the device is connected to AWS IoT
+## Processing messages while the device is connected to AWS IoT
 
 While a device is connected to AWS IoT, it can receive **/update/delta** messages and should keep the device state matched to
 the changes in its shadows by:
@@ -134,9 +130,7 @@ indicated.
 | The device might not be synchronized with the shadow.                                                                                                  | ``ShadowTopicPrefix`/get`    | (empty)                                            |
 | An action on the device indicates that a shadow will no longer<br>be supported by the device, such as when the device is being<br>removed or replaced. | ``ShadowTopicPrefix`/delete` | (empty)                                            |
 
-## Processing messages when the
-
-device reconnects to AWS IoT
+## Processing messages when the device reconnects to AWS IoT
 
 When a device with one or more shadows connects to AWS IoT, it should synchronize
 its state with that of all the shadows that it supports by:

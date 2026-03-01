@@ -1,6 +1,4 @@
-# Start and monitor command
-
-executions
+# Start and monitor command executions
 
 After creating a Command, start an Execution on the target
 device. The device updates results and publishes status to MQTT reserved
@@ -12,13 +10,10 @@ AWS CLI.
 ###### Start and monitor commands operations
 
 - [Start a command execution](#iot-remote-command-execution-start "#iot-remote-command-execution-start")
-- [Update the result of a command
-  execution](#iot-remote-command-execution-update "#iot-remote-command-execution-update")
+- [Update the result of a command execution](#iot-remote-command-execution-update "#iot-remote-command-execution-update")
 - [Retrieve a command execution](#iot-remote-command-execution-get "#iot-remote-command-execution-get")
-- [Viewing commands updates
-  using the MQTT test client](#iot-remote-command-execution-update-mqtt "#iot-remote-command-execution-update-mqtt")
-- [List command executions in your
-  AWS account](#iot-remote-command-execution-list "#iot-remote-command-execution-list")
+- [Viewing commands updates using the MQTT test client](#iot-remote-command-execution-update-mqtt "#iot-remote-command-execution-update-mqtt")
+- [List command executions in your AWS account](#iot-remote-command-execution-list "#iot-remote-command-execution-list")
 - [Delete a command execution](#iot-remote-command-execution-delete "#iot-remote-command-execution-delete")
 
 ## Start a command execution
@@ -93,9 +88,7 @@ the Execution times out with status `TIMED_OUT`.
 
 Default: 10 seconds. Maximum: 12 hours.
 
-#### Time out value and
-
-`TIMED_OUT` execution status
+#### Time out value and `TIMED_OUT` execution status
 
 Both cloud and device can report timeout.
 
@@ -128,9 +121,7 @@ updated based on the information reported by the device. The command
 execution then becomes terminal, and no further updates are
 accepted.
 
-#### Using MQTT
-
-persistent sessions
+#### Using MQTT persistent sessions
 
 You can configure MQTT persistent sessions to use with the AWS IoT Device Management commands
 feature. This feature is especially useful in cases such as when your device
@@ -164,13 +155,11 @@ default value,
 you must provide a value to be sent as part of this execution. 3. Specify the target device to receive and execute the Command. The
 device can be specified as an AWS IoT thing if it has been registered with
 AWS IoT, or using the client ID if your device has not been registered
-yet. For more information, see [Target device
-considerations](#iot-command-execution-target "#iot-command-execution-target") 4. (Optional) Configure a timeout value for the command that determines
+yet. For more information, see [Target device considerations](#iot-command-execution-target "#iot-command-execution-target") 4. (Optional) Configure a timeout value for the command that determines
 the duration for which you want the command to run before it times out.
 If your command needs to run longer than 60 minutes, you may have to
 increase the MQTT persistent sessions expiry time. For more information,
-see [Command execution timeout
-considerations](#iot-command-execution-timeout "#iot-command-execution-timeout"). 5. Choose **Run command**.
+see [Command execution timeout considerations](#iot-command-execution-timeout "#iot-command-execution-timeout"). 5. Choose **Run command**.
 Use the [`StartCommandExecution`](../apireference/API_StartCommandExecution.md "../apireference/API_StartCommandExecution.md") HTTP data plane API
 operation to start a command execution. The API request and response are
 correlated by the command execution ID. After the device completes executing the
@@ -195,9 +184,7 @@ the commands request topic.
 $aws/commands/`<devices>`/`<DeviceID>`/executions/+/request
 ```
 
-#### Sample IAM
-
-policy
+#### Sample IAM policy
 
 Before you use this API operation, make sure that your IAM policy
 authorizes you to perform this action on the device. The following example
@@ -239,9 +226,7 @@ In this example, replace:
 To see a list of condition keys supported for `StartCommandExecution`, see [Condition Keys for AWS IoT](../../../service-authorization/latest/reference/list_awsiot.md#awsiot-policy-keys "../../../service-authorization/latest/reference/list_awsiot.md#awsiot-policy-keys")
 in the _IAM User Guide_.
 
-#### Obtain
-
-account-specific data plane endpoint
+#### Obtain account-specific data plane endpoint
 
 Before you run the API command, you must obtain the account-specific
 endpoint URL for the endpoint. If you're using dual-stack endpoints (IPv4
@@ -262,9 +247,7 @@ response below.
 }
 ```
 
-#### Start a command
-
-execution example (AWS CLI)
+#### Start a command execution example (AWS CLI)
 
 The following example displays how to start executing a command using the
 `start-command-execution` AWS CLI command.
@@ -284,8 +267,7 @@ In this example, replace:
   `myRegisteredThing`, use
   `arn:aws:iot:`region`:`account-id`:thing/`myRegisteredThing``.
 - `<endpoint-url>` with
-  the account-specific endpoint that you obtained in [Obtain
-  account-specific data plane endpoint](#iot-remote-command-execution-start-endpoint "#iot-remote-command-execution-start-endpoint"),
+  the account-specific endpoint that you obtained in [Obtain account-specific data plane endpoint](#iot-remote-command-execution-start-endpoint "#iot-remote-command-execution-start-endpoint"),
   prefixed by `https://`. For example,
   `https://`123456789012abcd`.jobs.iot.`us-east-1`.amazonaws.com`.
 - (Optional) You can also specify an additional parameter,
@@ -341,9 +323,7 @@ the `UpdateCommand` API, and then perform the
 }
 ```
 
-## Update the result of a command
-
-execution
+## Update the result of a command execution
 
 Use the `UpdateCommandExecution` MQTT data plane API operation to update
 the status or result of a command execution.
@@ -378,9 +358,7 @@ In this example, replace:
   with the names of your AWS IoT commands request and response topics. For
   more information, see [High-level commands workflow](iot-remote-command-workflow.md "iot-remote-command-workflow.md").
 
-#### Sample
-
-IAM policy for MQTT client ID
+#### Sample IAM policy for MQTT client ID
 
 The following code shows a sample device policy when using MQTT client
 ID.
@@ -431,9 +409,7 @@ ID.
 
 ```
 
-#### Sample
-
-IAM policy for IoT thing
+#### Sample IAM policy for IoT thing
 
 The following code shows a sample device policy when using an AWS IoT
 thing.
@@ -505,9 +481,7 @@ ID as your identifier instead of a thing name.
 $aws/commands/clients/`<ClientID>`/executions/`<ExecutionId>`/response/`<PayloadFormat>`
 ```
 
-#### Device reported updates to
-
-execution status
+#### Device reported updates to execution status
 
 Your devices can use the API to report any of the following status updates to
 the command execution. For more information
@@ -533,12 +507,9 @@ about these statuses, see [Command execution status](iot-remote-command-concepts
   - The device reports that a time out occurred when attempting to
     execute the command.
 
-For more information about the `TIMED_OUT` status, see [Time out value and
-TIMED_OUT execution status](#iot-command-execution-timeout-status "#iot-command-execution-timeout-status").
+For more information about the `TIMED_OUT` status, see [Time out value and TIMED_OUT execution status](#iot-command-execution-timeout-status "#iot-command-execution-timeout-status").
 
-#### Considerations
-
-when using the `UpdateCommandExecution` API
+#### Considerations when using the `UpdateCommandExecution` API
 
 The following are some important considerations when using the
 `UpdateCommandExecution` API.
@@ -564,9 +535,7 @@ The following are some important considerations when using the
   you can view the error in the `AWSIoTLogsV2` log group in Amazon CloudWatch. For information
   about enabling logging and viewing the logs, see [Configure AWS IoT logging](configure-logging.md "configure-logging.md").
 
-#### `UpdateCommandExecution`
-
-API example
+#### `UpdateCommandExecution` API example
 
 The following code shows an example of how your device can use the
 `UpdateCommandExecution` API to report the execution status, the
@@ -657,9 +626,7 @@ API operation to retrieve information about a command execution. You must have
 already executed this command using the `StartCommandExecution` API
 operation.
 
-#### Sample IAM
-
-policy
+#### Sample IAM policy
 
 Before you use this API operation, make sure that your IAM policy
 authorizes you to perform this action on the device. The following example
@@ -696,9 +663,7 @@ In this example, replace:
 }
 ```
 
-#### Retrieve a
-
-command execution example
+#### Retrieve a command execution example
 
 The following example shows you how to retrieve information about a
 command that was executed using the `start-command-execution`
@@ -744,8 +709,7 @@ cloud. In the case of `TIMED_OUT` status, this field will be
 set only when the device reports a time out. When the
 `TIMED_OUT` status is set by the cloud, the
 `TIMED_OUT` status is not updated. For more information
-about the time out behavior, see [Command execution timeout
-considerations](#iot-command-execution-timeout "#iot-command-execution-timeout").
+about the time out behavior, see [Command execution timeout considerations](#iot-command-execution-timeout "#iot-command-execution-timeout").
 
 ```
 {
@@ -766,9 +730,7 @@ considerations](#iot-command-execution-timeout "#iot-command-execution-timeout")
 }
 ```
 
-## Viewing commands updates
-
-using the MQTT test client
+## Viewing commands updates using the MQTT test client
 
 You can use the MQTT test client to view the message exchange over MQTT when using the
 commands feature. After your device establishes an MQTT connection with AWS IoT, you
@@ -843,9 +805,7 @@ it failed to execute the command.
 In this case, you can charge your car's battery and then run the command
 again.
 
-## List command executions in your
-
-AWS account
+## List command executions in your AWS account
 
 After you run a command, you can retrieve information about the command execution from
 the AWS IoT console and using the AWS CLI. You can obtain the following information.
@@ -893,9 +853,7 @@ hub page.
 Use the [`ListCommandExecutions`](../apireference/API_ListCommandExecutions.md "../apireference/API_ListCommandExecutions.md") AWS IoT Core control plane HTTP
 API operation to list all command executions in your account.
 
-#### Sample IAM
-
-policy
+#### Sample IAM policy
 
 Before you use this API operation, make sure that your IAM policy
 authorizes you to perform this action on the device. The following example
@@ -921,9 +879,7 @@ In this example, replace:
 }
 ```
 
-#### List command
-
-executions example
+#### List command executions example
 
 The following example shows you how to list command executions in your
 AWS account.

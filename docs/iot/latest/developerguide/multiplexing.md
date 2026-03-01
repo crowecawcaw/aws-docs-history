@@ -1,6 +1,4 @@
-# Multiplex data streams and using simultaneous TCP
-
-connections in a secure tunnel
+# Multiplex data streams and using simultaneous TCP connections in a secure tunnel
 
 You can use multiple data streams per tunnel by using the secure tunneling
 multiplexing feature. With multiplexing, you can troubleshoot devices using multiple
@@ -19,7 +17,5 @@ connections, and their different use cases.
 
 ###### Topics
 
-- [Multiplexing multiple data streams
-  in a secure tunnel](multiplexing-multiple-streams.md "multiplexing-multiple-streams.md")
-- [Using simultaneous TCP connections
-  in a secure tunnel](multiplexing-simultaneous-tcp.md "multiplexing-simultaneous-tcp.md")
+- [Multiplexing multiple data streams in a secure tunnel](multiplexing-multiple-streams.md "multiplexing-multiple-streams.md")
+- [Using simultaneous TCP connections in a secure tunnel](multiplexing-simultaneous-tcp.md "multiplexing-simultaneous-tcp.md")

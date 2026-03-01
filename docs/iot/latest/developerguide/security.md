@@ -35,8 +35,7 @@ cloud:
 - [Resilience in AWS IoT Core](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Using AWS IoT Core with interface VPC endpoints](IoTCore-VPC.md "IoTCore-VPC.md")
 - [Infrastructure security in AWS IoT](infrastructure-security.md "infrastructure-security.md")
-- [Security monitoring of production fleets or devices
-  with AWS IoT Core](security-monitoring.md "security-monitoring.md")
+- [Security monitoring of production fleets or devices with AWS IoT Core](security-monitoring.md "security-monitoring.md")
 - [Security best practices in AWS IoT Core](security-best-practices.md "security-best-practices.md")
 - [AWS training and certification](#iot-security-training "#iot-security-training")
 

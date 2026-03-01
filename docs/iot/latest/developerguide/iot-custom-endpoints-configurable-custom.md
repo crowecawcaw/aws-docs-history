@@ -1,6 +1,4 @@
-# Creating and configuring
-
-customer managed domains
+# Creating and configuring customer managed domains
 
 Domain configurations let you specify a custom fully qualified domain name (FQDN) to
 connect to AWS IoT Core. There are many benefits of using customer managed domains (also
@@ -104,9 +102,7 @@ information, see [Request
 a Public Certificate](../../../acm/latest/userguide/gs-acm-request-public.md "../../../acm/latest/userguide/gs-acm-request-public.md"). When you create your domain configuration,
 use this public certificate as your validation certificate.
 
-## Creating a
-
-domain configuration
+## Creating a domain configuration
 
 You create a configurable endpoint on a custom domain by using the [CreateDomainConfiguration](../apireference/API_CreateDomainConfiguration.md "../apireference/API_CreateDomainConfiguration.md") API. A domain configuration for a custom
 domain consists of the following:
@@ -160,14 +156,12 @@ AWS IoT Core currently supports only the `DATA` service type. When you specify
 - `TlsConfig` (optional)
 
 An object that specifies the TLS configuration for a domain. For more
-information, see [Configuring TLS settings in domain
-configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
+information, see [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
 
 - `serverCertificateConfig` (optional)
 
 An object that specifies the server certificate configuration for a
-domain. For more information, see [Server certificate configuration for
-OCSP stapling](iot-custom-endpoints-cert-config.md "iot-custom-endpoints-cert-config.md").
+domain. For more information, see [Server certificate configuration for OCSP stapling](iot-custom-endpoints-cert-config.md "iot-custom-endpoints-cert-config.md").
 
 The following AWS CLI command creates a domain configuration for **iot.example.com**.
 
@@ -183,9 +177,7 @@ until AWS IoT Core serves your custom server certificates.
 
 For more information, see [Managing domain configurations](iot-custom-endpoints-managing.md "iot-custom-endpoints-managing.md").
 
-## Creating DNS
-
-records
+## Creating DNS records
 
 After you register your server certificate chain and create your domain
 configuration, create a DNS record so that your custom domain points to an

@@ -6,8 +6,7 @@ number of service resources or operations for your AWS account.
 ###### Topics
 
 - [Job executions limits](#job-execution-limits "#job-execution-limits")
-- [Active and concurrent
-  job limits](#job-limits-active-concurrent "#job-limits-active-concurrent")
+- [Active and concurrent job limits](#job-limits-active-concurrent "#job-limits-active-concurrent")
 
 ## Job executions limits
 
@@ -33,9 +32,7 @@ window.
 | `ListNotification`                       | A `ListNotification` is published whenever an old job execution<br>enters a terminal status, or when a new job execution is queued or changes to<br>a non-terminal status. It can display up to 15 pending job executions that<br>are either `QUEUED` or `IN_PROGRESS`.                                                                                                                                                                                                         | 10          | 15 (Up to 5 job executions only appears in the `ListNotification`<br>during a maintenace window). |
 | `GetPendingJobExecutions`                | When you invoke the `GetPendingJobExecutions` API, it returns<br>a list of job executions that have not yet started, and can be started after the<br>API call. The API can return up to a maximum of 10 pending job executions.<br>• Out of the 10 pending job executions, executions that are `IN_PROGRESS`<br>will be filtered from the result.<br>• Out of the 10 pending job executions, if their jobs are in `SCHEDULED`<br>status, they will be filtered from the result. | 10          | 15                                                                                                |
 
-## Active and concurrent
-
-job limits
+## Active and concurrent job limits
 
 This section will help you learn more about active and concurrent jobs and the
 limits that apply to them.

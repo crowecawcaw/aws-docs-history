@@ -1,6 +1,4 @@
-# Attach a thing or policy to a client
-
-certificate
+# Attach a thing or policy to a client certificate
 
 When you create and register a certificate separate from an AWS IoT thing, it
 will not have any policies that authorize any AWS IoT operations, nor will it be
@@ -19,9 +17,7 @@ authorize the device to perform AWS IoT actions, such as to allow the device to
 connect and publish messages, an appropriate policy must be attached to the
 device's certificate.
 
-## Attach a thing to a client
-
-certificate (console)
+## Attach a thing to a client certificate (console)
 
 You will need the name of the thing object to complete this
 procedure.
@@ -43,9 +39,7 @@ procedure.
 The thing object should now appear in the list of things on the
 certificate's details page.
 
-## Attach a policy to a client
-
-certificate (console)
+## Attach a policy to a client certificate (console)
 
 You will need the name of the policy object to complete this
 procedure.
@@ -67,9 +61,7 @@ procedure.
 The policy object should now appear in the list of policies on the
 certificate's details page.
 
-## Attach a thing to a client
-
-certificate (CLI)
+## Attach a thing to a client certificate (CLI)
 
 The AWS CLI provides the [**attach-thing-principal**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/attach-thing-principal.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/attach-thing-principal.html") command to attach
 a thing object to a certificate.
@@ -80,9 +72,7 @@ a thing object to a certificate.
  --thing-name `thingName``
 ```
 
-## Attach a policy to a client
-
-certificate (CLI)
+## Attach a policy to a client certificate (CLI)
 
 The AWS CLI provides the [**attach-policy**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/attach-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/attach-policy.html") command to attach a policy
 object to a certificate.

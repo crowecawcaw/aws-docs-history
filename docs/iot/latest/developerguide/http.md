@@ -2,8 +2,7 @@
 
 Clients can publish messages by making requests to the REST API using the HTTP
 1.0 or 1.1 protocols. For the authentication and port mappings used by HTTP
-requests, see [Protocols, port mappings, and
-authentication](protocols.md#protocol-mapping "protocols.md#protocol-mapping").
+requests, see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping "protocols.md#protocol-mapping").
 
 ###### Note
 
@@ -108,9 +107,7 @@ CURL
 You can use [curl](https://curl.haxx.se "https://curl.haxx.se")
 from a client or device to send a message to AWS IoT.
 
-###### To use curl to send a message from an AWS IoT client
-
-device
+###### To use curl to send a message from an AWS IoT client device
 
 1. Check the **curl** version.
    1. On your client, run this command at a command
@@ -203,8 +200,7 @@ keyword, `/topics/` and the topic name,
 Quality of Service as the query parameter,
 `?qos=1`. 4. Open the MQTT test client in the AWS IoT console.
 
-Follow the instructions in [View MQTT messages with the AWS IoT MQTT
-client](view-mqtt-messages.md "view-mqtt-messages.md") and configure
+Follow the instructions in [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md") and configure
 the console to subscribe to messages with the topic name
 of `topic` used in your
 **curl** command, or use the wildcard

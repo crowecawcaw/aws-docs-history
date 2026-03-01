@@ -1,6 +1,4 @@
-# Tutorial: Installing and configuring the
-
-AWS IoT Device Client
+# Tutorial: Installing and configuring the AWS IoT Device Client
 
 This tutorial walks you through the installation and configuration of the
 AWS IoT Device Client and the creation of AWS IoT resources that you'll use in this and other
@@ -29,8 +27,6 @@ demos.
 
 ###### Procedures in this tutorial
 
-- [Download and save the
-  AWS IoT Device Client](iot-dc-install-download.md "iot-dc-install-download.md")
+- [Download and save the AWS IoT Device Client](iot-dc-install-download.md "iot-dc-install-download.md")
 - [Provision your Raspberry Pi in AWS IoT](iot-dc-install-provision.md "iot-dc-install-provision.md")
-- [Configure the AWS IoT Device Client to
-  test connectivity](iot-dc-install-configure.md "iot-dc-install-configure.md")
+- [Configure the AWS IoT Device Client to test connectivity](iot-dc-install-configure.md "iot-dc-install-configure.md")

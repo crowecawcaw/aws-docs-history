@@ -2,9 +2,7 @@
 
 This is the troubleshooting section for AWS IoT Jobs.
 
-## How do I locate an AWS IoT Jobs
-
-endpoint?
+## How do I locate an AWS IoT Jobs endpoint?
 
 **How do I locate the AWS IoT Jobs control plane
 endpoint?**
@@ -53,9 +51,7 @@ For a list of FIPS compliant **AWS IoT Jobs data
 plane** endpoints, see [FIPS Endpoints
 by Service](https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service "https://aws.amazon.com//compliance/fips/#FIPS_Endpoints_by_Service")
 
-## How do I monitor AWS IoT Jobs activity and
-
-provide metrics?
+## How do I monitor AWS IoT Jobs activity and provide metrics?
 
 Monitoring AWS IoT Jobs activity using Amazon CloudWatch provides real-time visibility into
 ongoing AWS IoT Jobs operations and helps control costs with CloudWatch alarms via AWS IoT Rules.
@@ -79,9 +75,7 @@ AWS Management Console and AWS CLI.
 Additionally, you can set up CloudWatch alarms to alert you of specific metrics you
 want to closely monitor. For guidance on alarm setup, see [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
-## Device fleets and single device
-
-troubleshooting
+## Device fleets and single device troubleshooting
 
 **A job execution maintains a status of `QUEUED`
 indefinitely**

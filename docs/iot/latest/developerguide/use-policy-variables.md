@@ -1,6 +1,4 @@
-# Using X.509 certificate policy
-
-variables
+# Using X.509 certificate policy variables
 
 This topic provides details of how to use certificate policy variables.
 X.509 certificate policy variables are essential when you create AWS IoT Core
@@ -14,22 +12,13 @@ statement.
 ###### In this topic:
 
 - [X.509 certificate example](#certificate-example "#certificate-example")
-- [Using certificate issuer
-  attributes as certificate policy variables](#issuer-attributes-policy "#issuer-attributes-policy")
-- [Using certificate subject
-  attributes as certificate policy variables](#subject-attributes-policy "#subject-attributes-policy")
-- [Using
-  certificate Issuer alternate name attributes as certificate policy
-  variables](#issuer-alternate-name-attributes-policy "#issuer-alternate-name-attributes-policy")
-- [Using
-  certificate subject alternate name attributes as certificate policy
-  variables](#subject-alternate-name-attributes-policy "#subject-alternate-name-attributes-policy")
-- [Using other certificate
-  attribute as a certificate policy variable](#other-attributes-policy "#other-attributes-policy")
-- [X.509 Certificate policy variable
-  limitations](#policy-limits "#policy-limits")
-- [Example policies using
-  certificate policy variables](#example-attributes-policy "#example-attributes-policy")
+- [Using certificate issuer attributes as certificate policy variables](#issuer-attributes-policy "#issuer-attributes-policy")
+- [Using certificate subject attributes as certificate policy variables](#subject-attributes-policy "#subject-attributes-policy")
+- [Using certificate Issuer alternate name attributes as certificate policy variables](#issuer-alternate-name-attributes-policy "#issuer-alternate-name-attributes-policy")
+- [Using certificate subject alternate name attributes as certificate policy variables](#subject-alternate-name-attributes-policy "#subject-alternate-name-attributes-policy")
+- [Using other certificate attribute as a certificate policy variable](#other-attributes-policy "#other-attributes-policy")
+- [X.509 Certificate policy variable limitations](#policy-limits "#policy-limits")
+- [Example policies using certificate policy variables](#example-attributes-policy "#example-attributes-policy")
 
 ## X.509 certificate example
 
@@ -76,9 +65,7 @@ Certificate:
          << REDACTED >>
 ```
 
-## Using certificate issuer
-
-attributes as certificate policy variables
+## Using certificate issuer attributes as certificate policy variables
 
 The following table provides details of how certificate issuer
 attributes will be populated in an AWS IoT Core policy.
@@ -87,9 +74,7 @@ attributes will be populated in an AWS IoT Core policy.
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | • C=US<br>• O=IoT Devices<br>• OU=SmartHome<br>• ST=WA<br>• CN=IoT Devices Primary CA<br>• GN=Primary CA1<br>• initials=XY<br>• dnQualifier=Example corp<br>• SN=SmartHome<br>• title=CA1<br>• pseudonym=Primary_CA<br>• generationQualifier=2<br>• serialNumber=987 | • `iot:Certificate.Issuer.Country =<br>US`<br>• `iot:Certificate.Issuer.Organization =<br>IoT Devices`<br>• `iot:Certificate.Issuer.OrganizationalUnit<br>= SmartHome`<br>• `iot:Certificate.Issuer.State =<br>WA`<br>• `iot:Certificate.Issuer.CommonName =<br>IoT Devices Primary CA`<br>• `iot:Certificate.Issuer.GivenName =<br>Primary CA1`<br>• `iot:Certificate.Issuer.initials =<br>XY`<br>• `iot:Certificate.Issuer.DistinguishedNameQualifier<br>= Example corp`<br>• `iot:Certificate.Issuer.Surname =<br>SmartHome`<br>• `iot:Certificate.Issuer.Title =<br>CA1`<br>• `iot:Certificate.Issuer.Pseudonym =<br>Primary_CA`<br>• `iot:Certificate.Issuer.GenerationQualifier<br>= 2`<br>• `iot:Certificate.Issuer.SerialNumber =<br>987` |
 
-## Using certificate subject
-
-attributes as certificate policy variables
+## Using certificate subject attributes as certificate policy variables
 
 The following table provides details of how certificate subject
 attributes will be populated in an AWS IoT Core policy.
@@ -98,37 +83,27 @@ attributes will be populated in an AWS IoT Core policy.
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | • C=US<br>• O=IoT Devices<br>• ST=NY<br>• CN=LightBulb Device Cert<br>• GN=Bulb<br>• initials=ZZ<br>• dnQualifier=Bulb001<br>• SN=Multi Color<br>• title=RGB<br>• pseudonym=RGB Device<br>• generationQualifier=4<br>• serialNumber=123 | • `iot:Certificate.Subject.Country =<br>US`<br>• `iot:Certificate.Subject.Organization =<br>IoT Devices`<br>• `iot:Certificate.Subject.State =<br>NY`<br>• `iot:Certificate.Subject.CommonName =<br>LightBulb Device Cert`<br>• `iot:Certificate.Subject.GivenName =<br>Bulb`<br>• `iot:Certificate.Subject.initials =<br>ZZ`<br>• `iot:Certificate.Subject.DistinguishedNameQualifier<br>= Bulb001`<br>• `iot:Certificate.Subject.Surname =<br>Multi Color`<br>• `iot:Certificate.Subject.Title =<br>RGB`<br>• `iot:Certificate.Subject.Pseudonym =<br>RGB Device`<br>• `iot:Certificate.Subject.GenerationQualifier<br>= 4`<br>• `iot:Certificate.Subject.SerialNumber =<br>123` |
 
-## Using
-
-certificate Issuer alternate name attributes as certificate policy
-variables
+## Using certificate Issuer alternate name attributes as certificate policy variables
 
 The following table provides details of how certificate issuer
 alternate name attributes will be populated in an AWS IoT Core
 policy.
 
-Issuer alternate name attributes to be populated in a
-policy| X509v3 Issuer Alternative Name | Attribute in a policy |
-| --- | --- |
+| Issuer alternate name attributes to be populated in a policy                                                                                                       | X509v3 Issuer Alternative Name                                                                                                                                                                                                                                                                                                                                                                                                              | Attribute in a policy |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | • DNS:issuer.com<br>• IP Address:5.6.7.8<br>• URI:PrimarySignerCA<br>• email:primary@issuer.com<br>• DirName:/C=US/O=Issuer/OU=IoT<br>Devices/CN=Primary Issuer CA | • `iot:Certificate.Issuer.AlternativeName.DNSName<br>= issuer.com`<br>• `iot:Certificate.Issuer.AlternativeName.IPAddress<br>= 5.6.7.8`<br>• `iot:Certificate.Issuer.AlternativeName.UniformResourceIdentifier<br>= PrimarySignerCA`<br>• `iot:Certificate.Issuer.AlternativeName.RFC822Name<br>= primary@issuer.com`<br>• `iot:Certificate.Issuer.AlternativeName.DirectoryName<br>= cn=Primary Issuer CA,ou=IoT<br>Devices,o=Issuer,c=US` |
 
-## Using
-
-certificate subject alternate name attributes as certificate policy
-variables
+## Using certificate subject alternate name attributes as certificate policy variables
 
 The following table provides details of how certificate subject
 alternate name attributes will be populated in an AWS IoT Core
 policy.
 
-Subject alternate name attributes to be populated in a
-policy| X509v3 Subject Alternative Name | Attribute in a policy |
-| --- | --- |
+| Subject alternate name attributes to be populated in a policy                                                                                                  | X509v3 Subject Alternative Name                                                                                                                                                                                                                                                                                                                                                                                                                 | Attribute in a policy |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
 | • DNS:example.com<br>• IP Address:1.2.3.4<br>• URI:ResourceIdentifier001<br>• email:device1@example.com<br>• DirName:/C=US/O=IoT/OU=SmartHome/CN=LightBulbCert | • `iot:Certificate.Subject.AlternativeName.DNSName<br>= example.com`<br>• `iot:Certificate.Subject.AlternativeName.IPAddress<br>= 1.2.3.4`<br>• `iot:Certificate.Subject.AlternativeName.UniformResourceIdentifier<br>= ResourceIdentifier001`<br>• `iot:Certificate.Subject.AlternativeName.RFC822Name<br>= device1@example.com`<br>• `iot:Certificate.Subject.AlternativeName.DirectoryName<br>=<br>cn=LightBulbCert,ou=SmartHome,o=IoT,c=US` |
 
-## Using other certificate
-
-attribute as a certificate policy variable
+## Using other certificate attribute as a certificate policy variable
 
 The following table provides details of how other certificate
 attributes will be populated in an AWS IoT Core policy.
@@ -137,9 +112,7 @@ attributes will be populated in an AWS IoT Core policy.
 | -------------------------------------------- | -------------------------------------------------------- | --------------------------- |
 | `Serial Number:<br>92:12:85:cb:b7:a5:e0:86`  | `iot:Certificate.SerialNumber =<br>10525622389124227206` |
 
-## X.509 Certificate policy variable
-
-limitations
+## X.509 Certificate policy variable limitations
 
 The following limitations apply to X.509 certificate policy
 variables:
@@ -198,9 +171,7 @@ example, `Amazon Web Services O=Amazon.com Inc.
  Web Service O\=Amazon.com Inc. L\=Seattle ST\=Washington
  C\=US`.
 
-## Example policies using
-
-certificate policy variables
+## Example policies using certificate policy variables
 
 The following policy document allows connections with client ID that
 matches the certificate serial number and publishing to the topic that

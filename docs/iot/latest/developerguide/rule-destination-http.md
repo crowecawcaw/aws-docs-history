@@ -1,6 +1,4 @@
-# HTTP topic rule destination
-
-overview
+# HTTP topic rule destination overview
 
 An HTTP topic rule destination refers to a web service that supports a
 confirmation URL and one or more data collection URLs. The HTTP topic rule

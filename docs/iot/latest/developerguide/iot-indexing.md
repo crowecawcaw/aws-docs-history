@@ -43,9 +43,7 @@ cardinality, or a list of things with search queries about particular fields. Yo
 aggregations on AWS managed fields or any attributes you configure as custom fields within
 fleet indexing settings. For more information about aggregation query, see [Querying for aggregate data](index-aggregate.md "index-aggregate.md").
 
-## Monitoring aggregate data and creating
-
-alarms by using fleet metrics
+## Monitoring aggregate data and creating alarms by using fleet metrics
 
 You can use fleet metrics to send aggregate data to CloudWatch automatically, analyze trends,
 and create alarms to monitor the aggregate state of your fleet based on pre-defined

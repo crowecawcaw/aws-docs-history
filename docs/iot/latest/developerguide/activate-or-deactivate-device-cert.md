@@ -1,6 +1,4 @@
-# Activate or deactivate a
-
-client certificate
+# Activate or deactivate a client certificate
 
 AWS IoT verifies that a client certificate is active when it authenticates a
 connection.
@@ -10,9 +8,7 @@ they can't be used until you want to use them. You can also deactivate active
 client certificates to disable them temporarily. Finally, you can revoke client
 certificates to prevent them from any future use.
 
-## Activate a client certificate
-
-(console)
+## Activate a client certificate (console)
 
 ###### To activate a client certificate using the AWS IoT console
 
@@ -29,9 +25,7 @@ certificates to prevent them from any future use.
 The certificate should show as **Active** in the list of
 certificates.
 
-## Deactivate a client
-
-certificate (console)
+## Deactivate a client certificate (console)
 
 ###### To deactivate a client certificate using the AWS IoT console
 
@@ -48,9 +42,7 @@ certificate (console)
 The certificate should show as **Inactive** in the list
 of certificates.
 
-## Activate a client certificate
-
-(CLI)
+## Activate a client certificate (CLI)
 
 The AWS CLI provides the [**update-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html") command to activate a
 certificate.
@@ -70,9 +62,7 @@ certificate's status.
  --certificate-id `certificateId``
 ```
 
-## Deactivate a client certificate
-
-(CLI)
+## Deactivate a client certificate (CLI)
 
 The AWS CLI provides the [**update-certificate**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/update-certificate.html") command to deactivate
 a certificate.

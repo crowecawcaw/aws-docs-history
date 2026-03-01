@@ -1,6 +1,4 @@
-# Authorizing users and cloud services to use
-
-AWS IoT Jobs
+# Authorizing users and cloud services to use AWS IoT Jobs
 
 To authorize your users and cloud services, you must use IAM policies on both the
 control plane and data plane. The policies must be used with HTTPS protocol and must use

@@ -60,9 +60,7 @@ Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user
 AWS IoT actions are documented in the [AWS IoT API
 Reference](../apireference.md "../apireference.md"). AWS IoT Wireless actions are documented in the [AWS IoT Wireless API Reference](../../../iot-wireless/latest/apireference/welcome.md "../../../iot-wireless/latest/apireference/welcome.md").
 
-## Understanding AWS IoT log file
-
-entries
+## Understanding AWS IoT log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents

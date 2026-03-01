@@ -1,6 +1,4 @@
-# Creating and managing custom authorizers
-
-(CLI)
+# Creating and managing custom authorizers (CLI)
 
 AWS IoT Core implements custom authentication and authorization schemes by using
 custom authorizers. A custom authorizer is an AWS IoT Core resource that gives you the
@@ -47,7 +45,6 @@ The Lambda function timeout limit for custom authorizer is 5 seconds.
 
 - [Defining your Lambda function](custom-auth-lambda.md "custom-auth-lambda.md")
 - [Creating an authorizer](custom-auth-create-authorizer.md "custom-auth-create-authorizer.md")
-- [Authorizing AWS IoT to invoke your Lambda
-  function](custom-auth-authorize.md "custom-auth-authorize.md")
+- [Authorizing AWS IoT to invoke your Lambda function](custom-auth-authorize.md "custom-auth-authorize.md")
 - [Testing your authorizers](custom-auth-testing.md "custom-auth-testing.md")
 - [Managing custom authorizers](custom-auth-manage.md "custom-auth-manage.md")

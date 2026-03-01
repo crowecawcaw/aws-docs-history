@@ -2,9 +2,7 @@
 
 Deprecate commands to indicate they are outdated and should not be used. For example, deprecate commands no longer actively maintained or when creating newer commands with the same ID but different payloads.
 
-## Key
-
-considerations
+## Key considerations
 
 Important considerations when deprecating commands:
 
@@ -13,9 +11,7 @@ Important considerations when deprecating commands:
 - To execute a deprecated command, first restore it. After restoration, the command becomes available for regular use and execution on target devices.
 - If you deprecate a command while executions are in progress, they continue running until completion. You can still retrieve execution status.
 
-## Deprecate a command resource
-
-(console)
+## Deprecate a command resource (console)
 
 To deprecate a command from the console, go to the [Command Hub](https://console.aws.amazon.com/iot/home#/commandHub "https://console.aws.amazon.com/iot/home#/commandHub") of the AWS IoT console and perform
 the following steps.
@@ -26,9 +22,7 @@ the following steps.
 2. Confirm that you want to deprecate the command and then choose
    **Deprecate**.
 
-## Deprecate a command resource
-
-(CLI)
+## Deprecate a command resource (CLI)
 
 Mark commands as deprecated using the `update-command` CLI. You must deprecate a command before deletion. To use a deprecated command, restore it first.
 
@@ -51,9 +45,7 @@ command.
 }
 ```
 
-## Check deprecation time and
-
-status
+## Check deprecation time and status
 
 Use the `GetCommand` API to determine if a command is deprecated and when it was last deprecated.
 

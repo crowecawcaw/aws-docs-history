@@ -8,9 +8,7 @@ test results and detailed logs.
 
 Before you begin this tutorial this tutorial, complete the steps outlined in [Setting up](device-advisor-setting-up.md "device-advisor-setting-up.md").
 
-## Create a test
-
-suite definition
+## Create a test suite definition
 
 First, [install an AWS SDK](iot-connect-service.md#iot-service-sdks "iot-connect-service.md#iot-service-sdks").
 
@@ -133,9 +131,7 @@ response = iotDeviceAdvisorClient.createSuiteDefinition(
 )
 ```
 
-## Get a test suite
-
-definition
+## Get a test suite definition
 
 After you create your test suite definition, you receive the
 `suiteDefinitionId` in the response object of the
@@ -156,9 +152,7 @@ response = iotDeviceAdvisorClient.GetSuiteDefinition(
 )
 ```
 
-## Get a test
-
-endpoint
+## Get a test endpoint
 
 Use the `GetEndpoint` API operation to get the test endpoint used by
 your device. Select the endpoint that best fits your test. To simultaneously run
@@ -178,9 +172,7 @@ response = iotDeviceAdvisorClient.getEndpoint(GetEndpointRequest.builder()
 .build())
 ```
 
-## Start a test suite
-
-run
+## Start a test suite run
 
 After you create a test suite definition and configureyour test device to connect
 to your Device Advisor test endpoint, run your test suite with the
@@ -216,9 +208,7 @@ response = iotDeviceAdvisorClient.startSuiteRun(StartSuiteRunRequest.builder()
 Save the `suiteRunId` from the response. You will use this to retrieve
 the results of this test suite run.
 
-## Get a test suite
-
-run
+## Get a test suite run
 
 After you start a test suite run, you can check its progress and its results with
 the `GetSuiteRun` API.
@@ -235,9 +225,7 @@ GetSuiteRunRequest.builder()
 .build())
 ```
 
-## Stop a test suite
-
-run
+## Stop a test suite run
 
 To stop a test suite run that is still in progress, you can call the
 `StopSuiteRun` API operation. After you call the
@@ -261,9 +249,7 @@ StopSuiteRun.builder()
 .build())
 ```
 
-## Get a qualification
-
-report for a successful qualification test suite run
+## Get a qualification report for a successful qualification test suite run
 
 If you run a qualification test suite that completes successfully, you can
 retrieve a qualification report with the `GetSuiteRunReport` API

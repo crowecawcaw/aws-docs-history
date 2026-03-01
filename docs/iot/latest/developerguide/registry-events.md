@@ -95,13 +95,10 @@ A collection of name-value pairs associated with the thing.
 
 ###### Thing type related events:
 
-- [Thing Type
-  Created/Updated/Deprecated/Undeprecated/Deleted](#registry-events-thingtype-crud "#registry-events-thingtype-crud")
+- [Thing Type Created/Updated/Deprecated/Undeprecated/Deleted](#registry-events-thingtype-crud "#registry-events-thingtype-crud")
 - [Thing Type Associated or Disassociated with a Thing](#registry-events-thingtype-assoc "#registry-events-thingtype-assoc")
 
-### Thing Type
-
-Created/Updated/Deprecated/Undeprecated/Deleted
+### Thing Type Created/Updated/Deprecated/Undeprecated/Deleted
 
 The registry publishes the following event messages when thing types are
 created, updated, deprecated, undeprecated, or deleted:

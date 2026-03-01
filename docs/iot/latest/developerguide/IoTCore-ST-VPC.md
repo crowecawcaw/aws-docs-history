@@ -1,6 +1,4 @@
-# Using AWS IoT Device Management secure tunneling with interface VPC
-
-endpoints
+# Using AWS IoT Device Management secure tunneling with interface VPC endpoints
 
 AWS IoT Device Management secure tunneling supports interface VPC endpoints. You can use VPC endpoints to
 keep traffic between your VPC and AWS IoT Secure Tunneling within the AWS network, without
@@ -15,12 +13,9 @@ using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interfac
 ###### Contents
 
 - [Prerequisites](#Create-ST-VPC-endpoints-prereq "#Create-ST-VPC-endpoints-prereq")
-- [Receiving tunnel notifications through
-  VPC endpoints](#ST-VPC-Receive-notifications "#ST-VPC-Receive-notifications")
-- [Creating VPC endpoints for secure
-  tunneling](#Create-ST-VPC-endpoints-Create "#Create-ST-VPC-endpoints-Create")
-- [Configuring VPC endpoint policies on
-  Proxy Server](#Create-ST-VPC-endpoints-Configure "#Create-ST-VPC-endpoints-Configure")
+- [Receiving tunnel notifications through VPC endpoints](#ST-VPC-Receive-notifications "#ST-VPC-Receive-notifications")
+- [Creating VPC endpoints for secure tunneling](#Create-ST-VPC-endpoints-Create "#Create-ST-VPC-endpoints-Create")
+- [Configuring VPC endpoint policies on Proxy Server](#Create-ST-VPC-endpoints-Configure "#Create-ST-VPC-endpoints-Configure")
 - [Next steps](#Create-ST-VPC-endpoints-Next "#Create-ST-VPC-endpoints-Next")
 
 ## Prerequisites
@@ -34,9 +29,7 @@ following:
 - Understanding of AWS IoT Device Management secure tunneling concepts.
 - Familiarity with VPC endpoint policies and AWS Identity and Access Management (IAM)
 
-## Receiving tunnel notifications through
-
-VPC endpoints
+## Receiving tunnel notifications through VPC endpoints
 
 To receive tunnel notifications through a VPC endpoint, your devices can connect to
 the AWS IoT Core data plane through a VPC endpoint and subscribe to the secure tunneling
@@ -45,9 +38,7 @@ reserved MQTT topic.
 For instructions on how to create and configure a VPC endpoint in the AWS IoT Core data
 plane, see [Using AWS IoT Core with interface VPC endpoints](IoTCore-VPC.md "IoTCore-VPC.md") in the AWS IoT Developer Guide.
 
-## Creating VPC endpoints for secure
-
-tunneling
+## Creating VPC endpoints for secure tunneling
 
 You can create VPC endpoints for both secure tunneling control plane and proxy
 server.
@@ -77,9 +68,7 @@ Replace `<region>` with your AWS Region. For
 example, `us-east-1`. 3. Complete the remaining steps in the VPC endpoint creation process according to
 your network requirements.
 
-## Configuring VPC endpoint policies on
-
-Proxy Server
+## Configuring VPC endpoint policies on Proxy Server
 
 In addition to client access token-based authorization that is used to authorize
 connections to tunnels, you can use VPC endpoint policies to further restrict how
@@ -97,7 +86,7 @@ Below are examples of different VPC endpoint policies.
 The following examples show Proxy Server VPC endpoint policy configurations for
 common use cases.
 
-###### Example - Default policy
+###### Example- Default policy
 
 This policy allows devices within your VPC to connect to any tunnel in the
 same AWS Region where the endpoint is created, across any AWS
@@ -116,7 +105,7 @@ account.
 }
 ```
 
-###### Example - Restrict access to specific AWS accounts
+###### Example- Restrict access to specific AWS accounts
 
 This policy allows the VPC endpoint to connect only to tunnels in specific
 AWS accounts.
@@ -137,7 +126,7 @@ AWS accounts.
 }
 ```
 
-###### Example - Restrict connections by tunnel endpoint
+###### Example- Restrict connections by tunnel endpoint
 
 You can restrict VPC endpoint access to only allow devices to connect to the
 source or destination end of a tunnel.
@@ -182,7 +171,7 @@ Destination only:
 }
 ```
 
-###### Example - Restrict access based on resource tags
+###### Example- Restrict access based on resource tags
 
 This policy allows the VPC endpoint to connect only to tunnels that are tagged
 with a specific key-value pair.
@@ -205,7 +194,7 @@ with a specific key-value pair.
 }
 ```
 
-###### Example - Combined policy conditions
+###### Example- Combined policy conditions
 
 This policy demonstrates combining multiple policy elements. It allows
 connections to any tunnel in a specific AWS account, but only if the tunnel is

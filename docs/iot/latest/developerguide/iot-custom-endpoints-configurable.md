@@ -12,12 +12,8 @@ This feature is not available in AWS GovCloud (US) AWS Regions.
 ###### In this chapter:
 
 - [What is a domain configuration?](iot-domain-configuration-what-is.md "iot-domain-configuration-what-is.md")
-- [Creating and configuring AWS
-  managed domains](iot-custom-endpoints-configurable-aws.md "iot-custom-endpoints-configurable-aws.md")
-- [Creating and configuring
-  customer managed domains](iot-custom-endpoints-configurable-custom.md "iot-custom-endpoints-configurable-custom.md")
+- [Creating and configuring AWS managed domains](iot-custom-endpoints-configurable-aws.md "iot-custom-endpoints-configurable-aws.md")
+- [Creating and configuring customer managed domains](iot-custom-endpoints-configurable-custom.md "iot-custom-endpoints-configurable-custom.md")
 - [Managing domain configurations](iot-custom-endpoints-managing.md "iot-custom-endpoints-managing.md")
-- [Configuring TLS settings in domain
-  configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md")
-- [Server certificate configuration for
-  OCSP stapling](iot-custom-endpoints-cert-config.md "iot-custom-endpoints-cert-config.md")
+- [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md")
+- [Server certificate configuration for OCSP stapling](iot-custom-endpoints-cert-config.md "iot-custom-endpoints-cert-config.md")

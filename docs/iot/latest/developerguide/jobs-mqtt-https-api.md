@@ -1,13 +1,9 @@
-# Jobs device MQTT and HTTPS API operations and
-
-data types
+# Jobs device MQTT and HTTPS API operations and data types
 
 The following commands are available over the MQTT and HTTPS protocols. Use these API
 operations on the data plane for devices executing the jobs.
 
-## Jobs device MQTT and HTTPS data
-
-types
+## Jobs device MQTT and HTTPS data types
 
 The following data types are used to communicate with the AWS IoT Jobs service
 over the MQTT and HTTPS protocols.

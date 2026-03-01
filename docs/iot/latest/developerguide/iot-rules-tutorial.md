@@ -1,6 +1,4 @@
-# Creating AWS IoT rules to route device data to other
-
-services
+# Creating AWS IoT rules to route device data to other services
 
 These tutorials show you how to create and test AWS IoT rules using some of the more common
 rule actions.
@@ -58,8 +56,7 @@ message data for the destination service, [Amazon DynamoDB](../../../amazondynam
 If you're new to DynamoDB, review its [Getting
 started](../../../amazondynamodb/latest/developerguide/GettingStartedDynamoDB.md "../../../amazondynamodb/latest/developerguide/GettingStartedDynamoDB.md") exercises before you start this tutorial.
 
-- ###### [Tutorial: Formatting a notification by using an AWS Lambda
-  function](iot-lambda-rule.md "iot-lambda-rule.md")
+- ###### [Tutorial: Formatting a notification by using an AWS Lambda function](iot-lambda-rule.md "iot-lambda-rule.md")
 
 This tutorial shows how to call a Lambda function to reformat the device data and then
 send it as a text message. It adds a Python script and AWS SDK functions in an [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") function to
@@ -94,5 +91,4 @@ For an AWS IoT rule to send the data from a device to another AWS service, it us
 - [Tutorial: Republishing an MQTT message](iot-repub-rule.md "iot-repub-rule.md")
 - [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md")
 - [Tutorial: Storing device data in a DynamoDB table](iot-ddb-rule.md "iot-ddb-rule.md")
-- [Tutorial: Formatting a notification by using an AWS Lambda
-  function](iot-lambda-rule.md "iot-lambda-rule.md")
+- [Tutorial: Formatting a notification by using an AWS Lambda function](iot-lambda-rule.md "iot-lambda-rule.md")

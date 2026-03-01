@@ -197,9 +197,7 @@ The port where the request originated.
 The AWS IoT message broker generates a log entry with an `eventType` of
 `GetRetainedMessage` when [`GetRetainedMessage`](API_iotdata_GetRetainedMessage.md "API_iotdata_GetRetainedMessage.md") is called.
 
-#### GetRetainedMessage log entry
-
-example
+#### GetRetainedMessage log entry example
 
 ```
 {
@@ -244,9 +242,7 @@ The name of the subscribed topic.
 The AWS IoT message broker generates a log entry with an `eventType` of
 `ListRetainedMessage` when [`ListRetainedMessages`](API_iotdata_ListRetainedMessages.md "API_iotdata_ListRetainedMessages.md") is called.
 
-#### ListRetainedMessage log entry
-
-example
+#### ListRetainedMessage log entry example
 
 ```
 {
@@ -392,9 +388,7 @@ stores the device's messages and AWS IoT generates log entries with an eventType
 `Queued`. For more information about MQTT persistent sessions, see [MQTT persistent sessions](mqtt.md#mqtt-persistent-sessions "mqtt.md#mqtt-persistent-sessions")
 .
 
-#### Queued server error log entry
-
-example
+#### Queued server error log entry example
 
 ```
 {
@@ -440,9 +434,7 @@ topicName
 
 The name of the subscribed topic.
 
-#### Queued success log entry
-
-example
+#### Queued success log entry example
 
 ```
 {
@@ -481,9 +473,7 @@ topicName
 
 The name of the subscribed topic.
 
-#### Queued throttled log entry
-
-example
+#### Queued throttled log entry example
 
 ```
 {
@@ -535,9 +525,7 @@ The name of the subscribed topic.
 The AWS IoT message broker generates a log entry with an `eventType` of
 `Subscribe` when an MQTT client subscribes to a topic.
 
-#### MQTT 3 Subscribe log entry
-
-example
+#### MQTT 3 Subscribe log entry example
 
 ```
 {
@@ -585,9 +573,7 @@ topicName
 
 The name of the subscribed topic.
 
-#### MQTT 5 Subscribe log entry
-
-example
+#### MQTT 5 Subscribe log entry example
 
 ```
 {
@@ -633,9 +619,7 @@ codes](mqtt.md#mqtt5-reason-codes "mqtt.md#mqtt5-reason-codes").
 The AWS IoT message broker generates a log entry with an `eventType` of
 `Unsubscribe` when an MQTT client unsubscribes to an MQTT topic.
 
-#### MQTT unsubscribe log entry
-
-example
+#### MQTT unsubscribe log entry example
 
 ```
 {
@@ -693,9 +677,7 @@ AWS IoT Core generates a log entry with an `eventType` of
 `RetrieveOCSPStapleData` when the server retrieves the OCSP staple
 data.
 
-#### RetrieveOCSPStapleData log entry
-
-examples
+#### RetrieveOCSPStapleData log entry examples
 
 The following is a log entry example of `Success`.
 
@@ -847,9 +829,7 @@ AWS IoT Core generates a log entry with an `eventType` of
 `RetrieveOCSPStapleData` when the server retrieves the OCSP staple
 data.
 
-#### RetrieveOCSPStapleData log entry
-
-examples for private endpoints
+#### RetrieveOCSPStapleData log entry examples for private endpoints
 
 The following is a log entry example of `Success`.
 
@@ -946,9 +926,7 @@ The Device Shadow service generates a log entry with an `eventType` of
 `DeleteThingShadow` when a request to delete a device's shadow is
 received.
 
-#### DeleteThingShadow log entry
-
-example
+#### DeleteThingShadow log entry example
 
 ```
 {
@@ -986,9 +964,7 @@ The name of the topic on which the request was published.
 The Device Shadow service generates a log entry with an `eventType` of
 `GetThingShadow` when a get request for a shadow is received.
 
-#### GetThingShadow log entry
-
-example
+#### GetThingShadow log entry example
 
 ```
 {
@@ -1027,9 +1003,7 @@ The Device Shadow service generates a log entry with an `eventType` of
 `UpdateThingShadow` when a request to update a device's shadow is
 received.
 
-#### UpdateThingShadow log entry
-
-example
+#### UpdateThingShadow log entry example
 
 ```
 {
@@ -1083,9 +1057,7 @@ external function is called when a rule's action makes an HTTP request to AWS Io
 another web service (for example, calling `get_thing_shadow` or
 `machinelearning_predict`).
 
-#### FunctionExecution log entry
-
-example
+#### FunctionExecution log entry example
 
 ```
 {
@@ -1155,9 +1127,7 @@ When the AWS IoT rules engine triggers a rule's action, it generates a
 }
 ```
 
-#### RuleExecution with batching log
-
-entry example
+#### RuleExecution with batching log entry example
 
 ```
 {
@@ -1279,9 +1249,7 @@ The name of the subscribed topic.
 When an execution is throttled, the AWS IoT rules engine generates a log entry with an
 `eventType` of `RuleExecutionThrottled`.
 
-#### RuleExecutionThrottled log
-
-entry example
+#### RuleExecutionThrottled log entry example
 
 ```
 {
@@ -1333,9 +1301,7 @@ The name of the topic that was published.
 When the AWS IoT rules engine cannot find a rule with a given name, it generates a log
 entry with an `eventType` of `RuleNotFound`.
 
-#### RuleNotFound log entry
-
-example
+#### RuleNotFound log entry example
 
 ```
 {
@@ -1387,9 +1353,7 @@ The name of the topic that was published.
 When the AWS IoT rules engine starts to trigger a rule's action, it generates a log
 entry with an `eventType` of `StartingRuleExecution`.
 
-#### StartingRuleExecution log entry
-
-example
+#### StartingRuleExecution log entry example
 
 ```
 {
@@ -1440,10 +1404,8 @@ generated when an MQTT or HTTP request is received from the device.
 
 - [DescribeJobExecution log entry](#log-job-describe-job-ex "#log-job-describe-job-ex")
 - [GetPendingJobExecution log entry](#log-job-get-pending-job-ex "#log-job-get-pending-job-ex")
-- [ReportFinalJobExecutionCount log
-  entry](#log-job-report-final-job-ex-count "#log-job-report-final-job-ex-count")
-- [StartNextPendingJobExecution log
-  entry](#log-job-start-next-pending-job-ex "#log-job-start-next-pending-job-ex")
+- [ReportFinalJobExecutionCount log entry](#log-job-report-final-job-ex-count "#log-job-report-final-job-ex-count")
+- [StartNextPendingJobExecution log entry](#log-job-start-next-pending-job-ex "#log-job-start-next-pending-job-ex")
 - [UpdateJobExecution log entry](#log-job-update-job-ex "#log-job-update-job-ex")
 
 ### DescribeJobExecution log entry
@@ -1452,9 +1414,7 @@ The AWS IoT Jobs service generates a log entry with an `eventType` of
 `DescribeJobExecution` when the service receives a request to describe a
 job execution.
 
-#### DescribeJobExecution log entry
-
-example
+#### DescribeJobExecution log entry example
 
 ```
 {
@@ -1509,9 +1469,7 @@ The AWS IoT Jobs service generates a log entry with an `eventType` of
 `GetPendingJobExecution` when the service receives a job execution
 request.
 
-#### GetPendingJobExecution log entry
-
-example
+#### GetPendingJobExecution log entry example
 
 ```
 {
@@ -1555,9 +1513,7 @@ topicName
 
 The name of the subscribed topic.
 
-### ReportFinalJobExecutionCount log
-
-entry
+### ReportFinalJobExecutionCount log entry
 
 The AWS IoT Jobs service generates a log entry with an `entryType` of
 `ReportFinalJobExecutionCount` when a job is completed.
@@ -1588,9 +1544,7 @@ jobId
 
 The job ID for the job execution.
 
-### StartNextPendingJobExecution log
-
-entry
+### StartNextPendingJobExecution log entry
 
 When it receives a request to start the next pending job execution, the AWS IoT Jobs
 service generates a log entry with an `eventType` of
@@ -1646,9 +1600,7 @@ The AWS IoT Jobs service generates a log entry with an `eventType` of
 `UpdateJobExecution` when the service receives a request to update a job
 execution.
 
-#### UpdateJobExecution log entry
-
-example
+#### UpdateJobExecution log entry example
 
 ```
 {
@@ -1707,21 +1659,16 @@ The AWS IoT Device Provisioning service generates logs for the following events.
 
 ###### Topics
 
-- [GetDeviceCredentials log
-  entry](#log-provision-get-device-credentials "#log-provision-get-device-credentials")
+- [GetDeviceCredentials log entry](#log-provision-get-device-credentials "#log-provision-get-device-credentials")
 - [ProvisionDevice log entry](#log-provision-provision-device "#log-provision-provision-device")
 
-### GetDeviceCredentials log
-
-entry
+### GetDeviceCredentials log entry
 
 The AWS IoT Device Provisioning service generates a log entry with an
 `eventType` of `GetDeviceCredential` when a client calls
 `GetDeviceCredential`.
 
-#### GetDeviceCredentials
-
-log entry example
+#### GetDeviceCredentials log entry example
 
 ```
 {
@@ -1754,9 +1701,7 @@ The AWS IoT Device Provisioning service generates a log entry with an
 `eventType` of `ProvisionDevice` when a client calls
 `ProvisionDevice`.
 
-#### ProvisionDevice log entry
-
-example
+#### ProvisionDevice log entry example
 
 ```
 {

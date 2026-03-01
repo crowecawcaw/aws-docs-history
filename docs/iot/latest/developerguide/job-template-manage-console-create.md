@@ -1,14 +1,10 @@
-# Create a job from AWS managed
-
-templates by using the AWS Management Console
+# Create a job from AWS managed templates by using the AWS Management Console
 
 Use the AWS Management Console to get information about AWS managed templates and create a
 job by using these templates. You can then save the job you create as your own
 custom template.
 
-## Get details about managed
-
-templates
+## Get details about managed templates
 
 You can get information about the different managed templates that are available to
 use from the AWS IoT console.
@@ -52,22 +48,18 @@ The details page contains the following information:
 ```
 
 For more information about the job document and its parameters for
-various remote actions, see [Managed template remote actions and
-job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
+various remote actions, see [Managed template remote actions and job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
 
 - The latest version of the job document.
 
-## Create a job using managed
-
-templates
+## Create a job using managed templates
 
 You can use the AWS Management console to choose an AWS managed template
 to use to create a job. This section shows you how.
 
 You can also start the job creation workflow and then choose the AWS managed
 template that you want to use while creating the job. For more information about
-this workflow, see [Create and manage jobs by using the
-AWS Management Console](manage-job-console.md "manage-job-console.md").
+this workflow, see [Create and manage jobs by using the AWS Management Console](manage-job-console.md "manage-job-console.md").
 
 1. ###### Choose your AWS managed template
 
@@ -106,8 +98,7 @@ template. 2. ###### Create a job using your managed template
     You can also optionally enter values for the parameters
      `runAsUser` and `pathToHandler`. For
      more information about the input parameters of each template,
-     see [Managed template remote actions and
-     job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
+     see [Managed template remote actions and job documents](job-templates-managed.md#job-template-manage-actions "job-templates-managed.md#job-template-manage-actions").
     5. On the **Job configuration** page, choose the
      job type as
      continuous
@@ -122,14 +113,10 @@ template. 2. ###### Create a job using your managed template
 
 
 
-    	* [Job rollout, scheduling, and abort
-    	 configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-    	* [Job execution timeout and retry
-    	 configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+    	* [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+    	* [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
-## Create custom job
-
-templates from managed templates
+## Create custom job templates from managed templates
 
 You can use an AWS managed template and a custom job as a starting point to
 create your own custom job template. To create a custom job template, first
@@ -144,5 +131,4 @@ template. To save as template:
    managed template.
 2. Choose **Save as a job template** and then create
    your custom job template. For more information about creating a custom
-   job template, see [Create a job
-   template from an existing job](job-templates-console.md#job-templates-console-create-exist-job "job-templates-console.md#job-templates-console-create-exist-job").
+   job template, see [Create a job template from an existing job](job-templates-console.md#job-templates-console-create-exist-job "job-templates-console.md#job-templates-console-create-exist-job").

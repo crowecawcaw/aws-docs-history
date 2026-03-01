@@ -20,9 +20,7 @@ In the AWS IoT console, you can choose or create a role to allow AWS IoT to perf
   CloudWatch Logs using AWS KMS](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md") in the _Amazon CloudWatch Logs User
   Guide_.
 
-## MQTT message format
-
-requirements for `batchMode`
+## MQTT message format requirements for `batchMode`
 
 If you use the CloudWatch Logs rule action with `batchMode` turned off, there
 are no MQTT message formatting requirements. (Note: the `batchMode`

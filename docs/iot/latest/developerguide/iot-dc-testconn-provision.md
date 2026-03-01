@@ -1,29 +1,19 @@
-# Prepare the Raspberry Pi to
-
-demonstrate MQTT message communication
+# Prepare the Raspberry Pi to demonstrate MQTT message communication
 
 This procedure creates the resources in AWS IoT and in the Raspberry Pi to demonstrate MQTT message
 communication using the AWS IoT Device Client.
 
 ###### Procedures in this section:
 
-- [Create the certificate files to
-  demonstrate MQTT communication](#iot-dc-testconn-provision-certs "#iot-dc-testconn-provision-certs")
-- [Provision your device to demonstrate
-  MQTT communication](#iot-dc-testconn-provision-aws "#iot-dc-testconn-provision-aws")
-- [Configure the AWS IoT Device
-  Client config file and MQTT test client to demonstrate MQTT
-  communication](#iot-dc-testconn-provision-dc-config "#iot-dc-testconn-provision-dc-config")
+- [Create the certificate files to demonstrate MQTT communication](#iot-dc-testconn-provision-certs "#iot-dc-testconn-provision-certs")
+- [Provision your device to demonstrate MQTT communication](#iot-dc-testconn-provision-aws "#iot-dc-testconn-provision-aws")
+- [Configure the AWS IoT Device Client config file and MQTT test client to demonstrate MQTT communication](#iot-dc-testconn-provision-dc-config "#iot-dc-testconn-provision-dc-config")
 
-## Create the certificate files to
-
-demonstrate MQTT communication
+## Create the certificate files to demonstrate MQTT communication
 
 This procedure creates the device certificate files for this demo.
 
-###### To create and download the device certificate files for your Raspberry
-
-Pi
+###### To create and download the device certificate files for your Raspberry Pi
 
 1. In the terminal window on your local host computer, enter the following
    command to create the device certificate files for your device.
@@ -90,9 +80,7 @@ echo " " > ~/.aws-iot-device-client/log/pubsub_rx_msgs.log
 chmod 600 ~/.aws-iot-device-client/log/*`
 ```
 
-## Provision your device to demonstrate
-
-MQTT communication
+## Provision your device to demonstrate MQTT communication
 
 This section creates the AWS IoT resources that provision your Raspberry Pi in
 AWS IoT.
@@ -258,14 +246,9 @@ aws iot attach-thing-principal \
 If successful, this command returns nothing.
 
 After you successfully provision your device in AWS IoT, you're ready to
-continue to [Configure the AWS IoT Device
-Client config file and MQTT test client to demonstrate MQTT
-communication](#iot-dc-testconn-provision-dc-config "#iot-dc-testconn-provision-dc-config").
+continue to [Configure the AWS IoT Device Client config file and MQTT test client to demonstrate MQTT communication](#iot-dc-testconn-provision-dc-config "#iot-dc-testconn-provision-dc-config").
 
-## Configure the AWS IoT Device
-
-Client config file and MQTT test client to demonstrate MQTT
-communication
+## Configure the AWS IoT Device Client config file and MQTT test client to demonstrate MQTT communication
 
 This procedure creates a config file to test the AWS IoT Device Client.
 
@@ -353,5 +336,4 @@ This procedure creates a config file to test the AWS IoT Device Client.
       you continue this tutorial.
 
 After you save the file and configure the **MQTT test client**,
-you're ready to continue to [Demonstrate publishing messages with
-the AWS IoT Device Client](iot-dc-testconn-publish.md "iot-dc-testconn-publish.md").
+you're ready to continue to [Demonstrate publishing messages with the AWS IoT Device Client](iot-dc-testconn-publish.md "iot-dc-testconn-publish.md").

@@ -1,6 +1,4 @@
-# Prepare the Raspberry Pi to run
-
-jobs
+# Prepare the Raspberry Pi to run jobs
 
 The procedures in this section describe how to prepare your Raspberry Pi to run jobs
 by using the AWS IoT Device Client.
@@ -15,37 +13,27 @@ device-specific elements as described in the procedures.
 
 ###### Procedures in this tutorial
 
-- [Provision your Raspberry Pi to
-  demonstrate jobs](#iot-dc-runjobs-prepare-provision "#iot-dc-runjobs-prepare-provision")
-- [Configure the AWS IoT Device Client to
-  run the jobs agent](#iot-dc-runjobs-prepare-config "#iot-dc-runjobs-prepare-config")
+- [Provision your Raspberry Pi to demonstrate jobs](#iot-dc-runjobs-prepare-provision "#iot-dc-runjobs-prepare-provision")
+- [Configure the AWS IoT Device Client to run the jobs agent](#iot-dc-runjobs-prepare-config "#iot-dc-runjobs-prepare-config")
 
-## Provision your Raspberry Pi to
-
-demonstrate jobs
+## Provision your Raspberry Pi to demonstrate jobs
 
 The procedures in this section provision your Raspberry Pi in AWS IoT by creating
 AWS IoT resources and device certificates for it.
 
 ###### Topics
 
-- [Create and download device
-  certificate files to demonstrate AWS IoT jobs](#iot-dc-runjobs-prepare-cert "#iot-dc-runjobs-prepare-cert")
-- [Create AWS IoT resources to
-  demonstrate AWS IoT jobs](#iot-dc-runjobs-prepare-iot "#iot-dc-runjobs-prepare-iot")
+- [Create and download device certificate files to demonstrate AWS IoT jobs](#iot-dc-runjobs-prepare-cert "#iot-dc-runjobs-prepare-cert")
+- [Create AWS IoT resources to demonstrate AWS IoT jobs](#iot-dc-runjobs-prepare-iot "#iot-dc-runjobs-prepare-iot")
 
-### Create and download device
-
-certificate files to demonstrate AWS IoT jobs
+### Create and download device certificate files to demonstrate AWS IoT jobs
 
 This procedure creates the device certificate files for this demo.
 
 If you are preparing more than one device, this procedure must be performed
 on each device.
 
-###### To create and download the device certificate files for your Raspberry
-
-Pi:
+###### To create and download the device certificate files for your Raspberry Pi:
 
 In the terminal window on your local host computer that's connected to
 your Raspberry Pi, enter these commands.
@@ -103,12 +91,9 @@ the file dates and times will be different.
 ```
 
 After you have downloaded the device certificate files to your Raspberry Pi,
-you're ready to continue to [Provision your Raspberry Pi to
-demonstrate jobs](#iot-dc-runjobs-prepare-provision "#iot-dc-runjobs-prepare-provision").
+you're ready to continue to [Provision your Raspberry Pi to demonstrate jobs](#iot-dc-runjobs-prepare-provision "#iot-dc-runjobs-prepare-provision").
 
-### Create AWS IoT resources to
-
-demonstrate AWS IoT jobs
+### Create AWS IoT resources to demonstrate AWS IoT jobs
 
 Create the AWS IoT resources for this device.
 
@@ -317,12 +302,9 @@ If successful, this command returns nothing.
 
 After you successfully provisioned your Raspberry Pi, you're ready to repeat
 this section for another Raspberry Pi in your test or, if all devices have been
-provisioned, continue to [Configure the AWS IoT Device Client to
-run the jobs agent](#iot-dc-runjobs-prepare-config "#iot-dc-runjobs-prepare-config").
+provisioned, continue to [Configure the AWS IoT Device Client to run the jobs agent](#iot-dc-runjobs-prepare-config "#iot-dc-runjobs-prepare-config").
 
-## Configure the AWS IoT Device Client to
-
-run the jobs agent
+## Configure the AWS IoT Device Client to run the jobs agent
 
 This procedure creates a config file for the AWS IoT Device Client to run the jobs
 agent:.
@@ -410,5 +392,4 @@ are only exchanged with the device running the job. Because job progress message
 are only exchanged with the device running the job, you can't subscribe to them from
 another device, such as the AWS IoT console.
 
-After you save the config file, you're ready to continue to [Create and run the job in
-AWS IoT with AWS IoT Device Client](iot-dc-runjobs-prepare-define.md "iot-dc-runjobs-prepare-define.md").
+After you save the config file, you're ready to continue to [Create and run the job in AWS IoT with AWS IoT Device Client](iot-dc-runjobs-prepare-define.md "iot-dc-runjobs-prepare-define.md").

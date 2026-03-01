@@ -9,8 +9,7 @@ send immediate instructions to devices. Create and manage Commands from the AWS 
 - [Retrieve information about a command](#iot-remote-command-get "#iot-remote-command-get")
 - [List commands in your AWS account](#iot-remote-command-list "#iot-remote-command-list")
 - [Update a command resource](#iot-remote-command-update "#iot-remote-command-update")
-- [Deprecate or restore a command
-  resource](#iot-remote-command-deprecatecmd "#iot-remote-command-deprecatecmd")
+- [Deprecate or restore a command resource](#iot-remote-command-deprecatecmd "#iot-remote-command-deprecatecmd")
 - [Delete a command resource](#iot-remote-command-delete "#iot-remote-command-delete")
 
 ## Create a command resource
@@ -112,10 +111,8 @@ Command.
 
 - [Command payload](#iot-commands-payload "#iot-commands-payload")
 - [Sample IAM policy](#iot-remote-command-create-iam "#iot-remote-command-create-iam")
-- [Static command creation
-  example](#iot-remote-command-create-example "#iot-remote-command-create-example")
-- [Dynamic command creation
-  example](#iot-remote-dynamic-command-create-example "#iot-remote-dynamic-command-create-example")
+- [Static command creation example](#iot-remote-command-create-example "#iot-remote-command-create-example")
+- [Dynamic command creation example](#iot-remote-dynamic-command-create-example "#iot-remote-dynamic-command-create-example")
 
 #### Command payload
 
@@ -163,9 +160,7 @@ In this example, replace:
 
 ```
 
-#### Static command creation
-
-example
+#### Static command creation example
 
 The following example shows how you can create a static command. Depending on your
 application, replace:
@@ -211,9 +206,7 @@ command.
 }
 ```
 
-#### Dynamic command creation
-
-example
+#### Dynamic command creation example
 
 The following example shows how you can create a dynamic command. Depending on your
 application, replace:
@@ -322,9 +315,7 @@ In this example, replace:
 
 ```
 
-#### Retrieve a command example
-
-(AWS CLI)
+#### Retrieve a command example (AWS CLI)
 
 The following example shows you how to retrieve information about a
 command using the `get-command` AWS CLI. Depending on your
@@ -413,9 +404,7 @@ In this example, replace:
 
 ```
 
-#### List commands in your account
-
-example
+#### List commands in your account example
 
 The following command shows how to list commands in your account.
 
@@ -493,15 +482,12 @@ In this example, replace:
 
 ```
 
-#### Update information about
-
-a command examples (AWS CLI)
+#### Update information about a command examples (AWS CLI)
 
 The following example shows you how to update information about a command
 using the `update-command` AWS CLI command. For information about
 how you can use this API to deprecate or restore a command resource, see
-[Update a command resource
-(CLI)](iot-remote-command-deprecate.md#iot-remote-command-deprecate-cli "iot-remote-command-deprecate.md#iot-remote-command-deprecate-cli").
+[Update a command resource (CLI)](iot-remote-command-deprecate.md#iot-remote-command-deprecate-cli "iot-remote-command-deprecate.md#iot-remote-command-deprecate-cli").
 
 The example shows how you can update the display name and description of a
 command. Depending on your application, replace
@@ -540,9 +526,7 @@ Running this command generates the following response.
 }
 ```
 
-## Deprecate or restore a command
-
-resource
+## Deprecate or restore a command resource
 
 After you have created a command, if no longer want to continue using the command, you
 can mark it as deprecated. When you deprecate a command, all pending command executions
@@ -627,9 +611,7 @@ In this example, replace:
 
 ```
 
-#### Delete a command example
-
-(AWS CLI)
+#### Delete a command example (AWS CLI)
 
 The following examples show you how to delete a command using the
 `delete-command` AWS CLI command. Depending on your

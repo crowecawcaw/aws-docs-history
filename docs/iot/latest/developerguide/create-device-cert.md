@@ -1,15 +1,11 @@
-# Create a client certificate using your
-
-CA certificate
+# Create a client certificate using your CA certificate
 
 You can use your own certificate authority (CA) to create client
 certificates. The client certificate must be registered with AWS IoT before
 use. For information about the registration options for your client
 certificates, see [Register a client certificate](register-device-cert.md "register-device-cert.md").
 
-## Create a client certificate
-
-(CLI)
+## Create a client certificate (CLI)
 
 ###### Note
 

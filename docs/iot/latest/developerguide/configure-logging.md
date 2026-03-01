@@ -43,9 +43,7 @@ or SDK. After migration, AWS IoT automatically routes all logs to the CloudWatch
 downstream applications or resources consume information from ‘AWSIotLogs’, update them to use the corresponding log
 group path.
 
-## Configure logging role and
-
-policy
+## Configure logging role and policy
 
 Before you can enable logging in AWS IoT, you must create an IAM role and a policy that gives AWS IoT permission
 to write AWS IoT log activities to CloudWatch log groups on your behalf. You can also generate an IAM role with the policies
@@ -344,8 +342,7 @@ associate the client session with the corresponding thing resource. This allows 
 session to inherit the configurations and settings applied to the thing groups to which the
 thing belongs, including the logging levels. If your client ID doesn't match the thing
 name, you can enable the exclusive thing attachment to establish the association. For more
-information, see [Associating an AWS IoT thing to an MQTT client
-connection](exclusive-thing.md "exclusive-thing.md")
+information, see [Associating an AWS IoT thing to an MQTT client connection](exclusive-thing.md "exclusive-thing.md")
 .
 
 In addition to thing groups, you can also log targets such as a device's client ID,

@@ -18,8 +18,6 @@ following sections show how to use the CLI to work with the registry.
 - [Attach a principal to a thing](attach-thing-principal.md "attach-thing-principal.md")
 - [List things associated with a principal](list-principal-things.md "list-principal-things.md")
 - [List principals associated with a thing](list-thing-principals.md "list-thing-principals.md")
-- [List things associated with a principal
-  V2](list-principal-things-v2.md "list-principal-things-v2.md")
-- [List principals associated with a thing
-  V2](list-thing-principals-v2.md "list-thing-principals-v2.md")
+- [List things associated with a principal V2](list-principal-things-v2.md "list-principal-things-v2.md")
+- [List principals associated with a thing V2](list-thing-principals-v2.md "list-thing-principals-v2.md")
 - [Detach a principal from a thing](detach-thing-principal.md "detach-thing-principal.md")

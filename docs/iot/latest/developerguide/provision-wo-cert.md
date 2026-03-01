@@ -1,6 +1,4 @@
-# Provisioning devices that don't have device
-
-certificates using fleet provisioning
+# Provisioning devices that don't have device certificates using fleet provisioning
 
 By using AWS IoT fleet provisioning, AWS IoT can generate and securely deliver device
 certificates and private keys to your devices when they connect to AWS IoT for the first
@@ -231,16 +229,12 @@ certificate.
 
 The device is now ready to communicate normally with AWS IoT.
 
-## Using pre-provisioning hooks with the AWS
-
-CLI
+## Using pre-provisioning hooks with the AWS CLI
 
 The following procedure creates a provisioning template with pre-provisioning
 hooks. The Lambda function used here is an example that can be modified.
 
-###### To create and apply a pre-provisioning hook to a provisioning
-
-template
+###### To create and apply a pre-provisioning hook to a provisioning template
 
 1. Create a Lambda function that has a defined input and output. Lambda
    functions are highly customizable. `allowProvisioning` and
@@ -269,8 +263,7 @@ The following is an example of a Lambda function output:
 Be sure to include the `source-arn` or
 `source-account` in the global condition
 context keys of the policies attached to your Lambda action to prevent
-permission manipulation. For more information about this, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+permission manipulation. For more information about this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 The following is an example using [add-permission](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md")
 give IoT permission to your Lambda.

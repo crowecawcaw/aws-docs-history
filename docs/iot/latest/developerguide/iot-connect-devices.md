@@ -22,9 +22,7 @@ Device connections to AWS IoT use [X.509 client certificates](x509-client-certs.
 secured by TLS version 1.3 and AWS IoT requires devices to send the [Server Name Indication
 (SNI) extension](https://tools.ietf.org/html/rfc3546#section-3.1 "https://tools.ietf.org/html/rfc3546#section-3.1") when they connect. For more information, see [Transport Security in AWS IoT](transport-security.md "transport-security.md").
 
-## AWS IoT device data and service
-
-endpoints
+## AWS IoT device data and service endpoints
 
 ###### Important
 

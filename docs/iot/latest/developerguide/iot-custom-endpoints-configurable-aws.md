@@ -1,6 +1,4 @@
-# Creating and configuring AWS
-
-managed domains
+# Creating and configuring AWS managed domains
 
 You create a configurable endpoint on an AWS managed domain by using the [CreateDomainConfiguration](../apireference/API_CreateDomainConfiguration.md "../apireference/API_CreateDomainConfiguration.md") API. A domain configuration for an AWS managed
 domain consists of the following:
@@ -35,8 +33,7 @@ AWS IoT Core returns an endpoint with an endpoint type of
 - `TlsConfig` (optional)
 
 An object that specifies the TLS configuration for a domain. For more
-information, see [Configuring TLS settings in domain
-configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
+information, see [Configuring TLS settings in domain configurations](iot-endpoints-tls-config.md "iot-endpoints-tls-config.md").
 The following example AWS CLI command creates a domain configuration for a
 `Data` endpoint.
 

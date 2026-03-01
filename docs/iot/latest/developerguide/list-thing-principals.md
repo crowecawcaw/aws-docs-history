@@ -3,8 +3,7 @@
 To list the principals associated with the specified thing, run the [`list-thing-principals`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principals.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principals.html") command. Note that this command
 doesn't list the attachment type between the thing and the certificate. To list the
 attachment type, use the [`list-thing-principals-v2`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principalsv2.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principalsv2.html") command. For more
-information, see [List principals associated with a thing
-V2](list-thing-principals-v2.md "list-thing-principals-v2.md").
+information, see [List principals associated with a thing V2](list-thing-principals-v2.md "list-thing-principals-v2.md").
 
 ```
 $ aws iot list-thing-principals \

@@ -18,13 +18,11 @@ specify a type in the `--thing-principal-type` field. An exclusive
 attachment means your IoT thing is the only thing attached to the certificate, and
 this certificate cannot be associated with any other things. An non-exclusive
 attachment means your IoT thing is attached to the certificate, and this certificate
-can be associated with other things. For more information, see [Associating an AWS IoT thing to an MQTT client
-connection](exclusive-thing.md "exclusive-thing.md").
+can be associated with other things. For more information, see [Associating an AWS IoT thing to an MQTT client connection](exclusive-thing.md "exclusive-thing.md").
 
 ###### Note
 
-For the [Associating an AWS IoT thing to an MQTT client
-connection](exclusive-thing.md "exclusive-thing.md") feature, you can only use X.509
+For the [Associating an AWS IoT thing to an MQTT client connection](exclusive-thing.md "exclusive-thing.md") feature, you can only use X.509
 certificate as a principal.
 
 ```

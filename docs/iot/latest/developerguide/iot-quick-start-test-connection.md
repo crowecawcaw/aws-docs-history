@@ -11,18 +11,12 @@ terminal session connected to the device you want to test.
 
 endpoint.
 
-- [Find your device data
-  endpoint](#iot-quick-start-test-connection-endpoint "#iot-quick-start-test-connection-endpoint")
-- [Test the connection
-  quickly](#iot-quick-start-test-connection-ping "#iot-quick-start-test-connection-ping")
-- [Get the app to test the
-  connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app")
-- [Test the connection to
-  your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test")
+- [Find your device data endpoint](#iot-quick-start-test-connection-endpoint "#iot-quick-start-test-connection-endpoint")
+- [Test the connection quickly](#iot-quick-start-test-connection-ping "#iot-quick-start-test-connection-ping")
+- [Get the app to test the connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app")
+- [Test the connection to your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test")
 
-## Find your device data
-
-endpoint
+## Find your device data endpoint
 
 This procedure explains how to find your device data endpoint in the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home") for testing the
 connection to your IoT device.
@@ -40,9 +34,7 @@ connection to your IoT device.
 3. Save your device data endpoint to use in the following
    procedures.
 
-## Test the connection
-
-quickly
+## Test the connection quickly
 
 This procedure tests general connectivity with your device data endpoint, but
 it doesn't test the specific port that your devices will use. This test uses a
@@ -50,8 +42,7 @@ common program and is usually sufficient to find out if your devices can connect
 to AWS IoT.
 
 If you want to test connectivity with the specific port that your devices will
-use, skip this procedure and continue to [Get the app to test the
-connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app").
+use, skip this procedure and continue to [Get the app to test the connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app").
 
 ###### To test the device data endpoint quickly
 
@@ -91,14 +82,11 @@ If you are satisfied with this result, you can stop testing
 here.
 
 If you want to test the connectivity with the specific port used by
-AWS IoT, continue to [Get the app to test the
-connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app"). 3. If `ping` didn't return a successful output, check the
+AWS IoT, continue to [Get the app to test the connection to your device data endpoint and port](#iot-quick-start-test-connection-app "#iot-quick-start-test-connection-app"). 3. If `ping` didn't return a successful output, check the
 endpoint value to make sure you have the correct endpoint and check the
 device's connection with the internet.
 
-## Get the app to test the
-
-connection to your device data endpoint and port
+## Get the app to test the connection to your device data endpoint and port
 
 A more thorough connectivity test can be performed by using `nmap`.
 This procedure tests to see if `nmap` is installed on your
@@ -114,8 +102,7 @@ device.
 ```
 
 2. If you see an output similar to the following, `nmap` is
-   installed and you can continue to [Test the connection to
-   your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
+   installed and you can continue to [Test the connection to your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
 
 ```
 Nmap version 6.40 ( http://nmap.org )
@@ -158,8 +145,7 @@ software on the computer.
 
 3. If you see an output similar to the following,
    `nmap` is installed and you can continue to
-   [Test the connection to
-   your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
+   [Test the connection to your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
 
 ```
 Nmap version 6.40 ( http://nmap.org )
@@ -196,8 +182,7 @@ this command.
 
 6. If you see an output similar to the following,
    `nmap` is installed and you can continue to
-   [Test the connection to
-   your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
+   [Test the connection to your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
 
 ```
 Nmap version 7.92 ( https://nmap.org )
@@ -233,8 +218,7 @@ this command.
 
 5. If you see an output similar to the following,
    `nmap` is installed and you can continue to
-   [Test the connection to
-   your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
+   [Test the connection to your device data endpoint and port](#iot-quick-start-test-connection-test "#iot-quick-start-test-connection-test").
 
 ```
 Nmap version 7.92 ( https://nmap.org )
@@ -244,9 +228,7 @@ Compiled without:
 Available nsock engines: iocp poll select
 ```
 
-## Test the connection to
-
-your device data endpoint and port
+## Test the connection to your device data endpoint and port
 
 This procedure tests your IoT device's connection to your device data endpoint
 using your selected port.

@@ -1,6 +1,4 @@
-# List principals associated with a thing
-
-V2
+# List principals associated with a thing V2
 
 To list the certificates associated with the specified thing, along with the
 attachment type, run the [`list-thing-principals-V2`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principalsv2.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-thing-principalsv2.html") command. The attachment type

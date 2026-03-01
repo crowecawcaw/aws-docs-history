@@ -1,24 +1,17 @@
-# Use your Windows or Linux
-
-PC or Mac as an AWS IoT device
+# Use your Windows or Linux PC or Mac as an AWS IoT device
 
 In this tutorial, you'll configure a personal computer for use with AWS IoT.
 These instructions support Windows and Linux PCs and Macs. To accomplish this,
 you need to install some software on your computer. If you don't want to install
-software on your computer, you might try [Create a virtual device with
-Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md"), which installs all software on a virtual machine.
+software on your computer, you might try [Create a virtual device with Amazon EC2](creating-a-virtual-thing.md "creating-a-virtual-thing.md"), which installs all software on a virtual machine.
 
 ###### In this tutorial, you'll:
 
 - [Set up your personal computer](#gs-pc-prereqs "#gs-pc-prereqs")
-- [Install Git, Python, and the AWS IoT Device
-  SDK for Python](#gs-pc-sdk-node "#gs-pc-sdk-node")
-- [Set up the policy and run the sample
-  application](#gs-pc-python-app-run "#gs-pc-python-app-run")
-- [View messages from the sample app in the
-  AWS IoT console](#gs-pc-view-msg "#gs-pc-view-msg")
-- [Run the Shared
-  Subscription example in Python](#gs-pc-shared-subscription-example "#gs-pc-shared-subscription-example")
+- [Install Git, Python, and the AWS IoT Device SDK for Python](#gs-pc-sdk-node "#gs-pc-sdk-node")
+- [Set up the policy and run the sample application](#gs-pc-python-app-run "#gs-pc-python-app-run")
+- [View messages from the sample app in the AWS IoT console](#gs-pc-view-msg "#gs-pc-view-msg")
+- [Run the Shared Subscription example in Python](#gs-pc-shared-subscription-example "#gs-pc-shared-subscription-example")
 
 ## Set up your personal computer
 
@@ -29,16 +22,12 @@ Before you continue to the next step, make sure you can open a command
 line window on your computer. Use **cmd.exe** on a Windows
 PC. On a Linux PC or a Mac, use **Terminal**.
 
-## Install Git, Python, and the AWS IoT Device
-
-SDK for Python
+## Install Git, Python, and the AWS IoT Device SDK for Python
 
 In this section, you'll install Python, and the AWS IoT Device SDK for
 Python on your computer.
 
-### Install the latest version of Git
-
-and Python
+### Install the latest version of Git and Python
 
 This procedure explains how to install the latest version of Git and
 Python on your personal computer.
@@ -86,13 +75,9 @@ Confirm that the command displays the Python version. If the
 Python version isn't displayed, try downloading and installing
 Python again.
 
-### Install the AWS IoT Device SDK
+### Install the AWS IoT Device SDK for Python
 
-for Python
-
-###### To install the AWS IoT Device SDK for Python on your
-
-computer
+###### To install the AWS IoT Device SDK for Python on your computer
 
 1. Install v2 of the AWS IoT Device SDK for Python.
 
@@ -144,9 +129,7 @@ echo $home
 For more information, see the [AWS IoT
 Device SDK for Python GitHub repository](https://github.com/aws/aws-iot-device-sdk-python-v2 "https://github.com/aws/aws-iot-device-sdk-python-v2").
 
-### Prepare to run the sample
-
-applications
+### Prepare to run the sample applications
 
 ###### To prepare your system to run the sample application
 
@@ -215,9 +198,7 @@ those listed in the table.
 dir %USERPROFILE%\certs
 ```
 
-## Set up the policy and run the sample
-
-application
+## Set up the policy and run the sample application
 
 In this section, you'll set up your policy and run the
 `pubsub.py` sample script found in the
@@ -389,16 +370,13 @@ Disconnecting...
 Disconnected!
 ```
 
-If you're having trouble running the sample app, review [Troubleshoot problems with the
-sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+If you're having trouble running the sample app, review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
 
 You can also add the `--verbosity Debug` parameter to the
 command line so the sample app displays detailed messages about what it’s
 doing. That information might help you correct the problem.
 
-## View messages from the sample app in the
-
-AWS IoT console
+## View messages from the sample app in the AWS IoT console
 
 You can see the sample app's messages as they pass through the message
 broker by using the **MQTT test client** in the
@@ -406,8 +384,7 @@ broker by using the **MQTT test client** in the
 
 ###### To view the MQTT messages published by the sample app
 
-1. Review [View MQTT messages with the AWS IoT MQTT
-   client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
+1. Review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
    to use the **MQTT test client** in the
    **AWS IoT console** to view MQTT messages as they
    pass through the message broker.
@@ -436,9 +413,7 @@ python3 pubsub.py --topic test/topic --ca_file %USERPROFILE%\certs\Amazon-root-C
 For more information about MQTT and how AWS IoT Core supports the protocol,
 see [MQTT](mqtt.md "mqtt.md").
 
-## Run the Shared
-
-Subscription example in Python
+## Run the Shared Subscription example in Python
 
 AWS IoT Core supports [Shared
 Subscriptions](mqtt.md#mqtt5-shared-subscription "mqtt.md#mqtt5-shared-subscription") for both MQTT 3 and MQTT 5. Shared Subscriptions

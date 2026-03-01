@@ -1,6 +1,4 @@
-# Configuring a remote device and using IoT
-
-agent
+# Configuring a remote device and using IoT agent
 
 The IoT agent is used to receive the MQTT message that includes the client access
 token and start a local proxy on the remote device. You must install and run the IoT

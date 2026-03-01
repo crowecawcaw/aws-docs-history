@@ -14,8 +14,7 @@ them to your solution design.
 
 A video overview of AWS IoT and its core services.
 
-- ###### [Deep Dive into AWS IoT Authentication and
-  Authorization](https://www.aws.training/Details/Curriculum?id=42335 "https://www.aws.training/Details/Curriculum?id=42335")
+- ###### [Deep Dive into AWS IoT Authentication and Authorization](https://www.aws.training/Details/Curriculum?id=42335 "https://www.aws.training/Details/Curriculum?id=42335")
 
 An advanced course that explores the concepts of AWS IoT authentication
 and authorization. You will learn how to authenticate and authorize
@@ -40,21 +39,18 @@ applications on AWS.
 A whitepaper that describes the best practices for designing MQTT
 topics in AWS IoT Core and leveraging AWS IoT Core features with MQTT.
 
-- ###### [Abstract and
-  introduction](../../../whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md "../../../whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md")
+- ###### [Abstract and introduction](../../../whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md "../../../whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md")
 
 A PDF document that describes the different ways that AWS IoT provides
 to provision large fleets of devices.
 
-- ###### [AWS IoT Core
-  Device Advisor](device-advisor.md "device-advisor.md")
+- ###### [AWS IoT Core Device Advisor](device-advisor.md "device-advisor.md")
 
 AWS IoT Core Device Advisor provides pre-built tests that you can use to
 validate IoT devices for reliable and secure connectivity best practices
 with AWS IoT Core, before deploying devices to production.
 
-- ###### [AWS IoT
-  Resources](https://aws.amazon.com/iot/resources/ "https://aws.amazon.com/iot/resources/")
+- ###### [AWS IoT Resources](https://aws.amazon.com/iot/resources/ "https://aws.amazon.com/iot/resources/")
 
 IoT-specific resources, such as Technical Guides, Reference
 Architectures, eBooks, and curated blog posts, presented in a searchable
@@ -95,20 +91,16 @@ These social media accounts cover all AWS services, including AWS IoT
 - [Amazon
   Web Services on LinkedIn](https://www.linkedin.com/company/amazon-web-services/ "https://www.linkedin.com/company/amazon-web-services/")
 
-## AWS services used by the AWS IoT Core
-
-rules engine
+## AWS services used by the AWS IoT Core rules engine
 
 The AWS IoT Core rules engine can connect to these AWS services.
 
-- ###### [Amazon
-  DynamoDB](../../../dynamodb.md "../../../dynamodb.md")
+- ###### [Amazon DynamoDB](../../../dynamodb.md "../../../dynamodb.md")
 
 Amazon DynamoDB is a scalable, NoSQL database service that provides fast
 and predictable database performance.
 
-- ###### [Amazon
-  Kinesis](../../../kinesis.md "../../../kinesis.md")
+- ###### [Amazon Kinesis](../../../kinesis.md "../../../kinesis.md")
 
 Amazon Kinesis makes it easy to collect, process, and analyze real-time,
 streaming data so you can get timely insights and react quickly to new
@@ -122,22 +114,19 @@ AWS Lambda lets you run code without provisioning or managing servers.
 You can set up your code to automatically trigger from AWS IoT data and
 events or call it directly from a web or mobile app.
 
-- ###### [Amazon Simple Storage
-  Service](../../../s3.md "../../../s3.md")
+- ###### [Amazon Simple Storage Service](../../../s3.md "../../../s3.md")
 
 Amazon Simple Storage Service (Amazon S3) can store and retrieve any amount of data at any time,
 from anywhere on the web. AWS IoT rules can send data to Amazon S3 for
 storage.
 
-- ###### [Amazon Simple Notification
-  Service](../../../sns.md "../../../sns.md")
+- ###### [Amazon Simple Notification Service](../../../sns.md "../../../sns.md")
 
 Amazon Simple Notification Service (Amazon SNS) is a web service that
 enables applications, end users, and devices to send and receive
 notifications from the cloud.
 
-- ###### [Amazon Simple Queue
-  Service](../../../sqs.md "../../../sqs.md")
+- ###### [Amazon Simple Queue Service](../../../sqs.md "../../../sqs.md")
 
 Amazon Simple Queue Service (Amazon SQS) is a message queuing service that
 decouples and scales microservices, distributed systems, and serverless
@@ -161,28 +150,23 @@ Amazon CloudWatch provides a reliable, scalable, and flexible monitoring
 solution to help set up, manage, and scale your own monitoring systems
 and infrastructure.
 
-## Communication protocols supported by
-
-AWS IoT Core
+## Communication protocols supported by AWS IoT Core
 
 These topics provide more information about the communication protocols used by
 AWS IoT. For more information about the protocols used by AWS IoT and connecting devices
 and services to AWS IoT, see [Connect to AWS IoT Core](connect-to-iot.md "connect-to-iot.md").
 
-- ###### [MQTT (Message Queuing Telemetry
-  Transport)](http://mqtt.org/ "http://mqtt.org/")
+- ###### [MQTT (Message Queuing Telemetry Transport)](http://mqtt.org/ "http://mqtt.org/")
 
 The home page of the MQTT.org site where you can find the MQTT
 protocol specifications. For more information about how AWS IoT supports
 MQTT, see [MQTT](mqtt.md "mqtt.md").
 
-- ###### [HTTPS (Hypertext
-  Transfer Protocol - Secure)](https://tools.ietf.org/html/rfc2616 "https://tools.ietf.org/html/rfc2616")
+- ###### [HTTPS (Hypertext Transfer Protocol - Secure)](https://tools.ietf.org/html/rfc2616 "https://tools.ietf.org/html/rfc2616")
 
 Devices and apps can access AWS IoT services by using HTTPS.
 
-- ###### [LoRaWAN (Long
-  Range Wide Area Network)](https://lora-alliance.org/about-lorawan "https://lora-alliance.org/about-lorawan")
+- ###### [LoRaWAN (Long Range Wide Area Network)](https://lora-alliance.org/about-lorawan "https://lora-alliance.org/about-lorawan")
 
 LoRaWAN devices and gateways can connect to AWS IoT Core by using
 AWS IoT Core for LoRaWAN.

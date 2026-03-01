@@ -1,6 +1,4 @@
-# Monitor AWS IoT alarms and metrics using
-
-Amazon CloudWatch
+# Monitor AWS IoT alarms and metrics using Amazon CloudWatch
 
 You can monitor AWS IoT using CloudWatch, which collects and processes raw data from
 AWS IoT into readable, near real-time metrics. These statistics are recorded for a

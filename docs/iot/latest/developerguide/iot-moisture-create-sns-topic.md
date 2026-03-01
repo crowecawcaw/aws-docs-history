@@ -1,6 +1,4 @@
-# Step 3: Create an Amazon SNS topic and
-
-subscription
+# Step 3: Create an Amazon SNS topic and subscription
 
 Create an Amazon SNS topic and subscription.
 

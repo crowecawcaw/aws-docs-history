@@ -39,8 +39,7 @@ the AWS services that you use.
 - [Managing an AWS IoT rule](iot-managae-rule.md "iot-managae-rule.md")
 - [AWS IoT rule actions](iot-rule-actions.md "iot-rule-actions.md")
 - [Troubleshooting a rule](#iot-troubleshoot-rule "#iot-troubleshoot-rule")
-- [Accessing cross-account
-  resources using AWS IoT rules](accessing-cross-account-resources-using-rules.md "accessing-cross-account-resources-using-rules.md")
+- [Accessing cross-account resources using AWS IoT rules](accessing-cross-account-resources-using-rules.md "accessing-cross-account-resources-using-rules.md")
 - [Error handling (error action)](rule-error-handling.md "rule-error-handling.md")
 - [Reducing messaging costs with Basic Ingest](iot-basic-ingest.md "iot-basic-ingest.md")
 - [AWS IoT SQL reference](iot-sql-reference.md "iot-sql-reference.md")

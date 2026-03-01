@@ -12,8 +12,7 @@ a request through [RegisterThing](fleet-provision-api.md#register-thing "fleet-p
 Be sure to include the `source-arn` or
 `source-account` in the global condition context keys of
 the policies attached to your Lambda action to prevent permission manipulation. For
-more information about this, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+more information about this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 For devices to be provisioned, your Lambda function must accept the input object and
 return the output object described in this section. The provisioning proceeds only if
@@ -41,9 +40,7 @@ AWS IoT.
 The `parameters` object passed to the Lambda function contains the
 properties in the `parameters` argument passed in the [RegisterThing](fleet-provision-api.md#register-thing "fleet-provision-api.md#register-thing") request payload.
 
-## Pre-provision hook return
-
-value
+## Pre-provision hook return value
 
 The Lambda function must return a response that indicates whether it has authorized
 the provisioning request and the values of any properties to override.
@@ -75,9 +72,7 @@ request payload.
 - The Lambda function must finish running and return within 5 seconds,
   otherwise the provisioning request fails.
 
-## Pre-provisioning hook Lambda
-
-example
+## Pre-provisioning hook Lambda example
 
 Python
 An example of a pre-provisioning hook Lambda in Python.

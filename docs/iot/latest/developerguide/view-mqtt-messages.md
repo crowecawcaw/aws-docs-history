@@ -1,6 +1,4 @@
-# View MQTT messages with the AWS IoT MQTT
-
-client
+# View MQTT messages with the AWS IoT MQTT client
 
 This section describes how to use the AWS IoT MQTT test client in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") to watch the
 MQTT messages sent and received by AWS IoT. The example used in this section relates to
@@ -15,16 +13,11 @@ your AWS account.
 
 ###### Contents
 
-- [Viewing MQTT messages in the MQTT
-  client](#view-mqtt-subscribe "#view-mqtt-subscribe")
-- [Publishing MQTT messages from the MQTT
-  client](#view-mqtt-publish "#view-mqtt-publish")
-- [Testing Shared Subscriptions in the
-  MQTT client](#view-mqtt-shared-subscriptions "#view-mqtt-shared-subscriptions")
+- [Viewing MQTT messages in the MQTT client](#view-mqtt-subscribe "#view-mqtt-subscribe")
+- [Publishing MQTT messages from the MQTT client](#view-mqtt-publish "#view-mqtt-publish")
+- [Testing Shared Subscriptions in the MQTT client](#view-mqtt-shared-subscriptions "#view-mqtt-shared-subscriptions")
 
-## Viewing MQTT messages in the MQTT
-
-client
+## Viewing MQTT messages in the MQTT client
 
 The following procedure explains how to subscribe to a specific MQTT topic that
 your device publishes messages to and view those messages in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
@@ -106,9 +99,7 @@ Subscribing to the wild card topic filter, however would show that the
 device is publishing messages and you could see that it was using a topic
 name that was not the one you expected.
 
-## Publishing MQTT messages from the MQTT
-
-client
+## Publishing MQTT messages from the MQTT client
 
 ###### To publish a message to an MQTT topic
 
@@ -156,9 +147,7 @@ probe1/temperature and probe1/#), there is a possibility that a single message
 published to a topic matching both subscriptions will be delivered multiple times,
 once for each overlapping subscription.
 
-## Testing Shared Subscriptions in the
-
-MQTT client
+## Testing Shared Subscriptions in the MQTT client
 
 This section describes how to use the AWS IoT MQTT client in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home") to watch the
 MQTT messages sent and received by AWS IoT using Shared Subscriptions. [Shared subscriptions](mqtt.md#mqtt5-shared-subscription "mqtt.md#mqtt5-shared-subscription") allow multiple clients to share a

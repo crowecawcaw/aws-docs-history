@@ -1,6 +1,4 @@
-# Creating IAM policies and roles for a user
-
-installing a device
+# Creating IAM policies and roles for a user installing a device
 
 ###### Note
 
@@ -13,9 +11,7 @@ console. The procedures in this section walk you through the steps to create the
 IAM roles and policies that are needed to use the provisioning
 template.
 
-## Creating an IAM policy for the user
-
-who will install a device
+## Creating an IAM policy for the user who will install a device
 
 This procedure describes how to create an IAM policy that authorizes a user to
 install a device using a provisioning template.
@@ -55,13 +51,10 @@ complete this procedure.
 12. To finish creating the new policy, choose **Create
     policy**.
 
-After you create your new policy, continue to [Creating an IAM role for the user who
-will install a device](#provision-create-role-role "#provision-create-role-role") to create the user's role entry that
+After you create your new policy, continue to [Creating an IAM role for the user who will install a device](#provision-create-role-role "#provision-create-role-role") to create the user's role entry that
 you'll attach this policy.
 
-## Creating an IAM role for the user who
-
-will install a device
+## Creating an IAM role for the user who will install a device
 
 These steps describe how to create an IAM role that authenticates the user who
 will install a device using a provisioning template.
@@ -98,9 +91,7 @@ will install a device using a provisioning template.
 After you create the new role, return to the AWS IoT console to continue creating
 the template.
 
-## Updating an existing policy to
-
-authorize a new template
+## Updating an existing policy to authorize a new template
 
 The following steps describe how to add a new template to an IAM policy that
 authorizes a user to install a device using a provisioning template.

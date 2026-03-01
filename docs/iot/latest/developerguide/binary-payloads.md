@@ -6,8 +6,7 @@ use the \* operator to refer to it in a SELECT clause.
 ###### In this topic:
 
 - [Binary payload examples](#binary-payloads-examples "#binary-payloads-examples")
-- [Decoding protobuf message
-  payloads](#binary-payloads-protobuf "#binary-payloads-protobuf")
+- [Decoding protobuf message payloads](#binary-payloads-protobuf "#binary-payloads-protobuf")
 
 ## Binary payload examples
 
@@ -80,9 +79,7 @@ SELECT encode(*, 'base64') AS data FROM 'my_topic'
 SELECT decode(encode(*, 'base64'), 'base64') AS payload FROM 'topic'
 ```
 
-## Decoding protobuf message
-
-payloads
+## Decoding protobuf message payloads
 
 [Protocol Buffers
 (protobuf)](https://developers.google.com/protocol-buffers "https://developers.google.com/protocol-buffers") is an open-source data format used to serialize structured
@@ -98,12 +95,9 @@ Rules.
 ###### In this section:
 
 - [Prerequisites](#binary-payloads-protobuf-prerequisites "#binary-payloads-protobuf-prerequisites")
-- [Create descriptor
-  files](#binary-payloads-protobuf-descriptor-steps "#binary-payloads-protobuf-descriptor-steps")
-- [Upload descriptor files to
-  S3 bucket](#binary-payloads-protobuf-s3-steps "#binary-payloads-protobuf-s3-steps")
-- [Configure protobuf decoding in
-  Rules](#binary-payloads-protobuf-steps "#binary-payloads-protobuf-steps")
+- [Create descriptor files](#binary-payloads-protobuf-descriptor-steps "#binary-payloads-protobuf-descriptor-steps")
+- [Upload descriptor files to S3 bucket](#binary-payloads-protobuf-s3-steps "#binary-payloads-protobuf-s3-steps")
+- [Configure protobuf decoding in Rules](#binary-payloads-protobuf-steps "#binary-payloads-protobuf-steps")
 - [Limitations](#binary-payloads-protobuf-limitations "#binary-payloads-protobuf-limitations")
 - [Best practices](#binary-payloads-protobuf-bestpractices "#binary-payloads-protobuf-bestpractices")
 
@@ -116,9 +110,7 @@ Rules.
 - Installing [Protobuf
   Compiler (protoc)](https://github.com/protocolbuffers/protobuf/releases "https://github.com/protocolbuffers/protobuf/releases") on your system
 
-### Create descriptor
-
-files
+### Create descriptor files
 
 If you already have your descriptor files, you can skip this step. A
 descriptor file (`.desc`) is a compiled version of a
@@ -185,9 +177,7 @@ protobuf payloads that conform to the data structure defined in
 
 For more information about the protoc reference, see [API Reference](https://developers.google.com/protocol-buffers/docs/reference/overview "https://developers.google.com/protocol-buffers/docs/reference/overview").
 
-### Upload descriptor files to
-
-S3 bucket
+### Upload descriptor files to S3 bucket
 
 After you create your descriptor files `<FILENAME>.desc`, upload
 the descriptor files `<FILENAME>.desc` to an Amazon S3 bucket, using
@@ -244,9 +234,7 @@ the AWS API, AWS SDK, or the AWS Management Console.
 }
 ```
 
-### Configure protobuf decoding in
-
-Rules
+### Configure protobuf decoding in Rules
 
 After you upload the descriptor files to your Amazon S3 bucket, configure a [Rule](iot-create-rule.md "iot-create-rule.md") that can decode your protobuf message payload format using the
 [decode(value, decodingScheme)](iot-sql-functions.md#iot-sql-decode-base64 "iot-sql-functions.md#iot-sql-decode-base64")

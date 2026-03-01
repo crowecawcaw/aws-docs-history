@@ -7,9 +7,7 @@ Before you use Device Advisor for the first time, complete the following tasks:
 First, create an IoT thing and attach a certificate to that thing. For a tutorial
 on how to create things, see [Create a thing object](create-iot-resources.md#create-aws-thing "create-iot-resources.md#create-aws-thing").
 
-## Create an IAM role to use as your device
-
-role
+## Create an IAM role to use as your device role
 
 ###### Note
 
@@ -155,9 +153,7 @@ For more information, see [Cross-service confused deputy prevention](security-be
     description**.
 18. Choose **Create role**.
 
-## Create a custom-managed policy for an IAM user
-
-to use Device Advisor
+## Create a custom-managed policy for an IAM user to use Device Advisor
 
 1. Navigate to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). If prompted, enter your AWS
    credentials to sign in.

@@ -4,15 +4,11 @@ This section creates the AWS IoT Core resources that your tutorial will use.
 
 ###### Steps to provision your device in AWS IoT
 
-- [Step 1: Create an AWS IoT policy for the Device
-  Shadow](#create-policy-shadow "#create-policy-shadow")
-- [Step 2: Create a thing resource and attach the policy
-  to the thing](#create-thing-shadow "#create-thing-shadow")
+- [Step 1: Create an AWS IoT policy for the Device Shadow](#create-policy-shadow "#create-policy-shadow")
+- [Step 2: Create a thing resource and attach the policy to the thing](#create-thing-shadow "#create-thing-shadow")
 - [Step 3: Review the results and next steps](#resources-shadow-review "#resources-shadow-review")
 
-## Step 1: Create an AWS IoT policy for the Device
-
-Shadow
+## Step 1: Create an AWS IoT policy for the Device Shadow
 
 X.509 certificates authenticate your device with AWS IoT Core. AWS IoT policies are attached
 to the certificate that permits the device to perform AWS IoT operations, such as subscribing
@@ -94,9 +90,7 @@ and then attach it to the device certificate that you'll create later.
 
    ```
 
-## Step 2: Create a thing resource and attach the policy
-
-to the thing
+## Step 2: Create a thing resource and attach the policy to the thing
 
 Devices connected to AWS IoT can be represented by _thing resources_ in the
 AWS IoT registry. A _thing resource_ represents a specific device or
@@ -154,5 +148,4 @@ things in the AWS IoT console.
 
 You can now install the AWS IoT device SDK for Python, run the `shadow.py`
 sample application, and use Device Shadows to control the state. For more information
-about how to run this tutorial, see [Tutorial: Installing the Device SDK and running
-the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md").
+about how to run this tutorial, see [Tutorial: Installing the Device SDK and running the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md").

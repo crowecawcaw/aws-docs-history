@@ -33,7 +33,5 @@ operations, see [AWS IoT jobs API operations](jobs-api.md "jobs-api.md").
 
 ###### Topics
 
-- [Authorizing users and cloud services to use
-  AWS IoT Jobs](iam-policy-users-jobs.md "iam-policy-users-jobs.md")
-- [Authorizing your devices to securely use AWS IoT Jobs on the
-  data plane](iot-data-plane-jobs.md "iot-data-plane-jobs.md")
+- [Authorizing users and cloud services to use AWS IoT Jobs](iam-policy-users-jobs.md "iam-policy-users-jobs.md")
+- [Authorizing your devices to securely use AWS IoT Jobs on the data plane](iot-data-plane-jobs.md "iot-data-plane-jobs.md")

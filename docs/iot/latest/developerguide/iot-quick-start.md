@@ -155,8 +155,7 @@ subscribe to the messages from your device. The topic filters are case
 sensitive and depend on the programming language of the SDK you chose in
 **Step 1**. For more information about topic
 subscription and publish, see the code example of your chosen SDK. 5. After you subscribe to the test topic, run **./start.sh**
-on your device. For more information, see [View MQTT messages with the AWS IoT MQTT
-client](view-mqtt-messages.md "view-mqtt-messages.md").
+on your device. For more information, see [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md").
 
 After you run **./start.sh**, messages appear in the MQTT
 client, similar to the following:
@@ -181,8 +180,7 @@ when you end the program. 6. To finish the tutorial and see a summary, in the AW
 Here are some ideas to explore AWS IoT further after you complete the quick
 start.
 
-- ###### [View MQTT
-  messages in the MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test")
+- ###### [View MQTT messages in the MQTT test client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test")
 
 From the [AWS IoT console](https://console.aws.amazon.com//iot/home "https://console.aws.amazon.com//iot/home"),
 you can open the [MQTT
@@ -190,8 +188,7 @@ client](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amaz
 console. In the **MQTT test client**, subscribe to
 `#`, and then, on your device, run the program
 **./start.sh** as described in the previous step. For
-more information, see [View MQTT messages with the AWS IoT MQTT
-client](view-mqtt-messages.md "view-mqtt-messages.md").
+more information, see [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md").
 
 - ###### Run tests on your devices with [Device Advisor](device-advisor.md "device-advisor.md")
 
@@ -205,8 +202,7 @@ page of the AWS IoT console, in the **See how AWS IoT
 works** tile, choose **Start the
 tutorial**.
 
-- ###### [Get ready to explore more
-  tutorials](iot-gs-first-thing.md "iot-gs-first-thing.md")
+- ###### [Get ready to explore more tutorials](iot-gs-first-thing.md "iot-gs-first-thing.md")
 
 This quick start gives you just a sample of AWS IoT. If you want to
 explore AWS IoT further and learn about the features that make it a

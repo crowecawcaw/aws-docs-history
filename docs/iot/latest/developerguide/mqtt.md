@@ -22,8 +22,7 @@ require and the connection ID requirements that the MQTT protocol and MQTT over 
 protocols require. For information about how to connect to AWS IoT using the AWS Device SDKs
 and links to examples of AWS IoT in the supported languages, see [Connecting with MQTT using the AWS IoT Device SDKs](#mqtt-sdk "#mqtt-sdk").
 For more information about authentication methods and the port mappings for MQTT messages,
-see [Protocols, port mappings, and
-authentication](protocols.md#protocol-mapping "protocols.md#protocol-mapping").
+see [Protocols, port mappings, and authentication](protocols.md#protocol-mapping "protocols.md#protocol-mapping").
 
 While we recommend using the AWS IoT Device SDKs to connect to AWS IoT, they are not required.
 If you do not use the AWS IoT Device SDKs, however, you must provide the necessary connection
@@ -139,9 +138,7 @@ sent to the client.
 The processing of the stored messages is recorded in CloudWatch metrics and CloudWatch Logs.
 For information about the entries written to CloudWatch and CloudWatch Logs, see [Message broker metrics](metrics_dimensions.md#message-broker-metrics "metrics_dimensions.md#message-broker-metrics") and [Queued log entry](cwl-format.md#log-mb-queued "cwl-format.md#log-mb-queued").
 
-### Creating a persistent
-
-session
+### Creating a persistent session
 
 In MQTT 3, you create an MQTT persistent session by sending a `CONNECT`
 message and setting the `cleanSession` flag to `0`. If no
@@ -183,9 +180,7 @@ Cross MQTT version (MQTT 3 and MQTT 5) persistent sessions are not supported.
 An MQTT 3 persistent session can't be resumed as an MQTT 5 session, and vice
 versa.
 
-### Operations during a persistent
-
-session
+### Operations during a persistent session
 
 Clients use the `sessionPresent` attribute in the connection
 acknowledged (`CONNACK`) message to determine if a persistent session is
@@ -200,9 +195,7 @@ to its topic filters.
 After the client joins a persistent session, it can publish messages and subscribe
 to topic filters without any additional flags on each operation.
 
-### Message traffic after reconnection to
-
-a persistent session
+### Message traffic after reconnection to a persistent session
 
 A persistent session represents an ongoing connection between a client and an MQTT
 message broker. When a client connects to the message broker using a persistent
@@ -265,9 +258,7 @@ though they could not be sent. For more information about message pricing, see
 [AWS IoT Core
 Pricing](https://aws.amazon.com/iot-core/pricing "https://aws.amazon.com/iot-core/pricing"). You can configure the expiration time interval.
 
-### Reconnection after a persistent
-
-session has expired
+### Reconnection after a persistent session has expired
 
 If a client doesn't reconnect to its persistent session before it expires, the
 session ends and its stored messages are discarded. When a client reconnects after
@@ -276,9 +267,7 @@ service creates a new persistent session. Any subscriptions or messages from the
 previous session are not available to this session because they were discarded when
 the previous session expired.
 
-### Persistent session message
-
-charges
+### Persistent session message charges
 
 Messages are charged to your AWS account when the message broker sends a message
 to a client or an offline persistent session. When an offline device with a
@@ -324,17 +313,12 @@ wait until the next message from the device to see the current state.
 
 ###### In this section:
 
-- [Common tasks with MQTT retained messages in
-  AWS IoT Core](#mqtt-retain-using "#mqtt-retain-using")
+- [Common tasks with MQTT retained messages in AWS IoT Core](#mqtt-retain-using "#mqtt-retain-using")
 - [Billing and retained messages](#mqtt-retain-billing "#mqtt-retain-billing")
-- [Comparing MQTT retained messages and MQTT
-  persistent sessions](#mqtt-retain-persist "#mqtt-retain-persist")
-- [MQTT retained messages and AWS IoT Device
-  Shadows](#mqtt-retain-shadow "#mqtt-retain-shadow")
+- [Comparing MQTT retained messages and MQTT persistent sessions](#mqtt-retain-persist "#mqtt-retain-persist")
+- [MQTT retained messages and AWS IoT Device Shadows](#mqtt-retain-shadow "#mqtt-retain-shadow")
 
-### Common tasks with MQTT retained messages in
-
-AWS IoT Core
+### Common tasks with MQTT retained messages in AWS IoT Core
 
 AWS IoT Core saves MQTT messages with the `RETAIN` flag set. These _retained
 messages_ are sent to all clients that have subscribed to the topic,
@@ -342,8 +326,7 @@ as a normal MQTT message, and they are also stored to be sent to new subscribers
 the topic.
 
 MQTT retained messages require specific policy actions to authorize clients to
-access them. For examples of using retained message policies, see [Retained message policy
-examples](retained-message-policy-examples.md "retained-message-policy-examples.md").
+access them. For examples of using retained message policies, see [Retained message policy examples](retained-message-policy-examples.md "retained-message-policy-examples.md").
 
 This section describes common operations that involve retained messages.
 
@@ -456,8 +439,7 @@ The [AWS IoT console](https://console.aws.amazon.com//iot/home# "https://console
 provides several tools to help you troubleshoot retained
 messages:
 
-    + ###### The **[Retained
-     messages](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages")** page
+    + ###### The **[Retained messages](https://console.aws.amazon.com//iot/home#/retainedMessages "https://console.aws.amazon.com//iot/home#/retainedMessages")** page
 
 
     The **Retained messages** page in the AWS IoT
@@ -518,9 +500,7 @@ Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amaz
 
 For more information about messaging costs, see [AWS IoT Core pricing - Messaging](https://aws.amazon.com//iot-core/pricing/#Messaging "https://aws.amazon.com//iot-core/pricing/#Messaging").
 
-### Comparing MQTT retained messages and MQTT
-
-persistent sessions
+### Comparing MQTT retained messages and MQTT persistent sessions
 
 Retained messages and persistent sessions are standard features of MQTT that make
 it possible for devices to receive messages that were published while they were
@@ -550,9 +530,7 @@ returns a throttled response to messages published with RETAIN set and payloads
 greater than 0 bytes until some retained messages are deleted and the retained
 message count falls below the limit.
 
-### MQTT retained messages and AWS IoT Device
-
-Shadows
+### MQTT retained messages and AWS IoT Device Shadows
 
 Retained messages and Device Shadows both retain data from a device, but they
 behave differently and serve different purposes. This section describes their
@@ -725,8 +703,7 @@ For more information about shared subscriptions limits, see [AWS IoT Core endpoi
 and quotas](../../../general/latest/gr/iot-core.md "../../../general/latest/gr/iot-core.md") from the _AWS General
 Reference_. To test shared subscriptions using the AWS IoT MQTT client
 in the [AWS IoT console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home"),
-see [Testing Shared Subscriptions in the
-MQTT client](view-mqtt-messages.md#view-mqtt-shared-subscriptions "view-mqtt-messages.md#view-mqtt-shared-subscriptions"). You can also view which topics connected clients are subscribed to, including shared subscriptions, by using the client connection management features. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect"). For more information about
+see [Testing Shared Subscriptions in the MQTT client](view-mqtt-messages.md#view-mqtt-shared-subscriptions "view-mqtt-messages.md#view-mqtt-shared-subscriptions"). You can also view which topics connected clients are subscribed to, including shared subscriptions, by using the client connection management features. For more information, see [Managing MQTT connections](#mqtt-client-disconnect "#mqtt-client-disconnect"). For more information about
 shared subscriptions, see [Shared Subscriptions](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250 "https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250") from the MQTTv5.0 specification.
 
 #### Shared subscriptions message queuing

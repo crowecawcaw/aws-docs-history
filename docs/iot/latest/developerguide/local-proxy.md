@@ -10,5 +10,4 @@ application that initiates the TCP connection. In destination mode, the local pr
 on the remote device, along with the destination application. A single tunnel can
 support up to three data streams at a time by using tunnel multiplexing. For each data
 stream, secure tunneling uses multiple TCP connections, which reduces the potential for
-a time out. For more information, see [Multiplex data streams and using simultaneous TCP
-connections in a secure tunnel](multiplexing.md "multiplexing.md").
+a time out. For more information, see [Multiplex data streams and using simultaneous TCP connections in a secure tunnel](multiplexing.md "multiplexing.md").

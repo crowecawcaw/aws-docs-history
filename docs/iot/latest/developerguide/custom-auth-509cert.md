@@ -1,6 +1,4 @@
-# Custom authentication with X.509 client
-
-certificates
+# Custom authentication with X.509 client certificates
 
 When connecting devices to AWS IoT Core, you have multiple [authentication types](protocols.md#connection-protocol-auth-mode "protocols.md#connection-protocol-auth-mode") available.
 You can use [X.509 client
@@ -41,17 +39,12 @@ Indication (SNI)](https://www.rfc-editor.org/rfc/rfc3546#section-3.1 "https://ww
 
 certificates consists of the following steps.
 
-- [Step 1: Register your X.509 client
-  certificates with AWS IoT Core](#custom-auth-509cert-client "#custom-auth-509cert-client")
+- [Step 1: Register your X.509 client certificates with AWS IoT Core](#custom-auth-509cert-client "#custom-auth-509cert-client")
 - [Step 2: Create a Lambda function](#custom-auth-509cert-lambda "#custom-auth-509cert-lambda")
-- [Step 3: Create a custom
-  authorizer](#custom-auth-509cert-authorizer "#custom-auth-509cert-authorizer")
-- [Step 4: Set authentication
-  type and application protocol in a domain configuration](#custom-auth-509cert-domainconfig "#custom-auth-509cert-domainconfig")
+- [Step 3: Create a custom authorizer](#custom-auth-509cert-authorizer "#custom-auth-509cert-authorizer")
+- [Step 4: Set authentication type and application protocol in a domain configuration](#custom-auth-509cert-domainconfig "#custom-auth-509cert-domainconfig")
 
-## Step 1: Register your X.509 client
-
-certificates with AWS IoT Core
+## Step 1: Register your X.509 client certificates with AWS IoT Core
 
 If you haven't done this already, register and activate your [X.509 client certificates](x509-client-certs.md "x509-client-certs.md") with AWS IoT Core. Otherwise, skip to the
 next step.
@@ -80,9 +73,7 @@ contains a JSON object with the device's X.509 client certificate data. Your
 Lambda function uses this event JSON object to evaluate the authentication
 request, decide the actions to take, and send a response back.
 
-### Lambda function event
-
-example
+### Lambda function event example
 
 The following example JSON object contains all possible fields that can be
 included. The actual JSON object will only contain fields relevant to the
@@ -170,9 +161,7 @@ In this event JSON object, `x509CertificatePem` and
 value of `principalId` is the same as the value of
 `certificateId`. For more information, see [Certificate](../apireference/API_Certificate.md "../apireference/API_Certificate.md").
 
-### Lambda function response
-
-example
+### Lambda function response example
 
 The Lambda function should use information from the event JSON object to
 authenticate the incoming connection and decide what actions are permitted
@@ -246,9 +235,7 @@ When this interval passes, AWS IoT Core invokes the Lambda function to
 allow for policy refreshes. The minimum value is 300 seconds, and
 the maximum value is 86,400 seconds.
 
-### Example Lambda
-
-function
+### Example Lambda function
 
 The following is a sample Node.js Lambda function. The function examines
 the client's X.509 certificate and extracts relevant information such as the
@@ -369,9 +356,7 @@ more information, see [Defining your Lambda function](config-custom-auth.md#cust
 }
 ```
 
-## Step 3: Create a custom
-
-authorizer
+## Step 3: Create a custom authorizer
 
 After [you define the Lambda
 function](#custom-auth-509cert-lambda "#custom-auth-509cert-lambda"), create a custom authorizer to manage your own client
@@ -385,9 +370,7 @@ permission to invoke the Lambda function after it's created. For detailed
 instructions, see [Authorizing AWS IoT to
 invoke your Lambda function](custom-auth-authorize.md "custom-auth-authorize.md").
 
-## Step 4: Set authentication
-
-type and application protocol in a domain configuration
+## Step 4: Set authentication type and application protocol in a domain configuration
 
 To authenticate devices using custom authentication with X.509 client
 certificates, you must set the authentication type and application protocol in a
@@ -396,9 +379,7 @@ domain configuration, and you must send the SNI extension. The value of
 the value of `applicationProtocol` can either be
 `SECURE_MQTT` or `HTTPS`.
 
-### Set authentication type
-
-and application protocol in domain configuration (CLI)
+### Set authentication type and application protocol in domain configuration (CLI)
 
 If you don't have a domain configuration, use the [**create-domain-configuration**](../../../cli/latest/reference/iot/create-domain-configuration.md "../../../cli/latest/reference/iot/create-domain-configuration.md") command to
 create one. The value of `authenticationType` must be

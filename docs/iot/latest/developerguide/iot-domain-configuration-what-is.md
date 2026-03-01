@@ -58,15 +58,13 @@ policies.
 
 The authentication type that you choose to authenticate your devices when
 connecting to AWS IoT Core. When creating a domain configuration, you must
-specify an authentication type. For more information, see [Choosing an authentication type
-for your device communication](protocols.md#connection-protocol-auth-mode "protocols.md#connection-protocol-auth-mode").
+specify an authentication type. For more information, see [Choosing an authentication type for your device communication](protocols.md#connection-protocol-auth-mode "protocols.md#connection-protocol-auth-mode").
 
 - **Application protocol**
 
 The application layer protocols which your devices use when connecting to
 AWS IoT Core. When creating a domain configuration, you must specify an
-application protocol. For more information, see [Choosing an application protocol for your
-device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
+application protocol. For more information, see [Choosing an application protocol for your device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
 
 ## Important notes
 

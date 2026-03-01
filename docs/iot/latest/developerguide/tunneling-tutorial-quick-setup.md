@@ -1,12 +1,9 @@
-# Open a tunnel and use browser-based
-
-SSH to access remote device
+# Open a tunnel and use browser-based SSH to access remote device
 
 You can use the quick setup or the manual setup method for creating a tunnel. This
 tutorial shows how to open a tunnel using the quick setup method and use the
 browser-based SSH to connect to the remote device. For an example that shows how to
-open a tunnel using the manual setup method, see [Open a tunnel using manual setup and
-connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md").
+open a tunnel using the manual setup method, see [Open a tunnel using manual setup and connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md").
 
 Using the quick setup method, you can create a new tunnel with default
 configurations that can be edited. A web-based local proxy is configured for you and
@@ -17,9 +14,7 @@ using a command line interface within the console.
 With the quick setup method, you must use SSH as the destination service to access
 the remote device. For more information about the different setup methods, see [Tunnel setup methods](secure-tunneling-tutorial-open-tunnel.md#tunneling-tutorial-setup-methods "secure-tunneling-tutorial-open-tunnel.md#tunneling-tutorial-setup-methods").
 
-## Prerequisites for quick
-
-setup method
+## Prerequisites for quick setup method
 
 - The firewalls that the remote device is behind must allow outbound traffic
   on port 443. The tunnel that you create will use this port to connect to the
@@ -49,8 +44,7 @@ creation method and then choose **Next**.
 
 If you create a secure tunnel from the details page of a thing you
 created, you can choose whether to create a new tunnel or use an
-existing one. For more information, see [Open a tunnel for remote device and
-use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md").
+existing one. For more information, see [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md").
 
 ![Setup method section with options for quick setup using SSH or manual setup, explaining the quick setup automatically configures proxy and access token.](images/tunnels-choose-quick.PNG) 3. Review and confirm the tunnel configuration details. To create a
 tunnel, choose **Confirm and create**. If you want to
@@ -81,14 +75,12 @@ You can create a tunnel using the quick setup method only from the AWS IoT
 console. When you use the AWS IoT API Reference API or the AWS CLI, it will use the
 manual setup method. You can open the existing tunnel that you created and
 then change the setup method of the tunnel to use the quick setup. For more
-information, see [Open an existing tunnel
-and use browser-based SSH](tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-convert-tunnel "tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-convert-tunnel").
+information, see [Open an existing tunnel and use browser-based SSH](tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-convert-tunnel "tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-convert-tunnel").
 
 The following shows an example of how to run this API operation. Optionally, if
 you want to specify the thing name and the destination service, use the
 `DestinationConfig` parameter. For an example that shows how to
-use this parameter, see [Open a new tunnel for the
-remote device](tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-open-tunnel "tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-open-tunnel").
+use this parameter, see [Open a new tunnel for the remote device](tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-open-tunnel "tunneling-tutorial-existing-tunnel.md#tunneling-tutorial-existing-open-tunnel").
 
 ```
 aws iotsecuretunneling open-tunnel
@@ -150,9 +142,7 @@ causing the command line interface to get disconnected. You can duplicate the
 tunnel and start another session to interact with the remote device within the
 console itself.
 
-## Troubleshooting issues when using
-
-the browser-based SSH
+## Troubleshooting issues when using the browser-based SSH
 
 The following shows how to troubleshoot some issues that you might run into when
 using the browser-based SSH.

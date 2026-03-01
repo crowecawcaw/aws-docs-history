@@ -1,6 +1,4 @@
-# Resolving location of IoT
-
-devices
+# Resolving location of IoT devices
 
 Use AWS IoT Core Device Location to decode the measurement data from your devices, and resolve the device
 location using third-party solvers. The resolved location is generated as a GeoJSON
@@ -9,15 +7,11 @@ of your device from the AWS IoT console, the AWS IoT Wireless API, or AWS CLI.
 
 ###### Topics
 
-- [Resolving device location
-  (console)](#location-resolve-console "#location-resolve-console")
+- [Resolving device location (console)](#location-resolve-console "#location-resolve-console")
 - [Resolving device location (API)](#location-resolve-api "#location-resolve-api")
-- [Troubleshooting errors when
-  resolving the location](#location-resolve-troubleshoot "#location-resolve-troubleshoot")
+- [Troubleshooting errors when resolving the location](#location-resolve-troubleshoot "#location-resolve-troubleshoot")
 
-## Resolving device location
-
-(console)
+## Resolving device location (console)
 
 To resolve the device location (console)
 
@@ -29,8 +23,7 @@ To resolve the device location (console)
 The following code shows a sample JSON payload. The payload contains
 cellular and Wi-Fi measurement data. If your payload contains additional
 types of measurement data, the solver with the best accuracy will be used.
-For more information and payload examples, see [Location solvers and device
-payload](device-location-solvers-payload.md "device-location-solvers-payload.md").
+For more information and payload examples, see [Location solvers and device payload](device-location-solvers-payload.md "device-location-solvers-payload.md").
 
 ###### Note
 
@@ -147,8 +140,7 @@ the location.
 
 If AWS IoT Core Device Location reports errors when attempting to resolve the location, you
 can troubleshoot the errors and resolve the location. For more
-information, see [Troubleshooting errors when
-resolving the location](#location-resolve-troubleshoot "#location-resolve-troubleshoot").
+information, see [Troubleshooting errors when resolving the location](#location-resolve-troubleshoot "#location-resolve-troubleshoot").
 
 ```
 {
@@ -240,9 +232,7 @@ location data type, and the timestamp at which the location was resolved.
 }
 ```
 
-## Troubleshooting errors when
-
-resolving the location
+## Troubleshooting errors when resolving the location
 
 When you attempt to resolve the location, you might see any of the following error
 codes. AWS IoT Core Device Location might generate an error when using the

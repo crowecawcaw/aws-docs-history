@@ -1,8 +1,6 @@
 # Fleet Indexing Troubleshooting
 
-## Troubleshooting aggregation queries for the
-
-fleet indexing service
+## Troubleshooting aggregation queries for the fleet indexing service
 
 If you are having type mismatch errors, you can use CloudWatch Logs to troubleshoot the problem.
 CloudWatch Logs must be enabled before logs are written by the Fleet Indexing service. For more
@@ -51,9 +49,7 @@ be missing after a client has been disconnected longer than the configured time-
 connections where the client ID has a matching thing name. (The client ID is the value
 used to connect a device to AWS IoT Core.)
 
-## Troubleshooting fleet indexing
-
-configuration
+## Troubleshooting fleet indexing configuration
 
 **Can't downgrade fleet indexing configuration**
 
@@ -74,9 +70,7 @@ If you can't update your indexing configuration due to incompatible fleet metric
 dynamic groups, delete the incompatible fleet metrics or dynamic groups before you update
 the indexing configuration.
 
-## Troubleshooting location indexing
-
-and geoqueries
+## Troubleshooting location indexing and geoqueries
 
 To troubleshoot mismatched type errors in location indexing and geoqueries, you can
 enable CloudWatch logs. For more information about how to monitor AWS IoT using CloudWatch, follow

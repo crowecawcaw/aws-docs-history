@@ -124,7 +124,5 @@ execution status data.
 
 ###### The following lists the Jobs API operations and data types.
 
-- [Jobs management and control API and
-  data types](jobs-management-control-api.md "jobs-management-control-api.md")
-- [Jobs device MQTT and HTTPS API operations and
-  data types](jobs-mqtt-https-api.md "jobs-mqtt-https-api.md")
+- [Jobs management and control API and data types](jobs-management-control-api.md "jobs-management-control-api.md")
+- [Jobs device MQTT and HTTPS API operations and data types](jobs-mqtt-https-api.md "jobs-mqtt-https-api.md")

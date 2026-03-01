@@ -19,8 +19,7 @@ any other MQTT message topic.
 ###### In this tutorial, you'll:
 
 - [Review MQTT topics and AWS IoT rules](#iot-repub-rule-mqtt "#iot-repub-rule-mqtt")
-- [Step 1: Create an AWS IoT rule to republish an MQTT
-  message](#iot-repub-rule-define "#iot-repub-rule-define")
+- [Step 1: Create an AWS IoT rule to republish an MQTT message](#iot-repub-rule-define "#iot-repub-rule-define")
 - [Step 2: Test your new rule](#iot-repub-rule-test "#iot-repub-rule-test")
 - [Step 3: Review the results and next steps](#iot-repub-rule-review "#iot-repub-rule-review")
 
@@ -30,8 +29,7 @@ any other MQTT message topic.
 
 You'll need your AWS account and AWS IoT console to complete this tutorial.
 
-- ###### Reviewed [View MQTT messages with the AWS IoT MQTT
-  client](view-mqtt-messages.md "view-mqtt-messages.md")
+- ###### Reviewed [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md")
 
 Be sure you can use the MQTT client to subscribe and publish to a topic. You'll use
 the MQTT client to test your new rule in this procedure.
@@ -42,8 +40,7 @@ Before talking about AWS IoT rules, it helps to understand the MQTT protocol. In
 solutions, the MQTT protocol offers some advantages over other network communication
 protocols, such as HTTP, which makes it a popular choice for use by IoT devices. This
 section reviews the key aspects of MQTT as they apply to this tutorial. For information
-about how MQTT compares to HTTP, see [Choosing an application protocol for your
-device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
+about how MQTT compares to HTTP, see [Choosing an application protocol for your device communication](protocols.md#protocol-selection "protocols.md#protocol-selection").
 
 ###### MQTT protocol
 
@@ -74,9 +71,7 @@ In this tutorial, however, you'll concentrate on the [Republish](republish-rule-
 which publishes the result of the query statement as an MQTT message with a specific
 topic.
 
-## Step 1: Create an AWS IoT rule to republish an MQTT
-
-message
+## Step 1: Create an AWS IoT rule to republish an MQTT message
 
 The AWS IoT rule that you'll create in this tutorial subscribes to the
 `device/`device_id`/data` MQTT topics where
@@ -311,9 +306,7 @@ If you don't see that the correct message was published to either the
 **device/+/data** or **device/data/temp** topics,
 check the troubleshooting tips.
 
-### Troubleshooting your Republish message
-
-rule
+### Troubleshooting your Republish message rule
 
 Here are some things to check in case you're not seeing the results you expect.
 
@@ -356,8 +349,7 @@ receive and republish a message and it must receive the message.
 
 ###### Things to check
 
-    + ###### Check the AWS Region of your MQTT client and the rule that you
-     created
+    + ###### Check the AWS Region of your MQTT client and the rule that you created
 
 
     The console in which you're running the MQTT client must be in the same AWS

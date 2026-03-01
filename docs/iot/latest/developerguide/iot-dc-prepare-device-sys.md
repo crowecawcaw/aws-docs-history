@@ -1,6 +1,4 @@
-# Install and update the
-
-operating system of the device
+# Install and update the operating system of the device
 
 The procedures in this section describe how to initialize the microSD card that the
 Raspberry Pi uses for its system drive. The Raspberry Pi's microSD card contains its
@@ -38,8 +36,7 @@ all the supported space of the card you choose.
 
 - [Load the device's operating system onto microSD card](#iot-dc-prepare-device-sys-step1 "#iot-dc-prepare-device-sys-step1")
 - [Start your IoT device with the new operating system](#iot-dc-prepare-device-sys-step2 "#iot-dc-prepare-device-sys-step2")
-- [Connect your local host computer
-  to your device](#iot-dc-prepare-device-sys-step3 "#iot-dc-prepare-device-sys-step3")
+- [Connect your local host computer to your device](#iot-dc-prepare-device-sys-step3 "#iot-dc-prepare-device-sys-step3")
 
 ## Load the device's operating system onto microSD card
 
@@ -115,12 +112,9 @@ start-up process on it. 5. Find out your device’s IP address:
     * If you have access to the router your Raspberry Pi is connects to,
      you can see its address in the router’s admin interface.
 
-After you have your Raspberry Pi's IP address, you're ready to [Connect your local host computer
-to your device](#iot-dc-prepare-device-sys-step3 "#iot-dc-prepare-device-sys-step3").
+After you have your Raspberry Pi's IP address, you're ready to [Connect your local host computer to your device](#iot-dc-prepare-device-sys-step3 "#iot-dc-prepare-device-sys-step3").
 
-## Connect your local host computer
-
-to your device
+## Connect your local host computer to your device
 
 This procedure uses the terminal program on your local host computer to connect to
 your Raspberry Pi and change its default password.
@@ -160,5 +154,4 @@ passwd: password updated successfully
 ```
 
 After you have the Raspberry Pi's command line prompt in the terminal window and
-changed the password, you're ready to continue to [Install and verify required software
-on your device](iot-dc-prepare-device-sw.md "iot-dc-prepare-device-sw.md").
+changed the password, you're ready to continue to [Install and verify required software on your device](iot-dc-prepare-device-sw.md "iot-dc-prepare-device-sw.md").

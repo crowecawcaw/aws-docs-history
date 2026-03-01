@@ -1,6 +1,4 @@
-# Create a virtual device with
-
-Amazon EC2
+# Create a virtual device with Amazon EC2
 
 In this tutorial, you'll create an Amazon EC2 instance to serve as your virtual
 device in the cloud.
@@ -11,15 +9,11 @@ complete the steps described in [Set up AWS account](setting-up.md "setting-up.m
 ###### In this tutorial, you'll:
 
 - [Set up an Amazon EC2 instance](#set-up-ec2 "#set-up-ec2")
-- [Install Git, Node.js and configure the
-  AWS CLI](#install-git-node "#install-git-node")
-- [Create AWS IoT resources
-  for your virtual device](#ec2-create-certificate "#ec2-create-certificate")
-- [Install the AWS IoT Device SDK for
-  JavaScript](#ec2-sdk "#ec2-sdk")
+- [Install Git, Node.js and configure the AWS CLI](#install-git-node "#install-git-node")
+- [Create AWS IoT resources for your virtual device](#ec2-create-certificate "#ec2-create-certificate")
+- [Install the AWS IoT Device SDK for JavaScript](#ec2-sdk "#ec2-sdk")
 - [Run the sample application](#ec2-run-app "#ec2-run-app")
-- [View messages from the sample app in the
-  AWS IoT console](#ec2-view-msg "#ec2-view-msg")
+- [View messages from the sample app in the AWS IoT console](#ec2-view-msg "#ec2-view-msg")
 
 ## Set up an Amazon EC2 instance
 
@@ -103,9 +97,7 @@ and provides a successful connection.
 You should now have an **Amazon EC2 Instance Connect** window
 that is logged into your new Amazon EC2 instance.
 
-## Install Git, Node.js and configure the
-
-AWS CLI
+## Install Git, Node.js and configure the AWS CLI
 
 In this section, you'll install Git and Node.js on your Linux
 instance.
@@ -214,9 +206,7 @@ aws iot describe-endpoint --endpoint-type iot:Data-ATS
 If your AWS CLI is configured correctly, the command should return
 an endpoint address from your AWS account.
 
-## Create AWS IoT resources
-
-for your virtual device
+## Create AWS IoT resources for your virtual device
 
 This section describes how to use the AWS CLI to create the thing object and
 its certificate files directly on the virtual device. This is done directly
@@ -254,9 +244,7 @@ aws iot create-thing --thing-name "MyIotThing"
 }
 ```
 
-###### To create and attach AWS IoT keys and certificates in your Linux
-
-instance
+###### To create and attach AWS IoT keys and certificates in your Linux instance
 
 The **[create-keys-and-certificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/create-keys-and-certificate.html")** command creates
 client certificates signed by the Amazon Root certificate authority.
@@ -427,18 +415,14 @@ aws iot attach-policy \
 
 If successful, this command does not display any output.
 
-## Install the AWS IoT Device SDK for
-
-JavaScript
+## Install the AWS IoT Device SDK for JavaScript
 
 In this section, you'll install the AWS IoT Device SDK for JavaScript, which
 contains the code that applications can use to communicate with AWS IoT and
 the sample programs. For more information, see the [AWS IoT Device SDK
 for JavaScript GitHub repository](https://github.com/aws/aws-iot-device-sdk-js-v2 "https://github.com/aws/aws-iot-device-sdk-js-v2").
 
-###### To install the AWS IoT Device SDK for JavaScript on your Linux
-
-instance
+###### To install the AWS IoT Device SDK for JavaScript on your Linux instance
 
 1. In your **Amazon EC2 Instance Connect** window, clone
    the AWS IoT Device SDK for JavaScript repository into the
@@ -542,17 +526,14 @@ Publish received. topic:"topic_1" dup:false qos:1 retain:false
 {"message":"Hello world!","sequence":10}
 ```
 
-If you're having trouble running the sample app, review [Troubleshoot problems with the
-sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
+If you're having trouble running the sample app, review [Troubleshoot problems with the sample application](gs-device-troubleshoot.md "gs-device-troubleshoot.md").
 
 You can also add the `--verbosity debug` parameter to the
 command line so the sample app displays detailed messages about what it’s
 doing. That information might provide you the help you need to correct the
 problem.
 
-## View messages from the sample app in the
-
-AWS IoT console
+## View messages from the sample app in the AWS IoT console
 
 You can see the sample app's messages as they pass through the message
 broker by using the **MQTT test client** in the
@@ -560,8 +541,7 @@ broker by using the **MQTT test client** in the
 
 ###### To view the MQTT messages published by the sample app
 
-1. Review [View MQTT messages with the AWS IoT MQTT
-   client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
+1. Review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn how
    to use the **MQTT test client** in the
    **AWS IoT console** to view MQTT messages as they
    pass through the message broker.

@@ -1,6 +1,4 @@
-# Create and run the job in
-
-AWS IoT with AWS IoT Device Client
+# Create and run the job in AWS IoT with AWS IoT Device Client
 
 The procedures in this section create a job document and an AWS IoT job resource. After
 you create the job resource, AWS IoT sends the job document to the specified job targets
@@ -8,13 +6,10 @@ on which a jobs agent applies the job document to the device or client.
 
 ###### Procedures in this section
 
-- [Create and store the
-  job document for the IoT job](#iot-dc-runjobs-prepare-define-jobdoc "#iot-dc-runjobs-prepare-define-jobdoc")
+- [Create and store the job document for the IoT job](#iot-dc-runjobs-prepare-define-jobdoc "#iot-dc-runjobs-prepare-define-jobdoc")
 - [Run a job in AWS IoT for one IoT device](#iot-dc-runjobs-prepare-define-job "#iot-dc-runjobs-prepare-define-job")
 
-## Create and store the
-
-job document for the IoT job
+## Create and store the job document for the IoT job
 
 This procedure creates a simple job document to include in an AWS IoT job resource.
 This job document displays "Hello world!" on the job target.
@@ -133,8 +128,7 @@ cd ~/aws-iot-device-client/build
 
 1. On your local host computer:
    1. Replace `job_document_url` with the job
-      document URL from [Create and store the
-      job document for the IoT job](#iot-dc-runjobs-prepare-define-jobdoc "#iot-dc-runjobs-prepare-define-jobdoc").
+      document URL from [Create and store the job document for the IoT job](#iot-dc-runjobs-prepare-define-jobdoc "#iot-dc-runjobs-prepare-define-jobdoc").
    2. Replace `thing_arn` with the ARN of the
       thing resource you created for your device and then run this
       command.

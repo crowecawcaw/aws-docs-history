@@ -1,6 +1,4 @@
-# Troubleshooting your
-
-authorizers
+# Troubleshooting your authorizers
 
 This topic walks through common issues that can cause problems in custom
 authentication workflows and steps for resolving them. To troubleshoot issues most
@@ -18,8 +16,7 @@ about resource-based logging, see [Configure AWS IoT logging](configure-logging.
 when you're done troubleshooting, reduce the log level to a less verbose
 level.
 
-Before you start troubleshooting, review [Understanding the custom authentication
-workflow](custom-authorizer.md "custom-authorizer.md") for a
+Before you start troubleshooting, review [Understanding the custom authentication workflow](custom-authorizer.md "custom-authorizer.md") for a
 high-level view of the custom authentication process. This helps you understand
 where to look for the source of a problem.
 
@@ -28,9 +25,7 @@ This topic discusses the following two areas for you to investigate.
 - Issues related to your authorizer's Lambda function.
 - Issues related to your device.
 
-## Check for issues in your
-
-authorizer’s Lambda function
+## Check for issues in your authorizer’s Lambda function
 
 Perform the following steps to make sure that your devices’ connection
 attempts are invoking your Lambda function.
@@ -132,9 +127,7 @@ the policy that the function returns.
    function timeout limit for custom authorizer is 5 seconds. You can check
    the function duration in CloudWatch logs or metrics.
 
-## Investigating device
-
-issues
+## Investigating device issues
 
 If you find no issues with invoking your Lambda function or with the policy
 that the function returns, look for problems with your devices' connection

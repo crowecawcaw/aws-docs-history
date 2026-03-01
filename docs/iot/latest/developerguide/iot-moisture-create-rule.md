@@ -1,6 +1,4 @@
-# Step 4: Create an AWS IoT rule to send an
-
-email
+# Step 4: Create an AWS IoT rule to send an email
 
 An AWS IoT rule defines a query and one or more actions to take when a message is
 received from a device. The AWS IoT rules engine listens for messages sent by devices
@@ -61,8 +59,7 @@ in a planter. 4. Choose **Next** and attach rule actions. For
 **Action 1**, choose **Simple Notification
 Service**. The description for this rule action is
 **Send a message as an SNS push notification**. 5. For **SNS topic**, choose the topic that you created in
-[Step 3: Create an Amazon SNS topic and
-subscription](iot-moisture-create-sns-topic.md "iot-moisture-create-sns-topic.md"),
+[Step 3: Create an Amazon SNS topic and subscription](iot-moisture-create-sns-topic.md "iot-moisture-create-sns-topic.md"),
 **MoistureSensorTopic**, and leave the
 **Message format** as **RAW**. For
 **IAM role**, choose **Create a new

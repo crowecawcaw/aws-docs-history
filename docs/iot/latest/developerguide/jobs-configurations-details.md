@@ -8,14 +8,10 @@ configurations work.
 
 ###### Topics
 
-- [Job rollout, scheduling, and abort
-  configurations](#job-rollout-abort-scheduling "#job-rollout-abort-scheduling")
-- [Job execution timeout and retry
-  configurations](#job-timeout-retry "#job-timeout-retry")
+- [Job rollout, scheduling, and abort configurations](#job-rollout-abort-scheduling "#job-rollout-abort-scheduling")
+- [Job execution timeout and retry configurations](#job-timeout-retry "#job-timeout-retry")
 
-## Job rollout, scheduling, and abort
-
-configurations
+## Job rollout, scheduling, and abort configurations
 
 You can use the job rollout, scheduling, and abort configurations to define how
 many devices receive the job document, schedule a job rollout, and determine the
@@ -77,12 +73,9 @@ level status states for `isConcurrent = True` and
 `IN_PROGRESS`.
 
 For more information about active and concurrent job limits, see
-[Active and concurrent
-job limits](job-limits.md#job-limits-active-concurrent "job-limits.md#job-limits-active-concurrent").
+[Active and concurrent job limits](job-limits.md#job-limits-active-concurrent "job-limits.md#job-limits-active-concurrent").
 
-#### Job rollout rates for
-
-continuous jobs using dynamic thing groups
+#### Job rollout rates for continuous jobs using dynamic thing groups
 
 When you use a continuous job to roll out remote operations on your
 fleet, AWS IoT Jobs rolls out job executions for devices in your target
@@ -102,9 +95,7 @@ can create an optional recurring maintenance window with a flexible
 frequency, start time, and duration for continuous jobs to roll out a job
 document to all devices within the target group.
 
-#### Job
-
-scheduling configurations
+#### Job scheduling configurations
 
 **Start time**
 
@@ -214,9 +205,7 @@ job:
 | 3                                   | One year after initial job creation.    | Two years after initial job creation. | One year         |
 | 4                                   | Immediately after initial job creation. | Two years after initial job creation. | Two years        |
 
-#### Recurring
-
-maintenance window
+#### Recurring maintenance window
 
 The maintenance window is an optional configuration within the
 scheduling
@@ -330,9 +319,7 @@ window.
 | 0           | 18        | ?                | \*        | MON-FRI         | \*       | Run at 6:00 pm (UTC) every Monday through<br>Friday  |
 | 0           | 8         | 1                | \*        | ?               | \*       | Run at 8:00 am (UTC) every first day of the<br>month |
 
-#### Recurring
-
-maintenance window duration end logic
+#### Recurring maintenance window duration end logic
 
 When a job rollout during a maintenance window reaches the end of the
 current maintenance window occurrence duration, the following actions
@@ -376,14 +363,11 @@ this configuration to cancel a job in the following cases:
   your AWS account. In such cases, canceling the job can cancel
   queued job executions and avoid retry attempts for these executions.
   For more information about the retry configuration and using it with
-  the abort configuration, see [Job execution timeout and retry
-  configurations](#job-timeout-retry "#job-timeout-retry").
+  the abort configuration, see [Job execution timeout and retry configurations](#job-timeout-retry "#job-timeout-retry").
   You can set up a job abort condition by using the AWS IoT console or the
   AWS IoT Jobs API.
 
-## Job execution timeout and retry
-
-configurations
+## Job execution timeout and retry configurations
 
 Use the job execution timeout configuration to send you [Jobs notifications](jobs-comm-notifications.md "jobs-comm-notifications.md") when
 a job execution has been in progress for longer than the set duration. Use the job
@@ -428,9 +412,7 @@ than the step timer interval, it fails and switches to the terminal
 You can set the in-progress timer by using the AWS IoT console or
 the AWS IoT Jobs API. To specify the step timer, use the API.
 
-#### How timers work for job
-
-timeouts
+#### How timers work for job timeouts
 
 The following illustrates the ways in which in-progress timeouts and
 step timeouts interact with each other in a 20-minute timeout

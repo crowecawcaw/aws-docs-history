@@ -27,22 +27,19 @@ see [Tunnel creation methods in AWS IoT console](secure-tunneling-tutorial-open-
 
 Following shows the tutorials in this section:
 
-- ###### [Open a tunnel and use browser-based
-  SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md")
+- ###### [Open a tunnel and use browser-based SSH to access remote device](tunneling-tutorial-quick-setup.md "tunneling-tutorial-quick-setup.md")
 
 This tutorial shows how to open a tunnel from the [Tunnels
 hub](https://console.aws.amazon.com/iot/home#/tunnels "https://console.aws.amazon.com/iot/home#/tunnels") page using the quick setup method. You'll also learn how to use browser-based SSH to access the remote device
 using an in-context command line interface within the AWS IoT console.
 
-- ###### [Open a tunnel using manual setup and
-  connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md")
+- ###### [Open a tunnel using manual setup and connect to remote device](tunneling-tutorial-manual-setup.md "tunneling-tutorial-manual-setup.md")
 
 This tutorial shows how to open a tunnel from the [Tunnels
 hub](https://console.aws.amazon.com/iot/home#/tunnels "https://console.aws.amazon.com/iot/home#/tunnels") page using the manual setup method. You'll also learn how to configure and start the local proxy
 from a terminal in your source device and connect to the tunnel.
 
-- ###### [Open a tunnel for remote device and
-  use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md")
+- ###### [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md")
 
 This tutorial shows how to open a tunnel from the details page of a thing that you created. You'll learn
 how to create a new tunnel and use an existing tunnel. The existing tunnel corresponds to the most recent, open tunnel
@@ -50,7 +47,5 @@ that was created for the device. You can also use the browser-based SSH to acces
 
 ###### AWS IoT secure tunneling tutorials
 
-- [Open a tunnel and start
-  SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md")
-- [Open a tunnel for remote device and
-  use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md")
+- [Open a tunnel and start SSH session to remote device](secure-tunneling-tutorial-open-tunnel.md "secure-tunneling-tutorial-open-tunnel.md")
+- [Open a tunnel for remote device and use browser-based SSH](tunneling-tutorial-existing-tunnel.md "tunneling-tutorial-existing-tunnel.md")

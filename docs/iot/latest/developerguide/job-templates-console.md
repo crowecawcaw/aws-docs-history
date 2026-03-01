@@ -1,21 +1,16 @@
-# Create custom job templates by using the
-
-AWS Management Console
+# Create custom job templates by using the AWS Management Console
 
 This topic explains how to create, delete, and view details about job templates by
 using the AWS IoT console.
 
-## Create a custom job
-
-template
+## Create a custom job template
 
 You can either create
 an
 original custom job template or create a job template from an
 existing job. You can also create a custom job template from an existing job
 that was created using an AWS managed template. For more information, see
-[Create custom job
-templates from managed templates](job-template-manage-console-create.md#job-template-manage-create-template "job-template-manage-console-create.md#job-template-manage-create-template").
+[Create custom job templates from managed templates](job-template-manage-console-create.md#job-template-manage-create-template "job-template-manage-console-create.md#job-template-manage-create-template").
 
 1. ###### Start creating your job template
    1. Go to the [Job templates hub of the AWS IoT console](https://console.aws.amazon.com/iot/home#/jobtemplatehub "https://console.aws.amazon.com/iot/home#/jobtemplatehub") and
@@ -58,10 +53,8 @@ then review and create your job. For information about the
 additional, optional configurations, refer to the following
 links:
 
-    * [Job rollout, scheduling, and abort
-     configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-    * [Job execution timeout and retry
-     configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+    * [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+    * [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
 1. ###### Choose your job
    1. Go to the [Job
@@ -93,25 +86,19 @@ job document in the details page of this job. 3. Continue to add any additional 
 then review and create your job. For information about the
 additional configurations, see:
 
-    * [Job rollout, scheduling, and abort
-     configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-    * [Job execution timeout and retry
-     configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+    * [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+    * [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
-## Create a job from a
-
-custom job template
+## Create a job from a custom job template
 
 You can create a job from a custom job template by going to the details page
 of your job template as described in this topic. You can also create a job or by
 choosing the job template you want to use when running the job creation
-workflow. For more information, see [Create and manage jobs by using the
-AWS Management Console](manage-job-console.md "manage-job-console.md").
+workflow. For more information, see [Create and manage jobs by using the AWS Management Console](manage-job-console.md "manage-job-console.md").
 
 This topic shows how to create a job from the details page of a custom job
 template. You can also create a job from an AWS managed template. For more
-information, see [Create a job using managed
-templates](job-template-manage-console-create.md#job-template-manage-create-job "job-template-manage-console-create.md#job-template-manage-create-job").
+information, see [Create a job using managed templates](job-template-manage-console-create.md#job-template-manage-create-job "job-template-manage-console-create.md#job-template-manage-create-job").
 
 1. ###### Choose your custom job template
 
@@ -155,10 +142,8 @@ To create a job:
 
 
 
-    	* [Job rollout, scheduling, and abort
-    	 configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
-    	* [Job execution timeout and retry
-    	 configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
+    	* [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling")
+    	* [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry")
 
 ###### Note
 

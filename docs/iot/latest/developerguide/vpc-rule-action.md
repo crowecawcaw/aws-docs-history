@@ -1,6 +1,4 @@
-# Virtual private cloud (VPC)
-
-destinations
+# Virtual private cloud (VPC) destinations
 
 The Apache Kafka rule action routes data to an Apache Kafka cluster in an
 Amazon Virtual Private Cloud (Amazon VPC). The VPC configuration used by the Apache Kafka rule action
@@ -12,9 +10,7 @@ creates an elastic network interface in each subnet that you specify in this
 list. For more information about network interfaces, see [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the
 Amazon EC2 User Guide.
 
-## Requirements and
-
-considerations
+## Requirements and considerations
 
 - If you're using a self-managed Apache Kafka cluster that will be
   accessed using a public endpoint across the internet:
@@ -52,9 +48,7 @@ action that sends a message to a resource when the resource is in your VPC.
 For pricing information, see [AWS IoT Core
 pricing](https://aws.amazon.com/iot-core/pricing/ "https://aws.amazon.com/iot-core/pricing/").
 
-## Creating virtual private cloud (VPC)
-
-topic rule destinations
+## Creating virtual private cloud (VPC) topic rule destinations
 
 You create a virtual private cloud (VPC) destination by using the [CreateTopicRuleDestination](../apireference/API_CreateTopicRuleDestination.md "../apireference/API_CreateTopicRuleDestination.md") API or the AWS IoT Core console.
 
@@ -129,9 +123,7 @@ the following example.
 
 ```
 
-### Creating a VPC destination
-
-by using AWS CLI
+### Creating a VPC destination by using AWS CLI
 
 The following example shows how to create a VPC destination by using
 AWS CLI.
@@ -157,9 +149,7 @@ aws --region `region` iot get-topic-rule-destination --arn "`VPCDestinationARN`"
 
 ```
 
-### Creating a VPC
-
-destination by using the AWS IoT Core console
+### Creating a VPC destination by using the AWS IoT Core console
 
 The following steps describe how to create a VPC destination by using
 the AWS IoT Core console.

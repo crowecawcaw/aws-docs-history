@@ -39,8 +39,7 @@ You can always monitor more metrics later.
 ###### Topics
 
 - [Configure AWS IoT logging](configure-logging.md "configure-logging.md")
-- [Monitor AWS IoT alarms and metrics using
-  Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+- [Monitor AWS IoT alarms and metrics using Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Monitor AWS IoT using CloudWatch Logs](cloud-watch-logs.md "cloud-watch-logs.md")
 - [Upload device-side logs to Amazon CloudWatch](upload-device-logs-to-cloudwatch.md "upload-device-logs-to-cloudwatch.md")
 - [Logging AWS IoT API calls using AWS CloudTrail](iot-using-cloudtrail.md "iot-using-cloudtrail.md")

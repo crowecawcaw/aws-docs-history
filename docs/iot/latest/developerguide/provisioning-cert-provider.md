@@ -1,6 +1,4 @@
-# Self-managed certificate signing using
-
-AWS IoT Core certificate provider
+# Self-managed certificate signing using AWS IoT Core certificate provider
 
 You can create an AWS IoT Core certificate provider to sign certificate signing requests
 (CSRs) in AWS IoT fleet provisioning. A certificate provider references a Lambda function
@@ -26,21 +24,14 @@ provider from your AWS account.
 
 ###### In this topic:
 
-- [How self-managed
-  certificate signing works in fleet provisioning](#provisioning-cert-provider-how-it-works "#provisioning-cert-provider-how-it-works")
-- [Certificate provider Lambda
-  function input](#provisioning-cert-provider-lambda-input "#provisioning-cert-provider-lambda-input")
-- [Certificate provider
-  Lambda function return value](#provisioning-cert-provider-lambda-return "#provisioning-cert-provider-lambda-return")
+- [How self-managed certificate signing works in fleet provisioning](#provisioning-cert-provider-how-it-works "#provisioning-cert-provider-how-it-works")
+- [Certificate provider Lambda function input](#provisioning-cert-provider-lambda-input "#provisioning-cert-provider-lambda-input")
+- [Certificate provider Lambda function return value](#provisioning-cert-provider-lambda-return "#provisioning-cert-provider-lambda-return")
 - [Example Lambda function](#provisioning-cert-provider-lambda "#provisioning-cert-provider-lambda")
-- [Self-managed certificate
-  signing for fleet provisioning](#provisioning-self-certificate-signing "#provisioning-self-certificate-signing")
-- [AWS CLI commands for certificate
-  provider](#provisioning-cert-provider-cli "#provisioning-cert-provider-cli")
+- [Self-managed certificate signing for fleet provisioning](#provisioning-self-certificate-signing "#provisioning-self-certificate-signing")
+- [AWS CLI commands for certificate provider](#provisioning-cert-provider-cli "#provisioning-cert-provider-cli")
 
-## How self-managed
-
-certificate signing works in fleet provisioning
+## How self-managed certificate signing works in fleet provisioning
 
 ### Key concepts
 
@@ -113,9 +104,7 @@ its own CA and issues a client certificate.
 - With the issued client certificate, the device will continue the fleet
   provisioning and establish a secure connection with AWS IoT Core.
 
-## Certificate provider Lambda
-
-function input
+## Certificate provider Lambda function input
 
 AWS IoT Core sends the following object to the Lambda function when a device registers
 with it. The value of `certificateSigningRequest` is the CSR in [Privacy-Enhanced Mail (PEM) format](../../../acm/latest/userguide/import-certificate-format.md "../../../acm/latest/userguide/import-certificate-format.md") that's provided in the
@@ -132,9 +121,7 @@ client ID set for the MQTT connection.
 }
 ```
 
-## Certificate provider
-
-Lambda function return value
+## Certificate provider Lambda function return value
 
 The Lambda function must return a response that contains the
 `certificatePem` value. The following is an example of a successful
@@ -234,9 +221,7 @@ AWS IoT the permission to invoke the Lambda function:
 
 ```
 
-## Self-managed certificate
-
-signing for fleet provisioning
+## Self-managed certificate signing for fleet provisioning
 
 You can choose self-managed certificate signing for fleet provisioning using AWS CLI
 or AWS Management Console.
@@ -293,13 +278,9 @@ steps:
    function.
 6. Choose **Update certificate signing**.
 
-## AWS CLI commands for certificate
+## AWS CLI commands for certificate provider
 
-provider
-
-### Create certificate
-
-provider
+### Create certificate provider
 
 To create a certificate provider, use the
 `CreateCertificateProvider` API operation or the
@@ -332,9 +313,7 @@ The following shows an example output for this command:
 For more information, see `CreateCertificateProvider` from the _AWS IoT_
 _API Reference_.
 
-### Update certificate
-
-provider
+### Update certificate provider
 
 To update a certificate provider, use the
 `UpdateCertificateProvider` API operation or the
@@ -359,9 +338,7 @@ The following shows an example output for this command:
 For more information, see `UpdateCertificateProvider` from the _AWS IoT_ _API
 Reference_.
 
-### Describe certificate
-
-provider
+### Describe certificate provider
 
 To describe a certificate provider, use the
 `DescribeCertificateProvider` API operation or the
@@ -388,9 +365,7 @@ The following shows an example output for this command:
 For more information, see `DescribeCertificateProvider` from the _AWS IoT_
 _API Reference_.
 
-### Delete certificate
-
-provider
+### Delete certificate provider
 
 To delete a certificate provider, use the
 `DeleteCertificateProvider` API operation or the
@@ -408,9 +383,7 @@ This command doesn't produce any output.
 For more information, see `DeleteCertificateProvider` from the _AWS IoT_
 _API Reference_.
 
-### List certificate
-
-provider
+### List certificate provider
 
 To list the certificate providers within your AWS account, use the
 `ListCertificateProviders` API operation or the

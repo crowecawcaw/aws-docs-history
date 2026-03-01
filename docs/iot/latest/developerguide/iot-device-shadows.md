@@ -36,9 +36,7 @@ If your devices are frequently offline and you would like to configure your devi
 receive delta messages after they reconnect, you can use the persistent session feature.
 For more information about the persistent session expiry period, see [Persistent session expiry period](../../../general/latest/gr/iot-core.md#message-broker-limits "../../../general/latest/gr/iot-core.md#message-broker-limits").
 
-### Choosing to use named or unnamed
-
-shadows
+### Choosing to use named or unnamed shadows
 
 The Device Shadow service supports named and unnamed, or classic, shadows. A thing object can have multiple named shadows, and no more than one unnamed shadow. The thing object can also have a reserved named shadow, which operates similarly to a named shadow except that you can't update its name. For more information, see [Reserved named shadow](preparing-to-use-software-package-catalog.md#reserved-named-shadow "preparing-to-use-software-package-catalog.md#reserved-named-shadow").
 
@@ -105,9 +103,7 @@ devices. This prevents the shadow's state property from being changed
 unexpectedly; otherwise, the devices and apps that use the shadow should be
 designed to expect the keys in the state property to change.
 
-### Using shadows in devices, apps, and
-
-other cloud services
+### Using shadows in devices, apps, and other cloud services
 
 Using shadows in devices, apps, and other cloud services requires consistency and
 coordination between all of these. The AWS IoT Device Shadow service stores the shadow

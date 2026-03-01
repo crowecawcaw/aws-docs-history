@@ -1,6 +1,4 @@
-# Demonstrate publishing messages with
-
-the AWS IoT Device Client
+# Demonstrate publishing messages with the AWS IoT Device Client
 
 The procedures in this section demonstrate how the AWS IoT Device Client can send default
 and custom MQTT messages.
@@ -46,9 +44,7 @@ The `iot:Publish` action gives permission to publish to the MQTT
 topics listed in the Resource array. The _content_ of those messages is not controlled by the policy
 statement.
 
-## Publish the default message using the
-
-AWS IoT Device Client
+## Publish the default message using the AWS IoT Device Client
 
 This procedure runs the AWS IoT Device Client so that it publishes a single default
 MQTT message that the **MQTT test client** receives and
@@ -81,20 +77,15 @@ connection. 5. In the terminal window, enter `^C` (Ctrl-C) to stop
 the AWS IoT Device Client.
 
 After you've demonstrated that the AWS IoT Device Client published the default MQTT
-message, you can continue to the [Publish a custom message using the
-AWS IoT Device Client](#iot-dc-testconn-publish-custom "#iot-dc-testconn-publish-custom").
+message, you can continue to the [Publish a custom message using the AWS IoT Device Client](#iot-dc-testconn-publish-custom "#iot-dc-testconn-publish-custom").
 
-## Publish a custom message using the
-
-AWS IoT Device Client
+## Publish a custom message using the AWS IoT Device Client
 
 The procedures in this section create a custom MQTT message and then runs the
 AWS IoT Device Client so that it publishes the custom MQTT message one time for the
 **MQTT test client** to receive and display.
 
-### Create a custom MQTT
-
-message for the AWS IoT Device Client
+### Create a custom MQTT message for the AWS IoT Device Client
 
 Perform these steps in the terminal window on the local host computer that's
 connected to your Raspberry Pi.
@@ -128,9 +119,7 @@ connected to your Raspberry Pi.
 `chmod 600 ~/messages/*`
 ```
 
-###### To create a config file for the AWS IoT Device Client to use to send the
-
-custom message
+###### To create a config file for the AWS IoT Device Client to use to send the custom message
 
 1. In the terminal window, in a text editor such as `nano`,
    open the existing AWS IoT Device Client config file:
@@ -156,9 +145,7 @@ custom message
 `chmod 644 ~/dc-configs/dc-pubsub-custom-config.json`
 ```
 
-### Publish the custom
-
-MQTT message by using the AWS IoT Device Client
+### Publish the custom MQTT message by using the AWS IoT Device Client
 
 This change affects only the _contents_ of the MQTT message
 payload, so the current policy will continue to work. However, if the
@@ -196,5 +183,4 @@ successfully. 5. In the terminal window, enter `^C` (Ctrl-C)
 to stop the AWS IoT Device Client.
 
 After you've demonstrated that the AWS IoT Device Client published a custom
-message payload, you can continue to [Demonstrate subscribing to messages with
-the AWS IoT Device Client](iot-dc-testconn-subscribe.md "iot-dc-testconn-subscribe.md").
+message payload, you can continue to [Demonstrate subscribing to messages with the AWS IoT Device Client](iot-dc-testconn-subscribe.md "iot-dc-testconn-subscribe.md").

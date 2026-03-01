@@ -1,6 +1,4 @@
-# Tutorial: Interacting with Device Shadow
-
-using the sample app and the MQTT test client
+# Tutorial: Interacting with Device Shadow using the sample app and the MQTT test client
 
 To interact with the `shadow.py` sample app, enter a value in the terminal for the
 `desired` value. For example, you can specify colors that resemble the traffic
@@ -20,30 +18,21 @@ lights and AWS IoT responds to the request and updates the reported values.
 Set up your AWS account, configured your Raspberry Pi device, and created an AWS IoT
 thing and policy. You must have also installed the required software, Device SDK,
 certificate files, and run the sample program in the terminal. For more information, see
-the previous tutorials [Tutorial: Preparing your Raspberry Pi to run the
-shadow application](create-resources-shadow.md "create-resources-shadow.md") and [Step 1: Run the shadow.py sample
-app](lightbulb-shadow-application.md#run-sample-application-shadows "lightbulb-shadow-application.md#run-sample-application-shadows"). You must complete these tutorials if you haven't already.
+the previous tutorials [Tutorial: Preparing your Raspberry Pi to run the shadow application](create-resources-shadow.md "create-resources-shadow.md") and [Step 1: Run the shadow.py sample app](lightbulb-shadow-application.md#run-sample-application-shadows "lightbulb-shadow-application.md#run-sample-application-shadows"). You must complete these tutorials if you haven't already.
 
 ###### In this tutorial, you'll:
 
-- [Step 1: Update desired and reported values
-  using shadow.py sample app](#update-desired-shadow-sample "#update-desired-shadow-sample")
-- [Step 2: View messages from the
-  shadow.py sample app in the MQTT test client](#shadow-sample-view-msg "#shadow-sample-view-msg")
-- [Step 3: Troubleshoot errors with
-  Device Shadow interactions](#shadow-observe-messages-troubleshoot "#shadow-observe-messages-troubleshoot")
+- [Step 1: Update desired and reported values using shadow.py sample app](#update-desired-shadow-sample "#update-desired-shadow-sample")
+- [Step 2: View messages from the shadow.py sample app in the MQTT test client](#shadow-sample-view-msg "#shadow-sample-view-msg")
+- [Step 3: Troubleshoot errors with Device Shadow interactions](#shadow-observe-messages-troubleshoot "#shadow-observe-messages-troubleshoot")
 - [Step 4: Review the results and next steps](#sample-shadow-review "#sample-shadow-review")
   This tutorial takes about 45 minutes to complete.
 
-## Step 1: Update desired and reported values
+## Step 1: Update desired and reported values using `shadow.py` sample app
 
-using `shadow.py` sample app
-
-In the previous tutorial [Step 1: Run the shadow.py sample
-app](lightbulb-shadow-application.md#run-sample-application-shadows "lightbulb-shadow-application.md#run-sample-application-shadows"), you learned how to observe a message
+In the previous tutorial [Step 1: Run the shadow.py sample app](lightbulb-shadow-application.md#run-sample-application-shadows "lightbulb-shadow-application.md#run-sample-application-shadows"), you learned how to observe a message
 published to the Shadow document in the AWS IoT console when you enter a desired value as
-described in the section [Tutorial: Installing the Device SDK and running
-the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md").
+described in the section [Tutorial: Installing the Device SDK and running the sample application for Device Shadows](lightbulb-shadow-application.md "lightbulb-shadow-application.md").
 
 In the previous example, we set the desired color to `yellow`. After you
 enter each value, the terminal prompts you to enter another `desired` value. If
@@ -138,17 +127,14 @@ Update request published.
 Finished updating reported shadow value to 'red'.
 ```
 
-## Step 2: View messages from the
-
-`shadow.py` sample app in the MQTT test client
+## Step 2: View messages from the `shadow.py` sample app in the MQTT test client
 
 You can use the **MQTT test client** in the **AWS IoT
 console** to monitor MQTT messages that are passed in your AWS account. By
 subscribing to reserved MQTT topics used by the Device Shadow service, you can observe the
 messages received by the topics when running the sample app.
 
-If you haven't already used the MQTT test client, you can review [View MQTT messages with the AWS IoT MQTT
-client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn
+If you haven't already used the MQTT test client, you can review [View MQTT messages with the AWS IoT MQTT client](view-mqtt-messages.md "view-mqtt-messages.md"). This helps you learn
 how to use the **MQTT test client** in the **AWS IoT
 console** to view MQTT messages as they pass through the message broker.
 
@@ -428,9 +414,7 @@ received a message. To see the message, choose this topic, which is listed under
 }
 ```
 
-## Step 3: Troubleshoot errors with
-
-Device Shadow interactions
+## Step 3: Troubleshoot errors with Device Shadow interactions
 
 When you run the Shadow sample app, you might encounter issues with observing
 interactions with the Device Shadow service.

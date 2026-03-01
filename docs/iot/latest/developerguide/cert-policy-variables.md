@@ -1,6 +1,4 @@
-# X.509 Certificate AWS IoT Core policy
-
-variables
+# X.509 Certificate AWS IoT Core policy variables
 
 X.509 certificate policy variables assist with writing AWS IoT Core policies.
 These policies grant permissions based on X.509 certificate attributes. The
@@ -78,9 +76,7 @@ substitution is made and authorization fails. You can use the
 `.List` suffix on the policy variable name to specify all
 values of the attribute.
 
-## Issuer alternate name
-
-attributes
+## Issuer alternate name attributes
 
 The following AWS IoT Core policy variables support the granting or denying
 of permissions, based on issuer alternate name attributes set by the
@@ -92,9 +88,7 @@ certificate issuer.
 - `iot:Certificate.Issuer.AlternativeName.UniformResourceIdentifier`
 - `iot:Certificate.Issuer.AlternativeName.IPAddress`
 
-## Subject alternate name
-
-attributes
+## Subject alternate name attributes
 
 The following AWS IoT Core policy variables support the granting or denying
 of permissions, based on subject alternate name attributes set by the

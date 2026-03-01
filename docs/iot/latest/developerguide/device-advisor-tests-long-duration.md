@@ -143,9 +143,7 @@ format of the expected payload can be configured using the
 
 ![The RECEIVE LARGE PAYLOAD flow between DUT and the broker.](images/large-payload.png)
 
-#### PERSISTENT
-
-SESSION
+#### PERSISTENT SESSION
 
 ###### Note
 
@@ -189,9 +187,7 @@ random intervals for a random period of time.
 
 ![The INTERMITTENT CONNECTIVITY flow between DUT and the broker.](images/intermittent.png)
 
-#### RECONNECT
-
-BACKOFF
+#### RECONNECT BACKOFF
 
 This scenario validates if the device has a backoff mechanism
 implemented when the broker disconnects from it multiple times. Device Advisor

@@ -1,6 +1,4 @@
-# Authorizing AWS IoT to invoke your Lambda
-
-function
+# Authorizing AWS IoT to invoke your Lambda function
 
 In this section, you'll grant the permission of the custom authorizer resource
 that you just created to run the Lambda function. To grant the permission, you

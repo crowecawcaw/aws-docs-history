@@ -1,6 +1,4 @@
-# Setting up your Raspberry Pi and moisture
-
-sensor
+# Setting up your Raspberry Pi and moisture sensor
 
 Insert your microSD card into the Raspberry Pi, connect your monitor, keyboard, mouse,
 and, if you're not using Wi-Fi, Ethernet cable. Do not connect the power cable

@@ -12,8 +12,7 @@ This tutorial takes about 15 minutes to complete.
 
 - [Prerequisites](#location-indexing-tutorial-prerequisites "#location-indexing-tutorial-prerequisites")
 - [Create thing and shadow](#location-indexing-create-resources "#location-indexing-create-resources")
-- [Update thing indexing
-  configuration](#location-indexing-update-configuration "#location-indexing-update-configuration")
+- [Update thing indexing configuration](#location-indexing-update-configuration "#location-indexing-update-configuration")
 - [Run geoquery](#location-indexing-run-geoquery "#location-indexing-run-geoquery")
 
 ## Prerequisites
@@ -77,9 +76,7 @@ The output of this command can look like the following:
 }
 ```
 
-## Update thing indexing
-
-configuration
+## Update thing indexing configuration
 
 To index your location data, you must update your thing indexing configuration to
 include the location data. Because your location data is stored in a named shadow in this

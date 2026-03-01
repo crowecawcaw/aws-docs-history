@@ -1,6 +1,4 @@
-# AWS IoT identity-based
-
-policy examples
+# AWS IoT identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 AWS IoT resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,20 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  AWS IoT console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Viewing
-  AWS IoT resources based on tags](#security_iam_id-based-policy-examples-view-thing-tags "#security_iam_id-based-policy-examples-view-thing-tags")
-- [Viewing AWS IoT Device Advisor
-  resources based on tags](#security_iam-device-advisor-tags "#security_iam-device-advisor-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS IoT console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Viewing AWS IoT resources based on tags](#security_iam_id-based-policy-examples-view-thing-tags "#security_iam_id-based-policy-examples-view-thing-tags")
+- [Viewing AWS IoT Device Advisor resources based on tags](#security_iam-device-advisor-tags "#security_iam-device-advisor-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS IoT resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-AWS IoT console
+## Using the AWS IoT console
 
 To access the AWS IoT console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -80,9 +69,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -122,9 +109,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Viewing
-
-AWS IoT resources based on tags
+## Viewing AWS IoT resources based on tags
 
 You can use conditions in your identity-based policy to control access to
 AWS IoT resources based on tags. This example shows how you might create a
@@ -164,9 +149,7 @@ billing group must be tagged `Owner=richard-roe` or
 condition key names are not case-sensitive. For more information, see [IAM JSON Policy
 Elements: Condition](../../../service-authorization/latest/reference/reference_policies_elements_condition.md "../../../service-authorization/latest/reference/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Viewing AWS IoT Device Advisor
-
-resources based on tags
+## Viewing AWS IoT Device Advisor resources based on tags
 
 You can use conditions in your identity-based policy to control access to AWS IoT
 Device Advisor resources based on tags. The following example shows how you can create a

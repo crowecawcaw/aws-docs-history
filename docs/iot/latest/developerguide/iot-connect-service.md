@@ -87,9 +87,7 @@ These instructions describe how to:
 2. Create and run a sample app. For sample apps that use the
    AWS SDK for C++, see [AWS SDK for C++ Code Examples](../../../sdk-for-cpp/v1/developer-guide/programming-services.md "../../../sdk-for-cpp/v1/developer-guide/programming-services.md").
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for C++
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for C++ supports
 
 - [AWS::IoTClient" reference documentation](https://sdk.amazonaws.com/cpp/api/LATEST/root/html/index.html "https://sdk.amazonaws.com/cpp/api/LATEST/root/html/index.html")
 - [Aws::IoTDataPlane::IoTDataPlaneClient reference
@@ -116,9 +114,7 @@ These instructions describe how to:
 2. Create and run a sample app. For sample apps that use the
    AWS SDK for Go, see [AWS SDK for Go Code Examples](../../../sdk-for-go/v1/developer-guide/common-examples.md "../../../sdk-for-go/v1/developer-guide/common-examples.md").
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for Go
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for Go supports
 
 - [IoT
   reference documentation](../../../sdk-for-go/api/service/iot.md "../../../sdk-for-go/api/service/iot.md")
@@ -144,9 +140,7 @@ These instructions describe how to:
 3. Review the [SDK API
    reference documentation](https://sdk.amazonaws.com/java/api/latest/ "https://sdk.amazonaws.com/java/api/latest/")
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for Java
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for Java supports
 
 - [IotClient reference documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/iot/IotClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/iot/IotClient.html")
 - [IotDataPlaneClient reference documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/iotdataplane/IotDataPlaneClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/iotdataplane/IotDataPlaneClient.html")
@@ -175,9 +169,7 @@ These instructions describe how to:
      or
    - Get started with the [AWS SDK for JavaScript in Node.js](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md")
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for JavaScript
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for JavaScript supports
 
 - [`AWS.Iot reference
 documentation`](../../../AWSJavaScriptSDK/latest/AWS/Iot.md "../../../AWSJavaScriptSDK/latest/AWS/Iot.md")
@@ -206,9 +198,7 @@ These instructions describe how to:
 4. Review the [SDK
    API reference documentation](../../../sdkfornet/v3/apidocs/index.md "../../../sdkfornet/v3/apidocs/index.md")
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for .NET
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for .NET supports
 
 - [Amazon.IoT.Model reference documentation](../../../sdkfornet/v3/apidocs/items/IoT/NIoTModel.md "../../../sdkfornet/v3/apidocs/items/IoT/NIoTModel.md")
 - [Amazon.IotData.Model reference documentation](../../../sdkfornet/v3/apidocs/items/IotData/NIotDataModel.md "../../../sdkfornet/v3/apidocs/items/IotData/NIotDataModel.md")
@@ -231,9 +221,7 @@ These instructions describe how to:
 
 2. Create and run a sample app using one of the [AWS SDK for PHP Version 3 Code Examples](../../../sdk-for-php/v3/developer-guide/examples_index.md "../../../sdk-for-php/v3/developer-guide/examples_index.md")
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for PHP
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for PHP supports
 
 - [IoTClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.Iot.md "../../../aws-sdk-php/v3/api/class-Aws.Iot.md")
 - [IoTDataPlaneClient reference documentation](../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.md "../../../aws-sdk-php/v3/api/class-Aws.IotDataPlane.md")
@@ -277,9 +265,7 @@ print(json.dumps(response, indent=4))
 For more information about the function used in this example,
 see [Configure AWS IoT logging](configure-logging.md "configure-logging.md").
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for Python (Boto3)
-
-supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for Python (Boto3) supports
 
 - [IoT reference documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html")
 - [IoTDataPlane reference documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data.html")
@@ -299,9 +285,7 @@ These instructions describe how to:
 
 - Create and run the [Hello World Tutorial](../../../sdk-for-ruby/v3/developer-guide/hello.md "../../../sdk-for-ruby/v3/developer-guide/hello.md")
 
-###### Documentation for the AWS IoT Core services that the AWS SDK for
-
-Ruby supports
+###### Documentation for the AWS IoT Core services that the AWS SDK for Ruby supports
 
 - [Aws::IoT::Client reference documentation](../../../sdk-for-ruby/v3/api/Aws/IoT/Client.md "../../../sdk-for-ruby/v3/api/Aws/IoT/Client.md")
 - [Aws::IoTDataPlane::Client reference
