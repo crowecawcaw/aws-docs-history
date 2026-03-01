@@ -3513,8 +3513,8 @@ transmission or processing.
 queue URL
 A web address that uniquely identifies a queue.
 
-Quick Suite
-Amazon Quick Suite is a fast, cloud-powered business analytics service that you can use to build
+Quick
+Amazon Quick is a fast, cloud-powered business analytics service that you can use to build
 visualizations, perform analysis, and quickly get business insights from your data.
 
 See also [https://aws.amazon.com/quicksight/](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/").
@@ -4339,11 +4339,11 @@ SPF
 Sender Policy Framework. A standard for authenticating email.
 
 SPICE
-A robust in-memory engine that is part of [Amazon Quick Suite](#quicksight-gloss "#quicksight-gloss"). Engineered for the cloud, SPICE (Super-fast,
+A robust in-memory engine that is part of [Amazon Quick](#quicksight-gloss "#quicksight-gloss"). Engineered for the cloud, SPICE (Super-fast,
 Parallel, In-memory Calculation Engine) uses a combination of storage and in-memory
 technologies. It uses these to get faster results from interactive queries and
 advanced calculations on large datasets. SPICE automatically replicates data for high
-availability. SPICE makes it possible for Amazon Quick Suite to support hundreds of thousands
+availability. SPICE makes it possible for Amazon Quick to support hundreds of thousands
 of simultaneous analyses across a variety of data sources.
 
 Spot Instance
