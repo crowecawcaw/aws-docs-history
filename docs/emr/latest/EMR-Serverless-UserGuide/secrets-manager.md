@@ -37,9 +37,7 @@ in the _AWS Secrets Manager User Guide_. In **Step 3**,
 choose the **Plaintext** field to enter your sensitive
 value.
 
-## Provide a secret in a configuration
-
-classification
+## Provide a secret in a configuration classification
 
 The following examples demonstrate how to provide a secret in a configuration classification at `StartJobRun`. If you want to configure classifications for Secrets Manager at the application level, refer to [Default application configuration for EMR Serverless](default-configs.md "default-configs.md").
 
@@ -54,9 +52,7 @@ retrieve.
 
 ### Specify secret references - Spark
 
-###### Example – Specify secret references in the external Hive metastore configuration for
-
-Spark
+###### Example– Specify secret references in the external Hive metastore configuration for Spark
 
 ```
 aws emr-serverless start-job-run \
@@ -85,9 +81,7 @@ aws emr-serverless start-job-run \
 }'
 ```
 
-###### Example – Specify secret references for the external Hive metastore configuration in
-
-the `spark-defaults` classification
+###### Example– Specify secret references for the external Hive metastore configuration in the `spark-defaults` classification
 
 ```
 {
@@ -103,9 +97,7 @@ the `spark-defaults` classification
 
 ### Specify secret references - Hive
 
-###### Example – Specify secret references in the external Hive metastore configuration for
-
-Hive
+###### Example– Specify secret references in the external Hive metastore configuration for Hive
 
 ```
 aws emr-serverless start-job-run \
@@ -132,9 +124,7 @@ aws emr-serverless start-job-run \
 }'
 ```
 
-###### Example – Specify secret references for the external Hive metastore configuration in
-
-the `hive-site` classification
+###### Example– Specify secret references for the external Hive metastore configuration in the `hive-site` classification
 
 ```
 {
@@ -149,9 +139,7 @@ the `hive-site` classification
 }
 ```
 
-## Grant access for EMR Serverless to retrieve the
-
-secret
+## Grant access for EMR Serverless to retrieve the secret
 
 To allow EMR Serverless to retrieve the secret value from Secrets Manager, add the following policy
 statement to your secret when you create it. You must create your secret with the

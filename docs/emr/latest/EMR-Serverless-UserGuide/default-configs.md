@@ -29,9 +29,7 @@ logging for EMR Serverless, refer to [Storing logs](logging.md "logging.md").
 To specify runtime configuration properties such as `spark-defaults`,
 provide a configuration object in the `runtimeConfiguration` field. This
 affects the default configurations for all the jobs that you submit with the
-application. For more information, refer to [Hive configuration override
-parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override
-parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
+application. For more information, refer to [Hive configuration override parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
 
 Available configuration classifications vary by specific EMR Serverless release. For
 example, classifications for custom Log4j `spark-driver-log4j2` and
@@ -128,9 +126,7 @@ aws emr-serverless create-application \
     }'
 ```
 
-## Overriding configurations during a job
-
-run
+## Overriding configurations during a job run
 
 You can specify configuration overrides for the application configuration and monitoring
 configuration with the [`StartJobRun`](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../emr-serverless/latest/APIReference/API_StartJobRun.md") API. EMR Serverless then merges the configurations that
@@ -150,9 +146,7 @@ The priority of configurations that you provide at [`StartJobRun`](../../../emr-
 application level.
 
 For more information priority
-rankings, refer to [Hive configuration override
-parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override
-parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
+rankings, refer to [Hive configuration override parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
 
 When you start a job, if you don’t specify a particular configuration, it will be
 inherited from the application. If you declare the configurations at job level, you can
@@ -243,9 +237,7 @@ aws emr-serverless start-job-run \
 ```
 
 At the time of job execution, the following classifications and configurations will
-apply based on the priority override ranking described in [Hive configuration override
-parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override
-parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
+apply based on the priority override ranking described in [Hive configuration override parameter](jobs-hive.md#hive-defaults-configurationOverrides "jobs-hive.md#hive-defaults-configurationOverrides") and [Spark configuration override parameter](jobs-spark.md#spark-defaults-configurationOverrides "jobs-spark.md#spark-defaults-configurationOverrides").
 
 - The classification `spark-defaults` will be updated with the properties
   specified at the job level. Only the properties included in `StartJobRun`

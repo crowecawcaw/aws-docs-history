@@ -9,5 +9,4 @@ how to create tags.
 - [What is a tag?](tag-basics.md "tag-basics.md")
 - [Tagging your resources](tagging-resources.md "tagging-resources.md")
 - [Tagging limitations](tagging-restrictions.md "tagging-restrictions.md")
-- [Working with tags using the AWS CLI and the
-  Amazon EMR Serverless API](using-tags.md "using-tags.md")
+- [Working with tags using the AWS CLI and the Amazon EMR Serverless API](using-tags.md "using-tags.md")

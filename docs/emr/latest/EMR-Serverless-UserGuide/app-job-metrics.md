@@ -1,6 +1,4 @@
-# Monitoring EMR Serverless applications and
-
-jobs
+# Monitoring EMR Serverless applications and jobs
 
 With Amazon CloudWatch metrics for EMR Serverless, you can
 receive 1-minute CloudWatch metrics and access CloudWatch dashboards to access near-real-time

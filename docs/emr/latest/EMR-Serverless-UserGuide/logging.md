@@ -4,8 +4,7 @@ To monitor your job progress on EMR Serverless and troubleshoot job failures, ch
 run, specify managed storage, Amazon S3, and Amazon CloudWatch as your logging options.
 
 With CloudWatch, specify the log types and log locations that you want to use, or
-accept the default types and locations. For more information on CloudWatch logs, refer to [Logging for EMR Serverless with
-Amazon CloudWatch](#jobs-log-storage-cw "#jobs-log-storage-cw"). With managed storage and S3 logging, the following
+accept the default types and locations. For more information on CloudWatch logs, refer to [Logging for EMR Serverless with Amazon CloudWatch](#jobs-log-storage-cw "#jobs-log-storage-cw"). With managed storage and S3 logging, the following
 table lists the log locations and UI availability that you can expect if you choose
 [managed storage](#jobs-log-storage-managed-storage "#jobs-log-storage-managed-storage"), [Amazon S3 buckets](#jobs-log-storage-s3-buckets "#jobs-log-storage-s3-buckets"), or both.
 
@@ -19,9 +18,7 @@ table lists the log locations and UI availability that you can expect if you cho
 storage** option selected. Otherwise, you can't use the built-in
 application UIs.
 
-## Logging for EMR Serverless with
-
-managed storage
+## Logging for EMR Serverless with managed storage
 
 By default, EMR Serverless stores application logs securely in Amazon EMR managed
 storage for a maximum of 30 days.
@@ -85,9 +82,7 @@ JSON
 
 Additionally, use the `aws:SourceVpc` condition key to ensure that the request travels through the VPC that the VPC endpoint is attached to.
 
-## Logging for EMR Serverless with Amazon S3
-
-buckets
+## Logging for EMR Serverless with Amazon S3 buckets
 
 Before your jobs can send log data to Amazon S3, include the following
 permissions in the permissions policy for the job runtime role. Replace
@@ -158,9 +153,7 @@ to the log path prefix, so you can better distinguish and track logs.
 '/applications/<applicationId>/jobs/<jobId>/attempts/<attemptNumber>/'
 ```
 
-## Logging for EMR Serverless with
-
-Amazon CloudWatch
+## Logging for EMR Serverless with Amazon CloudWatch
 
 When you submit a job to an EMR Serverless application, choose Amazon CloudWatch
 as an option to store your application logs. This allows you to use CloudWatch log
@@ -186,9 +179,7 @@ all services, including EMR Serverless. For more information, refer to [How do
 I determine throttling in my CloudWatch logs?](https://repost.aws/knowledge-center/cloudwatch-logs-throttling "https://repost.aws/knowledge-center/cloudwatch-logs-throttling") on _AWS
 re:post_.
 
-### Required permissions for
-
-logging with CloudWatch
+### Required permissions for logging with CloudWatch
 
 Before your jobs can send log data to Amazon CloudWatch, include the following
 permissions in the permissions policy for the job runtime role.

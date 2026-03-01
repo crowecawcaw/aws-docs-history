@@ -27,19 +27,15 @@ _in_ the cloud:
 
 - [Security best practices for Amazon EMR Serverless](security-best-practices.md "security-best-practices.md")
 - [Data protection](data-protection.md "data-protection.md")
-- [Identity and Access Management (IAM) in
-  Amazon EMR Serverless](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [Identity and Access Management (IAM) in Amazon EMR Serverless](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Trusted Identity Propagation](security-iam-service-trusted-prop.md "security-iam-service-trusted-prop.md")
 - [Using Lake Formation with EMR Serverless](lake-formation-section.md "lake-formation-section.md")
 - [Inter-worker encryption](interworker-encryption.md "interworker-encryption.md")
 - [Disk Encryption with KMS CMK](disk-encryption-cmk.md "disk-encryption-cmk.md")
 - [Secrets Manager for data protection with EMR Serverless](secrets-manager.md "secrets-manager.md")
 - [Using Amazon S3 Access Grants with EMR Serverless](access-grants.md "access-grants.md")
-- [Logging Amazon EMR Serverless API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging Amazon EMR Serverless API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Compliance validation for Amazon EMR Serverless](compliance.md "compliance.md")
 - [Resilience in Amazon EMR Serverless](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon EMR Serverless](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability analysis in
-  Amazon EMR Serverless](configuration-vulnerability.md "configuration-vulnerability.md")
+- [Infrastructure security in Amazon EMR Serverless](infrastructure-security.md "infrastructure-security.md")
+- [Configuration and vulnerability analysis in Amazon EMR Serverless](configuration-vulnerability.md "configuration-vulnerability.md")

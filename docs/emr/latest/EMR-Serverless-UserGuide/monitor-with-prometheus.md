@@ -1,6 +1,4 @@
-# Monitor Spark metrics with
-
-Amazon Managed Service for Prometheus
+# Monitor Spark metrics with Amazon Managed Service for Prometheus
 
 With Amazon EMR releases 7.1.0 and higher, you can integrate EMR Serverless with Amazon Managed Service for Prometheus to collect Apache Spark metrics for EMR Serverless jobs and applications. This integration is available
 when you submit a job or create an application using either the AWS console, the EMR Serverless API, or the AWS CLI.

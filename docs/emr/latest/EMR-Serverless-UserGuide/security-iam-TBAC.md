@@ -20,9 +20,7 @@ denies tagging actions, refer to [Deny access to add and remove tags](#security-
 The examples below demonstrate identity-based permissions policies that are used to
 control the actions that are allowed with EMR Serverless applications.
 
-## Allow actions only on resources with specific tag
-
-values
+## Allow actions only on resources with specific tag values
 
 In the following policy example, the `StringEquals` condition operator tries
 to match `dev` with the value for the tag department. If the tag department
@@ -70,9 +68,7 @@ earlier example with the following.
       }
 ```
 
-## Require tagging when a resource is
-
-created
+## Require tagging when a resource is created
 
 In the example below, the tag needs to be applied when creating the application.
 

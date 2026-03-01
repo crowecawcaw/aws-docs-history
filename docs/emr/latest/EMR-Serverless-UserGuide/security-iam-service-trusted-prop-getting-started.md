@@ -11,9 +11,7 @@ enable [Trusted identity propagation](../../../singlesignon/latest/userguide/tru
 - Enable Trusted identity propagation for downstream services like Lake Formation or S3 Access Grants or Amazon Redshift cluster with which interactive workload interacts
   to access data.
 
-## Permissions to create trusted-identity propagation
-
-enabled EMR Serverless Application
+## Permissions to create trusted-identity propagation enabled EMR Serverless Application
 
 In addition to the basic [permissions that are required to access EMR Serverless](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam"), you must
 configure additional permissions for your IAM identity or role that is used to create trusted-identity propagation enabled EMR Serverless Application. For trusted-identity

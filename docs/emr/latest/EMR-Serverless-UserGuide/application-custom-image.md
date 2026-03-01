@@ -61,9 +61,7 @@ JSON
 For more examples of Amazon ECR identity-based policies, refer to [Amazon Elastic Container Registry
 identity-based policy examples](../../../AmazonECR/latest/userguide/security_iam_id-based-policy-examples.md "../../../AmazonECR/latest/userguide/security_iam_id-based-policy-examples.md").
 
-## Step 1: Create a custom image from EMR Serverless base
-
-images
+## Step 1: Create a custom image from EMR Serverless base images
 
 First, create a [Dockerfile](https://docs.docker.com/engine/reference/builder/ "https://docs.docker.com/engine/reference/builder/") that begins with a `FROM` instruction that uses your
 preferred base image. After the `FROM` instruction, include any
@@ -153,9 +151,7 @@ aws ecr get-login-password --region region | docker login --username AWS --passw
 docker push `aws-account-id`.dkr.ecr.`region`.amazonaws.com/`my-repository`:tag/@digest
 ```
 
-## Step 4: Create or update an application with custom
-
-images
+## Step 4: Create or update an application with custom images
 
 Choose the AWS Management Console tab or AWS CLI tab according to how you want to launch your
 application, then complete the following steps.
@@ -222,9 +218,7 @@ aws emr-serverless update-application \
 }'
 ```
 
-## Step 5: Allow EMR Serverless to access the custom image
-
-repository
+## Step 5: Allow EMR Serverless to access the custom image repository
 
 Add the following resource policy to the Amazon ECR repository to allow the EMR Serverless
 service principal to use the `get`, `describe`, and

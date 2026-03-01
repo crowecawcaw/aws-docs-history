@@ -1,6 +1,4 @@
-# Endpoints and quotas for
-
-EMR Serverless
+# Endpoints and quotas for EMR Serverless
 
 ## Service endpoints
 

@@ -2,9 +2,7 @@
 
 Note these behaviors and limitations when you use the DynamoDB connector with Apache Spark or Apache Hive.
 
-## Considerations when using the DynamoDB
-
-connector with Apache Spark
+## Considerations when using the DynamoDB connector with Apache Spark
 
 - Spark SQL doesn't support the creation of a Hive table with the
   storage-handler option. For more information, refer to [Specifying storage format for Hive tables](https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html#specifying-storage-format-for-hive-tables "https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html#specifying-storage-format-for-hive-tables") in the Apache
@@ -18,9 +16,7 @@ connector with Apache Spark
   Predicate pushdown only operates when you use the connector with Spark
   SQL, and not with the MapReduce API.
 
-## Considerations when using the DynamoDB
-
-connector with Apache Hive
+## Considerations when using the DynamoDB connector with Apache Hive
 
 **Tuning the maximum number of mappers**
 

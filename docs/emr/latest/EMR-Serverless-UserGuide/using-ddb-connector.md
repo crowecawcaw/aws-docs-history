@@ -1,14 +1,10 @@
-# Connecting to DynamoDB with
-
-Amazon EMR Serverless
+# Connecting to DynamoDB with Amazon EMR Serverless
 
 In this tutorial, you upload a subset of data from the [United States Board on
 Geographic Names](https://www.usgs.gov/us-board-on-geographic-names "https://www.usgs.gov/us-board-on-geographic-names") to an Amazon S3 bucket and then use Hive or Spark on
 Amazon EMR Serverless to copy the data to an Amazon DynamoDB table for querying.
 
-## Step 1: Upload data to an Amazon S3
-
-bucket
+## Step 1: Upload data to an Amazon S3 bucket
 
 To create an Amazon S3 bucket, follow the instructions in [Creating a bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in
 the _Amazon Simple Storage Service Console User Guide_. Replace references to
@@ -54,9 +50,7 @@ height in feet. 3. Upload your data to Amazon S3
 aws s3 cp features.txt s3://`amzn-s3-demo-bucket`/features/
 ```
 
-## Step 2: Create a Hive
-
-table
+## Step 2: Create a Hive table
 
 Use Apache Spark or Hive to create a new Hive table that contains the uploaded
 data in Amazon S3.
@@ -223,9 +217,7 @@ val dataFrame = sparkSession.dql("SELECT state_alpha, feature_class, COUNT(*) \
     ORDER BY state_alpha, feature_class;")
 ```
 
-###### Example– Query your DynamoDB table with the Spark MapReduce
-
-API
+###### Example– Query your DynamoDB table with the Spark MapReduce API
 
 The following MapReduce query returns a list of all the feature
 types in alphabetical order.

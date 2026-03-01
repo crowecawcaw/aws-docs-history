@@ -1,6 +1,4 @@
-# Working with tags using the AWS CLI and the
-
-Amazon EMR Serverless API
+# Working with tags using the AWS CLI and the Amazon EMR Serverless API
 
 Use the following AWS CLI commands or Amazon EMR Serverless API operations to add, update,
 list, and delete the tags for your resources.

@@ -72,8 +72,7 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 ## Grant permissions
 
 In production environments, we suggest that you use finer-grained policies. For
-examples of such policies, refer to [User access policy examples for
-EMR Serverless](security-iam-user-access-policies.md "security-iam-user-access-policies.md"). To learn more about access
+examples of such policies, refer to [User access policy examples for EMR Serverless](security-iam-user-access-policies.md "security-iam-user-access-policies.md"). To learn more about access
 management, refer to [Access management for AWS resources](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the IAM User Guide.
 
 For users who need to get started with EMR Serverless in a sandbox environment, use a policy similar to the following:

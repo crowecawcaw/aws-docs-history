@@ -1,6 +1,4 @@
-# Automating EMR Serverless with
-
-Amazon EventBridge
+# Automating EMR Serverless with Amazon EventBridge
 
 You can use Amazon EventBridge to automate your AWS services and respond
 automatically to system events, such as application availability issues or resource
@@ -26,9 +24,7 @@ EMR Serverless emits four kinds of events:
 - Job resource utilization update events – Events that emit resource utilization updates for a job run at
   close to 30-minute intervals.
 
-## Sample EMR Serverless EventBridge
-
-events
+## Sample EMR Serverless EventBridge events
 
 Events reported by EMR Serverless have a value of `aws.emr-serverless`
 assigned to `source`, as in the following examples.

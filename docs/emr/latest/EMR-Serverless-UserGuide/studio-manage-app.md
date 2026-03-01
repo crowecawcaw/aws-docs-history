@@ -1,6 +1,4 @@
-# Manage applications from the EMR Studio
-
-console
+# Manage applications from the EMR Studio console
 
 You can perform the following actions on an application from either the **List
 applications** page or from a specific application’s **Details**

@@ -109,5 +109,4 @@ EMR Serverless application, we automatically create one for you. Access EMR Stud
 either from the Amazon EMR console, or turn on federated access from your identity provider
 (IdP) through IAM or IAM Identity Center. When you do this, users can access Studio and manage
 EMR Serverless applications without direct access to the Amazon EMR console. To learn more about how
-EMR Serverless applications works with EMR Studio, refer to [Creating an EMR Serverless application from the EMR Studio
-console](studio.md "studio.md") and [Running jobs from the EMR Studio console](jobs-studio.md "jobs-studio.md").
+EMR Serverless applications works with EMR Studio, refer to [Creating an EMR Serverless application from the EMR Studio console](studio.md "studio.md") and [Running jobs from the EMR Studio console](jobs-studio.md "jobs-studio.md").

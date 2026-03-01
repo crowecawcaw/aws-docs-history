@@ -80,9 +80,7 @@ metastore.
 To access the Hive metastore tables, add the required AWS Glue policies outlined in
 [Setting up IAM Permissions for AWS Glue](../../../glue/latest/dg/getting-started-access.md "../../../glue/latest/dg/getting-started-access.md").
 
-### Configure cross-account access for
-
-EMR Serverless and AWS Glue Data Catalog
+### Configure cross-account access for EMR Serverless and AWS Glue Data Catalog
 
 To set up cross-account access for EMR Serverless, first sign in to the
 following AWS accounts:
@@ -221,9 +219,7 @@ aws emr-serverless start-job-run \
 }'
 ```
 
-### Considerations when using the
-
-AWS Glue Data Catalog
+### Considerations when using the AWS Glue Data Catalog
 
 You can add auxiliary JARs with `ADD JAR` in your Hive scripts. For
 additional considerations, refer to [Considerations when using AWS Glue Data Catalog](../ReleaseGuide/emr-hive-metastore-glue.md#emr-hive-glue-considerations-hive "../ReleaseGuide/emr-hive-metastore-glue.md#emr-hive-glue-considerations-hive").

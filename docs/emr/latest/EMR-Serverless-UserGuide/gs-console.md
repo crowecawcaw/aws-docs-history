@@ -5,16 +5,12 @@ runs and view logs.
 
 ###### Steps to complete
 
-- [Step 1: Create an EMR Serverless
-  application](#gs-application-console "#gs-application-console")
-- [Step 2: Submit a job run or interactive
-  workload](#gs-job-run-console "#gs-job-run-console")
+- [Step 1: Create an EMR Serverless application](#gs-application-console "#gs-application-console")
+- [Step 2: Submit a job run or interactive workload](#gs-job-run-console "#gs-job-run-console")
 - [Step 3: View application UI and logs](#gs-output-console "#gs-output-console")
 - [Step 4: Clean up](#gs-cleanup-console "#gs-cleanup-console")
 
-## Step 1: Create an EMR Serverless
-
-application
+## Step 1: Create an EMR Serverless application
 
 Create a new application with EMR Serverless as follows.
 
@@ -41,12 +37,9 @@ Create a new application with EMR Serverless as follows.
 For more information, see [Create a
 studio](../ManagementGuide/emr-studio-create-studio.md "../ManagementGuide/emr-studio-create-studio.md"). 5. Select **Create application** to create your first application.
 
-Continue to the next section [Step 2: Submit a job run or interactive
-workload](#gs-job-run-console "#gs-job-run-console") to submit a job run or interactive workload.
+Continue to the next section [Step 2: Submit a job run or interactive workload](#gs-job-run-console "#gs-job-run-console") to submit a job run or interactive workload.
 
-## Step 2: Submit a job run or interactive
-
-workload
+## Step 2: Submit a job run or interactive workload
 
 Spark job run
 In this tutorial, we use a PySpark script to compute the number of occurrences of
@@ -62,8 +55,7 @@ script and the dataset.
 aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scripts/wordcount.py s3://`amzn-s3-demo-bucket`/scripts/
 ```
 
-2. Completing [Step 1: Create an EMR Serverless
-   application](#gs-application-console "#gs-application-console") takes you to the **Application
+2. Completing [Step 1: Create an EMR Serverless application](#gs-application-console "#gs-application-console") takes you to the **Application
    details** page in EMR Studio. There, choose the **Submit
    job** option.
 3. On the **Submit job** page, complete the following.
@@ -115,8 +107,7 @@ select id, count(id) from test_table group by id order by id desc;
 aws s3 cp hive-query.ql s3://`amzn-s3-demo-bucket`/emr-serverless-hive/query/hive-query.ql
 ```
 
-3. Completing [Step 1: Create an EMR Serverless
-   application](#gs-application-console "#gs-application-console") takes you to the **Application
+3. Completing [Step 1: Create an EMR Serverless application](#gs-application-console "#gs-application-console") takes you to the **Application
    details** page in EMR Studio. There, choose the **Submit
    job** option.
 4. On the **Submit job** page, complete the following.
@@ -161,8 +152,7 @@ aws s3 cp hive-query.ql s3://`amzn-s3-demo-bucket`/emr-serverless-hive/query/hiv
 Interactive workload
 With Amazon EMR 6.14.0 and higher, you can use notebooks that are hosted in
 EMR Studio to run interactive workloads for Spark in EMR Serverless. For more
-information including permissions and prerequisites, see [Run interactive workloads with EMR Serverless through
-EMR Studio](interactive-workloads.md "interactive-workloads.md").
+information including permissions and prerequisites, see [Run interactive workloads with EMR Serverless through EMR Studio](interactive-workloads.md "interactive-workloads.md").
 
 Once you've created your application and set up the required permissions, use the
 following steps to run an interactive notebook with EMR Studio:

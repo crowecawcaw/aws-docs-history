@@ -1,6 +1,4 @@
-# Considerations and limitations
-
-when using the Spark connector
+# Considerations and limitations when using the Spark connector
 
 - We suggest that you turn on SSL for the JDBC connection from Spark on
   Amazon EMR to Amazon Redshift.

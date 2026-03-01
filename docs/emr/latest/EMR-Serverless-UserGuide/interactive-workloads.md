@@ -1,6 +1,4 @@
-# Run interactive workloads with EMR Serverless through
-
-EMR Studio
+# Run interactive workloads with EMR Serverless through EMR Studio
 
 With EMR Serverless interactive applications, run interactive workloads for
 Spark with EMR Serverless using notebooks that are hosted in EMR Studio.
@@ -32,12 +30,9 @@ requirements:
   higher.
 - To access your interactive application, execute the workloads that you submit, and run
   interactive notebooks from EMR Studio, you need specific permissions and roles. For
-  more information, refer to [Required permissions for interactive
-  workloads](#interactive-permissions "#interactive-permissions").
+  more information, refer to [Required permissions for interactive workloads](#interactive-permissions "#interactive-permissions").
 
-## Required permissions for interactive
-
-workloads
+## Required permissions for interactive workloads
 
 In addition to the basic [permissions that are required to
 access EMR Serverless](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam"), configure additional permissions for your IAM
@@ -118,9 +113,7 @@ When you attach an application to a Studio Workspace, the application start trig
 automatically if it's not already running. You can also pre-start the application and keep it
 ready before you attach it to the Workspace.
 
-## Considerations with interactive
-
-applications
+## Considerations with interactive applications
 
 - EMR Serverless interactive applications are supported with Amazon EMR 6.14.0 and
   higher.

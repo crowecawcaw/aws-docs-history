@@ -1,10 +1,6 @@
-# Authenticating with the
+# Authenticating with the Amazon Redshift integration for Apache Spark
 
-Amazon Redshift integration for Apache Spark
-
-## Use AWS Secrets Manager to retrieve
-
-credentials and connect to Amazon Redshift
+## Use AWS Secrets Manager to retrieve credentials and connect to Amazon Redshift
 
 You can securely authenticate to Amazon Redshift by storing the credentials in Secrets Manager
 and have the Spark job call the `GetSecretValue` API to fetch
@@ -31,9 +27,7 @@ url = "jdbc:redshift://redshifthost:5439/database?user=" + `username` + "&passwo
 
 ```
 
-## Authenticate to Amazon Redshift with a JDBC
-
-driver
+## Authenticate to Amazon Redshift with a JDBC driver
 
 **Set username and password inside the JDBC
 URL**
@@ -54,9 +48,7 @@ format to set the username and password in the JDBC URL:
 jdbc:redshift://redshifthost:5439/database?user=`username`&password=`password`
 ```
 
-## Use IAM based authentication with
-
-Amazon EMR Serverless job execution role
+## Use IAM based authentication with Amazon EMR Serverless job execution role
 
 Starting with Amazon EMR Serverless release 6.9.0, the Amazon Redshift JDBC driver 2.1
 or higher is packaged into the environment. With JDBC driver 2.1 and higher, you
@@ -82,9 +74,7 @@ provided conditions are met:
 | `redshift-serverless:GetCredentials` | Required for JDBC driver to fetch the credentials from<br>Amazon Redshift Serverless                                         |
 | `redshift-serverless:GetWorkgroup`   | Required if you are using Amazon Redshift Serverless and you are<br>specifying the URL in terms of workgroup name and Region |
 
-## Connecting to Amazon Redshift within a
-
-different VPC
+## Connecting to Amazon Redshift within a different VPC
 
 When you set up a provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup under
 a VPC, configure VPC connectivity for your Amazon EMR Serverless

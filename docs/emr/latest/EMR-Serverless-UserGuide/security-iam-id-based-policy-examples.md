@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-EMR Serverless
+# Identity-based policy examples for EMR Serverless
 
 By default, users and roles don't have permission to create or modify Amazon EMR Serverless
 resources. To grant users permission to perform actions on the
@@ -15,8 +13,7 @@ For details about actions and resource types defined by Amazon EMR Serverless, i
 ###### Topics
 
 - [Policy best practices](#security-iam-policy-best-practices "#security-iam-policy-best-practices")
-- [Allow users
-  to access their own permissions](#security-iam-id-based-policy-examples-view-own-permissions "#security-iam-id-based-policy-examples-view-own-permissions")
+- [Allow users to access their own permissions](#security-iam-id-based-policy-examples-view-own-permissions "#security-iam-id-based-policy-examples-view-own-permissions")
 
 ## Policy best practices
 
@@ -56,9 +53,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users
-
-to access their own permissions
+## Allow users to access their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

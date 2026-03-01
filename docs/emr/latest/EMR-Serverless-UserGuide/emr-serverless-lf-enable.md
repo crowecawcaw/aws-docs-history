@@ -13,9 +13,7 @@ Using Amazon EMR Serverless with AWS Lake Formation incurs additional charges. F
 information, refer to [Amazon EMR
 pricing](https://aws.amazon.com/emr/pricing/ "https://aws.amazon.com/emr/pricing/").
 
-## How EMR Serverless works with
-
-AWS Lake Formation
+## How EMR Serverless works with AWS Lake Formation
 
 Using EMR Serverless with Lake Formation lets you enforce a layer of permissions on each Spark
 job to apply Lake Formation permissions control when EMR Serverless executes jobs.
@@ -98,9 +96,7 @@ To enable Lake Formation for individual Spark jobs, set `spark.emr-serverless.la
 --conf spark.emr-serverless.lakeformation.enabled=true
 ```
 
-## Job runtime role IAM
-
-permissions
+## Job runtime role IAM permissions
 
 Lake Formation permissions control access to AWS Glue Data Catalog resources, Amazon S3 locations, and the
 underlying data at those locations. IAM permissions control access to the Lake Formation and
@@ -167,9 +163,7 @@ JSON
 
 ```
 
-## Setting up Lake Formation permissions
-
-for job runtime role
+## Setting up Lake Formation permissions for job runtime role
 
 First, register the location of your Hive table with Lake Formation. Then create permissions for
 your job runtime role on your desired table. For more details about Lake Formation, refer to [What is AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") in the _AWS Lake Formation Developer Guide_.
@@ -182,9 +176,7 @@ examples](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples").
 
 After you finish setting up the Lake Formation grants, you can [submit Spark jobs on EMR Serverless.](jobs-spark.md#spark-examples "jobs-spark.md#spark-examples") The section that follows shows examples of how to configure and submit job run properties.
 
-## Permission
-
-requirements
+## Permission requirements
 
 ### Tables not registered in AWS Lake Formation
 
@@ -193,9 +185,7 @@ AWS Glue Data Catalog and the underlying table data in Amazon S3. This requires 
 runtime role to have appropriate IAM permissions for both AWS Glue and Amazon S3
 operations.
 
-### Tables registered in
-
-AWS Lake Formation
+### Tables registered in AWS Lake Formation
 
 For tables registered with AWS Lake Formation, the job runtime role accesses the AWS Glue Data Catalog
 metadata, while temporary credentials vended by Lake Formation access the underlying

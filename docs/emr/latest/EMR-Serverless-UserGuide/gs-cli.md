@@ -34,8 +34,7 @@ Note the application ID returned in the output. You'll use the ID to start the
 application and during job submission, referred to after this as the
 `application-id`.
 
-Before you move on to [Step 2: Submit a job run to your EMR Serverless
-application](#gs-job-run-cli "#gs-job-run-cli"),
+Before you move on to [Step 2: Submit a job run to your EMR Serverless application](#gs-job-run-cli "#gs-job-run-cli"),
 make sure that your application has reached the `CREATED` state with the [`get-application`](../../../emr-serverless/latest/APIReference/API_GetApplication.md "../../../emr-serverless/latest/APIReference/API_GetApplication.md") API.
 
 ```
@@ -49,9 +48,7 @@ are created on demand, but you can also specify a pre-initialized capacity by se
 the total maximum capacity that an application can use with the `maximumCapacity`
 parameter. To learn more about these options, see [Configuring an application when working with EMR Serverless](application-capacity.md "application-capacity.md").
 
-## Step 2: Submit a job run to your EMR Serverless
-
-application
+## Step 2: Submit a job run to your EMR Serverless application
 
 Now your EMR Serverless application is ready to run jobs.
 

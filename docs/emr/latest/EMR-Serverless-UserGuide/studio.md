@@ -1,6 +1,4 @@
-# Creating an EMR Serverless application from the EMR Studio
-
-console
+# Creating an EMR Serverless application from the EMR Studio console
 
 From the EMR Studio console, create, access, and manage EMR Serverless
 applications. To navigate to the EMR Studio console, follow the instructions in [Getting started

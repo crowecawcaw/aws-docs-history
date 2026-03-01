@@ -10,8 +10,7 @@ Before you launch an EMR Serverless application, complete the following tasks.
 
 - [Grant permissions to use EMR Serverless](#gs-permissions "#gs-permissions")
 - [Prepare storage for EMR Serverless](#gs-prepare-storage "#gs-prepare-storage")
-- [Create an EMR Studio to run interactive
-  workloads](#gs-interactive "#gs-interactive")
+- [Create an EMR Studio to run interactive workloads](#gs-interactive "#gs-interactive")
 - [Create a job runtime role](#gs-runtime-role "#gs-runtime-role")
 - [Getting started with EMR Serverless from the console](gs-console.md "gs-console.md")
 - [Getting started from the AWS CLI](gs-cli.md "gs-cli.md")
@@ -31,16 +30,13 @@ _Amazon Simple Storage Service Console User Guide_. Replace any further referenc
 `amzn-s3-demo-bucket` with the name of the newly
 created bucket.
 
-## Create an EMR Studio to run interactive
-
-workloads
+## Create an EMR Studio to run interactive workloads
 
 If you want to use EMR Serverless to execute interactive queries through notebooks that
 are hosted in EMR Studio, you need to specify an S3 bucket and the [minimum service role for EMR Serverless](../ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-serverless "../ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-serverless") to create a Workspace. For steps to get
 set up, see [Set up an EMR Studio](../ManagementGuide/emr-studio-set-up.md "../ManagementGuide/emr-studio-set-up.md")
 in the _Amazon EMR Management Guide_. For more information on interactive workloads,
-see [Run interactive workloads with EMR Serverless through
-EMR Studio](interactive-workloads.md "interactive-workloads.md").
+see [Run interactive workloads with EMR Serverless through EMR Studio](interactive-workloads.md "interactive-workloads.md").
 
 ## Create a job runtime role
 

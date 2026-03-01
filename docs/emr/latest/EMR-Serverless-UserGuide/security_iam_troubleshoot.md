@@ -5,17 +5,12 @@ encounter when working with Amazon EMR Serverless and IAM.
 
 ###### Topics
 
-- [I am not authorized to perform an action in
-  Amazon EMR Serverless](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform an action in Amazon EMR Serverless](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people outside of my AWS account
-  to access my Amazon EMR Serverless resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
-- [I am not able to open Live UI/Spark history server from EMR Studio to debug my job
-  or an API error occurs when I try to get logs using get-dashboard-for-job-run](#security_iam_troubleshoot-emr-identity-access "#security_iam_troubleshoot-emr-identity-access")
+- [I want to allow people outside of my AWS account to access my Amazon EMR Serverless resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not able to open Live UI/Spark history server from EMR Studio to debug my job or an API error occurs when I try to get logs using get-dashboard-for-job-run](#security_iam_troubleshoot-emr-identity-access "#security_iam_troubleshoot-emr-identity-access")
 
-## I am not authorized to perform an action in
-
-Amazon EMR Serverless
+## I am not authorized to perform an action in Amazon EMR Serverless
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then contact your
 administrator for assistance. Your administrator is the person that provided you with your user name and
@@ -52,9 +47,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people outside of my AWS account
-
-to access my Amazon EMR Serverless resources
+## I want to allow people outside of my AWS account to access my Amazon EMR Serverless resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -62,8 +55,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether Amazon EMR Serverless supports these features, see [Identity and Access Management (IAM) in
-  Amazon EMR Serverless](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether Amazon EMR Serverless supports these features, see [Identity and Access Management (IAM) in Amazon EMR Serverless](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the
@@ -72,9 +64,7 @@ To learn more, consult the following:
 - To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
   _IAM User Guide_.
 
-## I am not able to open Live UI/Spark history server from EMR Studio to debug my job
-
-or an API error occurs when I try to get logs using `get-dashboard-for-job-run`
+## I am not able to open Live UI/Spark history server from EMR Studio to debug my job or an API error occurs when I try to get logs using `get-dashboard-for-job-run`
 
 If you use EMR Serverless managed storage for logging and your EMR Serverless application is in a private subnet with VPC endpoints for Amazon S3 and
 you attach an endpoint policy to control access, add the permissions mentioned in [Logging for EMR Serverless with managed storage](logging.md#jobs-log-storage-managed-storage "logging.md#jobs-log-storage-managed-storage") in

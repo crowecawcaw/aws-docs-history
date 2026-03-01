@@ -53,9 +53,7 @@ Spark executor size to 2 CPUs and your memory to 8 GB, but your pre-initialize
 capacity worker size is 4 CPUs with 16 GB of memory, then the Spark executors only
 use half of the workers’ resources when they are assigned to this job.
 
-## Customizing pre-initialized capacity for Spark and
-
-Hive
+## Customizing pre-initialized capacity for Spark and Hive
 
 You can further customize pre-initialized capacity for workloads that run on specific
 big data frameworks. For example, when a workload runs on Apache Spark, specify how

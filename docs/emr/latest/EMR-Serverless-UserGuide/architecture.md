@@ -116,8 +116,7 @@ the following.
 When you select Graviton (arm64) as an architecture option, ensure that third-party
 packages and libraries are compatible with the 64-bit ARM architecture. For information on
 how to package Python libraries into a Python virtual environment that is compatible with
-your selected architecture, refer to [Using Python libraries with
-EMR Serverless](using-python-libraries.md "using-python-libraries.md").
+your selected architecture, refer to [Using Python libraries with EMR Serverless](using-python-libraries.md "using-python-libraries.md").
 
 To learn more, refer to
 the [AWS Graviton

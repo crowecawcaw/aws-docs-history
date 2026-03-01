@@ -9,12 +9,9 @@ that alert you when your usage approaches a service quota. For more information,
 [Service Quotas and Amazon CloudWatch
 alarms](../../../servicequotas/latest/userguide/configure-cloudwatch.md "../../../servicequotas/latest/userguide/configure-cloudwatch.md") in the _Service Quotas User Guide_.
 
-For more information about EMR Serverless service quotas, refer to [Endpoints and quotas for
-EMR Serverless](endpoints-quotas.md "endpoints-quotas.md").
+For more information about EMR Serverless service quotas, refer to [Endpoints and quotas for EMR Serverless](endpoints-quotas.md "endpoints-quotas.md").
 
-## Service quota usage metrics for
-
-EMR Serverless
+## Service quota usage metrics for EMR Serverless
 
 EMR Serverless publishes the following service quota usage metrics in the
 `AWS/Usage` namespace.
@@ -23,9 +20,7 @@ EMR Serverless publishes the following service quota usage metrics in the
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ResourceCount` | The total number of the specified resource that is<br>running on your account. The resource is defined by the<br>[dimensions](#usage-metrics-dimensions "#usage-metrics-dimensions") that are associated with the<br>metric. |
 
-## Dimensions for EMR Serverless
-
-service quota usage metrics
+## Dimensions for EMR Serverless service quota usage metrics
 
 You can use the following dimensions to refine the usage metrics that
 EMR Serverless publishes.

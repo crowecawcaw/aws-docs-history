@@ -1,6 +1,4 @@
-# Getting started streaming
-
-jobs
+# Getting started streaming jobs
 
 See the following instructions to learn how to get started with streaming jobs.
 

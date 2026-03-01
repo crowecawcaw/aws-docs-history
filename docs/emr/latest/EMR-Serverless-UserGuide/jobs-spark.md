@@ -15,8 +15,7 @@ API](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../em
 
 - [Spark job runtime role](#spark-defaults-executionRoleArn "#spark-defaults-executionRoleArn")
 - [Spark job driver parameter](#spark-defaults-jobDriver "#spark-defaults-jobDriver")
-- [Spark configuration override
-  parameter](#spark-defaults-configurationOverrides "#spark-defaults-configurationOverrides")
+- [Spark configuration override parameter](#spark-defaults-configurationOverrides "#spark-defaults-configurationOverrides")
 - [Spark dynamic resource allocation optimization](#spark-defaults-dynamicResourceAllocation "#spark-defaults-dynamicResourceAllocation")
 
 ### Spark job runtime role
@@ -64,9 +63,7 @@ submit. Spark jobs have the following parameters:
 
 For additional information, refer to [Launching Applications with spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit "https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit").
 
-### Spark configuration override
-
-parameter
+### Spark configuration override parameter
 
 Use **`configurationOverrides`** to override
 monitoring-level and application-level configuration properties. This parameter accepts a
@@ -199,9 +196,7 @@ The following table lists the default Spark submit parameters.
 
 ## Resource configuration best practices
 
-### Configuring driver and executor resources via
-
-the StartJobRun API
+### Configuring driver and executor resources via the StartJobRun API
 
 ###### Note
 

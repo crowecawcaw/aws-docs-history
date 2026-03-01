@@ -1,8 +1,6 @@
 # Encrypting logs
 
-## Encrypting EMR Serverless
-
-logs with managed storage
+## Encrypting EMR Serverless logs with managed storage
 
 To encrypt logs in managed storage with your own KMS key, use the
 `managedPersistenceMonitoringConfiguration` configuration when you
@@ -18,9 +16,7 @@ submit a job run.
 }
 ```
 
-## Encrypting EMR Serverless logs
-
-with Amazon S3 buckets
+## Encrypting EMR Serverless logs with Amazon S3 buckets
 
 To encrypt logs in your Amazon S3 bucket with your own KMS key, use the
 `s3MonitoringConfiguration` configuration when you submit a job
@@ -37,9 +33,7 @@ run.
 }
 ```
 
-## Encrypting EMR Serverless logs with
-
-Amazon CloudWatch
+## Encrypting EMR Serverless logs with Amazon CloudWatch
 
 To encrypt logs in Amazon CloudWatch with your own KMS key, use the
 `cloudWatchLoggingConfiguration` configuration when you submit a job
@@ -56,22 +50,15 @@ run.
 }
 ```
 
-## Required permissions for log
-
-encryption
+## Required permissions for log encryption
 
 ###### In this section
 
-- [Required user
-  permissions](#jobs-log-encryption-permissions-user "#jobs-log-encryption-permissions-user")
-- [Encryption key permissions
-  for Amazon S3 and managed storage](#jobs-log-encryption-permissions-s3 "#jobs-log-encryption-permissions-s3")
-- [Encryption key permissions
-  for Amazon CloudWatch](#jobs-log-encryption-permissions-cw "#jobs-log-encryption-permissions-cw")
+- [Required user permissions](#jobs-log-encryption-permissions-user "#jobs-log-encryption-permissions-user")
+- [Encryption key permissions for Amazon S3 and managed storage](#jobs-log-encryption-permissions-s3 "#jobs-log-encryption-permissions-s3")
+- [Encryption key permissions for Amazon CloudWatch](#jobs-log-encryption-permissions-cw "#jobs-log-encryption-permissions-cw")
 
-### Required user
-
-permissions
+### Required user permissions
 
 The user who submits the job or views the logs or the application UIs must
 have permissions to use the key. You can specify the permissions in either the
@@ -150,9 +137,7 @@ JSON
 
 ```
 
-### Encryption key permissions
-
-for Amazon S3 and managed storage
+### Encryption key permissions for Amazon S3 and managed storage
 
 When you encrypt logs with your own encryption key either in managed storage
 or in your S3 buckets, configure KMS key permissions as
@@ -210,9 +195,7 @@ JSON
 
 ```
 
-### Encryption key permissions
-
-for Amazon CloudWatch
+### Encryption key permissions for Amazon CloudWatch
 
 To associate the KMS key ARN to your log group, use the following IAM
 policy for the job runtime role.

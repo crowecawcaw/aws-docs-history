@@ -1,6 +1,4 @@
-# User access policy examples for
-
-EMR Serverless
+# User access policy examples for EMR Serverless
 
 You can set up fine-grained policies for your users depending on the actions you want each
 user to perform when interacting with EMR Serverless applications. The following policies are
@@ -114,8 +112,7 @@ only create EC2 ENIs within allowed subnets.
 
 If you’re an Administrator or power user creating your first application, you must
 configure your permission policies to allow you to create a EMR Serverless service-linked
-role. To learn more, refer to [Using service-linked roles for
-EMR Serverless](using-service-linked-roles.md "using-service-linked-roles.md").
+role. To learn more, refer to [Using service-linked roles for EMR Serverless](using-service-linked-roles.md "using-service-linked-roles.md").
 
 The following IAM policy permits you to create a EMR Serverless service-linked role
 for your account.
@@ -129,9 +126,7 @@ for your account.
 }
 ```
 
-## Data engineer
-
-policy
+## Data engineer policy
 
 This following is a sample policy that allows users read-only permissions on
 EMR Serverless applications, as well as the ability to submit and debug jobs. Keep in
@@ -165,9 +160,7 @@ JSON
 
 ```
 
-## Using tags for access
-
-control
+## Using tags for access control
 
 You can use tag conditions for fine-grained access control. For example, you can
 restrict users from one team such that they’re only able to submit jobs to EMR Serverless

@@ -15,8 +15,7 @@ API](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../em
 
 - [Hive job runtime role](#hive-defaults-executionRoleArn "#hive-defaults-executionRoleArn")
 - [Hive job driver parameter](#hive-defaults-jobDriver "#hive-defaults-jobDriver")
-- [Hive configuration override
-  parameter](#hive-defaults-configurationOverrides "#hive-defaults-configurationOverrides")
+- [Hive configuration override parameter](#hive-defaults-configurationOverrides "#hive-defaults-configurationOverrides")
 
 ### Hive job runtime role
 
@@ -60,9 +59,7 @@ to this parameter as `--hivevar
   init Hive query file. Hive runs this file prior to your query and can use it to
   initialize tables.
 
-### Hive configuration override
-
-parameter
+### Hive configuration override parameter
 
 Use **`configurationOverrides`** to override
 monitoring-level and application-level configuration properties. This parameters accepts a

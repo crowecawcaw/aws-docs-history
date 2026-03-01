@@ -1,6 +1,4 @@
-# Considerations and
-
-limitations
+# Considerations and limitations
 
 ## General
 

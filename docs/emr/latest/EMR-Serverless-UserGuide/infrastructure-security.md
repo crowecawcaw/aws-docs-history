@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-Amazon EMR Serverless
+# Infrastructure security in Amazon EMR Serverless
 
 As a managed service, Amazon EMR is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

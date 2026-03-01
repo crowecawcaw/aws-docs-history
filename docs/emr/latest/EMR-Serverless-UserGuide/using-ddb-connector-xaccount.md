@@ -1,6 +1,4 @@
-# Setting up cross-account
-
-access
+# Setting up cross-account access
 
 To set up cross-account access for EMR Serverless, complete the following steps.
 In the example, `AccountA` is the account where you created your

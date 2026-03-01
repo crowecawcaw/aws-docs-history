@@ -6,10 +6,8 @@ AWS CLI. It also describes configuration of an application, performing customiza
 ###### Topics
 
 - [Application states](#application-states "#application-states")
-- [Creating an EMR Serverless application from the EMR Studio
-  console](studio.md "studio.md")
-- [Interacting with your EMR Serverless application on the
-  AWS CLI](applications-cli.md "applications-cli.md")
+- [Creating an EMR Serverless application from the EMR Studio console](studio.md "studio.md")
+- [Interacting with your EMR Serverless application on the AWS CLI](applications-cli.md "applications-cli.md")
 - [Configuring an application when working with EMR Serverless](application-capacity.md "application-capacity.md")
 - [Customizing an EMR Serverless image](application-custom-image.md "application-custom-image.md")
 - [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md "vpc-access.md")

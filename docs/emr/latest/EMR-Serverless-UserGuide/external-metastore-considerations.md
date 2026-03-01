@@ -1,6 +1,4 @@
-# Considerations when using an external
-
-metastore
+# Considerations when using an external metastore
 
 - You can configure databases that are compatible with MariaDB JDBC as your
   metastore. Examples of these databases are RDS for MariaDB, MySQL, and Amazon Aurora.

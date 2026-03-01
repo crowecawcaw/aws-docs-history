@@ -1,6 +1,4 @@
-# Accessing S3 data in another AWS account from
-
-EMR Serverless
+# Accessing S3 data in another AWS account from EMR Serverless
 
 You can run Amazon EMR Serverless jobs from one AWS account and configure them to access
 data in Amazon S3 buckets that belong to another AWS account. This page describes how to
@@ -25,9 +23,7 @@ signed in to two AWS accounts:
   account that contains the S3 bucket that you want your Amazon EMR Serverless jobs to
   access.
 
-## Use an S3 bucket policy to access
-
-cross-account S3 data
+## Use an S3 bucket policy to access cross-account S3 data
 
 To access the S3 bucket in account B from account A,
 attach the following policy to the S3 bucket in account B.
@@ -68,9 +64,7 @@ JSON
 For more information about S3 cross-account access with S3 bucket policies, refer to [Example
 2: Bucket owner granting cross-account bucket permissions](../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md "../../../AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Use an assumed role to access
-
-cross-account S3 data
+## Use an assumed role to access cross-account S3 data
 
 Another way to set up cross-account access for Amazon EMR Serverless is with the
 `AssumeRole` action from the AWS Security Token Service (AWS STS). AWS STS is a global web service
@@ -215,14 +209,10 @@ cross-account S3 buckets.
 
 ###### Topics
 
-- [Access S3 resources with one
-  assumed role](#jobs-s3-access-how-to-assumed-role-single "#jobs-s3-access-how-to-assumed-role-single")
-- [Access S3 resources with
-  multiple assumed roles](#jobs-s3-access-how-to-assumed-role-multiple "#jobs-s3-access-how-to-assumed-role-multiple")
+- [Access S3 resources with one assumed role](#jobs-s3-access-how-to-assumed-role-single "#jobs-s3-access-how-to-assumed-role-single")
+- [Access S3 resources with multiple assumed roles](#jobs-s3-access-how-to-assumed-role-multiple "#jobs-s3-access-how-to-assumed-role-multiple")
 
-### Access S3 resources with one
-
-assumed role
+### Access S3 resources with one assumed role
 
 ###### Note
 
@@ -302,9 +292,7 @@ aws emr-serverless start-job-run \
     }'
 ```
 
-### Access S3 resources with
-
-multiple assumed roles
+### Access S3 resources with multiple assumed roles
 
 With EMR Serverless releases 6.11.0 and higher, configure multiple IAM
 roles to assume when you access different cross-account buckets. If you want to access

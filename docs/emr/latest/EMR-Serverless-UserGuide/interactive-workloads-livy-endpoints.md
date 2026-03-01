@@ -1,6 +1,4 @@
-# Run interactive workloads with EMR
-
-Serverless through an Apache Livy endpoint
+# Run interactive workloads with EMR Serverless through an Apache Livy endpoint
 
 With Amazon EMR releases 6.14.0 and higher, create and enable an Apache Livy endpoint when creating an EMR Serverless
 application and run interactive workloads through your self-hosted notebooks or with a custom client. An Apache Livy endpoint

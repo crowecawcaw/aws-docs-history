@@ -23,9 +23,7 @@ EMR Serverless 6.6.0.
   information, refer to [Configure
   applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md").
 
-###### Engine-specific changes, enhancements, and resolved
-
-issues
+###### Engine-specific changes, enhancements, and resolved issues
 
 - The following table lists Hive and Tez backports.
 

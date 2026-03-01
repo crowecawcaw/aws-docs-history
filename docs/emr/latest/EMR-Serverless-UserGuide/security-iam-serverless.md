@@ -21,9 +21,7 @@ To get a high-level view of how EMR Serverless and other AWS services work with 
 IAM features, refer to [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based policies for
-
-EMR Serverless
+## Identity-based policies for EMR Serverless
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Sample identity-based policies for
+### Sample identity-based policies for EMR Serverless
 
-EMR Serverless
+To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
 
-To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for
-EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
-
-## Resource-based policies within
-
-EMR Serverless
+## Resource-based policies within EMR Serverless
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions for
-
-EMR Serverless
+## Policy actions for EMR Serverless
 
 **Supports policy actions:**
 
@@ -98,12 +89,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for
-EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
+To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
 
-## Policy resources for
-
-EMR Serverless
+## Policy resources for EMR Serverless
 
 **Supports policy resources:**
 
@@ -123,12 +111,9 @@ the _Service Authorization Reference_. To learn which actions specify the ARN of
 each resource, refer to [Actions,
 resources, and condition keys for Amazon EMR Serverless](../../../service-authorization/latest/reference/list_amazonemrserverless.md "../../../service-authorization/latest/reference/list_amazonemrserverless.md").
 
-To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for
-EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
+To access examples of Amazon EMR Serverless identity-based policies, refer to [Identity-based policy examples for EMR Serverless](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md").
 
-## Policy condition keys for
-
-EMR Serverless
+## Policy condition keys for EMR Serverless
 
 Policy condition keys support| Supports service-specific policy condition keys | No |
 
@@ -159,9 +144,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control (ABAC) with
-
-EMR Serverless
+## Attribute-based access control (ABAC) with EMR Serverless
 
 Attribute-based access control (ABAC) support| Supports ABAC (tags in policies) | Yes |
 
@@ -176,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary credentials with
-
-EMR Serverless
+## Using Temporary credentials with EMR Serverless
 
 **Supports temporary credentials:**
 
@@ -190,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-EMR Serverless
+## Cross-service principal permissions for EMR Serverless
 
 **Supports forward access sessions (FAS):**
 
@@ -207,9 +186,7 @@ when making FAS requests, see [Forward access sessions](../../../IAM/latest/User
 | ---------------------- | --- |
 | Supports service roles | No  |
 
-## Service-linked roles for
-
-EMR Serverless
+## Service-linked roles for EMR Serverless
 
 |                               |     |
 | ----------------------------- | --- |

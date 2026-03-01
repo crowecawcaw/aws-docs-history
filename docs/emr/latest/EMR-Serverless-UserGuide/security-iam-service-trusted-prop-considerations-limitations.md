@@ -1,6 +1,4 @@
-# Considerations for EMR Serverless Trusted-Identity-Propagation
-
-integration
+# Considerations for EMR Serverless Trusted-Identity-Propagation integration
 
 Consider the following when you use IAM Identity Center Trusted-Identity-Propagation with EMR Serverelss Application:
 

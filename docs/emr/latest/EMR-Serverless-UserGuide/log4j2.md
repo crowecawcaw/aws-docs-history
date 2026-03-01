@@ -1,14 +1,10 @@
-# Configure Apache Log4j2 properties for
-
-Amazon EMR Serverless
+# Configure Apache Log4j2 properties for Amazon EMR Serverless
 
 This page describes how to configure custom [Apache Log4j 2.x](https://logging.apache.org/log4j/2.x/ "https://logging.apache.org/log4j/2.x/") properties for
 EMR Serverless jobs at `StartJobRun`. If you want to configure Log4j
 classifications at the application level, refer to [Default application configuration for EMR Serverless](default-configs.md "default-configs.md").
 
-## Configure Spark Log4j2 properties for
-
-Amazon EMR Serverless
+## Configure Spark Log4j2 properties for Amazon EMR Serverless
 
 With Amazon EMR releases 6.8.0 and higher, you can customize [Apache Log4j 2.x](https://logging.apache.org/log4j/2.x/ "https://logging.apache.org/log4j/2.x/") properties
 to specify fine-grained log configurations. This simplifies troubleshooting of your
@@ -19,11 +15,9 @@ classifications.
 ###### Topics
 
 - [Log4j2 classifications for Spark](#log4j2-spark-class "#log4j2-spark-class")
-- [Log4j2 configuration example for
-  Spark](#log4j2-spark-example "#log4j2-spark-example")
+- [Log4j2 configuration example for Spark](#log4j2-spark-example "#log4j2-spark-example")
 - [Log4j2 in sample Spark jobs](#log4j2-spark-jobs "#log4j2-spark-jobs")
-- [Log4j2 considerations for
-  Spark](#log4j2-spark-considerations "#log4j2-spark-considerations")
+- [Log4j2 considerations for Spark](#log4j2-spark-considerations "#log4j2-spark-considerations")
 
 ### Log4j2 classifications for Spark
 
@@ -43,9 +37,7 @@ This classification sets the values in the
 `log4j2.properties` file for the
 executor.
 
-### Log4j2 configuration example for
-
-Spark
+### Log4j2 configuration example for Spark
 
 The following example shows how to submit a Spark job with
 `applicationConfiguration` to customize Log4j2 configurations for
@@ -95,7 +87,7 @@ you initialize a custom Log4j2 configuration for the application.
 
 Python
 
-###### Example - Using Log4j2 for a Spark job with Python
+###### Example- Using Log4j2 for a Spark job with Python
 
 ```
 import os
@@ -141,7 +133,7 @@ job, use the following configuration:
 
 Scala
 
-###### Example - Using Log4j2 for a Spark job with Scala
+###### Example- Using Log4j2 for a Spark job with Scala
 
 ```
 import org.apache.log4j.Logger
@@ -179,9 +171,7 @@ job, use the following configuration:
 }
 ```
 
-### Log4j2 considerations for
-
-Spark
+### Log4j2 considerations for Spark
 
 The following Log4j2.x properties are not configurable for Spark
 processes:

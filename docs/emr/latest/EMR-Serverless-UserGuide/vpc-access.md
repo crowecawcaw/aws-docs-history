@@ -72,8 +72,7 @@ This is because the subnets that you choose determine the Availability Zones
 available for an EMR Serverless application to launch. Each worker consumes an IP
 address on the subnet where it is launched. Please ensure that the specified subnets
 have sufficient IP addresses for the number of workers you plan to launch. For more
-information on subnet planning, refer to [Best practices for subnet
-planning](#subnet-best-practices "#subnet-best-practices").
+information on subnet planning, refer to [Best practices for subnet planning](#subnet-best-practices "#subnet-best-practices").
 
 #### Considerations and limitations for subnets
 
@@ -132,9 +131,7 @@ On the **Job run detail** page, access the subnet used by your
 job for a specific run. Note that a job runs only in one subnet selected from the
 specified subnets.
 
-## Best practices for subnet
-
-planning
+## Best practices for subnet planning
 
 AWS resources are created in a subnet which is a subset of available IP addresses in
 an Amazon VPC. For example, a VPC with a /16 netmask has up to 65,536 available IP addresses

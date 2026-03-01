@@ -1,6 +1,4 @@
-# Using Hive user-defined functions with
-
-EMR Serverless
+# Using Hive user-defined functions with EMR Serverless
 
 Hive user-defined functions (UDFs) let you create custom functions to process records or
 groups of records. In this tutorial, you'll use a sample UDF with a pre-existing

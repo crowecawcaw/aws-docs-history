@@ -1,6 +1,4 @@
-# Interacting with your EMR Serverless application on the
-
-AWS CLI
+# Interacting with your EMR Serverless application on the AWS CLI
 
 From the AWS CLI, create, describe, and delete individual applications. You can also
 list all of your applications so that access them at a glance. This section describes
