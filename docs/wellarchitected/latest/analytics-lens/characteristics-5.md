@@ -2,7 +2,7 @@
 
 **Scalability:** Ensure that the underlying BI infrastructure is
 able to scale up vertically and horizontally both in terms of concurrent users as well as data
-volume. For example, Quick Suite SPICE, and web applications automatically scale up server capacity
+volume. For example, Quick SPICE, and web applications automatically scale up server capacity
 to accommodate a large number of concurrent users without any manual intervention in terms of
 provisioning additional capacity for data, load balancing, and other services.
 
@@ -24,13 +24,13 @@ industry regulations for the country or region the company is bound by.
 **Sharing and collaboration:** BI applications must support data
 democratization. They must have features that allow sharing of the dashboards with other users
 in the company as well as for multiple report authors to collaborate with one another by
-sharing access to the underlying dataset. Not all BI tools have this capability. Quick Suite allows
+sharing access to the underlying dataset. Not all BI tools have this capability. Quick allows
 the sharing of assets, such as data sources, data sets, analyses, dashboards, themes, and
 templates.
 
 **Logging, monitoring, and auditing:** BI applications must
 provide adequate mechanisms to monitor and audit the usage of the application for security (to
-prevent unwanted access to data assets and other resources) and troubleshooting. Quick Suite can be
+prevent unwanted access to data assets and other resources) and troubleshooting. Quick can be
 used with Amazon CloudWatch, AWS CloudTrail, and IAM to track record of actions taken by a user, user role,
 or an AWS service. This provides the who, what, when, and where of every user action in
 QuickSight.
@@ -42,7 +42,7 @@ forecasting and what-if analysis, or add easy-to-understand natural language nar
 dashboards. The business users need the ability to perform analytics without deep statistical
 and machine learning knowledge.
 
-Quick Suite ML Insights provide features that make it easy to discover hidden trends and
+Quick ML Insights provide features that make it easy to discover hidden trends and
 outliers, identify key business drivers, and perform powerful what-if analysis and forecasting
 with no technical or ML experience. 
 
@@ -53,7 +53,7 @@ without extensive user training and technical understanding. Data must be availa
 format - raw, semi-processed and processed. Self-service BI should allow users to interact
 with data on an as-needed-basis without involving IT. 
 
-Quick Suite Q allows user to ask business questions in natural language and receive answers with
+Quick Q allows user to ask business questions in natural language and receive answers with
 relevant visualizations that help them gain insights from the data. QuickSight Q uses machine
 learning to interpret the intent of a question and analyze the correct data to provide
 accurate answers to business questions quickly

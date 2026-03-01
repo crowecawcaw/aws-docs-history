@@ -1,6 +1,4 @@
-# 6 – Design resilience for analytics
-
-workload
+# 6 – Design resilience for analytics workload
 
 How do you design analytics workloads to withstand and mitigate
 failures?

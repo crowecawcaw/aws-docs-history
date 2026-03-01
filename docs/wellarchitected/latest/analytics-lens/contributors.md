@@ -31,8 +31,8 @@ whitepaper:
 - Bhasi Mehta, QuickSight SSA, Amazon Web Services
 - Padmaja Suren, Technical BDM-Cloud Intel & Pricing, WWPS Solution Architecture,
   Amazon Web Services
-- Srikanth Baheti, Senior Quick Suite Senior Solutions Architect, Amazon Web Services
-- Raji Sivasubramaniam, Quick Suite Senior Solutions Architect, Amazon Web Services
+- Srikanth Baheti, Senior Quick Senior Solutions Architect, Amazon Web Services
+- Raji Sivasubramaniam, Quick Senior Solutions Architect, Amazon Web Services
 - Wallace Printz, Senior Solutions Architect, Amazon Web Services
 - Radhika Ravirala, Principal Solutions Architect, Amazon Web Services
 - Indira Balakrishnan, Senior Specialist Solutions Architect, Amazon Web Services
@@ -44,5 +44,5 @@ whitepaper:
 - Harsha Tadiparthi, Principal Specialist Solutions Architect, Amazon Web Services
 - Muthu Pitchaimani, Analytics Specialist Solutions Architect, Amazon Web Services
 - David Tucker, Senior Manager of Analytics Solutions Architects, Amazon Web Services
-- Srikanth Baheti, Senior Quick Suite Senior Solutions Architect, Amazon Web Services
-- Raji Sivasubramaniam, Quick Suite Senior Solutions Architect, Amazon Web Services
+- Srikanth Baheti, Senior Quick Senior Solutions Architect, Amazon Web Services
+- Raji Sivasubramaniam, Quick Senior Solutions Architect, Amazon Web Services

@@ -12,9 +12,7 @@ without disrupting production systems. Test changes for
 accuracy and performance before changes are deployed into
 the production environment.
 
-## Suggestion 2.3.2 – Automate the deployment and testing when infrastructure and
-
-applications changes are introduced
+## Suggestion 2.3.2 – Automate the deployment and testing when infrastructure and applications changes are introduced
 
 The deployment of data pipelines and data infrastructure changes should be an automated process. When code is checked into version control, a CI/CD process should run tests and apply the changes to the staging environment, and once tested and confirmed correct, it should be deployed to the production environment.
 

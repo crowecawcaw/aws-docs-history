@@ -1,14 +1,10 @@
-# Best practice 1.2 – Monitor operational metrics of data processing jobs and the
-
-availability of source data
+# Best practice 1.2 – Monitor operational metrics of data processing jobs and the availability of source data
 
 Data processing pipelines often consist of multiple steps that all need to run in sequence to output the desired data sets and meet business deadlines. Monitoring each job in the pipeline is key to ensure operational excellence. The operational metrics of the jobs themselves should be monitored, as well as the availability of source data, and that results are produced.
 
 For example, if your pipeline runs on a fixed schedule, and there is no new source data to process, the pipeline may still appear healthy because it runs without failures. Similarly, if the pipeline runs when new source data becomes available, it can appear healthy when no new source data becomes available if you only alert on failed runs.
 
-## Suggestion 1.2.1 – Alert when new data has not arrived or become available within the
-
-expected time
+## Suggestion 1.2.1 – Alert when new data has not arrived or become available within the expected time
 
 You should monitor the time when new data arrives or becomes available, and alert when too much time has passed since the last occurrence. Even if the jobs in your data processing pipeline runs flawlessly, the quality of the results depend on the quality and availability of the source data.
 

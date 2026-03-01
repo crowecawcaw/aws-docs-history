@@ -79,9 +79,7 @@ process has affected should be recorded in an audit table.
 
 For more details, see AWS Big Data Blog: [Anonymize and manage data in your data lake with Amazon Athena and AWS Lake Formation](https://aws.amazon.com/blogs/big-data/anonymize-and-manage-data-in-your-data-lake-with-amazon-athena-and-aws-lake-formation/ "https://aws.amazon.com/blogs/big-data/anonymize-and-manage-data-in-your-data-lake-with-amazon-athena-and-aws-lake-formation/")
 
-### Suggestion 3.1.2.2 –
-
-Pseudonymization
+### Suggestion 3.1.2.2 – Pseudonymization
 
 **Pseudonymized data is not the same as anonymized data.**
 
@@ -103,9 +101,7 @@ function that supports both single item and batch processing.
 
 For more detail, see [Amazon Redshift Data Masking](../../../redshift/latest/dg/t_ddm.md "../../../redshift/latest/dg/t_ddm.md").
 
-### Suggestion 3.1.2.3 –
-
-Tokenization
+### Suggestion 3.1.2.3 – Tokenization
 
 _Tokenization_, when applied to data security, is
 the process of substituting a sensitive data element with a non-sensitive equivalent.
@@ -125,9 +121,7 @@ Your organization should consider the process to address
 the rights of the individual, citizen, or subject for
 their respective regional regulation.
 
-### Suggestion 3.1.3.1 – Subject Access
-
-Request (SAR)
+### Suggestion 3.1.3.1 – Subject Access Request (SAR)
 
 This particular right is for an individual to request
 information from the data controller, that is, how their
@@ -143,9 +137,7 @@ For more details, see Apache Spark Documentation -
 [Inferring
 the Schema Using Reflection](https://spark.apache.org/docs/2.3.0/sql-programming-guide.html#:~:text=Inferring%20the%20Schema%20Using%20Reflection,-Scala&text=The%20Scala%20interface%20for%20Spark,the%20names%20of%20the%20columns. "https://spark.apache.org/docs/2.3.0/sql-programming-guide.html#:~:text=Inferring%20the%20Schema%20Using%20Reflection,-Scala&text=The%20Scala%20interface%20for%20Spark,the%20names%20of%20the%20columns.")
 
-### Suggestion 3.1.3.2
-
-– Right to be forgotten or erasure
+### Suggestion 3.1.3.2 – Right to be forgotten or erasure
 
 Individuals have the right to erasure (the right to be forgotten), where an
 individual can request that all of their personal data is erased by the data controller

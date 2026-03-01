@@ -1,6 +1,4 @@
-# 8 – Choose the best-performing
-
-compute solution
+# 8 – Choose the best-performing compute solution
 
 ## How do you select the best-performing options for your analytics workload?
 

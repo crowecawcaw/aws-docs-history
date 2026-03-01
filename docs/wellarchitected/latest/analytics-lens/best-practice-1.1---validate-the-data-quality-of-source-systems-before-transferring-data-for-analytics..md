@@ -40,7 +40,7 @@ For more details, refer to the following information:
 - AWS Big Data Blog:
   [Build
   a data quality score card using AWS Glue DataBrew,
-  Amazon Athena, and Quick Suite](https://aws.amazon.com/blogs/big-data/build-a-data-quality-score-card-using-aws-glue-databrew-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/build-a-data-quality-score-card-using-aws-glue-databrew-amazon-athena-and-amazon-quicksight/").
+  Amazon Athena, and Quick](https://aws.amazon.com/blogs/big-data/build-a-data-quality-score-card-using-aws-glue-databrew-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/build-a-data-quality-score-card-using-aws-glue-databrew-amazon-athena-and-amazon-quicksight/").
 
 ## Suggestion 1.1.2 – Notify stakeholders and use business logic to determine how to remediate data that is not valid
 

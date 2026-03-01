@@ -12,10 +12,7 @@ Standard operating procedures allow teams to make changes
 confidently, thus avoiding repeatable mistakes and reducing
 the chance of human error.
 
-## Suggestion 2.4.2 – Use automation
-
-to perform changes to underlying analytics infrastructure
-or application logic
+## Suggestion 2.4.2 – Use automation to perform changes to underlying analytics infrastructure or application logic
 
 Automated tests can determine when changes have unintended
 consequences and can roll back without human intervention.

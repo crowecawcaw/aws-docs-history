@@ -22,17 +22,17 @@ Documentation and blogs
 
 - AWS Customer Carbon Footprint:
   [AWS Customer Carbon Footprint Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/")
-- Quick Suite: [Creating datasets](../../../quicksight/latest/user/creating-data-sets.md "../../../quicksight/latest/user/creating-data-sets.md")
+- Quick: [Creating datasets](../../../quicksight/latest/user/creating-data-sets.md "../../../quicksight/latest/user/creating-data-sets.md")
 - Amazon Athena data types:
   [Data
   types in Amazon Athena](../../../athena/latest/ug/data-types.md "../../../athena/latest/ug/data-types.md")
 - Amazon Redshift data types:
   [Data
   types](../../../redshift/latest/dg/c_Supported_data_types.md "../../../redshift/latest/dg/c_Supported_data_types.md")
-- Quick Suite:
+- Quick:
   [Supported
   data types and values](../../../quicksight/latest/user/supported-data-types-and-values.md "../../../quicksight/latest/user/supported-data-types-and-values.md")
-- Quick Suite: [Using AWS Lambda with Amazon Kinesis](../../../lambda/latest/dg/with-kinesis-example.md "../../../lambda/latest/dg/with-kinesis-example.md")
+- Quick: [Using AWS Lambda with Amazon Kinesis](../../../lambda/latest/dg/with-kinesis-example.md "../../../lambda/latest/dg/with-kinesis-example.md")
 - Amazon Kinesis: [Monitoring the Amazon Kinesis Data Streams
   Service with Amazon CloudWatch](../../../streams/latest/dev/monitoring-with-cloudwatch.md "../../../streams/latest/dev/monitoring-with-cloudwatch.md")
 - AWS Data Migration:

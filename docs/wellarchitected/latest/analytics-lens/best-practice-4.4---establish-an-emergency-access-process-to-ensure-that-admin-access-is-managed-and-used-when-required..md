@@ -6,9 +6,7 @@ issue. This will help you rely on least privilege access,
 but still provide users the right level of access when they
 require it.
 
-## Suggestion 4.4.1 – Ensure that risk analysis is performed on your analytics workload by
-
-identifying emergency situations and a procedure to allow emergency access
+## Suggestion 4.4.1 – Ensure that risk analysis is performed on your analytics workload by identifying emergency situations and a procedure to allow emergency access
 
 Identify the potential events that can happen from source
 systems, analytics workload, and downstream systems.

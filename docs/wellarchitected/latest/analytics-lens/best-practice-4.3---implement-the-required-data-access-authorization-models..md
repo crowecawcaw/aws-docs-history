@@ -55,7 +55,7 @@ For more details, refer to the following information:
 
 - AWS Big Data Blog:
   [Allow
-  fine-grained permissions for Quick Suite authors in
+  fine-grained permissions for Quick authors in
   AWS Lake](https://aws.amazon.com/blogs/big-data/enable-fine-grained-permissions-for-amazon-quicksight-authors-in-aws-lake-formation/ "https://aws.amazon.com/blogs/big-data/enable-fine-grained-permissions-for-amazon-quicksight-authors-in-aws-lake-formation/")
   [Formation](https://aws.amazon.com/blogs/big-data/enable-fine-grained-permissions-for-amazon-quicksight-authors-in-aws-lake-formation/ "https://aws.amazon.com/blogs/big-data/enable-fine-grained-permissions-for-amazon-quicksight-authors-in-aws-lake-formation/")
 - Amazon Redshift: [Role-based access controls](../../../redshift/latest/dg/t_Roles.md "../../../redshift/latest/dg/t_Roles.md")

@@ -95,9 +95,7 @@ Here are a few example questions to identify your data consumers.
 
 - How does your team on-board new data sources?
 
-## 4. Define your data
-
-storage, catalog, and data access needs
+## 4. Define your data storage, catalog, and data access needs
 
 In this step, you focus on your data storage, data cataloging, security, compliance, and
 data access requirements.
@@ -115,9 +113,7 @@ requirements. 
 - What data regulatory and governance compliance do you face?
 - What is your disaster recovery (DR) strategy?
 
-## 5. Define your data processing
-
-requirements
+## 5. Define your data processing requirements
 
 In this step, you focus on your data processing requirements.
 

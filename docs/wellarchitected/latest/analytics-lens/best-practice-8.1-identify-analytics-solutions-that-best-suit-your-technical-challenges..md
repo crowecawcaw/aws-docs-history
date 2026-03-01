@@ -3,7 +3,7 @@
 AWS has multiple analytics processing services that are
 built for specific purposes. These include Amazon Redshift
 for data warehousing, Amazon Kinesis for streaming data, and
-Quick Suite for data visualization. Your organization
+Quick for data visualization. Your organization
 should consider each step of the data analytics process as
 an opportunity to identify the right tool for the job.
 

@@ -9,6 +9,5 @@ reliable analytics workloads on AWS.
 
 ###### Best practices
 
-- [6 – Design resilience for analytics
-  workload](design-principle-6.md "design-principle-6.md")
+- [6 – Design resilience for analytics workload](design-principle-6.md "design-principle-6.md")
 - [7 – Govern data and metadata changes](design-principle-7.md "design-principle-7.md")

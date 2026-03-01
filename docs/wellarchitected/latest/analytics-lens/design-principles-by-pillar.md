@@ -16,14 +16,12 @@ Framework.
 
 ## [Reliability](reliability.md "reliability.md")
 
-- [6 – Design resilience for analytics
-  workload](design-principle-6.md "design-principle-6.md")
+- [6 – Design resilience for analytics workload](design-principle-6.md "design-principle-6.md")
 - [7 – Govern data and metadata changes](design-principle-7.md "design-principle-7.md")
 
 ## [Performance efficiency](performance-efficiency.md "performance-efficiency.md")
 
-- [8 – Choose the best-performing
-  compute solution](design-principle-8.md "design-principle-8.md")
+- [8 – Choose the best-performing compute solution](design-principle-8.md "design-principle-8.md")
 - [9 – Choose the best-performing storage solution](design-principle-9.md "design-principle-9.md")
 - [10 – Choose the best-performing file format and partitioning](design-principle-10.md "design-principle-10.md")
 

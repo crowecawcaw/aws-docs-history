@@ -10,7 +10,7 @@ classification policies. For example, if the policy requires
 every system to retain the operational data for five years,
 the analytics systems should implement rules to keep the
 in-scoped data for five years. More information on data
-retention can be found in [Sustainability](sustainability.md "sustainability.md") .
+retention can be found in [Sustainability](sustainability.md "sustainability.md").
 
 ## Suggestion 3.7.1 – Create backup requirements and policies based on data classifications
 

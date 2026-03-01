@@ -12,7 +12,7 @@ for the complete list of data sources supported in QuickSight. These data source
 secured behind a private subnet and QuickSight can connect in a secure mechanism using
 strategies such as VPC endpoints, and secure firewalls.
 
-**Visualization Tool:** Quick Suite.
+**Visualization Tool:** Quick.
 
 **Consumers:** Visual dashboard consumers accessing a QuickSight
 console or embedded QuickSight analytics dashboard.

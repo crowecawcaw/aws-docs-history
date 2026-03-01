@@ -1,6 +1,4 @@
-# Pillars of the Well-Architected
-
-Framework
+# Pillars of the Well-Architected Framework
 
 This section describes the design principles, best practices, and
 improvement suggestions that are relevant when designing your

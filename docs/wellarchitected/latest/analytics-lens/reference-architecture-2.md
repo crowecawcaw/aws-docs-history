@@ -210,9 +210,7 @@ goes offline, without possible downtime of your producing and consuming layers.
 
 ## Security
 
-### Authentication and
-
-authorization.
+### Authentication and authorization.
 
 - Amazon Managed Streaming for Apache Kafka Developer Guide: [Authentication and Authorization
   for Apache Kafka APIs](../../../msk/latest/developerguide/kafka_apis_iam.md "../../../msk/latest/developerguide/kafka_apis_iam.md")

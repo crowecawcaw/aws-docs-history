@@ -16,7 +16,6 @@ computing requirements meeting their performance needs.
 
 ###### Best practices
 
-- [8 – Choose the best-performing
-  compute solution](design-principle-8.md "design-principle-8.md")
+- [8 – Choose the best-performing compute solution](design-principle-8.md "design-principle-8.md")
 - [9 – Choose the best-performing storage solution](design-principle-9.md "design-principle-9.md")
 - [10 – Choose the best-performing file format and partitioning](design-principle-10.md "design-principle-10.md")

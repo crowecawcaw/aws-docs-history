@@ -2,9 +2,7 @@
 
 To better control costs, create distinct IAM roles that authorize users to provision certain resources. This ensures that only permitted individuals can provision the resources they are allowed to, preventing unauthorized and unnecessary spending.
 
-## Suggestion 12.3.1 – Create a cost governance framework that uses specialized IAM
-
-roles, rather than individual users, to provision costly infrastructure
+## Suggestion 12.3.1 – Create a cost governance framework that uses specialized IAM roles, rather than individual users, to provision costly infrastructure
 
 Restrict the authorization to launch costly resources to
 specific IAM roles. For example, certain instances types
