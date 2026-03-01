@@ -6,9 +6,7 @@ user guided setup, or WiFi Simple Setup.
 
 ###### Topics
 
-- [Simple setup to onboard and operate
-  devices](managedintegrations-sdk-v2-cookbook-ss.md "managedintegrations-sdk-v2-cookbook-ss.md")
-- [User guided setup to onboard and operate
-  devices](managedintegrations-sdk-v2-cookbook-ugs.md "managedintegrations-sdk-v2-cookbook-ugs.md")
+- [Simple setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-ss.md "managedintegrations-sdk-v2-cookbook-ss.md")
+- [User guided setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-ugs.md "managedintegrations-sdk-v2-cookbook-ugs.md")
 - [Capability rediscovery](managedintegrations-sdk-v2-onboarding-capability-rediscovery.md "managedintegrations-sdk-v2-onboarding-capability-rediscovery.md")
 - [WiFi Simple Setup to onboard and operate devices](managedintegrations-sdk-v2-cookbook-wss.md "managedintegrations-sdk-v2-cookbook-wss.md")

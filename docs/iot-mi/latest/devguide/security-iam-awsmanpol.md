@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSIoTManagedIntegrationsFullAccess
+## AWS managed policy: AWSIoTManagedIntegrationsFullAccess
 
 You can attach the `AWSIoTManagedIntegrationsFullAccess` policy to your IAM
 identities.
@@ -68,9 +66,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AWSIoTManagedIntegrationsRolePolicy
+## AWS managed policy: AWSIoTManagedIntegrationsRolePolicy
 
 You can attach the `AWSIoTManagedIntegrationsRolePolicy` policy to your
 IAM identities.
@@ -147,9 +143,7 @@ JSON
 
 ```
 
-## Managed integrations updates to AWS managed
-
-policies
+## Managed integrations updates to AWS managed policies
 
 View details about updates to AWS managed policies for managed integrations since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -6,21 +6,15 @@ onboarding, including how the core provisioner and protocol-specific plugins
 work together to handle device authentication, communication, and user
 setup.
 
-## Hub SDK components for
-
-device onboarding
+## Hub SDK components for device onboarding
 
 ###### SDK components
 
-- [Core
-  provisioner](#managedintegrations-sdk-v2-onboarding-core-provisioner "#managedintegrations-sdk-v2-onboarding-core-provisioner")
-- [Protocol-specific
-  provisioner plugins](#managedintegrations-sdk-v2-onboarding-protocol-plugins "#managedintegrations-sdk-v2-onboarding-protocol-plugins")
+- [Core provisioner](#managedintegrations-sdk-v2-onboarding-core-provisioner "#managedintegrations-sdk-v2-onboarding-core-provisioner")
+- [Protocol-specific provisioner plugins](#managedintegrations-sdk-v2-onboarding-protocol-plugins "#managedintegrations-sdk-v2-onboarding-protocol-plugins")
 - [Protocol-specific middleware](#managedintegrations-sdk-v2-onboarding-protocol-middleware "#managedintegrations-sdk-v2-onboarding-protocol-middleware")
 
-### Core
-
-provisioner
+### Core provisioner
 
 The core provisioner is the central component that orchestrates device onboarding in
 your IoT hub deployment. It coordinates all communication between managed integrations and your
@@ -47,9 +41,7 @@ managing authentication and radio joining modes.
 Receive and forward device capability reports from protocol-specific CDMB
 plugins to managed integrations.
 
-### Protocol-specific
-
-provisioner plugins
+### Protocol-specific provisioner plugins
 
 Protocol-specific provisioner plugins are libraries that manage device onboarding for
 different communication protocols. Each plugin translates commands from the core
@@ -78,8 +70,7 @@ outlines the supported onboarding methods.
 
 - [Simple setup (SS)](#managedintegrations-sdk-v2-onboarding-ssflow "#managedintegrations-sdk-v2-onboarding-ssflow")
 - [Zero-touch setup (ZTS)](#managedintegrations-sdk-v2-onboarding-zerotouch-flow "#managedintegrations-sdk-v2-onboarding-zerotouch-flow")
-- [User guided setup
-  (UGS)](#managedintegrations-sdk-v2-onboarding-ugsflow "#managedintegrations-sdk-v2-onboarding-ugsflow")
+- [User guided setup (UGS)](#managedintegrations-sdk-v2-onboarding-ugsflow "#managedintegrations-sdk-v2-onboarding-ugsflow")
 - [WiFi Simple Setup (WSS)](#managedintegrations-sdk-v2-onboarding-wssflow "#managedintegrations-sdk-v2-onboarding-wssflow")
 
 ### Simple setup (SS)
@@ -100,9 +91,7 @@ When the end user receives and powers on the device, it automatically enrolls in
 
 ![The Hub SDK architecture and components for the zero-touch setup onboarding flow.](images/ZeroTouchSetup.png)
 
-### User guided setup
-
-(UGS)
+### User guided setup (UGS)
 
 The end user powers on the device and follows interactive steps to onboard it to
 managed integrations. This might include pressing a button on the IoT hub, using a device

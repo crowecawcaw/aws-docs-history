@@ -1,6 +1,4 @@
-# User guided setup to onboard and operate
-
-devices
+# User guided setup to onboard and operate devices
 
 Set up your devices to be onboarded to your managed integrations hub by creating a managed thing an
 connecting it to your hub. This section describes the steps to complete the
@@ -20,15 +18,11 @@ Complete these steps before attempting to onboard a device:
 - [Step 1: Start device discovery](#managedintegrations-sdk-v2-cookbook-device-discovery "#managedintegrations-sdk-v2-cookbook-device-discovery")
 - [Step 2: Query the discovery job ID](#managedintegrations-sdk-v2-cookbook-query-discovery "#managedintegrations-sdk-v2-cookbook-query-discovery")
 - [Step 3: Create a managed thing for your device](#managedintegrations-sdk-v2-cookbook-ugs-managed-thing "#managedintegrations-sdk-v2-cookbook-ugs-managed-thing")
-- [Step 4: Query the
-  managed thing](#managedintegrations-sdk-v2-cookbook-query-managed-thing "#managedintegrations-sdk-v2-cookbook-query-managed-thing")
+- [Step 4: Query the managed thing](#managedintegrations-sdk-v2-cookbook-query-managed-thing "#managedintegrations-sdk-v2-cookbook-query-managed-thing")
 - [Step 5: Get managed thing capabilities](#managedintegrations-sdk-v2-cookbook-check-device-capabilties "#managedintegrations-sdk-v2-cookbook-check-device-capabilties")
-- [Step 6: Send a
-  command to the managed thing](#managedintegrations-sdk-v2-cookbook-ugs-control-device "#managedintegrations-sdk-v2-cookbook-ugs-control-device")
-- [Step 7: Check the
-  managed thing state](#managedintegrations-sdk-v2-cookbook-ugs-device-state "#managedintegrations-sdk-v2-cookbook-ugs-device-state")
-- [Step 8: Remove managed
-  thing from your hub](#managedintegrations-sdk-v2-cookbook-ugs-clean-up "#managedintegrations-sdk-v2-cookbook-ugs-clean-up")
+- [Step 6: Send a command to the managed thing](#managedintegrations-sdk-v2-cookbook-ugs-control-device "#managedintegrations-sdk-v2-cookbook-ugs-control-device")
+- [Step 7: Check the managed thing state](#managedintegrations-sdk-v2-cookbook-ugs-device-state "#managedintegrations-sdk-v2-cookbook-ugs-device-state")
+- [Step 8: Remove managed thing from your hub](#managedintegrations-sdk-v2-cookbook-ugs-clean-up "#managedintegrations-sdk-v2-cookbook-ugs-clean-up")
 
 ## Prerequisite: Enable pairing mode on your Z Wave device
 
@@ -140,9 +134,7 @@ aws iot-managed-integrations create-managed-thing \
 For more information, see the [create-managed-thing](../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md") command in the managed integrations AWS CLI
 _Command Reference_.
 
-## Step 4: Query the
-
-managed thing
+## Step 4: Query the managed thing
 
 You can check if a managed thing is activated by using the `get-managed-thing` command.
 
@@ -235,9 +227,7 @@ aws iot-managed-integrations get-managed-thing-capabilities \
 For more information, see the [get-managed-thing-capabilities](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md") command in the managed integrations
 AWS CLI*Command Reference*.
 
-## Step 6: Send a
-
-command to the managed thing
+## Step 6: Send a command to the managed thing
 
 You can use the send-managed-thing-command command to send a toggle action command to your managed thing.
 
@@ -290,9 +280,7 @@ This example uses jq cli to but you can also pass the entire `endpointId` string
 For more information, see the [send-managed-thing-command](../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md "../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md") command in the managed integrations AWS CLI
 _Command Reference_.
 
-## Step 7: Check the
-
-managed thing state
+## Step 7: Check the managed thing state
 
 Check the managed thing's state to validate the toggle action succeeded.
 
@@ -339,9 +327,7 @@ Check the managed thing's state to validate the toggle action succeeded.
 For more information, see the [get-managed-thing-state](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-state.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-state.md") command in the managed integrations
 AWS CLI _Command Reference_.
 
-## Step 8: Remove managed
-
-thing from your hub
+## Step 8: Remove managed thing from your hub
 
 Clean up your hub by removing the managed thing.
 

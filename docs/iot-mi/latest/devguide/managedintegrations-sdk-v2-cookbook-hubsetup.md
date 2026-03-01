@@ -8,13 +8,10 @@ structures, and configure the required certificates.
 
 - [Step 1: Register a custom endpoint](#managedintegrations-sdk-v2-cookbook-acc "#managedintegrations-sdk-v2-cookbook-acc")
 - [Step 2: Create a provisioning profile](#managedintegrations-sdk-v2-cookbook-fleet-provision "#managedintegrations-sdk-v2-cookbook-fleet-provision")
-- [Step 3: Create a managed thing
-  (fleet provisioning)](#managedintegrations-sdk-v2-cookbook-managedthing "#managedintegrations-sdk-v2-cookbook-managedthing")
-- [Step 4: Create the directory
-  structure](#managedintegrations-sdk-v2-cookbook-hubdir "#managedintegrations-sdk-v2-cookbook-hubdir")
+- [Step 3: Create a managed thing (fleet provisioning)](#managedintegrations-sdk-v2-cookbook-managedthing "#managedintegrations-sdk-v2-cookbook-managedthing")
+- [Step 4: Create the directory structure](#managedintegrations-sdk-v2-cookbook-hubdir "#managedintegrations-sdk-v2-cookbook-hubdir")
 - [Step 5: Add authentication materials to hub device](#managedintegrations-sdk-v2-cookbook-copycert "#managedintegrations-sdk-v2-cookbook-copycert")
-- [Step 6: Create the device
-  configuration file](#managedintegrations-sdk-v2-cookbook-genconfig "#managedintegrations-sdk-v2-cookbook-genconfig")
+- [Step 6: Create the device configuration file](#managedintegrations-sdk-v2-cookbook-genconfig "#managedintegrations-sdk-v2-cookbook-genconfig")
 - [Step 7: Copy the configuration file to your hub](#managedintegrations-sdk-v2-cookbook-copyconfig "#managedintegrations-sdk-v2-cookbook-copyconfig")
 
 ## Step 1: Register a custom endpoint
@@ -97,9 +94,7 @@ aws iot-managed-integrations create-provisioning-profile \
 }
 ```
 
-## Step 3: Create a managed thing
-
-(fleet provisioning)
+## Step 3: Create a managed thing (fleet provisioning)
 
 Use the `CreateManagedThing` API to create a managed thing for your hub
 device. Each hub requires its own managed thing with unique authentication materials. For
@@ -131,17 +126,13 @@ material.
 
 For more information, see [CreateManagedThing](../APIReference/API_CreateManagedThing.md "../APIReference/API_CreateManagedThing.md") in the managed integrations _API Reference_.
 
-### (Optional) Get managed
-
-thing
+### (Optional) Get managed thing
 
 The `ProvisioningStatus` of your managed thing must be `PRE_ASSOCIATED` before you can proceed. For more information on ProvisioningStatus, see [Device Provisioning](device-provisioning.md "device-provisioning.md").
 Use the `GetManagedThing` API to verify that your managed thing exists and is ready for provisioning.
 For more information, see [GetManagedThing](../APIReference/API_GetManagedThing.md "../APIReference/API_GetManagedThing.md") in the managed integrations _API Reference_.
 
-## Step 4: Create the directory
-
-structure
+## Step 4: Create the directory structure
 
 Create directories for your configuration files and certificates. By default, the hub
 onboarding process uses the `/data/aws/iotmi/config/iotmi_config.json`.
@@ -166,9 +157,7 @@ Copy certificates and keys to your hub device, then create a device-specific
 configuration file. These files establish secure communication between your hub and managed integrations
 during the provisioning process.
 
-###### To copy claim certificate and
-
-key
+###### To copy claim certificate and key
 
 - Copy these authentication files from your `CreateProvisioningProfile` API
   response to your hub device:
@@ -190,9 +179,7 @@ as simply storing escaped newlines will not be correctly retrieved later.
 If you use secure storage, store these credentials in your secure storage location
 instead of the file system. For more information, see [Create a custom certificate handler for secure storage](managedintegrations-sdk-v2-cookbook-certhandler.md "managedintegrations-sdk-v2-cookbook-certhandler.md").
 
-## Step 6: Create the device
-
-configuration file
+## Step 6: Create the device configuration file
 
 Create a configuration file that contains unique device identifiers,
 certificate locations, and provisioning settings. The SDK uses this file during hub
@@ -260,9 +247,7 @@ Configure these required fields in the device configuration file:
 }
 ```
 
-### Contents of the configuration
-
-file
+### Contents of the configuration file
 
 Review the contents of the `iotmi_config.json`
 file.

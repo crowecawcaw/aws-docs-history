@@ -1,6 +1,4 @@
-# Zigbee middleware code
-
-organization
+# Zigbee middleware code organization
 
 The following shows the Zigbee reference middleware code organization.
 

@@ -1,18 +1,13 @@
-# Port the End device SDK to your
-
-device
+# Port the End device SDK to your device
 
 Port the End device SDK to your device platform. Follow these steps to connect your devices with
 AWS IoT Device Management.
 
-## Download and verify the
-
-End device SDK
+## Download and verify the End device SDK
 
 1. Download the latest version of the End device SDK from the
    [managed integrations console](https://console.aws.amazon.com/iot/home#/managed-integrations/intro "https://console.aws.amazon.com/iot/home#/managed-integrations/intro").
-2. Verify that your platform is in the list of supported platforms in [Reference: Supported
-   platforms](managedintegrations-sdk-device-appendix.md#managedintegrations-sdk-device-appendixA "managedintegrations-sdk-device-appendix.md#managedintegrations-sdk-device-appendixA").
+2. Verify that your platform is in the list of supported platforms in [Reference: Supported platforms](managedintegrations-sdk-device-appendix.md#managedintegrations-sdk-device-appendixA "managedintegrations-sdk-device-appendix.md#managedintegrations-sdk-device-appendixA").
 
 ###### Note
 
@@ -113,9 +108,7 @@ library](../../../freertos/latest/portingguide/afr-porting-pkcs.md "../../../fre
     * Set up the library paths to resolve any linker issues or symbol conflicts
     * Verify all dependencies are properly linked
 
-## Test your
-
-port
+## Test your port
 
 You can use the existing example application to test your port. The compilation must
 complete without any errors or warnings.

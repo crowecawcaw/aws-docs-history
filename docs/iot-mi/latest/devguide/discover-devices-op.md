@@ -240,9 +240,7 @@ URI – POST /connector-event/{your_connector_id}
 
 ```
 
-## Construct a CapabilityReport for
-
-the DISCOVER_DEVICES event
+## Construct a CapabilityReport for the DISCOVER_DEVICES event
 
 As seen in the event structure defined above, every device reported in a
 DISCOVER_DEVICES event, serving as response to an `AWS.DiscoverDevices`

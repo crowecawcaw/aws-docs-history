@@ -1,25 +1,17 @@
-# Deploy the Hub SDK
-
-with a script
+# Deploy the Hub SDK with a script
 
 Deploy the managed integrations Hub SDK components manually using installation scripts, then validate the
 deployment. This section describes the script execution steps and verification process.
 
 ###### Topics
 
-- [Prepare your
-  environment](#managedintegrations-sdk-v2-cookbook-runscript-prereq "#managedintegrations-sdk-v2-cookbook-runscript-prereq")
+- [Prepare your environment](#managedintegrations-sdk-v2-cookbook-runscript-prereq "#managedintegrations-sdk-v2-cookbook-runscript-prereq")
 - [Run the Hub SDK script](#managedintegrations-sdk-v2-cookbook-runscript-run "#managedintegrations-sdk-v2-cookbook-runscript-run")
-- [Verify hub
-  provisioning](#managedintegrations-sdk-v2-cookbook-odm-validation-hub "#managedintegrations-sdk-v2-cookbook-odm-validation-hub")
-- [Verify agent
-  operation](#managedintegrations-sdk-v2-cookbook-odm-validation-agent "#managedintegrations-sdk-v2-cookbook-odm-validation-agent")
-- [Verify
-  LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner "#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner")
+- [Verify hub provisioning](#managedintegrations-sdk-v2-cookbook-odm-validation-hub "#managedintegrations-sdk-v2-cookbook-odm-validation-hub")
+- [Verify agent operation](#managedintegrations-sdk-v2-cookbook-odm-validation-agent "#managedintegrations-sdk-v2-cookbook-odm-validation-agent")
+- [Verify LPW-Provisioner operation](#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner "#managedintegrations-sdk-v2-cookbook-odm-validation-provisioner")
 
-## Prepare your
-
-environment
+## Prepare your environment
 
 Complete these steps before running the SDK installation script:
 
@@ -99,17 +91,13 @@ Process 'iotmi_lpw_provisioner' is running.
 ------Successfully Started SDK----
 ```
 
-## Verify hub
-
-provisioning
+## Verify hub provisioning
 
 Check that the `iot_provisioning_state` field in
 `/data/aws/iotmi/config/iotmi_config.json` is set to `PROVISIONED`.
 .
 
-## Verify agent
-
-operation
+## Verify agent operation
 
 Check the logs file for agent startup messages and successful initialization.
 
@@ -129,9 +117,7 @@ Example
 Check that the `iotmi.db` database exists in your `artifacts`
 directory.
 
-## Verify
-
-LPW-Provisioner operation
+## Verify LPW-Provisioner operation
 
 Check the logs file for `LPW-Provisioner` startup messages and successful
 initialization.

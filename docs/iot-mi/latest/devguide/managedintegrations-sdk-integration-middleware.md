@@ -5,8 +5,7 @@ The middleware integration on the new hub is discussed in the following sections
 ###### Topics
 
 - [Device porting kit (DPK) API integration](#smarthome-sdk-v2-integration-dpk "#smarthome-sdk-v2-integration-dpk")
-- [Reference implementation and code
-  organization](#managedintegrations-sdk-integration-code "#managedintegrations-sdk-integration-code")
+- [Reference implementation and code organization](#managedintegrations-sdk-integration-code "#managedintegrations-sdk-integration-code")
 
 ## Device porting kit (DPK) API integration
 
@@ -15,9 +14,7 @@ provided by the DPK (Device porting kit) layer of the middle. The managed integr
 providers or ODMs need to implement these APIs based on the vendor SDK supported by the
 Zigbee/Z-wave/Wi-Fi chipsets used on their IoT Hubs.
 
-## Reference implementation and code
-
-organization
+## Reference implementation and code organization
 
 Except the middleware, all other Device SDK components, such as the managed integrations Device
 Agent and Common Data Model Bridge (CDMB) can be used without any modifications and only

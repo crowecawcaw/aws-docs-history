@@ -1,6 +1,4 @@
-# End device SDK architecture and
-
-components
+# End device SDK architecture and components
 
 This section describes the End device SDK architecture and how its components interact with your
 low level C-Functions. The following diagram illustrates the core components and their

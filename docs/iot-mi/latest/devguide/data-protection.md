@@ -107,15 +107,12 @@ following list outlines types of data encrypted at rest using encryption keys:
   device profile containing the capabilities for a specific device type. For more
   information on a device and device profile, see [Device](device-and-device-profile-lifecycle-management.md#device "device-and-device-profile-lifecycle-management.md#device") and [Device](device-and-device-profile-lifecycle-management.md#device "device-and-device-profile-lifecycle-management.md#device").
 - Managed integrations notifications on various aspects of your device implementation. For
-  more information on managed integrations notifications, see [Set up managed integrations
-  notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
+  more information on managed integrations notifications, see [Set up managed integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
 - Personally Identifiable Information (PII) of an end-user such as device
   authentication material, device serial number, end-user's name, device identifier, and
   device Amazon Resource Name (arn).
 
-### How managed integrations uses key policies in
-
-AWS KMS
+### How managed integrations uses key policies in AWS KMS
 
 For branch key rotation and asynchronous calls, managed integrations requires a key policy to
 use your encryption key. A key policy is used for the following reasons:

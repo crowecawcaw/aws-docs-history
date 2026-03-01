@@ -82,8 +82,7 @@ air purifier, both using CMake as the build system.
     ```
 
     This demo implements low-level C-Functions for a simulated camera with RTC Session
-     Controller and Recording clusters. Complete the flow mentioned in [Provisionee
-     workflow](managedintegrations-sdk-device-provisionee.md#managedintegrations-sdk-device-provisionee-how "managedintegrations-sdk-device-provisionee.md#managedintegrations-sdk-device-provisionee-how") before
+     Controller and Recording clusters. Complete the flow mentioned in [Provisionee workflow](managedintegrations-sdk-device-provisionee.md#managedintegrations-sdk-device-provisionee-how "managedintegrations-sdk-device-provisionee.md#managedintegrations-sdk-device-provisionee-how") before
      running.
 
 

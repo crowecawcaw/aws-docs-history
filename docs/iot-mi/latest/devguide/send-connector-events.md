@@ -1,10 +1,6 @@
-# Send device events with the SendConnectorEvent
+# Send device events with the SendConnectorEvent API
 
-API
-
-## Device initiated events
-
-overview
+## Device initiated events overview
 
 While the `SendConnectorEvent` API is used to asynchronously respond to
 `AWS.SendCommand` and `AWS.DiscoverDevices` operations, it is also

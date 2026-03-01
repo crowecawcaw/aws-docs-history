@@ -6,8 +6,6 @@ validation steps for both approaches.
 
 ###### Deployment methods
 
-- [Install the Hub SDK
-  with AWS IoT Greengrass](managedintegrations-sdk-v2-cookbook-deployment-gg.md "managedintegrations-sdk-v2-cookbook-deployment-gg.md")
-- [Deploy the Hub SDK
-  with a script](managedintegrations-sdk-v2-cookbook-deployment-nogg.md "managedintegrations-sdk-v2-cookbook-deployment-nogg.md")
+- [Install the Hub SDK with AWS IoT Greengrass](managedintegrations-sdk-v2-cookbook-deployment-gg.md "managedintegrations-sdk-v2-cookbook-deployment-gg.md")
+- [Deploy the Hub SDK with a script](managedintegrations-sdk-v2-cookbook-deployment-nogg.md "managedintegrations-sdk-v2-cookbook-deployment-nogg.md")
 - [Deploy Hub SDK with systemd](managedintegrations-sdk-v2-cookbook-deployment-hub-deployment-scripts.md "managedintegrations-sdk-v2-cookbook-deployment-hub-deployment-scripts.md")

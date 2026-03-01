@@ -1,14 +1,11 @@
-# Z-Wave middleware code
-
-organization
+# Z-Wave middleware code organization
 
 The following shows the Z-wave reference middleware code organization.
 
 ###### Topics
 
 - [ACS Z-Wave DPK](#managedintegrations-sdk-middleware-zwavedpk "#managedintegrations-sdk-middleware-zwavedpk")
-- [Silicon Labs ZWare and Zip
-  Gateway](#managedintegrations-sdk-middleware-zware "#managedintegrations-sdk-middleware-zware")
+- [Silicon Labs ZWare and Zip Gateway](#managedintegrations-sdk-middleware-zware "#managedintegrations-sdk-middleware-zware")
 - [ACS Z-Wave Service](#managedintegrations-sdk-middleware-zwavesvc "#managedintegrations-sdk-middleware-zwavesvc")
 - [ACS Z-Wave Adaptor](#managedintegrations-sdk-middleware-zwaveadaptor "#managedintegrations-sdk-middleware-zwaveadaptor")
 
@@ -46,9 +43,7 @@ folder.
 |—       |— zware
 ```
 
-## Silicon Labs ZWare and Zip
-
-Gateway
+## Silicon Labs ZWare and Zip Gateway
 
 The code for the Silicon labs ZWare and Zip Gateway is located inside the
 `IotManagedIntegrationsDeviceSDK-Middleware/`example`-iot-ace-z3-gateway` folder. This ACS

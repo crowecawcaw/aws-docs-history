@@ -42,8 +42,7 @@ managed integrations:
   connects to the IoT hub.
 - [Zero-touch setup (ZTS)](managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-zerotouch-flow "managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-zerotouch-flow"): The device is pre-associated upstream in the supply chain. For example,
   instead of end-users scanning the device QR code, this step is completed earlier to pre-link the device to the customer accounts.
-- [User guided setup
-  (UGS)](managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ugsflow "managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ugsflow"): The end user powers on the device and follows interactive steps
+- [User guided setup (UGS)](managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ugsflow "managedintegrations-sdk-v2-device-onboarding.md#managedintegrations-sdk-v2-onboarding-ugsflow"): The end user powers on the device and follows interactive steps
   to onboard it to managed integrations. This might include pressing a button on the IoT hub, using a device
   manufacturer app, or pressing buttons on both the hub and device. You can use this method if
   Simple setup fails.

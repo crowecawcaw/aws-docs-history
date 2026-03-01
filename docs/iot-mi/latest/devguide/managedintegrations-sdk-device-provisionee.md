@@ -9,8 +9,7 @@ provisionee.
 
 ###### Topics
 
-- [Provisionee
-  workflow](#managedintegrations-sdk-device-provisionee-how "#managedintegrations-sdk-device-provisionee-how")
+- [Provisionee workflow](#managedintegrations-sdk-device-provisionee-how "#managedintegrations-sdk-device-provisionee-how")
 - [Set environment variables](#sdk-provisionee-envvars "#sdk-provisionee-envvars")
 - [Register a custom endpoint](#sdk-provisionee-endpoint-create "#sdk-provisionee-endpoint-create")
 - [Create a provisioning profile](#sdk-provisionee-template-create "#sdk-provisionee-template-create")
@@ -19,9 +18,7 @@ provisionee.
 - [Fleet provisioning by claim](#sdk-provisionee-endpoint-claim "#sdk-provisionee-endpoint-claim")
 - [Managed thing capabilities](#sdk-provisionee-endpoint-update "#sdk-provisionee-endpoint-update")
 
-## Provisionee
-
-workflow
+## Provisionee workflow
 
 The process requires setup on both cloud and device sides.
 Customers configure

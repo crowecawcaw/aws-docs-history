@@ -123,8 +123,7 @@ Once the prerequisites are met, you can run your custom application. For example
 
 ###### Important
 
-You must manually update the start script listed in [Deploy the Hub SDK
-with a script](managedintegrations-sdk-v2-cookbook-deployment-nogg.md "managedintegrations-sdk-v2-cookbook-deployment-nogg.md") with a script to start your own application.
+You must manually update the start script listed in [Deploy the Hub SDK with a script](managedintegrations-sdk-v2-cookbook-deployment-nogg.md "managedintegrations-sdk-v2-cookbook-deployment-nogg.md") with a script to start your own application.
 The order matters, don't change the order.
 
 Update the following. Change

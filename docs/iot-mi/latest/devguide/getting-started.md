@@ -74,9 +74,7 @@ specified region.
 
 Listed below are the types of onboarding:
 
-### Direct-connected device
-
-onboarding
+### Direct-connected device onboarding
 
 See [Provisionee](managedintegrations-sdk-device-provisionee.md "managedintegrations-sdk-device-provisionee.md")
 for steps to onboard a direct connected device.
@@ -86,9 +84,7 @@ for steps to onboard a direct connected device.
 See [Onboard your hubs to managed integrations](managedintegrations-sdk-v2-cookbook-usinghub.md "managedintegrations-sdk-v2-cookbook-usinghub.md")
 for steps to onboard the hub.
 
-### Hub-connected device
-
-onboarding
+### Hub-connected device onboarding
 
 See [Onboard devices and operate them in hub](managedintegrations-sdk-v2-cookbook-onboard-to-hub.md "managedintegrations-sdk-v2-cookbook-onboard-to-hub.md")
 for steps to onboard a hub connected device.

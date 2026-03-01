@@ -6,8 +6,7 @@ communication between third-party devices and AWS.
 ###### Topics
 
 - [What is a cloud-to-cloud (C2C) connector?](#concepts-what-is-c2c-connector "#concepts-what-is-c2c-connector")
-- [What is the C2C connector
-  catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
+- [What is the C2C connector catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
 - [AWS Lambda functions as C2C connectors](#lambda-connector "#lambda-connector")
 - [Managed integrations connector workflow](#c2c-workflow "#c2c-workflow")
 - [Guidelines for using a C2C (cloud-to-cloud) connector](#c2c-cloud-connector-disclaimer "#c2c-cloud-connector-disclaimer")
@@ -22,15 +21,12 @@ solution providers can leverage managed integrations for AWS IoT Device Manageme
 third-party clouds.
 
 Managed integrations includes a catalog of connectors where AWS customers can view and
-select connectors they want to integrate with. For more information, see [What is the C2C connector
-catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
+select connectors they want to integrate with. For more information, see [What is the C2C connector catalog?](#concepts-connector-catalog "#concepts-connector-catalog")
 
 Managed integrations requires every connector be implemented as an AWS Lambda
 function.
 
-## What is the C2C connector
-
-catalog?
+## What is the C2C connector catalog?
 
 The managed integrations for AWS IoT Device Management connector catalog is a collection of C2C connectors that facilitate
 bidirectional communication between managed integrations for AWS IoT Device Management and a third-party cloud provider. You can view the connectors in the AWS Management Console or the AWS CLI.

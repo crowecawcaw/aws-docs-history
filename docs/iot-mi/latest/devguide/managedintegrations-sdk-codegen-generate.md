@@ -8,10 +8,8 @@ workflow process, and create code that matches your device requirements.
 ###### Topics
 
 - [Prerequisites](#managedintegrations-sdk-codegen-genprereq "#managedintegrations-sdk-codegen-genprereq")
-- [Generate code for custom
-  .matter files](#managedintegrations-sdk-codegen-genspecfile "#managedintegrations-sdk-codegen-genspecfile")
-- [Code generation
-  workflow](#managedintegrations-sdk-codegen-genworkflow "#managedintegrations-sdk-codegen-genworkflow")
+- [Generate code for custom .matter files](#managedintegrations-sdk-codegen-genspecfile "#managedintegrations-sdk-codegen-genspecfile")
+- [Code generation workflow](#managedintegrations-sdk-codegen-genworkflow "#managedintegrations-sdk-codegen-genworkflow")
 
 ## Prerequisites
 
@@ -36,9 +34,7 @@ Run this command to generate code in the out folder:
 bash ./gen-data-model-api.sh
 ```
 
-## Generate code for custom
-
-.matter files
+## Generate code for custom .matter files
 
 To generate the code for a specific `.matter` file or provide your own
 `.matter` file, perform the following tasks.
@@ -74,9 +70,7 @@ The plugin defines the variables to pass to the Jinja2 templates, which are then
 to generate the final C code output. Adding the `--format` flag applies the
 Clang format to the generated code.
 
-## Code generation
-
-workflow
+## Code generation workflow
 
 The code generation process organizes your .matter file data structures using utility
 functions and topological sorting through `topsort.py`. This ensures

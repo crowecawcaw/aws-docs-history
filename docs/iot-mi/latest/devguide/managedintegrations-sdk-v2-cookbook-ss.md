@@ -1,6 +1,4 @@
-# Simple setup to onboard and operate
-
-devices
+# Simple setup to onboard and operate devices
 
 Set up your devices to be onboarded to your managed integrations hub by creating a managed thing and
 connecting it to your hub. This section describes the steps to complete the device
@@ -20,12 +18,9 @@ Complete these steps before attempting to onboard a device:
 - [Step 2: Add the credential locker to your hub](#managedintegrations-sdk-v2-cookbook-add-to-hub "#managedintegrations-sdk-v2-cookbook-add-to-hub")
 - [Step 3: Create a managed thing with credentials.](#managedintegrations-sdk-v2-cookbook-ss-create-managed-thing "#managedintegrations-sdk-v2-cookbook-ss-create-managed-thing")
 - [Step 4: Plug in the device and check its status.](#managedintegrations-sdk-v2-cookbook-ss-check-device-status "#managedintegrations-sdk-v2-cookbook-ss-check-device-status")
-- [Step 5: Get Device
-  Capabilities](#managedintegrations-sdk-v2-cookbook-ss-check-device-capabilities "#managedintegrations-sdk-v2-cookbook-ss-check-device-capabilities")
-- [Step 6: Send a
-  command to the managed thing](#managedintegrations-sdk-v2-cookbook-ss-control-device "#managedintegrations-sdk-v2-cookbook-ss-control-device")
-- [Step 7: Remove the managed
-  thing from your hub](#managedintegrations-sdk-v2-cookbook-clean-up "#managedintegrations-sdk-v2-cookbook-clean-up")
+- [Step 5: Get Device Capabilities](#managedintegrations-sdk-v2-cookbook-ss-check-device-capabilities "#managedintegrations-sdk-v2-cookbook-ss-check-device-capabilities")
+- [Step 6: Send a command to the managed thing](#managedintegrations-sdk-v2-cookbook-ss-control-device "#managedintegrations-sdk-v2-cookbook-ss-control-device")
+- [Step 7: Remove the managed thing from your hub](#managedintegrations-sdk-v2-cookbook-clean-up "#managedintegrations-sdk-v2-cookbook-clean-up")
 
 ## Step 1: Create a credential locker
 
@@ -161,9 +156,7 @@ aws iot-managed-integrations get-managed-thing \
 For more information, see the [get-managed-thing](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing.md") command in the managed integrations AWS CLI
 _Command Reference_.
 
-## Step 5: Get Device
-
-Capabilities
+## Step 5: Get Device Capabilities
 
 Use the `get-managed-thing-capabilities` command to obtain your endpoint ID and view
 a list of possible actions for your device.
@@ -215,9 +208,7 @@ aws iotmi get-managed-thing-capabilities \
 For more information, see the [get-managed-thing-capabilities](../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md "../../../cli/latest/reference/iot-managed-integrations/get-managed-thing-capabilities.md") command in the managed integrations AWS CLI
 _Command Reference_.
 
-## Step 6: Send a
-
-command to the managed thing
+## Step 6: Send a command to the managed thing
 
 Use the `send-managed-thing-command` command to send a toggle action command to your
 managed thing.
@@ -271,9 +262,7 @@ This example uses jq cli to but you can also pass the entire `endpointId` string
 For more information, see the [send-managed-thing-command](../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md "../../../cli/latest/reference/iot-managed-integrations/send-managed-thing-command.md") command in the managed integrations AWS CLI
 _Command Reference_.
 
-## Step 7: Remove the managed
-
-thing from your hub
+## Step 7: Remove the managed thing from your hub
 
 Clean up your hub by removing the managed thing.
 

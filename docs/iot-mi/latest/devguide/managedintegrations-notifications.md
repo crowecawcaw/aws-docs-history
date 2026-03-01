@@ -114,9 +114,7 @@ Add the permissions policy you created in step 2 to the role.
 
 - **Enter a role name and click Create role.**
 
-## Set up managed integrations
-
-notifications
+## Set up managed integrations notifications
 
 ###### Notification setup steps
 

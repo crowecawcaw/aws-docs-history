@@ -214,9 +214,7 @@ through the SendConnectorEvent API. This means that until Managed integrations f
 event from prior step 3, regardless of whether or not your connector invocation
 response denotes success, the device state will not be updated.
 
-## Interpreting matter 'endpoints' included in
-
-AWS.SendCommand request
+## Interpreting matter 'endpoints' included in AWS.SendCommand request
 
 Managed integrations will use the device capabilities reported during device discovery to
 determine what commands a device can accept. Every device capability is modeled through

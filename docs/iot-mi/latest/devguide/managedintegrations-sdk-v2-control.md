@@ -48,9 +48,7 @@ an end user turns on a Zigbee smart plug.
 
 ![The Hub SDK end-to-end flow for device control with a Zigbee smart plug.](images/iot-managedintegrations-sdk-v2-controlflow.png)
 
-## Hub SDK components for
-
-device control
+## Hub SDK components for device control
 
 The Hub SDK architecture uses the following components to process and route device
 control commands in your IoT implementation. Each component plays a specific role in

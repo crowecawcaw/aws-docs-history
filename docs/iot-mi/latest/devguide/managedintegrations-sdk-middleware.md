@@ -43,9 +43,7 @@ The protocol-specific middleware has three main components.
   The Zigbee adaptor provides a set of APIs which are consumed by client applications like
   CDMB/Provisioner protocol plugins to control and communicate with the end device.
 
-## End-to-end middleware command flow
-
-example
+## End-to-end middleware command flow example
 
 Here is an example of the command flow through the Zigbee middleware.
 

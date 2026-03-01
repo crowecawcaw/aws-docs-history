@@ -4,9 +4,7 @@ Device certificate management is crucial when onboarding the managed integration
 
 The managed integrations End device SDK provides a certificate handler to secure storage interface that you can implement as a shared object (.so) library. Build your secure storage implementation to read and write certificates, then link the library file to the HubOnboarding process at runtime.
 
-## API definition and
-
-components
+## API definition and components
 
 Review the following `secure_storage_cert_handler_interface.hpp` file to understand the API components and requirements for your implementation
 
@@ -256,23 +254,17 @@ After compilation, you'll have a `libSecureStorageCertHandler.so` shared object 
 
 ###### Topics
 
-- [Key
-  considerations](#managedintegrations-sdk-v2-cookbook-certhandler-useconsider "#managedintegrations-sdk-v2-cookbook-certhandler-useconsider")
-- [Use secure
-  storage](#managedintegrations-sdk-v2-cookbook-certhandler-usagehowto "#managedintegrations-sdk-v2-cookbook-certhandler-usagehowto")
+- [Key considerations](#managedintegrations-sdk-v2-cookbook-certhandler-useconsider "#managedintegrations-sdk-v2-cookbook-certhandler-useconsider")
+- [Use secure storage](#managedintegrations-sdk-v2-cookbook-certhandler-usagehowto "#managedintegrations-sdk-v2-cookbook-certhandler-usagehowto")
 
-### Key
-
-considerations
+### Key considerations
 
 - Verify that your user account has read and write permissions for both the HubOnboarding binary and `libSecureStorageCertHandler.so` library.
 - Keep `secure_storage_cert_handler_interface.hpp` as your only public header file. All other header files should remain in your private implementation.
 - Verify your shared object library name. While you build `libSecureStorageCertHandler.so`, HubOnboarding might require a specific version in the filename, such as `libSecureStorageCertHandler.so.1.0`. Use the `ldd` command to check library dependencies and create symbolic links as needed.
 - If your implementation of the shared library has external dependencies, store them in a directory that HubOnboarding can access, such as `/usr/lib or the iotmi_common` directory.
 
-### Use secure
-
-storage
+### Use secure storage
 
 Update your `iotmi_config.json` file by setting both `iot_claim_cert_path` and `iot_claim_pk_path` to `SECURE_STORAGE`.
 

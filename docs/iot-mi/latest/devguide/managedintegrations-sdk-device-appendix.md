@@ -2,15 +2,11 @@
 
 ###### Topics
 
-- [Reference: Supported
-  platforms](#managedintegrations-sdk-device-appendixA "#managedintegrations-sdk-device-appendixA")
-- [Reference: Technical
-  requirements](#managedintegrations-sdk-device-appendixB "#managedintegrations-sdk-device-appendixB")
+- [Reference: Supported platforms](#managedintegrations-sdk-device-appendixA "#managedintegrations-sdk-device-appendixA")
+- [Reference: Technical requirements](#managedintegrations-sdk-device-appendixB "#managedintegrations-sdk-device-appendixB")
 - [Reference: Common API](#managedintegrations-sdk-device-appendixC "#managedintegrations-sdk-device-appendixC")
 
-## Reference: Supported
-
-platforms
+## Reference: Supported platforms
 
 The following table displays the supported platforms for the SDK.
 
@@ -21,9 +17,7 @@ The following table displays the supported platforms for the SDK.
 | AmebaD              | Armv8-M 32 bit    | FreeRTOS     |
 | ESP32S3             | Xtensa LX7 32 bit | FreeRTOS     |
 
-## Reference: Technical
-
-requirements
+## Reference: Technical requirements
 
 The following table shows the technical requirements for the SDK, including the RAM
 space. The End device SDK itself requires about 5 to 10 MB of ROM space when using the same

@@ -1,20 +1,14 @@
-# Feature and device interactions
-
-in managed integrations
+# Feature and device interactions in managed integrations
 
 This section describes the role of the C-Function implementation and the interaction
 between the device and the managed integrations device feature.
 
 ###### Topics
 
-- [Handling remote
-  commands](#managedintegrations-sdk-interactions-commands "#managedintegrations-sdk-interactions-commands")
-- [Handling unsolicited
-  events](#managedintegrations-sdk-interactions-unsolicited "#managedintegrations-sdk-interactions-unsolicited")
+- [Handling remote commands](#managedintegrations-sdk-interactions-commands "#managedintegrations-sdk-interactions-commands")
+- [Handling unsolicited events](#managedintegrations-sdk-interactions-unsolicited "#managedintegrations-sdk-interactions-unsolicited")
 
-## Handling remote
-
-commands
+## Handling remote commands
 
 Remote commands are handled by the interaction
 between the End device SDK and the feature. The following actions describe an example of how you
@@ -55,9 +49,7 @@ managed integrations cloud using the MQTT client. In the case of the light bulb,
 in the response will contain the result that the light bulb was turned on by the
 callback function.
 
-## Handling unsolicited
-
-events
+## Handling unsolicited events
 
 Unsolicited events are also handled by the
 interaction between the End device SDK and the feature. The following actions describe how.

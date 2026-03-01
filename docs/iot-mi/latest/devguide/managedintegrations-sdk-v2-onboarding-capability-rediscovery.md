@@ -149,8 +149,7 @@ as JSON messages.
 
 If you do not receive notifications about the discovery status, verify that you have
 subscribed to `DEVICE_DISCOVERY_STATUS` event notifications. For more information
-on setting up notifications, see [Set up managed integrations
-notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
+on setting up notifications, see [Set up managed integrations notifications](managedintegrations-notifications.md#managedintegrations-notification-setup "managedintegrations-notifications.md#managedintegrations-notification-setup").
 
 ### Some devices not updated
 
