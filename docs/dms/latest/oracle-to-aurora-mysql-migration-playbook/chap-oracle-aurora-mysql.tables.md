@@ -1,68 +1,56 @@
-# Oracle automatic indexing
+# Oracle and MySQL invisible indexes
 
-With AWS DMS, you can leverage Oracle automatic indexing to optimize database performance and reduce manual tuning efforts.
+With AWS DMS, you can create and manage invisible indexes in Oracle and MySQL databases, providing a way to evaluate the potential benefits of an index before making it visible and impacting workload performance.
 
-| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                            | Key differences                                      |
-| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| One star feature compatibility | No automation                      | [Indexes](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t provide an automatic indexing feature. |
+| Feature compatibility | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                            | Key differences                          |
+| --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| No compatibility      | No automation                      | [Indexes](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.indexes") | MySQL doesn’t support invisible indexes. |
 
 ## Oracle usage
 
-Oracle 19 introduces the automatic indexing feature. This feature automates the index management tasks by automatically creating, rebuilding, and dropping indexes based on the changes in application workload, thus improving database performance.
+In Oracle, the invisible index feature gives database administrators the ability to create indexes, or change existing indexes, that are ignored by the optimizer. They are maintained during DML operations and are kept relevant, but are different from usable indexes.
 
-Important functionality provided by automatic indexing:
+The most common use cases for invisible indexes are:
 
-- Automatic indexing process runs in the background at a predefined time interval and analyzes application workload. It identifies the tables/columns that are candidates for new indexes and creates new indexes.
-- The auto indexes as initially created as invisible indexes. These invisible auto indexes are verified against SQL statements and if the performance is improved, then these indexes are converted as visible indexes.
-- Identify and drop any existing under-performing auto indexes or any auto indexes not used for long period.
-- Rebuilds the auto indexes that are marked unusable due to DDL operations.
-- Provides package DBMS_AUTO_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
+- Testing the effect of a dropped index without actually dropping it.
+- Using a specific index for certain operations or modules of an application without affecting the overall application.
+- Adding an index to a set of columns on which an index already exists.
 
-###### Note
+Database administrators can force the optimizer to use invisible indexes by changing the `OPTIMIZER_USE_INVISIBLE_INDEXES` parameter to true. You can use invisible indexes if they are specified as a `HINT`.
 
-Up-to-date table statistics are very important for the auto indexing to function efficiently. Tables without statistics or with stale statistics aren’t considered for auto indexing.
+### Examples
 
-Oracle uses the `DBMS_AUTO_INDEX` package to configure auto indexes and generating reports. Following are some of the configuration options which can be set by using `CONFIGURE` procedure of `DBMS_AUTO_INDEX` package:
+Change an index to an invisible index.
 
-- Turning on and turning off automatic indexing in a database.
-- Specifying schemas and tables that can use auto indexes.
-- Specifying a retention period for unused auto indexes. By default, the unused auto indexes are deleted after 373 days.
-- Specifying a retention period for unused non-auto indexes.
-- Specifying a tablespace and a percentage of tablespace to store auto indexes.
+```
+ALTER INDEX idx_name INVISIBLE;
+```
 
-Following are some of the reports related to automatic indexing operations which you can generate using `REPORT_ACTIVITY` and `REPORT_LAST_ACTIVITY` functions of the `DBMS_AUTO_INDEX` package.
+Change an invisible index to a visible index.
 
-- Report of automatic indexing operations for a specific period.
-- Report of the last automatic indexing operation.
+```
+ALTER INDEX idx_name VISIBLE;
+```
 
-For more information, see [Managing Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-E4149397-FF37-4367-A12F-675433715904") in the _Oracle documentation_.
+Create an invisible index.
+
+```
+CREATE INDEX idx_name ON employees(first_name) INVISIBLE;
+```
+
+Query all invisible indexes.
+
+```
+SELECT TABLE_OWNER, INDEX_NAME FROM DBA_INDEXES
+  WHERE VISIBILITY = 'INVISIBLE';
+```
+
+For more information, see [Understand When to Use Unusable or Invisible Indexes](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-3A66938F-73C6-4173-844E-3938A0DBBB54 "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-3A66938F-73C6-4173-844E-3938A0DBBB54") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Currently, Amazon Aurora MySQL doesn’t provide a comparable alternative for automatic indexing. The most reasonable option would be to run a scheduled set of queries to estimate if additional indexes are
-needed.
+Amazon Relational Database Service (Amazon RDS) for MySQL version 8 supports invisible indexes. An invisible index is not used by the optimizer at all but is otherwise maintained normally. Indexes are visible by default.
 
-The following queries can help determine that.
+Invisible indexes make it possible to test the effect of removing an index on query performance without making a destructive change that must be undone should the index turn out to be required.
 
-Find user-tables without primary keys.
-
-```
-SELECT tab.table_schema,tab.table_name
-FROM information_schema.tables tab
-LEFT JOIN information_schema.table_constraints tco
-  ON tab.table_schema = tco.table_schema
-  AND tab.table_name = tco.table_name
-  AND tco.constraint_type = 'PRIMARY KEY'
-WHERE tco.constraint_type is null
-  AND tab.table_schema not in('information_schema', 'performance_schema', 'sys')
-  AND tab.table_type = 'BASE TABLE'
-ORDER BY tab.table_schema, tab.table_name;
-```
-
-Unused indexes that can probably be dropped.
-
-```
-SELECT * FROM sys.schema_unused_indexes;
-```
-
-All of these should not be implemented in a script to decide if indexes should be created or dropped in a production environment. The Oracle Automatic Indexes will first assess if a new index is needed and if so, it will create an invisible index and only after ensuring nothing is harmed, then the index will become visible. You can’t use this process in MySQL to avoid any production performance issues.
+For more information, see [Invisible Indexes](https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html "https://dev.mysql.com/doc/refman/8.0/en/invisible-indexes.html") in the _MySQL documentation_.

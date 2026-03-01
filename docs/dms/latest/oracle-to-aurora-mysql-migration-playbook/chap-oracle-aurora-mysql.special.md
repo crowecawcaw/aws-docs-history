@@ -1,294 +1,93 @@
-# Oracle XML DB and MySQL XML
+# Oracle materialized views and MySQL summary tables or views
 
-With AWS DMS, you can migrate data between different database engines, including Oracle XML DB and MySQL XML. Oracle XML DB is a feature that provides XML support for storing, processing, and managing XML data in an Oracle database. MySQL XML extends the MySQL server by providing an XML data type for storing XML documents, in addition to functions for extracting and searching XML data.
+With AWS DMS, you can create Oracle materialized views and MySQL summary tables or views to improve query performance and data availability. Materialized views and summary tables are database objects that store pre-computed results of queries, reducing the need for complex calculations at runtime.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                | Key differences                                                            |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| Three star feature compatibility | Three star automation level        | [XML](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.xml "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.xml") | Different paradigm and syntax will require application or drivers rewrite. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                   | Key differences                           |
+| ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| One star feature compatibility | No automation                      | [Materialized Views](chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.mview "chap-oracle-aurora-mysql.tools.md#chap-oracle-aurora-mysql.tools.actioncode.mview") | MySQL doesn’t support materialized views. |
 
 ## Oracle usage
 
-Oracle XML DB is a set of Oracle Database technologies providing XML capabilities for database administrators and developers. It provides native XML support and other features including the native `XMLType` and `XMLIndex`.
+Oracle materialized views are table segments where the contents are periodically refreshed based on the results of a stored query. Oracle materialized views are defined with specific queries and can be manually or automatically refreshed based on specific configurations. A materialized view runs its associated query and stores the results as a table segment.
 
-`XMLType` represents an XML document in the database that is accessible from SQL. It supports standards such as XML Schema, XPath, XQuery, XSLT, and DOM.
+Oracle materialized views are especially useful for:
 
-`XMLIndex` supports all forms of XML data from highly structured to completely unstructured.
+- Replication of data across multiple databases.
+- Data warehouse use cases.
+- Increasing performance by persistently storing the results of complex queries as database tables.
 
-XML data can be schema-based or non-schema-based. Schema-based XML adheres to an XSD Schema Definition and must be validated. Non-schema-based XML data doesn’t require validation.
+Such as ordinary views, you can create materialized views with a `SELECT` query. The `FROM` clause of a materialized view query can reference tables, views, and other materialized views. The source objects that a materialized view uses as data sources are also called master tables (replication terminology) or detail tables (data warehouse terminology).
 
-According to the Oracle documentation, the aspects you should consider when using XML are:
+### Immediate or deferred refresh
 
-- The ways that you intend to store your XML data.
-- The structure of your XML data.
-- The languages used to implement your application.
-- The ways you intend to process your XML data.
+When you create materialized views, use the `BUILD IMMEDIATE` option can to instruct Oracle to immediately update the contents of the materialized view by running the underlying query. This is different from a deferred update where the materialized view is populated only on the first requested refresh.
 
-The most common features are:
+### Fast and complete refresh
 
-- **Storage model** — Binary XML.
-- **Indexing** — XML search index, `XMLIndex` with structured component.
-- **Database language** — SQL, with SQL/XML functions.
-- **XML languages** — XQuery and XSLT.
+You can use one of the two following options to refresh data in your materialized view.
 
-### Storage model — Binary XML
+- `REFRESH FAST` — Incremental data refresh. Only updates rows that have changed since the last refresh of the Materialized View instead of performing a complete refresh. This type of refresh fails if materialized view logs have not been created.
+- `COMPLETE` — The table segment used by the materialized view is truncated (data is cleared) and repopulated by running the associated query.
 
-Also called post-parse persistence, it is the default storage model for Oracle XML DB. It is a post-parse, binary format designed specifically for XML data. Binary XML is XML schema-aware and the storage is very flexible.
+### Materialized view logs
 
-You can use it for XML schema-based documents or for documents that are not based on an XML schema. You can use it with an XML schema that allows for high data variability or that evolves considerably or unexpectedly.
+When you create materialized views, use a materialized view log to instruct Oracle to store any changes performed by DML commands on the master tables that are used to refresh the materialized view, which provides faster materialized view refreshes.
 
-This storage model also provides efficient partial updating and streaming query evaluation.
+Without materialized view logs, Oracle must re-run the query associated with the materialized view each time. This process is also known as a complete refresh. This process is slower compared to using materialized view logs.
 
-The other storage option is object-relational storage and is more efficient when using XML as structured data with a minimum amount of changes and different queries. For more information, see [Oracle XML DB Developer’s Guide](https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf "https://docs.oracle.com/en/database/oracle/oracle-database/19/adxdb/xml-db-developers-guide.pdf").
+### Materialized view refresh strategy
 
-### Indexing — XML search index, XMLIndex with structured component
+You can use one of the two following strategies to refresh data in your materialized view.
 
-XML Search Index provides full-text search over XML data. Oracle recommends storing XMLType data as Binary XML and to use XQuery Full Text (XQFT).
+- `ON COMMIT` — Refreshes the materialized view upon any commit made on the underlying associated tables.
+- `ON DEMAND` — The refresh is initiated by a scheduled task or manually by the user.
 
-If you are not using binary storage and your data is structured XML, you can use the Oracle text indexes, use the regular string functions such as contains, or use XPath `ora:contains`.
+### Examples
 
-If you want to use predicates such as `XMLExists` in your `WHERE` clause, you must create an XML search index.
-
-#### Examples
-
-The following example creates a SQL directory object, which is a logical name in the database for a physical directory on the host computer. This directory contains XML files. The example inserts XML content from the `purOrder.xml` file into the orders table.
-
-Create an XMLType table.
+The following example creates a simple Materialized View named `mv1` that runs a simple `SELECT` statement on the `employees` table.
 
 ```
-CREATE TABLE orders OF XMLType;
-CREATE DIRECTORY xmldir AS path_to_folder_containing_XML_file;
-INSERT INTO orders VALUES (XMLType(BFILENAME('XMLDIR',
-  'purOrder.xml'),NLS_CHARSET_ID('AL32UTF8')));
+CREATE MATERIALIZED VIEW mv1 AS SELECT * FROM hr.employees;
 ```
 
-Create a table with an `XMLType` column.
+The following example creates a more complex materialized view using a database link (remote) to obtain data from a table located in a remote database. This materialized view also contains a subquery. The `FOR UPDATE` clause allows the materialized view to be updated.
 
 ```
-CREATE TABLE xwarehouses (warehouse_id NUMBER, warehouse_spec XMLTYPE);
+CREATE MATERIALIZED VIEW foreign_customers FOR
+UPDATE AS SELECT * FROM sh.customers@remote cu WHERE EXISTS
+(SELECT * FROM sh.countries@remote co WHERE co.country_id = cu.country_id);
 ```
 
-Create an `XMLType` view.
+The following example creates a materialized view on two source tables: `times` and `products`. This approach enables `FAST` refresh of the materialized view instead of the slower `COMPLETE` refresh. Also, create a new materialized view named `sales_mv` which is refreshed incrementally `REFRESH FAST` each time changes in data are detected (`ON COMMIT`) on one or more of the tables associated with the materialized view query.
 
 ```
-CREATE VIEW warehouse_view AS
-SELECT VALUE(p) AS warehouse_xml FROM xwarehouses p;
+CREATE MATERIALIZED VIEW LOG ON times
+WITH ROWID, SEQUENCE (time_id, calendar_year)
+INCLUDING NEW VALUES;
+
+CREATE MATERIALIZED VIEW LOG ON products
+WITH ROWID, SEQUENCE (prod_id)
+INCLUDING NEW VALUES;
+
+CREATE MATERIALIZED VIEW sales_mv
+BUILD IMMEDIATE
+REFRESH FAST ON COMMIT
+AS SELECT t.calendar_year, p.prod_id,
+SUM(s.amount_sold) AS sum_sales
+FROM times t, products p, sales s
+WHERE t.time_id = s.time_id AND p.prod_id = s.prod_id
+GROUP BY t.calendar_year, p.prod_id;
 ```
 
-Insert data into an `XMLType` column.
-
-```
-INSERT INTO xwarehouses
-VALUES(100, '<?xml version="1.0"?>
-<PO pono="1">
-<PNAME>Po_1</PNAME>
-<CUSTNAME>John</CUSTNAME>
-<SHIPADDR>
-<STREET>1033, Main Street</STREET>
-<CITY>Sunnyvale</CITY>
-<STATE>CA</STATE>
-</SHIPADDR></PO>')
-```
-
-Create an XML search index and query it with XQuery:
-
-1. After the user gets all the privileges needed and set the right parameter in the Oracle text schema.
-2. Create Oracle text section and preference.
-3. Create the XML search index (regular index associated with the objects).
-
-```
-BEGIN
-CTX_DDL.create_section_group('secgroup', 'PATH_SECTION_GROUP');
-CTX_DDL.set_sec_grp_attr('secgroup', 'XML_ENABLE', 'T');
-CTX_DDL.create_preference('pref', 'BASIC_STORAGE');
-CTX_DDL.set_attribute('pref','D_TABLE_CLAUSE', 'TABLESPACE ts_name LOB(DOC) STORE AS
-SECUREFILE(TABLESPACE ts_name COMPRESS MEDIUM CACHE)');
-CTX_DDL.set_attribute('pref','I_TABLE_CLAUSE','TABLESPACE ts_name LOB(TOKEN_INFO)
-STORE AS SECUREFILE(TABLESPACE ts_name NOCOMPRESS CACHE)');
-END;
-/
-CREATE INDEX po_ctx_idx ON po_binxml(OBJECT_VALUE)
-INDEXTYPE IS CTXSYS.CONTEXT
-PARAMETERS('storage pref section group secgroup');
-```
-
-Query using the preceding index in XQuery. XQuery is W3C standard for generating, querying and updating XML, Natural query language for XML.
-
-Search in the `PATH /PurchaseOrder/LineItems/LineItem/Description` for values containing **Big** and **Street** and then return their **Title** tag (only in the select).
-
-```
-SELECT XMLQuery('for $i in /PurchaseOrder/LineItems/LineItem/Description
-where $i[.contains text "Big" ftand "Street"] return <Title>{$i}</Title>'
-PASSING OBJECT_VALUE RETURNING CONTENT)
-FROM po_binxml
-WHERE XMLExists('/PurchaseOrder/LineItems/LineItem/Description
-  [. contains text "Big" ftand "Street"]'
-```
-
-`XMLIndex` with structured component is used for queries that project fixed structured islands of XML content, even if the surrounding data is relatively unstructured. A structured `XMLIndex` component organizes such islands in a relational format.
-
-Make sure that you define the parts of XML data that you search in queries. This applies to XML schema-based and non-schema-based data.
-
-Create an `XMLIndex` with a structured component:
-
-1. Create the base `XMLIndex` on `po_binxml` table. `OBJECT_VALUE` is the XML data stored in the table. All definitions of XML types and Objects are from the XDB schema in the database.
-2. Use `DBMS_XMLINDEX.register` parameter to add another structure to the index.
-3. Create tables (`po_idx_tab` and `po_index_lineitem`) to store index data as structured data. Next to each table name there is the root of the PATH in the XML data (/PurchaseOrder and /LineItem). After that, each column is another PATH in this root. Note that in the `po_idx_tab` table the last column is XMLType. It takes everything under this PATH and saves it in XML datatype.
-4. Add the group of structure to the index.
-
-```
-CREATE INDEX po_xmlindex_ix ON po_binxml (OBJECT_VALUE)
-INDEXTYPE IS XDB.XMLIndex PARAMETERS ('PATH TABLE path_tab');
-BEGIN
-DBMS_XMLINDEX.registerParameter(
-'myparam',
-'ADD_GROUP GROUP po_item
-XMLTable po_idx_tab ''/PurchaseOrder''
-COLUMNS reference VARCHAR2(30) PATH ''Reference'',
-requestor VARCHAR2(30) PATH ''Requestor'',
-username VARCHAR2(30) PATH ''User'',
-lineitem XMLType PATH ''LineItems/LineItem'' VIRTUAL
-XMLTable po_index_lineitem ''/LineItem'' PASSING lineitem
-COLUMNS itemno BINARY_DOUBLE PATH ''@ItemNumber'',
-description VARCHAR2(256) PATH ''Description'',
-partno VARCHAR2(14) PATH ''Part/@Id'',
-quantity BINARY_DOUBLE PATH ''Part/@Quantity'',
-unitprice BINARY_DOUBLE PATH ''Part/@UnitPrice''');
-END;
-/
-
-ALTER INDEX po_xmlindex_ix PARAMETERS('PARAM myparam');
-```
-
-For more information, see [Indexes for XMLType Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
-
-### SQL/XML functions
-
-Oracle Database provides two main SQL/XML groups:
-
-- SQL/XML publishing functions.
-- SQL/XML query and update functions.
-
-#### SQL/XML publishing functions
-
-SQL/XML publishing functions are SQL results generated from XML data. They are also called SQL/XML generation functions.
-
-**XMLQuery** is used in `SELECT` clauses to return the result as XMLType data. See the previous example for creating an XML search index.
-
-**XMLTable** is used in `FROM` clauses to get results using XQuery, and insert the results into a virtual table. This function can insert data into existing database table.
-
-```
-SELECT po.reference, li.*
-FROM po_binaryxml p,
-XMLTable('/PurchaseOrder' PASSING p.OBJECT_VALUE
-COLUMNS
-reference VARCHAR2(30) PATH 'Reference',
-lineitem XMLType PATH 'LineItems/LineItem') po,
-XMLTable('/LineItem' PASSING po.lineitem
-COLUMNS
-itemno NUMBER(38) PATH '@ItemNumber',
-description VARCHAR2(256) PATH 'Description',
-partno VARCHAR2(14) PATH 'Part/@Id',
-quantity NUMBER(12, 2) PATH 'Part/@Quantity',
-unitprice NUMBER(8, 4) PATH 'Part/@UnitPrice') li;
-```
-
-`XMLExists` is used in `WHERE` clauses to check if an XQuery expression returns a non-empty query sequence. If it does, it returns `TRUE`. Otherwise, it returns `FALSE`. In the following example, the query searches the `purchaseorder` table for `PurchaseOrders` that where the `SpecialInstructions` tag is set to `Expedite`.
-
-```
-SELECT OBJECT_VALUE FROM purchaseorder
-  WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'
-  PASSING OBJECT_VALUE);
-```
-
-`XMLCast` is used in `SELECT` clauses to convert scalar values returned from XQuery to `NUMBER`, `VARCHAR2`, `CHAR`, `CLOB`, `BLOB`, `REF`, or `XMLType`. For example, after finding the objects that have `SpecialInstructions` set to `Expedite`, `XMLCast` returns the Reference in each item as `VARCHAR2(100)`.
-
-```
-SELECT XMLCast(XMLQuery('/PurchaseOrder/Reference'
-  PASSING OBJECT_VALUE
-  RETURNING CONTENT) AS VARCHAR2(100)) "REFERENCE"
-  FROM purchaseorder
-  WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'
-  PASSING OBJECT_VALUE);
-```
-
-For more information, see [XMLELEMENT](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLELEMENT.html#GUID-DEA75423-00EA-4034-A246-4A774ADC988E") in the _Oracle documentation_.
-
-#### SQL/XML query and update functions
-
-SQL/XML query and update functions are used to query and update XML content as part of regular SQL operations.
-
-For `XMLQuery`, see the example preceding.
-
-In the following example, after finding the relevant item with `XMLExists` in the set clause, the command sets the `OBJECT_VALUE` to a new `NEW-DAUSTIN-20021009123335811PDT.xml` file located in the `XMLDIR` directory.
-
-```
-UPDATE purchaseorder po
-SET po.OBJECT_VALUE = XMLType(bfilename('XMLDIR','NEW-DAUSTIN-20021009123335811PDT.xml'),
-  nls_charset_id('AL32UTF8'))
-WHERE XMLExists('$p/PurchaseOrder[Reference="DAUSTIN-20021009123335811PDT"]'
-  PASSING po.OBJECT_VALUE AS "p");
-```
-
-For more information, see [XMLQUERY](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/XMLQUERY.html#GUID-9E8D3220-2CF5-4C63-BDC2-0526D57B9CDB") in the _Oracle documentation_.
-
-### SQL and PL/SQL
-
-Conversion of SQL and PL/SQL is covered in the [SQL and PL/SQL](chap-oracle-aurora-mysql.md "chap-oracle-aurora-mysql.md") topic.
+For more information, see [Basic Materialized Views](https://docs.oracle.com/en/database/oracle/oracle-database/19/dwhsg/basic-materialized-views.html#GUID-A7AE8E5D-68A5-4519-81EB-252EAAF0ADFF "https://docs.oracle.com/en/database/oracle/oracle-database/19/dwhsg/basic-materialized-views.html#GUID-A7AE8E5D-68A5-4519-81EB-252EAAF0ADFF") in the _Oracle documentation_.
 
 ## MySQL usage
 
-Aurora MySQL support for unstructured data is the opposite of Oracle. There is minimal support for XML, but a native JSON data type and more than 25 dedicated JSON functions.
+Oracle materialized views have no equivalent feature in MySQL, but other features can be used separately or combined to achieve similar functionality.
 
-### XML support
+Make sure that you evaluate each case on its own merits, but options include:
 
-Aurora MySQL supports two XML functions: `ExtractValue` and `UpdateXML`.
+- **Summary tables** — If your materialized view has many calculations and data manipulations, you can keep the results in tables and query the data without running all calculations on-the-fly. The data for these tables can be copied using triggers or events objects.
+- **Views** — Aurora MySQL has a new Parallel Query mechanism that offloads some of the query operations to the storage level. This approach can greatly improve performance. In some cases, regular views can be used and may decrease some administration tasks. To evaluate this option, measure the performance and execution time of your SQL.
 
-`ExtractValue` accepts an XML document, or fragment, and an XPATH expression. The function returns the character data of the child or element matched by the `XPATH` expression. If there is more than one match, the function returns the content of child nodes as a space delimited character string. `ExtractValue` returns only `CDATA` and doesn’t return tags and sub-tags contained within a matching tag or its content.
-
-Consider the following example.
-
-```
-SELECT ExtractValue('<Root><Person>John</Person>
-<Person>Jim</Person></Root>','/Root/Person');
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-John Jim
-```
-
-You can use `UpdateXML` to replace an XML fragment with another fragment using `XPATH` expressions similar to `ExtractValue`. If a match is found, it returns the new, updated XML. If there are no matches, or multiple matches, the original XML is returned.
-
-Consider the following example.
-
-```
-SELECT UpdateXML('<Root><Person>John</Person>
-<Person>Jim</Person></Root>', '/Root','<Person>Jack</Person>')
-```
-
-For the preceding example, the result looks as shown following.
-
-```
-<Person>Jack</Person>
-```
-
-###### Note
-
-Aurora MySQL doesn’t support MySQL `LOAD XML` syntax. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_.
-
-## Summary
-
-| Description                                                                        | Oracle                                                                                                                                                                                                                                                                                                                                                             | Aurora MySQL                                                                                                                                                                                                                                                                                                                                     |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| XML functions                                                                      | `XMLQuery`, `XPath`, `XMLTable`, `XMLExists`, and `XMLCast`                                                                                                                                                                                                                                                                                                        | `ExtractValue` and `UpdateXML`                                                                                                                                                                                                                                                                                                                   |
-| Create a table with XML                                                            | `CREATE TABLE test OF XMLType;` or `CREATE TABLE test (doc XMLType);`                                                                                                                                                                                                                                                                                              | Not supported                                                                                                                                                                                                                                                                                                                                    |
-| Insert data into xml column                                                        | `<br>INSERT INTO test<br>VALUES ('<?xml version="1.0"?><br><PO pono="1"> <PNAME>Po_1</PNAME><br><CUSTNAME>John</CUSTNAME><br><SHIPADDR><br><STREET>1033, Main Street</STREET><br><CITY>Sunnyvale</CITY><br><STATE>CA</STATE><br></SHIPADDR> </PO>')<br>`                                                                                                           | XML data can be loaded into regular tables from S3. For more information, see [Loading data into an Aurora MySQL DB cluster from text files in an Amazon S3 bucket](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.md") in the _User Guide for Aurora_. |
-| Create Index                                                                       | `<br>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br>INDEXTYPE IS XDB.XMLIndex<br>PARAMETERS ('PATH TABLE path_tab');<br>BEGIN<br>DBMS_XMLINDEX.registerParameter(<br>'myparam', 'ADD_GROUP GROUP a_item<br>XMLTable test_idx_tab ''/Path'' COLUMNS tag<br>VARCHAR2(30) PATH ''tag''');<br>END;<br>/<br>ALTER INDEX test_idx PARAMETERS<br>('PARAM myparam');<br>` | Requires adding always generated computed and persisted columns with JSON expressions and indexing them explicitly. The optimizer can make use of JSON expressions only.                                                                                                                                                                         |
-| Create a full-text index                                                           | After preference and section created in Oracle Text<br>`<br>CREATE INDEX test_idx ON test (OBJECT_VALUE)<br>INDEXTYPE IS CTXSYS.CONTEXT<br>PARAMETERS('storage pref section group secgroup');<br>`                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                              |
-| Query using XQuery                                                                 | `<br>SELECT XMLQuery('for $i in<br>/PurchaseOrder/LineItems/LineItem/Description<br>where $i[. contains text "Big"]<br>return <Title>{$i}</Title>'<br>PASSING OBJECT_VALUE RETURNING CONTENT)<br>FROM xml_tbl;<br>`                                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                              |
-| Query using XPath                                                                  | `<br>select sys.XMLType.extract<br>(doc,'/student/firstname/text()') firstname<br>from test;<br>`                                                                                                                                                                                                                                                                  | Because there is no XML data type, doc uses `VARCHAR` to store the XML content<br>[source]<br>----<br>select ExtractValue<br>(doc,'//student//firstname')<br>firstname from test;<br>----                                                                                                                                                        |
-| Function to check if tag exists and function to cast and return a string data type | `<br>SELECT XMLCast(XMLQuery<br>('/PurchaseOrder/Reference'<br>PASSING OBJECT_VALUE<br>RETURNING CONTENT) AS VARCHAR2(100))<br>"REFERENCE"<br>FROM purchaseorder<br>WHERE XMLExists('/PurchaseOrder[SpecialInstructions="Expedite"]'<br>PASSING OBJECT_VALUE);<br>`                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                              |
-| Validate schema using XSD                                                          | Supported                                                                                                                                                                                                                                                                                                                                                          | Not supported                                                                                                                                                                                                                                                                                                                                    |
-
-For more information, see [XML Functions](https://dev.mysql.com/doc/refman/5.7/en/xml-functions.html "https://dev.mysql.com/doc/refman/5.7/en/xml-functions.html") in the _MySQL documentation_.
+For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [Trigger Syntax and Examples](https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html "https://dev.mysql.com/doc/refman/5.7/en/trigger-syntax.html"), and [CREATE VIEW Statement](https://dev.mysql.com/doc/refman/5.7/en/create-view.html "https://dev.mysql.com/doc/refman/5.7/en/create-view.html") in the _MySQL documentation_.
