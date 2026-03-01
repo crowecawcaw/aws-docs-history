@@ -2,9 +2,7 @@ The SiteWise Monitor feature is not available to new customers. Existing custome
 use the service as normal. For more information, see [SiteWise Monitor availability
 change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
-# Get started as an AWS IoT SiteWise Monitor project
-
-owner
+# Get started as an AWS IoT SiteWise Monitor project owner
 
 Each portal in the AWS IoT SiteWise Monitor contains one or more projects. A project is the unit of
 sharing. If you invite viewers to your project, they can see all dashboards that you created
@@ -14,17 +12,12 @@ administrator to split the project. As the owner of one or more projects, you ca
 following tasks:
 
 - [Sign in to a portal](getting-started.md#portal-login "getting-started.md#portal-login")
-- [Explore project assets and their
-  data](#project-owner-exploring-assets "#project-owner-exploring-assets")
-- [Create dashboards to visualize
-  data](#project-owner-creating-dashboards "#project-owner-creating-dashboards")
-- [Configure visualizations to
-  understand data](#project-owner-configuring-visualizations "#project-owner-configuring-visualizations")
+- [Explore project assets and their data](#project-owner-exploring-assets "#project-owner-exploring-assets")
+- [Create dashboards to visualize data](#project-owner-creating-dashboards "#project-owner-creating-dashboards")
+- [Configure visualizations to understand data](#project-owner-configuring-visualizations "#project-owner-configuring-visualizations")
 - [Assign viewers to the project](#project-owner-inviting-viewers "#project-owner-inviting-viewers")
 
-## Explore project assets and their
-
-data
+## Explore project assets and their data
 
 You can explore the list of assets to which you have access to view their properties. If
 you need additional assets in your project, you must contact your portal
@@ -41,7 +34,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -55,9 +48,7 @@ See the following areas of the page.
 | B       | Select the time range for the data shown for the properties of the<br>selected asset.                                           |
 | C       | View the values for the properties of the selected asset. View, configure,<br>and respond to the alarms for the selected asset. |
 
-## Create dashboards to visualize
-
-data
+## Create dashboards to visualize data
 
 The primary activity for a project owner is to create dashboards that contain one or
 more visualizations that show the values of asset properties and alarms. Creating a
@@ -78,9 +69,7 @@ dashboard**.
 Next, you add one or more visualizations of asset properties and alarms to your
 dashboard.
 
-## Configure visualizations to
-
-understand data
+## Configure visualizations to understand data
 
 Each dashboard can display one or more visualizations of the values of the asset
 properties and alarms in your project. You can add a visualization for any property or
@@ -113,7 +102,7 @@ more information, see [Configure thresholds](configure-thresholds.md "configure-
 ![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
-![An example visualization with the gripper and resize controls highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
+![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
 Drag the corner to a new size and shape. Visualizations snap to the grid when resized,
 so you only have coarse control over the size. 7. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has

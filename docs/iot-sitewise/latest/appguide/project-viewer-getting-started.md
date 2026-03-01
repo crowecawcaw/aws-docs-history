@@ -2,9 +2,7 @@ The SiteWise Monitor feature is not available to new customers. Existing custome
 use the service as normal. For more information, see [SiteWise Monitor availability
 change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
-# Get started as an AWS IoT SiteWise Monitor project
-
-viewer
+# Get started as an AWS IoT SiteWise Monitor project viewer
 
 When you're invited to a project as a viewer, someone in your organization has set up a
 project and a set of dashboards to provide you with a consistent way to view data for your
@@ -25,8 +23,7 @@ As a project viewer, you can do the following tasks:
 
 - [Sign in to a portal](getting-started.md#portal-login "getting-started.md#portal-login")
 - [Explore shared dashboards](#project-viewer-exploring-dashboards "#project-viewer-exploring-dashboards")
-- [Explore project assets and their
-  data](#project-viewer-exploring-assets "#project-viewer-exploring-assets")
+- [Explore project assets and their data](#project-viewer-exploring-assets "#project-viewer-exploring-assets")
 
 ## Explore shared dashboards
 
@@ -71,9 +68,7 @@ Each visualization shows the latest reported value for the selected time
 range. 5. If you're a project owner or portal administrator, you can modify the dashboard. For
 more information see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md").
 
-## Explore project assets and their
-
-data
+## Explore project assets and their data
 
 While you will typically use the dashboards that the project owner prepared for you, you
 can also view properties and alarms for the assets included in a project. For example, you

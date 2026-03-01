@@ -11,15 +11,12 @@ projects, assign owners, and change the list of assets associated with each proj
 portal administrator, you can do the following tasks:
 
 - [Sign in to a portal](getting-started.md#portal-login "getting-started.md#portal-login")
-- [Explore asset data and adding assets to
-  projects](#portal-admin-exploring-assets "#portal-admin-exploring-assets")
+- [Explore asset data and adding assets to projects](#portal-admin-exploring-assets "#portal-admin-exploring-assets")
 - [Assign owners to the project](#portal-admin-inviting-owners "#portal-admin-inviting-owners")
 - [Get started as a project
   owner](project-owner-getting-started.md "project-owner-getting-started.md")
 
-## Explore asset data and adding assets to
-
-projects
+## Explore asset data and adding assets to projects
 
 You can explore the list of assets to which you have access to view their properties and
 alarms. As the portal administrator, you can add assets to a project to make them available
@@ -63,7 +60,7 @@ new project**, then choose **Next**.
 create multiple projects, each with a distinct set of assets, choose a descriptive
 name.
 
-![Add assets to project dialog, step 2 of 2.](/images/iot-sitewise/latest/appguide/images/asset-library-create-new-project-console.png) 5. In **Project description**, enter a description of the project and its
+![Add assets to project dialog, step 2 of 2.](images/asset-library-create-new-project-console.png) 5. In **Project description**, enter a description of the project and its
 contents.
 
 You can add project owners after you create the project. 6. Choose **Add asset to project**.
@@ -94,7 +91,7 @@ owners**.
 ![The "Project owners" section of the project details page.](images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
 users to be owners for this project.
 
-![Shows the "Project owners" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
+![Shows the "Project owners" dialog.](images/project-choose-owners-console.png)
 
 ###### Note
 

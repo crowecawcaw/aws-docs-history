@@ -2,9 +2,7 @@ The SiteWise Monitor feature is not available to new customers. Existing custome
 use the service as normal. For more information, see [SiteWise Monitor availability
 change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availability-change.md")
 
-# AWS IoT SiteWise Monitor availability
-
-change
+# AWS IoT SiteWise Monitor availability change
 
 For capabilities similar to the AWS IoT SiteWise Monitor feature, explore the SiteWise plugin for Amazon Managed Grafana
 (AMG).
@@ -66,13 +64,9 @@ layer. Amazon Managed Grafana offers extensive visualization capabilities throug
 | Real-time updates  | Direct SiteWise data streaming                              | SiteWise data streaming through plugin                                                                        |
 | Security           | AWS-managed portal security                                 | AWS-managed workspace security with additional controls                                                       |
 
-## Migration
+## Migration procedure from SiteWise Monitor to Amazon Managed Grafana
 
-procedure from SiteWise Monitor to Amazon Managed Grafana
-
-### Step 1:
-
-Export Monitor-related resources
+### Step 1: Export Monitor-related resources
 
 Export all of your resources for SiteWise Monitor to preserve your settings.
 
@@ -88,9 +82,7 @@ Export all of your resources for SiteWise Monitor to preserve your settings.
    and access management for AWS IoT SiteWise](../userguide/security-iam.md "../userguide/security-iam.md") in the _AWS IoT SiteWise User
    Guide_.
 
-### Step
-
-2: Set up Amazon Managed Grafana for AWS IoT SiteWise
+### Step 2: Set up Amazon Managed Grafana for AWS IoT SiteWise
 
 1. Follow the Amazon Managed Grafana getting started guide to create a workspace. For more information,
    see [Create your first workspace](../../../grafana/latest/userguide/getting-started-with-AMG.md#AMG-getting-started-workspace-create "../../../grafana/latest/userguide/getting-started-with-AMG.md#AMG-getting-started-workspace-create") in the _Amazon Managed Grafana User Guide_.
@@ -105,9 +97,7 @@ You can use your existing SiteWise Monitor dashboard's portal layout and compone
 model to create a similarly structured dashboard in Amazon Managed Grafana. 4. Set up workspace permissions in Amazon Managed Grafana. For more information, see [Manage user and
 group access to Amazon Managed Grafana workspaces](../../../grafana/latest/userguide/AMG-manage-users-and-groups-AMG.md "../../../grafana/latest/userguide/AMG-manage-users-and-groups-AMG.md").
 
-### Step
-
-3: Verification and cleanup
+### Step 3: Verification and cleanup
 
 1. Test that you see all of your expected data in Amazon Managed Grafana. For example, asset properties,
    updates, aggregated measurements, and your asset hierarchy navigation.

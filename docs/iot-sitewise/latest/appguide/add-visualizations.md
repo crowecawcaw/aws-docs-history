@@ -12,8 +12,7 @@ There are three steps to add a visualization to a dashboard:
 
 1. [Edit a dashboard](#editing-dashboards "#editing-dashboards") – Open
    the dashboard for editing.
-2. [Drag a property or alarm to a
-   dashboard](#dragging-properties-to-dashboards "#dragging-properties-to-dashboards") – Drag a property or alarm to
+2. [Drag a property or alarm to a dashboard](#dragging-properties-to-dashboards "#dragging-properties-to-dashboards") – Drag a property or alarm to
    the dashboard.
 3. [Customize visualizations](customize-visualizations.md "customize-visualizations.md")
    – Customize the visualization by choosing the ideal visualization and setting its
@@ -39,9 +38,7 @@ You can now rename the dashboard, or add, remove, or modify visualizations. 5. A
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
 unsaved changes, you're prompted to save them.
 
-## Drag a property or alarm to a
-
-dashboard
+## Drag a property or alarm to a dashboard
 
 You add visualizations to the dashboard by dragging asset properties and alarms onto the
 dashboard. You can drag them onto an empty space to create a visualization or onto an
@@ -68,4 +65,4 @@ customize details of the visualization, see [Customize visualizations](customize
 add a property that has an alarm, the visualization displays that alarm's threshold. For
 more information, see [Configure thresholds](configure-thresholds.md "configure-thresholds.md").
 
-![A sample visualization with the visualization configuration icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-configuration-console.png) 4. To move or resize your visualization, see [Adjust dashboard layout](adjust-layout.md "adjust-layout.md").
+![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 4. To move or resize your visualization, see [Adjust dashboard layout](adjust-layout.md "adjust-layout.md").
