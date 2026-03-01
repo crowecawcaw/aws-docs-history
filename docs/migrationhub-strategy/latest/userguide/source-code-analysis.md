@@ -8,8 +8,7 @@ it's identified as an application component with a component type of
 **java**.
 
 Strategy Recommendations analyzes the source code for the application components if you configure it to do
-so. For information about configuring an application component for source code analysis, see [Configure source code analysis for
-an application component](recommendations-view-app-components.md#recommendations-source-code-config "recommendations-view-app-components.md#recommendations-source-code-config").
+so. For information about configuring an application component for source code analysis, see [Configure source code analysis for an application component](recommendations-view-app-components.md#recommendations-source-code-config "recommendations-view-app-components.md#recommendations-source-code-config").
 
 Strategy Recommendations performs source code analysis for the Java and C# programming languages.
 

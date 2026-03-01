@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Working with application components in
-
-Strategy Recommendations
+# Working with application components in Strategy Recommendations
 
 This section describes how to use Migration Hub Strategy Recommendations in the Migration Hub console to view and configure
 migration and modernization strategy recommendations.
@@ -16,9 +14,7 @@ migration and modernization strategy recommendations.
 - [Configure database
   analysis](#recommendations-database-config "#recommendations-database-config")
 
-## Viewing application
-
-component recommendations
+## Viewing application component recommendations
 
 This section describes how to use Strategy Recommendations in the Migration Hub console to view migration
 strategy recommendations for application components.
@@ -56,14 +52,10 @@ strategy recommendations for application components.
 7. Depending on which type of application component you are viewing, there is a
    **Source configuration** or a **Database
    configuration** tab. For information about **Source
-   configuration**, see [Configure source code analysis for
-   an application component](#recommendations-source-code-config "#recommendations-source-code-config"). For information about
-   **Database configuration**, see [Configure database analysis for an
-   application component](#recommendations-database-config "#recommendations-database-config").
+   configuration**, see [Configure source code analysis for an application component](#recommendations-source-code-config "#recommendations-source-code-config"). For information about
+   **Database configuration**, see [Configure database analysis for an application component](#recommendations-database-config "#recommendations-database-config").
 
-## Configure source code analysis for
-
-an application component
+## Configure source code analysis for an application component
 
 This section describes how to use Strategy Recommendations in the Migration Hub console to configure source
 code analysis for an application component.
@@ -93,9 +85,7 @@ the application component details page.
 
 For more information about source code analysis, see [Strategy Recommendations source code analysis](source-code-analysis.md "source-code-analysis.md").
 
-## Configure database analysis for an
-
-application component
+## Configure database analysis for an application component
 
 This section describes how to use Strategy Recommendations in the Migration Hub console to configure database
 analysis for an application component.

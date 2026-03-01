@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Step 4: Set up the Strategy Recommendations
-
-collector
+# Step 4: Set up the Strategy Recommendations collector
 
 This section describes how to use the command line `collector setup` commands
 to configure the Migration Hub Strategy Recommendations application data collector. These configurations are stored
@@ -44,15 +42,11 @@ collector setup
 ```
 
 2. Enter the information for AWS configurations as described in [Set up AWS configurations](#cli-collector-setup-aws-config "#cli-collector-setup-aws-config").
-3. Enter the information for vCenter configurations as described in [Set up vCenter
-   configurations](#cli-collector-setup-vcenter-config "#cli-collector-setup-vcenter-config").
-4. Enter the information for remote server configurations as described in [Set up remote server
-   configurations](#cli-collector-setup-remote-server-config "#cli-collector-setup-remote-server-config").
-5. Enter the information for version control configurations as described in [Set up version control
-   configurations](#cli-collector-setup-git-source-config "#cli-collector-setup-git-source-config").
+3. Enter the information for vCenter configurations as described in [Set up vCenter configurations](#cli-collector-setup-vcenter-config "#cli-collector-setup-vcenter-config").
+4. Enter the information for remote server configurations as described in [Set up remote server configurations](#cli-collector-setup-remote-server-config "#cli-collector-setup-remote-server-config").
+5. Enter the information for version control configurations as described in [Set up version control configurations](#cli-collector-setup-git-source-config "#cli-collector-setup-git-source-config").
 6. Prepare your Windows and Linux servers for collector data collection by following
-   the instructions in [Prepare your remote Windows and
-   Linux servers for data collection](#cli-collector-setup-remote-servers "#cli-collector-setup-remote-servers").
+   the instructions in [Prepare your remote Windows and Linux servers for data collection](#cli-collector-setup-remote-servers "#cli-collector-setup-remote-servers").
 
 ## Set up AWS configurations
 
@@ -99,9 +93,7 @@ Application data collector is registered successfully.
 
 ```
 
-## Set up vCenter
-
-configurations
+## Set up vCenter configurations
 
 To set up vCenter configurations, when using the `collector setup`
 command or the `collector setup --vcenter-configurations` command:
@@ -150,8 +142,7 @@ questions are asked.
 
 
     If you choose to use SSH authentication, you must copy the generated
-     key credentials to your Linux servers. For more information, see [Set up key-based authentication
-     on Linux servers](#cli-collector-setup-linux-key "#cli-collector-setup-linux-key").
+     key credentials to your Linux servers. For more information, see [Set up key-based authentication on Linux servers](#cli-collector-setup-linux-key "#cli-collector-setup-linux-key").
 
 The following example shows what is displayed, including example entries for the
 VMware vCenter configurations.
@@ -210,9 +201,7 @@ You can verify your setup for remote linux machines is correct with "collector d
 
 ```
 
-## Set up remote server
-
-configurations
+## Set up remote server configurations
 
 To set up remote server configurations, when using the `collector
  setup` command or the `collector setup
@@ -240,20 +229,17 @@ directory
 `/opt/amazon/application-data-collector/remote-auth/windows/certs`.
 
 You must copy the generated server credentials to your Windows servers. For
-more information, see [Set up remote server configuration on
-Windows servers](#cli-collector-setup-windows "#cli-collector-setup-windows"). 2. Enter **Y** for yes to the **Setup for Linux using SSH or Cert** question, if you want to
+more information, see [Set up remote server configuration on Windows servers](#cli-collector-setup-windows "#cli-collector-setup-windows"). 2. Enter **Y** for yes to the **Setup for Linux using SSH or Cert** question, if you want to
 configure Linux servers. 3. Enter **1** for the **Enter
 your options** question, if you want to configure for SSH key based
 authentication.
 
 If you choose to use SSH authentication, you must copy the generated key
-credentials to your Linux servers. For more information, see [Set up key-based authentication
-on Linux servers](#cli-collector-setup-linux-key "#cli-collector-setup-linux-key"). 4. Enter **2** for the **Enter
+credentials to your Linux servers. For more information, see [Set up key-based authentication on Linux servers](#cli-collector-setup-linux-key "#cli-collector-setup-linux-key"). 4. Enter **2** for the **Enter
 your options** question, if you want to configure for
 certificate-based authentication.
 
-For information about setting up certificate-based authentication, see [Set up certificate-based
-authentication on Linux servers](#cli-collector-setup-linux-certificate "#cli-collector-setup-linux-certificate").
+For information about setting up certificate-based authentication, see [Set up certificate-based authentication on Linux servers](#cli-collector-setup-linux-certificate "#cli-collector-setup-linux-certificate").
 
 The following example shows what displayed, including example entries for the remote
 server configurations.
@@ -285,9 +271,7 @@ Your Linux remote server configurations are saved successfully.
 
 ```
 
-## Set up version control
-
-configurations
+## Set up version control configurations
 
 To set up version control configurations, when using the `collector
  setup` command or the `collector setup
@@ -351,9 +335,7 @@ Successfully stored windows server credentials...
 
 ```
 
-## Prepare your remote Windows and
-
-Linux servers for data collection
+## Prepare your remote Windows and Linux servers for data collection
 
 ###### Note
 
@@ -374,14 +356,11 @@ User Guide](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/la
 
 To prepare your remote Linux servers, see [Prepare remote Linux servers](#cli-collector-setup-linux "#cli-collector-setup-linux").
 
-To prepare your remote Windows servers, see [Set up remote server configuration on
-Windows servers](#cli-collector-setup-windows "#cli-collector-setup-windows").
+To prepare your remote Windows servers, see [Set up remote server configuration on Windows servers](#cli-collector-setup-windows "#cli-collector-setup-windows").
 
 ### Prepare remote Linux servers
 
-#### Set up key-based authentication
-
-on Linux servers
+#### Set up key-based authentication on Linux servers
 
 If you choose to set up SSH key-based authentication for Linux when
 configuring remote server configurations, you must perform the following steps
@@ -401,9 +380,7 @@ level `755` or less. If it's `777`, it won't work.
 You can use the `chmod` command to restrict
 permissions.
 
-#### Set up certificate-based
-
-authentication on Linux servers
+#### Set up certificate-based authentication on Linux servers
 
 If you choose to set up certificate-based authentication for Linux when
 configuring remote server configurations, you must perform the following steps
@@ -431,17 +408,13 @@ location in the collector:
 
 The name of the certificate must be **id_rsa_assessment-cert.pub**. 4. Provide the certificate file name during the setup step.
 
-### Set up remote server configuration on
-
-Windows servers
+### Set up remote server configuration on Windows servers
 
 If you choose to set up Windows when configuring remote server configurations in
 the collector setup, you must perform the following steps so that data can be
 collected by Strategy Recommendations.
 
-###### To understand more about the PowerShell script that is executed on the remote
-
-server, read this note.
+###### To understand more about the PowerShell script that is executed on the remote server, read this note.
 
 The script enables PowerShell remote and disables all authentication methods
 other than negotiate. This is used for Windows NT LAN Manager (NTLM) and sets
@@ -455,9 +428,7 @@ HTTPS listeners. Then, it creates a new HTTPS listener. It also creates an
 inbound firewall rule for TCP port 5986. In the final step, the WinRM service is
 restarted.
 
-###### To set up data collection through a remote connection on your Windows 2008
-
-servers
+###### To set up data collection through a remote connection on your Windows 2008 servers
 
 1. Use the following command to check the version of PowerShell installed on
    your server.
@@ -479,9 +450,7 @@ $PSVersionTable
 4. Follow the next set of steps, which describe how to set up data collection
    through a remote connection on Windows 2012 and above.
 
-###### To set up data collection through a remote connection on your Windows 2012
-
-and newer servers
+###### To set up data collection through a remote connection on your Windows 2012 and newer servers
 
 1. Download the setup script from the following URL:
 
@@ -510,12 +479,9 @@ retried.
 
 ### Next step
 
-[Step 5: Use Strategy Recommendations in the Migration Hub
-console to get recommendations](getting-started-get-recommendations.md "getting-started-get-recommendations.md")
+[Step 5: Use Strategy Recommendations in the Migration Hub console to get recommendations](getting-started-get-recommendations.md "getting-started-get-recommendations.md")
 
-## Verify that your collector and
-
-servers are setup for data collection
+## Verify that your collector and servers are setup for data collection
 
 Verify that your collector and servers are correctly setup for data collection by
 using the following command.

@@ -79,5 +79,4 @@ navigation pane, under **Discover**, choose
 
 ## Next
 
-[Step 1: Download the Strategy Recommendations
-collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md")
+[Step 1: Download the Strategy Recommendations collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md")

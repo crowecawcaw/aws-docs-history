@@ -14,15 +14,11 @@ The Strategy Recommendations for On-prem customers is in KTLO mode. Existing cus
 There are two ways to deploy the collector:
 
 - Deploy as a virtual machine (VM) in your VMware vCenter Server. For more
-  information, see [Deploy the Strategy Recommendations collector in
-  vCenter](#getting-started-deploy-vm "#getting-started-deploy-vm").
+  information, see [Deploy the Strategy Recommendations collector in vCenter](#getting-started-deploy-vm "#getting-started-deploy-vm").
 - If you have AWS applications that you want to assess, you can use the
-  Strategy Recommendations collector Amazon Machine Image (AMI). For more information, see [Deploy the Strategy Recommendations collector in an
-  Amazon EC2 instance](#getting-started-deploy-ec2 "#getting-started-deploy-ec2").
+  Strategy Recommendations collector Amazon Machine Image (AMI). For more information, see [Deploy the Strategy Recommendations collector in an Amazon EC2 instance](#getting-started-deploy-ec2 "#getting-started-deploy-ec2").
 
-## Deploy the Strategy Recommendations collector in
-
-vCenter
+## Deploy the Strategy Recommendations collector in vCenter
 
 Migration Hub Strategy Recommendations application data collector is a virtual appliance that you can
 install in your on-premises VMware environment. This section describes how to deploy
@@ -55,9 +51,7 @@ To ensure that you are using the latest version of the collector with all the
 new features and bug fixes, upgrade the collector after you deploy the collector
 OVA file. For instructions about how to upgrade, see [Upgrading the Strategy Recommendations collector](application-data-collector.md#upgrade-collector "application-data-collector.md#upgrade-collector").
 
-## Deploy the Strategy Recommendations collector in an
-
-Amazon EC2 instance
+## Deploy the Strategy Recommendations collector in an Amazon EC2 instance
 
 If you have AWS applications that you would like to assess, you can use the
 Strategy Recommendations application data collector Amazon Machine Image (AMI).
@@ -107,5 +101,4 @@ collector as an Amazon EC2 instance. For instructions about how to upgrade, see 
 
 ## Next step
 
-[Step 3: Sign in to the Strategy Recommendations
-collector](getting-started-login-vm.md "getting-started-login-vm.md")
+[Step 3: Sign in to the Strategy Recommendations collector](getting-started-login-vm.md "getting-started-login-vm.md")

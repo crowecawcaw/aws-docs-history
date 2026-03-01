@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Step 5: Use Strategy Recommendations in the Migration Hub
-
-console to get recommendations
+# Step 5: Use Strategy Recommendations in the Migration Hub console to get recommendations
 
 This section describes how to use Strategy Recommendations in the Migration Hub console to get migration
 recommendations for the first time.
@@ -16,8 +14,7 @@ recommendations for the first time.
    **Get recommendations**.
 4. Choose **Agree** if you agree to allow Migration Hub to create a
    service-linked role (SLR) in your account. For more information about the SLR, see
-   [Using service-linked roles for
-   Strategy Recommendations](using-service-linked-roles.md "using-service-linked-roles.md").
+   [Using service-linked roles for Strategy Recommendations](using-service-linked-roles.md "using-service-linked-roles.md").
 5. **Configure data sources**
    1. On the **Configure data sources** page, you must choose
       the source of your servers to analyze from the following options:
@@ -44,8 +41,7 @@ recommendations for the first time.
    3. Under Registered application data collectors, the application data
       collectors that you've set up are listed. If you haven't set up any data
       collectors, you can download the data collector and then deploy it. For more
-      information, see [Step 1: Download the Strategy Recommendations
-      collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md") and [Step 2: Deploy the Strategy Recommendations collector](getting-started-deploy.md "getting-started-deploy.md").
+      information, see [Step 1: Download the Strategy Recommendations collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md") and [Step 2: Deploy the Strategy Recommendations collector](getting-started-deploy.md "getting-started-deploy.md").
 
    ###### Note
 
@@ -86,5 +82,4 @@ recommendations for the first time.
 
 ## Next
 
-[Viewing strategy recommendations in
-Strategy Recommendations](viewing-recommendations.md "viewing-recommendations.md")
+[Viewing strategy recommendations in Strategy Recommendations](viewing-recommendations.md "viewing-recommendations.md")

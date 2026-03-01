@@ -24,9 +24,7 @@ launches a new feature, AWS adds read-only permissions for new operations and re
 For a list and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS
-
-managed policy: AWSMigrationHubStrategyConsoleFullAccess
+## AWS managed policy: AWSMigrationHubStrategyConsoleFullAccess
 
 You can attach the `AWSMigrationHubStrategyConsoleFullAccess` policy to
 your IAM identities.
@@ -52,9 +50,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSMigrationHubStrategyConsoleFullAccess](../../../aws-managed-policy/latest/reference/AWSMigrationHubStrategyConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMigrationHubStrategyConsoleFullAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed
-
-policy: AWSMigrationHubStrategyCollector
+## AWS managed policy: AWSMigrationHubStrategyCollector
 
 You can attach the `AWSMigrationHubStrategyCollector` policy to your IAM
 identities.
@@ -83,9 +79,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSMigrationHubStrategyCollector](../../../aws-managed-policy/latest/reference/AWSMigrationHubStrategyCollector.md "../../../aws-managed-policy/latest/reference/AWSMigrationHubStrategyCollector.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## Strategy Recommendations updates to AWS managed
-
-policies
+## Strategy Recommendations updates to AWS managed policies
 
 View details about updates to AWS managed policies for Strategy Recommendations since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

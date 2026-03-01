@@ -18,14 +18,11 @@ Strategy Recommendations application data collector to connect to your databases
 AWS Secrets Manager in your AWS account.
 
 For information about the permissions and privileges of the credentials that you provide, see
-[Privileges needed for AWS Schema Conversion Tool
-credentials](#schema-conversion-tool-privileges "#schema-conversion-tool-privileges"). For information about creating a secret with
-the credentials, see [Creating a secret in Secrets Manager for database
-credentials](#schema-conversion-tool-secret "#schema-conversion-tool-secret").
+[Privileges needed for AWS Schema Conversion Tool credentials](#schema-conversion-tool-privileges "#schema-conversion-tool-privileges"). For information about creating a secret with
+the credentials, see [Creating a secret in Secrets Manager for database credentials](#schema-conversion-tool-secret "#schema-conversion-tool-secret").
 
 After you set up the credentials and secret, you can configure AWS Schema Conversion Tool analysis on the
-database server. For more information, see [Configure database analysis for an
-application component](recommendations-view-app-components.md#recommendations-database-config "recommendations-view-app-components.md#recommendations-database-config").
+database server. For more information, see [Configure database analysis for an application component](recommendations-view-app-components.md#recommendations-database-config "recommendations-view-app-components.md#recommendations-database-config").
 
 After you configure database analysis for the application component, a AWS Schema Conversion Tool
 inventory task is scheduled. After this task completes, you'll see the new application components
@@ -34,12 +31,9 @@ Server has two databases (exampledbs1 and exampledbs2), an application component
 each of the databases with the names exampledbs1 and exampledbs2.
 
 If you would like to see anti-patterns in migrating each identified database to AWS
-databases, set up analysis for each database following the steps in [Configure database analysis for an
-application component](recommendations-view-app-components.md#recommendations-database-config "recommendations-view-app-components.md#recommendations-database-config").
+databases, set up analysis for each database following the steps in [Configure database analysis for an application component](recommendations-view-app-components.md#recommendations-database-config "recommendations-view-app-components.md#recommendations-database-config").
 
-## Privileges needed for AWS Schema Conversion Tool
-
-credentials
+## Privileges needed for AWS Schema Conversion Tool credentials
 
 The sign-in credentials that you provide to AWS Secrets Manager only needs `VIEW SERVER
  STATE` and `VIEW ANY DEFINITION` privileges.
@@ -47,9 +41,7 @@ The sign-in credentials that you provide to AWS Secrets Manager only needs `VIEW
 You can provide any login name and password that you want when creating the SQL Server
 login.
 
-## Creating a secret in Secrets Manager for database
-
-credentials
+## Creating a secret in Secrets Manager for database credentials
 
 After the credentials are ready for the Strategy Recommendations application data collector to connect to a
 database, create a secret in AWS Secrets Manager in your AWS account as described in the following

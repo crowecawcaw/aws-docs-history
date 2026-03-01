@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Viewing strategy recommendations in
-
-Strategy Recommendations
+# Viewing strategy recommendations in Strategy Recommendations
 
 This section describes how to use Strategy Recommendations in the AWS Migration Hub console to view migration
 strategy recommendations.
@@ -39,8 +37,7 @@ Guidance_ glossary.
 
 4. On the **Application components** tab, you can view the
    recommendations for application components in your migration portfolio. For more
-   information, see [Strategy Recommendations application component
-   recommendations](recommendations-app-components.md "recommendations-app-components.md").
+   information, see [Strategy Recommendations application component recommendations](recommendations-app-components.md "recommendations-app-components.md").
 5. On the **Servers** tab, you can view the recommendations for the
    servers in your migration portfolio. For more information, see [Strategy Recommendations server recommendations](recommendations-servers.md "recommendations-servers.md").
 6. On the **Preferences** tab, you can edit the preferences you

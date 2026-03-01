@@ -22,5 +22,4 @@ default.
 
 The incompatible or anti-pattern report is displayed after the analysis is complete.
 If the analysis is not successful, you can try running a source code analysis by
-providing source code access as described in [Set up version control
-configurations](getting-started-collector-setup.md#cli-collector-setup-git-source-config "getting-started-collector-setup.md#cli-collector-setup-git-source-config").
+providing source code access as described in [Set up version control configurations](getting-started-collector-setup.md#cli-collector-setup-git-source-config "getting-started-collector-setup.md#cli-collector-setup-git-source-config").

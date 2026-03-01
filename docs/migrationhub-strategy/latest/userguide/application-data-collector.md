@@ -4,8 +4,7 @@ AWS Migration Hub is no longer open to new customers as of November 7, 2025. For
 
 This section describes how to use the Strategy Recommendations application data collector.
 
-For information about downloading and setting up an application data collector, see [Step 1: Download the Strategy Recommendations
-collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md").
+For information about downloading and setting up an application data collector, see [Step 1: Download the Strategy Recommendations collector](getting-started-dowmload-collector.md "getting-started-dowmload-collector.md").
 
 ###### Topics
 
@@ -13,9 +12,7 @@ collector](getting-started-dowmload-collector.md "getting-started-dowmload-colle
   collector](#data-collected-by-collector "#data-collected-by-collector")
 - [Upgrading the collector](#upgrade-collector "#upgrade-collector")
 
-## Data collected by the Strategy Recommendations
-
-collector
+## Data collected by the Strategy Recommendations collector
 
 This section describes the type of data that the Migration Hub Strategy Recommendations application data collector
 collects. An application data collector is an agentless data collector that identifies

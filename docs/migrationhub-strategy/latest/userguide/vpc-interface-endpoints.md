@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Migration Hub Strategy Recommendations and interface VPC endpoints
-
-(AWS PrivateLink)
+# Migration Hub Strategy Recommendations and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Migration Hub Strategy Recommendations by creating an
 _interface VPC endpoint_. Interface endpoints are powered by
@@ -18,9 +16,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Strategy Recommendations VPC
-
-endpoints
+## Considerations for Strategy Recommendations VPC endpoints
 
 Before you set up an interface VPC endpoint for Strategy Recommendations, ensure that you review
 [Interface endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md") in the _Amazon VPC User Guide_.
@@ -28,9 +24,7 @@ Before you set up an interface VPC endpoint for Strategy Recommendations, ensure
 Strategy Recommendations supports making calls to all of its API actions from your VPC. To use all of
 Strategy Recommendations, you must create a VPC endpoint.
 
-## Creating an interface VPC endpoint for
-
-Strategy Recommendations
+## Creating an interface VPC endpoint for Strategy Recommendations
 
 You can create a VPC endpoint for Strategy Recommendations using either the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -47,9 +41,7 @@ its default DNS name for the Region. For example, you can use the name
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Strategy Recommendations
+## Creating a VPC endpoint policy for Strategy Recommendations
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Strategy Recommendations. The policy specifies the following information:
