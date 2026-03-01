@@ -13,6 +13,5 @@
 - [Practice Cloud Financial Management](practice-cloud-financial-management.md "practice-cloud-financial-management.md")
 - [Expenditure and usage awareness](expenditure-and-usage-awareness.md "expenditure-and-usage-awareness.md")
 - [Cost effective resources](cost-effective-resources.md "cost-effective-resources.md")
-- [Manage demand and supplying
-  resources](manage-demand-and-supplying-resources.md "manage-demand-and-supplying-resources.md")
+- [Manage demand and supplying resources](manage-demand-and-supplying-resources.md "manage-demand-and-supplying-resources.md")
 - [Optimize over time](optimize-over-time.md "optimize-over-time.md")

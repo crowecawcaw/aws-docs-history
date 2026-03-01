@@ -11,9 +11,7 @@ sustainability goals. For HPC workloads, you need to consider
 additional operational requirements, such as instance availability
 and performance needs.
 
-## HPCSUS01-BP01 Select target AWS Regions that balance performance and resource
-
-availability with your sustainability goals
+## HPCSUS01-BP01 Select target AWS Regions that balance performance and resource availability with your sustainability goals
 
 The AWS Cloud is a constantly expanding network of Regions and points of presence
 (PoP), with a global network infrastructure linking them together. The choice of Region for

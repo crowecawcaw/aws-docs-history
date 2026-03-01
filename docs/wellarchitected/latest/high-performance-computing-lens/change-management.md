@@ -10,9 +10,7 @@ versioning requirements, across many users, can be complex.
 Consider the following best practices when building out your
 architecture.
 
-## HPCREL02-BP01 Install software packages in a shared location to simplify multi-user,
-
-multi-resource software requirements management
+## HPCREL02-BP01 Install software packages in a shared location to simplify multi-user, multi-resource software requirements management
 
 Installing software packages on shared storage, such as Amazon Elastic File System (EFS), allows users
 across compute environments and clusters access the same versioned set of packages.

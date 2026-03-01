@@ -1,6 +1,4 @@
-# Manage demand and supplying
-
-resources
+# Manage demand and supplying resources
 
 There are no best practices unique to HPC for the Manage demand and supplying resources
 best practice area. Please review the [corresponding section in the AWS Well-Architected Cost Optimization Pillar

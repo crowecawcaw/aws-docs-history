@@ -21,9 +21,7 @@ protection do you need to implement centrally in these
 environments, and what capabilities do you have to manage the
 maintenance of such a system.
 
-## HPCOPS01-BP01 Start from business objectives and organizational priorities,
-
-and drive operational decisions about your HPC environment from them
+## HPCOPS01-BP01 Start from business objectives and organizational priorities, and drive operational decisions about your HPC environment from them
 
 Collect business objectives and priorities from your users and
 organizational stakeholders to guide your operational decisions.
