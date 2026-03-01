@@ -61,9 +61,7 @@ changes**.
 
 To make a payment, you must have a valid, unexpired credit card on file.
 
-###### To confirm that your credit card
-
-information is up-to-date
+###### To confirm that your credit card information is up-to-date
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -126,8 +124,7 @@ You can use Billing and Cost Management console to add or update a direct debit 
 ###### Contents
 
 - [Add a direct debit account](manage-cc.md#adding-direct-debit-account "manage-cc.md#adding-direct-debit-account")
-- [Update direct debit
-  account](manage-cc.md#updating-direct-debit-account "manage-cc.md#updating-direct-debit-account")
+- [Update direct debit account](manage-cc.md#updating-direct-debit-account "manage-cc.md#updating-direct-debit-account")
 
 ### Add a direct debit account
 
@@ -145,9 +142,7 @@ ready:
   state-issued ID number
 - (For a business bank account) A Federal tax ID number
 
-###### To add a direct debit account to your
-
-AWS account
+###### To add a direct debit account to your AWS account
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -189,9 +184,7 @@ account number again. 11. For personal bank accounts:
     **Terms and Conditions** and add your direct debit
     account.
 
-### Update direct debit
-
-account
+### Update direct debit account
 
 You can update the name, address, or phone number that's associated with your
 direct debit account.

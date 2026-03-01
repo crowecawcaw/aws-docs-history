@@ -12,18 +12,13 @@ your invoice and ensure that your information is up-to-date in your AWS account.
 
 ###### Contents
 
-- [Check purchase order balance and
-  expiration](monthly-billing-checklist.md#check-po-balanceexpiration "monthly-billing-checklist.md#check-po-balanceexpiration")
+- [Check purchase order balance and expiration](monthly-billing-checklist.md#check-po-balanceexpiration "monthly-billing-checklist.md#check-po-balanceexpiration")
 - [Review tax settings](monthly-billing-checklist.md#review-tax-settings "monthly-billing-checklist.md#review-tax-settings")
-- [Enable tax setting
-  inheritance](monthly-billing-checklist.md#turning-on-tax-setting-inheritance "monthly-billing-checklist.md#turning-on-tax-setting-inheritance")
-- [Update billing contact
-  information](monthly-billing-checklist.md#update-billing-contact-information "monthly-billing-checklist.md#update-billing-contact-information")
+- [Enable tax setting inheritance](monthly-billing-checklist.md#turning-on-tax-setting-inheritance "monthly-billing-checklist.md#turning-on-tax-setting-inheritance")
+- [Update billing contact information](monthly-billing-checklist.md#update-billing-contact-information "monthly-billing-checklist.md#update-billing-contact-information")
 - [Review payment currency](monthly-billing-checklist.md#review-payment-currency "monthly-billing-checklist.md#review-payment-currency")
 
-## Check purchase order balance and
-
-expiration
+## Check purchase order balance and expiration
 
 As part of the procure-to-pay process, you can use purchase orders to procure
 AWS services and approve invoices for payment. To avoid issues with billing and
@@ -66,12 +61,9 @@ registration number.
 
 If you use billing transfer, the bill transfer account controls the tax settings of AWS Organizations that transfer their bills.
 
-For more information, see [Updating and deleting
-tax registration numbers](manage-account-payment.md#manage-account-payment-update-delete-tax-numbers "manage-account-payment.md#manage-account-payment-update-delete-tax-numbers").
+For more information, see [Updating and deleting tax registration numbers](manage-account-payment.md#manage-account-payment-update-delete-tax-numbers "manage-account-payment.md#manage-account-payment-update-delete-tax-numbers").
 
-## Enable tax setting
-
-inheritance
+## Enable tax setting inheritance
 
 The management account and member accounts that are part of AWS Organizations can have different
 TRNs or the same TRN. Unless your organization needs to use different TRNs for member
@@ -96,12 +88,9 @@ consolidate to a single tax invoice.
 If you use billing transfer, AWS Organizations that transfer their bills inherit the tax settings of the bill transfer account by default. For information about managing tax settings and tax inheritance with billing transfer, see [Setting up your tax information](manage-account-payment.md "manage-account-payment.md").
 
 For information about how to manage documents required for US tax exemptions, see
-[Managing your US tax
-exemptions](manage-account-payment.md#manage-account-tax-awstaxexemption "manage-account-payment.md#manage-account-tax-awstaxexemption").
+[Managing your US tax exemptions](manage-account-payment.md#manage-account-tax-awstaxexemption "manage-account-payment.md#manage-account-tax-awstaxexemption").
 
-## Update billing contact
-
-information
+## Update billing contact information
 
 Verify that your billing contact information is correct. AWS uses these contacts to
 contact you about any billing or payment related communications. You can add additional
@@ -146,8 +135,7 @@ If you use billing transfer, AWS Organizations that transfer their bills can upd
 2. For the **Billing** field, review the contact information and
    confirm the email address where you want your invoices delivered.
 
-For more information about how to use alternate contacts, see [Adding or updating alternate
-contacts](billing-getting-started.md#manage-account-payment-alternate-contacts "billing-getting-started.md#manage-account-payment-alternate-contacts").
+For more information about how to use alternate contacts, see [Adding or updating alternate contacts](billing-getting-started.md#manage-account-payment-alternate-contacts "billing-getting-started.md#manage-account-payment-alternate-contacts").
 
 ## Review payment currency
 

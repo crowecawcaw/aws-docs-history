@@ -1,8 +1,8 @@
 # Understanding unexpected charges
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and<br>invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
 
 ###### Note
 
@@ -25,15 +25,11 @@ appropriate steps for every AWS Region you've allocated AWS resources.
 
 - [Usage exceeds AWS Free Tier](#checkexceedfree "#checkexceedfree")
 - [Charges received after account closure](#checkbillafterclosure "#checkbillafterclosure")
-- [Charges incurred from resources in
-  AWS Regions that are turned off](#check-disabled-region "#check-disabled-region")
-- [Charges incurred by services launched by other
-  services](#servicesnotfree "#servicesnotfree")
+- [Charges incurred from resources in AWS Regions that are turned off](#check-disabled-region "#check-disabled-region")
+- [Charges incurred by services launched by other services](#servicesnotfree "#servicesnotfree")
 - [Charges incurred by Amazon EC2 instances](#checkec2instances "#checkec2instances")
-- [Charges incurred by Amazon Elastic Block Store volumes and
-  snapshots](#checkebsvolumes "#checkebsvolumes")
-- [Charges incurred by Elastic IP
-  addresses](#checkelasticipaddresses "#checkelasticipaddresses")
+- [Charges incurred by Amazon Elastic Block Store volumes and snapshots](#checkebsvolumes "#checkebsvolumes")
+- [Charges incurred by Elastic IP addresses](#checkelasticipaddresses "#checkelasticipaddresses")
 - [Charges incurred by storage services](#servicestorage "#servicestorage")
 - [Charges incurred for AWS Organizations that use billing transfer](#billingtransfer-charges "#billingtransfer-charges")
 - [Contacting Support](#all-other-charges "#all-other-charges")
@@ -96,9 +92,7 @@ more information, see [Close your account](../../../accounts/latest/reference/ma
 
 To pay your unpaid AWS bills, see [Making payments](manage-making-a-payment.md "manage-making-a-payment.md").
 
-## Charges incurred from resources in
-
-AWS Regions that are turned off
+## Charges incurred from resources in AWS Regions that are turned off
 
 If you turn off (disable) an AWS Region that you still have resources in, you will
 continue to incur charges for those resources. However, can't access the resources in a
@@ -110,16 +104,12 @@ resources in that Region, and then disable the Region.
 For more information about managing Regions for your account, see [Specify which AWS Regions your account can use](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") in the
 _AWS Account Management Reference Guide_.
 
-## Charges incurred by services launched by other
-
-services
+## Charges incurred by services launched by other services
 
 A number of AWS services can launch resources, so be sure to check for anything that
 might have launched through any service that you've used.
 
-### Charges incurred from resources created by
-
-AWS Elastic Beanstalk
+### Charges incurred from resources created by AWS Elastic Beanstalk
 
 Elastic Beanstalk is designed to ensure that all the resources that you need are running,
 which means that it automatically relaunches any services that you stop. To avoid
@@ -127,9 +117,7 @@ this, you must terminate your Elastic Beanstalk environment before you terminate
 Elastic Beanstalk has created. For more information, see [Terminating an
 Environment](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_.
 
-### Charges incurred from Elastic Load Balancing (ELB) load
-
-balancers
+### Charges incurred from Elastic Load Balancing (ELB) load balancers
 
 Like Elastic Beanstalk environments, ELB load balancers are designed to keep a minimum number
 of Amazon Elastic Compute Cloud (Amazon EC2) instances running. You must terminate your load balancer before
@@ -171,9 +159,7 @@ backed by an instance store, check Amazon S3 for the related bundle. Deregisteri
 doesn't delete the bundle. For more information, see [Deregistering your AMI](../../../AWSEC2/latest/UserGuide/deregister-ami.md "../../../AWSEC2/latest/UserGuide/deregister-ami.md") in the
 _Amazon EC2 User Guide_.
 
-## Charges incurred by Amazon Elastic Block Store volumes and
-
-snapshots
+## Charges incurred by Amazon Elastic Block Store volumes and snapshots
 
 Most Amazon EC2 instances are configured so that their associated Amazon EBS volumes are deleted
 when they are terminated, but it's possible to set up an instance that preserves its
@@ -241,9 +227,7 @@ can change daily as well.
 For more information about snapshots, see the [Cost Allocation for EBS
 Snapshots](https://aws.amazon.com/blogs/aws/new-cost-allocation-for-ebs-snapshots/ "https://aws.amazon.com/blogs/aws/new-cost-allocation-for-ebs-snapshots/") blog post.
 
-## Charges incurred by Elastic IP
-
-addresses
+## Charges incurred by Elastic IP addresses
 
 Any Elastic IP addresses that are attached to an instance that you terminate are
 unattached, but they are still allocated to you. If you don’t need that IP address

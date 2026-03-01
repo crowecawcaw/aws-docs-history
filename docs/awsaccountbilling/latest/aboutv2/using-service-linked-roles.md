@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Billing
+# Using service-linked roles for AWS Billing
 
 AWS Billing uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Billing. Service-linked roles are predefined by AWS Billing and
@@ -21,9 +19,7 @@ For information about other services that support service-linked roles, see [AWS
 column. Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role permissions for
-
-AWS Billing
+## Service-linked role permissions for AWS Billing
 
 AWS Billing uses the service-linked role named **Billing** –
 Allows billing service to validate access to billing view data for derived billing views.
@@ -43,9 +39,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS Billing
+## Creating a service-linked role for AWS Billing
 
 You don't need to manually create a service-linked role. When you create or associate a
 billing view using a billing view from a different account in the AWS Management Console, the AWS CLI, or the
@@ -59,9 +53,7 @@ AWS Billing service before January 1, 2017, when it began supporting service-lin
 then AWS Billing created the Billing role in your account. To learn more, see [A
 new role appeared in my AWS account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
-## Editing a service-linked role for
-
-AWS Billing
+## Editing a service-linked role for AWS Billing
 
 AWS Billing does not allow you to edit the Billing service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -69,9 +61,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Billing
+## Deleting a service-linked role for AWS Billing
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not

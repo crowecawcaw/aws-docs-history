@@ -20,15 +20,13 @@ The Billing preferences page contains the following sections.
   - [Next steps](billing-pref.md#procurement-portal-next "billing-pref.md#procurement-portal-next")
 
 - [Credit sharing preferences](billing-pref.md#credit-sharing-preferences "billing-pref.md#credit-sharing-preferences")
-- [Savings Plans and Reserved Instances
-  discount sharing preferences](billing-pref.md#reserved-instances-savings-plans-preferences "billing-pref.md#reserved-instances-savings-plans-preferences")
+- [Savings Plans and Reserved Instances discount sharing preferences](billing-pref.md#reserved-instances-savings-plans-preferences "billing-pref.md#reserved-instances-savings-plans-preferences")
   - [Understanding Sharing Options](billing-pref.md#understanding-sharing-options "billing-pref.md#understanding-sharing-options")
   - [Managing Basic Discount Sharing](billing-pref.md#managing-basic-discount-sharing "billing-pref.md#managing-basic-discount-sharing")
   - [Setting Up Group Sharing](billing-pref.md#setting-up-group-sharing "billing-pref.md#setting-up-group-sharing")
   - [Modifying Existing Groups](billing-pref.md#modifying-existing-groups "billing-pref.md#modifying-existing-groups")
 
-- [Detailed billing reports
-  (legacy)](billing-pref.md#detailed-reports-legacy-preferences "billing-pref.md#detailed-reports-legacy-preferences")
+- [Detailed billing reports (legacy)](billing-pref.md#detailed-reports-legacy-preferences "billing-pref.md#detailed-reports-legacy-preferences")
 
 ## Invoice delivery preferences
 
@@ -36,9 +34,7 @@ You can choose to receive a PDF copy of your monthly invoice by email. The month
 invoices are sent to the emails registered as the AWS account root user and the alternate billing
 contact. For information about updating these email addresses, see [Setting up your tax information](manage-account-payment.md "manage-account-payment.md").
 
-###### To opt in or out of receiving monthly PDF invoices by
-
-email
+###### To opt in or out of receiving monthly PDF invoices by email
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -208,9 +204,7 @@ billing family. You can select specific accounts or enable sharing for all accou
 
 Changing the sharing preferences of Reserved Instances and Savings Plans in your AWS organization, will impact your AWS bills. This also applies to customers opted in Billing Conductor or billing transfer.
 
-## Savings Plans and Reserved Instances
-
-discount sharing preferences
+## Savings Plans and Reserved Instances discount sharing preferences
 
 Reserved Instances (RI) and (SP) discount sharing allows you to control how commitment-based discounts
 are distributed across accounts in your AWS Organizations. This feature helps you align cost savings with your
@@ -313,9 +307,7 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 4. Click **Edit**
 5. Update group membership or create new groups following the same process above
 
-## Detailed billing reports
-
-(legacy)
+## Detailed billing reports (legacy)
 
 You can receive legacy billing reports that are offered outside of the AWS Cost and Usage Reports
 console page. However, we strongly recommend that you use AWS Cost and Usage Reports instead because it

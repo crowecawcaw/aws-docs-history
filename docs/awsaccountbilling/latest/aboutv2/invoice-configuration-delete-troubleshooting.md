@@ -1,24 +1,16 @@
-# Troubleshooting
-
-topics for deleting invoice units
+# Troubleshooting topics for deleting invoice units
 
 You can use the information on this page to resolve common issues when deleting
 invoice units or accounts.
 
-## The impact to invoice units
-
-when an invoice receiver account is deleted, or moves out of
-AWS Organizations
+## The impact to invoice units when an invoice receiver account is deleted, or moves out of AWS Organizations
 
 ### Resolution
 
 Closing the invoice receiver account or removing them from the Organizations
 deletes the invoice unit entirely.
 
-## The impact when a
-
-member account is deleted, or moves out of a consolidated billing
-family
+## The impact when a member account is deleted, or moves out of a consolidated billing family
 
 ### Resolution
 

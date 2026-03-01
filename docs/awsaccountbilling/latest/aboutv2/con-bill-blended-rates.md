@@ -146,9 +146,7 @@ Instances on the Linux/Unix platform with default tenancy. For more information
 about regional Reserved Instances, see [Reservation Details](../../../cur/latest/userguide/reservation-columns.md "../../../cur/latest/userguide/reservation-columns.md") in the _Cost and Usage Reports Guide_ in this documentation and [Applying Reserved Instances](../../../AWSEC2/latest/UserGuide/concepts-reserved-instances-application.md#apply_ri "../../../AWSEC2/latest/UserGuide/concepts-reserved-instances-application.md#apply_ri") in the [Amazon Elastic Compute Cloud
 User Guide for Linux Instances](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md").
 
-### Calculating Costs for Amazon EC2 with Reserved
-
-Instances
+### Calculating Costs for Amazon EC2 with Reserved Instances
 
 AWS calculates the charges for Amazon EC2 instances by aggregating all the EC2 usage
 for a specific instance type in a specific AWS Region for an organization.
@@ -221,13 +219,10 @@ of that service.
 This section includes examples that show how AWS calculates blended
 rates for the following services.
 
-- [Calculating Blended Rates for Amazon S3
-  Standard Storage](#Blended_S3_Stand_Storage "#Blended_S3_Stand_Storage")
+- [Calculating Blended Rates for Amazon S3 Standard Storage](#Blended_S3_Stand_Storage "#Blended_S3_Stand_Storage")
 - [Calculating Blended Rates for Amazon EC2](#blended-rate-example "#blended-rate-example")
 
-### Calculating Blended Rates for Amazon S3
-
-Standard Storage
+### Calculating Blended Rates for Amazon S3 Standard Storage
 
 AWS calculates blended rates for Amazon S3 standard storage by taking the total
 cost of storage and dividing by the amount of data stored per month.

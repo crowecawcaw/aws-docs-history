@@ -7,25 +7,18 @@ shown, and customize your view to show different cost types.
 
 ###### Topics
 
-- [Navigating to your
-  cost category details page](#view-cost-categories-details-navigate "#view-cost-categories-details-navigate")
-- [Understanding your cost category
-  details page](#view-cost-categories-details "#view-cost-categories-details")
-- [Your cost category
-  month-to-date categorizations](#view-cost-categories-details-mtd "#view-cost-categories-details-mtd")
+- [Navigating to your cost category details page](#view-cost-categories-details-navigate "#view-cost-categories-details-navigate")
+- [Understanding your cost category details page](#view-cost-categories-details "#view-cost-categories-details")
+- [Your cost category month-to-date categorizations](#view-cost-categories-details-mtd "#view-cost-categories-details-mtd")
 - [Change your cost type](#change-cost-type-for-cost-categories "#change-cost-type-for-cost-categories")
 
-## Navigating to your
-
-cost category details page
+## Navigating to your cost category details page
 
 You can choose any cost category name in the Billing and Cost Management console to open a details
 page. The details page is also shown when you add or edit a
 cost category.
 
-###### To view your cost category details
-
-page
+###### To view your cost category details page
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -34,9 +27,7 @@ page
 3. Under the **Cost category** column, choose a
    cost category name.
 
-## Understanding your cost category
-
-details page
+## Understanding your cost category details page
 
 Your cost category details page breaks down your month-to-date cost
 allocations using the **Category details** and **Category
@@ -53,9 +44,7 @@ values** sections.
   allocation of cost category values in your monthly spend. Any
   uncategorized costs are shown as **Uncategorized**.
 
-## Your cost category
-
-month-to-date categorizations
+## Your cost category month-to-date categorizations
 
 In the **Category values** section, you can see the month-to-date
 spend for each configured cost category value. The amounts that are shown are

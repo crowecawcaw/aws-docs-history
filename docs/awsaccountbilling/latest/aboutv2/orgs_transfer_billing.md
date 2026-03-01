@@ -8,16 +8,13 @@ Billing transfer allows a management account to designate an account external to
 - [Considerations](#orgs_transfer_billing-considerations "#orgs_transfer_billing-considerations")
 - [Important impacts](#orgs_transfer_billing-impacts "#orgs_transfer_billing-impacts")
 - [How billing transfer works](#orgs_transfer_billing-how-it-works "#orgs_transfer_billing-how-it-works")
-- [Sending
-  invitations](orgs_transfer_billing-send-invitation.md "orgs_transfer_billing-send-invitation.md")
+- [Sending invitations](orgs_transfer_billing-send-invitation.md "orgs_transfer_billing-send-invitation.md")
 - [Viewing invitations](orgs_transfer_billing-view-invitation.md "orgs_transfer_billing-view-invitation.md")
 - [Canceling invitations](orgs_transfer_billing-cancel-invitation.md "orgs_transfer_billing-cancel-invitation.md")
-- [Responding to
-  invitations](orgs_transfer_billing-respond-invitation.md "orgs_transfer_billing-respond-invitation.md")
+- [Responding to invitations](orgs_transfer_billing-respond-invitation.md "orgs_transfer_billing-respond-invitation.md")
 - [Viewing transfers](orgs_transfer_billing-view-transfer.md "orgs_transfer_billing-view-transfer.md")
 - [Updating transfers](orgs_transfer_billing-update-transfer.md "orgs_transfer_billing-update-transfer.md")
-- [Withdrawing
-  transfers](orgs_transfer_billing-stop-transfer.md "orgs_transfer_billing-stop-transfer.md")
+- [Withdrawing transfers](orgs_transfer_billing-stop-transfer.md "orgs_transfer_billing-stop-transfer.md")
 - [Viewing Billing and Cost Management data as a Bill Transfer account](orgs_transfer_billing-view-account.md "orgs_transfer_billing-view-account.md")
 - [Quotas](orgs_transfer_billing-quotas.md "orgs_transfer_billing-quotas.md")
 - [Best practices](orgs_transfer_billing-best-practices.md "orgs_transfer_billing-best-practices.md")

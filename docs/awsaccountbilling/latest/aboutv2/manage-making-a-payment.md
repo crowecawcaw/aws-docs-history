@@ -26,8 +26,7 @@ For more information, see [Manage ACH direct debit payment methods](manage-cc.md
 Before making a payment, ensure that the payment method that you want to be
 automatically charged in the future is set as your default payment method. If you're
 using a credit card, confirm that your credit card isn't expired. For more
-information, see [Designate a default payment
-method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default") and [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md").
+information, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default") and [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md").
 
 ###### To make a payment
 

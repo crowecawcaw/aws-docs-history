@@ -162,8 +162,7 @@ Rules are processed in order. If there are multiple rules that match the line
 item, then the first rule to match is used to determine that cost category
 value. 17. (Optional) To remove a rule, select the rule and choose
 **Delete**. 18. Choose **Next**. 19. (Optional) To split your cost, choose **Add a split
-charges**. For more information about split charge rules, see [Splitting charges within
-cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md").
+charges**. For more information about split charge rules, see [Splitting charges within cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md").
 
     1. Choose **Add a split charge**.
     2. Under **Source value**, choose your cost category
@@ -185,9 +184,7 @@ cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md"
     enter a key and value.
 23. Choose **Create cost category**.
 
-## Understanding the cost preview
-
-panel
+## Understanding the cost preview panel
 
 The cost preview panel shows you in real time how your costs group together or
 split apart as you create or update your cost categories rules. The results you

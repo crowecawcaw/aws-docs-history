@@ -1,13 +1,9 @@
-# Troubleshooting
-
-updates to invoice units
+# Troubleshooting updates to invoice units
 
 You can use the information on this page to resolve common issues customers
 encounter when updating invoice units.
 
-## I want to update the
-
-invoice receiver's email address
+## I want to update the invoice receiver's email address
 
 ### Resolution
 

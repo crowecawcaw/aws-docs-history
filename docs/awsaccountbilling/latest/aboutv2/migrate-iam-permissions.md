@@ -1,6 +1,4 @@
-# Use scripts to bulk migrate your policies to use
-
-fine-grained IAM actions
+# Use scripts to bulk migrate your policies to use fine-grained IAM actions
 
 ###### Note
 
@@ -59,12 +57,9 @@ Follow this topic to complete the following steps:
 ###### Topics
 
 - [Prerequisites](#prerequisites-running-the-scripts "#prerequisites-running-the-scripts")
-- [Step 1: Set up your
-  environment](#set-up-your-environment-and-download-the-scripts "#set-up-your-environment-and-download-the-scripts")
-- [Step 2: Create the CloudFormation
-  StackSet](#create-the-cloudformation-stack "#create-the-cloudformation-stack")
-- [Step 3: Identify the affected
-  policies](#identify-the-affected-policies "#identify-the-affected-policies")
+- [Step 1: Set up your environment](#set-up-your-environment-and-download-the-scripts "#set-up-your-environment-and-download-the-scripts")
+- [Step 2: Create the CloudFormation StackSet](#create-the-cloudformation-stack "#create-the-cloudformation-stack")
+- [Step 3: Identify the affected policies](#identify-the-affected-policies "#identify-the-affected-policies")
 - [Step 4: Review the suggested changes](#review-the-affected-policies "#review-the-affected-policies")
 - [Step 5: Update the affected policies](#update-the-affected-policies "#update-the-affected-policies")
 - [Step 6: Revert your changes (Optional)](#revert-changes "#revert-changes")
@@ -116,9 +111,7 @@ account, to verify that the suggested changes are expected.
 
 You can then run the scripts again for remaining accounts in your organization.
 
-## Step 1: Set up your
-
-environment
+## Step 1: Set up your environment
 
 To get started, download the required files from the [AWS
 Samples](https://github.com/aws-samples/bulk-policy-migrator-scripts-for-account-cost-billing-consoles "https://github.com/aws-samples/bulk-policy-migrator-scripts-for-account-cost-billing-consoles") website. You then run commands
@@ -192,9 +185,7 @@ information, see [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/doc
 
 For more information, see the [README.md](https://github.com/aws-samples/bulk-policy-migrator-scripts-for-account-cost-billing-consoles#readme "https://github.com/aws-samples/bulk-policy-migrator-scripts-for-account-cost-billing-consoles#readme") file.
 
-## Step 2: Create the CloudFormation
-
-StackSet
+## Step 2: Create the CloudFormation StackSet
 
 Follow this procedure to create a CloudFormation _stack set_. This stack
 set then creates the `BillingConsolePolicyMigratorRole` IAM role for all member accounts in your
@@ -245,9 +236,7 @@ The IAM role contains the following permissions:
 - The scripts call the [ListAccounts](../../../organizations/latest/APIReference/API_ListAccounts.md "../../../organizations/latest/APIReference/API_ListAccounts.md") API operation to get all member accounts.
 - The scripts also call IAM API operations to perform the read and write permissions to the policies.
 
-## Step 3: Identify the affected
-
-policies
+## Step 3: Identify the affected policies
 
 After you create the stack set and downloaded the files, run the `identify_affected_policies.py` script.
 This script assumes the `BillingConsolePolicyMigratorRole` IAM role for each member account, and then identifies
@@ -484,9 +473,7 @@ After the script creates the `affected_policies_and_suggestions.json` file, revi
    policies.
 4. Update your file as needed and then save it.
 
-### Example 1: Update the
-
-`action_mapping_config.json` file
+### Example 1: Update the `action_mapping_config.json` file
 
 You can update the suggested mappings in the `action_mapping_config.json`. After you update the file,
 you can rerun the `identify_affected_policies.py` script. This script generates updated suggestions for
@@ -498,9 +485,7 @@ different accounts with different permissions. For example, you might create one
 test accounts and `action_mapping_config_production.json` for your
 production accounts.
 
-### Example 2: Update the
-
-`affected_policies_and_suggestions.json` file
+### Example 2: Update the `affected_policies_and_suggestions.json` file
 
 To make changes to the suggested replacements for a specific affected policy group, you
 can directly edit the suggested replacements section within the `affected_policies_and_suggestions.json` file.
@@ -508,9 +493,7 @@ can directly edit the suggested replacements section within the `affected_polici
 Any changes that you make in this section are applied to all policies within that
 specific affected policy group.
 
-### Example 3: Customize a specific
-
-policy
+### Example 3: Customize a specific policy
 
 If you find that a policy within an affected policy group that needs different changes
 than the suggested updates, you can do the following:
@@ -600,8 +583,7 @@ JSON file locally.
   affected policies tool. If you identify any issues, you can use the tool to switch back
   to the previous actions. You can also use a script to revert your policy updates.
 
-For more information, see [How to use the affected policies
-tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md") and the [Changes to AWS Billing, Cost Management, and Account Consoles
+For more information, see [How to use the affected policies tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md") and the [Changes to AWS Billing, Cost Management, and Account Consoles
 Permissions](https://aws.amazon.com/blogs/aws-cloud-financial-management/changes-to-aws-billing-cost-management-and-account-consoles-permissions/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/changes-to-aws-billing-cost-management-and-account-consoles-permissions/") blog post.
 
 - To manage your updates, you can:

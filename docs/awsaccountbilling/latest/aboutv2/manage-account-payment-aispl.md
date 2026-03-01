@@ -10,12 +10,10 @@ manages your billing, and your invoice total is listed in rupees instead of doll
 - [Managing your AWS India account](manage-account-payment-aispl.md#manage-aispl-account "manage-account-payment-aispl.md#manage-aispl-account")
   - [Adding or editing a Permanent Account Number](manage-account-payment-aispl.md#aispl-add-pan "manage-account-payment-aispl.md#aispl-add-pan")
   - [Editing multiple Permanent Account Numbers](manage-account-payment-aispl.md#aispl-edit-pan "manage-account-payment-aispl.md#aispl-edit-pan")
-  - [Editing multiple Goods and Services Tax
-    numbers](manage-account-payment-aispl.md#aispl-edit-gst "manage-account-payment-aispl.md#aispl-edit-gst")
+  - [Editing multiple Goods and Services Tax numbers](manage-account-payment-aispl.md#aispl-edit-gst "manage-account-payment-aispl.md#aispl-edit-gst")
   - [Viewing a tax invoice](manage-account-payment-aispl.md#aispl-view-tax "manage-account-payment-aispl.md#aispl-view-tax")
 
-- [Changing the seller of record to or from
-  AWS India](manage-account-payment-aispl.md#aispl-edit-SOR "manage-account-payment-aispl.md#aispl-edit-SOR")
+- [Changing the seller of record to or from AWS India](manage-account-payment-aispl.md#aispl-edit-SOR "manage-account-payment-aispl.md#aispl-edit-SOR")
 
 ## Signing up for AWS India
 
@@ -42,8 +40,7 @@ perform the following tasks:
 
 - [Adding or editing a Permanent Account Number](#aispl-add-pan "#aispl-add-pan")
 - [Editing multiple Permanent Account Numbers](#aispl-edit-pan "#aispl-edit-pan")
-- [Editing multiple Goods and Services Tax
-  numbers](#aispl-edit-gst "#aispl-edit-gst")
+- [Editing multiple Goods and Services Tax numbers](#aispl-edit-gst "#aispl-edit-gst")
 - [Viewing a tax invoice](#aispl-view-tax "#aispl-view-tax")
 
 ### Adding or editing a Permanent Account Number
@@ -76,9 +73,7 @@ You can edit multiple Permanent Account Numbers (PANs) in your account.
 5. Update the fields that you want to change, and then choose
    **Update**.
 
-### Editing multiple Goods and Services Tax
-
-numbers
+### Editing multiple Goods and Services Tax numbers
 
 You can edit multiple Goods and Services Tax numbers (GSTs) in your account.
 
@@ -113,9 +108,7 @@ You can view your tax invoices in the console.
 The **Tax invoices** section only appears if there are tax
 invoices available.
 
-## Changing the seller of record to or from
-
-AWS India
+## Changing the seller of record to or from AWS India
 
 You can change your AWS account seller of record (SOR) of your AWS account to another SOR by updating your billing or tax information. This does not apply if your AWS India account is operating in the legacy model where the functionality isn't available. When you edit your country or region in your AWS account billing or tax details,
 the SOR for your account will automatically change if the service provider of the new location is

@@ -35,25 +35,18 @@ Viewing AWS credits
 
 ###### Topics
 
-- [Step 1: Choosing the credits to
-  apply](#selecting-credits-to-apply "#selecting-credits-to-apply")
-- [Step 2: Choose where to apply
-  your credits](#selecting-usage-to-apply-credits-to "#selecting-usage-to-apply-credits-to")
-- [Step 3: Applying AWS credits across single and
-  multiple accounts](#credits-for-orgs "#credits-for-orgs")
+- [Step 1: Choosing the credits to apply](#selecting-credits-to-apply "#selecting-credits-to-apply")
+- [Step 2: Choose where to apply your credits](#selecting-usage-to-apply-credits-to "#selecting-usage-to-apply-credits-to")
+- [Step 3: Applying AWS credits across single and multiple accounts](#credits-for-orgs "#credits-for-orgs")
 - [Step 4: Sharing AWS credits](#credit-sharing "#credit-sharing")
 
-## Step 1: Choosing the credits to
-
-apply
+## Step 1: Choosing the credits to apply
 
 This section explains how AWS credits apply in a single or standalone
 AWS account. If an AWS account has more than one credit, the available credits
 apply in the following order:
 
-###### The order of how credits apply if an AWS account has more than one
-
-credit
+###### The order of how credits apply if an AWS account has more than one credit
 
 1. The soonest to expire amongst the credits
 2. The credit with the least number of eligible services
@@ -77,16 +70,12 @@ application first because it expires sooner than credit two.
   process. AWS will automatically apply eligible credits to applicable
   services.
 
-## Step 2: Choose where to apply
-
-your credits
+## Step 2: Choose where to apply your credits
 
 This section shows how AWS credits apply in an AWS Organizations when credit sharing is
 turned on.
 
-###### The order of how credits are applied in an AWS Organizations when credit sharing is
-
-activated
+###### The order of how credits are applied in an AWS Organizations when credit sharing is activated
 
 1. Account that owns the credit is covered for the service charges
 2. Credits are applied towards the AWS account with the highest
@@ -115,9 +104,7 @@ for Amazon S3. He has now used all of his credits.
 
 When you sign in as a bill source account, you are responsible for managing credit sharing for accounts in your AWS Organizations. The bill transfer account can't control credit sharing unless you provide them with a cross-organization role to modify these preferences.
 
-## Step 3: Applying AWS credits across single and
-
-multiple accounts
+## Step 3: Applying AWS credits across single and multiple accounts
 
 The following rules specify how AWS applies credits to bills for single accounts
 and for organizations by default (Credit sharing turned on):
@@ -187,9 +174,7 @@ off:
   on. The payer account user can also select which accounts credits can be
   shared with.
 
-### Credit sharing
-
-preferences
+### Credit sharing preferences
 
 You can use this section to activate sharing credits across member accounts in
 your billing family. You can select specific accounts or enable sharing for all

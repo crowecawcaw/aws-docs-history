@@ -21,7 +21,5 @@ sections.
 
 ###### Topics
 
-- [Reading the service
-  price list file for an AWS service](reading-service-price-list-file-for-services.md "reading-service-price-list-file-for-services.md")
-- [Reading the
-  service price list file for a Savings Plan](reading-service-price-list-file-for-savings-plans.md "reading-service-price-list-file-for-savings-plans.md")
+- [Reading the service price list file for an AWS service](reading-service-price-list-file-for-services.md "reading-service-price-list-file-for-services.md")
+- [Reading the service price list file for a Savings Plan](reading-service-price-list-file-for-savings-plans.md "reading-service-price-list-file-for-savings-plans.md")

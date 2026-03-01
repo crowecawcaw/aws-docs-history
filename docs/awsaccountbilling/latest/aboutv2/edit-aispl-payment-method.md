@@ -11,21 +11,16 @@ If you have questions about payment methods, see [Getting help with your bills a
 ###### Contents
 
 - [Supported payment methods](edit-aispl-payment-method.md#aispl-supported-payment "edit-aispl-payment-method.md#aispl-supported-payment")
-- [Use a credit or debit card to make a
-  payment](edit-aispl-payment-method.md#aispl-pay-bill-sec "edit-aispl-payment-method.md#aispl-pay-bill-sec")
-- [Save your credit or debit card
-  details](edit-aispl-payment-method.md#save-debit-credit-card-details "edit-aispl-payment-method.md#save-debit-credit-card-details")
-- [Add card details when making
-  a payment](edit-aispl-payment-method.md#adding-card-details-when-making-payments "edit-aispl-payment-method.md#adding-card-details-when-making-payments")
+- [Use a credit or debit card to make a payment](edit-aispl-payment-method.md#aispl-pay-bill-sec "edit-aispl-payment-method.md#aispl-pay-bill-sec")
+- [Save your credit or debit card details](edit-aispl-payment-method.md#save-debit-credit-card-details "edit-aispl-payment-method.md#save-debit-credit-card-details")
+- [Add card details when making a payment](edit-aispl-payment-method.md#adding-card-details-when-making-payments "edit-aispl-payment-method.md#adding-card-details-when-making-payments")
 - [Delete a credit or debit card](edit-aispl-payment-method.md#delete-credit-card-aws-india "edit-aispl-payment-method.md#delete-credit-card-aws-india")
 - [Add a net banking account](edit-aispl-payment-method.md#aispl-add-net-acc "edit-aispl-payment-method.md#aispl-add-net-acc")
 - [Use a net banking account to make a payment](edit-aispl-payment-method.md#aispl-pay-net-sec "edit-aispl-payment-method.md#aispl-pay-net-sec")
 - [Remove a net banking account](edit-aispl-payment-method.md#aispl-remove-net "edit-aispl-payment-method.md#aispl-remove-net")
-- [Use Unified Payments
-  Interface (UPI) to make a payment](edit-aispl-payment-method.md#using-unified-payment-interface-for-payments "edit-aispl-payment-method.md#using-unified-payment-interface-for-payments")
+- [Use Unified Payments Interface (UPI) to make a payment](edit-aispl-payment-method.md#using-unified-payment-interface-for-payments "edit-aispl-payment-method.md#using-unified-payment-interface-for-payments")
 - [Set up automatic payments using Unified Payments Interface (UPI)](edit-aispl-payment-method.md#using-aispl-autopay-UPI "edit-aispl-payment-method.md#using-aispl-autopay-UPI")
-- [Set up automatic payments on your credit
-  or debit card](edit-aispl-payment-method.md#using-aispl-autopay-enable "edit-aispl-payment-method.md#using-aispl-autopay-enable")
+- [Set up automatic payments on your credit or debit card](edit-aispl-payment-method.md#using-aispl-autopay-enable "edit-aispl-payment-method.md#using-aispl-autopay-enable")
 - [Understanding your automatic payments](edit-aispl-payment-method.md#using-aispl-autopay-manage "edit-aispl-payment-method.md#using-aispl-autopay-manage")
 - [Making payments for AWS Marketplace or AWS subscriptions](edit-aispl-payment-method.md#using-aispl-autopay-subscriptions "edit-aispl-payment-method.md#using-aispl-autopay-subscriptions")
 - [Cancel automatic payments on your credit or debit card](edit-aispl-payment-method.md#using-aispl-autopay-disable "edit-aispl-payment-method.md#using-aispl-autopay-disable")
@@ -42,9 +37,7 @@ automatic payments (e-mandates) on eligible credit or debit cards to automatical
 your AWS bills when payments are due. You can only use e-mandates for charges up to
 INR 15,000.
 
-## Use a credit or debit card to make a
-
-payment
+## Use a credit or debit card to make a payment
 
 You can use the Billing and Cost Management console to pay your AWS India bills. Follow this procedure to make
 a payment with a credit or debit card.
@@ -66,9 +59,7 @@ After your payment is verified, you're redirected to the
 **Payments due** table until your bank processes your
 payment.
 
-## Save your credit or debit card
-
-details
+## Save your credit or debit card details
 
 You can save your credit or debit card details for card networks in AWS for
 subsequent AWS bill payments as per the guidelines of the Reserve Bank of India
@@ -98,9 +89,7 @@ within 5-7 business days.
 After your card is verified successfully, your card details will be saved to
 your AWS account.
 
-## Add card details when making
-
-a payment
+## Add card details when making a payment
 
 You can also add your credit or debit card details when you pay your AWS bill. After
 you add the card as a payment method, you don't need to repeat this procedure.
@@ -210,9 +199,7 @@ AWS account.
 5. In the **Delete payment method** dialog box, choose
    **Delete**.
 
-## Use Unified Payments
-
-Interface (UPI) to make a payment
+## Use Unified Payments Interface (UPI) to make a payment
 
 You can use the Billing console to pay your AWS India bills. Follow this procedure to make a
 payment with Unified Payments Interface (UPI).
@@ -273,9 +260,7 @@ bills using Unified Payments Interface (UPI). Your UPI AutoPay can be used to pa
 
 You will see your UPI AutoPay selected, with an **AutoPay enabled** message below.
 
-## Set up automatic payments on your credit
-
-or debit card
+## Set up automatic payments on your credit or debit card
 
 You can enable credit or debit card automatic recurring payments for your AWS India
 bills using the following steps. We currently support automatic payments up to INR
@@ -296,8 +281,7 @@ table. 4. Choose **Complete payment**. 5. In the **Payment summary** section, se
 
 ###### Note
 
-- You can’t select the checkbox to set up e-mandate if your credit or debit card is not supported, or if it is not set up as the default payment method. Contact your bank to learn more about e-mandate support. To change your default payment method, see [Designate a default payment
-  method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default").
+- You can’t select the checkbox to set up e-mandate if your credit or debit card is not supported, or if it is not set up as the default payment method. Contact your bank to learn more about e-mandate support. To change your default payment method, see [Designate a default payment method](manage-payment-method.md#manage-designate-default "manage-payment-method.md#manage-designate-default").
 - You can't change or edit your default payment method without canceling the active e-mandate on
   the card. This is to ensure we automatically charge the default payment
   instrument only. To cancel the e-mandate, see [Cancel automatic payments on your credit or debit card](#using-aispl-autopay-disable "#using-aispl-autopay-disable"). After the e-mandate is

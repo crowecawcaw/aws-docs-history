@@ -1,6 +1,4 @@
-# Service Region index
-
-file for Savings Plan
+# Service Region index file for Savings Plan
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,14 +8,10 @@ To understand the service Region index file for Savings Plan, see the following 
 
 ###### Topics
 
-- [Example: Service
-  Region index file for Savings Plan](#service-region-index-file-for-savings-plans "#service-region-index-file-for-savings-plans")
-- [Service Region index
-  definitions](#service-region-index-file-definitions "#service-region-index-file-definitions")
+- [Example: Service Region index file for Savings Plan](#service-region-index-file-for-savings-plans "#service-region-index-file-for-savings-plans")
+- [Service Region index definitions](#service-region-index-file-definitions "#service-region-index-file-definitions")
 
-## Example: Service
-
-Region index file for Savings Plan
+## Example: Service Region index file for Savings Plan
 
 The service Region index file for Savings Plan looks like the following.
 
@@ -39,9 +33,7 @@ The service Region index file for Savings Plan looks like the following.
 }
 ```
 
-## Service Region index
-
-definitions
+## Service Region index definitions
 
 The following list defines the terms in the service Region index file.
 

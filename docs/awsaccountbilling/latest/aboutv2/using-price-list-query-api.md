@@ -19,9 +19,7 @@ can also use the AWS Price List Query API to get attributes for a service. Then,
 can use the service attributes to find the products that meet your requirements
 based on the attribute values.
 
-### Examples: Find
-
-services
+### Examples: Find services
 
 The following AWS Command Line Interface (AWS CLI) commands show how to find services.
 
@@ -105,9 +103,7 @@ To find the values for an attribute, use the `GetAttributeValues` API
 operation. To call the API, specify the `AttributeName` and
 `ServiceCode` parameters.
 
-### Example: Get attribute
-
-values
+### Example: Get attribute values
 
 The following AWS Command Line Interface (AWS CLI) command shows how to get attribute values for
 an AWS service.
@@ -274,5 +270,4 @@ For more information, see the following topics:
 - [GetProducts](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md") and [language-specific AWS SDKs](../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso "../../../aws-cost-management/latest/APIReference/API_pricing_GetProducts.md#API_pricing_GetProducts_SeeAlso") in the
   _AWS Billing and Cost Management API Reference_
 - [Reading the service price list files](reading-service-price-list-files.md "reading-service-price-list-files.md")
-- [Finding prices in the service
-  price list file](finding-prices-in-service-price-list-files.md "finding-prices-in-service-price-list-files.md")
+- [Finding prices in the service price list file](finding-prices-in-service-price-list-files.md "finding-prices-in-service-price-list-files.md")

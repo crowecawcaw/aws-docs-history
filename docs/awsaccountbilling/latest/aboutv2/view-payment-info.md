@@ -1,6 +1,4 @@
-# View remaining invoices, unapplied funds, and
-
-payment history
+# View remaining invoices, unapplied funds, and payment history
 
 You can use the **Payments account summary** page in your Billing and Cost Management console to see your AWS account's financial status. This section outlines what each console component represents.
 
@@ -38,9 +36,7 @@ choosing the appropriate ID, or choose **Download**, and then
 **Download CSV** to download a CSV file of the table for
 reporting purposes.
 
-###### To view remaining invoice
-
-payments
+###### To view remaining invoice payments
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

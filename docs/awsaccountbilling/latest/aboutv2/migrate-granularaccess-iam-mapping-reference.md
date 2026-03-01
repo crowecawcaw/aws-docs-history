@@ -1,6 +1,4 @@
-# Mapping fine-grained IAM
-
-actions reference
+# Mapping fine-grained IAM actions reference
 
 ###### Note
 
@@ -36,12 +34,10 @@ control policies (SCP):
 
 1. Review your affected IAM policies in your AWS account. To do so, follow the steps in
    the **Affected policies** tool to identify your affected IAM policies.
-   See [How to use the affected policies
-   tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md").
+   See [How to use the affected policies tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md").
 2. Use the IAM console to add the new granular permissions to your policy. For example,
    if your policy allows the `purchase-orders:ModifyPurchaseOrders` permission, you
-   will need to add each action in the [Mapping for
-   purchase-orders:ModifyPurchaseOrders](#mapping-for-purchase-ordersmodifypurchaseorders "#mapping-for-purchase-ordersmodifypurchaseorders") table.
+   will need to add each action in the [Mapping for purchase-orders:ModifyPurchaseOrders](#mapping-for-purchase-ordersmodifypurchaseorders "#mapping-for-purchase-ordersmodifypurchaseorders") table.
 
 **Old policy**
 
@@ -107,33 +103,21 @@ JSON
 - To edit policies manually in the IAM console, see [Editing customer managed policies (console)](../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-inline-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-inline-policy-console") in the
   _IAM User Guide_.
 - To bulk migrate your IAM policies to use fine-grained actions (new actions), see
-  [Use scripts to bulk migrate your policies to use
-  fine-grained IAM actions](migrate-iam-permissions.md "migrate-iam-permissions.md").
+  [Use scripts to bulk migrate your policies to use fine-grained IAM actions](migrate-iam-permissions.md "migrate-iam-permissions.md").
 
 ###### Contents
 
-- [Mapping for
-  aws-portal:ViewAccount](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewaccount "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewaccount")
-- [Mapping for
-  aws-portal:ViewBilling](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewbilling "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewbilling")
-- [Mapping for
-  aws-portal:ViewPaymentMethods](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewpaymentmethods "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewpaymentmethods")
-- [Mapping for
-  aws-portal:ViewUsage](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewusage "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewusage")
-- [Mapping for
-  aws-portal:ModifyAccount](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifyaccount "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifyaccount")
-- [Mapping for
-  aws-portal:ModifyBilling](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifybilling "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifybilling")
-- [Mapping for
-  aws-portal:ModifyPaymentMethods](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifypaymentmethods "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifypaymentmethods")
-- [Mapping for
-  purchase-orders:ViewPurchaseOrders](migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersviewpurchaseorders "migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersviewpurchaseorders")
-- [Mapping for
-  purchase-orders:ModifyPurchaseOrders](migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersmodifypurchaseorders "migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersmodifypurchaseorders")
+- [Mapping for aws-portal:ViewAccount](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewaccount "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewaccount")
+- [Mapping for aws-portal:ViewBilling](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewbilling "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewbilling")
+- [Mapping for aws-portal:ViewPaymentMethods](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewpaymentmethods "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewpaymentmethods")
+- [Mapping for aws-portal:ViewUsage](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewusage "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalviewusage")
+- [Mapping for aws-portal:ModifyAccount](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifyaccount "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifyaccount")
+- [Mapping for aws-portal:ModifyBilling](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifybilling "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifybilling")
+- [Mapping for aws-portal:ModifyPaymentMethods](migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifypaymentmethods "migrate-granularaccess-iam-mapping-reference.md#mapping-for-aws-portalmodifypaymentmethods")
+- [Mapping for purchase-orders:ViewPurchaseOrders](migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersviewpurchaseorders "migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersviewpurchaseorders")
+- [Mapping for purchase-orders:ModifyPurchaseOrders](migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersmodifypurchaseorders "migrate-granularaccess-iam-mapping-reference.md#mapping-for-purchase-ordersmodifypurchaseorders")
 
-## Mapping for
-
-aws-portal:ViewAccount
+## Mapping for aws-portal:ViewAccount
 
 | New action                        | Description                                                                                                                                                                                                          | Access level |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -145,9 +129,7 @@ aws-portal:ViewAccount
 | `billing:GetSellerOfRecord`       | Grants permission to retrieve the account's default seller of record                                                                                                                                                 | Read         |
 | `payments:ListPaymentPreferences` | Grants permission to get payment preferences (for example, preferred payment<br>currency, preferred payment method)                                                                                                  | Read         |
 
-## Mapping for
-
-aws-portal:ViewBilling
+## Mapping for aws-portal:ViewBilling
 
 | New action                                            | Description                                                                                                                                                                                                          | Access level |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -201,9 +183,7 @@ aws-portal:ViewBilling
 | `tax:GetTaxRegistrationDocument`                      | Grants permission to download tax registration documents                                                                                                                                                             | Read         |
 | `tax:ListTaxRegistrations`                            | Grants permission to view tax registration                                                                                                                                                                           | Read         |
 
-## Mapping for
-
-aws-portal:ViewPaymentMethods
+## Mapping for aws-portal:ViewPaymentMethods
 
 | New action                        | Description                                                                                                         | Access level |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -213,17 +193,13 @@ aws-portal:ViewPaymentMethods
 | `payments:GetPaymentStatus`       | Grants permission to get payment status of invoices                                                                 | Read         |
 | `payments:ListPaymentPreferences` | Grants permission to get payment preferences (for example, preferred payment<br>currency, preferred payment method) | List         |
 
-## Mapping for
-
-aws-portal:ViewUsage
+## Mapping for aws-portal:ViewUsage
 
 | New action           | Description                                                                                                                                   | Access level |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | `cur:GetUsageReport` | Grants permission to get a list of AWS services, the usage type and operation<br>for the usage report workflow, and to download usage reports | Read         |
 
-## Mapping for
-
-aws-portal:ModifyAccount
+## Mapping for aws-portal:ModifyAccount
 
 | New action                          | Description                                                                                                                                              | Access level |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -236,9 +212,7 @@ aws-portal:ModifyAccount
 | `billing:UpdateIAMAccessPreference` | Grants permission to update the \*_Allow IAM Access_<br>• billing<br>preference                                                                          | Write        |
 | `payments:UpdatePaymentPreferences` | Grants permission to update payment preferences (for example, preferred payment<br>currency, preferred payment method)                                   | Write        |
 
-## Mapping for
-
-aws-portal:ModifyBilling
+## Mapping for aws-portal:ModifyBilling
 
 | New action                                             | Description                                                                                                                                              | Access level |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -271,9 +245,7 @@ aws-portal:ModifyBilling
 | `tax:DeleteTaxRegistration`                            | Grants permission to delete tax registration data                                                                                                        | Write        |
 | `tax:PutTaxInheritance`                                | Grants permission to set tax inheritance                                                                                                                 | Write        |
 
-## Mapping for
-
-aws-portal:ModifyPaymentMethods
+## Mapping for aws-portal:ModifyPaymentMethods
 
 | New action                          | Description                                                                                                                                      | Access level |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
@@ -283,9 +255,7 @@ aws-portal:ModifyPaymentMethods
 | `payments:MakePayment`              | Grants permission to make a payment, authenticate a payment, verify a payment<br>method, and generate a funding request document for Advance Pay | Write        |
 | `payments:UpdatePaymentPreferences` | Grants permission to update payment preferences (for example, preferred payment<br>currency, preferred payment method)                           | Write        |
 
-## Mapping for
-
-purchase-orders:ViewPurchaseOrders
+## Mapping for purchase-orders:ViewPurchaseOrders
 
 | New action                                  | Description                                                                                                         | Access level |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -295,9 +265,7 @@ purchase-orders:ViewPurchaseOrders
 | `purchase-orders:ListPurchaseOrderInvoices` | Grants permission to view purchase orders and details                                                               | List         |
 | `purchase-orders:ListPurchaseOrders`        | Grants permission to get all available purchase orders                                                              | List         |
 
-## Mapping for
-
-purchase-orders:ModifyPurchaseOrders
+## Mapping for purchase-orders:ModifyPurchaseOrders
 
 | New action                                  | Description                                            | Access level |
 | ------------------------------------------- | ------------------------------------------------------ | ------------ |

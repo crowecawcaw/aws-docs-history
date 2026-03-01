@@ -1,20 +1,14 @@
-# Using AWS invoice configuration with other
-
-services
+# Using AWS invoice configuration with other services
 
 Once you create an invoice unit, you can use AWS invoice configuration with other Billing and Cost Management
 services.
 
-## Associating purchase orders to
-
-invoice units
+## Associating purchase orders to invoice units
 
 You have the option to associate a purchase order to one or more invoice
 units.
 
-###### To associate purchase
-
-orders
+###### To associate purchase orders
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -44,17 +38,13 @@ orders
 When you delete invoice units, you must delete the corresponding purchase
 order association as well.
 
-## Visualizing your costs in
-
-AWS Cost Explorer
+## Visualizing your costs in AWS Cost Explorer
 
 You can view your invoice unit costs in the AWS Cost Explorer service. For more information
 about Cost Explorer, see [Analyzing your costs and
 usage with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User Guide_.
 
-###### To visualize your costs in
-
-Cost Explorer
+###### To visualize your costs in Cost Explorer
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

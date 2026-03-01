@@ -17,7 +17,5 @@ The service Region index file consists of two main sections:
 
 ###### Topics
 
-- [Service Region index file
-  for AWS services](service-region-index-file-for-service.md "service-region-index-file-for-service.md")
-- [Service Region index
-  file for Savings Plan](service-region-index-files-for-savings-plan.md "service-region-index-files-for-savings-plan.md")
+- [Service Region index file for AWS services](service-region-index-file-for-service.md "service-region-index-file-for-service.md")
+- [Service Region index file for Savings Plan](service-region-index-files-for-savings-plan.md "service-region-index-files-for-savings-plan.md")

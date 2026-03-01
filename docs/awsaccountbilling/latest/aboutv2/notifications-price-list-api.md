@@ -15,16 +15,11 @@ change.
 
 ###### Contents
 
-- [Set up Amazon SNS
-  notifications](notifications-price-list-api.md#set-up-sns-notifications-price-changes "notifications-price-list-api.md#set-up-sns-notifications-price-changes")
-- [Notification structure for
-  AWS services](notifications-price-list-api.md#notification-structure-for-aws-services "notifications-price-list-api.md#notification-structure-for-aws-services")
-- [Notification structure
-  for Savings Plans](notifications-price-list-api.md#notification-structures-for-aws-savings-plans "notifications-price-list-api.md#notification-structures-for-aws-savings-plans")
+- [Set up Amazon SNS notifications](notifications-price-list-api.md#set-up-sns-notifications-price-changes "notifications-price-list-api.md#set-up-sns-notifications-price-changes")
+- [Notification structure for AWS services](notifications-price-list-api.md#notification-structure-for-aws-services "notifications-price-list-api.md#notification-structure-for-aws-services")
+- [Notification structure for Savings Plans](notifications-price-list-api.md#notification-structures-for-aws-savings-plans "notifications-price-list-api.md#notification-structures-for-aws-savings-plans")
 
-## Set up Amazon SNS
-
-notifications
+## Set up Amazon SNS notifications
 
 You can use the AWS Management Console to sign up for Amazon SNS notifications.
 
@@ -66,9 +61,7 @@ likely that you're not using the US East (N. Virginia) Region. The billing metri
 in this Region, even for resources in other Regions. Return to step 3 and complete
 the rest of this procedure.
 
-## Notification structure for
-
-AWS services
+## Notification structure for AWS services
 
 The pricing update notification has a subject line in the following format.
 
@@ -167,9 +160,7 @@ Thank You,
 Amazon Web Services Team
 ```
 
-## Notification structure
-
-for Savings Plans
+## Notification structure for Savings Plans
 
 The pricing update notification has a subject line in the following format.
 

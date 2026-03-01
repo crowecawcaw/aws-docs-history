@@ -10,14 +10,11 @@ topics.
 
 ###### Topics
 
-- [Setting up a monthly cost allocation
-  report](#allocation-report "#allocation-report")
+- [Setting up a monthly cost allocation report](#allocation-report "#allocation-report")
 - [Getting an hourly cost allocation report](#allocation-get "#allocation-get")
 - [Viewing a cost allocation report](#allocation-viewing "#allocation-viewing")
 
-## Setting up a monthly cost allocation
-
-report
+## Setting up a monthly cost allocation report
 
 By default, new tag keys that you add using the API or the AWS Management Console are
 automatically excluded from the cost allocation report. You can add them using the
@@ -115,9 +112,7 @@ costs are split into two separate lines in your cost allocation report. The
 first line shows costs before the update, and the second line shows costs after
 the update.
 
-### Unallocated resources in your
-
-report
+### Unallocated resources in your report
 
 Any charges that cannot be grouped by tags in your cost allocation report
 default to the standard billing aggregation (organized by Account/Product/Line
@@ -133,9 +128,7 @@ costs include:
 - One-time fees, such as Amazon EC2 Reserved Instance upfront charges, can't
   be allocated.
 
-### Unexpected costs associated with tagged
-
-resources
+### Unexpected costs associated with tagged resources
 
 You can use cost allocation tags to see what resources are contributing to your
 usage and costs, but deleting or deactivating the resources doesn't always

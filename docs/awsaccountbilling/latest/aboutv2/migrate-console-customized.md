@@ -33,7 +33,6 @@ You can customize your bulk migration in various ways, instead of using the AWS 
 3. On the **Manage new IAM actions** page, choose **Customize**.
 4. Choose **View default mapping**.
 5. Choose **Edit**.
-6. Add or remove IAM actions for the Billing and Cost Management services you want to control access to. For more information about fine-grained actions and the access it controls, see [Mapping fine-grained IAM
-   actions reference](migrate-granularaccess-iam-mapping-reference.md "migrate-granularaccess-iam-mapping-reference.md").
+6. Add or remove IAM actions for the Billing and Cost Management services you want to control access to. For more information about fine-grained actions and the access it controls, see [Mapping fine-grained IAM actions reference](migrate-granularaccess-iam-mapping-reference.md "migrate-granularaccess-iam-mapping-reference.md").
 7. Choose **Save changes**.
    The updated mapping is used for all future migrations from the account you're logged into. This can be changed at any time.

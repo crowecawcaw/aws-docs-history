@@ -1,6 +1,4 @@
-# Service version index
-
-file for Savings Plan
+# Service version index file for Savings Plan
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,14 +8,10 @@ To understand the service version index file for Savings Plan, see the following
 
 ###### Contents
 
-- [Example:
-  Service version index file for Savings Plan](service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example "service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example")
-- [Service version index
-  definitions](service-version-index-file-for-savings-plans.md#service-version-index-definitions "service-version-index-file-for-savings-plans.md#service-version-index-definitions")
+- [Example: Service version index file for Savings Plan](service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example "service-version-index-file-for-savings-plans.md#service-version-index-file-savings-plans-example")
+- [Service version index definitions](service-version-index-file-for-savings-plans.md#service-version-index-definitions "service-version-index-file-for-savings-plans.md#service-version-index-definitions")
 
-## Example:
-
-Service version index file for Savings Plan
+## Example: Service version index file for Savings Plan
 
 The service version index file for a Savings Plan looks like the following.
 
@@ -40,9 +34,7 @@ The service version index file for a Savings Plan looks like the following.
 }
 ```
 
-## Service version index
-
-definitions
+## Service version index definitions
 
 The following list defines the terms in the service version index file.
 

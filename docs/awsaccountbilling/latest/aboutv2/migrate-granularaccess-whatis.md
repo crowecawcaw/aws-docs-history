@@ -1,6 +1,4 @@
-# Migrating access control for
-
-AWS Billing
+# Migrating access control for AWS Billing
 
 ###### Note
 
@@ -33,26 +31,21 @@ require updating with this migration:
 - `aws-portal:ModifyPaymentMethods`
 - `purchase-orders:ViewPurchaseOrders`
 - `purchase-orders:ModifyPurchaseOrders`
-  To learn how to use the **Affected policies** tool to identify your impacted IAM policies, see [How to use the affected policies
-  tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md").
+  To learn how to use the **Affected policies** tool to identify your impacted IAM policies, see [How to use the affected policies tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md").
 
 ###### Note
 
 API access to AWS Cost Explorer, AWS Cost and Usage Reports, and AWS Budgets remains unaffected.
 
-[Activating access to the
-Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate") remain unchanged.
+[Activating access to the Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate") remain unchanged.
 
 ###### Topics
 
 - [Managing access permissions](#migrate-control-access-billing "#migrate-control-access-billing")
 - [Using the console to bulk migrate your policies](migrate-granularaccess-console.md "migrate-granularaccess-console.md")
-- [How to use the affected policies
-  tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md")
-- [Use scripts to bulk migrate your policies to use
-  fine-grained IAM actions](migrate-iam-permissions.md "migrate-iam-permissions.md")
-- [Mapping fine-grained IAM
-  actions reference](migrate-granularaccess-iam-mapping-reference.md "migrate-granularaccess-iam-mapping-reference.md")
+- [How to use the affected policies tool](migrate-security-iam-tool.md "migrate-security-iam-tool.md")
+- [Use scripts to bulk migrate your policies to use fine-grained IAM actions](migrate-iam-permissions.md "migrate-iam-permissions.md")
+- [Mapping fine-grained IAM actions reference](migrate-granularaccess-iam-mapping-reference.md "migrate-granularaccess-iam-mapping-reference.md")
 
 ## Managing access permissions
 

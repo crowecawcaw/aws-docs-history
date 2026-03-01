@@ -21,9 +21,7 @@ your tags in bulk. For more information, see the [AWS Billing and Cost Managemen
 For an example of how tag keys appear in your billing report with cost allocation
 tags, see [Viewing a cost allocation report](configurecostallocreport.md#allocation-viewing "configurecostallocreport.md#allocation-viewing").
 
-## About the
-
-`awsApplication` tag
+## About the `awsApplication` tag
 
 The `awsApplication` tag will be automatically added to all
 resources that are associated with applications that are set up in AWS Service Catalog AppRegistry.

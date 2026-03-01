@@ -74,4 +74,4 @@ To access your historical data using previous methodologies after a new one is r
 
 Choose this to navigate to the **Data Exports**. Then, you can create
 carbon emissions data exports using basic SQL and visualize your data by
-integrating with Quick Suite. By using custom data exports, you can access account level details for all accounts in a given organization.
+integrating with Quick. By using custom data exports, you can access account level details for all accounts in a given organization.

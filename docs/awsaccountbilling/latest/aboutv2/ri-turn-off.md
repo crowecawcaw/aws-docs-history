@@ -60,9 +60,7 @@ Group sharing uses AWS Cost Categories to define account groups:
 - You can change your preference at any time. Each estimated bill is computed by using the last set of preferences. The final bill for the month is calculated based on the preferences set at 23:59:59 UTC time on the last day of the month.
 - If a Savings Plans owner account leaves the organization, Savings Plans no longer apply to the consolidated bill
 
-## Deactivating shared Reserved Instances and Savings Plans
-
-discounts
+## Deactivating shared Reserved Instances and Savings Plans discounts
 
 You can deactivate sharing discounts for individual member accounts.
 
@@ -85,9 +83,7 @@ You can also choose **Actions** and then choose
 **Deactivate All** to deactivate Reserved Instance and Savings Plans sharing
 for all accounts.
 
-## Activating shared Reserved Instances and Savings Plans
-
-discounts
+## Activating shared Reserved Instances and Savings Plans discounts
 
 You can use the console to activate Reserved Instance sharing discounts for an
 account.

@@ -1,6 +1,4 @@
-# Finding prices in the service
-
-price list file
+# Finding prices in the service price list file
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -22,20 +20,14 @@ find prices for the products you're interested in.
 
 ###### Contents
 
-- [Finding On-Demand prices for
-  services](finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services "finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services")
-- [Finding tiered prices for
-  services](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services")
-- [Finding tiered prices for
-  services with Free Tier](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier")
+- [Finding On-Demand prices for services](finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services "finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services")
+- [Finding tiered prices for services](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services")
+- [Finding tiered prices for services with Free Tier](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier")
   - [Example](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier-example "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier-example")
 
-- [Finding prices for services
-  with Reserved Instances](finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances "finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances")
+- [Finding prices for services with Reserved Instances](finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances "finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances")
 
-## Finding On-Demand prices for
-
-services
+## Finding On-Demand prices for services
 
 The following procedure shows how to find On-Demand prices for AWS services, such as
 Amazon EC2.
@@ -61,9 +53,7 @@ If you don't know the SKU, search under **products** for the
 **usage type** and **operation**. 4. See the **pricePerUnit** to find the corresponding On-Demand
 price for the SKU.
 
-## Finding tiered prices for
-
-services
+## Finding tiered prices for services
 
 The following procedure shows how to find tiered prices for services, such as Amazon Simple Storage Service
 (Amazon S3).
@@ -91,9 +81,7 @@ If you don't know the SKU, search under **products** for the
 see the **pricePerUnit** to find the corresponding tiered
 prices.
 
-## Finding tiered prices for
-
-services with Free Tier
+## Finding tiered prices for services with Free Tier
 
 The following procedure shows how to find AWS services that publish Free Tier
 prices in the AWS Price List Bulk API, such as AWS Lambda.
@@ -136,9 +124,7 @@ eligible Regions.
 | `WERT` | `0`          | `Inf`       | `seconds` | `ABCD`    | `US East (Ohio)`           |
 | `ERTY` | `0`          | `Inf`       | `seconds` |           | `AWS GovCloud (US)`        |
 
-###### To find tiered prices for services with Free Tier by using the JSON
-
-file
+###### To find tiered prices for services with Free Tier by using the JSON file
 
 1. Download the JSON file for the service.
 2. Open the JSON file with your preferred application.
@@ -153,9 +139,7 @@ file
 For a list of products and Regions covered by Free Tier, see
 **appliesTo**.
 
-## Finding prices for services
-
-with Reserved Instances
+## Finding prices for services with Reserved Instances
 
 The following procedure shows how to find prices for services with Reserved Instances,
 such as Amazon Relational Database Service (Amazon RDS).

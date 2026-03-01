@@ -1,6 +1,4 @@
-# Use tags to manage access
-
-to purchase orders
+# Use tags to manage access to purchase orders
 
 You can use attribute-based access control (ABAC) to manage access to your purchase
 orders. When you create your purchase orders, you can tags with key-value pairs. You can

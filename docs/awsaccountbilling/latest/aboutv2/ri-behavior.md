@@ -15,6 +15,5 @@ When you use billing transfer, Reserved Instances and Savings Plans apply only t
 
 ###### Topics
 
-- [Billing examples for specific
-  services](consolidatedbilling-other.md "consolidatedbilling-other.md")
+- [Billing examples for specific services](consolidatedbilling-other.md "consolidatedbilling-other.md")
 - [Reserved Instances and Savings Plans discount sharing](ri-turn-off.md "ri-turn-off.md")

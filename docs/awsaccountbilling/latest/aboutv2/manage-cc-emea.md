@@ -1,6 +1,4 @@
-# Managing your AWS Europe credit card payment
-
-methods
+# Managing your AWS Europe credit card payment methods
 
 You can use the [Payment preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences "https://console.aws.amazon.com/billing/home#/paymentpreferences") page
 of the AWS Billing and Cost Management console to perform the following credit card tasks:
@@ -36,9 +34,7 @@ credit card.
 4. Update the fields that you want to change.
 5. At the bottom on the page, choose **Update**.
 
-###### To confirm that your credit
-
-card is up to date
+###### To confirm that your credit card is up to date
 
 You must have a valid, unexpired credit card on file to make a payment.
 

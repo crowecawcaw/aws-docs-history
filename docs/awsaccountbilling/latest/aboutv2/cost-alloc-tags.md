@@ -1,8 +1,8 @@
 # Organizing and tracking costs using AWS cost allocation tags
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and<br>invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and invoice](getting-viewing-bill.md#invoice "getting-viewing-bill.md#invoice")._** |
 
 A tag is a label that you or AWS assigns to an AWS resource. Each tag consists of a
 _key_ and a _value_. For each resource, each tag
@@ -67,5 +67,4 @@ All tags can take up to 24 hours to appear in the Billing and Cost Management co
 - [Using Account Tags for Cost Allocation](account-tags-cost-allocation.md "account-tags-cost-allocation.md")
 - [Backfill cost allocation tags](cost-allocation-backfill.md "cost-allocation-backfill.md")
 - [Using the monthly cost allocation report](configurecostallocreport.md "configurecostallocreport.md")
-- [Understanding dates for cost allocation
-  tags](cost-allocation-tags-timeline.md "cost-allocation-tags-timeline.md")
+- [Understanding dates for cost allocation tags](cost-allocation-tags-timeline.md "cost-allocation-tags-timeline.md")

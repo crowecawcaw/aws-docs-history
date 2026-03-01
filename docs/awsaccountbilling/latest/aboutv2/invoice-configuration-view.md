@@ -1,6 +1,4 @@
-# Viewing invoice units with
-
-AWS invoice configuration
+# Viewing invoice units with AWS invoice configuration
 
 Once you create an invoice unit, you can view invoice unit details in several
 different ways.
@@ -18,16 +16,12 @@ different ways.
      to an invoice unit. The **Accounts** tab also lists
      accounts that aren't assigned to any invoice unites.
 
-## Viewing the AWS invoice configuration
-
-snapshot history
+## Viewing the AWS invoice configuration snapshot history
 
 You can view the historical invoice unit configurations at any time using the
 snapshot history feature.
 
-###### To view the invoice configuration
-
-snapshot history
+###### To view the invoice configuration snapshot history
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

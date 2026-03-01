@@ -46,11 +46,8 @@ You can use billing transfer to get centralized access to cost management data a
 - [Consolidated billing process](useconsolidatedbilling-procedure.md "useconsolidatedbilling-procedure.md")
 - [Consolidated billing in AWS EMEA](consolidated-billing-emea.md "consolidated-billing-emea.md")
 - [Consolidated billing in India](useconsolidatedbilling-India.md "useconsolidatedbilling-India.md")
-- [Effective billing date, account
-  activity, and volume discounts](useconsolidatedbilling-effective.md "useconsolidatedbilling-effective.md")
+- [Effective billing date, account activity, and volume discounts](useconsolidatedbilling-effective.md "useconsolidatedbilling-effective.md")
 - [Reserved Instances](ri-behavior.md "ri-behavior.md")
 - [Understanding Consolidated Bills](con-bill-blended-rates.md "con-bill-blended-rates.md")
-- [Requesting shorter PDF
-  invoices](consolidated-invoice-summary-options.md "consolidated-invoice-summary-options.md")
-- [Support charges for accounts in an
-  AWS Organizations](consolidatedbilling-support.md "consolidatedbilling-support.md")
+- [Requesting shorter PDF invoices](consolidated-invoice-summary-options.md "consolidated-invoice-summary-options.md")
+- [Support charges for accounts in an AWS Organizations](consolidatedbilling-support.md "consolidatedbilling-support.md")

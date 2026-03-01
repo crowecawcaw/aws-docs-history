@@ -24,8 +24,7 @@ Billing provides several AWS managed policies for common use cases.
 - [Billing](#security-iam-awsmanpol-Billing "#security-iam-awsmanpol-Billing")
 - [AWSAccountActivityAccess](#security-iam-awsmanpol-AWSAccountActivityAccess "#security-iam-awsmanpol-AWSAccountActivityAccess")
 - [AWSPriceListServiceFullAccess](#security-iam-awsmanpol-AWSPriceListServiceFullAccess "#security-iam-awsmanpol-AWSPriceListServiceFullAccess")
-- [Updates to AWS managed policies
-  for AWS Billing](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Updates to AWS managed policies for AWS Billing](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## [`AWSPurchaseOrdersServiceRolePolicy`](../../../aws-managed-policy/latest/reference/AWSPurchaseOrdersServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSPurchaseOrdersServiceRolePolicy.md")
 
@@ -83,9 +82,7 @@ This managed policy grants users full access to the AWS Price List Service.
 
 To view the permissions for this policy, see [AWSPriceListServiceFullAccess](../../../aws-managed-policy/latest/reference/AWSPriceListServiceFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPriceListServiceFullAccess.md") in the _AWS Managed Policy Reference_.
 
-## Updates to AWS managed policies
-
-for AWS Billing
+## Updates to AWS managed policies for AWS Billing
 
 View details about updates to AWS managed policies for AWS Billing since this
 service began tracking these changes. For automatic alerts about changes to this

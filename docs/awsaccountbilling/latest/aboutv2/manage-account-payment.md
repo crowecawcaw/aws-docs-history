@@ -4,9 +4,7 @@ You can use the **Tax settings** page under **Preferences and Settings** in the 
 
 When you use billing transfer, the bill transfer account controls the tax settings of the AWS Organizations (management and linked accounts) that transfer their bill. The management account of the AWS organization that transfers its bill (bill source account) can still configure tax settings for its AWS organization. However, these settings don't apply while billing transfer is active.
 
-## Updating and deleting
-
-tax registration numbers
+## Updating and deleting tax registration numbers
 
 Use the following steps to update or delete one or more tax registration
 numbers.
@@ -41,9 +39,7 @@ You can remove one or more tax registration numbers.
 5. In the **Delete tax registration** dialog box, choose
    **Delete**.
 
-## Turning on tax setting
-
-inheritance
+## Turning on tax setting inheritance
 
 You can use your tax registration information with your member accounts by turning on
 your **Tax settings inheritance**. After you activate it, your tax
@@ -77,9 +73,7 @@ Tax registration information includes:
    settings inheritance**.
 4. In the dialog box, choose **Enable**.
 
-## Managing your US tax
-
-exemptions
+## Managing your US tax exemptions
 
 If your state is eligible, you can manage your US tax exemptions on the **Tax
 settings** page. The documents you upload for the exemption are reviewed by
@@ -90,12 +84,9 @@ Support within 24 hours.
 You must have IAM permissions to view the **Tax exemptions**
 tab on the **Tax settings** page in the Billing and Cost Management console.
 
-For an example IAM policy, see [Allow IAM users to view US tax
-exemptions and create Support cases](billing-example-policies.md#example-awstaxexemption "billing-example-policies.md#example-awstaxexemption").
+For an example IAM policy, see [Allow IAM users to view US tax exemptions and create Support cases](billing-example-policies.md#example-awstaxexemption "billing-example-policies.md#example-awstaxexemption").
 
-###### To upload or add your US
-
-tax exemption
+###### To upload or add your US tax exemption
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

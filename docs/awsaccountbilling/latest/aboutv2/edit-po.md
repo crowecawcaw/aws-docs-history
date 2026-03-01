@@ -25,9 +25,7 @@ console. You can't change your purchase order ID in this process.
 5. Change the contacts information as needed.
 6. Choose **Save changes**.
 
-###### To change the status of your purchase
-
-order
+###### To change the status of your purchase order
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

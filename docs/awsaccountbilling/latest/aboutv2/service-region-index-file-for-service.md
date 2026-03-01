@@ -1,6 +1,4 @@
-# Service Region index file
-
-for AWS services
+# Service Region index file for AWS services
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,14 +8,10 @@ To understand the service version index file for AWS services, see the following
 
 ###### Contents
 
-- [Example: Service Region
-  index file for an AWS service](service-region-index-file-for-service.md#service-region-index-file-for-service "service-region-index-file-for-service.md#service-region-index-file-for-service")
-- [Service Region index
-  definitions](service-region-index-file-for-service.md#service-region-index-definitions-services "service-region-index-file-for-service.md#service-region-index-definitions-services")
+- [Example: Service Region index file for an AWS service](service-region-index-file-for-service.md#service-region-index-file-for-service "service-region-index-file-for-service.md#service-region-index-file-for-service")
+- [Service Region index definitions](service-region-index-file-for-service.md#service-region-index-definitions-services "service-region-index-file-for-service.md#service-region-index-definitions-services")
 
-## Example: Service Region
-
-index file for an AWS service
+## Example: Service Region index file for an AWS service
 
 The service Region index file for an AWS service looks like the following.
 
@@ -40,9 +34,7 @@ The service Region index file for an AWS service looks like the following.
 }
 ```
 
-## Service Region index
-
-definitions
+## Service Region index definitions
 
 The following list defines the terms in the service Region index file.
 

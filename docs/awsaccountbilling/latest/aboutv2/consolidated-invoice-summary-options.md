@@ -1,6 +1,4 @@
-# Requesting shorter PDF
-
-invoices
+# Requesting shorter PDF invoices
 
 The AWS PDF invoice contains the AWS service charges for the payer account
 (management account) and associated member accounts that are part of your AWS Organizations.

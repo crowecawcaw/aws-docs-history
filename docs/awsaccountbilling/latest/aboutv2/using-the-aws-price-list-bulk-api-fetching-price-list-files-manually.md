@@ -5,8 +5,7 @@
 | To provide feedback about AWS Price List, complete this [short survey](https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA "https://amazonmr.au1.qualtrics.com/jfe/form/SV_cO0deTMyKyFeezA"). Your responses will be anonymous. \*_Note:_<br>• This survey is in English only. |
 
 We recommend that you use the AWS Price List Bulk API to find and download price list files
-programmatically. For more information, see [Step 1: Finding
-available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services").
+programmatically. For more information, see [Step 1: Finding available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services").
 
 If you don't want to use the AWS Price List Bulk API, you can download the price list files manually.
 You can skip to the relevant topics if you already have the information that you
@@ -34,8 +33,7 @@ download the service-specific price list file, use either the `offerCode` or
 For more information, see the following topics:
 
 - [Reading the service index file](bulk-api-reading-price-list-files.md#reading-service-index-files "bulk-api-reading-price-list-files.md#reading-service-index-files")
-- [Step 1: Finding
-  available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services")
+- [Step 1: Finding available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services")
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,8 +44,7 @@ the historical versions of the price lists by using the [service version index f
 
 To download the service version index file, use the
 `serviceCode` or `savingsPlanCode`. To find the values for
-`serviceCode` and `savingsPlanCode`, see [Step 1: Finding
-available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services").
+`serviceCode` and `savingsPlanCode`, see [Step 1: Finding available AWS services](using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services "using-the-aws-price-list-bulk-api.md#price-bulk-api-step-1-find-available-services").
 
 To download the service version index file for an AWS service, navigate to the following URL.
 Replace `<serviceCode>` with your own
@@ -146,8 +143,7 @@ AWS service:
 ###### Contents
 
 - [Finding service price list files](using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#fetching-price-list-files-manually-step-4-finding-service-price-list-files "using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#fetching-price-list-files-manually-step-4-finding-service-price-list-files")
-- [Finding
-  service price list files for Savings Plan](using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#find-service-price-list-files-for-savings-plans "using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#find-service-price-list-files-for-savings-plans")
+- [Finding service price list files for Savings Plan](using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#find-service-price-list-files-for-savings-plans "using-the-aws-price-list-bulk-api-fetching-price-list-files-manually.md#find-service-price-list-files-for-savings-plans")
 
 ### Finding service price list files
 
@@ -207,9 +203,7 @@ JSON format
 https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonRDS/20230328234721/us-east-2/index.json
 ```
 
-### Finding
-
-service price list files for Savings Plan
+### Finding service price list files for Savings Plan
 
 The service price list file for Savings Plan provides Savings Plan related
 details, such as the following:

@@ -1,6 +1,4 @@
-# Reading the
-
-service price list file for a Savings Plan
+# Reading the service price list file for a Savings Plan
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -19,13 +17,10 @@ information:
 ###### Contents
 
 - [CSV file](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-csv "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-csv")
-- [JSON
-  file](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-json "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-json")
-- [Service price
-  list definitions](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-savings-plan "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-savings-plan")
+- [JSON file](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-json "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-for-saving-plans-json")
+- [Service price list definitions](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-savings-plan "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-savings-plan")
 - [Product details (products) definitions](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-products-savings-plan "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-products-savings-plan")
-- [Pricing
-  details (terms) definitions](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-terms-savings-plan "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-terms-savings-plan")
+- [Pricing details (terms) definitions](reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-terms-savings-plan "reading-service-price-list-file-for-savings-plans.md#service-price-list-file-definitions-terms-savings-plan")
 
 ## CSV file
 
@@ -37,9 +32,7 @@ The number of columns varies depends on the Savings Plan. The first few
 columns contain the pricing details, while other columns contain the product
 details for a Savings Plan.
 
-## JSON
-
-file
+## JSON file
 
 The product details and pricing details are in separate sections. A JSON
 service price list file looks like the following example.
@@ -92,9 +85,7 @@ service price list file looks like the following example.
 }
 ```
 
-## Service price
-
-list definitions
+## Service price list definitions
 
 The following list defines the terms in the service price list files.
 
@@ -157,9 +148,7 @@ The value of a product attribute. For example,
 Zone (type of location), or `No Upfront`
 (type of purchase option).
 
-## Pricing
-
-details (terms) definitions
+## Pricing details (terms) definitions
 
 This section provides information about the prices for products in a price list file for
 a Savings Plan.

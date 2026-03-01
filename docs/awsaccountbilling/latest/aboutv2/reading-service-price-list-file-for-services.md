@@ -1,6 +1,4 @@
-# Reading the service
-
-price list file for an AWS service
+# Reading the service price list file for an AWS service
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,18 +19,13 @@ information:
 - [CSV file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv "reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv")
 - [JSON file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-json "reading-service-price-list-file-for-services.md#reading-service-price-list-file-json")
 - [Term definitions](reading-service-price-list-file-for-services.md#term-definitions "reading-service-price-list-file-for-services.md#term-definitions")
-  - [OnDemand and Reserved
-    term definition](reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition "reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition")
+  - [OnDemand and Reserved term definition](reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition "reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition")
   - [FlatRate term](reading-service-price-list-file-for-services.md#flat-rate-term "reading-service-price-list-file-for-services.md#flat-rate-term")
 
-- [Service price list
-  definitions](reading-service-price-list-file-for-services.md#service-price-list-files-details "reading-service-price-list-file-for-services.md#service-price-list-files-details")
-- [Product details (products)
-  definitions](reading-service-price-list-file-for-services.md#product-details-terms "reading-service-price-list-file-for-services.md#product-details-terms")
-- [Product details (terms)
-  definitions](reading-service-price-list-file-for-services.md#product-details-metadata "reading-service-price-list-file-for-services.md#product-details-metadata")
-- [OnDemand and Reserved
-  definitions](reading-service-price-list-file-for-services.md#ondemand-reserved-definitions "reading-service-price-list-file-for-services.md#ondemand-reserved-definitions")
+- [Service price list definitions](reading-service-price-list-file-for-services.md#service-price-list-files-details "reading-service-price-list-file-for-services.md#service-price-list-files-details")
+- [Product details (products) definitions](reading-service-price-list-file-for-services.md#product-details-terms "reading-service-price-list-file-for-services.md#product-details-terms")
+- [Product details (terms) definitions](reading-service-price-list-file-for-services.md#product-details-metadata "reading-service-price-list-file-for-services.md#product-details-metadata")
+- [OnDemand and Reserved definitions](reading-service-price-list-file-for-services.md#ondemand-reserved-definitions "reading-service-price-list-file-for-services.md#ondemand-reserved-definitions")
 - [FlatRate definitions](reading-service-price-list-file-for-services.md#flatrate-definitions "reading-service-price-list-file-for-services.md#flatrate-definitions")
 
 ## CSV file
@@ -80,9 +73,7 @@ product to identify the terms that are available for that product.
 
 Different term types have different structures within the terms object.
 
-### OnDemand and Reserved
-
-term definition
+### OnDemand and Reserved term definition
 
 ```
 {
@@ -142,9 +133,7 @@ term definition
 }
 ```
 
-## Service price list
-
-definitions
+## Service price list definitions
 
 The following list defines the terms in the service price list files.
 
@@ -178,9 +167,7 @@ The date and time in UTC format when a service price list file was
 published. For example, `2015-04-09T02:22:05Z` and
 `2015-09-10T18:21:05Z`.
 
-## Product details (products)
-
-definitions
+## Product details (products) definitions
 
 This section provides information about products in a service price list file
 for an AWS service. Products are indexed by SKU.
@@ -215,9 +202,7 @@ The value of a product attribute. For example,
 `m1.small` (instance type), `xen` (type of
 processor), or `Linux` (type of OS).
 
-## Product details (terms)
-
-definitions
+## Product details (terms) definitions
 
 This section provides information about the prices for products in a service
 price list file for an AWS service. Prices are indexed by the terms.
@@ -228,9 +213,7 @@ The specific type of term that a term definition describes. The
 valid term types are `Reserved`, `OnDemand`,
 and `FlatRate`.
 
-## OnDemand and Reserved
-
-definitions
+## OnDemand and Reserved definitions
 
 In this section, `termType` refers to `OnDemand` or
 `Reserved`.

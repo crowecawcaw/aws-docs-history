@@ -1,6 +1,4 @@
-# Splitting charges within
-
-cost categories
+# Splitting charges within cost categories
 
 You can use split charge rules to allocate your charges between your cost category
 values. Splitting charges is useful when you have costs that aren't directly attributed
@@ -65,9 +63,7 @@ top-down order, your shared costs are categorized before individual business uni
 are categorized. After these shared costs are categorized, they can then be split
 across your business units.
 
-## Understanding split charge best
-
-practices
+## Understanding split charge best practices
 
 For instructions on how to configure your split charges, see [Creating cost categories](create-cost-categories.md "create-cost-categories.md") step 15. After you define split charge rules, you can view the split and allocated costs
 on the **cost categories details** page in the console. The

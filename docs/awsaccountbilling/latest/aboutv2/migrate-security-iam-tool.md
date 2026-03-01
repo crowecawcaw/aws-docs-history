@@ -1,6 +1,4 @@
-# How to use the affected policies
-
-tool
+# How to use the affected policies tool
 
 ###### Note
 

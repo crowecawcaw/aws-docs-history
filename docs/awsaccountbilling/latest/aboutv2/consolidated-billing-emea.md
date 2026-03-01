@@ -42,9 +42,7 @@ invoice ID.
   name), AWS Partner Network, AWS Managed Services, and AWS conferences such as re:Invent, and
   re:Inforce
 
-## Currency and foreign
-
-exchange rate
+## Currency and foreign exchange rate
 
 Credit memos use the same currency and exchange rate as the original
 invoice.
@@ -56,9 +54,7 @@ in the afternoon, AWS converts the currency for the morning purchase into the ne
 preferred currency. This update appears in the consolidated invoice generated for
 that day.
 
-## Changes to your
-
-AWS Cost and Usage Report
+## Changes to your AWS Cost and Usage Report
 
 With consolidated billing, it can take up to 24 hours after AWS processes your
 one-time charges for them to appear in your AWS Cost and Usage Report (AWS CUR), Cost Explorer, or cost budget
@@ -67,9 +63,7 @@ alerts set up using AWS Budgets.
 You can continue to view your amortized one-time upfront Reserved Instance charges
 in AWS CUR, Cost Explorer, or Budgets.
 
-## Turn off consolidated
-
-billing
+## Turn off consolidated billing
 
 By default, this feature is enabled for your account. If you don't want this
 feature, use the following procedure.

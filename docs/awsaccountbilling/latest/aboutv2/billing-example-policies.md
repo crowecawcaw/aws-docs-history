@@ -18,8 +18,7 @@ organization.
 ###### Important
 
 - These policies require that you activate IAM user access to the Billing and Cost Management
-  console on the [Account Settings](https://console.aws.amazon.com/billing/home#/account "https://console.aws.amazon.com/billing/home#/account") console page. For more information, see [Activating access to the
-  Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
+  console on the [Account Settings](https://console.aws.amazon.com/billing/home#/account "https://console.aws.amazon.com/billing/home#/account") console page. For more information, see [Activating access to the Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
 - To use AWS managed policies, see [AWS managed policies](managed-policies.md "managed-policies.md").
   This topic contains example policies that you can attach to your IAM user or group
   to control access to your account's billing information and tools. The following basic
@@ -44,67 +43,38 @@ budget Amazon Resource Name (ARN).
 
 ###### Topics
 
-- [Allow IAM users to view your
-  billing information](#example-billing-view-billing-only "#example-billing-view-billing-only")
-- [Allow IAM users to view your billing
-  information and carbon footprint report](#example-ccft-policy "#example-ccft-policy")
-- [Allow IAM users to access the
-  reports console page](#example-billing-view-reports "#example-billing-view-reports")
-- [Deny IAM users access to the Billing and Cost Management
-  consoles](#example-billing-deny-all "#example-billing-deny-all")
-- [Deny AWS Console cost and usage
-  widget access for member accounts](#example-billing-deny-widget "#example-billing-deny-widget")
-- [Deny AWS Console cost and usage widget
-  access for specific IAM users and roles](#example-billing-deny-ce "#example-billing-deny-ce")
-- [Allow IAM users to view your billing
-  information, but deny access to carbon footprint report](#example-ccft-policy-deny "#example-ccft-policy-deny")
-- [Allow IAM users to access carbon
-  footprint reporting, but deny access to billing information](#example-ccft-policy-allow "#example-ccft-policy-allow")
-- [Allow full access to AWS services but
-  deny IAM users access to the Billing and Cost Management consoles](#ExampleAllowAllDenyBilling "#ExampleAllowAllDenyBilling")
-- [Allow IAM users to view the Billing and Cost Management
-  consoles except for account settings](#example-billing-read-only "#example-billing-read-only")
-- [Allow IAM users to modify
-  billing information](#example-billing-deny-modifybilling "#example-billing-deny-modifybilling")
-- [Deny access to account
-  settings, but allow full access to all other billing and usage
-  information](#example-billing-deny-modifyaccount "#example-billing-deny-modifyaccount")
-- [Deposit reports into an Amazon S3
-  bucket](#example-billing-s3-bucket "#example-billing-s3-bucket")
+- [Allow IAM users to view your billing information](#example-billing-view-billing-only "#example-billing-view-billing-only")
+- [Allow IAM users to view your billing information and carbon footprint report](#example-ccft-policy "#example-ccft-policy")
+- [Allow IAM users to access the reports console page](#example-billing-view-reports "#example-billing-view-reports")
+- [Deny IAM users access to the Billing and Cost Management consoles](#example-billing-deny-all "#example-billing-deny-all")
+- [Deny AWS Console cost and usage widget access for member accounts](#example-billing-deny-widget "#example-billing-deny-widget")
+- [Deny AWS Console cost and usage widget access for specific IAM users and roles](#example-billing-deny-ce "#example-billing-deny-ce")
+- [Allow IAM users to view your billing information, but deny access to carbon footprint report](#example-ccft-policy-deny "#example-ccft-policy-deny")
+- [Allow IAM users to access carbon footprint reporting, but deny access to billing information](#example-ccft-policy-allow "#example-ccft-policy-allow")
+- [Allow full access to AWS services but deny IAM users access to the Billing and Cost Management consoles](#ExampleAllowAllDenyBilling "#ExampleAllowAllDenyBilling")
+- [Allow IAM users to view the Billing and Cost Management consoles except for account settings](#example-billing-read-only "#example-billing-read-only")
+- [Allow IAM users to modify billing information](#example-billing-deny-modifybilling "#example-billing-deny-modifybilling")
+- [Deny access to account settings, but allow full access to all other billing and usage information](#example-billing-deny-modifyaccount "#example-billing-deny-modifyaccount")
+- [Deposit reports into an Amazon S3 bucket](#example-billing-s3-bucket "#example-billing-s3-bucket")
 - [Find products and prices](#example-policy-pe-api "#example-policy-pe-api")
 - [View costs and usage](#example-policy-ce-api "#example-policy-ce-api")
 - [Enable and disable AWS Regions](#enable-disable-regions "#enable-disable-regions")
 - [View and manage cost categories](#example-policy-cc-api "#example-policy-cc-api")
-- [Create, view, edit, or delete
-  AWS Cost and Usage Reports](#example-policy-report-definition "#example-policy-report-definition")
-- [View and manage purchase
-  orders](#example-view-manage-purchaseorders "#example-view-manage-purchaseorders")
-- [View and update the Cost Explorer preferences
-  page](#example-view-update-ce "#example-view-update-ce")
-- [View, create, update, and delete using the
-  Cost Explorer reports page](#example-view-ce-reports "#example-view-ce-reports")
-- [View, create, update, and delete
-  reservation and Savings Plans alerts](#example-view-ce-expiration "#example-view-ce-expiration")
+- [Create, view, edit, or delete AWS Cost and Usage Reports](#example-policy-report-definition "#example-policy-report-definition")
+- [View and manage purchase orders](#example-view-manage-purchaseorders "#example-view-manage-purchaseorders")
+- [View and update the Cost Explorer preferences page](#example-view-update-ce "#example-view-update-ce")
+- [View, create, update, and delete using the Cost Explorer reports page](#example-view-ce-reports "#example-view-ce-reports")
+- [View, create, update, and delete reservation and Savings Plans alerts](#example-view-ce-expiration "#example-view-ce-expiration")
 - [Allow read-only access to AWS Cost Anomaly Detection](#example-policy-ce-ad "#example-policy-ce-ad")
-- [Allow AWS Budgets to apply IAM
-  policies and SCPs](#example-budgets-IAM-SCP "#example-budgets-IAM-SCP")
-- [Allow AWS Budgets to apply IAM
-  policies and SCPs and target EC2 and RDS instances](#example-budgets-applySCP "#example-budgets-applySCP")
-- [Allow IAM users to view US tax
-  exemptions and create Support cases](#example-awstaxexemption "#example-awstaxexemption")
-- [(For customers with a billing or
-  contact address in India) Allow read-only access to customer verification
-  information](#example-aispl-verification "#example-aispl-verification")
-- [(For customers with a billing or
-  contact address in India) View, create, and update customer verification
-  information](#example-aispl-verification-view "#example-aispl-verification-view")
-- [View AWS Migration Acceleration Program
-  information in the Billing console](#read-only-migration-acceleration-program-policy "#read-only-migration-acceleration-program-policy")
+- [Allow AWS Budgets to apply IAM policies and SCPs](#example-budgets-IAM-SCP "#example-budgets-IAM-SCP")
+- [Allow AWS Budgets to apply IAM policies and SCPs and target EC2 and RDS instances](#example-budgets-applySCP "#example-budgets-applySCP")
+- [Allow IAM users to view US tax exemptions and create Support cases](#example-awstaxexemption "#example-awstaxexemption")
+- [(For customers with a billing or contact address in India) Allow read-only access to customer verification information](#example-aispl-verification "#example-aispl-verification")
+- [(For customers with a billing or contact address in India) View, create, and update customer verification information](#example-aispl-verification-view "#example-aispl-verification-view")
+- [View AWS Migration Acceleration Program information in the Billing console](#read-only-migration-acceleration-program-policy "#read-only-migration-acceleration-program-policy")
 - [Allow access to AWS invoice configuration in the Billing console](#invoice-config-policy "#invoice-config-policy")
 
-## Allow IAM users to view your
-
-billing information
+## Allow IAM users to view your billing information
 
 To allow an IAM user to view your billing information without giving the
 IAM user access to sensitive account information, use a policy similar to the
@@ -138,9 +108,7 @@ JSON
 
 ```
 
-## Allow IAM users to view your billing
-
-information and carbon footprint report
+## Allow IAM users to view your billing information and carbon footprint report
 
 To allow an IAM user to view both billing information and carbon footprint
 reporting, use a policy similar to the following example. This policy prevents users
@@ -178,9 +146,7 @@ JSON
 
 ```
 
-## Allow IAM users to access the
-
-reports console page
+## Allow IAM users to access the reports console page
 
 To allow an IAM user to access the **Reports** console page and
 to view the usage reports that contain account activity information, use a policy
@@ -211,9 +177,7 @@ JSON
 
 ```
 
-## Deny IAM users access to the Billing and Cost Management
-
-consoles
+## Deny IAM users access to the Billing and Cost Management consoles
 
 To explicitly deny an IAM user access to the all Billing and Cost Management console pages, use a
 policy similar to this example policy.
@@ -234,9 +198,7 @@ JSON
 
 ```
 
-## Deny AWS Console cost and usage
-
-widget access for member accounts
+## Deny AWS Console cost and usage widget access for member accounts
 
 To restrict member (linked) account access to cost and usage data, use your
 management (payer) account to access the Cost Explorer preferences tab and uncheck
@@ -245,9 +207,7 @@ usage data from the Cost Explorer (AWS Cost Management) console, Cost Explorer A
 Console Home page's cost and usage widget regardless of the IAM actions a member
 account’s IAM user or role has.
 
-## Deny AWS Console cost and usage widget
-
-access for specific IAM users and roles
+## Deny AWS Console cost and usage widget access for specific IAM users and roles
 
 To deny AWS Console cost and usage widget access for specific IAM users and
 roles, use the permissions policy below.
@@ -273,9 +233,7 @@ JSON
 
 ```
 
-## Allow IAM users to view your billing
-
-information, but deny access to carbon footprint report
+## Allow IAM users to view your billing information, but deny access to carbon footprint report
 
 To allow an IAM user to both billing information in the Billing and Cost Management consoles, but
 doesn't allow access to the AWS Customer Carbon Footprint Tool. This tool is located in the AWS Cost and Usage Reports
@@ -300,9 +258,7 @@ JSON
 
 ```
 
-## Allow IAM users to access carbon
-
-footprint reporting, but deny access to billing information
+## Allow IAM users to access carbon footprint reporting, but deny access to billing information
 
 To allow an IAM users to access the AWS Customer Carbon Footprint Tool in the AWS Cost and Usage Reports page, but
 denies access to view billing information in the Billing and Cost Management consoles.
@@ -326,9 +282,7 @@ JSON
 
 ```
 
-## Allow full access to AWS services but
-
-deny IAM users access to the Billing and Cost Management consoles
+## Allow full access to AWS services but deny IAM users access to the Billing and Cost Management consoles
 
 To deny IAM users access to everything on the Billing and Cost Management console, use the following
 policy. Deny user access to AWS Identity and Access Management (IAM) to prevent access to the policies that
@@ -358,9 +312,7 @@ JSON
 
 ```
 
-## Allow IAM users to view the Billing and Cost Management
-
-consoles except for account settings
+## Allow IAM users to view the Billing and Cost Management consoles except for account settings
 
 This policy allows read-only access to all of the Billing and Cost Management console. This includes the
 **Payments Method** and **Reports** console
@@ -389,9 +341,7 @@ JSON
 
 ```
 
-## Allow IAM users to modify
-
-billing information
+## Allow IAM users to modify billing information
 
 To allow IAM users to modify account billing information in the Billing and Cost Management console,
 allow IAM users to view your billing information. The following policy example
@@ -421,10 +371,7 @@ JSON
 
 ```
 
-## Deny access to account
-
-settings, but allow full access to all other billing and usage
-information
+## Deny access to account settings, but allow full access to all other billing and usage information
 
 To protect your account password, contact information, and security questions,
 deny IAM user access to **Account Settings** while still enabling
@@ -456,9 +403,7 @@ JSON
 
 ```
 
-## Deposit reports into an Amazon S3
-
-bucket
+## Deposit reports into an Amazon S3 bucket
 
 The following policy allows Billing and Cost Management to save your detailed AWS bills to an Amazon S3
 bucket if you own both the AWS account and the Amazon S3 bucket. This policy must be
@@ -599,9 +544,7 @@ JSON
 
 ```
 
-## Create, view, edit, or delete
-
-AWS Cost and Usage Reports
+## Create, view, edit, or delete AWS Cost and Usage Reports
 
 This policy allows an IAM user to create, view, edit, or delete
 `sample-report` using the API.
@@ -633,9 +576,7 @@ JSON
 
 ```
 
-## View and manage purchase
-
-orders
+## View and manage purchase orders
 
 This policy allows an IAM user to view and manage purchase orders, using the
 following policy to grant access.
@@ -660,9 +601,7 @@ JSON
 
 ```
 
-## View and update the Cost Explorer preferences
-
-page
+## View and update the Cost Explorer preferences page
 
 This policy allows an IAM user to view and update using the **Cost Explorer
 preferences page**.
@@ -748,9 +687,7 @@ JSON
 
 ```
 
-## View, create, update, and delete using the
-
-Cost Explorer reports page
+## View, create, update, and delete using the Cost Explorer reports page
 
 This policy allows an IAM user to view, create, update, and delete using the
 **Cost Explorer reports page**.
@@ -842,9 +779,7 @@ JSON
 
 ```
 
-## View, create, update, and delete
-
-reservation and Savings Plans alerts
+## View, create, update, and delete reservation and Savings Plans alerts
 
 This policy allows an IAM user to view, create, update, and delete [reservation expiration alerts](ce-ris.md "ce-ris.md") and [Savings Plans
 alerts](../../../savingsplans/latest/userguide/sp-overview.md#sp-alert "../../../savingsplans/latest/userguide/sp-overview.md#sp-alert"). To edit reservation expiration alerts or Savings Plans alerts, a user
@@ -965,9 +900,7 @@ JSON
 
 ```
 
-## Allow AWS Budgets to apply IAM
-
-policies and SCPs
+## Allow AWS Budgets to apply IAM policies and SCPs
 
 This policy allows AWS Budgets to apply IAM policies and service control
 policies (SCPs) on behalf of the user.
@@ -997,9 +930,7 @@ JSON
 
 ```
 
-## Allow AWS Budgets to apply IAM
-
-policies and SCPs and target EC2 and RDS instances
+## Allow AWS Budgets to apply IAM policies and SCPs and target EC2 and RDS instances
 
 This policy allows AWS Budgets to apply IAM policies and service control
 policies (SCPs), and to target Amazon EC2 and Amazon RDS instances on behalf of the
@@ -1059,9 +990,7 @@ JSON
 
 ```
 
-## Allow IAM users to view US tax
-
-exemptions and create Support cases
+## Allow IAM users to view US tax exemptions and create Support cases
 
 This policy allows an IAM user to view US tax exemptions and create Support cases
 to upload exemption certificates in the tax exemption console.
@@ -1090,10 +1019,7 @@ JSON
 
 ```
 
-## (For customers with a billing or
-
-contact address in India) Allow read-only access to customer verification
-information
+## (For customers with a billing or contact address in India) Allow read-only access to customer verification information
 
 This policy allows IAM users read-only access to customer verification
 information.
@@ -1117,10 +1043,7 @@ JSON
 
 ```
 
-## (For customers with a billing or
-
-contact address in India) View, create, and update customer verification
-information
+## (For customers with a billing or contact address in India) View, create, and update customer verification information
 
 This policy allows IAM users to manage their customer verification information.
 
@@ -1145,9 +1068,7 @@ JSON
 
 ```
 
-## View AWS Migration Acceleration Program
-
-information in the Billing console
+## View AWS Migration Acceleration Program information in the Billing console
 
 This policy allows IAM users to view the Migration Acceleration Program agreements, credits, and eligible
 spend for the payer's account in the Billing console.

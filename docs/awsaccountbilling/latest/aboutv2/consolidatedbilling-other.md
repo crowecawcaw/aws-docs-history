@@ -1,6 +1,4 @@
-# Billing examples for specific
-
-services
+# Billing examples for specific services
 
 There are a few other things to know about how consolidated billing works with
 specific services in AWS.
@@ -49,9 +47,7 @@ This means that Bob must launch his DB Instances in `us-west-2`
 with the exact same attributes to get the cost benefit on the organization's
 consolidated bill.
 
-## Amazon ElastiCache reserved node
-
-instances
+## Amazon ElastiCache reserved node instances
 
 For an Amazon ElastiCache Reserved Nodes example, suppose Bob and Susan each have an
 account in an organization. Susan has five Reserved Nodes, and Bob has none.

@@ -1,6 +1,4 @@
-# Managing your SEPA direct debit payment
-
-method
+# Managing your SEPA direct debit payment method
 
 AWS Europe customers can add a bank account to allow SEPA direct debit payments. You can
 use any personal or business bank account, provided that the account is located at a
@@ -17,22 +15,16 @@ direct debit tasks:
 
 ###### Contents
 
-- [Verify and link your bank account to
-  your AWS Europe payment methods](manage-debit-emea.md#direct-link-verify-account "manage-debit-emea.md#direct-link-verify-account")
-- [Manually add a direct debit
-  account to your AWS Europe payment methods](manage-debit-emea.md#manually-add-direct-debit-account-emea "manage-debit-emea.md#manually-add-direct-debit-account-emea")
-- [Update your direct
-  debit account information](manage-debit-emea.md#update-your-direct-debit-account-information "manage-debit-emea.md#update-your-direct-debit-account-information")
+- [Verify and link your bank account to your AWS Europe payment methods](manage-debit-emea.md#direct-link-verify-account "manage-debit-emea.md#direct-link-verify-account")
+- [Manually add a direct debit account to your AWS Europe payment methods](manage-debit-emea.md#manually-add-direct-debit-account-emea "manage-debit-emea.md#manually-add-direct-debit-account-emea")
+- [Update your direct debit account information](manage-debit-emea.md#update-your-direct-debit-account-information "manage-debit-emea.md#update-your-direct-debit-account-information")
 
-## Verify and link your bank account to
-
-your AWS Europe payment methods
+## Verify and link your bank account to your AWS Europe payment methods
 
 ###### Note
 
 To use this feature, you must have a billing address in Germany, Netherlands, Spain, United Kingdom, France, Italy, Finland, Ireland, Austria, or Belgium. To
-change your billing address, see [Update your direct
-debit account information](#update-your-direct-debit-account-information "#update-your-direct-debit-account-information").
+change your billing address, see [Update your direct debit account information](#update-your-direct-debit-account-information "#update-your-direct-debit-account-information").
 
 You can verify and link a SEPA direct debit account to your AWS account by
 signing in to your bank account. We ask that you to sign in to your bank account, so
@@ -102,9 +94,7 @@ your bank:
 To remove direct debit payments from your account, see [Remove a payment method](manage-payment-method.md#manage-remove-credit "manage-payment-method.md#manage-remove-credit"). To
 remove AWS data access to your bank information, see the [TrueLayer documentation](https://support.truelayer.com/hc/en-us/articles/360025794833-Can-my-users-revoke-their-access-to-TrueLayer "https://support.truelayer.com/hc/en-us/articles/360025794833-Can-my-users-revoke-their-access-to-TrueLayer").
 
-## Manually add a direct debit
-
-account to your AWS Europe payment methods
+## Manually add a direct debit account to your AWS Europe payment methods
 
 To manually add a direct debit account, you must meet the following
 requirements:
@@ -143,16 +133,12 @@ Before you add your payment method, you need the following information:
     **Terms and Conditions** and add your direct debit
     account.
 
-## Update your direct
-
-debit account information
+## Update your direct debit account information
 
 You can update the name, address, or phone number that's associated with your
 direct debit account.
 
-###### To update your direct debit account
-
-information
+###### To update your direct debit account information
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

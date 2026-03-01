@@ -1,8 +1,8 @@
 # Understanding your bill
 
-|                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and<br>invoice](#invoice "#invoice")._** |
+|                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **_For questions about your AWS bills or to appeal your charges, contact Support to address your inquiries immediately. To get help, see [Getting help with your bills and payments](billing-get-answers.md "billing-get-answers.md"). To understand your bills page contents, see [Using the Bills page to understand your monthly charges and invoice](#invoice "#invoice")._** |
 
 ###### Note
 
@@ -19,8 +19,7 @@ receive and read billing reports, and how to download invoices. To make a paymen
 ###### Topics
 
 - [Viewing your monthly charges](#accessing-your-monthly-charges "#accessing-your-monthly-charges")
-- [Using the Bills page to understand your monthly charges and
-  invoice](#invoice "#invoice")
+- [Using the Bills page to understand your monthly charges and invoice](#invoice "#invoice")
 - [Downloading a PDF of your invoice](#downloading-pdf-invoices "#downloading-pdf-invoices")
 - [Downloading a monthly report](#download-monthy-report "#download-monthy-report")
 - [Viewing and correcting your AWS invoices](#view-invoices "#view-invoices")
@@ -60,9 +59,7 @@ If you use the consolidated billing feature in AWS Organizations, the
 to see the activity for each account in the organization. For more
 information about consolidated billing, see [Consolidating billing for AWS Organizations](consolidated-billing.md "consolidated-billing.md").
 
-## Using the Bills page to understand your monthly charges and
-
-invoice
+## Using the Bills page to understand your monthly charges and invoice
 
 At the end of a monthly billing period, or when you incur a one-time fee, AWS issues
 an invoice as a PDF file. If you're paying by credit card, AWS also charges the credit

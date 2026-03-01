@@ -1,6 +1,4 @@
-# Sending
-
-invitations
+# Sending invitations
 
 When you sign in to your organization's management account, you can invite the management
 account of another organization to designate your account to manage and pay their

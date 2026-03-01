@@ -1,13 +1,9 @@
-# Troubleshooting
-
-creating invoice units
+# Troubleshooting creating invoice units
 
 The following sections provide information about how to resolve common issues when
 creating invoice units.
 
-## I want to update the
-
-invoice receiver's business information
+## I want to update the invoice receiver's business information
 
 ### Resolution
 
@@ -15,9 +11,7 @@ Your invoice receiver's business name and address are retrieved from the
 inputs in the following order. Update your latest information in the
 applicable console pages:
 
-###### 1. Update your information using \*\*Tax
-
-settings\*\*
+###### 1. Update your information using **Tax settings**
 
 1. Sign in to the AWS Management Console and open the Billing console at
    [https://console.aws.amazon.com/billing/](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/").

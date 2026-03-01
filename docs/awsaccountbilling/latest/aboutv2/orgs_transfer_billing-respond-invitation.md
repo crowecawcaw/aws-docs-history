@@ -1,6 +1,4 @@
-# Responding to
-
-invitations
+# Responding to invitations
 
 When you sign in to your organization's management account, you can respond to invitations
 you have received.
@@ -23,9 +21,7 @@ date**
 
 Invites must be accepted 24 hours before the billing transfer start date. For example, an invitation with a start date of May 1st, needs to be accepted by April 29th 6:59:59PM Eastern Standard Time (11:59:59 PM UTC), which is two days before the start date.
 
-## Respond to an
-
-invitation
+## Respond to an invitation
 
 ###### Terms and concepts
 

@@ -1,6 +1,4 @@
-# Customizing your invoice preferences with
-
-AWS invoice configuration
+# Customizing your invoice preferences with AWS invoice configuration
 
 You can use **AWS invoice configuration** to configure your invoice preferences
 so that certain member accounts in your AWS Organization receive invoices corresponding to their, or other member account's charges.

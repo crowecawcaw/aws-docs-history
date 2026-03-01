@@ -67,5 +67,4 @@ If you use billing transfer and you sign in as a bill transfer account, you can 
 - [Viewing your purchase orders](viewing-po.md "viewing-po.md")
 - [Reading your purchase order details page](reading-po-details.md "reading-po-details.md")
 - [Enabling purchase order notifications](notify-po-details.md "notify-po-details.md")
-- [Use tags to manage access
-  to purchase orders](manage-access-to-purchase-orders-with-tags.md "manage-access-to-purchase-orders-with-tags.md")
+- [Use tags to manage access to purchase orders](manage-access-to-purchase-orders-with-tags.md "manage-access-to-purchase-orders-with-tags.md")

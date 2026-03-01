@@ -31,9 +31,7 @@ resources.
 You can also use the `GetFreeTierUsage` API operation to get your free
 tier usage. For more information about the Free Tier API, see the [AWS Billing and Cost Management API Reference](../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Free_Tier.md "../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Free_Tier.md").
 
-###### To identify your active resources by using
-
-AWS Billing
+###### To identify your active resources by using AWS Billing
 
 1. Sign in to the AWS Management Console and open the Billing console at
    [https://console.aws.amazon.com/billing/](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/").
@@ -43,9 +41,7 @@ AWS Billing
 4. Review the list to find the services with active resources and by
    AWS Region, and the charges for each resource.
 
-###### To identify your active resources by using
-
-AWS Cost Explorer
+###### To identify your active resources by using AWS Cost Explorer
 
 1. Sign in to the AWS Management Console and open the AWS Cost Management at
    [https://console.aws.amazon.com/costmanagement/home](https://console.aws.amazon.com/costmanagement/home "https://console.aws.amazon.com/costmanagement/home").

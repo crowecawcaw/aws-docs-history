@@ -72,9 +72,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-### Activating IAM access to
-
-the AWS Billing and Cost Management console
+### Activating IAM access to the AWS Billing and Cost Management console
 
 By default, IAM roles within an AWS account can't access the Billing and Cost Management console. This is
 true even if the IAM user or role has IAM policies that grant access to specific
@@ -89,8 +87,7 @@ using the **Activate IAM access** setting.
 3. Select **Activate IAM access**.
 4. Choose **Update**.
 
-For more information about this feature, see [Activating access to the
-Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
+For more information about this feature, see [Activating access to the Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
 
 Use features in the Billing and Cost Management console to view your current AWS charges and AWS
 usage.
@@ -118,18 +115,14 @@ day of the month.
 4. Choose **Download CSV** to download a comma-separated variable file or choose
    **Print**.
 
-### Adding or updating alternate
-
-contacts
+### Adding or updating alternate contacts
 
 Alternate contacts allows AWS to contact another person about issues with your
 account, even if you're unavailable. The alternate contact doesn't have to be a specific
 person. You could instead add an email distribution list if you have a team that manages
 billing, operations and security related issues.
 
-#### Examples for
-
-alternate contacts
+#### Examples for alternate contacts
 
 AWS will reach out to each contact type in the following scenarios:
 

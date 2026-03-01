@@ -1,6 +1,4 @@
-# Creating invoice units with
-
-AWS invoice configuration
+# Creating invoice units with AWS invoice configuration
 
 Invoice units are groups of mutually exclusive member accounts within a single AWS Organization that you create. You can create these invoice units so that they correspond to your business entities. Invoice units can be used to separate your AWS costs and configure which member account receives the invoice for each invoice unit going forward.
 
@@ -24,12 +22,9 @@ There are currently some limitations when creating invoice units:
 
 ###### Note
 
-Prerequisite: To add invoice receivers, see [Adding additional billing contact
-email addresses](manage-payment-method.md#manage-billing-contact-emails "manage-payment-method.md#manage-billing-contact-emails").
+Prerequisite: To add invoice receivers, see [Adding additional billing contact email addresses](manage-payment-method.md#manage-billing-contact-emails "manage-payment-method.md#manage-billing-contact-emails").
 
-###### To create invoice units within your
-
-management account (standard invoice configuration)
+###### To create invoice units within your management account (standard invoice configuration)
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

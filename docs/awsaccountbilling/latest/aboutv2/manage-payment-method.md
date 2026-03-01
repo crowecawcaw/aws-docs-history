@@ -7,13 +7,10 @@ for all payment types:
 ###### Topics
 
 - [View your payment methods](#manage-view-credit "#manage-view-credit")
-- [Designate a default payment
-  method](#manage-designate-default "#manage-designate-default")
+- [Designate a default payment method](#manage-designate-default "#manage-designate-default")
 - [Remove a payment method](#manage-remove-credit "#manage-remove-credit")
-- [Changing the currency to
-  pay your bill](#manage-account-payment-change-currency "#manage-account-payment-change-currency")
-- [Adding additional billing contact
-  email addresses](#manage-billing-contact-emails "#manage-billing-contact-emails")
+- [Changing the currency to pay your bill](#manage-account-payment-change-currency "#manage-account-payment-change-currency")
+- [Adding additional billing contact email addresses](#manage-billing-contact-emails "#manage-billing-contact-emails")
   For a list of accepted payment methods organized by AWS service providers ("SOR", "seller of record), see [What payment methods does AWS accept?](https://repost.aws/knowledge-center/accepted-payment-methods "https://repost.aws/knowledge-center/accepted-payment-methods") in the _Knowledge Center_.
 
 For a full list of supported currencies, see [What currencies does AWS currently support?](https://repost.aws/knowledge-center/supported-aws-currencies "https://repost.aws/knowledge-center/supported-aws-currencies").
@@ -31,9 +28,7 @@ For a full list of supported currencies, see [What currencies does AWS currently
 You can use the console to view the payment methods that are associated with your
 account.
 
-###### To view payment methods that are associated with your
-
-AWS account
+###### To view payment methods that are associated with your AWS account
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -42,9 +37,7 @@ AWS account
 Payment methods that are associated with your AWS account are listed in the
 **Payment method** section.
 
-## Designate a default payment
-
-method
+## Designate a default payment method
 
 You can use the console to designate a default payment method for your AWS account.
 
@@ -72,9 +65,7 @@ information or choosing a supported payment currency.
 
 You can use the console to remove a payment method from your account.
 
-###### To remove a payment method from your
-
-AWS account
+###### To remove a payment method from your AWS account
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -87,16 +78,12 @@ AWS account
 5. In the **Delete payment method** dialog box, choose
    **Delete**.
 
-## Changing the currency to
-
-pay your bill
+## Changing the currency to pay your bill
 
 To change the currency that you use to pay your bill, for example, from Danish
 kroner to South African rand, perform the following procedure. For a full list of currencies supported by AWS, see [What currencies does AWS currently support?](https://repost.aws/knowledge-center/supported-aws-currencies "https://repost.aws/knowledge-center/supported-aws-currencies") in the _AWS Knowledge Center_.
 
-###### To change the local currency that's associated with
-
-your account
+###### To change the local currency that's associated with your account
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
@@ -113,9 +100,7 @@ If you receive invoices from multiple AWS service providers ("SOR", "seller of
 record"), you can create a payment profile for each AWS service provider that
 specifies each currency you prefer to use. For more information, see [Using payment profiles](manage-paymentprofiles.md "manage-paymentprofiles.md").
 
-## Adding additional billing contact
-
-email addresses
+## Adding additional billing contact email addresses
 
 Use additional billing contacts to contact another person about billing related
 items impacting your AWS accounts. Additional billing contacts will be contacted
@@ -124,15 +109,12 @@ events.
 
 ###### Notes
 
-- If you use credit or debit cards as your payment method, see [Adding or updating alternate
-  contacts](billing-getting-started.md#manage-account-payment-alternate-contacts "billing-getting-started.md#manage-account-payment-alternate-contacts").
+- If you use credit or debit cards as your payment method, see [Adding or updating alternate contacts](billing-getting-started.md#manage-account-payment-alternate-contacts "billing-getting-started.md#manage-account-payment-alternate-contacts").
 - If you have pay by invoice as your payment method, you can use the
   following procedure to add additional billing contacts to receive
   emails.
 
-###### To add additional billing contacts to your
-
-account
+###### To add additional billing contacts to your account
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/home?#/ "https://console.aws.amazon.com/costmanagement/home?#/").

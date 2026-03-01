@@ -1,6 +1,4 @@
-# Service version index
-
-file for an AWS service
+# Service version index file for an AWS service
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,14 +8,10 @@ To understand the service version index file, see the following references:
 
 ###### Topics
 
-- [Example: Service
-  version index file for a service](#example-service-version-index-file-service "#example-service-version-index-file-service")
-- [Service version index
-  file definitions](#service-version-index-definitions-sps "#service-version-index-definitions-sps")
+- [Example: Service version index file for a service](#example-service-version-index-file-service "#example-service-version-index-file-service")
+- [Service version index file definitions](#service-version-index-definitions-sps "#service-version-index-definitions-sps")
 
-## Example: Service
-
-version index file for a service
+## Example: Service version index file for a service
 
 The service version index file looks like the following.
 
@@ -44,9 +38,7 @@ The service version index file looks like the following.
 }
 ```
 
-## Service version index
-
-file definitions
+## Service version index file definitions
 
 The following list defines the terms in the service version index file.
 

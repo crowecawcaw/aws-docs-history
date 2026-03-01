@@ -2,9 +2,7 @@
 
 You can use your approved financing amount to pay for select invoices. To use your approved financing amount, the amount must be more than the invoice balance you're paying and active. Your approved finance amount is valid for 90 days. After this duration, you must reapply.
 
-###### To pay for select invoices using
-
-Financing
+###### To pay for select invoices using Financing
 
 1. Open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

@@ -17,8 +17,7 @@ For more information about payments or payment methods, see [Getting help with y
 
 - [Manage payment method access using tags](manage-payments-tags.md "manage-payments-tags.md")
 - [Making payments](manage-making-a-payment.md "manage-making-a-payment.md")
-- [View remaining invoices, unapplied funds, and
-  payment history](view-payment-info.md "view-payment-info.md")
+- [View remaining invoices, unapplied funds, and payment history](view-payment-info.md "view-payment-info.md")
 - [Managing your payment verifications](manage-cc-verification.md "manage-cc-verification.md")
 - [Managing credit card and ACH direct debit](manage-cc.md "manage-cc.md")
 - [Using Advance Pay](manage-advancepay.md "manage-advancepay.md")

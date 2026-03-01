@@ -100,14 +100,11 @@ costs across specified cost category values.
 - [Creating cost categories](create-cost-categories.md "create-cost-categories.md")
 - [Tagging cost categories](tag-cost-categories.md "tag-cost-categories.md")
 - [Viewing cost categories](view-cost-categories.md "view-cost-categories.md")
-- [Downloading your cost category
-  values](view-cost-categories-details-csv.md "view-cost-categories-details-csv.md")
+- [Downloading your cost category values](view-cost-categories-details-csv.md "view-cost-categories-details-csv.md")
 - [Editing cost categories](edit-cost-categories.md "edit-cost-categories.md")
 - [Deleting cost categories](delete-cost-categories.md "delete-cost-categories.md")
-- [Splitting charges within
-  cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md")
-- [Using cost categories with
-  other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md")
+- [Splitting charges within cost categories](splitcharge-cost-categories.md "splitcharge-cost-categories.md")
+- [Using cost categories with other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md")
 
 ## Supported dimensions
 
@@ -120,8 +117,7 @@ team.
 ###### Note
 
 Some dimensions might have limited support if you associate resources with a
-cost category. For more information, see [Using cost categories with
-other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md").
+cost category. For more information, see [Using cost categories with other cost management and optimization services](cost-categories-other-cost-management.md "cost-categories-other-cost-management.md").
 
 The following billing dimensions are supported.
 

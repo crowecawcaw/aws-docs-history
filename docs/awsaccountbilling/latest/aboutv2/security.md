@@ -23,8 +23,7 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in AWS Billing and Cost Management](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS Billing](security-iam.md "security-iam.md")
-- [Using service-linked roles for
-  AWS Billing](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS Billing](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Logging and monitoring in AWS Billing and Cost Management](billing-security-logging.md "billing-security-logging.md")
 - [Compliance validation for AWS Billing and Cost Management](Billing-compliance.md "Billing-compliance.md")
 - [Resilience in AWS Billing and Cost Management](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

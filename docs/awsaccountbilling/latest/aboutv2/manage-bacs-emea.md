@@ -1,6 +1,4 @@
-# Managing your Bacs direct debit payment
-
-method
+# Managing your Bacs direct debit payment method
 
 AWS Europe customers can add a bank account to allow Bacs direct debit payments. You can
 use any personal or business bank account, provided that the account is located in the UK and payments are made using British pound (GBP).
@@ -13,15 +11,11 @@ preferences](https://console.aws.amazon.com/billing/home#/paymentpreferences "ht
 
 ###### Contents
 
-- [Verify and link your bank account to
-  your AWS Europe payment methods](manage-bacs-emea.md#direct-link-verify-account-bacs "manage-bacs-emea.md#direct-link-verify-account-bacs")
-- [Update your direct
-  debit account information](manage-bacs-emea.md#update-your-direct-debit-account-information-bacs "manage-bacs-emea.md#update-your-direct-debit-account-information-bacs")
+- [Verify and link your bank account to your AWS Europe payment methods](manage-bacs-emea.md#direct-link-verify-account-bacs "manage-bacs-emea.md#direct-link-verify-account-bacs")
+- [Update your direct debit account information](manage-bacs-emea.md#update-your-direct-debit-account-information-bacs "manage-bacs-emea.md#update-your-direct-debit-account-information-bacs")
 - [Bacs direct debit guarantee](manage-bacs-emea.md#payments-guarantee-bacs "manage-bacs-emea.md#payments-guarantee-bacs")
 
-## Verify and link your bank account to
-
-your AWS Europe payment methods
+## Verify and link your bank account to your AWS Europe payment methods
 
 You can verify and link a Bacs direct debit account to your AWS account by
 signing in to your bank account and approving a penny charge. You must sign in to your bank account to verify ownership of the bank
@@ -86,16 +80,12 @@ your bank:
 To remove direct debit payments from your account, see [Remove a payment method](manage-payment-method.md#manage-remove-credit "manage-payment-method.md#manage-remove-credit"). To
 remove AWS data access to your bank information, see the [TrueLayer documentation](https://support.truelayer.com/hc/en-us/articles/360025794833-Can-my-users-revoke-their-access-to-TrueLayer "https://support.truelayer.com/hc/en-us/articles/360025794833-Can-my-users-revoke-their-access-to-TrueLayer").
 
-## Update your direct
-
-debit account information
+## Update your direct debit account information
 
 You can update the name, address, or phone number that's associated with your
 Bacs direct debit account.
 
-###### To update your Bacs direct debit account
-
-information
+###### To update your Bacs direct debit account information
 
 1. Sign in to the AWS Management Console and open the AWS Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

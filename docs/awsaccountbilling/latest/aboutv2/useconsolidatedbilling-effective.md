@@ -1,6 +1,4 @@
-# Effective billing date, account
-
-activity, and volume discounts
+# Effective billing date, account activity, and volume discounts
 
 When the member account owner accepts your request to join the organization, you
 immediately become responsible for the member account's charges. If the member account
@@ -11,9 +9,7 @@ For example, if a member account joins an organization on March 10, then AWS bil
 the management account for the member account’s period of usage starting on March 10. The
 member account's original owner is still billed for the first part of the month.
 
-## Billing and account
-
-activity
+## Billing and account activity
 
 Each month, AWS charges the management account owner, and not the owners of the
 member accounts. To see the total usage and charges across all the accounts in an

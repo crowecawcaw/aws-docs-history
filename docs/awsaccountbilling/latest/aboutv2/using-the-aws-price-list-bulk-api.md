@@ -1,7 +1,4 @@
-# Getting
-
-price list files using
-the AWS Price List Bulk API
+# Getting price list files using the AWS Price List Bulk API
 
 |                                                                                                                                                                                                                                                                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -93,9 +90,7 @@ parameters.
 The AWS Region is the API endpoint for the Price List Bulk API. The endpoints
 aren't related to product or service attributes.
 
-#### Examples to
-
-find price list files
+#### Examples to find price list files
 
 ###### Example: Find price list files for all AWS Regions
 

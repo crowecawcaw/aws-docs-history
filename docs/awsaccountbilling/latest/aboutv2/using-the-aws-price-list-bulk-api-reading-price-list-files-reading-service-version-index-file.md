@@ -16,7 +16,5 @@ The service version index file consists of two main sections:
 
 ###### Topics
 
-- [Service version index
-  file for an AWS service](service-version-index-file-for-aws-service.md "service-version-index-file-for-aws-service.md")
-- [Service version index
-  file for Savings Plan](service-version-index-file-for-savings-plans.md "service-version-index-file-for-savings-plans.md")
+- [Service version index file for an AWS service](service-version-index-file-for-aws-service.md "service-version-index-file-for-aws-service.md")
+- [Service version index file for Savings Plan](service-version-index-file-for-savings-plans.md "service-version-index-file-for-savings-plans.md")
