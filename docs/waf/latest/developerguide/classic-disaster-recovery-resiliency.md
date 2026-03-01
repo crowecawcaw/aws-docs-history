@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Resilience
-
-in AWS WAF Classic
+# Resilience in AWS WAF Classic
 
 ###### Warning
 

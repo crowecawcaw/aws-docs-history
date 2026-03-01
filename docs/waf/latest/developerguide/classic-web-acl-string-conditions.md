@@ -27,8 +27,7 @@ string.
 ###### Topics
 
 - [Creating a string match condition](#classic-web-acl-string-conditions-creating "#classic-web-acl-string-conditions-creating")
-- [Values that you specify when you create or
-  edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values")
+- [Values that you specify when you create or edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values")
 - [Adding and deleting filters in a string match condition](#classic-web-acl-string-conditions-editing "#classic-web-acl-string-conditions-editing")
 - [Deleting string match conditions](#classic-web-acl-string-conditions-deleting "#classic-web-acl-string-conditions-deleting")
 
@@ -71,12 +70,9 @@ condition.
    [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
 
 If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. In the navigation pane, choose **String and regex matching**. 3. Choose **Create condition**. 4. Specify the applicable filter settings. For more information, see
-[Values that you specify when you create or
-edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values"). 5. Choose **Add filter**. 6. If you want to add another filter, repeat steps 4 and 5. 7. When you're finished adding filters, choose **Create**.
+[Values that you specify when you create or edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values"). 5. Choose **Add filter**. 6. If you want to add another filter, repeat steps 4 and 5. 7. When you're finished adding filters, choose **Create**.
 
-## Values that you specify when you create or
-
-edit string match conditions
+## Values that you specify when you create or edit string match conditions
 
 When you create or update a string match condition, you specify the following values:
 
@@ -250,8 +246,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
 
     1. Choose **Add filter**.
     2. Specify the applicable filter settings. For more information, see
-     [Values that you specify when you create or
-     edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values").
+     [Values that you specify when you create or edit string match conditions](#classic-web-acl-string-conditions-values "#classic-web-acl-string-conditions-values").
     3. Choose **Add**.
 
 5. To delete filters, perform the following steps:

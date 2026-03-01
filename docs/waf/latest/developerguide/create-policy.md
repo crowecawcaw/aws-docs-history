@@ -16,30 +16,19 @@ instructions in [Adding AWS Shield Advanced protection to AWS resources](configu
 
 ###### Topics
 
-- [Creating an AWS Firewall Manager policy for
-  AWS WAF](#creating-firewall-manager-policy-for-waf "#creating-firewall-manager-policy-for-waf")
-- [Creating an AWS Firewall Manager policy for
-  AWS WAF Classic](#creating-firewall-manager-policy-for-classic-waf "#creating-firewall-manager-policy-for-classic-waf")
-- [Creating an AWS Firewall Manager
-  policy for AWS Shield Advanced](#creating-firewall-manager-policy-for-shield-advanced "#creating-firewall-manager-policy-for-shield-advanced")
-- [Creating an AWS Firewall Manager
-  common security group policy](#creating-firewall-manager-policy-common-security-group "#creating-firewall-manager-policy-common-security-group")
-- [Creating an AWS Firewall Manager
-  content audit security group policy](#creating-firewall-manager-policy-audit-security-group "#creating-firewall-manager-policy-audit-security-group")
-- [Creating an AWS Firewall Manager
-  usage audit security group policy](#creating-firewall-manager-policy-usage-security-group "#creating-firewall-manager-policy-usage-security-group")
-- [Creating an AWS Firewall Manager
-  network ACL policy](#creating-firewall-manager-policy-network-acl "#creating-firewall-manager-policy-network-acl")
-- [Creating an AWS Firewall Manager policy for
-  AWS Network Firewall](#creating-firewall-manager-policy-for-network-firewall "#creating-firewall-manager-policy-for-network-firewall")
-- [Creating an AWS Firewall Manager policy for
-  Amazon Route 53 Resolver DNS Firewall](#creating-firewall-manager-policy-for-dns-firewall "#creating-firewall-manager-policy-for-dns-firewall")
+- [Creating an AWS Firewall Manager policy for AWS WAF](#creating-firewall-manager-policy-for-waf "#creating-firewall-manager-policy-for-waf")
+- [Creating an AWS Firewall Manager policy for AWS WAF Classic](#creating-firewall-manager-policy-for-classic-waf "#creating-firewall-manager-policy-for-classic-waf")
+- [Creating an AWS Firewall Manager policy for AWS Shield Advanced](#creating-firewall-manager-policy-for-shield-advanced "#creating-firewall-manager-policy-for-shield-advanced")
+- [Creating an AWS Firewall Manager common security group policy](#creating-firewall-manager-policy-common-security-group "#creating-firewall-manager-policy-common-security-group")
+- [Creating an AWS Firewall Manager content audit security group policy](#creating-firewall-manager-policy-audit-security-group "#creating-firewall-manager-policy-audit-security-group")
+- [Creating an AWS Firewall Manager usage audit security group policy](#creating-firewall-manager-policy-usage-security-group "#creating-firewall-manager-policy-usage-security-group")
+- [Creating an AWS Firewall Manager network ACL policy](#creating-firewall-manager-policy-network-acl "#creating-firewall-manager-policy-network-acl")
+- [Creating an AWS Firewall Manager policy for AWS Network Firewall](#creating-firewall-manager-policy-for-network-firewall "#creating-firewall-manager-policy-for-network-firewall")
+- [Creating an AWS Firewall Manager policy for Amazon Route 53 Resolver DNS Firewall](#creating-firewall-manager-policy-for-dns-firewall "#creating-firewall-manager-policy-for-dns-firewall")
 - [Creating an AWS Firewall Manager policy for Palo Alto Networks Cloud NGFW](#creating-cloud-ngfw-policy "#creating-cloud-ngfw-policy")
 - [Creating an AWS Firewall Manager policy for Fortigate Cloud Native Firewall (CNF) as a Service](#creating-fortigate-cnf-policy "#creating-fortigate-cnf-policy")
 
-## Creating an AWS Firewall Manager policy for
-
-AWS WAF
+## Creating an AWS Firewall Manager policy for AWS WAF
 
 In a Firewall Manager AWS WAF policy, you can use managed rule groups, which AWS and AWS Marketplace sellers
 create and maintain for you. You can also create and use your own rule groups. For
@@ -90,8 +79,7 @@ The following are common customization settings:
 When you're finished with your settings, choose **Save
 rule**. 10. Set the default action for the web ACL. This is the action that AWS WAF takes when a web
 request doesn't match any of the rules in the web ACL. You can add custom headers with the **Allow** action, or custom responses for the **Block** action. For more information about default web ACL actions,
-see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md "web-acl-default-action.md"). For information about setting custom web requests and responses, see [Customized web requests and responses in
-AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 11. For **Logging configuration**, choose **Enable logging** to turn on logging.
+see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md "web-acl-default-action.md"). For information about setting custom web requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 11. For **Logging configuration**, choose **Enable logging** to turn on logging.
 Logging provides detailed information about traffic that is analyzed by your web ACL. Choose the **Logging destination**,
 and then choose the logging destination that you configured. You must choose a logging destination whose name begins with `aws-waf-logs-`.
 For information about configuring an AWS WAF logging destination, see [Using AWS WAF policies with Firewall Manager](waf-policies.md "waf-policies.md"). 12. (Optional) If you don't want certain fields and their values included in the logs, redact
@@ -119,8 +107,7 @@ see [AWS WAF protection pack (web ACL) token domain list configuration](waf-toke
 You can only change the web ACL's CAPTCHA and challenge **immunity times** when you edit an
 existing web ACL. You can find these settings under the Firewall Manager **Policy details** page. For information
 about these settings, see [Setting timestamp expiration and token immunity times in AWS WAF](waf-tokens-immunity-times.md "waf-tokens-immunity-times.md"). If you update the **Association config**, **CAPTCHA**, **Challenge**, or **Token domain list** settings in an existing policy, Firewall Manager will overwrite the your local web ACLs with the new values. However, if you don't update the policy's **Association config**, **CAPTCHA**, **Challenge**, or **Token domain list** settings, then the values in your local web ACLs will remain unchanged.
-For information about this option, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md") in the _AWS WAF Developer Guide_. 15. Under **Web ACL management**, choose how Firewall Manager manages web ACL creation and clean up.
+For information about this option, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md") in the _AWS WAF Developer Guide_. 15. Under **Web ACL management**, choose how Firewall Manager manages web ACL creation and clean up.
 
     1. For **Manage unassociated web ACLs**, choose whether Firewall Manager manages unassociated web ACLs.
      With this option, Firewall Manager creates web ACLs for the accounts within policy scope only if the web ACLs will be used by at least one resource. When an account comes into policy scope, Firewall Manager automatically creates a web ACL in the account if at least one resource will use it.
@@ -192,9 +179,7 @@ several minutes. After the **Pending** status is replaced with
 account counts, you can choose the policy name to explore the compliance status
 of the accounts and resources. For information, see [Viewing compliance information for an AWS Firewall Manager policy](fms-compliance.md "fms-compliance.md")
 
-## Creating an AWS Firewall Manager policy for
-
-AWS WAF Classic
+## Creating an AWS Firewall Manager policy for AWS WAF Classic
 
 ###### To create a Firewall Manager policy for AWS WAF Classic (console)
 
@@ -282,13 +267,9 @@ remove the existing ones, choose this option. 18. Choose **Next**. 19. Review th
 **Edit**. When you are satisfied with the policy,
 choose **Create and apply policy**.
 
-## Creating an AWS Firewall Manager
+## Creating an AWS Firewall Manager policy for AWS Shield Advanced
 
-policy for AWS Shield Advanced
-
-###### To create a
-
-Firewall Manager policy for Shield Advanced (console)
+###### To create a Firewall Manager policy for Shield Advanced (console)
 
 1. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
    [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").
@@ -308,7 +289,7 @@ For Region choices other than **Global**, to protect resources in
 multiple Regions, you must create a separate Firewall Manager policy for each
 Region. 6. Choose **Next**. 7. For **Name**, enter a descriptive name. 8. For **Global** Region policies only, you can choose whether you want
 to manage Shield Advanced automatic application layer DDoS mitigation. For information about this
-Shield Advanced feature, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+Shield Advanced feature, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 You can choose to enable or disable automatic mitigation, or you can choose to ignore it.
 If you choose to ignore it, Firewall Manager doesn't manage automatic mitigation at all
@@ -335,8 +316,7 @@ latest version of AWS WAF (v2). If you choose this, Firewall Manager removes the
 associations with the earlier version web ACLs and creates new associations
 with latest version web ACLs, after creating new empty web ACLs in any
 in-scope accounts that don't already have them for the policy. For more
-information about this option, see [Replace AWS WAF Classic
-web ACLs with latest version web ACLs](shield-policies-auto-app-layer-mitigation.md#shield-policies-auto-app-layer-update-waf-version "shield-policies-auto-app-layer-mitigation.md#shield-policies-auto-app-layer-update-waf-version"). 11. Choose **Next**. 12. For **AWS accounts this policy applies to**, choose the
+information about this option, see [Replace AWS WAF Classic web ACLs with latest version web ACLs](shield-policies-auto-app-layer-mitigation.md#shield-policies-auto-app-layer-update-waf-version "shield-policies-auto-app-layer-mitigation.md#shield-policies-auto-app-layer-update-waf-version"). 11. Choose **Next**. 12. For **AWS accounts this policy applies to**, choose the
 option as follows:
 
     * If you want to apply the policy to all accounts in your organization, keep the default
@@ -389,12 +369,9 @@ several minutes. After the **Pending** status is replaced with
 account counts, you can choose the policy name to explore the compliance status
 of the accounts and resources. For information, see [Viewing compliance information for an AWS Firewall Manager policy](fms-compliance.md "fms-compliance.md")
 
-## Creating an AWS Firewall Manager
+## Creating an AWS Firewall Manager common security group policy
 
-common security group policy
-
-For information about how common security group policies work, see [Using common security group
-policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
+For information about how common security group policies work, see [Using common security group policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
 
 To create a common security group policy, you must have a security group already created in your Firewall Manager administrator account
 that you want to use as the primary for your policy. You can manage security groups
@@ -422,8 +399,7 @@ groups**. 6. For **Region**, choose an AWS Region. 7. Choose **Next**. 8. For **
     Firewall Manager won't distribute system tags added by AWS services into the replica security groups. System tags begin with the `aws:` prefix. Additionally, Firewall Manager won't update the tags of existing security groups or create new security groups if the policy has tags that conflict with the organization's tag policy. For information about tag policies, see [Tag policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md") in the AWS Organizations User Guide.
 
 
-    If you choose **Distribute security group references from the primary security group to the security groups created by this policy**, Firewall Manager only distributes the security group references if they have an active peering connection in Amazon VPC. For information about this option, see [Using common security group
-     policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
+    If you choose **Distribute security group references from the primary security group to the security groups created by this policy**, Firewall Manager only distributes the security group references if they have an active peering connection in Amazon VPC. For information about this option, see [Using common security group policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
     2. For **Primary security groups**, choose **Add security
      groups**, and then choose the security groups that you
      want to use. Firewall Manager populates the list of security groups
@@ -482,8 +458,7 @@ Instead, when automatic remediation is enabled,
 Firewall Manager only marks the compliance status of these EC2 instances,
 and doesn't apply any remediation actions. See additional caveats and limitations for
 the Amazon EC2 resource type at
-[Security group policy caveats and
-limitations](security-group-policies.md#security-groups-limitations "security-group-policies.md#security-groups-limitations"). 13. For **Resources**, you can narrow the scope of the policy
+[Security group policy caveats and limitations](security-group-policies.md#security-groups-limitations "security-group-policies.md#security-groups-limitations"). 13. For **Resources**, you can narrow the scope of the policy
 using tagging, by either including or excluding resources with the tags that you specify.
 You can use inclusion or exclusion, and not both. For
 more information about tags to define policy scope, see [Using the AWS Firewall Manager policy scope](policy-scope.md "policy-scope.md").
@@ -499,12 +474,9 @@ Firewall Manager creates a replica of the primary security group in every Amazon
 within the in-scope accounts up to the supported Amazon VPC maximum quota per account.
 Firewall Manager associates the replica security groups to the resources that are within policy
 scope for each in-scope account. For more information about how this policy works,
-see [Using common security group
-policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
+see [Using common security group policies with Firewall Manager](security-group-policies-common.md "security-group-policies-common.md").
 
-## Creating an AWS Firewall Manager
-
-content audit security group policy
+## Creating an AWS Firewall Manager content audit security group policy
 
 For information about how content audit security group policies work, see [Using content audit security group policies with Firewall Manager](security-group-policies-audit.md "security-group-policies-audit.md").
 
@@ -649,9 +621,7 @@ status in the AWS Firewall Manager policy console. After the policy is created, 
 and enable automatic remediation to put your auditing security group policy into
 effect. For more information about how this policy works, see [Using content audit security group policies with Firewall Manager](security-group-policies-audit.md "security-group-policies-audit.md").
 
-## Creating an AWS Firewall Manager
-
-usage audit security group policy
+## Creating an AWS Firewall Manager usage audit security group policy
 
 For information about how usage audit security group policies work, see [Using usage audit security group policies with Firewall Manager](security-group-policies-usage.md "security-group-policies-usage.md").
 
@@ -760,9 +730,7 @@ remained unused for the minutes specified in the rule. You
 can review the policy status in the AWS Firewall Manager policy console. For more information
 about how this policy works, see [Using usage audit security group policies with Firewall Manager](security-group-policies-usage.md "security-group-policies-usage.md").
 
-## Creating an AWS Firewall Manager
-
-network ACL policy
+## Creating an AWS Firewall Manager network ACL policy
 
 For information about how network ACL policies work, see [Network ACL policies](network-acl-policies.md "network-acl-policies.md").
 
@@ -835,9 +803,7 @@ Firewall Manager creates the policy and begins monitoring and managing the in sc
 For more information about how this policy works,
 see [Network ACL policies](network-acl-policies.md "network-acl-policies.md").
 
-## Creating an AWS Firewall Manager policy for
-
-AWS Network Firewall
+## Creating an AWS Firewall Manager policy for AWS Network Firewall
 
 In a Firewall Manager Network Firewall policy, you use rule groups that you manage in
 AWS Network Firewall. For information about managing your rule groups, see [AWS Network Firewall rule groups](../../../network-firewall/latest/developerguide/rule-groups.md "../../../network-firewall/latest/developerguide/rule-groups.md") in the _Network Firewall
@@ -1002,9 +968,7 @@ several minutes. After the **Pending** status is replaced with
 account counts, you can choose the policy name to explore the compliance status
 of the accounts and resources. For information, see [Viewing compliance information for an AWS Firewall Manager policy](fms-compliance.md "fms-compliance.md")
 
-## Creating an AWS Firewall Manager policy for
-
-Amazon Route 53 Resolver DNS Firewall
+## Creating an AWS Firewall Manager policy for Amazon Route 53 Resolver DNS Firewall
 
 In a Firewall Manager DNS Firewall policy, you use rule groups that you manage in
 Amazon Route 53 Resolver DNS Firewall. For information about managing your rule groups, see [Managing rule groups and rules in DNS Firewall](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-group-managing.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-group-managing.md") in the _Amazon Route 53

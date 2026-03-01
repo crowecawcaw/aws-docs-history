@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Intelligent threat integration and
-
-AWS Managed Rules
+# Intelligent threat integration and AWS Managed Rules
 
 This section explains how the intelligent threat integration APIs work with the AWS Managed Rules rule groups.
 
@@ -45,13 +43,10 @@ rule group, the targeted rules use the client session information that the APIs
 provide to better detect malicious bots.
 
 For more information, see [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md") and [AWS WAF Bot Control](waf-bot-control.md "waf-bot-control.md").
-To add one of these managed rule groups to your protection pack (web ACL), see the procedures [Adding the ACFP managed rule group to your web
-ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md"), [Adding the ATP managed rule group to your protection pack (web ACL)](waf-atp-rg-using.md "waf-atp-rg-using.md"), and [Adding the AWS WAF Bot Control managed rule group to your web
-ACL](waf-bot-control-rg-using.md "waf-bot-control-rg-using.md").
+To add one of these managed rule groups to your protection pack (web ACL), see the procedures [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md"), [Adding the ATP managed rule group to your protection pack (web ACL)](waf-atp-rg-using.md "waf-atp-rg-using.md"), and [Adding the AWS WAF Bot Control managed rule group to your web ACL](waf-bot-control-rg-using.md "waf-bot-control-rg-using.md").
 
 ###### Note
 
 The managed rule groups currently don't block requests that are missing tokens. In order to
 block requests that are missing tokens, after you implement your application
-integration APIs, follow the guidance at [Blocking requests that don't have a valid
-AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md").
+integration APIs, follow the guidance at [Blocking requests that don't have a valid AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md").

@@ -49,8 +49,7 @@ production. For additional coding guidance, see the sections that follow.
    tokens** – By default, when AWS WAF creates a token, it
    uses the host domain of the resource that’s associated with the protection pack (web ACL). To
    provide additional domains for the JavaScript APIs, follow the guidance at
-   [Providing domains for use in the
-   tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
+   [Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
 3. **Get the encrypted API key for the client** – The CAPTCHA API requires an encrypted API key that contains a list of valid
    client domains. AWS WAF uses this key to
    verify that the client domain you're using with the integration is approved to use AWS WAF CAPTCHA.
@@ -58,18 +57,15 @@ production. For additional coding guidance, see the sections that follow.
 4. **Code your CAPTCHA widget implementation** – Implement the `renderCaptcha()` API call in your page, at the
    location where you want to use it. For information about configuring and using this
    function, see the following sections,
-   [CAPTCHA JavaScript API
-   specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md") and
-   [How to render
-   the CAPTCHA puzzle](waf-js-captcha-api-render.md "waf-js-captcha-api-render.md").
+   [CAPTCHA JavaScript API specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md") and
+   [How to render the CAPTCHA puzzle](waf-js-captcha-api-render.md "waf-js-captcha-api-render.md").
 
 The CAPTCHA implementation integrates with the intelligent threat integration APIs
 for token management and to run
 fetch calls that use the AWS WAF tokens. For guidance about using these APIs, see [Using the intelligent threat JavaScript API](waf-js-challenge-api.md "waf-js-challenge-api.md"). 5. **Add token verification in your protection pack (web ACL)** –
 Add at least one rule to your protection pack (web ACL) that checks for a valid CAPTCHA
 token in the web requests that your client sends. You can use the
-CAPTCHA rule action to check, as described in [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+CAPTCHA rule action to check, as described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
 The protection pack (web ACL) additions verify that requests going to your protected endpoints include the
 token that you've acquired in your client integration. Requests that include
@@ -79,10 +75,7 @@ After you've implemented the JavaScript API, you can review the CloudWatch metri
 
 ###### Topics
 
-- [CAPTCHA JavaScript API
-  specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md")
-- [How to render
-  the CAPTCHA puzzle](waf-js-captcha-api-render.md "waf-js-captcha-api-render.md")
-- [Handling a CAPTCHA
-  response from AWS WAF](waf-js-captcha-api-conditional.md "waf-js-captcha-api-conditional.md")
+- [CAPTCHA JavaScript API specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md")
+- [How to render the CAPTCHA puzzle](waf-js-captcha-api-render.md "waf-js-captcha-api-render.md")
+- [Handling a CAPTCHA response from AWS WAF](waf-js-captcha-api-conditional.md "waf-js-captcha-api-conditional.md")
 - [Managing API keys for the JS CAPTCHA API](waf-js-captcha-api-key.md "waf-js-captcha-api-key.md")

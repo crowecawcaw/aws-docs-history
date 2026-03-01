@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Supported status codes for
-
-custom responses
+# Supported status codes for custom responses
 
 This section lists the status codes that you can use in a custom response.
 For detailed information about HTTP status codes, see [Status Codes](https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes "https://www.rfc-editor.org/rfc/rfc9110.html#name-status-codes")

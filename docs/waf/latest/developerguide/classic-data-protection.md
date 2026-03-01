@@ -51,9 +51,7 @@ AWS WAF Classic entities—such as web ACLs, rules, and conditions—are encrypt
 rest, except in certain Regions where encryption is not available, including China (Beijing)
 and China (Ningxia). Unique encryption keys are used for each Region.
 
-## Deleting AWS WAF Classic
-
-resources
+## Deleting AWS WAF Classic resources
 
 You can delete the resources that you create in AWS WAF Classic. See the guidance for each
 resource type in following sections.

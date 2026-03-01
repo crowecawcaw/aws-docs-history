@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Adding the AWS WAF Bot Control managed rule group to your web
-
-ACL
+# Adding the AWS WAF Bot Control managed rule group to your web ACL
 
 This section explains how to add and configure the `AWSManagedRulesBotControlRuleSet` rule group.
 
@@ -15,13 +13,11 @@ For the rule group description and rules listing, see [AWS WAF Bot Control rule 
 
 This guidance is intended for users who know generally how to create and manage
 AWS WAF protection packs (web ACLs), rules, and rule groups. Those topics are covered in prior sections
-of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through
-the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
+of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
 
 ###### Follow best practices
 
-Use the Bot Control rule group in accordance with the best practices at [Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+Use the Bot Control rule group in accordance with the best practices at [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
 
 ###### To use the `AWSManagedRulesBotControlRuleSet` rule group in your protection pack (web ACL)
 
@@ -64,8 +60,7 @@ select the inspection level that you want to use.
    details about these rules, see [Bot Control rules listing](aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules "aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules").
 4. Add a scope-down statement for the rule group, to contain the costs of using
    it. A scope-down statement narrows the set of requests that the rule group
-   inspects. For example use cases, start with [Bot Control example: Using Bot Control only for the
-   login page](waf-bot-control-example-scope-down-login.md "waf-bot-control-example-scope-down-login.md") and [Bot Control example: Using Bot Control only for dynamic content](waf-bot-control-example-scope-down-dynamic-content.md "waf-bot-control-example-scope-down-dynamic-content.md").
+   inspects. For example use cases, start with [Bot Control example: Using Bot Control only for the login page](waf-bot-control-example-scope-down-login.md "waf-bot-control-example-scope-down-login.md") and [Bot Control example: Using Bot Control only for dynamic content](waf-bot-control-example-scope-down-dynamic-content.md "waf-bot-control-example-scope-down-dynamic-content.md").
 5. Provide any additional configuration that you need for the rule group.
 6. Save your changes to the protection pack (web ACL).
    Before you deploy your Bot Control implementation for production traffic, test and tune it

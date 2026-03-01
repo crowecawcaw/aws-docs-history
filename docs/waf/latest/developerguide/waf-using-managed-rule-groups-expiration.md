@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Tracking a rule group's version
-
-expiration
+# Tracking a rule group's version expiration
 
 This section explains how to monitor expiration scheduling for a managed rule group through Amazon CloudWatch.
 

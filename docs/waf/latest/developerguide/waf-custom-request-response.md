@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Customized web requests and responses in
-
-AWS WAF
+# Customized web requests and responses in AWS WAF
 
 This section explains how to add custom web request and response handling behavior to your AWS WAF rule actions and
 default protection pack (web ACL) actions. Your custom settings apply whenever the action they're attached to
@@ -33,9 +31,7 @@ You can specify a custom request or response when you define the following actio
 ###### Action settings that you cannot customize
 
 You _cannot_ specify custom request handling in the
-override action for a rule group that you use in a protection pack (web ACL). See [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md "web-acl-processing.md"). Also see [Using managed rule group
-statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md") and [Using rule group
-statements in AWS WAF](waf-rule-statement-type-rule-group.md "waf-rule-statement-type-rule-group.md").
+override action for a rule group that you use in a protection pack (web ACL). See [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md "web-acl-processing.md"). Also see [Using managed rule group statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md") and [Using rule group statements in AWS WAF](waf-rule-statement-type-rule-group.md "waf-rule-statement-type-rule-group.md").
 
 ###### Temporary inconsistencies during updates
 
@@ -57,7 +53,5 @@ definition. For information, see [AWS WAF quotas](limits.md "limits.md").
 ###### Topics
 
 - [Inserting custom request headers for non-blocking actions](customizing-the-incoming-request.md "customizing-the-incoming-request.md")
-- [Sending custom responses for Block
-  actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md")
-- [Supported status codes for
-  custom responses](customizing-the-response-status-codes.md "customizing-the-response-status-codes.md")
+- [Sending custom responses for Block actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md")
+- [Supported status codes for custom responses](customizing-the-response-status-codes.md "customizing-the-response-status-codes.md")

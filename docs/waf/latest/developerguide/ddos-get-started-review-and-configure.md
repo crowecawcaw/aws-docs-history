@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Reviewing and finishing your
-
-protection configuration in Shield Advanced
+# Reviewing and finishing your protection configuration in Shield Advanced
 
 ###### To review and finish your settings
 

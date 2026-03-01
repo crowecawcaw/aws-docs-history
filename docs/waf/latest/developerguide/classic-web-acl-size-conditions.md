@@ -33,8 +33,7 @@ you can create a size constraint condition and block requests that have a reques
 ###### Topics
 
 - [Creating size constraint conditions](#classic-web-acl-size-conditions-creating "#classic-web-acl-size-conditions-creating")
-- [Values that you specify when you create or edit
-  size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values")
+- [Values that you specify when you create or edit size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values")
 - [Adding and deleting filters in a size constraint condition](#classic-web-acl-size-conditions-editing "#classic-web-acl-size-conditions-editing")
 - [Deleting size constraint conditions](#classic-web-acl-size-conditions-deleting "#classic-web-acl-size-conditions-deleting")
 
@@ -76,12 +75,9 @@ condition.
    [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
 
 If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. In the navigation pane, choose **Size constraints**. 3. Choose **Create condition**. 4. Specify the applicable filter settings. For more information, see
-[Values that you specify when you create or edit
-size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values"). 5. Choose **Add another filter**. 6. If you want to add another filter, repeat steps 4 and 5. 7. When you're finished adding filters, choose **Create size constraint condition**.
+[Values that you specify when you create or edit size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values"). 5. Choose **Add another filter**. 6. If you want to add another filter, repeat steps 4 and 5. 7. When you're finished adding filters, choose **Create size constraint condition**.
 
-## Values that you specify when you create or edit
-
-size constraint conditions
+## Values that you specify when you create or edit size constraint conditions
 
 When you create or update a size constraint condition, you specify the following values:
 
@@ -249,8 +245,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
 
     1. Choose **Add filter**.
     2. Specify the applicable filter settings. For more information, see
-     [Values that you specify when you create or edit
-     size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values").
+     [Values that you specify when you create or edit size constraint conditions](#classic-web-acl-size-conditions-values "#classic-web-acl-size-conditions-values").
     3. Choose **Add**.
 
 5. To delete filters, perform the following steps:

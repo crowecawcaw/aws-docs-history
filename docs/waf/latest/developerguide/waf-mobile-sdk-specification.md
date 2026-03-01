@@ -44,8 +44,7 @@ when an active token is ready. The token provider will
 invoke your callback in a background thread when the token
 is cached and ready. Call this when your app first loads and
 also when it comes back to an active state. For more
-information about returning to an active state, see [Retrieving a token following app
-inactivity](waf-mobile-sdk-how-it-works.md#waf-mobile-sdk-how-back-from-inactive "waf-mobile-sdk-how-it-works.md#waf-mobile-sdk-how-back-from-inactive").
+information about returning to an active state, see [Retrieving a token following app inactivity](waf-mobile-sdk-how-it-works.md#waf-mobile-sdk-how-back-from-inactive "waf-mobile-sdk-how-it-works.md#waf-mobile-sdk-how-back-from-inactive").
 
 For Android or iOS apps, you can set `WAFTokenResultCallback` to the
 operation that you want the token provider to invoke when a

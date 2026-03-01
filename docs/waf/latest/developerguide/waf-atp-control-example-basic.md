@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# ATP example: Simple
-
-configuration
+# ATP example: Simple configuration
 
 The following JSON listing shows an example protection pack (web ACL) with an AWS WAF Fraud Control account takeover prevention (ATP) managed rule
 group. Note the additional sign-in page configuration, which gives the rule group

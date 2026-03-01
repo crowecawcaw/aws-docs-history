@@ -19,9 +19,7 @@ automatically adds protections to resources that are within scope of the policy.
 If you don't use Firewall Manager, go through the following procedures for each account that has
 resources to protect.
 
-###### To choose the resources to protect using
-
-Shield Advanced
+###### To choose the resources to protect using Shield Advanced
 
 1. Choose **Add resources to protect** from the subscription confirmation
    page of the prior procedure, or from the **Protected
@@ -41,11 +39,7 @@ your resource protections.
 
 ###### Topics
 
-- [Configuring application layer (layer 7) DDoS
-  protections with AWS WAF](ddos-get-started-web-acl-rbr.md "ddos-get-started-web-acl-rbr.md")
-- [Configuring health-based detection
-  for your protections with Shield Advanced and Route 53](ddos-get-started-health-checks.md "ddos-get-started-health-checks.md")
-- [Configuring alarms and
-  notifications with Shield Advanced and Amazon SNS](ddos-get-started-create-alarms.md "ddos-get-started-create-alarms.md")
-- [Reviewing and finishing your
-  protection configuration in Shield Advanced](ddos-get-started-review-and-configure.md "ddos-get-started-review-and-configure.md")
+- [Configuring application layer (layer 7) DDoS protections with AWS WAF](ddos-get-started-web-acl-rbr.md "ddos-get-started-web-acl-rbr.md")
+- [Configuring health-based detection for your protections with Shield Advanced and Route 53](ddos-get-started-health-checks.md "ddos-get-started-health-checks.md")
+- [Configuring alarms and notifications with Shield Advanced and Amazon SNS](ddos-get-started-create-alarms.md "ddos-get-started-create-alarms.md")
+- [Reviewing and finishing your protection configuration in Shield Advanced](ddos-get-started-review-and-configure.md "ddos-get-started-review-and-configure.md")

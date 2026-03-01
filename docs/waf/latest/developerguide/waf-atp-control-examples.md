@@ -18,9 +18,6 @@ operation in the APIs and the command line interface.
 
 ###### Topics
 
-- [ATP example: Simple
-  configuration](waf-atp-control-example-basic.md "waf-atp-control-example-basic.md")
-- [ATP example: Custom
-  handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md")
-- [ATP example: Response inspection
-  configuration](waf-atp-control-example-response-inspection.md "waf-atp-control-example-response-inspection.md")
+- [ATP example: Simple configuration](waf-atp-control-example-basic.md "waf-atp-control-example-basic.md")
+- [ATP example: Custom handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md")
+- [ATP example: Response inspection configuration](waf-atp-control-example-response-inspection.md "waf-atp-control-example-response-inspection.md")

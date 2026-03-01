@@ -29,8 +29,7 @@ the group.
 
 ###### Note
 
-For information about setting up a Firewall Manager administrator account, see [Creating an AWS Firewall Manager default administrator
-account](enable-integration.md "enable-integration.md"). 2. In the navigation pane, choose **Switch to AWS WAF Classic**. 3. In the AWS WAF Classic navigation pane, choose **Rule groups**. 4. Choose **Create rule group**.
+For information about setting up a Firewall Manager administrator account, see [Creating an AWS Firewall Manager default administrator account](enable-integration.md "enable-integration.md"). 2. In the navigation pane, choose **Switch to AWS WAF Classic**. 3. In the AWS WAF Classic navigation pane, choose **Rule groups**. 4. Choose **Create rule group**.
 
 ###### Note
 

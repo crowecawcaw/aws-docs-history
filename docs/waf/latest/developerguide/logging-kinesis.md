@@ -52,9 +52,7 @@ Configure an Amazon Data Firehose delivery stream for your protection pack (web 
 
 Do not use a `Kinesis stream` as your source.
 
-## Permissions required to publish
-
-logs to an Amazon Data Firehose delivery stream
+## Permissions required to publish logs to an Amazon Data Firehose delivery stream
 
 To understand the permissions required for your Kinesis Data Firehose
 configuration, see [Controlling Access with

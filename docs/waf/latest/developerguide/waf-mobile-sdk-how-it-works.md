@@ -31,8 +31,7 @@ maintain valid, unexpired tokens for use in your app’s web requests:
 The token provider performs the token refresh at configurable intervals, so that an
 unexpired token is always available in the cache while the application
 is active. Background refresh is paused while your application is in an
-inactive state. For information about this, see [Retrieving a token following app
-inactivity](#waf-mobile-sdk-how-back-from-inactive "#waf-mobile-sdk-how-back-from-inactive").
+inactive state. For information about this, see [Retrieving a token following app inactivity](#waf-mobile-sdk-how-back-from-inactive "#waf-mobile-sdk-how-back-from-inactive").
 
 - **Background refresh disabled** – You can disable
   background token refresh, and then retrieve tokens only on demand.
@@ -106,9 +105,7 @@ depending on your configured immunity time.
 To prevent multiple valid tokens, you can disable background refresh and use the
 `getToken()` function to manage the token lifecycle in your mobile app.
 
-## Retrieving a token following app
-
-inactivity
+## Retrieving a token following app inactivity
 
 Background refresh is only performed while your app is considered active for your app
 type:

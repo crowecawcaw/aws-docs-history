@@ -21,8 +21,7 @@ The protection pack (web ACL) components that evaluate requests can add labels t
   information, see [AWS WAF rules that add labels](waf-rule-label-add.md "waf-rule-label-add.md").
 - The geo match rule statement adds country and region labels to any request that it
   inspects, regardless of whether the statement results in a match. For
-  information, see [Geographic match rule
-  statement](waf-rule-statement-type-geo-match.md "waf-rule-statement-type-geo-match.md").
+  information, see [Geographic match rule statement](waf-rule-statement-type-geo-match.md "waf-rule-statement-type-geo-match.md").
 - The AWS Managed Rules for AWS WAF all add labels to requests that they inspect. They add some labels
   based on rule matches in the rule group and they add some based on AWS
   processes that the managed rule groups use, such as the token labeling added
@@ -51,8 +50,7 @@ that are used in the protection pack (web ACL).
 
 - You can match against a label in your rule's request inspection criteria using
   the label match statement. You can match against any label that's attached to
-  the request. For statement details, see [Label match rule
-  statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
+  the request. For statement details, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
 - The geographic match statement adds labels with or without a match, but
   they're only available after the statement's containing protection pack (web ACL) rule has
   completed the request evaluation.

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Overview of
-
-the standard deployments for AWS Managed Rules
+# Overview of the standard deployments for AWS Managed Rules
 
 AWS rolls out new AWS Managed Rules functionality using three standard deployment
 stages: release candidate, static version, and default version.

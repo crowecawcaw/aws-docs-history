@@ -11,18 +11,12 @@ is enabled.
 
 ###### Topics
 
-- [How
-  Shield Advanced responds to DDoS attacks with automatic mitigation](#ddos-automatic-app-layer-response-ddos-attack "#ddos-automatic-app-layer-response-ddos-attack")
-- [How Shield Advanced manages the rule
-  action setting](#ddos-automatic-app-layer-response-rule-action "#ddos-automatic-app-layer-response-rule-action")
-- [How
-  Shield Advanced manages mitigations when an attack subsides](#ddos-automatic-app-layer-response-after-attack "#ddos-automatic-app-layer-response-after-attack")
-- [What happens
-  when you disable automatic mitigation](#ddos-automatic-app-layer-response-disable "#ddos-automatic-app-layer-response-disable")
+- [How Shield Advanced responds to DDoS attacks with automatic mitigation](#ddos-automatic-app-layer-response-ddos-attack "#ddos-automatic-app-layer-response-ddos-attack")
+- [How Shield Advanced manages the rule action setting](#ddos-automatic-app-layer-response-rule-action "#ddos-automatic-app-layer-response-rule-action")
+- [How Shield Advanced manages mitigations when an attack subsides](#ddos-automatic-app-layer-response-after-attack "#ddos-automatic-app-layer-response-after-attack")
+- [What happens when you disable automatic mitigation](#ddos-automatic-app-layer-response-disable "#ddos-automatic-app-layer-response-disable")
 
-## How
-
-Shield Advanced responds to DDoS attacks with automatic mitigation
+## How Shield Advanced responds to DDoS attacks with automatic mitigation
 
 When you have automatic mitigation enabled on a protected resource, the
 rate-based rule `ShieldKnownOffenderIPRateBasedRule` in the Shield Advanced
@@ -61,9 +55,7 @@ and you experience false positives from the mitigation rules that Shield Advance
 deployed, you can change the rule action to Count. For information about
 how to this, see [Changing the action used for automatic application layer DDoS mitigation](change-action-of-automatic-app-layer-response.md "change-action-of-automatic-app-layer-response.md").
 
-## How Shield Advanced manages the rule
-
-action setting
+## How Shield Advanced manages the rule action setting
 
 You can set the rule action for your automatic mitigations to Block or
 Count.
@@ -90,9 +82,7 @@ configuration in the events page of the console, and through the application lay
 configuration page. For information about the events page, see [Responding to DDoS events in AWS](ddos-responding.md "ddos-responding.md"). For information
 about the configuration page, see [Configure application layer DDoS protections](manage-protection.md#configure-app-layer-protection "manage-protection.md#configure-app-layer-protection").
 
-## How
-
-Shield Advanced manages mitigations when an attack subsides
+## How Shield Advanced manages mitigations when an attack subsides
 
 When Shield Advanced determines that mitigation rules that were deployed for a particular attack
 are no longer needed, it removes them from the Shield Advanced mitigation rule group.
@@ -109,9 +99,7 @@ Shield Advanced never removes the rate-based rule
 `ShieldKnownOffenderIPRateBasedRule`, which limits the volume of
 requests from IP addresses that are known to be sources of DDoS attacks.
 
-## What happens
-
-when you disable automatic mitigation
+## What happens when you disable automatic mitigation
 
 Shield Advanced does the following when you disable automatic mitigation for a
 resource:

@@ -16,8 +16,7 @@ The primary components of AWS WAF Fraud Control account creation fraud preventio
   the distribution sends back to account creation requests. For a list of this
   rule group's rules, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](aws-managed-rule-groups-acfp.md "aws-managed-rule-groups-acfp.md"). You include this rule group
   in your protection pack (web ACL) using a managed rule group reference statement. For information
-  about using this rule group, see [Adding the ACFP managed rule group to your web
-  ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
+  about using this rule group, see [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
 
 ###### Note
 
@@ -31,23 +30,20 @@ You are charged additional fees when you use this managed rule group. For more i
   accept `GET` text/html requests. The account creation path must
   accept `POST` requests. The ACFP rule
   group works with usernames that are in email format. For more information, see
-  [Adding the ACFP managed rule group to your web
-  ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
+  [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
 - **For protected CloudFront distributions, details about how your application
   responds to account creation attempts** – You provide
   details about your application's responses to account creation attempts, and the
   ACFP rule group tracks and manages bulk account creation attempts from a
   single IP address or single client session. For information about configuring
-  this option, see [Adding the ACFP managed rule group to your web
-  ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
+  this option, see [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
 - **JavaScript and mobile application integration SDKs**
   – Implement the AWS WAF JavaScript and mobile SDKs with your ACFP
   implementation to enable the full set of capabilities that the rule group
   offers. Many of the ACFP rules use the information provided by the SDKs for
   session level client verification and behavior aggregation, required to separate
   legitimate client traffic from bot traffic. For more information about the SDKs,
-  see [Client application
-  integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+  see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
   You can combine your ACFP implementation with the following to help you monitor, tune,
   and customize your protections.
 
@@ -70,11 +66,9 @@ scope-down statements or label matching rules.
   rules in `AWSManagedRulesACFPRuleSet`, you can switch the blocking behavior to count, and then match
   against the labels that are added by the rules. Use this approach to customize how
   you handle web requests that are identified by the ACFP managed rule group. For more
-  information about labeling and using label match statements, see [Label match rule
-  statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+  information about labeling and using label match statements, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 - **Custom requests and responses** – You can add custom
   headers to the requests that you allow and you can send custom responses for
   requests that you block. To do this, you pair your label matching with the AWS WAF
   custom request and response features. For more information about customizing
-  requests and responses, see [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").

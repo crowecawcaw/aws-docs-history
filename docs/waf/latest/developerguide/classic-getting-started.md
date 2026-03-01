@@ -48,10 +48,8 @@ delete the resources to prevent incurring unnecessary charges.
 
 - [Step 1: Set up AWS WAF Classic](#classic-getting-started-aws-account "#classic-getting-started-aws-account")
 - [Step 2: Create a Web ACL](#classic-getting-started-wizard-create-web-acl "#classic-getting-started-wizard-create-web-acl")
-- [Step 3: Create an IP match
-  condition](#classic-getting-started-wizard-create-ip-condition "#classic-getting-started-wizard-create-ip-condition")
-- [Step 4: Create a geo match
-  condition](#classic-getting-started-wizard-create-geo-condition "#classic-getting-started-wizard-create-geo-condition")
+- [Step 3: Create an IP match condition](#classic-getting-started-wizard-create-ip-condition "#classic-getting-started-wizard-create-ip-condition")
+- [Step 4: Create a geo match condition](#classic-getting-started-wizard-create-geo-condition "#classic-getting-started-wizard-create-geo-condition")
 - [Step 5: Create a string match condition](#classic-getting-started-wizard-create-string-condition "#classic-getting-started-wizard-create-string-condition")
 - [Step 5A: Create a regex condition (optional)](#classic-getting-started-wizard-create-regex-condition "#classic-getting-started-wizard-create-regex-condition")
 - [Step 6: Create a SQL injection match condition](#classic-getting-started-wizard-create-sql-condition "#classic-getting-started-wizard-create-sql-condition")
@@ -96,9 +94,7 @@ a CloudFront distribution, choose **Global
 (CloudFront)**. 6. For **AWS resource to associate**, choose the resource that you want to
 associate with your web ACL, and then choose **Next**.
 
-## Step 3: Create an IP match
-
-condition
+## Step 3: Create an IP match condition
 
 An IP match condition specifies the IP addresses or IP address ranges that requests
 originate from. In this step, you create an IP match condition. In a later step, you
@@ -109,9 +105,7 @@ specified IP addresses.
 
 For more information about IP match conditions, see [Working with IP match conditions](classic-web-acl-ip-conditions.md "classic-web-acl-ip-conditions.md").
 
-###### To create an IP
-
-match condition
+###### To create an IP match condition
 
 1. On the **Create conditions** page, for **IP match
    conditions**, choose **Create condition**.
@@ -132,9 +126,7 @@ single IP address, such as 192.0.2.44, enter
 For more information about CIDR notation, see the Wikipedia article [Classless
 Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"). 4. Choose **Create**.
 
-## Step 4: Create a geo match
-
-condition
+## Step 4: Create a geo match condition
 
 A geo match condition specifies the country or countries that requests
 originate from. In this step, you create a geo match condition. In a later step, you
@@ -145,9 +137,7 @@ specified countries.
 
 For more information about geo match conditions, see [Working with geographic match conditions](classic-web-acl-geo-conditions.md "classic-web-acl-geo-conditions.md").
 
-###### To create a geo
-
-match condition
+###### To create a geo match condition
 
 1. On the **Create conditions** page, for **Geo match
    conditions**, choose **Create condition**.

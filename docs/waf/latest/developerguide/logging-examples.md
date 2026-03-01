@@ -7,9 +7,7 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 This section provides examples for logging protection pack (web ACL) traffic.
 
-###### Example Rate-based rule 1: Rule configuration with one key, set to
-
-`Header:dogname`
+###### Example Rate-based rule 1: Rule configuration with one key, set to `Header:dogname`
 
 ```
     {
@@ -130,9 +128,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Rate-based rule 2: Rule configuration with two keys, set to
-
-`Header:dogname` and `Header:catname`
+###### Example Rate-based rule 2: Rule configuration with two keys, set to `Header:dogname` and `Header:catname`
 
 ```
     {
@@ -388,9 +384,7 @@ This section provides examples for logging protection pack (web ACL) traffic.
 }
 ```
 
-###### Example Log output for multiple rules that triggered inside a rule group (RuleA-XSS is terminating
-
-and Rule-B is non-terminating)
+###### Example Log output for multiple rules that triggered inside a rule group (RuleA-XSS is terminating and Rule-B is non-terminating)
 
 ```
 {
@@ -460,9 +454,7 @@ and Rule-B is non-terminating)
 }
 ```
 
-###### Example Log output for a rule that triggered for the inspection of the request body with
-
-content type JSON
+###### Example Log output for a rule that triggered for the inspection of the request body with content type JSON
 
 AWS WAF currently reports the location for JSON body inspection as
 `UNKNOWN`.
@@ -512,9 +504,7 @@ AWS WAF currently reports the location for JSON body inspection as
 }
 ```
 
-###### Example Log output for a CAPTCHA rule against a web request with a valid,
-
-unexpired CAPTCHA token
+###### Example Log output for a CAPTCHA rule against a web request with a valid, unexpired CAPTCHA token
 
 The following log listing is for a web request that matched a rule with
 CAPTCHA action. The web request has a valid and unexpired
@@ -647,9 +637,7 @@ match is noted under `nonTerminatingMatchingRules`.
 }
 ```
 
-###### Example Log output for a CAPTCHA rule against a web request that doesn't
-
-have a CAPTCHA token
+###### Example Log output for a CAPTCHA rule against a web request that doesn't have a CAPTCHA token
 
 The following log listing is for a web request that matched a rule with
 CAPTCHA action. The web request didn't have a

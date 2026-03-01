@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Using service-linked roles for
-
-Shield Advanced
+# Using service-linked roles for Shield Advanced
 
 This section explains how to use service-linked roles to give Shield Advanced access to resources in your AWS account.
 
@@ -32,7 +30,7 @@ service.
 ## Service-Linked Role Permissions for Shield Advanced
 
 Shield Advanced uses the service-linked role named **AWSServiceRoleForAWSShield**. This role allows Shield Advanced to access and manage AWS resources in order to automatically
-respond to application layer DDoS attacks on your behalf. For more information about this functionality, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+respond to application layer DDoS attacks on your behalf. For more information about this functionality, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 The AWSServiceRoleForAWSShield service-linked role trusts the following services to assume the role:
 
@@ -71,9 +69,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you enable automatic application layer DDoS mitigation for a resource,
 Shield Advanced creates the service-linked role for you again.
 
-## Editing a Service-Linked Role for
-
-Shield Advanced
+## Editing a Service-Linked Role for Shield Advanced
 
 Shield Advanced does not allow you to edit the AWSServiceRoleForAWSShield service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -81,9 +77,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a Service-Linked Role for
-
-Shield Advanced
+## Deleting a Service-Linked Role for Shield Advanced
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not

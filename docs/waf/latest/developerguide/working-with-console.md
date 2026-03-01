@@ -46,8 +46,8 @@ web ACLs at the API level.
 
 ## Key differences
 
-| Comparison of Console Experiences | Feature                  | Previous AWS WAF console experience        | Updated console experience |
-| --------------------------------- | ------------------------ | ------------------------------------------ | -------------------------- |
-| Configuration process             | Multi-page workflow      | Single-page interface                      |
-| Rule configuration                | Individual rule creation | Option for pre-configured protection packs |
-| Monitoring                        | Separate dashboards      | Unified visibility                         |
+| Comparison of Console Experiences | Feature                  | Previous AWS WAF console experience              | Updated console experience |
+| --------------------------------- | ------------------------ | ------------------------------------------------ | -------------------------- |
+| Configuration process             | Multi-page workflow      | Single-page interface                            |
+| Rule configuration                | Individual rule creation | Option for pre-configured protection packs       |
+| Monitoring                        | Separate dashboards      | Unified visibility including AI Traffic Analysis |

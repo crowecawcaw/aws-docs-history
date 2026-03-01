@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Label match rule
-
-statement
+# Label match rule statement
 
 This section explains what a label match statement is and how it works.
 
@@ -26,9 +24,7 @@ and rule groups in a protection pack (web ACL), see [Setting rule priority](web-
 
 For more information about adding and matching labels, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.

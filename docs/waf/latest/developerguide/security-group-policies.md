@@ -28,9 +28,7 @@ organization:
   This section covers how Firewall Manager security groups policies work and provides guidance for using
   them. For procedures to create security group policies, see [Creating an AWS Firewall Manager policy](create-policy.md "create-policy.md").
 
-## Best practices for security group
-
-policies
+## Best practices for security group policies
 
 This section lists recommendations for managing security groups using AWS Firewall Manager.
 
@@ -96,9 +94,7 @@ Follow these guidelines when you use usage audit security group policies.
   example, don't quickly associate and disassociate a security group with an
   elastic network interface.
 
-## Security group policy caveats and
-
-limitations
+## Security group policy caveats and limitations
 
 This section lists the caveats and limitations for using Firewall Manager security group policies.
 

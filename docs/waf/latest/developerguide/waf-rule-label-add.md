@@ -16,9 +16,7 @@ The following rule types are the only exceptions:
 - **Labeling isn't allowed in rule group reference statements** –
   The console doesn't accept labels for rule group statements or managed rule group statements. Through the API, specifying a label for either statement type results in
   a validation exception. For information about these statement types,
-  see [Using managed rule group
-  statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md") and [Using rule group
-  statements in AWS WAF](waf-rule-statement-type-rule-group.md "waf-rule-statement-type-rule-group.md").
+  see [Using managed rule group statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md") and [Using rule group statements in AWS WAF](waf-rule-statement-type-rule-group.md "waf-rule-statement-type-rule-group.md").
   **WCUs** – 1 WCU for every 5 labels that you
   define in your protection pack (web ACL) or rule group rules.
 

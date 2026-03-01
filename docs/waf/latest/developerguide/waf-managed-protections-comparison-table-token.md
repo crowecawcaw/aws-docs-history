@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Options for challenges and token
-
-acquisition
+# Options for challenges and token acquisition
 
 This section compares challenge and token management options.
 

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Shield mitigation logic for AWS
-
-Regions
+# AWS Shield mitigation logic for AWS Regions
 
 This page explains how Shield event mitigation logic works in AWS Regions.
 

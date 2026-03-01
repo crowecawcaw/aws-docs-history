@@ -50,5 +50,4 @@ experience, so tuning the CAPTCHA immunity time can help you mitigate the impact
 customer experience while still providing the protections that you want.
 
 For additional information about tuning the immunity times for your use of the
-Challenge and CAPTCHA rule actions, see [Best practices for using the
-CAPTCHA and Challenge actions](waf-captcha-and-challenge-best-practices.md "waf-captcha-and-challenge-best-practices.md").
+Challenge and CAPTCHA rule actions, see [Best practices for using the CAPTCHA and Challenge actions](waf-captcha-and-challenge-best-practices.md "waf-captcha-and-challenge-best-practices.md").

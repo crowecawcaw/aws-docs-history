@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Working with managed rule
-
-groups
+# Working with managed rule groups
 
 This section provides guidance for accessing and managing your managed rule groups.
 
@@ -32,8 +30,7 @@ When you use a managed rule group in your protection pack (web ACL), you can edi
   the action that results from the rule group evaluation, and set it to
   Count only. This option isn't commonly used. It
   doesn't alter how AWS WAF evaluates the rules in the rule group. For more
-  information, see [Rule group return action override to
-  Count](web-acl-rule-group-override-options.md#web-acl-rule-group-override-options-rule-group "web-acl-rule-group-override-options.md#web-acl-rule-group-override-options-rule-group").
+  information, see [Rule group return action override to Count](web-acl-rule-group-override-options.md#web-acl-rule-group-override-options-rule-group "web-acl-rule-group-override-options.md#web-acl-rule-group-override-options-rule-group").
 
 ###### To edit the managed rule group settings in your protection pack (web ACL)
 

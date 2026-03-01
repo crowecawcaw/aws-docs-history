@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Retrieving the list of managed rule
-
-groups
+# Retrieving the list of managed rule groups
 
 You can retrieve the list of managed rule groups that are available for you to use in your
 protection packs (web ACLs). The list includes the following:

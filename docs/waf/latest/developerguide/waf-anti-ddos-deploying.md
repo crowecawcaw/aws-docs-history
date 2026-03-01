@@ -56,8 +56,7 @@ about the rules and labels for this rule group, see [AWS WAF Distributed Denial 
     	 **Count**. With this configuration,
     	 AWS WAF evaluates requests against all of the rules in the
     	 rule group and only counts the matches that result, while still
-    	 adding labels to requests. For more information, see [Overriding rule actions in a rule
-    	 group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
+    	 adding labels to requests. For more information, see [Overriding rule actions in a rule group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
 
 
     	With this override, you can monitor the potential impact of the Anti-DDoS managed rules
@@ -106,8 +105,7 @@ testing, keep the related Anti-DDoS rules in count mode, and maintain the reques
 handling decisions in your custom rule. 6. ###### Remove test rules and configure Anti-DDoS settings
 
 Review your testing results to determine which Anti-DDoS rules you want to keep in count mode for monitoring only. For any rules you want to run with active protection, disable count mode in the protection pack (web ACL) rule group configuration to allow them to perform their configured actions. Once you've finalized these settings, remove any temporary test label match rules while retaining any custom rules you created for production use. For additional Anti-DDoS configuration considerations, see
-[Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md"). 7. ###### Monitor and tune
+[Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md"). 7. ###### Monitor and tune
 
 To be sure that web requests are being handled as you want, closely monitor
 your traffic after you enable the Anti-DDoS functionality that you intend to use.

@@ -21,7 +21,6 @@ metric, see [AWS Shield Advanced metrics](shield-metrics.md "shield-metrics.md")
 
 ###### Topics
 
-- [AWS Shield detection logic for infrastructure layer
-  threats (layer 3 and layer 4)](ddos-event-detection-infrastructure.md "ddos-event-detection-infrastructure.md")
+- [AWS Shield detection logic for infrastructure layer threats (layer 3 and layer 4)](ddos-event-detection-infrastructure.md "ddos-event-detection-infrastructure.md")
 - [Shield Advanced detection logic for application layer threats (layer 7)](ddos-event-detection-application.md "ddos-event-detection-application.md")
 - [Shield Advanced detection logic for multiple resources in an application](ddos-event-detection-multiple-resources.md "ddos-event-detection-multiple-resources.md")

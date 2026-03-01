@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Protecting the application layer with the Shield Advanced
-
-rule group
+# Protecting the application layer with the Shield Advanced rule group
 
 This page explains how the Shield Advanced rule group works in your web ACL.
 

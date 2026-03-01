@@ -73,11 +73,7 @@ it reaches a detectable level. For more information about detection, see [Shield
 
 - [List of AWS Shield DDoS mitigation features](ddos-event-mitigation-features.md "ddos-event-mitigation-features.md")
 - [AWS Shield mitigation logic for CloudFront and Route 53](ddos-event-mitigation-logic-continuous-inspection.md "ddos-event-mitigation-logic-continuous-inspection.md")
-- [AWS Shield mitigation logic for AWS
-  Regions](ddos-event-mitigation-logic-regions.md "ddos-event-mitigation-logic-regions.md")
-- [AWS Shield mitigation logic for
-  AWS Global Accelerator standard accelerators](ddos-event-mitigation-logic-gax.md "ddos-event-mitigation-logic-gax.md")
-- [AWS Shield Advanced mitigation logic
-  for Elastic IPs](ddos-event-mitigation-logic-adv-eip.md "ddos-event-mitigation-logic-adv-eip.md")
-- [AWS Shield Advanced mitigation
-  logic for web applications](ddos-event-mitigation-logic-adv-web-app.md "ddos-event-mitigation-logic-adv-web-app.md")
+- [AWS Shield mitigation logic for AWS Regions](ddos-event-mitigation-logic-regions.md "ddos-event-mitigation-logic-regions.md")
+- [AWS Shield mitigation logic for AWS Global Accelerator standard accelerators](ddos-event-mitigation-logic-gax.md "ddos-event-mitigation-logic-gax.md")
+- [AWS Shield Advanced mitigation logic for Elastic IPs](ddos-event-mitigation-logic-adv-eip.md "ddos-event-mitigation-logic-adv-eip.md")
+- [AWS Shield Advanced mitigation logic for web applications](ddos-event-mitigation-logic-adv-web-app.md "ddos-event-mitigation-logic-adv-web-app.md")

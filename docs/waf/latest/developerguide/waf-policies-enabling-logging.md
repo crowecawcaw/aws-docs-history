@@ -18,7 +18,7 @@ The following procedure describes how to enable logging for an AWS WAF policy in
      For more information, see
      [Creating
      an Amazon Data Firehose delivery stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md").
-   - **Amazon Simple Storage Service buckets** - Create an Amazon S3 bucket according to the guidelines in the [Amazon Simple Storage Service](logging-s3.md "logging-s3.md") topic in the _AWS WAF Developer Guide_. You must also configure your Amazon S3 bucket with the permissions listed in [Permissions to publish logs to an Amazon S3 bucket](waf-policies-logging-destinations.md#waf-policies-logging-s3-permissions "waf-policies-logging-destinations.md#waf-policies-logging-s3-permissions") .
+   - **Amazon Simple Storage Service buckets** - Create an Amazon S3 bucket according to the guidelines in the [Amazon Simple Storage Service](logging-s3.md "logging-s3.md") topic in the _AWS WAF Developer Guide_. You must also configure your Amazon S3 bucket with the permissions listed in [Permissions to publish logs to an Amazon S3 bucket](waf-policies-logging-destinations.md#waf-policies-logging-s3-permissions "waf-policies-logging-destinations.md#waf-policies-logging-s3-permissions").
 
 2. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
    [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").

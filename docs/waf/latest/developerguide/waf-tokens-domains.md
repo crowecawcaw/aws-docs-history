@@ -67,8 +67,7 @@ because it matches the host domain and is shorter. If you don't provide a token
 domain list in the JavaScript API configuration, AWS WAF sets the domain to the
 host domain of the protected resource.
 
-For more information, see [Providing domains for use in the
-tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
+For more information, see [Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
 
 - **Mobile SDK** – In your application code, you must configure the
   mobile SDK with a token domain property. This property must be a domain that AWS WAF

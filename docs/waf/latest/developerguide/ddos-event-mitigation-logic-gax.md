@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Shield mitigation logic for
-
-AWS Global Accelerator standard accelerators
+# AWS Shield mitigation logic for AWS Global Accelerator standard accelerators
 
 This page explains how Shield event mitigation logic works for AWS Global Accelerator standard
 accelerators. Shield mitigations only allow valid traffic to reach the listener endpoints of a Global Accelerator

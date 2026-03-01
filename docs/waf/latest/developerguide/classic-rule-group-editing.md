@@ -23,9 +23,7 @@ You can add or delete rules in an AWS WAF Classic rule group.
 Deleting a rule from the rule group does not delete the rule itself. It only removes
 the rule from the rule group.
 
-###### To add or delete rules in a rule group
-
-(console)
+###### To add or delete rules in a rule group (console)
 
 1. Sign in to the AWS Management Console using the AWS Firewall Manager administrator
    account that you set up in the prerequisites, and then open the Firewall Manager console at
@@ -33,8 +31,7 @@ the rule from the rule group.
 
 ###### Note
 
-For information about setting up a Firewall Manager administrator account, see [Creating an AWS Firewall Manager default administrator
-account](enable-integration.md "enable-integration.md"). 2. In the navigation pane, choose **Switch to AWS WAF Classic**. 3. In the AWS WAF Classic navigation pane, choose **Rule groups**. 4. Choose the rule group that you want to edit.
+For information about setting up a Firewall Manager administrator account, see [Creating an AWS Firewall Manager default administrator account](enable-integration.md "enable-integration.md"). 2. In the navigation pane, choose **Switch to AWS WAF Classic**. 3. In the AWS WAF Classic navigation pane, choose **Rule groups**. 4. Choose the rule group that you want to edit.
 
 ###### Note
 

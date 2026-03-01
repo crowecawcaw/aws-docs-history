@@ -18,9 +18,6 @@ operation in the APIs and the command line interface.
 
 ###### Topics
 
-- [ACFP example: Simple
-  configuration](waf-acfp-control-example-basic.md "waf-acfp-control-example-basic.md")
-- [ACFP example: Custom
-  response for compromised credentials](waf-acfp-control-example-compromised-credentials.md "waf-acfp-control-example-compromised-credentials.md")
-- [ACFP example: Response inspection
-  configuration](waf-acfp-control-example-response-inspection.md "waf-acfp-control-example-response-inspection.md")
+- [ACFP example: Simple configuration](waf-acfp-control-example-basic.md "waf-acfp-control-example-basic.md")
+- [ACFP example: Custom response for compromised credentials](waf-acfp-control-example-compromised-credentials.md "waf-acfp-control-example-compromised-credentials.md")
+- [ACFP example: Response inspection configuration](waf-acfp-control-example-response-inspection.md "waf-acfp-control-example-response-inspection.md")

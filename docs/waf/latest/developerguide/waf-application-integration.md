@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Client application
-
-integrations in AWS WAF
+# Client application integrations in AWS WAF
 
 This section explains how to use the intelligent threat integration APIs and JavaScript CAPTCHA
 integration API with your AWS WAF features.
@@ -23,10 +21,8 @@ protected endpoints. For general information about AWS WAF tokens, see
 Combine your client integrations with protection pack (web ACL) protections that require valid tokens for access
 to your resources. You
 can use rule groups that check and monitor challenge tokens, like the ones listed in the
-next section, at [Intelligent threat integration and
-AWS Managed Rules](waf-application-integration-with-AMRs.md "waf-application-integration-with-AMRs.md"), and you can use the
-CAPTCHA and Challenge rule actions to check, as described in [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+next section, at [Intelligent threat integration and AWS Managed Rules](waf-application-integration-with-AMRs.md "waf-application-integration-with-AMRs.md"), and you can use the
+CAPTCHA and Challenge rule actions to check, as described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
 AWS WAF provides two levels of integration for JavaScript applications, and one for mobile
 applications:
@@ -63,8 +59,7 @@ This is available for JavaScript applications.
 
 ###### Topics
 
-- [Intelligent threat integration and
-  AWS Managed Rules](waf-application-integration-with-AMRs.md "waf-application-integration-with-AMRs.md")
+- [Intelligent threat integration and AWS Managed Rules](waf-application-integration-with-AMRs.md "waf-application-integration-with-AMRs.md")
 - [Accessing the AWS WAF client application integration APIs](waf-application-integration-location-in-console.md "waf-application-integration-location-in-console.md")
 - [AWS WAF JavaScript integrations](waf-javascript-api.md "waf-javascript-api.md")
 - [AWS WAF mobile application integration](waf-mobile-sdk.md "waf-mobile-sdk.md")

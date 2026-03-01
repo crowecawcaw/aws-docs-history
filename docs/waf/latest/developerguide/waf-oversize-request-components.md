@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Oversize web request components
-
-in AWS WAF
+# Oversize web request components in AWS WAF
 
 This section explains how to manage the size limits on inspecting the web request body, headers, and cookies in
 AWS WAF.

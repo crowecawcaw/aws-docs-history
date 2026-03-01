@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# CAPTCHA and Challenge in
-
-AWS WAF
+# CAPTCHA and Challenge in AWS WAF
 
 This section explains how CAPTCHA and Challenge work with AWS WAF.
 
@@ -25,24 +23,22 @@ clients must be running in secure contexts in order to acquire tokens.
 In protection pack (web ACL) rules, CAPTCHA is commonly used when a Block
 action would stop too many legitimate requests, but letting all traffic through would
 result in unacceptably high levels of unwanted requests, such as from bots. For information about
-the rule action behavior, see [How the AWS WAFCAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md").
+the rule action behavior, see [How the AWS WAF CAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md").
 
 You can also program a CAPTCHA puzzle implementation in your
 client application integration APIs. When you do this, you can customize the behavior and
 placement of the puzzle in your client application. For more
-information, see [Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+information, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 
 - **Challenge** – Runs a silent challenge that requires the client session to verify that
   it's a browser, and not a bot. The verification runs in the background without
   involving the end user. This is a good option for verifying clients that you suspect
   of being invalid without negatively impacting the end user experience with a
   CAPTCHA puzzle. For information about
-  the rule action behavior, see [How the AWS WAFCAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md").
+  the rule action behavior, see [How the AWS WAF CAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md").
 
 The Challenge rule action is similar to the challenge run by the
-client intelligent threat integration APIs, described at [Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+client intelligent threat integration APIs, described at [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 
 ###### Note
 
@@ -53,6 +49,5 @@ For descriptions of all of the rule action options, see [Using rule actions in A
 ###### Topics
 
 - [AWS WAF CAPTCHA puzzles](waf-captcha-puzzle.md "waf-captcha-puzzle.md")
-- [How the AWS WAFCAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md")
-- [Best practices for using the
-  CAPTCHA and Challenge actions](waf-captcha-and-challenge-best-practices.md "waf-captcha-and-challenge-best-practices.md")
+- [How the AWS WAF CAPTCHA and Challenge rule actions work](waf-captcha-and-challenge-how-it-works.md "waf-captcha-and-challenge-how-it-works.md")
+- [Best practices for using the CAPTCHA and Challenge actions](waf-captcha-and-challenge-best-practices.md "waf-captcha-and-challenge-best-practices.md")

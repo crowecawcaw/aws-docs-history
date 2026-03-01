@@ -54,8 +54,7 @@ installs the intelligent threat APIs.
    tokens** – By default, when AWS WAF creates a token, it
    uses the host domain of the resource that’s associated with the protection pack (web ACL). To
    provide additional domains for the JavaScript APIs, follow the guidance at
-   [Providing domains for use in the
-   tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
+   [Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
 3. **Code your intelligent threat integration** – Write
    your code to ensure that token retrieval completes before the client sends
    its requests to your protected endpoints. If you are already using the
@@ -69,8 +68,7 @@ installs the intelligent threat APIs.
    monitor challenge tokens, like the targeted level of the Bot Control managed rule group,
    and you can use
    the Challenge rule action to check, as
-   described in [CAPTCHA and Challenge in
-   AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+   described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
 The protection pack (web ACL) additions verify that requests to your protected endpoints include the
 token that you've acquired in your client integration. Requests that include
@@ -79,13 +77,10 @@ inspection and do not send another silent challenge to your client. 5. **(Option
 If you use the APIs with the ACFP managed rule group, the ATP managed rule group, or the
 targeted rules of the Bot Control rule group, these rules don't block requests
 that are missing tokens. To block requests that are missing tokens, follow
-the guidance at [Blocking requests that don't have a valid
-AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md").
+the guidance at [Blocking requests that don't have a valid AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md").
 
 ###### Topics
 
-- [Intelligent threat API
-  specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md")
+- [Intelligent threat API specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md")
 - [How to use the integration fetch wrapper](waf-js-challenge-api-fetch-wrapper.md "waf-js-challenge-api-fetch-wrapper.md")
-- [How to use
-  the integration getToken](waf-js-challenge-api-get-token.md "waf-js-challenge-api-get-token.md")
+- [How to use the integration getToken](waf-js-challenge-api-get-token.md "waf-js-challenge-api-get-token.md")

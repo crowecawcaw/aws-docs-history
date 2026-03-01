@@ -15,9 +15,7 @@ creating rules in your web ACL, see [Configuring protection in AWS WAF](web-acl.
 
 If you use AWS Firewall Manager, you can add your AWS WAF rules to a Firewall Manager AWS WAF policy.
 
-###### To manually mitigate a potential
-
-application layer DDoS attack
+###### To manually mitigate a potential application layer DDoS attack
 
 1. Create rule statements in your web ACL with criteria that matches the unusual behavior. To
    start with, configure them to count matching requests. For information about

@@ -20,9 +20,7 @@ When you enable management of unassociated web ACLs, Firewall Manager performs a
 
 If you don't enable this option, Firewall Manager doesn't manage unassociated web ACLs, and Firewall Manager automatically creates a web ACL in each account that's within policy scope.
 
-## How AWS Firewall Manager manages scope
-
-changes in Shield policies
+## How AWS Firewall Manager manages scope changes in Shield policies
 
 Accounts and resources can go out of scope of an AWS Firewall Manager Shield Advanced policy due to a number
 of changes, such as changes to policy scope settings, changes to the tags on a

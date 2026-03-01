@@ -19,8 +19,7 @@ that you specify in the Firewall Manager policy.
 For information about using DNS Firewall, see [Amazon Route 53 Resolver DNS Firewall](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md") in the [Amazon Route 53 Developer Guide](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md").
 
 The following sections cover requirements for using Firewall Manager DNS Firewall policies and
-describe how the policies work. For the procedure for creating the policy, see [Creating an AWS Firewall Manager policy for
-Amazon Route 53 Resolver DNS Firewall](create-policy.md#creating-firewall-manager-policy-for-dns-firewall "create-policy.md#creating-firewall-manager-policy-for-dns-firewall").
+describe how the policies work. For the procedure for creating the policy, see [Creating an AWS Firewall Manager policy for Amazon Route 53 Resolver DNS Firewall](create-policy.md#creating-firewall-manager-policy-for-dns-firewall "create-policy.md#creating-firewall-manager-policy-for-dns-firewall").
 
 ###### Important
 

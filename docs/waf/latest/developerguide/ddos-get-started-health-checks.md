@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Configuring health-based detection
-
-for your protections with Shield Advanced and Route 53
+# Configuring health-based detection for your protections with Shield Advanced and Route 53
 
 This page provides instructions for configuring Shield Advanced to use health-based detection.
 This can help improve responsiveness and accuracy in
@@ -19,8 +17,7 @@ To use health-based detection, define a health check for your resource in Route�
 associate the health check with your Shield Advanced protection. It's important that the
 health check that you configure accurately reflect the health of the resource. For
 information and examples for configuring health checks to use with Shield Advanced, see
-[Health-based detection using
-health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+[Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
 
 Health checks are required for Shield Response Team (SRT) proactive engagement support.
 For information about proactive engagement, see [Setting up proactive engagement for the SRT to contact you directly](ddos-srt-proactive-engagement.md "ddos-srt-proactive-engagement.md").

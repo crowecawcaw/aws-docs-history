@@ -30,6 +30,5 @@ includes the encrypted token, and AWS WAF decrypts the token and verifies its co
 - [Setting timestamp expiration and token immunity times in AWS WAF](waf-tokens-immunity-times.md "waf-tokens-immunity-times.md")
 - [Specifying token domains and domain lists in AWS WAF](waf-tokens-domains.md "waf-tokens-domains.md")
 - [Types of token labels in AWS WAF](waf-tokens-labeling.md "waf-tokens-labeling.md")
-- [Blocking requests that don't have a valid
-  AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md")
+- [Blocking requests that don't have a valid AWS WAF token](waf-tokens-block-missing-tokens.md "waf-tokens-block-missing-tokens.md")
 - [Required configuration for Application Load Balancers that are CloudFront origins](waf-tokens-with-alb-and-cf.md "waf-tokens-with-alb-and-cf.md")

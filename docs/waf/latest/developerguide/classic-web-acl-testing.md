@@ -24,14 +24,10 @@ on your website or web application.
 
 ###### Topics
 
-- [Counting the web requests that match the rules in a web
-  ACL](#classic-web-acl-testing-count "#classic-web-acl-testing-count")
-- [Viewing a sample of the web requests that API Gateway CloudFront or an
-  Application Load Balancer has forwarded to AWS WAF Classic](#classic-web-acl-testing-view-sample "#classic-web-acl-testing-view-sample")
+- [Counting the web requests that match the rules in a web ACL](#classic-web-acl-testing-count "#classic-web-acl-testing-count")
+- [Viewing a sample of the web requests that API Gateway CloudFront or an Application Load Balancer has forwarded to AWS WAF Classic](#classic-web-acl-testing-view-sample "#classic-web-acl-testing-view-sample")
 
-## Counting the web requests that match the rules in a web
-
-ACL
+## Counting the web requests that match the rules in a web ACL
 
 When you add rules to a web ACL, you specify whether you want AWS WAF Classic to allow, block, or
 count the web requests that match all the conditions in that rule. We recommend that you
@@ -95,8 +91,7 @@ Note the following:
     ) icon.
 
 5. (Optional) View detailed information about individual requests that API Gateway CloudFront or an Application Load Balancer has forwarded to AWS WAF Classic.
-   For more information, see [Viewing a sample of the web requests that API Gateway CloudFront or an
-   Application Load Balancer has forwarded to AWS WAF Classic](#classic-web-acl-testing-view-sample "#classic-web-acl-testing-view-sample").
+   For more information, see [Viewing a sample of the web requests that API Gateway CloudFront or an Application Load Balancer has forwarded to AWS WAF Classic](#classic-web-acl-testing-view-sample "#classic-web-acl-testing-view-sample").
 6. If you determine that a rule is intercepting requests that you don't want it to intercept,
    change the applicable settings. For more information, see [Creating and configuring a Web Access Control List (Web ACL)](classic-web-acl.md "classic-web-acl.md").
 
@@ -104,9 +99,7 @@ When you're satisfied that all of your rules are intercepting only the correct r
 change the action for each of your rules to **Allow** or **Block**.
 For more information, see [Editing a Web ACL](classic-web-acl-editing.md "classic-web-acl-editing.md").
 
-## Viewing a sample of the web requests that API Gateway CloudFront or an
-
-Application Load Balancer has forwarded to AWS WAF Classic
+## Viewing a sample of the web requests that API Gateway CloudFront or an Application Load Balancer has forwarded to AWS WAF Classic
 
 In the AWS WAF Classic console, you can view a sample of the requests that API Gateway CloudFront or an Application Load Balancer has
 forwarded to AWS WAF Classic for inspection. For each sampled request, you can view detailed data

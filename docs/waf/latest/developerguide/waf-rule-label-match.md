@@ -10,8 +10,7 @@ _Label_, which requires the label name, or against
 _Namespace_, which requires a namespace specification. For
 either label or namespace, you can optionally include preceding namespaces and the
 prefix in your specification. For general information about this statement type, see
-[Label match rule
-statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
+[Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
 
 A label's prefix defines the context of the rule group or protection pack (web ACL) where the label's rule is
 defined. In a rule's label match statement, if your label or namespace match string

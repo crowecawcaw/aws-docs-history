@@ -8,8 +8,7 @@ For more details, see [Working with the console](working-with-console.md "workin
 You can change the action that Shield Advanced uses for its application layer automatic response in multiple locations in the console:
 
 - **Automatic mitigation configuration** – Change the action when you
-  configure automatic mitigation for your resource. For the procedure, see the preceding section [Enabling and disabling
-  automatic application layer DDoS mitigation](enable-disable-automatic-app-layer-response.md "enable-disable-automatic-app-layer-response.md").
+  configure automatic mitigation for your resource. For the procedure, see the preceding section [Enabling and disabling automatic application layer DDoS mitigation](enable-disable-automatic-app-layer-response.md "enable-disable-automatic-app-layer-response.md").
 - **Event details page** – Change the action in the
   event details page, when you're viewing the event information in the console.
   For information, see [Viewing AWS Shield Advanced event details](ddos-event-details.md "ddos-event-details.md").

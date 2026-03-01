@@ -32,8 +32,7 @@ Network Firewall service that are called firewall policies.
 For information about using Network Firewall, see the [AWS Network Firewall Developer Guide](../../../network-firewall/latest/developerguide/what-is-aws-network-firewall.md "../../../network-firewall/latest/developerguide/what-is-aws-network-firewall.md").
 
 The following sections cover requirements for using Firewall Manager Network Firewall policies
-and describe how the policies work. For the procedure for creating the policy, see [Creating an AWS Firewall Manager policy for
-AWS Network Firewall](create-policy.md#creating-firewall-manager-policy-for-network-firewall "create-policy.md#creating-firewall-manager-policy-for-network-firewall").
+and describe how the policies work. For the procedure for creating the policy, see [Creating an AWS Firewall Manager policy for AWS Network Firewall](create-policy.md#creating-firewall-manager-policy-for-network-firewall "create-policy.md#creating-firewall-manager-policy-for-network-firewall").
 
 ###### Important
 
@@ -58,6 +57,5 @@ rule groups, see [AWS Network Firewall rule groups](../../../network-firewall/la
 - [How Firewall Manager creates firewall endpoints](fms-create-firewall-endpoints.md "fms-create-firewall-endpoints.md")
 - [How Firewall Manager manages your firewall subnets](fms-manage-firewall-subnets.md "fms-manage-firewall-subnets.md")
 - [How Firewall Manager manages your Network Firewall resources](fms-manage-network-firewall.md "fms-manage-network-firewall.md")
-- [How Firewall Manager manages and monitors VPC route tables for your
-  policy](fms-manage-vpc-route-tables.md "fms-manage-vpc-route-tables.md")
+- [How Firewall Manager manages and monitors VPC route tables for your policy](fms-manage-vpc-route-tables.md "fms-manage-vpc-route-tables.md")
 - [Configuring logging for an AWS Network Firewall policy](nwfw-policies-logging-config.md "nwfw-policies-logging-config.md")

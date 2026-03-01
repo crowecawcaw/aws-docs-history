@@ -56,8 +56,6 @@ the following additional categories of clients at the session level:
   functionality is available for protected Amazon CloudFront distributions.
   For more information about the rule group capabilities see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](aws-managed-rule-groups-atp.md "aws-managed-rule-groups-atp.md").
 
-For information about the SDKs, see [Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about AWS WAF tokens,
+For information about the SDKs, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about AWS WAF tokens,
 see [Token use in AWS WAF intelligent threat mitigation](waf-tokens.md "waf-tokens.md"). For information about the
-rule actions, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+rule actions, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").

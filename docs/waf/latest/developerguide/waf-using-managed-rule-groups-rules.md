@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Retrieving the rules in a
-
-managed rule group
+# Retrieving the rules in a managed rule group
 
 You can retrieve a list of the rules in a managed rule group. The API and CLI
 calls return the rules specifications that you can reference in the JSON model

@@ -3,7 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# How the AWS WAFCAPTCHA and Challenge rule actions work
+# How the AWS WAF CAPTCHA and Challenge rule actions work
 
 This section explains how CAPTCHA and Challenge work.
 
@@ -19,8 +19,7 @@ applications, and you can render CAPTCHA puzzles in your JavaScript clients. The
 integrations allow you to provide your end users with better performance and CAPTCHA
 puzzle experiences, and they can reduce costs associated with using the rule actions and
 the intelligent threat mitigation rule groups. For more information about these options,
-see [Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For pricing information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
+see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For pricing information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
 
 ###### Topics
 

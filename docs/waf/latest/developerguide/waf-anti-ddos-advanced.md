@@ -35,10 +35,8 @@ see [Adding the Anti-DDoS managed rule group to your protection pack (web ACL)](
 - **Labels and label matching rules** – Allow you to customize
   handling of web requests identified by the Anti-DDoS managed rule group. For any rule
   in `AWSManagedRulesAntiDDoSRuleSet`, you can switch to count mode and match against added labels. For more
-  information, see [Label match rule
-  statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+  information, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 - **Custom requests and responses** – Allow you to add custom
   headers to allowed requests and send custom responses for blocked requests. Pair label matching
   with AWS WAF custom request and response features. For more information, see
-  [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").

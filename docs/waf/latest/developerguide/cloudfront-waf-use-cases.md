@@ -16,8 +16,7 @@ By default, when AWS WAF blocks a web request based on the criteria that you spe
 Forbidden: You don't have permission to access /myfilename.html on this server.
 ```
 
-You can override this behavior in your AWS WAF protection pack (web ACL) rules by defining custom responses. For more information about customizing response behavior using AWS WAF rules, see [Sending custom responses for Block
-actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md").
+You can override this behavior in your AWS WAF protection pack (web ACL) rules by defining custom responses. For more information about customizing response behavior using AWS WAF rules, see [Sending custom responses for Block actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md").
 
 ###### Note
 
@@ -67,8 +66,7 @@ When you create an Amazon CloudFront web distribution, you choose the HTTP metho
 - **`GET`, `HEAD`, `OPTIONS`** – You can use CloudFront only to get objects from your origin, get object headers, or retrieve a list of the options that your origin server supports.
 - **`GET`, `HEAD`, `OPTIONS`, `PUT`, `POST`, `PATCH`, `DELETE`** – You can use CloudFront to get, add, update, and delete objects, and to get object headers. In addition, you can perform other `POST` operations such as submitting data from a web form.
 
-You also can use AWS WAF byte match rule statements to allow or block requests based on the HTTP method, as described in [String match rule
-statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md"). If you want to use a combination of methods that CloudFront supports, such as `GET` and `HEAD`, then you don't need to configure AWS WAF to block requests that use the other methods. If you want to allow a combination of methods that CloudFront doesn't support, such as `GET`, `HEAD`, and `POST`, you can configure CloudFront to respond to all methods, and then use AWS WAF to block requests that use other methods.
+You also can use AWS WAF byte match rule statements to allow or block requests based on the HTTP method, as described in [String match rule statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md"). If you want to use a combination of methods that CloudFront supports, such as `GET` and `HEAD`, then you don't need to configure AWS WAF to block requests that use the other methods. If you want to allow a combination of methods that CloudFront doesn't support, such as `GET`, `HEAD`, and `POST`, you can configure CloudFront to respond to all methods, and then use AWS WAF to block requests that use other methods.
 
 For more information about choosing the methods that CloudFront responds to, see [Allowed HTTP Methods](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesAllowedHTTPMethods "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesAllowedHTTPMethods") in the topic [Values that You Specify When You Create or Update a Web Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md") in the _Amazon CloudFront Developer Guide_.
 

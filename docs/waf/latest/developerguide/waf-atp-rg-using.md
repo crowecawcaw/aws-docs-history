@@ -21,13 +21,11 @@ The ATP stolen credentials database only contains usernames in email format.
 
 This guidance is intended for users who know generally how to create and manage
 AWS WAF protection packs (web ACLs), rules, and rule groups. Those topics are covered in prior sections
-of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through
-the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
+of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
 
 ###### Follow best practices
 
-Use the ATP rule group in accordance with the best practices at [Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+Use the ATP rule group in accordance with the best practices at [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
 
 ###### To use the `AWSManagedRulesATPRuleSet` rule group in your protection pack (web ACL)
 

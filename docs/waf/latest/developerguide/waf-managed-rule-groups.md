@@ -47,6 +47,5 @@ users from designing threats that specifically circumvent published rules.
 ###### Topics
 
 - [Using versioned managed rule groups in AWS WAF](waf-managed-rule-groups-versioning.md "waf-managed-rule-groups-versioning.md")
-- [Working with managed rule
-  groups](waf-using-managed-rule-groups.md "waf-using-managed-rule-groups.md")
+- [Working with managed rule groups](waf-using-managed-rule-groups.md "waf-using-managed-rule-groups.md")
 - [AWS Managed Rules for AWS WAF](aws-managed-rule-groups.md "aws-managed-rule-groups.md")

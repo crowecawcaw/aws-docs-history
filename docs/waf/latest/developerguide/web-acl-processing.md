@@ -15,8 +15,7 @@ The way a protection pack (web ACL) handles a web request depends on the followi
   For a list of the rule action settings, see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md").
 
 You can customize request and response handling in your rule action settings and
-default protection pack (web ACL) action settings. For information, see [Customized web requests and responses in
-AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+default protection pack (web ACL) action settings. For information, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
 
 ###### Topics
 

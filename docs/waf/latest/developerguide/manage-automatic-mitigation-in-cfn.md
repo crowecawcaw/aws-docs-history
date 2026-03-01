@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Using AWS CloudFormation with
-
-automatic application layer DDoS mitigation
+# Using AWS CloudFormation with automatic application layer DDoS mitigation
 
 This page explains how to use CloudFormation to manage your protections and AWS WAF web ACLs.
 
@@ -24,8 +22,7 @@ the AWS WAF console and APIs, you'll see the rule listed
 in your web ACL rules, with a name that starts with
 `ShieldMitigationRuleGroup`. This rule
 is dedicated to your automatic application layer DDoS mitigation and it's
-managed for you by Shield Advanced and AWS WAF. For more information, see [Protecting the application layer with the Shield Advanced
-rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md") and [How Shield Advanced manages automatic mitigation](ddos-automatic-app-layer-response-behavior.md "ddos-automatic-app-layer-response-behavior.md").
+managed for you by Shield Advanced and AWS WAF. For more information, see [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md") and [How Shield Advanced manages automatic mitigation](ddos-automatic-app-layer-response-behavior.md "ddos-automatic-app-layer-response-behavior.md").
 
 If you use CloudFormation to manage your web ACLs, don't add the Shield Advanced rule group
 rule to your web ACL template. When you update a web ACL that's being
@@ -52,5 +49,4 @@ console or AWS WAF APIs.
   ACL.
   Don't manage the Shield Advanced rule in your CloudFormation web ACL
   template. The web ACL template shouldn't list the Shield Advanced rule.
-  Follow the best practices for web ACL management at [Best practices for
-  using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md").
+  Follow the best practices for web ACL management at [Best practices for using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md").

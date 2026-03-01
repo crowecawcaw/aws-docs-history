@@ -38,9 +38,7 @@ AWS WAF entities—such as protection packs (web ACLs), rule groups, and IP sets
 rest, except in certain Regions where encryption is not available, including China (Beijing)
 and China (Ningxia). Unique encryption keys are used for each Region.
 
-## Deleting AWS WAF
-
-resources
+## Deleting AWS WAF resources
 
 You can delete the resources that you create in AWS WAF. See the guidance for each
 resource type in following sections.

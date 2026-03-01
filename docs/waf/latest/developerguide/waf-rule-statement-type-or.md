@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# OR rule
-
-statement
+# OR rule statement
 
 The OR rule statement combines nested statements with
 OR logic, so one of the nested statements must match for the

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Best practices for using the
-
-CAPTCHA and Challenge actions
+# Best practices for using the CAPTCHA and Challenge actions
 
 Follow the guidance in this section to plan and implement AWS WAF CAPTCHA or
 challenge.
@@ -24,9 +22,7 @@ CAPTCHA puzzles and silent
 challenges can only run when browsers are accessing HTTPS endpoints. Browser
 clients must be running in secure contexts in order to acquire tokens.
 
-###### Decide where to run CAPTCHA puzzles and silent challenges on your
-
-clients
+###### Decide where to run CAPTCHA puzzles and silent challenges on your clients
 
 Identify requests that you don't want to have impacted by CAPTCHA, for example,
 requests for CSS or images. Use CAPTCHA only when necessary. For example, if you

@@ -16,8 +16,7 @@ Proactive engagement is available for network-layer and transport-layer events o
 addresses and AWS Global Accelerator standard accelerators, and for web request floods on Amazon CloudFront
 distributions and Application Load Balancers. Proactive engagement is available only for Shield Advanced resource
 protections that have an associated Amazon Route 53 health check. For information about
-managing and using health checks, see [Health-based detection using
-health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+managing and using health checks, see [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
 
 During an event that's detected by Shield Advanced, the SRT uses the state of your health checks
 to determine whether the event qualifies for proactive engagement. If so, the SRT will
@@ -38,8 +37,7 @@ Proactive engagement requires you to do the following:
   to protect with proactive engagement. The SRT uses the status of your health
   checks to help determine whether an event requires proactive engagement, so it's
   important that your health checks accurately reflect the state of your protected
-  resources. For more information and guidance, see [Health-based detection using
-  health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+  resources. For more information and guidance, see [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
 - For a resource that has an AWS WAF web ACL associated, you must create the web ACL using
   AWS WAF (v2), which is the latest version of AWS WAF.
 - You must provide at least one contact for the SRT to use for proactive engagement during an

@@ -139,8 +139,7 @@ following topics:
 
       For information about using **Count** to test a
       web ACL before you start to use it to allow or block web requests,
-      see [Counting the web requests that match the rules in a web
-      ACL](classic-web-acl-testing.md#classic-web-acl-testing-count "classic-web-acl-testing.md#classic-web-acl-testing-count").
+      see [Counting the web requests that match the rules in a web ACL](classic-web-acl-testing.md#classic-web-acl-testing-count "classic-web-acl-testing.md#classic-web-acl-testing-count").
 
     - For each rule group, set the override action for the rule group:
 

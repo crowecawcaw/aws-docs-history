@@ -17,14 +17,10 @@ group or protection pack (web ACL) through the APIs or the command line interfac
 ###### Topics
 
 - [Match against a local label](#waf-rule-label-match-examples-local-label "#waf-rule-label-match-examples-local-label")
-- [Match against a label from another
-  context](#waf-rule-label-match-examples-label "#waf-rule-label-match-examples-label")
-- [Match against a
-  managed rule group label](#waf-rule-label-match-examples-mgd-rg-label "#waf-rule-label-match-examples-mgd-rg-label")
-- [Match against a
-  local namespace](#waf-rule-label-match-examples-local-namespace "#waf-rule-label-match-examples-local-namespace")
-- [Match against a
-  managed rule group namespace](#waf-rule-label-match-examples-mgd-rg-namespace "#waf-rule-label-match-examples-mgd-rg-namespace")
+- [Match against a label from another context](#waf-rule-label-match-examples-label "#waf-rule-label-match-examples-label")
+- [Match against a managed rule group label](#waf-rule-label-match-examples-mgd-rg-label "#waf-rule-label-match-examples-mgd-rg-label")
+- [Match against a local namespace](#waf-rule-label-match-examples-local-namespace "#waf-rule-label-match-examples-local-namespace")
+- [Match against a managed rule group namespace](#waf-rule-label-match-examples-mgd-rg-namespace "#waf-rule-label-match-examples-mgd-rg-namespace")
 
 ## Match against a local label
 
@@ -74,9 +70,7 @@ protection pack (web ACL) `testWebACL`, where the rule is defined.
 awswaf:111122223333:rulegroup:productionRules:header:encoding:utf8
 ```
 
-## Match against a label from another
-
-context
+## Match against a label from another context
 
 The following JSON listing shows a label match rule that matches against a label from a
 rule inside a user-created rule group. The prefix is required in the
@@ -99,9 +93,7 @@ Rule: {
 }
 ```
 
-## Match against a
-
-managed rule group label
+## Match against a managed rule group label
 
 This is a special case of matching against a label that's from another context than that
 of the match rule. The following JSON listing shows a label match statement for
@@ -125,9 +117,7 @@ Rule: {
 }
 ```
 
-## Match against a
-
-local namespace
+## Match against a local namespace
 
 The following JSON listing shows a label match statement for a local
 namespace.
@@ -172,9 +162,7 @@ the following.
 awswaf:managed:aws:managed-rule-set:header:encoding:utf8
 ```
 
-## Match against a
-
-managed rule group namespace
+## Match against a managed rule group namespace
 
 The following JSON listing shows a label match statement for a managed rule group
 namespace. For a rule group that you own, you'd also need to provide the prefix

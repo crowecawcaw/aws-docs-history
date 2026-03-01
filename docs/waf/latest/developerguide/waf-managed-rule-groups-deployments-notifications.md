@@ -22,8 +22,7 @@ history page at [Document history](doc-history.md "doc-history.md").
 
 To receive all updates that AWS provides for the AWS Managed Rules rule groups, subscribe to the RSS feed from
 any HTML page of this guide, and subscribe to the SNS topic for the AWS Managed Rules rule groups.
-For information about subscribing to the SNS notifications, see [Getting notified of new
-versions and updates to a managed rule group](waf-using-managed-rule-groups-sns-topic.md "waf-using-managed-rule-groups-sns-topic.md").
+For information about subscribing to the SNS notifications, see [Getting notified of new versions and updates to a managed rule group](waf-using-managed-rule-groups-sns-topic.md "waf-using-managed-rule-groups-sns-topic.md").
 
 ###### Contents of the SNS notifications
 

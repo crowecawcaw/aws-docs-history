@@ -25,9 +25,7 @@ rules that you want to use with AWS Firewall Manager, skip this step and go to [
 
 Use the AWS WAF Classic console to create your rules.
 
-###### To create AWS WAF Classic rules
-
-(console)
+###### To create AWS WAF Classic rules (console)
 
 - Create your rules, and then add your conditions to your rules. For more
   information, see [Creating a rule and adding conditions](classic-web-acl-rules-creating.md "classic-web-acl-rules-creating.md").

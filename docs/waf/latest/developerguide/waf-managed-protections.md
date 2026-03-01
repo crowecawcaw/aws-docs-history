@@ -20,16 +20,12 @@ ACLs, rules, and rule groups. Those topics are covered in prior sections of this
 
 ###### Topics
 
-- [Options for intelligent
-  threat mitigation in AWS WAF](waf-managed-protections-comparison-table.md "waf-managed-protections-comparison-table.md")
-- [Best practices for intelligent
-  threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md")
+- [Options for intelligent threat mitigation in AWS WAF](waf-managed-protections-comparison-table.md "waf-managed-protections-comparison-table.md")
+- [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md")
 - [Token use in AWS WAF intelligent threat mitigation](waf-tokens.md "waf-tokens.md")
 - [AWS WAF Fraud Control account creation fraud prevention (ACFP)](waf-acfp.md "waf-acfp.md")
 - [AWS WAF Fraud Control account takeover prevention (ATP)](waf-atp.md "waf-atp.md")
 - [AWS WAF Bot Control](waf-bot-control.md "waf-bot-control.md")
 - [AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md")
-- [Client application
-  integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md")
-- [CAPTCHA and Challenge in
-  AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md")
+- [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md")
+- [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md")

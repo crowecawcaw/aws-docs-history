@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# How to use
-
-the integration `getToken`
+# How to use the integration `getToken`
 
 This section explains how to use the `getToken` operation.
 
@@ -35,9 +33,7 @@ don't. For example, calls made across host domains don't attach the cookie. In
 the implementation details that follow, we show how to work with both types of
 client calls.
 
-###### Basic `getToken` implementation, for calls that attach the
-
-`aws-waf-token` cookie
+###### Basic `getToken` implementation, for calls that attach the `aws-waf-token` cookie
 
 The following example listing shows standard code for implementing the
 `getToken` operation with a login request.
@@ -91,9 +87,7 @@ form submissions until a valid token is available for use.
 	</body>
 ```
 
-###### Attaching the token when your client doesn't attach the `aws-waf-token`
-
-cookie by default
+###### Attaching the token when your client doesn't attach the `aws-waf-token` cookie by default
 
 `AwsWafIntegration.getToken()` retrieves a valid token and stores it as a cookie, but not all client calls attach this cookie by default. For example, calls made across host domains don't attach the cookie.
 

@@ -48,23 +48,17 @@ Classes of attacks that Shield detects include the following:
 - [AWS Shield Advanced overview](ddos-advanced-summary.md "ddos-advanced-summary.md")
 - [List of AWS resources that AWS Shield Advanced protects](ddos-advanced-summary-protected-resources.md "ddos-advanced-summary-protected-resources.md")
 - [AWS Shield Advanced capabilities and options](ddos-advanced-summary-capabilities.md "ddos-advanced-summary-capabilities.md")
-- [Deciding whether to subscribe to
-  AWS Shield Advanced and apply additional protections](ddos-advanced-summary-deciding.md "ddos-advanced-summary-deciding.md")
+- [Deciding whether to subscribe to AWS Shield Advanced and apply additional protections](ddos-advanced-summary-deciding.md "ddos-advanced-summary-deciding.md")
 - [Examples of DDoS attacks](types-of-ddos-attacks.md "types-of-ddos-attacks.md")
 - [How AWS Shield detects events](ddos-event-detection.md "ddos-event-detection.md")
-  - [AWS Shield detection logic for infrastructure layer
-    threats (layer 3 and layer 4)](ddos-event-detection-infrastructure.md "ddos-event-detection-infrastructure.md")
+  - [AWS Shield detection logic for infrastructure layer threats (layer 3 and layer 4)](ddos-event-detection-infrastructure.md "ddos-event-detection-infrastructure.md")
   - [Shield Advanced detection logic for application layer threats (layer 7)](ddos-event-detection-application.md "ddos-event-detection-application.md")
   - [Shield Advanced detection logic for multiple resources in an application](ddos-event-detection-multiple-resources.md "ddos-event-detection-multiple-resources.md")
 
 - [How AWS Shield mitigates events](ddos-event-mitigation.md "ddos-event-mitigation.md")
   - [List of AWS Shield DDoS mitigation features](ddos-event-mitigation-features.md "ddos-event-mitigation-features.md")
   - [AWS Shield mitigation logic for CloudFront and Route 53](ddos-event-mitigation-logic-continuous-inspection.md "ddos-event-mitigation-logic-continuous-inspection.md")
-  - [AWS Shield mitigation logic for AWS
-    Regions](ddos-event-mitigation-logic-regions.md "ddos-event-mitigation-logic-regions.md")
-  - [AWS Shield mitigation logic for
-    AWS Global Accelerator standard accelerators](ddos-event-mitigation-logic-gax.md "ddos-event-mitigation-logic-gax.md")
-  - [AWS Shield Advanced mitigation logic
-    for Elastic IPs](ddos-event-mitigation-logic-adv-eip.md "ddos-event-mitigation-logic-adv-eip.md")
-  - [AWS Shield Advanced mitigation
-    logic for web applications](ddos-event-mitigation-logic-adv-web-app.md "ddos-event-mitigation-logic-adv-web-app.md")
+  - [AWS Shield mitigation logic for AWS Regions](ddos-event-mitigation-logic-regions.md "ddos-event-mitigation-logic-regions.md")
+  - [AWS Shield mitigation logic for AWS Global Accelerator standard accelerators](ddos-event-mitigation-logic-gax.md "ddos-event-mitigation-logic-gax.md")
+  - [AWS Shield Advanced mitigation logic for Elastic IPs](ddos-event-mitigation-logic-adv-eip.md "ddos-event-mitigation-logic-adv-eip.md")
+  - [AWS Shield Advanced mitigation logic for web applications](ddos-event-mitigation-logic-adv-web-app.md "ddos-event-mitigation-logic-adv-web-app.md")

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Providing domains for use in the
-
-tokens
+# Providing domains for use in the tokens
 
 This section explains how to provide additional domains for tokens.
 
@@ -52,8 +50,7 @@ API keys, see [Managing API keys for the JS CAPTCHA API](waf-js-captcha-api-key.
 If you use the `AWSManagedRulesACFPRuleSet` managed rule group, you might
 configure a domain that matches the one in the account creation path that you provided to
 the rule group configuration. For more information about this configuration, see
-[Adding the ACFP managed rule group to your web
-ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
+[Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md").
 
 If you use the `AWSManagedRulesATPRuleSet` managed rule group, you might
 configure a domain that matches the one in the login path that you provided to

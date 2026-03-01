@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Shield detection logic for infrastructure layer
-
-threats (layer 3 and layer 4)
+# AWS Shield detection logic for infrastructure layer threats (layer 3 and layer 4)
 
 This page explains how event detection works for the infrastructure (network and transport) layers.
 
@@ -80,5 +78,4 @@ Shield Advanced protections add the following to the existing Shield detection a
   Shield Advanced might place a mitigation even before confidence has been established.
   This feature helps avoid false positives and provides quicker reactions to
   attacks that affect your application. For information about health checks with
-  Shield Advanced, see [Health-based detection using
-  health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+  Shield Advanced, see [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").

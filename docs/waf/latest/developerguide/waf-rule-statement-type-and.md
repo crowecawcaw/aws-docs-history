@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AND rule
-
-statement
+# AND rule statement
 
 The AND rule statement combines nested statements with a logical
 AND operation, so all nested statements must match for the

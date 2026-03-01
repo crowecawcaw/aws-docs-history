@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Version life
-
-cycle for managed rule groups
+# Version life cycle for managed rule groups
 
 Providers handle the following life cycle stages of a managed rule group static version:
 

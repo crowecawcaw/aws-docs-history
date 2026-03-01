@@ -58,8 +58,7 @@ usage, see [Using rule statements in AWS WAF](waf-rule-statements.md "waf-rule-s
 - **Variable CIDR range support for IP set** – IP set
   specifications now have more flexibility in the IP ranges. For IPv4, AWS WAF supports
   `/1` to `/32`. For IPv6, AWS WAF supports `/1` to
-  `/128`. For more information about IP sets, see [IP set match rule
-  statement](waf-rule-statement-type-ipset-match.md "waf-rule-statement-type-ipset-match.md").
+  `/128`. For more information about IP sets, see [IP set match rule statement](waf-rule-statement-type-ipset-match.md "waf-rule-statement-type-ipset-match.md").
 - **Chainable text transformations** – AWS WAF can perform
   multiple text transformations against web request content before inspecting it.
   For more information, see [Using text transformations in AWS WAF](waf-rule-statement-transformation.md "waf-rule-statement-transformation.md").

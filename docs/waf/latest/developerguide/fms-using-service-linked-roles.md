@@ -25,9 +25,7 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Firewall Manager
+## Service-linked role permissions for Firewall Manager
 
 AWS Firewall Manager uses the service-linked role name AWSServiceRoleForFMS to allow Firewall Manager to call AWS services on your behalf for management of firewall policies and AWS Organizations account resources. This policy is attached to the AWS managed role `AWSServiceRoleForFMS`. For more information about the managed role, see [AWS managed policy: FMSServiceRolePolicy](fms-security-iam-awsmanpol.md#security-iam-awsmanpol-FMSServiceRolePolicy "fms-security-iam-awsmanpol.md#security-iam-awsmanpol-FMSServiceRolePolicy").
 
@@ -53,9 +51,7 @@ See the full policy in the IAM console: [FMSServiceRolePolicy](https://console.a
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Firewall Manager
+## Creating a service-linked role for Firewall Manager
 
 You don't need to manually create a service-linked role. When you enable Firewall Manager logging on the AWS Management Console, or you make a `PutLoggingConfiguration` request in the
 Firewall Manager CLI or the Firewall Manager API, Firewall Manager creates the service-linked role for you.
@@ -66,9 +62,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you enable Firewall Manager logging,
 Firewall Manager creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Firewall Manager
+## Editing a service-linked role for Firewall Manager
 
 Firewall Manager doesn't allow you to edit the AWSServiceRoleForFMS service-linked role. After you
 create a service-linked role, you can't change the name of the role because various
@@ -76,9 +70,7 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing
 a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Firewall Manager
+## Deleting a service-linked role for Firewall Manager
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -97,8 +89,6 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-Firewall Manager service-linked roles
+## Supported Regions for Firewall Manager service-linked roles
 
 Firewall Manager supports using service-linked roles in all of the regions where the service is available. For more information, see [Firewall Manager endpoints and quotas](../../../general/latest/gr/firewallmanager.md "../../../general/latest/gr/firewallmanager.md").

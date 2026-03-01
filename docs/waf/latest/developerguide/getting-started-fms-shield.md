@@ -39,9 +39,7 @@ Shield Advanced.
 Firewall Manager does not support Amazon Route 53 or AWS Global Accelerator. If you need to protect these resources with
 Shield Advanced, you can't use a Firewall Manager policy. Instead, follow the instructions in [Adding AWS Shield Advanced protection to AWS resources](configure-new-protection.md "configure-new-protection.md").
 
-###### To create a Firewall Manager Shield Advanced policy
-
-(console)
+###### To create a Firewall Manager Shield Advanced policy (console)
 
 1. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
    [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").
@@ -147,9 +145,7 @@ To enable real-time notifications of potential DDoS activity, you can use a
 CloudWatch alarm. Your alarm must be based on the `DDoSDetected` metric
 from the account in which the protected resource exists.
 
-###### To create an Amazon SNS topic in Firewall Manager
-
-(console)
+###### To create an Amazon SNS topic in Firewall Manager (console)
 
 1. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
    [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").

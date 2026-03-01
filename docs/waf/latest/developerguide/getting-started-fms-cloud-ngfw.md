@@ -10,14 +10,11 @@ policies, see [Using Palo Alto Networks Cloud NGFW policies for Firewall Manager
 
 ###### Topics
 
-- [Step 1: Completing the general
-  prerequisites](#complete-fms-prereq "#complete-fms-prereq")
+- [Step 1: Completing the general prerequisites](#complete-fms-prereq "#complete-fms-prereq")
 - [Step 2: Completing the Palo Alto Networks Cloud NGFW policy prerequisites](#complete-prereq-cloud-ngfw "#complete-prereq-cloud-ngfw")
 - [Step 3: Creating and applying a Palo Alto Networks Cloud NGFW policy](#get-started-fms-cloud-ngfw-create-policy "#get-started-fms-cloud-ngfw-create-policy")
 
-## Step 1: Completing the general
-
-prerequisites
+## Step 1: Completing the general prerequisites
 
 There are several mandatory steps to prepare your account for AWS Firewall Manager. Those steps are
 described in [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md"). Complete all the

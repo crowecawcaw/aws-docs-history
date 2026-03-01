@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Enabling and disabling
-
-automatic application layer DDoS mitigation
+# Enabling and disabling automatic application layer DDoS mitigation
 
 The following procedure shows how to enable or disable automatic response for a protected
 resource.

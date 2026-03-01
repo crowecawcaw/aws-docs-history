@@ -210,8 +210,7 @@ oversize but the protection pack (web ACL) doesn't inspect it, it won't be liste
 This list can contain zero or
 more of the following values: `REQUEST_BODY`, `REQUEST_JSON_BODY`,
 `REQUEST_HEADERS`, and `REQUEST_COOKIES`. For
-more information about oversize fields, see [Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+more information about oversize fields, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 **rateBasedRuleList**
 

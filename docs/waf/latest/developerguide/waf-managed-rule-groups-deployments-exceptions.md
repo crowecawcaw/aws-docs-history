@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Exception deployments for
-
-AWS Managed Rules
+# Exception deployments for AWS Managed Rules
 
 AWS might bypass the standard deployment stages in order to quickly deploy updates that
 address critical security risks. An exception deployment might involve any

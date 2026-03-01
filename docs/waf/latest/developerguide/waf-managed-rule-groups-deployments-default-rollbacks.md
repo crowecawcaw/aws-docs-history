@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Default deployment
-
-rollbacks for AWS Managed Rules
+# Default deployment rollbacks for AWS Managed Rules
 
 Under certain conditions, AWS might roll back the default version to its prior setting.
 A rollback usually takes less than ten minutes for all AWS Regions.

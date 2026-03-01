@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# String match rule
-
-statement
+# String match rule statement
 
 This section explains what a string match statement is and how it works.
 
@@ -16,9 +14,7 @@ an exact match for the request's `User-agent` header. Usually, the
 string consists of printable ASCII characters, but you can use any character
 from hexadecimal 0x00 to 0xFF (decimal 0 to 255).
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.
@@ -43,8 +39,7 @@ This statement type operates on a web request component, and requires the follow
 ###### Warning
 
 If you inspect the request components **Body**, **JSON body**, **Headers**, or **Cookies**, read about the limitations on how much content AWS WAF can inspect at
-[Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+[Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 For information about web request components, see [Adjusting rule statement settings in AWS WAF](waf-rule-statement-fields.md "waf-rule-statement-fields.md").
 

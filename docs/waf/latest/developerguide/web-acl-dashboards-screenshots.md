@@ -29,6 +29,22 @@ The following screenshot depicts action counts for the Bot Control dashboard. Th
 
 ![The AWS WAF console shows the top portion of the Bot Control dashboard, with action totals for the time range and action totals throughout the time range.](images/web-acl-dashboard-bot-action-totals.png)
 
+###### Example screen: **AI Traffic Analysis dashboard** dashboard action counts
+
+The following screenshot depicts the AI Traffic Analysis dashboard for a
+protection pack (web ACL). The dashboard shows AI bot activity over the selected
+time range with filters for bot organization, intent type, and verification
+status.
+
+![The AWS WAF console shows the top portion of the AI Traffic Analysis dashboard, with top crawlers and top paths for the time range and action totals throughout the time range.](images/waf-phantom-edge-dashboard.png)
+The dashboard includes:
+
+- **Bot Identity panel** – Lists detected AI bots with names and organizations
+- **Intent Classification** – Categorizes bot purposes (crawling, indexing, research, etc.)
+- **Access Patterns** – Top URLs accessed by AI agents with request counts
+- **Temporal Analysis** – Hourly and daily activity trends with 14-day historical view
+- **Organization Breakdown** – Traffic volume by bot owner organization
+
 ###### Example screen: **Bot Control** dashboard token status summary graphs
 
 The following screenshot depicts two of the summary graphics available in the Bot Control dashboard. The **Token status** pane shows counts for the various token status labels, paired with the rule action that was applied to the request. The **IP token absent thresholds** pane shows data for requests from IPs that were sending too many requests without a token.

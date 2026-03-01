@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# How Firewall Manager manages and monitors VPC route tables for your
-
-policy
+# How Firewall Manager manages and monitors VPC route tables for your policy
 
 This section explains how Firewall Manager manages and monitors your VPC route tables.
 

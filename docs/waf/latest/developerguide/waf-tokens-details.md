@@ -37,8 +37,7 @@ Each token has the following characteristics:
       	 form that's present on the page. This information helps AWS WAF
       	 detect the level of human interactivity in the client, to
       	 challenge users that do not seem to be human. For information
-      	 about client side integrations, see [Client application
-      	 integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+      	 about client side integrations, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 
   For security reasons, AWS doesn't provide a complete description of the contents of
   AWS WAF tokens or detailed information about the token encryption process.

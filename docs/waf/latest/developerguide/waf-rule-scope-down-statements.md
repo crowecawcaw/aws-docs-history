@@ -20,8 +20,7 @@ first match the scope-down statement.
   the number of requests evaluated, scope-down statements can help contain
   costs.
 
-For more information about managed rule group statements, see [Using managed rule group
-statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md").
+For more information about managed rule group statements, see [Using managed rule group statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md").
 
 - **Rate-based rule statement** – A rate-based rule
   statement without a scope-down statement rate limits all requests that the

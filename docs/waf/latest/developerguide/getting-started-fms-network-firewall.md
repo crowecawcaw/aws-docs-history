@@ -11,23 +11,17 @@ policies, see [Using AWS Network Firewall policies in Firewall Manager](network-
 
 ###### Topics
 
-- [Step 1: Completing the
-  prerequisites](#complete-prereq-network-firewall "#complete-prereq-network-firewall")
-- [Step 2: Creating a Network Firewall
-  rule group to use in your policy](#get-started-fms-create-network-firewall-rule-group "#get-started-fms-create-network-firewall-rule-group")
+- [Step 1: Completing the prerequisites](#complete-prereq-network-firewall "#complete-prereq-network-firewall")
+- [Step 2: Creating a Network Firewall rule group to use in your policy](#get-started-fms-create-network-firewall-rule-group "#get-started-fms-create-network-firewall-rule-group")
 - [Step 3: Creating and applying a Network Firewall policy](#get-started-fms-network-firewall-create-policy "#get-started-fms-network-firewall-create-policy")
 
-## Step 1: Completing the
-
-prerequisites
+## Step 1: Completing the prerequisites
 
 There are several mandatory steps to prepare your account for AWS Firewall Manager. Those steps are
 described in [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md"). Complete all the
 prerequisites before proceeding to the next step.
 
-## Step 2: Creating a Network Firewall
-
-rule group to use in your policy
+## Step 2: Creating a Network Firewall rule group to use in your policy
 
 To follow this tutorial, you should be familiar with AWS Network Firewall and know how to
 configure its rule groups and firewall policies.

@@ -11,14 +11,11 @@ policies, see [Using Amazon Route 53 Resolver DNS Firewall policies in Firewall
 
 ###### Topics
 
-- [Step 1: Completing the
-  prerequisites](#complete-prereq-dns-firewall "#complete-prereq-dns-firewall")
+- [Step 1: Completing the prerequisites](#complete-prereq-dns-firewall "#complete-prereq-dns-firewall")
 - [Step 2: Creating your DNS Firewall rule groups to use in your policy](#get-started-fms-create-dns-firewall-association "#get-started-fms-create-dns-firewall-association")
 - [Step 3: Creating and applying a DNS Firewall policy](#get-started-fms-dns-firewall-create-policy "#get-started-fms-dns-firewall-create-policy")
 
-## Step 1: Completing the
-
-prerequisites
+## Step 1: Completing the prerequisites
 
 There are several mandatory steps to prepare your account for AWS Firewall Manager. Those steps are
 described in [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md"). Complete all the

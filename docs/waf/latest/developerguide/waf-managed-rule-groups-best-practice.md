@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Best practices for handling managed rule group
-
-versions
+# Best practices for handling managed rule group versions
 
 Follow this best practice guidance for handling versioning when you use a versioned
 managed rule group.

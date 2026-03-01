@@ -253,9 +253,7 @@ Amazon API Gateway
 
 ```
 
-## Creating a service-linked role for
-
-AWS Shield network security director
+## Creating a service-linked role for AWS Shield network security director
 
 You don't need to manually create a service-linked role. When you run your first network analysis, AWS Shield network security director creates the service-linked role for you.
 
@@ -263,9 +261,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you enable AWS Shield network security director logging,
 AWS Shield network security director creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS Shield network security director
+## Editing a service-linked role for AWS Shield network security director
 
 AWS Shield network security director doesn't allow you to edit the `NetworkSecurityDirectorServiceLinkedRolePolicy` service-linked role. After you
 create a service-linked role, you can't change the name of the role because various
@@ -273,9 +269,7 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing
 a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Shield network security director
+## Deleting a service-linked role for AWS Shield network security director
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -298,9 +292,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the `NetworkSecurityD
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-AWS Shield network security director service-linked roles
+## Supported Regions for AWS Shield network security director service-linked roles
 
 ###### Note
 

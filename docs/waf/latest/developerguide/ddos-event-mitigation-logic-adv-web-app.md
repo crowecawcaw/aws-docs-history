@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Shield Advanced mitigation
-
-logic for web applications
+# AWS Shield Advanced mitigation logic for web applications
 
 AWS Shield Advanced uses AWS WAF to mitigate web application layer attacks. AWS WAF is included with
 Shield Advanced at no additional cost.
@@ -41,6 +39,6 @@ involved in the DDoS attack, it implements the signature in AWS WAF rules inside
 associated web ACL. You can instruct Shield Advanced to place mitigations that only count the
 traffic that they match against, or that block it, and you can change the setting at any
 time. When Shield Advanced determines that its mitigating rules are no longer needed, it
-removes them from the web ACL. For more information about application layer event mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+removes them from the web ACL. For more information about application layer event mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 For more information about Shield Advanced application layer mitigations, see [Protecting the application layer (layer 7) with AWS Shield Advanced and AWS WAF](ddos-app-layer-protections.md "ddos-app-layer-protections.md").

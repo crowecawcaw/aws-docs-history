@@ -45,8 +45,7 @@ You are charged additional fees when you use this managed rule group. For more i
 This rule group is part of the intelligent
 threat mitigation protections in AWS WAF. For information, see [Intelligent threat mitigation in AWS WAF](waf-managed-protections.md "waf-managed-protections.md").
 
-To minimize costs and optimize traffic management, use this rule group in accordance with best practice guidelines. See, [Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+To minimize costs and optimize traffic management, use this rule group in accordance with best practice guidelines. See, [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
 
 ## Labels added by this rule group
 

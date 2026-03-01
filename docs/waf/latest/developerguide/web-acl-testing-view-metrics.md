@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Viewing metrics for your web
-
-ACL
+# Viewing metrics for your web ACL
 
 This section describes how to view metrics for your protection pack (web ACL).
 

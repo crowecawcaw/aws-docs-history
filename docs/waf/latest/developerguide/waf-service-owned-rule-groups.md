@@ -19,7 +19,7 @@ Shield Advanced adds one of these rule groups to the protection pack (web ACL) t
 with the resource. Shield Advanced assigns the rule group reference statement a
 priority setting of 10,000,000, so that it runs
 after the rules that you have configured in the protection pack (web ACL). For more information
-about these rule groups, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+about these rule groups, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 ###### Warning
 

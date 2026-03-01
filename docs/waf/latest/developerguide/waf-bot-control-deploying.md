@@ -84,8 +84,7 @@ and configure it so that it doesn't alter current protection pack (web ACL) beha
     	 configuration, AWS WAF evaluates requests against all of the
     	 rules in the rule group and only counts the matches that result,
     	 while still adding labels to requests. For more information, see
-    	 [Overriding rule actions in a rule
-    	 group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
+    	 [Overriding rule actions in a rule group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
 
 
     	With this override, you can monitor the potential impact of
@@ -138,8 +137,7 @@ indicating the configured rule action that you overrode.
 The Bot Control managed rule group verifies bots using the IP addresses from
 AWS WAF. If you use Bot Control and you have verified bots that route through a
 proxy or load balancer, you might need to explicitly allow them using a
-custom rule. For information about how to create a custom rule, see [Using forwarded IP
-addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md"). For
+custom rule. For information about how to create a custom rule, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md"). For
 information about how you can use the rule to customize Bot Control web request
 handling, see the next step.
 
@@ -179,8 +177,7 @@ solutions:
 
     After testing, keep the related Bot Control rules in count mode, and
      maintain the request handling decisions in your custom rule. For
-     information about label match statements, see [Label match rule
-     statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
+     information about label match statements, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
 
 
     For examples of this type of customization, see the following:

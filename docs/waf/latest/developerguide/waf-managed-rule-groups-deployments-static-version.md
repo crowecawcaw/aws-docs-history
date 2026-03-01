@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Static version deployments
-
-for AWS Managed Rules
+# Static version deployments for AWS Managed Rules
 
 When AWS determines that a release candidate provides valuable changes to the rule
 group, AWS deploys a new static version for the rule group based on the

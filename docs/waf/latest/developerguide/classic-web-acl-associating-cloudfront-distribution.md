@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Associating or disassociating a
-
-Web ACL with an Amazon API Gateway API, a CloudFront distribution or an Application Load Balancer
+# Associating or disassociating a Web ACL with an Amazon API Gateway API, a CloudFront distribution or an Application Load Balancer
 
 ###### Warning
 

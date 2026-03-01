@@ -34,10 +34,8 @@ is blocked.
 - [Getting started with AWS WAF Classic](classic-getting-started.md "classic-getting-started.md")
 - [Creating and configuring a Web Access Control List (Web ACL)](classic-web-acl.md "classic-web-acl.md")
 - [Working with AWS WAF Classic rule groups for use with AWS Firewall Manager](classic-working-with-rule-groups.md "classic-working-with-rule-groups.md")
-- [Getting started with AWS Firewall Manager to enable AWS WAF Classic
-  rules](classic-getting-started-fms.md "classic-getting-started-fms.md")
-- [Tutorial: Creating an
-  AWS Firewall Manager policy with hierarchical rules](hierarchical-rules.md "hierarchical-rules.md")
+- [Getting started with AWS Firewall Manager to enable AWS WAF Classic rules](classic-getting-started-fms.md "classic-getting-started-fms.md")
+- [Tutorial: Creating an AWS Firewall Manager policy with hierarchical rules](hierarchical-rules.md "hierarchical-rules.md")
 - [Logging Web ACL traffic information](classic-logging.md "classic-logging.md")
 - [Listing IP addresses blocked by rate-based rules](classic-listing-managed-ips.md "classic-listing-managed-ips.md")
 - [How AWS WAF Classic works with Amazon CloudFront features](classic-cloudfront-features.md "classic-cloudfront-features.md")

@@ -122,9 +122,7 @@ s3://aws-waf-logs-`LOGGING-BUCKET-SUFFIX`/AWSLogs/11111111111/WAFLogs/us-east-1/
 Your bucket names for AWS WAF logging must start with `aws-waf-logs-`
 and can end with any suffix you want.
 
-## Permissions required to publish logs to
-
-Amazon S3
+## Permissions required to publish logs to Amazon S3
 
 Configuring protection pack (web ACL) traffic logging for an Amazon S3 bucket requires the following
 permissions settings. These permissions are set for you when you use one of the
@@ -326,9 +324,7 @@ policy. To make this simpler, instead of creating a new
 `AWSLogDeliveryAclCheck` to be `“Action”:
  [“s3:GetBucketAcl”, “s3:ListBucket”]`.
 
-## Permissions for using
-
-AWS Key Management Service with a KMS key
+## Permissions for using AWS Key Management Service with a KMS key
 
 If your logging destination uses server-side encryption with keys that are
 stored in AWS Key Management Service (SSE-KMS) and you use a customer managed key (KMS key), you must
@@ -353,9 +349,7 @@ Amazon S3 bucket.
 }
 ```
 
-## Permissions required to access
-
-Amazon S3 log files
+## Permissions required to access Amazon S3 log files
 
 Amazon S3 uses access control
 lists (ACLs) to manage access to the log files created by an AWS WAF

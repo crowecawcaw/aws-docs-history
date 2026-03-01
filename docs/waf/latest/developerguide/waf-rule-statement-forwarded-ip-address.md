@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Using forwarded IP
-
-addresses in AWS WAF
+# Using forwarded IP addresses in AWS WAF
 
 This section applies to rule statements that use the IP address of a web request.
 By default, AWS WAF uses the IP address from the web request origin. However, if a web

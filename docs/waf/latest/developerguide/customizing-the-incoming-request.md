@@ -74,8 +74,7 @@ the `x-amzn-waf-` prefix was not inserted by AWS WAF:
       ]
 ```
 
-For information on using string match rules, see [String match rule
-statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
+For information on using string match rules, see [String match rule statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
 
 ###### Headers with the same name
 

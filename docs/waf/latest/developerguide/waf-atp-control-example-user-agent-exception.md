@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# ATP example: Custom
-
-handling for missing and compromised credentials
+# ATP example: Custom handling for missing and compromised credentials
 
 By default, the credentials checks that are performed by the rule group `AWSManagedRulesATPRuleSet`
 handle web requests as follows:

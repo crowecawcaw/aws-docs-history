@@ -24,8 +24,7 @@ For more information, see [Using AWS Shield Advanced policies in Firewall Manage
 - [List of resources that AWS Shield Advanced protects](ddos-protections-by-resource-type.md "ddos-protections-by-resource-type.md")
 - [Protecting Amazon EC2 instances and Network Load Balancers with Shield Advanced](ddos-protections-ec2-nlb.md "ddos-protections-ec2-nlb.md")
 - [Protecting the application layer (layer 7) with AWS Shield Advanced and AWS WAF](ddos-app-layer-protections.md "ddos-app-layer-protections.md")
-- [Health-based detection using
-  health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md")
+- [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md")
 - [Adding AWS Shield Advanced protection to AWS resources](configure-new-protection.md "configure-new-protection.md")
 - [Editing AWS Shield Advanced protections](manage-protection.md "manage-protection.md")
 - [Creating alarms and notifications for resources protected by Shield Advanced](add-alarm-ddos.md "add-alarm-ddos.md")

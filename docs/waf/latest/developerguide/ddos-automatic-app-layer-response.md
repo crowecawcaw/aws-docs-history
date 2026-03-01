@@ -33,15 +33,13 @@ The following list describes the caveats of Shield Advanced automatic applicatio
   isolate attack traffic from normal traffic, to mitigate attack traffic.
   The time to establish a baseline is between 24 hours and 30 days from
   the time you associate a web ACL with the protected application resource.
-  For additional information about traffic baselines, see [List of factors that affect application layer event detection and
-  mititgation with Shield Advanced](ddos-app-layer-detection-mitigation.md "ddos-app-layer-detection-mitigation.md").
+  For additional information about traffic baselines, see [List of factors that affect application layer event detection and mititgation with Shield Advanced](ddos-app-layer-detection-mitigation.md "ddos-app-layer-detection-mitigation.md").
 - Enabling automatic application layer DDoS mitigation adds a rule group to your protection pack (web ACL) that uses 150 web ACL capacity units
-  (WCUs). These WCUs count against the WCU usage in your protection pack (web ACL). For more information, see [Protecting the application layer with the Shield Advanced
-  rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md"), and [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md "aws-waf-capacity-units.md").
+  (WCUs). These WCUs count against the WCU usage in your protection pack (web ACL). For more information, see [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md"), and [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md "aws-waf-capacity-units.md").
 - The Shield Advanced rule group generates AWS WAF metrics, but they are not available to view. This is the same as for
   any other rule groups that you use in your protection pack (web ACL) but do not own, such as AWS Managed Rules rule groups.
   For more information about AWS WAF metrics, see [AWS WAF metrics and dimensions](waf-metrics.md "waf-metrics.md"). For information
-  about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+  about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 - For web ACLs that protect multiple resources, automatic mitigation only deploys
   custom mitigations that don't negatively impact any of the protected resources.
 - The time between the start of a DDoS attack and when Shield Advanced
@@ -55,28 +53,18 @@ The following list describes the caveats of Shield Advanced automatic applicatio
 
 ###### Contents
 
-- [Best practices for
-  using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md")
+- [Best practices for using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md")
 - [Enabling automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-config.md "ddos-automatic-app-layer-response-config.md")
-  - [What happens
-    when you enable automatic mitigation](ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable "ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable")
+  - [What happens when you enable automatic mitigation](ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable "ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable")
 
 - [How Shield Advanced manages automatic mitigation](ddos-automatic-app-layer-response-behavior.md "ddos-automatic-app-layer-response-behavior.md")
-  - [How
-    Shield Advanced responds to DDoS attacks with automatic mitigation](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack")
-  - [How Shield Advanced manages the rule
-    action setting](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action")
-  - [How
-    Shield Advanced manages mitigations when an attack subsides](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack")
-  - [What happens
-    when you disable automatic mitigation](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-disable "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-disable")
+  - [How Shield Advanced responds to DDoS attacks with automatic mitigation](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack")
+  - [How Shield Advanced manages the rule action setting](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action")
+  - [How Shield Advanced manages mitigations when an attack subsides](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack")
+  - [What happens when you disable automatic mitigation](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-disable "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-disable")
 
-- [Protecting the application layer with the Shield Advanced
-  rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md")
-- [Viewing the
-  automatic application layer DDoS mitigation configuration for a resource](view-automatic-app-layer-response-configuration.md "view-automatic-app-layer-response-configuration.md")
-- [Enabling and disabling
-  automatic application layer DDoS mitigation](enable-disable-automatic-app-layer-response.md "enable-disable-automatic-app-layer-response.md")
+- [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md")
+- [Viewing the automatic application layer DDoS mitigation configuration for a resource](view-automatic-app-layer-response-configuration.md "view-automatic-app-layer-response-configuration.md")
+- [Enabling and disabling automatic application layer DDoS mitigation](enable-disable-automatic-app-layer-response.md "enable-disable-automatic-app-layer-response.md")
 - [Changing the action used for automatic application layer DDoS mitigation](change-action-of-automatic-app-layer-response.md "change-action-of-automatic-app-layer-response.md")
-- [Using AWS CloudFormation with
-  automatic application layer DDoS mitigation](manage-automatic-mitigation-in-cfn.md "manage-automatic-mitigation-in-cfn.md")
+- [Using AWS CloudFormation with automatic application layer DDoS mitigation](manage-automatic-mitigation-in-cfn.md "manage-automatic-mitigation-in-cfn.md")

@@ -31,9 +31,7 @@ don't cancel your AWS Shield Advanced subscription. You will continue to be char
 service. For information about your AWS Shield Advanced subscription, contact the
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## Removing a CloudWatch alarm from your Shield Advanced
-
-protections
+## Removing a CloudWatch alarm from your Shield Advanced protections
 
 To remove a CloudWatch alarm from your Shield Advanced protections, do one of the following:
 

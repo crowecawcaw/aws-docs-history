@@ -36,8 +36,7 @@ count the web requests that match the conditions in the rule. For more informati
 
 - [Deciding on the default action for a Web ACL](classic-web-acl-default-action.md "classic-web-acl-default-action.md")
 - [Creating a Web ACL](classic-web-acl-creating.md "classic-web-acl-creating.md")
-- [Associating or disassociating a
-  Web ACL with an Amazon API Gateway API, a CloudFront distribution or an Application Load Balancer](classic-web-acl-associating-cloudfront-distribution.md "classic-web-acl-associating-cloudfront-distribution.md")
+- [Associating or disassociating a Web ACL with an Amazon API Gateway API, a CloudFront distribution or an Application Load Balancer](classic-web-acl-associating-cloudfront-distribution.md "classic-web-acl-associating-cloudfront-distribution.md")
 - [Editing a Web ACL](classic-web-acl-editing.md "classic-web-acl-editing.md")
 - [Deleting a Web ACL](classic-web-acl-deleting.md "classic-web-acl-deleting.md")
 - [Testing web ACLs](classic-web-acl-testing.md "classic-web-acl-testing.md")

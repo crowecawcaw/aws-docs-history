@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Setting up AWS Firewall Manager​ Amazon VPC security
-
-group policies
+# Setting up AWS Firewall Manager​ Amazon VPC security group policies
 
 To use AWS Firewall Manager to enable Amazon VPC security groups across your organization, perform the following steps
 in sequence.
@@ -13,20 +11,16 @@ in sequence.
 ###### Topics
 
 - [Step 1: Completing the prerequisites](#complete-prereq-security-group "#complete-prereq-security-group")
-- [Step 2: Creating a security group to use
-  in your policy](#get-started-fms-create-security-groups "#get-started-fms-create-security-groups")
+- [Step 2: Creating a security group to use in your policy](#get-started-fms-create-security-groups "#get-started-fms-create-security-groups")
 - [Step 3: Creating and applying a common security group policy](#get-started-fms-sg-create-security-policy "#get-started-fms-sg-create-security-policy")
 
 ## Step 1: Completing the prerequisites
 
 There are several mandatory steps to prepare your account for AWS Firewall Manager. Those steps are
 described in [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md"). Complete all the
-prerequisites before proceeding to [Step 2: Creating a security group to use
-in your policy](#get-started-fms-create-security-groups "#get-started-fms-create-security-groups").
+prerequisites before proceeding to [Step 2: Creating a security group to use in your policy](#get-started-fms-create-security-groups "#get-started-fms-create-security-groups").
 
-## Step 2: Creating a security group to use
-
-in your policy
+## Step 2: Creating a security group to use in your policy
 
 In this step, you create a security group that you could apply across your organization
 using Firewall Manager.
@@ -40,9 +34,7 @@ remediation on the policy.
 
 If you already have a general security group defined, skip this step and go to [Step 3: Creating and applying a common security group policy](#get-started-fms-sg-create-security-policy "#get-started-fms-sg-create-security-policy").
 
-###### To create a security group to use in a Firewall Manager common
-
-security group policy
+###### To create a security group to use in a Firewall Manager common security group policy
 
 - Create a security group that you could apply to all accounts and resources in your
   organization, following the guidance under [Security Groups for Your
@@ -67,9 +59,7 @@ For this tutorial, you create a common security group policy and set its action 
 remediate. This allows you to see what effect the policy would have without making
 changes to your AWS organization.
 
-###### To create a Firewall Manager common
-
-security group policy (console)
+###### To create a Firewall Manager common security group policy (console)
 
 1. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
    [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").

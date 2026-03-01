@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Identity-based
-
-policy examples for AWS Shield network security director
+# Identity-based policy examples for AWS Shield network security director
 
 ###### Note
 
@@ -23,9 +21,7 @@ These permissions allow AWS Shield network security director to perform comprehe
 - [Administrative access identity-based policy](#nsd-security-admin-id-based-policy "#nsd-security-admin-id-based-policy")
 - [Read-only access identity-based policy](#nsd-security-readonly-id-based-policy "#nsd-security-readonly-id-based-policy")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete network security director resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

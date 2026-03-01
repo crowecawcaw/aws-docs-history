@@ -3,10 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Subscribing
-
-in the AWS
-Marketplace and configuring third-party settings for Firewall Manager third-party policies
+# Subscribing in the AWS Marketplace and configuring third-party settings for Firewall Manager third-party policies
 
 Complete the following prerequisites to set up Firewall Manager third-party firewall policies.
 

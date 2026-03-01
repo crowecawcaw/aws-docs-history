@@ -48,9 +48,7 @@ See the full service-linked role in the IAM console:
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS WAF
+## Creating a service-linked role for AWS WAF
 
 You don't need to manually create a service-linked role. When you enable AWS WAF logging on the AWS Management Console, or you make a `PutLoggingConfiguration` request in the
 AWS WAF CLI or the AWS WAF API, AWS WAF creates the service-linked role for you.
@@ -61,9 +59,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you enable AWS WAF logging,
 AWS WAF creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS WAF
+## Editing a service-linked role for AWS WAF
 
 AWS WAF doesn't allow you to edit the `AWSServiceRoleForWAFV2Logging` service-linked role. After you
 create a service-linked role, you can't change the name of the role because various
@@ -71,9 +67,7 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing
 a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS WAF
+## Deleting a service-linked role for AWS WAF
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -98,8 +92,6 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the `AWSServiceRoleFo
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-AWS WAF service-linked roles
+## Supported Regions for AWS WAF service-linked roles
 
 AWS WAF supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS WAF endpoints and quotas](../../../general/latest/gr/waf.md "../../../general/latest/gr/waf.md").

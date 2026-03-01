@@ -44,7 +44,7 @@ volume changes, Shield Advanced detects and reports an event more quickly.
 
 A rate-based rule in your web ACL, whether added by you or by the
 Shield Advanced automatic application layer mitigation feature, can mitigate an attack before
-it reaches a detectable level. For more information about automatic application layer DDoS mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+it reaches a detectable level. For more information about automatic application layer DDoS mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 ###### Note
 

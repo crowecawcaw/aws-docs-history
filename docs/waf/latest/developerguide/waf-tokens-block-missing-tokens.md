@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Blocking requests that don't have a valid
-
-AWS WAF token
+# Blocking requests that don't have a valid AWS WAF token
 
 This section explains how to block login requests that are missing their tokens when using the AWS WAF mobile SDK.
 
@@ -35,9 +33,7 @@ as follows:
   token requirements.
   For additional details about the intelligent threat rule groups, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](aws-managed-rule-groups-acfp.md "aws-managed-rule-groups-acfp.md"), [AWS WAF Fraud Control account takeover prevention (ATP) rule group](aws-managed-rule-groups-atp.md "aws-managed-rule-groups-atp.md") and [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md").
 
-###### To block requests that are missing tokens when using the Bot Control or ATP
-
-managed rule group
+###### To block requests that are missing tokens when using the Bot Control or ATP managed rule group
 
 With the Bot Control and ATP rule groups, it's possible for a request without a
 valid token to exit the rule group evaluation and continue to be evaluated by the

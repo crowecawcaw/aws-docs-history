@@ -23,7 +23,8 @@ AWS Shield Advanced and report when something is wrong:
 The traffic overview dashboards provide near real-time summaries of the
 Amazon CloudWatch metrics that AWS WAF collects when it evaluates your application web
 traffic. You can see summaries for all of your web traffic and for traffic
-evaluated by the intelligent threat mitigation rule groups.
+evaluated by the intelligent threat mitigation rule groups, inlcuding
+specialized AI Traffic Analysis for AI bot and agent activity.
 
 For more information, see [Traffic overview dashboards for protection packs (web ACLs)](web-acl-dashboards.md "web-acl-dashboards.md") or go to the dashboards in the
 console.

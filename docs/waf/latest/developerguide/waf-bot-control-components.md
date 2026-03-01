@@ -45,8 +45,7 @@ You include this rule group
 in your protection pack (web ACL) using a managed rule group reference statement and indicating the
 inspection level that you want to use. For the targeted level, you also indicate
 whether to enable machine learning. For more information about adding this
-managed rule group to your protection pack (web ACL), see [Adding the AWS WAF Bot Control managed rule group to your web
-ACL](waf-bot-control-rg-using.md "waf-bot-control-rg-using.md").
+managed rule group to your protection pack (web ACL), see [Adding the AWS WAF Bot Control managed rule group to your web ACL](waf-bot-control-rg-using.md "waf-bot-control-rg-using.md").
 
 - **Bot Control dashboard** – The bot monitoring dashboard for
   your protection pack (web ACL), available through the protection pack (web ACL) Bot Control tab. Use this dashboard to
@@ -54,12 +53,16 @@ ACL](waf-bot-control-rg-using.md "waf-bot-control-rg-using.md").
   bots. This can be a starting point for customizing your bot management, as
   described in this topic. You can also use it to verify your changes and monitor
   activity for various bots and bot categories.
+- **AI Traffic Analysis dashboard** –
+  Specialized dashboard for detailed AI bot and agent activity analysis, available
+  through the protection pack (web ACL) AI Traffic Analysis tab. Provides enhanced
+  visibility into AI-specific traffic patterns, bot intent, and access behaviors
+  beyond standard Bot Control metrics.
 - **JavaScript and mobile application integration SDKs**
   – You should implement the AWS WAF JavaScript and mobile SDKs if you use
   the targeted protection level of the Bot Control rule group. The targeted rules use
   information provided by the SDKs in the client tokens for enhanced detection
-  against malicious bots. For more information about the SDKs, see [Client application
-  integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+  against malicious bots. For more information about the SDKs, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 - **Logging and metrics** – You can monitor your bot
   traffic and understand how the Bot Control managed rule group evaluates and handles your traffic by
   studying the data that's collected for your protection pack (web ACL) by AWS WAF logs, Amazon Security Lake, and Amazon CloudWatch.
@@ -92,10 +95,8 @@ application APIs or that contain a particular type of content.
   using the AWS WAF label match rule statement. The Bot Control rule group adds labels to
   your web requests. You can add label matching rules after the Bot Control rule group
   that match on Bot Control labels and apply the handling that you need. For more
-  information about labeling and using label match statements, see [Label match rule
-  statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+  information about labeling and using label match statements, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 - **Custom requests and responses** – You can add custom
   headers to requests that you allow and you can send custom responses for requests
   that you block by pairing label matching with the AWS WAF custom request and response
-  features. For more information about customizing requests and responses, see [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  features. For more information about customizing requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").

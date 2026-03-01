@@ -68,8 +68,7 @@ about the rules and labels for this rule group, see [AWS WAF Fraud Control accou
     	 **Count**. With this configuration,
     	 AWS WAF evaluates requests against all of the rules in the
     	 rule group and only counts the matches that result, while still
-    	 adding labels to requests. For more information, see [Overriding rule actions in a rule
-    	 group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
+    	 adding labels to requests. For more information, see [Overriding rule actions in a rule group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
 
 
     	With this override, you can monitor the potential impact of the ATP managed rules
@@ -170,9 +169,7 @@ For example, you can use ATP labels to allow or block requests or to customize
 request handling. You can add a label match rule after the ATP managed rule
 group to filter labeled requests for the handling that you want to apply. After
 testing, keep the related ATP rules in count mode, and maintain the request
-handling decisions in your custom rule. For an example, see [ATP example: Custom
-handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md"). 8. ###### Remove your test rules and enable the ATP managed rule group
-settings
+handling decisions in your custom rule. For an example, see [ATP example: Custom handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md"). 8. ###### Remove your test rules and enable the ATP managed rule group settings
 
 Depending on your situation, you might have decided that you want to leave some ATP rules
 in count mode. For the rules that you want to run as
@@ -188,6 +185,5 @@ After you finish testing your ATP rule group implementation, if you haven't alre
 we strongly recommend that you integrate the AWS WAF JavaScript SDK into your browser
 login page, for enhanced detection capabilities. AWS WAF also provides mobile SDKs to
 integrate iOS and Android devices. For more information about the integration SDKs, see
-[Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about this
+[Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about this
 recommendation, see [Using application integration SDKs with ATP](waf-atp-with-tokens.md "waf-atp-with-tokens.md").

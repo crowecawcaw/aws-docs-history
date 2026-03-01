@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Tutorial: Creating an
-
-AWS Firewall Manager policy with hierarchical rules
+# Tutorial: Creating an AWS Firewall Manager policy with hierarchical rules
 
 ###### Warning
 
@@ -33,26 +31,19 @@ individual teams.
 
 In the latest version of AWS WAF, this capability is built in and doesn't require any
 special handling. If you aren't already using AWS WAF Classic, use the latest version
-instead. See [Creating an AWS Firewall Manager policy for
-AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
+instead. See [Creating an AWS Firewall Manager policy for AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
 
 The following tutorial describes how to create a hierarchical set of protection rules.
 
 ###### Topics
 
-- [Step 1: Designate a
-  Firewall Manager administrator account](#hierarchical-rules-set-firewall-administrator "#hierarchical-rules-set-firewall-administrator")
-- [Step 2: Create a rule group
-  using the Firewall Manager administrator account](#hierarchical-rules-create-a-rule-group "#hierarchical-rules-create-a-rule-group")
-- [Step 3: Create a Firewall Manager policy and
-  attach the common rule group](#hierarchical-rules-create-policy "#hierarchical-rules-create-policy")
-- [Step 4: Add
-  account-specific rules](#hierarchical-rules-add-account-specific-rules "#hierarchical-rules-add-account-specific-rules")
+- [Step 1: Designate a Firewall Manager administrator account](#hierarchical-rules-set-firewall-administrator "#hierarchical-rules-set-firewall-administrator")
+- [Step 2: Create a rule group using the Firewall Manager administrator account](#hierarchical-rules-create-a-rule-group "#hierarchical-rules-create-a-rule-group")
+- [Step 3: Create a Firewall Manager policy and attach the common rule group](#hierarchical-rules-create-policy "#hierarchical-rules-create-policy")
+- [Step 4: Add account-specific rules](#hierarchical-rules-add-account-specific-rules "#hierarchical-rules-add-account-specific-rules")
 - [Conclusion](#hierarchical-rules-conclusion "#hierarchical-rules-conclusion")
 
-## Step 1: Designate a
-
-Firewall Manager administrator account
+## Step 1: Designate a Firewall Manager administrator account
 
 To use AWS Firewall Manager, you must designate an account in your organization as the Firewall Manager
 administrator account. This account can be either the management account or a member account
@@ -69,9 +60,7 @@ skip to step 2 of this tutorial.
 In this tutorial, we refer to the administrator account as
 `Firewall-Administrator-Account`.
 
-## Step 2: Create a rule group
-
-using the Firewall Manager administrator account
+## Step 2: Create a rule group using the Firewall Manager administrator account
 
 Next, create a rule group using `Firewall-Administrator-Account`.
 This rule group contains the common rules that you will apply to all member accounts
@@ -87,9 +76,7 @@ Remember to sign in to the console using your Firewall Manager administrator acc
 (`Firewall-Administrator-Account`) when following these
 instructions.
 
-## Step 3: Create a Firewall Manager policy and
-
-attach the common rule group
+## Step 3: Create a Firewall Manager policy and attach the common rule group
 
 Using `Firewall-Administrator-Account`, create a Firewall Manager policy.
 When you create this policy, you must do the following:
@@ -112,9 +99,7 @@ In this tutorial, we refer to this web ACL as
 `Administrator-Created-ACL` now exists in each specified member
 account of the organization.
 
-## Step 4: Add
-
-account-specific rules
+## Step 4: Add account-specific rules
 
 Each member account in the organization can now add their own account-specific rules
 to the `Administrator-Created-ACL` that exists in their account.

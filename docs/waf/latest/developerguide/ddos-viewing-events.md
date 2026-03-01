@@ -35,7 +35,7 @@ AWS Shield provides visibility into the following categories of events and event
   group generates AWS WAF metrics, but they are not available to view. This is the same as for
   any other rule groups that you use in your protection pack (web ACL) but do not own, such as AWS Managed Rules rule groups.
   For more information about AWS WAF metrics, see [AWS WAF metrics and dimensions](waf-metrics.md "waf-metrics.md"). For information
-  about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+  about this Shield Advanced protection option, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 ###### Topics
 

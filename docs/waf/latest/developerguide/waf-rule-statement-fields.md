@@ -25,26 +25,21 @@ rule criteria.
 ###### Contents
 
 - [Request components in AWS WAF](waf-rule-statement-fields-list.md "waf-rule-statement-fields-list.md")
-  - [HTTP
-    method](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method")
-  - [Single
-    header](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header")
+  - [HTTP method](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method")
+  - [Single header](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header")
   - [All headers](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers")
   - [Header order](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-header-order "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-header-order")
   - [Cookies](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-cookies "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-cookies")
   - [URI fragment](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-fragment "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-fragment")
-  - [URI
-    path](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path")
+  - [URI path](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-uri-path")
   - [JA3 fingerprint](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-ja3-fingerprint "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-ja3-fingerprint")
   - [JA4 fingerprint](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-ja4-fingerprint "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-ja4-fingerprint")
-  - [Query
-    string](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string")
+  - [Query string](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-query-string")
   - [Single query parameter](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-query-param "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-query-param")
   - [All query parameters](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-all-query-params "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-all-query-params")
   - [Body](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-body "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-body")
   - [JSON body](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-json-body "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-json-body")
 
-- [Using forwarded IP
-  addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md")
+- [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md")
 - [Inspecting HTTP/2 pseudo headers in AWS WAF](waf-rule-statement-request-components-for-http2-pseudo-headers.md "waf-rule-statement-request-components-for-http2-pseudo-headers.md")
 - [Using text transformations in AWS WAF](waf-rule-statement-transformation.md "waf-rule-statement-transformation.md")

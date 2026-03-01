@@ -32,9 +32,6 @@ notified of new versions and updates](waf-using-managed-rule-groups-sns-topic.md
 
 ###### Topics
 
-- [Version life
-  cycle for managed rule groups](waf-managed-rule-groups-versioning-lifecycle.md "waf-managed-rule-groups-versioning-lifecycle.md")
-- [Version expiration
-  for managed rule groups](waf-managed-rule-groups-versioning-expiration.md "waf-managed-rule-groups-versioning-expiration.md")
-- [Best practices for handling managed rule group
-  versions](waf-managed-rule-groups-best-practice.md "waf-managed-rule-groups-best-practice.md")
+- [Version life cycle for managed rule groups](waf-managed-rule-groups-versioning-lifecycle.md "waf-managed-rule-groups-versioning-lifecycle.md")
+- [Version expiration for managed rule groups](waf-managed-rule-groups-versioning-expiration.md "waf-managed-rule-groups-versioning-expiration.md")
+- [Best practices for handling managed rule group versions](waf-managed-rule-groups-best-practice.md "waf-managed-rule-groups-best-practice.md")

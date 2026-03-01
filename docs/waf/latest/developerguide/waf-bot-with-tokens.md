@@ -32,8 +32,6 @@ sessions, even when both originate from a single IP address. The rule group uses
 information in the tokens to aggregate client session request behavior for the
 fine-tuned detection and mitigation that the targeted protections level provide.
 
-For information about the SDKs, see [Client application
-integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about AWS WAF tokens,
+For information about the SDKs, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md"). For information about AWS WAF tokens,
 see [Token use in AWS WAF intelligent threat mitigation](waf-tokens.md "waf-tokens.md"). For information about the
-rule actions, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+rule actions, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").

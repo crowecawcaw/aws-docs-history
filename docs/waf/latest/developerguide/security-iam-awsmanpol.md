@@ -57,9 +57,7 @@ This policy is attached to the service-linked role `AWSServiceRoleForWAFV2Loggin
 
 For details about this policy, see [WAFV2LoggingServiceRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy$serviceLevelSummary "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/WAFV2LoggingServiceRolePolicy$serviceLevelSummary") in the IAM console.
 
-## AWS WAF updates to AWS managed
-
-policies
+## AWS WAF updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS WAF since this
 service began tracking these changes. For automatic alerts about changes to this page,

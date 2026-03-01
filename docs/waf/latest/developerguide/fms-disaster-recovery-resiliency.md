@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Resilience
-
-in Firewall Manager
+# Resilience in Firewall Manager
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones.
 AWS Regions provide multiple physically separated and isolated Availability Zones, which

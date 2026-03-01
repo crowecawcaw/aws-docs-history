@@ -27,9 +27,7 @@ available to use with network security director.
 
 To get a high-level view of how network security director and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-### Identity-based
-
-policies for network security director
+### Identity-based policies for network security director
 
 **Supports identity-based policies:**
 
@@ -46,12 +44,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of AWS Shield network security director identity-based policies, see [Identity-based
-policy examples for AWS Shield network security director](security-nsd-with-iam-id-based-policies.md "security-nsd-with-iam-id-based-policies.md").
+To view examples of AWS Shield network security director identity-based policies, see [Identity-based policy examples for AWS Shield network security director](security-nsd-with-iam-id-based-policies.md "security-nsd-with-iam-id-based-policies.md").
 
-### Service-linked
-
-roles for network security director
+### Service-linked roles for network security director
 
 **Supports service-linked roles:**
 

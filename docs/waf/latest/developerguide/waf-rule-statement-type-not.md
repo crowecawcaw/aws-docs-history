@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# NOT rule
-
-statement
+# NOT rule statement
 
 The NOT rule statement logically negates the results of a single
 nested statement, so the nested statements must not match for the

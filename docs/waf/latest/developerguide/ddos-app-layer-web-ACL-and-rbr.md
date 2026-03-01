@@ -37,8 +37,7 @@ Shield Response Team (SRT), or automatically through automatic application layer
 ###### Important
 
 If you also use automatic application layer DDoS mitigation, see the best practices for managing
-your web ACL at [Best practices for
-using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md").
+your web ACL at [Best practices for using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md").
 
 For information about
 using AWS WAF to manage your web request monitoring and management rules, see [Creating a protection pack (web ACL) in AWS WAF](web-acl-creating.md "web-acl-creating.md").

@@ -28,6 +28,5 @@ Review the following encryption considerations when using network security direc
 ###### Topics
 
 - [Identity and Access Management for AWS Shield network security director](nsd-iam.md "nsd-iam.md")
-- [Identity-based
-  policy examples for AWS Shield network security director](security-nsd-with-iam-id-based-policies.md "security-nsd-with-iam-id-based-policies.md")
+- [Identity-based policy examples for AWS Shield network security director](security-nsd-with-iam-id-based-policies.md "security-nsd-with-iam-id-based-policies.md")
 - [Using service-linked roles for AWS Shield network security director](security_iam_nsd-with-iam-roles-service-linked.md "security_iam_nsd-with-iam-roles-service-linked.md")

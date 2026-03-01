@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Rate-based rule aggregation
-
-instances and counts
+# Rate-based rule aggregation instances and counts
 
 This section explains how a rate-based rule evaluates web requests.
 

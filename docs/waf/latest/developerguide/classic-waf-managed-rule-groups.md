@@ -92,9 +92,7 @@ for each AWS Marketplace rule group on AWS Marketplace.
 You can subscribe to and unsubscribe from AWS Marketplace rule groups on the AWS WAF Classic
 console. You can also exclude specific rules from a rule group.
 
-###### To subscribe to and use an
-
-AWS Marketplace rule group
+###### To subscribe to and use an AWS Marketplace rule group
 
 1. Sign in to the AWS Management Console and open the AWS WAF console at
    [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
@@ -114,9 +112,7 @@ When adding a rule group to a web ACL, the action that you set for the rule grou
 count**) is called the rule group override action. For more
 information, see [Rule group override](#classic-waf-managed-rule-group-override "#classic-waf-managed-rule-group-override").
 
-###### To unsubscribe from an
-
-AWS Marketplace rule group
+###### To unsubscribe from an AWS Marketplace rule group
 
 1. Sign in to the AWS Management Console and open the AWS WAF console at
    [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
@@ -160,16 +156,12 @@ action of individual rules within the group, those requests will be counted. Con
 if you set the rule group's action to **No override**, actions of the
 individual rules within the group will be used.
 
-## Troubleshooting AWS Marketplace
-
-rule groups
+## Troubleshooting AWS Marketplace rule groups
 
 If you find that an AWS Marketplace rule group is blocking legitimate traffic,
 perform the following steps.
 
-###### To troubleshoot an
-
-AWS Marketplace rule group
+###### To troubleshoot an AWS Marketplace rule group
 
 1. Exclude the specific rules that are blocking legitimate traffic. You can identify which rules
    are blocking which requests using the AWS WAF Classic logs. For more information about
@@ -183,17 +175,13 @@ AWS Marketplace rule group
    further troubleshoot the issue. For contact information, see the rule group
    listing on the product listing pages on AWS Marketplace.
 
-### Contacting customer
-
-support
+### Contacting customer support
 
 For problems with AWS WAF Classic or a rule group that is managed by AWS, contact AWS Support. For problems with a rule group that is managed by an AWS partner, contact
 that partner's customer support team. To find partner contact information, see the
 partner’s listing on AWS Marketplace.
 
-## Creating and selling AWS Marketplace
-
-rule groups
+## Creating and selling AWS Marketplace rule groups
 
 If you want to sell AWS Marketplace rule groups on AWS Marketplace, see [How to Sell Your Software
 on AWS Marketplace](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/").

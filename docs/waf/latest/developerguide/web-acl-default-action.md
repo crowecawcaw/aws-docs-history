@@ -32,8 +32,7 @@ The protection pack (web ACL) default action must determine the final dispositio
   you want to allow in. By default, for the Block action, the AWS resource
   responds with an HTTP `403 (Forbidden)` status code, but you can
   customize the response.
-  For information about customizing requests and responses, see [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  For information about customizing requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
 
 Your configuration of your own rules and rule groups depends in part on whether you
 want to allow or block most web requests. For example, if you want to

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Default version
-
-deployments for AWS Managed Rules
+# Default version deployments for AWS Managed Rules
 
 When AWS determines that a new static version provides improved protections for the rule
 group compared to the current default, AWS updates the default version to

@@ -38,8 +38,7 @@ You are charged additional fees when you use this managed rule group. For more i
   offers. Many of the ATP rules use the information provided by the SDKs for
   session level client verification and behavior aggregation, required to separate
   legitimate client traffic from bot traffic. For more information about the SDKs,
-  see [Client application
-  integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+  see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
   You can combine your ATP implementation with the following to help you monitor, tune,
   and customize your protections.
 
@@ -61,11 +60,9 @@ statements or label matching rules.
   rules in `AWSManagedRulesATPRuleSet`, you can switch the blocking behavior to count, and then match
   against the labels that are added by the rules. Use this approach to customize how
   you handle web requests that are identified by the ATP managed rule group. For more
-  information about labeling and using label match statements, see [Label match rule
-  statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+  information about labeling and using label match statements, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 - **Custom requests and responses** – You can add custom
   headers to the requests that you allow and you can send custom responses for
   requests that you block. To do this, you pair your label matching with the AWS WAF
   custom request and response features. For more information about customizing
-  requests and responses, see [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+  requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").

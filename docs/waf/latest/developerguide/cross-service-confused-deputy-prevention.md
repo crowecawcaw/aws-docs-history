@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the action.

@@ -21,6 +21,5 @@ editor**.
 - [Rate limit the requests to a login page from any IP address, user agent pair](waf-rate-based-example-limit-login-page-keys.md "waf-rate-based-example-limit-login-page-keys.md")
 - [Rate limit the requests that are missing a specific header](waf-rate-based-example-limit-missing-header.md "waf-rate-based-example-limit-missing-header.md")
 - [Rate limit the requests with specific labels](waf-rate-based-example-limit-labels.md "waf-rate-based-example-limit-labels.md")
-- [Rate limit the requests for labels
-  that have a specified label namespace](waf-rate-based-example-limit-label-aggregation.md "waf-rate-based-example-limit-label-aggregation.md")
+- [Rate limit the requests for labels that have a specified label namespace](waf-rate-based-example-limit-label-aggregation.md "waf-rate-based-example-limit-label-aggregation.md")
 - [Rate limit the requests with specific ASNs](waf-rate-based-example-limit-asn.md "waf-rate-based-example-limit-asn.md")

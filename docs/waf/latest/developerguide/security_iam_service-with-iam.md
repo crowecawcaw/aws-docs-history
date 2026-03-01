@@ -28,9 +28,7 @@ To get a high-level view of how AWS WAF and other AWS services work with most IA
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS WAF
+## Identity-based policies for AWS WAF
 
 **Supports identity-based policies:**
 
@@ -47,12 +45,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for
-AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within AWS WAF
+## Resource-based policies within AWS WAF
 
 **Supports resource-based policies:**
 
@@ -76,9 +71,7 @@ additional information, including examples and links to documentation for the ot
 available languages, see [PutPermissionPolicy](../APIReference/API_PutPermissionPolicy.md "../APIReference/API_PutPermissionPolicy.md") in the AWS WAF API Reference. This functionality isn't
 available through other means, such as the console or CloudFormation.
 
-## Policy actions
-
-for AWS WAF
+## Policy actions for AWS WAF
 
 **Supports policy actions:**
 
@@ -116,8 +109,7 @@ action:
 "Action": "wafv2:List*"
 ```
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for
-AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ### Actions that require additional permissions settings
 
@@ -128,18 +120,12 @@ provides additional permissions information.
 
 ###### Topics
 
-- [Permissions for
-  AssociateWebACL](#security_iam_action-AssociateWebACL "#security_iam_action-AssociateWebACL")
-- [Permissions for
-  DisassociateWebACL](#security_iam_action-DisassociateWebACL "#security_iam_action-DisassociateWebACL")
-- [Permissions for
-  GetWebACLForResource](#security_iam_action-GetWebACLForResource "#security_iam_action-GetWebACLForResource")
-- [Permissions for
-  ListResourcesForWebACL](#security_iam_action-ListResourcesForWebACL "#security_iam_action-ListResourcesForWebACL")
+- [Permissions for AssociateWebACL](#security_iam_action-AssociateWebACL "#security_iam_action-AssociateWebACL")
+- [Permissions for DisassociateWebACL](#security_iam_action-DisassociateWebACL "#security_iam_action-DisassociateWebACL")
+- [Permissions for GetWebACLForResource](#security_iam_action-GetWebACLForResource "#security_iam_action-GetWebACLForResource")
+- [Permissions for ListResourcesForWebACL](#security_iam_action-ListResourcesForWebACL "#security_iam_action-ListResourcesForWebACL")
 
-#### Permissions for
-
-`AssociateWebACL`
+#### Permissions for `AssociateWebACL`
 
 This section lists the permissions required to associate a protection pack (web ACL) to a resource using the
 AWS WAF action `AssociateWebACL`.
@@ -320,9 +306,7 @@ ACL.
 }
 ```
 
-#### Permissions for
-
-`DisassociateWebACL`
+#### Permissions for `DisassociateWebACL`
 
 This section lists the permissions required to disassociate a protection pack (web ACL) from a resource using the
 AWS WAF action `DisassociateWebACL`.
@@ -457,9 +441,7 @@ instance resource type and to call AWS WAF `DisassociateWebACL`.
 }
 ```
 
-#### Permissions for
-
-`GetWebACLForResource`
+#### Permissions for `GetWebACLForResource`
 
 This section lists the permissions required to get the protection pack (web ACL) for a protected resource using the
 AWS WAF action `GetWebACLForResource`.
@@ -589,9 +571,7 @@ resource type and to call AWS WAF `GetWebACLForResource` and
 }
 ```
 
-#### Permissions for
-
-`ListResourcesForWebACL`
+#### Permissions for `ListResourcesForWebACL`
 
 This section lists the permissions required to retrieve the list of protected resources for a protection pack (web ACL) using the
 AWS WAF action `ListResourcesForWebACL`.
@@ -774,12 +754,9 @@ global scope for the account `111122223333` in Region
 arn:aws:wafv2:us-east-1:111122223333:global/rulegroup/MyIPManagementRuleGroup/1111aaaa-bbbb-cccc-dddd-example-id
 ```
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for
-AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS WAF
+## Policy condition keys for AWS WAF
 
 **Supports service-specific policy condition keys:**
 
@@ -823,8 +800,7 @@ To see a list of AWS WAF condition keys, see [Condition keys for AWS WAF V2](../
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS WAF V2](../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions "../../../service-authorization/latest/reference/list_awswafv2.md#awswafv2-actions-as-permissions").
 
-To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for
-AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS WAF identity-based policies, see [Identity-based policy examples for AWS WAF](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AWS WAF
 
@@ -852,9 +828,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS WAF
+## Using temporary credentials with AWS WAF
 
 **Supports temporary credentials:**
 
@@ -875,9 +849,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS WAF
+## Service roles for AWS WAF
 
 **Supports service roles:**
 
@@ -892,9 +864,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS WAF functionality.
 Edit service roles only when AWS WAF provides guidance to do so.
 
-## Service-linked
-
-roles for AWS WAF
+## Service-linked roles for AWS WAF
 
 **Supports service-linked roles:**
 

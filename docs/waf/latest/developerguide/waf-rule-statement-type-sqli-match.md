@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# SQL injection attack rule
-
-statement
+# SQL injection attack rule statement
 
 This section explains what a SQL injection rule statement is and how it works.
 
@@ -13,9 +11,7 @@ An SQL injection rule statement inspects for malicious SQL code. Attackers
 insert malicious SQL code into web requests in order to do things like modify
 your database or extract data from it.
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.
@@ -35,8 +31,7 @@ This statement type operates on a web request component, and requires the follow
 ###### Warning
 
 If you inspect the request components **Body**, **JSON body**, **Headers**, or **Cookies**, read about the limitations on how much content AWS WAF can inspect at
-[Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+[Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 For information about web request components, see [Adjusting rule statement settings in AWS WAF](waf-rule-statement-fields.md "waf-rule-statement-fields.md").
 

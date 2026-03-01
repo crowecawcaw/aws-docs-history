@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Example managed
-
-rule group configurations in JSON and YAML
+# Example managed rule group configurations in JSON and YAML
 
 This section provides example managed rule group configurations.
 

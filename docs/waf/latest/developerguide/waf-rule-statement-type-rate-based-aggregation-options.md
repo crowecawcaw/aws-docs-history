@@ -39,8 +39,7 @@ that have a malformed IP address in the specified header.
 
 Use caution with this option, because headers can be handled inconsistently by proxies
 and they can also be modified to bypass inspection. For additional
-information and best practices, see [Using forwarded IP
-addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
+information and best practices, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
 
 - **ASN** – Aggregate using an
   Autonomous System Number (ASN) associated with the source IP address as an
@@ -64,8 +63,7 @@ a scope-down rule that excludes requests with ASN 0.
 
 Use caution with this option, as headers can be handled inconsistently by
 proxies and they can be modified to bypass inspection. For additional
-information and best practices, see [Using forwarded IP
-addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
+information and best practices, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
 
 - **Count all** – Count and rate limit all requests that match the rule's scope-down statement. This option requires a scope-down statement. This is typically used to rate limit a specific set of requests, such as all requests with a specific label or all requests from a specific geographic area.
 - **Custom keys** – Aggregate using one or more custom
@@ -128,5 +126,4 @@ The key options are the following. Except where noted, you can use an option mul
 
     Use caution with this option, as headers can be
      handled inconsistently by proxies and they can be modified to bypass
-     inspection. For additional information and best practices, see [Using forwarded IP
-     addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
+     inspection. For additional information and best practices, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").

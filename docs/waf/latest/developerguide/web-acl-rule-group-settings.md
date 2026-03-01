@@ -13,9 +13,7 @@ are evaluated inside the rule group.
 
 For information about these options, see [Overriding rule group actions in AWS WAF](web-acl-rule-group-override-options.md "web-acl-rule-group-override-options.md").
 
-## Overriding rule actions in a rule
-
-group
+## Overriding rule actions in a rule group
 
 For each rule group in a protection pack (web ACL), you can override the
 contained rule's actions for some or all of the rules.
@@ -118,9 +116,7 @@ individual rule.
 }
 ```
 
-## Overriding a rule group's evaluation
-
-result to Count
+## Overriding a rule group's evaluation result to Count
 
 You can override the action that results from a rule group evaluation, without altering
 how the rules in the rule group are configured or evaluated. This option is not
@@ -130,8 +126,7 @@ sets the resulting action from the rule group to Count.
 ###### Note
 
 This is an uncommon use case. Most action overrides are done at the rule
-level, inside the rule group, as described in [Overriding rule actions in a rule
-group](#web-acl-rule-group-rule-action-override "#web-acl-rule-group-rule-action-override").
+level, inside the rule group, as described in [Overriding rule actions in a rule group](#web-acl-rule-group-rule-action-override "#web-acl-rule-group-rule-action-override").
 
 You can override the rule group's resulting action in the protection pack (web ACL) when you add
 or edit the rule group. In the console, open the rule group's **Override

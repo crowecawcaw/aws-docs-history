@@ -26,8 +26,7 @@ information about the request to rules that are evaluated later in the protectio
 For information about labeling, see
 [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md")
 and
-[Label match rule
-statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
+[Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
 
 ###### Nesting rule statements
 

@@ -12,12 +12,10 @@ The scope-down statement excludes static content by negating the match results f
 - The regex pattern set is configured to match extensions of _static
   content_. For example, the regex pattern set specification
   might be `(?i)\.(jpe?g|gif|png|svg|ico|css|js|woff2?)$`. For
-  information about regex pattern sets and statements, see [Regex pattern
-  set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md").
+  information about regex pattern sets and statements, see [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md").
 - In the scope-down statement, we exclude the matching static content by nesting the regex
   pattern set statement inside a `NOT` statement. For information about the
-  `NOT` statement, see [NOT rule
-  statement](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md").
+  `NOT` statement, see [NOT rule statement](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md").
 
 ```
 {

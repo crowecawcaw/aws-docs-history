@@ -69,8 +69,7 @@ tokens.
      terminating action, and the protection pack (web ACL) continues its evaluation of the
      request.
 
-For additional information, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+For additional information, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
 ###### If you rate limit only the IP address or forwarded IP address
 

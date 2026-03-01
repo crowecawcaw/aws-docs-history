@@ -9,7 +9,7 @@ This page explains how Automatic application layer DDoS mitigation works with Fi
 
 When you apply a Shield Advanced policy to Amazon CloudFront distributions or Application Load Balancers, you have the option of configuring Shield Advanced automatic application layer DDoS mitigation in the policy.
 
-For information about Shield Advanced automatic mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+For information about Shield Advanced automatic mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 Shield Advanced automatic application layer DDoS mitigation has the following requirements:
 
@@ -23,14 +23,13 @@ Because of this, if you have a policy that uses AWS WAF Classic web ACLs,
 you need to either replace the policy with a new policy, which will
 automatically use the latest version of AWS WAF, or have Firewall Manager create new
 version web ACLs for your existing policy and switch over to using them. For
-more information about the options, see [Replace AWS WAF Classic
-web ACLs with latest version web ACLs](#shield-policies-auto-app-layer-update-waf-version "#shield-policies-auto-app-layer-update-waf-version").
+more information about the options, see [Replace AWS WAF Classic web ACLs with latest version web ACLs](#shield-policies-auto-app-layer-update-waf-version "#shield-policies-auto-app-layer-update-waf-version").
 
 ## Automatic mitigation configuration
 
 The automatic application layer DDoS mitigation option for Firewall Manager Shield Advanced policies applies Shield Advanced
 automatic mitigation functionality to your policy's in-scope accounts
-and resources. For detailed information about this Shield Advanced feature, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md") .
+and resources. For detailed information about this Shield Advanced feature, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
 
 You can choose to have Firewall Manager enable or disable automatic mitigation for the CloudFront
 distributions or Application Load Balancers that are in scope of the policy, or you can choose to have the
@@ -48,14 +47,11 @@ policy ignore Shield Advanced automatic mitigation settings:
   automatic remediation, Firewall Manager updates noncompliant resources as needed.
 - **Ignore** – If you choose to ignore automatic mitigation, Firewall Manager won't consider any of the automatic mitigation settings in your Shield policy when it performs remediation activities for the policy. This setting allows you to control automatic mitigation through Shield Advanced, without having those settings overwritten by Firewall Manager. This setting doesn't apply to any Classic Load Balancers or Elastic IPs resources manged through Shield Advanced, because Shield Advanced doesn't currently support L7 automatic mitigation for those resources.
 
-## Replace AWS WAF Classic
-
-web ACLs with latest version web ACLs
+## Replace AWS WAF Classic web ACLs with latest version web ACLs
 
 Automatic application layer DDoS mitigation works only with protection packs (web ACLs) that were created using the latest version of AWS WAF (v2).
 
-To determine the web ACL version for your Shield Advanced policy, see [Determining the version of AWS WAF that's
-used by a Shield Advanced policy](shield-policies-identify-waf-version.md "shield-policies-identify-waf-version.md").
+To determine the web ACL version for your Shield Advanced policy, see [Determining the version of AWS WAF that's used by a Shield Advanced policy](shield-policies-identify-waf-version.md "shield-policies-identify-waf-version.md").
 
 If you want to use automatic mitigation in your Shield Advanced policy, and your policy
 currently uses AWS WAF Classic web ACLs, you can either create a new Shield Advanced

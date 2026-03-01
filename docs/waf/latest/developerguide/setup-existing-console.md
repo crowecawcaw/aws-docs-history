@@ -91,9 +91,7 @@ resources that you want to associate, and then choose **Add**.
 AWS WAF returns you to the **Describe web ACL and associated AWS
 resources** page. 8. Choose **Next**.
 
-## Step 3: Add a string match
-
-rule
+## Step 3: Add a string match rule
 
 In this step, you create a rule with a string match statement and indicate what to do with
 matching requests. A string match rule statement identifies strings that you want AWS WAF
@@ -110,8 +108,7 @@ This statement type operates on a web request component, and requires the follow
 ###### Warning
 
 If you inspect the request components **Body**, **JSON body**, **Headers**, or **Cookies**, read about the limitations on how much content AWS WAF can inspect at
-[Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+[Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 For information about web request components, see [Adjusting rule statement settings in AWS WAF](waf-rule-statement-fields.md "waf-rule-statement-fields.md").
 
@@ -123,9 +120,7 @@ For information about web request components, see [Adjusting rule statement sett
 
 For additional information about AWS WAF rules, see [AWS WAF rules](waf-rules.md "waf-rules.md").
 
-###### To create a string
-
-match rule statement
+###### To create a string match rule statement
 
 1. On the **Add rules and rule groups** page, choose
    **Add rules**, **Add my own rules and rule
@@ -197,9 +192,7 @@ this web ACL.
    rules**. This returns you to the **Add rules and rule
    groups** page.
 
-## Step 5: Finish your web ACL
-
-configuration
+## Step 5: Finish your web ACL configuration
 
 When you're done adding rules and rule groups to your web ACL configuration, finish up by
 managing the priority of the rules in the web ACL and configuring settings like metrics,

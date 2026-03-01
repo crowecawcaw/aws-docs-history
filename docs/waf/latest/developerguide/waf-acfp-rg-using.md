@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Adding the ACFP managed rule group to your web
-
-ACL
+# Adding the ACFP managed rule group to your web ACL
 
 This section explains how to add and configure the `AWSManagedRulesACFPRuleSet` rule group.
 
@@ -24,13 +22,11 @@ The ACFP stolen credentials database only contains usernames in email format.
 
 This guidance is intended for users who know generally how to create and manage
 AWS WAF protection packs (web ACLs), rules, and rule groups. Those topics are covered in prior sections
-of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through
-the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
+of this guide. For basic information about how to add a managed rule group to your protection pack (web ACL), see [Adding a managed rule group to a protection pack (web ACL) through the console](waf-using-managed-rule-group.md "waf-using-managed-rule-group.md").
 
 ###### Follow best practices
 
-Use the ACFP rule group in accordance with the best practices at [Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+Use the ACFP rule group in accordance with the best practices at [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
 
 ###### To use the `AWSManagedRulesACFPRuleSet` rule group in your protection pack (web ACL)
 

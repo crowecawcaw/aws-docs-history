@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Identity-based policy examples for
-
-AWS Shield
+# Identity-based policy examples for AWS Shield
 
 By default, users and roles don't have permission to create or modify Shield
 resources. To grant users permission to perform actions on the
@@ -19,20 +17,14 @@ For details about actions and resource types defined by Shield, including the fo
 
 ###### Topics
 
-- [Policy best
-  practices](#shd-security_iam_service-with-iam-policy-best-practices "#shd-security_iam_service-with-iam-policy-best-practices")
-- [Using the Shield
-  console](#shd-security_iam_id-based-policy-examples-console "#shd-security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#shd-security_iam_id-based-policy-examples-view-own-permissions "#shd-security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#shd-security_iam_service-with-iam-policy-best-practices "#shd-security_iam_service-with-iam-policy-best-practices")
+- [Using the Shield console](#shd-security_iam_id-based-policy-examples-console "#shd-security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#shd-security_iam_id-based-policy-examples-view-own-permissions "#shd-security_iam_id-based-policy-examples-view-own-permissions")
 - [Grant read access to your Shield Advanced protections](#shd-example0 "#shd-example0")
 - [Grant read-only access to Shield, CloudFront, and CloudWatch](#shd-example1 "#shd-example1")
-- [Grant full access to Shield, CloudFront, and
-  CloudWatch](#shd-example2 "#shd-example2")
+- [Grant full access to Shield, CloudFront, and CloudWatch](#shd-example2 "#shd-example2")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Shield resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Shield
-
-console
+## Using the Shield console
 
 To access the AWS Shield console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Shield resources
@@ -127,9 +117,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -253,9 +241,7 @@ JSON
 
 ```
 
-## Grant full access to Shield, CloudFront, and
-
-CloudWatch
+## Grant full access to Shield, CloudFront, and CloudWatch
 
 The following policy lets users perform any Shield operation, perform any operation on
 CloudFront web distributions, and monitor metrics and a sample of requests in CloudWatch. It's useful

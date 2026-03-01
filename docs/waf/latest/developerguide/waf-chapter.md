@@ -39,12 +39,10 @@ _Amazon Elastic Container Service Developer Guide_.
 - [AWS WAF rules](waf-rules.md "waf-rules.md")
 - [AWS WAF rule groups](waf-rule-groups.md "waf-rule-groups.md")
 - [Web ACL capacity units (WCUs) in AWS WAF](aws-waf-capacity-units.md "aws-waf-capacity-units.md")
-- [Oversize web request components
-  in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md")
+- [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md")
 - [Supported regular expression syntax in AWS WAF](waf-regex-pattern-support.md "waf-regex-pattern-support.md")
 - [IP sets and regex pattern sets in AWS WAF](waf-referenced-set-managing.md "waf-referenced-set-managing.md")
-- [Customized web requests and responses in
-  AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md")
+- [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md")
 - [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md")
 - [Intelligent threat mitigation in AWS WAF](waf-managed-protections.md "waf-managed-protections.md")
 - [Data protection and logging for AWS WAF protection pack (web ACL) traffic](waf-data-protection-and-logging.md "waf-data-protection-and-logging.md")

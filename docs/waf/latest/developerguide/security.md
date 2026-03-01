@@ -42,5 +42,4 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Logging and monitoring in AWS WAF](waf-incident-response.md "waf-incident-response.md")
 - [Validating compliance in AWS WAF](waf-compliance.md "waf-compliance.md")
 - [Building for resilience in AWS WAF](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS WAF](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure security in AWS WAF](infrastructure-security.md "infrastructure-security.md")

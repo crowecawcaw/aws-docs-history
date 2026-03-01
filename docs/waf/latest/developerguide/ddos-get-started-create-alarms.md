@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Configuring alarms and
-
-notifications with Shield Advanced and Amazon SNS
+# Configuring alarms and notifications with Shield Advanced and Amazon SNS
 
 This page provides instructions to optionally configure Amazon Simple Notification Service notifications for detected Amazon CloudWatch alarms and rate-based rule
 activity. You can use these to receive notification when Shield detects an event on a

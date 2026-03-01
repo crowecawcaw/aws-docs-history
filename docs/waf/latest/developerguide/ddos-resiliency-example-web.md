@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Example Shield Advanced DDoS resiliency architecture for common web
-
-applications
+# Example Shield Advanced DDoS resiliency architecture for common web applications
 
 This page provides an example architecture for maximizing resiliency against DDoS attacks
 with AWS web applications.

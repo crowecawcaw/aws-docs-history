@@ -75,8 +75,7 @@ testing:
     	 during evaluation are listed in the protection pack (web ACL) label metrics. You
     	 can access the metrics for all labels, regardless of whether they were added
     	 by your rules and rule groups or by rules in a rule group that another account owns.
-    For more information, see [Viewing metrics for your web
-     ACL](web-acl-testing-view-metrics.md "web-acl-testing-view-metrics.md").
+    For more information, see [Viewing metrics for your web ACL](web-acl-testing-view-metrics.md "web-acl-testing-view-metrics.md").
     * **protection pack (web ACL) traffic overview dashboards** –
      Access summaries of the web traffic that a protection pack (web ACL) has evaluated by
      going to the protection pack (web ACL)'s page in the AWS WAF console and opening the
@@ -168,11 +167,9 @@ approaches:
 
     If you use this approach, when you're finished testing, keep the problematic rule in
      count mode in the rule group, and keep your custom label match rule in
-     place. For information about label match statements, see [Label match rule
-     statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md"). For examples,
+     place. For information about label match statements, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md"). For examples,
      see [Allowing a specific blocked bot](waf-bot-control-example-allow-blocked-bot.md "waf-bot-control-example-allow-blocked-bot.md")
-     and [ATP example: Custom
-     handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md").
+     and [ATP example: Custom handling for missing and compromised credentials](waf-atp-control-example-user-agent-exception.md "waf-atp-control-example-user-agent-exception.md").
     * **Change the version of a managed rule group** – For
      versioned managed rule groups, change the version that you're using. For
      example, you could switch back to the last static version that you were

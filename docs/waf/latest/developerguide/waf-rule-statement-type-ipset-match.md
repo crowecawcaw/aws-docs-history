@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# IP set match rule
-
-statement
+# IP set match rule statement
 
 This section explains what an IP set match statement is and how it works.
 
@@ -33,9 +31,7 @@ When you add or update the rules in your rule group or protection pack (web ACL)
 option **IP set** and select the name of the IP set that you
 want to use.
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.

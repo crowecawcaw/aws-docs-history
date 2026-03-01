@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# How to render
-
-the CAPTCHA puzzle
+# How to render the CAPTCHA puzzle
 
 This section provides an example `renderCaptcha` implementation.
 
@@ -14,8 +12,7 @@ interface. The call retrieves a CAPTCHA puzzle from AWS WAF, renders it, and
 sends the results to AWS WAF for verification. When you make the call, you provide the puzzle rendering configuration
 and the callbacks that you want to run when your end users complete the puzzle.
 For details about the options, see the preceding section,
-[CAPTCHA JavaScript API
-specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md").
+[CAPTCHA JavaScript API specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md").
 
 Use this call in conjunction with the token management functionality of the
 intelligent threat integration APIs. This call gives your client a token that
@@ -95,5 +92,4 @@ settings for the width and the title options.
         });
 ```
 
-For full information about the configuration options, see [CAPTCHA JavaScript API
-specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md").
+For full information about the configuration options, see [CAPTCHA JavaScript API specification](waf-js-captcha-api-specification.md "waf-js-captcha-api-specification.md").

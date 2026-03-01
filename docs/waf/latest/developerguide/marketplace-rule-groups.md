@@ -97,9 +97,7 @@ unsubscribe from. 5. In the **Cancel subscription** dialog box, enter `confirm`,
 If you find that an AWS Marketplace rule group is blocking legitimate traffic, you can troubleshoot the problem by performing
 the following steps.
 
-###### To troubleshoot an
-
-AWS Marketplace rule group
+###### To troubleshoot an AWS Marketplace rule group
 
 1. Override the actions to count for the rules that are blocking legitimate traffic. You can
    identify which rules are blocking specific requests using either the

@@ -10,8 +10,7 @@ This section explains what AWS WAF labels are.
 A label is metadata added to a web request by a rule when the rule matches the request.
 Once added, a label remains available on the request until the protection pack (web ACL) evaluation ends. You can access labels in rules
 that run later in the protection pack (web ACL) evaluation by using a label match statement. For details, see
-[Label match rule
-statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
+[Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md").
 
 Labels on web requests generate Amazon CloudWatch label metrics. For a list of metrics and
 dimensions, see [Label metrics and dimensions](waf-metrics.md#waf-metrics-label "waf-metrics.md#waf-metrics-label"). For
@@ -35,8 +34,7 @@ Common use cases for AWS WAF labels include the following:
   can use the geographic match rule alone to manage web requests by the country of
   origin. To fine-tune the location down to the region level, you use the geo match
   rule with a Count action followed by a label match rule. For information
-  about the geo match rule, see [Geographic match rule
-  statement](waf-rule-statement-type-geo-match.md "waf-rule-statement-type-geo-match.md").
+  about the geo match rule, see [Geographic match rule statement](waf-rule-statement-type-geo-match.md "waf-rule-statement-type-geo-match.md").
 - **Reusing logic across multiple rules** –
   If you need to reuse the same logic across multiple rules, you can use labels to
   single-source the logic and just test for the results. When you have multiple

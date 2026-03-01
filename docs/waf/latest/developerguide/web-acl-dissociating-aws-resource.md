@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Disassociating a
-
-protection from an AWS resource
+# Disassociating a protection from an AWS resource
 
 Using the new console
 
@@ -29,9 +27,7 @@ choose multiple resources. 4. In the confirmation page, type "disassociate", and
 Using the standard console
 To dissociate a web ACL from an AWS resource, perform the following procedure.
 
-###### To disassociate a
-
-web ACL from an AWS resource
+###### To disassociate a web ACL from an AWS resource
 
 1. Sign in to the AWS Management Console and open the AWS WAF console at
    [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Regex match rule
-
-statement
+# Regex match rule statement
 
 This section explains what a regex match statement is and how it works.
 
@@ -13,20 +11,15 @@ A regex match statement instructs AWS WAF to match a request component against a
 single regular expression (regex). A web request matches the statement if the
 request component matches the regex that you specify.
 
-This statement type is a good alternative to the [Regex pattern
-set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md") for
+This statement type is a good alternative to the [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md") for
 situations where you want to combine your matching criteria using mathematical
 logic. For example, if you want a request component to match against some regex
 patterns and to not match against others, you can combine the regex match
-statements using the [AND rule
-statement](waf-rule-statement-type-and.md "waf-rule-statement-type-and.md") and the [NOT rule
-statement](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md").
+statements using the [AND rule statement](waf-rule-statement-type-and.md "waf-rule-statement-type-and.md") and the [NOT rule statement](waf-rule-statement-type-not.md "waf-rule-statement-type-not.md").
 
 AWS WAF supports the pattern syntax used by the PCRE library `libpcre` with some exceptions. The library is documented at [PCRE - Perl Compatible Regular Expressions](http://www.pcre.org/ "http://www.pcre.org/"). For information about AWS WAF support, see [Supported regular expression syntax in AWS WAF](waf-regex-pattern-support.md "waf-regex-pattern-support.md").
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.
@@ -43,8 +36,7 @@ This statement type operates on a web request component, and requires the follow
 ###### Warning
 
 If you inspect the request components **Body**, **JSON body**, **Headers**, or **Cookies**, read about the limitations on how much content AWS WAF can inspect at
-[Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+[Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 For information about web request components, see [Adjusting rule statement settings in AWS WAF](waf-rule-statement-fields.md "waf-rule-statement-fields.md").
 

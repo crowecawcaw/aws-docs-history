@@ -96,8 +96,7 @@ CAPTCHA JavaScript API in a web application page.
 
 ###### Topics
 
-- [Providing domains for use in the
-  tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md")
+- [Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md")
 - [Using the JavaScript API with content security policies](waf-javascript-api-csp.md "waf-javascript-api-csp.md")
 - [Using the intelligent threat JavaScript API](waf-js-challenge-api.md "waf-js-challenge-api.md")
 - [Using the CAPTCHA JavaScript API](waf-js-captcha-api.md "waf-js-captcha-api.md")

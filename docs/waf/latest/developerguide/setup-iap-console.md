@@ -68,9 +68,7 @@ Now you'll specify which AWS resources to protect with your protection pack (web
 
     For more information about resource types, see [Associating protection with an AWS resource](web-acl-associating.md "web-acl-associating.md").
 
-### Step 4: Choose initial
-
-protections
+### Step 4: Choose initial protections
 
 In this step, you'll select the rules for your protection pack (web ACL). For
 first-time users, we recommend choosing the **Recommended**
@@ -97,8 +95,7 @@ Now you'll configure additional settings like default actions, rate limits, and 
 
 You can't change the name after you create the protection pack (web ACL). 2. Under **Customize protection pack (web ACL)**, configure the following settings:
 
-    1. Under **Default rule actions**, choose the default action for requests that don't match any rules. For more information, see [Customized web requests and responses in
-     AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+    1. Under **Default rule actions**, choose the default action for requests that don't match any rules. For more information, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
     2. Under **Rule configuration**, customize these settings:
 
 

@@ -5,12 +5,14 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 # Traffic overview dashboards for protection packs (web ACLs)
 
-This section describes the protection pack (web ACL) traffic overview dashboards in the AWS WAF console. After
-you associate a protection pack (web ACL) with one or more AWS resources and enable metrics for the protection pack (web ACL), you can access summaries
-of the web traffic that the protection pack (web ACL) evaluates by going to the protection pack (web ACL)'s
+This section describes the protection pack (web ACL) traffic overview dashboards in the AWS WAF
+console. After you associate a protection pack (web ACL) with one or more AWS resources
+and enable metrics for the protection pack (web ACL), you can access summaries of the web
+traffic that the protection pack (web ACL) evaluates by going to the protection pack (web ACL)'s
 **Traffic overview** tab in the AWS WAF console. The dashboards
 include near real-time summaries of the Amazon CloudWatch metrics that AWS WAF collects when it
-evaluates your application web traffic.
+evaluates your application web traffic, including specialized AI bot and agent
+activity analysis.
 
 ###### Note
 
@@ -24,6 +26,9 @@ following categories of information:
   These insights provide richer information, but incur the added costs of querying the
   CloudWatch logs. For information about the additional costs, see
   [Amazon CloudWatch Logs Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+- **AI Traffic Analysis** – Web requests analyzed for AI bot and agent activity, including bot identification,
+  intent classification, access patterns, and temporal trends.
+  This tab is available when your protection pack (web ACL) receives AI bot traffic
 - **All traffic** – All web requests that the protection pack (web ACL) evaluates.
 
 The dashboard focus is on terminating actions, but you can view the matches for count

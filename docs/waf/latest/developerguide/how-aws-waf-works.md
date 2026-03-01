@@ -100,6 +100,20 @@ traffic data:
 - **Local or UTC time** – You can set
   your preferred time format.
 
+**AI Traffic Analysis** – Provides comprehensive visibility
+into AI bot and agent activity:
+
+- **Bot identification** – Bot names, organizations, and
+  verification status.
+- **Intent analysis** – Purpose and behavior patterns of
+  AI agents.
+- **Access patterns** – Most frequently accessed URLs and
+  endpoints.
+- **Temporal trends** – Activity patterns by time of day
+  and historical trends (0-14 days).
+- **Traffic characteristics** – Volume, distribution, and
+  anomaly detection for AI traffic.
+
 **Protection activity** – Visualizes your protection rules
 and how their order contributes to terminating actions.
 

@@ -39,7 +39,5 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Identity and Access Management for AWS Firewall Manager](fms-security-iam.md "fms-security-iam.md")
 - [Logging and monitoring in Firewall Manager](fms-incident-response.md "fms-incident-response.md")
 - [Compliance validation for Firewall Manager](fms-security-compliance.md "fms-security-compliance.md")
-- [Resilience
-  in Firewall Manager](fms-disaster-recovery-resiliency.md "fms-disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Firewall Manager](fms-infrastructure-security.md "fms-infrastructure-security.md")
+- [Resilience in Firewall Manager](fms-disaster-recovery-resiliency.md "fms-disaster-recovery-resiliency.md")
+- [Infrastructure security in AWS Firewall Manager](fms-infrastructure-security.md "fms-infrastructure-security.md")

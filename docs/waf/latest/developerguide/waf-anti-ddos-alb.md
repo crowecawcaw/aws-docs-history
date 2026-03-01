@@ -62,6 +62,5 @@ You can take the following actions to enable observability features for the Appl
 - Use the `Block` action or `Allow` action with custom request headers in the `DefaultAction`. For information, see [Inserting custom request headers for non-blocking actions](customizing-the-incoming-request.md "customizing-the-incoming-request.md").
 - Add any rules to the web ACL. For information, see [AWS WAF rules](waf-rules.md "waf-rules.md").
 - Enable a logging destination. For information, see [Configuring logging for a protection pack (web ACL)](logging-management-configure.md "logging-management-configure.md").
-- Associate the web ACL with an AWS Firewall Manager policy. For information, see [Creating an AWS Firewall Manager policy for
-  AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
+- Associate the web ACL with an AWS Firewall Manager policy. For information, see [Creating an AWS Firewall Manager policy for AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
   AWS WAF will not provide sampled requests or publish CloudWatch metrics without these configurations.

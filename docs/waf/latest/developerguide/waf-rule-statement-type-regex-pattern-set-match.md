@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Regex pattern
-
-set match rule statement
+# Regex pattern set match rule statement
 
 This section explains what a regex pattern set match statement is and how it works.
 
@@ -31,12 +29,9 @@ of the patterns in the set.
 
 If you want to combine your regex pattern matches using logic, for example to
 match against some regular expressions and not match against others, consider
-using [Regex match rule
-statement](waf-rule-statement-type-regex-match.md "waf-rule-statement-type-regex-match.md").
+using [Regex match rule statement](waf-rule-statement-type-regex-match.md "waf-rule-statement-type-regex-match.md").
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.
@@ -53,8 +48,7 @@ This statement type operates on a web request component, and requires the follow
 ###### Warning
 
 If you inspect the request components **Body**, **JSON body**, **Headers**, or **Cookies**, read about the limitations on how much content AWS WAF can inspect at
-[Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+[Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 For information about web request components, see [Adjusting rule statement settings in AWS WAF](waf-rule-statement-fields.md "waf-rule-statement-fields.md").
 

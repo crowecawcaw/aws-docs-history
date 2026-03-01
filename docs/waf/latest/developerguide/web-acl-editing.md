@@ -184,8 +184,7 @@ components.
 
     	+ Custom response bodies that are available for use
     	 by your web ACL rules that have the action set to
-    	 Block. For more information, see [Sending custom responses for Block
-    	 actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md").
+    	 Block. For more information, see [Sending custom responses for Block actions](customizing-the-response-for-blocked-requests.md "customizing-the-response-for-blocked-requests.md").
     * **Logging and metrics** tab
 
 

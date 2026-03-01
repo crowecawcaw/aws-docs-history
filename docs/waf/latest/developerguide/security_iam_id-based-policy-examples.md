@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Identity-based policy examples for
-
-AWS WAF
+# Identity-based policy examples for AWS WAF
 
 This section provides identity-based policy examples for AWS WAF.
 
@@ -21,26 +19,16 @@ For details about actions and resource types defined by AWS WAF, including the f
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS WAF
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Grant read-only
-  access to AWS WAF, CloudFront, and CloudWatch](#security_iam_id-based-policy-examples-read-only1 "#security_iam_id-based-policy-examples-read-only1")
-- [Grant full access
-  to AWS WAF, CloudFront, and CloudWatch](#security_iam_id-based-policy-examples-full-access1 "#security_iam_id-based-policy-examples-full-access1")
-- [Grant access
-  to a single AWS account](#security_iam_id-based-policy-examples-access-to-account "#security_iam_id-based-policy-examples-access-to-account")
-- [Grant access
-  to a single protection pack (web ACL)](#security_iam_id-based-policy-examples-access-to-web-acl "#security_iam_id-based-policy-examples-access-to-web-acl")
-- [Grant CLI
-  access to a protection pack (web ACL) and rule group](#security_iam_id-based-policy-examples-cli-access-to-web-acl "#security_iam_id-based-policy-examples-cli-access-to-web-acl")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS WAF console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Grant read-only access to AWS WAF, CloudFront, and CloudWatch](#security_iam_id-based-policy-examples-read-only1 "#security_iam_id-based-policy-examples-read-only1")
+- [Grant full access to AWS WAF, CloudFront, and CloudWatch](#security_iam_id-based-policy-examples-full-access1 "#security_iam_id-based-policy-examples-full-access1")
+- [Grant access to a single AWS account](#security_iam_id-based-policy-examples-access-to-account "#security_iam_id-based-policy-examples-access-to-account")
+- [Grant access to a single protection pack (web ACL)](#security_iam_id-based-policy-examples-access-to-web-acl "#security_iam_id-based-policy-examples-access-to-web-acl")
+- [Grant CLI access to a protection pack (web ACL) and rule group](#security_iam_id-based-policy-examples-cli-access-to-web-acl "#security_iam_id-based-policy-examples-cli-access-to-web-acl")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS WAF resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -73,9 +61,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS WAF
-
-console
+## Using the AWS WAF console
 
 To access the AWS WAF console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS WAF resources
@@ -93,9 +79,7 @@ entities. For information about this managed policy, see [AWS managed policy: AW
 information about attaching a managed policy to a user, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -135,9 +119,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Grant read-only
-
-access to AWS WAF, CloudFront, and CloudWatch
+## Grant read-only access to AWS WAF, CloudFront, and CloudWatch
 
 The following policy grants users read-only access to AWS WAF resources, to
 Amazon CloudFront web distributions, and to Amazon CloudWatch metrics. It's useful for users who need
@@ -179,9 +161,7 @@ resources.
 
 ```
 
-## Grant full access
-
-to AWS WAF, CloudFront, and CloudWatch
+## Grant full access to AWS WAF, CloudFront, and CloudWatch
 
 The following policy lets users perform any AWS WAF operation, perform any
 operation on CloudFront web distributions, and monitor metrics and a sample of requests in
@@ -236,9 +216,7 @@ We strongly recommend that you configure multi-factor authentication (MFA) for u
 who have administrative permissions. For more information, see [Using Multi-Factor Authentication (MFA)
 Devices with AWS](../../../IAM/latest/UserGuide/Using_ManagingMFA.md "../../../IAM/latest/UserGuide/Using_ManagingMFA.md") in the _IAM User Guide_.
 
-## Grant access
-
-to a single AWS account
+## Grant access to a single AWS account
 
 This policy grants the following permissions to the account
 444455556666:
@@ -285,9 +263,7 @@ JSON
 
 ```
 
-## Grant access
-
-to a single protection pack (web ACL)
+## Grant access to a single protection pack (web ACL)
 
 The following policy lets users perform any AWS WAF operation through the
 console on a specific protection pack (web ACL) in the account `444455556666`.
@@ -323,9 +299,7 @@ JSON
 
 ```
 
-## Grant CLI
-
-access to a protection pack (web ACL) and rule group
+## Grant CLI access to a protection pack (web ACL) and rule group
 
 The following policy lets users perform any AWS WAF operation through the CLI
 on a specific protection pack (web ACL) and a specific rule group in the account `444455556666`.

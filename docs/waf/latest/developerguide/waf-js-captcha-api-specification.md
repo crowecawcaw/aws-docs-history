@@ -3,16 +3,13 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# CAPTCHA JavaScript API
-
-specification
+# CAPTCHA JavaScript API specification
 
 This section lists the specification for the methods and properties of the CAPTCHA JavaScript APIs. Use the
 CAPTCHA JavaScript APIs to run custom CAPTCHA puzzles in your client applications.
 
 This API builds on the intelligent threat APIs, which you use to configure and manage AWS WAF token
-acquisition and use. See [Intelligent threat API
-specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md"). .
+acquisition and use. See [Intelligent threat API specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md"). .
 
 **`AwsWafCaptcha.renderCaptcha(container,
  configuration)`**
@@ -22,8 +19,7 @@ client token with the CAPTCHA validation. This is available only
 with the CAPTCHA integration. Use this call along with the
 intelligent threat APIs to manage token retrieval and to provide the
 token in your `fetch` calls. See the intelligent threat
-APIs at [Intelligent threat API
-specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md").
+APIs at [Intelligent threat API specification](waf-js-challenge-api-specification.md "waf-js-challenge-api-specification.md").
 
 Unlike the CAPTCHA interstitial that AWS WAF sends, the CAPTCHA puzzle rendered by this method displays the puzzle immediately, without an initial title screen.
 

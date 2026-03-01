@@ -27,8 +27,7 @@ see [Enable AWS WAF for distributions](../../../AmazonCloudFront/latest/Develope
 
 If your web traffic includes bodies that are larger than the limit, your
 configured oversize handling will apply. For information about the options for
-oversize handling, see [Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+oversize handling, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 ###### Pricing considerations for increasing the limit setting
 

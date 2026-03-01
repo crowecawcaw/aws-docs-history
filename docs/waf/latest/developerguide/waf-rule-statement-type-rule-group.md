@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Using rule group
-
-statements in AWS WAF
+# Using rule group statements in AWS WAF
 
 This section explains how rule group rule statements work.
 

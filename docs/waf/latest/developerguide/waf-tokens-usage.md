@@ -12,8 +12,7 @@ AWS WAF uses tokens to record and verify the following types of client session v
 - **CAPTCHA** – CAPTCHA puzzles
   help distinguish bots from human users. A CAPTCHA is run only by the
   CAPTCHA rule action. Upon successful completion of the puzzle, the CAPTCHA
-  script updates the token's CAPTCHA timestamp. For more information, see [CAPTCHA and Challenge in
-  AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+  script updates the token's CAPTCHA timestamp. For more information, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 - **Challenge** – Challenges run silently to help
   distinguish regular client sessions from bot sessions and to make it more costly
   for bots to operate. When the challenge completes successfully, the challenge
@@ -25,11 +24,9 @@ AWS WAF runs challenges in the following situations:
     + **Application integration SDKs** – The application
      integration SDKs run inside your client application sessions and help ensure
      that login attempts are only allowed after the client has successfully
-     responded to a challenge. For more information, see [Client application
-     integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+     responded to a challenge. For more information, see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
     + **Challenge rule action** – For more
-     information, see [CAPTCHA and Challenge in
-     AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+     information, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
     + **CAPTCHA** – When a CAPTCHA
      interstitial runs, if the client doesn't have a token yet, the script
      automatically runs a challenge first, to verify the client session

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Version expiration
-
-for managed rule groups
+# Version expiration for managed rule groups
 
 This section explains how version expiration works for a versioned managed rule group.
 

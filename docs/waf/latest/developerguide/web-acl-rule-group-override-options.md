@@ -74,11 +74,9 @@ non-terminating, depending on the state of the token in the request:
      that is designed to distinguish normal browsers from sessions that are
      being run by bots.
 
-For additional information, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+For additional information, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
-For information about how to use this option, see [Overriding rule actions in a rule
-group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
+For information about how to use this option, see [Overriding rule actions in a rule group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
 
 ### Overriding the rule action to Count
 
@@ -149,9 +147,7 @@ OLD SETTING
 OLD SETTING
 ```
 
-## Rule group return action override to
-
-Count
+## Rule group return action override to Count
 
 You can override the action that the rule group returns, setting it to Count.
 
@@ -175,5 +171,4 @@ the protection pack (web ACL) evaluation, this override takes effect. AWS WAF ov
 so that the result of the rule group evaluation is only a Count action.
 AWS WAF then continues processing the rest of the rules in the protection pack (web ACL).
 
-For information about how to use this option, see [Overriding a rule group's evaluation
-result to Count](web-acl-rule-group-settings.md#web-acl-rule-group-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-action-override").
+For information about how to use this option, see [Overriding a rule group's evaluation result to Count](web-acl-rule-group-settings.md#web-acl-rule-group-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-action-override").

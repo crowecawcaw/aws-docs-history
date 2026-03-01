@@ -26,9 +26,7 @@ To get a high-level view of how Firewall Manager and other AWS services work wit
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Firewall Manager
+## Identity-based policies for Firewall Manager
 
 **Supports identity-based policies:**
 
@@ -45,19 +43,13 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-To view examples of Firewall Manager identity-based policies, see [Identity-based policy
-examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
+To view examples of Firewall Manager identity-based policies, see [Identity-based policy examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
 
-###
+### Identity-based policy examples for Firewall Manager
 
-Identity-based policy examples for Firewall Manager
+To view examples of Firewall Manager identity-based policies, see [Identity-based policy examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
 
-To view examples of Firewall Manager identity-based policies, see [Identity-based policy
-examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Firewall Manager
+## Resource-based policies within Firewall Manager
 
 **Supports resource-based policies:**
 
@@ -73,9 +65,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Firewall Manager
+## Policy actions for Firewall Manager
 
 **Supports policy actions:**
 
@@ -113,12 +103,9 @@ action:
 "Action": "fms:Describe*"
 ```
 
-To view examples of Firewall Manager identity-based policies, see [Identity-based policy
-examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
+To view examples of Firewall Manager identity-based policies, see [Identity-based policy examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Firewall Manager
+## Policy resources for Firewall Manager
 
 **Supports policy resources:**
 
@@ -138,12 +125,9 @@ To see a list of Firewall Manager resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Firewall Manager](../../../service-authorization/latest/reference/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions "../../../service-authorization/latest/reference/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions").
 
-To view examples of Firewall Manager identity-based policies, see [Identity-based policy
-examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
+To view examples of Firewall Manager identity-based policies, see [Identity-based policy examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Firewall Manager
+## Policy condition keys for Firewall Manager
 
 **Supports service-specific policy condition keys:**
 
@@ -162,8 +146,7 @@ To see a list of Firewall Manager condition keys, see [Condition keys for AWS Fi
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Firewall Manager](../../../service-authorization/latest/reference/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions "../../../service-authorization/latest/reference/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions").
 
-To view examples of Firewall Manager identity-based policies, see [Identity-based policy
-examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
+To view examples of Firewall Manager identity-based policies, see [Identity-based policy examples for AWS Firewall Manager](fms-security_iam_id-based-policy-examples.md "fms-security_iam_id-based-policy-examples.md").
 
 ## ACLs in Firewall Manager
 
@@ -191,9 +174,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Firewall Manager
+## Using temporary credentials with Firewall Manager
 
 **Supports temporary credentials:**
 
@@ -214,9 +195,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Firewall Manager
+## Service roles for Firewall Manager
 
 **Supports service roles:**
 
@@ -231,9 +210,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Firewall Manager functionality.
 Edit service roles only when Firewall Manager provides guidance to do so.
 
-### Choosing an IAM role
-
-in Firewall Manager
+### Choosing an IAM role in Firewall Manager
 
 To use the `PutNotificationChannel` API action in Firewall Manager, you
 must choose a role to allow Firewall Manager to access Amazon SNS so that the service can publish Amazon SNS messages on your behalf. For more information, see
@@ -256,9 +233,7 @@ The following shows an example SNS topic permission setting. To use this policy 
 For more information about Firewall Manager actions and resources, see the AWS Identity and Access Management guide topic
 [Actions Defined by AWS Firewall Manager](../../../IAM/latest/UserGuide/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsfirewallmanager.md#awsfirewallmanager-actions-as-permissions")
 
-## Service-linked
-
-roles for Firewall Manager
+## Service-linked roles for Firewall Manager
 
 **Supports service-linked roles:**
 

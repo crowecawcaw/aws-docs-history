@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Infrastructure security in
-
-AWS Firewall Manager
+# Infrastructure security in AWS Firewall Manager
 
 As a managed service, AWS Firewall Manager is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

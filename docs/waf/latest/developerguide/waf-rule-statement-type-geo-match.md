@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Geographic match rule
-
-statement
+# Geographic match rule statement
 
 This section explains what a geographic match statement is and how it works.
 
@@ -31,8 +29,7 @@ To filter traffic from Hong Kong, use the ISO 3166-1 alpha-2 country code `HK` i
   label match rule to manage requests based on their region of origin. You
   can't use a geo match rule alone to match against region codes.
 
-For information about using label match rules, see [Label match rule
-statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+For information about using label match rules, see [Label match rule statement](waf-rule-statement-type-label-match.md "waf-rule-statement-type-label-match.md") and [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 
 ## How the geo match statement works
 

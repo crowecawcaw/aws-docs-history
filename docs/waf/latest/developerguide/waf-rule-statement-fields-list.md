@@ -37,42 +37,35 @@ the following locations:
 
 ###### Topics
 
-- [HTTP
-  method](#waf-rule-statement-request-component-http-method "#waf-rule-statement-request-component-http-method")
-- [Single
-  header](#waf-rule-statement-request-component-single-header "#waf-rule-statement-request-component-single-header")
+- [HTTP method](#waf-rule-statement-request-component-http-method "#waf-rule-statement-request-component-http-method")
+- [Single header](#waf-rule-statement-request-component-single-header "#waf-rule-statement-request-component-single-header")
 - [All headers](#waf-rule-statement-request-component-headers "#waf-rule-statement-request-component-headers")
 - [Header order](#waf-rule-statement-request-component-header-order "#waf-rule-statement-request-component-header-order")
 - [Cookies](#waf-rule-statement-request-component-cookies "#waf-rule-statement-request-component-cookies")
 - [URI fragment](#waf-rule-statement-request-component-uri-fragment "#waf-rule-statement-request-component-uri-fragment")
-- [URI
-  path](#waf-rule-statement-request-component-uri-path "#waf-rule-statement-request-component-uri-path")
+- [URI path](#waf-rule-statement-request-component-uri-path "#waf-rule-statement-request-component-uri-path")
 - [JA3 fingerprint](#waf-rule-statement-request-component-ja3-fingerprint "#waf-rule-statement-request-component-ja3-fingerprint")
 - [JA4 fingerprint](#waf-rule-statement-request-component-ja4-fingerprint "#waf-rule-statement-request-component-ja4-fingerprint")
-- [Query
-  string](#waf-rule-statement-request-component-query-string "#waf-rule-statement-request-component-query-string")
+- [Query string](#waf-rule-statement-request-component-query-string "#waf-rule-statement-request-component-query-string")
 - [Single query parameter](#waf-rule-statement-request-component-single-query-param "#waf-rule-statement-request-component-single-query-param")
 - [All query parameters](#waf-rule-statement-request-component-all-query-params "#waf-rule-statement-request-component-all-query-params")
 - [Body](#waf-rule-statement-request-component-body "#waf-rule-statement-request-component-body")
 - [JSON body](#waf-rule-statement-request-component-json-body "#waf-rule-statement-request-component-json-body")
 
-## HTTP
-
-method
+## HTTP method
 
 Inspects the HTTP method for the request. The HTTP method indicates the
 type of operation that the web request is asking your protected resource to
 perform, such as `POST` or `GET`.
 
-## Single
-
-header
+## Single header
 
 Inspects a single named header in the request.
 
 For this option, you specify the header name, for
-example, `User-Agent` or `Referer`. The string match
-for the name is not case sensitive.
+example, `User-Agent` or `Referer`. The string match for
+the name is not case sensitive and is performed after trimming leading and
+trailing spaces from both the request header and the rule.
 
 ## All headers
 
@@ -90,11 +83,15 @@ The match patterns setting can be one of the following:
     + **All** –
      Match all keys. Evaluate the rule inspection criteria for all headers.
     + **Excluded headers** – Inspect only the headers whose keys
-     don't match any of the strings that you specify here. The
-     string match for a key is not case sensitive.
+     don't match any of the strings that you specify here. The string
+     match for a key is not case sensitive. The matching is performed
+     after trimming the leading and trailing spaces from request
+     header and the match rule.
     + **Included headers** – Inspect only the headers that have a
-     key that matches one of the strings that you specify here.
-     The string match for a key is not case sensitive.
+     key that matches one of the strings that you specify here. The
+     string match for a key is not case sensitive. The matching is
+     performed after trimming the leading and trailing spaces from
+     request header and the match rule.
 
 - **Match scope** – The
   parts of the headers that AWS WAF should inspect with the rule inspection criteria.
@@ -112,8 +109,7 @@ that inspects the keys and another that inspects the values.
   requests that have header data that is larger than AWS WAF can
   inspect. AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request headers and at most the first 200 headers. The content is available for inspection by AWS WAF up to the first limit reached. You can choose to continue the inspection, or to
   skip inspection and mark the request as matching or not matching the rule.
-  For more information about handling oversize content, see [Oversize web request components
-  in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+  For more information about handling oversize content, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 ## Header order
 
@@ -129,8 +125,7 @@ For this option, you provide the following specifications:
   requests that have header data that is more numerous or larger than AWS WAF can
   inspect. AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request headers and at most the first 200 headers. The content is available for inspection by AWS WAF up to the first limit reached. You can choose to continue inspecting the headers that are available, or to
   skip inspection and mark the request as matching or not matching the rule.
-  For more information about handling oversize content, see [Oversize web request components
-  in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+  For more information about handling oversize content, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 ## Cookies
 
@@ -170,8 +165,7 @@ that inspects the keys and another that inspects the values.
   requests that have cookie data that is larger than AWS WAF can
   inspect. AWS WAF can inspect at most the first 8 KB (8,192 bytes) of the request cookies and at most the first 200 cookies. The content is available for inspection by AWS WAF up to the first limit reached. You can choose to continue the inspection, or to
   skip inspection and mark the request as matching or not matching the rule.
-  For more information about handling oversize content, see [Oversize web request components
-  in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+  For more information about handling oversize content, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 ## URI fragment
 
@@ -194,9 +188,7 @@ You must provide a fallback behavior for this rule statement. The fallback behav
 is missing the fragment or associated service is not Application Load Balancer or CloudFront. If you choose to match, AWS WAF treats the request as matching the rule statement and applies the rule action to the request.
 If you choose to not match, AWS WAF treats the request as not matching the rule statement.
 
-## URI
-
-path
+## URI path
 
 Inspects the part of a URL that identifies a resource, for example,
 `/images/daily-ad.jpg`. For information, see [Uniform Resource
@@ -233,8 +225,7 @@ that's set to exactly match the
 string that you provide. Provide
 the JA3 fingerprint string from the logs in your string match statement
 specification, to match with any future requests that have the same TLS configuration. For information about the string match statement,
-see [String match rule
-statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
+see [String match rule statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
 
 You must provide a fallback behavior for this rule statement. The fallback behavior is
 the match status that you want AWS WAF to assign to the web request if AWS WAF
@@ -274,8 +265,7 @@ that's set to exactly match the
 string that you provide. Provide
 the JA4 fingerprint string from the logs in your string match statement
 specification, to match with any future requests that have the same TLS configuration. For information about the string match statement,
-see [String match rule
-statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
+see [String match rule statement](waf-rule-statement-type-string-match.md "waf-rule-statement-type-string-match.md").
 
 You must provide a fallback behavior for this rule statement. The fallback behavior is
 the match status that you want AWS WAF to assign to the web request if AWS WAF
@@ -286,9 +276,7 @@ as not matching the rule statement.
 
 To use this match option, you must log your protection pack (web ACL) traffic. For information, see [Logging AWS WAF protection pack (web ACL) traffic](logging.md "logging.md").
 
-## Query
-
-string
+## Query string
 
 Inspects the part of the URL that appears after a `?`
 character, if any.
@@ -359,8 +347,7 @@ You must specify oversize handling for this component type. Oversize handling de
 AWS WAF handles requests that have body data that is larger than AWS WAF can
 inspect. You can choose to continue the inspection, or to skip inspection
 and mark the request as matching or not matching the rule. For more
-information about handling oversize content, see [Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+information about handling oversize content, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 You can also evaluate the body as parsed JSON. For information
 about this, see the section that follows.
@@ -390,8 +377,7 @@ You must specify oversize handling for this component type. Oversize
 handling defines how AWS WAF handles requests that have body data that is
 larger than AWS WAF can inspect. You can choose to continue the inspection, or
 to skip inspection and mark the request as matching or not matching the
-rule. For more information about handling oversize content, see [Oversize web request components
-in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
+rule. For more information about handling oversize content, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md "waf-oversize-request-components.md").
 
 Choosing this option doubles the match statement's base cost WCUs. For
 example, if the match statement base cost is 5 WCUs without JSON parsing, using

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Determining the version of AWS WAF that's
-
-used by a Shield Advanced policy
+# Determining the version of AWS WAF that's used by a Shield Advanced policy
 
 This page explains how to determine which version of AWS WAF web ACL your Shield Advanced policy uses.
 

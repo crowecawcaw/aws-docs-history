@@ -72,9 +72,7 @@ AWS WAF generates a response that it sends back to the client, according to the 
 
 To configure the timing of token expiration at the protection pack (web ACL) or rule level, see [Setting timestamp expiration and token immunity times in AWS WAF](waf-tokens-immunity-times.md "waf-tokens-immunity-times.md").
 
-###### Headers are unavailable to JavaScript applications that run in the client
-
-browser
+###### Headers are unavailable to JavaScript applications that run in the client browser
 
 When AWS WAF responds to a client request with a CAPTCHA or challenge
 response, it doesn't include cross-origin resource sharing (CORS) headers. CORS

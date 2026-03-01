@@ -15,5 +15,4 @@ With this second option, Firewall Manager only creates new web ACLs for resource
 
 Regardless of how they're created, in the web ACLs that Firewall Manager manages, individual accounts can manage their own rules and rule groups, in addition to the rule groups that you define in the Firewall Manager policy.
 
-For the procedure to create a Firewall Manager AWS WAF policy, see [Creating an AWS Firewall Manager policy for
-AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").
+For the procedure to create a Firewall Manager AWS WAF policy, see [Creating an AWS Firewall Manager policy for AWS WAF](create-policy.md#creating-firewall-manager-policy-for-waf "create-policy.md#creating-firewall-manager-policy-for-waf").

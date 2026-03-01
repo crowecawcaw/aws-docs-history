@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Release candidate
-
-deployments for AWS Managed Rules
+# Release candidate deployments for AWS Managed Rules
 
 This section explains how a temporary release candidate deployment works.
 

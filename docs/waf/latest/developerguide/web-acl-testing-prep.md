@@ -84,8 +84,7 @@ requests will add labels regardless of the rule action.
       },
     ```
 
-    For more information about rule action overrides, see [Overriding rule actions in a rule
-     group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
+    For more information about rule action overrides, see [Overriding rule actions in a rule group](web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override "web-acl-rule-group-settings.md#web-acl-rule-group-rule-action-override").
 
 
     For your own rule group, don't modify the rule actions in the rule group itself. Rule

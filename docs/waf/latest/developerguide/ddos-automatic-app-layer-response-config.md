@@ -35,9 +35,7 @@ following:
   information about rate-based rules, including custom request aggregation options and
   examples, see [Using rate-based rule statements in AWS WAF](waf-rule-statement-type-rate-based.md "waf-rule-statement-type-rate-based.md").
 
-## What happens
-
-when you enable automatic mitigation
+## What happens when you enable automatic mitigation
 
 Shield Advanced does the following when you enable automatic mitigation:
 
@@ -51,8 +49,7 @@ rule group always contains a rate-based rule named
 `ShieldKnownOffenderIPRateBasedRule`, which limits the
 volume of requests from IP addresses that are known to be sources of
 DDoS attacks. For additional details about the Shield Advanced rule group and
-the web ACL rule that references it, see [Protecting the application layer with the Shield Advanced
-rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
+the web ACL rule that references it, see [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
 
 - **Starts responding to DDoS attacks against the resource**
   – Shield Advanced automatically responds to DDoS attacks for the

@@ -27,8 +27,7 @@ Situations where you might encounter false positives include the following:
 - The Bot Control managed rule group verifies bots using the IP addresses from AWS WAF.
   If you use Bot Control and you have verified bots that route through a proxy or load
   balancer, you might need to explicitly allow them using a custom rule. For
-  information about how to create a custom rule of this type, see [Using forwarded IP
-  addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
+  information about how to create a custom rule of this type, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md").
 - A Bot Control rule with a low global false positive rate might heavily impact specific devices
   or applications. For example, in testing and validation, we might not have
   observed requests from applications with low traffic volumes or from less common

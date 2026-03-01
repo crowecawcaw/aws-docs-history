@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Bot Control example: Using Bot Control only for the
-
-login page
+# Bot Control example: Using Bot Control only for the login page
 
 The following example uses a scope-down statement to apply AWS WAF Bot Control only for traffic
 that's coming to a website's login page, which is identified by the URI path

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Bot Control example:
-
-Blocking verified bots
+# Bot Control example: Blocking verified bots
 
 In order to block verified bots, you must add a rule to block them that runs after the
 AWS WAF Bot Control managed rule group. To do this, identify the bot names that you want to

@@ -66,8 +66,7 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
       If you want to customize the request or response,
       choose the options for that and fill in the details
       of your customization. For more information, see
-      [Customized web requests and responses in
-      AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+      [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
 
       If you want to have your rule add labels to
       matching web requests, choose the options for that
@@ -160,8 +159,7 @@ rule actions, configurations, and logging destination:
     1. (Optional) Under **Default rule actions**, choose the default action for the
      protection pack (web ACL). This is the action that AWS WAF takes on a
      request when the rules in the protection pack (web ACL) don't
-     explicitly take an action. For more information, see [Customized web requests and responses in
-     AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+     explicitly take an action. For more information, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
     2. (Optional) Under Rule configuration, customize settings for rules in the
      protection pack (web ACL):
 
@@ -355,8 +353,7 @@ This procedure covers the **Rule visual editor**.
 
     If you want to customize the request or response, choose the
      options for that and fill in the details of your customization. For
-     more information, see [Customized web requests and responses in
-     AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+     more information, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
 
 
     If you want to have your rule add labels to matching web requests,
@@ -370,8 +367,7 @@ This procedure covers the **Rule visual editor**.
 
 If you want to customize the default action, choose the options for that
 and fill in the details of your customization. For more information, see
-[Customized web requests and responses in
-AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 15. You can define a **Token domain list** to enable token sharing between
+[Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 15. You can define a **Token domain list** to enable token sharing between
 protected applications. Tokens are used by the CAPTCHA and
 Challenge actions and by the application integration SDKs that you
 implement when you use the AWS Managed Rules rule groups for AWS WAF Fraud Control account creation fraud prevention (ACFP), AWS WAF Fraud Control account takeover prevention (ATP), and AWS WAF Bot Control.

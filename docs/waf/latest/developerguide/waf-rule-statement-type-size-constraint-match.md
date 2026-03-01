@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Size constraint
-
-rule statement
+# Size constraint rule statement
 
 This section explains what a size constraint statement is and how it works.
 
@@ -22,9 +20,7 @@ If you inspect the URI path, any `/` in the path counts as one character. For ex
 
 This statement only inspects the size of the web request component. It doesn't inspect the contents of the component.
 
-## Rule statement
-
-characteristics
+## Rule statement characteristics
 
 **Nestable** – You can nest this statement
 type.

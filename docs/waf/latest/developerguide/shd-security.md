@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Security
-
-in your use of the AWS Shield service
+# Security in your use of the AWS Shield service
 
 This section explains how the shared responsibility model applies to AWS Shield.
 
@@ -43,5 +41,4 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Logging and monitoring in Shield](shd-incident-response.md "shd-incident-response.md")
 - [Validating compliance in Shield](shd-security-compliance.md "shd-security-compliance.md")
 - [Building for resilience in Shield](shd-disaster-recovery-resiliency.md "shd-disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Shield](shd-infrastructure-security.md "shd-infrastructure-security.md")
+- [Infrastructure security in AWS Shield](shd-infrastructure-security.md "shd-infrastructure-security.md")

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Best practices for using health checks with
-
-Shield Advanced
+# Best practices for using health checks with Shield Advanced
 
 Follow the best practices in this section when you create and use health checks with
 Shield Advanced.

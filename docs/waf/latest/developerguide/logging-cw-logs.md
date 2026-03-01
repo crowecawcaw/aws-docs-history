@@ -57,9 +57,7 @@ Region `us-east-1`.
 us-east-1_TestWebACL_0
 ```
 
-## Permissions required to publish logs to
-
-CloudWatch Logs
+## Permissions required to publish logs to CloudWatch Logs
 
 Configuring protection pack (web ACL) traffic logging for a CloudWatch Logs log group requires the
 permissions settings described in this section. The permissions are set for you when you use

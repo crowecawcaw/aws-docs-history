@@ -24,9 +24,7 @@ own rule groups. For information about managed rule groups, see [AWS Marketplace
 
 To create your own rule group, perform the following procedure.
 
-###### To create a rule group
-
-(console)
+###### To create a rule group (console)
 
 1. Sign in to the AWS Management Console using the AWS Firewall Manager administrator account that you
    set up in the prerequisites, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fms](https://console.aws.amazon.com/wafv2/fms "https://console.aws.amazon.com/wafv2/fms").
@@ -47,4 +45,4 @@ that allows you to choose whether to allow, block, or count requests that match
 the rule's conditions. For this tutorial, choose **Count**.
 Repeat adding rules until you have added all the rules that you want to the rule
 group. 13. Choose **Create**.
-You are now ready to go to [Step 4: Create and apply an AWS Firewall ManagerAWS WAF Classic policy](classic-get-started-fms-create-security-policy.md "classic-get-started-fms-create-security-policy.md").
+You are now ready to go to [Step 4: Create and apply an AWS Firewall Manager AWS WAF Classic policy](classic-get-started-fms-create-security-policy.md "classic-get-started-fms-create-security-policy.md").

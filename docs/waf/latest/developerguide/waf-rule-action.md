@@ -66,10 +66,8 @@ non-terminating, depending on the state of the token in the request:
      that is designed to distinguish normal browsers from sessions that are
      being run by bots.
 
-For additional information, see [CAPTCHA and Challenge in
-AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
-For information about customizing requests and responses, see [Customized web requests and responses in
-AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
+For additional information, see [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+For information about customizing requests and responses, see [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md").
 
 For information about adding labels to matching requests, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 

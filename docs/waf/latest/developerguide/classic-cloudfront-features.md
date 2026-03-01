@@ -27,10 +27,8 @@ CloudFront to make CloudFront and AWS WAF Classic work better together.
 ###### Topics
 
 - [Using AWS WAF Classic with CloudFront custom error pages](#classic-cloudfront-features-custom-error-pages "#classic-cloudfront-features-custom-error-pages")
-- [Using AWS WAF Classic with CloudFront
-  for applications running on your own HTTP server](#classic-cloudfront-features-your-own-http-server "#classic-cloudfront-features-your-own-http-server")
-- [Choosing the HTTP methods that CloudFront
-  responds to](#classic-cloudfront-features-allowed-http-methods "#classic-cloudfront-features-allowed-http-methods")
+- [Using AWS WAF Classic with CloudFront for applications running on your own HTTP server](#classic-cloudfront-features-your-own-http-server "#classic-cloudfront-features-your-own-http-server")
+- [Choosing the HTTP methods that CloudFront responds to](#classic-cloudfront-features-allowed-http-methods "#classic-cloudfront-features-allowed-http-methods")
 
 ## Using AWS WAF Classic with CloudFront custom error pages
 
@@ -54,9 +52,7 @@ code 403.
 For more information about CloudFront custom error pages, see
 [Customizing Error Responses](../../../AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.md "../../../AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.md") in the _Amazon CloudFront Developer Guide_.
 
-## Using AWS WAF Classic with CloudFront
-
-for applications running on your own HTTP server
+## Using AWS WAF Classic with CloudFront for applications running on your own HTTP server
 
 When you use AWS WAF Classic with CloudFront, you can protect your applications
 running on any HTTP webserver, whether it's a webserver that's running in Amazon Elastic Compute Cloud (Amazon EC2) or a webserver that you
@@ -92,9 +88,7 @@ name, for example *https://www.mysite.com*. For
 more information, see the topic [Configuring Alternate Domain
 Names and HTTPS](../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.md "../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.md") in the _Amazon CloudFront Developer Guide_.
 
-## Choosing the HTTP methods that CloudFront
-
-responds to
+## Choosing the HTTP methods that CloudFront responds to
 
 When you create an Amazon CloudFront web distribution, you choose the HTTP methods that you want CloudFront to process and forward to
 your origin. You can choose from the following options:

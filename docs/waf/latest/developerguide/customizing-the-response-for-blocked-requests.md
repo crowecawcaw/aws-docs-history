@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Sending custom responses for Block
-
-actions
+# Sending custom responses for Block actions
 
 This section explains how to instruct AWS WAF to send a custom HTTP response back to the client for rule actions or
 protection pack (web ACL) default actions that are set to Block. For more information about
@@ -14,8 +12,7 @@ more information about default protection pack (web ACL) actions, see [Setting t
 
 When you define custom response handling for a Block action, you define the status code,
 headers, and response body. For a list of status codes that you can use with AWS WAF, see
-the section that follows, [Supported status codes for
-custom responses](customizing-the-response-status-codes.md "customizing-the-response-status-codes.md").
+the section that follows, [Supported status codes for custom responses](customizing-the-response-status-codes.md "customizing-the-response-status-codes.md").
 
 ###### Use cases
 

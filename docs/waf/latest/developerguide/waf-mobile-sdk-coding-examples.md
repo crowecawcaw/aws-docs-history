@@ -112,8 +112,7 @@ specifying the token cookie path, for example, `/web/login`. If you
 do this, check that your AWS WAF rules don't inspect for tokens in the requests
 that you send to other paths. When you use the `AWSManagedRulesACFPRuleSet` rule group, you
 configure the account registration and creation paths, and the rule group checks for tokens in requests that
-are sent to those paths. For more information, see [Adding the ACFP managed rule group to your web
-ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md"). Similarly, when you use the `AWSManagedRulesATPRuleSet` rule group, you
+are sent to those paths. For more information, see [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md"). Similarly, when you use the `AWSManagedRulesATPRuleSet` rule group, you
 configure the login path, and the rule group checks for tokens in requests that
 are sent to that path. For more information, see [Adding the ATP managed rule group to your protection pack (web ACL)](waf-atp-rg-using.md "waf-atp-rg-using.md").
 

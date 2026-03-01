@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Best practices for
-
-using automatic application layer DDoS mitigation
+# Best practices for using automatic application layer DDoS mitigation
 
 Adhere to the guidance provided in this section when you use
 automatic mitigation.
@@ -34,11 +32,9 @@ automatic mitigation protections.
 ###### Detection and mitigation optimization
 
 Follow these guidelines to optimize the protections that automatic mitigation provides to protected resources. For
-an overview of application layer detection and mitigation, see [List of factors that affect application layer event detection and
-mititgation with Shield Advanced](ddos-app-layer-detection-mitigation.md "ddos-app-layer-detection-mitigation.md").
+an overview of application layer detection and mitigation, see [List of factors that affect application layer event detection and mititgation with Shield Advanced](ddos-app-layer-detection-mitigation.md "ddos-app-layer-detection-mitigation.md").
 
-- Configure health checks for your protected resources and use them to enable health-based detection in your Shield Advanced protections. For guidance, see [Health-based detection using
-  health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+- Configure health checks for your protected resources and use them to enable health-based detection in your Shield Advanced protections. For guidance, see [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
 - Enable automatic mitigation in Count mode until Shield Advanced has established a baseline for normal, historic traffic. Shield Advanced needs from 24 hours to 30 days to establish a baseline.
 
 Establishing a baseline of normal traffic patterns requires the following:
@@ -74,8 +70,7 @@ automatic mitigation.
   settings. During this time, the Shield Advanced console pages will provide
   incorrect information.
 
-For more information about the rule group, see [Protecting the application layer with the Shield Advanced
-rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
+For more information about the rule group, see [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
 
 - Don't modify the name of a rule group rule
   whose name starts with `ShieldMitigationRuleGroup`.
@@ -97,5 +92,4 @@ rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-re
   the priority settings as needed after you add rules to the web ACL.
 - If you use AWS CloudFormation to manage your web ACLs, you don't need to manage the
   `ShieldMitigationRuleGroup` rule group rule.
-  Follow the guidance at [Using AWS CloudFormation with
-  automatic application layer DDoS mitigation](manage-automatic-mitigation-in-cfn.md "manage-automatic-mitigation-in-cfn.md").
+  Follow the guidance at [Using AWS CloudFormation with automatic application layer DDoS mitigation](manage-automatic-mitigation-in-cfn.md "manage-automatic-mitigation-in-cfn.md").

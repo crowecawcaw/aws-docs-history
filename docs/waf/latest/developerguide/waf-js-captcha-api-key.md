@@ -34,8 +34,7 @@ is an exact match and the API key `myApex.com` is the apex domain. Either key
 matches the token domain.
 
 For information about the setting the token domain list, see
-[Providing domains for use in the
-tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
+[Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
 
 - Otherwise, the current domain must be contained in the API key. The
   current domain is the domain that you can see in the browser address

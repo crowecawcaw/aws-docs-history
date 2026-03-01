@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Health-based detection using
-
-health checks with Shield Advanced and Route 53
+# Health-based detection using health checks with Shield Advanced and Route 53
 
 You can configure Shield Advanced to use health-based detection for improved responsiveness and
 accuracy in attack detection and mitigation. You can use this option with any resource type
@@ -74,16 +72,13 @@ The following are required to use a health check with Shield Advanced:
 
 ###### Contents
 
-- [Best practices for using health checks with
-  Shield Advanced](health-checks-best-practices.md "health-checks-best-practices.md")
+- [Best practices for using health checks with Shield Advanced](health-checks-best-practices.md "health-checks-best-practices.md")
 - [CloudWatch metrics commonly used for health checks with Shield Advanced](health-checks-metrics.md "health-checks-metrics.md")
   - [Metrics used to monitor application health](health-checks-metrics.md#health-checks-metrics-common "health-checks-metrics.md#health-checks-metrics-common")
   - [Amazon CloudWatch metrics for each resource type](health-checks-metrics.md#health-checks-protected-resource-metrics "health-checks-metrics.md#health-checks-protected-resource-metrics")
 
-- [Associating a health check with your
-  resource protected by Shield Advanced](associate-health-check.md "associate-health-check.md")
-- [Disassociating a health check from your
-  resource protected by Shield Advanced](disassociate-health-check.md "disassociate-health-check.md")
+- [Associating a health check with your resource protected by Shield Advanced](associate-health-check.md "associate-health-check.md")
+- [Disassociating a health check from your resource protected by Shield Advanced](disassociate-health-check.md "disassociate-health-check.md")
 - [Viewing health check association status in Shield Advanced](health-check-association-status.md "health-check-association-status.md")
 - [Health check examples for Shield Advanced](health-checks-examples.md "health-checks-examples.md")
   - [Amazon CloudFront distributions](health-checks-examples.md#health-checks-example-cloudfront "health-checks-examples.md#health-checks-example-cloudfront")

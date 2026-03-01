@@ -92,9 +92,7 @@ The following lists the types of permissions in the policy and the information t
 
 Grants read-only access to AWS Firewall Manager member resources. For the policy listing and details, see the IAM console at [AWSFMMemberReadOnlyAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSFMMemberReadOnlyAccess$serviceLevelSummary "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSFMMemberReadOnlyAccess$serviceLevelSummary").
 
-## Firewall Manager updates to AWS managed
-
-policies
+## Firewall Manager updates to AWS managed policies
 
 View details about updates to AWS managed policies for Firewall Manager since this
 service began tracking these changes. For automatic alerts about changes to this page,

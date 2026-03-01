@@ -12,11 +12,9 @@ AWS WAF stores some more complex information in sets that you use by referencing
 You can use a managed set in a rule group or protection pack (web ACL).
 
 - To use an IP set, see
-  [IP set match rule
-  statement](waf-rule-statement-type-ipset-match.md "waf-rule-statement-type-ipset-match.md").
+  [IP set match rule statement](waf-rule-statement-type-ipset-match.md "waf-rule-statement-type-ipset-match.md").
 - To use a regex pattern set see
-  [Regex pattern
-  set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md").
+  [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md "waf-rule-statement-type-regex-pattern-set-match.md").
 
 ###### Temporary inconsistencies during updates
 

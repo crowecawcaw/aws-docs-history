@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# AWS Shield Advanced mitigation logic
-
-for Elastic IPs
+# AWS Shield Advanced mitigation logic for Elastic IPs
 
 This page explains how Shield event mitigation logic works for Elastic IPs with AWS Shield Advanced.
 When you protect an Elastic IP (EIP) with AWS Shield Advanced, Shield Advanced enhances the mitigations

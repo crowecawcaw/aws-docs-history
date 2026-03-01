@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Best practices for intelligent
-
-threat mitigation in AWS WAF
+# Best practices for intelligent threat mitigation in AWS WAF
 
 Follow the best practices in this section for the most efficient, cost-effective
 implementation of the intelligent threat mitigation features.
@@ -24,13 +22,11 @@ implementation of the intelligent threat mitigation features.
 
   Use the integrations to implement challenges in your client and, for JavaScript, to
   customize how CAPTCHA puzzles are presented to your end users. For details,
-  see [Client application
-  integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+  see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 
 If you customize CAPTCHA puzzles using the JavaScript API and you use the
 CAPTCHA rule action anywhere in your protection pack (web ACL), follow the guidance for
-handling the AWS WAF CAPTCHA response in your client at [Handling a CAPTCHA
-response from AWS WAF](waf-js-captcha-api-conditional.md "waf-js-captcha-api-conditional.md"). This guidance applies to
+handling the AWS WAF CAPTCHA response in your client at [Handling a CAPTCHA response from AWS WAF](waf-js-captcha-api-conditional.md "waf-js-captcha-api-conditional.md"). This guidance applies to
 any rules that use the CAPTCHA action, including those in the ACFP managed
 rule group and the targeted protection level of the Bot Control managed rule group.
 

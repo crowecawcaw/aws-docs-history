@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Retrieving the available versions for a managed rule
-
-group
+# Retrieving the available versions for a managed rule group
 
 The available versions of a managed rule group are versions that haven't yet
 been scheduled to expire. The list indicates which version is the current default version for the rule group.

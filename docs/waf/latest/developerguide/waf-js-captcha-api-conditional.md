@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Handling a CAPTCHA
-
-response from AWS WAF
+# Handling a CAPTCHA response from AWS WAF
 
 This section provides an example of handling a CAPTCHA
 response.

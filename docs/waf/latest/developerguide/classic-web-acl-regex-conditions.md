@@ -29,8 +29,7 @@ allow or block requests that contain the pattern.
 ###### Topics
 
 - [Creating a regex match condition](#classic-web-acl-regex-conditions-creating "#classic-web-acl-regex-conditions-creating")
-- [Values that you specify when you create or
-  edit RegEx match conditions](#classic-web-acl-regex-conditions-values "#classic-web-acl-regex-conditions-values")
+- [Values that you specify when you create or edit RegEx match conditions](#classic-web-acl-regex-conditions-values "#classic-web-acl-regex-conditions-values")
 - [Editing a regex match condition](#classic-web-acl-regex-conditions-editing "#classic-web-acl-regex-conditions-editing")
 
 ## Creating a regex match condition
@@ -63,12 +62,9 @@ AWS WAF Classic supports most [standard Perl Compatible Regular Expressions (PCR
    [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
 
 If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. In the navigation pane, choose **String and regex matching**. 3. Choose **Create condition**. 4. Specify the applicable filter settings. For more information, see
-[Values that you specify when you create or
-edit RegEx match conditions](#classic-web-acl-regex-conditions-values "#classic-web-acl-regex-conditions-values"). 5. Choose **Create pattern set and add filter** (if you created a new pattern set) or **Add filter** if you used an existing pattern set. 6. Choose **Create**.
+[Values that you specify when you create or edit RegEx match conditions](#classic-web-acl-regex-conditions-values "#classic-web-acl-regex-conditions-values"). 5. Choose **Create pattern set and add filter** (if you created a new pattern set) or **Add filter** if you used an existing pattern set. 6. Choose **Create**.
 
-## Values that you specify when you create or
-
-edit RegEx match conditions
+## Values that you specify when you create or edit RegEx match conditions
 
 When you create or update a regex match condition, you specify the following values:
 

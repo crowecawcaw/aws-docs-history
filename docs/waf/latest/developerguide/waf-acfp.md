@@ -55,7 +55,6 @@ The ACFP feature is not available for Amazon Cognito user pools.
 
 - [AWS WAF ACFP components](waf-acfp-components.md "waf-acfp-components.md")
 - [Using application integration SDKs with ACFP](waf-acfp-with-tokens.md "waf-acfp-with-tokens.md")
-- [Adding the ACFP managed rule group to your web
-  ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md")
+- [Adding the ACFP managed rule group to your web ACL](waf-acfp-rg-using.md "waf-acfp-rg-using.md")
 - [Testing and deploying ACFP](waf-acfp-deploying.md "waf-acfp-deploying.md")
 - [AWS WAF Fraud Control account creation fraud prevention (ACFP) examples](waf-acfp-control-examples.md "waf-acfp-control-examples.md")

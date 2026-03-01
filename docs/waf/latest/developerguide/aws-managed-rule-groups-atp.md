@@ -55,8 +55,7 @@ You are charged additional fees when you use this managed rule group. For more i
 
 To keep your costs down and to be sure you're managing your web
 traffic as you want, use this rule group in accordance with the guidance
-at [Best practices for intelligent
-threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
+at [Best practices for intelligent threat mitigation in AWS WAF](waf-managed-protections-best-practices.md "waf-managed-protections-best-practices.md").
 
 This rule group isn't available for use with Amazon Cognito user pools. You can't associate a protection pack (web ACL) that
 uses this rule group with a user pool, and you can't add this rule group to

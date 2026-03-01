@@ -36,7 +36,5 @@ The benefits of the highlighted services include the following:
 
 ###### Topics
 
-- [Example Shield Advanced DDoS resiliency architecture for common web
-  applications](ddos-resiliency-example-web.md "ddos-resiliency-example-web.md")
-- [Example Shield Advanced DDoS resiliency architecture for TCP and UDP
-  applications](ddos-resiliency-example-tcp-udp.md "ddos-resiliency-example-tcp-udp.md")
+- [Example Shield Advanced DDoS resiliency architecture for common web applications](ddos-resiliency-example-web.md "ddos-resiliency-example-web.md")
+- [Example Shield Advanced DDoS resiliency architecture for TCP and UDP applications](ddos-resiliency-example-tcp-udp.md "ddos-resiliency-example-tcp-udp.md")

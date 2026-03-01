@@ -62,12 +62,9 @@ follows:
   specify the version, you must define the policy outside of the console, for
   example through the CLI or one of the SDKs.
 
-For more information about choosing the version setting for a list, see [Using managed lists in your content audit security group
-policies](#using-managed-lists "#using-managed-lists").
+For more information about choosing the version setting for a list, see [Using managed lists in your content audit security group policies](#using-managed-lists "#using-managed-lists").
 
-## Using managed lists in your content audit security group
-
-policies
+## Using managed lists in your content audit security group policies
 
 When you create a content audit security group policy, you can choose to use managed audit
 policy rules. Some of the settings for this option require a managed application

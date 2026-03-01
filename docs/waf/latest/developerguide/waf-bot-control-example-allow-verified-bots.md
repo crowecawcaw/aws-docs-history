@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Bot Control example:
-
-Explicitly allowing verified bots
+# Bot Control example: Explicitly allowing verified bots
 
 AWS WAF Bot Control doesn't block bots that are known by AWS to be common and verifiable bots.
 When Bot Control identifies a web request as coming from a

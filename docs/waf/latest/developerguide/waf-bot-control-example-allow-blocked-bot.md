@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Bot Control example: Allowing
-
-a specific blocked bot
+# Bot Control example: Allowing a specific blocked bot
 
 It's possible for a bot to be blocked by more than one of the Bot Control rules. Run through the
 following procedure for each blocking rule.

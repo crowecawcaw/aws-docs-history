@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Disassociating a health check from your
-
-resource protected by Shield Advanced
+# Disassociating a health check from your resource protected by Shield Advanced
 
 The following procedure shows how to disassociate an Amazon Route 53 health check from a
 protected resource.

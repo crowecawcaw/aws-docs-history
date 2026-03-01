@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Adding a managed rule group to a protection pack (web ACL) through
-
-the console
+# Adding a managed rule group to a protection pack (web ACL) through the console
 
 This section explains how to add a managed rule group to a protection pack (web ACL) through the console.
 This guidance applies to all AWS Managed Rules rule groups and to the AWS Marketplace rule groups that you're
@@ -45,8 +43,7 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
    choose **Edit**, make your changes, and then choose
    **Save rule**. For information about the options,
    see the versioning guidance at [Using versioned managed rule groups in AWS WAF](waf-managed-rule-groups-versioning.md "waf-managed-rule-groups-versioning.md") and the guidance for
-   using a managed rule group in a protection pack (web ACL) at [Using managed rule group
-   statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md").
+   using a managed rule group in a protection pack (web ACL) at [Using managed rule group statements in AWS WAF](waf-rule-statement-type-managed-rule-group.md "waf-rule-statement-type-managed-rule-group.md").
 8. At the bottom of the **Add managed rule groups**
    page, choose **Add rules**.
 9. In the **Set rule priority** page, adjust the order

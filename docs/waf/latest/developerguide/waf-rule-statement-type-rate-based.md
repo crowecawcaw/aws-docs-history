@@ -16,8 +16,7 @@ action settings.
 
 You can also rate limit web requests using the targeted protection level
 of the Bot Control AWS Managed Rules rule group. Using this managed rule group incurs additional fees. For more
-information, see [Options for rate limiting in rate-based rules and
-targeted Bot Control rules](waf-rate-limiting-options.md "waf-rate-limiting-options.md").
+information, see [Options for rate limiting in rate-based rules and targeted Bot Control rules](waf-rate-limiting-options.md "waf-rate-limiting-options.md").
 
 AWS WAF tracks and manages web requests separately for each instance of a rate-based rule
 that you use. For example, if you provide the same rate-based rule settings in two web
@@ -55,8 +54,7 @@ rule, calculate and add the WCUs for that.
 - [Rate-based rule high-level settings in AWS WAF](waf-rule-statement-type-rate-based-high-level-settings.md "waf-rule-statement-type-rate-based-high-level-settings.md")
 - [Rate-based rule caveats in AWS WAF](waf-rule-statement-type-rate-based-caveats.md "waf-rule-statement-type-rate-based-caveats.md")
 - [Aggregating rate-based rules in AWS WAF](waf-rule-statement-type-rate-based-aggregation-options.md "waf-rule-statement-type-rate-based-aggregation-options.md")
-- [Rate-based rule aggregation
-  instances and counts](waf-rule-statement-type-rate-based-aggregation-instances.md "waf-rule-statement-type-rate-based-aggregation-instances.md")
+- [Rate-based rule aggregation instances and counts](waf-rule-statement-type-rate-based-aggregation-instances.md "waf-rule-statement-type-rate-based-aggregation-instances.md")
 - [Applying rate limiting to requests in AWS WAF](waf-rule-statement-type-rate-based-request-limiting.md "waf-rule-statement-type-rate-based-request-limiting.md")
 - [Rate-based rule examples in AWS WAF](waf-rule-statement-type-rate-based-examples.md "waf-rule-statement-type-rate-based-examples.md")
 - [Listing IP addresses that are being rate limited by rate-based rules](listing-managed-ips.md "listing-managed-ips.md")

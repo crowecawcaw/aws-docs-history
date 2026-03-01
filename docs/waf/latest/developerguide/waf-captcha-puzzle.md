@@ -34,6 +34,5 @@ Accessibility Guidelines (WCAG) Overview](https://www.w3.org/WAI/standards-guide
 
 ###### Topics
 
-- [CAPTCHA puzzle language
-  support](waf-captcha-puzzle-language-support.md "waf-captcha-puzzle-language-support.md")
+- [CAPTCHA puzzle language support](waf-captcha-puzzle-language-support.md "waf-captcha-puzzle-language-support.md")
 - [CAPTCHA puzzle examples](waf-captcha-puzzle-examples.md "waf-captcha-puzzle-examples.md")

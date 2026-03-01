@@ -13,14 +13,11 @@ policies, see [Using Fortigate Cloud Native Firewall (CNF) as a Service policies
 
 ###### Topics
 
-- [Step 1: Completing the general
-  prerequisites](#complete-fms-prereq-fortigate-cnf "#complete-fms-prereq-fortigate-cnf")
+- [Step 1: Completing the general prerequisites](#complete-fms-prereq-fortigate-cnf "#complete-fms-prereq-fortigate-cnf")
 - [Step 2: Completing the Fortigate CNF policy prerequisites](#complete-prereq-fortigate-cnf "#complete-prereq-fortigate-cnf")
 - [Step 3: Creating and applying a Fortigate CNF policy](#get-started-fms-fortigate-cnf-create-policy "#get-started-fms-fortigate-cnf-create-policy")
 
-## Step 1: Completing the general
-
-prerequisites
+## Step 1: Completing the general prerequisites
 
 There are several mandatory steps to prepare your account for AWS Firewall Manager. Those steps are
 described in [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md"). Complete all the

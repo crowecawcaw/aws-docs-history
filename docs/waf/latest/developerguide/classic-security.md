@@ -44,6 +44,5 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Identity and access management for AWS WAF Classic](classic-security-iam.md "classic-security-iam.md")
 - [Logging and monitoring in AWS WAF Classic](classic-waf-incident-response.md "classic-waf-incident-response.md")
 - [Compliance validation for AWS WAF Classic](classic-waf-compliance.md "classic-waf-compliance.md")
-- [Resilience
-  in AWS WAF Classic](classic-disaster-recovery-resiliency.md "classic-disaster-recovery-resiliency.md")
+- [Resilience in AWS WAF Classic](classic-disaster-recovery-resiliency.md "classic-disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS WAF Classic](classic-infrastructure-security.md "classic-infrastructure-security.md")

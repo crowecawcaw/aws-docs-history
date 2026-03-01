@@ -100,8 +100,7 @@ Amazon EC2 instances, Elastic Load Balancing load balancers, CloudFront distribu
 Shield Advanced incurs additional charges. Shield Advanced options and features include automatic application layer DDoS mitigation, advanced event visibility, and dedicated
 support from the Shield Response Team (SRT). If you own high visibility websites or are otherwise
 prone to frequent DDoS attacks, consider purchasing the additional protections that
-Shield Advanced provides. For additional information, see [AWS Shield Advanced capabilities and options](ddos-advanced-summary-capabilities.md "ddos-advanced-summary-capabilities.md") and [Deciding whether to subscribe to
-AWS Shield Advanced and apply additional protections](ddos-advanced-summary-deciding.md "ddos-advanced-summary-deciding.md").
+Shield Advanced provides. For additional information, see [AWS Shield Advanced capabilities and options](ddos-advanced-summary-capabilities.md "ddos-advanced-summary-capabilities.md") and [Deciding whether to subscribe to AWS Shield Advanced and apply additional protections](ddos-advanced-summary-deciding.md "ddos-advanced-summary-deciding.md").
 
 ## What is AWS Shield network security director?
 

@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# List of factors that affect application layer event detection and
-
-mititgation with Shield Advanced
+# List of factors that affect application layer event detection and mititgation with Shield Advanced
 
 This section describes the factors that affect the detection and mitigation of application
 layer events by Shield Advanced.
@@ -19,8 +17,7 @@ a potential attack when your application is reporting unhealthy and it requires
 more evidence of an attack if your application is reporting healthy.
 
 It's important to configure your health checks so that they accurately report
-application health. For more information and guidance, see [Health-based detection using
-health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
+application health. For more information and guidance, see [Health-based detection using health checks with Shield Advanced and Route 53](ddos-advanced-health-checks.md "ddos-advanced-health-checks.md").
 
 ###### Traffic baselines
 
@@ -57,7 +54,6 @@ Metrics for the traffic that the Shield Advanced rules mitigate aren't available
 for you to view.
 
 For more information about rate-based rules, see [Using rate-based rule statements in AWS WAF](waf-rule-statement-type-rate-based.md "waf-rule-statement-type-rate-based.md"). For information about the rate-based rule
-that Shield Advanced uses for automatic application layer DDoS mitigation, see [Protecting the application layer with the Shield Advanced
-rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
+that Shield Advanced uses for automatic application layer DDoS mitigation, see [Protecting the application layer with the Shield Advanced rule group](ddos-automatic-app-layer-response-rg.md "ddos-automatic-app-layer-response-rg.md").
 
 For more information about Shield Advanced and AWS WAF metrics, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").

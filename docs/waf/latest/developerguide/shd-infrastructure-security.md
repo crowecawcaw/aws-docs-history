@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Infrastructure security in
-
-AWS Shield
+# Infrastructure security in AWS Shield
 
 This section explains how AWS Shield isolates service traffic.
 

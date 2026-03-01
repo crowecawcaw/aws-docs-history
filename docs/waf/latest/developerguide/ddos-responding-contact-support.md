@@ -3,9 +3,7 @@
 You can now use the updated experience to access AWS WAF functionality anywhere in the console.
 For more details, see [Working with the console](working-with-console.md "working-with-console.md").
 
-# Contacting the support center during an application layer DDoS
-
-attack
+# Contacting the support center during an application layer DDoS attack
 
 This page provides instructions for contacting the support center during an application layer DDoS
 attack.
