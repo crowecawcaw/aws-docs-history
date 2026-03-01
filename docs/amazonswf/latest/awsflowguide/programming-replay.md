@@ -88,8 +88,7 @@ results in an activity task, so each task is performed only once.
 ## Example 2: Asynchronous Replay
 
 Similarly to the [synchronous replay example](#programming-replay-synchronous "#programming-replay-synchronous"), you can
-modify [HelloWorldWorkflowAsync
-Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md") to see how an asynchronous replay works. It
+modify [HelloWorldWorkflowAsync Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md") to see how an asynchronous replay works. It
 produces the following output:
 
 ```

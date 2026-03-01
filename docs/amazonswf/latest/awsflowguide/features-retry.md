@@ -305,9 +305,7 @@ corresponding `set` method that you can call to modify the corresponding configu
 at any time: `setBackoffCoefficient`, `setMaximumAttempts`,
 `setMaximumRetryIntervalSeconds`, and `setMaximumRetryExpirationIntervalSeconds`.
 
-### Exponential Retry with the AsyncRetryingExecutor
-
-Class
+### Exponential Retry with the AsyncRetryingExecutor Class
 
 The `RetryDecorator` class provides more flexibility in configuring the retry process than
 `@ExponentialRetry`, but the framework still runs the retry attempts automatically, based on the

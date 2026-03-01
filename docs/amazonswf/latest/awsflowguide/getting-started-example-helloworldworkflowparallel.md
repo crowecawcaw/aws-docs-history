@@ -1,6 +1,4 @@
-# HelloWorldWorkflowParallel
-
-Application
+# HelloWorldWorkflowParallel Application
 
 The preceding versions of Hello World! all use a linear workflow topology. However, Amazon SWF
 isn't limited to linear topologies. The HelloWorldWorkflowParallel application is a modified
@@ -17,9 +15,7 @@ in your project directory and name it helloWorld.HelloWorldWorkflowParallel. The
 sections describe how to modify the original HelloWorldWorkflow code to run `getName`
 and `getGreeting` in parallel.
 
-## HelloWorldWorkflowParallel
-
-Activities Worker
+## HelloWorldWorkflowParallel Activities Worker
 
 The HelloWorldWorkflowParallel activities interface is implemented in
 `GreeterActivities`, as shown in the following example.
@@ -74,9 +70,7 @@ public class GreeterActivitiesImpl implements GreeterActivities {
 `say` concatenates the two pieces to produce the complete phrase,
 and prints it to the console.
 
-## HelloWorldWorkflowParallel
-
-Workflow Worker
+## HelloWorldWorkflowParallel Workflow Worker
 
 The HelloWorldWorkflowParallel workflow interface is implemented in
 `GreeterWorkflow`, as follows:

@@ -2,8 +2,7 @@
 
 ###### Topics
 
-- [Passing Collections and Maps to Asynchronous
-  Methods](#advanceddatapassing.collections "#advanceddatapassing.collections")
+- [Passing Collections and Maps to Asynchronous Methods](#advanceddatapassing.collections "#advanceddatapassing.collections")
 - [Settable<T>](#advanceddatapassing.settable "#advanceddatapassing.settable")
 - [@NoWait](#advanceddatapassing.nowait "#advanceddatapassing.nowait")
 - [Promise<Void>](#advanceddatapassing.promise "#advanceddatapassing.promise")
@@ -12,9 +11,7 @@
   previous sections. Some advanced use cases of
   `Promise<`T`>` are discussed here.
 
-## Passing Collections and Maps to Asynchronous
-
-Methods
+## Passing Collections and Maps to Asynchronous Methods
 
 The framework supports passing arrays, collections, and maps as `Promise` types to
 asynchronous methods. For example, an asynchronous method may take

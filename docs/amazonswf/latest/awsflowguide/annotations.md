@@ -306,7 +306,7 @@ Specifies the `defaultExecutionStartToCloseTimeout` registered with Amazon SWF
 for the workflow type. This is the total time that a workflow execution of this type can
 take to complete.
 
-For more information about workflow timeouts, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md") .
+For more information about workflow timeouts, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md").
 
 `defaultTaskStartToCloseTimeoutSeconds`
 
@@ -317,7 +317,7 @@ execution of this type can take to complete.
 If you don't specify `defaultTaskStartToCloseTimeout`, it will default to
 30 seconds.
 
-For more information about workflow timeouts, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md") .
+For more information about workflow timeouts, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md").
 
 `defaultTaskList`
 

@@ -21,12 +21,10 @@ and create an AWS Flow Framework for Java project, like in [Setting up the AWS F
   Hello World as a standard Java application, but structuring it like a workflow application.
 - [HelloWorldWorkflow Application](getting-started-example-helloworldworkflow.md "getting-started-example-helloworldworkflow.md") uses the
   AWS Flow Framework for Java to convert HelloWorld into an Amazon SWF workflow.
-- [HelloWorldWorkflowAsync
-  Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md")
+- [HelloWorldWorkflowAsync Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md")
   modifies `HelloWorldWorkflow` to use an _asynchronous workflow_
   method.
 - [HelloWorldWorkflowDistributed Application](getting-started-example-helloworldworkflowdistributed.md "getting-started-example-helloworldworkflowdistributed.md") modifies `HelloWorldWorkflowAsync` so that
   the workflow and activity workers can run on separate systems.
-- [HelloWorldWorkflowParallel
-  Application](getting-started-example-helloworldworkflowparallel.md "getting-started-example-helloworldworkflowparallel.md")
+- [HelloWorldWorkflowParallel Application](getting-started-example-helloworldworkflowparallel.md "getting-started-example-helloworldworkflowparallel.md")
   modifies `HelloWorldWorkflow` to run two activities in parallel.

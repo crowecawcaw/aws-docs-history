@@ -279,8 +279,7 @@ also controls when the activities execute and implicitly defines the workflow to
 `Promise<T>` return value to the next activity requires the activities to execute in sequence,
 defining the linear topology discussed earlier. With AWS Flow Framework for Java, you don't need to use any special modeling
 code to define even complex topologies, just standard Java flow control and `Promise<T>`. For
-an example of how to implement a simple parallel topology, see [HelloWorldWorkflowParallel
-Activities Worker](getting-started-example-helloworldworkflowparallel.md#getting-started-example-helloworldworkflowparallel.activities "getting-started-example-helloworldworkflowparallel.md#getting-started-example-helloworldworkflowparallel.activities").
+an example of how to implement a simple parallel topology, see [HelloWorldWorkflowParallel Activities Worker](getting-started-example-helloworldworkflowparallel.md#getting-started-example-helloworldworkflowparallel.activities "getting-started-example-helloworldworkflowparallel.md#getting-started-example-helloworldworkflowparallel.activities").
 
 ###### Note
 
@@ -304,8 +303,7 @@ guarantees that the object is ready and represents a valid value. `HelloWorldWor
 this issue by passing `Promise<T>` objects only to activities client methods. You can access
 a `Promise<T>` object's value in your workflow implementation by passing the object to an
 _asynchronous workflow method_, which behaves much like an activity. For an example, see
-[HelloWorldWorkflowAsync
-Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md").
+[HelloWorldWorkflowAsync Application](getting-started-example-helloworldworkflowasync.md "getting-started-example-helloworldworkflowasync.md").
 
 ## HelloWorldWorkflow Workflow and Activities Implementation
 

@@ -1,101 +1,96 @@
-# Workflow and Activity Contracts
+# Workflow and Activity Type Registration
 
-Java interfaces are used to declare the signatures of workflows and activities. The interface forms the
-contract between the implementation of the workflow (or activity) and the client of that workflow (or activity).
-For example, a workflow type `MyWorkflow` is defined using an interface that is annotated with the
-`@Workflow` annotation:
+Amazon SWF requires activity and workflow types to be registered before they can be used. The framework
+automatically registers the workflows and activities in the implementations you add to the worker. The framework
+looks for types that implement workflows and activities and registers them with Amazon SWF. By default, the framework uses
+the interface definitions to infer registration options for workflow and activity types. All workflow interfaces are
+required to have either the `@WorkflowRegistrationOptions` annotation or the
+`@SkipRegistration` annotation. The workflow worker registers all workflow types it is configured with
+that have the `@WorkflowRegistrationOptions` annotation. Similarly, each activity method is required to be
+annotated with either the `@ActivityRegistrationOptions` annotation or the `@SkipRegistration`
+annotation or one of these annotations must be present on the `@Activities` interface. The activity worker
+registers all activity types that it is configured with that an `@ActivityRegistrationOptions` annotation
+applies to. The registration is performed automatically when you start one of the workers. Workflow and activity
+types that have the `@SkipRegistration` annotation are not registered.
+`@ActivityRegistrationOptions`, and `@SkipRegistration` annotations have override semantics and
+the most specific one is applied to an activity type.
 
-```
-@Workflow
-@WorkflowRegistrationOptions(
-   defaultExecutionStartToCloseTimeoutSeconds = 60,
-   defaultTaskStartToCloseTimeoutSeconds = 10)
-public interface MyWorkflow
-{
-    @Execute(version = "1.0")
-    void startMyWF(int a, String b);
+Note that Amazon SWF doesn't allow you to re-register or modify the type once it has been registered. The framework
+will try to register all types, but if the type is already registered it will not be re-registered and no error will
+be reported.
 
-    @Signal
-    void signal1(int a, int b, String c);
+If you need to modify registered settings, you must register a new version of the type. You can also override
+registered settings when starting a new execution or when calling an activity that uses the generated clients.
 
-    @GetState
-    MyWorkflowState getState();
-}
-```
+The registration requires a type name and some other registration options. The default implementation
+determines these as follows:
 
-The contract has no implementation-specific settings. This use of implementation-neutral contracts allows
-clients to be decoupled from the implementation and hence provides the flexibility to change the implementation
-details without breaking the client. Conversely, you may also change the client without necessitating changes to
-the workflow or activity being consumed. For example, the client may be modified to call an activity
-asynchronously using promises (`Promise<T>`) without requiring a change to the activity
-implementation. Similarly, the activity implementation may be changed so that it is completed asynchronously, for
-example, by a person sending an email—without requiring the clients of the activity to be changed.
+## Workflow Type Name and Version
 
-In the example above, the workflow interface `MyWorkflow` contains a method,
-`startMyWF`, for starting a new execution. This method is annotated with the `@Execute`
-annotation and must have a return type of `void` or `Promise<>`. In a given workflow
-interface, at most one method can be annotated with this annotation. This method is the entry point of the
-workflow logic, and the framework calls this method to execute the workflow logic when a decision task is
-received.
+The framework determines the name of the workflow type from the workflow interface. The form of the default
+workflow type name is {`prefix`}{`name`}. The
+{`prefix`} is set to the name of the `@Workflow` interface followed by a '.'
+and the {`name`} is set to the name of the `@Execute` method. The default name
+of the workflow type in the preceding example is `MyWorkflow.startMyWF`. You can override the default
+name using the name parameter of the `@Execute` method. The default name of the workflow type in the
+example is `startMyWF`. The name must not be an empty string. Note that when you override the name
+using `@Execute`, the framework doesn't automatically prepend a prefix to it. You are free to use
+your own naming scheme.
 
-The workflow interface also defines the signals that may be sent to the workflow. The signal method gets
-invoked when a signal with a matching name is received by the workflow execution. For example, the
-`MyWorkflow` interface declares a signal method, `signal1`, annotated with the
-`@Signal` annotation.
+The workflow version is specified using the `version` parameter of the
+`@Execute` annotation. There is no default for `version` and it must be
+explicitly specified; `version`is a free form string, and you are free to use your own
+versioning scheme.
 
-The `@Signal` annotation is required on signal methods. The return type of a signal method must
-be `void`. A workflow interface may have zero or more signal methods defined in it. You may declare a
-workflow interface without an `@Execute` method and some `@Signal` methods to generate
-clients that can't start their execution but can send signals to running executions.
+## Signal Name
 
-Methods annotated with `@Execute` and `@Signal` annotations may have any number of
-parameters of any type other than `Promise<T>` or its derivatives. This allows you to pass strongly
-typed inputs to a workflow execution at start and while it is running. The return type of the
-`@Execute` method must be `void` or `Promise<>`.
+The name of the signal can be specified using the name parameter of the `@Signal` annotation.
+If not specified, it is defaulted to the name of the signal method.
 
-Additionally, you may also declare a method in the workflow interface to report the latest state of a
-workflow execution, for instance, the `getState` method in the previous example. This state isn't the
-entire application state of the workflow. The intended use of this feature is to allow you to store up to 32 KB of
-data to indicate the latest status of the execution. For example, in an order processing workflow, you may store a
-string that indicates that the order has been received, processed, or canceled. This method is called by the
-framework every time a decision task is completed to get the latest state. The state is stored in Amazon Simple Workflow Service
-(Amazon SWF) and can be retrieved using the generated external client. This allows you to check the latest state of a
-workflow execution. Methods annotated with `@GetState` must not take any arguments and must not have a
-`void` return type. You can return any type, which fits your needs, from this method. In the above
-example, an object of `MyWorkflowState` (see definition below) is returned by the method that is used
-to store a string state and a numeric percent complete. The method is expected to perform read-only access of the
-workflow implementation object and is invoked synchronously, which disallows use of any asynchronous operations
-like calling methods annotated with `@Asynchronous`. At most one method in a workflow interface can be
-annotated with `@GetState` annotation.
+## Activity Type Name and Version
 
-```
-public class MyWorkflowState {
-   public String status;
-   public int percentComplete;
-}
-```
+The framework determines the name of the activity type from the activities interface. The form of the
+default activity type name is {`prefix`}{`name`}. The
+{`prefix`} is set to the name of the `@Activities` interface followed by a '.'
+and the {`name`} is set to the method name. The default
+{`prefix`} can be overridden in the `@Activities` annotation on the activities
+interface. You can also specify the activity type name using the `@Activity` annotation on the activity
+method. Note that when you override the name using `@Activity`, the framework will not automatically
+prepend a prefix to it. You are free to user your own naming scheme.
 
-Similarly, a set of activities are defined using an interface annotated with `@Activities`
-annotation. Each method in the interface corresponds to an activity—for example:
+The activity version is specified using the version parameter of the `@Activities` annotation.
+This version is used as the default for all activities defined in the interface and can be overridden on a
+per-activity basis using the `@Activity` annotation.
 
-```
-@Activities(version = "1.0")
-@ActivityRegistrationOptions(
-     defaultTaskScheduleToStartTimeoutSeconds = 300,
-     defaultTaskStartToCloseTimeoutSeconds = 3600)
-public interface MyActivities {
-    // Overrides values from annotation found on the interface
-    @ActivityRegistrationOptions(description = "This is a sample activity",
-         defaultTaskScheduleToStartTimeoutSeconds = 100,
-         defaultTaskStartToCloseTimeoutSeconds = 60)
-    int activity1();
+## Default Task List
 
-    void activity2(int a);
-}
-```
+The default task list can be configured using the `@WorkflowRegistrationOptions` and
+`@ActivityRegistrationOptions` annotations and setting the `defaultTaskList` parameter. By
+default, it is set to `USE_WORKER_TASK_LIST`. This is a special value that instructs the
+framework to use the task list that is configured on the worker object that is used to register the activity or
+workflow type. You can also choose to not register a default task list by setting the default task list to
+`NO_DEFAULT_TASK_LIST` using these annotations. This can be used in cases where you want to
+require that the task list be specified at run time. If no default task list has been registered, then you must
+specify the task list when starting the workflow or calling the activity method using the
+`StartWorkflowOptions` and `ActivitySchedulingOptions` parameters on the respective method
+overload of the generated client.
 
-The interface allows you to group together a set of related activities. You can define any number of
-activities within an activities interface, and you can define as many activities interfaces as you want. Similar
-to `@Execute` and `@Signal` methods, activity methods can take any number of arguments of
-any type other than `Promise<T>` or its derivatives. The return type of an activity must not be
-`Promise<T>` or its derivatives.
+## Other Registration Options
+
+All workflow and activity type registration options that are allowed by the Amazon SWF API can be specified
+through the framework.
+
+For a complete list of _workflow_ registration options, see the following:
+
+- [@Workflow](annotations.md#annotations-workflow "annotations.md#annotations-workflow")
+- [@Execute](annotations.md#annotations-execute "annotations.md#annotations-execute")
+- [@WorkflowRegistrationOptions](annotations.md#annotations-workflowregistrationoptions "annotations.md#annotations-workflowregistrationoptions")
+- [@Signal](annotations.md#annotations-signal "annotations.md#annotations-signal")
+
+For a complete list of _activity_ registration options, see the following:
+
+- [@Activity](annotations.md#annotations-activity "annotations.md#annotations-activity")
+- [@Activities](annotations.md#annotations-activities "annotations.md#annotations-activities")
+- [@ActivityRegistrationOptions](annotations.md#annotations-activityregistration "annotations.md#annotations-activityregistration")
+
+If you want to have complete control over type registration, see [Worker Extensibility](running.md#running.workerextend "running.md#running.workerextend").

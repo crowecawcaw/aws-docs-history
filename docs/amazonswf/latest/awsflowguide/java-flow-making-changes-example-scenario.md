@@ -193,9 +193,7 @@ public interface Foo {
 }
 ```
 
-## Simulating a
-
-Backwards-Incompatible Change
+## Simulating a Backwards-Incompatible Change
 
 The following modified Java code of the decider is a good example of a
 backwards-incompatible change. The code is still registered as version

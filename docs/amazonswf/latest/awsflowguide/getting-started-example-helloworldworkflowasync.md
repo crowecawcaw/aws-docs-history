@@ -1,6 +1,4 @@
-# HelloWorldWorkflowAsync
-
-Application
+# HelloWorldWorkflowAsync Application
 
 Sometimes, it's preferable to have a workflow perform certain tasks locally instead of using
 an activity. However, workflow tasks often involve processing the values represented by
@@ -158,9 +156,7 @@ static `Promise.asPromise` method. This method creates a
 `Promise<T>` object of the appropriate type, sets the value, and puts it in
 the ready state.
 
-## HelloWorldWorkflowAsync
-
-Workflow and Activities Host and Starter
+## HelloWorldWorkflowAsync Workflow and Activities Host and Starter
 
 HelloWorldWorkflowAsync implements `GreeterWorker` as the host class for the
 workflow and activity implementations. It is identical to the HelloWorldWorkflow
