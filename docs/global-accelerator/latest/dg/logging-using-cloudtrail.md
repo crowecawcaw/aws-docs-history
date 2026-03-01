@@ -56,9 +56,7 @@ CloudTrail lets you view recent events in **Event history**. To view events for 
 [Viewing events with CloudTrail event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the
 _AWS CloudTrail User Guide_.
 
-## Understanding Global Accelerator log file
-
-entries
+## Understanding Global Accelerator log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. Each JSON-formatted CloudTrail log file contains one or more log entries. A log entry represents a single request from any source and

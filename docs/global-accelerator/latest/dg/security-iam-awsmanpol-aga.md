@@ -45,9 +45,7 @@ add Amazon EC2 and Elastic Load Balancing resources to accelerators.
 
 To view the permissions for this policy, see [GlobalAcceleratorFullAccess](../../../aws-managed-policy/latest/reference/GlobalAcceleratorFullAccess.md "../../../aws-managed-policy/latest/reference/GlobalAcceleratorFullAccess.md") in the _AWS Managed Policy Reference_.
 
-## Global Accelerator updates to AWS managed
-
-policies
+## Global Accelerator updates to AWS managed policies
 
 View details about updates to AWS managed policies for Global Accelerator since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

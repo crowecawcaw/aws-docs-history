@@ -1,6 +1,4 @@
-#
-
-Getting started with a standard accelerator
+# Getting started with a standard accelerator
 
 This section provides steps for creating a standard accelerator, which routes traffic to an optimal
 endpoint.
@@ -15,9 +13,7 @@ endpoint.
 - [Step 5: Test your accelerator](#getting-started-create-and-test "#getting-started-create-and-test")
 - [Step 6 (optional): Delete your accelerator](#getting-started-delete-accelerator "#getting-started-delete-accelerator")
 
-##
-
-Before you begin
+## Before you begin
 
 Before you create an accelerator, create at least one resource that you can add as an endpoint
 to direct traffic to. For example, create one of the following:
@@ -41,9 +37,7 @@ When you create a resource to add to Global Accelerator, be aware of the followi
   endpoints. You can find information about the IP address ranges associated with Route 53 health
   checkers in [IP address ranges of Amazon Route 53 servers](../../../Route53/latest/DeveloperGuide/route-53-ip-addresses.md "../../../Route53/latest/DeveloperGuide/route-53-ip-addresses.md") in the _Amazon Route 53 Developer Guide_.
 
-##
-
-Step 1: Create a standard accelerator
+## Step 1: Create a standard accelerator
 
 When you create a standard accelerator, you can choose IPv4 or dual-stack for the static
 IP addresses Global Accelerator assigns to your accelerator. Dual-stack supports both IPv4 and IPv6 IP addresses.
@@ -142,9 +136,7 @@ that your accelerator is directing the correct percentages of traffic to differe
 information, see the detailed examples in the following blog post,
 [Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/").
 
-##
-
-Step 6 (optional): Delete your accelerator
+## Step 6 (optional): Delete your accelerator
 
 If you created an accelerator as a test or if you're no longer using an accelerator, you can
 delete it. On the console, disable the accelerator, and then you can delete it. You don't

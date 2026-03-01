@@ -71,9 +71,7 @@ server, for example, a Network Load Balancer.
 
 The following scenarios can create an increase in the `TCP_AGA_Reset_Count` metric.
 
-###
-
-TCP handshake failure with the endpoint target
+### TCP handshake failure with the endpoint target
 
 A connection on the segment between Global Accelerator and endpoint server, such as an Application Load Balancer, is initiated with
 a TCP SYN packet. An expected response from the endpoint is a SYN-ACK packet, which subsequently
@@ -129,9 +127,7 @@ understand and address what is causing TCP RSTs in these scenarios:
 - Consider adjusting endpoint scaling policies if resets
   correlate with periods of high traffic volume.
 
-###
-
-Maintenance events
+### Maintenance events
 
 Global Accelerator does maintenance to ensure that the service is running on the latest software versions.
 These maintenance events occur approximately 1-2 times a month. However, if your workload is geographically
@@ -180,9 +176,7 @@ reliability of your client with Global Accelerator connections.
 
 The following scenarios can create an increase in the `TCP_Client_Reset_Count` metric.
 
-###
-
-Fast client port reuse and NAT gateways
+### Fast client port reuse and NAT gateways
 
 When a client reuses an IP address and port number quickly so that it can establish a
 connection with the same combination of server IP address and port, that leads to a _fast
@@ -215,9 +209,7 @@ Issues that result from out of order timestamps are exacerbated when a NAT gatew
 uses a limited set of ports to perform address translation on connections that belong to more
 than one client that is behind the gateway.
 
-###
-
-TCP handshake issues
+### TCP handshake issues
 
 When the client that initiates the connection with the TCP SYN doesn’t receive a SYN-ACK
 response from Global Accelerator servers, the connection eventually times out and is reset by the client.
@@ -230,9 +222,7 @@ firewall, resulting in client timeout and connection reset.
 
 ![Example of TCP handshake failure due to firewall blocking](images/AGA-TCPReset-Fig5.jpg)
 
-###
-
-Idle timeouts
+### Idle timeouts
 
 An established TCP connection between a client and a Global Accelerator server remains intact unless
 it goes idle: that is, there aren't any packet transfers from either side for a period of 340 seconds.
@@ -245,9 +235,7 @@ maintain shorter idle timeouts.
 Some clients choose to handle the termination of TCP connections with only RSTs, regardless
 of whether their traffic comes through a NAT gateway or firewall.
 
-####
-
-Actions to consider taking for client reset count increases
+#### Actions to consider taking for client reset count increases
 
 If there are multiple connections that are behind a NAT device or firewall with a high number of
 connections being reused over the same source IP address and port combination, consider adding additional
@@ -267,9 +255,7 @@ and address possible underlying issues with your application’s infrastructure.
 
 The following scenarios can create an increase in the `TCP_Endpoint_Reset_Count` metric.
 
-###
-
-Connection reset by the endpoint server
+### Connection reset by the endpoint server
 
 An endpoint server—such as a Network Load Balancer, Application Load Balancer, EC2 instance, or other AWS resource in your VPC—can
 initiate connection termination by sending either a TCP FIN or a TCP RST.
@@ -283,9 +269,7 @@ This response triggers a reset to the client.
 
 ![Example of Global Accelerator connection termination flow with an endpoint-initiated TCP reset](images/AGA-TCPReset-Fig6.jpg)
 
-###
-
-ALB connection collision after ALB scaling event
+### ALB connection collision after ALB scaling event
 
 When an Application Load Balancer endpoint scales, new Application Load Balancer nodes are created and associated behind Global Accelerator, which
 can create connection collisions. This can happen after a scaling event when Global Accelerator, in one of its
@@ -303,9 +287,7 @@ This situation forces a TCP RST response from the Application Load Balancer endp
 
 ![Example of TCP RST response from an ALB endpoint due to potential connection collision after an ALB a scaling event](images/AGA-TCPReset-Fig7.jpg)
 
-###
-
-Targets are healthy but not ready
+### Targets are healthy but not ready
 
 Only healthy endpoint targets are considered for routing traffic through Global Accelerator. However,
 an endpoint might be healthy but not be set up to respond to traffic on the configured listeners.
@@ -318,9 +300,7 @@ traffic on those ports.
 In other situations, all the configured endpoints are unhealthy. Then, Global Accelerator fails open across all the
 endpoints in a random order. This can also result in connections getting reset.
 
-###
-
-Actions to consider taking for endpoint reset count increases
+### Actions to consider taking for endpoint reset count increases
 
 There are several possible actions that you can take for issues that cause endpoint reset count increases
 that might lower the number of TCP RSTs in these scenarios.
@@ -335,9 +315,7 @@ that might lower the number of TCP RSTs in these scenarios.
   planned changes to allow existing connections to complete gracefully before endpoints
   are removed from service.
 
-##
-
-When to take action for increased RST metrics
+## When to take action for increased RST metrics
 
 Global Accelerator reports TCP reset metrics to help you monitor connection health. A scenario that
 causes TCP reset increases might not, by itself, indicate that your customers are
@@ -347,9 +325,7 @@ might be seeing. While TCP resets are a normal part of network operations, you c
 help maintain optimal performance for your application
 by understanding when you can correct an issue by taking action.
 
-###
-
-Typical versus concerning reset levels
+### Typical versus concerning reset levels
 
 A certain number of resets is typical and expected for network activity, but reset issues can
 become concerning, depending on the rates and patterns of the resets.
@@ -367,9 +343,7 @@ behavior in your reset metrics:
 - Reset increases persist for more than 15 minutes without returning to baseline. This
   might indicate an issue, or might just be a change in application behavior.
 
-###
-
-Typical versus concerning durations for elevated reset levels
+### Typical versus concerning durations for elevated reset levels
 
 The time frame during which reset levels remain elevated can help you determine whether to investigate
 further.
@@ -384,9 +358,7 @@ further.
   for 30+ minutes always warrant investigation, especially if the elevations align with customer
   impact.
 
-###
-
-Key metrics correlations
+### Key metrics correlations
 
 When you investigate TCP resets issues, look for correlations between the following areas:
 
@@ -396,9 +368,7 @@ When you investigate TCP resets issues, look for correlations between the follow
 - Latency increases in your application
 - Customer-reported connectivity issues
 
-###
-
-When to contact AWS support
+### When to contact AWS support
 
 Contact AWS support when you observe any of the following:
 

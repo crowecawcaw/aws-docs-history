@@ -1,6 +1,4 @@
-#
-
-Edit a standard endpoint
+# Edit a standard endpoint
 
 This section explains how to edit an endpoint on the AWS Global Accelerator console. If you want to
 use API operations with AWS Global Accelerator, see the [AWS Global Accelerator API Reference](../api/Welcome.md "../api/Welcome.md").

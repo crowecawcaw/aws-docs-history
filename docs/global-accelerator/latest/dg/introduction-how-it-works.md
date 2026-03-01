@@ -75,9 +75,7 @@ your endpoints in a standard accelerator. In addition, you can use the _traffic 
 in Global Accelerator to increase (dial up) or decrease (dial down) the percentage
 of traffic to a specific endpoint group, for example, for performance testing or stack upgrades.
 
-##
-
-Types of accelerators
+## Types of accelerators
 
 There are two types of accelerators that you can use with AWS Global Accelerator: _standard accelerators_
 and _custom routing accelerators_. Both types of accelerators route traffic over the AWS global
@@ -152,8 +150,7 @@ Regions or to migrate applications between Regions. Using fixed IP addresses mea
 that users have a consistent way to connect to your application as you make changes.
 
 If you like, you can associate your own custom domain name with the static IP addresses for your
-accelerator. For more information, see [Route custom domain traffic to your
-accelerator](dns-addressing-custom-domains.md "dns-addressing-custom-domains.md").
+accelerator. For more information, see [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.md "dns-addressing-custom-domains.md").
 
 The static IP addresses are anycast from the AWS edge network.
 
@@ -200,9 +197,7 @@ When you add an endpoint to a standard accelerator, it must pass a health check 
 before traffic is directed to it. If Global Accelerator doesn’t have any healthy endpoints to route traffic to in a
 standard accelerator, it routes requests to all endpoints.
 
-##
-
-How you can manage traffic flow with traffic dials and endpoint weights
+## How you can manage traffic flow with traffic dials and endpoint weights
 
 There are two ways that you can customize how AWS Global Accelerator sends traffic to your endpoints with
 a standard accelerator:
@@ -254,9 +249,7 @@ Traffic dials and weights affect how the standard accelerator serves traffic in 
 For more information about how traffic dials and weights affect failover, see
 [How failover works for unhealthy endpoints](about-endpoints-endpoint-weights.md "about-endpoints-endpoint-weights.md").
 
-##
-
-ICMP response messages and AWS Global Accelerator
+## ICMP response messages and AWS Global Accelerator
 
 ICMP response messages, such as `ICMP Packet Too Big` or `Fragmentation Needed`,
 help to ensure availability on the internet. AWS Global Accelerator responds to ICMP echo messages (pings)

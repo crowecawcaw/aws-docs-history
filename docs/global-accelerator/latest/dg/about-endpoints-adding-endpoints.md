@@ -1,6 +1,4 @@
-#
-
-Add a standard endpoint
+# Add a standard endpoint
 
 You add endpoints to endpoint groups so that traffic can be directed to your resources. You
 can edit a standard endpoint to change the weight for the endpoint. Or you can remove an

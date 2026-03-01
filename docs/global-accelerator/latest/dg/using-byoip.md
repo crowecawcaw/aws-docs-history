@@ -1,152 +1,80 @@
-# Prepare to bring your IP address range to your AWS account:
+# Update an accelerator to change your IP addresses
 
-Authorization
+After you assign BYOIP addresses as static IP addresses for an accelerator in AWS Global Accelerator,
+you can update the accelerator later to use different IP addresses from your address ranges.
+You can also update an accelerator that uses your own IP addresses to instead use IP addresses provided by AWS Global Accelerator.
 
-To ensure that only you can bring your IP address space to Amazon, we require two authorizations:
+After an Amazon-owned static IP address is changed, you can revert to the original static IP address, but you
+must do so _within 10 days_ of when it was changed.
+After 10 days, the original static IP address is returned to the Amazon IP address pool and reused. After that,
+if you update your accelerator to change a BYOIP address to a Global Accelerator-assigned IP address, you are assigned a new IP
+address from the Amazon IP address pool. To learn more about reverting your IP address, see
+[Revert a static IP address change](#AGAUpdateAddressRevert "#AGAUpdateAddressRevert").
 
-- You must authorize Amazon to advertise the IP address range.
-- You must provide proof that you own the IP address range and so have the authority
-  to bring it to AWS.
+The following sections provide information about how to change IP addresses when you use bring your
+own IP address (BYOIP) with Global Accelerator, and list the requirements and things to know when you change static
+IP addresses.
 
-###### Note
+## How to update an accelerator to change an IP address
 
-When you use BYOIP to bring an IP address range to AWS, you can't transfer ownership of that
-address range to a different account or company while we're advertising it. You also can't
-directly transfer an IP address range from one AWS account to another account. To transfer
-ownership or to transfer between AWS accounts, you must deprovision the address range,
-and then the new owner must follow the steps to add the address range to their AWS account.
-To authorize Amazon to advertise the IP address range, you provide Amazon with a signed
-authorization message. Use a Route Origin Authorization (ROA) to provide this
-authorization. A ROA is a cryptographic statement about your route announcements that
-you create through your Regional Internet Registry (RIR). A ROA contains the IP address
-range, the Autonomous System Numbers (ASN) that are allowed to advertise the IP address
-range, and an expiration date. The ROA authorizes Amazon to advertise an IP address
-range under a specific Autonomous System (AS).
+To change an IP address for an accelerator, edit the accelerator and then, under **IP addresses**,
+select a new IP address. Your options for whether you can select an address from your own BYOIP address pool or
+the Amazon IP address pool depend on what your accelerator already has for static IP addresses, and other factors.
 
-A ROA does not authorize your AWS account to bring the IP address range to AWS. To
-provide this authorization, you must publish a self-signed X.509 certificate in the
-Registry Data Access Protocol (RDAP) remarks for the IP address range. The certificate
-contains a public key, which AWS uses to verify the authorization-context signature that
-you provide. Keep your private key secure and use it to sign the authorization-context
-message.
+Make sure that you review the [requirements and things to
+be aware of](#AGAUpdateAccRequirements "#AGAUpdateAccRequirements") for changing accelerator static IP addresses before you begin.
 
-The following sections provide detailed steps for completing these authorization tasks. The
-commands in these steps are supported on Linux. If you use Windows, you can access the
-[Windows
-Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about "https://docs.microsoft.com/en-us/windows/wsl/about") to run Linux commands.
+The following topics provide procedures for updating accelerators.
 
-## Steps to provide authorization
+- **Use Global Accelerator console to update an accelerator.** For more information,
+  see the following:
+  - [Update accelerator](about-accelerators.md "about-accelerators.md")
+  - [Edit a custom routing accelerator in Global Accelerator](about-custom-routing-accelerators.md "about-custom-routing-accelerators.md")
 
-- [Step 1: Create a ROA object](#using-byoip.prepare-steps-1 "#using-byoip.prepare-steps-1")
-- [Step 2: Create a self-signed X.509 certificate](#using-byoip.prepare-steps-2 "#using-byoip.prepare-steps-2")
-- [Step 3: Create a signed authorization message](#using-byoip.prepare-steps-3 "#using-byoip.prepare-steps-3")
+- **Use the Global Accelerator API to update an accelerator.** For more information,
+  including examples of using the CLI, see the following in the AWS Global Accelerator API Reference:
+  - [UpdateAccelerator](../api/API_UpdateAccelerator.md "../api/API_UpdateAccelerator.md")
+  - [UpdateCustomRoutingAccelerator](../api/API_UpdateCustomRoutingAccelerator.md "../api/API_UpdateCustomRoutingAccelerator.md")
 
-## Step 1: Create a ROA object
+## Requirements when you update an accelerator to change IP addresses
 
-Create a ROA object to authorize Amazon ASN 16509 to advertise your IP address range
-as well as the ASNs that are currently authorized to advertise the IP
-address range. The ROA must contain the /24 IP address that you want to bring to AWS
-and you must set the maximum length to /24.
+When you update an accelerator to change one or both static IP addresses,
+keep in mind the following:
 
-For more information about creating a ROA request, see the following sections, depending
-on where you registered your IP address range:
+- You can change the BYOIP address for both standard accelerators and custom routing accelerators. After you create an
+  accelerator with one or two BYOIP addresses, that accelerator must always have at least one BYOIP address. However, you can update
+  the accelerator to change one or both static IP addresses to use a BYOIP addresses or to change the BYOIP address
+- If you have an accelerator with two BYOIP static IP addresses, you can change only one of them to use a static IP
+  address assigned by Global Accelerator. Note the following about changing a BYOIP static IP address for an accelerator to a Global Accelerator-assigned static
+  IP address:
+  - You can only change the address back to one of your original Global Accelerator static IP addresses if you
+    make the change _within 10 days_ of when you changed it to a BYOIP address.
+    After 10 days, the original static IP address is returned to the Global Accelerator IP address pool and reused. After that,
+    if you update your accelerator to change a BYOIP address to a Global Accelerator-assigned IP address, you are assigned a new IP
+    address from the Global Accelerator IP address pool.
+  - You can't change both BYOIP static IP addresses to use Global Accelerator static IP addresses instead. To use two
+    static IP addresses that are assigned by Global Accelerator with an accelerator, create a new accelerator.
 
-- ARIN: [ROA Requests](https://www.arin.net/resources/rpki/roarequest.html "https://www.arin.net/resources/rpki/roarequest.html")
-- RIPE: [Managing ROAs](https://www.ripe.net/manage-ips-and-asns/resource-management/certification/resource-certification-roa-management "https://www.ripe.net/manage-ips-and-asns/resource-management/certification/resource-certification-roa-management")
-- APNIC: [Route Management](https://www.apnic.net/wp-content/uploads/2017/01/route-roa-management-guide.pdf "https://www.apnic.net/wp-content/uploads/2017/01/route-roa-management-guide.pdf")
+- If you have an accelerator that is using two BYOIP addresses, you can change either of them to
+  a different BYOIP address. The same restrictions apply as when you add BYOIP addresses when you create an accelerator,
+  however. For example, if you update an accelerator to use two different BYOIP addresses, the addresses must be from different
+  BYOIP address ranges that you've added to Global Accelerator.
+- If you've configured cross-account BYOIP addresses, when you update the static IP addresses for an accelerator,
+  you can use a cross-account address.
+- In one specific scenario, when you update a BYOIP address, Global Accelerator might need to change your Amazon static IP address
+  so that it can complete the update successfully. The Amazon static IP address can only be impacted when 1) you update a
+  BYOIP static IPv4 address for your accelerator to use a BYOIP address from another account (that is, a cross-account
+  BYOIP address), and 2) your second static IP address on the accelerator is from the Amazon pool.
 
-## Step 2: Create a self-signed X.509 certificate
+If you didn't want the Amazon static IP address to change, you can revert to the previous Amazon IP
+address, but only if no more than 10 days has elapsed since you made the update. When you revert the change, the
+original Amazon IP address is restored for your accelerator. After 10 days has elapsed, however, the Amazon IP
+address is released back into the available IP addresses pool and can't be restored.
 
-Create a key pair and a self-signed X.509 certificate, and then add the certificate to the
-RDAP record for your RIR. The following steps describe how to perform these tasks.
+## Revert a static IP address change
 
-###### Note
+To revert to the original Amazon IP address for your accelerator, do the following:
 
-The `openssl` commands in these steps require OpenSSL
-version 1.0.2 or later.
+- Update the accelerator with the original BYOIP static IP address that you changed to a new address.
 
-## To create and add an X.509
-
-certificate
-
-1. Generate an RSA 2048-bit key pair using the following command.
-
-```
-openssl genrsa -out private.key 2048
-```
-
-2. Create a public X.509 certificate from the key pair using the following command.
-
-```
-openssl req -new -x509 -key private.key -days 365 | tr -d "\n" > publickey.cer
-```
-
-In this example, the certificate expires in 365 days, after which time it can’t be trusted.
-When you run the command, make sure that you set the `–days` option to the desired value for
-the correct expiration. When you're prompted for other information, you can accept the default values. 3. Update the RDAP record for your RIR with the X.509 certificate by using the following steps, depending
-on your RIR.
-
-    1. View your certificate using the following command.
-
-
-
-    ```
-    cat publickey.cer
-    ```
-    2. Add the certificate that you previously created to the RDAP record for your RIR.
-     Be sure to include the `-----BEGIN CERTIFICATE-----` and `-----END
-     CERTIFICATE-----` strings before and after the encoded portion. All of
-     this content must be on a single, long line. The procedure for updating RDAP depends
-     on your RIR:
-
-
-
-
-    	* For ARIN, use the [Account Manager
-    	 portal](https://account.arin.net/public/secure/dashboard "https://account.arin.net/public/secure/dashboard") to add the certificate in the "Public Comments" section
-    	 for the "Network Information" object representing your address range. Do not
-    	 add it to the comments section for your organization.
-    	* For RIPE, add the certificate as a new "descr" field to the "inetnum" or
-    	 "inet6num" object representing your address range. These can usually be
-    	 found in the "My Resources" section of the [RIPE
-    	 Database portal](https://apps.db.ripe.net/db-web-ui/myresources/overview "https://apps.db.ripe.net/db-web-ui/myresources/overview"). Do not add it to the comments section for your
-    	 organization or the "remarks" field of the above objects.
-    	* For APNIC, email the certificate to [helpdesk@apnic.net](mailto:helpdesk@apnic.net "mailto:helpdesk@apnic.net") to manually add it to the "remarks" field
-    	 for your address range. Send the email using the APNIC authorized contact
-    	 for the IP addresses.
-    You can remove the certificate from your RIR's record after the provisioning stage
-     below has been completed.
-
-## Step 3: Create a signed authorization message
-
-Create the signed authorization message to allow Amazon to advertise your IP address range.
-
-The format of the message is as follows, where the `YYYYMMDD` date is the
-expiration date of the message.
-
-```
-1|aws|`aws-account`|`address-range`|`YYYYMMDD`|SHA256|RSAPSS
-```
-
-## To create the signed
-
-authorization message
-
-1. Create a plaintext authorization message and store it in a variable named
-   `text_message`, as the following example shows. Replace the
-   example account number, IP address range, and expiration date with your own
-   values.
-
-```
-text_message="1|aws|`123456789012`|`203.0.113.0/24`|`20191201`|SHA256|RSAPSS"
-```
-
-2. Sign the authorization message in `text_message` using the key pair that you created in the
-   previous section.
-3. Store the message in a variable named `signed_message`, as the following example shows.
-
-```
-signed_message=$(echo $text_message | tr -d "\n" | openssl dgst -sha256 -sigopt
-						rsa_padding_mode:pss -sigopt rsa_pss_saltlen:-1 -sign private.key -keyform PEM | openssl base64 |
-						tr -- '+=/' '-_~' | tr -d "\n")
-```
+When you make this update, Global Accelerator will restore the original Amazon static IP address as well.

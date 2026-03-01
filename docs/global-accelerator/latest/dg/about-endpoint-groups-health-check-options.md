@@ -35,9 +35,7 @@ choose to configure health ports on another port, for example, port 83, then mak
 you configure your security groups to allow traffic on port 83 only from IP addresses that are in the
 IP address range for Route 53 health checks.
 
-## Health check guidance for different
-
-endpoint types
+## Health check guidance for different endpoint types
 
 Review the information in this section for guidelines about the health checks that
 you specify for each endpoint type for your accelerator.

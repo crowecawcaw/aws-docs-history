@@ -44,9 +44,7 @@ AWS Global Accelerator supports tagging for accelerators and cross-account attac
 Global Accelerator supports the tag-based access control feature of AWS Identity and Access Management (IAM). For more
 information, see [ABAC with Global Accelerator](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 
-## Adding, editing, and deleting tags in
-
-Global Accelerator
+## Adding, editing, and deleting tags in Global Accelerator
 
 The following procedure explains how to add, edit, and delete tags for accelerators in
 the Global Accelerator console.
@@ -54,9 +52,7 @@ the Global Accelerator console.
 You can add or remove tags using the console, the AWS CLI, or Global Accelerator API operations.
 For more information, including CLI examples, see [TagResource](../api/API_TagResource.md "../api/API_TagResource.md") in the _AWS Global Accelerator API Reference_.
 
-###### To add tags, edit, or delete tags in
-
-Global Accelerator
+###### To add tags, edit, or delete tags in Global Accelerator
 
 1. Open the Global Accelerator console at [https://console.aws.amazon.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home "https://console.aws.amazon.com/globalaccelerator/home").
 2. Choose the accelerator that you want to add or update tags for.

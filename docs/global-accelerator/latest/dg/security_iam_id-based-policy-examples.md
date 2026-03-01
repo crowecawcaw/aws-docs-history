@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS Global Accelerator
+# Identity-based policy examples for AWS Global Accelerator
 
 By default, users and roles don't have permission to create or modify Global Accelerator
 resources. To grant users permission to perform actions on the
@@ -14,20 +12,13 @@ For details about actions and resource types defined by Global Accelerator, incl
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Creating a
-  Global Accelerator accelerator](#security_iam_id-based-policy-examples-create-accelerator "#security_iam_id-based-policy-examples-create-accelerator")
-- [Using the Global Accelerator
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Using a Global Accelerator
-  API action](#security_iam_id-based-policy-examples-api "#security_iam_id-based-policy-examples-api")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Creating a Global Accelerator accelerator](#security_iam_id-based-policy-examples-create-accelerator "#security_iam_id-based-policy-examples-create-accelerator")
+- [Using the Global Accelerator console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Using a Global Accelerator API action](#security_iam_id-based-policy-examples-api "#security_iam_id-based-policy-examples-api")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Global Accelerator resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Creating a
-
-Global Accelerator accelerator
+## Creating a Global Accelerator accelerator
 
 To create an AWS Global Accelerator accelerator, users must have permission to create service-linked
 roles that are associated with Global Accelerator.
@@ -97,9 +86,7 @@ be able to create an accelerator.
     }
 ```
 
-## Using the Global Accelerator
-
-console
+## Using the Global Accelerator console
 
 To access the AWS Global Accelerator console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Global Accelerator resources
@@ -133,9 +120,7 @@ For more information, see the Global Accelerator [AWS
 managed policies page](security-iam-awsmanpol-aga.md "security-iam-awsmanpol-aga.md") or [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Using a Global Accelerator
-
-API action
+## Using a Global Accelerator API action
 
 AWS Global Accelerator supports using actions in a policy. This allows an administrator to control
 whether an entity can complete an operation in Global Accelerator.
@@ -161,9 +146,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

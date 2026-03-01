@@ -1,6 +1,4 @@
-#
-
-Remove a VPC subnet endpoint for a custom routing accelerator
+# Remove a VPC subnet endpoint for a custom routing accelerator
 
 You can remove an Amazon Virtual Private Cloud (VPC) subnet endpoint from your custom routing accelerator so
 that user traffic no longer goes to destination Amazon EC2 instances in the subnet.

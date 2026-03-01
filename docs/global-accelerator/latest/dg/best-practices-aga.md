@@ -1,6 +1,4 @@
-# Best practices for ENIs and security groups with client IP address
-
-preservation
+# Best practices for ENIs and security groups with client IP address preservation
 
 When you use client IP address preservation in AWS Global Accelerator, keep in mind the
 information and best practices in this section for elastic network interfaces (ENIs) and

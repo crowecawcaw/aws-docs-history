@@ -1,6 +1,4 @@
-#
-
-Getting started with a custom routing accelerator
+# Getting started with a custom routing accelerator
 
 This section provides steps for creating a custom routing accelerator, which routes traffic deterministically
 to Amazon EC2 instance destinations in virtual private cloud (VPC) subnet endpoints.
@@ -14,9 +12,7 @@ to Amazon EC2 instance destinations in virtual private cloud (VPC) subnet endpoi
 - [Step 4: Add endpoints](#getting-started-add-endpoints-custom "#getting-started-add-endpoints-custom")
 - [Step 5 (optional): Delete your accelerator](#getting-started-delete-accelerator-custom "#getting-started-delete-accelerator-custom")
 
-##
-
-Before you begin
+## Before you begin
 
 Before you create a custom routing accelerator, create a resource that you can add as an endpoint to direct
 traffic to. A custom routing accelerator endpoint must be a virtual private cloud (VPC) subnet, which can
@@ -39,9 +35,7 @@ When you create a resource to add to Global Accelerator, be aware of the followi
 Before you create a custom routing accelerator, make sure that you review the best practices described in
 [Guidelines and restrictions for custom routing accelerators](about-custom-routing-guidelines.md "about-custom-routing-guidelines.md").
 
-##
-
-Step 1: Create a custom routing accelerator
+## Step 1: Create a custom routing accelerator
 
 ## To create an accelerator
 
@@ -67,9 +61,7 @@ Each listener port range that you specify must include a minimum of 16 ports.
 3. Optionally, choose **Add listener** to add an additional listener.
 4. When you're finished adding listeners, choose **Next**.
 
-##
-
-Step 3: Add endpoint groups
+## Step 3: Add endpoint groups
 
 Add one or more endpoint groups, each of which is associated with a specific AWS Region. For each endpoint
 group, specify one or more sets of port ranges and protocols. Global Accelerator uses these to direct traffic to Amazon EC2 instances
@@ -96,9 +88,7 @@ For each port range that you provide, you also specify the protocol to use: UDP,
     groups for this listener or other listeners.
 5.  Choose **Next**.
 
-##
-
-Step 4: Add VPC subnet endpoints
+## Step 4: Add VPC subnet endpoints
 
 Add one or more virtual private cloud (VPC) subnet endpoints for this regional endpoint group. Endpoints for custom routing accelerators
 define the VPC subnets that can receive traffic through a custom routing accelerator. Each subnet can contain one or many Amazon EC2
@@ -135,9 +125,7 @@ After you choose **Next**, on the Global Accelerator, dashboard you'll see a mes
 that your accelerator is in progress. When the process is finished, the accelerator status
 in the dashboard is **Active**.
 
-##
-
-Step 5 (optional): Delete your accelerator
+## Step 5 (optional): Delete your accelerator
 
 If you created an accelerator as a test or if you're no longer using an accelerator, you can
 delete it. On the console, disable the accelerator, and then you can delete it. You don't

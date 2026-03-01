@@ -1,6 +1,4 @@
-#
-
-Understanding AWS Global Accelerator use cases
+# Understanding AWS Global Accelerator use cases
 
 Using AWS Global Accelerator can help you accomplish a variety of goals. This section lists some of them, to give you an idea
 how you can use Global Accelerator to meet your needs.

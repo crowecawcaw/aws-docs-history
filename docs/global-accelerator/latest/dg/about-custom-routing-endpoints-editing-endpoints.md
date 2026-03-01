@@ -1,6 +1,4 @@
-#
-
-Edit a VPC subnet endpoint for a custom routing accelerator
+# Edit a VPC subnet endpoint for a custom routing accelerator
 
 You can edit Amazon Virtual Private Cloud (VPC) subnet endpoints for your custom routing accelerators so
 that you can change where you direct user traffic to destination Amazon EC2 instances, or allow or deny traffic

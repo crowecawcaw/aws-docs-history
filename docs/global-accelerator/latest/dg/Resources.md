@@ -8,9 +8,7 @@ The information and resources listed here can help you learn more about Global A
 - [Getting support](#related-information.support "#related-information.support")
 - [Tips from the AWS blog website](#resources-aws-blog-tips "#resources-aws-blog-tips")
 
-##
-
-API Reference and product information for AWS Global Accelerator
+## API Reference and product information for AWS Global Accelerator
 
 The following related resources can help you as you work with this service.
 
@@ -58,7 +56,7 @@ The AWS blog website has a number of posts to help you use AWS services, includi
 - [Maximising application resiliency with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/maximising-application-resiliency-with-aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/maximising-application-resiliency-with-aws-global-accelerator/")
 - [Starting Small with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/starting-small-with-aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/starting-small-with-aws-global-accelerator/")
 - [Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/")
-- [Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Quick Suite](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/")
+- [Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Quick](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/")
 
 For a complete list of AWS Global Accelerator blogs, see
 [AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/category/networking-content-delivery/aws-global-accelerator/ "https://aws.amazon.com/blogs/networking-and-content-delivery/category/networking-content-delivery/aws-global-accelerator/") in the Networking & Content Delivery category of AWS blog posts.
