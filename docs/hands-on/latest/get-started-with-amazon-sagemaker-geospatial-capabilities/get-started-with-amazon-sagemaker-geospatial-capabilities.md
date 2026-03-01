@@ -1,6 +1,4 @@
-# Get started with Amazon SageMaker AI geospatial
-
-capabilities
+# Get started with Amazon SageMaker AI geospatial capabilities
 
 |                      |                                                                                                                                                                               |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
