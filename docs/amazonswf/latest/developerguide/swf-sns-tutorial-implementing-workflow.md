@@ -164,7 +164,7 @@ Here, we just set some timeout values: the maximum time it can take from the tim
 closes (one hour), and the maximum time it can take for the workflow execution to complete (24 hours). If either
 of these times are exceeded, the task or workflow will timeout.
 
-For more information about timeout values, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md") .
+For more information about timeout values, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md").
 
 ## Polling for Decisions
 

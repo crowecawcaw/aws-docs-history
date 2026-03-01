@@ -9,14 +9,11 @@ For more information, see [Viewing Amazon SWF Metrics for CloudWatch using the A
 - [Reporting Units for Amazon SWF Metrics](#swf-reporting-units "#swf-reporting-units")
 - [API and Decision Event Metrics](#swf-throttling-metrics "#swf-throttling-metrics")
 - [Amazon SWF Metrics](#cloudwatch-swf-metrics "#cloudwatch-swf-metrics")
-- [Amazon SWF non-ASCII resource names and CloudWatch
-  dimensions](#cloudwatch-swf-non-ascii "#cloudwatch-swf-non-ascii")
+- [Amazon SWF non-ASCII resource names and CloudWatch dimensions](#cloudwatch-swf-non-ascii "#cloudwatch-swf-non-ascii")
 
 ## Reporting Units for Amazon SWF Metrics
 
-### Metrics that Report a Time
-
-Interval
+### Metrics that Report a Time Interval
 
 Some of the Amazon SWF metrics for CloudWatch are _time intervals_, always measured in
 milliseconds. The CloudWatch unit is reported as `Time`. These metrics generally
@@ -28,7 +25,7 @@ took for the decision task to complete after it began executing, which is the sa
 period for which you can set a `DecisionTaskStartToCloseTimeout` value.
 
 For a diagram of each of these workflow stages and to learn when they occur over the
-workflow and activity lifecycles, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md") .
+workflow and activity lifecycles, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md").
 
 ### Metrics that Report a Count
 
@@ -115,9 +112,7 @@ The following metrics are available for Amazon SWF:
 | `TaskListClassification` | Filters data to the classification of the task list. Value is "D" for Decision<br>Task Lists and "A" for Activity Task Lists.                                |
 | `ThrottlingScope`        | Filters data to the specified throttling scope. Value is "Account" when exceeding<br>account-level quota, or "Workflow" when exceeding workflow-level quota. |
 
-## Amazon SWF non-ASCII resource names and CloudWatch
-
-dimensions
+## Amazon SWF non-ASCII resource names and CloudWatch dimensions
 
 Amazon SWF allows non-ASCII characters in resource names such as TaskList and DomainName.
 However, the dimension values of CloudWatch metrics can only contain printable ASCII characters. To

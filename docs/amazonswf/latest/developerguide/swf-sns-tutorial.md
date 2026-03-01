@@ -32,8 +32,7 @@ Java](../awsflowguide.md "../awsflowguide.md").
 - [About the Workflow](#swf-sns-tutorial-about-the-workflow "#swf-sns-tutorial-about-the-workflow")
 - [Prerequisites](#swf-sns-tutorial-prerequisites "#swf-sns-tutorial-prerequisites")
 - [Tutorial Steps](#swf-sns-tutorial-steps "#swf-sns-tutorial-steps")
-- [Subscription Workflow Tutorial Part 1: Using Amazon SWF
-  with the AWS SDK for Ruby](swf-sns-tutorial-setup-swf.md "swf-sns-tutorial-setup-swf.md")
+- [Subscription Workflow Tutorial Part 1: Using Amazon SWF with the AWS SDK for Ruby](swf-sns-tutorial-setup-swf.md "swf-sns-tutorial-setup-swf.md")
 - [Subscription Workflow Tutorial Part 2: Implementing the Workflow](swf-sns-tutorial-implementing-workflow.md "swf-sns-tutorial-implementing-workflow.md")
 - [Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md "swf-sns-tutorial-implementing-activities.md")
 - [Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller](swf-sns-tutorial-implementing-activities-poller.md "swf-sns-tutorial-implementing-activities-poller.md")
@@ -79,8 +78,7 @@ of the development option you choose.
 
 This tutorial is divided into the following steps:
 
-1. [Subscription Workflow Tutorial Part 1: Using Amazon SWF
-   with the AWS SDK for Ruby](swf-sns-tutorial-setup-swf.md "swf-sns-tutorial-setup-swf.md")
+1. [Subscription Workflow Tutorial Part 1: Using Amazon SWF with the AWS SDK for Ruby](swf-sns-tutorial-setup-swf.md "swf-sns-tutorial-setup-swf.md")
 2. [Subscription Workflow Tutorial Part 2: Implementing the Workflow](swf-sns-tutorial-implementing-workflow.md "swf-sns-tutorial-implementing-workflow.md")
 3. [Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md "swf-sns-tutorial-implementing-activities.md")
 4. [Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller](swf-sns-tutorial-implementing-activities-poller.md "swf-sns-tutorial-implementing-activities-poller.md")

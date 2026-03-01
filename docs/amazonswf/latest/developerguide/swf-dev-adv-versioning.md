@@ -8,7 +8,7 @@ workflows and activities concurrently, for any purpose that meets your requireme
 
 Workflow and activity types have a version associated with them which is specified at registration time.
 Version is a free-form string and you can choose your own versioning scheme. In order to create a new version of a
-registered type, you should register it with the same name and a different version. [Task lists in Amazon SWF](swf-dev-task-lists.md "swf-dev-task-lists.md") , described earlier, can further help you to
+registered type, you should register it with the same name and a different version. [Task lists in Amazon SWF](swf-dev-task-lists.md "swf-dev-task-lists.md"), described earlier, can further help you to
 implement versioning. Consider a situation in which you have long-running workflow executions of a given type
 already in progress, and circumstances require that you revise the workflow, such as to add a new feature. You
 could implement the new feature by creating new versions of activity types and workers, and a new decider. Then

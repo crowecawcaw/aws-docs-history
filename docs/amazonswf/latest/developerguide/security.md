@@ -10,8 +10,7 @@ This section provides information about Amazon Simple Workflow Service security 
 - [Compliance Validation for Amazon Simple Workflow Service](SWF-compliance.md "SWF-compliance.md")
 - [Resilience in Amazon Simple Workflow Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon Simple Workflow Service](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and Vulnerability Analysis
-  in Amazon Simple Workflow Service](configuration-vulnerability.md "configuration-vulnerability.md")
+- [Configuration and Vulnerability Analysis in Amazon Simple Workflow Service](configuration-vulnerability.md "configuration-vulnerability.md")
   Amazon SWF uses IAM to control access to other AWS services and resources. For an overview
   of how IAM works, see [Overview of Access Management](../../../IAM/latest/UserGuide/introduction_access-management.md "../../../IAM/latest/UserGuide/introduction_access-management.md") in the _IAM User Guide_. For
   an overview of security credentials, see [AWS Security Credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md") in

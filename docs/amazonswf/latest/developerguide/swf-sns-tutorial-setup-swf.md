@@ -1,6 +1,4 @@
-# Subscription Workflow Tutorial Part 1: Using Amazon SWF
-
-with the AWS SDK for Ruby
+# Subscription Workflow Tutorial Part 1: Using Amazon SWF with the AWS SDK for Ruby
 
 ###### Topics
 

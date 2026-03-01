@@ -24,8 +24,7 @@ will be assigned a priority of zero ("0").
 
 - [Setting Task Priority for Workflows](#task-priority-workflows "#task-priority-workflows")
 - [Setting Task Priority for Activities](#task-priority-activities "#task-priority-activities")
-- [Actions that Return Task Priority
-  Information](#task-priority-responses "#task-priority-responses")
+- [Actions that Return Task Priority Information](#task-priority-responses "#task-priority-responses")
 
 ## Setting Task Priority for Workflows
 
@@ -173,9 +172,7 @@ when scheduling the activity with the [RespondDecisionTaskCompleted](../apirefer
 }
 ```
 
-## Actions that Return Task Priority
-
-Information
+## Actions that Return Task Priority Information
 
 You can get information about the set task priority (or set default task priority) from
 the following Amazon SWF actions:
