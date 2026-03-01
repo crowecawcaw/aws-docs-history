@@ -1,6 +1,4 @@
-# Step B: Install (Kickstart) the operating
-
-system software
+# Step B: Install (Kickstart) the operating system software
 
 ###### To kickstart the system
 

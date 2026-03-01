@@ -1,6 +1,4 @@
-# Step C: Install the AWS Elemental
-
-Software
+# Step C: Install the AWS Elemental Software
 
 1. Use SCP to move each AWS Elemental software installer (`.run`
    file) to the `/home/elemental` directory on the appropriate virtual

@@ -1,6 +1,4 @@
-# System requirements for virtual machines
-
-(VMs)
+# System requirements for virtual machines (VMs)
 
 This section describes the system requirements for AWS Elemental Conductor Live and worker nodes if
 you're using a virtual machine (VM).

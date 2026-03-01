@@ -24,10 +24,8 @@ Modify your commands to specify the version that applies for you.
 
 ###### Topics
 
-- [Step A: Prepare the hardware and download
-  files](install-cl3-ig-prep.md "install-cl3-ig-prep.md")
-- [Step B: Install (Kickstart) the operating
-  system software](install-cl3-ig-install-ks.md "install-cl3-ig-install-ks.md")
+- [Step A: Prepare the hardware and download files](install-cl3-ig-prep.md "install-cl3-ig-prep.md")
+- [Step B: Install (Kickstart) the operating system software](install-cl3-ig-install-ks.md "install-cl3-ig-install-ks.md")
 - [Step C: Install the Conductor Live software](install-cl3-ig-install-sw.md "install-cl3-ig-install-sw.md")
 - [Step D: Set up licenses](install-cl3-license.md "install-cl3-license.md")
 - [Step E: Complete cluster configuration](install-cl3-ig-complete.md "install-cl3-ig-complete.md")

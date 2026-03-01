@@ -20,15 +20,12 @@ The license generation procedure works as follows:
 
 ###### Topics
 
-- [Organize your activation
-  codes](#install-vm-cl3-license-retrieve "#install-vm-cl3-license-retrieve")
+- [Organize your activation codes](#install-vm-cl3-license-retrieve "#install-vm-cl3-license-retrieve")
 - [Generate a key file](#install-vm-cl3-license-generate "#install-vm-cl3-license-generate")
 - [Generate a license](#install-vm-cl3-license-download "#install-vm-cl3-license-download")
 - [Install the license files](#install-vm-cl3-license-install "#install-vm-cl3-license-install")
 
-## Organize your activation
-
-codes
+## Organize your activation codes
 
 ###### To organize the activation codes
 

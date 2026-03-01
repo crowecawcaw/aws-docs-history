@@ -1,10 +1,6 @@
-# Step A: Prepare the hardware and download
+# Step A: Prepare the hardware and download files
 
-files
-
-## Install the hardware
-
-units
+## Install the hardware units
 
 Install the Hypervisors according to the procedures for your organization.
 

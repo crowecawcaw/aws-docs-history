@@ -1,6 +1,4 @@
-# Step A: Prepare the hardware and download
-
-files
+# Step A: Prepare the hardware and download files
 
 ## Prepare the hardware and network
 
