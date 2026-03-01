@@ -1,6 +1,4 @@
-# Migrate from RDS MySQL to Aurora MySQL in near zero
-
-downtime
+# Migrate from RDS MySQL to Aurora MySQL in near zero downtime
 
 |                      |                                                                                                                                                          |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
