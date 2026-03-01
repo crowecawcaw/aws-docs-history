@@ -150,9 +150,7 @@ seconds.
 }
 ```
 
-## Listening TCP port count
-
-(`aws:num-listening-tcp-ports`)
+## Listening TCP port count (`aws:num-listening-tcp-ports`)
 
 The number of TCP ports the device is listening on.
 
@@ -226,9 +224,7 @@ seconds.
 }
 ```
 
-## Listening UDP port count
-
-(`aws:num-listening-udp-ports`)
+## Listening UDP port count (`aws:num-listening-udp-ports`)
 
 The number of UDP ports the device is listening on.
 
@@ -450,9 +446,7 @@ Example using a `statisticalThreshold`
 }
 ```
 
-## Destination IPs
-
-(`aws:destination-ip-addresses`)
+## Destination IPs (`aws:destination-ip-addresses`)
 
 A set of IP destinations.
 
@@ -484,9 +478,7 @@ Units: n/a
 }
 ```
 
-## Listening TCP ports
-
-(`aws:listening-tcp-ports`)
+## Listening TCP ports (`aws:listening-tcp-ports`)
 
 The TCP ports that the device is listening on.
 
@@ -518,9 +510,7 @@ Units: n/a
 }
 ```
 
-## Listening UDP ports
-
-(`aws:listening-udp-ports`)
+## Listening UDP ports (`aws:listening-udp-ports`)
 
 The UDP ports that the device is listening on.
 
@@ -551,9 +541,7 @@ Units: n/a
 }
 ```
 
-## Established TCP connections count
-
-(`aws:num-established-tcp-connections`)
+## Established TCP connections count (`aws:num-established-tcp-connections`)
 
 The number of TCP connections for a device.
 

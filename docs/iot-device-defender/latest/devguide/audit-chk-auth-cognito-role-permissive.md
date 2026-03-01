@@ -1,6 +1,4 @@
-# Authenticated Cognito role
-
-overly permissive
+# Authenticated Cognito role overly permissive
 
 A policy attached to an authenticated Amazon Cognito identity pool role is considered too
 permissive because it grants permission to perform the following AWS IoT actions:
@@ -38,16 +36,12 @@ authenticated Amazon Cognito identity pool role:
 - ALLOWS_ACCESS_TO_IOT_NON_THING_ADMIN_ACTIONS
 - ALLOWS_ACCESS_TO_IOT_THING_ADMIN_WRITE_ACTIONS
 
-## Why it
-
-matters
+## Why it matters
 
 If an authenticated identity is compromised, it can use administrative actions to
 modify account settings, delete resources, or gain access to sensitive data.
 
-## How to fix
-
-it
+## How to fix it
 
 A policy attached to an authenticated Amazon Cognito identity pool role should grant only
 those permissions required for a device to do its job. We recommend the following
@@ -66,9 +60,7 @@ You can also use mitigation actions to:
 
 For more information, see [Mitigation actions](dd-mitigation-actions.md "dd-mitigation-actions.md").
 
-## Manage or
-
-modify things
+## Manage or modify things
 
 The following AWS IoT API actions are used to manage or modify things so permission
 to perform these should not be granted to devices connecting through an
@@ -89,9 +81,7 @@ authenticated Amazon Cognito identity pool:
 Any role that grants permission to perform these actions on even a single resource
 is considered noncompliant.
 
-## Manage
-
-non-things
+## Manage non-things
 
 Devices that connect through an authenticated Amazon Cognito identity pool should not be
 given permission to perform AWS IoT API actions other than those discussed in these
@@ -99,9 +89,7 @@ sections. To manage your account with an application that connects through an
 authenticated Amazon Cognito identity pool, create a separate identity pool not used by
 devices.
 
-## Read
-
-thing administrative data
+## Read thing administrative data
 
 The following AWS IoT API actions are used to read thing data, so devices that
 connect through an authenticated Amazon Cognito identity pool should be given permission to
@@ -405,9 +393,7 @@ arn:aws:iot:`region`:`account-id`:topicfilter/$aws/things/*
 This is compliant because the device can receive messages only
 from topics on which it has permission to subscribe.
 
-## Read or
-
-modify shadow or job data
+## Read or modify shadow or job data
 
 A policy that grants permission to a device to perform an API action to access or
 modify device shadows or job execution data should restrict these actions to

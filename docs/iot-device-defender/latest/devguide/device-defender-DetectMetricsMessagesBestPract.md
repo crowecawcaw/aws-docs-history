@@ -1,6 +1,4 @@
-# Security best practices for
-
-device agents
+# Security best practices for device agents
 
 Least Privilege
 

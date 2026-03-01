@@ -1,6 +1,4 @@
-# Unauthenticated Cognito role
-
-overly permissive
+# Unauthenticated Cognito role overly permissive
 
 A policy attached to an unauthenticated Amazon Cognito identity pool role is considered too
 permissive because it grants permission to perform any of the following AWS IoT
@@ -39,9 +37,7 @@ unauthenticated Amazon Cognito identity pool role:
 - ALLOWS_ACCESS_TO_IOT_ADMIN_ACTIONS
 - ALLOWS_BROAD_ACCESS_TO_IOT_DATA_PLANE_ACTIONS
 
-## Why it
-
-matters
+## Why it matters
 
 Because unauthenticated identities are never authenticated by the user, they pose
 a much greater risk than authenticated Amazon Cognito identities. If an unauthenticated
@@ -51,9 +47,7 @@ to device settings, it can access or modify shadows and jobs for all devices in 
 account. A guest user might use the permissions to compromise your entire fleet or
 launch a DDOS attack with messages.
 
-## How to fix
-
-it
+## How to fix it
 
 A policy attached to an unauthenticated Amazon Cognito identity pool role should grant only
 those permissions required for a device to do its job. We recommend the following
@@ -304,9 +298,7 @@ arn:aws:iot:`region`:`account-id`:topicfilter/$aws/things/*
 This is allowed because the device can receive messages only
 from topics on which it has permission to subscribe.
 
-## Read/modify shadow or job
-
-data
+## Read/modify shadow or job data
 
 A policy that grants permission to a device to perform an API action to access or
 modify device shadows or job execution data should restrict these actions to

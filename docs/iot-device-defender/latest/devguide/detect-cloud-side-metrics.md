@@ -224,9 +224,7 @@ seconds.
 }
 ```
 
-## Authorization failures
-
-(aws:num-authorization-failures)
+## Authorization failures (aws:num-authorization-failures)
 
 Use this metric to specify the maximum number of authorization failures allowed for each
 device in a given period of time. An authorization failure occurs when a request from a device
@@ -331,9 +329,7 @@ Units: n/a
 }
 ```
 
-## Connection attempts
-
-(aws:num-connection-attempts)
+## Connection attempts (aws:num-connection-attempts)
 
 The number of times a device attempts to make a connection in a given time period.
 

@@ -143,9 +143,7 @@ AWS IoT Device Defender supports the following types of mitigation actions on De
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ADD_THINGS_TO_THING_GROUP | You specify the group to which you want to add the devices. You also specify<br>whether membership in one or more dynamic groups should be overridden if that would<br>exceed the maximum number of groups to which the thing can belong. |
 
-## How to define and manage mitigation
-
-actions
+## How to define and manage mitigation actions
 
 You can use the AWS IoT console or the AWS CLI to define and manage mitigation actions for
 your AWS account.
@@ -258,9 +256,7 @@ task outputs an execution summary.
 
 You can use the AWS IoT console or the AWS CLI to apply mitigation actions.
 
-###### To use the AWS IoT console to apply mitigation actions by starting an action
-
-execution
+###### To use the AWS IoT console to apply mitigation actions by starting an action execution
 
 1. Open the [Audit results page in the AWS IoT
    console](https://console.aws.amazon.com//iot/home#/dd/auditResultsHub "https://console.aws.amazon.com//iot/home#/dd/auditResultsHub").
@@ -279,9 +275,7 @@ empty. You can choose the **Create mitigation action** link to create one or mor
 mitigation actions. 6. When you have specified all of the actions that you want to apply, choose
 **Start task**.
 
-###### To use the AWS CLI to apply mitigation actions by starting an audit mitigation actions
-
-execution
+###### To use the AWS CLI to apply mitigation actions by starting an audit mitigation actions execution
 
 1. If you want to apply actions to all findings for the audit, use the [ListAuditTasks](../../../iot/latest/apireference/API_ListAuditTasks.md "../../../iot/latest/apireference/API_ListAuditTasks.md") command to find the task ID.
 2. If you want to apply actions to selected findings only, use the [ListAuditFindings](../../../iot/latest/apireference/API_ListAuditFindings.md "../../../iot/latest/apireference/API_ListAuditFindings.md") command to get the finding IDs.

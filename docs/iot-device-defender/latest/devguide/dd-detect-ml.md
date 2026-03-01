@@ -23,8 +23,7 @@ For information about how to get started with ML Detect, see [ML Detect guide](d
 - [Service quotas](#dd-detect-ml-quotas "#dd-detect-ml-quotas")
 - [ML Detect CLI commands](#dd-detect-ml-cli-commands "#dd-detect-ml-cli-commands")
 - [ML Detect APIs](#dd-detect-ml-apis "#dd-detect-ml-apis")
-- [Pause or delete an ML Detect Security
-  Profile](#dd-detect-ml-disable-feature "#dd-detect-ml-disable-feature")
+- [Pause or delete an ML Detect Security Profile](#dd-detect-ml-disable-feature "#dd-detect-ml-disable-feature")
 
 ## Use cases of ML Detect
 
@@ -94,8 +93,7 @@ datapoints for 14-day trailing period.
 
 You can use ML Detect with dimensions on the following cloud-side metrics:
 
-- [Authorization failures
-  (aws:num-authorization-failures)](detect-cloud-side-metrics.md#detect-auth-failures "detect-cloud-side-metrics.md#detect-auth-failures")
+- [Authorization failures (aws:num-authorization-failures)](detect-cloud-side-metrics.md#detect-auth-failures "detect-cloud-side-metrics.md#detect-auth-failures")
 - [Messages received (aws:num-messages-received)](detect-cloud-side-metrics.md#detect-messages-received "detect-cloud-side-metrics.md#detect-messages-received")
 - [Messages sent (aws:num-messages-sent)](detect-cloud-side-metrics.md#detect-messages-sent "detect-cloud-side-metrics.md#detect-messages-sent")
 - [Message size (aws:message-byte-size)](detect-cloud-side-metrics.md#detect-message-size "detect-cloud-side-metrics.md#detect-message-size")
@@ -108,12 +106,9 @@ The following metrics are not supported with ML Detect.
 
 **Device-side metrics not supported with ML Detect:**
 
-- [Destination IPs
-  (aws:destination-ip-addresses)](detect-device-side-metrics.md#detect-destination-ip-addresses "detect-device-side-metrics.md#detect-destination-ip-addresses")
-- [Listening TCP ports
-  (aws:listening-tcp-ports)](detect-device-side-metrics.md#detect-listening-tcp-ports "detect-device-side-metrics.md#detect-listening-tcp-ports")
-- [Listening UDP ports
-  (aws:listening-udp-ports)](detect-device-side-metrics.md#detect-listening-udp-ports "detect-device-side-metrics.md#detect-listening-udp-ports")
+- [Destination IPs (aws:destination-ip-addresses)](detect-device-side-metrics.md#detect-destination-ip-addresses "detect-device-side-metrics.md#detect-destination-ip-addresses")
+- [Listening TCP ports (aws:listening-tcp-ports)](detect-device-side-metrics.md#detect-listening-tcp-ports "detect-device-side-metrics.md#detect-listening-tcp-ports")
+- [Listening UDP ports (aws:listening-udp-ports)](detect-device-side-metrics.md#detect-listening-udp-ports "detect-device-side-metrics.md#detect-listening-udp-ports")
 
 Custom metrics only support the **number** type.
 
@@ -131,10 +126,8 @@ You can mark alarms through the [AWS IoT Device Defender console](../../../iot/l
 
 You can use the following cloud-side metrics with ML Detect:
 
-- [Authorization failures
-  (aws:num-authorization-failures)](detect-cloud-side-metrics.md#detect-auth-failures "detect-cloud-side-metrics.md#detect-auth-failures")
-- [Connection attempts
-  (aws:num-connection-attempts)](detect-cloud-side-metrics.md#detect-num-connection-attempts "detect-cloud-side-metrics.md#detect-num-connection-attempts")
+- [Authorization failures (aws:num-authorization-failures)](detect-cloud-side-metrics.md#detect-auth-failures "detect-cloud-side-metrics.md#detect-auth-failures")
+- [Connection attempts (aws:num-connection-attempts)](detect-cloud-side-metrics.md#detect-num-connection-attempts "detect-cloud-side-metrics.md#detect-num-connection-attempts")
 - [Disconnects (aws:num-disconnects)](detect-cloud-side-metrics.md#detect-num-disconnects "detect-cloud-side-metrics.md#detect-num-disconnects")
 - [Message size (aws:message-byte-size)](detect-cloud-side-metrics.md#detect-message-size "detect-cloud-side-metrics.md#detect-message-size")
 - [Messages sent (aws:num-messages-sent)](detect-cloud-side-metrics.md#detect-messages-sent "detect-cloud-side-metrics.md#detect-messages-sent")
@@ -144,14 +137,11 @@ You can use the following device-side metrics with ML Detect:
 
 - [Bytes out (aws:all-bytes-out)](detect-device-side-metrics.md#detect-all-bytes-out "detect-device-side-metrics.md#detect-all-bytes-out")
 - [Bytes in (aws:all-bytes-in)](detect-device-side-metrics.md#detect-all-bytes-in "detect-device-side-metrics.md#detect-all-bytes-in")
-- [Listening TCP port count
-  (aws:num-listening-tcp-ports)](detect-device-side-metrics.md#detect-num-listening-tcp-ports "detect-device-side-metrics.md#detect-num-listening-tcp-ports")
-- [Listening UDP port count
-  (aws:num-listening-udp-ports)](detect-device-side-metrics.md#detect-num-listening-udp-ports "detect-device-side-metrics.md#detect-num-listening-udp-ports")
+- [Listening TCP port count (aws:num-listening-tcp-ports)](detect-device-side-metrics.md#detect-num-listening-tcp-ports "detect-device-side-metrics.md#detect-num-listening-tcp-ports")
+- [Listening UDP port count (aws:num-listening-udp-ports)](detect-device-side-metrics.md#detect-num-listening-udp-ports "detect-device-side-metrics.md#detect-num-listening-udp-ports")
 - [Packets out (aws:all-packets-out)](detect-device-side-metrics.md#detect-all-packets-out "detect-device-side-metrics.md#detect-all-packets-out")
 - [Packets in (aws:all-packets-in)](detect-device-side-metrics.md#detect-all-packets-in "detect-device-side-metrics.md#detect-all-packets-in")
-- [Established TCP connections count
-  (aws:num-established-tcp-connections)](detect-device-side-metrics.md#detect-num-established-tcp-connections "detect-device-side-metrics.md#detect-num-established-tcp-connections")
+- [Established TCP connections count (aws:num-established-tcp-connections)](detect-device-side-metrics.md#detect-num-established-tcp-connections "detect-device-side-metrics.md#detect-num-established-tcp-connections")
 
 ## Service quotas
 
@@ -186,9 +176,7 @@ The following APIs can be used to create and manage ML Detect Security Profiles.
 - [ListViolationEvents](../../../iot/latest/apireference/API_ListViolationEvents.md "../../../iot/latest/apireference/API_ListViolationEvents.md")
 - [PutVerificationStateOnViolation](../../../iot/latest/apireference/API_PutVerificationStateOnViolation.md "../../../iot/latest/apireference/API_PutVerificationStateOnViolation.md")
 
-## Pause or delete an ML Detect Security
-
-Profile
+## Pause or delete an ML Detect Security Profile
 
 You can pause your ML Detect Security Profile to stop monitoring device behaviors
 temporarily, or delete your ML Detect Security Profile to stop monitoring device behaviors for an

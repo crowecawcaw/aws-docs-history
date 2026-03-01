@@ -44,9 +44,7 @@ certificate:
 - CERTIFICATE_KEY_VULNERABILITY_CVE-2017-15361
 - CERTIFICATE_KEY_VULNERABILITY_CVE-2008-0166
 
-## Why it
-
-matters
+## Why it matters
 
 Newly added devices signed using this CA certificate might pose a security
 threat.

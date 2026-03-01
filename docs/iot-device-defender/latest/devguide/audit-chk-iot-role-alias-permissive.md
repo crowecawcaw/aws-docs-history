@@ -1,6 +1,4 @@
-# Role alias overly
-
-permissive
+# Role alias overly permissive
 
 AWS IoT role alias provides a mechanism for connected devices to authenticate to AWS IoT
 using X.509 certificates and then obtain short-lived AWS credentials from an IAM
@@ -36,17 +34,13 @@ policy:
 - ALLOWS_ACCESS_TO_IOT_THING_ADMIN_WRITE_ACTIONS
 - ALLOWS_BROAD_ACCESS_TO_IOT_DATA_PLANE_ACTIONS
 
-## Why it
-
-matters
+## Why it matters
 
 By limiting permissions to those that are required for a device to perform its
 normal operations, you reduce the risks to your account if a device is
 compromised.
 
-## How to fix
-
-it
+## How to fix it
 
 Follow these steps to fix any noncompliant policies attached to things, thing
 groups, or other entities:

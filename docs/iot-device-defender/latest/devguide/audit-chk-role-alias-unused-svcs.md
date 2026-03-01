@@ -1,6 +1,4 @@
-# Role alias allows access to unused
-
-services
+# Role alias allows access to unused services
 
 AWS IoT role alias provides a mechanism for connected devices to authenticate to AWS IoT
 using X.509 certificates and then obtain short-lived AWS credentials from an IAM
@@ -29,9 +27,7 @@ policy:
 
 - ALLOWS_ACCESS_TO_UNUSED_SERVICES
 
-## Why it
-
-matters
+## Why it matters
 
 By limiting permissions to those services that are required for a device to
 perform its normal operations, you reduce the risks to your account if a device is

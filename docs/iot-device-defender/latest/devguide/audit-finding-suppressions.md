@@ -33,9 +33,7 @@ whether an audit check is compliant or not. A suppressed resource count is also 
 in each audit check notification AWS IoT Device Defender publishes to Amazon CloudWatch and Amazon Simple
 Notification Service (Amazon SNS).
 
-## How to use audit finding suppressions in the
-
-console
+## How to use audit finding suppressions in the console
 
 ###### To suppress a finding from an audit report
 

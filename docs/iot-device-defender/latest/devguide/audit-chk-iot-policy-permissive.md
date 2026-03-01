@@ -1,6 +1,4 @@
-# AWS IoT policies overly
-
-permissive
+# AWS IoT policies overly permissive
 
 An AWS IoT policy gives permissions that are too broad or unrestricted. It grants
 permission to send or receive MQTT messages for a broad set of devices, or grants
@@ -23,9 +21,7 @@ policy:
 
 - ALLOWS_BROAD_ACCESS_TO_IOT_DATA_PLANE_ACTIONS
 
-## Why it
-
-matters
+## Why it matters
 
 A certificate, Amazon Cognito identity, or thing group with an overly permissive policy
 can, if compromised, impact the security of your entire account. An attacker could
@@ -62,9 +58,7 @@ Use [AWS IoT Core policy
 variables](../../../iot/latest/developerguide/iot-policy-variables.md "../../../iot/latest/developerguide/iot-policy-variables.md") to dynamically reference AWS IoT resources in your
 policies.
 
-## MQTT
-
-permissions
+## MQTT permissions
 
 MQTT messages are sent through the AWS IoT message broker and are used by devices to
 perform many actions, including accessing and modifying shadow state and job

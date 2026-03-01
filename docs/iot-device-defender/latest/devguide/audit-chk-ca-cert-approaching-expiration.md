@@ -1,6 +1,4 @@
-# CA certificate
-
-expiring
+# CA certificate expiring
 
 A CA certificate is expiring within 30 days or has expired.
 
@@ -19,16 +17,12 @@ certificate:
 - CERTIFICATE_APPROACHING_EXPIRATION
 - CERTIFICATE_PAST_EXPIRATION
 
-## Why it
-
-matters
+## Why it matters
 
 An expired CA certificate should not be used to sign new device
 certificates.
 
-## How to fix
-
-it
+## How to fix it
 
 Consult your security best practices for how to proceed. You might want to:
 

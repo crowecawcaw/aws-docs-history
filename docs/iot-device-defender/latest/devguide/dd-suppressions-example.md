@@ -1,6 +1,4 @@
-# Customize when and how you view AWS IoT Device Defender audit
-
-results
+# Customize when and how you view AWS IoT Device Defender audit results
 
 AWS IoT Device Defender audit provides periodic security checks to confirm AWS IoT devices and resources are
 following best practices. For each check, the audit results are categorized as compliant or
@@ -44,9 +42,7 @@ openssl x509 -req \
     -days `1` -sha256
 ```
 
-## Customize your audit findings in the
-
-console
+## Customize your audit findings in the console
 
 The following walkthrough uses an account with two expired device certificates that
 trigger a non-compliant audit check. In this scenario, we want to disable the warning

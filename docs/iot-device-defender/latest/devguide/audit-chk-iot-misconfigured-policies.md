@@ -1,6 +1,4 @@
-# AWS IoT policy potentially
-
-misconfigured
+# AWS IoT policy potentially misconfigured
 
 An AWS IoT policy was identified as potentially misconfigured. Misconfigured policies,
 including overly permissive policies, can cause security incidents like allowing devices
@@ -23,9 +21,7 @@ misconfigured AWS IoT policy:
 - POLICY_CONTAINS_MQTT_WILDCARDS_IN_DENY_STATEMENT
 - TOPIC_FILTERS_INTENDED_TO_DENY_ALLOWED_USING_WILDCARDS
 
-## Why it
-
-matters
+## Why it matters
 
 Misconfigured policies can lead to unintended consequences by providing more
 permissions to devices than required. We recommend careful consideration of the
@@ -192,9 +188,7 @@ This check might report false positives. We recommend that you evaluate any
 flagged policies and mark false positives resources using audit
 suppressions.
 
-## How to fix
-
-it
+## How to fix it
 
 This check flags potentially misconfigured policies so there might be false
 positives. Mark any false positives using [audit suppressions](audit-finding-suppressions.md "audit-finding-suppressions.md") so they aren't flagged in the future.

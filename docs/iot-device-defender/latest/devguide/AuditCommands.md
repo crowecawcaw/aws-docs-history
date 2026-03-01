@@ -12,9 +12,7 @@ Use `DeleteAccountAuditConfiguration` to delete your audit settings. This
 restores all default values, and effectively disables audits because all checks are disabled
 by default.
 
-###
-
-UpdateAccountAuditConfiguration
+### UpdateAccountAuditConfiguration
 
 Configures or reconfigures the Device Defender audit settings for this account. Settings
 include how audit notifications are sent and which audit checks are enabled or
@@ -80,9 +78,7 @@ The rate exceeds the limit.
 
 An unexpected error has occurred.
 
-###
-
-DescribeAccountAuditConfiguration
+### DescribeAccountAuditConfiguration
 
 Gets information about the Device Defender audit settings for this account. Settings
 include how audit notifications are sent and which audit checks are enabled or
@@ -144,9 +140,7 @@ The rate exceeds the limit.
 
 An unexpected error has occurred.
 
-###
-
-DeleteAccountAuditConfiguration
+### DeleteAccountAuditConfiguration
 
 Restores the default settings for Device Defender audits for this account. Any
 configuration data you entered is deleted and all audit checks are reset to disabled.

@@ -1,6 +1,4 @@
-# Scoping metrics in security profiles using
-
-dimensions
+# Scoping metrics in security profiles using dimensions
 
 Dimensions are attributes that you can define to get more precise data about metrics and
 behaviors in your security profile. You define the scope by providing a value or pattern that is

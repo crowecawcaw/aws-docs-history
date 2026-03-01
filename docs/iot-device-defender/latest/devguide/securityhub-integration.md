@@ -11,26 +11,17 @@ includes those findings in its analysis of your security posture.
 
 ###### Contents
 
-- [Enabling and configuring the
-  integration](securityhub-integration.md#securityhub-integration-enable "securityhub-integration.md#securityhub-integration-enable")
-- [How AWS IoT Device Defender sends findings to
-  Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
-  - [Types of findings that AWS IoT Device Defender
-    sends](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
-  - [Latency for sending
-    findings](securityhub-integration.md#securityhub-integration-finding-latency "securityhub-integration.md#securityhub-integration-finding-latency")
-  - [Retrying when Security Hub CSPM isn't
-    available](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
-  - [Updating existing findings in
-    Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
+- [Enabling and configuring the integration](securityhub-integration.md#securityhub-integration-enable "securityhub-integration.md#securityhub-integration-enable")
+- [How AWS IoT Device Defender sends findings to Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
+  - [Types of findings that AWS IoT Device Defender sends](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
+  - [Latency for sending findings](securityhub-integration.md#securityhub-integration-finding-latency "securityhub-integration.md#securityhub-integration-finding-latency")
+  - [Retrying when Security Hub CSPM isn't available](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
+  - [Updating existing findings in Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
 
 - [Typical finding from AWS IoT Device Defender](securityhub-integration.md#securityhub-integration-finding-example "securityhub-integration.md#securityhub-integration-finding-example")
-- [Stopping AWS IoT Device Defender from sending findings to
-  Security Hub CSPM](securityhub-integration.md#securityhub-integration-disable "securityhub-integration.md#securityhub-integration-disable")
+- [Stopping AWS IoT Device Defender from sending findings to Security Hub CSPM](securityhub-integration.md#securityhub-integration-disable "securityhub-integration.md#securityhub-integration-disable")
 
-## Enabling and configuring the
-
-integration
+## Enabling and configuring the integration
 
 Before you integrate AWS IoT Device Defender with Security Hub CSPM, you must first enable Security Hub CSPM. For information
 about how to enable Security Hub CSPM, see [Setting up Security
@@ -40,9 +31,7 @@ After you enable both AWS IoT Device Defender and Security Hub CSPM, open the [I
 then choose **Accept findings** for Audit, Detect, or both. AWS IoT Device Defender begins
 sending findings to Security Hub CSPM.
 
-## How AWS IoT Device Defender sends findings to
-
-Security Hub CSPM
+## How AWS IoT Device Defender sends findings to Security Hub CSPM
 
 In Security Hub CSPM, security issues are tracked as _findings_. Some
 findings come from issues that are detected by other AWS services or by third-party
@@ -61,9 +50,7 @@ Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format
 
 AWS IoT Device Defender is one of the AWS services that sends findings to Security Hub CSPM.
 
-### Types of findings that AWS IoT Device Defender
-
-sends
+### Types of findings that AWS IoT Device Defender sends
 
 After you enable the Security Hub CSPM integration, AWS IoT Device Defender Audit sends the findings it generates
 (called _check summaries_) to Security Hub CSPM. Check summaries are
@@ -89,9 +76,7 @@ checks, and the finding type for Detect.
 
 The finding type for all other Audit checks.
 
-### Latency for sending
-
-findings
+### Latency for sending findings
 
 When AWS IoT Device Defender Audit creates a new finding, it's immediately sent to Security Hub CSPM after the audit
 task completes. The latency depends on the volume of the findings generated in the audit
@@ -101,16 +86,12 @@ AWS IoT Device Defender Detect sends findings for violations in near real time. 
 into or out of alarm (meaning the alarm is created or deleted), the corresponding Security Hub CSPM
 finding is immediately created or archived.
 
-### Retrying when Security Hub CSPM isn't
-
-available
+### Retrying when Security Hub CSPM isn't available
 
 If Security Hub CSPM isn't available, AWS IoT Device Defender Audit and AWS IoT Device Defender Detect retry sending the findings
 until they're received.
 
-### Updating existing findings in
-
-Security Hub CSPM
+### Updating existing findings in Security Hub CSPM
 
 After an AWS IoT Device Defender Audit finding is sent to Security Hub CSPM, you can identify it by checked resource
 identifier and audit check type. If a new audit finding is generated with a subsequent audit
@@ -342,9 +323,7 @@ The following example shows a typical finding from Security Hub CSPM for an AWS 
 
 ```
 
-## Stopping AWS IoT Device Defender from sending findings to
-
-Security Hub CSPM
+## Stopping AWS IoT Device Defender from sending findings to Security Hub CSPM
 
 To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the API.
 

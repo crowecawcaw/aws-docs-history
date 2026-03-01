@@ -1,6 +1,4 @@
-# Revoked device certificate still
-
-active
+# Revoked device certificate still active
 
 A revoked device certificate is still active.
 
@@ -22,9 +20,7 @@ noncompliance:
 
 - CERTIFICATE_REVOKED_BY_ISSUER
 
-## Why it
-
-matters
+## Why it matters
 
 A device certificate is usually revoked because it has been compromised. It is
 possible that it has not yet been revoked in AWS IoT due to an error or

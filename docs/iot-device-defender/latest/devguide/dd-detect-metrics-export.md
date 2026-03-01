@@ -51,9 +51,7 @@ your preferred AWS IoT Rules destination lacks `batchMode` support, you can
 still send individual metrics within a batched message by using intermediary actions
 such as Lambda or Kinesis Data Streams.
 
-## Setting up Detect metrics export in the
-
-AWS IoT console
+## Setting up Detect metrics export in the AWS IoT console
 
 Create, view, and edit a new security profile that includes metrics export in the
 console.
@@ -71,9 +69,7 @@ prerequisites:
   permissions, see [Permissions](../../../iot/latest/developerguide/device-defender-detect-permissions.md "../../../iot/latest/developerguide/device-defender-detect-permissions.md") in the _AWS IoT Core
   Developer Guide_.
 
-### Creating a new
-
-security profile with metrics export (console)
+### Creating a new security profile with metrics export (console)
 
 To export metric behavior data, first configure a security profile to include
 metric exporting. The following procedure details how to set up a rule-based
@@ -112,9 +108,7 @@ your MQTT topic name. For example,
 `$AWS/rules/rule-name/`. 8. To send alerts sent to your AWS console when a device violates a set
 behavior, choose or create an Amazon SNS topic and IAM role. Choose **Next.** 9. Review your configurations, and then choose **Next.**
 
-### Viewing and editing security profile
-
-details (console)
+### Viewing and editing security profile details (console)
 
 ###### To view and edit security profile details
 
@@ -135,9 +129,7 @@ details (console)
    **Next.**
 7. Review your configurations, then choose **Next.**
 
-## Creating a security profile to enable
-
-metrics export
+## Creating a security profile to enable metrics export
 
 Use the `create-security-profile` command to create your security profile
 and enable metrics export.
@@ -176,9 +168,7 @@ Output:
 }
 ```
 
-## Updating a security profile to enable metrics
-
-export (CLI)
+## Updating a security profile to enable metrics export (CLI)
 
 Use the `update-security-profile` command to update an existing security
 profile and enable metrics export.
@@ -242,9 +232,7 @@ Output:
 }
 ```
 
-## Updating a security profile to turn off metrics
-
-export (CLI)
+## Updating a security profile to turn off metrics export (CLI)
 
 Use the `update-security-profile` command to update an existing security
 profile and turn off metrics export.

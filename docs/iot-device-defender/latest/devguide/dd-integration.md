@@ -10,9 +10,7 @@ ongoing basis.
 - [Integrate Device
   Defender with AWS IoT Greengrass V2](../../../greengrass/v2/developerguide/device-defender-component.md "../../../greengrass/v2/developerguide/device-defender-component.md")
 
-## Using AWS IoT Device Defender with FreeRTOS and embedded
-
-devices
+## Using AWS IoT Device Defender with FreeRTOS and embedded devices
 
 To use AWS IoT Device Defender on a FreeRTOS device, your device must have the [FreeRTOS Embedded C SDK](https://github.com/aws/amazon-freertos "https://github.com/aws/amazon-freertos") or the [AWS IoT Device Defender library](../../../embedded-csdk/latest/lib-ref/libraries/aws/device-defender-for-aws-iot-embedded-sdk/docs/doxygen/output/html/index.md "../../../embedded-csdk/latest/lib-ref/libraries/aws/device-defender-for-aws-iot-embedded-sdk/docs/doxygen/output/html/index.md") installed. The FreeRTOS Embedded C SDK includes
 the AWS IoT Device Defender library. For information about how to integrate AWS IoT Device Defender with

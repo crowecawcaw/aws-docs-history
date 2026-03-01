@@ -10,8 +10,7 @@ detect and respond to issues that are specific to the devices.
 ###### This chapter contains the following sections:
 
 - [How to use custom metrics in the console](#dd-detect-custom-metrics-how-to-console "#dd-detect-custom-metrics-how-to-console")
-- [How to use custom metrics from the
-  CLI](#dd-detect-custom-metrics-how-to-cli "#dd-detect-custom-metrics-how-to-cli")
+- [How to use custom metrics from the CLI](#dd-detect-custom-metrics-how-to-cli "#dd-detect-custom-metrics-how-to-cli")
 - [Custom metrics CLI commands](#dd-detect-custom-metrics-cli-commands "#dd-detect-custom-metrics-cli-commands")
 - [Custom metrics APIs](#dd-detect-custom-metrics-apis "#dd-detect-custom-metrics-apis")
 
@@ -20,8 +19,7 @@ detect and respond to issues that are specific to the devices.
 ###### Tutorials
 
 - [AWS IoT Device Defender Agent SDK (Python)](#dd-detect-custom-metrics-device-agent "#dd-detect-custom-metrics-device-agent")
-- [Create a custom metric and add it to a
-  Security Profile](#dd-detect-console-create "#dd-detect-console-create")
+- [Create a custom metric and add it to a Security Profile](#dd-detect-console-create "#dd-detect-console-create")
 - [View custom metric details](#dd-detect-console-read "#dd-detect-console-read")
 - [Update a custom metric](#dd-detect-console-edit "#dd-detect-console-edit")
 - [Delete a custom metric](#dd-detect-console-delete "#dd-detect-console-delete")
@@ -35,9 +33,7 @@ setting up alarms. Instructions for setting up the device agent are available on
 [AWS IoT Device Defender Agent SDK (Python) Readme](https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python/blob/master/README.rst "https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python/blob/master/README.rst"). For more information,
 see [AWS IoT Device Defender Agent SDK (Python)](https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python "https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python").
 
-### Create a custom metric and add it to a
-
-Security Profile
+### Create a custom metric and add it to a Security Profile
 
 The following procedure shows you how to create a custom metric in the
 console.
@@ -154,15 +150,12 @@ console.
 After you've deleted a custom metric, you lose all data associated
 with the metric. This action can't be undone.
 
-## How to use custom metrics from the
-
-CLI
+## How to use custom metrics from the CLI
 
 ###### Tutorials
 
 - [AWS IoT Device Defender Agent SDK (Python)](#dd-detec-custom-metrics-cli-sdk "#dd-detec-custom-metrics-cli-sdk")
-- [Create a custom metric and add it to a
-  Security Profile](#dd-detect-custom-cli-create "#dd-detect-custom-cli-create")
+- [Create a custom metric and add it to a Security Profile](#dd-detect-custom-cli-create "#dd-detect-custom-cli-create")
 - [View custom metric details](#dd-detect-custom-cli-read "#dd-detect-custom-cli-read")
 - [Update a custom metric](#dd-detect-custom-cli-edit "#dd-detect-custom-cli-edit")
 - [Delete a custom metric](#dd-detect-custom-cli-delete "#dd-detect-custom-cli-delete")
@@ -176,9 +169,7 @@ setting up alarms. Instructions for setting up the device agent are available on
 [AWS IoT Device Defender Agent SDK (Python) Readme](https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python/blob/master/README.rst "https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python/blob/master/README.rst"). For more information,
 see [AWS IoT Device Defender Agent SDK (Python)](https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python "https://github.com/aws-samples/aws-iot-device-defender-agent-sdk-python").
 
-### Create a custom metric and add it to a
-
-Security Profile
+### Create a custom metric and add it to a Security Profile
 
 The following procedure shows you how to create a custom metric and add it to a
 Security Profile from the CLI.

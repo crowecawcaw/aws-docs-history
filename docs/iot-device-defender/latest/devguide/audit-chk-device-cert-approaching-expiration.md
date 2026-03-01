@@ -1,6 +1,4 @@
-# Device certificate
-
-expiring
+# Device certificate expiring
 
 A device certificate is expiring within the configured threshold period or has expired. The certificate expiration check threshold can be configured between 30 days (minimum) and 3652 days (10 years, maximum) with a default value of 30 days.
 
@@ -20,15 +18,11 @@ device certificate:
 - CERTIFICATE_APPROACHING_EXPIRATION
 - CERTIFICATE_PAST_EXPIRATION
 
-## Why it
-
-matters
+## Why it matters
 
 A device certificate should not be used after it expires.
 
-## Configuring the Device certificate
-
-expiring check
+## Configuring the Device certificate expiring check
 
 This configuration enables you to monitor and receive alerts for certificates that are
 approaching their expiration date across your device fleet. For example, if you want to be
@@ -51,9 +45,7 @@ the check as follows:
 
 ```
 
-## How to fix
-
-it
+## How to fix it
 
 Consult your security best practices for how to proceed. You might want to:
 

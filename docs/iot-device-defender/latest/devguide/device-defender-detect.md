@@ -59,9 +59,7 @@ indicate an incorrectly configured device. Such a device might increase your per
 charges. Similarly, a device with many authorization failures might require a
 reconfigured policy.
 
-## Monitoring the behavior of unregistered
-
-devices
+## Monitoring the behavior of unregistered devices
 
 AWS IoT Device Defender Detect makes it possible to identify unusual behaviors for devices that are not
 registered in the AWS IoT registry. You can define security profiles that are specific to one

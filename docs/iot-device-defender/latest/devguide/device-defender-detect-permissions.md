@@ -3,9 +3,7 @@
 This section contains information about how to set up the IAM roles and policies
 required to manage AWS IoT Device Defender Detect. For more information, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
-## Give AWS IoT Device Defender detect
-
-permission to publish alarms to an SNS topic
+## Give AWS IoT Device Defender detect permission to publish alarms to an SNS topic
 
 If you use the `alertTargets` parameter in [CreateSecurityProfile](../../../iot/latest/apireference/API_CreateSecurityProfile.md "../../../iot/latest/apireference/API_CreateSecurityProfile.md"), you must specify an IAM role with
 two policies: a permissions policy and a trust policy. The permissions policy grants

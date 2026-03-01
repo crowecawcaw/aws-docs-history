@@ -1,6 +1,4 @@
-# Device certificate key
-
-quality
+# Device certificate key quality
 
 AWS IoT customers often rely on TLS mutual authentication using X.509 certificates for
 authenticating to AWS IoT message broker. These certificates and their certificate
@@ -48,9 +46,7 @@ certificate:
 - CERTIFICATE_KEY_VULNERABILITY_CVE-2017-15361
 - CERTIFICATE_KEY_VULNERABILITY_CVE-2008-0166
 
-## Why it
-
-matters
+## Why it matters
 
 When a device uses a vulnerable certificate, attackers can more easily compromise
 that device.

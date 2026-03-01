@@ -1,6 +1,4 @@
-# Intermediate CA
-
-revoked for active device certificates check
+# Intermediate CA revoked for active device certificates check
 
 Use this check to identify all related device certificates that are still active
 despite revoking an intermediate CA.
@@ -18,9 +16,7 @@ noncompliance:
 
 - INTERMEDIATE_CA_REVOKED_BY_ISSUER
 
-## Why
-
-it matters
+## Why it matters
 
 The intermediate CA revoked for active device certificates check assess device
 identity and trust, by determining if there are active device certificates in
@@ -31,9 +27,7 @@ A revoked intermediate CA should no longer be used to sign any other CA or devic
 certificates in CA chain. Newly added devices with certificates signed using this CA
 certificate after the intermediate CA is revoked will pose a security threat.
 
-## How to
-
-fix it
+## How to fix it
 
 Review the device certificate registration activity for the time after the CA
 certificate was revoked. Follow your security best practices to mitigate the

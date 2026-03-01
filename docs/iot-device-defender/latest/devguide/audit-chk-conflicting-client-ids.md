@@ -30,9 +30,7 @@ The findings returned by this check also include the client ID used to connect,
 principal IDs, and disconnect times. The most recent results are listed
 first.
 
-## Why it
-
-matters
+## Why it matters
 
 Devices with conflicting IDs are forced to constantly reconnect, which might
 result in lost messages or leave a device unable to connect.
