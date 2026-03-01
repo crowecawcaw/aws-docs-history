@@ -16,9 +16,7 @@ actions and experiences of those users.
 
 The IVS SDKs allow you to configure the maximum bitrate, framerate, and resolution of the stream. When network congestion occurs for publishers, the SDK automatically adapts and lowers the video quality by lowering the bitrate, framerate, and resolution. On Android and iOS, it’s possible to select the degradation preference when congestion is encountered. The same behavior is true whether you enable layered encoding with simulcast or keep the default configuration.
 
-## Adaptive Streaming: Layered
-
-Encoding with Simulcast
+## Adaptive Streaming: Layered Encoding with Simulcast
 
 This feature is supported only in the following client versions:
 
@@ -41,9 +39,7 @@ quality possible).
 
 ![Use layered encoding with simulcast to adjust quality video based on the quality of a viewer's network connection.](images/Layered_Encoding_1.png)
 
-### Default Layers,
-
-Qualities, and Framerates
+### Default Layers, Qualities, and Framerates
 
 The default qualities and layers provided for mobile and web users are as
 follows:
@@ -72,9 +68,7 @@ The table below shows the resolutions of layers generated for different configur
 
 For custom input resolutions not mapped above, you can calculate them [using the following tool](https://codepen.io/amazon-ivs/full/ZENQQvo "https://codepen.io/amazon-ivs/full/ZENQQvo").
 
-### Configuring Layered
-
-Encoding with Simulcast (Publisher)
+### Configuring Layered Encoding with Simulcast (Publisher)
 
 To use layered encoding with simulcast, you must [have enabled the feature](#real-time-streaming-optimization-adaptive "#real-time-streaming-optimization-adaptive") on the client. If you enable it, you will see an increase in upload bandwidth usage by the publisher, potentially with less video freezing for viewers.
 
@@ -118,9 +112,7 @@ let cameraStream = new LocalStageStream(cameraDevice, {
 
 For detailed information on configurating individual layers, see "Configuring Layered Encoding (Publisher)" in each broadcast SDK guide: [Android](android-publish-subscribe.md#android-layered-encoding-simulcast-configure-publisher "android-publish-subscribe.md#android-layered-encoding-simulcast-configure-publisher"), [iOS](ios-publish-subscribe.md#ios-layered-encoding-simulcast-configure-publisher "ios-publish-subscribe.md#ios-layered-encoding-simulcast-configure-publisher"), and [Web](web-publish-subscribe.md#web-layered-encoding-simulcast-configure-publisher "web-publish-subscribe.md#web-layered-encoding-simulcast-configure-publisher").
 
-### Configuring Layered
-
-Encoding with Simulcast (Subscriber)
+### Configuring Layered Encoding with Simulcast (Subscriber)
 
 To configure what layers are received by subscribers, see the "Layered Encoding with Simulcast" sections in the real-time streaming SDK guides:
 
@@ -135,9 +127,7 @@ With subscriber configuration, it’s possible to define the `InitialLayerPrefer
 This section explores other configurations you can make to your video and audio
 streams.
 
-### Changing Video Stream
-
-Bitrate
+### Changing Video Stream Bitrate
 
 To change the bitrate of your video stream, use the following configuration
 samples.
@@ -182,9 +172,7 @@ let cameraStream = new LocalStageStream(camera.getVideoTracks()[0], {
 
 ```
 
-### Changing Video Stream
-
-Framerate
+### Changing Video Stream Framerate
 
 To change the framerate of your video stream, use the following configuration
 samples.
@@ -238,9 +226,7 @@ let cameraStream = new LocalStageStream(camera.getVideoTracks()[0], {
 
 ```
 
-### Optimizing Audio Bitrate
-
-and Stereo Support
+### Optimizing Audio Bitrate and Stereo Support
 
 To change the bitrate and stereo settings of your audio stream, use the following
 configuration samples.
@@ -294,9 +280,7 @@ let microphoneStream = IVSLocalStageStream(device: microphone, config: config);
 // Other Stage implementation code
 ```
 
-### Changing Subscriber
-
-Jitter Buffer MinDelay
+### Changing Subscriber Jitter Buffer MinDelay
 
 To change the jitter buffer minimum delay for a participant who is being
 subscribed to, a custom `subscribeConfiguration` can be used. The jitter
@@ -365,9 +349,7 @@ func stage(_ stage: IVSStage, subscribeConfigurationForParticipant participant: 
 }
 ```
 
-## Suggested
-
-Optimizations
+## Suggested Optimizations
 
 | Scenario                                                                   | Recommendations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

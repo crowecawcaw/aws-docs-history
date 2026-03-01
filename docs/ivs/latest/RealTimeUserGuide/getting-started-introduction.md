@@ -1,6 +1,4 @@
-# Introduction to IVS Real-Time
-
-Streaming
+# Introduction to IVS Real-Time Streaming
 
 This section lists prerequisites for using real-time streaming and introduces key
 terminology.
@@ -21,9 +19,7 @@ IVS Low-Latency Streaming](../LowLatencyUserGuide/getting-started.md "../LowLate
 - [IVS iOS Broadcast SDK Reference](https://aws.github.io/amazon-ivs-broadcast-docs/latest/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/latest/ios/")
 - [IVS Real-Time Streaming API Reference](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.md")
 
-## Real-Time Streaming
-
-Terminology
+## Real-Time Streaming Terminology
 
 | Term              | Description                                                              |
 | ----------------- | ------------------------------------------------------------------------ |
@@ -53,7 +49,4 @@ Terminology
 5. [Publish and subscribe to
    video](getting-started-pub-sub.md "getting-started-pub-sub.md") — Send your video to the stage and receive video from other
    hosts: [IVS console](getting-started-pub-sub.md#getting-started-pub-sub-console "getting-started-pub-sub.md#getting-started-pub-sub-console"),
-   [Publish & Subscribe with the IVS
-   Web Broadcast SDK](getting-started-pub-sub-web.md "getting-started-pub-sub-web.md"), [Publish & Subscribe with the
-   IVS Android Broadcast SDK](getting-started-pub-sub-android.md "getting-started-pub-sub-android.md"), and [Publish & Subscribe with the IVS
-   iOS Broadcast SDK](getting-started-pub-sub-ios.md "getting-started-pub-sub-ios.md").
+   [Publish & Subscribe with the IVS Web Broadcast SDK](getting-started-pub-sub-web.md "getting-started-pub-sub-web.md"), [Publish & Subscribe with the IVS Android Broadcast SDK](getting-started-pub-sub-android.md "getting-started-pub-sub-android.md"), and [Publish & Subscribe with the IVS iOS Broadcast SDK](getting-started-pub-sub-ios.md "getting-started-pub-sub-ios.md").

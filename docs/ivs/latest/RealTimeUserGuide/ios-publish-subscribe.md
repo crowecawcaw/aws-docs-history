@@ -1,6 +1,4 @@
-# Publishing & Subscribing with the IVS iOS
-
-Broadcast SDK | Real-Time Streaming
+# Publishing & Subscribing with the IVS iOS Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in publishing and subscribing to a
 stage using the IVS real-time streaming iOS broadcast SDK.
@@ -154,9 +152,7 @@ hidden or seen/heard. (They also can use publish/unpublish, but that is much
 slower. Mute/unmute is preferable for use cases where changing visibility
 often is desirable.)
 
-#### Choosing
-
-Streams to Publish
+#### Choosing Streams to Publish
 
 ```
 func stage(_ stage: IVSStage, streamsToPublishForParticipant participant: IVSParticipantInfo) -> [IVSLocalStageStream]
@@ -166,9 +162,7 @@ When publishing, this is used to determine what audio and video streams
 should be published. This is covered in more detail later in [Publish a Media
 Stream](#ios-publish-subscribe-publish-stream "#ios-publish-subscribe-publish-stream").
 
-#### Updating
-
-the Strategy
+#### Updating the Strategy
 
 The strategy is intended to be dynamic: the values returned from any of
 the above functions can be changed at any time. For example, if the host
@@ -241,9 +235,7 @@ Note that only publishing participants trigger
 `participantDidJoin`, and whenever a participant stops publishing or
 leaves the stage session, `participantDidLeave` is triggered.
 
-## Publish a Media
-
-Stream
+## Publish a Media Stream
 
 Local devices such as built-in microphones and cameras are discovered via
 `IVSDeviceDiscovery`. Here is an example of selecting the
@@ -272,9 +264,7 @@ func stage(_ stage: IVSStage, streamsToPublishForParticipant participant: IVSPar
 }
 ```
 
-## Display and Remove
-
-Participants
+## Display and Remove Participants
 
 After subscribing is completed, you will receive an array of
 `IVSStageStream` objects through the renderer’s
@@ -311,9 +301,7 @@ Because `didRemoveStreams` is invoked for all scenarios, no custom
 business logic is required around removing participants from the UI during remote or
 local leave operations.
 
-## Mute and Unmute Media
-
-Streams
+## Mute and Unmute Media Streams
 
 `IVSLocalStageStream` objects have a `setMuted` function
 that controls whether the stream is muted. This function can be called on the stream
@@ -327,9 +315,7 @@ strategy function.
 to the stage. Be careful when creating new `IVSLocalStageStream`
 instances to make sure the expected mute state is maintained.
 
-## Monitor Remote Participant Media
-
-Mute State
+## Monitor Remote Participant Media Mute State
 
 When a participant changes the mute state of its video or audio stream, the
 renderer `didChangeMutedStreams` function is invoked with an array of
@@ -344,9 +330,7 @@ func stage(_ stage: IVSStage, participant: IVSParticipantInfo, didChangeMutedStr
 }
 ```
 
-## Create a Stage
-
-Configuration
+## Create a Stage Configuration
 
 To customize the values of a stage’s video configuration, use
 `IVSLocalStageStreamVideoConfiguration`:
@@ -379,9 +363,7 @@ func stream(_ stream: IVSStageStream, didGenerateRTCStats stats: [String : [Stri
 }
 ```
 
-## Get Participant
-
-Attributes
+## Get Participant Attributes
 
 If you specify attributes in the `CreateParticipantToken` operation
 request, you can see the attributes in `IVSParticipantInfo`
@@ -447,9 +429,7 @@ try imageDevice.embedMessage(messageData, withRepeatCount: 5)
 See "Get Supplemental Enhancement Information (SEI)" below for how to read
 embedded messages from incoming streams.
 
-## Get Supplemental Enhancement
-
-Information (SEI)
+## Get Supplemental Enhancement Information (SEI)
 
 The Supplemental Enhancement Information (SEI) NAL unit is used to store
 frame-aligned metadata alongside the video. Subscribing clients can read SEI
@@ -476,9 +456,7 @@ imageDevice?.setOnFrameCallback { frame in
 }
 ```
 
-## Continue Session in the
-
-Background
+## Continue Session in the Background
 
 When the app enters the background, you can continue to be in the stage while
 hearing remote audio, though it is not possible to continue to send your own image
@@ -497,9 +475,7 @@ func stage(_ stage: IVSStage, shouldSubscribeToParticipant participant: IVSParti
 
 Then make a call to `stage.refreshStrategy()`.
 
-## Layered Encoding
-
-with Simulcast
+## Layered Encoding with Simulcast
 
 Layered encoding with simulcast is an IVS real-time streaming feature that allows
 publishers to send multiple different quality layers of video, and subscribers to
@@ -507,9 +483,7 @@ dynamically or manually configure those layers. The feature is described more in
 [Streaming Optimizations](real-time-streaming-optimization.md "real-time-streaming-optimization.md")
 document.
 
-### Configuring
-
-Layered Encoding (Publisher)
+### Configuring Layered Encoding (Publisher)
 
 As a publisher, to enable layered encoding with simulcast, add the following
 configuration to your `IVSLocalStageStream` on instantiation:
@@ -595,9 +569,7 @@ subscriber's device and network conditions.
 Alternatively, to pick explicit layers that the publisher is sending, there
 are several options, described below.
 
-### Option
-
-1: Initial Layer Quality Preference
+### Option 1: Initial Layer Quality Preference
 
 Using the `subscribeConfigurationForParticipant` strategy, it is
 possible to choose what initial layer you want to receive as a
@@ -635,9 +607,7 @@ These options are available for `InitialLayerPreference`:
 `initialLayerPreference` call) to take effect, a re-subscribe is
 necessary as these updates do not apply to the active subscription.
 
-### Option 2:
-
-Preferred Layer for Stream
+### Option 2: Preferred Layer for Stream
 
 The `preferredLayerForStream` strategy method lets you select a
 layer after the stream has started. This strategy method receives the
@@ -715,9 +685,7 @@ if `UNAVAILABLE` is returned, this indicates that the requested layer
 could not be selected. A best-effort selection is made in its place, which
 typically is a lower quality layer to maintain stream stability.
 
-## Broadcast the Stage to an
-
-IVS Channel
+## Broadcast the Stage to an IVS Channel
 
 To broadcast a stage, create a separate `IVSBroadcastSession` and then
 follow the usual instructions for broadcasting with the SDK, described above. The

@@ -1,6 +1,4 @@
-# Known Issues & Workarounds in the IVS
-
-iOS Broadcast SDK | Real-Time Streaming ​
+# Known Issues & Workarounds in the IVS iOS Broadcast SDK | Real-Time Streaming ​
 
 This document lists known issues that you might encounter when using the Amazon IVS
 real-time streaming iOS broadcast SDK and suggests potential workarounds.

@@ -1,12 +1,8 @@
-# Enabling Screen Share in IVS Server-Side
-
-Composition
+# Enabling Screen Share in IVS Server-Side Composition
 
 To use a fixed screen-share layout, follow the steps below.
 
-## Create
-
-the EncoderConfiguration Resource
+## Create the EncoderConfiguration Resource
 
 The command below creates an EncoderConfiguration resource that configures server-side
 composition parameters (video bitrate, framerate, and resolution).
@@ -39,9 +35,7 @@ The response is:
 }
 ```
 
-## Start the
-
-Composition
+## Start the Composition
 
 To start the composition using the screen-share feature, we use this command:
 
@@ -88,9 +82,7 @@ publishers will be rendered below the slot:
 
 ![Starting the Composition using the screen-share feature.](images/ssc_StartComposition.png)
 
-## Stop the
-
-Composition
+## Stop the Composition
 
 To stop a composition at any point, call the StopComposition operation:
 

@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Custom Image
-
-Sources | Real-Time Streaming
+# IVS Broadcast SDK: Custom Image Sources | Real-Time Streaming
 
 Custom image-input sources allow an application to provide its own image input to the
 broadcast SDK, instead of being limited to the preset cameras. A custom image source can be

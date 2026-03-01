@@ -1,6 +1,4 @@
-# Step 2: Create a Stage with Optional
-
-Participant Recording
+# Step 2: Create a Stage with Optional Participant Recording
 
 A stage is a virtual space where participants can exchange video in real time. It is
 the foundational resource of the Real-Time Streaming API. You can create a stage using
@@ -15,9 +13,7 @@ You can create a stage — with or without individual participant recording — 
 the Amazon IVS console or the AWS CLI. Stage creation and recording are discussed
 below.
 
-## Individual Participant
-
-Recording
+## Individual Participant Recording
 
 You have the option of enabling individual participant recording for a stage. If
 the individual participant recording to S3 feature is enabled, all individual
@@ -60,9 +56,7 @@ via your streaming tool.
 For more information (including how to set up post-processing or VOD playback on
 your recorded files), see [Individual Participant Recording](rt-individual-participant-recording.md "rt-individual-participant-recording.md").
 
-### How to Disable
-
-Recording
+### How to Disable Recording
 
 To disable Amazon S3 recording on an existing stage:
 
@@ -85,9 +79,7 @@ This returns a stage object with an empty string for
 `storageConfigurationArn`, indicating that the
 recording is disabled.
 
-## Console Instructions for
-
-Creating an IVS Stage
+## Console Instructions for Creating an IVS Stage
 
 1. Open the [Amazon IVS
    console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
@@ -103,9 +95,7 @@ Individual Participant Recording to Amazon S3 (Optional)](#getting-started-creat
 below. 5. Select **Create stage** to create the stage.
 The stage details page appears, for the new stage.
 
-### Set Up Automatic Individual
-
-Participant Recording to Amazon S3 (Optional)
+### Set Up Automatic Individual Participant Recording to Amazon S3 (Optional)
 
 Follow these steps to enable individual participant recording while creating a
 stage:
@@ -141,9 +131,7 @@ merging individual participant recordings, and thumbnail recording.
 
 ![Create a stage using the IVS Console: enable advanced options like thumbnail recording and IPR stitching.](images/Create_Stage_Console_IPR_Stitching.png)
 
-## CLI Instructions for Creating an
-
-IVS Stage
+## CLI Instructions for Creating an IVS Stage
 
 To install the AWS CLI, see [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 
@@ -151,9 +139,7 @@ Now you can use the CLI to create and manage resources following one of the two
 procedures below, depending on whether you want to create a stage with or without
 individual participant recording enabled.
 
-### Create a Stage
-
-without Individual Participant Recording
+### Create a Stage without Individual Participant Recording
 
 The stage API is under the ivs-realtime namespace. For example, to create a
 stage:
@@ -173,9 +159,7 @@ The response is:
 }
 ```
 
-### Create a Stage with
-
-Individual Participant Recording
+### Create a Stage with Individual Participant Recording
 
 To create a stage with individual participant recording enabled:
 

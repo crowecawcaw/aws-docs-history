@@ -21,9 +21,7 @@ see:
   policy that customizes the permissions you want to grant to a set of users, groups, or
   roles. Both approaches are described below.
 
-## Use an Existing Policy for IVS
-
-Permissions
+## Use an Existing Policy for IVS Permissions
 
 In most cases, you will want to use an AWS managed policy for Amazon IVS. They are
 described fully in the [Managed
@@ -37,9 +35,7 @@ Security_.
   application developers access to all IVS API operations (for both
   low-latency and real-time streaming).
 
-## Optional: Create a Custom Policy for
-
-Amazon IVS Permissions
+## Optional: Create a Custom Policy for Amazon IVS Permissions
 
 Follow these steps:
 
@@ -112,13 +108,9 @@ JSON
 6. You are returned to the IAM console window, where you should see a banner
    confirming that your new policy was created.
 
-## Create a New User and Add
+## Create a New User and Add Permissions
 
-Permissions
-
-### IAM User Access
-
-Keys
+### IAM User Access Keys
 
 IAM access keys consist of an access key ID and a secret access key. They are
 used to sign programmatic requests that you make to AWS. If you don't have
@@ -172,9 +164,7 @@ Follow these steps:
    securely for future reference_. When you are done, choose
    **Return to users list**.
 
-## Add Permissions to an Existing
-
-User
+## Add Permissions to an Existing User
 
 Follow these steps:
 

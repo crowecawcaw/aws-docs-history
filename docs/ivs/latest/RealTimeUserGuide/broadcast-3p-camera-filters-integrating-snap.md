@@ -29,9 +29,7 @@ SDK, you need to:
 
 Each of these steps is described below.
 
-### Install the Camera Kit
-
-SDK and Webpack
+### Install the Camera Kit SDK and Webpack
 
 In this example we use Webpack as our bundler; however, you can use any bundler.
 
@@ -91,9 +89,7 @@ with the broadcast SDK version that you are using.
 
 ```
 
-### Add Setup
-
-Elements
+### Add Setup Elements
 
 Create the HTML for selecting a camera, microphone, and lens and specifying a participant token:
 
@@ -285,9 +281,7 @@ video {
 }
 ```
 
-### Display and Set Up
-
-Participants
+### Display and Set Up Participants
 
 Next, create `helpers.js`, which contains helper methods that you
 will use to display and set up participants:
@@ -341,9 +335,7 @@ function createContainer(id) {
 }
 ```
 
-### Display
-
-Connected Cameras and Microphones
+### Display Connected Cameras and Microphones
 
 Next, create `media-devices.js`, which contains helper methods for
 displaying cameras and microphones connected to your device:
@@ -414,9 +406,7 @@ async function getMic(deviceId) {
 }
 ```
 
-### Create a Camera Kit
-
-Session
+### Create a Camera Kit Session
 
 Create `stages.js`, which contains the logic for applying a Lens to
 the camera feed and publishing the feed to a stage. We recommend copying and pasting the following code block into `stages.js`. You can then review the code piece by piece to understand what’s going on in the following sections.
@@ -704,9 +694,7 @@ session = await cameraKit.createSession({ liveRenderTarget });
   populateLensSelector(lenses);
 ```
 
-### Render the Output
-
-from a Camera Kit Session to a Canvas
+### Render the Output from a Camera Kit Session to a Canvas
 
 Use the [captureStream](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/captureStream") method to return a `MediaStream` of the
 canvas’s contents. The canvas will contain a video stream of the camera feed
@@ -767,9 +755,7 @@ const handleLensChange = (event) => {
 };
 ```
 
-### Provide Camera
-
-Kit with a Media Source for Rendering and Publish a LocalStageStream
+### Provide Camera Kit with a Media Source for Rendering and Publish a LocalStageStream
 
 To publish a video stream with a Lens applied, create a function called
 `setCameraKitSource` to pass in the `MediaStream`
@@ -936,9 +922,7 @@ our code.
 }
 ```
 
-### Create a Webpack Config
-
-File
+### Create a Webpack Config File
 
 Create `webpack.config.js` and add the following code. This bundles
 the code we created thus far so that we can use the import statement to use

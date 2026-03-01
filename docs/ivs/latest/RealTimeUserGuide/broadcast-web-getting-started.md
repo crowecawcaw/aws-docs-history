@@ -1,6 +1,4 @@
-# Getting Started​ with the IVS Web
-
-Broadcast SDK | Real-Time Streaming
+# Getting Started​ with the IVS Web Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in getting started with the IVS
 real-time streaming Web broadcast SDK.
@@ -10,9 +8,7 @@ real-time streaming Web broadcast SDK.
 The building blocks for real-time are located in a different namespace than the
 root broadcasting modules.
 
-### Using a Script
-
-Tag
+### Using a Script Tag
 
 The Web broadcast SDK is distributed as a JavaScript library and can be
 retrieved at [https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js").
@@ -92,9 +88,7 @@ window.videoDevices = devices.filter((d) => d.kind === 'videoinput');
 window.audioDevices = devices.filter((d) => d.kind === 'audioinput');
 ```
 
-## Retrieve a MediaStream from a
-
-Device
+## Retrieve a MediaStream from a Device
 
 After acquiring the list of available devices, you can retrieve a stream
 from any number of devices. For example, you can use the `getUserMedia()`

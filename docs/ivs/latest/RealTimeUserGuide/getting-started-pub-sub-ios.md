@@ -1,6 +1,4 @@
-# Publish & Subscribe with the IVS
-
-iOS Broadcast SDK
+# Publish & Subscribe with the IVS iOS Broadcast SDK
 
 This section takes you through the steps involved in publishing and subscribing to
 a stage using your iOS app.
@@ -118,9 +116,7 @@ the value to 4.
 
 ![Customize iOS Stack View view.](images/Publish_iOS_11.png)
 
-## Permissions and Idle
-
-Timer
+## Permissions and Idle Timer
 
 Going back to our `ViewController`, we will disable the system idle
 timer to prevent the device from going to sleep while our application is being
@@ -334,9 +330,7 @@ private var connectingOrConnected = false {
 }
 ```
 
-## Implement the Stage
-
-SDK
+## Implement the Stage SDK
 
 Three core [concepts](ios-publish-subscribe.md#ios-publish-subscribe-concepts "ios-publish-subscribe.md#ios-publish-subscribe-concepts")
 underlie real-time functionality: stage, strategy, and renderer. The design goal
@@ -494,9 +488,7 @@ extension IVSStageConnectionState {
 }
 ```
 
-## Implementing a Custom
-
-UICollectionViewLayout
+## Implementing a Custom UICollectionViewLayout
 
 Laying out different numbers of participants can be complex. You want them to
 take up the entire parent view’s frame but you don’t want to handle each
@@ -707,9 +699,7 @@ Back in `Main.storyboard`, be sure to set the layout class for the
 
 ![Xcode interface showing storyboard with UICollectionView and its layout settings.](images/Publish_iOS_12.png)
 
-## Hooking Up UI
-
-Actions
+## Hooking Up UI Actions
 
 We are getting close, there are a few `IBActions` that we need to
 create.
@@ -758,9 +748,7 @@ The other UI action we need to hook up is the publish switch:
 }
 ```
 
-## Rendering the
-
-Participants
+## Rendering the Participants
 
 Finally, we need to render the data we receive from the SDK onto the
 participant cell that we created earlier. We already have the

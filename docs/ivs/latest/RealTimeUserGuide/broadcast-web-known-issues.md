@@ -1,6 +1,4 @@
-# Known Issues & Workarounds in the IVS
-
-Web Broadcast SDK | Real-Time Streaming
+# Known Issues & Workarounds in the IVS Web Broadcast SDK | Real-Time Streaming
 
 This document lists known issues that you might encounter when using the Amazon IVS
 real-time streaming Web broadcast SDK and suggests potential workarounds.
@@ -82,9 +80,7 @@ error.
   15fps?). See this [bugzilla
   thread](https://bugzilla.mozilla.org/show_bug.cgi?id=1703522 "https://bugzilla.mozilla.org/show_bug.cgi?id=1703522").
 
-## Mobile Web
-
-Limitations
+## Mobile Web Limitations
 
 - [getDisplayMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia#browser_compatibility "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia#browser_compatibility") screen sharing is unsupported on mobile
   devices.

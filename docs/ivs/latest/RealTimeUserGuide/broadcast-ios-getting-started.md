@@ -1,6 +1,4 @@
-# Getting Started​ with the IVS iOS
-
-Broadcast SDK | Real-Time Streaming
+# Getting Started​ with the IVS iOS Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in getting started with the IVS
 real-time streaming iOS broadcast SDK.
@@ -11,9 +9,7 @@ We recommend that you integrate broadcast SDK via Swift Package Manager.
 (Alternatively, you can manually add the framework to
 your project.)
 
-### Recommended: Integrate the
-
-Broadcast SDK (Swift Package Manager)
+### Recommended: Integrate the Broadcast SDK (Swift Package Manager)
 
 1. Download the Package.swift file from [https://broadcast.live-video.net/1.39.0/Package.swift](https://broadcast.live-video.net/1.39.0/Package.swift "https://broadcast.live-video.net/1.39.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
@@ -33,9 +29,7 @@ Broadcast SDK (Swift Package Manager)
 the IVS low-latency streaming broadcast SDK. It is not possible to integrate
 both SDKs in the same project.
 
-### Alternate Approach: Install the
-
-Framework Manually
+### Alternate Approach: Install the Framework Manually
 
 1. Download the latest version from [https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.39.0/AmazonIVSBroadcast-Stages.xcframework.zip").
 2. Extract the contents of the archive.
@@ -75,9 +69,7 @@ You also need to add entries for `NSCameraUsageDescription` and
 `NSMicrophoneUsageDescription` to your `Info.plist`.
 Otherwise, your app will crash when trying to request permissions.
 
-## Disable the Application Idle
-
-Timer
+## Disable the Application Idle Timer
 
 This is optional but recommended. It prevents your device from going to sleep
 while using the broadcast SDK, which would interrupt the broadcast.

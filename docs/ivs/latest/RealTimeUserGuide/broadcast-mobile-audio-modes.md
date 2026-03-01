@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Mobile Audio Modes
-
-| Real-Time Streaming
+# IVS Broadcast SDK: Mobile Audio Modes | Real-Time Streaming
 
 Audio quality is an important part of any real-team media experience, and there isn’t a
 one-size-fits-all audio configuration that works best for every use case. To ensure that
@@ -112,9 +110,7 @@ separation of those devices from causing echo.
 | **Audio Output**         | Any output device should work.                                                                                                                                                                        | Any output device should work.                                                                                                                                                                                                    |
 | **Audio Quality**        | High. Both sides should be able to send music and hear it<br>clearly on the other side.<br>When a Bluetooth headset is connected, audio quality will drop<br>due to Bluetooth SCO mode being enabled. | High. Both sides should be able to send music and hear it<br>clearly on the other side.<br>When a Bluetooth headset is connected, audio quality may drop<br>due to Bluetooth SCO mode being enabled, depending on the<br>headset. |
 
-## Advanced Use
-
-Cases
+## Advanced Use Cases
 
 Beyond the presets, both the iOS and Android real-time streaming broadcast SDKs allow
 configuring the underlying platform audio modes:
@@ -187,9 +183,7 @@ the effect of changing this property manually:
 
 Behaviors can differ depending on the device and iOS version.
 
-### iOS Custom Audio
-
-Sources
+### iOS Custom Audio Sources
 
 Custom audio sources can be used with the SDK by using
 `IVSDeviceDiscovery.createAudioSource`. When connecting to a Stage,
@@ -204,9 +198,7 @@ but managed by the host application, the echo-cancellation SDK above will not wo
 unless the SDK-managed microphone is activated. To work around that requirement, see
 [iOS Echo Cancellation](#advanced-use-cases-ios_echo_cancellation "#advanced-use-cases-ios_echo_cancellation").
 
-### Publishing with Bluetooth on
-
-Android
+### Publishing with Bluetooth on Android
 
 The SDK automatically reverts to the `VIDEO_CHAT` preset on Android
 when the following conditions are met:
@@ -219,18 +211,14 @@ when the following conditions are met:
 This is a limitation of the Android operating system in regard to how Bluetooth
 headsets are used for recording audio.
 
-## Integrating with
-
-Other SDKs
+## Integrating with Other SDKs
 
 Because both iOS and Android support only one active audio mode per application, it is
 common to run into conflicts if your application uses multiple SDKs that require control
 of the audio mode. When you run into these conflicts, there are some common resolution
 strategies to try, explained below.
 
-### Match Audio Mode
-
-Values
+### Match Audio Mode Values
 
 Using either the IVS SDK’s advanced audio-configuration options or the other SDK’s
 functionality, have the two SDKs align on the underlying values.

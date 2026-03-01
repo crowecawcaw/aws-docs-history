@@ -1,6 +1,4 @@
-# IVS Individual Participant Recording |
-
-Real-Time Streaming
+# IVS Individual Participant Recording | Real-Time Streaming
 
 This document explains how to use individual participant recording with IVS real-time
 streaming.
@@ -43,17 +41,13 @@ bucket:
 
 For details, see the S3 documentation on [controlling ownership of objects](../../../AmazonS3/latest/userguide/about-object-ownership.md "../../../AmazonS3/latest/userguide/about-object-ownership.md") and [protecting data with encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md").
 
-### 2. Create a
-
-StorageConfiguration Object
+### 2. Create a StorageConfiguration Object
 
 After creating a bucket, call the IVS real-time streaming API to [create a StorageConfiguration](../RealTimeAPIReference/API_CreateStorageConfiguration.md "../RealTimeAPIReference/API_CreateStorageConfiguration.md") object. Once the storage configuration is
 successfully created, IVS will have permission to write to the provided S3 bucket.
 You can re-use this StorageConfiguration object on multiple stages.
 
-### 3. Create a Stage with
-
-Participant Tokens
+### 3. Create a Stage with Participant Tokens
 
 Now you need to [create an IVS
 stage](../RealTimeAPIReference/API_CreateStage.md "../RealTimeAPIReference/API_CreateStage.md") with individual participant recording enabled (by setting the
@@ -94,9 +88,7 @@ Content-type: application/json
 }
 ```
 
-### 4. Join the Stage as an
-
-Active Publisher
+### 4. Join the Stage as an Active Publisher
 
 Distribute the participant tokens to your publishers, and have them join the stage
 and start [publishing to
@@ -292,9 +284,7 @@ during the recording session and is playable with the IVS player. If configured,
 `thumbnails` and `latest_thumbnail` subfolders contain JPEG
 thumbnail media files generated during the recording session.
 
-## Merge Fragmented Individual Participant
-
-Recordings
+## Merge Fragmented Individual Participant Recordings
 
 The `recordingReconnectWindowSeconds` property on a recording configuration
 allows you to specify a window of time (in seconds) during which, if a stage publisher
@@ -336,9 +326,7 @@ must be met for all the recordings:
 Note that the default value of `recordingReconnectWindowSeconds` is 0,
 which disables merging.
 
-## Synchronize Multiple Participant
-
-Recordings
+## Synchronize Multiple Participant Recordings
 
 Individual participant recordings include `EXT-X-PROGRAM-DATE-TIME` tags in
 HLS playlists, which provide precise UTC timestamps with millisecond accuracy for
@@ -359,9 +347,7 @@ that mark:
 These timestamps use millisecond precision and are synchronized across all
 participants using the same time reference.
 
-### Example HLS
-
-Playlist
+### Example HLS Playlist
 
 ```
 #EXTM3U
@@ -389,9 +375,7 @@ The `EXT-X-PROGRAM-DATE-TIME` tags provide the exact UTC time for the
 first segment and at each discontinuity point, enabling precise synchronization with
 other participants' recordings.
 
-### Synchronization
-
-Workflow
+### Synchronization Workflow
 
 To synchronize multiple participant recordings, extract the
 `EXT-X-PROGRAM-DATE-TIME` timestamps from each participant's HLS
@@ -435,9 +419,7 @@ This metadata is in JSON format. It comprises the following information:
 | • + - `path`               | string  | Yes         | Relative path from the S3 prefix where the latest thumbnail is<br>stored for this rendition.                                                                                                                                                                                                                                                                                                                                                  |
 | `version`                  | string  | Yes         | The version of the metadata schema.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-### Example:
-
-recording-started.json
+### Example: recording-started.json
 
 ```
 {
@@ -521,9 +503,7 @@ recording-started.json
 }
 ```
 
-### Example:
-
-recording-failed.json
+### Example: recording-failed.json
 
 ```
 {

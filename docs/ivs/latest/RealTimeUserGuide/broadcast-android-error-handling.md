@@ -1,14 +1,10 @@
-# Error Handling in the IVS Android
-
-Broadcast SDK | Real-Time Streaming
+# Error Handling in the IVS Android Broadcast SDK | Real-Time Streaming
 
 This section is an overview of error conditions, how the IVS real-time streaming
 Android broadcast SDK reports them to the application, and what an application should do
 when those errors are encountered.
 
-## Fatal vs. Non-Fatal
-
-Errors
+## Fatal vs. Non-Fatal Errors
 
 The error object has an "is fatal" boolean field of
 `BroadcastException`.
@@ -33,9 +29,7 @@ try {
 
 ## Join Errors
 
-### Malformed
-
-Token
+### Malformed Token
 
 This happens when the stage token is malformed.
 
@@ -45,9 +39,7 @@ error code = 1000 and fatal = true.
 **Action**: Create a valid token and retry
 joining.
 
-### Expired
-
-Token
+### Expired Token
 
 This happens when the stage token is expired.
 
@@ -57,9 +49,7 @@ error code = 1001 and fatal = true.
 **Action**: Create a new token and retry
 joining.
 
-### Invalid or
-
-Revoked Token
+### Invalid or Revoked Token
 
 This happens when the stage token is not malformed but is rejected by the
 Stages server. This is reported asynchronously through the application-supplied
@@ -95,9 +85,7 @@ error code = 1300 and fatal = true.
 **Action**: Wait for the device’s connectivity to
 recover and retry joining.
 
-## Publish/Subscribe
-
-Errors
+## Publish/Subscribe Errors
 
 ### Initial
 
@@ -126,9 +114,7 @@ false.
 retries automatically. Optionally, the application can refresh the strategy to
 force more retries.
 
-### Already
-
-Established, Then Fail
+### Already Established, Then Fail
 
 A publish or subscribe can fail after it is established, most likely due to a
 network error. The error code for a "peer connection lost due to network error"

@@ -1,6 +1,4 @@
-# Error Handling in the IVS Web Broadcast
-
-SDK | Real-Time Streaming
+# Error Handling in the IVS Web Broadcast SDK | Real-Time Streaming
 
 This section is an overview of error conditions, how the Web broadcast SDK reports
 them to the application, and what an application should do when those errors are
@@ -45,9 +43,7 @@ problem:
 | STAGE_DELETED            | 9    | None; attempting to join a deleted stage triggers this<br>error.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | PARTICIPANT_DISCONNECTED | 10   | None; attempting to join with a token of a disconnected<br>participant triggers this error.                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-### Handling StageError
-
-Example
+### Handling StageError Example
 
 Use the StageError code to determine if the error is due to an expired
 token:
@@ -60,9 +56,7 @@ stage.on(StageEvents.ERROR, (error: StageError) => {
 });
 ```
 
-### Network Errors when
-
-Already Joined
+### Network Errors when Already Joined
 
 If the device’s network connection goes down, the SDK may lose its connection
 to stage servers. You may see errors in the console because the SDK can no

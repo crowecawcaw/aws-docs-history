@@ -42,9 +42,7 @@ streaming) or `Stage` (real-time streaming), like any other device.
 | ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `channels` | Integer | Number of output channels from the audio mixer. Valid<br>values: 1, 2. 1 is mono audio; 2, stereo audio. Default:<br>2. |
 
-### Source
-
-Configuration
+### Source Configuration
 
 `MixedAudioDeviceSourceConfiguration` on Android
 
@@ -68,9 +66,7 @@ Configuration
 | `targetFramerate`     | Integer | Number of target frames per second for the mixed device. On<br>average, this value should be met, but the system may drop<br>frames under certain circumstances (e.g., high CPU or GPU<br>load). |
 | `transparencyEnabled` | Boolean | This enables blending using the `alpha` property<br>on image source configurations. Setting this to<br>`true` increases memory and CPU consumption.<br>Default: `false`.                         |
 
-### Source
-
-Configuration
+### Source Configuration
 
 `MixedImageDeviceSourceConfiguration` on Android
 
@@ -85,9 +81,7 @@ Configuration
 | `size`      | Vec2       | Size of the slot, in pixels. Setting this value also sets<br>`matchCanvasSize` to `false`. Default:<br>(0, 0); however, because `matchCanvasSize` defaults<br>to `true`, the rendered size of the slot is the<br>canvas size, not (0, 0).                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `zIndex`    | Float      | Relative ordering of slots. Slots with higher<br>`zIndex` values are drawn on top of slots with<br>lower `zIndex` values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-## Creating and
-
-Configuring a Mixed Image Device
+## Creating and Configuring a Mixed Image Device
 
 ![Configuring a broadcast session for mixing.](images/Broadcast_SDK_Mixer_Configuring.png)
 
@@ -188,16 +182,12 @@ mixedImageDevice.addSource(logoSource)
 To remove a source, call `MixedDevice.remove` with the `Source`
 object you want to remove.
 
-## Animations with
-
-Transitions
+## Animations with Transitions
 
 The transition method replaces a source’s configuration with a new configuration. This
 replacement can be animated over time by setting a duration higher than 0, in seconds.
 
-### Which Properties Can
-
-Be Animated?
+### Which Properties Can Be Animated?
 
 Not all properties in the slot structure can be animated. Any properties based on
 Float types can be animated; other properties take effect at either the start or end
@@ -213,9 +203,7 @@ of the animation.
 | `Image.size`                                                                                                                                                                                                                                                                                                                     | Yes                 | Interpolated |
 | `Image.zIndex`<br>Note: The `zIndex` moves 2D planes through 3D<br>space, so the transition happens when the two planes cross at<br>some point in the middle of the animation. This could be<br>computed, but it depends on the starting and ending<br>`zIndex` values. For a smoother transition,<br>combine this with `alpha`. | Yes                 | Unknown      |
 
-### Simple
-
-Examples
+### Simple Examples
 
 Below are examples of a full-screen camera takeover using the configuration
 defined above in [Creating and Configuring a Mixed Image Device](#broadcast-mixed-image-device-creating-configuring "#broadcast-mixed-image-device-creating-configuring"). This is animated over 0.5

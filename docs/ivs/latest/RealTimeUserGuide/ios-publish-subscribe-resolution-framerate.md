@@ -1,6 +1,4 @@
-# How iOS Chooses Camera
-
-Resolution and Frame Rate
+# How iOS Chooses Camera Resolution and Frame Rate
 
 The camera managed by the broadcast SDK optimizes its resolution and frame rate
 (frames-per-second, or FPS) to minimize heat production and energy consumption. This
@@ -46,9 +44,7 @@ when the lower quality session is added. For example, if you broadcast at 1080p 
 reconfigure itself and video will continue uninterrupted. This is because 720p is
 less than or equal to 1080p and 30 FPS is less than or equal to 30 FPS.
 
-## Arbitrary Frame Rates, Resolutions,
-
-and Aspect Ratios
+## Arbitrary Frame Rates, Resolutions, and Aspect Ratios
 
 Most camera hardware can exactly match common formats, such as 720p at 30 FPS or
 1080p at 60 FPS. However, it is not possible to exactly match all formats. The

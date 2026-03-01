@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Android Guide | Real-Time
-
-Streaming
+# IVS Broadcast SDK: Android Guide | Real-Time Streaming
 
 The IVS real-time streaming Android broadcast SDK enables participants to send and receive
 video on Android.

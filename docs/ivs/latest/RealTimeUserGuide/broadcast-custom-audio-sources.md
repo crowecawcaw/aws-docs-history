@@ -1,6 +1,4 @@
-# IVS Broadcast SDK: Custom Audio
-
-Sources | Real-Time Streaming
+# IVS Broadcast SDK: Custom Audio Sources | Real-Time Streaming
 
 **Note:** This guide only applies to the IVS real-time streaming Android broadcast SDK. Information for the iOS and web SDKs will be published in the future.
 

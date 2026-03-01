@@ -1,6 +1,4 @@
-# Publishing & Subscribing with the IVS
-
-Android Broadcast SDK | Real-Time Streaming
+# Publishing & Subscribing with the IVS Android Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in publishing and subscribing to a
 stage using the IVS real-time streaming Android broadcast SDK.
@@ -259,9 +257,7 @@ Note that only publishing participants trigger
 publishing or leaves the stage session, `onParticipantLeft` is
 triggered.
 
-## Publish a Media
-
-Stream
+## Publish a Media Stream
 
 Local devices such as built-in microphones and cameras are discovered via
 `DeviceDiscovery`. Here is an example of selecting the front-facing
@@ -301,9 +297,7 @@ publishStreams.add(microphoneStream);
 }
 ```
 
-## Display and Remove
-
-Participants
+## Display and Remove Participants
 
 After subscribing is completed, you will receive an array of
 `StageStream` objects through the renderer’s
@@ -348,9 +342,7 @@ Because `onStreamsRemoved` is invoked for all scenarios, no custom
 business logic is required around removing participants from the UI during remote or
 local leave operations.
 
-## Mute and Unmute Media
-
-Streams
+## Mute and Unmute Media Streams
 
 `LocalStageStream` objects have a `setMuted` function that
 controls whether the stream is muted. This function can be called on the stream
@@ -363,9 +355,7 @@ call to `refreshStrategy`, the mute state of the new stream object is
 applied to the stage. Be careful when creating new `LocalStageStream`
 instances to make sure the expected mute state is maintained.
 
-## Monitor Remote Participant
-
-Media Mute State
+## Monitor Remote Participant Media Mute State
 
 When a participant changes the mute state of their video or audio stream, the
 renderer `onStreamMutedChanged` function is invoked with a list of
@@ -382,9 +372,7 @@ void onStreamsMutedChanged(@NonNull Stage stage, @NonNull ParticipantInfo partic
 }
 ```
 
-## Get WebRTC
-
-Statistics
+## Get WebRTC Statistics
 
 To get the latest WebRTC statistics for a publishing stream or a subscribing
 stream, use `requestRTCStats` on `StageStream`. When a
@@ -405,9 +393,7 @@ void onRTCStats(Map<String, Map<String, String>> statsMap) {
 }
 ```
 
-## Get Participant
-
-Attributes
+## Get Participant Attributes
 
 If you specify attributes in the `CreateParticipantToken` operation
 request, you can see the attributes in `ParticipantInfo`
@@ -477,9 +463,7 @@ try {
 See "Get Supplemental Enhancement Information (SEI)" below for how to read
 embedded messages from incoming streams.
 
-## Get Supplemental
-
-Enhancement Information (SEI)
+## Get Supplemental Enhancement Information (SEI)
 
 The Supplemental Enhancement Information (SEI) NAL unit is used to store
 frame-aligned metadata alongside the video. Subscribing clients can read SEI
@@ -508,9 +492,7 @@ imageDevice.setOnFrameCallback(object : ImageDevice.FrameCallback {
 })
 ```
 
-## Continue Session in
-
-the Background
+## Continue Session in the Background
 
 When the app enters the background, you may want to stop publishing or subscribe
 only to other remote participants’ audio. To accomplish this, update your
@@ -543,9 +525,7 @@ void onStop() {
 }
 ```
 
-## Layered
-
-Encoding with Simulcast
+## Layered Encoding with Simulcast
 
 Layered encoding with simulcast is an IVS real-time streaming feature that allows
 publishers to send multiple different quality layers of video, and subscribers to
@@ -679,9 +659,7 @@ These options are available for `InitialLayerPreference`:
 effect, a re-subscribe is necessary as these updates do not apply to the active
 subscription.
 
-### Option 2:
-
-Preferred Layer for Stream
+### Option 2: Preferred Layer for Stream
 
 The `preferredLayerForStream` strategy method lets you select a
 layer after the stream has started. This strategy method receives the
@@ -759,9 +737,7 @@ if `UNAVAILABLE` is returned, this indicates that the requested layer
 could not be selected. A best-effort selection is made in its place, which
 typically is a lower quality layer to maintain stream stability.
 
-## Video-Configuration
-
-Limitations
+## Video-Configuration Limitations
 
 The SDK does not support forcing portrait mode or landscape mode using
 `StageVideoConfiguration.setSize(BroadcastConfiguration.Vec2 size)`.
@@ -776,9 +752,7 @@ config.setSize(BroadcastConfiguration.Vec2(720f, 1280f);
 config.setSize(BroadcastConfiguration.Vec2(1280f, 720f);
 ```
 
-## Handling Network
-
-Issues
+## Handling Network Issues
 
 When the local device’s network connection is lost, the SDK internally tries to
 reconnect without any user action. In some cases, the SDK is not successful and user
@@ -804,9 +778,7 @@ the SDK was unsuccessful in reestablishing a connection. Create a new
 `Stage` object and try to join when network conditions
 improve.
 
-## Using Bluetooth
-
-Microphones
+## Using Bluetooth Microphones
 
 To publish using Bluetooth microphone devices, you must start a Bluetooth SCO
 connection:

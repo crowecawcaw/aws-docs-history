@@ -1,6 +1,4 @@
-# Integrating Third-Party Camera
-
-Filters
+# Integrating Third-Party Camera Filters
 
 You can integrate third-party camera filter SDKs with the IVS broadcast SDK by feeding
 the filter SDK’s output to a [custom image

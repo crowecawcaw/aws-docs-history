@@ -1,13 +1,9 @@
-# Publish & Subscribe with the IVS
-
-Web Broadcast SDK
+# Publish & Subscribe with the IVS Web Broadcast SDK
 
 This section takes you through the steps involved in publishing and subscribing to
 a stage using your web app.
 
-## Create HTML
-
-Boilerplate
+## Create HTML Boilerplate
 
 First let's create the HTML boilerplate and import the library as a script
 tag:
@@ -34,9 +30,7 @@ tag:
 </html>
 ```
 
-## Accept Token Input and Add
-
-Join/Leave Buttons
+## Accept Token Input and Add Join/Leave Buttons
 
 Here we fill in the body with our input controls. These take as input the
 token, and they set up **Join** and **Leave** buttons. Typically applications will request
@@ -54,9 +48,7 @@ paste the token into the token input.
 <hr />
 ```
 
-## Add Media Container
-
-Elements
+## Add Media Container Elements
 
 These elements will hold the media for our local and remote participants. We
 add a script tag to load our application's logic defined in
@@ -95,9 +87,7 @@ const {
 } = IVSBroadcastClient;
 ```
 
-## Create Application
-
-Variables
+## Create Application Variables
 
 Establish variables to hold references to our **Join** and **Leave** button HTML
 elements and store state for the application:
@@ -116,9 +106,7 @@ let cameraStageStream;
 let micStageStream;
 ```
 
-## Create joinStage 1:
-
-Define the Function and Validate Input
+## Create joinStage 1: Define the Function and Validate Input
 
 The `joinStage` function takes the input token, creates a
 connection to the stage, and begins to publish video and audio retrieved from
@@ -146,9 +134,7 @@ const joinStage = async () => {
 };
 ```
 
-## Create joinStage 2: Get
-
-Media to Publish
+## Create joinStage 2: Get Media to Publish
 
 Here is the media that will be published to the stage:
 
@@ -177,9 +163,7 @@ cameraStageStream = new LocalStageStream(localCamera.getVideoTracks()[0]);
 micStageStream = new LocalStageStream(localMic.getAudioTracks()[0]);
 ```
 
-## Create joinStage 3:
-
-Define the Stage Strategy and Create the Stage
+## Create joinStage 3: Define the Stage Strategy and Create the Stage
 
 This stage strategy is the heart of the decision logic that the SDK uses to
 decide what to publish and which participants to subscribe to. For more
@@ -204,9 +188,7 @@ const strategy = {
 stage = new Stage(token, strategy);
 ```
 
-## Create joinStage 4:
-
-Handle Stage Events and Render Media
+## Create joinStage 4: Handle Stage Events and Render Media
 
 Stages emit many events. We'll need to listen to the
 `STAGE_PARTICIPANT_STREAMS_ADDED` and
@@ -304,9 +286,7 @@ function createContainer(id) {
 }
 ```
 
-## Create joinStage 5:
-
-Join the Stage
+## Create joinStage 5: Join the Stage
 
 Let's complete our `joinStage` function by finally joining the
 stage!
@@ -322,9 +302,7 @@ try {
 
 ```
 
-## Create
-
-leaveStage
+## Create leaveStage
 
 Define the `leaveStage` function which the leave button will
 invoke.
@@ -338,9 +316,7 @@ const leaveStage = async () => {
 };
 ```
 
-## Initialize Input-Event
-
-Handlers
+## Initialize Input-Event Handlers
 
 We'll add one last function to our `app.js` file. This function is
 invoked immediately when the page loads and establishes event handlers for
@@ -371,9 +347,7 @@ const init = async () => {
 init(); // call the function
 ```
 
-## Run the Application and
-
-Provide a Token
+## Run the Application and Provide a Token
 
 At this point you can share the web page locally or with others, [open the page](#getting-started-pub-sub-web-media "#getting-started-pub-sub-web-media"), and put in
 a participant token and join the stage.

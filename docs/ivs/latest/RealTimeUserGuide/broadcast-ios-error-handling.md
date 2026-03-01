@@ -1,14 +1,10 @@
-# Error Handling in the IVS iOS Broadcast
-
-SDK | Real-Time Streaming
+# Error Handling in the IVS iOS Broadcast SDK | Real-Time Streaming
 
 This section is an overview of error conditions, how the IVS real-time streaming iOS
 broadcast SDK reports them to the application, and what an application should do when
 those errors are encountered.
 
-## Fatal vs. Non-Fatal
-
-Errors
+## Fatal vs. Non-Fatal Errors
 
 The error object has an "is fatal" boolean. This is a dictionary entry under
 `IVSBroadcastErrorIsFatalKey` which contains a boolean.
@@ -32,9 +28,7 @@ if nsError.userInfo[IVSBroadcastErrorIsFatalKey] as? Bool == true {
 
 ## Join Errors
 
-### Malformed
-
-Token
+### Malformed Token
 
 This happens when the stage token is malformed.
 
@@ -44,9 +38,7 @@ IVSBroadcastErrorIsFatalKey = YES.
 **Action**: Create a valid token and retry
 joining.
 
-### Expired
-
-Token
+### Expired Token
 
 This happens when the stage token is expired.
 
@@ -56,9 +48,7 @@ IVSBroadcastErrorIsFatalKey = YES.
 **Action**: Create a new token and retry
 joining.
 
-### Invalid or
-
-Revoked Token
+### Invalid or Revoked Token
 
 This happens when the stage token is not malformed but is rejected by the
 Stages server. This is reported asynchronously through the application-supplied
@@ -70,9 +60,7 @@ with error code = 1026 and IVSBroadcastErrorIsFatalKey = YES.
 **Action**: Create a valid token and retry
 joining.
 
-### Network
-
-Errors for Initial Join
+### Network Errors for Initial Join
 
 This happens when the SDK cannot contact the Stages server to establish a
 connection. This is reported asynchronously through the application-supplied
@@ -84,9 +72,7 @@ with error code = 1300 and IVSBroadcastErrorIsFatalKey = YES.
 **Action**: Wait for the device’s connectivity to
 recover and retry joining.
 
-### Network
-
-Errors when Already Joined
+### Network Errors when Already Joined
 
 If the device’s network connection goes down, the SDK may lose its connection
 to Stage servers. This is reported asynchronously through the
@@ -98,9 +84,7 @@ with error code = 1300 and IVSBroadcastErrorIsFatalKey value = YES.
 **Action**: Wait for the device’s connectivity to
 recover and retry joining.
 
-## Publish/Subscribe
-
-Errors
+## Publish/Subscribe Errors
 
 ### Initial
 
@@ -129,9 +113,7 @@ error code and `IVSBroadcastErrorIsFatalKey == NO`.
 retries automatically. Optionally, the application can refresh the strategy to
 force more retries.
 
-### Already
-
-Established, Then Fail
+### Already Established, Then Fail
 
 A publish or subscribe can fail after it is established, most likely due to a
 network error. The error code for a "peer connection lost due to network error"

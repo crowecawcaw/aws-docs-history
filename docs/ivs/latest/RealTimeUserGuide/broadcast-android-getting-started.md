@@ -1,6 +1,4 @@
-# Getting Started​ with the IVS
-
-Android Broadcast SDK | Real-Time Streaming
+# Getting Started​ with the IVS Android Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in getting started with the IVS
 real-time streaming Android broadcast SDK.
@@ -66,9 +64,7 @@ speakerphone:
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 ```
 
-## Using the SDK with Debug
-
-Symbols
+## Using the SDK with Debug Symbols
 
 We also publish a version of the Android broadcast SDK which includes debug
 symbols. You can use this version to improve the quality of debug reports (stack
@@ -89,9 +85,7 @@ Use the above line instead of this:
 implementation "com.amazonaws:ivs-broadcast:$version:stages@aar"
 ```
 
-### Uploading
-
-Symbols to Firebase Crashlytics
+### Uploading Symbols to Firebase Crashlytics
 
 Ensure that your Gradle build files are set up for Firebase Crashlytics.
 Follow Google’s instructions here:
@@ -116,9 +110,7 @@ gradle uploadCrashlyticsSymbolFileRelease
 (It will not hurt if symbols are uploaded twice, both automatically and
 manually.)
 
-### Preventing your Release
-
-.apk from Becoming Larger
+### Preventing your Release .apk from Becoming Larger
 
 Before packaging the release `.apk` file, the Android Gradle Plugin
 automatically tries to strip debug information from shared libraries (including

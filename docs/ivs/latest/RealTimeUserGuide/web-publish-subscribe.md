@@ -1,6 +1,4 @@
-# Publishing & Subscribing with the IVS Web
-
-Broadcast SDK | Real-Time Streaming
+# Publishing & Subscribing with the IVS Web Broadcast SDK | Real-Time Streaming
 
 This document takes you through the steps involved in publishing and subscribing to a
 stage using the IVS real-time streaming Web broadcast SDK.
@@ -225,9 +223,7 @@ hidden or seen/heard. (They also can use publish/unpublish, but that is much
 slower. Mute/unmute is preferable for use cases where changing visibility
 often is desirable.)
 
-#### Choosing
-
-Streams to Publish
+#### Choosing Streams to Publish
 
 ```
 stageStreamsToPublish(): LocalStageStream[];
@@ -237,9 +233,7 @@ When publishing, this is used to determine what audio and video streams should
 be published. This is covered in more detail later in [Publish a Media
 Stream](#web-publish-subscribe-publish-stream "#web-publish-subscribe-publish-stream").
 
-#### Updating
-
-the Strategy
+#### Updating the Strategy
 
 The strategy is intended to be dynamic: the values returned from any of
 the above functions can be changed at any time. For example, if the host
@@ -300,9 +294,7 @@ desired subscription type regardless of that participant’s publish state. The
 SDK is responsible for ensuring that the desired state of the strategy is acted
 on at the correct time based on the state of the stage.
 
-## Publish a Media
-
-Stream
+## Publish a Media Stream
 
 Local devices like microphones and cameras are retrieved using the same steps as
 outlined above in [Retrieve a
@@ -326,9 +318,7 @@ try {
 }
 ```
 
-## Publish a
-
-Screenshare
+## Publish a Screenshare
 
 Applications often need to publish a screenshare in addition to the user's web
 camera. Publishing a screenshare necessitates creating an additional token for the
@@ -364,9 +354,7 @@ const screenshareStage = new Stage(screenshareToken, screenshareStrategy);
 await screenshareStage.join();
 ```
 
-## Display and Remove
-
-Participants
+## Display and Remove Participants
 
 After subscribing is completed, you receive an array of `StageStream`
 objects through the `STAGE_PARTICIPANT_STREAMS_ADDED` event. The event
@@ -408,9 +396,7 @@ Because `STAGE_PARTICIPANT_STREAMS_REMOVED` is invoked for all
 scenarios, no custom business logic is required around removing participants from
 the UI during remote or local leave operations.
 
-## Mute and Unmute Media
-
-Streams
+## Mute and Unmute Media Streams
 
 `LocalStageStream` objects have a `setMuted` function that
 controls whether the stream is muted. This function can be called on the stream
@@ -423,9 +409,7 @@ object instance is returned by `stageStreamsToPublish` after a call to
 to the stage. Be careful when creating new `LocalStageStream` instances
 to make sure the expected mute state is maintained.
 
-## Monitor Remote Participant Media
-
-Mute State
+## Monitor Remote Participant Media Mute State
 
 When participants change the mute state of their video or audio, the
 `STAGE_STREAM_MUTE_CHANGED` event is triggered with a list of streams
@@ -572,9 +556,7 @@ In the code above:
     `shouldPublishParticipant` return `true`
     and calling `refreshStrategy` again.
 
-## Get Participant
-
-Attributes
+## Get Participant Attributes
 
 If you specify attributes in the `CreateParticipantToken` operation
 request, you can see the attributes in `StageParticipantInfo`
@@ -586,9 +568,7 @@ stage.on(StageEvents.STAGE_PARTICIPANT_JOINED, (participant) => {
 })
 ```
 
-## Supplemental Enhancement
-
-Information (SEI)
+## Supplemental Enhancement Information (SEI)
 
 The Supplemental Enhancement Information (SEI) NAL unit is used to store
 frame-aligned metadata alongside the video. It can be used when publishing and
@@ -597,9 +577,7 @@ arrive to subscribers, especially in bad network conditions. As the SEI payload
 stores data directly within the H.264 frame structure, this capability cannot be
 leveraged for audio-only streams.
 
-### Inserting SEI
-
-Payloads
+### Inserting SEI Payloads
 
 Publishing clients can insert SEI payloads to a stage stream that is being
 published by configuring their video's LocalStageStream to enable
@@ -620,9 +598,7 @@ const payload = new TextEncoder().encode('hello world').buffer;
 vidStream.insertSeiMessage(payload);
 ```
 
-#### Repeating SEI
-
-Payloads
+#### Repeating SEI Payloads
 
 Optionally provide a `repeatCount` to repeat the insertion of
 SEI payloads for the next N frames sent. This could be helpful to mitigate
@@ -634,9 +610,7 @@ Receiving clients must have logic to de-duplicate the message.
 vidStream.insertSeiMessage(payload, { repeatCount: 5 }); // Optional config, repeatCount must be between 0 and 30
 ```
 
-### Reading SEI
-
-Payloads
+### Reading SEI Payloads
 
 Subscribing clients can read SEI payloads from a publisher who is publishing
 H.264 video if present by configuring the subscriber(s)
@@ -661,18 +635,14 @@ stage.on(StageEvents.STAGE_STREAM_SEI_MESSAGE_RECEIVED, (participant, seiMessage
 });
 ```
 
-## Layered Encoding
-
-with Simulcast
+## Layered Encoding with Simulcast
 
 Layered encoding with simulcast is an IVS real-time streaming feature that allows
 publishers to send multiple different quality layers of video, and subscribers to
 dynamically or manually change those layers. The feature is described more in the
 [Streaming Optimizations](real-time-streaming-optimization.md "real-time-streaming-optimization.md") document.
 
-### Configuring
-
-Layered Encoding (Publisher)
+### Configuring Layered Encoding (Publisher)
 
 As a publisher, to enable layered encoding with simulcast, add the following
 configuration to your `LocalStageStream` on instantiation:
@@ -759,9 +729,7 @@ subscriber's device and network conditions.
 Alternatively, to pick explicit layers that the publisher is sending, there
 are several options, described below.
 
-### Option
-
-1: Initial Layer Quality Preference
+### Option 1: Initial Layer Quality Preference
 
 Using the `subscribeConfiguration` strategy, it is possible to
 choose what initial layer you want to receive as a subscriber:
@@ -801,9 +769,7 @@ These options are available for `InitialLayerPreference`:
 `initialLayerPreference` call) to take effect, a re-subscribe is
 necessary as these updates do not apply to the active subscription.
 
-### Option 2:
-
-Preferred Layer for Stream
+### Option 2: Preferred Layer for Stream
 
 Once a stream has started, you can use the `preferredLayerForStream` strategy method. This strategy method exposes the participant and the
 stream information.
@@ -881,9 +847,7 @@ if `UNAVAILABLE` is returned, this indicates that the requested layer
 could not be selected. A best-effort selection is made in its place, which
 typically is a lower quality layer to maintain stream stability.
 
-## Handling Network
-
-Issues
+## Handling Network Issues
 
 When the local device’s network connection is lost, the SDK internally tries to
 reconnect without any user action. In some cases, the SDK is not successful and user
@@ -917,9 +881,7 @@ joining a stage, as the SDK will try to recover internally. If the SDK reports a
 state for an extended period of time (e.g., 30 seconds or longer), you probably are
 disconnected from the network.
 
-## Broadcast the Stage to an
-
-IVS Channel
+## Broadcast the Stage to an IVS Channel
 
 To broadcast a stage, create a separate `IVSBroadcastClient` session
 and then follow the usual instructions for broadcasting with the SDK, described

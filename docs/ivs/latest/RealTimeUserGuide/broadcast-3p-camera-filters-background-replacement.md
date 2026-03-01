@@ -771,9 +771,7 @@ segmenter.process(inputImage)
         bgBitmap.getPixels(backgroundPixels, 0, maskWidth, 0, 0, maskWidth, maskHeight)
 ```
 
-### Overlay the Camera Frame Foreground onto Your Custom
-
-Background
+### Overlay the Camera Frame Foreground onto Your Custom Background
 
 With the mask containing the confidence scores, the camera frame as a bitmap,
 and the color pixels from the custom background image, you have everything you

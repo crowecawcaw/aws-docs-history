@@ -1,6 +1,4 @@
-# Step 3: Distribute Participant
-
-Tokens
+# Step 3: Distribute Participant Tokens
 
 Now that you have a stage, you need to create tokens and distribute them to
 participants, to enable the participants to join the stage and start sending and
@@ -12,9 +10,7 @@ receiving video. There are two approaches to generating tokens:
   IVS real-time-streaming API](#getting-started-distribute-tokens-api "#getting-started-distribute-tokens-api").
   Both of these approaches are described below.
 
-## Creating Tokens with
-
-a Key Pair
+## Creating Tokens with a Key Pair
 
 You can create tokens on your server application and distribute them to
 participants to join a stage. You need to generate an ECDSA public/private key pair
@@ -59,9 +55,7 @@ openssl ec -in priv.pem -pubout -out public.pem
 
 Now import your new public key, using the instructions below.
 
-### Import the
-
-Public Key
+### Import the Public Key
 
 Once you have a key pair, you can import the public key into IVS. The private
 key is not needed by our system but is employed by you to sign tokens.
@@ -100,9 +94,7 @@ Here is an example response:
 }
 ```
 
-### API
-
-Request
+### API Request
 
 ```
 POST /ImportPublicKey HTTP/1.1
@@ -273,9 +265,7 @@ base64UrlEncode(signature)
 
 ```
 
-## Creating Tokens with the IVS
-
-Real-Time Streaming API
+## Creating Tokens with the IVS Real-Time Streaming API
 
 ![Distribute participant tokens: Stage token workflow](images/Distribute_Participant_Tokens.png)
 
@@ -315,9 +305,7 @@ simply copy and paste the tokens into client code in the following steps.
 build functionality based on token contents. The format of tokens could change in
 the future.
 
-### Console
-
-Instructions
+### Console Instructions
 
 1. Navigate to the stage you created in the prior step.
 2. Select **Create token**. The **Create token** window appears.
@@ -363,9 +351,7 @@ aws ivs-realtime create-participant-token --stage-arn arn:aws:ivs:us-west-2:3766
 3. Save this token. You will need this to join the stage and send and
    receive video.
 
-### AWS SDK
-
-Instructions
+### AWS SDK Instructions
 
 You can use the AWS SDK to create tokens. Below are instructions for the
 AWS SDK using JavaScript.

@@ -1,6 +1,4 @@
-# Publish & Subscribe with the
-
-IVS Android Broadcast SDK
+# Publish & Subscribe with the IVS Android Broadcast SDK
 
 This section takes you through the steps involved in publishing and subscribing to
 a stage using your Android app.
@@ -491,9 +489,7 @@ to this adapter:
 internal val participantAdapter = ParticipantAdapter()
 ```
 
-## Stage
-
-State
+## Stage State
 
 We also need to track some stage state within `MainViewModel`.
 Let’s define those properties now:
@@ -570,9 +566,7 @@ internal fun permissionGranted() {
 }
 ```
 
-## Implementing the
-
-Stage SDK
+## Implementing the Stage SDK
 
 Three core [concepts](android-publish-subscribe.md#android-publish-subscribe-concepts "android-publish-subscribe.md#android-publish-subscribe-concepts")
 underlie real-time functionality: stage, strategy, and renderer. The design goal
@@ -723,9 +717,7 @@ override fun onStreamsMutedChanged(
 }
 ```
 
-## Implementing a Custom
-
-RecyclerView LayoutManager
+## Implementing a Custom RecyclerView LayoutManager
 
 Laying out different numbers of participants can be complex. You want them to
 take up the entire parent view’s frame but you don’t want to handle each
@@ -846,9 +838,7 @@ recyclerView.adapter = viewModel.participantAdapter
 
 ```
 
-## Hooking Up UI
-
-Actions
+## Hooking Up UI Actions
 
 We are getting close; there are just a few UI actions that we need to hook
 up.
@@ -911,9 +901,7 @@ internal fun setPublishEnabled(enabled: Boolean) {
 }
 ```
 
-## Rendering the
-
-Participants
+## Rendering the Participants
 
 Finally, we need to render the data we receive from the SDK onto the
 participant item that we created earlier. We already have the

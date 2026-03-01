@@ -4,16 +4,12 @@ This document explains how to use the BytePlus Effects SDK with the IVS broadcas
 
 ## Android
 
-### Install and
-
-Set Up the BytePlus Effects SDK
+### Install and Set Up the BytePlus Effects SDK
 
 See the BytePlus [Android Access Guide](https://docs.byteplus.com/en/effects/docs/android-v4101-access-guide "https://docs.byteplus.com/en/effects/docs/android-v4101-access-guide") for details on how to install, initialize, and
 set up the BytePlus Effects SDK.
 
-### Set Up the
-
-Custom Image Source
+### Set Up the Custom Image Source
 
 After initializing the SDK, feed processed camera frames with a filter effect
 applied to a custom-image input source. To do that, create an instance of a
@@ -31,9 +27,7 @@ var surface: Surface = customSource.inputSurface
 var filterStream = ImageLocalStageStream(customSource)
 ```
 
-### Convert Output
-
-to a Bitmap and Feed to Custom Image Input Source
+### Convert Output to a Bitmap and Feed to Custom Image Input Source
 
 To enable camera frames with a filter effect applied from the BytePlus Effect
 SDK to be forwarded directly to the IVS broadcast SDK, convert the BytePlus

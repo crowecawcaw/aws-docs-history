@@ -1,6 +1,4 @@
-# Step 4: Integrate the IVS Broadcast
-
-SDK
+# Step 4: Integrate the IVS Broadcast SDK
 
 IVS provides a broadcast SDK for web, Android, and iOS that you can integrate into
 your application. The broadcast SDK is used for both sending and receiving video. If you
@@ -34,9 +32,7 @@ You can install the broadcast SDK using a script tag or npm. Our example uses
 the script tag for simplicity but is easy to modify if you choose to use npm
 later.
 
-### Using a Script
-
-Tag
+### Using a Script Tag
 
 The Web broadcast SDK is distributed as a JavaScript library and can be
 retrieved at [https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.32.0/amazon-ivs-web-broadcast.js").
@@ -60,9 +56,7 @@ const { Stage } = IVSBroadcastClient;
 
 ## Android
 
-### Create the
-
-Android Project
+### Create the Android Project
 
 1. In Android Studio, create a **New
    Project**.
@@ -78,9 +72,7 @@ select **Empty Activity**, since we'll be
 using View APIs (not Jetpack Compose). 3. Give your project a **Name**, then select
 **Finish**.
 
-### Install the
-
-Broadcast SDK
+### Install the Broadcast SDK
 
 To add the Amazon IVS Android broadcast library to your Android development
 environment, add the library to your module’s `build.gradle` file, as
@@ -111,9 +103,7 @@ this location:
 
 ## iOS
 
-### Create the iOS
-
-Project
+### Create the iOS Project
 
 1. Create a new Xcode project.
 2. For **Platform**, select **iOS**.
@@ -125,9 +115,7 @@ Project
 
 Next you need to bring in the SDK. For instructions, see [Install the Library](broadcast-ios-getting-started.md#broadcast-ios-install "broadcast-ios-getting-started.md#broadcast-ios-install") in the _iOS Broadcast SDK Guide_.
 
-### Configure
-
-Permissions
+### Configure Permissions
 
 You need to update your project’s `Info.plist` to add two new
 entries for `NSCameraUsageDescription` and

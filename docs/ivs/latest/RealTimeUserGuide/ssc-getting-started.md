@@ -59,9 +59,7 @@ Command Line Interface User Guide](../../../cli/latest/userguide/cli-chap-welcom
 Now you can use the CLI to create and manage resources. The Composition operations
 are under the `ivs-realtime` namespace.
 
-### Create the
-
-EncoderConfiguration Resource
+### Create the EncoderConfiguration Resource
 
 An EncoderConfiguration is an object that allows you to customize the format
 of the generated video (height, width, bitrate, and other streaming parameters).
@@ -94,9 +92,7 @@ The response is:
 }
 ```
 
-### Start a
-
-Composition
+### Start a Composition
 
 Using the EncoderConfiguration ARN provided in the response above, create your
 Composition resource:

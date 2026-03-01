@@ -19,9 +19,7 @@ for details, including the response.
 `endpoints` field, which lists both RTMP and RTMPS endpoints. These
 are required for setting up your RTMP encoder.
 
-### Create an Ingest
-
-Configuration
+### Create an Ingest Configuration
 
 To publish to a stage using RTMPS, you must first create an ingest configuration
 and associate it with your stage. When you publish to the stage (using the stream

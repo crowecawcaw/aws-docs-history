@@ -1,6 +1,4 @@
-# IVS Resources and Support | Real-Time
-
-Streaming
+# IVS Resources and Support | Real-Time Streaming
 
 This document lists resources to help support your use of Amazon IVS real-time
 streaming.

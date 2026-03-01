@@ -10,13 +10,9 @@ joins a stage and ends a few minutes after the last participant stops publishing
 stage. Stage sessions help with debugging long-lived stages by separating out events and
 participants into short-lived sessions.
 
-## View Stage Sessions and
+## View Stage Sessions and Participants
 
-Participants
-
-### Console
-
-Instructions
+### Console Instructions
 
 1. Open the [Amazon IVS
    console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
@@ -31,18 +27,14 @@ details page. 5. To view participants in the session, scroll down until you see 
 participant to view its details page, including charts for Amazon CloudWatch
 metrics.
 
-## View Events for a
-
-Participant
+## View Events for a Participant
 
 Events are sent when a participant’s status in a stage changes, such as joining a
 stage or encountering an error trying to publish to a stage. Not all errors cause
 events; e.g., client-side network errors and token-signature errors are not sent as
 events. To handle these errors in your client application, use the [IVS broadcast SDKs](broadcast.md "broadcast.md").
 
-### Console
-
-Instructions
+### Console Instructions
 
 1. Navigate to the participant details page as instructed above.
 2. Scroll down until you see the **Events**
@@ -104,16 +96,12 @@ Here is a sample response to the `list-participant-events` call:
 }
 ```
 
-## Access CloudWatch
-
-Metrics
+## Access CloudWatch Metrics
 
 For CloudWatch metrics to be available, the following IVS Broadcast SDK versions are
 required: Web 1.5.0 or later, Android 1.12.0 or later, or iOS 1.12.0 or later.
 
-### CloudWatch Console
-
-Instructions
+### CloudWatch Console Instructions
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the side navigation, expand the **Metrics** dropdown, then select **All
@@ -149,9 +137,7 @@ You also can access your stream session’s CloudWatch chart from the stream
 session’s details page, by selecting the **View in
 CloudWatch** button.
 
-### CLI
-
-Instructions
+### CLI Instructions
 
 You also can access the metrics using the AWS CLI. This requires that you first
 download and configure the CLI on your machine. For details, see the [AWS
@@ -168,9 +154,7 @@ aws cloudwatch list-metrics --namespace AWS/IVSRealTime
 For more information, see [Using Amazon CloudWatch Metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon
 CloudWatch User Guide_.
 
-## CloudWatch Metrics: IVS Real-Time
-
-Streaming
+## CloudWatch Metrics: IVS Real-Time Streaming
 
 Amazon IVS provides the following metrics in the **AWS/IVSRealTime** namespace.
 
