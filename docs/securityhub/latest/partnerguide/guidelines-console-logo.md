@@ -1,6 +1,4 @@
-# Guidelines for the logo to display on the AWS Security Hub CSPM
-
-console
+# Guidelines for the logo to display on the AWS Security Hub CSPM console
 
 For the logo to display on the AWS Security Hub CSPM console, follow these guidelines.
 

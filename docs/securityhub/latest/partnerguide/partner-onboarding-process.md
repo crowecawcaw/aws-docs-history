@@ -39,8 +39,7 @@ are represented as JSON documents that adhere to the ASFF JSON Schema and RFC-74
 Message Format. For details on the ASFF schema, see [AWS Security Finding
 Format (ASFF)](../userguide/securityhub-findings-format.md "../userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
-See [Guidelines for mapping findings into the AWS Security
-Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
+See [Guidelines for mapping findings into the AWS Security Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
 
 **Building and testing the integration**
 
@@ -55,8 +54,7 @@ Throughout the build of a Security Hub CSPM integration, AWS encourages you to k
 Partner contacts informed about the progress of your integration. You can also ask your APN
 Partner contacts for help with integration questions.
 
-See [Guidelines for using the
-BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 7. You demonstrate the integration to the Security Hub CSPM product team. This integration must be
+See [Guidelines for using the BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 7. You demonstrate the integration to the Security Hub CSPM product team. This integration must be
 demonstrated using an account that the Security Hub CSPM team owns.
 
 If they are comfortable with the integration, the Security Hub CSPM team gives approval to move forward

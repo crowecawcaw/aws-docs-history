@@ -1,6 +1,4 @@
-# Guidelines for using the
-
-`BatchImportFindings` API
+# Guidelines for using the `BatchImportFindings` API
 
 When using the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation to send findings to AWS Security Hub CSPM, use the
 following guidelines.

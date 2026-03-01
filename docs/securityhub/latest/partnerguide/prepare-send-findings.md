@@ -5,9 +5,7 @@ team enables you as a finding provider. To be enabled as a finding provider, you
 the following onboarding steps. Doing so ensures a positive experience Security Hub CSPM for you and your
 customers.
 
-As you complete the onboarding steps, be sure to follow the guidelines in [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md"), [Guidelines for mapping findings into the AWS Security
-Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md"), and [Guidelines for using the
-BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md").
+As you complete the onboarding steps, be sure to follow the guidelines in [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md"), [Guidelines for mapping findings into the AWS Security Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md"), and [Guidelines for using the BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md").
 
 1. Map your security findings to the AWS Security Finding Format (ASFF).
 2. Build your integration architecture to push findings to the correct Regional Security Hub CSPM

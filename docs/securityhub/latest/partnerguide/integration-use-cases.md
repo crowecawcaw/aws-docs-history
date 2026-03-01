@@ -19,9 +19,7 @@ customer’s account.
 Here are the common cases for partner products that integrate with Security Hub CSPM. The information
 includes the additional permissions required for each use case.
 
-## Partner hosted: findings sent from partner
-
-account
+## Partner hosted: findings sent from partner account
 
 This use case covers partners who host a product in their own AWS account. To send
 security findings for an AWS customer, the partner calls the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation from the partner product
@@ -63,9 +61,7 @@ JSON
 
 ```
 
-## Partner hosted: findings sent from the
-
-customer account
+## Partner hosted: findings sent from the customer account
 
 This use case covers partners who host a product in their own AWS account, but use a
 cross-account role to access the customer's account. They call the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation from the customer’s
@@ -130,9 +126,7 @@ The `Resource` section of the policy identifies the specific product
 subscription. This ensures that the partner can only send findings for the partner product that
 the customer is subscribed to.
 
-## Customer hosted: findings sent from
-
-customer account
+## Customer hosted: findings sent from customer account
 
 This use case covers partners that have a product that is deployed in the customer’s AWS
 account. The [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API is called from the solution that runs in the

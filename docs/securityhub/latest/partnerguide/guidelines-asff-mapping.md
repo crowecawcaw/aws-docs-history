@@ -1,6 +1,4 @@
-# Guidelines for mapping findings into the AWS Security
-
-Finding Format (ASFF)
+# Guidelines for mapping findings into the AWS Security Finding Format (ASFF)
 
 Use the following guidelines to map your findings to the ASFF. For detailed descriptions of
 each ASFF field and object, see [AWS Security Finding
@@ -20,9 +18,7 @@ finding with the same identifier.
 of logic, such as an Amazon GuardDuty detector ID, AWS Config recorder ID, or IAM Access Analyzer
 ID.
 
-## Title and
-
-Description
+## Title and Description
 
 `Title` should contain some information about the affected resource.
 `Title` is limited to 256 characters, including spaces.
@@ -125,9 +121,7 @@ that specific finding. Otherwise, omit it from the mapping.
 Security Hub CSPM does not support hyperlinks from this field, but it is exposed on the Security Hub CSPM
 console.
 
-## Malware,
-
-Network, Process, ThreatIntelIndicators
+## Malware, Network, Process, ThreatIntelIndicators
 
 Where applicable, use `Malware`, `Network`, `Process`, or
 `ThreatIntelIndicators`. Each of these objects is exposed in the Security Hub CSPM console. Use

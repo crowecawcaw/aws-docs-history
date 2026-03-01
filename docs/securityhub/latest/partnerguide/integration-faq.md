@@ -40,8 +40,7 @@ Security Hub CSPM?**
     1. Submit your partner manifest information.
     2. Receive product ARNs to use with Security Hub CSPM, if you will be sending findings to Security
      Hub.
-    3. Map your findings to ASFF. See [Guidelines for mapping findings into the AWS Security
-     Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
+    3. Map your findings to ASFF. See [Guidelines for mapping findings into the AWS Security Finding Format (ASFF)](guidelines-asff-mapping.md "guidelines-asff-mapping.md").
     4. Define your architecture for sending findings to and receiving findings from Security Hub CSPM.
      Follow the tenets outlined in [Tenets for creating and updating findings](tenets-update-create-findings.md "tenets-update-create-findings.md").
     5. Create a deployment framework for customers. For example, CloudFormation scripts can serve this
@@ -74,8 +73,7 @@ These are the primary approaches:
     * You send findings from within the customer account using the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation. You could use assume-role
      approaches, but these approaches are not required.
 
-For overall guidelines on using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md"), see [Guidelines for using the
-BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 8. **How do I gather my findings and push them to a Security Hub CSPM Regional
+For overall guidelines on using [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md"), see [Guidelines for using the BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 8. **How do I gather my findings and push them to a Security Hub CSPM Regional
 endpoint?**
 
 Partners have used different approaches for this, as it is highly dependent on the
@@ -239,8 +237,7 @@ You can batch a set of findings from different accounts. However, if any of the 
 the batch are not subscribed to Security Hub CSPM, the entire batch fails. This is a limitation of the API Gateway
 baseline authorization model.
 
-See [Guidelines for using the
-BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 20. **Can I send updates to findings that I created?**
+See [Guidelines for using the BatchImportFindings API](guidelines-batchimportfindings.md "guidelines-batchimportfindings.md"). 20. **Can I send updates to findings that I created?**
 
 Yes, if you submit a finding with the same product ARN and same finding ID, it overwrites
 the previous data for that finding. Note that all of the data is overwritten, so you should

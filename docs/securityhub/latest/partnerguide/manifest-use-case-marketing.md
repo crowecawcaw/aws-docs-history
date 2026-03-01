@@ -2,9 +2,7 @@
 
 The following use cases can help you configure AWS Security Hub CSPM for different purposes.
 
-## Finding providers and consumers
-
-use case
+## Finding providers and consumers use case
 
 Required for independent software vendors (ISV).
 
@@ -155,8 +153,7 @@ The logos must meet the following criteria:
 - Cropping: tight no padding
 - Background: transparent
 
-For detailed guidelines for the small logo, see [Guidelines for the logo to display on the AWS Security Hub CSPM
-console](guidelines-console-logo.md "guidelines-console-logo.md").
+For detailed guidelines for the small logo, see [Guidelines for the logo to display on the AWS Security Hub CSPM console](guidelines-console-logo.md "guidelines-console-logo.md").
 
 ## Finding types
 

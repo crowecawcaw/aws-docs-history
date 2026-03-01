@@ -22,8 +22,7 @@ page is not available in the China (Beijing) and China (Ningxia) Regions.
 ###### Contents
 
 - [Use case and marketing information](manifest-use-case-marketing.md "manifest-use-case-marketing.md")
-  - [Finding providers and consumers
-    use case](manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers "manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers")
+  - [Finding providers and consumers use case](manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers "manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers")
   - [Consulting Partner (CP) use case](manifest-use-case-marketing.md#manifiest-use-case-consulting-partner "manifest-use-case-marketing.md#manifiest-use-case-consulting-partner")
   - [Datasets](manifest-use-case-marketing.md#manifest-datasets "manifest-use-case-marketing.md#manifest-datasets")
   - [Architecture](manifest-use-case-marketing.md#manifest-architecture "manifest-use-case-marketing.md#manifest-architecture")
