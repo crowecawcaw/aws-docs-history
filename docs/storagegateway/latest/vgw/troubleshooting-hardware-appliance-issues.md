@@ -1,13 +1,9 @@
-# Troubleshooting hardware
-
-appliance issues
+# Troubleshooting hardware appliance issues
 
 The following topics discuss issues that you might encounter with the Storage Gateway Hardware Appliance, and
 suggestions on troubleshooting these.
 
-## You can't determine the service IP
-
-address
+## You can't determine the service IP address
 
 When attempting to connect to your service, make sure that you are using the
 service's IP address and not the host IP address. Configure the service IP
@@ -41,9 +37,7 @@ recommend the following:
   cause performance issues or prevent the normal functioning of the
   appliance.
 
-## You can't find the hardware appliance
-
-serial number
+## You can't find the hardware appliance serial number
 
 You can find the serial number for your Storage Gateway Hardware Appliance using the Storage Gateway
 console.
@@ -58,9 +52,7 @@ console.
 4. Locate the **Serial Number** field on the
    **Details** tab for your appliance.
 
-## Where to obtain hardware appliance
-
-support
+## Where to obtain hardware appliance support
 
 To contact AWS about technical support for your hardware appliance, see [Support](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us").
 

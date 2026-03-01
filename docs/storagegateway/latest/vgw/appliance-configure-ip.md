@@ -1,6 +1,4 @@
-# Configuring a gateway IP address on the
-
-hardware appliance
+# Configuring a gateway IP address on the hardware appliance
 
 ###### Note
 
@@ -36,9 +34,8 @@ We recommend changing the default password by entering the corresponding
 numeral for **Gateway Console** from the **AWS
 Appliance Activation - Configuration** main menu, then running
 the `passwd` command. For information about how to run the
-command, see [Running storage gateway commands in
-the local console for an on-premises gateway](MaintenanceGatewayConsole-common.md "MaintenanceGatewayConsole-common.md"). You can also set the
-password from the Storage Gateway console. For more information, see [Setting the local console password from the Storage Gateway console](LocalConsole-login-common.md#set-password "LocalConsole-login-common.md#set-password") . 3. The **AWS Appliance Activation - Configuration** page
+command, see [Running storage gateway commands in the local console for an on-premises gateway](MaintenanceGatewayConsole-common.md "MaintenanceGatewayConsole-common.md"). You can also set the
+password from the Storage Gateway console. For more information, see [Setting the local console password from the Storage Gateway console](LocalConsole-login-common.md#set-password "LocalConsole-login-common.md#set-password"). 3. The **AWS Appliance Activation - Configuration** page
 includes the following menu options:
 
     * HTTP/SOCKS Proxy Configuration

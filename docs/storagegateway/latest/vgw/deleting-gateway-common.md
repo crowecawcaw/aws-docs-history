@@ -1,6 +1,4 @@
-# Deleting your gateway and removing associated
-
-resources
+# Deleting your gateway and removing associated resources
 
 If you don't plan to continue using your gateway, consider deleting the gateway and its
 associated resources. Removing resources avoids incurring charges for resources you don't
@@ -18,16 +16,11 @@ want to programmatically delete your gateway, see _[AWS Storage Gateway API Refe
 
 ###### Topics
 
-- [Deleting Your Gateway by Using the Storage Gateway
-  Console](#delete-gateway-procedure "#delete-gateway-procedure")
-- [Removing Resources from a Gateway Deployed
-  On-Premises](#remove-resources-onpremise "#remove-resources-onpremise")
-- [Removing Resources from a Gateway Deployed on an
-  Amazon EC2 Instance](#EC2GatewayCleanup "#EC2GatewayCleanup")
+- [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure")
+- [Removing Resources from a Gateway Deployed On-Premises](#remove-resources-onpremise "#remove-resources-onpremise")
+- [Removing Resources from a Gateway Deployed on an Amazon EC2 Instance](#EC2GatewayCleanup "#EC2GatewayCleanup")
 
-## Deleting Your Gateway by Using the Storage Gateway
-
-Console
+## Deleting Your Gateway by Using the Storage Gateway Console
 
 The procedure for deleting a gateway is the same for all gateway types. However,
 depending on the type of gateway you want to delete and the host the gateway is deployed
@@ -75,43 +68,33 @@ and Amazon EBS snapshots by canceling your Amazon EC2 subscription. If you want 
 Amazon EC2 subscription, you can delete your Amazon EBS snapshots using the Amazon EC2
 console.
 
-## Removing Resources from a Gateway Deployed
-
-On-Premises
+## Removing Resources from a Gateway Deployed On-Premises
 
 You can use the instructions following to remove resources from a gateway that is
 deployed on-premises.
 
-### Removing Resources from a
-
-Volume Gateway Deployed on a VM
+### Removing Resources from a Volume Gateway Deployed on a VM
 
 If the gateway you want to delete are deployed on a virtual machine (VM), we
 suggest that you take the following actions to clean up resources:
 
-- Delete the gateway. For instructions, see [Deleting Your Gateway by Using the Storage Gateway
-  Console](#delete-gateway-procedure "#delete-gateway-procedure").
+- Delete the gateway. For instructions, see [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure").
 - Delete all Amazon EBS snapshots you don't need. For instructions, see [Deleting an Amazon EBS
   Snapshot](../../../AWSEC2/latest/UserGuide/ebs-deleting-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-deleting-snapshot.md") in the _Amazon EC2 User Guide_.
 
-## Removing Resources from a Gateway Deployed on an
-
-Amazon EC2 Instance
+## Removing Resources from a Gateway Deployed on an Amazon EC2 Instance
 
 If you want to delete a gateway that you deployed on an Amazon EC2 instance, we recommend
 that you clean up the AWS resources that were used with the gateway, specifically the
 Amazon EC2 instance, any Amazon EBS volumes, and also tapes if you deployed a Tape Gateway. Doing
 so helps avoid unintended usage charges.
 
-### Removing Resources from Your Cached Volumes
-
-Deployed on Amazon EC2
+### Removing Resources from Your Cached Volumes Deployed on Amazon EC2
 
 If you deployed a gateway with cached volumes on EC2, we suggest that you take the
 following actions to delete your gateway and clean up its resources:
 
-1. In the Storage Gateway console, delete the gateway as shown in [Deleting Your Gateway by Using the Storage Gateway
-   Console](#delete-gateway-procedure "#delete-gateway-procedure").
+1. In the Storage Gateway console, delete the gateway as shown in [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure").
 2. In the Amazon EC2 console, stop your EC2 instance if you plan on using the
    instance again. Otherwise, terminate the instance. If you plan on deleting
    volumes, make note of the block devices that are attached to the instance

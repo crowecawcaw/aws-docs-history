@@ -21,8 +21,7 @@ initiators are connected and it is in active use. Doing so doesn't affect the
 performance of the source volume. For information about how to clone a volume, see [Creating a storage volume](GettingStartedCreateVolumes.md "GettingStartedCreateVolumes.md").
 
 You can also use the cloning process in recovery scenarios. For more information, see
-[Your Cached Gateway is Unreachable
-And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").
+[Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").
 
 The following procedure shows you how to clone a volume from a volume recovery point
 and use that volume.
@@ -63,7 +62,6 @@ for each adapter configured for the gateway VM. If the gateway VM is configured
 for only one network adapter, no list appears because there's only one IP
 address. 8. Choose **Create volume**. The **Configure CHAP
 Authentication** dialog box appears. You can configure CHAP later.
-For information, see [Configuring CHAP Authentication
-for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").
+For information, see [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").
 The next step is to connect your volume to your client. For more information, see
 [Connecting your volumes to your client](GettingStartedAccessVolumes.md "GettingStartedAccessVolumes.md").

@@ -1,6 +1,4 @@
-# Measuring Performance Between Your Application
-
-and Gateway
+# Measuring Performance Between Your Application and Gateway
 
 Data throughput, data latency, and operations per second are three measures that you
 can use to understand how your application storage that is using your gateway is
@@ -48,9 +46,7 @@ that completed during the period.
    seconds, then the approximate throughput rate for that datapoint is 7.9 megabytes per
    second.
 
-###### To measure the data input/output operations per second from an application to a
-
-volume
+###### To measure the data input/output operations per second from an application to a volume
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

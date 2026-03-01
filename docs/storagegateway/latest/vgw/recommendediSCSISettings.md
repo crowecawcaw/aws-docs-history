@@ -16,16 +16,11 @@ practices](<http://technet.microsoft.com/en-us/library/cc780921(WS.10).aspx> "ht
 
 ###### Topics
 
-- [Customizing Your Windows iSCSI
-  Settings](#CustomizeWindowsiSCSISettings "#CustomizeWindowsiSCSISettings")
-- [Customizing Your Linux iSCSI
-  Settings](#CustomizeLinuxiSCSISettings "#CustomizeLinuxiSCSISettings")
-- [Customizing Your Linux Disk Timeout
-  Settings for Volume Gateways](#CustomizeLinuxDiskTimeoutSettings "#CustomizeLinuxDiskTimeoutSettings")
+- [Customizing Your Windows iSCSI Settings](#CustomizeWindowsiSCSISettings "#CustomizeWindowsiSCSISettings")
+- [Customizing Your Linux iSCSI Settings](#CustomizeLinuxiSCSISettings "#CustomizeLinuxiSCSISettings")
+- [Customizing Your Linux Disk Timeout Settings for Volume Gateways](#CustomizeLinuxDiskTimeoutSettings "#CustomizeLinuxDiskTimeoutSettings")
 
-## Customizing Your Windows iSCSI
-
-Settings
+## Customizing Your Windows iSCSI Settings
 
 When using a Windows client, you use the Microsoft iSCSI initiator to
 connect to your gateway volume. For instructions on how to connect to your volumes, see
@@ -125,9 +120,7 @@ Before restarting, you must make sure that the results of all write operations
 to volumes are flushed. To do this, take any mapped storage volume disks offline
 before restarting.
 
-## Customizing Your Linux iSCSI
-
-Settings
+## Customizing Your Linux iSCSI Settings
 
 After setting up the initiator for your gateway, we highly recommend that you
 customize your iSCSI settings to prevent the initiator from disconnecting from targets.
@@ -217,9 +210,7 @@ examples are based on Red Hat Linux.
 Before restarting, make sure that the results of all write operations to your
 tapes are flushed. To do this, unmount tapes before restarting.
 
-## Customizing Your Linux Disk Timeout
-
-Settings for Volume Gateways
+## Customizing Your Linux Disk Timeout Settings for Volume Gateways
 
 If you are using a Volume Gateway, you can customize the following Linux disk timeout
 settings in addition to the iSCSI settings described in the preceding section.

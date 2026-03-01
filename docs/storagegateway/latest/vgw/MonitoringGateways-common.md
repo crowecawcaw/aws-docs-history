@@ -32,7 +32,7 @@ most recent monitoring period.
 | `QueuedWrites`               | Normally, this value represents the number of locally-stored bytes<br>waiting to be written to AWS, but it also reflects the<br>synchronization process that occurs between local data and cloud<br>data during "bootstrapping", which occurs each time a gateway<br>restarts.<br>Unit: Bytes                   |
 | `ReadBytes`                  | The total number of bytes read from your on-premises applications<br>in the reporting period for all volumes in the gateway.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Unit: Bytes                                           |
 | `ReadTime`                   | The total number of milliseconds spent to do read operations from<br>your on-premises applications in the reporting period for all<br>volumes in the gateway.<br>Use this metric with the `Average` statistic to measure<br>latency.<br>Unit: Milliseconds                                                      |
-| `TimeSinceLastRecoveryPoint` | The time since the last available recovery point. For more<br>information, see [Your Cached Gateway is Unreachable<br>And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").<br>Unit: Seconds       |
+| `TimeSinceLastRecoveryPoint` | The time since the last available recovery point. For more<br>information, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").<br>Unit: Seconds          |
 | `TotalCacheSize`             | The total size of the cache in bytes. The sample is taken at the<br>end of the reporting period.<br>Unit: Bytes                                                                                                                                                                                                 |
 | `UploadBufferPercentUsed`    | Percent use of the gateway's upload buffer. The sample is<br>taken at the end of the reporting period.<br>Unit: Percent                                                                                                                                                                                         |
 | `UploadBufferUsed`           | The total number of bytes being used in the gateway's upload<br>buffer. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                               |
@@ -43,9 +43,7 @@ most recent monitoring period.
 | `WriteBytes`                 | The total number of bytes written to your on-premises applications<br>in the reporting period for all volumes in the gateway.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to measure<br>IOPS.<br>Unit: Bytes                                          |
 | `WriteTime`                  | The total number of milliseconds spent to do write operations from<br>your on-premises applications in the reporting period for all<br>volumes in the gateway.<br>Use this metric with the `Average` statistic to measure<br>latency.<br>Unit: Milliseconds                                                     |
 
-## Dimensions for Storage Gateway
-
-metrics
+## Dimensions for Storage Gateway metrics
 
 The CloudWatch namespace for the Storage Gateway service is
 `AWS/StorageGateway`. Data is available automatically in 5-minute periods

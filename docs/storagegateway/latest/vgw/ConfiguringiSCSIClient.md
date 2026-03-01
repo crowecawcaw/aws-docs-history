@@ -1,6 +1,4 @@
-# Connecting to your volumes from a Windows
-
-client
+# Connecting to your volumes from a Windows client
 
 A Volume Gateway exposes volumes you have created for the gateway as iSCSI targets.
 For more information, see [Connecting your volumes to your client](GettingStartedAccessVolumes.md "GettingStartedAccessVolumes.md").
@@ -10,14 +8,11 @@ For more information, see [Connecting your volumes to your client](GettingStarte
 To connect to your volume target, your gateway must have an upload buffer
 configured. If an upload buffer is not configured for your gateway, then the status
 of your volumes is displayed as UPLOAD BUFFER NOT CONFIGURED. To configure an upload
-buffer for a gateway in a stored volumes setup, see [To configure additional upload
-buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer"). To configure an upload
-buffer for a gateway in a cached volumes setup, see [To configure additional upload
-buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
+buffer for a gateway in a stored volumes setup, see [To configure additional upload buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer"). To configure an upload
+buffer for a gateway in a cached volumes setup, see [To configure additional upload buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
 
 The following diagram highlights the iSCSI target in the larger picture of the Storage Gateway
-architecture. For more information, see [How Volume Gateway
-works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+architecture. For more information, see [How Volume Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
 ![Storage Gateway resources exposed as iSCSI targets connected to an application server.](images/ArchitectureDiagram_HighlightediSCSI-diagram.png)
 You can connect to your volume from either a Windows or Red Hat Linux client. You can
@@ -27,14 +22,13 @@ Your gateway exposes your volume as an iSCSI target with a name you specify, pre
 by `iqn.1997-05.com.amazon:`. For example, if you specify a target name of
 `myvolume`, then the iSCSI target you use to connect to the volume is
 `iqn.1997-05.com.amazon:myvolume`. For more information about how to
-configure your applications to mount volumes over iSCSI, see Connecting to your volumes from a Windows
-client.
+configure your applications to mount volumes over iSCSI, see Connecting to your volumes from a Windows client.
 
-| To                                                           | See                                                                                                                                          |
-| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connect to your volume from Windows.                         | [Connecting to a Microsoft Windows Client](GettingStarted-use-volumes.md#issci-windows "GettingStarted-use-volumes.md#issci-windows")        |
-| Connect to your volume from Red Hat Linux.                   | [Connecting to a Red Hat Enterprise Linux Client](GettingStarted-use-volumes.md#issci-rhel "GettingStarted-use-volumes.md#issci-rhel")       |
-| Configure CHAP authentication for Windows and Red Hat Linux. | [Configuring CHAP Authentication<br>for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md") |
+| To                                                           | See                                                                                                                                       |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Connect to your volume from Windows.                         | [Connecting to a Microsoft Windows Client](GettingStarted-use-volumes.md#issci-windows "GettingStarted-use-volumes.md#issci-windows")     |
+| Connect to your volume from Red Hat Linux.                   | [Connecting to a Red Hat Enterprise Linux Client](GettingStarted-use-volumes.md#issci-rhel "GettingStarted-use-volumes.md#issci-rhel")    |
+| Configure CHAP authentication for Windows and Red Hat Linux. | [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md") |
 
 ###### To connect your Windows client to a storage volume
 
@@ -90,5 +84,4 @@ begin saving data on it. You do this by using the Windows Disk Management tool.
 ###### Note
 
 Although it is not required for this exercise, we highly recommend that you
-customize your iSCSI settings for a real-world application as discussed in [Customizing Your Windows iSCSI
-Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings").
+customize your iSCSI settings for a real-world application as discussed in [Customizing Your Windows iSCSI Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings").

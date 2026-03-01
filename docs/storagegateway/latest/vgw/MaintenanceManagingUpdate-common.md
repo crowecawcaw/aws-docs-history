@@ -36,9 +36,7 @@ host doesn't need to reboot during updates, but the gateway will be unavailable 
 a short period while the gateway appliance updates and restarts. You can minimize the
 chance of any disruption to your applications due to the gateway restart by increasing
 the timeouts of your iSCSI initiator. For more information about increasing iSCSI
-initiator timeouts for Windows and Linux, see [Customizing Your Windows iSCSI
-Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings") and [Customizing Your Linux iSCSI
-Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
+initiator timeouts for Windows and Linux, see [Customizing Your Windows iSCSI Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings") and [Customizing Your Linux iSCSI Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
 
 When you deploy and activate your gateway, a default weekly maintenance window
 schedule is set. You can modify the maintenance window schedule at any time. You can

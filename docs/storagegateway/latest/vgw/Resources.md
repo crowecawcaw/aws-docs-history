@@ -5,11 +5,9 @@ you set up or manage your gateway, and also Storage Gateway quotas.
 
 **Topics**
 
-- [Deploying and configuring the gateway VM
-  host](resource-vm-setup.md "resource-vm-setup.md") - Learn how
+- [Deploying and configuring the gateway VM host](resource-vm-setup.md "resource-vm-setup.md") - Learn how
   to deploy and configure a virtual machine host for your gateway.
-- [Working with Volume Gateway storage
-  resources](resource-volume-gateway.md "resource-volume-gateway.md")
+- [Working with Volume Gateway storage resources](resource-volume-gateway.md "resource-volume-gateway.md")
 
 * Learn about procedures related to Volume Gateway storage resources, such as
   removing local disks and managing Amazon EBS volumes on gateway Amazon EC2 instances.
@@ -23,19 +21,16 @@ you set up or manage your gateway, and also Storage Gateway quotas.
 - [Using Direct Connect with Storage Gateway](using-dx.md "using-dx.md") - Learn how to create a
   dedicated network connection between your on-premises gateway and the AWS
   cloud.
-- [Getting the IP address for your gateway
-  appliance](getting-ip-address.md "getting-ip-address.md") - Learn
+- [Getting the IP address for your gateway appliance](getting-ip-address.md "getting-ip-address.md") - Learn
   where to find the gateway's virtual machine host IP address, which you need to
   provide when you deploy a new gateway.
 - [IPv6 support](ipv6-support.md "ipv6-support.md") - Learn
   about requirements for IPv6.
-- [Understanding Storage Gateway Resources and Resource
-  IDs](storage-gateway-resource-id.md "storage-gateway-resource-id.md") - Learn how AWS identifies the
+- [Understanding Storage Gateway Resources and Resource IDs](storage-gateway-resource-id.md "storage-gateway-resource-id.md") - Learn how AWS identifies the
   resources and subresources that are created by Storage Gateway.
 - [Tagging Storage Gateway Resources](tagging-resources-common.md "tagging-resources-common.md") - Learn how to use metadata tags to categorize your resources and make them
   easier to manage.
-- [Working with open-source components for
-  Storage Gateway](AboutAWSStorageGatewaySoftware.md "AboutAWSStorageGatewaySoftware.md") - Learn about the third-party
+- [Working with open-source components for Storage Gateway](AboutAWSStorageGatewaySoftware.md "AboutAWSStorageGatewaySoftware.md") - Learn about the third-party
   tools and licenses that are used to deliver Storage Gateway functionality.
 - [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md")
 

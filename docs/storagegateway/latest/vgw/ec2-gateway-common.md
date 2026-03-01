@@ -1,6 +1,4 @@
-# Deploy a customized Amazon EC2 instance for
-
-Volume Gateway
+# Deploy a customized Amazon EC2 instance for Volume Gateway
 
 You can deploy and activate a Volume Gateway on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The
 AWS Storage Gateway Amazon Machine Image (AMI) is available as a community AMI.
@@ -40,8 +38,7 @@ type**, choose the hardware configuration for your instance. The
 hardware configuration must meet certain minimum requirements to support your
 gateway. We recommend starting with the **m5.xlarge** instance
 type, which meets the minimum hardware requirements for your gateway to function
-properly. For more information, see [Requirements for Amazon EC2 instance
-types](Requirements.md#requirements-hardware-storage "Requirements.md#requirements-hardware-storage").
+properly. For more information, see [Requirements for Amazon EC2 instance types](Requirements.md#requirements-hardware-storage "Requirements.md#requirements-hardware-storage").
 
 You can resize your instance after you launch, if necessary. For more information,
 see [Resizing your

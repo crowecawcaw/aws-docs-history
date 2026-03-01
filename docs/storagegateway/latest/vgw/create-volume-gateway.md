@@ -6,10 +6,8 @@ Volume Gateway.
 ###### Topics
 
 - [Set up a Volume Gateway](#set-up-gateway-volume "#set-up-gateway-volume")
-- [Connect your Volume Gateway to
-  AWS](#connect-to-amazon-volume "#connect-to-amazon-volume")
-- [Review settings and activate your
-  Volume Gateway](#review-and-activate-volume "#review-and-activate-volume")
+- [Connect your Volume Gateway to AWS](#connect-to-amazon-volume "#connect-to-amazon-volume")
+- [Review settings and activate your Volume Gateway](#review-and-activate-volume "#review-and-activate-volume")
 - [Configure your Volume Gateway](#configure-gateway-volume "#configure-gateway-volume")
 
 ## Set up a Volume Gateway
@@ -76,9 +74,7 @@ Volume Gateway.
 Now that your gateway is set up, you need to choose how you want it to connect and
 communicate with AWS. For instructions, see [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume").
 
-## Connect your Volume Gateway to
-
-AWS
+## Connect your Volume Gateway to AWS
 
 ###### To connect a new Volume Gateway to AWS
 
@@ -134,9 +130,7 @@ AWS
 Now that you have chosen how you want your gateway to connect to AWS, you need
 to activate the gateway. For instructions, see [Review settings and activate your Volume Gateway](create-volume-gateway.md#review-and-activate-volume "create-volume-gateway.md#review-and-activate-volume").
 
-## Review settings and activate your
-
-Volume Gateway
+## Review settings and activate your Volume Gateway
 
 ###### To activate a new Volume Gateway
 

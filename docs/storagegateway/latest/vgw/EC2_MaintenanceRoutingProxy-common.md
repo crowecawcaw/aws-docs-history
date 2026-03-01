@@ -1,6 +1,4 @@
-# Routing your gateway deployed on
-
-EC2 through an HTTP proxy
+# Routing your gateway deployed on EC2 through an HTTP proxy
 
 Storage Gateway supports the configuration of a Socket Secure version 5 (SOCKS5) proxy between
 your gateway deployed on Amazon EC2 and AWS.
@@ -13,8 +11,7 @@ and endpoints is encrypted, even when using the HTTP proxy.
 
 ###### To route your gateway internet traffic through a local proxy server
 
-1. Log in to your gateway's local console. For instructions, see [Logging In to Your Amazon EC2 Gateway
-   Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
+1. Log in to your gateway's local console. For instructions, see [Logging In to Your Amazon EC2 Gateway Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Configure HTTP
    Proxy**.

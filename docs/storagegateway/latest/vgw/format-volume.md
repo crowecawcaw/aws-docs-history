@@ -5,20 +5,14 @@ initialize and format your volume.
 
 ###### Topics
 
-- [Initializing and formatting your volume on Microsoft
-  Windows](#format-windows "#format-windows")
-- [Initializing and formatting your volume on Red Hat
-  Enterprise Linux](#format-rhel "#format-rhel")
+- [Initializing and formatting your volume on Microsoft Windows](#format-windows "#format-windows")
+- [Initializing and formatting your volume on Red Hat Enterprise Linux](#format-rhel "#format-rhel")
 
-## Initializing and formatting your volume on Microsoft
-
-Windows
+## Initializing and formatting your volume on Microsoft Windows
 
 Use the following procedure to initialize and format your volume on Windows.
 
-###### To initialize and format your
-
-storage volume
+###### To initialize and format your storage volume
 
 1. Start `diskmgmt.msc` to open the **Disk
    Management** console.
@@ -61,9 +55,7 @@ storage volume
    the volume. The process might take several minutes to
    complete.
 
-## Initializing and formatting your volume on Red Hat
-
-Enterprise Linux
+## Initializing and formatting your volume on Red Hat Enterprise Linux
 
 Use the following procedure to initialize and format your volume on Red Hat Enterprise
 Linux (RHEL).

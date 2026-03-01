@@ -98,9 +98,7 @@ On the AWS Backup console, you can create a backup plan, assign a Storage Gatewa
 volume to the backup plan, and create a backup. You can also do ongoing backup
 management tasks.
 
-### Finding and restoring your volumes from
-
-AWS Backup
+### Finding and restoring your volumes from AWS Backup
 
 You can find and restore your backup Storage Gateway volumes from the AWS Backup console.
 For more information, see the _AWS Backup User Guide_. For more

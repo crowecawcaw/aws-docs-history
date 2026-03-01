@@ -5,7 +5,5 @@ buffering and storage. Gateways created on Amazon EC2 instances use Amazon EBS v
 
 ###### Topics
 
-- [Deciding the amount of local disk
-  storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md")
-- [Configuring additional upload buffer or
-  cache storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md")
+- [Deciding the amount of local disk storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md")
+- [Configuring additional upload buffer or cache storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md")

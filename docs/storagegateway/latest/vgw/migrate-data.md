@@ -16,9 +16,7 @@ Data can only be moved between the same gateway types.
 The following migration instructions can only be used for gateway appliances running version 2.x. You can't use them
 to migrate gateway appliances running lower versions.
 
-## Moving stored volumes to a new stored
-
-Volume Gateway
+## Moving stored volumes to a new stored Volume Gateway
 
 ###### To move your stored volume to a new stored Volume Gateway
 
@@ -77,8 +75,7 @@ Volume Gateway
    **Save**.
 
 For more information about working with Challenge-Handshake Authentication
-Protocol (CHAP) authentication, see [Configuring CHAP Authentication
-for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md"). 9. Start the application that writes to your stored volume. 10. When you have confirmed that your new stored Volume Gateway is working
+Protocol (CHAP) authentication, see [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md"). 9. Start the application that writes to your stored volume. 10. When you have confirmed that your new stored Volume Gateway is working
 correctly, you can delete the old stored Volume Gateway.
 
 ###### Important
@@ -105,13 +102,9 @@ When a gateway is deleted, there is no way to recover it.
 11. Delete the old gateway VM. For information about deleting a VM, see the
     documentation for your hypervisor.
 
-## Moving cached volumes to a new gateway
+## Moving cached volumes to a new gateway virtual machine
 
-virtual machine
-
-###### To move your cached volumes to a new cached Volume Gateway virtual machine
-
-(VM)
+###### To move your cached volumes to a new cached Volume Gateway virtual machine (VM)
 
 1. Stop any applications that are writing to the old cached
    Volume Gateway.
@@ -144,10 +137,8 @@ virtual machine
    that none are pending, select the snapshot links on the volumes.
 
    For more information about checking volume status in the console, see
-   [Understanding Volume Statuses and
-   Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md"). For information about
-   cached volume status, see [Understanding Cached Volume Status
-   Transitions](StorageVolumeStatuses.md#CachedVolumeStatusTransition "StorageVolumeStatuses.md#CachedVolumeStatusTransition") .
+   [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md"). For information about
+   cached volume status, see [Understanding Cached Volume Status Transitions](StorageVolumeStatuses.md#CachedVolumeStatusTransition "StorageVolumeStatuses.md#CachedVolumeStatusTransition").
 
 6. Use the following steps to stop the old cached Volume Gateway:
    1. In the navigation pane, choose **Gateways**, and then
@@ -195,11 +186,9 @@ is Dynamic Host Configuration Protocol (DHCP). With DHCP, your gateway is
 automatically assigned an IP address.
 
 If you need to manually configure a static IP address for your new VM, see
-[Configuring Your Gateway
-Network](MaintenanceConfiguringStaticIP-common.md "MaintenanceConfiguringStaticIP-common.md") for more details. If
+[Configuring Your Gateway Network](MaintenanceConfiguringStaticIP-common.md "MaintenanceConfiguringStaticIP-common.md") for more details. If
 your gateway must use a Socket Secure version 5 (SOCKS5) proxy to connect to the
-internet, see [Configuring a SOCKS5 proxy for your
-on-premises gateway](MaintenanceRoutingProxy-common.md "MaintenanceRoutingProxy-common.md") for more details. 10. Start the new VM. 11. Attach the disks that you detached from the old cached Volume Gateway VM in
+internet, see [Configuring a SOCKS5 proxy for your on-premises gateway](MaintenanceRoutingProxy-common.md "MaintenanceRoutingProxy-common.md") for more details. 10. Start the new VM. 11. Attach the disks that you detached from the old cached Volume Gateway VM in
 step 7, to the new cached Volume Gateway. Attach them in the same order to the
 new gateway VM as they are on the old gateway VM.
 

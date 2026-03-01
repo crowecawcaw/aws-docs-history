@@ -1,6 +1,4 @@
-# Logging in to the Volume Gateway local
-
-console
+# Logging in to the Volume Gateway local console
 
 When the VM is ready for you to log in, the login screen is displayed. If this is your first
 time logging in to the VM local console, you use the temporary sign-in credentials to
@@ -12,8 +10,7 @@ must change the password on first log in.
 ###### To change the temporary password
 
 1. On the **AWS Appliance Activation - Configuration** main menu, enter the corresponding numeral for **Gateway Console**.
-2. Run the `passwd` command. For information about how to run the command, see [Running storage gateway commands in
-   the local console for an on-premises gateway](MaintenanceGatewayConsole-common.md "MaintenanceGatewayConsole-common.md").
+2. Run the `passwd` command. For information about how to run the command, see [Running storage gateway commands in the local console for an on-premises gateway](MaintenanceGatewayConsole-common.md "MaintenanceGatewayConsole-common.md").
 
 ###### Important
 

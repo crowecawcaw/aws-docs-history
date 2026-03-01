@@ -1,6 +1,4 @@
-# Configuring CHAP authentication for your
-
-volumes
+# Configuring CHAP authentication for your volumes
 
 In Storage Gateway, your iSCSI initiators connect to your volumes as iSCSI targets. Storage Gateway
 uses Challenge-Handshake Authentication Protocol (CHAP) to authenticate iSCSI and initiator

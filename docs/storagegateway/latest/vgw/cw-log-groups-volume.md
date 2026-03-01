@@ -1,6 +1,4 @@
-# Getting Volume Gateway health logs with
-
-Amazon CloudWatch Logs
+# Getting Volume Gateway health logs with Amazon CloudWatch Logs
 
 You can use Amazon CloudWatch Logs to get information about the health of your Volume Gateway and
 related resources. You can use these logs to monitor your gateway for errors that it

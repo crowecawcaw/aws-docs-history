@@ -1,36 +1,22 @@
-# Troubleshooting Amazon EC2 gateway
-
-issues
+# Troubleshooting Amazon EC2 gateway issues
 
 In the following sections, you can find typical issues that you might encounter
 working with your gateway deployed on Amazon EC2. For more information about the difference
-between an on-premises gateway and a gateway deployed in Amazon EC2, see [Deploy a customized Amazon EC2 instance for
-Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
+between an on-premises gateway and a gateway deployed in Amazon EC2, see [Deploy a customized Amazon EC2 instance for Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
 
 ###### Topics
 
-- [Your gateway activation hasn't occurred
-  after a few moments](#activation-issues "#activation-issues")
-- [You can't find your EC2 gateway instance in the
-  instance list](#find-instance "#find-instance")
-- [You created an Amazon EBS volume but can't attach
-  it to your EC2 gateway instance](#ebs-volume-issue "#ebs-volume-issue")
-- [You can't attach an initiator to a volume
-  target of your EC2 gateway](#initiator-issue "#initiator-issue")
-- [You get a message that you have no disks available when
-  you try to add storage volumes](#no-disk "#no-disk")
-- [You want to remove a disk allocated as upload
-  buffer space to reduce upload buffer space](#uploadbuffer-issue "#uploadbuffer-issue")
-- [Throughput to or from your EC2 gateway
-  drops to zero](#gateway-throughput-issue "#gateway-throughput-issue")
-- [You want Support to help troubleshoot
-  your EC2 gateway](#EC2-EnableAWSSupportAccess "#EC2-EnableAWSSupportAccess")
-- [You want to connect to your gateway instance
-  using the Amazon EC2 serial console](#ec2-serial-console "#ec2-serial-console")
+- [Your gateway activation hasn't occurred after a few moments](#activation-issues "#activation-issues")
+- [You can't find your EC2 gateway instance in the instance list](#find-instance "#find-instance")
+- [You created an Amazon EBS volume but can't attach it to your EC2 gateway instance](#ebs-volume-issue "#ebs-volume-issue")
+- [You can't attach an initiator to a volume target of your EC2 gateway](#initiator-issue "#initiator-issue")
+- [You get a message that you have no disks available when you try to add storage volumes](#no-disk "#no-disk")
+- [You want to remove a disk allocated as upload buffer space to reduce upload buffer space](#uploadbuffer-issue "#uploadbuffer-issue")
+- [Throughput to or from your EC2 gateway drops to zero](#gateway-throughput-issue "#gateway-throughput-issue")
+- [You want Support to help troubleshoot your EC2 gateway](#EC2-EnableAWSSupportAccess "#EC2-EnableAWSSupportAccess")
+- [You want to connect to your gateway instance using the Amazon EC2 serial console](#ec2-serial-console "#ec2-serial-console")
 
-## Your gateway activation hasn't occurred
-
-after a few moments
+## Your gateway activation hasn't occurred after a few moments
 
 Check the following in the Amazon EC2 console:
 
@@ -48,9 +34,7 @@ After correcting the problem, try activating the gateway again. To do this, open
 the Storage Gateway console, choose **Deploy a new Gateway on Amazon EC2**,
 and re-enter the IP address of the instance.
 
-## You can't find your EC2 gateway instance in the
-
-instance list
+## You can't find your EC2 gateway instance in the instance list
 
 If you didn't give your instance a resource tag and you have many instances
 running, it can be hard to tell which instance you launched. In this case, you can
@@ -63,25 +47,18 @@ take the following actions to find the gateway instance:
 - If you have several instances based on the Storage Gateway AMI, check the instance
   launch time to find the correct instance.
 
-## You created an Amazon EBS volume but can't attach
-
-it to your EC2 gateway instance
+## You created an Amazon EBS volume but can't attach it to your EC2 gateway instance
 
 Check that the Amazon EBS volume in question is in the same Availability Zone as the
 gateway instance. If there is a discrepancy in Availability Zones, create a new
 Amazon EBS volume in the same Availability Zone as your instance.
 
-## You can't attach an initiator to a volume
-
-target of your EC2 gateway
+## You can't attach an initiator to a volume target of your EC2 gateway
 
 Check that the security group that you launched the instance with includes a rule
-that allows the port that you are using for iSCSI access. The port is usually set as 3260. For more information on connecting to volumes, see [Connecting to your volumes from a Windows
-client](ConfiguringiSCSIClient.md "ConfiguringiSCSIClient.md").
+that allows the port that you are using for iSCSI access. The port is usually set as 3260. For more information on connecting to volumes, see [Connecting to your volumes from a Windows client](ConfiguringiSCSIClient.md "ConfiguringiSCSIClient.md").
 
-## You get a message that you have no disks available when
-
-you try to add storage volumes
+## You get a message that you have no disks available when you try to add storage volumes
 
 For a newly activated gateway, no volume storage is defined. Before you can define
 volume storage, you must allocate local disks to the gateway to use as an upload
@@ -91,21 +68,15 @@ volumes are defined for the instance.
 
 Check block devices defined for the instance that is running the gateway. If there
 are only two block devices (the default devices that come with the AMI), then you
-should add storage. For more information on doing so, see [Deploy a customized Amazon EC2 instance for
-Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md"). After
+should add storage. For more information on doing so, see [Deploy a customized Amazon EC2 instance for Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md"). After
 attaching two or more Amazon EBS volumes, try creating volume storage on the
 gateway.
 
-## You want to remove a disk allocated as upload
+## You want to remove a disk allocated as upload buffer space to reduce upload buffer space
 
-buffer space to reduce upload buffer space
+Follow the steps in [Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
 
-Follow the steps in [Determining the size of
-upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
-
-## Throughput to or from your EC2 gateway
-
-drops to zero
+## Throughput to or from your EC2 gateway drops to zero
 
 Verify that the gateway instance is running. If the instance is starting due to a
 reboot, for example, wait for the instance to restart.
@@ -116,12 +87,9 @@ need to activate a new gateway.
 
 You can view the throughput to and from your gateway from the Amazon CloudWatch console.
 For more information about measuring throughput to and from your gateway and AWS,
-see [Measuring Performance Between Your Gateway and
-AWS](PerfGatewayAWS-common.md "PerfGatewayAWS-common.md").
+see [Measuring Performance Between Your Gateway and AWS](PerfGatewayAWS-common.md "PerfGatewayAWS-common.md").
 
-## You want Support to help troubleshoot
-
-your EC2 gateway
+## You want Support to help troubleshoot your EC2 gateway
 
 Storage Gateway provides a local console you can use to perform several maintenance tasks,
 including activating Support to access your gateway to assist you with troubleshooting
@@ -196,9 +164,7 @@ number to Support so Support can provide troubleshooting assistance. 6. When the
 end it. Don't close the session until Support notifies you that the support
 session is complete. 7. Enter `exit` to exit the Storage Gateway console. 8. Follow the console menus to log out of the Storage Gateway instance.
 
-## You want to connect to your gateway instance
-
-using the Amazon EC2 serial console
+## You want to connect to your gateway instance using the Amazon EC2 serial console
 
 You can use the Amazon EC2 serial console to troubleshoot boot, network configuration,
 and other issues. For instructions and troubleshooting tips, see [Amazon EC2

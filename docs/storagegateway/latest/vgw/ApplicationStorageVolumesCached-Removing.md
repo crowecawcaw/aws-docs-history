@@ -1,6 +1,4 @@
-# Deleting storage
-
-volumes
+# Deleting storage volumes
 
 You might need to delete a volume as your application needs change—for example,
 if you migrate your application to use a larger storage volume. Before you delete a

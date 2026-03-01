@@ -1,6 +1,4 @@
-# How Volume Gateway
-
-works
+# How Volume Gateway works
 
 Following, you can find an architectural overview of the Volume Gateway
 solution.
@@ -11,14 +9,10 @@ For Volume Gateways, you can use either cached volumes or stored volumes.
 
 ###### Topics
 
-- [Cached volumes
-  architecture](#storage-gateway-cached-concepts "#storage-gateway-cached-concepts")
-- [Stored volumes
-  architecture](#storage-gateway-stored-volume-concepts "#storage-gateway-stored-volume-concepts")
+- [Cached volumes architecture](#storage-gateway-cached-concepts "#storage-gateway-cached-concepts")
+- [Stored volumes architecture](#storage-gateway-stored-volume-concepts "#storage-gateway-stored-volume-concepts")
 
-### Cached volumes
-
-architecture
+### Cached volumes architecture
 
 By using cached volumes, you can use Amazon S3 as your primary data storage, while
 retaining frequently accessed data locally in your Storage Gateway. Cached
@@ -100,9 +94,7 @@ encrypted at rest using server-side encryption (SSE). However, you can't
 access this data with the Amazon S3 API or other tools such as the Amazon S3 Management
 Console.
 
-### Stored volumes
-
-architecture
+### Stored volumes architecture
 
 By using stored volumes, you can store your primary data locally, while
 asynchronously backing up that data to AWS. Stored volumes provide your

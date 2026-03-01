@@ -1,6 +1,4 @@
-# Deciding the amount of local disk
-
-storage
+# Deciding the amount of local disk storage
 
 The number and size of disks that you want to allocate for your gateway is up to you.
 Depending on the storage solution you deploy, the gateway requires the following
@@ -43,9 +41,7 @@ After the initial configuration and deployment of your gateway, you can adjust t
 local storage by adding or removing disks for an upload buffer. You can also add disks
 for cache storage.
 
-## Determining the size of
-
-upload buffer to allocate
+## Determining the size of upload buffer to allocate
 
 You can determine the size of your upload buffer to allocate by using an upload
 buffer formula. We strongly recommend that you allocate at least 150 GiB of upload
@@ -64,8 +60,7 @@ any new data that was persisted locally is uploaded to AWS. Finally, the
 volume returns to ACTIVE status. Storage Gateway then resumes normal
 synchronization of the data stored locally with the copy stored in AWS, and
 you can start taking new snapshots. For more information about volume status,
-see [Understanding Volume Statuses and
-Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
+see [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
 
 To estimate the amount of upload buffer to allocate, you can determine the
 expected incoming and outgoing data rates and plug them into the following
@@ -115,16 +110,13 @@ needed using the Storage Gateway console. Also, you can use the Amazon CloudWatc
 metrics to monitor upload buffer usage and determine additional storage
 requirements. For information on metrics and setting the alarms, see [Monitoring the upload buffer](PerfUploadBuffer-common.md "PerfUploadBuffer-common.md").
 
-## Determining the size of cache
-
-storage to allocate
+## Determining the size of cache storage to allocate
 
 Your gateway uses its cache storage to provide low-latency access to your recently
 accessed data. The cache storage acts as the on-premises durable store for data that
 is pending upload to Amazon S3 from the upload buffer. Generally speaking, you size the
 cache storage at 1.1 times the upload buffer size. For more information about how to
-estimate your cache storage size, see [Determining the size of
-upload buffer to allocate](#CachedLocalDiskUploadBufferSizing-common "#CachedLocalDiskUploadBufferSizing-common").
+estimate your cache storage size, see [Determining the size of upload buffer to allocate](#CachedLocalDiskUploadBufferSizing-common "#CachedLocalDiskUploadBufferSizing-common").
 
 You can initially use this approximation to provision disks for the cache storage.
 You can then use Amazon CloudWatch operational metrics to monitor the cache storage usage and

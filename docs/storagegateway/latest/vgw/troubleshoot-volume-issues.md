@@ -5,46 +5,28 @@ working with volumes, and actions that we suggest that you take to fix them.
 
 ###### Topics
 
-- [The Console Says
-  That Your Volume Is Not Configured](#troubleshoot-volume-issues.VolumeNotConfigured "#troubleshoot-volume-issues.VolumeNotConfigured")
-- [The Console Says
-  That Your Volume Is Irrecoverable](#troubleshoot-volume-issues.VolumeIrrecoverable "#troubleshoot-volume-issues.VolumeIrrecoverable")
-- [Your Cached Gateway is Unreachable
-  And You Want to Recover Your Data](#RecoverySnapshotTroubleshooting "#RecoverySnapshotTroubleshooting")
-- [The Console Says That
-  Your Volume Has PASS THROUGH Status](#troubleshoot-volume-issues.VolumePassthrough "#troubleshoot-volume-issues.VolumePassthrough")
-- [You Want to Verify
-  Volume Integrity and Fix Possible Errors](#troubleshoot-volume-issues.VerifyIntegrity "#troubleshoot-volume-issues.VerifyIntegrity")
-- [Your Volume's iSCSI
-  Target Doesn’t Appear in Windows Disk Management Console](#troubleshoot-volume-issues.DoesNotAppear "#troubleshoot-volume-issues.DoesNotAppear")
-- [You Want to Change Your
-  Volume's iSCSI Target Name](#troubleshoot-volume-issues.ChangeISCSI "#troubleshoot-volume-issues.ChangeISCSI")
-- [Your Scheduled Volume
-  Snapshot Did Not Occur](#troubleshoot-volume-issues.NoSnapshot "#troubleshoot-volume-issues.NoSnapshot")
-- [You Need to Remove or
-  Replace a Disk That Has Failed](#troubleshoot-volume-issues.RemoveVolume "#troubleshoot-volume-issues.RemoveVolume")
-- [Throughput from Your
-  Application to a Volume Has Dropped to Zero](#troubleshoot-volume-issues.ThroughputZero "#troubleshoot-volume-issues.ThroughputZero")
-- [A Cache Disk in Your
-  Gateway Encounters a Failure](#troubleshoot-volume-issues.CacheDiskFail "#troubleshoot-volume-issues.CacheDiskFail")
-- [A Volume Snapshot Has PENDING
-  Status Longer Than Expected](#SnapshotTroubleshooting.Pending "#SnapshotTroubleshooting.Pending")
-- [High Availability Health
-  Notifications](#troubleshooting-ha-notifications "#troubleshooting-ha-notifications")
+- [The Console Says That Your Volume Is Not Configured](#troubleshoot-volume-issues.VolumeNotConfigured "#troubleshoot-volume-issues.VolumeNotConfigured")
+- [The Console Says That Your Volume Is Irrecoverable](#troubleshoot-volume-issues.VolumeIrrecoverable "#troubleshoot-volume-issues.VolumeIrrecoverable")
+- [Your Cached Gateway is Unreachable And You Want to Recover Your Data](#RecoverySnapshotTroubleshooting "#RecoverySnapshotTroubleshooting")
+- [The Console Says That Your Volume Has PASS THROUGH Status](#troubleshoot-volume-issues.VolumePassthrough "#troubleshoot-volume-issues.VolumePassthrough")
+- [You Want to Verify Volume Integrity and Fix Possible Errors](#troubleshoot-volume-issues.VerifyIntegrity "#troubleshoot-volume-issues.VerifyIntegrity")
+- [Your Volume's iSCSI Target Doesn’t Appear in Windows Disk Management Console](#troubleshoot-volume-issues.DoesNotAppear "#troubleshoot-volume-issues.DoesNotAppear")
+- [You Want to Change Your Volume's iSCSI Target Name](#troubleshoot-volume-issues.ChangeISCSI "#troubleshoot-volume-issues.ChangeISCSI")
+- [Your Scheduled Volume Snapshot Did Not Occur](#troubleshoot-volume-issues.NoSnapshot "#troubleshoot-volume-issues.NoSnapshot")
+- [You Need to Remove or Replace a Disk That Has Failed](#troubleshoot-volume-issues.RemoveVolume "#troubleshoot-volume-issues.RemoveVolume")
+- [Throughput from Your Application to a Volume Has Dropped to Zero](#troubleshoot-volume-issues.ThroughputZero "#troubleshoot-volume-issues.ThroughputZero")
+- [A Cache Disk in Your Gateway Encounters a Failure](#troubleshoot-volume-issues.CacheDiskFail "#troubleshoot-volume-issues.CacheDiskFail")
+- [A Volume Snapshot Has PENDING Status Longer Than Expected](#SnapshotTroubleshooting.Pending "#SnapshotTroubleshooting.Pending")
+- [High Availability Health Notifications](#troubleshooting-ha-notifications "#troubleshooting-ha-notifications")
 
-## The Console Says
-
-That Your Volume Is Not Configured
+## The Console Says That Your Volume Is Not Configured
 
 If the Storage Gateway console indicates that your volume has a status of UPLOAD BUFFER
 NOT CONFIGURED, add upload buffer capacity to your gateway. You cannot use a gateway
 to store your application data if the upload buffer for the gateway is not
-configured. For more information, see [To configure additional upload
-buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
+configured. For more information, see [To configure additional upload buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
 
-## The Console Says
-
-That Your Volume Is Irrecoverable
+## The Console Says That Your Volume Is Irrecoverable
 
 For stored volumes, if the Storage Gateway console indicates that your volume has a status
 of IRRECOVERABLE, you can no longer use this volume. You can try to delete the
@@ -61,17 +43,13 @@ For cached volumes, if the Storage Gateway console indicates that your volume ha
 of IRRECOVERABLE, you can no longer use this volume. If there is data on the volume,
 you can create a snapshot of the volume and then recover your data from the snapshot
 or you can clone the volume from the last recovery point. You can delete the volume
-after you have recovered your data. For more information, see [Your Cached Gateway is Unreachable
-And You Want to Recover Your Data](#RecoverySnapshotTroubleshooting "#RecoverySnapshotTroubleshooting").
+after you have recovered your data. For more information, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](#RecoverySnapshotTroubleshooting "#RecoverySnapshotTroubleshooting").
 
 For stored volumes, you can create a new volume from the disk that was used to
 create the irrecoverable volume. For more information, see [Creating a storage volume](GettingStartedCreateVolumes.md "GettingStartedCreateVolumes.md"). For information about volume
-status, see [Understanding Volume Statuses and
-Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
+status, see [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
 
-## Your Cached Gateway is Unreachable
-
-And You Want to Recover Your Data
+## Your Cached Gateway is Unreachable And You Want to Recover Your Data
 
 When your gateway becomes unreachable (such as when you shut it down), you have
 the option of either creating a snapshot from a volume recovery point and using that
@@ -84,9 +62,7 @@ architecture. A _volume recovery point_ is a point in time at
 which all data of the volume is consistent and from which you can create a snapshot
 or clone a volume.
 
-## The Console Says That
-
-Your Volume Has PASS THROUGH Status
+## The Console Says That Your Volume Has PASS THROUGH Status
 
 In some cases, the Storage Gateway console might indicate that your volume has a status of
 PASSTHROUGH. A volume can have PASSTHROUGH status for several reasons. Some reasons
@@ -106,12 +82,10 @@ gateway has caught up and saved the volume data to Amazon S3, the volume status 
 AVAILABLE and snapshots can be started again. Note that when your volume has the
 PASS THROUGH or BOOTSTRAPPING status, you can continue to read and write data from
 the volume disk. For more information about adding more upload buffer space, see
-[Determining the size of
-upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
+[Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
 
 To take action before the upload buffer is exceeded, you can set a threshold alarm
-on a gateway's upload buffer. For more information, see [To set an upper threshold alarm for a
-gateway's upload buffer](PerfUploadBuffer-common.md#GatewayAlarm1-common "PerfUploadBuffer-common.md#GatewayAlarm1-common").
+on a gateway's upload buffer. For more information, see [To set an upper threshold alarm for a gateway's upload buffer](PerfUploadBuffer-common.md#GatewayAlarm1-common "PerfUploadBuffer-common.md#GatewayAlarm1-common").
 
 In contrast, an example of not needing to take action when a volume has the PASS
 THROUGH status is when the volume is waiting to be bootstrapped because another
@@ -120,14 +94,10 @@ time.
 
 Infrequently, the PASS THROUGH status can indicate that a disk allocated for an
 upload buffer has failed. In this is the case, you should remove the disk. For more
-information, see [Working with Volume Gateway storage
-resources](resource-volume-gateway.md "resource-volume-gateway.md"). For information about volume status,
-see [Understanding Volume Statuses and
-Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
+information, see [Working with Volume Gateway storage resources](resource-volume-gateway.md "resource-volume-gateway.md"). For information about volume status,
+see [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
 
-## You Want to Verify
-
-Volume Integrity and Fix Possible Errors
+## You Want to Verify Volume Integrity and Fix Possible Errors
 
 If you want to verify volume integrity and fix possible errors, and your gateway
 uses Microsoft Windows initiators to connect to its volumes, you can use the Windows
@@ -135,51 +105,38 @@ CHKDSK utility to verify the integrity of your volumes and fix any errors on the
 volumes. Windows can automatically run the CHKDSK tool when volume corruption is
 detected, or you can run it yourself.
 
-## Your Volume's iSCSI
-
-Target Doesn’t Appear in Windows Disk Management Console
+## Your Volume's iSCSI Target Doesn’t Appear in Windows Disk Management Console
 
 If your volume's iSCSI target does not show up in the Disk Management Console
 in Windows, check that you have configured the upload buffer for the gateway. For
-more information, see [To configure additional upload
-buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
+more information, see [To configure additional upload buffer or cache storage for your gateway](ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer "ConfiguringLocalDiskStorage.md#GatewayWorkingStorageCachedTaskBuffer").
 
-## You Want to Change Your
-
-Volume's iSCSI Target Name
+## You Want to Change Your Volume's iSCSI Target Name
 
 If you want to change the iSCSI target name of your volume, you must delete the
 volume and add it again with a new target name. If you do so, you can preserve the
 data on the volume.
 
-## Your Scheduled Volume
-
-Snapshot Did Not Occur
+## Your Scheduled Volume Snapshot Did Not Occur
 
 If your scheduled snapshot of a volume did not occur, check whether your volume
 has the PASSTHROUGH status, or if the gateway's upload buffer was filled just
 prior to the scheduled snapshot time. You can check the
 `UploadBufferPercentUsed` metric for the gateway in the Amazon CloudWatch
 console and create an alarm for this metric. For more information, see [Monitoring the upload buffer](PerfUploadBuffer-common.md "PerfUploadBuffer-common.md") and
-[To set an upper threshold alarm for a
-gateway's upload buffer](PerfUploadBuffer-common.md#GatewayAlarm1-common "PerfUploadBuffer-common.md#GatewayAlarm1-common").
+[To set an upper threshold alarm for a gateway's upload buffer](PerfUploadBuffer-common.md#GatewayAlarm1-common "PerfUploadBuffer-common.md#GatewayAlarm1-common").
 
-## You Need to Remove or
-
-Replace a Disk That Has Failed
+## You Need to Remove or Replace a Disk That Has Failed
 
 If you need to replace a volume disk that has failed or replace a volume because
 it isn't needed, you should remove the volume first using the Storage Gateway console.
 For more information, see [To delete a volume](ApplicationStorageVolumesCached-Removing.md#CachedRemovingAStorageVolume "ApplicationStorageVolumesCached-Removing.md#CachedRemovingAStorageVolume"). You then use the hypervisor
 client to remove the backing storage:
 
-- For VMware ESXi, remove the backing storage as described in [Deleting storage
-  volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md").
+- For VMware ESXi, remove the backing storage as described in [Deleting storage volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md").
 - For Microsoft Hyper-V, remove the backing storage.
 
-## Throughput from Your
-
-Application to a Volume Has Dropped to Zero
+## Throughput from Your Application to a Volume Has Dropped to Zero
 
 If throughput from your application to a volume has dropped to zero, try the
 following:
@@ -205,17 +162,13 @@ following:
   delete the volume and then re-create it preserving its existing data.
 - Check that the iSCSI initiator your application uses is correctly mapped
   to the iSCSI target for the storage volume. For more information about
-  connecting to storage volumes, see [Connecting to your volumes from a Windows
-  client](ConfiguringiSCSIClient.md "ConfiguringiSCSIClient.md").
+  connecting to storage volumes, see [Connecting to your volumes from a Windows client](ConfiguringiSCSIClient.md "ConfiguringiSCSIClient.md").
 
 You can view the throughput for volumes and create alarms from the Amazon CloudWatch
 console. For more information about measuring throughput from your application to a
-volume, see [Measuring Performance Between Your Application
-and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md").
+volume, see [Measuring Performance Between Your Application and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md").
 
-## A Cache Disk in Your
-
-Gateway Encounters a Failure
+## A Cache Disk in Your Gateway Encounters a Failure
 
 If one or more cache disks in your gateway encounters a failure, the gateway prevents read
 and write operations to your virtual tapes and volumes. To resume normal functionality,
@@ -240,9 +193,7 @@ Shutting down the gateway when your cache disk and Amazon S3 are not synchronize
 can result in data loss. As a result, we don't recommend using ephemeral drives or
 disks.
 
-## A Volume Snapshot Has PENDING
-
-Status Longer Than Expected
+## A Volume Snapshot Has PENDING Status Longer Than Expected
 
 If a volume snapshot remains in PENDING state longer than expected, the gateway VM
 might have crashed unexpectedly or the status of a volume might have changed to PASS
@@ -251,12 +202,9 @@ PENDING status and the snapshot does not successfully complete. In these cases, 
 recommend that you delete the snapshot. For more information, see [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md").
 
 When the volume returns to AVAILABLE status, create a new snapshot of the volume.
-For information about volume status, see [Understanding Volume Statuses and
-Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
+For information about volume status, see [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
 
-## High Availability Health
-
-Notifications
+## High Availability Health Notifications
 
 When running your gateway on the VMware vSphere High Availability (HA) platform,
 you may receive health notifications. For more information about health

@@ -68,8 +68,7 @@ Your iSCSI target will be available on the network adapter you choose.
 
 If you have defined your gateway to use multiple network adapters, choose the IP
 address that your storage applications should use to access your volume. For
-information about configuring multiple network adapters, see [Configuring Your Gateway for
-Multiple NICs](NICConfiguring-common.md#MaintenanceMultiNIC-common "NICConfiguring-common.md#MaintenanceMultiNIC-common").
+information about configuring multiple network adapters, see [Configuring Your Gateway for Multiple NICs](NICConfiguring-common.md#MaintenanceMultiNIC-common "NICConfiguring-common.md#MaintenanceMultiNIC-common").
 
 ###### Note
 
@@ -83,14 +82,11 @@ the Storage Gateway console.
 The **Configure CHAP Authentication** dialog box appears. At this
 point, you can configure Challenge-Handshake Authentication Protocol (CHAP) for your
 volume, or you can choose **Cancel** and configure CHAP later. For
-more information about CHAP setup, see [Configure CHAP authentication for
-your volumes](#GettingStartedConfigureChap-stored "#GettingStartedConfigureChap-stored").
+more information about CHAP setup, see [Configure CHAP authentication for your volumes](#GettingStartedConfigureChap-stored "#GettingStartedConfigureChap-stored").
 If you don't want to set up CHAP, get started using your volume. For more information, see
 [Connecting your volumes to your client](GettingStartedAccessVolumes.md "GettingStartedAccessVolumes.md").
 
-## Configure CHAP authentication for
-
-your volumes
+## Configure CHAP authentication for your volumes
 
 CHAP provides protection against playback attacks by requiring authentication to
 access your storage volume targets. In the **Configure CHAP
@@ -110,8 +106,7 @@ your volumes.
    authenticate your target for mutual CHAP.
 6. Choose **Save** to save your entries.
 
-For more information about setting up CHAP authentication, see [Configuring CHAP Authentication
-for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").
+For more information about setting up CHAP authentication, see [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").
 
 **Next step**
 

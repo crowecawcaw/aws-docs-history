@@ -20,8 +20,7 @@ see [Creating your gateway](creating-your-gateway.md "creating-your-gateway.md")
 - [Shutting Down Your Gateway VM](MaintenanceShutDown-common.md "MaintenanceShutDown-common.md") - Learn about what to do if you
   need to shutdown or reboot your gateway virtual machine for maintenance, such as
   when applying a patch to your hypervisor.
-- [Deleting your gateway and removing associated
-  resources](deleting-gateway-common.md "deleting-gateway-common.md")
+- [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md")
 
 * Learn how to delete your gateway using the AWS Storage Gateway console and clean up
   associated resources to avoid being charged for their continued use.

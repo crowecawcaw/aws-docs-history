@@ -17,8 +17,7 @@ getting started with AWS Storage Gateway:
 
 - [Sign Up for AWS Storage Gateway](GettingStartedSignUpStep1-common.md "GettingStartedSignUpStep1-common.md") - Learn how to sign up for
   AWS and create an AWS account.
-- [Create an IAM user with administrator
-  privileges](setting-up-create-iam-user.md "setting-up-create-iam-user.md") - Learn how to create an IAM user
+- [Create an IAM user with administrator privileges](setting-up-create-iam-user.md "setting-up-create-iam-user.md") - Learn how to create an IAM user
   with administrative privileges for your AWS account.
 - [Accessing AWS Storage Gateway](WhatIsAPIIntro.md "WhatIsAPIIntro.md") - Learn how to
   access AWS Storage Gateway through the Storage Gateway console or programmatically using the AWS

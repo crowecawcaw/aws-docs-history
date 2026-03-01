@@ -37,8 +37,7 @@ Volume Gateway supports the following volume configurations:
   you can recover to your local data center or Amazon Elastic Compute Cloud (Amazon EC2). For example, if you
   need replacement capacity for disaster recovery, you can recover the backups to
   Amazon EC2.
-  For an architectural overview, see [How Volume Gateway
-  works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+  For an architectural overview, see [How Volume Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
 In this User Guide, you can find a Getting Started section that covers setup information
 common to all gateway types. You can also find Volume Gateway setup

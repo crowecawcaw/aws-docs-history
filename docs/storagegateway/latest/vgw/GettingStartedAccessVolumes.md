@@ -104,5 +104,4 @@ output.
  -> ../../sda`
 
 We highly recommend that after you set up your initiator you customize your
-iSCSI settings as discussed in [Customizing Your Linux iSCSI
-Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
+iSCSI settings as discussed in [Customizing Your Linux iSCSI Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").

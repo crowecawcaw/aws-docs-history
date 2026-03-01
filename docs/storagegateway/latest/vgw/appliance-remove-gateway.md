@@ -1,6 +1,4 @@
-# Removing gateway software from your
-
-hardware appliance
+# Removing gateway software from your hardware appliance
 
 ###### Note
 
@@ -36,7 +34,6 @@ software.
 
 After you remove the gateway software, you can't undo the action. For
 certain gateway types, you can lose data on deletion, particularly cached
-data. For more information on deleting a gateway, see [Deleting your gateway and removing associated
-resources](deleting-gateway-common.md "deleting-gateway-common.md").
+data. For more information on deleting a gateway, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 Removing the gateway doesn't delete the hardware appliance from the console. The
 hardware appliance remains for future gateway deployments.

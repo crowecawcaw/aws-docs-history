@@ -1,6 +1,4 @@
-# Configuring Your Gateway
-
-Network
+# Configuring Your Gateway Network
 
 The default network configuration for the gateway is Dynamic Host Configuration
 Protocol (DHCP). With DHCP, your gateway is automatically assigned an IP address. In
@@ -10,12 +8,9 @@ as described following.
 ###### To configure your gateway to use static IP addresses
 
 1. Log in to your gateway's local console.
-   - VMware ESXi – for more information, see [Accessing the Gateway Local
-     Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
-   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
-   - KVM – for more information, see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+   - VMware ESXi – for more information, see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
+   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+   - KVM – for more information, see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. From the **AWS Storage Gateway - Configuration** main menu, enter
    the corresponding numeral to select **Network

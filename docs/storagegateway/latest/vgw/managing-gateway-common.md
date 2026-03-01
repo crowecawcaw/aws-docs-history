@@ -1,6 +1,4 @@
-# Managing Your
-
-Volume Gateway
+# Managing Your Volume Gateway
 
 Managing your gateway includes tasks such as configuring cache storage and upload buffer
 space, working with volumes, and doing general maintenance. If you haven't created a gateway, see
@@ -25,8 +23,7 @@ Resizing a volume is not supported. To change the size of a volume, create
 a snapshot of the volume, and then create a new cached volume from the snapshot. The new
 volume can be bigger than the volume from which the snapshot was created. For steps
 describing how to remove a volume, see [To delete a volume](ApplicationStorageVolumesCached-Removing.md#CachedRemovingAStorageVolume "ApplicationStorageVolumesCached-Removing.md#CachedRemovingAStorageVolume"). For steps describing how to add a volume
-and preserve existing data, see [Deleting storage
-volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md").
+and preserve existing data, see [Deleting storage volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md").
 
 All cached volume data and snapshot data is stored in Amazon S3 and is
 encrypted at rest using server-side encryption (SSE). However, you cannot access this data
@@ -47,12 +44,10 @@ resources.
   time when all of the data on the volume is consistent.
 - [Viewing volume usage](volume-usage.md "volume-usage.md") - Learn how to view
   the amount of data stored on a volume by using the Storage Gateway console.
-- [Deleting storage
-  volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md") - Learn how to delete
+- [Deleting storage volumes](ApplicationStorageVolumesCached-Removing.md "ApplicationStorageVolumesCached-Removing.md") - Learn how to delete
   a volume if your application needs change, such as if you migrate an application to
   use a larger storage volume.
-- [Moving Your Volumes to a Different
-  Gateway](attach-detach-volume.md "attach-detach-volume.md") -
+- [Moving Your Volumes to a Different Gateway](attach-detach-volume.md "attach-detach-volume.md") -
   Learn how to detach and reattach volumes, which is useful if you need to move your
   volumes to a different Volume Gateway as your performance needs change.
 - [Creating a recovery snapshot](snapshot.md "snapshot.md") - Learn how to create a
@@ -63,8 +58,7 @@ resources.
   each day or the frequency that snapshots are taken.
 - [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md") - Learn how
   to delete unnecessary snapshots when you no longer need them.
-- [Understanding Volume Statuses and
-  Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md") -
+- [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md") -
   Learn about the various volume status values that Storage Gateway reports to help determine
   whether a volume is functioning normally, or if there is a problem that might
   require action on your part.

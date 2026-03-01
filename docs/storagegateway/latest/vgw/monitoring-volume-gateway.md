@@ -16,19 +16,16 @@ Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch
 
 **Topics**
 
-- [Getting Volume Gateway health logs with
-  Amazon CloudWatch Logs](cw-log-groups-volume.md "cw-log-groups-volume.md") -
+- [Getting Volume Gateway health logs with Amazon CloudWatch Logs](cw-log-groups-volume.md "cw-log-groups-volume.md") -
   Learn how to use Amazon CloudWatch Logs to get information about the health of your
   Volume Gateway and related resources.
 - [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-common.md "UsingCloudWatchConsole-common.md") - Learn how to get monitoring
   data for your gateway using either the AWS Management Console or the
   CloudWatch API.
-- [Measuring Performance Between Your Application
-  and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md") -
+- [Measuring Performance Between Your Application and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md") -
   Learn how to measure data throughput, data latency, and operations per second to
   understand performance between your applications and your gateway.
-- [Measuring Performance Between Your Gateway and
-  AWS](PerfGatewayAWS-common.md "PerfGatewayAWS-common.md") -
+- [Measuring Performance Between Your Gateway and AWS](PerfGatewayAWS-common.md "PerfGatewayAWS-common.md") -
   Learn how to measure data throughput, data latency, and operations per second to
   understand performance between your gateway and the AWS cloud.
 - [Understanding volume metrics](MonitoringVolumes-common.md "MonitoringVolumes-common.md") - Learn how to measure metrics that provide data about the volumes associated

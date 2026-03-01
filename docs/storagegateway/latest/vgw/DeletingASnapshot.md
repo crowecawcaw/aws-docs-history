@@ -7,26 +7,18 @@ snapshot, only the data that is not needed in other snapshots is deleted.
 
 ###### Topics
 
-- [Deleting Snapshots by Using the AWS
-  SDK for Java](#DeletingSnapshotsUsingJava "#DeletingSnapshotsUsingJava")
-- [Deleting Snapshots by Using the AWS
-  SDK for .NET](#DeletingSnapshotsUsingDotNet "#DeletingSnapshotsUsingDotNet")
-- [Deleting Snapshots by Using the
-  AWS Tools for Windows PowerShell](#DeletingSnapshotsUsingPowerShell "#DeletingSnapshotsUsingPowerShell")
+- [Deleting Snapshots by Using the AWS SDK for Java](#DeletingSnapshotsUsingJava "#DeletingSnapshotsUsingJava")
+- [Deleting Snapshots by Using the AWS SDK for .NET](#DeletingSnapshotsUsingDotNet "#DeletingSnapshotsUsingDotNet")
+- [Deleting Snapshots by Using the AWS Tools for Windows PowerShell](#DeletingSnapshotsUsingPowerShell "#DeletingSnapshotsUsingPowerShell")
   On the Amazon EBS console, you can delete snapshots one at a time. For information about
   how to delete snapshots using the Amazon EBS console, see [Deleting an Amazon EBS
   Snapshot](../../../AWSEC2/latest/UserGuide/ebs-deleting-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-deleting-snapshot.md") in the _Amazon EC2 User Guide._
 
 To delete multiple snapshots at a time, you can use one of the AWS SDKs that
-supports Storage Gateway operations. For examples, see [Deleting Snapshots by Using the AWS
-SDK for Java](#DeletingSnapshotsUsingJava "#DeletingSnapshotsUsingJava"),
-[Deleting Snapshots by Using the AWS
-SDK for .NET](#DeletingSnapshotsUsingDotNet "#DeletingSnapshotsUsingDotNet"), and [Deleting Snapshots by Using the
-AWS Tools for Windows PowerShell](#DeletingSnapshotsUsingPowerShell "#DeletingSnapshotsUsingPowerShell").
+supports Storage Gateway operations. For examples, see [Deleting Snapshots by Using the AWS SDK for Java](#DeletingSnapshotsUsingJava "#DeletingSnapshotsUsingJava"),
+[Deleting Snapshots by Using the AWS SDK for .NET](#DeletingSnapshotsUsingDotNet "#DeletingSnapshotsUsingDotNet"), and [Deleting Snapshots by Using the AWS Tools for Windows PowerShell](#DeletingSnapshotsUsingPowerShell "#DeletingSnapshotsUsingPowerShell").
 
-## Deleting Snapshots by Using the AWS
-
-SDK for Java
+## Deleting Snapshots by Using the AWS SDK for Java
 
 To delete many snapshots associated with a volume, you can use a programmatic
 approach. The example following demonstrates how to delete snapshots using the AWS
@@ -188,9 +180,7 @@ public class ListDeleteVolumeSnapshotsExample {
 
 ```
 
-## Deleting Snapshots by Using the AWS
-
-SDK for .NET
+## Deleting Snapshots by Using the AWS SDK for .NET
 
 To delete many snapshots associated with a volume, you can use a programmatic
 approach. The following example demonstrates how to delete snapshots using the AWS
@@ -466,9 +456,7 @@ namespace DeleteStorageGatewaySnapshotNS
 }
 ```
 
-## Deleting Snapshots by Using the
-
-AWS Tools for Windows PowerShell
+## Deleting Snapshots by Using the AWS Tools for Windows PowerShell
 
 To delete many snapshots associated with a volume, you can use a programmatic
 approach. The example following demonstrates how to delete snapshots using the

@@ -1,6 +1,4 @@
-# Connecting your volumes to
-
-a Linux client
+# Connecting your volumes to a Linux client
 
 ###### Topics
 
@@ -95,5 +93,4 @@ The output of the command will look like the following example output.
  -> ../../sda`
 
 We highly recommend that after you set up your initiator, you customize your
-iSCSI settings as discussed in [Customizing Your Linux iSCSI
-Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
+iSCSI settings as discussed in [Customizing Your Linux iSCSI Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").

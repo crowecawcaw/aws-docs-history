@@ -28,10 +28,8 @@ cloud and security _in_ the cloud:
 
 - [Data protection in AWS Storage Gateway](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS Storage Gateway](security-iam.md "security-iam.md")
-- [Compliance validation for
-  AWS Storage Gateway](storagegateway-compliance.md "storagegateway-compliance.md")
+- [Compliance validation for AWS Storage Gateway](storagegateway-compliance.md "storagegateway-compliance.md")
 - [Resilience in AWS Storage Gateway](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure Security in
-  AWS Storage Gateway](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure Security in AWS Storage Gateway](infrastructure-security.md "infrastructure-security.md")
 - [AWS Security Best Practices](security-best-practice.md "security-best-practice.md")
 - [Logging and Monitoring in AWS Storage Gateway](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

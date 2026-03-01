@@ -1,6 +1,4 @@
-# Testing your gateway
-
-connection to the internet
+# Testing your gateway connection to the internet
 
 You can use your gateway's local console to test your internet connection. This test
 can be useful when you are troubleshooting network issues with your gateway.
@@ -8,12 +6,9 @@ can be useful when you are troubleshooting network issues with your gateway.
 ###### To test your gateway's connection to the internet
 
 1. Log in to your gateway's local console.
-   - VMware ESXi – for more information, see [Accessing the Gateway Local
-     Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
-   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
-   - KVM – for more information, see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+   - VMware ESXi – for more information, see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
+   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+   - KVM – for more information, see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. From the **AWS Storage Gateway - Configuration** main menu, enter
    the corresponding numeral to select **Test Network

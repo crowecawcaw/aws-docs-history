@@ -1,6 +1,4 @@
-# Moving Your Volumes to a Different
-
-Gateway
+# Moving Your Volumes to a Different Gateway
 
 As your data and performance needs grow, you might want to move your volumes to a
 different Volume Gateway. To do so, you can detach and attach a volume by using the
@@ -90,5 +88,4 @@ succeeds. 7. In the Configure CHAP authentication wizard that appears, enter the
 **Initiator name**, **Initiator secret**,
 and **Target secret**, and then choose
 **Save**. For more information about working with
-Challenge-Handshake Authentication Protocol (CHAP) authentication, see [Configuring CHAP Authentication
-for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").
+Challenge-Handshake Authentication Protocol (CHAP) authentication, see [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md").

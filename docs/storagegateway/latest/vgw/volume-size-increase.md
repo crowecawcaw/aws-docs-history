@@ -4,8 +4,7 @@ As your application needs grow, you might need to add more volumes to your gatew
 expand the size of existing volumes. When you add or expand volumes, you must consider
 the size of the cache storage and upload buffer you allocated to the gateway. The
 gateway must have sufficient buffer and cache space for new volumes. For more
-information, see [Determining the size of
-upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
+information, see [Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
 
 You can add volumes using the Storage Gateway console or Storage Gateway API. For instructions on how
 to add a volume using the Storage Gateway console, see [Creating a storage volume](GettingStartedCreateVolumes.md "GettingStartedCreateVolumes.md").

@@ -1,6 +1,4 @@
-# Configuring network adapters for your
-
-gateway
+# Configuring network adapters for your gateway
 
 By default, Storage Gateway is configured to use the E1000 network adapter type, but you
 can reconfigure your gateway to use the VMXNET3 (10 GbE) network adapter. You can
@@ -9,14 +7,10 @@ do this by configuring your gateway to use more than one network adapter.
 
 ###### Topics
 
-- [Configuring Your Gateway to Use the VMXNET3
-  Network Adapter](#NICChanging-common "#NICChanging-common")
-- [Configuring Your Gateway for
-  Multiple NICs](#MaintenanceMultiNIC-common "#MaintenanceMultiNIC-common")
+- [Configuring Your Gateway to Use the VMXNET3 Network Adapter](#NICChanging-common "#NICChanging-common")
+- [Configuring Your Gateway for Multiple NICs](#MaintenanceMultiNIC-common "#MaintenanceMultiNIC-common")
 
-## Configuring Your Gateway to Use the VMXNET3
-
-Network Adapter
+## Configuring Your Gateway to Use the VMXNET3 Network Adapter
 
 Storage Gateway supports the E1000 network adapter type in both VMware ESXi and
 Microsoft Hyper-V hypervisor hosts. However, the VMXNET3 (10 GbE) network
@@ -41,9 +35,7 @@ adapter:
 
 Details on how to perform each step follow.
 
-###### To remove the default E1000 adapter and configure your gateway to use the
-
-VMXNET3 adapter
+###### To remove the default E1000 adapter and configure your gateway to use the VMXNET3 adapter
 
 1. In VMware, open the context (right-click) menu for your gateway and
    choose **Edit Settings**.
@@ -93,9 +85,7 @@ restart it from the Storage Gateway Management Console. After the gateway
 restarts, you must test network connectivity to the internet. For
 information about how to test network connectivity, see [Testing Your Gateway Connection to the Internet](manage-on-premises-common.md#MaintenanceTestGatewayConnectivity-common "manage-on-premises-common.md#MaintenanceTestGatewayConnectivity-common").
 
-## Configuring Your Gateway for
-
-Multiple NICs
+## Configuring Your Gateway for Multiple NICs
 
 If you configure your gateway to use multiple network adapters (NICs), it can
 be accessed by more than one IP address. You might want to do this in the
@@ -130,22 +120,16 @@ a second adapter, Storage Gateway automatically configures the route table to
 use the second adapter as the preferred route. For instructions on how to
 configure multiple-adapters, see the following sections.
 
-- [Configuring multiple network
-  adapters on a VMware ESXi host](#MaintenanceMultiNIC-vmaware "#MaintenanceMultiNIC-vmaware")
-- [Configuring multiple network
-  adapters on Microsoft Hyper-V host](#MaintenanceMultiNIC-hyperv "#MaintenanceMultiNIC-hyperv")
+- [Configuring multiple network adapters on a VMware ESXi host](#MaintenanceMultiNIC-vmaware "#MaintenanceMultiNIC-vmaware")
+- [Configuring multiple network adapters on Microsoft Hyper-V host](#MaintenanceMultiNIC-hyperv "#MaintenanceMultiNIC-hyperv")
 
-### Configuring multiple network
-
-adapters on a VMware ESXi host
+### Configuring multiple network adapters on a VMware ESXi host
 
 The following procedure assumes that your gateway VM already has one
 network adapter defined, and describes how to add an adapter on VMware
 ESXi.
 
-###### To configure your gateway to use an additional network adapter in
-
-VMware ESXi host
+###### To configure your gateway to use an additional network adapter in VMware ESXi host
 
 1. Shut down the gateway.
 2. In the VMware vSphere client, select your gateway VM.
@@ -190,17 +174,13 @@ is listed in the **Details** tab.
 For information about local console tasks common to VMware, Hyper-V, and
 KVM hosts, see [Performing Tasks on the VM Local Console](manage-on-premises-common.md "manage-on-premises-common.md")
 
-### Configuring multiple network
-
-adapters on Microsoft Hyper-V host
+### Configuring multiple network adapters on Microsoft Hyper-V host
 
 The following procedure assumes that your gateway VM already has one
 network adapter defined and that you are adding a second adapter. This
 procedure shows how to add an adapter for a Microsoft Hyper-V host.
 
-###### To configure your gateway to use an additional network adapter in a
-
-Microsoft Hyper-V Host
+###### To configure your gateway to use an additional network adapter in a Microsoft Hyper-V Host
 
 1. On the Storage Gateway console, turn off the gateway.
 2. In the Microsoft Hyper-V Manager, select your gateway VM from the

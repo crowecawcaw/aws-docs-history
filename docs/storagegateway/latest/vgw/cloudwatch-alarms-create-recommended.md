@@ -1,6 +1,4 @@
-# Creating recommended CloudWatch alarms
-
-for your gateway
+# Creating recommended CloudWatch alarms for your gateway
 
 When you create a new gateway using the Storage Gateway console, you can choose to create all
 recommended CloudWatch alarms automatically as part of the initial setup process. For more

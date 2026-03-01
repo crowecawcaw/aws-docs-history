@@ -1,6 +1,4 @@
-# Performance and optimization for
-
-Volume Gateway
+# Performance and optimization for Volume Gateway
 
 This section describes Storage Gateway performance.
 
@@ -10,9 +8,7 @@ This section describes Storage Gateway performance.
 
 ## Optimizing gateway performance
 
-### Recommended Gateway Server
-
-Configuration
+### Recommended Gateway Server Configuration
 
 To obtain the best performance out of your gateway, Storage Gateway recommends the following
 gateway configuration for your gateway's host server:
@@ -44,9 +40,7 @@ gateway configuration for your gateway's host server:
   - Use VM network 2 and add a VMXnet3 (10 Gbps) to be used to connect to
     AWS.
 
-### Add Resources to Your
-
-Gateway
+### Add Resources to Your Gateway
 
 The following bottlenecks can reduce the performance of your
 Volume Gateway below the theoretical maximum sustained
@@ -185,8 +179,7 @@ all of your high-throughput applications and another gateway for all of your
 low-throughput applications. To measure your volume throughput, use the
 `ReadBytes` and `WriteBytes` metrics.
 
-For more information about these metrics, see [Measuring Performance Between Your Application
-and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md").
+For more information about these metrics, see [Measuring Performance Between Your Application and Gateway](PerfAppGateway-common.md "PerfAppGateway-common.md").
 
 ### Optimize iSCSI Settings
 
@@ -201,9 +194,7 @@ These recommended settings can facilitate overall better performance. However, t
 specific iSCSI settings that are needed to optimize performance vary depending on
 which backup software you use. For details, see your backup software documentation.
 
-### Add Resources to Your
-
-Application Environment
+### Add Resources to Your Application Environment
 
 **Increase the bandwidth between your application server
 and your gateway**

@@ -1,6 +1,4 @@
-# Measuring Performance Between Your Gateway and
-
-AWS
+# Measuring Performance Between Your Gateway and AWS
 
 Data throughput, data latency, and operations per second are three measures that you
 can use to understand how your application storage using the Storage Gateway is performing.
@@ -77,9 +75,7 @@ operations per second (IOPS) between your gateway and AWS.
    The resulting time-ordered set of data points contains the latency in
    milliseconds.
 
-###### To set an upper threshold alarm for a gateway's
-
-throughput to AWS
+###### To set an upper threshold alarm for a gateway's throughput to AWS
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -98,9 +94,7 @@ throughput to AWS
    an email notification sent to you.
 8. Choose **Create Alarm**.
 
-###### To set an upper threshold alarm for reading data
-
-from AWS
+###### To set an upper threshold alarm for reading data from AWS
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

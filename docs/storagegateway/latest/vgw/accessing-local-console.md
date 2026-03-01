@@ -7,16 +7,11 @@ Manager.
 
 ###### Topics
 
-- [Accessing the Gateway Local Console
-  with Linux KVM](#MaintenanceConsoleWindowKVM-common "#MaintenanceConsoleWindowKVM-common")
-- [Accessing the Gateway Local
-  Console with VMware ESXi](#MaintenanceConsoleWindowVMware-common "#MaintenanceConsoleWindowVMware-common")
-- [Access the Gateway Local Console
-  with Microsoft Hyper-V](#MaintenanceConsoleWindowHyperV-common "#MaintenanceConsoleWindowHyperV-common")
+- [Accessing the Gateway Local Console with Linux KVM](#MaintenanceConsoleWindowKVM-common "#MaintenanceConsoleWindowKVM-common")
+- [Accessing the Gateway Local Console with VMware ESXi](#MaintenanceConsoleWindowVMware-common "#MaintenanceConsoleWindowVMware-common")
+- [Access the Gateway Local Console with Microsoft Hyper-V](#MaintenanceConsoleWindowHyperV-common "#MaintenanceConsoleWindowHyperV-common")
 
-## Accessing the Gateway Local Console
-
-with Linux KVM
+## Accessing the Gateway Local Console with Linux KVM
 
 There are different ways to configure virtual machines running on KVM, depending on
 the Linux distribution being used. Instructions for accessing KVM configuration options
@@ -53,9 +48,7 @@ Configuration** menu appears. You can select from the menu options
 to perform gateway configuration tasks. For more information, see [Performing
 tasks on the virtual machine local console](manage-on-premises-common.md "manage-on-premises-common.md").
 
-## Accessing the Gateway Local
-
-Console with VMware ESXi
+## Accessing the Gateway Local Console with VMware ESXi
 
 ###### To access your gateway's local console with VMware ESXi
 
@@ -86,9 +79,7 @@ Configuration** menu appears. You can select from the menu options
 to perform gateway configuration tasks. For more information, see [Performing
 tasks on the virtual machine local console](manage-on-premises-common.md "manage-on-premises-common.md").
 
-## Access the Gateway Local Console
-
-with Microsoft Hyper-V
+## Access the Gateway Local Console with Microsoft Hyper-V
 
 ###### To access your gateway's local console (Microsoft Hyper-V)
 

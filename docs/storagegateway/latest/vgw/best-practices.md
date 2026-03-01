@@ -28,22 +28,14 @@ instructions following.
 
 ###### Topics
 
-- [Recovering from an unexpected virtual
-  machine shutdown](#recover-from-gateway-shutdown "#recover-from-gateway-shutdown")
-- [Recovering your data from a malfunctioning
-  gateway or VM](#recover-from-gateway "#recover-from-gateway")
-- [Recovering your data from an irrecoverable
-  volume](#recover-from-volume "#recover-from-volume")
-- [Recovering your data from a malfunctioning
-  cache disk](#recover-from-cahe-disk "#recover-from-cahe-disk")
-- [Recovering your data from a corrupted file
-  system](#recover-corrupt-file-system "#recover-corrupt-file-system")
-- [Recovering your data from an inaccessible data
-  center](#disaster-recovery "#disaster-recovery")
+- [Recovering from an unexpected virtual machine shutdown](#recover-from-gateway-shutdown "#recover-from-gateway-shutdown")
+- [Recovering your data from a malfunctioning gateway or VM](#recover-from-gateway "#recover-from-gateway")
+- [Recovering your data from an irrecoverable volume](#recover-from-volume "#recover-from-volume")
+- [Recovering your data from a malfunctioning cache disk](#recover-from-cahe-disk "#recover-from-cahe-disk")
+- [Recovering your data from a corrupted file system](#recover-corrupt-file-system "#recover-corrupt-file-system")
+- [Recovering your data from an inaccessible data center](#disaster-recovery "#disaster-recovery")
 
-### Recovering from an unexpected virtual
-
-machine shutdown
+### Recovering from an unexpected virtual machine shutdown
 
 If your VM shuts down unexpectedly, for example during a power outage, your gateway
 becomes unreachable. When power and network connectivity are restored, your gateway
@@ -51,21 +43,17 @@ becomes reachable and starts to function normally. Following are some steps you 
 at that point to help recover your data:
 
 - If an outage causes network connectivity issues, you can troubleshoot the
-  issue. For information about how to test network connectivity, see [Testing your gateway
-  connection to the internet](MaintenanceTestGatewayConnectivity-common.md "MaintenanceTestGatewayConnectivity-common.md").
+  issue. For information about how to test network connectivity, see [Testing your gateway connection to the internet](MaintenanceTestGatewayConnectivity-common.md "MaintenanceTestGatewayConnectivity-common.md").
 - For cached volumes setups, when your gateway becomes reachable, your volumes go
   into BOOTSTRAPPING status. This functionality ensures that your locally stored
   data continues to be synchronized with AWS. For more information on this
-  status, see [Understanding Volume Statuses and
-  Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
+  status, see [Understanding Volume Statuses and Transitions](StorageVolumeStatuses.md "StorageVolumeStatuses.md").
 - If your gateway malfunctions and issues occur with your volumes or tapes as a
   result of an unexpected shutdown, you can recover your data. For information
   about how to recover your data, see the sections following that apply to your
   scenario.
 
-### Recovering your data from a malfunctioning
-
-gateway or VM
+### Recovering your data from a malfunctioning gateway or VM
 
 If your gateway or virtual machine malfunctions, you can recover data
 that has been uploaded to AWS and stored on a volume in Amazon S3. For cached volumes
@@ -87,12 +75,9 @@ following steps to recover your data from a recovery snapshot:
    server.
 
 For detailed information on how to recover cached volumes data from a
-recovery snapshot, see [Your Cached Gateway is Unreachable
-And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").
+recovery snapshot, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting").
 
-### Recovering your data from an irrecoverable
-
-volume
+### Recovering your data from an irrecoverable volume
 
 If the status of your volume is IRRECOVERABLE, you can no longer use this
 volume.
@@ -110,12 +95,9 @@ For cached volumes, we recommend using the last recovery point to clone a new
 volume.
 
 For detailed information about how to retrieve your data from an irrecoverable volume
-to a new volume, see [The Console Says
-That Your Volume Is Irrecoverable](troubleshoot-volume-issues.md#troubleshoot-volume-issues.VolumeIrrecoverable "troubleshoot-volume-issues.md#troubleshoot-volume-issues.VolumeIrrecoverable").
+to a new volume, see [The Console Says That Your Volume Is Irrecoverable](troubleshoot-volume-issues.md#troubleshoot-volume-issues.VolumeIrrecoverable "troubleshoot-volume-issues.md#troubleshoot-volume-issues.VolumeIrrecoverable").
 
-### Recovering your data from a malfunctioning
-
-cache disk
+### Recovering your data from a malfunctioning cache disk
 
 If your cache disk encounters a failure, we recommend you use the following steps to
 recover your data depending on your situation:
@@ -126,9 +108,7 @@ recover your data depending on your situation:
   the cache disk, reconfigure the disk for cache storage, and restart the
   gateway.
 
-### Recovering your data from a corrupted file
-
-system
+### Recovering your data from a corrupted file system
 
 If your file system gets corrupted, you can use the `fsck`
 command to check your file system for errors and repair it. If you can repair the file
@@ -144,8 +124,7 @@ following:
 You use this snapshot as a fallback if your file system can't be repaired
 or the snapshot creation process can't be completed successfully.
 
-For information about how to create a recovery snapshot, see [Your Cached Gateway is Unreachable
-And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting"). 2. Use the `fsck` command to check your file system for
+For information about how to create a recovery snapshot, see [Your Cached Gateway is Unreachable And You Want to Recover Your Data](troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting "troubleshoot-volume-issues.md#RecoverySnapshotTroubleshooting"). 2. Use the `fsck` command to check your file system for
 errors and attempt a repair. 3. Restart your gateway VM. 4. When your hypervisor host starts to boot up, press and hold down shift key to
 enter the grub boot menu. 5. From the menu, press `e` to edit. 6. Choose the kernel line (the second line), and then press
 `e` to edit. 7. Append the following option to the kernel command line:
@@ -167,9 +146,7 @@ with a new volume based on either the recovery snapshot or the completed snapsho
 Alternatively, you can create a new volume from any of your completed snapshots from
 this volume.
 
-### Recovering your data from an inaccessible data
-
-center
+### Recovering your data from an inaccessible data center
 
 If your gateway or data center becomes inaccessible for some reason, you can recover
 your data to another gateway in a different data center or recover to a gateway hosted
@@ -180,8 +157,7 @@ type you are covering the data from.
 ###### To recover data from a Volume Gateway in an inaccessible data center
 
 1. Create and activate a new Volume Gateway on an Amazon EC2 host. For more
-   information, see [Deploy a customized Amazon EC2 instance for
-   Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
+   information, see [Deploy a customized Amazon EC2 instance for Volume Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
 
 ###### Note
 
@@ -204,8 +180,7 @@ incurring unexpected or unnecessary charges.
 ###### To clean up resources you don't need
 
 1. Delete any snapshots. For instructions, see [Deleting snapshots of your storage volumes](DeletingASnapshot.md "DeletingASnapshot.md").
-2. Unless you plan to continue using the gateway, delete it. For more information, see [Deleting your gateway and removing associated
-   resources](deleting-gateway-common.md "deleting-gateway-common.md").
+2. Unless you plan to continue using the gateway, delete it. For more information, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 3. Delete the Storage Gateway VM from your on-premises host. If you created your gateway on an Amazon EC2
    instance, terminate the instance.
 

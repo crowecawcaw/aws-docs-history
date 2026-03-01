@@ -1,6 +1,4 @@
-# Configuring paravirtualization on a
-
-VMware host
+# Configuring paravirtualization on a VMware host
 
 The following procedure describes how to configure the VMware host platform for
 your Storage Gateway appliance to use paravirtual Internet Small Computer System Interface
@@ -16,9 +14,7 @@ that you add to your virtual machine.
 You need to complete this step to avoid issues in identifying these disks when
 you configure them in the gateway console.
 
-###### To configure your VMware host platform to use paravirtualized
-
-controllers
+###### To configure your VMware host platform to use paravirtualized controllers
 
 1. In the VMware vSphere client, right-click on the name of your gateway
    virtual machine in the navigation pane on the left side of the application

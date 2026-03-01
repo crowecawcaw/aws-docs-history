@@ -19,8 +19,7 @@ If you stop your gateway while your backup software is writing or reading from a
 the write or read task might not succeed. Before you stop your gateway, you should check
 your backup software and the backup schedule for any tasks in progress.
 
-- Gateway VM local console—see [Logging in to the Volume Gateway local
-  console](LocalConsole-login-common.md "LocalConsole-login-common.md").
+- Gateway VM local console—see [Logging in to the Volume Gateway local console](LocalConsole-login-common.md "LocalConsole-login-common.md").
 - Storage Gateway API-—see [ShutdownGateway](../APIReference/API_ShutdownGateway.md "../APIReference/API_ShutdownGateway.md")
 
 ## Starting and Stopping a Volume Gateway
