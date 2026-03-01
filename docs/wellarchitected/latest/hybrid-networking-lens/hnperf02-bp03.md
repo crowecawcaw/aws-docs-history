@@ -1,6 +1,4 @@
-# HNPERF02-BP03 Choose the right termination endpoint in the
-
-cloud
+# HNPERF02-BP03 Choose the right termination endpoint in the cloud
 
 When establishing cloud connectivity through Points of Presence
 (PoPs), organizations carefully choose their network termination

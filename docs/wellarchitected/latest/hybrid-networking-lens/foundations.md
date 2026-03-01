@@ -22,5 +22,4 @@ resilient hybrid environment.
 ###### Best practices
 
 - [HNREL01-BP01 Implement redundant power infrastructure](hnrel01-bp01.md "hnrel01-bp01.md")
-- [HNREL01-BP02 Maintain effective life cycle management for
-  on-premises network equipment](hnrel01-bp02.md "hnrel01-bp02.md")
+- [HNREL01-BP02 Maintain effective life cycle management for on-premises network equipment](hnrel01-bp02.md "hnrel01-bp02.md")

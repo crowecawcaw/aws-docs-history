@@ -1,6 +1,4 @@
-# HNREL01-BP02 Maintain effective life cycle management for
-
-on-premises network equipment
+# HNREL01-BP02 Maintain effective life cycle management for on-premises network equipment
 
 Implement a structured life cycle management process for all
 on-premises networking equipment, including routers, switches, and

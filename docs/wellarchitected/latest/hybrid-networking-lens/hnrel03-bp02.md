@@ -1,6 +1,4 @@
-# HNREL03-BP02 Monitor logs and metrics for insights of hybrid
-
-networking resources
+# HNREL03-BP02 Monitor logs and metrics for insights of hybrid networking resources
 
 Monitor dedicated connection and VPN logs and metrics to gain
 insight into the health and status of your hybrid connectivity. Use

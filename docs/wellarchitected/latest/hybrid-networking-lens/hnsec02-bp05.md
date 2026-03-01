@@ -1,6 +1,4 @@
-# HNSEC02-BP05 Tag networking resources for accountability and
-
-access control
+# HNSEC02-BP05 Tag networking resources for accountability and access control
 
 Implementing consistent tagging for networking resources is
 essential in hybrid environments to establish clear ownership,

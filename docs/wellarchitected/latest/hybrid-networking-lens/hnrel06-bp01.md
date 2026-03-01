@@ -1,6 +1,4 @@
-# HNREL06-BP01 Use multiple data centers for physical location
-
-redundancy
+# HNREL06-BP01 Use multiple data centers for physical location redundancy
 
 Connect from multiple geographically separate data centers or
 colocation sites to cloud for true physical location redundancy. Use

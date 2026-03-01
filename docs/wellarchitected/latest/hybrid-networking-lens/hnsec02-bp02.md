@@ -1,6 +1,4 @@
-# HNSEC02-BP02 Use a central networking account to host all
-
-hybrid networking resources
+# HNSEC02-BP02 Use a central networking account to host all hybrid networking resources
 
 A central networking account makes it easier to manage network
 infrastructure and control access to it. By consolidating networking

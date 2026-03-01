@@ -1,6 +1,4 @@
-# HNSEC04-BP03 Implement network traffic security
-
-inspection
+# HNSEC04-BP03 Implement network traffic security inspection
 
 Network traffic security inspection provides a layered security
 approach to ensure traffic between your cloud and on-premises

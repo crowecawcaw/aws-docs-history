@@ -1,6 +1,4 @@
-# HNCOST04-BP03 Implement compression and caching for repetitive
-
-data transfers
+# HNCOST04-BP03 Implement compression and caching for repetitive data transfers
 
 Reduce data transfer volumes by compressing in-transit data and
 caching frequently accessed content at the edge.

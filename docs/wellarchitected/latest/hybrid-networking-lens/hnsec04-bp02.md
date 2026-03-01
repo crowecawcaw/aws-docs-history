@@ -1,6 +1,4 @@
-# HNSEC04-BP02 Implement routing controls for network
-
-segments
+# HNSEC04-BP02 Implement routing controls for network segments
 
 Implementing routing controls for network segments involves
 strategically managing traffic flow between different parts of your

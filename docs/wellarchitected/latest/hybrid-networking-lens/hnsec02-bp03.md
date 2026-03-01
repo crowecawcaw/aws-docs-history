@@ -1,6 +1,4 @@
-# HNSEC02-BP03 Implement least privilege access for hybrid
-
-network management
+# HNSEC02-BP03 Implement least privilege access for hybrid network management
 
 To implement least privilege, hybrid connectivity resources
 management should be granted only to teams responsible for hybrid

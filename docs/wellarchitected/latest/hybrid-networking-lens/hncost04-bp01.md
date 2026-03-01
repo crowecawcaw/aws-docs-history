@@ -1,6 +1,4 @@
-# HNCOST04-BP01 Implement data transfer optimization
-
-techniques
+# HNCOST04-BP01 Implement data transfer optimization techniques
 
 Optimizing data transfer between AWS and on-premises environments
 through compression and efficient transfer protocols is crucial for

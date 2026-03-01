@@ -1,6 +1,4 @@
-# HNOPS01-BP01 Have a team responsible for operating the hybrid
-
-networking environment
+# HNOPS01-BP01 Have a team responsible for operating the hybrid networking environment
 
 **Desired outcome:** Create a
 specialized group that handles the complexities of hybrid network

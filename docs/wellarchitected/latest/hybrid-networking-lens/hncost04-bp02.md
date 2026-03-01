@@ -1,6 +1,4 @@
-# HNCOST04-BP02 Select cost-effective regions and availability
-
-zones
+# HNCOST04-BP02 Select cost-effective regions and availability zones
 
 Selecting the appropriate AWS Region and Availability Zone (AZ) is
 crucial for optimizing hybrid networking and reducing data transfer

@@ -24,6 +24,5 @@ automation to eliminate waste while maintaining performance.
 
 ###### Best practices
 
-- [HNCOST07-BP01 Use dedicated connection for high-volume
-  predictable traffic](hncost07-bp01.md "hncost07-bp01.md")
+- [HNCOST07-BP01 Use dedicated connection for high-volume predictable traffic](hncost07-bp01.md "hncost07-bp01.md")
 - [HNCOST08-BP01 Regular cost analysis](hncost08-bp01.md "hncost08-bp01.md")

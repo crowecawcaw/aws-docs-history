@@ -20,5 +20,4 @@ growth.
 
 ###### Best practices
 
-- [HNOPS01-BP01 Have a team responsible for operating the hybrid
-  networking environment](hnops01-bp01.md "hnops01-bp01.md")
+- [HNOPS01-BP01 Have a team responsible for operating the hybrid networking environment](hnops01-bp01.md "hnops01-bp01.md")

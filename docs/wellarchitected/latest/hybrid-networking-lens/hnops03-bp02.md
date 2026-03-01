@@ -1,6 +1,4 @@
-# HNOPS03-BP02 Consider flow logs for enhanced network visibility
-
-when needed
+# HNOPS03-BP02 Consider flow logs for enhanced network visibility when needed
 
 Flow logs capture detailed information about network traffic
 traversing your cloud infrastructure network components. While not

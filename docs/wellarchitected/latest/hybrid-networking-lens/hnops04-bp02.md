@@ -1,6 +1,4 @@
-# HNOPS04-BP02 Develop automated runbooks and maintain clear
-
-documentations
+# HNOPS04-BP02 Develop automated runbooks and maintain clear documentations
 
 Developing automated runbooks and maintaining clear, comprehensive
 documentation ensures that your team can respond effectively to

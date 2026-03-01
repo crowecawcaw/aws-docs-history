@@ -20,6 +20,5 @@ environments.
 
 ###### Best practices
 
-- [HNSEC06-BP01 Monitor your environment for malicious
-  behavior](hnsec06-bp01.md "hnsec06-bp01.md")
+- [HNSEC06-BP01 Monitor your environment for malicious behavior](hnsec06-bp01.md "hnsec06-bp01.md")
 - [HNSEC06-BP02 Automate incident response](hnsec06-bp02.md "hnsec06-bp02.md")

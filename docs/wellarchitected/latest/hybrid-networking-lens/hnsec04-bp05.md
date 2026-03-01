@@ -1,6 +1,4 @@
-# HNSEC04-BP05 Allow only authorized personnel access to
-
-on-premises infrastructure
+# HNSEC04-BP05 Allow only authorized personnel access to on-premises infrastructure
 
 Ensure that only authorized personnel have physical access to your
 on-premises networking infrastructure, such as data centers, server

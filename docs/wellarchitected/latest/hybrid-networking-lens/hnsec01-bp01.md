@@ -1,6 +1,4 @@
-# HNSEC01-BP01 Implement network segmentation and least-privilege
-
-access control
+# HNSEC01-BP01 Implement network segmentation and least-privilege access control
 
 Segment your hybrid network using accounts, cloud networks, and
 on-premises controls to isolate regulated workloads. Enforce

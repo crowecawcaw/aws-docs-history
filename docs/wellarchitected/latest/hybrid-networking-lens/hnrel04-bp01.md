@@ -1,6 +1,4 @@
-# HNREL04-BP01 Use physical location redundancy to host dedicated
-
-connections
+# HNREL04-BP01 Use physical location redundancy to host dedicated connections
 
 Design dedicated connections hosted at multiple geographically
 separated data centers or colocation facilities to provide physical

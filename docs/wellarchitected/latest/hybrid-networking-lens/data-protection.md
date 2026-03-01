@@ -14,6 +14,5 @@ an unauthorized person or entity is unable to gain access to your data.
 ###### Best practices
 
 - [HNSEC05-BP01 Use IPSec VPN over Internet](hnsec05-bp01.md "hnsec05-bp01.md")
-- [HNSEC05-BP02 Use MACsec encryption for dedicated
-  connections](hnsec05-bp02.md "hnsec05-bp02.md")
+- [HNSEC05-BP02 Use MACsec encryption for dedicated connections](hnsec05-bp02.md "hnsec05-bp02.md")
 - [HNSEC05-BP03 Use application layer encryption](hnsec05-bp03.md "hnsec05-bp03.md")

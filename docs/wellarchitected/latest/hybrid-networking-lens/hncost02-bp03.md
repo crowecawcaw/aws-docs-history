@@ -1,6 +1,4 @@
-# HNCOST02-BP03 Analyze network traffic patterns for optimization
-
-opportunities
+# HNCOST02-BP03 Analyze network traffic patterns for optimization opportunities
 
 Analyzing network traffic patterns in hybrid environments is crucial
 for optimizing performance across cloud components. By examining

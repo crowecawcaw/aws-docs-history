@@ -28,11 +28,7 @@ cloud services.
 
 ###### Best practices
 
-- [HNCOST03-BP01 Implement tiered connectivity based on workload
-  requirements](hncost03-bp01.md "hncost03-bp01.md")
-- [HNCOST04-BP01 Implement data transfer optimization
-  techniques](hncost04-bp01.md "hncost04-bp01.md")
-- [HNCOST04-BP02 Select cost-effective regions and availability
-  zones](hncost04-bp02.md "hncost04-bp02.md")
-- [HNCOST04-BP03 Implement compression and caching for repetitive
-  data transfers](hncost04-bp03.md "hncost04-bp03.md")
+- [HNCOST03-BP01 Implement tiered connectivity based on workload requirements](hncost03-bp01.md "hncost03-bp01.md")
+- [HNCOST04-BP01 Implement data transfer optimization techniques](hncost04-bp01.md "hncost04-bp01.md")
+- [HNCOST04-BP02 Select cost-effective regions and availability zones](hncost04-bp02.md "hncost04-bp02.md")
+- [HNCOST04-BP03 Implement compression and caching for repetitive data transfers](hncost04-bp03.md "hncost04-bp03.md")

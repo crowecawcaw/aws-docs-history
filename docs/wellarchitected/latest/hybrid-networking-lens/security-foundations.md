@@ -24,7 +24,6 @@ adherence.
 
 ###### Best practices
 
-- [HNSEC01-BP01 Implement network segmentation and least-privilege
-  access control](hnsec01-bp01.md "hnsec01-bp01.md")
+- [HNSEC01-BP01 Implement network segmentation and least-privilege access control](hnsec01-bp01.md "hnsec01-bp01.md")
 - [HNSEC01-BP02 Implement encryption in transit](hnsec01-bp02.md "hnsec01-bp02.md")
 - [HNSEC01-BP03 Implement continuous logging](hnsec01-bp03.md "hnsec01-bp03.md")

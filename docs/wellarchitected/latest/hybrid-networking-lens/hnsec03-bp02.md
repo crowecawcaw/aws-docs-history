@@ -1,6 +1,4 @@
-# HNSEC03-BP02 Set up central logging and
-
-analytics
+# HNSEC03-BP02 Set up central logging and analytics
 
 Establishing a centralized logging and analytics system is crucial
 for comprehensive visibility, security monitoring, and operational

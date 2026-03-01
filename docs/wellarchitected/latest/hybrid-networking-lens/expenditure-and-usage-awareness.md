@@ -24,9 +24,6 @@ predictable networking expenses across the hybrid environment.
 
 ###### Best practices
 
-- [HNCOST02-BP01 Track and analyze hybrid networking
-  expenses](hncost02-bp01.md "hncost02-bp01.md")
-- [HNCOST02-BP02 Set up alerts to proactively notify hybrid
-  networking cost thresholds](hncost02-bp02.md "hncost02-bp02.md")
-- [HNCOST02-BP03 Analyze network traffic patterns for optimization
-  opportunities](hncost02-bp03.md "hncost02-bp03.md")
+- [HNCOST02-BP01 Track and analyze hybrid networking expenses](hncost02-bp01.md "hncost02-bp01.md")
+- [HNCOST02-BP02 Set up alerts to proactively notify hybrid networking cost thresholds](hncost02-bp02.md "hncost02-bp02.md")
+- [HNCOST02-BP03 Analyze network traffic patterns for optimization opportunities](hncost02-bp03.md "hncost02-bp03.md")

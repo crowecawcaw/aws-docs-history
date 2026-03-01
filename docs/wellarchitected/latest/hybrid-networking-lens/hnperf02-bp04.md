@@ -1,6 +1,4 @@
-# HNPERF02-BP04 Select the most appropriate region for your
-
-workloads
+# HNPERF02-BP04 Select the most appropriate region for your workloads
 
 Selecting the optimal region for your workloads in a hybrid
 networking environment requires careful consideration of latency,

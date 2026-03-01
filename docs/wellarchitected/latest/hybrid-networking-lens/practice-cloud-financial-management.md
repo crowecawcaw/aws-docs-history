@@ -1,6 +1,4 @@
-# Practice Cloud Financial
-
-Management
+# Practice Cloud Financial Management
 
 Effective cloud financial management in hybrid networking environments requires a
 holistic approach to monitor, analyze, and optimize costs across both on-premises and cloud
@@ -21,5 +19,4 @@ struggle to allocate costs accurately, leading to overspending and inefficient b
 
 ###### Best practices
 
-- [HNCOST01-BP01 Implement a comprehensive tagging strategy for
-  hybrid networking resources](hncost01-bp01.md "hncost01-bp01.md")
+- [HNCOST01-BP01 Implement a comprehensive tagging strategy for hybrid networking resources](hncost01-bp01.md "hncost01-bp01.md")

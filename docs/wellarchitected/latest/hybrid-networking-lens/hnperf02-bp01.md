@@ -1,6 +1,4 @@
-# HNPERF02-BP01 Use tradeoffs to improve network
-
-performance
+# HNPERF02-BP01 Use tradeoffs to improve network performance
 
 When deciding on which technology to choose (VPN vs dedicated
 circuits) or which termination endpoint to choose, Consider how

@@ -1,6 +1,4 @@
-# HNCOST07-BP01 Use dedicated connection for high-volume
-
-predictable traffic
+# HNCOST07-BP01 Use dedicated connection for high-volume predictable traffic
 
 Deploy dedicated connection for production workloads requiring
 consistent, high-bandwidth connectivity between on-premises and

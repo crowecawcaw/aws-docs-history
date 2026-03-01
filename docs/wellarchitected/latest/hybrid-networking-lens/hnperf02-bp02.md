@@ -1,6 +1,4 @@
-# HNPERF02-BP02 Choose the right physical PoP location for
-
-dedicated connectivity
+# HNPERF02-BP02 Choose the right physical PoP location for dedicated connectivity
 
 Points of Presence (PoPs) serve as strategic interconnection
 locations between on-premises and cloud environments. These physical

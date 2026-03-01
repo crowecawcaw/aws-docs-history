@@ -1,6 +1,4 @@
-# HNCOST06-BP01 Implement QoS policies for traffic
-
-prioritization
+# HNCOST06-BP01 Implement QoS policies for traffic prioritization
 
 Configure QoS rules on on-premises routers to prioritize
 latency-sensitive traffic such as voice and video over bulk

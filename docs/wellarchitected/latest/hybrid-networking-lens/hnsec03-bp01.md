@@ -1,6 +1,4 @@
-# HNSEC03-BP01 Implement network traffic monitoring and threat
-
-detection
+# HNSEC03-BP01 Implement network traffic monitoring and threat detection
 
 Monitor and implement an immediate response process that detects and
 reacts to any suspicious or malicious activity. Continuously

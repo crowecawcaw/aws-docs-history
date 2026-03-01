@@ -37,14 +37,10 @@ disaster scenarios.
 
 ###### Best practices
 
-- [HNREL04-BP01 Use physical location redundancy to host dedicated
-  connections](hnrel04-bp01.md "hnrel04-bp01.md")
-- [HNREL04-BP02 Use redundant hardware and telecommunication
-  providers](hnrel04-bp02.md "hnrel04-bp02.md")
+- [HNREL04-BP01 Use physical location redundancy to host dedicated connections](hnrel04-bp01.md "hnrel04-bp01.md")
+- [HNREL04-BP02 Use redundant hardware and telecommunication providers](hnrel04-bp02.md "hnrel04-bp02.md")
 - [HNREL04-BP03 Use dynamic routing for automatic failover](hnrel04-bp03.md "hnrel04-bp03.md")
 - [HNREL04-BP04 Provision sufficient network capacity](hnrel04-bp04.md "hnrel04-bp04.md")
 - [HNREL05-BP01 Failover testing of dedicated connections](hnrel05-bp01.md "hnrel05-bp01.md")
-- [HNREL06-BP01 Use multiple data centers for physical location
-  redundancy](hnrel06-bp01.md "hnrel06-bp01.md")
-- [HNREL06-BP02 Ensure service continuity with redundant hardware
-  and diverse telecommunications providers](hnrel06-bp02.md "hnrel06-bp02.md")
+- [HNREL06-BP01 Use multiple data centers for physical location redundancy](hnrel06-bp01.md "hnrel06-bp01.md")
+- [HNREL06-BP02 Ensure service continuity with redundant hardware and diverse telecommunications providers](hnrel06-bp02.md "hnrel06-bp02.md")

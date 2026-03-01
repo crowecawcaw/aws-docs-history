@@ -1,6 +1,4 @@
-# HNSEC05-BP02 Use MACsec encryption for dedicated
-
-connections
+# HNSEC05-BP02 Use MACsec encryption for dedicated connections
 
 Dedicated connections allow hybrid network connectivity over a
 private network link. MACsec encrypts traffic at Layer 2 to securely

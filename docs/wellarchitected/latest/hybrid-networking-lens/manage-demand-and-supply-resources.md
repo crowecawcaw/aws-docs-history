@@ -1,6 +1,4 @@
-# Manage demand and supply
-
-resources
+# Manage demand and supply resources
 
 Effectively managing demand and supply resources in hybrid networking environments
 requires a strategic approach that balances on-premises infrastructure with cloud resources.
@@ -29,8 +27,6 @@ remaining capacity. This prevents congestion and aligns costs with business prio
 
 ###### Best practices
 
-- [HNCOST05-BP01 Forecast demand and baseline requirements before
-  scaling dedicated connections](hncost05-bp01.md "hncost05-bp01.md")
-- [HNCOST06-BP01 Implement QoS policies for traffic
-  prioritization](hncost06-bp01.md "hncost06-bp01.md")
+- [HNCOST05-BP01 Forecast demand and baseline requirements before scaling dedicated connections](hncost05-bp01.md "hncost05-bp01.md")
+- [HNCOST06-BP01 Implement QoS policies for traffic prioritization](hncost06-bp01.md "hncost06-bp01.md")
 - [HNCOST06-BP02 Separate traffic classes for dedicated connections](hncost06-bp02.md "hncost06-bp02.md")

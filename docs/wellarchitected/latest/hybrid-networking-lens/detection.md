@@ -16,7 +16,5 @@ optimization of the deployment.
 
 ###### Best practices
 
-- [HNSEC03-BP01 Implement network traffic monitoring and threat
-  detection](hnsec03-bp01.md "hnsec03-bp01.md")
-- [HNSEC03-BP02 Set up central logging and
-  analytics](hnsec03-bp02.md "hnsec03-bp02.md")
+- [HNSEC03-BP01 Implement network traffic monitoring and threat detection](hnsec03-bp01.md "hnsec03-bp01.md")
+- [HNSEC03-BP02 Set up central logging and analytics](hnsec03-bp02.md "hnsec03-bp02.md")

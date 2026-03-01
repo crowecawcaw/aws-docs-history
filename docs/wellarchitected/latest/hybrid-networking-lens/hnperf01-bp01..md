@@ -1,6 +1,4 @@
-# HNPERF01-BP01 Determine and define your performance
-
-requirements using bandwidth, latency and jitter values.
+# HNPERF01-BP01 Determine and define your performance requirements using bandwidth, latency and jitter values.
 
 Before you design the best performing architecture, define what
 performance means for you and the parameters involved. Typically,

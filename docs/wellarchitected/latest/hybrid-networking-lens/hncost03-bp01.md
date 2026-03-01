@@ -1,6 +1,4 @@
-# HNCOST03-BP01 Implement tiered connectivity based on workload
-
-requirements
+# HNCOST03-BP01 Implement tiered connectivity based on workload requirements
 
 Hybrid networking connectivity must balance performance,
 reliability, and cost. Workloads with varying requirements for

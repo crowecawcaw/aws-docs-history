@@ -1,6 +1,4 @@
-# HNPERF01-BP02 Identify what applications and types of data will
-
-be transmitted over the network
+# HNPERF01-BP02 Identify what applications and types of data will be transmitted over the network
 
 Applications can have their own bandwidth considerations. Some
 applications might require deterministic performance over a

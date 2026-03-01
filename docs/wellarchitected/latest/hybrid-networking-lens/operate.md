@@ -32,9 +32,6 @@ response to potential issues.
 ###### Best practices
 
 - [HNOPS03-BP01 Monitor hybrid networking components](hnops03-bp01.md "hnops03-bp01.md")
-- [HNOPS03-BP02 Consider flow logs for enhanced network visibility
-  when needed](hnops03-bp02.md "hnops03-bp02.md")
-- [HNOPS04-BP01 Monitor network service provider maintenance
-  events](hnops04-bp01.md "hnops04-bp01.md")
-- [HNOPS04-BP02 Develop automated runbooks and maintain clear
-  documentations](hnops04-bp02.md "hnops04-bp02.md")
+- [HNOPS03-BP02 Consider flow logs for enhanced network visibility when needed](hnops03-bp02.md "hnops03-bp02.md")
+- [HNOPS04-BP01 Monitor network service provider maintenance events](hnops04-bp01.md "hnops04-bp01.md")
+- [HNOPS04-BP02 Develop automated runbooks and maintain clear documentations](hnops04-bp02.md "hnops04-bp02.md")

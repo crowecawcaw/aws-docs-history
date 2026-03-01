@@ -1,6 +1,4 @@
-# HNOPS04-BP01 Monitor network service provider maintenance
-
-events
+# HNOPS04-BP01 Monitor network service provider maintenance events
 
 Implementing a proactive monitoring and response system for
 scheduled network maintenance activities is crucial for minimizing

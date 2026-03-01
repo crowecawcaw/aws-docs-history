@@ -1,6 +1,4 @@
-# HNREL04-BP02 Use redundant hardware and telecommunication
-
-providers
+# HNREL04-BP02 Use redundant hardware and telecommunication providers
 
 When designing remote connections to your cloud provider, use
 redundant on-premises hardware and diverse telecommunications

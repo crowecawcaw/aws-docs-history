@@ -1,6 +1,4 @@
-# HNSUS01-BP01 Decommission unused assets and consolidate
-
-redundant resources
+# HNSUS01-BP01 Decommission unused assets and consolidate redundant resources
 
 Regularly audit your workload to identify and remove unused or
 redundant assets (for example, orphaned storage volumes, inactive

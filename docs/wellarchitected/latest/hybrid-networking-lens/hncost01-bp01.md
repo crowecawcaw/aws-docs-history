@@ -1,6 +1,4 @@
-# HNCOST01-BP01 Implement a comprehensive tagging strategy for
-
-hybrid networking resources
+# HNCOST01-BP01 Implement a comprehensive tagging strategy for hybrid networking resources
 
 Apply consistent tags to all hybrid networking components to enable
 cost allocation and usage analysis. Teams gain visibility into

@@ -26,8 +26,6 @@ high-value resources while deprioritizing or retiring non-critical ones.
 
 ###### Best practices
 
-- [HNSUS01-BP01 Decommission unused assets and consolidate
-  redundant resources](hnsus01-bp01.md "hnsus01-bp01.md")
+- [HNSUS01-BP01 Decommission unused assets and consolidate redundant resources](hnsus01-bp01.md "hnsus01-bp01.md")
 - [HNSUS02-BP01 Prioritize critical components](hnsus02-bp01.md "hnsus02-bp01.md")
-- [HNSUS02-BP02 Perform lifecycle assessments for sustainability
-  trade-offs](hnsus02-bp02.md "hnsus02-bp02.md")
+- [HNSUS02-BP02 Perform lifecycle assessments for sustainability trade-offs](hnsus02-bp02.md "hnsus02-bp02.md")

@@ -1,6 +1,4 @@
-# HNREL03-BP01 Monitor the bandwidth and scale the bandwidth as
-
-needed
+# HNREL03-BP01 Monitor the bandwidth and scale the bandwidth as needed
 
 Regularly monitor the bandwidth usage of your dedicated connection.
 If usage consistently approaches the connection limit, order

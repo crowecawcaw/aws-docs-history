@@ -1,6 +1,4 @@
-# HNREL06-BP02 Ensure service continuity with redundant hardware
-
-and diverse telecommunications providers
+# HNREL06-BP02 Ensure service continuity with redundant hardware and diverse telecommunications providers
 
 Implementing redundant hardware components across geographic
 locations, organizations can mitigate single points of failure that

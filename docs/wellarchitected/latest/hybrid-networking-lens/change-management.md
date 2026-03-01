@@ -27,9 +27,6 @@ organizational requirements.
 
 ###### Best practices
 
-- [HNREL02-BP01 Monitor network service provider maintenance
-  events](hnrel02-bp01.md "hnrel02-bp01.md")
-- [HNREL03-BP01 Monitor the bandwidth and scale the bandwidth as
-  needed](hnrel03-bp01.md "hnrel03-bp01.md")
-- [HNREL03-BP02 Monitor logs and metrics for insights of hybrid
-  networking resources](hnrel03-bp02.md "hnrel03-bp02.md")
+- [HNREL02-BP01 Monitor network service provider maintenance events](hnrel02-bp01.md "hnrel02-bp01.md")
+- [HNREL03-BP01 Monitor the bandwidth and scale the bandwidth as needed](hnrel03-bp01.md "hnrel03-bp01.md")
+- [HNREL03-BP02 Monitor logs and metrics for insights of hybrid networking resources](hnrel03-bp02.md "hnrel03-bp02.md")

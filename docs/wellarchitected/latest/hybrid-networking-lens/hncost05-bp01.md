@@ -1,6 +1,4 @@
-# HNCOST05-BP01 Forecast demand and baseline requirements before
-
-scaling dedicated connections
+# HNCOST05-BP01 Forecast demand and baseline requirements before scaling dedicated connections
 
 Begin with IPSec VPN or small-scale dedicated connection links
 during testing or migration phases. Monitor traffic patterns to
