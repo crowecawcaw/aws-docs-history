@@ -1,6 +1,4 @@
-# Permissions for the KMS Key for the AWS Config Delivery
-
-Channel
+# Permissions for the KMS Key for the AWS Config Delivery Channel
 
 Use the information in this topic if you want to create a policy for an AWS KMS key for your S3
 bucket
@@ -10,16 +8,11 @@ delivery.
 
 ###### Contents
 
-- [Required Permissions
-  for the KMS Key When Using IAM Roles (S3 Bucket Delivery)](s3-kms-key-policy.md#required-permissions-s3-kms-key-using-iam-role "s3-kms-key-policy.md#required-permissions-s3-kms-key-using-iam-role")
-- [Required
-  Permissions for the AWS KMS Key When Using Service-Linked Roles (S3 Bucket
-  Delivery)](s3-kms-key-policy.md#required-permissions-s3-kms-key-using-servicelinkedrole "s3-kms-key-policy.md#required-permissions-s3-kms-key-using-servicelinkedrole")
+- [Required Permissions for the KMS Key When Using IAM Roles (S3 Bucket Delivery)](s3-kms-key-policy.md#required-permissions-s3-kms-key-using-iam-role "s3-kms-key-policy.md#required-permissions-s3-kms-key-using-iam-role")
+- [Required Permissions for the AWS KMS Key When Using Service-Linked Roles (S3 Bucket Delivery)](s3-kms-key-policy.md#required-permissions-s3-kms-key-using-servicelinkedrole "s3-kms-key-policy.md#required-permissions-s3-kms-key-using-servicelinkedrole")
 - [Granting AWS Config access to the AWS KMS Key](s3-kms-key-policy.md#granting-access-s3-kms-key "s3-kms-key-policy.md#granting-access-s3-kms-key")
 
-## Required Permissions
-
-for the KMS Key When Using IAM Roles (S3 Bucket Delivery)
+## Required Permissions for the KMS Key When Using IAM Roles (S3 Bucket Delivery)
 
 If you set up AWS Config using an IAM role, you can attach the follow permission policy to
 the KMS Key:
@@ -59,10 +52,7 @@ AWS Config service principal. For this case, you must attach a permission policy
 mentioned below, to the AWS KMS key to grant AWS Config access to use the key when
 delivering information to the Amazon S3 bucket.
 
-## Required
-
-Permissions for the AWS KMS Key When Using Service-Linked Roles (S3 Bucket
-Delivery)
+## Required Permissions for the AWS KMS Key When Using Service-Linked Roles (S3 Bucket Delivery)
 
 The AWS Config service-linked role does not have permission to access the AWS KMS key. So,
 if you set up AWS Config using a service-linked role, AWS Config will send information as the AWS Config

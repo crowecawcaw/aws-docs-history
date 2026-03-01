@@ -1,6 +1,4 @@
-# Security Best Practices for Amazon Relational Database Service
-
-(Amazon RDS)
+# Security Best Practices for Amazon Relational Database Service (Amazon RDS)
 
 This conformance pack contains AWS Config rules based on Amazon RDS. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

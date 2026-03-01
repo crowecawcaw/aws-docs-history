@@ -1,6 +1,4 @@
-# Stopping AWS Config from recording with the
-
-customer managed configuration recorder
+# Stopping AWS Config from recording with the customer managed configuration recorder
 
 You can stop AWS Config from recording with the customer managed configuration recorder any
 time. After AWS Config stops recording a resource, it retains the configuration information that was

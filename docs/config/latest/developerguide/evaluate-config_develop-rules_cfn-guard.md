@@ -1,6 +1,4 @@
-# Creating AWS Config Custom Policy
-
-Rules
+# Creating AWS Config Custom Policy Rules
 
 You can create AWS Config Custom Policy rules from the AWS Management Console, AWS CLI, or AWS Config API.
 

@@ -1,6 +1,4 @@
-# Example Rules Evaluation Started
-
-Notification
+# Example Rules Evaluation Started Notification
 
 AWS Config sends a notification when it starts to evaluate your custom or managed rule
 against your resources. The following is an example notification when AWS Config starts to

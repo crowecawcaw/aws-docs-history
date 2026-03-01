@@ -61,13 +61,11 @@ again.
 Or you can contact AWS Support.
 
 To deploy a **conformance pack using sample template with
-remediations**, see the [A. Prerequisites for Using a Conformance
-Pack With Remediation](cpack-prerequisites.md#cpack-prerequisites-remediations "cpack-prerequisites.md#cpack-prerequisites-remediations") and then use the preceding
+remediations**, see the [A. Prerequisites for Using a Conformance Pack With Remediation](cpack-prerequisites.md#cpack-prerequisites-remediations "cpack-prerequisites.md#cpack-prerequisites-remediations") and then use the preceding
 procedure.
 
 To deploy a **conformance pack with one or more AWS Config rules**, see the
-[B. Prerequisites for Using a
-Conformance Pack With One or More Custom AWS Config Rules](cpack-prerequisites.md#cpack-prerequisites-oneormorerules "cpack-prerequisites.md#cpack-prerequisites-oneormorerules").
+[B. Prerequisites for Using a Conformance Pack With One or More Custom AWS Config Rules](cpack-prerequisites.md#cpack-prerequisites-oneormorerules "cpack-prerequisites.md#cpack-prerequisites-oneormorerules").
 
 Deploy Conformance Packs (AWS CLI)
 

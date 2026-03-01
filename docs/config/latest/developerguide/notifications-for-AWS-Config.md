@@ -1,6 +1,4 @@
-# Notifications that AWS Config Sends to an Amazon SNS
-
-topic
+# Notifications that AWS Config Sends to an Amazon SNS topic
 
 ###### Note
 
@@ -26,17 +24,10 @@ AWS Config sends notifications for the following events:
 ###### Topics
 
 - [Example Configuration Item Change Notifications](example-sns-notification.md "example-sns-notification.md")
-- [Example Configuration
-  History Delivery Notification](example-configuration-history-notification.md "example-configuration-history-notification.md")
-- [Example
-  Configuration Snapshot Delivery Started Notification](example-configuration-snapshot-notification-started.md "example-configuration-snapshot-notification-started.md")
-- [Example Configuration
-  Snapshot Delivery Notification](example-configuration-snapshot-notification.md "example-configuration-snapshot-notification.md")
-- [Example Compliance Change
-  Notification](example-config-rule-compliance-notification.md "example-config-rule-compliance-notification.md")
-- [Example Rules Evaluation Started
-  Notification](config-rules-evaluation-started.md "config-rules-evaluation-started.md")
-- [Example Oversized Configuration Item
-  Change Notification](oversized-notification-example.md "oversized-notification-example.md")
-- [Example Delivery Failed
-  Notification](notification-delivery-failed.md "notification-delivery-failed.md")
+- [Example Configuration History Delivery Notification](example-configuration-history-notification.md "example-configuration-history-notification.md")
+- [Example Configuration Snapshot Delivery Started Notification](example-configuration-snapshot-notification-started.md "example-configuration-snapshot-notification-started.md")
+- [Example Configuration Snapshot Delivery Notification](example-configuration-snapshot-notification.md "example-configuration-snapshot-notification.md")
+- [Example Compliance Change Notification](example-config-rule-compliance-notification.md "example-config-rule-compliance-notification.md")
+- [Example Rules Evaluation Started Notification](config-rules-evaluation-started.md "config-rules-evaluation-started.md")
+- [Example Oversized Configuration Item Change Notification](oversized-notification-example.md "oversized-notification-example.md")
+- [Example Delivery Failed Notification](notification-delivery-failed.md "notification-delivery-failed.md")

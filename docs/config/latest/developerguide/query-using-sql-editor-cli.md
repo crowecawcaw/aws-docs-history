@@ -1,6 +1,4 @@
-# Query Using the SQL Query Editor for AWS Config
-
-(AWS CLI)
+# Query Using the SQL Query Editor for AWS Config (AWS CLI)
 
 The AWS CLI is a unified tool to manage your AWS services. With just one tool to
 download and configure, you can control multiple AWS services from the command line
@@ -37,13 +35,9 @@ aggregator to run an advanced query on that aggregator. When you select an
 aggregator, consider adding the AWS account ID and AWS Region in the query
 statement to view that information in the results.
 
-## Query Resource Configuration
+## Query Resource Configuration Data
 
-Data
-
-###### To query your resource configuration data using the query editor (AWS CLI) for
-
-a single account and Region
+###### To query your resource configuration data using the query editor (AWS CLI) for a single account and Region
 
 1. Open a command prompt or a terminal window.
 2. Enter the following command to query your resource configuration
@@ -76,9 +70,7 @@ Depending on your query, the output looks like the following.
 }
 ```
 
-###### To query your resource configuration data using the query editor (AWS CLI) for
-
-multiple accounts and Regions
+###### To query your resource configuration data using the query editor (AWS CLI) for multiple accounts and Regions
 
 1. Open a command prompt or a terminal window.
 2. Enter the following command to query your resource configuration

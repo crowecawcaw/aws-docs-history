@@ -16,17 +16,12 @@ AWS Config currently supports only access within the same AWS Region and across 
 
 ###### Contents
 
-- [Required Permissions for
-  the Amazon SNS Topic When Using IAM Roles](sns-topic-policy.md#required-permissions-snstopic-in-another-account "sns-topic-policy.md#required-permissions-snstopic-in-another-account")
-- [Required
-  Permissions for the Amazon SNS Topic When Using Service-Linked Roles](sns-topic-policy.md#required-permissions-snstopic-using-servicelinkedrole "sns-topic-policy.md#required-permissions-snstopic-using-servicelinkedrole")
+- [Required Permissions for the Amazon SNS Topic When Using IAM Roles](sns-topic-policy.md#required-permissions-snstopic-in-another-account "sns-topic-policy.md#required-permissions-snstopic-in-another-account")
+- [Required Permissions for the Amazon SNS Topic When Using Service-Linked Roles](sns-topic-policy.md#required-permissions-snstopic-using-servicelinkedrole "sns-topic-policy.md#required-permissions-snstopic-using-servicelinkedrole")
 - [Granting AWS Config access to the Amazon SNS topic](sns-topic-policy.md#granting-access-snstopic "sns-topic-policy.md#granting-access-snstopic")
-- [Troubleshooting for the
-  Amazon SNS Topic](sns-topic-policy.md#troubleshooting-for-snstopic-using-servicelinkedrole "sns-topic-policy.md#troubleshooting-for-snstopic-using-servicelinkedrole")
+- [Troubleshooting for the Amazon SNS Topic](sns-topic-policy.md#troubleshooting-for-snstopic-using-servicelinkedrole "sns-topic-policy.md#troubleshooting-for-snstopic-using-servicelinkedrole")
 
-## Required Permissions for
-
-the Amazon SNS Topic When Using IAM Roles
+## Required Permissions for the Amazon SNS Topic When Using IAM Roles
 
 You can attach a permissions policy to the Amazon SNS topic owned by a different account. If
 you want to use an Amazon SNS topic from another account, make sure to attach the following policy
@@ -71,9 +66,7 @@ You must attach an access policy, described in the next section, to the Amazon S
 AWS Config access to the Amazon SNS topic if the IAM role does not have permission to publish to the
 topic.
 
-## Required
-
-Permissions for the Amazon SNS Topic When Using Service-Linked Roles
+## Required Permissions for the Amazon SNS Topic When Using Service-Linked Roles
 
 The AWS Config service-linked role does not have permission to access the Amazon SNS topic. So,
 if you set up AWS Config using a service-linked role (SLR), AWS Config will send information as the AWS Config
@@ -146,9 +139,7 @@ principal name (SPN) to interact with your S3 bucket only on behalf of a deliver
 the `us-east-1` Region in the account `123456789012`: `"ArnLike":
  {"AWS:SourceArn": "arn:aws:config:us-east-1:123456789012:*"}`.
 
-## Troubleshooting for the
-
-Amazon SNS Topic
+## Troubleshooting for the Amazon SNS Topic
 
 AWS Config must have permissions to send notifications to an Amazon SNS topic. If an Amazon SNS topic
 cannot receive notifications, verify that the IAM role that AWS Config was assuming has the

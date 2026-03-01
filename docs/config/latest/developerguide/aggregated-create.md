@@ -79,8 +79,7 @@ account IDs** to select source accounts.
      administrator for AWS Config service principal name
      (config.amazonaws.com) before the delegated administrator
      creates an aggregator. To register a delegated
-     administrator, see [Registering a Delegated
-     Administrator for AWS Config](aggregated-register-delegated-administrator.md "aggregated-register-delegated-administrator.md").
+     administrator, see [Registering a Delegated Administrator for AWS Config](aggregated-register-delegated-administrator.md "aggregated-register-delegated-administrator.md").
 
 
     You must assign an IAM role to allow AWS Config to call read-only
@@ -196,8 +195,7 @@ with both of the following AWS Config service principal names
 (`config.amazonaws.com`
 and`config-multiaccountsetup.amazonaws.com`) before the
 delegated administrator creates an aggregator. To register a delegated
-administrator, see [Registering a Delegated
-Administrator for AWS Config](aggregated-register-delegated-administrator.md "aggregated-register-delegated-administrator.md").
+administrator, see [Registering a Delegated Administrator for AWS Config](aggregated-register-delegated-administrator.md "aggregated-register-delegated-administrator.md").
 
 1. Open a command prompt or a terminal window.
 2. If have not created an IAM role for your AWS Config aggregator, enter the

@@ -114,9 +114,7 @@ For more information, see [Recording AWS Resources with AWS Config](select-resou
       you determine the problem, choose the rule name to open its details page
       and see the error message.
 
-## Adding Rules
-
-(AWS SDKs)
+## Adding Rules (AWS SDKs)
 
 The following code examples show how to use `PutConfigRule`.
 

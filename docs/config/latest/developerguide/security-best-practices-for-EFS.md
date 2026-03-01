@@ -1,6 +1,4 @@
-# Security Best Practices for Amazon Elastic File System
-
-(Amazon EFS)
+# Security Best Practices for Amazon Elastic File System (Amazon EFS)
 
 This conformance pack contains AWS Config rules based on Amazon EFS. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

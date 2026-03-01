@@ -11,8 +11,7 @@ types that AWS Config can record, see [Supported Resource Types for AWS Config](
 
 - [Considerations](#select-resources-considerations "#select-resources-considerations")
 - [Regional and global Resources](#select-resources-all "#select-resources-all")
-- [AWS Config Rules and global resource
-  types](#select-resources-rules-and-global "#select-resources-rules-and-global")
+- [AWS Config Rules and global resource types](#select-resources-rules-and-global "#select-resources-rules-and-global")
 - [Recording frequency](#select-resources-recording-frequency "#select-resources-recording-frequency")
 - [Non-recorded resources](#select-resources-non-recorded "#select-resources-non-recorded")
 - [Recording resources (Console)](select-resources-console.md "select-resources-console.md")
@@ -50,9 +49,7 @@ If a resource type is supported by AWS Config in at least one Region, you can en
 recording of that resource type in all Regions supported by AWS Config, even if the specified
 resource type is not supported in the AWS Region where you set up AWS Config.
 
-## What are the differences between Regional and global
-
-resources?
+## What are the differences between Regional and global resources?
 
 **Regional resources**
 
@@ -189,9 +186,7 @@ API/CLI:
 - **Record specific resource types**
   (`INCLUSION_BY_RESOURCE_TYPES`).
 
-## AWS Config Rules and global resource
-
-types
+## AWS Config Rules and global resource types
 
 The global IAM resource types onboarded before February 2022
 (`AWS::IAM::Group`, `AWS::IAM::Policy`, `AWS::IAM::Role`,

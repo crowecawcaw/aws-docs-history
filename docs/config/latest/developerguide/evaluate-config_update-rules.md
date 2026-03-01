@@ -31,9 +31,7 @@ see [Viewing Compliance Information and Evaluation Results for your AWS Resource
    rule as needed.
 6. Choose **Save**.
 
-## Updating Rules
-
-(AWS SDKs)
+## Updating Rules (AWS SDKs)
 
 If you are updating a rule that you added previously,
 you can specify the rule by `ConfigRuleName`,

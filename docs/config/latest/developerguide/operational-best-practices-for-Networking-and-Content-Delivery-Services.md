@@ -1,6 +1,4 @@
-#
-
-Operational Best Practices for Networking and Content Delivery Services
+# Operational Best Practices for Networking and Content Delivery Services
 
 This conformance pack contains AWS Config rules based on Networking and Content Delivery Services. For more
 information, see [Networking and

@@ -1,6 +1,4 @@
-#
-
-Operational Best Practices for Management and Governance Services
+# Operational Best Practices for Management and Governance Services
 
 This conformance pack contains AWS Config rules based on Management and Governance Services. For more
 information, see [Management

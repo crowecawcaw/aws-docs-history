@@ -1,6 +1,4 @@
-# Deleting Evaluation Results from AWS Config
-
-Rules
+# Deleting Evaluation Results from AWS Config Rules
 
 After AWS Config evaluates your rule, you can see the evaluation results on the
 **Rules** page or the **Rules details** page for the

@@ -28,8 +28,7 @@ To help you understand AWS Config, this topic explains some of the key concepts.
   - [Evaluation modes](config-concepts.md#aws-config-rules-proactive-detective "config-concepts.md#aws-config-rules-proactive-detective")
 
 - [Conformance Packs](config-concepts.md#aws-config-conformance-packs "config-concepts.md#aws-config-conformance-packs")
-- [Multi-Account Multi-Region Data
-  Aggregation](config-concepts.md#multi-account-multi-region-data-aggregation "config-concepts.md#multi-account-multi-region-data-aggregation")
+- [Multi-Account Multi-Region Data Aggregation](config-concepts.md#multi-account-multi-region-data-aggregation "config-concepts.md#multi-account-multi-region-data-aggregation")
   - [Source Account](config-concepts.md#source-accounts "config-concepts.md#source-accounts")
   - [Source Region](config-concepts.md#source-region "config-concepts.md#source-region")
   - [Aggregator](config-concepts.md#aggregator "config-concepts.md#aggregator")
@@ -229,9 +228,7 @@ tasks that require verification as part of the conformance packs. These checks c
 to an existing conformance pack or a new conformance pack. You can track all compliance that
 includes AWS Configurations and manual checks in a single location.
 
-## Multi-Account Multi-Region Data
-
-Aggregation
+## Multi-Account Multi-Region Data Aggregation
 
 Multi-account multi-region data aggregation in AWS Config allows you to aggregate AWS Config
 configuration and compliance data from multiple accounts and regions into a single account.

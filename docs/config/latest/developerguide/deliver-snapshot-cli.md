@@ -1,6 +1,4 @@
-# Delivering Configuration Snapshots to an Amazon S3
-
-Bucket
+# Delivering Configuration Snapshots to an Amazon S3 Bucket
 
 A _configuration snapshot_ is a collection of the configuration items for the supported
 resources that exist in your account. This configuration snapshot is a complete picture of

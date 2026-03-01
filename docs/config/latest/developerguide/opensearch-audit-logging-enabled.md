@@ -22,5 +22,4 @@ and `arn:aws:logs:region:account-id:log-group:log_group_name`.
 
 ## AWS CloudFormation template
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
-Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

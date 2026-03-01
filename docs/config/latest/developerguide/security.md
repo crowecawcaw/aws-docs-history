@@ -32,6 +32,5 @@ cloud and security _in_ the cloud:
 - [Compliance Validation for AWS Config](config-compliance.md "config-compliance.md")
 - [Resilience in AWS Config](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS Config](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security Best Practices for AWS Config](security-best-practices.md "security-best-practices.md")

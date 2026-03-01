@@ -7,8 +7,7 @@ that AWS Config has started recording and delivering configurations to the deliv
 ###### Topics
 
 - [Step 1: Check that a delivery channel is Created](#gs-cli-verify-channel "#gs-cli-verify-channel")
-- [Step 2: Check that a configuration recorder is
-  Created](#gs-cli-verify-recorder "#gs-cli-verify-recorder")
+- [Step 2: Check that a configuration recorder is Created](#gs-cli-verify-recorder "#gs-cli-verify-recorder")
 - [Step 3: Check that AWS Config has started recording](#gs-cli-verify-config-recording "#gs-cli-verify-config-recording")
 
 ## Step 1: Check that a delivery channel is Created
@@ -31,9 +30,7 @@ $ **aws configservice describe-delivery-channels**
 }
 ```
 
-## Step 2: Check that a configuration recorder is
-
-Created
+## Step 2: Check that a configuration recorder is Created
 
 Use the [`describe-configuration-recorders`](../../../cli/latest/reference/configservice/describe-configuration-recorders.md "../../../cli/latest/reference/configservice/describe-configuration-recorders.md") command to check that a
 configuration recorder is created.

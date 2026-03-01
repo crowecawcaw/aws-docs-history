@@ -1,6 +1,4 @@
-# Operational Best Practices
-
-for Data Resiliency
+# Operational Best Practices for Data Resiliency
 
 For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed
 Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").

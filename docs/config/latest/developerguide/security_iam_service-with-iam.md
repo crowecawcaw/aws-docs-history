@@ -1,6 +1,4 @@
-# How AWS Config works with
-
-IAM
+# How AWS Config works with IAM
 
 Before you use IAM to manage access to AWS Config, learn what IAM features are
 available to use with AWS Config.
@@ -23,9 +21,7 @@ To get a high-level view of how AWS Config and other AWS services work with most
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Config
+## Identity-based policies for AWS Config
 
 **Supports identity-based policies:**
 
@@ -42,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Config
 
-Identity-based policy examples for AWS Config
-
-To view examples of AWS Config identity-based policies, see [Identity-based policy examples
-for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Config identity-based policies, see [Identity-based policy examples for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within AWS Config
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for AWS Config
+## Policy actions for AWS Config
 
 **Supports policy actions:**
 
@@ -106,12 +97,9 @@ action:
 "Action": "config:Describe*"
 ```
 
-To view examples of AWS Config identity-based policies, see [Identity-based policy examples
-for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Config identity-based policies, see [Identity-based policy examples for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Config
+## Policy resources for AWS Config
 
 **Supports policy resources:**
 
@@ -131,8 +119,7 @@ To see a list of AWS Config resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Config](../../../service-authorization/latest/reference/list_awsconfig.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_awsconfig.md#your_service-actions-as-permissions").
 
-To view examples of AWS Config identity-based policies, see [Identity-based policy examples
-for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Config identity-based policies, see [Identity-based policy examples for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for AWS Config
 
@@ -153,8 +140,7 @@ To see a list of AWS Config condition keys, see [Condition keys for AWS Config](
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions defined by AWS Config](../../../service-authorization/latest/reference/list_awsconfig.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_awsconfig.md#your_service-actions-as-permissions").
 
-To view examples of AWS Config identity-based policies, see [Identity-based policy examples
-for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Config identity-based policies, see [Identity-based policy examples for AWS Config](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AWS Config
 
@@ -184,9 +170,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging AWS Config resources, see [Tagging Your AWS Config Resources](tagging.md "tagging.md").
 
-## Using temporary
-
-credentials with AWS Config
+## Using temporary credentials with AWS Config
 
 **Supports temporary credentials:**
 
@@ -198,9 +182,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS Config
+## Forward access sessions for AWS Config
 
 **Supports forward access sessions (FAS):**
 
@@ -209,9 +191,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Config
+## Service roles for AWS Config
 
 **Supports service roles:**
 
@@ -227,9 +207,7 @@ Changing the permissions for a service role might break AWS Config
 functionality. Edit service roles only when AWS Config provides guidance to do
 so.
 
-## Service-linked
-
-roles for AWS Config
+## Service-linked roles for AWS Config
 
 **Supports service-linked roles:**
 

@@ -107,9 +107,7 @@ You should receive output similiar to the following:
 To see additional information about the evaluation result, such as which rule flagged a resource as NON_COMPLIANT,
 use the [GetComplianceDetailsByResource](../APIReference/API_GetComplianceDetailsByResource.md "../APIReference/API_GetComplianceDetailsByResource.md") API.
 
-## Turning on Proactive Evaluation
-
-(AWS SDKs)
+## Turning on Proactive Evaluation (AWS SDKs)
 
 You can use _proactive evaluation_ to evaluate resources before they have been deployed. This allows you to evaluate whether a set of resource properties, if used to define an AWS resource,
 would be COMPLIANT or NON_COMPLIANT given the set of proactive rules that you have in your account in your Region.

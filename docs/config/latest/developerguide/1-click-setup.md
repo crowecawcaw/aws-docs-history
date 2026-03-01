@@ -25,9 +25,7 @@ manual selections of the setup process, see [Manual setup](detailed-setup.md "de
 
 ## Step 1: Settings
 
-### Recording
-
-strategy
+### Recording strategy
 
 The option to record **All resource types with customizable
 overrides** is selected for you. AWS Config will record all current and
@@ -61,9 +59,7 @@ override the default settings, choose **Settings** in the
 left navigation of the AWS Config console, and then choose
 **Edit**.
 
-#### Considerations When Recording
-
-Resources
+#### Considerations When Recording Resources
 
 **High Number of AWS Config Evaluations**
 

@@ -1,6 +1,4 @@
-#
-
-Operational Best Practices for Security, Identity, and Compliance Services
+# Operational Best Practices for Security, Identity, and Compliance Services
 
 This conformance pack contains AWS Config rules based on Security, Identity, and Compliance Services. For
 more information, see [Security, Identity,

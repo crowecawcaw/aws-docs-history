@@ -1,6 +1,4 @@
-# Monitoring AWS Resource Changes with
-
-Amazon SQS
+# Monitoring AWS Resource Changes with Amazon SQS
 
 AWS Config uses Amazon Simple Notification Service (SNS) to send you notifications every time a supported AWS resource
 is created, updated, or otherwise modified as a result of user API activity. However, you

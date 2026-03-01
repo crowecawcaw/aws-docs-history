@@ -1,6 +1,4 @@
-# Example
-
-Configuration Snapshot Delivery Started Notification
+# Example Configuration Snapshot Delivery Started Notification
 
 The following is an example notification that AWS Config sends when AWS Config starts delivering
 the configuration snapshot for your account.

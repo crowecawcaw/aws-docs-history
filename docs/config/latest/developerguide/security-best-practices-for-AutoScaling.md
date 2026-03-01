@@ -1,6 +1,4 @@
-# Security Best Practices for
-
-AWS Auto Scaling
+# Security Best Practices for AWS Auto Scaling
 
 This conformance pack contains AWS Config rules based on AWS Auto Scaling. For a list of all managed rules supported by AWS Config, see
 [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").

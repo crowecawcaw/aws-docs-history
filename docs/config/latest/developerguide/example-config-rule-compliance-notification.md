@@ -1,6 +1,4 @@
-# Example Compliance Change
-
-Notification
+# Example Compliance Change Notification
 
 When AWS Config evaluates your resources against a custom or managed rule, AWS Config sends a
 notification that shows whether the resources are compliant against the rule.

@@ -50,9 +50,7 @@ noncompliant. For more information, see [Recording AWS Resources with AWS Config
      configuration settings of the rule and set a remediation action for a
      noncompliant rule.
 
-## Viewing Rules
-
-(AWS SDKs)
+## Viewing Rules (AWS SDKs)
 
 The following code examples show how to use `DescribeConfigRules`.
 

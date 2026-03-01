@@ -23,8 +23,7 @@ Before you create event rules for AWS Config, however, you should do the followi
 
 - [Considerations](#monitor-config-with-cloudwatchevents-considerations "#monitor-config-with-cloudwatchevents-considerations")
 - [Amazon EventBridge format for AWS Config](#cloudwatch-event-format-for-awsconfig "#cloudwatch-event-format-for-awsconfig")
-- [Creating Amazon EventBridge Rule for
-  AWS Config](#create-cloudwatch-events-rule-for-awsconfig "#create-cloudwatch-events-rule-for-awsconfig")
+- [Creating Amazon EventBridge Rule for AWS Config](#create-cloudwatch-events-rule-for-awsconfig "#create-cloudwatch-events-rule-for-awsconfig")
 
 ## Considerations
 
@@ -90,9 +89,7 @@ following format:
 
 ```
 
-## Creating Amazon EventBridge Rule for
-
-AWS Config
+## Creating Amazon EventBridge Rule for AWS Config
 
 Use the following steps to create an EventBridge rule that triggers on an event emitted by
 AWS Config. Events are emitted on a best effort basis.

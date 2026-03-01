@@ -19,5 +19,4 @@ Comma-separated list of trigger types for the rule to check. Valid values includ
 
 ## AWS CloudFormation template
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
-Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

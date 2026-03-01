@@ -115,8 +115,7 @@ The notifications can be any of the following message types.
 | OversizedConfigurationItemChangeNotification   | This message type is delivered when a configuration item change notification<br>exceeded the maximum size allowed by Amazon SNS. The message includes a summary of the<br>configuration item. With the exception of SMS messages, Amazon SNS messages can contain up<br>to 256 KB of text data, including XML, JSON, and unformatted text. You can view the<br>complete notification in the specified Amazon S3 bucket location. |
 | OversizedConfigurationItemChangeDeliveryFailed | AWS Config failed to deliver the oversized configuration item change notification to<br>your Amazon S3 bucket.                                                                                                                                                                                                                                                                                                                   |
 
-For example notifications, see [Notifications that AWS Config Sends to an Amazon SNS
-topic](notifications-for-AWS-Config.md "notifications-for-AWS-Config.md"). For more information about Amazon SNS, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
+For example notifications, see [Notifications that AWS Config Sends to an Amazon SNS topic](notifications-for-AWS-Config.md "notifications-for-AWS-Config.md"). For more information about Amazon SNS, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
 
 ###### Note
 

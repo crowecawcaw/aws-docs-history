@@ -2,9 +2,7 @@
 
 ## Unable to see my latest configuration changes
 
-### Can I expect to view my configuration changes right
-
-away?
+### Can I expect to view my configuration changes right away?
 
 AWS Config usually records configuration changes to your resources right after a change
 is detected, or at the frequency that you specify. However, this is on a best effort
@@ -17,17 +15,13 @@ Metrics](viewing-the-aws-config-dashboard.md "viewing-the-aws-config-dashboard.m
 ###### Topics
 
 - [What is resource relationship?](#faq-1 "#faq-1")
-- [What is a direct and an indirect relationship with respect
-  to a resource?](#faq-2 "#faq-2")
+- [What is a direct and an indirect relationship with respect to a resource?](#faq-2 "#faq-2")
 - [Which indirect relationships does AWS Config support?](#faq-3 "#faq-3")
 - [Which scenarios uses indirect relationship?](#faq-4 "#faq-4")
-- [How are the configuration items created due to direct and
-  indirect relationship?](#faq-5 "#faq-5")
-- [What are the configuration items generated due to indirect
-  relationships?](#faq-6 "#faq-6")
+- [How are the configuration items created due to direct and indirect relationship?](#faq-5 "#faq-5")
+- [What are the configuration items generated due to indirect relationships?](#faq-6 "#faq-6")
 - [How do I disable indirect relationship?](#faq-7 "#faq-7")
-- [How do I retrieve configuration data related to indirect
-  relationships?](#faq-8 "#faq-8")
+- [How do I retrieve configuration data related to indirect relationships?](#faq-8 "#faq-8")
 
 ### What is resource relationship?
 
@@ -46,9 +40,7 @@ indicate that an Amazon EBS volume with ID `vol-123ab45d` is attached to an
 Amazon EC2 instance with ID `i-a1b2c3d4`, which is associated with security
 group `sg-ef678hk`.
 
-### What is a direct and an indirect relationship with respect
-
-to a resource?
+### What is a direct and an indirect relationship with respect to a resource?
 
 AWS Config derives the relationships for most resource types from the configuration
 field, which are called "direct" relationships. A direct relationship is a one-way
@@ -103,9 +95,7 @@ relationship.
 | AWS Firewall Manager    | [Usage Audit Security Group](../../../waf/latest/developerguide/security-group-policies-usage.md "../../../waf/latest/developerguide/security-group-policies-usage.md")<br>policy uses indirect relationship to understand when a security<br>group was last used.<br>Without an indirect relationship, you would need to build and<br>associate a security group to new resources at the same time to<br>avoid triggering the rule with AWS Firewall Manager.                                                                                                                                                                                                               |
 | Default resources       | • Default resources when a non-default VPC is created:<br>+ Default security group, default network ACL,<br>and default route table.<br>• Default resources when a default VPC is created:<br>+ Everything that is created with non-default<br>VPC, an internet gateway, and default subnet in<br>each Availability Zone that you have access<br>to.<br>• Default VPC creation itself when an account calls EC2<br>for first time ever.<br>+ Default subnet created for accounts in a newly<br>launched Availability Zone.<br>Without an indirect relationship, you would need to wait up to<br>12 hours for automatic baselining to record changes to default<br>resources. |
 
-### How are the configuration items created due to direct and
-
-indirect relationship?
+### How are the configuration items created due to direct and indirect relationship?
 
 For a direct relationship between resources (A→B), any configuration change to the
 resource B will initiate a configuration item (CI) for the resource A as well.
@@ -117,9 +107,7 @@ instance. Similarly, security group to Amazon EC2 instance is an indirect relati
 any configuration change to an EC2 instance would generate a CI for the Amazon EC2
 instance as well as a CI for the security group.
 
-### What are the configuration items generated due to indirect
-
-relationships?
+### What are the configuration items generated due to indirect relationships?
 
 Below are the additional configuration items (CIs) generated due to indirect
 resource relationships.
@@ -159,9 +147,7 @@ An AWS Support engineer will provide next steps and status updates. We recommend
 maintain a list of AWS accounts and regions where indirect relationship is disabled.
 For new accounts, submit a new AWS Support case to disable indirect relationship.
 
-### How do I retrieve configuration data related to indirect
-
-relationships?
+### How do I retrieve configuration data related to indirect relationships?
 
 You can run Structured Query Language (SQL) queries in AWS Config Advanced Queries to
 retrieve configuration data related to indirect resource relationships. For example,

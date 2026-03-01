@@ -1,6 +1,4 @@
-# Operational Best Practices for
-
-Esquema Nacional de Seguridad (ENS) Low
+# Operational Best Practices for Esquema Nacional de Seguridad (ENS) Low
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

@@ -1,6 +1,4 @@
-# Managing Deleted Resources for
-
-AWS Config Custom Lambda Rules
+# Managing Deleted Resources for AWS Config Custom Lambda Rules
 
 Rules reporting on deleted resources should return the evaluation result of
 `NOT_APPLICABLE` in order to avoid unnecessary rule evaluations.

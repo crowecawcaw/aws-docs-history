@@ -1,6 +1,4 @@
-# Sample
-
-Conformance Pack Template for Creating Process Checks
+# Sample Conformance Pack Template for Creating Process Checks
 
 ```
 ################################################################################
@@ -19,8 +17,6 @@ Resources:
     Type: AWS::Config::ConfigRule
 ```
 
-See two sample templates, the [Operational Best
-Practices for CIS AWS Foundations Benchmark v1.4 Level 1](operational-best-practices-for-cis_aws_benchmark_level_1.md "operational-best-practices-for-cis_aws_benchmark_level_1.md") template
-and the [Operational Best
-Practices for CIS AWS Foundations Benchmark v1.4 Level 2](operational-best-practices-for-cis_aws_benchmark_level_2.md "operational-best-practices-for-cis_aws_benchmark_level_2.md")
+See two sample templates, the [Operational Best Practices for CIS AWS Foundations Benchmark v1.4 Level 1](operational-best-practices-for-cis_aws_benchmark_level_1.md "operational-best-practices-for-cis_aws_benchmark_level_1.md") template
+and the [Operational Best Practices for CIS AWS Foundations Benchmark v1.4 Level 2](operational-best-practices-for-cis_aws_benchmark_level_2.md "operational-best-practices-for-cis_aws_benchmark_level_2.md")
 template.

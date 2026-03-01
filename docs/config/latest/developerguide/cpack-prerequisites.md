@@ -18,9 +18,7 @@ Before you deploy your conformance pack, turn on AWS Config recording.
 
 ## Step 2: Additional Prerequisites by Conformance Pack Type
 
-### A. Prerequisites for Using a Conformance
-
-Pack With Remediation
+### A. Prerequisites for Using a Conformance Pack With Remediation
 
 Before deploying conformance packs using sample templates with remediation, you must
 create appropriate resources such as automation assume role and other AWS resources
@@ -43,9 +41,7 @@ string, and you must use the complete rule name without intrinsic functions.
 For more information about how to pass the exact ARN, see [Conformance Pack Sample Templates for AWS Config](conformancepack-sample-templates.md "conformancepack-sample-templates.md"). While using example templates,
 update your Account ID and management account ID for organization.
 
-### B. Prerequisites for Using a
-
-Conformance Pack With One or More Custom AWS Config Rules
+### B. Prerequisites for Using a Conformance Pack With One or More Custom AWS Config Rules
 
 Before deploying a conformance pack with one or more custom AWS Config rules, create
 appropriate resources such as AWS Lambda function and the corresponding execution role.
@@ -163,9 +159,7 @@ JSONJSON
 When deploying cross-account conformance packs, the name of the delivery Amazon S3
 bucket should start with `awsconfigconforms`.
 
-### C. Prerequisites for
-
-Organization Conformance Packs
+### C. Prerequisites for Organization Conformance Packs
 
 Specify an automation execution role ARN for that remediation in the template if the
 input template has an autoremediation configuration. Ensure a role with the specified

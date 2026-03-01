@@ -1,6 +1,4 @@
-# Stopping the customer managed configuration
-
-recorder
+# Stopping the customer managed configuration recorder
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Security Best Practices for
-
-Amazon Redshift
+# Security Best Practices for Amazon Redshift
 
 This conformance pack contains AWS Config rules based on Amazon Redshift. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

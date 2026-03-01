@@ -1,6 +1,4 @@
-# Record Configuration Items with AWS Config for
-
-Third-Party Resources using the AWS CLI
+# Record Configuration Items with AWS Config for Third-Party Resources using the AWS CLI
 
 Record a configuration item for a third-party resource or a custom resource type using
 the following procedure:

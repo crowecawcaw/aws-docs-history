@@ -1133,8 +1133,7 @@ import AWSS3
 
 You can also use an Amazon S3 bucket from a different account, but you may need to create a
 policy for the bucket that grants access permissions to AWS Config. For information on granting
-permissions to an Amazon S3 bucket, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery
-Channel](s3-bucket-policy.md "s3-bucket-policy.md"), and then go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic "#gs-cli-create-snstopic").
+permissions to an Amazon S3 bucket, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel](s3-bucket-policy.md "s3-bucket-policy.md"), and then go to [Step 2: Creating an Amazon SNS Topic](#gs-cli-create-snstopic "#gs-cli-create-snstopic").
 
 ## Step 2: Creating an Amazon SNS Topic
 

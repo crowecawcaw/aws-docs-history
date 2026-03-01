@@ -24,10 +24,8 @@ Additionally, rules directly evaluate the configuration of a resource and rules 
   - [IAM Role Policy for your S3 Bucket](iamrole-permissions.md#iam-role-policies-S3-bucket "iamrole-permissions.md#iam-role-policies-S3-bucket")
   - [IAM Role Policy for KMS Key](iamrole-permissions.md#iam-role-policies-S3-kms-key "iamrole-permissions.md#iam-role-policies-S3-kms-key")
   - [IAM Role Policy for Amazon SNS Topic](iamrole-permissions.md#iam-role-policies-sns-topic "iamrole-permissions.md#iam-role-policies-sns-topic")
-  - [IAM Role Policy for Getting
-    Configuration Details](iamrole-permissions.md#iam-role-policies-describe-apis "iamrole-permissions.md#iam-role-policies-describe-apis")
-  - [Managing Permissions for S3
-    Bucket Recording](iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy "iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy")
+  - [IAM Role Policy for Getting Configuration Details](iamrole-permissions.md#iam-role-policies-describe-apis "iamrole-permissions.md#iam-role-policies-describe-apis")
+  - [Managing Permissions for S3 Bucket Recording](iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy "iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy")
 
 ## Creating IAM Role Policies
 
@@ -170,9 +168,7 @@ JSON
 If your SNS topic is encrypted for additional setup instructions, see [Configuring
 AWS KMS Permissions](../../../sns/latest/dg/sns-server-side-encryption.md#sns-what-permissions-for-sse "../../../sns/latest/dg/sns-server-side-encryption.md#sns-what-permissions-for-sse") in the _Amazon Simple Notification Service Developer Guide_.
 
-### IAM Role Policy for Getting
-
-Configuration Details
+### IAM Role Policy for Getting Configuration Details
 
 It is recommended to use the AWS Config service-linked role: `AWSServiceRoleForConfig`. Service-linked roles are predefined and include all the permissions that AWS Config requires to call other AWS services. The AWS Config service-linked role is required for service-linked configuration recorders.
 For more information, see [Using Service-Linked Roles for AWS Config](using-service-linked-roles.md "using-service-linked-roles.md").
@@ -186,9 +182,7 @@ Amazon Resource Name (ARN) for **AWSServiceRoleForConfig**:
 $ `aws iam attach-role-policy --role-name `myConfigRole` --policy-arn arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForConfig`
 ```
 
-### Managing Permissions for S3
-
-Bucket Recording
+### Managing Permissions for S3 Bucket Recording
 
 AWS Config records and delivers notifications when an S3 bucket is created, updated, or
 deleted.

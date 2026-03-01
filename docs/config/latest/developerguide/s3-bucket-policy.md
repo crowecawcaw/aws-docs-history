@@ -1,6 +1,4 @@
-# Permissions for the Amazon S3 Bucket for the AWS Config Delivery
-
-Channel
+# Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel
 
 ###### Important
 
@@ -20,9 +18,7 @@ However, if you specify an existing S3 bucket, you must add these permissions ma
 - [Granting AWS Config access](#granting-access-in-another-account "#granting-access-in-another-account")
 - [Cross-Account Delivery](#required-permissions-cross-account "#required-permissions-cross-account")
 
-## Required Permissions for the Amazon S3
-
-Bucket When Using IAM Roles
+## Required Permissions for the Amazon S3 Bucket When Using IAM Roles
 
 AWS Config uses the IAM role you assigned to the configuration recorder to deliver configuration history and snapshots to S3 buckets in your account.
 For cross-account delivery, AWS Config first attempts to use the assigned IAM role.
@@ -39,17 +35,13 @@ However, AWS Config can still deliver configuration history and snapshots even i
 
 The Amazon S3 `HeadBucket` API requires the `s3:ListBucket` action.
 
-## Required Permissions for the
-
-Amazon S3 Bucket When Using Service-Linked Roles
+## Required Permissions for the Amazon S3 Bucket When Using Service-Linked Roles
 
 The AWS Config service-linked role does not have permission to put objects to Amazon S3 buckets.
 If you set up AWS Config using a service-linked role, AWS Config will use the `config.amazonaws.com` service principal to deliver configuration history and snapshots.
 The S3 bucket policy in your account or cross-account destinations must include permissions for the AWS Config service principal to write objects.
 
-## Granting AWS Config access to the Amazon S3
-
-Bucket
+## Granting AWS Config access to the Amazon S3 Bucket
 
 Complete the following steps enable AWS Config to deliver configuration history and snapshots to an Amazon S3 bucket.
 
@@ -146,9 +138,7 @@ For example, to restrict S3 bucket access to a delivery channel in the US East (
 "ArnLike": {"AWS:SourceArn": "arn:aws:config:us-east-1:123456789012:"}
 ```
 
-## Required Permissions for the
-
-Amazon S3 Bucket When Delivering Cross-Account
+## Required Permissions for the Amazon S3 Bucket When Delivering Cross-Account
 
 When AWS Config is configured to deliver configuration history and snapshots to an Amazon S3 bucket in a different account (cross-account setup), where the configuration recorder and the S3 bucket specified for delivery channel are in different AWS accounts,
 the following permissions are required:

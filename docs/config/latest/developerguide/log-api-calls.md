@@ -13,8 +13,7 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 ###### Topics
 
 - [AWS Config Information in CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
-- [Understanding AWS Config Log File
-  Entries](#understanding-awsconfig-entries "#understanding-awsconfig-entries")
+- [Understanding AWS Config Log File Entries](#understanding-awsconfig-entries "#understanding-awsconfig-entries")
 - [Example Log Files](#cloudtrail-log-files-for-aws-config "#cloudtrail-log-files-for-aws-config")
 
 ## AWS Config Information in CloudTrail
@@ -56,9 +55,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Config Log File
-
-Entries
+## Understanding AWS Config Log File Entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents

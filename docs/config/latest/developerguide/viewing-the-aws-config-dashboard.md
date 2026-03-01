@@ -16,13 +16,10 @@ workflows.
 
 ###### Contents
 
-- [Compliance and Resource
-  Inventory](viewing-the-aws-config-dashboard.md#aws-config-dashboard-compliance "viewing-the-aws-config-dashboard.md#aws-config-dashboard-compliance")
+- [Compliance and Resource Inventory](viewing-the-aws-config-dashboard.md#aws-config-dashboard-compliance "viewing-the-aws-config-dashboard.md#aws-config-dashboard-compliance")
 - [AWS Config Usage and Success Metrics](viewing-the-aws-config-dashboard.md#aws-config-dashboard-metrics "viewing-the-aws-config-dashboard.md#aws-config-dashboard-metrics")
 
-## Compliance and Resource
-
-Inventory
+## Compliance and Resource Inventory
 
 After setup, AWS Config starts recording your specified resources and evaluating them
 against your rules. It may take a few minutes for AWS Config to display your resources,

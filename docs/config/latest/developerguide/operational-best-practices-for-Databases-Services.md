@@ -1,6 +1,4 @@
-# Operational Best Practices
-
-for Databases Services
+# Operational Best Practices for Databases Services
 
 This conformance pack contains AWS Config rules based on Databases Services. For more information, see [Databases on AWS](https://aws.amazon.com/products/databases/ "https://aws.amazon.com/products/databases/"). For a list of all managed rules supported by AWS Config, see
 [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").

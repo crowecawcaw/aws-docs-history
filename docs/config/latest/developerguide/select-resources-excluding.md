@@ -1,6 +1,4 @@
-# Excluding resources from recording with
-
-AWS Config
+# Excluding resources from recording with AWS Config
 
 AWS Config allows you to exclude specific types of AWS resources from inventory tracking and
 compliance monitoring while still tracking all other supported resource types currently

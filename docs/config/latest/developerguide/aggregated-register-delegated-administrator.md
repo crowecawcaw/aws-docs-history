@@ -1,6 +1,4 @@
-# Registering a Delegated
-
-Administrator for AWS Config
+# Registering a Delegated Administrator for AWS Config
 
 Delegated administrators are accounts within a given AWS Organization that are granted
 additional administrative privileges for a specified AWS service. For more information,

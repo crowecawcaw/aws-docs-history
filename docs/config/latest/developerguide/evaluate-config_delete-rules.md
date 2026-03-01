@@ -53,9 +53,7 @@ noncompliant. For more information, see [Recording AWS Resources with AWS Config
 6. When prompted, type "Delete" (case-sensitive) and then choose
    **Delete**.
 
-## Deleting Rules
-
-(AWS SDKs)
+## Deleting Rules (AWS SDKs)
 
 The following code examples show how to use `DeleteConfigRule`.
 

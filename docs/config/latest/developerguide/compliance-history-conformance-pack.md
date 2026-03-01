@@ -1,6 +1,4 @@
-# Viewing the Compliance History Timeline for
-
-Conformance Packs for AWS Config
+# Viewing the Compliance History Timeline for Conformance Packs for AWS Config
 
 AWS Config supports storing compliance state changes to your conformance packs. This allows you
 to view the history of compliance state changes. These compliance state changes are
@@ -28,9 +26,7 @@ at one time. Some rules may take a longer time to evaluate than others. Complian
 for groups of rules at a time, continuing in stages until all the rules in a conformance
 pack have been evaluated.
 
-## Viewing the Compliance
-
-Timeline
+## Viewing the Compliance Timeline
 
 Access the compliance timeline by selecting a specific conformance pack from the
 **Conformance pack** main page.

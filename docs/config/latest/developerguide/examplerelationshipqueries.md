@@ -1,6 +1,4 @@
-# Example Relationship Queries for
-
-AWS Config
+# Example Relationship Queries for AWS Config
 
 View the following example relationship queries.
 

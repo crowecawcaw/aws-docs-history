@@ -1,6 +1,4 @@
-# Troubleshooting for Multi-Account
-
-Multi-Region Data Aggregation for AWS Config
+# Troubleshooting for Multi-Account Multi-Region Data Aggregation for AWS Config
 
 AWS Config might not aggregate data from source accounts for one of the following
 reasons:

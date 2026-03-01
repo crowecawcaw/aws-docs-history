@@ -14,9 +14,7 @@ support the following:
   Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
   such as Java 7 and later support these modes.
 
-## Configuration and Vulnerability
-
-Analysis
+## Configuration and Vulnerability Analysis
 
 For AWS Config, AWS handles basic security tasks such as guest operating system (OS) and
 database patching, firewall configuration, and disaster recovery.

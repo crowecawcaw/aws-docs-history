@@ -86,9 +86,7 @@ $ **aws configservice get-resource-config-history --resource-type AWS::EC2::Secu
 
 For detailed explanation of the response fields, see [Components of a Configuration Item](config-item-table.md "config-item-table.md") and [Supported Resource Types for AWS Config](resource-config-reference.md "resource-config-reference.md").
 
-#### Example Amazon EBS Configuration History from
-
-AWS Config
+#### Example Amazon EBS Configuration History from AWS Config
 
 AWS Config generates a set of files that each represent a resource type and lists all
 configuration changes for the resources of that type that AWS Config is recording. AWS Config
@@ -274,9 +272,7 @@ changes since the previous history file was delivered while volume
 
 ```
 
-## Viewing Compliance History Timeline for
-
-Resources and Rules
+## Viewing Compliance History Timeline for Resources and Rules
 
 AWS Config supports storing compliance state changes of resources as evaluated by AWS Config Rules. The
 resource compliance history is presented in the form of a timeline. The timeline captures

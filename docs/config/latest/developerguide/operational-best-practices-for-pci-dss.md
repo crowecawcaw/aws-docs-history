@@ -1,6 +1,4 @@
-# Operational Best Practices for PCI
-
-DSS 3.2.1
+# Operational Best Practices for PCI DSS 3.2.1
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

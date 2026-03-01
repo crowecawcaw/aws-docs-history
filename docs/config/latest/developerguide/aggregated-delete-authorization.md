@@ -1,6 +1,4 @@
-# Deleting Authorization for Aggregator
-
-Accounts to Collect AWS Config Configuration and Compliance Data
+# Deleting Authorization for Aggregator Accounts to Collect AWS Config Configuration and Compliance Data
 
 _Authorization_ refers to the permissions you grant to an aggregator
 account and region to collect your AWS Config configuration and compliance data. Authorization is
@@ -10,8 +8,7 @@ the AWS Config console or the AWS CLI to delete authorizations.
 ###### Topics
 
 - [Considerations](#aggregated-delete-authorization-considerations "#aggregated-delete-authorization-considerations")
-- [Deleting
-  Authorization](#aaggregated-delete-authorization-procedure "#aaggregated-delete-authorization-procedure")
+- [Deleting Authorization](#aaggregated-delete-authorization-procedure "#aaggregated-delete-authorization-procedure")
 
 ## Considerations
 
@@ -32,9 +29,7 @@ AWS Config needs to be enabled in the source account and Region for either type 
 aggregator, in order for AWS Config data to be generated in the source account and
 Region.
 
-## Deleting
-
-Authorization
+## Deleting Authorization
 
 Deleting Authorization (Console)
 

@@ -36,9 +36,7 @@ the operational burden and complexity involved in protecting sensitive data. Wit
 encryption at rest, you can build security-sensitive applications that meet encryption
 compliance and regulatory requirements.
 
-## Encryption of Data in
-
-Transit
+## Encryption of Data in Transit
 
 Data gathered and accessed by AWS Config is exclusively over a Transport Layer Security
 (TLS) protected channel.

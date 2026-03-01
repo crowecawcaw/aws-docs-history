@@ -1,6 +1,4 @@
-#
-
-Operational Best Practices for Criminal Justice Information Services (CJIS)
+# Operational Best Practices for Criminal Justice Information Services (CJIS)
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to create security, operational or cost-optimization governance checks using managed
 or custom AWS Config rules and AWS Config remediation actions. Conformance Packs, as sample templates, are not designed to fully ensure compliance with a specific governance or

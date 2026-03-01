@@ -1,6 +1,4 @@
-# Security Best Practices for
-
-AWS CloudTrail
+# Security Best Practices for AWS CloudTrail
 
 This conformance pack contains AWS Config rules based on AWS CloudTrail. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

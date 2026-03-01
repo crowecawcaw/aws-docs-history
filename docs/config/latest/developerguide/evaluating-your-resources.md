@@ -118,9 +118,7 @@ Use detective evaluation to evaluate resources that have already been
 deployed. This allows you to evaluate the configuration settings of your
 existing resources.
 
-### Evaluating your Resources
-
-(Console)
+### Evaluating your Resources (Console)
 
 1. Sign in to the AWS Management Console and open the AWS Config console at
    [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").

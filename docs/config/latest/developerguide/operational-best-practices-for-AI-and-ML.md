@@ -1,6 +1,4 @@
-# Operational Best Practices for AI
-
-and ML
+# Operational Best Practices for AI and ML
 
 This conformance pack contains AWS Config rules based on AI and ML. For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

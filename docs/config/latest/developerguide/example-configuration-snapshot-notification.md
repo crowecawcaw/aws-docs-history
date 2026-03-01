@@ -1,6 +1,4 @@
-# Example Configuration
-
-Snapshot Delivery Notification
+# Example Configuration Snapshot Delivery Notification
 
 The configuration snapshot is a collection of configuration items for all recorded
 resources and their configurations in your account. The following is an example

@@ -565,11 +565,11 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 | Amazon Managed Streaming for Apache Kafka Connect | `AWS::KafkaConnect::Connector` | NA           | NA               |
 | `AWS::KafkaConnect::CustomPlugin`                 | NA                             | NA           |
 
-## Amazon Quick Suite
+## Amazon Quick
 
 | AWS Service                 | Resource Type Value           | Relationship | Related Resource |
 | --------------------------- | ----------------------------- | ------------ | ---------------- |
-| Amazon Quick Suite          | `AWS::QuickSight::DataSource` | NA           | NA               |
+| Amazon Quick                | `AWS::QuickSight::DataSource` | NA           | NA               |
 | `AWS::QuickSight::Template` | NA                            | NA           |
 | `AWS::QuickSight::Theme`    | NA                            | NA           |
 
@@ -710,8 +710,7 @@ You might continue to see your data for `AWS::OpenSearch::Domain` under the exis
 
 \*If you configured AWS Config to record your S3 buckets, and are not
 receiving configuration change notifications, check that your S3 bucket policies have the
-required permissions. For more information, see [Managing Permissions for S3
-Bucket Recording](iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy "iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy").
+required permissions. For more information, see [Managing Permissions for S3 Bucket Recording](iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy "iamrole-permissions.md#troubleshooting-recording-s3-bucket-policy").
 
 **Amazon S3 Bucket Attributes**
 

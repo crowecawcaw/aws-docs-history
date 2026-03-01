@@ -1,6 +1,4 @@
-# Renaming the customer managed configuration
-
-recorder
+# Renaming the customer managed configuration recorder
 
 You must use the AWS CLI to rename the customer managed configuration recorder. To change
 the name of the customer managed configuration recorder, you must delete it and create a new

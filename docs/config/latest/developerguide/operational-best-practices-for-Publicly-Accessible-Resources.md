@@ -1,6 +1,4 @@
-# Operational
-
-Best Practices for Publicly Accessible Resources
+# Operational Best Practices for Publicly Accessible Resources
 
 This conformance pack helps identify resources that may be publicly accessible.
 

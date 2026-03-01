@@ -1,6 +1,4 @@
-# Changing the recording
-
-frequency for the customer managed configuration recorder
+# Changing the recording frequency for the customer managed configuration recorder
 
 AWS Config supports continuous recording and daily recording:
 

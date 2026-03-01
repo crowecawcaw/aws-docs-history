@@ -1,6 +1,4 @@
-# Security Best Practices for
-
-AWS Network Firewall
+# Security Best Practices for AWS Network Firewall
 
 This conformance pack contains AWS Config rules based on AWS Network Firewall. For a list of all managed rules supported by AWS Config, see
 [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").

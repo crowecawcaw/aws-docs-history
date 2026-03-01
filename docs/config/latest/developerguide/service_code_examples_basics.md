@@ -1,6 +1,4 @@
-# Basic examples for
-
-AWS Config using AWS SDKs
+# Basic examples for AWS Config using AWS SDKs
 
 The following code examples show how to use the basics of AWS Config with AWS
 SDKs.

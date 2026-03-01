@@ -1,6 +1,4 @@
-# Creating AWS Config Custom Lambda
-
-Rules
+# Creating AWS Config Custom Lambda Rules
 
 You can develop custom rules and add them to AWS Config with AWS Lambda functions.
 

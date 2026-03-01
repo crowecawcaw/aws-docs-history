@@ -1,6 +1,4 @@
-# Deleting your configuration
-
-recorders
+# Deleting your configuration recorders
 
 You must use the AWS CLI to delete the customer managed configuration recorder. You can use
 AWS Config console or the AWS CLI to delete a service-linked configuration recorder.

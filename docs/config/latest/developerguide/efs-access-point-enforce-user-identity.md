@@ -24,5 +24,4 @@ Comma-separated list of POSIX group IDs that are approved for EFS access point u
 
 ## AWS CloudFormation template
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
-Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

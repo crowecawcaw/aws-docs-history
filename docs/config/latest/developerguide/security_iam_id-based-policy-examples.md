@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for AWS Config
+# Identity-based policy examples for AWS Config
 
 By default, users and roles don't have permission to create or modify AWS Config
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,17 @@ For details about actions and resource types defined by AWS Config, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Using the console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Read-only access to AWS Config](#read-only-config-permission "#read-only-config-permission")
 - [Full access to AWS Config](#full-config-permission "#full-config-permission")
 - [Controlling Access to AWS Config Rules](#supported-resource-level-permissions "#supported-resource-level-permissions")
 - [Controlling Access to Aggregated Data](#resource-level-permission "#resource-level-permission")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Config resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -119,9 +113,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Using the AWS Config
-
-console
+## Using the AWS Config console
 
 To access the AWS Config console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS Config resources
@@ -156,9 +148,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -382,9 +372,7 @@ JSON
 
 ```
 
-## Supported Resource-Level
-
-Permissions for AWS Config Rule API Actions
+## Supported Resource-Level Permissions for AWS Config Rule API Actions
 
 Resource-level permissions refers to the ability to specify which resources users
 are allowed to perform actions on. AWS Config supports resource-level permissions for
@@ -481,9 +469,7 @@ JSON
 With resource-level permissions, you can allow read access and deny write access
 to perform specific actions on AWS Config rule API actions.
 
-## Supported Resource-Level Permissions for
-
-Multi-Account Multi-Region Data Aggregation
+## Supported Resource-Level Permissions for Multi-Account Multi-Region Data Aggregation
 
 You can use resource-level permissions to control a user's ability to perform
 specific actions on multi-account multi-region data aggregation. The following AWS Config

@@ -1,6 +1,4 @@
-# View and Edit the Process Check
-
-(Console)
+# View and Edit the Process Check (Console)
 
 You can view process checks only after a compliance state has been added to process
 checks. Choose the specific conformance pack to view all the process checks within that

@@ -28,5 +28,4 @@ Specify the retention time in days. Valid values are: 1, 3, 5, 7, 14, 30, 60, 90
 
 ## AWS CloudFormation template
 
-To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
-Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

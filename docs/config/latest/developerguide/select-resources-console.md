@@ -78,9 +78,7 @@ specify.
 
 5. Choose **Save** to save your changes.
 
-## Considerations When Recording
-
-Resources
+## Considerations When Recording Resources
 
 **High Number of AWS Config Evaluations**
 

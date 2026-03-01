@@ -1,6 +1,4 @@
-# Creating AWS Config Managed
-
-Rules With AWS CloudFormation Templates
+# Creating AWS Config Managed Rules With AWS CloudFormation Templates
 
 ###### Important
 

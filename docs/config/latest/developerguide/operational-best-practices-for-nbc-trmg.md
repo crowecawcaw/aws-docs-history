@@ -1,6 +1,4 @@
-# Operational Best Practices for
-
-NBC TRMG
+# Operational Best Practices for NBC TRMG
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

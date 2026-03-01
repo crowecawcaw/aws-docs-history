@@ -1,6 +1,4 @@
-# Delete Third-Party Resources from AWS Config
-
-using the AWS CLI
+# Delete Third-Party Resources from AWS Config using the AWS CLI
 
 Enter the following command to delete a third-party resource:
 

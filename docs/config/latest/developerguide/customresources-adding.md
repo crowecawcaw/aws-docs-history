@@ -4,18 +4,13 @@ Follow these steps to add a third-party resource to AWS Config.
 
 ###### Topics
 
-- [Step 1: Setup Your Development
-  Environment](#customresources-setupdevenvironment "#customresources-setupdevenvironment")
+- [Step 1: Setup Your Development Environment](#customresources-setupdevenvironment "#customresources-setupdevenvironment")
 - [Step 2: Model Your Resource](#customresources-modelresource "#customresources-modelresource")
 - [Step 3: Generate Artifacts](#generateartifactsforcfnsubmit "#generateartifactsforcfnsubmit")
-- [Step 4: Register Your
-  Resource](#customresources-registerresource "#customresources-registerresource")
-- [Step 5: Publish
-  Resource Configuration](#customresources-publishresourceconfiguration "#customresources-publishresourceconfiguration")
+- [Step 4: Register Your Resource](#customresources-registerresource "#customresources-registerresource")
+- [Step 5: Publish Resource Configuration](#customresources-publishresourceconfiguration "#customresources-publishresourceconfiguration")
 
-## Step 1: Setup Your Development
-
-Environment
+## Step 1: Setup Your Development Environment
 
 Install and configure the CloudFormation AWS CLI. The AWS CLI allows you to model and register
 your custom resources. For more information, see [Custom Resources](../../../AWSCloudFormation/latest/UserGuide/template-custom-resources.md "../../../AWSCloudFormation/latest/UserGuide/template-custom-resources.md") and
@@ -142,9 +137,7 @@ Run the following command to generate artifacts for `cfn
 $ mvn package
 ```
 
-## Step 4: Register Your
-
-Resource
+## Step 4: Register Your Resource
 
 AWS Config does not require resource provider handlers to perform configuration tracking
 for your resource. Run the following command to register your resource.
@@ -155,9 +148,7 @@ $ cfn submit
 
 For more information, see [Registering Resource Providers for Use in CloudFormation Templates](../../../cloudformation-cli/latest/userguide/resource-type-register.md "../../../cloudformation-cli/latest/userguide/resource-type-register.md").
 
-## Step 5: Publish
-
-Resource Configuration
+## Step 5: Publish Resource Configuration
 
 Determine the configuration for MyCustomNamespace::Testing::WordPress.
 

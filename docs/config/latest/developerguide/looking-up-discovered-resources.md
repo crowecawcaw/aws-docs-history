@@ -1,6 +1,4 @@
-# Looking Up Resources That Are Discovered
-
-by AWS Config
+# Looking Up Resources That Are Discovered by AWS Config
 
 You can use the AWS Config console, AWS CLI, and AWS Config API to look up the resources that AWS Config has
 taken an inventory of, or _discovered_, including deleted resources and

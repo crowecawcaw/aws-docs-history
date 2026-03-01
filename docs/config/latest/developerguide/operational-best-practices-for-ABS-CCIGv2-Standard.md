@@ -1,6 +1,4 @@
-# Operational Best
-
-Practices for ABS CCIG 2.0 Standard Workloads
+# Operational Best Practices for ABS CCIG 2.0 Standard Workloads
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

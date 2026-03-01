@@ -1,6 +1,4 @@
-#
-
-Operational Best Practices for CIS Critical Security Controls v8 IG1
+# Operational Best Practices for CIS Critical Security Controls v8 IG1
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

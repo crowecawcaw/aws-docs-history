@@ -9,13 +9,10 @@ You can use the AWS Config console or AWS SDKs to view the compliance informatio
 
 ###### Topics
 
-- [Viewing compliance
-  (Console)](#evaluate-config_view-compliance-console "#evaluate-config_view-compliance-console")
+- [Viewing compliance (Console)](#evaluate-config_view-compliance-console "#evaluate-config_view-compliance-console")
 - [Viewing compliance (AWS SDKs)](#evaluate-config_view-compliance-cli "#evaluate-config_view-compliance-cli")
 
-## Viewing compliance
-
-(Console)
+## Viewing compliance (Console)
 
 1. Sign in to the AWS Management Console and open the AWS Config console at
    [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
@@ -39,8 +36,7 @@ resource name. To access the resource timeline from the resource details
 page, choose the **Resource Timeline**
 button.
 You can also view the compliance of your resources by looking them up on the
-**Resource inventory** page. For more information, see [Looking Up Resources That Are Discovered
-by AWS Config](looking-up-discovered-resources.md "looking-up-discovered-resources.md").
+**Resource inventory** page. For more information, see [Looking Up Resources That Are Discovered by AWS Config](looking-up-discovered-resources.md "looking-up-discovered-resources.md").
 
 ## Viewing compliance (AWS SDKs)
 

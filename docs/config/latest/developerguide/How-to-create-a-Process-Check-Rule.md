@@ -1,9 +1,6 @@
-# Include Process Checks Within a
+# Include Process Checks Within a Conformance Pack
 
-Conformance Pack
-
-1. Add a process check in the conformance pack template. Refer to [Sample
-   Conformance Pack Template for Creating Process Checks](Sample-CPack-Template-for-Creating-Process-Check-Rule.md "Sample-CPack-Template-for-Creating-Process-Check-Rule.md").
+1. Add a process check in the conformance pack template. Refer to [Sample Conformance Pack Template for Creating Process Checks](Sample-CPack-Template-for-Creating-Process-Check-Rule.md "Sample-CPack-Template-for-Creating-Process-Check-Rule.md").
 
 ```
 Resources:

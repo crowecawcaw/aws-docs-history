@@ -45,9 +45,7 @@ retention period.
   switched off.
 - AWS Config cannot record your `ConfigurationItems` if your IAM role has insufficient permissions. For more information, see [Permissions for the IAM Role Assigned to AWS Config](iamrole-permissions.md "iamrole-permissions.md").
 
-## Setting Data
-
-Retention Period in AWS Management Console
+## Setting Data Retention Period in AWS Management Console
 
 In the AWS Management Console, if you do not select a data retention period, the default period is
 7 years or 2557 days.

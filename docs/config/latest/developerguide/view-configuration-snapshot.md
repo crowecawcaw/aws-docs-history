@@ -1,6 +1,4 @@
-# Viewing Configuration Snapshots in Amazon S3
-
-bucket
+# Viewing Configuration Snapshots in Amazon S3 bucket
 
 A _configuration snapshot_ is a collection of the configuration
 items for the supported resources that exist in your account. This configuration
@@ -13,9 +11,7 @@ snapshot delivered to an Amazon Simple Storage Service (Amazon S3) bucket that y
 select a point in time in the AWS Config console and navigate through the snapshot of
 configuration items using the relationships between the resources.
 
-## Viewing Configuration
-
-Snapshots
+## Viewing Configuration Snapshots
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

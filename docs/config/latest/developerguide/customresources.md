@@ -1,6 +1,4 @@
-# Recording Configurations with AWS Config for Third-Party
-
-Resources using the AWS CLI
+# Recording Configurations with AWS Config for Third-Party Resources using the AWS CLI
 
 Record configurations for third-party resources or custom resource types such as on
 premise servers, SAAS monitoring tools, and version control systems (like GitHub).

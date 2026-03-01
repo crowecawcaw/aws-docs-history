@@ -1,6 +1,4 @@
-# Natural language query processor for AWS Config advanced
-
-queries
+# Natural language query processor for AWS Config advanced queries
 
 ###### Note
 
@@ -30,9 +28,7 @@ The natural language query processor cannot do the following actions:
   sessions.
 - Explain code that has been generated.
 
-## Query using the natural language query
-
-processor
+## Query using the natural language query processor
 
 1. Sign in to the AWS Management Console and open the AWS Config console at
    [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").

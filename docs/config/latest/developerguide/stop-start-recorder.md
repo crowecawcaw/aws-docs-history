@@ -13,26 +13,17 @@ There are two types of configuration recorders.
 
 ###### Topics
 
-- [Considerations for the customer managed
-  configuration recorder](#stop-start-recorder-considerations "#stop-start-recorder-considerations")
-- [Considerations for
-  service-linked configuration recorders](#stop-start-recorder-considerations-service-linked "#stop-start-recorder-considerations-service-linked")
+- [Considerations for the customer managed configuration recorder](#stop-start-recorder-considerations "#stop-start-recorder-considerations")
+- [Considerations for service-linked configuration recorders](#stop-start-recorder-considerations-service-linked "#stop-start-recorder-considerations-service-linked")
 - [Drift detection for the configuration recorder](#drift-detection "#drift-detection")
-- [Starting the customer managed configuration
-  recorder](managing-recorder_console-start.md "managing-recorder_console-start.md")
-- [Stopping the customer managed configuration
-  recorder](managing-recorder_console-stop.md "managing-recorder_console-stop.md")
-- [Changing the recording
-  frequency for the customer managed configuration recorder](managing-recorder_console-change-recording-frequency.md "managing-recorder_console-change-recording-frequency.md")
-- [Renaming the customer managed configuration
-  recorder](managing-recorder_console-rename.md "managing-recorder_console-rename.md")
+- [Starting the customer managed configuration recorder](managing-recorder_console-start.md "managing-recorder_console-start.md")
+- [Stopping the customer managed configuration recorder](managing-recorder_console-stop.md "managing-recorder_console-stop.md")
+- [Changing the recording frequency for the customer managed configuration recorder](managing-recorder_console-change-recording-frequency.md "managing-recorder_console-change-recording-frequency.md")
+- [Renaming the customer managed configuration recorder](managing-recorder_console-rename.md "managing-recorder_console-rename.md")
 - [Viewing your configuration recorders](configuration-recorder-view.md "configuration-recorder-view.md")
-- [Deleting your configuration
-  recorders](managing-recorder_console-delete.md "managing-recorder_console-delete.md")
+- [Deleting your configuration recorders](managing-recorder_console-delete.md "managing-recorder_console-delete.md")
 
-## Considerations for the customer managed
-
-configuration recorder
+## Considerations for the customer managed configuration recorder
 
 **One customer managed configuration recorder per account per
 Region**
@@ -90,9 +81,7 @@ their deletions. This means you might see stale evaluation results for resources
 deleted when the customer managed configuration recorder is turned off since AWS Config cannot
 capture deletion events if recording is not on.
 
-## Considerations for
-
-service-linked configuration recorders
+## Considerations for service-linked configuration recorders
 
 **The AWS Config service-linked role must be used**
 

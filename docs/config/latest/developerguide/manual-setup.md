@@ -25,9 +25,7 @@ setup](1-click-setup.md "1-click-setup.md").
 
 ## Step 1: Settings
 
-### Recording
-
-strategy
+### Recording strategy
 
 In the **Recording method** section, choose a recording strategy.
 You can specify the AWS resources that you want AWS Config to record.
@@ -95,9 +93,7 @@ If you change the recording frequency for a resource type or
 stop recording a resource type, the configuration items that
 were already recorded will remain unchanged.
 
-#### Considerations When Recording
-
-Resources
+#### Considerations When Recording Resources
 
 **High Number of AWS Config Evaluations**
 
@@ -267,8 +263,7 @@ period.
 
   If you choose a bucket from another account, that bucket must
   have policies that grant access permissions to AWS Config. For more
-  information, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery
-  Channel](s3-bucket-policy.md "s3-bucket-policy.md").
+  information, see [Permissions for the Amazon S3 Bucket for the AWS Config Delivery Channel](s3-bucket-policy.md "s3-bucket-policy.md").
 
 - For **Amazon SNS topic**, choose **Stream
   configuration changes and notifications to an Amazon SNS topic** to
@@ -312,5 +307,4 @@ Compliance Informance](evaluate-config_view-compliance.md "evaluate-config_view-
 Compliance History](view-manage-resource-console.md "view-manage-resource-console.md").
 
 You can also use Amazon Simple Queue Service to monitor AWS resources programmatically. For more
-information, see [Monitoring AWS Resource Changes with
-Amazon SQS](monitor-resource-changes.md "monitor-resource-changes.md").
+information, see [Monitoring AWS Resource Changes with Amazon SQS](monitor-resource-changes.md "monitor-resource-changes.md").

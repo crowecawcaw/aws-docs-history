@@ -1,6 +1,4 @@
-# Managing AWS Config Rules Across All
-
-Accounts in Your Organization
+# Managing AWS Config Rules Across All Accounts in Your Organization
 
 ###### Important
 

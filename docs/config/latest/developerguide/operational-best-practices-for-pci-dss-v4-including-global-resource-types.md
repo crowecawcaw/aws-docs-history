@@ -1,6 +1,4 @@
-# Operational Best Practices for PCI
-
-DSS 4.0 (Including global resource types)
+# Operational Best Practices for PCI DSS 4.0 (Including global resource types)
 
 Conformance packs provide a general-purpose compliance framework designed to enable you to
 create security, operational or cost-optimization governance checks using managed or custom

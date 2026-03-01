@@ -1,6 +1,4 @@
-# Authorizing Aggregator Accounts to Collect
-
-AWS Config Configuration and Compliance Data
+# Authorizing Aggregator Accounts to Collect AWS Config Configuration and Compliance Data
 
 _Authorization_ refers to the permissions you grant to an aggregator
 account and region to collect your AWS Config configuration and compliance data. Authorization is

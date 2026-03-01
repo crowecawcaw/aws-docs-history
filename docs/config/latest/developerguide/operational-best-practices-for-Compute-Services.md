@@ -1,6 +1,4 @@
-# Operational Best Practices
-
-for Compute Services
+# Operational Best Practices for Compute Services
 
 This conformance pack contains AWS Config rules based on Compute Services. For more information, see [Compute for any workload](https://aws.amazon.com/products/compute/ "https://aws.amazon.com/products/compute/"). For a list of all managed rules supported by AWS Config, see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 

@@ -1,6 +1,4 @@
-# Example Configuration Item Change
-
-Notifications
+# Example Configuration Item Change Notifications
 
 AWS Config uses Amazon SNS to deliver notifications to subscription endpoints. These notifications
 provide the delivery status for configuration snapshots and configuration histories, and
@@ -97,9 +95,7 @@ for the resource.
 }
 ```
 
-## Configuration Items for
-
-Resources with Relationships
+## Configuration Items for Resources with Relationships
 
 If a resource is related to other resources, a change to that resource can result in
 multiple configuration items. The following example shows how AWS Config creates configuration
@@ -477,10 +473,7 @@ This notification contains the configuration item change for the EC2 security gr
 }
 ```
 
-## Understanding
-
-the `configurationItemDiff` field in Amazon SNS
-`ConfigurationItemChangeNotification` notifications
+## Understanding the `configurationItemDiff` field in Amazon SNS `ConfigurationItemChangeNotification` notifications
 
 AWS Config creates a configuration item whenever the configuration of a resource changes
 (create/update/delete). For a list of supported resource types that AWS Config can record, see

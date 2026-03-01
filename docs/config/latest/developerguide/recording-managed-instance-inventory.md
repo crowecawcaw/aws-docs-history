@@ -1,6 +1,4 @@
-# Recording Software Configuration for
-
-Managed Instances with AWS Config
+# Recording Software Configuration for Managed Instances with AWS Config
 
 You can use AWS Config to record software inventory changes on Amazon EC2 instances and on-premises
 servers. This enables you to see the historical changes to software configuration. For
@@ -12,8 +10,7 @@ for the managed instance and how they changed over time.
 ###### Topics
 
 - [Prerequisites](#recording-managed-instance-inventory-prerequisites "#recording-managed-instance-inventory-prerequisites")
-- [Recording Software
-  Configurations](#recording-managed-instance-inventory-procedure "#recording-managed-instance-inventory-procedure")
+- [Recording Software Configurations](#recording-managed-instance-inventory-procedure "#recording-managed-instance-inventory-procedure")
 
 ## Prerequisites
 
@@ -49,9 +46,7 @@ specified application, and an instance doesn't have that application installed, 
 flags that instance as noncompliant against your rule. For a list of AWS Config managed rules,
 see [List of AWS Config Managed Rules](managed-rules-by-aws-config.md "managed-rules-by-aws-config.md").
 
-## Recording Software
-
-Configurations
+## Recording Software Configurations
 
 ###### To enable recording of software configuration changes in AWS Config:
 
