@@ -86,8 +86,7 @@ the tutorial.
 
 ###### Topics
 
-- [Prerequisites to get started with
-  AWS IoT Events](iotevents-getting-started-prereqs.md "iotevents-getting-started-prereqs.md")
+- [Prerequisites to get started with AWS IoT Events](iotevents-getting-started-prereqs.md "iotevents-getting-started-prereqs.md")
 - [Create an input for models in AWS IoT Events](create-input-overview.md "create-input-overview.md")
 - [Create a detector model in AWS IoT Events](iotevents-detector-model.md "iotevents-detector-model.md")
 - [Send inputs to test the detector model in AWS IoT Events](iotevents-iot-rules-engine.md "iotevents-iot-rules-engine.md")

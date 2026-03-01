@@ -3,25 +3,18 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Troubleshoot AWS IoT Events identity and
-
-access
+# Troubleshoot AWS IoT Events identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AWS IoT Events and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in AWS IoT Events](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my AWS IoT Events resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in AWS IoT Events](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my AWS IoT Events resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in AWS IoT Events
+## I am not authorized to perform an action in AWS IoT Events
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -41,9 +34,7 @@ access the `my-example-input` resource using the
 `iotevents:`ListInput``
 action.
 
-## I am not authorized to perform
-
-`iam:PassRole`
+## I am not authorized to perform `iam:PassRole`
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to AWS IoT Events.
 
@@ -62,9 +53,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my AWS IoT Events resources
+## I want to allow people outside of my AWS account to access my AWS IoT Events resources
 
 You can create a role that users in other accounts or people outside of your
 organization can use to access your resources. You can specify who is trusted to assume

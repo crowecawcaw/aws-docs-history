@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Cross-service confused deputy
-
-prevention for AWS IoT Events
+# Cross-service confused deputy prevention for AWS IoT Events
 
 ###### Note
 
@@ -53,9 +51,7 @@ confused deputy problem.
 
 ###### Topics
 
-- [Example: Secure access to an AWS IoT Events detector
-  model](accessing-a-detector-model.md "accessing-a-detector-model.md")
+- [Example: Secure access to an AWS IoT Events detector model](accessing-a-detector-model.md "accessing-a-detector-model.md")
 - [Example: Secure access to an AWS IoT Events alarm model](accessing-an-alarm-model.md "accessing-an-alarm-model.md")
-- [Example: Access an AWS IoT Events resource in a
-  specified region](accessing-resource-in-specified-region.md "accessing-resource-in-specified-region.md")
+- [Example: Access an AWS IoT Events resource in a specified region](accessing-resource-in-specified-region.md "accessing-resource-in-specified-region.md")
 - [Example: Configure logging options for AWS IoT Events](logging-options.md "logging-options.md")

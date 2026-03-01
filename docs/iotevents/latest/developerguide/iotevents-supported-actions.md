@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Supported actions to receive data and trigger
-
-actions in AWS IoT Events
+# Supported actions to receive data and trigger actions in AWS IoT Events
 
 AWS IoT Events can trigger actions when it detects a specified event or transition event. You can
 define built-in actions to use a timer or set a variable, or send data to other AWS

@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Deploy a Lambda function for AWS IoT Events
-
-using CloudFormation
+# Deploy a Lambda function for AWS IoT Events using CloudFormation
 
 This tutorial uses an CloudFormation template to deploy a Lambda function. This template
 automatically creates an IAM role that allows the Lambda function to work with

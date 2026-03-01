@@ -133,8 +133,7 @@ action**. 14. For **Choose an action**, choose **Set variable**.
 
 For more information about why we test for the `$input` value and the
 `$variable` value in the trigger logic, see the entry for availability of
-variable values in [AWS IoT Events detector model restrictions and
-limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md"). 23. Select the **Start** state. By default, this state was created when
+variable values in [AWS IoT Events detector model restrictions and limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md"). 23. Select the **Start** state. By default, this state was created when
 you created a detector model). In the **Start** pane, choose the
 **Destination state** (for example,
 **Normal**). 24. Next, configure your detector model to listen for inputs. In the upper-right corner,

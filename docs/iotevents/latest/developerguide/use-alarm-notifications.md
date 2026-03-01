@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Using the Lambda function provided by
-
-AWS IoT Events
+# Using the Lambda function provided by AWS IoT Events
 
 With alarm notifications, you can use the Lambda function provided by AWS IoT Events for
 managing alarm notifications.

@@ -22,16 +22,11 @@ code, workflow, and related AWS resources to your business needs.
 
 ###### Topics
 
-- [Considerations when migrating away from
-  AWS IoT Events](#eos-considerations "#eos-considerations")
-- [Migration procedure for detector models
-  in AWS IoT Events](eos-procedure-detector-models.md "eos-procedure-detector-models.md")
-- [Migration procedure for AWS IoT SiteWise alarms in
-  AWS IoT Events](eos-procedure-alarms.md "eos-procedure-alarms.md")
+- [Considerations when migrating away from AWS IoT Events](#eos-considerations "#eos-considerations")
+- [Migration procedure for detector models in AWS IoT Events](eos-procedure-detector-models.md "eos-procedure-detector-models.md")
+- [Migration procedure for AWS IoT SiteWise alarms in AWS IoT Events](eos-procedure-alarms.md "eos-procedure-alarms.md")
 
-## Considerations when migrating away from
-
-AWS IoT Events
+## Considerations when migrating away from AWS IoT Events
 
 - Implement security best practices, including using IAM roles with least
   privilege for each component and encrypting data at rest and in transit. For

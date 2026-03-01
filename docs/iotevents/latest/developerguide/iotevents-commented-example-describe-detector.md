@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Configure the
-
-DescribeDetector API in AWS IoT Events
+# Configure the DescribeDetector API in AWS IoT Events
 
 The `DescribeDetector` API in AWS IoT Events lets you to retrieve detailed information
 about a specific detector instance. This operation provides insights into the current state,

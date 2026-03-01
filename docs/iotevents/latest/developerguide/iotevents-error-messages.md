@@ -38,8 +38,7 @@ limitations.
   the result isn't a Boolean value, it's equivalent to
   `false` and doesn't trigger the `actions`
   or transition to the `nextState` specified in the event.
-  For more information, see [AWS IoT Events detector model restrictions and
-  limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md").
+  For more information, see [AWS IoT Events detector model restrictions and limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md").
 
 ## Updates from a deleted detector model
 
@@ -258,8 +257,7 @@ timeout("`timer-name`")
 For the `convert(`type`, `expression`)` function,
 if you use a reference for the `type` value,
 the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`.
-For more information, see [AWS IoT Events reference for inputs and variables in
-expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
+For more information, see [AWS IoT Events reference for inputs and variables in expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
 
 ## Failed to send message to AWS IoT Events
 

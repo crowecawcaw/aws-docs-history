@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Ingest MQTT messages in
-
-AWS IoT Events
+# Ingest MQTT messages in AWS IoT Events
 
 If your sensor computing resources can't use the `"BatchPutMessage"` API, but
 can send their data to the AWS IoT Core message broker using a lightweight MQTT client, you can

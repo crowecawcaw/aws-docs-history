@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Migration procedure for AWS IoT SiteWise alarms in
-
-AWS IoT Events
+# Migration procedure for AWS IoT SiteWise alarms in AWS IoT Events
 
 This section describes alternative solutions that deliver similar alarm functionality
 as you migrate away from AWS IoT Events.
@@ -36,9 +34,7 @@ framework.
 | \*_Alarm evaluation_<br>• –<br>Monitors metrics and triggers alarms | Amazon CloudWatch alarms            | Replaces AWS IoT Events alarms with CloudWatch alarms, offering additional<br>features like anomaly detection |
 | \*_Integration_<br>• –<br>Connection with AWS IoT SiteWise          | AWS IoT SiteWise external alarms    | Optional capability to import CloudWatch alarms back into AWS IoT SiteWise as<br>external alarms              |
 
-## Step 1: Enable MQTT notifications
-
-on the asset property
+## Step 1: Enable MQTT notifications on the asset property
 
 If you are using AWS IoT Events integrations for AWS IoT SiteWise alarms, you can turn on MQTT
 notifications for each property to monitor.
@@ -58,9 +54,7 @@ For more information, see the following documentation resources:
   _AWS IoT SiteWise User Guide_.
 - [MQTT topics](../../../iot/latest/developerguide/topics.md "../../../iot/latest/developerguide/topics.md") in the _AWS IoT Developer Guide_.
 
-## Step 2: Create an AWS Lambda
-
-function
+## Step 2: Create an AWS Lambda function
 
 Create an Lambda function for reading the TQV array published by the MQTT topic and
 publish individual values to CloudWatch. We’ll use this Lambda function as a destination
@@ -159,10 +153,8 @@ def lambda_handler(message, context):
 
 ## Step 4: View CloudWatch metrics
 
-As you ingest data to AWS IoT SiteWise, the property selected earlier in [Step 1: Enable MQTT notifications
-on the asset property](#eos-alarms-mqtt-asset-property "#eos-alarms-mqtt-asset-property"), the routes data to the Lambda
-function we created in [Step 2: Create an AWS Lambda
-function](#eos-alarms-lambda-function "#eos-alarms-lambda-function"). In this step, you can check to see
+As you ingest data to AWS IoT SiteWise, the property selected earlier in [Step 1: Enable MQTT notifications on the asset property](#eos-alarms-mqtt-asset-property "#eos-alarms-mqtt-asset-property"), the routes data to the Lambda
+function we created in [Step 2: Create an AWS Lambda function](#eos-alarms-lambda-function "#eos-alarms-lambda-function"). In this step, you can check to see
 the Lambda sending your metrics to CloudWatch.
 
 1. Open the [CloudWatch

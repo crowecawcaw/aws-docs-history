@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Migration procedure for detector models
-
-in AWS IoT Events
+# Migration procedure for detector models in AWS IoT Events
 
 This section describes alternative solutions that deliver similar detector model
 functionality as you migrate away from AWS IoT Events.
@@ -49,9 +47,7 @@ an enhanced IAM role manages permissions across these services.
 | \*_State management_<br>• –<br>Maintains device states                           | DynamoDB table                    | New component that provides persistent storage of device<br>states, replacing internal AWS IoT Events state management                        |
 | \*_Security_<br>• – Manages<br>service permissions                               | IAM role                          | Updated permissions now include access to Kinesis Data Streams, DynamoDB, and<br>EventBridge in addition to existing AWS IoT Core permissions |
 
-## Step 1: (Optional) export
-
-AWS IoT Events detector model configurations
+## Step 1: (Optional) export AWS IoT Events detector model configurations
 
 Before creating new resources, export your AWS IoT Events detector model definitions. These
 contain your event processing logic and can serve as a historical reference for
@@ -100,9 +96,7 @@ aws iotevents describe-detector-model \
 
 3. Save the output for each detector model.
 
-## Step 2: Create an IAM
-
-role
+## Step 2: Create an IAM role
 
 Create an IAM role to provide permissions to replicate the functionality of
 AWS IoT Events. The role in this example grants access to DynamoDB for state management, EventBridge
@@ -209,9 +203,7 @@ JSON
 
 ```
 
-## Step 3: Create
-
-Amazon Kinesis Data Streams
+## Step 3: Create Amazon Kinesis Data Streams
 
 Create Amazon Kinesis Data Streams using the AWS Management Console or AWS CLI.
 
@@ -241,9 +233,7 @@ aws kinesis create-stream --stream-name `your-kinesis-stream-name` --shard-count
 Adjust the shard count based on your device count and message payload
 size.
 
-## Step 4: Create or update the MQTT
-
-message routing rule
+## Step 4: Create or update the MQTT message routing rule
 
 You can create a new MQTT message routing rule or update an existing rule.
 
@@ -317,9 +307,7 @@ aws iot create-topic-rule \
     --topic-rule-payload file://`your-file-name.json`
 ```
 
-## Step 5: Get the endpoint for
-
-the destination MQTT topic
+## Step 5: Get the endpoint for the destination MQTT topic
 
 Use the destination MQTT topic to configure where your topics publish outgoing
 messages, replacing the functionality previously handled by AWS IoT Events. The endpoint is
@@ -346,9 +334,7 @@ outgoing messages for your account.
 aws iot describe-endpoint --endpoint-type iot:Data-ATS --region `your-region`
 ```
 
-## Step 6: Create an
-
-Amazon DynamoDB table
+## Step 6: Create an Amazon DynamoDB table
 
 A Amazon DynamoDB table replaces the state management functionality of AWS IoT Events, providing
 a scalable and flexible way to persist and manage the state of your devices and the
@@ -378,9 +364,7 @@ aws dynamodb create-table \
                         --key-schema AttributeName=`your-instance-id`,KeyType=HASH \
 ```
 
-## Step 7: Create an
-
-AWS Lambda function (console)
+## Step 7: Create an AWS Lambda function (console)
 
 The Lambda function serves as the core processing engine, replacing the detector
 model evaluation logic of AWS IoT Events. In the example, we integrate with other AWS
@@ -746,8 +730,7 @@ in the _AWS Lambda Developer Guide_.
 Use the following for the event source mapping details:
 
 - For **Function name**, enter the lambda name
-  used in [Step 7: Create an
-  AWS Lambda function (console)](#eos-detector-model-create-lambda-function "#eos-detector-model-create-lambda-function").
+  used in [Step 7: Create an AWS Lambda function (console)](#eos-detector-model-create-lambda-function "#eos-detector-model-create-lambda-function").
 - For **Consumer - optional**, enter the ARN
   for the your Kinesis stream.
 - For **Batch size**, enter

@@ -69,9 +69,7 @@ the AWS IoT Core rules engine that forwards your message data into AWS IoT Event
 identify the input by name. Then you continue to use the AWS IoT console to generate some
 messages that are forwarded as inputs to AWS IoT Events.
 
-## How do you know which states you need in
-
-a detector model?
+## How do you know which states you need in a detector model?
 
 To determine what states your detector model should have, first decide what actions you
 can take. For example, if your automobile runs on gasoline, you look at the fuel gauge when
@@ -131,9 +129,7 @@ alarm, just to be cautious. You could do the same thing using variables and a mo
 set of event conditions. But often it is easier to use another state to, in effect, store
 the results of your calculations.
 
-## How do you know if you need one instance of
-
-a detector or several?
+## How do you know if you need one instance of a detector or several?
 
 To decide how many instances you need, ask yourself "What are you interested in
 knowing?" Let's say you want to know what the weather is like today. Is it raining (state)?

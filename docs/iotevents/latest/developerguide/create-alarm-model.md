@@ -121,8 +121,7 @@ You can add up to 10 notifications. For **Notification
     To add more users to your recipient list, choose **Add new
      user**. You must add new users to your IAM Identity Center store
      before you can add them to your alarm model. For more information,
-     see [Manage IAM Identity Center access of alarm
-     recipients in AWS IoT Events](sso-authorization-recipients.md "sso-authorization-recipients.md").
+     see [Manage IAM Identity Center access of alarm recipients in AWS IoT Events](sso-authorization-recipients.md "sso-authorization-recipients.md").
     4. (Optional) For **Additional custom message**,
      enter a message that describes what the alarm detects and what
      actions the recipients should take.

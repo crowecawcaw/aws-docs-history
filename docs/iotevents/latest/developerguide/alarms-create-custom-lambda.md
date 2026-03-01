@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Creating a custom Lambda function
-
-for AWS IoT Events
+# Creating a custom Lambda function for AWS IoT Events
 
 You can create a Lambda function or modify the one provided by AWS IoT Events.
 

@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Manage IAM Identity Center access of alarm
-
-recipients in AWS IoT Events
+# Manage IAM Identity Center access of alarm recipients in AWS IoT Events
 
 AWS IoT Events uses AWS IAM Identity Center to manage the SSO access of alarms recipients. Implementing
 IAM Identity Center for AWS IoT Events notification recipients can enhance security and user experience. To

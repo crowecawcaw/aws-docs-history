@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Create a detector model to represent device
-
-states in AWS IoT Events
+# Create a detector model to represent device states in AWS IoT Events
 
 In [Create an AWS IoT Events input to capture device data](iotevents-create-input.md "iotevents-create-input.md"), you
 created an `input` based on a message that reports pressure data from a motor. To

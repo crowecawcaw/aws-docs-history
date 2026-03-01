@@ -5,8 +5,7 @@ support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
 # Send inputs to test the detector model in AWS IoT Events
 
-There are several ways to receive telemetry data in AWS IoT Events (see [Supported actions to receive data and trigger
-actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md")). This
+There are several ways to receive telemetry data in AWS IoT Events (see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md")). This
 topic shows you how to create an AWS IoT rule in the AWS IoT console that forwards messages as
 inputs to your AWS IoT Events detector. You can use the AWS IoT console's MQTT client to send test
 messages. You can use this method to get telemetry data into AWS IoT Events when your devices are able
@@ -146,8 +145,6 @@ Now that you have created a simple input and detector model, try the following.
 - See more detector model examples (templates) on the console.
 - Follow the steps in [Create an AWS IoT Events detector for two states using CLI](iotevents-simple-example.md "iotevents-simple-example.md") to create an input and detector model using
   the AWS CLI
-- Learn details of the [Expressions to filter, transform, and process event
-  data](iotevents-expressions.md "iotevents-expressions.md") used in events.
-- Learn about [Supported actions to receive data and trigger
-  actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
+- Learn details of the [Expressions to filter, transform, and process event data](iotevents-expressions.md "iotevents-expressions.md") used in events.
+- Learn about [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
 - If something isn't working, see [Troubleshooting AWS IoT Events](iotevents-troubleshooting.md "iotevents-troubleshooting.md").

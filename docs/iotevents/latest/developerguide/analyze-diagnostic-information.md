@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Detector model analysis and diagnostic
-
-information for AWS IoT Events
+# Detector model analysis and diagnostic information for AWS IoT Events
 
 Detector model analyses gather the following diagnostic information:
 
@@ -59,8 +57,7 @@ in event Init in action setVariable`).
   You can use literals, operators, functions, references, and substitution templates
   in the expressions. You can use expressions to specify literal values, or AWS IoT Events can
   evaluate the expressions before you specify particular values. Your expression must
-  follow the required syntax. For more information, see [Expressions to filter, transform, and process event
-  data](iotevents-expressions.md "iotevents-expressions.md").
+  follow the required syntax. For more information, see [Expressions to filter, transform, and process event data](iotevents-expressions.md "iotevents-expressions.md").
 
 Detector Model expressions in AWS IoT Events can reference specific data or a
 resource.
@@ -125,8 +122,7 @@ the following error message:
 You
 might receive this error message if you specified an action that
 AWS IoT Events currently doesn't support. For a list of supported
-actions, see [Supported actions to receive data and trigger
-actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
+actions, see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
 
 ### `supported-actions`
 
@@ -139,8 +135,7 @@ corresponds to the following error messages:
 You
 might receive this error message if you specified an action that
 AWS IoT Events currently doesn't support. For a list of supported
-actions, see [Supported actions to receive data and trigger
-actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
+actions, see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
 
 - **Message:** DetectorModel definition has an
   `aws-service` action, but the
@@ -580,9 +575,7 @@ Use the following information to resolve the issue:
 
     For the `convert(`type`, `expression`)` function,
      if you use a reference for the `type` value,
-     the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`.For more information, see [AWS IoT Events reference for inputs and variables in
-
-expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
+     the evaluated result of your reference must be `String`, `Decimal`, or `Boolean`.For more information, see [AWS IoT Events reference for inputs and variables in expressions](iotevents-expressions.md#expression-reference "iotevents-expressions.md#expression-reference").
 
 - **Message:** Incompatible data types
   [`inferred-types`] used with

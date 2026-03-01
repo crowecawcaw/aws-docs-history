@@ -31,8 +31,7 @@ _in_ the cloud:
 ###### Topics
 
 - [Identity and access management for AWS IoT Events](security-iam.md "security-iam.md")
-- [Monitoring AWS IoT Events to maintain reliability, availability,
-  and performance](monitoring_overview.md "monitoring_overview.md")
+- [Monitoring AWS IoT Events to maintain reliability, availability, and performance](monitoring_overview.md "monitoring_overview.md")
 - [Compliance validation for AWS IoT Events](iotevents-compliance.md "iotevents-compliance.md")
 - [Resilience in AWS IoT Events](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS IoT Events](infrastructure-security.md "infrastructure-security.md")

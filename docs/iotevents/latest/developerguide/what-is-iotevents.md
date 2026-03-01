@@ -40,8 +40,7 @@ But only by combining diverse sensor and application data can you get a complete
 of the performance and quality of operations. You can configure AWS IoT Events detectors to
 recognize these events using simple logical expressions instead of complex code.
 
-For more information on logical expressions, see [Expressions to filter, transform, and process event
-data](iotevents-expressions.md "iotevents-expressions.md").
+For more information on logical expressions, see [Expressions to filter, transform, and process event data](iotevents-expressions.md "iotevents-expressions.md").
 
 **Trigger actions based on events**
 
@@ -54,8 +53,7 @@ applications.
 AWS IoT Events includes a prebuilt library of actions you can take, and also enables you to
 define your own.
 
-To learn more about triggering actions based on events, see [Supported actions to receive data and trigger
-actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
+To learn more about triggering actions based on events, see [Supported actions to receive data and trigger actions in AWS IoT Events](iotevents-supported-actions.md "iotevents-supported-actions.md").
 
 **Automatically scale to meet the demands of your fleet**
 

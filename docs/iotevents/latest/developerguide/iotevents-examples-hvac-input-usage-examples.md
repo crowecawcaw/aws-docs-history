@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# BatchPutMessage examples for
-
-an HVAC system in AWS IoT Events
+# BatchPutMessage examples for an HVAC system in AWS IoT Events
 
 In this example, `BatchPutMessage` is used to create a detector instance for
 an area and define the initial operating parameters.

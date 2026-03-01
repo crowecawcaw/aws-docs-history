@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Example: Access an AWS IoT Events resource in a
-
-specified region
+# Example: Access an AWS IoT Events resource in a specified region
 
 This example demonstrates how to configure an IAM role to access AWS IoT Events resources in a
 specific AWS region. By using region-specific ARNs in your IAM policies, you can restrict

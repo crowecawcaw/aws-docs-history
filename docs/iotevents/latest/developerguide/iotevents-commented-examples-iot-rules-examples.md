@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Use the AWS IoT Core rules
-
-engine for AWS IoT Events
+# Use the AWS IoT Core rules engine for AWS IoT Events
 
 The following rules republish AWS IoT Core MQTT messages as shadow update request messages.
 We assume that AWS IoT Core things are defined for a heating unit and a cooling unit for each

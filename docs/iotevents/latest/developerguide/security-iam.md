@@ -17,25 +17,20 @@ additional charge.
 - [Managing access using policies](security_iam_access-manage.md "security_iam_access-manage.md")
 - [More about identity and access management](#security_iam_learn-more "#security_iam_learn-more")
 - [How AWS IoT Events works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [AWS IoT Events identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Cross-service confused deputy
-  prevention for AWS IoT Events](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Troubleshoot AWS IoT Events identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [AWS IoT Events identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Cross-service confused deputy prevention for AWS IoT Events](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Troubleshoot AWS IoT Events identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshoot AWS IoT Events identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshoot AWS IoT Events identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How AWS IoT Events works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS IoT Events identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [AWS IoT Events identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## More about identity and access management
 
@@ -43,8 +38,7 @@ For more information about identity and access management for AWS IoT Events, co
 following pages:
 
 - [How AWS IoT Events works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [Troubleshoot AWS IoT Events identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Troubleshoot AWS IoT Events identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## How AWS IoT Events works with IAM
 
@@ -55,17 +49,12 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [AWS IoT Events identity-based
-  policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS IoT Events
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on AWS IoT Events
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS IoT Events identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS IoT Events resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on AWS IoT Events tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [AWS IoT Events IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-### AWS IoT Events identity-based
-
-policies
+### AWS IoT Events identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. AWS IoT Events
@@ -190,19 +179,14 @@ context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md
 
 #### Examples
 
-To view examples of AWS IoT Events identity-based policies, see [AWS IoT Events identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT Events identity-based policies, see [AWS IoT Events identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-### AWS IoT Events
-
-resource-based policies
+### AWS IoT Events resource-based policies
 
 AWS IoT Events does not support resource-based policies." To view an example of a detailed
 resource-based policy page, see [https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
 
-### Authorization based on AWS IoT Events
-
-tags
+### Authorization based on AWS IoT Events tags
 
 You can attach tags to AWS IoT Events resources or pass tags in a request to AWS IoT Events. To control
 access based on tags, you provide tag information in the [condition
@@ -213,17 +197,14 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 resources, see [Tagging your AWS IoT Events resources](tagging-iotevents.md "tagging-iotevents.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [View AWS IoT Events
-inputs based on tags](security_iam_id-based-policy-examples-view-input-tags.md "security_iam_id-based-policy-examples-view-input-tags.md").
+the tags on that resource, see [View AWS IoT Events inputs based on tags](security_iam_id-based-policy-examples-view-input-tags.md "security_iam_id-based-policy-examples-view-input-tags.md").
 
 ### AWS IoT Events IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-#### Using temporary
-
-credentials with AWS IoT Events
+#### Using temporary credentials with AWS IoT Events
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -231,9 +212,7 @@ calling AWS Security Token Service (AWS STS) API operations such as [AssumeRole]
 
 AWS IoT Events does not support using temporary credentials.
 
-#### Service-linked
-
-roles
+#### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

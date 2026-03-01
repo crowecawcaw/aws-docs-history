@@ -16,7 +16,5 @@ function provided by AWS IoT Events or create a new one.
 ###### Topics
 
 - [Creating a Lambda function in AWS IoT Events](alarms-create-lambda.md "alarms-create-lambda.md")
-- [Using the Lambda function provided by
-  AWS IoT Events](use-alarm-notifications.md "use-alarm-notifications.md")
-- [Manage IAM Identity Center access of alarm
-  recipients in AWS IoT Events](sso-authorization-recipients.md "sso-authorization-recipients.md")
+- [Using the Lambda function provided by AWS IoT Events](use-alarm-notifications.md "use-alarm-notifications.md")
+- [Manage IAM Identity Center access of alarm recipients in AWS IoT Events](sso-authorization-recipients.md "sso-authorization-recipients.md")

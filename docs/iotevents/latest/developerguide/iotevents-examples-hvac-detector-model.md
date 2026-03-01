@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Detector model definition for an
-
-HVAC system using AWS IoT Events
+# Detector model definition for an HVAC system using AWS IoT Events
 
 The `areaDetectorModel` defines how each detector instance works. Each
 `state machine` instance will ingest temperature sensor readings, then change

@@ -86,7 +86,5 @@ might continue to see behavior based on the previous version.
 ###### Topics
 
 - [Create an AWS IoT Events input to capture device data](iotevents-create-input.md "iotevents-create-input.md")
-- [Create a detector model to represent device
-  states in AWS IoT Events](iotevents-create-detector.md "iotevents-create-detector.md")
-- [Send messages as inputs to a detector in
-  AWS IoT Events](iotevents-batch-put-messages.md "iotevents-batch-put-messages.md")
+- [Create a detector model to represent device states in AWS IoT Events](iotevents-create-detector.md "iotevents-create-detector.md")
+- [Send messages as inputs to a detector in AWS IoT Events](iotevents-batch-put-messages.md "iotevents-batch-put-messages.md")

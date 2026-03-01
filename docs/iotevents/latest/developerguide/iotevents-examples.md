@@ -17,16 +17,11 @@ guidance implementing a specific detection or automation workflow.
 
 - [Example: Using HVAC temperature control with AWS IoT Events](iotevents-examples-hvac.md "iotevents-examples-hvac.md")
 - [Example: A crane detecting conditions using AWS IoT Events](iotevents-examples-cranes.md "iotevents-examples-cranes.md")
-- [Send commands in response to detected
-  conditions in AWS IoT Events](iotevents-examples-cranes-commands.md "iotevents-examples-cranes-commands.md")
-- [An AWS IoT Events detector model for crane
-  monitoring](iotevents-examples-cranes-detector-models.md "iotevents-examples-cranes-detector-models.md")
+- [Send commands in response to detected conditions in AWS IoT Events](iotevents-examples-cranes-commands.md "iotevents-examples-cranes-commands.md")
+- [An AWS IoT Events detector model for crane monitoring](iotevents-examples-cranes-detector-models.md "iotevents-examples-cranes-detector-models.md")
 - [AWS IoT Events inputs for crane monitoring](iotevents-examples-cranes-inputs.md "iotevents-examples-cranes-inputs.md")
-- [Send alarm and operational
-  messages with AWS IoT Events](iotevents-examples-cranes-messages.md "iotevents-examples-cranes-messages.md")
-- [Example: AWS IoT Events event detection with sensors and
-  applications](iotevents-examples-edwsaa.md "iotevents-examples-edwsaa.md")
-- [Example: Device HeartBeat to monitor device
-  connections with AWS IoT Events](iotevents-examples-dhb.md "iotevents-examples-dhb.md")
+- [Send alarm and operational messages with AWS IoT Events](iotevents-examples-cranes-messages.md "iotevents-examples-cranes-messages.md")
+- [Example: AWS IoT Events event detection with sensors and applications](iotevents-examples-edwsaa.md "iotevents-examples-edwsaa.md")
+- [Example: Device HeartBeat to monitor device connections with AWS IoT Events](iotevents-examples-dhb.md "iotevents-examples-dhb.md")
 - [Example: An ISA alarm in AWS IoT Events](iotevents-examples-bisaa.md "iotevents-examples-bisaa.md")
 - [Example: Build a simple alarm with AWS IoT Events](iotevents-examples-bsa.md "iotevents-examples-bsa.md")

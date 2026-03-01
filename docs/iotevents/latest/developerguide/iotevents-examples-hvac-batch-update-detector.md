@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# BatchUpdateDetector example
-
-for an HVAC system in AWS IoT Events
+# BatchUpdateDetector example for an HVAC system in AWS IoT Events
 
 In this example, `BatchUpdateDetector` is used to change operational
 parameters for a working detector instance.

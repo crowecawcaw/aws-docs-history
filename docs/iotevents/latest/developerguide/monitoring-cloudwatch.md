@@ -8,8 +8,7 @@ support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 When you develop or debug an AWS IoT Events detector model, you need to know what AWS IoT Events is doing,
 and any errors it encounters. Amazon CloudWatch monitors your AWS resources and the applications you
 run on AWS in real time. With CloudWatch, you gain systemwide visibility into resource use,
-application performance, and operational health. [Enable Amazon CloudWatch logging when
-developing AWS IoT Events detector models](best-practices.md#best-practices-cw-logs "best-practices.md#best-practices-cw-logs") has information on how to enable CloudWatch logging for
+application performance, and operational health. [Enable Amazon CloudWatch logging when developing AWS IoT Events detector models](best-practices.md#best-practices-cw-logs "best-practices.md#best-practices-cw-logs") has information on how to enable CloudWatch logging for
 AWS IoT Events. To generate logs like the one shown below you must set the **Level of
 verbosity** to 'Debug' and provide one or more **Debug Targets**
 that is a **Detector Model Name** and an optional

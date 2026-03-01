@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Send alarm and operational
-
-messages with AWS IoT Events
+# Send alarm and operational messages with AWS IoT Events
 
 Effective message handling is important in crane monitoring systems. This section
 showcases how to configure AWS IoT Events to process and respond to various message types from crane

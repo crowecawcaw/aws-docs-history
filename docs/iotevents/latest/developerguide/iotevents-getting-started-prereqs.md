@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Prerequisites to get started with
-
-AWS IoT Events
+# Prerequisites to get started with AWS IoT Events
 
 If you don't have an AWS account, create one.
 

@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Allow
-
-users to view their own permissions in AWS IoT Events
+# Allow users to view their own permissions in AWS IoT Events
 
 This example shows how you might create a policy that allows users to view the inline
 and managed policies that are attached to their user identity. Allowing users to view

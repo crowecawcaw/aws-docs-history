@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Send commands in response to detected
-
-conditions in AWS IoT Events
+# Send commands in response to detected conditions in AWS IoT Events
 
 This page provides an example for using AWS IoT Events commands to set up inputs, create detector
 models, and send simulated sensor data. The examples demonstrate how to leverage AWS IoT Events to

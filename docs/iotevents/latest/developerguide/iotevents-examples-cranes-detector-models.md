@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# An AWS IoT Events detector model for crane
-
-monitoring
+# An AWS IoT Events detector model for crane monitoring
 
 Monitor your equipment or device fleets for failures or changes in operation, and trigger
 actions when such events occur. You define detector models in JSON which specify states,

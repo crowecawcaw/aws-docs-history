@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Expressions to filter, transform, and process event
-
-data
+# Expressions to filter, transform, and process event data
 
 Expressions are used to evaluate incoming data, perform calculations, and determine the
 conditions under which specific actions or state transitions should occur. AWS IoT Events provides
@@ -340,9 +338,7 @@ Both expressions must evaluate to an integer value.
 If either expression does not evaluate to an integer value, then the result of the function is undefined.
 No conversions are performed.
 
-### AWS IoT Events reference for inputs and variables in
-
-expressions
+### AWS IoT Events reference for inputs and variables in expressions
 
 Inputs
 
@@ -464,9 +460,7 @@ following table provides a list of incompatible pairs of types.
 | Decimal, Boolean            |
 | String, Boolean             |
 
-### Substitution templates for
-
-AWS IoT Events expressions
+### Substitution templates for AWS IoT Events expressions
 
 `'${`expression`}'`
 

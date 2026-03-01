@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# AWS IoT Events detector model restrictions and
-
-limitations
+# AWS IoT Events detector model restrictions and limitations
 
 The following things are important to consider when creating a detector model.
 

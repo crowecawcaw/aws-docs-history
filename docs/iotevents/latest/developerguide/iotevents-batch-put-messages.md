@@ -3,14 +3,11 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Send messages as inputs to a detector in
-
-AWS IoT Events
+# Send messages as inputs to a detector in AWS IoT Events
 
 You have now defined an input that identifies the important fields in messages sent from
 a device (see [Create an AWS IoT Events input to capture device data](iotevents-create-input.md "iotevents-create-input.md")). In the previous section, you created a `detector model` that responds to an
-over-pressure event in a motor (see [Create a detector model to represent device
-states in AWS IoT Events](iotevents-create-detector.md "iotevents-create-detector.md")).
+over-pressure event in a motor (see [Create a detector model to represent device states in AWS IoT Events](iotevents-create-detector.md "iotevents-create-detector.md")).
 
 To complete the example, send messages from a device (in this case a computer with the
 AWS CLI installed) as inputs to the detector.

@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Access one
-
-AWS IoT Events input
+# Access one AWS IoT Events input
 
 Granular access control to AWS IoT Events inputs is important for maintaining security in
 multi-user or multi-team environments. This section shows how to create IAM policies

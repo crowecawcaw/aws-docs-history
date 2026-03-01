@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Using the AWS IoT Events
-
-console
+# Using the AWS IoT Events console
 
 To access the AWS IoT Events console, you must have a minimum set of permissions. These
 permissions must allow you to list and view details about the AWS IoT Events resources in your

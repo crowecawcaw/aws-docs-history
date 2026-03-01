@@ -38,8 +38,7 @@ with AWS services:
   By default, AWS IoT Events generates a standard payload in JSON for any action. This action
   payload contains all attribute-value pairs that have the information about the detector
   model instance and the event that triggered the action. To configure the action payload,
-  you can use a content expression. For more information, see [Expressions to filter, transform, and process event
-  data](iotevents-expressions.md "iotevents-expressions.md") and the
+  you can use a content expression. For more information, see [Expressions to filter, transform, and process event data](iotevents-expressions.md "iotevents-expressions.md") and the
   [Payload](../apireference/API_Payload.md "../apireference/API_Payload.md") data type in the
   _AWS IoT Events API Reference_.
 

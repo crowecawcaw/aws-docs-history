@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Example: Secure access to an AWS IoT Events detector
-
-model
+# Example: Secure access to an AWS IoT Events detector model
 
 This example demonstrates how to create an IAM policy that securely grants access to a
 specific detector model in AWS IoT Events. The policy uses conditions to ensure that only the specified

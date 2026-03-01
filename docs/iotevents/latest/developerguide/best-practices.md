@@ -9,14 +9,10 @@ Follow these best practices to get the maximum benefit from AWS IoT Events.
 
 ###### Topics
 
-- [Enable Amazon CloudWatch logging when
-  developing AWS IoT Events detector models](#best-practices-cw-logs "#best-practices-cw-logs")
-- [Publish regularly to save your detector model when working
-  in the AWS IoT Events console](#best-practices-console "#best-practices-console")
+- [Enable Amazon CloudWatch logging when developing AWS IoT Events detector models](#best-practices-cw-logs "#best-practices-cw-logs")
+- [Publish regularly to save your detector model when working in the AWS IoT Events console](#best-practices-console "#best-practices-console")
 
-## Enable Amazon CloudWatch logging when
-
-developing AWS IoT Events detector models
+## Enable Amazon CloudWatch logging when developing AWS IoT Events detector models
 
 Amazon CloudWatch monitors your AWS resources and the applications that you run on AWS in
 real time. With CloudWatch, you gain system-wide visibility into resource use, application
@@ -45,9 +41,7 @@ helps you know what AWS IoT Events is doing, and any errors that it encounters.
 
 Your logging options are successfully updated.
 
-## Publish regularly to save your detector model when working
-
-in the AWS IoT Events console
+## Publish regularly to save your detector model when working in the AWS IoT Events console
 
 When you use the AWS IoT Events console, your work in progress is saved locally in your
 browser. However,

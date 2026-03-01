@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Policy best
-
-practices
+# Policy best practices
 
 Identity-based policies are very powerful. They determine whether someone can create,
 access, or delete AWS IoT Events resources in your account. These actions can incur costs for

@@ -3,9 +3,7 @@ AWS IoT Events. After May 20, 2026, you will no longer be able to access the AWS
 resources. For more information, see [AWS IoT Events end of
 support](iotevents-end-of-support.md "iotevents-end-of-support.md").
 
-# Monitoring AWS IoT Events to maintain reliability, availability,
-
-and performance
+# Monitoring AWS IoT Events to maintain reliability, availability, and performance
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS IoT Events and your AWS solutions. You should collect monitoring data from all parts

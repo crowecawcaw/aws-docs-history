@@ -25,7 +25,5 @@ This chapter shows you how to:
 
 - [Using AWS IoT Events to monitor your IoT devices](iotevents-how-to-use.md "iotevents-how-to-use.md")
 - [Create an AWS IoT Events detector for two states using CLI](iotevents-simple-example.md "iotevents-simple-example.md")
-- [AWS IoT Events detector model restrictions and
-  limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md")
-- [A commented example: HVAC temperature control
-  with AWS IoT Events](iotevents-commented-example.md "iotevents-commented-example.md")
+- [AWS IoT Events detector model restrictions and limitations](iotevents-restrictions-detector-model.md "iotevents-restrictions-detector-model.md")
+- [A commented example: HVAC temperature control with AWS IoT Events](iotevents-commented-example.md "iotevents-commented-example.md")

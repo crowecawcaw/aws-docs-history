@@ -15,5 +15,4 @@ applications.
 ###### Topics
 
 - [Common AWS IoT Events issues and solutions](iotevents-error-messages.md "iotevents-error-messages.md")
-- [Troubleshooting a detector model by running
-  analyses in AWS IoT Events](iotevents-analyze-api.md "iotevents-analyze-api.md")
+- [Troubleshooting a detector model by running analyses in AWS IoT Events](iotevents-analyze-api.md "iotevents-analyze-api.md")
