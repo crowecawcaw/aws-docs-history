@@ -1,6 +1,4 @@
-# Exporting a Lex V2 bot
-
-(console)
+# Exporting a Lex V2 bot (console)
 
 You can export a bot from the bot list, from the list of
 versions, or from the version details page. When you choose a

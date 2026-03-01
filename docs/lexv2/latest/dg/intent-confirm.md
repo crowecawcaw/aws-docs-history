@@ -59,9 +59,7 @@ see [Changes to conversation flows in Amazon Lex V2](understanding-new-flows.md 
 Bots created before August 17, 2022 do not support dialog code hook messages,
 setting values, configuring next steps, and adding conditions.
 
-## Using a Lambda function
-
-to validate an intent.
+## Using a Lambda function to validate an intent.
 
 You can define a Lambda code hook to validate the intent
 before you send it for fulfillment. To use a code hook,

@@ -1,6 +1,4 @@
-# Creating a test set from a CSV file for
-
-Test Workbench
+# Creating a test set from a CSV file for Test Workbench
 
 You can create a test set from the CSV file template provided in the Amazon Lex V2
 console by entering the values directly by using a CSV spreadsheet editor. The test

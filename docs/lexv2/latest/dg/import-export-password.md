@@ -1,6 +1,4 @@
-# Using a password when
-
-importing or exporting
+# Using a password when importing or exporting
 
 Amazon Lex V2 can password protect your export archives or read your
 protected import archives using standard .zip file compression. You

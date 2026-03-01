@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-Amazon Lex V2
+# Infrastructure security in Amazon Lex V2
 
 As a managed service, Amazon Lex V2 is protected by the AWS
 global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.

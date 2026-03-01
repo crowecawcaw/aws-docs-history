@@ -1,6 +1,4 @@
-# Exercise 1: Create a chatbot from a
-
-template
+# Exercise 1: Create a chatbot from a template
 
 In this exercise, you create your first Amazon Lex V2 chatbot and test it
 in the Amazon Lex V2 console. For this exercise, you use the

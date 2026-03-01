@@ -1,6 +1,4 @@
-# Analyzing the sentiment of user
-
-utterances in conversations with your bot
+# Analyzing the sentiment of user utterances in conversations with your bot
 
 You can use sentiment analysis to determine the sentiments expressed
 in a user utterance. With the sentiment information you can manage

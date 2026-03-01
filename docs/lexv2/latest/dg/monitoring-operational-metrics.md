@@ -4,6 +4,5 @@ Amazon CloudWatch and AWS CloudTrail are two AWS services that integrate with Am
 
 ###### Topics
 
-- [Measuring operational metrics with
-  Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+- [Measuring operational metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Viewing events with AWS CloudTrail for Lex V2](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

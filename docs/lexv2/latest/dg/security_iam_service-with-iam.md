@@ -1,6 +1,4 @@
-# How Amazon Lex V2 works
-
-with IAM
+# How Amazon Lex V2 works with IAM
 
 Before you use IAM to manage access to Amazon Lex V2, learn what IAM features are
 available to use with Amazon Lex V2.
@@ -41,8 +39,7 @@ _IAM User Guide_.
 
 ### Identity-based policy examples for Amazon Lex V2
 
-To view examples of Amazon Lex V2 identity-based policies, see [Identity-based
-policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Lex V2 identity-based policies, see [Identity-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon Lex V2
 
@@ -184,8 +181,7 @@ with commas.
          ]
 ```
 
-To view examples of Amazon Lex V2 identity-based policies, see [Identity-based
-policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Lex V2 identity-based policies, see [Identity-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy resources for Amazon Lex V2
 
@@ -207,8 +203,7 @@ _Service Authorization Reference_. To learn with which actions
 you can specify the ARN of each resource, see
 [Actions defined by Amazon Lex V2](../../../service-authorization/latest/reference/list_amazonlexv2.md#amazonlexv2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonlexv2.md#amazonlexv2-actions-as-permissions").
 
-To view examples of Amazon Lex V2 identity-based policies, see [Identity-based
-policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Lex V2 identity-based policies, see [Identity-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Amazon Lex V2
 
@@ -230,12 +225,9 @@ _Service Authorization Reference_. To learn with which
 actions and resources you can use a condition key, see
 [Actions defined by Amazon Lex V2](../../../service-authorization/latest/reference/list_amazonlexv2.md#amazonlexv2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonlexv2.md#amazonlexv2-actions-as-permissions").
 
-To view examples of Amazon Lex V2 identity-based policies, see [Identity-based
-policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Lex V2 identity-based policies, see [Identity-based policy examples for Amazon Lex V2](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control
-
-lists (ACLs) in Amazon Lex V2
+## Access control lists (ACLs) in Amazon Lex V2
 
 **Supports ACLs:**
 _No_
@@ -243,9 +235,7 @@ _No_
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based
-
-access control (ABAC) with Amazon Lex V2
+## Attribute-based access control (ABAC) with Amazon Lex V2
 
 **Supports ABAC (tags in policies):**
 _Yes_

@@ -21,9 +21,7 @@ To learn how to create a bot or bot alias, see [Working with Amazon Lex V2 bots]
 - [Allow a user to have a conversation with a bot](#security_iam_resource-based-policy-examples-allow-lex-runtime "#security_iam_resource-based-policy-examples-allow-lex-runtime")
 - [Allow an AWS service to use a specific Amazon Lex V2 bot](#security_iam_resource-based-policy-examples-allow-lex-connect "#security_iam_resource-based-policy-examples-allow-lex-connect")
 
-##
-
-Use the console to specify a resource-based policy
+## Use the console to specify a resource-based policy
 
 You can use the Amazon Lex V2 console to manage the resource-based
 policies for your bots and bot aliases. You enter the JSON structure
@@ -61,9 +59,7 @@ the console. The policy editor for a bot alias is similar.
 4. In the **Resource-based policy** section,
    choose **Edit**.
 
-##
-
-Use the API to specify a resource-based policy
+## Use the API to specify a resource-based policy
 
 You can use API operations to manage the resource-based policies
 for your bots and bot aliases. There are operations to create,

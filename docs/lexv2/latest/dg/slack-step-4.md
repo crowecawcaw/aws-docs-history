@@ -1,13 +1,10 @@
-# Step 4: Complete Slack
-
-integration with your Lex V2 bot
+# Step 4: Complete Slack integration with your Lex V2 bot
 
 In this section, use the Slack API console to complete integration
 with the Slack application.
 
 1. Sign in to the Slack API console at [https://api.slack.com](https://api.slack.com "https://api.slack.com").
-   Choose the app that you created in [Step 2: Create a Slack
-   application](slack-step-2.md "slack-step-2.md") .
+   Choose the app that you created in [Step 2: Create a Slack application](slack-step-2.md "slack-step-2.md").
 2. Update the **OAuth & Permissions**
    feature as follows:
    1. In the left menu, choose **OAuth &

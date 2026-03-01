@@ -1,6 +1,4 @@
-# Using confidence
-
-scores to improve conversation accuracy
+# Using confidence scores to improve conversation accuracy
 
 There are two steps that Amazon Lex V2 uses to determine what a user says.
 The first, automatic speech recognition (ASR), creates a transcript of
@@ -27,6 +25,5 @@ confidence score that best fits your application.
 
 ###### Topics
 
-- [Using intent confidence
-  scores to improve intent selection with Lex V2](using-intent-confidence-scores.md "using-intent-confidence-scores.md")
+- [Using intent confidence scores to improve intent selection with Lex V2](using-intent-confidence-scores.md "using-intent-confidence-scores.md")
 - [Using voice transcription confidence scores to improve conversations with your Lex V2 bot](using-transcript-confidence-scores.md "using-transcript-confidence-scores.md")

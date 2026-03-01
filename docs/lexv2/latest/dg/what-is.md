@@ -104,9 +104,7 @@ When you sign up for AWS, your AWS account is automatically signed up for all se
 To see your bill, go to the Billing and Cost Management Dashboard in the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/"). To learn more about AWS account billing, see the [_AWS Billing User Guide_](../../../awsaccountbilling/latest/aboutv2/billing-what-is.md "../../../awsaccountbilling/latest/aboutv2/billing-what-is.md"). If you have
 questions concerning AWS billing and AWS accounts, contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Are You a First-time User of
-
-Amazon Lex V2?
+## Are You a First-time User of Amazon Lex V2?
 
 If you are a first-time user of Amazon Lex V2, we recommend that you read
 the following sections in order:

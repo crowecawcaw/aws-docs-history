@@ -76,9 +76,7 @@ This object is returned as a JSON-serialized string in the
 [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md"), and
 [StartConversation](../APIReference/API_runtime_StartConversation.md "../APIReference/API_runtime_StartConversation.md") operations.
 
-## Adding a grammar slot
-
-type
+## Adding a grammar slot type
 
 ###### To add a grammar slot type
 

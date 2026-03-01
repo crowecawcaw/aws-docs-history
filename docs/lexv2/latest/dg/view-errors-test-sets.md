@@ -1,6 +1,4 @@
-# View test validation errors in test
-
-workbench
+# View test validation errors in test workbench
 
 You can correct test sets that report validation errors. These validation errors
 are generated when a test set is not ready to be tested. The Test Workbench can show

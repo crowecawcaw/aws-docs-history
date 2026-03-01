@@ -1,6 +1,4 @@
-# Using intent confidence
-
-scores to improve intent selection with Lex V2
+# Using intent confidence scores to improve intent selection with Lex V2
 
 When a user makes an utterance, Amazon Lex V2 uses natural language
 understanding (NLU) to understand the user's request and return the
@@ -80,9 +78,7 @@ two situations:
 Note that Amazon Lex V2 does not display a confidence score for
 `AMAZON.FallbackIntent`.
 
-## Setting and changing
-
-the confidence threshold
+## Setting and changing the confidence threshold
 
 The confidence threshold must be a number between 0.00 and 1.00. You
 can set the threshold for each language in your bot in the following ways:
@@ -105,18 +101,14 @@ can set the threshold for each language in your bot in the following ways:
   `nluIntentConfidenceThreshold`
   parameter of the [UpdateBotLocale](../APIReference/API_UpdateBotLocale.md "../APIReference/API_UpdateBotLocale.md") operation.
 
-## Session
-
-Management
+## Session Management
 
 To change the intent that Amazon Lex V2 uses in a conversation with the
 user, you can use the response from your dialog code hook Lambda
 function, or you can use the session management APIs in your custom
 application.
 
-### Using a Lambda
-
-function with your Lex V2 bot
+### Using a Lambda function with your Lex V2 bot
 
 When you use a Lambda function, Amazon Lex V2 calls it with a JSON
 structure that contains the input to the function. The JSON
@@ -135,9 +127,7 @@ dialog action in your Lambda function.
 
 For more information, see [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
 
-### Using the Session
-
-Management API with your Lex V2 bot
+### Using the Session Management API with your Lex V2 bot
 
 To use a different intent from the current intent, use the
 [PutSession](../APIReference/API_runtime_PutSession.md "../APIReference/API_runtime_PutSession.md") operation. For

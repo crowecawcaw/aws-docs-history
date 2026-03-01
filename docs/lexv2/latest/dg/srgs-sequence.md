@@ -1,6 +1,4 @@
-# Sequences and
-
-encapsulation
+# Sequences and encapsulation
 
 The following example shows the supported sequences. For more
 information, see [Sequences

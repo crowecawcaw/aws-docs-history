@@ -1,6 +1,4 @@
-# Step 3: Complete Facebook
-
-integration with your Lex V2 bot
+# Step 3: Complete Facebook integration with your Lex V2 bot
 
 In this step, use the Facebook developer console to complete
 integration with Amazon Lex V2.
@@ -31,5 +29,4 @@ integration with Amazon Lex V2.
 
 ## Next step
 
-[Step 4: Test the
-integration with Facebook Messenger](facebook-step-4.md "facebook-step-4.md")
+[Step 4: Test the integration with Facebook Messenger](facebook-step-4.md "facebook-step-4.md")

@@ -1,6 +1,4 @@
-# Data protection in
-
-Amazon Lex V2
+# Data protection in Amazon Lex V2
 
 Amazon Lex V2 conforms to the AWS [shared
 responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), which includes regulations and

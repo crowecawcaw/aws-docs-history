@@ -1,6 +1,4 @@
-# Configuring timeouts for
-
-capturing user input with a Lex V2 bot
+# Configuring timeouts for capturing user input with a Lex V2 bot
 
 The Amazon Lex V2 streaming API enables a bot to automatically detect
 utterances in user input. When you create an intent or a slot, you can
@@ -150,9 +148,7 @@ behaves with the text conversation mode.
 This attribute is in the `x-amz-lex:text`
 namespace.
 
-### Start timeout
-
-threshold
+### Start timeout threshold
 
 ```
 x-amz-lex:text:start-timeout-ms:`<intentName>`:`<slotName>`
@@ -169,9 +165,7 @@ earlier.
 **Default:** 30,000 milliseconds
 (30 seconds)
 
-## Set configuration for DTMF
-
-input
+## Set configuration for DTMF input
 
 Use the following session attributes to specify how your Amazon Lex V2
 bot responds to DTMF input when using an audio conversation.
@@ -214,9 +208,7 @@ input before assuming that the input has concluded.
 **Default:** 5000 milliseconds (5
 seconds)
 
-### Maximum number of DTMF digits per
-
-utterance
+### Maximum number of DTMF digits per utterance
 
 ```
 x-amz-lex:dtmf:max-length:`<intentName>`:`<slotName>`

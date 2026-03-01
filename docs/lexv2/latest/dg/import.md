@@ -3,8 +3,7 @@
 To use the console to import a previously exported bot, bot locale
 or custom vocabulary, you provide the file location on your local
 computer and the optional password to unlock the file. For an
-example, see [Importing a Lex V2 bot
-(console)](import-console.md "import-console.md").
+example, see [Importing a Lex V2 bot (console)](import-console.md "import-console.md").
 
 When you use the API, importing a resource is a three step
 process:
@@ -20,8 +19,7 @@ process:
    The upload URL is a pre-signed Amazon S3 URL with write permission. The
    URL is available for five minutes after it is generated. If you
    password protect the .zip file, you must provide the password when
-   you start the import. For more information, see [Using a password when
-   importing or exporting](import-export-password.md "import-export-password.md").
+   you start the import. For more information, see [Using a password when importing or exporting](import-export-password.md "import-export-password.md").
 
 An import is an asynchronous process. You can monitor the progress
 of an import using the console or the `DescribeImport`
@@ -51,12 +49,9 @@ names in Amazon Lex V2. Amazon Lex V2 can handle the conflict in three ways:
 You can also remove an import and the associated .zip file using
 the console or the `DeleteImport` operation.
 
-For an example of importing a bot using the console, see [Importing a Lex V2 bot
-(console)](import-console.md "import-console.md").
+For an example of importing a bot using the console, see [Importing a Lex V2 bot (console)](import-console.md "import-console.md").
 
-## IAM permissions required
-
-to import
+## IAM permissions required to import
 
 To import bots, bot locales, and custom vocabularies, the user
 running the import must have the following IAM permissions.
@@ -70,4 +65,4 @@ running the import must have the following IAM permissions.
 | [DeleteImport](../APIReference/API_DeleteImport.md "../APIReference/API_DeleteImport.md")                         | • DeleteImport                                                                                                                                                                                                                                                                                                                                                                           | Bot                                                                                                                          |
 | [ListImports](../APIReference/API_ListImports.md "../APIReference/API_ListImports.md")                            | • ListImports                                                                                                                                                                                                                                                                                                                                                                            | \*                                                                                                                           |
 
-For an example IAM policy, see [Allow a user to import bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-import "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-import") .
+For an example IAM policy, see [Allow a user to import bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-import "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-import").

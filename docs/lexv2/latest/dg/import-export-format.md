@@ -1,6 +1,4 @@
-# JSON format for importing and
-
-exporting bots in Lex V2
+# JSON format for importing and exporting bots in Lex V2
 
 You import and export bots, bot locales, or custom vocabularies
 from Amazon Lex V2 using a .zip file that contains JSON structures that
@@ -82,9 +80,7 @@ bot.
 }
 ```
 
-## Bot locale file
-
-structure
+## Bot locale file structure
 
 The bot locale file contains a description of the locale or
 language of a bot. When you export a bot, there can be more than
@@ -349,9 +345,7 @@ The following example shows the JSON structure of a composite slot.
 }
 ```
 
-## Slot type file
-
-structure
+## Slot type file structure
 
 The slot type file contains the configuration information for
 a custom slot type used in a language or locale. There is one
@@ -470,9 +464,7 @@ see [Grammar slot type](building-srgs.md "building-srgs.md").
 }
 ```
 
-## Custom vocabulary file
-
-structure
+## Custom vocabulary file structure
 
 The custom vocabulary file contains the entries in a custom
 vocabulary for single language or locale. There is one custom

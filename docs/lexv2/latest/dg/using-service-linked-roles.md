@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon Lex V2
+# Using service-linked roles for Amazon Lex V2
 
 Amazon Lex V2 uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of
 IAM role that is linked directly to Amazon Lex V2. Service-linked roles
@@ -30,39 +28,27 @@ can't inadvertently remove permissions to access the resources.
 
 ###### Topics
 
-- [Creating a service-linked role for
-  Amazon Lex V2](#create-slr "#create-slr")
-- [Editing a service-linked role for
-  Amazon Lex V2](#edit-slr "#edit-slr")
-- [Deleting a service-linked role for
-  Amazon Lex V2](#delete-slr "#delete-slr")
-- [Service-linked role permissions for
-  Amazon Lex V2](#slr-permissions "#slr-permissions")
-- [Supported regions for Amazon Lex V2
-  service-linked roles](#slr-regions "#slr-regions")
+- [Creating a service-linked role for Amazon Lex V2](#create-slr "#create-slr")
+- [Editing a service-linked role for Amazon Lex V2](#edit-slr "#edit-slr")
+- [Deleting a service-linked role for Amazon Lex V2](#delete-slr "#delete-slr")
+- [Service-linked role permissions for Amazon Lex V2](#slr-permissions "#slr-permissions")
+- [Supported regions for Amazon Lex V2 service-linked roles](#slr-regions "#slr-regions")
 
-## Creating a service-linked role for
+## Creating a service-linked role for Amazon Lex V2
 
-Amazon Lex V2
-
-You don't need to manually create a service-linked role, because Amazon Lex V2 creates the service-linked role for you when you carry out the relevant action (see [Service-linked role permissions for
-Amazon Lex V2](#slr-permissions "#slr-permissions") for more information) in the AWS Management Console, AWS CLI, or AWS API.
+You don't need to manually create a service-linked role, because Amazon Lex V2 creates the service-linked role for you when you carry out the relevant action (see [Service-linked role permissions for Amazon Lex V2](#slr-permissions "#slr-permissions") for more information) in the AWS Management Console, AWS CLI, or AWS API.
 
 If you delete this service-linked role, and then need to create one
 again, you can use the same process to create a new role in your account.
 
-## Editing a service-linked role for
-
-Amazon Lex V2
+## Editing a service-linked role for Amazon Lex V2
 
 Amazon Lex V2 doesn't allow you to edit service-linked roles. After you create a service-linked role,
 you can't change the name of the role because various entities might
 reference the role. However, you can edit the description of a role using IAM. For more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon Lex V2
+## Deleting a service-linked role for Amazon Lex V2
 
 If you no longer need to use a feature or service that requires a
 service-linked role, we recommend that you delete that role. That way you
@@ -76,8 +62,7 @@ If the Amazon Lex V2 service is using the role when you try to
 delete the resources, then the deletion might fail. If that happens,
 wait for a few minutes and try the operation again.
 
-To see the steps for deleting resources for specific service-linked roles in Amazon Lex V2, refer to the section specific to the role in [Service-linked role permissions for
-Amazon Lex V2](#slr-permissions "#slr-permissions").
+To see the steps for deleting resources for specific service-linked roles in Amazon Lex V2, refer to the section specific to the role in [Service-linked role permissions for Amazon Lex V2](#slr-permissions "#slr-permissions").
 
 **To manually delete a service-linked role using
 IAM**
@@ -86,9 +71,7 @@ After deleting resources related to a service-linked role, use the IAM console, 
 see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Service-linked role permissions for
-
-Amazon Lex V2
+## Service-linked role permissions for Amazon Lex V2
 
 Amazon Lex V2 uses service-linked roles with the following prefixes.
 
@@ -185,9 +168,7 @@ When you enable Global Resiliency for a bot, Amazon Lex V2 creates the AWSServic
 5. Repeat the process for all bots that have Global Resiliency enabled.
 6. Follow the steps at [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") to delete the IAM role.
 
-## Supported regions for Amazon Lex V2
-
-service-linked roles
+## Supported regions for Amazon Lex V2 service-linked roles
 
 Amazon Lex V2 supports using service-linked roles in all of the
 regions where the service is available. For more information, see

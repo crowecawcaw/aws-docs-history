@@ -1,6 +1,4 @@
-# Step 2: Create a Slack
-
-application
+# Step 2: Create a Slack application
 
 In this section, you do the following:
 
@@ -55,5 +53,4 @@ the application. 3. Configure the application features as follows:
 
 ## Next step
 
-[Step 3: Integrate the Slack
-application with the Amazon Lex V2 bot](slack-step-3.md "slack-step-3.md")
+[Step 3: Integrate the Slack application with the Amazon Lex V2 bot](slack-step-3.md "slack-step-3.md")

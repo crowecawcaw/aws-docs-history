@@ -1,6 +1,4 @@
-# Enabling your Amazon Lex V2 bot
-
-to be interrupted by the user
+# Enabling your Amazon Lex V2 bot to be interrupted by the user
 
 When you start a bidirectional audio stream between an Amazon Lex V2 bot
 and your application, you can configure the bot to listen for user
@@ -27,9 +25,7 @@ user provides you the information you want. Each slot has a prompt
 for the user to provide you with that information. To learn more
 about slots, see [Amazon Lex V2 core concepts](how-it-works.md "how-it-works.md").
 
-###### To change whether the user can interrupt a prompt
-
-(console)
+###### To change whether the user can interrupt a prompt (console)
 
 1. Sign in to AWS Management Console and open the Amazon Lex V2 console at [Amazon Lex V2
    console](https://console.aws.amazon.com/lexv2/ "https://console.aws.amazon.com/lexv2/").

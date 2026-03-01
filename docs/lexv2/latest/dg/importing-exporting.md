@@ -17,7 +17,5 @@ modified file.
 
 - [Exporting bots from Lex V2](export.md "export.md")
 - [Importing bots in Lex V2](import.md "import.md")
-- [Using a password when
-  importing or exporting](import-export-password.md "import-export-password.md")
-- [JSON format for importing and
-  exporting bots in Lex V2](import-export-format.md "import-export-format.md")
+- [Using a password when importing or exporting](import-export-password.md "import-export-password.md")
+- [JSON format for importing and exporting bots in Lex V2](import-export-format.md "import-export-format.md")

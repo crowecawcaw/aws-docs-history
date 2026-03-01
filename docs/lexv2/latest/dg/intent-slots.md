@@ -39,8 +39,7 @@ There are two types of slots:
   users can say phrases such as "hold on a second" to make the
   bot wait for them to find the information and provide it.
   This is enabled only for streaming conversations. For more
-  information, see [Enabling the
-  Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md").
+  information, see [Enabling the Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md").
 - **Slot capture responses** – You can
   configure a success response and a failure response based on the outcome
   of capturing the slot value from user input.
@@ -48,8 +47,7 @@ There are two types of slots:
   – You can apply conditions after
   playing the initial response. When a condition evaluates to
   true, the actions that you define are taken. For more
-  information, see [Add conditions to branch
-  conversations](paths-branching.md "paths-branching.md").
+  information, see [Add conditions to branch conversations](paths-branching.md "paths-branching.md").
 - **Dialog code hook**
   – You can also use a Lambda code hook
   to validate the slot values and execute business logic.
@@ -148,5 +146,4 @@ The following topics describe how to configure a bot to re-elicit a slot value t
 ###### Topics
 
 - [Re-eliciting slots](reelicit-slots.md "reelicit-slots.md")
-- [Using multiple values in a
-  slot](multi-valued-slots.md "multi-valued-slots.md")
+- [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md")

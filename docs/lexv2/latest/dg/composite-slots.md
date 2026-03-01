@@ -67,8 +67,7 @@ The composite slot differs from a multi-valued slot. The composite slot
 is comprised of multiple slots, each with its own value. Whereas, a
 multi-valued slot is a singular slot that can contain a list of
 values. For more information on multi-values slots
-see, [Using multiple values in a
-slot](multi-valued-slots.md "multi-valued-slots.md")
+see, [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md")
 
 For a composite slot, Amazon Lex returns a value for each subslot in
 the response to the `RecognizeText` or
@@ -159,8 +158,7 @@ schedule service for your 2021 White Toyota Camry?”
 Each subslot is configured as a slot. You can add slot prompts to elicit the
 subslot and sample utterances. You can enable wait and continue for a subslot as
 well as default values. For more information,
-see [Using default slot
-values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md")
+see [Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md")
 
 ![Composite slot settings panel](images/cst-composite.png)
 You can use slot obfuscation to mask the whole composite slot in conversation

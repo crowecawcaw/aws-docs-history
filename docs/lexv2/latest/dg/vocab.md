@@ -54,8 +54,7 @@ a `displayAs` field.
 The custom vocabulary phrases used for improving transcription
 during intent elicitation don't affect transcriptions while eliciting
 slots. For more information about creating a custom vocabulary for
-eliciting intents, see [Creating a custom vocabulary for
-eliciting intents and slots](#vocab-create "#vocab-create").
+eliciting intents, see [Creating a custom vocabulary for eliciting intents and slots](#vocab-create "#vocab-create").
 
 **Eliciting custom slots** –
 You can use a custom vocabulary to improve slot recognition for
@@ -71,9 +70,7 @@ improving slot recognition when the bot is expecting input for the
 custom slot. These values aren't used for transcription when
 eliciting an intent. For more information, see [Adding slot types](add-slot-types.md "add-slot-types.md").
 
-## Best practices for creating a custom
-
-vocabulary
+## Best practices for creating a custom vocabulary
 
 **Eliciting an intent**
 
@@ -112,9 +109,7 @@ Don't use individual letters unless they are part of a phrase, such
 as "J. P. Morgan" or "A. W. S." You can use
 upper- or lower-case letters to define an acronym.
 
-## Creating a custom vocabulary for
-
-eliciting intents and slots
+## Creating a custom vocabulary for eliciting intents and slots
 
 You can use the Amazon Lex V2 console to create and manage a custom
 vocabulary, or you can use Amazon Lex V2 API operations. There are 2 ways
@@ -148,9 +143,7 @@ of creating a custom vocabulary through the console:
 5. This page also allows you import, export, and delete a custom
    vocabulary file from the drop-down menu on the top right.
 
-###### Use the `ListCustomVocabularyItems` API to view the
-
-custom vocabulary entries:
+###### Use the `ListCustomVocabularyItems` API to view the custom vocabulary entries:
 
 1. Use the `ListCustomVocabularyItems` operation
    to view the custom vocabulary entries. The request body
@@ -184,9 +177,7 @@ custom vocabulary entries:
 }
 ```
 
-###### Use the `BatchCreateCustomVocabularyItem` API to
-
-create new custom vocabulary entries:
+###### Use the `BatchCreateCustomVocabularyItem` API to create new custom vocabulary entries:
 
 1. If your bot’s locale does not have a custom vocabulary created
    yet, please follow the steps to use the [StartImport](../APIReference/API_StartImport.md "../APIReference/API_StartImport.md") to
@@ -254,9 +245,7 @@ create new custom vocabulary entries:
      the backend while processing your request. This may indicate
      a service outage or another issue.
 
-###### Use the `BatchDeleteCustomVocabularyItem` API to
-
-delete existing custom vocabulary entries:
+###### Use the `BatchDeleteCustomVocabularyItem` API to delete existing custom vocabulary entries:
 
 1. If your bot’s locale does not have a custom vocabulary created
    yet, please follow the steps for Use the [StartImport](../APIReference/API_StartImport.md "../APIReference/API_StartImport.md") to create
@@ -315,9 +304,7 @@ delete existing custom vocabulary entries:
      backend while processing your request. This may indicate a service
      outage or another issue.
 
-###### Use the `BatchUpdateCustomVocabularyItem` API to
-
-update existing custom vocabulary entries:
+###### Use the `BatchUpdateCustomVocabularyItem` API to update existing custom vocabulary entries:
 
 1. If your bot’s locale does not have a custom vocabulary
    created yet, please follow the steps for Use the
@@ -389,9 +376,7 @@ update existing custom vocabulary entries:
      in the backend while processing your request. This may
      indicate a service outage or another issue.
 
-## Creating a custom vocabulary
-
-file
+## Creating a custom vocabulary file
 
 A custom vocabulary file is a tab-separated list of values that
 contain the phrase to recognize, a weight to give the boost, and

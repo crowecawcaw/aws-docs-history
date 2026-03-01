@@ -13,9 +13,7 @@ The grammars contain the rules to collect the information and the
 [ECMAScript
 tags](grammar-ecmascript-spec.md "grammar-ecmascript-spec.md") for semantic interpretation.
 
-## Grammars for
-
-financial services ([download](samples/financial-grammars.md "samples/financial-grammars.md"))
+## Grammars for financial services ([download](samples/financial-grammars.md "samples/financial-grammars.md"))
 
 The following grammars are supported for financial services:
 account and routing numbers, credit card and loan numbers,
@@ -1474,9 +1472,7 @@ Security number.
 
 ```
 
-## Grammars for insurance
-
-([download](samples/insurance-grammars.md "samples/insurance-grammars.md"))
+## Grammars for insurance ([download](samples/insurance-grammars.md "samples/insurance-grammars.md"))
 
 The following grammars are supported for insurance domain:
 claim and policy numbers, driver's license and license plate

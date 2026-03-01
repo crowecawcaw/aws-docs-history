@@ -1,6 +1,4 @@
-# Setting request
-
-attributes for your Lex V2 bot
+# Setting request attributes for your Lex V2 bot
 
 _Request attributes_ contain request-specific
 information and apply only to the current request. A client
@@ -21,9 +19,7 @@ they are not returned in `RecognizeUtterance` or
 To send information that persists across requests, use session
 attributes.
 
-## Setting user-defined request
-
-attributes for each Lex V2 bot request
+## Setting user-defined request attributes for each Lex V2 bot request
 
 A _user-defined request attribute_ is data
 that you send to your bot in each request. You send the
@@ -60,8 +56,7 @@ the map, and then send it as the
 
 If you are sending binary or structured data in a request
 attribute, you must first transform the data to a simple string.
-For more information, see [Setting complex
-attributes in your Lex V2 bot](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
+For more information, see [Setting complex attributes in your Lex V2 bot](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
 
 Amazon Lex V2 provides predefined request attributes for managing the way that it processes information sent to your bot.
 The attributes do not persist for the entire session, so you must send the predefined attributes in each request.
@@ -88,9 +83,7 @@ Amazon Lex V2 returns only messages with the specified type in the Message field
 separating values with a comma. If you are using message groups, every message group must contain at least one message of the
 specified type. Otherwise, you get a `NoUsableMessageException` error. For more information, see Message Groups.
 
-## Setting predefined request
-
-attributes in your Lex V2 bot
+## Setting predefined request attributes in your Lex V2 bot
 
 Amazon Lex V2 provides predefined request attributes for managing the way that it processes
 information sent to your bot. The attributes do not persist for the entire session, so you must

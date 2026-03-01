@@ -1,6 +1,4 @@
-# Example: Creating a
-
-FAQ Bot for an Amazon Kendra Index
+# Example: Creating a FAQ Bot for an Amazon Kendra Index
 
 This example creates an Amazon Lex V2 bot that uses an Amazon Kendra index
 to provide answers to users' questions. The FAQ bot manages the
@@ -82,9 +80,7 @@ as your data source.
    Create the intent to search an Amazon Kendra index and the
    response message that it should return.
 
-###### To create an AMAZON.KendraSearchIntent intent and
-
-response message:
+###### To create an AMAZON.KendraSearchIntent intent and response message:
 
 1. Select **Back to intents list** in the
    navigation pane to

@@ -26,24 +26,21 @@ see [Adding intents](add-intents.md "add-intents.md").
 When you create a bot, Amazon Lex V2 creates a default path through the conversation based on the
 priority order of the slots. To customize the conversation path, you can modify the next
 step at any point in the conversation. For more information,
-see [Configure next steps in the
-conversation](paths-nextstep.md "paths-nextstep.md").
+see [Configure next steps in the conversation](paths-nextstep.md "paths-nextstep.md").
 
 To create alternative paths based on conditions, you can use a conditional branch at any
 point in the conversation. For example, you can create a condition before the bot elicits
 the first slot value. You can create a condition between eliciting each slot value, or you
 can create a condition before the bot closes the conversation. For a list of the places
 allowing you to add conditions,
-see [Add conditions to branch
-conversations](paths-branching.md "paths-branching.md").
+see [Add conditions to branch conversations](paths-branching.md "paths-branching.md").
 
 You can set conditions based on slot values, session attributes, the input mode and input
 transcript, or a response from Amazon Kendra.
 
 You can set slot and session attribute values at each point in the conversation. For more
 information,
-see [Set values during the
-conversation](paths-setting-values.md "paths-setting-values.md").
+see [Set values during the conversation](paths-setting-values.md "paths-setting-values.md").
 
 You can also set the next action to dialog code hook to run a Lambda function. For more
 information, see [Invoke dialog code hook](paths-code-hook.md "paths-code-hook.md").

@@ -10,10 +10,8 @@ upon your bot to create a better customer experience.
 
 ###### Note
 
-For a user to access Analytics, either the [AWS
-managed policy: AmazonLexFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexFullAccess") or a custom policy that includes analytics API permissions must be attached to their
-IAM role. See [Managing access permissions for analytics](analytics-permissions.md "analytics-permissions.md") for details on how to handle user permissions with a custom policy. If the [AWS
-managed policy: AmazonLexReadOnly](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexReadOnly "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexReadOnly") is attached to a customer's
+For a user to access Analytics, either the [AWS managed policy: AmazonLexFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexFullAccess") or a custom policy that includes analytics API permissions must be attached to their
+IAM role. See [Managing access permissions for analytics](analytics-permissions.md "analytics-permissions.md") for details on how to handle user permissions with a custom policy. If the [AWS managed policy: AmazonLexReadOnly](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexReadOnly "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLexReadOnly") is attached to a customer's
 IAM role, an error displays the missing permissions that you need to add to the user's
 IAM role for them to be able to access the Analytics dashboards.
 
@@ -29,9 +27,7 @@ IAM role for them to be able to access the Analytics dashboards.
 - [Key definitions](analytics-key-definitions.md "analytics-key-definitions.md")
 - [Filtering results](analytics-filter.md "analytics-filter.md")
 - [Overview: a summary of your bot performance](analytics-overview.md "analytics-overview.md")
-- [Conversation dashboard: a summary of your bot
-  conversations](conversation-dashboard.md "conversation-dashboard.md")
-- [Performance dashboard: a summary of your bot's
-  intent and utterance metrics](performance-dashboard.md "performance-dashboard.md")
+- [Conversation dashboard: a summary of your bot conversations](conversation-dashboard.md "conversation-dashboard.md")
+- [Performance dashboard: a summary of your bot's intent and utterance metrics](performance-dashboard.md "performance-dashboard.md")
 - [Using APIs for analytics](analytics-api.md "analytics-api.md")
 - [Managing access permissions for analytics](analytics-permissions.md "analytics-permissions.md")

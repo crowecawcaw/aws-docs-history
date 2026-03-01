@@ -1,6 +1,4 @@
-# Identity-based
-
-policy examples for Amazon Lex V2
+# Identity-based policy examples for Amazon Lex V2
 
 By default, users and roles don't have permission to create or modify Amazon Lex V2
 resources. To grant users permission to perform actions on the
@@ -16,27 +14,18 @@ For details about actions and resource types defined by Amazon Lex V2, including
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the Amazon Lex V2 console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users to add functions
-  to a bot](#security_iam-bot-role "#security_iam-bot-role")
-- [Allow users to add
-  channels to a bot](#security_iam-channel-role "#security_iam-channel-role")
-- [Allow users to
-  create and update bots](#security_iam-bot-create-update "#security_iam-bot-create-update")
-- [Allow users to use the
-  Automated Chatbot Designer](#security_iam-bot-designer "#security_iam-bot-designer")
-- [Allow users to use a AWS KMS key
-  to encrypt and decrypt files](#security_iam-bot-key "#security_iam-bot-key")
-- [Allow users to delete
-  bots](#security_iam-bot-delete "#security_iam-bot-delete")
-- [Allow users to have
-  a conversation with a bot](#security_iam-bot-conversation "#security_iam-bot-conversation")
+- [Allow users to add functions to a bot](#security_iam-bot-role "#security_iam-bot-role")
+- [Allow users to add channels to a bot](#security_iam-channel-role "#security_iam-channel-role")
+- [Allow users to create and update bots](#security_iam-bot-create-update "#security_iam-bot-create-update")
+- [Allow users to use the Automated Chatbot Designer](#security_iam-bot-designer "#security_iam-bot-designer")
+- [Allow users to use a AWS KMS key to encrypt and decrypt files](#security_iam-bot-key "#security_iam-bot-key")
+- [Allow users to delete bots](#security_iam-bot-delete "#security_iam-bot-delete")
+- [Allow users to have a conversation with a bot](#security_iam-bot-conversation "#security_iam-bot-conversation")
 - [Allow a specific user to manage resource-based policies](#security_iam_id-based-policy-examples-allow-resource "#security_iam_id-based-policy-examples-allow-resource")
 - [Allow a user to export bots and bot locales](#security_iam_id-based-policy-examples-export "#security_iam_id-based-policy-examples-export")
-- [Allow a user
-  to export a custom vocabulary](#security_iam_id-based-policy-examples-import-vocab "#security_iam_id-based-policy-examples-import-vocab")
+- [Allow a user to export a custom vocabulary](#security_iam_id-based-policy-examples-import-vocab "#security_iam_id-based-policy-examples-import-vocab")
 - [Allow a user to import bots and bot locales](#security_iam_id-based-policy-examples-import "#security_iam_id-based-policy-examples-import")
-- [Allow a
-  user to import a custom vocabulary](#secruity_iam_id-based-policy-examples-import-vocab "#secruity_iam_id-based-policy-examples-import-vocab")
+- [Allow a user to import a custom vocabulary](#secruity_iam_id-based-policy-examples-import-vocab "#secruity_iam_id-based-policy-examples-import-vocab")
 - [Allow a user to migrate a bot from Amazon Lex to Amazon Lex V2](#security_iam_id-based-policy-examples-migrate "#security_iam_id-based-policy-examples-migrate")
 - [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow a user to draw conversation flow with visual conversation builder in Amazon Lex V2](#security_iam_allow-draw-conversation-flow "#security_iam_allow-draw-conversation-flow")
@@ -92,9 +81,7 @@ console, users need to have Console access. For more information
 about creating a user with Console access, see [Creating an IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
 _IAM User Guide_.
 
-## Allow users to add functions
-
-to a bot
+## Allow users to add functions to a bot
 
 This example shows a policy that allows IAM users to add Amazon Comprehend,
 sentiment analysis and Amazon Kendra query permissions to an Amazon Lex V2
@@ -123,9 +110,7 @@ JSON
 
 ```
 
-## Allow users to add
-
-channels to a bot
+## Allow users to add channels to a bot
 
 This example is a policy that allows IAM users to add a
 messaging channel to a bot. A user must have this policy in place
@@ -154,32 +139,24 @@ JSON
 
 ```
 
-## Allow users to
-
-create and update bots
+## Allow users to create and update bots
 
 This example shows an example policy that allows IAM users to
 create and update any bot. The policy includes permissions to
 complete this action on the console or using the AWS CLI or AWS
 API.
 
-## Allow users to use the
-
-Automated Chatbot Designer
+## Allow users to use the Automated Chatbot Designer
 
 This example shows an example policy that allows IAM users to
 run the Automated Chatbot Designer.
 
-## Allow users to use a AWS KMS key
-
-to encrypt and decrypt files
+## Allow users to use a AWS KMS key to encrypt and decrypt files
 
 This example shows an example policy that allows IAM users to
 use a AWS KMS customer managed key to encrypt and decrypt data.
 
-## Allow users to delete
-
-bots
+## Allow users to delete bots
 
 This example shows an example policy that allows IAM users to
 delete any bot. The policy includes permissions to complete this
@@ -211,9 +188,7 @@ JSON
 
 ```
 
-## Allow users to have
-
-a conversation with a bot
+## Allow users to have a conversation with a bot
 
 This example shows an example policy that allows IAM users have
 a conversation with any bot. The policy includes permissions to
@@ -243,17 +218,13 @@ JSON
 
 ```
 
-##
-
-Allow a specific user to manage resource-based policies
+## Allow a specific user to manage resource-based policies
 
 The following example grants permission for a specific user to
 manage the resource-based policies. It allows console and API access
 to the policies associated with bots and bot aliases.
 
-##
-
-Allow a user to export bots and bot locales
+## Allow a user to export bots and bot locales
 
 The following IAM permission policy enables a user to create,
 update, and get an export for a bot or bot locale.
@@ -290,9 +261,7 @@ JSON
 
 ```
 
-## Allow a user
-
-to export a custom vocabulary
+## Allow a user to export a custom vocabulary
 
 The following IAM permission policy allows a user to export a custom
 vocabulary from a bot locale.
@@ -320,9 +289,7 @@ JSON
 
 ```
 
-##
-
-Allow a user to import bots and bot locales
+## Allow a user to import bots and bot locales
 
 The following IAM permission policy allows a user to import a
 bot or bot locale and to check the status of an import.
@@ -369,9 +336,7 @@ JSON
 
 ```
 
-## Allow a
-
-user to import a custom vocabulary
+## Allow a user to import a custom vocabulary
 
 The following IAM permission policy allows a user to import a custom
 vocabulary to a bot locale.

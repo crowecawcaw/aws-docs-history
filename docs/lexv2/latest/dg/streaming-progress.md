@@ -1,6 +1,4 @@
-# Configuring fulfillment progress
-
-updates for your Lex V2 bot
+# Configuring fulfillment progress updates for your Lex V2 bot
 
 When the fulfillment Lambda function for an intent is called, the bot
 doesn't send a response until the function completes. If the Lambda
@@ -110,9 +108,7 @@ structure to turn the update response on and off. When
 `active` is false, the update response isn't
 returned.
 
-## Post-fulfillment
-
-response
+## Post-fulfillment response
 
 Amazon Lex V2 returns a post-fulfillment response when the fulfillment
 function ends. A post-fulfillment response can be used when

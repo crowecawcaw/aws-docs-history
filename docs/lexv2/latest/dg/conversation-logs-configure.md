@@ -1,6 +1,4 @@
-# Configuring conversation
-
-logs for your Lex V2 bot
+# Configuring conversation logs for your Lex V2 bot
 
 You enable and disable conversation logs using the console or the
 `conversationLogSettings` field of the
@@ -29,8 +27,7 @@ If you are not using the console, you must provide an IAM role
 with policies that enable Amazon Lex V2 to write to the configured log group or
 bucket. If you create a service-linked role using the AWS Command Line Interface, you must add
 a custom suffix to the role using the `custom-suffix` option as in the following example.
-For more information, see [Creating an IAM Role and
-Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
+For more information, see [Creating an IAM Role and Policies for Conversation Logs](conversation-logs-policies.md#conversation-logs-role-and-policy "conversation-logs-policies.md#conversation-logs-role-and-policy").
 
 ```
 aws iam create-service-linked-role \
@@ -58,9 +55,7 @@ JSON
 
 ```
 
-## Enabling conversation
-
-logs
+## Enabling conversation logs
 
 ###### To turn on logs using the console
 
@@ -81,9 +76,7 @@ logs
    If necessary, Amazon Lex V2 will update your service role with permissions
    to access the CloudWatch Logs log group and selected S3 bucket.
 
-## Disabling conversation
-
-logs in Lex V2
+## Disabling conversation logs in Lex V2
 
 ###### To turn off logs using the console
 

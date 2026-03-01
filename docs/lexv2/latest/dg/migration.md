@@ -16,9 +16,7 @@ efficiently manage your bot versions. Capabilities such as a
 'conversation flow', partial saving of bot configuration and bulk
 upload of utterances give you more flexibility.
 
-### Multiple languages in a
-
-bot
+### Multiple languages in a bot
 
 You can add multiple languages with the Amazon Lex V2 API. You add,
 modify, and build each language independently. Resources such as
@@ -29,12 +27,9 @@ review utterances for all languages for faster analysis and
 iterations. A bot operator can manage permissions and logging
 operations for all languages with one bot configuration. You
 must provide a language as a runtime parameter to converse with
-a Amazon Lex V2 bot. For more information, see [Languages and locales supported by
-Amazon Lex V2](how-languages.md "how-languages.md").
+a Amazon Lex V2 bot. For more information, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 
-### Simplified information
-
-architecture
+### Simplified information architecture
 
 The Amazon Lex V2 API follows a simplified information architecture
 (IA) with intent and slot types scoped to a language. You
@@ -47,17 +42,13 @@ include in a version. All resources within the bot (languages,
 intents, slot types) are archived as part of creating a bot
 version. For more information, see [Versions](versions-aliases.md#versions "versions-aliases.md#versions").
 
-### Improved builder
-
-productivity
+### Improved builder productivity
 
 You have additional builder productivity tools and
 capabilities that give you more flexibility and control of your
 bot design process.
 
-#### Save partial
-
-configuration
+#### Save partial configuration
 
 The Amazon Lex V2 API enables you to save partial changes during
 development. For example, you can save a slot that
@@ -85,9 +76,7 @@ resources. If you are using the AWS Command Line Interface or the Amazon Lex V2 
 to work with Amazon Lex V2, resource IDs are required for certain
 commands.
 
-#### Simplified management of
-
-Lambda functions
+#### Simplified management of Lambda functions
 
 In the Amazon Lex V2 API you define one Lambda function per
 language instead of a function for each intent. The Lambda
@@ -106,17 +95,13 @@ alias scope. Session time out and privacy settings at the
 bot scope, and conversation logs at the alias scope, remain
 unchanged.
 
-#### Default fallback
-
-intent
+#### Default fallback intent
 
 The Amazon Lex V2 API adds a default fallback intent when you
 create a language. Use it to configure error handling for
 your bot instead of specific error-handling prompts.
 
-#### Optimized session variable
-
-update
+#### Optimized session variable update
 
 With the Amazon Lex V2 API you can update session state directly
 with the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") and

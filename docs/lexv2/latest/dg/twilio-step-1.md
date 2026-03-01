@@ -1,6 +1,4 @@
-# Step 1: Create a Twilio SMS
-
-account
+# Step 1: Create a Twilio SMS account
 
 Sign up for a Twilio account and record the following account
 information:
@@ -11,5 +9,4 @@ information:
 
 ## Next step
 
-[Step 2: Integrate the Twilio message
-service endpoint with the Amazon Lex V2 bot](twilio-step-2.md "twilio-step-2.md")
+[Step 2: Integrate the Twilio message service endpoint with the Amazon Lex V2 bot](twilio-step-2.md "twilio-step-2.md")

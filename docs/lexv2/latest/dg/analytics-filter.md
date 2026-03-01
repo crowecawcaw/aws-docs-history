@@ -34,5 +34,4 @@ The analytics time range has the following restrictions:
 - **Modality** – Select the gear icon and choose the **Modality** dropdown menu to choose whether to display results for **Speech** or **Text**.
 - **Channel** – Select the gear icon and choose the **Channel** dropdown menu
   to choose the channel for which you want to display results. For more
-  information about channel integration, see [Integrating an Amazon Lex V2
-  bot with a messaging platform](deploying-messaging-platform.md "deploying-messaging-platform.md") and [Amazon Connect contact centers](../../../connect/latest/adminguide/amazon-connect-contact-centers.md "../../../connect/latest/adminguide/amazon-connect-contact-centers.md")
+  information about channel integration, see [Integrating an Amazon Lex V2 bot with a messaging platform](deploying-messaging-platform.md "deploying-messaging-platform.md") and [Amazon Connect contact centers](../../../connect/latest/adminguide/amazon-connect-contact-centers.md "../../../connect/latest/adminguide/amazon-connect-contact-centers.md")

@@ -1,6 +1,4 @@
-# Logging and monitoring in
-
-Amazon Lex V2
+# Logging and monitoring in Amazon Lex V2
 
 Monitoring is an important part of maintaining the reliability,
 availability, and performance of Amazon Lex V2 and

@@ -33,9 +33,7 @@ editing program.
     key to encrypt output transcripts.
 12. Select **Create**.
 
-###### To upload an existing test set in a CSV file format, or to update the test
-
-set:
+###### To upload an existing test set in a CSV file format, or to update the test set:
 
 1. Choose **Test workbench** from the left side panel.
 2. Select **Test sets** from the options under Test workbench.

@@ -1,6 +1,4 @@
-# Set values during the
-
-conversation
+# Set values during the conversation
 
 Amazon Lex V2 provides the ability to set slot values
 and session attribute values at every step of the conversation. You

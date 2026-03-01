@@ -1,6 +1,4 @@
-# Test results details in Test
-
-Workbench
+# Test results details in Test Workbench
 
 The test results show the test set details, intents used, and the slots used. It also
 provides the overall test set input breakdown includes the overall results, conversation

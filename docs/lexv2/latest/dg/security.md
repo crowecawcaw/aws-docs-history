@@ -29,16 +29,10 @@ cloud:
 
 ###### Topics
 
-- [Data protection in
-  Amazon Lex V2](data-protection.md "data-protection.md")
-- [Identity and access management for
-  Amazon Lex V2](security-iam.md "security-iam.md")
-- [Logging and monitoring in
-  Amazon Lex V2](security-logging-and-monitoring.md "security-logging-and-monitoring.md")
+- [Data protection in Amazon Lex V2](data-protection.md "data-protection.md")
+- [Identity and access management for Amazon Lex V2](security-iam.md "security-iam.md")
+- [Logging and monitoring in Amazon Lex V2](security-logging-and-monitoring.md "security-logging-and-monitoring.md")
 - [Compliance validation for Amazon Lex V2](compliance.md "compliance.md")
-- [Resilience in
-  Amazon Lex V2](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Lex V2](infrastructure-security.md "infrastructure-security.md")
-- [Amazon Lex V2 and interface
-  VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Resilience in Amazon Lex V2](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in Amazon Lex V2](infrastructure-security.md "infrastructure-security.md")
+- [Amazon Lex V2 and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

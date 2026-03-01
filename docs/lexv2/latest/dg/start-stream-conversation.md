@@ -91,8 +91,7 @@ to the bot during that conversation:
   Informs the bot that the user has disconnected from the
   conversation.
   You must encode every event that you send to an Amazon Lex V2 bot in the
-  correct format. For more information, see [Event
-  stream encoding](event-stream-encoding.md "event-stream-encoding.md").
+  correct format. For more information, see [Event stream encoding](event-stream-encoding.md "event-stream-encoding.md").
 
 Every event has an event ID. To help troubleshoot any issues that
 might occur in the stream, assign a unique event ID to each input
@@ -177,9 +176,7 @@ or text as a conversation mode:
   connection between your application and the bot from timing
   out.
 
-## Time sequence of
-
-events for an audio conversation when using an Amazon Lex V2 bot
+## Time sequence of events for an audio conversation when using an Amazon Lex V2 bot
 
 The following diagrams show a streaming audio conversation
 between a user and an Amazon Lex V2 bot. The application continuously

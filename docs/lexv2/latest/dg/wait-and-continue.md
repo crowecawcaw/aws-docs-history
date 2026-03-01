@@ -1,6 +1,4 @@
-# Enabling the
-
-Amazon Lex V2 bot to wait for the user to provide more information during a pause
+# Enabling the Amazon Lex V2 bot to wait for the user to provide more information during a pause
 
 When you start a bidirectional stream from an Amazon Lex V2 bot to your
 application, you can configure the bot to wait for the user to
@@ -66,8 +64,7 @@ To learn more about slots, see [Amazon Lex V2 core concepts](how-it-works.md "ho
 
 To test the wait and continue functionality, configure your bot to
 wait for user input and start a stream to an Amazon Lex V2 bot. For
-information on streaming to a bot, see [Using
-the API to start a streaming conversation](using-streaming-api.md "using-streaming-api.md").
+information on streaming to a bot, see [Using the API to start a streaming conversation](using-streaming-api.md "using-streaming-api.md").
 
 You may need to turn off the wait and continue responses. Use the
 **Active** toggle to set whether or not the

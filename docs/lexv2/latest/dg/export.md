@@ -5,8 +5,7 @@ console or the `CreatExport` operation. You specify the
 resource to export, and you can provide an optional password to help
 protect the .zip file when you start an export. After you download
 the .zip file, you must use the password to access the file before
-you can use it. For more information, see [Using a password when
-importing or exporting](import-export-password.md "import-export-password.md").
+you can use it. For more information, see [Using a password when importing or exporting](import-export-password.md "import-export-password.md").
 
 Exporting is an asynchronous operation. Once you have started the
 export, you can use the console or the `DescribeExport`
@@ -51,12 +50,9 @@ following items are not exported with a bot:
 You can remove an export and the associated .zip file using the
 console or the `DeleteExport` operation.
 
-For an example of exporting a bot using the console, see [Exporting a Lex V2 bot
-(console)](export-console.md "export-console.md").
+For an example of exporting a bot using the console, see [Exporting a Lex V2 bot (console)](export-console.md "export-console.md").
 
-## IAM permissions required
-
-to export bots in Lex V2
+## IAM permissions required to export bots in Lex V2
 
 To export bots, bot locales, and custom vocabularies, the user
 running the export must have the following IAM
@@ -71,4 +67,4 @@ permissions.
 | [DeleteExport](../APIReference/API_DeleteExport.md "../APIReference/API_DeleteExport.md")                                  | • DeleteExport                                                                                                                                                                                                  | Bot      |
 | [ListExports](../APIReference/API_ListExports.md "../APIReference/API_ListExports.md")                                     | • ListExports                                                                                                                                                                                                   | \*       |
 
-For an example IAM policy, see [Allow a user to export bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export") .
+For an example IAM policy, see [Allow a user to export bots and bot locales](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-export").

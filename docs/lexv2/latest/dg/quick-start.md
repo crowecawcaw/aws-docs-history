@@ -62,9 +62,7 @@ Congratulations! You now have a working Amazon Lex V2 chatbot. Here's what you c
 - **Enable Assisted NLU** – Improve understanding with AI-powered natural language processing.
 - **Add More Intents** – Expand your chatbot's capabilities with additional use cases.
 - **Integrate with Lambda** – Add business logic and external system integration. See [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md").
-- **Set Up Monitoring** – Track usage and performance. See [Measuring operational metrics with
-  Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+- **Set Up Monitoring** – Track usage and performance. See [Measuring operational metrics with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 - **Learn Advanced Features** – Explore conversation flow management, multi-turn dialogs, and context switching.
 
-For a more detailed walkthrough, continue with [Exercise 1: Create a chatbot from a
-template](exercise-1.md "exercise-1.md").
+For a more detailed walkthrough, continue with [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md").

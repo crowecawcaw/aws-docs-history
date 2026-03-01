@@ -1,6 +1,4 @@
-# Setting intent
-
-context for your Lex V2 bot
+# Setting intent context for your Lex V2 bot
 
 You can have Amazon Lex V2 trigger intents based on
 _context_. A _context_ is
@@ -54,8 +52,7 @@ intents eligible to follow up the current intent.
 Each context has a list of parameters that are maintained in
 the session. The parameters are the slot values for the
 fulfilled intent. You can use these parameters to pre-populate
-slot values for other intents. For more information,see [Using default slot
-values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
+slot values for other intents. For more information,see [Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
 
 You configure the output context when you create an intent
 with the console or with the [CreateIntent](../APIReference/API_CreateIntent.md "../APIReference/API_CreateIntent.md") operation. You can
@@ -105,5 +102,4 @@ values from the current active context. Default values are used
 when Amazon Lex V2 recognizes a new intent but doesn't receive a slot
 value. You specify the context name and slot name in the form
 `#context-name.parameter-name` when you define
-the slot. For more information, see [Using default slot
-values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
+the slot. For more information, see [Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").

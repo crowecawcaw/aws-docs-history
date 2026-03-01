@@ -1,6 +1,4 @@
-# Step 1: Create a Facebook
-
-application
+# Step 1: Create a Facebook application
 
 On the Facebook developer portal, create a Facebook application
 and a Facebook page.
@@ -39,5 +37,4 @@ and a Facebook page.
 
 ## Next step
 
-[Step 2: Integrate Facebook
-Messenger with the Amazon Lex V2 bot](facebook-step-2.md "facebook-step-2.md")
+[Step 2: Integrate Facebook Messenger with the Amazon Lex V2 bot](facebook-step-2.md "facebook-step-2.md")

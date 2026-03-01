@@ -91,8 +91,7 @@ A description for each field is provided below:
       + **imageUrl** – A link to an image for the card.
       + **buttons** – A list of structures containing information about a button. Each structure contains a `text` field with the text to display and a `value` field with the value to send to Amazon Lex V2 if the customer selects that button. You can include up to three buttons.
 
-  A structure containing request-specific attributes for the response to the customer. See [Setting request
-  attributes for your Lex V2 bot](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md") for more information. This field is optional.
+  A structure containing request-specific attributes for the response to the customer. See [Setting request attributes for your Lex V2 bot](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md") for more information. This field is optional.
 
 ## Required fields in the response
 

@@ -35,11 +35,8 @@ bucket.
 
 ###### Topics
 
-- [IAM Policies for Conversation
-  Logs](conversation-logs-policies.md "conversation-logs-policies.md")
-- [Configuring conversation
-  logs for your Lex V2 bot](conversation-logs-configure.md "conversation-logs-configure.md")
+- [IAM Policies for Conversation Logs](conversation-logs-policies.md "conversation-logs-policies.md")
+- [Configuring conversation logs for your Lex V2 bot](conversation-logs-configure.md "conversation-logs-configure.md")
 - [Viewing text logs in Amazon CloudWatch Logs from Lex V2](conversation-logs-cw.md "conversation-logs-cw.md")
 - [Accessing audio logs in Amazon S3](conversation-logs-s3.md "conversation-logs-s3.md")
-- [Monitoring conversation log
-  status with CloudWatch metrics](conversation-logs-monitoring.md "conversation-logs-monitoring.md")
+- [Monitoring conversation log status with CloudWatch metrics](conversation-logs-monitoring.md "conversation-logs-monitoring.md")

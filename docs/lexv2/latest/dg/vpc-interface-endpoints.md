@@ -1,6 +1,4 @@
-# Amazon Lex V2 and interface
-
-VPC endpoints (AWS PrivateLink)
+# Amazon Lex V2 and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and
 Amazon Lex V2 by creating an _interface VPC
@@ -17,9 +15,7 @@ For more information, see [Interface VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon
 VPC User Guide_.
 
-## Considerations for
-
-Amazon Lex V2 VPC endpoints
+## Considerations for Amazon Lex V2 VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Lex V2, ensure
 that you review [Interface endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the
@@ -28,9 +24,7 @@ _Amazon VPC User Guide_.
 Amazon Lex V2 supports making calls to all of its API actions from
 your VPC.
 
-## Creating an interface VPC
-
-endpoint for Amazon Lex V2
+## Creating an interface VPC endpoint for Amazon Lex V2
 
 You can create a VPC endpoint for the Amazon Lex V2 service using
 either the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more
@@ -49,9 +43,7 @@ example, `runtime-v2-lex.us-east-1.amazonaws.com`.
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in
 the _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy
-
-for Amazon Lex V2
+## Creating a VPC endpoint policy for Amazon Lex V2
 
 You can attach an endpoint policy to your VPC endpoint that
 controls access to Amazon Lex V2. The policy specifies the following

@@ -1,6 +1,4 @@
-# Using default slot
-
-values in intents for your Lex V2 bot
+# Using default slot values in intents for your Lex V2 bot
 
 When you use a default value, you specify a source for a slot
 value to be filled for new intents when no slot is provided by the

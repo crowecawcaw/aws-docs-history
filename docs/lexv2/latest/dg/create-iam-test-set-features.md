@@ -1,6 +1,4 @@
-# Create an IAM role for the Test
-
-Workbench - Advanced Features
+# Create an IAM role for the Test Workbench - Advanced Features
 
 ###### Permission setup for Test workbench IAM role
 

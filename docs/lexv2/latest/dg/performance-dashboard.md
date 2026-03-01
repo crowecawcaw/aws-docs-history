@@ -1,6 +1,4 @@
-# Performance dashboard: a summary of your bot's
-
-intent and utterance metrics
+# Performance dashboard: a summary of your bot's intent and utterance metrics
 
 In the performance dashboard, you can view details about the performance of your bot's
 intent fulfillment and utterance recognition.

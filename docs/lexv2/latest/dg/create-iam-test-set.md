@@ -1,6 +1,4 @@
-# Create an IAM role for the Test
-
-Workbench
+# Create an IAM role for the Test Workbench
 
 ###### To create an IAM role for the Test Workbench
 

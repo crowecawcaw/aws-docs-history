@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-Amazon Lex V2
+# AWS managed policies for Amazon Lex V2
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -17,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS
-
-managed policy: AmazonLexReadOnly
+## AWS managed policy: AmazonLexReadOnly
 
 You can attach the `AmazonLexReadOnly` policy to your
 IAM identities.
@@ -104,9 +100,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexRunBotsOnly
+## AWS managed policy: AmazonLexRunBotsOnly
 
 You can attach the `AmazonLexRunBotsOnly` policy to
 your IAM identities.
@@ -146,9 +140,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexFullAccess
+## AWS managed policy: AmazonLexFullAccess
 
 You can attach the `AmazonLexFullAccess` policy to your
 IAM identities.
@@ -420,14 +412,11 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexReplicationPolicy
+## AWS managed policy: AmazonLexReplicationPolicy
 
 You can't attach `AmazonLexReplicationPolicy` to your IAM entities. This
 policy is attached to a service-linked role that allows Amazon Lex V2 to perform actions on
-your behalf. For more information, see [Using service-linked roles for
-Amazon Lex V2](using-service-linked-roles.md "using-service-linked-roles.md").
+your behalf. For more information, see [Using service-linked roles for Amazon Lex V2](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allows Amazon Lex V2 to replicate AWS
 resources across Regions on your behalf. You can attach this policy to permit a role to
@@ -536,9 +525,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexV2BedrockAgentPolicy
+## AWS managed policy: AmazonLexV2BedrockAgentPolicy
 
 Amazon Lex V2 policy for Amazon Bedrock agents
 
@@ -568,9 +555,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexV2BedrockKnowledgeBasePolicy
+## AWS managed policy: AmazonLexV2BedrockKnowledgeBasePolicy
 
 Amazon Lex V2 policy for Amazon Bedrock knowledge bases
 
@@ -600,9 +585,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexV2BedrockAgentPolicyInternal
+## AWS managed policy: AmazonLexV2BedrockAgentPolicyInternal
 
 Amazon Lex V2 internal policy for Amazon Bedrock agents
 
@@ -632,9 +615,7 @@ JSON
 
 ```
 
-## AWS
-
-managed policy: AmazonLexV2BedrockKnowledgeBasePolicyInternal
+## AWS managed policy: AmazonLexV2BedrockKnowledgeBasePolicyInternal
 
 Amazon Lex V2 internal policy for Amazon Bedrock knowledge bases
 
@@ -664,9 +645,7 @@ JSON
 
 ```
 
-## Amazon Lex V2 updates
-
-to AWS managed policies
+## Amazon Lex V2 updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Lex V2
 since this service began tracking these changes. For automatic

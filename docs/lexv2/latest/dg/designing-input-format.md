@@ -1,6 +1,4 @@
-# Input transcript
-
-format
+# Input transcript format
 
 The following is the input file format for generating intents and
 slot types for your bot. The input file must contain these fields.

@@ -1,6 +1,4 @@
-# Tips for creating a successful test
-
-set
+# Tips for creating a successful test set
 
 - You can create an IAM role for the Test Workbench in the console, or you
   can configure your IAM role step-by-step. For more information, see [Create an IAM role for the Test Workbench](create-iam-test-set.md "create-iam-test-set.md").

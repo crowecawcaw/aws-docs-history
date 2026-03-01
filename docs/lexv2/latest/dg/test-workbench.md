@@ -1,6 +1,4 @@
-# Evaluating Lex V2 bot performance with the Test
-
-Workbench
+# Evaluating Lex V2 bot performance with the Test Workbench
 
 To improve bot performance, you can evaluate the performance of your bots at scale. The
 results for your test evaluation are displayed in simple tables and charts.
@@ -23,5 +21,4 @@ improved slot filling and intent classification.
 - [Execute a test](execute-test-set.md "execute-test-set.md")
 - [Test set coverage in Test Workbench](validation-test-set.md "validation-test-set.md")
 - [View test results](test-results-test-set.md "test-results-test-set.md")
-- [Test results details in Test
-  Workbench](test-results-details-test-set.md "test-results-details-test-set.md")
+- [Test results details in Test Workbench](test-results-details-test-set.md "test-results-details-test-set.md")

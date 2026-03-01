@@ -11,8 +11,7 @@ user’s request. You can configure the following options for fulfillment.
 - **Fulfillment updates** – You can
   enable fulfillment updates for Lambda functions that take more than a few
   seconds to complete, so that the user knows that the process is in
-  progress. For more information, see [Configuring fulfillment progress
-  updates for your Lex V2 bot](streaming-progress.md "streaming-progress.md"). This
+  progress. For more information, see [Configuring fulfillment progress updates for your Lex V2 bot](streaming-progress.md "streaming-progress.md"). This
   functionality is only available for streaming conversations.
 - **Fulfillment responses** –
   You can configure a success

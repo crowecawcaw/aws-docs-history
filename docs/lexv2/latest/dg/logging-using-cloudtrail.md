@@ -14,9 +14,7 @@ it was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## Amazon Lex V2 information in
-
-CloudTrail
+## Amazon Lex V2 information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account.
 When activity occurs in Amazon Lex V2, that activity is recorded in a CloudTrail
@@ -57,9 +55,7 @@ request. The identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding
-
-Amazon Lex V2 log file entries
+## Understanding Amazon Lex V2 log file entries
 
 A trail is a configuration that enables delivery of events as log
 files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or

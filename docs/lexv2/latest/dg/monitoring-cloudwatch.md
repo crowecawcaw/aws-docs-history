@@ -1,6 +1,4 @@
-# Measuring operational metrics with
-
-Amazon CloudWatch
+# Measuring operational metrics with Amazon CloudWatch
 
 You can monitor Amazon Lex V2 using CloudWatch, which collects raw data and
 processes it into readable, near real-time metrics. These statistics are

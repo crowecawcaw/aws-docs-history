@@ -3,8 +3,7 @@
 Assisted NLU is a feature that uses Large Language Models (LLMs) to improve Amazon Lex V2's intent classification and slot resolution capabilities. It enhances accuracy while staying within your bot's configured intents and slots. The feature does not generate or modify any bot content. This
 feature helps to improve the overall accuracy of the NLU system, resulting in a more seamless and effective conversational experience for users.
 
-The assisted NLU feature is available in English, Spanish, Portuguese, Catalan, French, Italian, and German locales. Specifically, it supports locales that begin with `en_`, `es_`, `pt_` (pt_BR, pt_PT), `ca_` (ca_ES), `fr_` (fr_CA, fr_FR), `it_` (it_IT), `de_` (de_AT, de_DE), `zh_` (zh_CN, zh_HK), `ja_JP`, and `ko_KR`. For the complete list of supported locales, see the table in [Languages and locales supported by
-Amazon Lex V2](how-languages.md "how-languages.md").
+The assisted NLU feature is available in English, Spanish, Portuguese, Catalan, French, Italian, and German locales. Specifically, it supports locales that begin with `en_`, `es_`, `pt_` (pt_BR, pt_PT), `ca_` (ca_ES), `fr_` (fr_CA, fr_FR), `it_` (it_IT), `de_` (de_AT, de_DE), `zh_` (zh_CN, zh_HK), `ja_JP`, and `ko_KR`. For the complete list of supported locales, see the table in [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 
 Use assisted NLU to improve intent classification and slot resolution. Amazon Lex V2 invokes Amazon Bedrock models to help
 classify intents and resolve slot types that fit your bot's use case. You can enable assisted NLU for your bot with the console.

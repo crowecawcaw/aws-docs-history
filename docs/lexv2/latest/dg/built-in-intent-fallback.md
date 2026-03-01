@@ -38,9 +38,7 @@ Amazon Lex V2 matches the fallback intent in these situations:
 - Slots
 - A confirmation prompt
 
-## Using a Lambda Function with a
-
-Fallback Intent
+## Using a Lambda Function with a Fallback Intent
 
 When a fallback intent is invoked, the response depends on
 the setting of the `fulfillmentCodeHook`
@@ -79,5 +77,4 @@ number of times that the fallback intent is called using a
 session variable. Your Lambda function can take a different
 action if it is called more times than the threshold that
 you set in your Lambda function. For more information about
-session variables, see [Setting session
-attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").
+session variables, see [Setting session attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md").

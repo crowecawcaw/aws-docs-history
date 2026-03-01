@@ -1,6 +1,4 @@
-# Importing a Lex V2 bot
-
-(console)
+# Importing a Lex V2 bot (console)
 
 ###### To import a bot using the console
 

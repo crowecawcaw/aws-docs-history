@@ -1,6 +1,4 @@
-# Add conditions to branch
-
-conversations
+# Add conditions to branch conversations
 
 You can use _conditional branching_ to control
 the path that your customer takes through the conversation with your
@@ -65,17 +63,13 @@ configuring next steps, and adding conditions.
 
 ###### Topics
 
-- [Comparison
-  operators](#branching-comparison "#branching-comparison")
+- [Comparison operators](#branching-comparison "#branching-comparison")
 - [Boolean operators](#branching-boolean "#branching-boolean")
-- [Quantifier
-  operators](#branching-quentifier "#branching-quentifier")
+- [Quantifier operators](#branching-quentifier "#branching-quentifier")
 - [Functions](#branching-function "#branching-function")
 - [Sample conditional expressions](#sample-conditional-expressions "#sample-conditional-expressions")
 
-## Comparison
-
-operators
+## Comparison operators
 
 Amazon Lex V2 supports the following comparison operators for
 conditions:
@@ -137,9 +131,7 @@ You can use the following Boolean operators:
 - OR (||)
 - NOT (!)
 
-## Quantifier
-
-operators
+## Quantifier operators
 
 Quantifier operators evaluate the elements of a sequence and
 determine if one or more elements satisfy the condition.

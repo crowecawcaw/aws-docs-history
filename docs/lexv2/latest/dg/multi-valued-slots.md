@@ -1,6 +1,4 @@
-# Using multiple values in a
-
-slot
+# Using multiple values in a slot
 
 ###### Note
 
@@ -91,8 +89,7 @@ me to order your pepperoni and pineapple pizza?"
 Multi-valued slots support single default values. If multiple default values are
 provided, Amazon Lex V2 populates the slot with only the first available value.
 For more information, see
-[Using default slot
-values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
+[Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md "context-mgmt-default.md").
 
 You can use slot obfuscation to mask the values of
 a multi-value slot in conversation logs. When you obfuscate slot values, the value

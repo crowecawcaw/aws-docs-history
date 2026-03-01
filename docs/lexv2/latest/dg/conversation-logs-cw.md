@@ -54,8 +54,7 @@ bot. For more information, see [Understanding Amazon Lex V2 bot conversations](m
 interpretations
 
 A list of intents that Amazon Lex V2 determined could satisfy the
-user's utterance. [Using confidence
-scores to improve conversation accuracy](confidence-scores.md "confidence-scores.md").
+user's utterance. [Using confidence scores to improve conversation accuracy](confidence-scores.md "confidence-scores.md").
 
 interpretationSource
 

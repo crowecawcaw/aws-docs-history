@@ -1,14 +1,11 @@
-# Using a Java application to interact with
-
-an Amazon Lex V2 bot
+# Using a Java application to interact with an Amazon Lex V2 bot
 
 The [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2 "https://github.com/aws/aws-sdk-java-v2") provides an interface that you can use from your Java
 applications to interact with your bots. Use the SDK for Java to build client
 applications for users.
 
 The following application interacts with the OrderFlowers bot that you
-created in [Exercise 1: Create a chatbot from a
-template](exercise-1.md "exercise-1.md"). It
+created in [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md"). It
 uses the `LexRuntimeV2Client` from the SDK for Java SDK to call
 the [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") operation to conduct a
 conversation with the bot.
@@ -30,8 +27,7 @@ Bot  : Thanks.
 ```
 
 For the JSON structures that are sent between the client application
-and the Amazon Lex V2 bot, see [Exercise 2: Review the conversation
-flow](exercise-2.md "exercise-2.md").
+and the Amazon Lex V2 bot, see [Exercise 2: Review the conversation flow](exercise-2.md "exercise-2.md").
 
 To run the application, you must provide the following
 information:
@@ -45,8 +41,7 @@ information:
   see the alias ID in the list, choose the gear icon on the upper
   right and turn on **Alias ID**.
 - localeId – The identifier of the locale that you used
-  for your bot. For a list of locales, see [Languages and locales supported by
-  Amazon Lex V2](how-languages.md "how-languages.md").
+  for your bot. For a list of locales, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 - accessKey and secretKey – The authentication keys for
   your account. If you don't have a set of keys, create them using
   the AWS Identity and Access Management console.

@@ -51,8 +51,7 @@ Contains information about the results of the Kendra search query. This field on
 
 ## Slots
 
-The `slots` field exists within an `intent` structure and is mapped to a structure whose keys are the names of the slots for that intent. If the slot is not a multi-valued slot (see [Using multiple values in a
-slot](multi-valued-slots.md "multi-valued-slots.md") for more details), it is mapped to a structure with the following format. Note that the `shape` is `Scalar`.
+The `slots` field exists within an `intent` structure and is mapped to a structure whose keys are the names of the slots for that intent. If the slot is not a multi-valued slot (see [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md") for more details), it is mapped to a structure with the following format. Note that the `shape` is `Scalar`.
 
 ```
 {
@@ -114,8 +113,7 @@ If the slot is a multi-valued slot, the object to which it is mapped contains an
 
 The fields in the slot object are described below:
 
-The shape of the slot. This value is `List` if there are multiple values in the slot (see [Using multiple values in a
-slot](multi-valued-slots.md "multi-valued-slots.md") for more details) and is `Scalar` otherwise.
+The shape of the slot. This value is `List` if there are multiple values in the slot (see [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md") for more details) and is `Scalar` otherwise.
 
 An object containing information about the value that the user provided for a slot and Amazon Lex V2's interpretation, in the following format:
 
@@ -135,8 +133,7 @@ The fields are described below:
 - **originalValue** – The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.
 - **interpretedValue** – The value that Amazon Lex V2 determines for the slot, given the user input.
 - **resolvedValues** – A list of values that Amazon Lex V2 determines are possible resolutions for the user input.
-  A list of objects containing information about the slots that make up the multi-value slot. The format of each object matches that of a normal slot, with the `shape` and `value` fields described above. `values` only appears if the slot consists of multiple values (see [Using multiple values in a
-  slot](multi-valued-slots.md "multi-valued-slots.md") for more details). The following JSON object shows two component slots:
+  A list of objects containing information about the slots that make up the multi-value slot. The format of each object matches that of a normal slot, with the `shape` and `value` fields described above. `values` only appears if the slot consists of multiple values (see [Using multiple values in a slot](multi-valued-slots.md "multi-valued-slots.md") for more details). The following JSON object shows two component slots:
 
 ```
 "values": [
@@ -219,8 +216,7 @@ The `sessionState` field is mapped to an object containing information about the
 
 The fields are described below:
 
-A list of objects containing information about a context that a user is using in a session. Use contexts to facilitate and control intent recognition. For more information about contexts, see [Setting intent
-context for your Lex V2 bot](context-mgmt-active-context.md "context-mgmt-active-context.md"). Each object is formatted as follows:
+A list of objects containing information about a context that a user is using in a session. Use contexts to facilitate and control intent recognition. For more information about contexts, see [Setting intent context for your Lex V2 bot](context-mgmt-active-context.md "context-mgmt-active-context.md"). Each object is formatted as follows:
 
 ```
 {
@@ -244,8 +240,7 @@ The fields are described below:
       + **timeToLiveInSeconds** – The number of seconds that the context remains active.
       + **turnsToLive** – The number of turns that the context remains active.
 
-  A map of key/value pairs representing session-specific context information. For more information, see [Setting session
-  attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). The object is formatted as follows:
+  A map of key/value pairs representing session-specific context information. For more information, see [Setting session attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). The object is formatted as follows:
 
 ```
 {

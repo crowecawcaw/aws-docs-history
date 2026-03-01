@@ -50,8 +50,7 @@ speech and converse natural language.
   bot can converse in one or more languages. Each language is
   independent of the others, you can configure Amazon Lex V2 to converse
   with a user using native words and phrases. For more
-  information, see [Languages and locales supported by
-  Amazon Lex V2](how-languages.md "how-languages.md").
+  information, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 - **Intent** – An intent
   represents an action that the user wants to perform. You create
   a bot to support one or more related intents. For example, you

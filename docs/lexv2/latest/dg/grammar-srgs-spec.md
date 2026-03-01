@@ -12,8 +12,7 @@ recommendation.
 - [Supported XML elements](srgs-supported-xml.md "srgs-supported-xml.md")
 - [Tokens](srgs-tokens.md "srgs-tokens.md")
 - [Rule reference](srgs-rule-reference.md "srgs-rule-reference.md")
-- [Sequences and
-  encapsulation](srgs-sequence.md "srgs-sequence.md")
+- [Sequences and encapsulation](srgs-sequence.md "srgs-sequence.md")
 - [Repeats](srgs-repeats.md "srgs-repeats.md")
 - [Language](srgs-language.md "srgs-language.md")
 - [Tags](srgs-tags.md "srgs-tags.md")

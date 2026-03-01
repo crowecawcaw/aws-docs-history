@@ -7,12 +7,10 @@ responds to user input without you writing code to handle responses from
 the user. The bot can:
 
 - Handle interruptions from the user while it's playing a
-  prompt. For more information, see [Enabling your Amazon Lex V2 bot
-  to be interrupted by the user](interrupt-bot.md "interrupt-bot.md").
+  prompt. For more information, see [Enabling your Amazon Lex V2 bot to be interrupted by the user](interrupt-bot.md "interrupt-bot.md").
 - Wait for the user to provide input. For example, the bot can
   wait for the user to gather credit card information. For more
-  information, see [Enabling the
-  Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md").
+  information, see [Enabling the Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md").
 - Take both dual-tone multiple-frequency (DTMF) and audio input
   in the same stream.
 - Handle pauses in user input better than if you were managing
@@ -56,19 +54,13 @@ following:
   completed, or that the user has disconnected from the
   session.
   For more information about events, see [Starting a conversation stream to an Amazon Lex V2 bot](start-stream-conversation.md "start-stream-conversation.md"). For information about
-  how to encode events, see [Event
-  stream encoding](event-stream-encoding.md "event-stream-encoding.md").
+  how to encode events, see [Event stream encoding](event-stream-encoding.md "event-stream-encoding.md").
 
 ###### Topics
 
 - [Starting a conversation stream to an Amazon Lex V2 bot](start-stream-conversation.md "start-stream-conversation.md")
-- [Event
-  stream encoding](event-stream-encoding.md "event-stream-encoding.md")
-- [Enabling your Amazon Lex V2 bot
-  to be interrupted by the user](interrupt-bot.md "interrupt-bot.md")
-- [Enabling the
-  Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md")
-- [Configuring fulfillment progress
-  updates for your Lex V2 bot](streaming-progress.md "streaming-progress.md")
-- [Configuring timeouts for
-  capturing user input with a Lex V2 bot](session-attribs-speech.md "session-attribs-speech.md")
+- [Event stream encoding](event-stream-encoding.md "event-stream-encoding.md")
+- [Enabling your Amazon Lex V2 bot to be interrupted by the user](interrupt-bot.md "interrupt-bot.md")
+- [Enabling the Amazon Lex V2 bot to wait for the user to provide more information during a pause](wait-and-continue.md "wait-and-continue.md")
+- [Configuring fulfillment progress updates for your Lex V2 bot](streaming-progress.md "streaming-progress.md")
+- [Configuring timeouts for capturing user input with a Lex V2 bot](session-attribs-speech.md "session-attribs-speech.md")

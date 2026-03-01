@@ -1,6 +1,4 @@
-# Creating
-
-Amazon Lex V2 resources with AWS CloudFormation
+# Creating Amazon Lex V2 resources with AWS CloudFormation
 
 Amazon Lex V2 is integrated with AWS CloudFormation, a service that helps you to
 model and set up your AWS resources so that you can spend less time creating
@@ -13,9 +11,7 @@ resources consistently and repeatedly. Describe your resources once, and then
 provision the same resources over and over in multiple AWS accounts and
 Regions.
 
-## Amazon Lex V2 and CloudFormation
-
-templates
+## Amazon Lex V2 and CloudFormation templates
 
 To provision and configure resources for Amazon Lex V2 and related services,
 you must understand [CloudFormation

@@ -1,6 +1,4 @@
-# Setting session
-
-attributes for your Lex V2 bot
+# Setting session attributes for your Lex V2 bot
 
 _Session attributes_ contain
 application-specific information that is passed between a bot and a
@@ -87,5 +85,4 @@ map, and then send it as part of the
 
 If you are sending binary or structured data in a session
 attribute, you must first transform the data to a simple string. For
-more information, see [Setting complex
-attributes in your Lex V2 bot](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").
+more information, see [Setting complex attributes in your Lex V2 bot](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").

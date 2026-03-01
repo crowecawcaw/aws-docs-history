@@ -5,8 +5,7 @@ recognition, and intent usage. The overview consists of the following sections:
 
 - [Conversation performance](#conversations-performance "#conversations-performance")
 - [Utterance recognition rate](#utterance-recognition-rate "#utterance-recognition-rate")
-- [Conversation performance
-  history](#conversation-performance-history "#conversation-performance-history")
+- [Conversation performance history](#conversation-performance-history "#conversation-performance-history")
 - [Top 5 used intents](#top-five-used-intents "#top-five-used-intents")
 - [Top 5 failed intents](#top-five-failed-intents "#top-five-failed-intents")
 
@@ -44,9 +43,7 @@ of the chart, as seen in the following image.
 
 ![A donut chart that visualizes the performance of your bot's utterance recognition.](images/analytics/utterance-recognition-rate.png)
 
-## Conversation performance
-
-history
+## Conversation performance history
 
 Use this graph to track the percentage of conversations categorized as a _success_, _failed_, and
 _dropped_ over the time range that you set in

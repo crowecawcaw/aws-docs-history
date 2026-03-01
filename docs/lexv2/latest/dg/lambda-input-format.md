@@ -116,8 +116,7 @@ Information about the bot that processed the request, consisting of the followin
 
 - **id** – The identifier assigned to the bot when you created it. You can see the bot ID in the Amazon Lex V2 console on the bot **Settings** page.
 - **name** – The name that you gave the bot when you created it.
-- **localeId** – The identifier of the locale that you used for your bot. For a list of locales, see [Languages and locales supported by
-  Amazon Lex V2](how-languages.md "how-languages.md").
+- **localeId** – The identifier of the locale that you used for your bot. For a list of locales, see [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 - **version** – The version of the bot that processed the request.
 - **aliasId** – The identifier assigned to the bot alias when you created it. You can see the bot alias ID in the Amazon Lex V2 console on the **Aliases** page. If you can't see the alias ID in the list, choose the gear icon on the upper right and turn on **Alias ID**.
 - **aliasName** – The name that you gave the bot alias.
@@ -191,8 +190,7 @@ The structure of `proposedNextState` is as follows:
 - **intent** – The intent that the bot has determined that the user is trying to fulfill. See [Intent](lambda-common-structures.md#lambda-intent "lambda-common-structures.md#lambda-intent") for details about the structure.
 - **prompt**
   – A structure containing the field `attempt`, which maps to a value that specifies how many times Amazon Lex V2 has prompted the user for the next slot. The possible values are `Initial` for the first attempt and `Retry1`, `Retry2`, `Retry3`, `Retry4`, and `Retry5` for subsequent attempts.
-  A structure containing request-specific attributes that the client sends in the request. Use request attributes to pass information that doesn't need to persist for the entire session. If there are no request attributes, the value will be null. For more information, see [Setting request
-  attributes for your Lex V2 bot](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md").
+  A structure containing request-specific attributes that the client sends in the request. Use request attributes to pass information that doesn't need to persist for the entire session. If there are no request attributes, the value will be null. For more information, see [Setting request attributes for your Lex V2 bot](context-mgmt-request-attribs.md "context-mgmt-request-attribs.md").
 
 The current state of the conversation between the user and your Amazon Lex V2 bot. See [Session state](lambda-common-structures.md#lambda-session-state "lambda-common-structures.md#lambda-session-state") for details about the structure.
 

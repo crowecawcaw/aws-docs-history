@@ -1,6 +1,4 @@
-# Setting the session
-
-timeout
+# Setting the session timeout
 
 Amazon Lex retains context information—slot data and session
 attributes—until a conversation session ends. To control how

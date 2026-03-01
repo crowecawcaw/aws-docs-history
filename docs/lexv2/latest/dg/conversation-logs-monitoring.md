@@ -1,6 +1,4 @@
-# Monitoring conversation log
-
-status with CloudWatch metrics
+# Monitoring conversation log status with CloudWatch metrics
 
 Use Amazon CloudWatch to monitor delivery metrics of your conversation logs.
 You can set alarms on metrics so that you are aware of issues with logging

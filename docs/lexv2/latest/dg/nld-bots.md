@@ -11,8 +11,7 @@ Before you can take advantage of the generative AI features, you must fulfill th
    generative AI capabilities for your bot locale. To do so, follow the steps at [Optimize Lex V2 bot creation and performance by using generative AI](generative-features.md "generative-features.md").
    The descriptive bot builder lets you take advantage of Amazon Bedrock's access to large language models to improve the efficiency of the bot creation process. You provide a prompt using natural language that includes the purpose of the bot and the actions that it should perform. Amazon Lex V2 harnesses Amazon Bedrock's capabilities to generate relevant intents and slot types for your bot based on your description. Once you choose the intents and slot types that you want to keep, you can then iterate upon the bot to modify it to your specific use-case. The descriptive bot builder saves you time by letting you avoid having to manually create intents and slot types for the bot.
 
-The descriptive bot builder is available in the English locales (see the locales that begin with `en_` in the table in [Languages and locales supported by
-Amazon Lex V2](how-languages.md "how-languages.md")).
+The descriptive bot builder is available in the English locales (see the locales that begin with `en_` in the table in [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md")).
 
 Before you create your bot, do the following.
 
@@ -27,8 +26,7 @@ Console
 2. In the **Bots** page, select **Create bot**.
 3. For the **Creation method**, choose **Descriptive Bot Builder - GenAI**.
 4. Give your bot a name and optional description, configure the IAM permissions, and choose whether your bot is subject to COPPA or not. Then select **Next**.
-5. Select a language to create the bot in, a voice for the bot, and a confidence threshold for intent classification (for more information, see [Using intent confidence
-   scores to improve intent selection with Lex V2](using-intent-confidence-scores.md "using-intent-confidence-scores.md").
+5. Select a language to create the bot in, a voice for the bot, and a confidence threshold for intent classification (for more information, see [Using intent confidence scores to improve intent selection with Lex V2](using-intent-confidence-scores.md "using-intent-confidence-scores.md").
 6. Under **Descriptive Bot Builder - GenAI**, provide a
    description for the bot you want to create. Your description should be both
    _detailed_ and _precise_ to help generate appropriate and sufficient intents for

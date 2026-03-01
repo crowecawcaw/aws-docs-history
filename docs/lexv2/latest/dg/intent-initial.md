@@ -25,20 +25,17 @@ response:
   in the conversation such as jumping to a specific
   dialog action, eliciting a particular slot, or jumping
   to a different intent. For more information,
-  see [Configure next steps in the
-  conversation](paths-nextstep.md "paths-nextstep.md").
+  see [Configure next steps in the conversation](paths-nextstep.md "paths-nextstep.md").
 - **Set values** –
   You can set values for slots and session
   attributes. For more information,
-  see [Set values during the
-  conversation](paths-setting-values.md "paths-setting-values.md")
+  see [Set values during the conversation](paths-setting-values.md "paths-setting-values.md")
 - **Add conditional branching** –
   You can apply conditions
   after playing the initial response. When a condition
   evaluates to true, the actions that you define are taken.
   For more information,
-  see [Add conditions to branch
-  conversations](paths-branching.md "paths-branching.md").
+  see [Add conditions to branch conversations](paths-branching.md "paths-branching.md").
 - **Execute dialog code hook** –
   You can define a Lambda code
   hook to initialize data and execute business logic. For

@@ -1,6 +1,4 @@
-# Conversation dashboard: a summary of your bot
-
-conversations
+# Conversation dashboard: a summary of your bot conversations
 
 The conversation dashboard visualizes metrics for customers’ conversations
 (see [Conversations](analytics-key-definitions.md#analytics-key-definitions-conversations "analytics-key-definitions.md#analytics-key-definitions-conversations")
@@ -112,8 +110,7 @@ The **Details** section contains the following metadata:
   keypad presses). A conversation consisting of multiple modes is
   `Multimode`.
 - **Channel** – Specifies the channel that the
-  conversation took place on, if applicable. See [Integrating an Amazon Lex V2
-  bot with a messaging platform](deploying-messaging-platform.md "deploying-messaging-platform.md").
+  conversation took place on, if applicable. See [Integrating an Amazon Lex V2 bot with a messaging platform](deploying-messaging-platform.md "deploying-messaging-platform.md").
 - **Language** – Specifies the language of the
   bot.
 

@@ -1,6 +1,4 @@
-# Creating a test case within a test set using Test
-
-Workbench
+# Creating a test case within a test set using Test Workbench
 
 The Test Workbench results are dependent on the bot definition and its
 corresponding test set. You can generate a test set with the information from the

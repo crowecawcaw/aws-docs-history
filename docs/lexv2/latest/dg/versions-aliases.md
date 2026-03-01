@@ -10,9 +10,7 @@ _version_ is a numbered snapshot of your work
 that you can create for use in different parts of your workflow, such
 as development, beta deployment, and production.
 
-### The Draft
-
-version of your Lex V2 bot
+### The Draft version of your Lex V2 bot
 
 When you create an Amazon Lex V2 bot there is only one version, the
 `Draft` version.
@@ -51,9 +49,7 @@ version inactive. When a version is inactive, you can't use runtime
 operations with the bot. To make the bot active, rebuild all the
 languages associated with the version.
 
-### Updating
-
-an Amazon Lex V2 bot
+### Updating an Amazon Lex V2 bot
 
 You can update only the `Draft` version of an Amazon Lex V2
 bot. Versions can't be changed. You can create a new version any

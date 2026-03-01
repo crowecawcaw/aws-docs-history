@@ -1,6 +1,4 @@
-# Configure next steps in the
-
-conversation
+# Configure next steps in the conversation
 
 You can configure a next step at each stage of the conversation to design
 conversations. Typically, Amazon Lex V2 automatically configures the default

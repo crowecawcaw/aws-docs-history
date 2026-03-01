@@ -1,6 +1,4 @@
-# Setting complex
-
-attributes in your Lex V2 bot
+# Setting complex attributes in your Lex V2 bot
 
 Session and request attributes are string-to-string maps of
 attributes and values. In many cases, you can use the string map to

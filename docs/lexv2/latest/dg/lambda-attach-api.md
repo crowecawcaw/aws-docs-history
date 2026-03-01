@@ -25,8 +25,7 @@ field to contain the correct settings:
 ```
 
 1. The `botAliasLocaleSettings` field maps to an object whose keys are the locales in which you want to attach the Lambda
-   function. See [Supported languages and
-   locales](how-languages.md#supported-languages "how-languages.md#supported-languages") for a list of supported locales and the
+   function. See [Supported languages and locales](how-languages.md#supported-languages "how-languages.md#supported-languages") for a list of supported locales and the
    codes that are valid keys.
 2. To find the `lambdaARN` for a Lambda function, open the AWS Lambda console
    at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home"),

@@ -1,6 +1,4 @@
-# Importing conversation
-
-transcripts
+# Importing conversation transcripts
 
 Importing conversation transcripts is a three-step process:
 
@@ -17,9 +15,7 @@ Importing conversation transcripts is a three-step process:
    analyzed every minute.
    Each of these steps is described in the following sections.
 
-## Importing transcripts from
-
-Contact Lens for Amazon Connect
+## Importing transcripts from Contact Lens for Amazon Connect
 
 The Amazon Lex V2 automated chatbot designer is compatible with
 Contact Lens transcript files. To use Contact Lens transcript
@@ -40,8 +36,7 @@ its output files.
    guide_.
 
 After you have turned on Contact Lens and noted the location
-of your transcript files, go to [Analyze your transcripts using
-Amazon Lex V2 console](#import-import "#import-import") for instructions to import
+of your transcript files, go to [Analyze your transcripts using Amazon Lex V2 console](#import-import "#import-import") for instructions to import
 and analyze your transcripts.
 
 ## Prepare transcripts
@@ -53,8 +48,7 @@ Prepare your transcripts by creating transcript files.
   the conversation can span multiple lines. You can
   provide both redacted and non-redacted versions of the
   conversation.
-- The file must be in the JSON format specified in [Input transcript
-  format](designing-input-format.md "designing-input-format.md").
+- The file must be in the JSON format specified in [Input transcript format](designing-input-format.md "designing-input-format.md").
 - You must provide at least 1,000 conversational turns.
   To improve the discovery of your intents and slot types,
   you should provide around 10,000 or more conversational turns.
@@ -76,17 +70,13 @@ the files must be in the following directory structure:
 The transcript file must contain the date in the format
 "yyyy-mm-dd" somewhere in the file name.
 
-###### To export transcripts from other contact center
-
-applications
+###### To export transcripts from other contact center applications
 
 1. Use your contact center application's tools to export
    conversations. The conversation must contain at least
-   the information specified in [Input transcript
-   format](designing-input-format.md "designing-input-format.md").
+   the information specified in [Input transcript format](designing-input-format.md "designing-input-format.md").
 2. Transform the transcripts produced by your contact
-   center application to the format described in [Input transcript
-   format](designing-input-format.md "designing-input-format.md"). You are
+   center application to the format described in [Input transcript format](designing-input-format.md "designing-input-format.md"). You are
    responsible for performing the transformation.
 
 We provide three scripts for preparing transcripts. They
@@ -107,9 +97,7 @@ are:
 You can download the scripts from this GitHub repository:
 [https://github.com/aws-samples/amazon-lex-bot-recommendation-integration](https://github.com/aws-samples/amazon-lex-bot-recommendation-integration "https://github.com/aws-samples/amazon-lex-bot-recommendation-integration") .
 
-## Upload your transcripts to an S3
-
-bucket
+## Upload your transcripts to an S3 bucket
 
 If you are using Contact Lens, your transcript files are
 already contained in an S3 bucket. For the location and file
@@ -138,9 +126,7 @@ starting with step 5.
    upload.
 8. Choose **Upload**.
 
-## Analyze your transcripts using
-
-Amazon Lex V2 console
+## Analyze your transcripts using Amazon Lex V2 console
 
 You can only use automated bot design in an empty language.
 You can add a new language to an existing bot, or create a new

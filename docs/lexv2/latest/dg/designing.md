@@ -29,16 +29,13 @@ The automated chatbot designer supports conversation transcript files
 using the Contact Lens for Amazon Connect schema. If you are using a different
 contact center application, you must transform the conversation
 transcripts to the format used by the chatbot designer. For information,
-see [Input transcript
-format](designing-input-format.md "designing-input-format.md").
+see [Input transcript format](designing-input-format.md "designing-input-format.md").
 
 To use the automated chatbot designer, you must allow the IAM role
 that is running the designer access. For the specific IAM policy, see
-[Allow users to use the
-Automated Chatbot Designer](security_iam_id-based-policy-examples.md#security_iam-bot-designer "security_iam_id-based-policy-examples.md#security_iam-bot-designer"). To enable Amazon Lex V2 to
+[Allow users to use the Automated Chatbot Designer](security_iam_id-based-policy-examples.md#security_iam-bot-designer "security_iam_id-based-policy-examples.md#security_iam-bot-designer"). To enable Amazon Lex V2 to
 encrypt output data with an optional AWS KMS key, you need to update the
-key with the policy shown in [Allow users to use a AWS KMS key
-to encrypt and decrypt files](security_iam_id-based-policy-examples.md#security_iam-bot-key "security_iam_id-based-policy-examples.md#security_iam-bot-key").
+key with the policy shown in [Allow users to use a AWS KMS key to encrypt and decrypt files](security_iam_id-based-policy-examples.md#security_iam-bot-key "security_iam_id-based-policy-examples.md#security_iam-bot-key").
 
 ###### Note
 
@@ -48,10 +45,7 @@ regardless of the IAM role used.
 
 ###### Topics
 
-- [Importing conversation
-  transcripts](designing-import.md "designing-import.md")
+- [Importing conversation transcripts](designing-import.md "designing-import.md")
 - [Creating intents and slot types](designing-create.md "designing-create.md")
-- [Input transcript
-  format](designing-input-format.md "designing-input-format.md")
-- [Output transcript
-  format](designing-output-format.md "designing-output-format.md")
+- [Input transcript format](designing-input-format.md "designing-input-format.md")
+- [Output transcript format](designing-output-format.md "designing-output-format.md")

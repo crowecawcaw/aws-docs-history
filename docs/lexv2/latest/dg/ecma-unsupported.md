@@ -1,33 +1,21 @@
-# Unsupported
-
-statements
+# Unsupported statements
 
 Amazon Lex V2 doesn't support the following ECMAScript
 features.
 
 ###### Topics
 
-- [Empty
-  statement](#ecma-unsupported-empty "#ecma-unsupported-empty")
-- [Continue
-  statement](#ecma-unsupported-continue "#ecma-unsupported-continue")
-- [Break
-  statement](#ecma-unsupported-break "#ecma-unsupported-break")
-- [Return
-  statement](#ecma-unsupported-return "#ecma-unsupported-return")
-- [Throw
-  statement](#ecma-unsupported-throw "#ecma-unsupported-throw")
+- [Empty statement](#ecma-unsupported-empty "#ecma-unsupported-empty")
+- [Continue statement](#ecma-unsupported-continue "#ecma-unsupported-continue")
+- [Break statement](#ecma-unsupported-break "#ecma-unsupported-break")
+- [Return statement](#ecma-unsupported-return "#ecma-unsupported-return")
+- [Throw statement](#ecma-unsupported-throw "#ecma-unsupported-throw")
 - [Try statement](#ecma-unsupported-try "#ecma-unsupported-try")
-- [Debugger
-  statement](#ecma-unsupported-debugger "#ecma-unsupported-debugger")
-- [Labeled
-  statement](#ecma-unsupported-labelled "#ecma-unsupported-labelled")
-- [Class
-  declaration](#ecma-unsupported-class "#ecma-unsupported-class")
+- [Debugger statement](#ecma-unsupported-debugger "#ecma-unsupported-debugger")
+- [Labeled statement](#ecma-unsupported-labelled "#ecma-unsupported-labelled")
+- [Class declaration](#ecma-unsupported-class "#ecma-unsupported-class")
 
-## Empty
-
-statement
+## Empty statement
 
 The empty statement is used to provide no statement. The
 following is the syntax for an empty statement:
@@ -36,9 +24,7 @@ following is the syntax for an empty statement:
 ;
 ```
 
-## Continue
-
-statement
+## Continue statement
 
 The continue statement without a label is supported with
 the [Iteration statement](ecma-iteration.md "ecma-iteration.md"). The continue statement
@@ -52,9 +38,7 @@ continue <label>;
 
 ```
 
-## Break
-
-statement
+## Break statement
 
 The break statement without a label is supported with the
 [Iteration statement](ecma-iteration.md "ecma-iteration.md"). The break statement
@@ -68,17 +52,13 @@ break <label>;
 
 ```
 
-## Return
-
-statement
+## Return statement
 
 ```
 return expression;
 ```
 
-## Throw
-
-statement
+## Throw statement
 
 The throw statement is used to throw a user-defined
 exception.
@@ -102,9 +82,7 @@ finally {
 
 ```
 
-## Debugger
-
-statement
+## Debugger statement
 
 The debugger statement is used to invoke debugging
 functionality provided by the environment.
@@ -113,9 +91,7 @@ functionality provided by the environment.
 debugger;
 ```
 
-## Labeled
-
-statement
+## Labeled statement
 
 The labeled statement can be used with `break`
 or `continue` statements.
@@ -140,9 +116,7 @@ console.log(str);
 
 ```
 
-## Class
-
-declaration
+## Class declaration
 
 ```
 class Rectangle {

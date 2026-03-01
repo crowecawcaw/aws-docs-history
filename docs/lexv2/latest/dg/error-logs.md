@@ -9,18 +9,14 @@ different settings for their error logs. Text logs store text input in CloudWatc
 You can enable encryption of text logs using AWS KMS
 customer managed CMKs.
 
-## IAM Policies for Error
-
-Logs
+## IAM Policies for Error Logs
 
 Depending on the type of logging that you select, Amazon Lex V2 requires
 permission to use Amazon CloudWatch Logs and Amazon Simple Storage Service (S3) buckets to store your logs. You
 must create AWS Identity and Access Management roles and permissions to enable Amazon Lex V2 to access these
 resources.
 
-### Creating an IAM Role and
-
-Policies for Error Logs
+### Creating an IAM Role and Policies for Error Logs
 
 To enable conversation logs, you must grant write permission for CloudWatch Logs
 and Amazon S3. If you enable object encryption for your S3 objects, you need to

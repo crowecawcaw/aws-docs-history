@@ -1,6 +1,4 @@
-# Using
-
-the API to start a streaming conversation
+# Using the API to start a streaming conversation
 
 When you start a stream to an Amazon Lex V2 bot, you accomplish the
 following tasks:

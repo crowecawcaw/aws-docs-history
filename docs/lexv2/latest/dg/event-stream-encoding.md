@@ -1,6 +1,4 @@
-# Event
-
-stream encoding
+# Event stream encoding
 
 Event stream encoding provides bidirectional communication using
 messages between a client and a server. Data frames sent to the
