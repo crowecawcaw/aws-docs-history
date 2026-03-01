@@ -42,9 +42,7 @@ root user or an IAM user.
 
 AWS Management Console
 
-###### To find your AWS account ID when signed in as the
-
-root user
+###### To find your AWS account ID when signed in as the root user
 
 ###### Minimum permissions
 
@@ -87,15 +85,11 @@ Use the [get-caller-identity](../../../cli/latest/reference/sts/get-caller-ident
  --output text``123456789012`
 ```
 
-### Find your account ID as an IAM
-
-user
+### Find your account ID as an IAM user
 
 AWS Management Console
 
-###### To find your AWS account ID when signed in as an IAM
-
-user
+###### To find your AWS account ID when signed in as an IAM user
 
 ###### Minimum permissions
 
@@ -138,24 +132,18 @@ Use the [get-caller-identity](../../../cli/latest/reference/sts/get-caller-ident
  --output text``123456789012`
 ```
 
-## Find the canonical user ID for your
-
-AWS account
+## Find the canonical user ID for your AWS account
 
 You can find the canonical user ID for your AWS account using the AWS Management Console or the
 AWS CLI. The canonical user ID for an AWS account is specific to that account. You can
 retrieve the canonical user ID for your AWS account as the root user, a federated user,
 or an IAM user.
 
-### Find the canonical ID as the root user or IAM
-
-user
+### Find the canonical ID as the root user or IAM user
 
 AWS Management Console
 
-###### To find the canonical user ID for your account when signed in to
-
-the console as the root user or an IAM user
+###### To find the canonical user ID for your account when signed in to the console as the root user or an IAM user
 
 ###### Minimum permissions
 
@@ -202,15 +190,11 @@ Use the [list-buckets](../../../cli/latest/reference/s3api/list-buckets.md "../.
  --output text``249fa2f1dc32c330EXAMPLE91b2778fcc65f980f9172f9cb9a5f50ccbEXAMPLE`
 ```
 
-### Find the canonical ID as a
-
-federated user with an IAM role
+### Find the canonical ID as a federated user with an IAM role
 
 AWS Management Console
 
-###### To find the canonical ID for your account when signed in to the
-
-console as a federated user with an IAM role
+###### To find the canonical ID for your account when signed in to the console as a federated user with an IAM role
 
 ###### Minimum permissions
 

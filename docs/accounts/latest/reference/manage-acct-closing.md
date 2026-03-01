@@ -5,9 +5,7 @@ instructions in this section. After you've closed it, you can reopen it within 9
 the day you closed the account. The timespan between the day you closed the account and when AWS
 permanently closes the account is referred to as the [post-closure period](#post-closure-period "#post-closure-period").
 
-## What you need to know before closing your
-
-account
+## What you need to know before closing your account
 
 Before closing your AWS account, you should consider the following:
 
@@ -36,8 +34,7 @@ Before closing your AWS account, you should consider the following:
 - You can't use the same email address that was registered to your
   AWS account at the time of its closure as the primary email of another
   AWS account. If you want to use the same email address for a different
-  AWS account, we recommend updating it before closure. For more information, see [Update the root user
-  email address](manage-acct-update-root-user-email.md "manage-acct-update-root-user-email.md").
+  AWS account, we recommend updating it before closure. For more information, see [Update the root user email address](manage-acct-update-root-user-email.md "manage-acct-update-root-user-email.md").
 - If you've [enabled multi-factor authentication (MFA)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable-overview.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable-overview.md") on your AWS account
   root user, or configured an [MFA device on an
   IAM user](../../../IAM/latest/UserGuide/console_sign-in-mfa.md "../../../IAM/latest/UserGuide/console_sign-in-mfa.md"), MFA isn't removed automatically when you close the
@@ -99,8 +96,7 @@ You can close your AWS account using the following procedure. Note, that there i
 different guidance provided in each tab depending on the type of account [standalone,
 member, management, and AWS GovCloud (US)] you want to close.
 
-If you experience any issues during the process of closing your account, see [Troubleshooting issues with AWS account
-closure](troubleshooting_close-account.md "troubleshooting_close-account.md").
+If you experience any issues during the process of closing your account, see [Troubleshooting issues with AWS account closure](troubleshooting_close-account.md "troubleshooting_close-account.md").
 
 Standalone account
 A standalone account is an individually managed account that is not part
@@ -230,15 +226,12 @@ you need to close the standard account before you close the AWS GovCloud (US)
 account. For more details, including how to back-up data and avoid
 unintended AWS GovCloud (US) charges, see [Closing an AWS GovCloud (US) account](../../../govcloud-us/latest/UserGuide/Closing-govcloud-account.md "../../../govcloud-us/latest/UserGuide/Closing-govcloud-account.md") in the _AWS GovCloud (US) User Guide_.
 
-## What to expect after you close your
-
-account
+## What to expect after you close your account
 
 Immediately after you close your account, the following will occur:
 
 - You will receive an email confirming the account closure to the root user’s email
-  address. If you don’t receive this email within a few hours, see [Troubleshooting issues with AWS account
-  closure](troubleshooting_close-account.md "troubleshooting_close-account.md").
+  address. If you don’t receive this email within a few hours, see [Troubleshooting issues with AWS account closure](troubleshooting_close-account.md "troubleshooting_close-account.md").
 - Any member account that you close will display a `CLOSED` label
   next to its account name in the AWS Organizations console for up to 90 days after the
   original closure date. After 90 days, the member account will no longer be

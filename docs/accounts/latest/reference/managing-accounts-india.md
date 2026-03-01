@@ -16,8 +16,7 @@ bank as part of the verification process.
 ###### Topics
 
 - [Create an AWS account with AWS India](#create-india-account "#create-india-account")
-- [Manage your customer verification
-  information](#manage-verification "#manage-verification")
+- [Manage your customer verification information](#manage-verification "#manage-verification")
 
 ## Create an AWS account with AWS India
 
@@ -49,8 +48,7 @@ The name that you chose between your contact or billing information must
 exactly match the name that appears on the document you plan to use for customer
 verification. For example, if you plan to verify a business account using a
 Certificate of Incorporation, you must provide the business name that appears on
-the document. For a list of accepted document types, see [Accepted India documents for customer
-verification](#accepted-documents "#accepted-documents"). 6. After you have read the customer agreement, select the terms and conditions
+the document. For a list of accepted document types, see [Accepted India documents for customer verification](#accepted-documents "#accepted-documents"). 6. After you have read the customer agreement, select the terms and conditions
 check box, and then choose **Continue**. 7. On the **Billing information** page, enter the payment method
 that you want to use. You must provide your CVV as part of the verification
 process. 8. Under **Do you have a PAN?**, choose **Yes**
@@ -98,12 +96,9 @@ you will receive an email confirming the activation of your account.
 If you have completed customer verification and you edit the name,
 address, or document previously used to verify your identity, you may need
 to update and complete your customer verification again. For more
-information, see [Edit your customer verification
-information](#edit-verification "#edit-verification").
+information, see [Edit your customer verification information](#edit-verification "#edit-verification").
 
-## Manage your customer verification
-
-information
+## Manage your customer verification information
 
 In compliance with Indian Computer Emergency Response Team (CERT-In) regulations, AWS is
 required to collect and validate your identity information before granting you new or
@@ -115,15 +110,12 @@ your contact or billing information must exactly match the name that appears on 
 document.
 
 To update your billing name and address, see the [Payment preferences](https://console.aws.amazon.com//billing/home?#/paymentpreferences "https://console.aws.amazon.com//billing/home?#/paymentpreferences") page. To update
-your contact name and address, see [Update the primary contact for your
-AWS account](manage-acct-update-contact-primary.md "manage-acct-update-contact-primary.md").
+your contact name and address, see [Update the primary contact for your AWS account](manage-acct-update-contact-primary.md "manage-acct-update-contact-primary.md").
 If you edit any information you previously used for customer verification, such as the
 name or India-based address from your billing or contact information, you may need to
 update and re-submit your customer verification information.
 
-### Check your customer verification
-
-status
+### Check your customer verification status
 
 You can view your customer verification status at any time on the
 **Customer verification** page. If your verification status is
@@ -131,13 +123,10 @@ You can view your customer verification status at any time on the
 failed**, create or update your customer verification information and
 submit it for verification.
 
-### Create your customer verification
-
-information
+### Create your customer verification information
 
 To complete customer verification, you will need to provide information from an
-accepted India document. For a list of accepted document types, see [Accepted India documents for customer
-verification](#accepted-documents "#accepted-documents").
+accepted India document. For a list of accepted document types, see [Accepted India documents for customer verification](#accepted-documents "#accepted-documents").
 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. On the navigation bar, in the upper-right corner, choose your account name
@@ -158,9 +147,7 @@ information in the document is visible and legible. 6. Choose **Submit**.
 You will be notified of the customer verification result and any next
 steps by email or on the AWS Health Dashboard.
 
-### Edit your customer verification
-
-information
+### Edit your customer verification information
 
 You can edit your customer verification information, such as your primary purpose
 of account registration, your organization type, and the name, document type,
@@ -195,8 +182,7 @@ As you update the information, note the following guidance:
      verification.
 
 
-    For a list of accepted document types, see [Accepted India documents for customer
-     verification](#accepted-documents "#accepted-documents").
+    For a list of accepted document types, see [Accepted India documents for customer verification](#accepted-documents "#accepted-documents").
 
 5. Choose **Submit**.
 
@@ -206,9 +192,7 @@ steps by email. You can also view the results by returning to the
 **Customer verification** page or in the AWS Health
 Dashboard.
 
-### Accepted India documents for customer
-
-verification
+### Accepted India documents for customer verification
 
 The following document types issued by the Indian government are accepted for
 customer verification.
@@ -270,7 +254,6 @@ Use the AWS Management Console to perform the following tasks:
 
 - [Adding or editing a Permanent Account Number](../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-add-pan "../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-add-pan")
 - [Editing multiple Permanent Account Numbers](../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-edit-pan "../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-edit-pan")
-- [Manage your customer verification
-  information](#manage-verification "#manage-verification")
+- [Manage your customer verification information](#manage-verification "#manage-verification")
 - [Edit multiple Goods and Services Tax Numbers (GSTs)](../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-edit-gst "../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-edit-gst")
 - [View a tax invoice](../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-view-tax "../../../awsaccountbilling/latest/aboutv2/manage-account-payment-aispl.md#aispl-view-tax")

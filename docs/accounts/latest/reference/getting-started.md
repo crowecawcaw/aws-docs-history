@@ -8,8 +8,7 @@ new AWS account.
 
 ###### Topics
 
-- [Prerequisites for creating a new
-  AWS account](getting-started-prerequisites.md "getting-started-prerequisites.md")
+- [Prerequisites for creating a new AWS account](getting-started-prerequisites.md "getting-started-prerequisites.md")
 - [Create an AWS account](manage-acct-creating.md "manage-acct-creating.md")
 - [Activate MFA for your root user](getting-started-step3.md "getting-started-step3.md")
 - [Create an administrator user](getting-started-step4.md "getting-started-step4.md")

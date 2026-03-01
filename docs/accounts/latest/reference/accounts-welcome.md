@@ -34,8 +34,7 @@ following illustration, an AWS account serves two primary functions:
 Using multiple AWS accounts is a best practice for scaling your environment, as it
 provides a natural billing boundary for costs, isolates resources for security, gives
 flexibility for individuals and teams, in addition to being adaptable for new business
-processes. For more information, see [Benefits of using multiple
-AWS accounts](welcome-multiple-accounts.md "welcome-multiple-accounts.md").
+processes. For more information, see [Benefits of using multiple AWS accounts](welcome-multiple-accounts.md "welcome-multiple-accounts.md").
 
 ## Features of an AWS account
 

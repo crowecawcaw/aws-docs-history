@@ -1,6 +1,4 @@
-# Troubleshooting issues with AWS account
-
-creation
+# Troubleshooting issues with AWS account creation
 
 Use the reference links in the following table to help you diagnose and fix issues with
 creating a new AWS account.

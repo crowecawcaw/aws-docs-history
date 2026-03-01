@@ -1,19 +1,14 @@
-# Using identity-based policies (IAM
-
-policies) for AWS Account Management
+# Using identity-based policies (IAM policies) for AWS Account Management
 
 For a full discussion of AWS accounts and IAM users, see [What Is
 IAM?](../../../IAM/latest/UserGuide/IAM_Introduction.md "../../../IAM/latest/UserGuide/IAM_Introduction.md") in the _IAM User Guide_.
 
 For instructions on how you can update customer managed policies, see [Edit IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-managed-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-edit.md#edit-managed-policy-console") in the _IAM User Guide_.
 
-## AWS Account Management actions
-
-policies
+## AWS Account Management actions policies
 
 This table summarizes the permissions that grant access to your account settings.
-For examples of policies that use these permissions, see [Identity-based policy examples
-for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For examples of policies that use these permissions, see [Identity-based policy examples for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### Note
 

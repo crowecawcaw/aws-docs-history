@@ -1,6 +1,4 @@
-# How AWS Account Management works with
-
-IAM
+# How AWS Account Management works with IAM
 
 Before you use IAM to manage access to Account Management, learn what IAM features are
 available to use with Account Management.
@@ -23,9 +21,7 @@ To get a high-level view of how Account Management and other AWS services work w
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Account Management
+## Identity-based policies for Account Management
 
 **Supports identity-based policies:**
 
@@ -42,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Account Management
 
-Identity-based policy examples for Account Management
-
-To view examples of Account Management identity-based policies, see [Identity-based policy examples
-for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Account Management identity-based policies, see [Identity-based policy examples for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Account Management
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Account Management
+## Policy actions for Account Management
 
 **Supports policy actions:**
 
@@ -106,12 +97,9 @@ action.
 "Action": "account:*AlternateContact"
 ```
 
-To view examples of Account Management identity-based policies, see [Identity-based policy examples
-for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Account Management identity-based policies, see [Identity-based policy examples for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Account Management
+## Policy resources for Account Management
 
 **Supports policy resources:**
 
@@ -146,8 +134,7 @@ To see a list of Account Management resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Account Management](../../../service-authorization/latest/reference/list_awsaccountmanagement.md#awsaccountmanagement-actions-as-permissions "../../../service-authorization/latest/reference/list_awsaccountmanagement.md#awsaccountmanagement-actions-as-permissions").
 
-To view examples of Account Management identity-based policies, see [Identity-based policy examples
-for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Account Management identity-based policies, see [Identity-based policy examples for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Account Management
 
@@ -206,7 +193,7 @@ keys and values.
 This condition key takes an argument that consists of a list of email
 domains. It lets you filter the policy to affect only those actions that
 match the specified email domains. This condition key is
-case-insensitive. You should use `StringEqualsIgnoreCase` instead
+case-sensitive. You should use `StringEqualsIgnoreCase` instead
 of `StringEquals` in the condition block of the policy to control
 the action based on the target email address domain. Here is a sample policy
 allowing the `account:StartPrimaryEmailUpdate` action to complete
@@ -242,12 +229,9 @@ To see a list of Account Management condition keys, see [Condition keys for AWS 
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions defined by AWS Account Management](../../../service-authorization/latest/reference/list_awsaccountmanagement.md#awsaccountmanagement-actions-as-permissions "../../../service-authorization/latest/reference/list_awsaccountmanagement.md#awsaccountmanagement-actions-as-permissions").
 
-To view examples of Account Management identity-based policies, see [Identity-based policy examples
-for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Account Management identity-based policies, see [Identity-based policy examples for AWS Account Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists in
-
-Account Management
+## Access control lists in Account Management
 
 **Supports ACLs:**
 
@@ -256,9 +240,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-with Account Management
+## Attribute-based access control with Account Management
 
 **Supports ABAC (tags in policies):**
 
@@ -317,9 +299,7 @@ For more information about ABAC, see [Define permissions based on attributes wit
 tutorial: Define permissions to access AWS resources based on tags](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in
 the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Account Management
+## Using temporary credentials with Account Management
 
 **Supports temporary credentials:**
 
@@ -331,9 +311,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Account Management
+## Cross-service principal permissions for Account Management
 
 **Supports forward access sessions (FAS):**
 
@@ -342,9 +320,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Account Management
+## Service roles for Account Management
 
 **Supports service roles:**
 
@@ -354,9 +330,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for Account Management
+## Service-linked roles for Account Management
 
 **Supports service-linked roles:**
 

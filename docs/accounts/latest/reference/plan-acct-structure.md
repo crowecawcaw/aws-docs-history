@@ -10,9 +10,7 @@ a multi-account governance structure.
 
 ###### Topics
 
-- [Benefits of using multiple
-  AWS accounts](welcome-multiple-accounts.md "welcome-multiple-accounts.md")
+- [Benefits of using multiple AWS accounts](welcome-multiple-accounts.md "welcome-multiple-accounts.md")
 - [When to use AWS Organizations](using-orgs.md "using-orgs.md")
 - [When to use AWS Control Tower](when-to-use-control-tower.md "when-to-use-control-tower.md")
-- [Understanding API modes of
-  operation](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md")
+- [Understanding API modes of operation](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md")

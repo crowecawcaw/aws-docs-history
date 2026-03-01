@@ -1,6 +1,4 @@
-# Update the alternate contacts for
-
-your AWS account
+# Update the alternate contacts for your AWS account
 
 Alternate contacts allows AWS to contact up to three alternate contacts associated with
 the account. An alternate contact doesn't have to be a specific person. You could instead
@@ -32,18 +30,12 @@ account.
 
 ###### Topics
 
-- [Phone number and
-  email address requirements](#manage-acct-update-contact-alternate-requirements "#manage-acct-update-contact-alternate-requirements")
-- [Update the alternate
-  contacts for a standalone AWS account](#manage-acct-update-contact-alternate-edit "#manage-acct-update-contact-alternate-edit")
-- [Update the alternate
-  contacts for any AWS account in your organization](#manage-acct-update-contact-alternate-orgs "#manage-acct-update-contact-alternate-orgs")
-- [account:AlternateContactTypes
-  context key](#context-keys-AlternateContactTypes "#context-keys-AlternateContactTypes")
+- [Phone number and email address requirements](#manage-acct-update-contact-alternate-requirements "#manage-acct-update-contact-alternate-requirements")
+- [Update the alternate contacts for a standalone AWS account](#manage-acct-update-contact-alternate-edit "#manage-acct-update-contact-alternate-edit")
+- [Update the alternate contacts for any AWS account in your organization](#manage-acct-update-contact-alternate-orgs "#manage-acct-update-contact-alternate-orgs")
+- [account:AlternateContactTypes context key](#context-keys-AlternateContactTypes "#context-keys-AlternateContactTypes")
 
-## Phone number and
-
-email address requirements
+## Phone number and email address requirements
 
 Before you proceed with updating your account's alternate contacts information, we
 recommend that you first review the following requirements when entering phone numbers
@@ -55,9 +47,7 @@ and email addresses.
   special characters in the local portion of the email address in addition to the
   standard alphanumeric ones: "`+=.#|!&-_`".
 
-## Update the alternate
-
-contacts for a standalone AWS account
+## Update the alternate contacts for a standalone AWS account
 
 To add or edit the alternate contacts for a standalone AWS account, perform the
 steps in the following procedure. The AWS Management Console procedure below always works
@@ -67,9 +57,7 @@ operation.
 
 AWS Management Console
 
-###### To add or edit the alternate contacts for a standalone
-
-AWS account
+###### To add or edit the alternate contacts for a standalone AWS account
 
 ###### Minimum permissions
 
@@ -202,9 +190,7 @@ If you try to delete the same contact more than once, the
 first succeeds silently. All later attempts generate a
 `ResourceNotFound` exception.
 
-## Update the alternate
-
-contacts for any AWS account in your organization
+## Update the alternate contacts for any AWS account in your organization
 
 To add or edit the alternate contact details for any AWS account in your
 organization, perform the steps in the following procedure.
@@ -231,9 +217,7 @@ console. To view the updated managed policies, see [Updates to Organizations AWS
 
 AWS Management Console
 
-###### To add or edit the alternate contacts for any AWS account in
-
-your organization
+###### To add or edit the alternate contacts for any AWS account in your organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2") with the organization's management
    account credentials.
@@ -361,9 +345,7 @@ This command produces no output if it's successful.
 If you try to delete the same contact more than once, the first succeeds silently.
 All later attempts generate a `ResourceNotFound` exception.
 
-## account:AlternateContactTypes
-
-context key
+## account:AlternateContactTypes context key
 
 You can use the context key `account:AlternateContactTypes` to specify
 which of the three billing types is allowed (or denied) by the IAM policy. For

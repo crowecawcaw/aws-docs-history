@@ -1,6 +1,4 @@
-# Update the root user
-
-email address
+# Update the root user email address
 
 There are various business reasons why you might need to update the root user email address of
 your AWS account. For example, security and administrative resilience. This topic walks
@@ -30,17 +28,10 @@ whether or not the accounts are standalone, or part of an organization:
 
 ###### Topics
 
-- [Update the root user
-  email for a standalone
-  AWS account or management account](#root-user-email-standalone "#root-user-email-standalone")
-- [Update the root user
-  email for any
-  AWS account in your organization](#root-user-email-orgs "#root-user-email-orgs")
+- [Update the root user email for a standalone AWS account or management account](#root-user-email-standalone "#root-user-email-standalone")
+- [Update the root user email for any AWS account in your organization](#root-user-email-orgs "#root-user-email-orgs")
 
-## Update the root user
-
-email for a standalone
-AWS account or management account
+## Update the root user email for a standalone AWS account or management account
 
 To edit the root user email address for a standalone AWS account, perform the steps
 in the following procedure.
@@ -84,10 +75,7 @@ spam and junk folders.
 AWS CLI & SDKsThis task isn't supported in the AWS CLI or by an API operation from
 one of the AWS SDKs. You can perform this task only by using the AWS Management Console.
 
-## Update the root user
-
-email for any
-AWS account in your organization
+## Update the root user email for any AWS account in your organization
 
 To edit the root user email address for any member account in your organization using
 the AWS Organizations console, perform the steps in the following procedure.
@@ -101,9 +89,7 @@ in the _AWS Organizations User Guide_.
 You can also update the root user email address for a member account directly from the
 [**Account**
 page](https://console.aws.amazon.com/billing/home#/account "https://console.aws.amazon.com/billing/home#/account") in the AWS Management Console after signing in as the root user. For step-by-step
-instructions, follow the steps provided in [Update the root user
-email for a standalone
-AWS account or management account](#root-user-email-standalone "#root-user-email-standalone").
+instructions, follow the steps provided in [Update the root user email for a standalone AWS account or management account](#root-user-email-standalone "#root-user-email-standalone").
 
 AWS Management Console
 
@@ -117,10 +103,7 @@ AWS Management Console
   different organization from the one you're using to call the
   operation.
 
-###### To update the root user email
-
-address for a member account using the AWS Organizations
-console
+###### To update the root user email address for a member account using the AWS Organizations console
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, or
    sign in as the root user ([not recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management

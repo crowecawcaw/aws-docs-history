@@ -15,14 +15,12 @@ reasons, avoid using account names that reflect personally identifiable informat
 
 - **Standalone AWS accounts –** For
   AWS accounts not associated with an organization, you can update your account name
-  using the AWS Management Console, or the AWS CLI and SDKs. To learn how to do this, see [Update your account name for a
-  standalone AWS account](#update-account-name-standalone "#update-account-name-standalone").
+  using the AWS Management Console, or the AWS CLI and SDKs. To learn how to do this, see [Update your account name for a standalone AWS account](#update-account-name-standalone "#update-account-name-standalone").
 - **AWS accounts within an organization –**
   For member accounts that are part of a AWS Organizations, a user in the management account or
   delegated admin account can centrally update the account name of any member account
   in the organization from the AWS Organizations console, or programmatically via the AWS CLI and
-  SDKs. To learn how to do this, see [Update your account name for any
-  AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs").
+  SDKs. To learn how to do this, see [Update your account name for any AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs").
 
 ###### Note
 
@@ -30,14 +28,10 @@ Changes to an AWS account can take up to four hours to propagate everywhere.
 
 ###### Topics
 
-- [Update your account name for a
-  standalone AWS account](#update-account-name-standalone "#update-account-name-standalone")
-- [Update your account name for any
-  AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs")
+- [Update your account name for a standalone AWS account](#update-account-name-standalone "#update-account-name-standalone")
+- [Update your account name for any AWS account in your organization](#update-account-name-orgs "#update-account-name-orgs")
 
-## Update your account name for a
-
-standalone AWS account
+## Update your account name for a standalone AWS account
 
 To change the account name for a standalone AWS account, perform the steps in the
 following procedure.
@@ -92,9 +86,7 @@ You can use one of the following operations:
 
 - AWS SDKs: [PutAccountName](API_PutAccountName.md "API_PutAccountName.md")
 
-## Update your account name for any
-
-AWS account in your organization
+## Update your account name for any AWS account in your organization
 
 In AWS Organizations with all features mode, authorized IAM users or IAM roles in both management
 and delegated admin accounts can centrally manage account names.

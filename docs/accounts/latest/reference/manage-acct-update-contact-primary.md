@@ -1,6 +1,4 @@
-# Update the primary contact for your
-
-AWS account
+# Update the primary contact for your AWS account
 
 You can update the primary contact information associated with your account, including
 your contact's full name, company name, mailing address, telephone number, and website
@@ -22,16 +20,11 @@ on whether or not the accounts are standalone, or part of an organization:
 
 ###### Topics
 
-- [Phone number and email
-  address requirements](#manage-acct-update-contact-primary-requirements "#manage-acct-update-contact-primary-requirements")
-- [Update the primary contact for
-  a standalone AWS account or management account](#manage-acct-update-contact-primary-edit "#manage-acct-update-contact-primary-edit")
-- [Update the primary contact for
-  any AWS member account in your organization](#manage-acct-update-contact-primary-orgs "#manage-acct-update-contact-primary-orgs")
+- [Phone number and email address requirements](#manage-acct-update-contact-primary-requirements "#manage-acct-update-contact-primary-requirements")
+- [Update the primary contact for a standalone AWS account or management account](#manage-acct-update-contact-primary-edit "#manage-acct-update-contact-primary-edit")
+- [Update the primary contact for any AWS member account in your organization](#manage-acct-update-contact-primary-orgs "#manage-acct-update-contact-primary-orgs")
 
-## Phone number and email
-
-address requirements
+## Phone number and email address requirements
 
 Before you proceed with updating your account's primary contact information, we
 recommend that you first review the following requirements when entering phone numbers
@@ -52,9 +45,7 @@ and email addresses.
   email address or phone number can make your account difficult to recover if that
   individual leaves the company.
 
-## Update the primary contact for
-
-a standalone AWS account or management account
+## Update the primary contact for a standalone AWS account or management account
 
 To edit your primary contact details for a standalone AWS account, perform the steps
 in the following procedure. The AWS Management Console procedure below always works
@@ -64,9 +55,7 @@ the operation.
 
 AWS Management Console
 
-###### To edit your primary contact for a standalone
-
-AWS account
+###### To edit your primary contact for a standalone AWS account
 
 ###### Minimum permissions
 
@@ -151,9 +140,7 @@ caller's account.
 
 This command produces no output if it's successful.
 
-## Update the primary contact for
-
-any AWS member account in your organization
+## Update the primary contact for any AWS member account in your organization
 
 To edit your primary contact details in any AWS member account in your organization,
 perform the steps in the following procedure.
@@ -173,9 +160,7 @@ preliminary settings:
 
 AWS Management Console
 
-###### To edit your primary contact for any AWS account in your
-
-organization
+###### To edit your primary contact for any AWS account in your organization
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2") with the
    organization's management account credentials.

@@ -22,9 +22,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS
-
-managed policy: AWSAccountManagementReadOnlyAccess
+## AWS managed policy: AWSAccountManagementReadOnlyAccess
 
 You can attach the `AWSAccountManagementReadOnlyAccess` policy to your
 IAM identities.
@@ -66,9 +64,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSAccountManagementFullAccess
+## AWS managed policy: AWSAccountManagementFullAccess
 
 You can attach the `AWSAccountManagementFullAccess` policy to your IAM
 identities.
@@ -108,9 +104,7 @@ JSON
 
 ```
 
-## Account Management updates to AWS managed
-
-policies
+## Account Management updates to AWS managed policies
 
 View details about updates to AWS managed policies for Account Management since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

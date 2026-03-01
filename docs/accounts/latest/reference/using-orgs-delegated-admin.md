@@ -1,6 +1,4 @@
-# Enable a delegated admin account for
-
-AWS Account Management
+# Enable a delegated admin account for AWS Account Management
 
 You enable a delegated admin account so you can call the AWS Account Management API operations for
 other member accounts in AWS Organizations. After you register a delegated admin account for your

@@ -1,6 +1,4 @@
-# Benefits of using multiple
-
-AWS accounts
+# Benefits of using multiple AWS accounts
 
 AWS accounts form the foundational security boundary in the AWS Cloud. They serve as a
 container for resources, providing a critical layer of isolation that is essential for

@@ -31,8 +31,7 @@ delegated admin account can access only the management tasks for the Account Man
 delegated admin account doesn't have all of the administrative access to the organization
 that the management account has.
 
-For more information, see [Enable a delegated admin account for
-AWS Account Management](using-orgs-delegated-admin.md "using-orgs-delegated-admin.md").
+For more information, see [Enable a delegated admin account for AWS Account Management](using-orgs-delegated-admin.md "using-orgs-delegated-admin.md").
 
 **Service control policies**
 
@@ -46,5 +45,4 @@ the SCPs that apply to the account and the IAM permission policies attached to t
 principal. For example, you can use SCPs to prevent any principal in an account from
 modifying their own account's alternate contacts.
 
-For example SCPs that apply to AWS accounts, see [Restrict access using AWS Organizations service control
-policies](using-orgs-example-scps.md "using-orgs-example-scps.md").
+For example SCPs that apply to AWS accounts, see [Restrict access using AWS Organizations service control policies](using-orgs-example-scps.md "using-orgs-example-scps.md").

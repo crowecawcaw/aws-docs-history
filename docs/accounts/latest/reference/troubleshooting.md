@@ -9,9 +9,6 @@ Guide_.
 
 ###### Troubleshooting topics
 
-- [Troubleshooting issues with AWS account
-  creation](troubleshooting_create-account.md "troubleshooting_create-account.md")
-- [Troubleshooting issues with AWS account
-  closure](troubleshooting_close-account.md "troubleshooting_close-account.md")
-- [Troubleshooting other issues with
-  AWS accounts](troubleshooting_other.md "troubleshooting_other.md")
+- [Troubleshooting issues with AWS account creation](troubleshooting_create-account.md "troubleshooting_create-account.md")
+- [Troubleshooting issues with AWS account closure](troubleshooting_close-account.md "troubleshooting_close-account.md")
+- [Troubleshooting other issues with AWS accounts](troubleshooting_other.md "troubleshooting_other.md")

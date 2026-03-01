@@ -1,6 +1,4 @@
-# Enable or disable AWS Regions in your
-
-account
+# Enable or disable AWS Regions in your account
 
 An _AWS Region_ is a physical location in the world where AWS has
 multiple Availability Zones. Availability Zones consist of one or more discrete AWS data
@@ -26,10 +24,8 @@ AWS Regions broadly fall into two categories of availability for accounts:
   must first enable them in your AWS account. After enabling an opt-in Region, you
   can select that Region in the navigation bar and create and manage
   resources in that Region. To enable opt-in Region for your standalone accounts, see
-  [Enable or disable a Region for
-  standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone") and to enable opt-in
-  Region for your member accounts, see [Enable or disable a Region in
-  your organization](#manage-acct-regions-enable-organization "#manage-acct-regions-enable-organization").
+  [Enable or disable a Region for standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone") and to enable opt-in
+  Region for your member accounts, see [Enable or disable a Region in your organization](#manage-acct-regions-enable-organization "#manage-acct-regions-enable-organization").
   When you sign up for an AWS account, AWS recommends an opt-in Region for you
   based on your contact address country. Customers in a country with an AWS opt-in Region
   see a recommendation on the Contact Information page to enable the opt-in Region in
@@ -82,14 +78,10 @@ AWS account, you can use AWS Regions within that partition.
 ###### Topics
 
 - [Regional availability reference](#manage-acct-regions-regional-availability "#manage-acct-regions-regional-availability")
-- [Considerations before enabling and
-  disabling Regions](#manage-acct-regions-considerations "#manage-acct-regions-considerations")
-- [Processing times and request
-  limits](#manage-acct-regions-processing-times "#manage-acct-regions-processing-times")
-- [Enable or disable a Region for
-  standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone")
-- [Enable or disable a Region in
-  your organization](#manage-acct-regions-enable-organization "#manage-acct-regions-enable-organization")
+- [Considerations before enabling and disabling Regions](#manage-acct-regions-considerations "#manage-acct-regions-considerations")
+- [Processing times and request limits](#manage-acct-regions-processing-times "#manage-acct-regions-processing-times")
+- [Enable or disable a Region for standalone accounts](#manage-acct-regions-enable-standalone "#manage-acct-regions-enable-standalone")
+- [Enable or disable a Region in your organization](#manage-acct-regions-enable-organization "#manage-acct-regions-enable-organization")
 
 ## Regional availability reference
 
@@ -161,9 +153,7 @@ store session tokens, these larger tokens might affect your systems. For more
 information about how AWS STS endpoints work with AWS Regions, see [Managing AWS STS in
 an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md").
 
-## Considerations before enabling and
-
-disabling Regions
+## Considerations before enabling and disabling Regions
 
 Before you enable or disable a Region, it's important to consider the
 following:
@@ -206,9 +196,7 @@ following:
   underlying AWS services. There might be some AWS services that will not be
   immediately usable despite the status being `ENABLED`.
 
-## Processing times and request
-
-limits
+## Processing times and request limits
 
 When enabling or disabling Regions, be aware of the following timing and request limitations:
 
@@ -231,9 +219,7 @@ When enabling or disabling Regions, be aware of the following timing and request
   its organization. One request is equal to either an enable or disable of one
   particular region for one account.
 
-## Enable or disable a Region for
-
-standalone accounts
+## Enable or disable a Region for standalone accounts
 
 To update which Regions your AWS account has access to, perform the steps in the
 following procedure. The AWS Management Console procedure below always works only in the standalone
@@ -318,9 +304,7 @@ aws account get-region-opt-status --region-name `af-south-1`
   }
 ```
 
-## Enable or disable a Region in
-
-your organization
+## Enable or disable a Region in your organization
 
 To update the enabled Regions for member accounts of your AWS Organizations, perform the steps
 in the following procedure.

@@ -1,6 +1,4 @@
-# Understanding API modes of
-
-operation
+# Understanding API modes of operation
 
 The API operations that work with an AWS account's attributes always work in one of two
 modes of operation:
@@ -49,9 +47,7 @@ modes of operation:
   either `"*"` to allow all resources, or an [ARN that uses the syntax for a member
   account in an organization](#account-arn-organizations "#account-arn-organizations").
 
-## Granting permissions to update
-
-account attributes
+## Granting permissions to update account attributes
 
 As with most AWS operations, you grant permissions to add, update, or delete account
 attributes for AWS accounts by using [IAM permission policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md"). When
@@ -62,17 +58,14 @@ conditions.
 The following are some Account Management specific considerations for creating a permissions
 policy.
 
-### Amazon Resource Name
-
-format for AWS accounts
+### Amazon Resource Name format for AWS accounts
 
 - The [Amazon Resource Name
   (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") for an AWS account that you can include in the
   `resource` element of a policy statement is constructed
   differently based on whether the account you want to reference is a
   standalone account or an account that is in an organization. See the
-  previous section on [Understanding API modes of
-  operation](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md").
+  previous section on [Understanding API modes of operation](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md").
   - An account ARN for a standalone account:
 
   ```
@@ -92,9 +85,7 @@ format for AWS accounts
   operation in organizations mode by including the
   `AccountID` parameter.
 
-### Context keys for
-
-IAM policies
+### Context keys for IAM policies
 
 The Account Management service also provides several [Account Management
 service-specific condition keys](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys") that provide fine-grained control over

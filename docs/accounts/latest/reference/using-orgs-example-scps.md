@@ -1,6 +1,4 @@
-# Restrict access using AWS Organizations service control
-
-policies
+# Restrict access using AWS Organizations service control policies
 
 This topic presents examples that show how you can use service control policies (SCPs) in
 AWS Organizations to restrict what the users and roles in the accounts in your organization can do.
