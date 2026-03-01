@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-MultiPartyApprovalFullAccess
+## AWS managed policy: MultiPartyApprovalFullAccess
 
 The `MultiPartyApprovalFullAccess` policy provides full access to Multi-party approval
 operations. This policy grants broad permissions to manage all aspects of multi-party
@@ -36,9 +34,7 @@ approval workflows and the following related identity services.
 To review the permissions for this policy, see [MultiPartyApprovalFullAccess](../../../aws-managed-policy/latest/reference/MultiPartyApprovalFullAccess.md "../../../aws-managed-policy/latest/reference/MultiPartyApprovalFullAccess.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## AWS managed
-
-policy: MultiPartyApprovalReadOnlyAccess
+## AWS managed policy: MultiPartyApprovalReadOnlyAccess
 
 The `MultiPartyApprovalReadOnlyAccess` policy provides read-only access to
 Multi-party approval operations and the following related identity services.
@@ -56,9 +52,7 @@ Multi-party approval operations and the following related identity services.
 To review the permissions for this policy, see [MultiPartyApprovalReadOnlyAccess](../../../aws-managed-policy/latest/reference/MultiPartyApprovalReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/MultiPartyApprovalReadOnlyAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## Multi-party approval updates to AWS managed
-
-policies
+## Multi-party approval updates to AWS managed policies
 
 View details about updates to AWS managed policies for Multi-party approval since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

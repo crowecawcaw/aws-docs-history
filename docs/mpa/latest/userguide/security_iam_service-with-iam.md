@@ -21,9 +21,7 @@ To get a high-level view of how Multi-party approval and other AWS services work
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Multi-party approval
+## Identity-based policies for Multi-party approval
 
 **Supports identity-based policies:**
 
@@ -40,9 +38,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within Multi-party approval
+## Resource-based policies within Multi-party approval
 
 **Supports resource-based policies:**
 
@@ -58,9 +54,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Multi-party approval
+## Policy actions for Multi-party approval
 
 **Supports policy actions:**
 
@@ -90,12 +84,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Multi-party approval identity-based policies, see [Identity-based policy
-examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Multi-party approval identity-based policies, see [Identity-based policy examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Multi-party approval
+## Policy resources for Multi-party approval
 
 **Supports policy resources:**
 
@@ -115,12 +106,9 @@ To see a list of Multi-party approval resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by Multi-party approval](../../../IAM/latest/UserGuide/mpa.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/mpa.md#your_service-actions-as-permissions") .
 
-To view examples of Multi-party approval identity-based policies, see [Identity-based policy
-examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Multi-party approval identity-based policies, see [Identity-based policy examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Multi-party approval
+## Policy condition keys for Multi-party approval
 
 **Supports service-specific policy condition keys:**
 
@@ -139,8 +127,7 @@ To see a list of Multi-party approval condition keys, see [Condition Keys for Mu
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by Multi-party approval](../../../IAM/latest/UserGuide/mpa.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/mpa.md#your_service-actions-as-permissions") .
 
-To view examples of Multi-party approval identity-based policies, see [Identity-based policy
-examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Multi-party approval identity-based policies, see [Identity-based policy examples for Multi-party approval](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Multi-party approval
 
@@ -183,9 +170,7 @@ Multi-party approval supports the following ABAC:
 
 Tag conditions do not apply to [approvers](mpa-concepts.md#mpa-approver-term "mpa-concepts.md#mpa-approver-term") because an approver is not an [IAM principal](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-request "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-request"). Without an IAM principal, condition keys cannot be evaluated.
 
-## Using temporary
-
-credentials with Multi-party approval
+## Using temporary credentials with Multi-party approval
 
 **Supports temporary credentials:**
 
@@ -197,9 +182,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Multi-party approval
+## Cross-service principal permissions for Multi-party approval
 
 **Supports forward access sessions (FAS):**
 
@@ -208,9 +191,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Multi-party approval
+## Service roles for Multi-party approval
 
 **Supports service roles:**
 
@@ -225,9 +206,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Multi-party approval functionality.
 Edit service roles only when Multi-party approval provides guidance to do so.
 
-## Service-linked
-
-roles for Multi-party approval
+## Service-linked roles for Multi-party approval
 
 **Supports service-linked roles:**
 

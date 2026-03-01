@@ -4,8 +4,13 @@ To help you understand Multi-party approval, this topic describes statuses for M
 
 ###### Topics
 
+- [Team health](#team-health-definition "#team-health-definition")
 - [Team and workflow status](#team-health-state-status "#team-health-state-status")
 - [Monthly team report](#team-health-report "#team-health-report")
+
+## Team health
+
+Team health refers to the overall operational readiness of your approval teams, including whether teams are functional and can respond to requested operations. Teams can become unhealthy if IAM Identity Center users become inactive, or an approver has not responded to a Multi-party approval session in the last 90 days.
 
 ## Team and workflow status
 

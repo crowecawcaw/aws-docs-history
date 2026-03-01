@@ -29,5 +29,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience in Multi-party approval](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Multi-party approval](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in Multi-party approval](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

@@ -1,6 +1,4 @@
-# Creating Multi-party approval resources with
-
-AWS CloudFormation
+# Creating Multi-party approval resources with AWS CloudFormation
 
 Multi-party approval is integrated with AWS CloudFormation, a service that helps you to model and set up your
 AWS resources so that you can spend less time creating and managing your resources and
